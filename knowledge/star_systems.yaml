@@ -1,10 +1,211 @@
 version: "0.1"
-status: "empty"
-description: >
-  Sixty basic star-system representations. Each system should distinguish
-  properties explainable from component stars from candidate emergent terms.
-systems: []
-model_template:
-  expression: "H_ij = Phi(S_i, S_j, context)"
-  decomposition_candidate: "H_ij = additive_component + interaction_delta"
-  note: "No assumption that interaction_delta is zero."
+status: "G4-approved-provisional"
+ontology_version: "0.2"
+star_core_version: "0.1"
+system_index: "knowledge/sixty_system_index.yaml"
+
+definition: >
+  星系不是单星气核的标签相加，而是由组成星曜、对宫/三合结构、四化及辅佐煞曜
+  共同生成的中尺度交互状态。每个星系至少具有 base composition、interaction delta、
+  principal mode 与 context gates 四部分。
+
+formal_model:
+  generic: "H_s = Phi_s(S_1,...,S_n,R_s,c)"
+  analytic_decomposition: "H_s = A_s(S) + Delta_s(S,R_s,c)"
+  mode_variable: "z_s = Mode_s(H_s,c)"
+  temporal_interface: "x_(t+1) = F_{z_t}(x_t,u_t,G_t;theta)"
+  notes:
+    - "A_s 只表示当前单星气核可解释部分，不预设真实动力学为线性。"
+    - "Delta_s 为未被现有气核解释的交互残差，不代表神秘实体。"
+    - "z_s 可以是连续、序数、离散或非单调模态。"
+
+interaction_evidence_types:
+  COMPOSITION: "现有单星气核与结构关系足以解释。"
+  INTERACTION: "组合改变变量含义或产生单星层没有的性质。"
+  MODE_SWITCH: "同一星系在条件变化后进入不同性质簇。"
+  CONTEXT_GATE: "四化、辅佐煞曜、夹宫、庙陷等决定某机制是否激活。"
+  PROJECTION: "只是宫位/人生领域表现，不进入星系潜状态。"
+
+reusable_mode_families:
+  - id: MF-01
+    name: "平衡/中和族"
+    systems: [1,3,4,7,14,17,21,42,47,60]
+    examples:
+      - "武曲天相：刚柔互济，过刚过柔都有缺点"
+      - "天机天梁：敏感变动与原则纪律平衡则明断，冲突则尖刻"
+    interpretation: "多个基础状态的相对比例与平衡区间决定系统模态。"
+
+  - id: MF-02
+    name: "稳定/变动/适应族"
+    systems: [2,11,39,44]
+    examples:
+      - "紫微破军：安定/动荡"
+      - "武曲破军：适应/反拗"
+    interpretation: "系统面对结构变化时的幅度、稳定性与环境适应方式。"
+
+  - id: MF-03
+    name: "目标/进取/开创族"
+    systems: [9,13,29,30,31,32,35,38,56]
+    examples:
+      - "太阴辰戌：有目标/盲动"
+      - "破军子午：果敢有目标改变/顽嚣无目的破坏"
+      - "天相巳亥：开创力/因人成事"
+    interpretation: "行动驱动之外，还需要区分目标导向和自主发起程度。"
+
+  - id: MF-04
+    name: "欲望/情感取向族"
+    systems: [5,14,33,43,50,51,57]
+    examples:
+      - "紫微贪狼：情欲/物欲"
+      - "武曲贪狼：欲望/野心"
+      - "紫微天相：有情/无情"
+    interpretation: "欲望强度、欲望类型、关系情感与规范约束发生耦合。"
+
+  - id: MF-05
+    name: "原则/权威/规范族"
+    systems: [20,26,27,45,53,54,59]
+    examples:
+      - "紫微七杀：权威/横霸"
+      - "廉贞破军：奉公/私利"
+      - "天相卯酉：正直/徇私"
+    interpretation: "权力/主导与原则约束之间的耦合，不能将权力强度直接视为吉凶。"
+
+  - id: MF-06
+    name: "认知/现实化族"
+    systems: [10,15,24,40,46,52]
+    examples:
+      - "巨门子午：英华内敛/内心疑忌"
+      - "太阳子午：沉稳/虚浮"
+      - "机巨卯酉：稳重/浮薄"
+    interpretation: "认知、表达、遮蔽、现实化和自我调节共同形成高层认知模态。"
+
+  - id: MF-07
+    name: "意志/韧性/决策质量族"
+    systems: [18,22,23,25,41,48]
+    examples:
+      - "武曲七杀：决断/短虑"
+      - "天同巳亥：意志坚强/薄弱"
+      - "贪狼辰戌：坚忍/躁进"
+    interpretation: "单纯行动驱动不足以解释持续性、忍耐性与决策质量。"
+
+  - id: MF-08
+    name: "关系支持/孤立族"
+    systems: [19,36,58]
+    examples:
+      - "太阳辰戌：受拖累/不受拖累"
+      - "太阳巨门：得助/孤立"
+    interpretation: "主要属于L2关系网络状态。"
+
+  - id: MF-09
+    name: "资源统筹族"
+    systems: [12,49]
+    examples:
+      - "天府卯酉：大局持重/小局谨慎"
+      - "武曲天府：统筹（生财+储财）/偏一端"
+    interpretation: "资源管理能力与行动/主导能力交互产生规模和统筹能力。"
+
+  - id: MF-10
+    name: "环境/心理状态转换族"
+    systems: [6,8,16,28,34,37,55]
+    examples:
+      - "同巨：明朗/阴暗"
+      - "阳梁：祥和/孤忌"
+      - "巨门辰戌：受激发/遭忌"
+    interpretation: "更适合视为条件门控后的系统状态簇，不宜直接新增 primitive qi。"
+
+interaction_exemplars:
+  - system_no: 7
+    system: "武曲天相寅申"
+    source_mode: "刚柔配合与调和"
+    classification: ["COMPOSITION","INTERACTION","CONTEXT_GATE"]
+    explanation: >
+      武曲的刚与天相的柔可由单星气核追溯，但原文明确要求“刚柔互济”，
+      且过刚、过柔均出现缺点，因此产生非线性平衡项。
+    delta_candidate: "balance_penalty(QI-02, context)"
+
+  - system_no: 11
+    system: "紫微破军丑未"
+    source_mode: "动荡/安定"
+    classification: ["INTERACTION","MODE_SWITCH","CONTEXT_GATE"]
+    explanation: >
+      紫微主导与破军变动/突破结合后形成“叛逆即开创”的系统性质，
+      辅弼、昌曲、魁钺、四化以及三合廉贪/武杀共同决定安定或动荡，
+      不能由两颗星固定向量直接相加得到。
+    delta_candidate: "stability_switch"
+
+  - system_no: 21
+    system: "紫微天府寅申"
+    source_mode: "主动/被动；平衡则攻守咸宜"
+    classification: ["INTERACTION","MODE_SWITCH"]
+    explanation: >
+      紫微开创与天府守成产生内在矛盾，平衡时形成单星层不存在的“攻守咸宜”模态。
+    delta_candidate: "initiative_conservation_balance"
+
+  - system_no: 49
+    system: "武曲天府子午"
+    source_mode: "仅擅生财/擅理财（生财+储存）"
+    classification: ["COMPOSITION","INTERACTION"]
+    explanation: >
+      武曲行动/生财与天府储藏/资源管理组合，在条件合适时出现原文明确称为“统筹”的综合能力。
+      该性质优先解释为 QI-08 + QI-12 + QR-02 的交互结果，而非立即新增 primitive qi。
+    delta_candidate: "resource_coordination"
+
+  - system_no: 53
+    system: "紫微七杀巳亥"
+    source_mode: "权威/横霸"
+    classification: ["INTERACTION","MODE_SWITCH","CONTEXT_GATE"]
+    explanation: >
+      两星都具有权力/主导色彩，但权力继续增强并不单调改善；辅佐与原则约束不足时可转横霸。
+    delta_candidate: "authority_regulation"
+
+  - system_no: 60
+    system: "天机天梁辰戌"
+    source_mode: "明断/尖刻"
+    classification: ["INTERACTION","MODE_SWITCH","CONTEXT_GATE"]
+    explanation: >
+      原文直接以天机的敏感变动与天梁的原则纪律是否平衡来解释明断或尖刻，
+      是“基础状态耦合→新系统模态”的典型例证。
+    delta_candidate: "sensitivity_discipline_balance"
+
+ontology_feedback:
+  new_candidates:
+    - id: "QI-16-CAND"
+      name: "目标导向性"
+      definition: "行动/变化是否具有明确目标、方向和建设性结果取向。"
+      evidence_systems: [9,13,31,32,35,56]
+      recommendation: "进入候选池，不在G4直接冻结为primitive；G5前做冗余检验。"
+      redundancy_with: ["QI-03","QI-04","QI-08"]
+
+    - id: "QI-17-CAND"
+      name: "持续意志/韧性"
+      definition: "在阻力、延迟或挫折下维持方向和行动的能力。"
+      evidence_systems: [18,22,23,25,38,41,48]
+      recommendation: "进入候选池，不在G4直接冻结为primitive；与QI-06、QI-08区分。"
+      redundancy_with: ["QI-06","QI-08"]
+
+  do_not_promote_yet:
+    - "精神/物质：当前更像高层取向与多维组合。"
+    - "优雅/庸俗：社会文化评价色彩过重。"
+    - "祥和/孤忌：可由关系、刚柔、原则和支持状态共同生成。"
+    - "权威/横霸：优先作为QR-02与QI-10的耦合模态。"
+    - "统筹：优先作为QI-08、QI-12与QR-02的组合能力。"
+    - "明断/尖刻：优先作为QI-07、QI-10、QI-06等的交互模态。"
+
+G4_approval_record:
+  freeze:
+    - "六十星系使用统一的交互模型：base composition + interaction delta + mode + context gates。"
+    - "六十个principal mode属于中尺度模态，不自动升格为primitive qi。"
+    - "允许星系为混杂/多模态系统，而非固定向量。"
+    - "保留Delta_s作为未解释交互项，后续可被更好的本体吸收或由数据辨识。"
+    - "星系模式与宫位事件投影严格分离。"
+    - "后续状态方程允许z_t作为星系模态变量。"
+  provisional:
+    - "每个系统的具体Delta_s函数形式"
+    - "模式是离散、连续还是概率混合"
+    - "QI-16/QI-17是否升格为正式primitive维度"
+    - "各模态未来的数值阈值和转移概率"
+
+G4_approval:
+  status: "APPROVED"
+  approved_by: "PI"
+  note: "冻结六十星系交互架构、principal mode与Delta/z分工；具体函数、阈值、概率继续保持可修订。"
