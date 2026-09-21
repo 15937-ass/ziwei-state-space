@@ -1,0 +1,185 @@
+version: "0.1-proposal"
+status: "candidate"
+gate: "G2"
+basis:
+  corpus: "WP-01 reviewed pilot, 100 atomic rules"
+  stars_covered: [紫微, 天机, 太阳, 武曲]
+  source: "《中州派紫微斗数深造讲义（上）》"
+principles:
+  - "Primitive qi dimensions should describe latent tendencies, not downstream life events."
+  - "State direction and contextual valence are separate."
+  - "A candidate may be an axis, scalar capacity, or relational state; not every variable must be a signed Euclidean coordinate."
+  - "Five-element structure is kept separate from ordinary paired axes."
+  - "This ontology is intentionally incomplete; four stars cannot justify a full qi-state basis."
+
+core_candidates:
+  - id: QI-C01
+    name: "发射—收敛"
+    english: "emission-contraction"
+    representation_type: "signed_axis"
+    negative_pole: "收敛"
+    positive_pole: "发射"
+    definition: "气机趋向外放、扩散、显发，或趋向内收、约束、收束的程度。"
+    evidence_rules: [ZZ-TY-002, ZZ-TY-009, ZZ-TY-010, ZZ-TY-016, ZZ-TY-017, ZZ-TY-018, ZZ-WQ-020]
+    confidence: "high"
+    notes: "太阳材料明确支持非单调的中和关系；该轴的评价取决于当前强度和场景。"
+
+  - id: QI-C02
+    name: "刚烈—柔和"
+    english: "rigidity-flexibility"
+    representation_type: "signed_axis"
+    negative_pole: "柔和"
+    positive_pole: "刚烈"
+    definition: "作用方式偏刚决、强硬、切断，或偏柔缓、调和、缓冲的程度。"
+    evidence_rules: [ZZ-WQ-005, ZZ-WQ-009, ZZ-WQ-018, ZZ-WQ-020, ZZ-WQ-022]
+    confidence: "high"
+    notes: "武曲材料提供连续增强、削弱和调和证据；吉凶明显依宫位而变。"
+
+  - id: QI-C03
+    name: "稳定—变动"
+    english: "stability-variability"
+    representation_type: "signed_axis"
+    negative_pole: "稳定"
+    positive_pole: "变动"
+    definition: "状态保持既有结构或倾向发生转换、迁移和变化的程度。"
+    evidence_rules: [ZZ-TJ-006, ZZ-TJ-018, ZZ-TJ-020]
+    confidence: "medium"
+    notes: "目前主要由天机规则支持；需其他十星与六十星系检验独立性。"
+
+  - id: QI-C04
+    name: "沉实—空泛"
+    english: "groundedness-abstraction"
+    representation_type: "signed_axis"
+    negative_pole: "沉实/具体"
+    positive_pole: "空泛/空想"
+    definition: "状态是否能落实为具体、现实和可执行结构，或趋向空泛、虚浮、仅停留于想法。"
+    evidence_rules: [ZZ-TJ-025, ZZ-TY-010, ZZ-WQ-003, ZZ-WQ-004]
+    confidence: "high"
+    notes: "将武曲的质性/行动具体与天机空想、太阳欠沉实放入同一候选轴；是否需拆分为“具体性”和“现实化能力”待检验。"
+
+  - id: QI-C05
+    name: "审慎—躁决"
+    english: "deliberation-impulsivity"
+    representation_type: "signed_axis"
+    negative_pole: "审慎/迟疑"
+    positive_pole: "躁决/冲动"
+    definition: "决策过程在过度延迟、充分审虑与快速冲决之间的位置。"
+    evidence_rules: [ZZ-TJ-024, ZZ-WQ-019, ZZ-WQ-024, ZZ-WQ-025]
+    confidence: "medium"
+    notes: "该轴可能并非单一线性轴：优柔寡断、计划延缓与躁决可能形成非单调最适区。"
+
+  - id: QI-C06
+    name: "认知机变"
+    english: "cognitive-agility"
+    representation_type: "scalar_capacity"
+    definition: "理解、应变、机巧、聪敏和策略调整的潜在能力，不直接等同于学历或现实成就。"
+    evidence_rules: [ZZ-ZW-024, ZZ-TJ-002, ZZ-TJ-005, ZZ-TJ-014, ZZ-TJ-016]
+    confidence: "high"
+    notes: "暂不设负极；未来可能分解为聪敏、策略、灵巧等子维度。"
+
+  - id: QI-C07
+    name: "行动驱动"
+    english: "agency-action-drive"
+    representation_type: "scalar_capacity"
+    definition: "将内部意图转化为外部行动、进取或实际执行的驱动力。"
+    evidence_rules: [ZZ-TJ-013, ZZ-WQ-004, ZZ-WQ-014]
+    confidence: "medium"
+    notes: "需与领导力、竞争性、躁决性区分。"
+
+  - id: QI-C08
+    name: "关系整合—孤离"
+    english: "relational-integration-isolation"
+    representation_type: "signed_axis"
+    negative_pole: "关系整合/支持"
+    positive_pole: "孤离/孤克"
+    definition: "个体或系统与他者形成支持、协同和嵌入关系，或趋向疏离、孤立和关系冲突的程度。"
+    evidence_rules: [ZZ-ZW-013, ZZ-ZW-014, ZZ-WQ-006, ZZ-WQ-010, ZZ-WQ-021]
+    confidence: "medium"
+    notes: "外部助力与内在孤克并非必然同一轴，后续可能拆成“网络资源”和“关系疏离”两个变量。"
+
+  - id: QI-C09
+    name: "主导—协调"
+    english: "dominance-coordination"
+    representation_type: "signed_axis"
+    negative_pole: "协调/可调和"
+    positive_pole: "主导/独断"
+    definition: "组织关系中偏向集中决策、主导和单向统御，或偏向协调、协商与可调和的程度。"
+    evidence_rules: [ZZ-ZW-015, ZZ-ZW-018]
+    confidence: "low"
+    notes: "证据不足，仅作为低置信候选；领导力可能是现实能力而非原始气机。"
+
+  - id: QI-C10
+    name: "竞争激活"
+    english: "competitive-activation"
+    representation_type: "relational_state"
+    definition: "关系网络中竞争、争夺或对抗被激活的程度。"
+    evidence_rules: [ZZ-TJ-023, ZZ-WQ-015]
+    confidence: "low"
+    notes: "更可能是环境/关系状态而非个体原始气核，暂不纳入核心状态向量。"
+
+deferred_candidates:
+  - id: QI-D01
+    name: "规范约束"
+    evidence_rules: [ZZ-TJ-015]
+    reason: "单一规则支持，尚不足以确定为独立潜变量。"
+  - id: QI-D02
+    name: "依附—自主"
+    evidence_rules: [ZZ-TJ-008, ZZ-ZW-018]
+    reason: "可能与关系整合、主导—协调重复。"
+  - id: QI-D03
+    name: "名—利偏好"
+    evidence_rules: [ZZ-ZW-020]
+    reason: "目前仅一条直接证据，且可能属于偏好/价值层而非基础气机。"
+  - id: QI-D04
+    name: "思想优雅/文化修饰"
+    evidence_rules: [ZZ-ZW-017]
+    reason: "可能是高层表现而非基础气机。"
+  - id: QI-D05
+    name: "通达"
+    evidence_rules: [ZZ-ZW-025]
+    reason: "含义过宽，需在更多星曜材料中分解。"
+
+structural_substrates:
+  yin_yang:
+    status: "structural-metadata-candidate"
+    representation: "signed_or_categorical"
+    evidence_rules: [ZZ-ZW-001, ZZ-TJ-001, ZZ-TY-001, ZZ-WQ-001]
+    note: "四星已明确出现阴/阳属性，但目前不把阴阳直接等同于吉凶或单一行为轴。"
+  five_elements:
+    status: "pending-formal-representation"
+    elements: [木, 火, 土, 金, 水]
+    evidence_rules: [ZZ-ZW-001, ZZ-TJ-001, ZZ-TY-001, ZZ-WQ-001]
+    candidate_representation:
+      state: "5D element vector or categorical mixture"
+      relations: "directed generation/control matrices"
+    note: "不得压缩成单一线性轴；待完成十四星和古典生克材料后冻结。"
+
+excluded_from_primitive_state_v0_1:
+  - name: "财富/财禄"
+    reason: "当前更适合作为宫位/结果层变量，而非原始气机。"
+    examples: [ZZ-ZW-006, ZZ-TJ-021, ZZ-TY-004, ZZ-TY-005, ZZ-WQ-002]
+  - name: "名誉/贵显/地位"
+    reason: "明显属于社会结果或场景投影层。"
+    examples: [ZZ-ZW-021, ZZ-ZW-022, ZZ-ZW-023, ZZ-TY-003, ZZ-TY-022]
+  - name: "良好际遇/机遇/开运"
+    reason: "时间与环境结果描述。"
+    examples: [ZZ-ZW-016, ZZ-TY-007, ZZ-TY-008]
+  - name: "疾病/目疾/男性六亲不利"
+    reason: "属于可观察应象，不应进入气机基底。"
+    examples: [ZZ-TY-023, ZZ-TY-024, ZZ-TY-025]
+  - name: "失败/发达"
+    reason: "下游结果变量。"
+    examples: [ZZ-WQ-023, ZZ-WQ-025]
+
+open_questions:
+  - "QI-C04 是否需要拆为“具体/空泛”与“现实化/落实能力”两轴？"
+  - "QI-C05 是否应采用非单调区间而非单一有序轴？"
+  - "关系整合与外部助力是否属于同一潜变量？"
+  - "主导/领导力究竟是原始气机，还是行动驱动、关系结构与社会投影共同生成的高层性质？"
+  - "阴阳应进入数值状态本体，还是仅作为星曜结构标签？"
+  - "五行在十四主星层面是固定类别、混合向量，还是关系图上的位置？"
+
+next_gate_requirements:
+  - "用其余十颗主星规则检验上述候选是否重复、缺漏或错误。"
+  - "至少对高置信候选做一轮跨星曜支持分析。"
+  - "Red Team 检查每个候选是否偷偷混入吉凶或事件标签。"
