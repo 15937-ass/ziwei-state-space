@@ -1,0 +1,10 @@
+version: "0.1"
+status: "empty"
+description: >
+  Sixty basic star-system representations. Each system should distinguish
+  properties explainable from component stars from candidate emergent terms.
+systems: []
+model_template:
+  expression: "H_ij = Phi(S_i, S_j, context)"
+  decomposition_candidate: "H_ij = additive_component + interaction_delta"
+  note: "No assumption that interaction_delta is zero."
