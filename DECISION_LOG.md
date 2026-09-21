@@ -40,6 +40,11 @@ All important conceptual decisions are recorded here.
 **Status:** FROZEN（架构原则）；候选维度 PROVISIONAL  
 **Approved at:** G2
 
+### D-009 — G3 十四正曜气核结构批准
+**Decision:** 批准十四正曜统一采用 L0结构底座 + L1内在气核 + L2关系气核 + 条件修正层；单星气核视为基态而非完整解释；本命与运限表现分层；六十星系阶段必须允许非线性交互项。  
+**Status:** FROZEN（结构与方法原则）；具体维度映射 PROVISIONAL  
+**Approved at:** G3
+
 ## Pending decisions
 
 ### P-001 — Candidate qi ontology dimensionality
