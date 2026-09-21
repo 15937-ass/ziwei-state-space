@@ -1,19 +1,190 @@
-version: "0.1"
-status: "empty"
-description: >
-  Palace projection layer mapping latent qi states to domain-specific
-  manifestations. Palace labels are contexts, not primitive qi dimensions.
+version: "0.2-proposal"
+status: "WP-05-working"
+source_core:
+  - "《中州派紫微斗数深造讲义（下）》宫垣论"
+  - "《中州派紫微斗数深造讲义（上）》星曜论前言"
+
+formal_definition:
+  generic: "y_p = P_p(h, z, c)"
+  description: >
+    宫垣不是 primitive qi，也不是固定事件标签。它是把星曜/星系潜状态投射到某一现实领域的
+    场景算子。输出可以是关系状态、行为倾向、资源状态或可观察事件类别，但不得把单一星曜
+    直接绑定到唯一事件。
+  source_principle:
+    - "先观察原局十二宫，认识各宫本质；大限流年的迁移宫位只作为对原有本质的反应。"
+    - "判断一个宫的性质需同时观察本宫、三合宫与对宫；某些主题还要打破三方四正限制参考其他宫。"
+  anti_mechanical_rule: >
+    禁止逐个大限/流年孤立看当期三方四正并直接定吉凶；必须保留 natal essence -> temporal response 链条。
+
 palaces:
-  - 命宫
-  - 兄弟宫
-  - 夫妻宫
-  - 子女宫
-  - 财帛宫
-  - 疾厄宫
-  - 迁移宫
-  - 交友宫
-  - 官禄宫
-  - 田宅宫
-  - 福德宫
-  - 父母宫
-projections: []
+  - id: P-MING
+    name: "命宫"
+    domain: "整体自我与人生基态"
+    primary_outputs:
+      - "总体行为/人格表现"
+      - "人生方向与反应方式"
+      - "其他宫位解释时的全局背景"
+    projection_type: "global_context"
+    notes: "命宫不是所有事件的单一原因，而是全局背景状态。"
+
+  - id: P-XIONGDI
+    name: "兄弟宫"
+    domain: "兄弟姐妹、平辈关系与知交网络"
+    primary_outputs:
+      - "手足关系"
+      - "平辈/朋友的亲疏与互动"
+      - "合作关系的部分结构"
+    projection_type: "relational"
+    cross_dependencies: ["交友宫", "命宫"]
+    notes: "下册明确指出推断平辈朋友仍以兄弟宫为主，交友宫为重要影响。"
+
+  - id: P-FUQI
+    name: "夫妻宫"
+    domain: "配偶与亲密关系"
+    primary_outputs:
+      - "配偶互动"
+      - "婚恋关系稳定性"
+      - "亲密关系中的角色与权责"
+    projection_type: "relational"
+    cross_dependencies: ["命宫", "福德宫", "事业宫"]
+    notes: "不把某星系直接等同结婚/离婚；先投射为关系状态，再由时间层触发具体应象。"
+
+  - id: P-ZINV
+    name: "子女宫"
+    domain: "子女、晚辈、后继与部分下属关系"
+    primary_outputs:
+      - "子女关系"
+      - "晚辈/后继者互动"
+      - "部分创造/传承结果"
+    projection_type: "relational_and_generational"
+    notes: "下册多次把子女宫扩展到晚辈、心腹、下属反应，因此不只编码‘孩子数量’。"
+
+  - id: P-CAIBO
+    name: "财帛宫"
+    domain: "资源取得、运用、保存与财务互动"
+    primary_outputs:
+      - "收入/财源类型"
+      - "资源控制与运用"
+      - "财务竞争、损耗与机会"
+    projection_type: "resource"
+    cross_dependencies: ["命宫", "事业宫", "福德宫"]
+    notes: "财富是L3输出，不把‘财’倒灌为primitive qi；禄、辅弼、魁钺、昌曲在此宫可形成不同资源路径。"
+
+  - id: P-JIE
+    name: "疾厄宫"
+    domain: "身体、健康与生理脆弱性"
+    primary_outputs:
+      - "身体系统风险"
+      - "疾病/损伤类别"
+      - "身体承载与恢复相关表现"
+    projection_type: "health"
+    notes: "疾病属于可观察输出，不能把具体病名作为底层气机；需谨慎区分文本应象与现代医学事实。"
+
+  - id: P-QIANYI
+    name: "迁移宫"
+    domain: "外部环境、离开原环境后的互动与移动"
+    primary_outputs:
+      - "外部环境适配"
+      - "迁移/出行/异地状态"
+      - "对外关系与环境反馈"
+    projection_type: "environmental"
+    cross_dependencies: ["命宫"]
+    notes: "与命宫相对，宜建模为主体状态与外部环境的耦合场。"
+
+  - id: P-JIAOYOU
+    name: "交友宫"
+    aliases: ["奴仆宫"]
+    domain: "朋友、下属、晚辈及可用人际支持"
+    primary_outputs:
+      - "下属/团队助力"
+      - "朋友与合作支持"
+      - "受拖累、被架空、被侵吞等网络风险"
+    projection_type: "network"
+    cross_dependencies: ["兄弟宫", "命宫"]
+    notes: >
+      下册明确指出交友宫与兄弟宫相对；星曜组合过强或过弱还需与命宫比较，
+      因而这是典型相对/网络投影而非独立单变量。
+
+  - id: P-GUANLU
+    name: "事业宫"
+    aliases: ["官禄宫"]
+    domain: "职业性质、工作角色、组织位置与事业发展"
+    primary_outputs:
+      - "行业/工作性质"
+      - "管理、专业、服务、经营等角色结构"
+      - "事业发展速度与波折"
+    projection_type: "career"
+    cross_dependencies: ["命宫", "财帛宫", "夫妻宫", "福德宫"]
+    notes: >
+      下册明确提醒现代职业不能照搬古代官商工匠标签；应先判断行业性质，
+      并参考命宫、财帛宫，且上册指出福德思想也会影响事业进退。
+
+  - id: P-TIANZHAI
+    name: "田宅宫"
+    domain: "居住环境、不动产、家庭空间与资产承载"
+    primary_outputs:
+      - "住所/房产状态"
+      - "家庭物质环境"
+      - "资产承载与空间秩序"
+    projection_type: "property_and_home"
+    notes: "例如贪狼化忌在田宅宫可表现为装修不如理想或住所紊乱，说明同一化忌会被宫位重新投影。"
+
+  - id: P-FUDE
+    name: "福德宫"
+    domain: "思想、心理取向、价值偏好与内在活动"
+    primary_outputs:
+      - "思想保守/激进等取向"
+      - "精神满足与耗散"
+      - "风险偏好、欲望与内在决策背景"
+    projection_type: "mental_context"
+    cross_dependencies: ["命宫", "事业宫", "夫妻宫"]
+    notes: "上册明确指出福德宫主思想，思想会影响事业进退，因此是跨宫推断的重要隐性场景。"
+
+  - id: P-FUMU
+    name: "父母宫"
+    domain: "父母、长辈、上司/权威与来自上一代的支持"
+    primary_outputs:
+      - "父母关系与福荫"
+      - "长辈/上司支持"
+      - "继承与上一代资源的部分表现"
+    projection_type: "vertical_relation"
+    notes: "上册以父母宫机巨案例示范，原局本质与后天运限可共同反应为父母余荫/遗产等不同输出。"
+
+projection_pipeline:
+  stages:
+    - "H_s：已含单星气核、星系交互与修正曜作用的中尺度状态"
+    - "P_p：宫位把H_s投射到特定现实语义空间"
+    - "C_person：年龄、职业、婚姻状态、社会环境等现实上下文进一步限制可能应象"
+    - "Y：最终观察/事件"
+  formal_candidate: "P(Y | H_s, palace=p, C_person)"
+  paper1_constraint: "Paper 1只定义投影接口和语义域，不估计真实事件概率。"
+
+cross_palace_structure:
+  principle: "宫位并非彼此独立；部分主题需要跨宫信息融合。"
+  examples:
+    - target: "事业"
+      required_context: ["事业宫", "命宫", "财帛宫"]
+      optional_context: ["福德宫"]
+    - target: "平辈/朋友"
+      required_context: ["兄弟宫", "交友宫", "命宫"]
+    - target: "婚恋"
+      required_context: ["夫妻宫", "命宫"]
+      optional_context: ["福德宫", "田宅宫"]
+  formal_candidate: "y_domain = P_domain({h_p | p in relevant palace set}, C)"
+
+temporal_reaction:
+  source_principle: >
+    原局十二宫先形成各宫本质；大限/流年移宫后的星曜结构不是新的独立本体，
+    而是作用于既有本质的后天刺激/反应条件。
+  formal_candidate:
+    natal_essence: "e_p = E(h_p^natal, neighborhood_p)"
+    temporal_input: "u_(p,t) = U(h_p^limit/year, transformations_t)"
+    response: "r_(p,t) = R(e_p, u_(p,t), c_t)"
+    output: "y_(p,t) = P_p(r_(p,t), c_t)"
+  key_property: "R必须state-dependent；相同u作用于不同e可产生不同反应。"
+
+WP05_freeze_candidate:
+  - "十二宫统一建模为场景投影算子，而非primitive qi或固定事件标签。"
+  - "宫位投影必须允许跨宫依赖，不能仅用本宫三方四正机械判断。"
+  - "原局宫位本质与运限宫位刺激分层，运限是对本质的反应输入。"
+  - "最终事件属于L3输出/观察层，需要现实上下文；Paper 1不估计概率。"
