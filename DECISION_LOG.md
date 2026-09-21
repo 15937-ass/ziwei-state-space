@@ -35,6 +35,11 @@ All important conceptual decisions are recorded here.
 **Rationale:** The 100-rule pilot showed that a single positive/negative field conflates dynamics and evaluation.  
 **Approved at:** G1
 
+### D-008 — G2 气机本体架构批准
+**Decision:** 批准 L0-L4 分层气机本体；内在状态、关系网络、场景投影、评价层分离；允许非单调变量；阴阳五行暂作为结构底座；QI-01 至 QI-15 与 QR-01 至 QR-04 作为可修订 v0.2 候选集，而非最终气全集。  
+**Status:** FROZEN（架构原则）；候选维度 PROVISIONAL  
+**Approved at:** G2
+
 ## Pending decisions
 
 ### P-001 — Candidate qi ontology dimensionality
