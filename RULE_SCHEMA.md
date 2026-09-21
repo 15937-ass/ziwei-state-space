@@ -1,11 +1,15 @@
 # RULE_SCHEMA.md
 
-Version: 0.1  
-Status: DRAFT
+Version: 0.2  
+Status: ACTIVE — approved at G1
 
 ## Purpose
 
-Convert Zhongzhou natural-language statements into atomic, auditable rules without prematurely assigning empirical weights.
+Convert Zhongzhou natural-language statements into atomic, auditable rules while preserving the distinction between:
+1. what the source explicitly says,
+2. how this research normalizes that statement,
+3. how a latent state changes,
+4. whether that change is favorable in a particular context.
 
 ## Atomicity principle
 
@@ -13,97 +17,120 @@ One row should express one principal relation:
 
 > Subject + Context + Condition -> Effect on Target
 
-If a sentence contains multiple effects, split it into multiple rules.
+If a statement contains multiple independent effects, split it into multiple rules.
 
-## Required fields
+## Core fields
 
 | Field | Meaning |
 |---|---|
 | rule_id | Stable unique identifier |
-| school | e.g. Zhongzhou |
-| source_work | Exact work title |
+| school | Source school |
+| source_work | Exact source title |
 | source_location | Page/section/chapter |
 | subject_type | star / star_system / modifier / palace / temporal_layer / relation |
 | subject | Main entity |
-| context | Palace, natal/limit context, day/night etc. |
-| condition | Triggering conjunction/condition |
+| context | Human-readable context summary |
+| time_scope | natal / decade / year / month / generic |
+| palace_scope | Structured palace list when applicable |
+| condition | Triggering condition |
 | target_type | qi_state / structural_relation / projection / outcome_descriptor |
-| target | What is changed |
-| operator | enhance / weaken / transform / inhibit / activate / condition / compare / project |
-| direction | positive / negative / mixed / nonlinear / unknown |
+| target_literal | Source-near target wording |
+| target_normalized | Research-normalized target |
+| target_mapping_type | literal / normalized / inferred |
+| operator | define / assert / enhance / weaken / transform / inhibit / activate / compare / project / condition |
+| state_change | increase / decrease / transform / none / nonlinear / unknown |
+| valence | favorable / unfavorable / mixed / context_dependent / not_applicable / unknown |
 | parameter | Symbolic parameter name if required |
-| constraint | e.g. alpha>0, alpha1>alpha2 |
-| epistemic_type | EXPLICIT / INFERRED / HYPOTHESIS / IMPLEMENTATION |
-| evidence_text | Short paraphrase or minimal quote |
-| confidence | high / medium / low |
+| constraint | e.g. alpha>0, alpha_A>alpha_B |
+| epistemic_type_source | EXPLICIT / INFERRED |
+| formalization_status | LITERAL / NORMALIZED / HYPOTHESIS / IMPLEMENTATION |
+| evidence_text | Short paraphrase or minimal quotation |
+| extraction_confidence | high / medium / low |
 | status | draft / reviewed / approved / rejected |
 | notes | Ambiguities and caveats |
 
-## Recommended optional fields
+## State change is not valence
 
-- `depends_on_rule_ids`
-- `conflicts_with_rule_ids`
-- `time_scope`: natal / decade / year / month / generic
-- `sex_scope`
-- `day_night_scope`
-- `palace_scope`
-- `star_position_scope`
-- `reviewer`
-- `version`
+Example: 武曲的“刚烈性”在不同宫位可能增加，但其评价不同.
 
-## Example
+```text
+state_change: increase
+valence: context_dependent
+```
 
-```yaml
-rule_id: ZZ-TJ-0001
-school: Zhongzhou
-subject_type: star
-subject: 天机
-context: natal
-condition: 化权
-target_type: qi_state
-target: 稳定性
-operator: enhance
-direction: positive
-parameter: alpha_ZZ_TJ_0001
-constraint: alpha_ZZ_TJ_0001 > 0
-epistemic_type: EXPLICIT
-status: draft
+This prevents “more of a property” from being conflated with “better”.
+
+## Definition rules
+
+Identity/ontology statements use:
+
+```text
+operator: define
+state_change: none
+valence: not_applicable
+```
+
+Example:
+
+```text
+天机 -> 五行属性 = 阴木
 ```
 
 ## Comparison rules
 
-Statements such as “A is stronger/better than B” should become order constraints rather than fabricated numeric distances:
+Ordered relations must be represented as explicit pairwise constraints.
+
+Example:
 
 ```text
-alpha_A > alpha_B
+effect(武曲化禄) > effect(廉贞化禄)
+effect(廉贞化禄) > effect(禄存)
 ```
 
-## Nonlinear rules
+Do not hide order information only in notes.
 
-Statements describing moderation, excess, conditional reversal, or context-dependent effects should be marked:
+## Source-vs-model separation
 
-```text
-direction = nonlinear
+A source statement and the model-normalized target are distinct.
+
+Example source:
+“太阳过份强烈，则宜见收敛性的星曜。”
+
+Possible formalization:
+
+```yaml
+target_literal: 收敛性的星曜
+target_normalized: 收敛性补偿
+target_mapping_type: normalized
+epistemic_type_source: EXPLICIT
+formalization_status: NORMALIZED
+state_change: nonlinear
+valence: context_dependent
 ```
 
-and the proposed functional form belongs in a separate HYPOTHESIS/IMPLEMENTATION rule, not inside the source-derived EXPLICIT rule.
+The normalized wording must not be presented as if it were the author's original terminology.
 
-## Rule splitting example
+## Context structure
 
-Textual statement:
-“Star X meets modifier M, increasing decisiveness but also increasing isolation.”
+Human-readable `context` is retained, but executable contexts should also use structured fields such as:
 
-Create two rules:
-1. X + M -> decisiveness ↑
-2. X + M -> isolation ↑
+```yaml
+time_scope: [natal]
+palace_scope: [财帛宫, 事业宫]
+```
 
-Do not collapse them into a single vague “overall good/bad” score.
+## Confidence semantics
+
+`extraction_confidence` means confidence in the source-to-rule extraction, not confidence that the astrological proposition is empirically true.
 
 ## Promotion criteria
 
 A rule may move from `draft` to `approved` only if:
 1. provenance is complete;
 2. atomicity is satisfied;
-3. epistemic type is correct;
-4. target terminology exists in the approved ontology or is marked provisional;
-5. no unresolved direct contradiction is hidden.
+3. source epistemic type is correct;
+4. source wording and normalized target are distinguishable;
+5. state-change and valence are not conflated;
+6. comparison chains are split;
+7. contexts are structured where required;
+8. unresolved contradictions are preserved rather than hidden.
