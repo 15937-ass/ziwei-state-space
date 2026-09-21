@@ -1,6 +1,6 @@
 # AGENT_WORKFLOW.md
 
-Version: 0.1
+Version: 0.2
 
 ## Principle
 
@@ -9,6 +9,17 @@ Use a controlled **producer -> critic -> revision -> validator -> human gate** w
 Do not rely on free-form multi-agent debate.
 
 All agents read and write shared artifacts; chat memory is not the source of truth.
+
+## Human-facing language rule
+
+All materials that require PI review or approval must be written in **Chinese**, including:
+- Human Gate reports;
+- decisions requiring PI approval;
+- red-team summaries escalated to the PI;
+- unresolved conceptual questions requiring human judgment;
+- merge/approval recommendations.
+
+Machine-readable field names may remain English for engineering consistency, but every human-review artifact must provide clear Chinese explanation.
 
 ## Roles
 
@@ -70,7 +81,7 @@ Must not invent missing theory to improve narrative flow.
 ## Human gates
 
 - G1: rule schema
-- G2: qi ontology v0.1
+- G2: qi ontology
 - G3: 14-star cores
 - G4: 60-star-system logic
 - G5: state-space formulation
@@ -82,7 +93,7 @@ Must not invent missing theory to improve narrative flow.
 2. Extractor produces rules.
 3. Auditor checks provenance and atomicity.
 4. Extractor revises.
-5. Manager produces review summary.
+5. Manager produces a **Chinese review summary**.
 6. PI approves/rejects/escalates.
 7. Approved artifact is versioned.
 
