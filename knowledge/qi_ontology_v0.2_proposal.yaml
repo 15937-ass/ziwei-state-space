@@ -1,0 +1,273 @@
+version: "0.2-proposal"
+status: "candidate-for-G2"
+basis:
+  total_atomic_rules: 200
+  coverage:
+    first_pilot: "紫微、天机、太阳、武曲，各25条"
+    expansion: "其余十颗正曜，各10条代表性规则"
+    stars_total: 14
+  note: >
+    本版本用于冻结“本体架构与核心候选维度”，并不等同于已经穷尽十四正曜全部规则。
+    后续G3/G4仍允许新增、拆分或合并低置信维度，但修改已冻结核心轴须记录决策。
+
+architecture:
+  principle: "采用分层本体，不使用单一扁平向量强行容纳所有性质。"
+  layers:
+    - id: L0
+      name: "结构底座"
+      content: "阴阳、五行及其生克关系"
+      representation: "metadata + relational graph/matrices"
+    - id: L1
+      name: "内在气机状态"
+      content: "可跨星曜复用的动力学/倾向变量"
+      representation: "signed axes + scalar capacities + non-monotonic variables"
+    - id: L2
+      name: "关系与网络状态"
+      content: "竞争、支持、孤立、主导、协同等关系性状态"
+      representation: "relational state / graph state"
+    - id: L3
+      name: "场景投影"
+      content: "财富、名誉、地位、疾病、婚姻等宫位/现实表现"
+      representation: "projection/output variables"
+    - id: L4
+      name: "评价层"
+      content: "吉凶、适配、中和、稳定性、风险"
+      representation: "context-dependent evaluation, not primitive qi"
+
+core_intrinsic_dimensions:
+  - id: QI-01
+    name: "发射—收敛"
+    type: "signed_axis_with_optimal_region"
+    poles: ["收敛", "发射"]
+    definition: "气机向外扩散、显发与向内潜藏、收束之间的动力学倾向。"
+    evidence_rules:
+      [ZZ-TY-002, ZZ-TY-009, ZZ-TY-010, ZZ-TY-016, ZZ-TY-017,
+       ZZ-TYI-002, ZZ-TYI-005, ZZ-TYI-006, ZZ-TYI-007, ZZ-TYI-008, ZZ-TYI-010]
+    confidence: "high"
+    rationale: "太阳与太阴提供最强的互补证据，并明确出现过强/过弱均需调节的中和结构。"
+    modeling_note: "不可直接令正端=吉、负端=凶；评价取决于当前状态与目标区间。"
+
+  - id: QI-02
+    name: "刚—柔"
+    type: "signed_axis_with_contextual_valence"
+    poles: ["柔和", "刚克/刚烈"]
+    definition: "作用方式偏强硬、切断、压制或偏调和、缓冲、顺应的程度。"
+    evidence_rules:
+      [ZZ-WQ-005, ZZ-WQ-009, ZZ-WQ-018, ZZ-WQ-020, ZZ-WQ-022,
+       ZZ-QS-006, ZZ-QS-009, ZZ-TX-002, ZZ-TX-003, ZZ-TX-004, ZZ-TX-009, ZZ-TX-010]
+    confidence: "high"
+    rationale: "武曲、七杀、天相及相关组合反复出现刚柔调节。"
+    modeling_note: "同一刚性在财官场景可能为进取，在六亲场景可能为孤克。"
+
+  - id: QI-03
+    name: "稳定—变动"
+    type: "signed_axis"
+    poles: ["稳定/维持", "变动/转换"]
+    definition: "系统保持既有结构与主动发生迁移、转换、重组之间的倾向。"
+    evidence_rules:
+      [ZZ-TJ-006, ZZ-TJ-018, ZZ-TJ-020, ZZ-PJ-002, ZZ-PJ-003,
+       ZZ-PJ-006, ZZ-PJ-007, ZZ-TLIA-010]
+    confidence: "high"
+    rationale: "天机、破军及天梁相关材料共同支持该轴。"
+
+  - id: QI-04
+    name: "守成—开创/冲刺"
+    type: "signed_axis"
+    poles: ["守成", "开创/冲刺"]
+    definition: "偏向维护既有结构、资源与秩序，或偏向突破既有结构并推动新局的倾向。"
+    evidence_rules:
+      [ZZ-TF-005, ZZ-TF-006, ZZ-QS-002, ZZ-QS-010, ZZ-PJ-002, ZZ-PJ-003]
+    confidence: "high"
+    rationale: "天府—七杀—破军构成清晰的守成/冲刺张力。"
+    modeling_note: "与稳定—变动相关但不等价：变动描述状态迁移，开创描述行动方向与结构改造。"
+
+  - id: QI-05
+    name: "现实化—空泛"
+    type: "signed_axis"
+    poles: ["具体/落实", "空泛/空想"]
+    definition: "思想或意图能否落到现实、具体、可执行层面。"
+    evidence_rules:
+      [ZZ-TJ-007, ZZ-TJ-025, ZZ-TY-010, ZZ-WQ-003, ZZ-WQ-004,
+       ZZ-TF-007, ZZ-TF-009, ZZ-TYI-008]
+    confidence: "high"
+    rationale: "跨天机、太阳、武曲、天府、太阴出现具体—空虚/空想对照。"
+
+  - id: QI-06
+    name: "决策激活度"
+    type: "non_monotonic_scalar"
+    low_regime: "迟疑/优柔/延缓"
+    optimal_regime: "审慎而能决"
+    high_regime: "躁决/冲动"
+    definition: "从决策延迟到适度审慎，再到过度冲决的激活程度。"
+    evidence_rules:
+      [ZZ-TJ-024, ZZ-WQ-019, ZZ-WQ-024, ZZ-WQ-025, ZZ-TL-010]
+    confidence: "high"
+    rationale: "原始材料更符合三段式而非简单二极轴。"
+    modeling_note: "后续可用单变量非单调效用函数或拆分为decision_latency与impulsivity。"
+
+  - id: QI-07
+    name: "认知机变"
+    type: "scalar_capacity"
+    definition: "理解、应变、策略调整、聪敏、灵巧与谋划能力的潜在容量。"
+    evidence_rules:
+      [ZZ-ZW-024, ZZ-TJ-002, ZZ-TJ-005, ZZ-TJ-014, ZZ-TJ-016,
+       ZZ-JM-007, ZZ-JM-009]
+    confidence: "high"
+    note: "不等于学历、名誉或职业成果。"
+
+  - id: QI-08
+    name: "行动驱动"
+    type: "scalar_capacity"
+    definition: "把内部意图转换为主动行动、执行、进取和实际推进的驱动力。"
+    evidence_rules:
+      [ZZ-TJ-013, ZZ-WQ-004, ZZ-WQ-014, ZZ-QS-004, ZZ-PJ-003, ZZ-TL-008]
+    confidence: "high"
+
+  - id: QI-09
+    name: "欲望驱动"
+    type: "scalar_capacity"
+    definition: "对物质、感情、享受、占有、体验等对象的趋求强度。"
+    evidence_rules:
+      [ZZ-TL-002, ZZ-TL-003, ZZ-TL-004, ZZ-TL-005,
+       ZZ-LZ-003, ZZ-LZ-004, ZZ-LZ-005, ZZ-TT-004]
+    confidence: "high"
+    note: "需与感性、审美和精神享受区分。"
+
+  - id: QI-10
+    name: "原则/规范约束"
+    type: "scalar_capacity"
+    definition: "行为和判断受规则、原则、纪律、规范或内在标准约束的程度。"
+    evidence_rules:
+      [ZZ-TJ-015, ZZ-TLIA-002, ZZ-TLIA-003, ZZ-TLIA-005, ZZ-TLIA-006]
+    confidence: "high"
+
+  - id: QI-11
+    name: "感性—理性张力"
+    type: "coupled_state"
+    definition: "感情驱动与理性约束之间的相对占优及冲突程度。"
+    evidence_rules:
+      [ZZ-LZ-003, ZZ-LZ-008, ZZ-LZ-009, ZZ-LZ-010, ZZ-TX-009, ZZ-TX-010]
+    confidence: "medium"
+    modeling_note: "不宜简单压为单一正负轴，可建两个耦合分量或张力变量。"
+
+  - id: QI-12
+    name: "资源保存/管理能力"
+    type: "scalar_capacity"
+    definition: "对既有资源进行储藏、安排、守成、调度和维持的能力。"
+    evidence_rules:
+      [ZZ-TF-002, ZZ-TF-003, ZZ-TF-004, ZZ-TF-005, ZZ-TF-007, ZZ-TF-008]
+    confidence: "high"
+    note: "严格区别于财富结果与资源生成能力。"
+
+  - id: QI-13
+    name: "表达/传播能力"
+    type: "scalar_capacity"
+    definition: "借言语、文字、公开表达或传播使信息获得影响力的能力。"
+    evidence_rules:
+      [ZZ-JM-004, ZZ-JM-005, ZZ-JM-006, ZZ-JM-007, ZZ-JM-009]
+    confidence: "high"
+    note: "与名誉结果分离。"
+
+  - id: QI-14
+    name: "遮蔽—显明"
+    type: "signed_axis"
+    poles: ["遮蔽/阴暗", "显明/光华"]
+    definition: "信息、意图、能力或状态处于隐藏、遮蔽与显发、可见之间的程度。"
+    evidence_rules:
+      [ZZ-JM-002, ZZ-JM-008, ZZ-JM-009, ZZ-TY-002, ZZ-TYI-002, ZZ-TYI-006]
+    confidence: "medium"
+    note: "与发射—收敛高度相关，但语义不完全相同；后续做冗余检验。"
+
+  - id: QI-15
+    name: "缓冲/调和能力"
+    type: "scalar_capacity"
+    definition: "吸收冲突、降低极端、化解不利或使不同性质趋向平衡的能力。"
+    evidence_rules:
+      [ZZ-TT-002, ZZ-TT-006, ZZ-TT-008, ZZ-WQ-020, ZZ-WQ-022,
+       ZZ-TX-003, ZZ-TX-009, ZZ-TY-018]
+    confidence: "high"
+
+relational_network_states:
+  - id: QR-01
+    name: "关系整合—孤离"
+    type: "relational_axis"
+    definition: "关系网络中的嵌入、支持、协同程度与孤立、疏离、孤克程度。"
+    evidence_rules:
+      [ZZ-ZW-013, ZZ-ZW-014, ZZ-WQ-006, ZZ-WQ-010, ZZ-WQ-021,
+       ZZ-TF-009, ZZ-TLIA-004]
+    confidence: "high"
+
+  - id: QR-02
+    name: "主导—协同"
+    type: "relational_axis"
+    definition: "关系或组织网络中集中主导、统帅与协作、辅助之间的结构位置。"
+    evidence_rules:
+      [ZZ-ZW-015, ZZ-ZW-018, ZZ-TF-006, ZZ-QS-002, ZZ-QS-005]
+    confidence: "medium"
+
+  - id: QR-03
+    name: "竞争激活"
+    type: "relational_scalar"
+    definition: "网络中争夺、对抗、恶性竞争或资源冲突被激活的程度。"
+    evidence_rules:
+      [ZZ-TJ-023, ZZ-WQ-015, ZZ-QS-009]
+    confidence: "medium"
+
+  - id: QR-04
+    name: "支持资源"
+    type: "relational_scalar"
+    definition: "来自辅佐、同伴、属下、组织或贵人网络的可用支持程度。"
+    evidence_rules:
+      [ZZ-ZW-013, ZZ-ZW-014, ZZ-ZW-016, ZZ-QS-008]
+    confidence: "medium"
+    note: "与关系整合不可直接合并，一个人可孤而有资源。"
+
+structural_substrate:
+  yin_yang:
+    status: "保留为结构标签，暂不直接塞入普通状态向量"
+    reason: "十四正曜均带阴阳归属，但当前文本不足以证明其可作为统一一维连续轴。"
+  five_elements:
+    status: "保留为五元素关系结构"
+    representation_candidate:
+      node_or_vector: "[木,火,土,金,水]"
+      relations: ["生", "克", "泄", "耗", "制化（后续）"]
+    reason: "五行具有非线性、方向性关系，不适合压成单一标量。"
+
+explicitly_not_primitive:
+  - "财富/财禄"
+  - "名誉/声名/贵显/地位"
+  - "疾病/手术/目疾"
+  - "婚姻结果"
+  - "发财/破败/成功/失败"
+  - "职业类型"
+  - "开运/机遇"
+  - "吉/凶"
+
+redundancy_tests_required:
+  - pair: ["发射—收敛", "遮蔽—显明"]
+    question: "两轴是否能被同一组规则完全解释？若高度共线则合并。"
+  - pair: ["稳定—变动", "守成—开创/冲刺"]
+    question: "状态变化速度与结构改造方向是否具有独立信息。"
+  - pair: ["刚—柔", "缓冲/调和能力"]
+    question: "调和是否只是降低刚性，还是独立的系统恢复机制。"
+  - pair: ["行动驱动", "决策激活度"]
+    question: "行动强度与决策速度是否可分。"
+  - pair: ["关系整合—孤离", "支持资源"]
+    question: "内在关系倾向与外部网络资源是否独立。"
+
+G2_recommendation:
+  architecture_decisions:
+    - "采用L0-L4分层本体：结构底座、内在状态、关系网络、场景投影、评价层。"
+    - "内在状态与关系网络状态分开。"
+    - "非单调性质允许使用有最优区间的标量，不强制所有性质二极化。"
+    - "阴阳五行暂作为结构底座，而非普通欧氏状态向量分量。"
+  freeze_scope:
+    freeze_now:
+      - "分层架构"
+      - "状态变化与评价分离"
+      - "内在/关系/输出分层"
+      - "非单调变量允许"
+      - "阴阳五行结构底座原则"
+    provisional_dimensions:
+      - "QI-01 至 QI-15 与 QR-01 至 QR-04"
+    note: "具体维度仍可在G3/G4根据十四星完整抽取与六十星系涌现性分析做受控修订。"
