@@ -1,13 +1,166 @@
-version: "0.1"
-status: "empty"
-description: >
-  Operators for supportive, auxiliary, malefic, transformation and other
-  modifiers as supported by Zhongzhou texts.
-operator_classes:
-  - enhance
-  - weaken
-  - transform
-  - inhibit
-  - activate
-  - conditional
-modifiers: []
+version: "0.1-proposal"
+status: "WP-05-working"
+source_core:
+  - "《中州派紫微斗数深造讲义（上）》辅佐煞曜总论"
+  - "《中州派紫微斗数深造讲义（上）》辅佐八曜"
+  - "《中州派紫微斗数深造讲义（上）》煞曜"
+  - "《中州派紫微斗数深造讲义（上）》化曜"
+
+formal_definition:
+  generic: "x' = T_m(x, z, c)"
+  description: >
+    修正曜不作为独立人生事件预测器，而作为作用于单星/星系气核、关系状态、
+    星系模态及场景投影的条件算子。
+  allowed_effects:
+    - "enhance: 加强已有性质"
+    - "weaken: 削弱已有性质"
+    - "transform: 改变性质方向或模态"
+    - "gate: 决定某个交互是否激活"
+    - "couple: 使两个或多个维度发生耦合"
+  prohibited_assumption:
+    - "不得把吉曜统一编码为正数、煞曜统一编码为负数。"
+    - "不得把四化统一视为固定加减分。"
+    - "同一修正曜的作用必须允许依星曜、星系、宫位与时间层改变。"
+
+source_level_operator_classes:
+  - id: OP-ENHANCE
+    name: "加强"
+    source_status: "EXPLICIT"
+    meaning: "放大星系原有本质的某个分量或模态。"
+  - id: OP-WEAKEN
+    name: "削弱"
+    source_status: "EXPLICIT"
+    meaning: "降低星系原有本质的某个分量。"
+  - id: OP-TRANSFORM
+    name: "转化"
+    source_status: "EXPLICIT"
+    meaning: "使性质从一种表现形式转成另一种表现形式，可能发生模态切换。"
+
+auxiliary_structure:
+  principle:
+    source_status: "EXPLICIT"
+    rule: "辅曜偏他力，佐曜偏自力；两者不是同一种增益来源。"
+  support_stars:
+    group: "辅曜"
+    stars: [天魁, 天钺, 左辅, 右弼]
+    normalized_operator: "external_support_gate"
+    target_layer: "L2 relational/network state"
+    model: "QR-04 支持资源↑，但实际表现依星系与宫位而定。"
+    note: "“他力”是来源属性，不代表必然吉。"
+  assistant_stars:
+    group: "佐曜"
+    stars: [文昌, 文曲, 禄存, 天马]
+    normalized_operator: "self_effort_or_capability_gate"
+    target_layer: "L1/L3 depending on star and context"
+    model: "需要主体行动/学习/经营等行为才能转化为现实结果。"
+    note: "文昌文曲、禄存天马作用机制不同，不合并为一个常数。"
+
+malefic_operator_hypotheses:
+  - star: "擎羊"
+    normalized_role: "竞争/切割/激活"
+    status: "NORMALIZED_FROM_REPEATED_RULES"
+    examples:
+      - "天机见擎羊易生竞争"
+      - "财帛宫擎羊基本主竞争"
+    model_hint: "increase(QR-03 competition_activation); may increase QI-02 rigid/decisive components"
+    caveat: "在特定事业/财帛结构可成为鞭策，不可统一判负。"
+
+  - star: "陀罗"
+    normalized_role: "延迟/拖曳/反复"
+    status: "NORMALIZED_FROM_REPEATED_RULES"
+    examples:
+      - "天机见陀罗计划延缓"
+      - "事业宫见陀罗常发展缓慢或反覆"
+    model_hint: "increase(decision_latency); decrease transition_speed"
+    caveat: "需与具体星系联合解释。"
+
+  - star: "火星/铃星"
+    normalized_role: "突发/高增益/波折"
+    status: "NORMALIZED_FROM_REPEATED_RULES"
+    examples:
+      - "武曲见火铃可形成恶性竞争"
+      - "事业宫见火铃主波折"
+      - "贪狼火铃可增强突发性"
+    model_hint: "increase activation/volatility; possible mode switch"
+    caveat: "与贪狼等星系有特殊突发结构，不可只视为风险噪声。"
+
+  - star: "地空"
+    normalized_role: "精神抽象化/现实化削弱"
+    status: "NORMALIZED_FROM_SOURCE"
+    examples:
+      - "地空守命喜幻想"
+      - "与天机巨门等同躔可使想法难以付诸实际"
+    model_hint: "QI-05 -> 空泛端; may interact with QI-07"
+    caveat: "配合行动型星系时可将空想转为创新，不是固定负向。"
+
+  - star: "地劫"
+    normalized_role: "物质结构扰动/现实资源损耗"
+    status: "NORMALIZED_FROM_SOURCE"
+    examples:
+      - "地劫的物质损失重于精神打击"
+      - "现实性较强时亦可与创新/工艺结合"
+    model_hint: "resource/material perturbation at L3; context-dependent innovation path"
+    caveat: "与地空分开，不合并为统一‘空劫负值’。"
+
+four_transformations:
+  formal_rule: "T_(star, hua)(state, context), not T_hua(state)"
+  reason: >
+    同一化曜作用在不同正曜上呈现不同意义；例如太阴化权偏控制可运用资源，
+    贪狼化权则增加欲望并激活竞争。因此四化只能提供操作类别先验，
+    具体方向与目标由被化星曜和星系决定。
+
+  化禄:
+    generic_prior:
+      - "资源/机会/可用性增强"
+      - "可使某些既有性质更容易实现"
+    source_status: "PARTLY_EXPLICIT_GENERAL"
+    important_constraints:
+      - "空劫、弱地、化忌冲破等可改变或破坏表现。"
+      - "化禄与化权化科同会也必须服从星曜本质。"
+    model: "opportunity/resource gate + star_specific_operator"
+
+  化权:
+    generic_prior:
+      - "控制、权能、推动或强度增加"
+      - "可能产生过度放大与反作用"
+    source_status: "PARTLY_EXPLICIT_GENERAL"
+    important_constraints:
+      - "叠权并非一定更佳，可出现树大招风/压制。"
+      - "原局权星被运限忌冲可成为不利触发。"
+    model: "gain_amplification + control_capacity + overshoot_risk"
+
+  化科:
+    generic_prior:
+      - "声誉/信用/表现可见性"
+      - "部分星曜可表现为缺点修复或过程缓冲"
+    source_status: "NORMALIZED_FROM_STAR_SPECIFIC_RULES"
+    important_constraints:
+      - "不同星曜化科意义不一，如天府化科偏信誉。"
+    model: "reputation/regularization operator, star-specific"
+
+  化忌:
+    generic_prior:
+      - "受阻、失配、执著、扰动或不如理想"
+      - "可作为原局性质的触发器而非简单负号"
+    source_status: "NORMALIZED_FROM_STAR_SPECIFIC_RULES"
+    important_constraints:
+      - "不同星曜化忌的损失类型不同，例如贪狼化忌偏夺爱/不如理想而非必然物质损失。"
+      - "在特定宫位或星系中可转为专业化、才艺化或其他不同应象。"
+    model: "constraint/distortion/trigger operator, star-specific"
+
+operator_composition:
+  proposal: >
+    多个修正曜同时存在时，不进行简单代数相消。按照原书‘吉凶交集不能抵消’的思路，
+    应保留各算子对不同维度、不同模态和不同投影通道的并行作用。
+  formal_candidate: "T_total = Compose({T_mk}, order/context unresolved)"
+  unresolved:
+    - "算子是否交换(commutative)"
+    - "作用顺序是否应按本命→星系→四化→辅煞→宫位→运限固定"
+    - "同类算子叠加的饱和/阈值形式"
+
+WP05_freeze_candidate:
+  - "修正曜统一建模为条件算子，不建模为固定吉凶分值。"
+  - "至少支持加强、削弱、转化、门控、耦合五类作用。"
+  - "辅曜与佐曜区分他力/自力来源。"
+  - "四化必须是star-specific operator。"
+  - "多曜并存不允许简单正负抵消。"
