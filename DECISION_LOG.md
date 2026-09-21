@@ -45,6 +45,11 @@ All important conceptual decisions are recorded here.
 **Status:** FROZEN（结构与方法原则）；具体维度映射 PROVISIONAL  
 **Approved at:** G3
 
+### D-010 — G4 六十星系交互架构批准
+**Decision:** 批准六十星系统一采用 base composition + interaction delta + mode + context gates；principal mode 不自动升格为 primitive qi；Delta_s 为可约化交互残差；z_s 为由完整星系状态派生的模态；允许混杂/多模态表达但暂不数值化。QI-16 目标导向性、QI-17 持续意志/韧性进入候选池。  
+**Status:** FROZEN（交互架构与方法原则）；具体函数/阈值/概率 PROVISIONAL  
+**Approved at:** G4
+
 ## Pending decisions
 
 ### P-001 — Candidate qi ontology dimensionality
