@@ -29,10 +29,16 @@ All important conceptual decisions are recorded here.
 **Decision:** Use artifact-centered role separation with producer/reviewer gates rather than training separate agents or allowing uncontrolled agent debate.  
 **Status:** FROZEN
 
+### D-007 — Rule schema v0.2
+**Decision:** Separate latent-state change from favorable/unfavorable contextual valence, and separate source wording from research normalization.  
+**Status:** FROZEN  
+**Rationale:** The 100-rule pilot showed that a single positive/negative field conflates dynamics and evaluation.  
+**Approved at:** G1
+
 ## Pending decisions
 
 ### P-001 — Candidate qi ontology dimensionality
-Need initial 100-rule pilot before freezing.
+The 100-rule pilot is complete. Next step is to propose Qi Ontology v0.1 for G2.
 
 ### P-002 — Representation of five-element structure
 Candidates: 5D simplex/vector + directed generation/control relations; graph-algebra representation.
@@ -43,7 +49,7 @@ Candidates: 12 local latent states vs global latent state with palace projection
 ### P-004 — First formal state equation
 Candidate:
 `x_(t+1) = F_theta(x_t, u_t^astro, G_t)`
-Need rule extraction before choosing decomposition.
+Need ontology and star-system extraction before choosing decomposition.
 
 ### P-005 — Structural observability criterion
 To define after observation/projection schema exists.
