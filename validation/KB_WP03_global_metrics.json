@@ -1,9 +1,9 @@
 {
-  "version": "0.1",
+  "version": "0.2",
   "domain": "中州派六十星系全文规则库",
   "source": "SRC-ZZ-002",
   "source_pages": "印刷页33-164（六十星系章）",
-  "total_rules": 2181,
+  "total_rules": 2178,
   "systems": 60,
   "groups": 6,
   "rules_per_group": {
@@ -11,22 +11,38 @@
     "G2_11-20": 332,
     "G3_21-32": 365,
     "G4_33-42": 369,
-    "G5_43-52": 425,
+    "G5_43-52": 422,
     "G6_53-60": 376
   },
   "principal_modes": 60,
-  "temporal_reaction_rules": 1012,
-  "case_evidence_rules": 76,
-  "interaction_delta_rules": 211,
-  "case_level_rules": 146,
+  "interaction_roles": {
+    "temporal_reaction": 1005,
+    "mode_modifier": 351,
+    "cross_system_interaction": 364,
+    "mode_definition": 234,
+    "base_composition": 65,
+    "palace_projection": 43,
+    "context_gate": 31,
+    "case_evidence": 76,
+    "interaction": 8,
+    "mode_switch": 1
+  },
+  "delta_status": {
+    "mode_level": 1644,
+    "projection_only": 85,
+    "interaction_candidate": 89,
+    "composition_explained": 2,
+    "interaction_delta": 217,
+    "case_level": 141
+  },
   "required_field_missing": 0,
   "duplicate_rule_ids": 0,
   "all_source_epistemic_explicit": true,
   "all_status_reviewed": true,
-  "controlled_vocabulary_audit": "pass",
+  "canonical_mode_rows": 60,
   "open_conflicts": 0,
   "resolved_conflicts": 1,
   "coverage_reviewed": 60,
   "coverage_complete": 0,
-  "important_boundary": "REVIEWED表示六十星系章原子规则抽取与schema/全局一致性审计完成；COMPLETE仍需KB-WP06教材案例回归挂接及KB-WP07推演引擎端到端验证。"
+  "important_boundary": "REVIEWED表示六十星系章原子规则抽取、source-grounded校核与全局一致性审计完成；COMPLETE仍需KB-WP06教材案例回归挂接及KB-WP07推演引擎端到端验证。"
 }
