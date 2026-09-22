@@ -57,6 +57,30 @@ Any new controlled value requires schema revision and must not silently appear i
 
 `evidence_text` in the GitHub knowledge base is a concise paraphrase/near-source note for traceability, not a wholesale reproduction of copyrighted source text. Full source PDFs remain outside the repository.
 
+### 1.3 Star-system rule extension
+
+Rules extracted from the sixty-system chapter additionally require:
+
+- `system_no` — canonical 1–60 identifier
+- `system_name`
+- `palace_pair`
+- `interaction_role`:
+  - `base_composition`
+  - `mode_definition`
+  - `mode_modifier`
+  - `context_gate`
+  - `temporal_reaction`
+  - `cross_system_interaction`
+  - `palace_projection`
+  - `case_evidence`
+- `delta_status`:
+  - `composition_explained`
+  - `interaction_candidate`
+  - `mode_level`
+  - `projection_only`
+
+The system chapter must preserve the distinction between a source-described principal mode and a new primitive qi dimension.
+
 ## 2. Coverage unit
 
 用于判断“有没有抽完”：
