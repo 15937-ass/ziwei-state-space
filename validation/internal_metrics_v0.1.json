@@ -1,0 +1,84 @@
+{
+  "version": "0.1",
+  "scope": "current structured corpus, not full-book coverage",
+  "rules": {
+    "total": 200,
+    "required_field_completeness": 1,
+    "by_star": {
+      "紫微": 25,
+      "天机": 25,
+      "太阳": 25,
+      "武曲": 25,
+      "天同": 10,
+      "廉贞": 10,
+      "天府": 10,
+      "太阴": 10,
+      "贪狼": 10,
+      "巨门": 10,
+      "天相": 10,
+      "天梁": 10,
+      "七杀": 10,
+      "破军": 10
+    },
+    "target_types": {
+      "qi_state": 123,
+      "structural_relation": 10,
+      "outcome_descriptor": 67
+    },
+    "operators": {
+      "define": 21,
+      "condition": 12,
+      "weaken": 24,
+      "enhance": 100,
+      "compare": 3,
+      "assert": 24,
+      "transform": 16
+    },
+    "state_changes": {
+      "none": 56,
+      "decrease": 24,
+      "increase": 100,
+      "nonlinear": 4,
+      "transform": 16
+    },
+    "valence": {
+      "not_applicable": 23,
+      "unfavorable": 41,
+      "favorable": 43,
+      "context_dependent": 93
+    }
+  },
+  "audit_sample": {
+    "n": 20,
+    "provenance_pass": 20,
+    "atomicity_pass": 18,
+    "epistemic_type_pass": 20,
+    "target_mapping_pass": 20,
+    "overall_pass": 18,
+    "revise": 2,
+    "note": "Single-project dual-pass audit; not an independent-human inter-annotator agreement estimate."
+  },
+  "ontology": {
+    "approved_core_intrinsic_candidates": 15,
+    "approved_relational_candidates": 4,
+    "fully_unobservable_core_dimensions": 0,
+    "partially_observable": [
+      "QI-06",
+      "QI-11",
+      "QI-14",
+      "QR-03",
+      "QR-04"
+    ],
+    "derived_only": [
+      "QI-16-CAND"
+    ],
+    "high_priority_candidate": [
+      "QI-17-CAND"
+    ]
+  },
+  "star_systems": {
+    "indexed": 60,
+    "groups": 6,
+    "reusable_mode_families": 10
+  }
+}
