@@ -1,21 +1,45 @@
 coverage_unit_id,source_id,book,part,chapter,section,page_start,page_end,domain,status,rule_count,case_count,unresolved_count,notes
-ZZ-INIT-001,SRC-ZZ-001,中州派紫微斗数初级讲义,全书,待细分,待细分,,,基础知识,inventory,0,0,0,需按目录细分
-ZZ-UP-001,SRC-ZZ-002,中州派紫微斗数深造讲义（上）,上篇,十四正曜,十四正曜总区,,,star_core,partial,200,0,0,当前200条仅为跨十四星建模样本
-ZZ-UP-002,SRC-ZZ-002,中州派紫微斗数深造讲义（上）,上篇,六十星系,六十星系总区,,,star_system,partial,60,0,0,已完成60索引与principal mode，未全文穷尽
-ZZ-UP-003,SRC-ZZ-002,中州派紫微斗数深造讲义（上）,上篇,辅佐煞曜总论,总论,,,modifier,partial,0,0,0,已建operator架构，待原文穷尽抽取
-ZZ-UP-004,SRC-ZZ-002,中州派紫微斗数深造讲义（上）,上篇,辅佐八曜,辅曜/佐曜,,,modifier,not_started,0,0,0,
-ZZ-UP-005,SRC-ZZ-002,中州派紫微斗数深造讲义（上）,上篇,煞曜,煞曜,,,modifier,not_started,0,0,0,
-ZZ-UP-006,SRC-ZZ-002,中州派紫微斗数深造讲义（上）,上篇,化曜,四化,,,modifier,not_started,0,0,0,
-ZZ-DN-001,SRC-ZZ-003,中州派紫微斗数深造讲义（下）,下篇宫垣论,前言,宫垣方法论,2,2,palace_method,partial,0,0,0,已用于G5结构
+ZZ-INIT-001,SRC-ZZ-001,中州派紫微斗数初级讲义,一,序论,序论,2,3,methodology,inventory,0,0,0,方法论与历史背景
+ZZ-INIT-002,SRC-ZZ-001,中州派紫微斗数初级讲义,二,入门及起例,前言,4,5,chart_method,inventory,0,0,0,
+ZZ-INIT-003,SRC-ZZ-001,中州派紫微斗数初级讲义,二,入门及起例,甲 安星法,6,9,chart_method,inventory,0,0,0,
+ZZ-INIT-004,SRC-ZZ-001,中州派紫微斗数初级讲义,二,入门及起例,乙 闰月推算法及基础结构,10,59,chart_method,inventory,0,0,0,按目录下一个主节60页划界；后续再细分
+ZZ-INIT-005,SRC-ZZ-001,中州派紫微斗数初级讲义,二,入门及起例,丙 星盘推断法,60,65,inference_method,inventory,0,0,0,
+ZZ-INIT-006,SRC-ZZ-001,中州派紫微斗数初级讲义,三,诸星曜及星系显示的面貌身型性格特征,形性赋注释/中州派诸星形性,66,73,shape_personality,inventory,0,0,0,形性赋67起；中州派诸星形性70起
+ZZ-INIT-007,SRC-ZZ-001,中州派紫微斗数初级讲义,四,诸星曜及星系坐十二宫吉凶推断,甲 诸星曜基本性质,74,95,star_core,partial,0,0,0,现有部分G2/G3规则曾引用
+ZZ-INIT-008,SRC-ZZ-001,中州派紫微斗数初级讲义,四,诸星曜及星系坐十二宫吉凶推断,乙 诸星曜入十二宫性质,96,143,palace_projection,inventory,0,0,0,
+ZZ-INIT-009,SRC-ZZ-001,中州派紫微斗数初级讲义,四,附录规则,辅佐煞曜对兄弟宫的影响,144,157,palace_modifier,inventory,0,0,0,
+ZZ-INIT-010,SRC-ZZ-001,中州派紫微斗数初级讲义,四,附录规则,辅佐煞曜对子女宫的影响,158,163,palace_modifier,inventory,0,0,0,
+ZZ-INIT-011,SRC-ZZ-001,中州派紫微斗数初级讲义,四,附录规则,辅佐煞曜对财帛宫的影响,164,178,palace_modifier,inventory,0,0,0,
+ZZ-INIT-012,SRC-ZZ-001,中州派紫微斗数初级讲义,四,附录规则,辅佐煞曜对迁移宫的影响,179,186,palace_modifier,inventory,0,0,0,
+ZZ-INIT-013,SRC-ZZ-001,中州派紫微斗数初级讲义,四,附录规则,辅佐煞曜对交友宫的影响,187,212,palace_modifier,inventory,0,0,0,
+ZZ-INIT-014,SRC-ZZ-001,中州派紫微斗数初级讲义,五,年限推断法,总论,213,215,temporal,inventory,0,0,0,
+ZZ-INIT-015,SRC-ZZ-001,中州派紫微斗数初级讲义,五,年限推断法,甲 大限与流年的推断,216,218,temporal,inventory,0,0,0,
+ZZ-INIT-016,SRC-ZZ-001,中州派紫微斗数初级讲义,五,年限推断法,乙 流月的推断,219,220,temporal,inventory,0,0,0,
+ZZ-INIT-017,SRC-ZZ-001,中州派紫微斗数初级讲义,五,年限推断法,丙 流日流时的推断,221,223,temporal,inventory,0,0,0,
+ZZ-INIT-018,SRC-ZZ-001,中州派紫微斗数初级讲义,后记,后记,后记,224,225,methodology,inventory,0,0,0,含天地人盘说明
+
+ZZ-UP-001,SRC-ZZ-002,中州派紫微斗数深造讲义（上）,上篇星曜论,序论,序论,1,3,methodology,reviewed,0,0,0,已用于Paper1认识论边界
+ZZ-UP-002,SRC-ZZ-002,中州派紫微斗数深造讲义（上）,上篇星曜论,前言,星曜论方法,4,4,methodology,reviewed,0,0,0,星曜→星系→宫垣方法；加强削弱转化原则
+ZZ-UP-003,SRC-ZZ-002,中州派紫微斗数深造讲义（上）,上篇星曜论,十四正曜,十四正曜总区,5,32,star_core,partial,200,0,0,当前200条为建模样本；KB-WP02将逐星全文抽取
+ZZ-UP-004,SRC-ZZ-002,中州派紫微斗数深造讲义（上）,上篇星曜论,六十星系,六十星系总区,33,164,star_system,partial,60,0,0,已有60索引/principal mode；KB-WP03全文抽取
+ZZ-UP-005,SRC-ZZ-002,中州派紫微斗数深造讲义（上）,上篇星曜论,辅佐煞曜总论,前言,165,165,modifier,partial,0,0,0,已用于operator架构
+ZZ-UP-006,SRC-ZZ-002,中州派紫微斗数深造讲义（上）,上篇星曜论,辅佐八曜,魁钺辅弼昌曲禄存天马,165,171,modifier,not_started,0,0,0,
+ZZ-UP-007,SRC-ZZ-002,中州派紫微斗数深造讲义（上）,上篇星曜论,煞曜,煞曜,172,175,modifier,not_started,0,0,0,
+ZZ-UP-008,SRC-ZZ-002,中州派紫微斗数深造讲义（上）,上篇星曜论,化曜,化禄化权化科化忌,176,232,modifier,not_started,0,0,0,
+ZZ-UP-009,SRC-ZZ-002,中州派紫微斗数深造讲义（上）,上篇星曜论,杂曜总论,杂曜,233,239,minor_star,not_started,0,0,0,
+ZZ-UP-010,SRC-ZZ-002,中州派紫微斗数深造讲义（上）,上篇星曜论,流曜总论,流曜,240,240,temporal_modifier,not_started,0,0,0,
+ZZ-UP-011,SRC-ZZ-002,中州派紫微斗数深造讲义（上）,上篇星曜论,星曜庙陷,庙旺落陷,241,246,dignity,not_started,0,0,0,含生时星曜庙陷表
+
+ZZ-DN-001,SRC-ZZ-003,中州派紫微斗数深造讲义（下）,下篇宫垣论,前言,宫垣方法论,2,2,palace_method,reviewed,0,3,0,已用于G5结构与内部重构
 ZZ-DN-002,SRC-ZZ-003,中州派紫微斗数深造讲义（下）,下篇宫垣论,命宫,命宫,3,23,palace_projection,not_started,0,0,0,
 ZZ-DN-003,SRC-ZZ-003,中州派紫微斗数深造讲义（下）,下篇宫垣论,兄弟宫,兄弟宫,24,31,palace_projection,not_started,0,0,0,
 ZZ-DN-004,SRC-ZZ-003,中州派紫微斗数深造讲义（下）,下篇宫垣论,夫妻宫,夫妻宫,32,50,palace_projection,not_started,0,0,0,
 ZZ-DN-005,SRC-ZZ-003,中州派紫微斗数深造讲义（下）,下篇宫垣论,子女宫,子女宫,51,67,palace_projection,not_started,0,0,0,
 ZZ-DN-006,SRC-ZZ-003,中州派紫微斗数深造讲义（下）,下篇宫垣论,财帛宫,财帛宫,68,90,palace_projection,not_started,0,0,0,
-ZZ-DN-007,SRC-ZZ-003,中州派紫微斗数深造讲义（下）,下篇宫垣论,疾厄宫,疾厄宫,91,106,palace_projection,not_started,0,0,0,
+ZZ-DN-007,SRC-ZZ-003,中州派紫微斗数深造讲义（下）,下篇宫垣论,疾厄宫,疾厄宫,91,106,palace_projection,not_started,0,0,0,疾厄章结构与其他宫不同：以疾病为纲
 ZZ-DN-008,SRC-ZZ-003,中州派紫微斗数深造讲义（下）,下篇宫垣论,迁移宫,迁移宫,107,118,palace_projection,not_started,0,0,0,
 ZZ-DN-009,SRC-ZZ-003,中州派紫微斗数深造讲义（下）,下篇宫垣论,交友宫,交友宫/奴仆宫,119,128,palace_projection,not_started,0,0,0,
 ZZ-DN-010,SRC-ZZ-003,中州派紫微斗数深造讲义（下）,下篇宫垣论,事业宫,事业宫/官禄宫,129,152,palace_projection,not_started,0,0,0,
 ZZ-DN-011,SRC-ZZ-003,中州派紫微斗数深造讲义（下）,下篇宫垣论,田宅宫,田宅宫,153,162,palace_projection,not_started,0,0,0,
 ZZ-DN-012,SRC-ZZ-003,中州派紫微斗数深造讲义（下）,下篇宫垣论,福德宫,福德宫,163,173,palace_projection,not_started,0,0,0,
-ZZ-DN-013,SRC-ZZ-003,中州派紫微斗数深造讲义（下）,下篇宫垣论,父母宫,父母宫,174,,palace_projection,not_started,0,0,0,
+ZZ-DN-013,SRC-ZZ-003,中州派紫微斗数深造讲义（下）,下篇宫垣论,父母宫,父母宫,174,186,palace_projection,not_started,0,0,0,
