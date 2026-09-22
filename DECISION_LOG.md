@@ -50,6 +50,11 @@ All important conceptual decisions are recorded here.
 **Status:** FROZEN（结构与方法原则）；具体交互函数与候选维度 PROVISIONAL  
 **Approved at:** G4
 
+### D-011 — G5 状态空间与结构能观性架构批准
+**Decision:** 批准 Paper 1 主模型采用“固定原局本质 + 时序外生输入 + 状态依赖反应”；十二宫采用局部节点 + 全局稀疏图；外生时序输入、人类行为输入、外部扰动分开；气→象→事分层；Paper 1 只做结构能观性/潜在不可辨识审计；递归动力学、observer、controllability、optimal control 只作为未来接口；QI-16 暂不升格，QI-17 保持高优先候选。  
+**Status:** FROZEN（Paper-1 核心架构）；连续参数与递归扩展 PROVISIONAL  
+**Approved at:** G5
+
 ## Pending decisions
 
 ### P-001 — Candidate qi ontology dimensionality
@@ -59,7 +64,7 @@ The 100-rule pilot is complete. Next step is to propose Qi Ontology v0.1 for G2.
 Candidates: 5D simplex/vector + directed generation/control relations; graph-algebra representation.
 
 ### P-003 — Palace state organization
-Candidates: 12 local latent states vs global latent state with palace projection operators.
+**Resolved at G5:** 采用 12 个局部宫位本质 + 全局稀疏图。
 
 ### P-004 — First formal state equation
 Candidate:
@@ -67,4 +72,19 @@ Candidate:
 Need ontology and star-system extraction before choosing decomposition.
 
 ### P-005 — Structural observability criterion
-To define after observation/projection schema exists.
+**Resolved at G5:** Paper 1 使用结构通路与可区分性审计，不计算经典数值 observability rank。
+
+### P-006 — Modifier operator order
+算子是否交换、作用顺序、饱和形式仍开放，待更完整规则或数据。
+
+### P-007 — QI-17 persistence/resilience
+保持高优先观察候选，暂不升格。
+
+### P-008 — Star-system mode representation
+连续/离散/概率混合形式留待后续数据决定。
+
+### P-009 — Parameter identifiability
+Paper 2 需要处理 star-core / Delta / modifier / projection 参数混淆。
+
+### P-010 — Recursive dynamics necessity
+是否需要 x_(t+1) 递归状态由纵向命例数据检验。
