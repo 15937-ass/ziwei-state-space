@@ -1,9 +1,9 @@
 {
-  "version": "0.2",
+  "version": "0.3",
   "domain": "中州派六十星系全文规则库",
   "source": "SRC-ZZ-002",
   "source_pages": "印刷页33-164（六十星系章）",
-  "total_rules": 2178,
+  "total_rules": 2193,
   "systems": 60,
   "groups": 6,
   "rules_per_group": {
@@ -11,38 +11,51 @@
     "G2_11-20": 332,
     "G3_21-32": 365,
     "G4_33-42": 369,
-    "G5_43-52": 422,
+    "G5_43-52": 437,
     "G6_53-60": 376
   },
   "principal_modes": 60,
+  "required_field_missing": 0,
+  "duplicate_rule_ids": 0,
+  "coverage_matrix_mismatches": 0,
   "interaction_roles": {
-    "temporal_reaction": 1005,
+    "temporal_reaction": 1015,
     "mode_modifier": 351,
     "cross_system_interaction": 364,
     "mode_definition": 234,
     "base_composition": 65,
     "palace_projection": 43,
     "context_gate": 31,
-    "case_evidence": 76,
+    "case_evidence": 81,
     "interaction": 8,
     "mode_switch": 1
   },
   "delta_status": {
-    "mode_level": 1644,
+    "mode_level": 1649,
     "projection_only": 85,
     "interaction_candidate": 89,
     "composition_explained": 2,
-    "interaction_delta": 217,
-    "case_level": 141
+    "interaction_delta": 219,
+    "case_level": 149
   },
-  "required_field_missing": 0,
-  "duplicate_rule_ids": 0,
-  "all_source_epistemic_explicit": true,
-  "all_status_reviewed": true,
-  "canonical_mode_rows": 60,
-  "open_conflicts": 0,
-  "resolved_conflicts": 1,
-  "coverage_reviewed": 60,
-  "coverage_complete": 0,
-  "important_boundary": "REVIEWED表示六十星系章原子规则抽取、source-grounded校核与全局一致性审计完成；COMPLETE仍需KB-WP06教材案例回归挂接及KB-WP07推演引擎端到端验证。"
+  "valence": {
+    "not_applicable": 230,
+    "context_dependent": 632,
+    "favorable": 580,
+    "unfavorable": 750,
+    "mixed": 1
+  },
+  "epistemic_type_source": {
+    "EXPLICIT": 2193
+  },
+  "statuses": {
+    "reviewed": 2193
+  },
+  "canonical_files": [
+    "knowledge/rules/systems/sixty_systems_canonical_v0.1.csv",
+    "knowledge/sixty_system_modes_v0.1.yaml"
+  ],
+  "status": "EXTRACTION_COMPLETE_VALIDATION_PENDING",
+  "complete_definition": "六十星系章特殊反应规则全文抽取、schema审计、principal mode索引与canonical合并完成；尚未完成KB-WP06案例回归及KB-WP07推演引擎端到端验证，因此不称推演系统COMPLETE。",
+  "note": "系统48-52于2026-09-22重新对照印刷页133-144逐段复核，补录15条遗漏规则。"
 }
