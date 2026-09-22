@@ -1,4 +1,4 @@
-# State-Space Model — Draft 0.3（G5 候选）
+# State-Space Model — v0.3（G5 已批准）
 
 ## 1. 目标
 
@@ -640,3 +640,14 @@ Paper 1 不做：
 - 最优趋吉避凶控制器；
 - 因果政策推荐；
 - 把“气”当成实证物理能量。
+
+
+---
+
+## 19. G5 approval record
+
+**Status:** APPROVED by PI at G5.
+
+冻结范围：主模型、十二宫局部节点+稀疏图、输入类型分离、气→象→事分层、结构能观性/可辨识性审计边界，以及 observer/controllability 仅作为未来接口。
+
+具体连续参数、递归动力学真实性、QI-17 是否升格等仍保持开放。
