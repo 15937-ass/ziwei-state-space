@@ -55,6 +55,17 @@ All important conceptual decisions are recorded here.
 **Status:** FROZEN（Paper-1 核心架构）；连续参数与递归扩展 PROVISIONAL  
 **Approved at:** G5
 
+### D-012 — G6 论文结论与认识论边界批准
+**Decision:** 批准 Paper 1 的最终认识论边界：只主张中州派知识在当前语料范围内可被形式化为可执行、可审计、可追溯的层级潜状态系统；内部形式化验证不等于现实预测验证；“气”仅作操作性潜状态；现代控制/灰箱/hybrid/observer 等属于形式化工具或未来研究接口；不把预测准确或证明命理有效列为本文贡献。  
+**Status:** FROZEN（Paper-1 结论与表述边界）  
+**Approved at:** G6
+
+### D-013 — Phase II 中州派完整知识库扩展
+**Decision:** 在不改变 G1–G6 已冻结 Paper-1 架构的前提下，启动“中州派知识库工程”：对初级讲义、深造讲义上/下册及可合法使用的中州派补充材料进行更完整的规则抽取、条件归一化、跨章冲突审计、案例关联与可生成推演规则构建。知识库的“完整”定义为：源文规则覆盖 + 生成规则覆盖 + 案例/例证覆盖，而不是穷举所有理论组合。  
+**Status:** ACTIVE PHASE-II PROGRAM  
+**Rationale:** 六十星系原文明确指出，若逐一枚举星系×十二宫×辅佐煞化等组合将爆炸式增长，因此完整知识库必须采用“原子规则 + 条件算子 + 生成式组合 + provenance”的架构。  
+**Approved after:** G6
+
 ## Pending decisions
 
 ### P-001 — Candidate qi ontology dimensionality
