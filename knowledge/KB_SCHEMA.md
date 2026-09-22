@@ -14,6 +14,49 @@
 - `source_case_ids`
 - `coverage_unit_id`
 
+### 1.1 Controlled vocabularies
+
+Phase-II rule files must use the following controlled values.
+
+**target_type**
+- `qi_state`
+- `relational_state`
+- `structural_relation`
+- `outcome_descriptor`
+
+**operator**
+- `define`: establish identity/taxonomy
+- `assert`: source states a property without directional modification
+- `condition`: scope/condition constraint
+- `enhance`: increase/strengthen an existing property
+- `weaken`: decrease/attenuate an existing property
+- `transform`: qualitatively change one property/mode into another
+- `inhibit`: suppress activation without necessarily decreasing the underlying baseline
+- `activate`: trigger a dormant/conditional property
+- `compare`: source-grounded ordering or contrast
+- `project`: map latent/relational state to an L3 semantic output
+- `gate`: a condition determines whether another operator/mechanism is active
+- `couple`: two or more states/operators interact without assuming additivity
+
+**state_change**
+- `none`
+- `increase`
+- `decrease`
+- `transform`
+- `nonlinear`
+
+**valence**
+- `favorable`
+- `unfavorable`
+- `context_dependent`
+- `not_applicable`
+
+Any new controlled value requires schema revision and must not silently appear in a CSV.
+
+### 1.2 Source-language boundary
+
+`evidence_text` in the GitHub knowledge base is a concise paraphrase/near-source note for traceability, not a wholesale reproduction of copyrighted source text. Full source PDFs remain outside the repository.
+
 ## 2. Coverage unit
 
 用于判断“有没有抽完”：
