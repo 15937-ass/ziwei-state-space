@@ -1,0 +1,32 @@
+task_id: WP04
+name: 化曜与杂曜算子库构建
+status: active
+
+pipeline:
+  - A1_extract
+  - A4_validate
+  - A2_normalize
+  - A6_report
+
+scope:
+  primary_source:
+    - 中州派紫微斗数深造讲义
+  target:
+    - 化禄
+    - 化权
+    - 化科
+    - 化忌
+    - 中州派实际使用杂曜
+
+output:
+  draft:
+    - knowledge/operators/transformation_v0.1.csv
+    - knowledge/operators/misc_stars_v0.1.csv
+  validation:
+    - validation/WP04_review_report.md
+
+human_gate:
+  trigger:
+    - primitive_qi_change
+    - operator_definition_change
+    - unresolved_source_conflict
