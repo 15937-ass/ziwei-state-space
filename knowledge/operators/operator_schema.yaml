@@ -1,0 +1,44 @@
+version: 0.1
+status: draft
+
+# Modifier operator schema
+# Used by WP04 transformation and miscellaneous star libraries
+
+fields:
+  operator_id:
+    type: string
+  source_work:
+    type: string
+  source_location:
+    type: string
+  subject:
+    description: star or modifier receiving the operation
+  condition:
+    description: triggering condition
+  operator_type:
+    allowed:
+      - enhance
+      - weaken
+      - transform
+      - inhibit
+      - activate
+      - conditional
+  target_dimension:
+    description: latent dimension affected; must not directly be an event label
+  direction:
+    allowed:
+      - positive
+      - negative
+      - mixed
+      - nonlinear
+      - unknown
+  epistemic_type:
+    allowed:
+      - EXPLICIT
+      - INFERRED
+      - HYPOTHESIS
+      - IMPLEMENTATION
+  evidence_text:
+    type: string
+  confidence:
+    type: string
