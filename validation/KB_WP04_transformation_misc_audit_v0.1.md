@@ -7,13 +7,13 @@
 ## 1. 本批实际产物
 
 - 四化规则：56 条
-- 杂曜规则：50 条
-- 本批新增合计：106 条
+- 杂曜规则：73 条
+- 四化+杂曜新增合计：129 条
 - 四化：56/56 标记为 `EXPLICIT`
-- 杂曜：49 条 `EXPLICIT`，1 条 `INFERRED`
-- 规则状态：106/106 = `reviewed`
-- Source ID：106/106 完整
-- Source location：106/106 完整
+- 杂曜：72 条 `EXPLICIT`，1 条 `INFERRED`
+- 四化+杂曜规则状态：129/129 = `reviewed`
+- 四化+杂曜 Source ID：129/129 完整
+- 四化+杂曜 Source location：129/129 完整
 - 无连续经验权重
 - 无新增 primitive qi
 - 无河洛、钦天、华山等外派规则混入
@@ -121,3 +121,37 @@ School conflict：NO
 2. 对 60 星系规则反向索引四化/杂曜条件，补齐“system-specific operator edges”；
 3. 去重并建立 modifier -> affected state/system 的索引；
 4. 更新 WP04 coverage 指标。
+
+
+## 7. 六十星系反向覆盖审计（追加）
+
+已对 2193 条六十星系规则执行 modifier trigger 反向扫描，并生成：
+
+- `knowledge/operators/system_operator_edges_v0.1.csv`
+- 识别 654 条四化/杂曜相关 system-specific operator edges
+- 覆盖 60/60 星系
+- 高频触发：化忌 309、化禄 223、化权 95、化科 83
+- 已建立 `knowledge/coverage/wp04_system_edge_coverage_v0.1.csv`
+
+同时对 62 个候选小星/阶段标记执行 usage inventory：
+- 31 个在六十星系规则中实际出现；
+- 经补充抽取后，这 31 个均已在当前 operator catalogs 中获得表示；
+- `wp04_misc_gap_analysis_v0.1.csv` 当前剩余 gap = 0。
+
+注意：这里的“gap=0”仅表示**已扫描候选集合中、实际被60星系调用的 modifier 均已有 catalog representation**，不等同于宣布整本上册所有杂曜语义已经穷尽。
+
+## 8. 当前全 operator 库指标（追加）
+
+四个基础 catalog 合计：
+- 辅佐八曜：103
+- 六煞：81
+- 四化：56
+- 杂曜/阶段：73
+- 总计：313 条 reviewed operator rules
+- EXPLICIT：312
+- INFERRED：1
+- unique modifier expressions：188
+
+另有六十星系派生 operator edges：654 条。
+
+**Human Gate：仍未触发。**
