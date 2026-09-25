@@ -99,3 +99,8 @@ Paper 2 需要处理 star-core / Delta / modifier / projection 参数混淆。
 
 ### P-010 — Recursive dynamics necessity
 是否需要 x_(t+1) 递归状态由纵向命例数据检验。
+
+### D-014 — Gate A0 去污染与双层认识论审计
+**Decision:** 批准 source_epistemic 与 normalization_epistemic 分离；批准 review_status 四级化（MODEL_EXTRACTED / MODEL_SELF_REVIEWED / SOURCE_SPAN_VERIFIED / HUMAN_VERIFIED）；历史仅由 GPT 生成并自审的 reviewed 默认迁移为 MODEL_SELF_REVIEWED；批准 L1/L2 状态算子与 L3 projection 重新分层；批准 deterministic linter 作为进入 main 的强制 schema gate。  
+**Status:** FROZEN（审计与质量控制原则）；具体规则语义修订仍须 source-span 复核  
+**Approved at:** Gate A0
