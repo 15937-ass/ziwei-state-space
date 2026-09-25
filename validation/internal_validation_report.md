@@ -1,3 +1,6 @@
+> **HISTORICAL REPORT / SUPERSEDED FOR CURRENT CORPUS STATUS**  
+> 本报告记录的是早期 200 条规则阶段的 Paper-1 内部验证，不代表当前 430 条十四正曜 + 2193 条六十星系 + operator corpus 的最新质量状态。当前审计基线见 `validation/decontamination/A0_POST_APPROVAL_EXECUTION.md` 与后续 A1 backward audit。
+
 # Paper 1 内部验证报告 v0.1
 
 ## 1. 目的
