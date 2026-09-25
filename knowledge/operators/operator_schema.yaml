@@ -1,4 +1,4 @@
-version: 0.2
+version: 0.3
 status: active
 
 # Modifier operator schema
@@ -52,12 +52,42 @@ fields:
       - nonlinear
       - unknown
       - not_applicable
-  epistemic_type:
+  source_epistemic:
     allowed:
       - EXPLICIT
+      - INFERRED_FROM_SOURCE
+      - UNRESOLVED_SOURCE
+  normalization_epistemic:
+    allowed:
+      - SOURCE_PRESERVING
       - INFERRED
-      - HYPOTHESIS
       - IMPLEMENTATION
+      - HYPOTHESIS
+      - UNRESOLVED
+  review_status:
+    allowed:
+      - MODEL_EXTRACTED
+      - MODEL_SELF_REVIEWED
+      - SOURCE_SPAN_VERIFIED
+      - HUMAN_VERIFIED
+  reviewer_type:
+    type: string
+  reviewer_id:
+    type: string
+  reviewed_at:
+    type: string
+  source_span_verified:
+    allowed:
+      - "true"
+      - "false"
+  normalization_verified:
+    allowed:
+      - "true"
+      - "false"
+  normalization_rationale:
+    type: string
+  epistemic_type:
+    description: "legacy compatibility field; do not use as v0.3 verification proof"
   evidence_text:
     type: string
   confidence:
