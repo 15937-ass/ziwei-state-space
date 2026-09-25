@@ -1,8 +1,10 @@
-version: 0.1
-status: draft
+version: 0.2
+status: active
 
 # Modifier operator schema
-# Used by WP04 transformation and miscellaneous star libraries
+# Engineering normalization for WP04 operator catalogs.
+# This update does not change the frozen qi ontology; it aligns the enum
+# with operator classes already used by reviewed auxiliary/malefic rules.
 
 fields:
   operator_id:
@@ -12,7 +14,7 @@ fields:
   source_location:
     type: string
   subject:
-    description: star or modifier receiving the operation
+    description: star, star-system, modifier, or contextual structure receiving the operation
   condition:
     description: triggering condition
   operator_type:
@@ -23,8 +25,25 @@ fields:
       - inhibit
       - activate
       - conditional
+      - projection
+      - structural_relation
+      - pair_interaction
+      - gate
+    semantics:
+      enhance: "increase or strengthen an existing state/component"
+      weaken: "decrease or attenuate an existing state/component"
+      transform: "change mode/direction rather than merely scale magnitude"
+      inhibit: "suppress activation or transition"
+      activate: "trigger or raise activation of a state/path"
+      conditional: "effect branches on context and cannot be assigned a single direction"
+      projection: "map an internal/system state to a palace or observable semantic output"
+      structural_relation: "define a relation/taxonomy/pairing rather than a state increment"
+      pair_interaction: "interaction term requiring two or more modifiers"
+      gate: "condition that enables, blocks, or attenuates another effect"
   target_dimension:
-    description: latent dimension affected; must not directly be an event label
+    description: >
+      latent dimension, local/system state, relation state, or L3 projection affected.
+      Downstream event labels must be explicitly marked as projection rather than primitive qi.
   direction:
     allowed:
       - positive
@@ -32,6 +51,7 @@ fields:
       - mixed
       - nonlinear
       - unknown
+      - not_applicable
   epistemic_type:
     allowed:
       - EXPLICIT
@@ -42,3 +62,10 @@ fields:
     type: string
   confidence:
     type: string
+
+normalization_rules:
+  - "No operator is globally favorable/unfavorable independent of subject and context."
+  - "化禄/化权/化科/化忌 are not assigned universal scalar gains."
+  - "A source-stated outcome may be retained as L3 projection but must not be promoted to primitive qi."
+  - "Subject-specific states may be used provisionally without changing G2 ontology."
+  - "New primitive qi requires a human gate; local/system states do not."
