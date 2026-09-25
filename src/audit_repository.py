@@ -251,11 +251,11 @@ def effective_sixty_system_rows(root: Path) -> tuple[list[dict[str, str]], list[
             ))
             continue
         row = raw_by_id[rule_id]
-        if field != "target_type":
+        if field not in {"target_type", "operator", "state_change", "valence"}:
             findings.append(Finding(
                 "P0", "override_sidecar", str(SYSTEM_OVERRIDES), rule_id, field,
                 patch.get("new_value", ""), row.get("source_location", ""),
-                "A0 override currently permits target_type only.",
+                "A0 override field is not a controlled rule-schema field.",
             ))
             continue
         if row.get(field, "") != patch.get("old_value", ""):
