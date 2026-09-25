@@ -1,4 +1,4 @@
-# Zhongzhou Knowledge Base Schema v0.1
+# Zhongzhou Knowledge Base Schema v0.3
 
 ## 1. Rule object
 
@@ -150,7 +150,25 @@ outputs:
   - unresolved_conflicts
 ~~~
 
-## 7. Epistemic requirements
+## 7. Epistemic and review requirements
+
+Phase-II canonical/operator artifacts must additionally carry the v0.3 audit fields:
+
+- `source_epistemic`: EXPLICIT | INFERRED_FROM_SOURCE | UNRESOLVED_SOURCE
+- `normalization_epistemic`: SOURCE_PRESERVING | INFERRED | IMPLEMENTATION | HYPOTHESIS | UNRESOLVED
+- `review_status`: MODEL_EXTRACTED | MODEL_SELF_REVIEWED | SOURCE_SPAN_VERIFIED | HUMAN_VERIFIED
+- `reviewer_type`
+- `reviewer_id`
+- `reviewed_at`
+- `source_span_verified`: true | false
+- `normalization_verified`: true | false
+- `normalization_rationale`
+
+Legacy `epistemic_type_source` / `epistemic_type` and `status` fields may be retained temporarily for backwards compatibility, but they must not be interpreted as v0.3 source-span or human verification.
+
+See `knowledge/REVIEW_SCHEMA_v0.3.md`.
+
+## 8. Inference requirements
 
 每个 inference conclusion 必须输出：
 
