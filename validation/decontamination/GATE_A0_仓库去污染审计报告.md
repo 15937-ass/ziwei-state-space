@@ -1,8 +1,8 @@
 # Gate A0：仓库去污染审计报告
 
-审计分支：`audit/decontamination-p0`  
+审计分支：`audit/decontamination-p0-v2`  
 基线：`main` at A0 branch creation  
-状态：**P0 AUDIT ACTIVE / NO THEORY REWRITE YET**
+状态：**GATE A0 APPROVED / P0 SCHEMA REPAIR COMPLETE IN EFFECTIVE v0.3 VIEW**
 
 ## 一、审计目的
 
@@ -35,7 +35,7 @@ A0 对 main 中以下 canonical / operator 文件做了确定性扫描：
 
 ## 三、P0：已确认的硬性 schema 违规
 
-当前共发现 **60 条 deterministic P0 违规**。
+最终确认 **61 条 deterministic P0 违规**。
 
 详细记录：
 
@@ -65,7 +65,13 @@ A0 对 main 中以下 canonical / operator 文件做了确定性扫描：
 - ZZ-SYS-57-052
 - ZZ-SYS-60-035
 
-### 3.2 六煞 operator_type 越界：1 条
+### 3.2 六十星系 valence 越界：1 条
+
+`ZZ-SYS-22-006` 使用 `valence=mixed`，但 v0.1 controlled vocabulary 只允许 favorable / unfavorable / context_dependent / not_applicable。
+
+A0 采用非破坏式 override：`mixed -> context_dependent`，并将该修复标记为 `normalization_epistemic=IMPLEMENTATION`，不改变源文 literal claim。
+
+### 3.3 六煞 operator_type 越界：1 条
 
 `knowledge/operators/operator_schema.yaml` 当前不允许：
 
@@ -147,7 +153,7 @@ A0 已新增提案：
 
 只有 condition 同时出现至少两类复合标记时，才进入高风险列表。
 
-当前发现 **44 条高风险 atomicity candidates**。
+当前统一 heuristic 下发现 **39 条高风险 atomicity candidates**。
 
 例：
 
@@ -173,7 +179,7 @@ condition 同时压入多组独立组合：
 
 注意：
 
-> 44 是“严格筛查后的高风险候选”，不是已经判定错误的数量。
+> 39 是统一 heuristic 下的高风险候选，不是已经判定错误的数量。
 
 此前宽松关键词筛查得到的数量更高，A0 不把宽松数字作为正式 Gate 指标。
 
@@ -277,7 +283,7 @@ A0 分支目前只新增审计工具和审计材料，不删除、不重写 cano
    - 对 P0/P1 audit logic 建立回归测试
 
 3. `validation/decontamination/A0_hard_schema_violations.csv`
-   - 当前 60 条硬性违规
+   - 当前 61 条硬性违规
 
 4. `validation/decontamination/A0_epistemic_review_schema_v0.3_PROPOSAL.md`
    - source / normalization epistemic 拆分
@@ -297,7 +303,7 @@ A0 分支目前只新增审计工具和审计材料，不删除、不重写 cano
 
 ~~~text
 A0 approval
--> 修复 60 条 P0 schema violation
+-> 修复 61 条 P0 schema violation
 -> 全库 review-status migration
 -> epistemic 双层迁移
 -> P1 高风险 source-span 分批回查
