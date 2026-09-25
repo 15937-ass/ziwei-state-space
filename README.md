@@ -52,7 +52,7 @@ Only the former is in scope for Paper 1.
 - `tests/` — automated tests
 - `paper/` — manuscript materials
 
-## Current phase
+## Current phase: **Phase II knowledge-base construction + A0 decontamination / backward ontology audit**
 
 **Phase 0 — research protocol and schema design.**
 
