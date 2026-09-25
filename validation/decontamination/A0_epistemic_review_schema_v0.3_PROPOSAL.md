@@ -1,6 +1,6 @@
 # Epistemic / Review Schema v0.3 — 去污染提案
 
-状态：**PROPOSAL ONLY / NOT FROZEN**  
+状态：**APPROVED AT GATE A0 / SUPERSEDED BY knowledge/REVIEW_SCHEMA_v0.3.md**  
 用途：A0 去污染审计后的 schema 修复候选。  
 本文件不修改 G1–G6 已冻结的理论结论；是否正式采用，须经 A0 人工 Gate。
 
