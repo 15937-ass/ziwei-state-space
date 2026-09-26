@@ -1,6 +1,7 @@
 from src.rule_engine import (
     Rule,
     load_rules,
+    apply_layer_split_plan,
     query_rules,
     semantic_state_changes,
     trace,
@@ -108,3 +109,25 @@ def test_verified_query_filter():
     verified = Rule(**{**verified.__dict__, "source_span_verified": True})
     unverified = sample_rule()
     assert query_rules([verified, unverified], require_source_verified=True) == [verified]
+
+
+def test_layer_split_plan_replaces_parent_with_effective_children(tmp_path):
+    parent = sample_rule()
+    plan = tmp_path / "split.csv"
+    plan.write_text(
+        "parent_rule_id,child_rule_id,target_type,target_normalized,operator,state_change,valence,"
+        "condition_refinement,source_epistemic,normalization_epistemic,review_status,"
+        "source_span_verified,normalization_verified\n"
+        "ZZ-TY-002,ZZ-TY-002-A,qi_state,state-a,enhance,increase,context_dependent,"
+        "branch-a,EXPLICIT,INFERRED,SOURCE_SPAN_VERIFIED,true,false\n"
+        "ZZ-TY-002,ZZ-TY-002-B,outcome_descriptor,out-b,project,none,favorable,"
+        "branch-b,EXPLICIT,IMPLEMENTATION,SOURCE_SPAN_VERIFIED,true,false\n",
+        encoding="utf-8",
+    )
+
+    effective = apply_layer_split_plan([parent], plan)
+    assert [r.rule_id for r in effective] == ["ZZ-TY-002-A", "ZZ-TY-002-B"]
+    assert all(r.parent_rule_id == "ZZ-TY-002" for r in effective)
+    assert effective[1].operator == "project"
+    assert "branch:branch-b" in effective[1].condition
+    assert trace(effective[0])["parent_rule_id"] == "ZZ-TY-002"
