@@ -1,4 +1,4 @@
-# State-Space Model — v0.3（G5 已批准）
+# State-Space Model — v0.4（G5 核心架构 + Gate A1 术语/本体修订）
 
 ## 1. 目标
 
@@ -18,7 +18,7 @@
 
 ~~~text
 L0 结构底座：阴阳、五行、星系/宫位图结构
-L1 内在气机：QI-01 ... QI-15（可受控修订）
+L1 内在气机：QI-01 ... QI-16（QI-17/18 仍为候选）
 L2 关系网络：QR-01 ... QR-04
 L3 场景投影：十二宫语义域与可观察结果
 L4 评价层：吉凶、适配、中和、风险
@@ -377,13 +377,17 @@ G_t = G_0 + G_temporal(t)
 
 ---
 
-## 11. Structural Observability：第一篇只做结构能观性
+## 11. Observation-path support：只做观测通路支持审计
 
-由于没有拟合出的 A/C 矩阵，Paper 1 不计算经典 LTI 数值能观性矩阵。
+Gate A1 明确修正术语：
 
-改用**结构能观性/可区分性**审计。
+> 当前模型没有建立经典控制理论意义上足以判定 structural observability 的状态—输出结构条件。
 
-### 11.1 观测通路定义
+因此 Paper 1 不再把“独立观测路径数量”称为 structural observability，而称为：
+
+`ObservationPathSupport`
+
+### 11.1 通路定义
 
 对每个候选状态 `q_i`，检查是否存在：
 
@@ -391,53 +395,48 @@ G_t = G_0 + G_temporal(t)
 q_i
  -> star/star-system state
  -> palace reaction
- -> palace projection
- -> observable semantic/output class
+ -> palace/context projection
+ -> semantic/output class
 ~~~
 
-若不存在任何路径，则标记：
+仅用于回答：
+
+- 当前形式化语料中是否存在直接输出通路；
+- 是否只有单一路径；
+- 是否存在多条相对独立路径；
+- 是否只是由其他状态派生。
+
+建议分类：
 
 ~~~text
-UNOBSERVABLE_IN_CURRENT_MODEL
+MULTI_PATH_SUPPORTED
+SINGLE_PATH_SUPPORTED
+NO_DIRECT_PATH
+DERIVED_ONLY
 ~~~
 
-### 11.2 结构不可区分
+### 11.2 这不等于经典结构能观性
 
-若两个状态 `q_i,q_j` 在所有已定义星曜、星系、宫位投影中：
-- 始终共同变化；
-- 始终进入相同输出；
-- 从无规则将其分别激活；
+不得由上述分类推出：
 
-则标记：
+- observability matrix 满秩；
+- generic rank 条件成立；
+- graph matching 条件成立；
+- 潜状态可由有限观测唯一重构。
 
-~~~text
-STRUCTURALLY_INDISTINGUISHABLE
-~~~
+只有后续真正建立明确的状态—输出结构图、输出映射和相应 generic-rank / matching 条件后，才恢复使用 `structural observability` 一词。
 
-需要：
-- 合并；
-- 增加新的观测；
-- 或等待更多源文/数据。
+### 11.3 冗余/可区分性仍需检查
 
-### 11.3 部分可观
+A1 后继续重点检查：
 
-若状态只在少数宫位/星系中具有独立输出通路，则标记：
-
-~~~text
-PARTIALLY_OBSERVABLE
-~~~
-
-### 11.4 当前高风险冗余对
-
-必须继续检查：
-
-- QI-01 发射—收敛 vs QI-14 遮蔽—显明；
+- QI-01 发射—收敛 vs QI-14 信息/状态遮蔽—显露；
 - QI-03 稳定—变动 vs QI-04 守成—开创；
 - QI-02 刚—柔 vs QI-15 缓冲/调和；
 - QI-08 行动驱动 vs QI-06 决策激活；
-- QR-01 关系整合—孤离 vs QR-04 支持资源；
-- QI-16 目标导向性候选 vs QI-04/QI-08；
-- QI-17 韧性候选 vs QI-06/QI-08。
+- QI-04/QI-08 vs QI-16 目标导向性；
+- QI-17-CAND 意志控制 vs QI-18-CAND 毅力/持续性；
+- QR-01 关系整合—孤离 vs QR-04 支持资源。
 
 ---
 
@@ -479,39 +478,53 @@ Paper 2 再做正式系统辨识。
 
 ---
 
-## 13. QI-16 / QI-17 的 G5 决策建议
+## 13. Gate A1 后的 QI-16 / QI-17 / QI-18 状态
 
 ### QI-16：目标导向性
 
-建议：**暂不升格**。
-
-目前可作为派生量：
+Gate A1 已批准正式升格为 L1：
 
 ~~~text
-goal_directedness = f(QI-04, QI-08, z_s)
+QI-16 = goal-directedness
 ~~~
 
-如果未来发现：
-- 存在独立规则只改变目标导向性；
-- 且有独立输出通路；
+定义为：
 
-再升格。
+> 行动、变化与资源投入具有明确目标、方向与建设性组织的程度。
 
-### QI-17：持续意志/韧性
-
-建议：**升为“观察中候选”，但不进入冻结核心向量**。
-
-理由：
-- 与行动驱动不同；
-- 与决策速度不同；
-- 跨多个六十星系重复出现；
-- 但当前单星层证据不足。
-
-状态：
+它与 QI-03 / QI-04 / QI-08 分开，因为：
 
 ~~~text
-DERIVED_STATE_CANDIDATE_HIGH_PRIORITY
+变化多 != 目标明确
+开创强 != 目标明确
+行动强 != 目标明确
 ~~~
+
+QI-16 不代表成功、吉凶或结果质量。
+
+### QI-17-CAND：意志控制强度
+
+继续为候选，不进入冻结核心向量：
+
+> 在欲望、情绪、诱因或环境压力下维持自主约束与方向的能力。
+
+### QI-18-CAND：毅力/持续性
+
+继续为候选，不进入冻结核心向量：
+
+> 在时间、阻力、延迟或重复挫折下维持行动的持续程度。
+
+A1 的关键依据是源文明确区分“意志强弱”与“毅力”，因此不得再合并为一个“持续意志/韧性”。
+
+### 恢复力/韧性
+
+当前只保留为：
+
+~~~text
+DERIVED_SYSTEM_PROPERTY
+~~~
+
+不作为 primitive qi。后续如有独立规则与独立输出通路，再重新审议。
 
 ---
 
@@ -622,9 +635,9 @@ y_t = H_phi(x_t,E,z_t,c_t) + v_t
 5. 修正曜作为条件算子；
 6. 宫位作为场景投影算子；
 7. 气->象->事分层；
-8. Paper 1 只做结构能观性/可区分性，不做数值能观性矩阵；
+8. Paper 1 只做 observation-path support / 可区分性启发式审计，不声称经典 structural observability；
 9. Paper 1 只做参数角色/潜在不可辨识审计，不做连续系统辨识；
-10. QI-16 暂不升格，QI-17 维持高优先观察候选；
+10. QI-16 已于 A1 升格为 L1；QI-17-CAND 与 QI-18-CAND 保持候选，恢复力仅 derived；
 11. observer、controllability、optimal control 仅保留未来接口；
 12. 递归状态方程明确标记为后续 HYPOTHESIS，不作为中州派原文定律。
 
@@ -636,6 +649,7 @@ Paper 1 不做：
 - 命例参数拟合；
 - predictive validity 声明；
 - 数值可控性/能观性矩阵；
+- 在没有正式状态—输出结构条件时声称 structural observability；
 - Kalman filter 真实估计；
 - 最优趋吉避凶控制器；
 - 因果政策推荐；
