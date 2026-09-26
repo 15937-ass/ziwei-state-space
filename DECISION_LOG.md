@@ -104,3 +104,9 @@ Paper 2 需要处理 star-core / Delta / modifier / projection 参数混淆。
 **Decision:** 批准 source_epistemic 与 normalization_epistemic 分离；批准 review_status 四级化（MODEL_EXTRACTED / MODEL_SELF_REVIEWED / SOURCE_SPAN_VERIFIED / HUMAN_VERIFIED）；历史仅由 GPT 生成并自审的 reviewed 默认迁移为 MODEL_SELF_REVIEWED；批准 L1/L2 状态算子与 L3 projection 重新分层；批准 deterministic linter 作为进入 main 的强制 schema gate。  
 **Status:** FROZEN（审计与质量控制原则）；具体规则语义修订仍须 source-span 复核  
 **Approved at:** Gate A0
+
+
+### D-015 — Gate A1 全文反向本体审计批准
+**Decision:** 批准保留 G2 的 L0-L4 分层架构并以全文语料重新拟合具体 QI/QR evidence 与边界；批准 QI-16「目标导向性」正式升格为 L1 状态；否决原合并式 QI-17「持续意志/韧性」并拆为「意志控制」与「毅力/持续性」两个独立候选，恢复力暂留 derived/system-level；批准保留 QI-14 但收窄为「信息/状态遮蔽—显露」，与 QI-01 发射—收敛分离证据；批准 G3-R，以 direct-star > modifier > system-context 的优先级重拟合十四正曜气核，禁止为适配旧 ontology 强填气核；批准将当前路径计数式 structural observability 改称 observation-path support，严格结构能观性留待正式状态—输出结构图后。
+**Status:** FROZEN（A1 方法与边界）；QI-17/QI-18 候选是否升格仍 PROVISIONAL
+**Approved at:** Gate A1
