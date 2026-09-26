@@ -26,10 +26,10 @@ class ModifierEffect(str, Enum):
     COUPLE = "couple"
 
 
-class ObservabilityStatus(str, Enum):
-    STRUCTURALLY_OBSERVABLE = "STRUCTURALLY_OBSERVABLE"
-    PARTIALLY_OBSERVABLE = "PARTIALLY_OBSERVABLE"
-    STRUCTURALLY_AT_RISK = "STRUCTURALLY_AT_RISK"
+class ObservationPathSupport(str, Enum):
+    MULTI_PATH_SUPPORTED = "MULTI_PATH_SUPPORTED"
+    SINGLE_PATH_SUPPORTED = "SINGLE_PATH_SUPPORTED"
+    NO_DIRECT_PATH = "NO_DIRECT_PATH"
     DERIVED_ONLY = "DERIVED_ONLY"
 
 
@@ -182,15 +182,30 @@ class Paper1Model:
         )
 
 
-def classify_observability(
+def classify_observation_path_support(
     independent_paths: int,
     coupled_only: bool = False,
     derived_from_existing: bool = False,
-) -> ObservabilityStatus:
+) -> ObservationPathSupport:
+    """Heuristic source/output-path support audit.
+
+    This is intentionally NOT a structural-observability test in the
+    control-theoretic sense. It only records how many independent
+    source-to-output paths are currently represented in the symbolic model.
+    """
     if derived_from_existing:
-        return ObservabilityStatus.DERIVED_ONLY
+        return ObservationPathSupport.DERIVED_ONLY
     if independent_paths <= 0:
-        return ObservabilityStatus.STRUCTURALLY_AT_RISK
+        return ObservationPathSupport.NO_DIRECT_PATH
     if independent_paths == 1 or coupled_only:
-        return ObservabilityStatus.PARTIALLY_OBSERVABLE
-    return ObservabilityStatus.STRUCTURALLY_OBSERVABLE
+        return ObservationPathSupport.SINGLE_PATH_SUPPORTED
+    return ObservationPathSupport.MULTI_PATH_SUPPORTED
+
+
+def classify_observability(*args, **kwargs):
+    """Deprecated compatibility alias.
+
+    Kept temporarily so historical callers fail softly during A1 migration.
+    New code must use classify_observation_path_support().
+    """
+    return classify_observation_path_support(*args, **kwargs)
