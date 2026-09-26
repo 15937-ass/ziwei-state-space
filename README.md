@@ -52,8 +52,22 @@ Only the former is in scope for Paper 1.
 - `tests/` — automated tests
 - `paper/` — manuscript materials
 
-## Current phase: **Phase II knowledge-base construction + A0 decontamination / backward ontology audit**
+## Current phase: **Phase II knowledge-base construction + A1-approved ontology/core refit + P1 source/normalization audit**
 
-**Phase 0 — research protocol and schema design.**
 
 No continuous numerical weights should be invented before a later system-identification stage unless they are clearly marked as illustrative and excluded from empirical claims.
+
+
+### Current audit baseline
+
+Gate A0 closed deterministic schema drift; Gate A1 approved the full-corpus backward ontology audit.
+
+Current formal state:
+- QI ontology: v0.3
+- fourteen-star cores: G3-R v0.2
+- QI-16 goal-directedness: formal L1
+- QI-17/QI-18: separate provisional will-control / persistence candidates
+- structural-observability wording: replaced by observation-path support
+- raw canonical extraction remains provenance-preserving; semantic repairs use auditable sidecars
+
+See `validation/decontamination/A1_POST_APPROVAL_EXECUTION.md`.
