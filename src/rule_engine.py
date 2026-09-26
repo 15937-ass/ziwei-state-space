@@ -9,7 +9,7 @@ not executable by default.
 from __future__ import annotations
 
 import csv
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Dict, Iterable, List, Mapping, Optional, Sequence
 
@@ -37,6 +37,7 @@ class Rule:
     review_status: str = ""
     source_span_verified: bool = False
     normalization_verified: bool = False
+    parent_rule_id: str = ""
 
     @classmethod
     def from_row(cls, row: Mapping[str, str]) -> "Rule":
@@ -65,6 +66,7 @@ class Rule:
             review_status=row.get("review_status", ""),
             source_span_verified=as_bool(row.get("source_span_verified", "false")),
             normalization_verified=as_bool(row.get("normalization_verified", "false")),
+            parent_rule_id=row.get("parent_rule_id", ""),
         )
 
 
@@ -165,6 +167,60 @@ def load_rules(
     return rules
 
 
+
+def apply_layer_split_plan(
+    rules: Sequence[Rule],
+    split_plan_path: str | Path,
+) -> List[Rule]:
+    """Replace reviewed mixed-layer parent rules with auditable effective children.
+
+    The raw canonical parent remains untouched on disk.  Only parents listed in
+    the reviewed split-plan sidecar are replaced in the effective executable
+    view.  Children inherit source provenance from their parent and carry a
+    parent_rule_id backlink.
+    """
+    plan_rows = _read_csv(split_plan_path)
+    by_parent: Dict[str, List[dict[str, str]]] = {}
+    for row in plan_rows:
+        parent = row.get("parent_rule_id", "")
+        if parent:
+            by_parent.setdefault(parent, []).append(row)
+
+    out: List[Rule] = []
+    for rule in rules:
+        plan = by_parent.get(rule.rule_id)
+        if not plan:
+            out.append(rule)
+            continue
+
+        for child in plan:
+            refinement = child.get("condition_refinement", "").strip()
+            condition = rule.condition
+            if refinement:
+                condition = f"{condition} | branch:{refinement}"
+
+            out.append(
+                replace(
+                    rule,
+                    rule_id=child["child_rule_id"],
+                    parent_rule_id=rule.rule_id,
+                    condition=condition,
+                    target_type=child.get("target_type", rule.target_type),
+                    target_normalized=child.get("target_normalized", rule.target_normalized),
+                    operator=child.get("operator", rule.operator),
+                    state_change=child.get("state_change", rule.state_change),
+                    valence=child.get("valence", rule.valence),
+                    source_epistemic=child.get("source_epistemic", rule.source_epistemic),
+                    normalization_epistemic=child.get(
+                        "normalization_epistemic", rule.normalization_epistemic
+                    ),
+                    review_status=child.get("review_status", rule.review_status),
+                    source_span_verified=child.get("source_span_verified", "false").lower() == "true",
+                    normalization_verified=child.get("normalization_verified", "false").lower() == "true",
+                )
+            )
+    return out
+
 def query_rules(
     rules: Iterable[Rule],
     *,
@@ -204,6 +260,7 @@ def trace(rule: Rule) -> dict:
         "normalization_verified": rule.normalization_verified,
         "evidence_text": rule.evidence_text,
         "normalized_target": rule.target_normalized,
+        "parent_rule_id": rule.parent_rule_id,
     }
 
 
