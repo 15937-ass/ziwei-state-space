@@ -3,8 +3,9 @@
 P0 = schema/provenance-control failure decided mechanically.
 P1 = source-span review candidate; never proof that the domain claim is wrong.
 
-The sixty-system v0.1 canonical file is intentionally kept immutable during A0.
-v0.3 review metadata and schema repairs are applied as auditable sidecars.
+The sixty-system v0.1 canonical file is intentionally kept immutable.
+A0 schema repairs and A1 source/normalization audits are applied as auditable sidecars.
+P0 means deterministic schema/provenance-control failure; P1 means review candidate, never proof of a domain error.
 """
 
 from __future__ import annotations
@@ -354,7 +355,7 @@ def run_audit(root: Path) -> dict:
         "notes": [
             "P0 findings are deterministic schema/review-provenance violations.",
             "P1 findings are review candidates, not proof of semantic error.",
-            "Sixty-system v0.1 raw canonical is immutable at A0; sidecars define effective v0.3 view.",
+            "Sixty-system v0.1 raw canonical is immutable; sidecars define the effective reviewed view.",
         ],
     }
 
