@@ -1,6 +1,6 @@
 # Gate A1：全文反向本体审计与 G2/G3/G4/G5 修订提案
 
-状态：**READY FOR PI REVIEW**  
+状态：**APPROVED BY PI / EXECUTING**  
 分支：`audit/decontamination-p0-v2`  
 前置 Gate：A0 APPROVED
 
@@ -495,7 +495,7 @@ Paper 1 和代码中将当前机制改名为：
 
 ---
 
-## 13. Gate A1 需要 PI 审核的 6 项
+## 13. Gate A1 已批准的 6 项
 
 ### A1-1
 **保留 G2 的 L0-L4 分层架构，但允许基于全文重新拟合具体 QI/QR evidence 与边界。**
@@ -517,7 +517,7 @@ Paper 1 和代码中将当前机制改名为：
 
 ---
 
-## 14. A1 批准后自动执行
+## 14. A1 批准后自动执行（已启动）
 
 ~~~text
 A1 approval
