@@ -4,7 +4,8 @@ from src.model_spec import (
     Paper1Model,
     StarSystemMode,
     TemporalInput,
-    ObservabilityStatus,
+    ObservationPathSupport,
+    classify_observation_path_support,
     classify_observability,
 )
 
@@ -59,8 +60,12 @@ def test_projection_is_semantic_not_fixed_event_mapping():
     assert result.provenance == ("RULE-001",)
 
 
-def test_observability_classification():
-    assert classify_observability(3) == ObservabilityStatus.STRUCTURALLY_OBSERVABLE
-    assert classify_observability(1) == ObservabilityStatus.PARTIALLY_OBSERVABLE
-    assert classify_observability(0) == ObservabilityStatus.STRUCTURALLY_AT_RISK
-    assert classify_observability(5, derived_from_existing=True) == ObservabilityStatus.DERIVED_ONLY
+def test_observation_path_support_classification():
+    assert classify_observation_path_support(3) == ObservationPathSupport.MULTI_PATH_SUPPORTED
+    assert classify_observation_path_support(1) == ObservationPathSupport.SINGLE_PATH_SUPPORTED
+    assert classify_observation_path_support(0) == ObservationPathSupport.NO_DIRECT_PATH
+    assert classify_observation_path_support(5, derived_from_existing=True) == ObservationPathSupport.DERIVED_ONLY
+
+
+def test_legacy_observability_alias_returns_path_support_not_control_claim():
+    assert classify_observability(2) == ObservationPathSupport.MULTI_PATH_SUPPORTED
