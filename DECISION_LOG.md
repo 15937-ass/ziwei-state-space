@@ -82,14 +82,14 @@ Candidate:
 `x_(t+1) = F_theta(x_t, u_t^astro, G_t)`
 Need ontology and star-system extraction before choosing decomposition.
 
-### P-005 — Structural observability criterion
-**Resolved at G5:** Paper 1 使用结构通路与可区分性审计，不计算经典数值 observability rank。
+### P-005 — Observation-path support / future structural observability
+**Resolved at A1:** 当前只报告 observation-path support 与可区分性启发式审计，不称 structural observability；真正结构能观性须等待正式状态—输出结构图及 generic-rank / matching 条件。
 
 ### P-006 — Modifier operator order
 算子是否交换、作用顺序、饱和形式仍开放，待更完整规则或数据。
 
-### P-007 — QI-17 persistence/resilience
-保持高优先观察候选，暂不升格。
+### P-007 — Will-control / persistence split
+**Resolved at A1:** 原 QI-17 persistence/resilience 合并候选废止；QI-17-CAND=意志控制强度，QI-18-CAND=毅力/持续性，恢复力/韧性仅保留 derived/system-level。
 
 ### P-008 — Star-system mode representation
 连续/离散/概率混合形式留待后续数据决定。
