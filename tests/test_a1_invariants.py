@@ -150,3 +150,32 @@ def test_first_three_layer_batches_have_closed_model_review_status():
     assert sum(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb02) == 49
     assert sum(row["status"] == "QUARANTINED_SOURCE_MISMATCH" for row in lb02) == 1
     assert all(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb03)
+
+
+def test_lb04_review_split_and_duplicate_quarantine_are_consistent():
+    reviews = read_csv("validation/decontamination/LB04_source_normalization_review_v0.1.csv")
+    plan = read_csv("knowledge/migrations/p1_layer_split_plan_LB04_v0.1.csv")
+    assert len(reviews) == 50
+    duplicates = [row for row in reviews if row["source_review_result"] == "SOURCE_SUPPORTED_DUPLICATE_CONFIRMED"]
+    assert [row["record_id"] for row in duplicates] == ["ZZ-SYS-51-045"]
+    assert "ZZ-SYS-51-045" not in {row["parent_rule_id"] for row in plan}
+    assert len({row["parent_rule_id"] for row in plan}) == 49
+    assert len(plan) == 90
+
+    quarantine = {row["record_id"]: row for row in read_csv("knowledge/review/quarantine_v0.1.csv")}
+    assert quarantine["ZZ-SYS-51-045"]["reason_code"] == "REDUNDANT_DUPLICATE_CONFIRMED"
+    assert quarantine["ZZ-SYS-51-045"]["effective_status"] == "QUARANTINED"
+
+
+def test_first_four_layer_batches_are_closed_at_model_review_level():
+    rows = read_csv("validation/decontamination/P1_layer_boundary_review_batches_v0.1.csv")
+    for batch in ("LB-01", "LB-03"):
+        selected = [row for row in rows if row["batch_id"] == batch]
+        assert len(selected) == 50
+        assert all(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in selected)
+
+    lb02 = [row for row in rows if row["batch_id"] == "LB-02"]
+    lb04 = [row for row in rows if row["batch_id"] == "LB-04"]
+    assert sum(row["status"] == "QUARANTINED_SOURCE_MISMATCH" for row in lb02) == 1
+    assert sum(row["status"] == "QUARANTINED_REDUNDANT_DUPLICATE" for row in lb04) == 1
+    assert sum(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb04) == 49
