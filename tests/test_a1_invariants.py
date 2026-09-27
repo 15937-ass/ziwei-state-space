@@ -31,11 +31,20 @@ def test_qi16_is_formal_and_old_merged_persistence_is_gone():
     assert 'name: "持续意志/韧性"' not in text
 
 
-def test_quarantined_rule_is_not_ontology_or_star_core_evidence():
+def test_quarantined_rules_are_not_ontology_or_star_core_evidence():
     ontology = (ROOT / "knowledge/qi_ontology.yaml").read_text(encoding="utf-8")
     cores = (ROOT / "knowledge/star_cores.yaml").read_text(encoding="utf-8")
-    assert "ZZ-TT-010" not in ontology
-    assert "ZZ-TT-010" not in cores
+    for rule_id in ("ZZ-TT-010", "ZZ-SYS-38-032"):
+        assert rule_id not in ontology
+        assert rule_id not in cores
+
+
+def test_quarantine_contains_confirmed_source_mismatches():
+    rows = read_csv("knowledge/review/quarantine_v0.1.csv")
+    by_id = {row["record_id"]: row for row in rows}
+    assert by_id["ZZ-TT-010"]["effective_status"] == "QUARANTINED"
+    assert by_id["ZZ-SYS-38-032"]["effective_status"] == "QUARANTINED"
+    assert by_id["ZZ-SYS-38-032"]["reason_code"] == "SOURCE_MISMATCH_CONFIRMED"
 
 
 def test_all_ontology_evidence_ids_exist_in_canonical():
@@ -94,3 +103,29 @@ def test_observability_language_is_demoted():
     assert "class ObservationPathSupport" in spec
     assert "STRUCTURALLY_OBSERVABLE" not in spec
     assert "Observation-path support" in theory
+
+
+def test_lb02_review_and_split_plan_are_consistent():
+    reviews = read_csv("validation/decontamination/LB02_source_normalization_review_v0.1.csv")
+    plan = read_csv("knowledge/migrations/p1_layer_split_plan_LB02_v0.1.csv")
+    assert len(reviews) == 50
+    assert sum(row["source_review_result"] == "SOURCE_MISMATCH_CONFIRMED" for row in reviews) == 1
+    assert {row["parent_rule_id"] for row in plan} == {
+        row["record_id"]
+        for row in reviews
+        if row["source_review_result"] != "SOURCE_MISMATCH_CONFIRMED"
+    }
+    assert len({row["parent_rule_id"] for row in plan}) == 49
+    assert len(plan) == 76
+    assert "ZZ-SYS-38-032" not in {row["parent_rule_id"] for row in plan}
+
+
+def test_first_two_layer_batches_have_closed_model_review_status():
+    rows = read_csv("validation/decontamination/P1_layer_boundary_review_batches_v0.1.csv")
+    lb01 = [row for row in rows if row["batch_id"] == "LB-01"]
+    lb02 = [row for row in rows if row["batch_id"] == "LB-02"]
+    assert len(lb01) == 50
+    assert len(lb02) == 50
+    assert all(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb01)
+    assert sum(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb02) == 49
+    assert sum(row["status"] == "QUARANTINED_SOURCE_MISMATCH" for row in lb02) == 1
