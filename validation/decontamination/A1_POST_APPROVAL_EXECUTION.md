@@ -167,11 +167,21 @@ raw canonical 未被静默拆写。
 | LIKELY_L3_PROJECTION | 162 |
 | UNRESOLVED | 167 |
 
-注意：
+当前进度（2026-09-27）：
 
-> 这 800 条目前全部仍是 PENDING_SOURCE_SPAN_NORMALIZATION_REVIEW。
+- 已完成 LB-01 ~ LB-05：250 / 800（31.25%）
+- MODEL_SOURCE_NORMALIZATION_REVIEWED：248
+- QUARANTINED_SOURCE_MISMATCH：1（ZZ-SYS-38-032）
+- QUARANTINED_REDUNDANT_DUPLICATE：1（ZZ-SYS-51-045）
+- 已生成 reviewed effective child rules：420
+  - LB-01：81
+  - LB-02：76
+  - LB-03：91
+  - LB-04：90
+  - LB-05：82
+- raw canonical 仍未被覆盖；normalization_verified 仍保持 false
 
-没有因为关键词分类而自动改 canonical。
+没有因为关键词分类而自动改 canonical。关键词 triage 只用于排队，真正 migration 仍需逐条 source-span review。
 
 已建立 16 个 deterministic review batches，每批 50 条：
 
@@ -184,6 +194,8 @@ raw canonical 未被静默拆写。
 3. likely L2
 4. likely L3 projection
 5. unresolved
+
+LB-05 已进入 likely-L1 区域，并出现一个重要反向验证：大量 heuristic 标成“likely L1”的记录，回源后其实是 compatibility、gate 或 L3 output；因此 triage 不得自动重分类。另一方面，ZZ-SYS-31-014 / 31-018 对“无目的破坏 ↔ 有目的建设/只除旧不布新”的直接对照，进一步增强了 QI-16 目标导向性的独立性。
 
 ## 9. Rule engine 去污染
 
@@ -201,8 +213,9 @@ canonical
 因此：
 
 - raw extraction 可以保持 immutable；
-- ZZ-TT-010 默认可被排除；
+- ZZ-TT-010、ZZ-SYS-38-032 与确认重复的 ZZ-SYS-51-045 默认可被排除；
 - ZZ-TX-003 的 provenance repair 可以在运行时应用；
+- 多个 reviewed layer split plans 可以按确定顺序叠加到 effective executable view；
 - source-span verified 可以作为查询条件；
 - trace 输出 source / normalization / review status。
 
@@ -223,7 +236,9 @@ canonical
 - explicit AST 无 pending；
 - 800 条 boundary audit 全覆盖；
 - ZZ-TT-010 不进入 ontology/core；
-- 旧 STRUCTURALLY_OBSERVABLE 标签已从 model spec 移除。
+- 旧 STRUCTURALLY_OBSERVABLE 标签已从 model spec 移除；
+- semantic duplicate detector 已加入 P1 audit，不自动删除重复项，只生成 review candidate；
+- LB-01 ~ LB-05 的 review/split/quarantine consistency 已加入回归约束。
 
 ## 11. 当前是否需要 Gate A2
 
@@ -249,7 +264,7 @@ A1 的发现没有推翻：
 ## 12. 自动继续路线
 
 ~~~text
-LB-01 ... LB-16 source/normalization review
+LB-06 ... LB-16 source/normalization review
 -> verified layer migrations
 -> ontology/core regression
 -> system-mode regression
@@ -257,3 +272,46 @@ LB-01 ... LB-16 source/normalization review
 -> WP05 palace full extraction
 -> Gate A2 only if architecture-level conflict appears
 ~~~
+
+
+## 13. 新发现：source 正确也可能被“降智污染”
+
+LB-04 发现 `ZZ-SYS-51-042` 与 `ZZ-SYS-51-045`：
+
+- 同一六十星系；
+- 同一触发条件；
+- 同一 source-supported 语义；
+- 仅标点与 evidence paraphrase 略有差异。
+
+如果两条都进入 inference，会造成同一证据被重复激活/重复计数。
+
+因此污染类型现在至少分为：
+
+~~~text
+A. source mismatch
+B. provenance mismatch
+C. normalization overreach
+D. state / projection layer mixing
+E. atomicity flattening
+F. cross-subject / cross-context evidence contamination
+G. redundant duplicate extraction
+~~~
+
+`src/audit_repository.py` 已新增 semantic duplicate candidate 检测；它只报 P1，不会自动删除，因为源文重复强调与抽取重复必须经过 source review 区分。
+
+## 14. LB-05 对 QI-16 的追加验证
+
+LB-05 回源后确认两条特别关键的破军规则：
+
+- `ZZ-SYS-31-014`：良好杀破狼环境可把顽嚣破军的“无目的破坏”转向“有目的建设”；
+- `ZZ-SYS-31-018`：煞重七杀环境下顽嚣破军可“只知除旧不知布新”。
+
+二者已经进入 QI-16 的 system-context evidence。
+
+这使 QI-16 与：
+
+- QI-03 变化性；
+- QI-04 开创性；
+- QI-08 行动驱动；
+
+的区分得到更强的全文证据支持，因此目前**不触发 A2，反而增强 A1 对 QI-16 的决定**。
