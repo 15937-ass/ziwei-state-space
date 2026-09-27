@@ -110,3 +110,8 @@ Paper 2 需要处理 star-core / Delta / modifier / projection 参数混淆。
 **Decision:** 批准保留 G2 的 L0-L4 分层架构并以全文语料重新拟合具体 QI/QR evidence 与边界；批准 QI-16「目标导向性」正式升格为 L1 状态；否决原合并式 QI-17「持续意志/韧性」并拆为「意志控制」与「毅力/持续性」两个独立候选，恢复力暂留 derived/system-level；批准保留 QI-14 但收窄为「信息/状态遮蔽—显露」，与 QI-01 发射—收敛分离证据；批准 G3-R，以 direct-star > modifier > system-context 的优先级重拟合十四正曜气核，禁止为适配旧 ontology 强填气核；批准将当前路径计数式 structural observability 改称 observation-path support，严格结构能观性留待正式状态—输出结构图后。
 **Status:** FROZEN（A1 方法与边界）；QI-17/QI-18 候选是否升格仍 PROVISIONAL
 **Approved at:** Gate A1
+
+
+### P-011 — Acquired/history state for source-explicit path dependence
+**Status:** PENDING GATE A2  
+LB-06 source review found repeated rules in which a temporal period can form, reinforce, or entrench a later-response disposition. Proposed minimal revision: preserve fixed natal essence E and add a separate source-gated acquired/history state m_t. General learned recursion remains a Paper-2+ hypothesis. See `validation/decontamination/GATE_A2_时序记忆与获得性状态.md`.
