@@ -287,6 +287,44 @@ def atomicity_candidates(path: Path, rows: Sequence[Mapping[str, str]]) -> list[
     ]
 
 
+def _semantic_key(value: str) -> str:
+    return re.sub(r"[\s，。；;、/＋+（）()\[\]“”\"'·]+", "", value or "")
+
+
+def semantic_duplicate_candidates(
+    path: Path,
+    rows: Sequence[Mapping[str, str]],
+) -> list[Finding]:
+    """Flag distinct IDs that encode the same system/condition/literal claim.
+
+    This is a P1 review heuristic, not an automatic deletion rule.  Distinct
+    textual rules can legitimately repeat a principle; only source review can
+    decide whether two rows should both remain executable.
+    """
+    groups: dict[tuple[str, str, str], list[Mapping[str, str]]] = {}
+    for row in rows:
+        system_scope = row.get("system_no") or row.get("subject") or ""
+        condition = _semantic_key(row.get("condition", ""))
+        literal = _semantic_key(row.get("target_literal", ""))
+        if not system_scope or not condition or not literal:
+            continue
+        groups.setdefault((system_scope, condition, literal), []).append(row)
+
+    findings: list[Finding] = []
+    for group in groups.values():
+        if len(group) <= 1:
+            continue
+        ids = ", ".join(_id(row) for row in group)
+        for row in group:
+            findings.append(Finding(
+                "P1", "semantic_duplicate_candidate", str(path), _id(row),
+                "condition+target_literal", ids, row.get("source_location", ""),
+                "Distinct IDs encode the same normalized system/condition/literal claim; "
+                "source review is required before deduplication.",
+            ))
+    return findings
+
+
 def outcome_operator_candidates(path: Path, rows: Sequence[Mapping[str, str]]) -> list[Finding]:
     directional = {"enhance", "weaken", "transform", "inhibit", "activate"}
     return [
@@ -329,6 +367,7 @@ def run_audit(root: Path) -> dict:
     findings.extend(audit_rule_catalog(STAR_CATALOG, stars))
     findings.extend(atomicity_candidates(STAR_CATALOG, stars))
     findings.extend(outcome_operator_candidates(STAR_CATALOG, stars))
+    findings.extend(semantic_duplicate_candidates(STAR_CATALOG, stars))
     summaries[str(STAR_CATALOG)] = summarize(STAR_CATALOG, stars)
 
     systems, sidecar_findings = effective_sixty_system_rows(root)
@@ -336,6 +375,7 @@ def run_audit(root: Path) -> dict:
     findings.extend(audit_rule_catalog(SYSTEM_CATALOG, systems))
     findings.extend(atomicity_candidates(SYSTEM_CATALOG, systems))
     findings.extend(outcome_operator_candidates(SYSTEM_CATALOG, systems))
+    findings.extend(semantic_duplicate_candidates(SYSTEM_CATALOG, systems))
     summaries[str(SYSTEM_CATALOG)] = summarize(SYSTEM_CATALOG, systems)
 
     for relative in MODIFIER_CATALOGS:
