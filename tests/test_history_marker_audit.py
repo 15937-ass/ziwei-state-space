@@ -44,3 +44,36 @@ def test_non_temporal_rule_is_not_flagged():
         "notes": "",
     }]
     assert scan(rows) == []
+
+
+def test_history_marker_snapshot_counts_match_full_corpus():
+    import csv
+    from pathlib import Path
+
+    with Path("validation/decontamination/A2_history_marker_candidates_v0.1.csv").open(
+        "r", encoding="utf-8-sig", newline=""
+    ) as handle:
+        rows = list(csv.DictReader(handle))
+
+    assert len(rows) == 45
+    assert sum(row["priority"] == "P0_HISTORY_REVIEW" for row in rows) == 27
+    assert sum(row["priority"] == "P1_SEQUENCE_REVIEW" for row in rows) == 18
+    assert all(row["review_status"] == "HEURISTIC_CANDIDATE" for row in rows)
+
+
+def test_a2_confirmed_holds_are_subset_of_history_candidates():
+    import csv
+    from pathlib import Path
+
+    with Path("validation/decontamination/A2_history_marker_candidates_v0.1.csv").open(
+        "r", encoding="utf-8-sig", newline=""
+    ) as handle:
+        candidates = {row["record_id"] for row in csv.DictReader(handle)}
+
+    with Path("validation/decontamination/A2_architecture_hold_v0.1.csv").open(
+        "r", encoding="utf-8-sig", newline=""
+    ) as handle:
+        held = {row["record_id"] for row in csv.DictReader(handle)}
+
+    assert held == {"ZZ-SYS-31-033", "ZZ-SYS-38-034", "ZZ-SYS-41-023"}
+    assert held <= candidates
