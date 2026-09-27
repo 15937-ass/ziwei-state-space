@@ -223,7 +223,45 @@ x_(t+1) = F_theta(...)
 
 由纵向案例与系统辨识决定是否成立及如何参数化。
 
-## 11. 当前 3 条 hold 的处理
+## 11. 全量 history-marker 预扫描
+
+为了判断 A2 是否只是 3 条偶然规则，我先对六十星系 2193 条 canonical 做了不改模型的 deterministic marker scan：
+
+- heuristic candidates：45
+- P0_HISTORY_REVIEW：27
+- P1_SEQUENCE_REVIEW：18
+
+文件：
+
+`validation/decontamination/A2_history_marker_candidates_v0.1.csv`
+
+扫描器：
+
+`src/audit_history_markers.py`
+
+注意：
+
+> 45 只是“待回源候选”，不是 45 条已确认 HistoryUpdate。
+
+其中 P1_SEQUENCE_REVIEW 包含大量“先挫后成、先败后兴”等单纯结果顺序，未必代表状态记忆；只有 source-span review 确认“前一阶段形成/强化状态并改变后续反应”时，才能转成 history update。
+
+当前已确认的 3 条 A2 trigger 仍是：
+
+- `ZZ-SYS-31-033`
+- `ZZ-SYS-38-034`
+- `ZZ-SYS-41-023`
+
+另外，预扫描也命中了多个非常值得 A2 批准后优先回查的高优先候选，例如：
+
+- `ZZ-SYS-21-017`：错误路向可能固化并影响后运；
+- `ZZ-SYS-29-024`：因循固化并影响后运；
+- `ZZ-SYS-32-014`：挫折可形成不求上进并影响后运；
+- `ZZ-SYS-38-021`：关键运中退缩可使短志固化并影响后运；
+- `ZZ-SYS-54-021`：当前行为影响后运。
+
+这进一步说明 A2 的问题很可能是系统性的，但在人工批准前仍不把它们写入递归模型。
+
+## 12. 当前 3 条 hold 的处理
 
 A2 批准前：
 
@@ -242,7 +280,7 @@ A2 批准后：
 5. 只为 source-confirmed candidates 建立 history update；
 6. 更新 G5 model spec 与 regression tests。
 
-## 12. 风险分析
+## 13. 风险分析
 
 不加 m_t：会丢掉源文明确的“前运改变后运反应条件”。
 
@@ -252,7 +290,7 @@ A2 批准后：
 
 因此最小 source-constrained m_t 是当前最保守的修订。
 
-## 13. Gate A2 需要 PI 审核的 5 项
+## 14. Gate A2 需要 PI 审核的 5 项
 
 ### A2-1
 批准新增独立于原局本质 E 的 acquired_history_state m_t。
@@ -269,7 +307,7 @@ A2 批准后：
 ### A2-5
 批准对六十星系全文追加 history-marker backward audit，并把当前三条 held rules 转为第一批 HistoryUpdate 模板。
 
-## 14. A2 批准后的自动路线
+## 15. A2 批准后的自动路线
 
 ~~~text
 A2 approval
