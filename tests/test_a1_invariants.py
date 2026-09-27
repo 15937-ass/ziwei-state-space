@@ -129,3 +129,24 @@ def test_first_two_layer_batches_have_closed_model_review_status():
     assert all(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb01)
     assert sum(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb02) == 49
     assert sum(row["status"] == "QUARANTINED_SOURCE_MISMATCH" for row in lb02) == 1
+
+
+def test_lb03_review_and_split_plan_are_consistent():
+    reviews = read_csv("validation/decontamination/LB03_source_normalization_review_v0.1.csv")
+    plan = read_csv("knowledge/migrations/p1_layer_split_plan_LB03_v0.1.csv")
+    assert len(reviews) == 50
+    assert all(row["source_span_verified"] == "true" for row in reviews)
+    assert {row["parent_rule_id"] for row in plan} == {row["record_id"] for row in reviews}
+    assert len({row["parent_rule_id"] for row in plan}) == 50
+    assert len(plan) == 91
+
+
+def test_first_three_layer_batches_have_closed_model_review_status():
+    rows = read_csv("validation/decontamination/P1_layer_boundary_review_batches_v0.1.csv")
+    lb01 = [row for row in rows if row["batch_id"] == "LB-01"]
+    lb02 = [row for row in rows if row["batch_id"] == "LB-02"]
+    lb03 = [row for row in rows if row["batch_id"] == "LB-03"]
+    assert all(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb01)
+    assert sum(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb02) == 49
+    assert sum(row["status"] == "QUARANTINED_SOURCE_MISMATCH" for row in lb02) == 1
+    assert all(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb03)
