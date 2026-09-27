@@ -209,3 +209,29 @@ def test_first_five_layer_batches_have_expected_closed_status():
     lb04 = [row for row in rows if row["batch_id"] == "LB-04"]
     assert sum(row["status"] == "QUARANTINED_SOURCE_MISMATCH" for row in lb02) == 1
     assert sum(row["status"] == "QUARANTINED_REDUNDANT_DUPLICATE" for row in lb04) == 1
+
+
+def test_lb06_review_split_and_a2_holds_are_consistent():
+    reviews = read_csv("validation/decontamination/LB06_source_normalization_review_v0.1.csv")
+    plan = read_csv("knowledge/migrations/p1_layer_split_plan_LB06_v0.1.csv")
+    assert len(reviews) == 50
+    held = {
+        row["record_id"]
+        for row in reviews
+        if row["source_review_result"] == "SOURCE_SUPPORTED_A2_TRIGGER"
+    }
+    assert held == {"ZZ-SYS-31-033", "ZZ-SYS-38-034", "ZZ-SYS-41-023"}
+    assert held.isdisjoint({row["parent_rule_id"] for row in plan})
+    assert {row["parent_rule_id"] for row in plan} == {
+        row["record_id"] for row in reviews
+    } - held
+    assert len({row["parent_rule_id"] for row in plan}) == 47
+    assert len(plan) == 86
+
+
+def test_lb06_queue_has_three_architecture_holds():
+    rows = read_csv("validation/decontamination/P1_layer_boundary_review_batches_v0.1.csv")
+    lb06 = [row for row in rows if row["batch_id"] == "LB-06"]
+    assert len(lb06) == 50
+    assert sum(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb06) == 47
+    assert sum(row["status"] == "A2_ARCHITECTURE_HOLD" for row in lb06) == 3
