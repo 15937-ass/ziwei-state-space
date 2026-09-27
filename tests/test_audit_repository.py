@@ -7,6 +7,7 @@ from src.audit_repository import (
     composite_condition_score,
     effective_sixty_system_rows,
     outcome_operator_candidates,
+    semantic_duplicate_candidates,
 )
 
 
@@ -119,3 +120,26 @@ def test_system_sidecar_applies_non_destructive_override(tmp_path):
     rows, findings = effective_sixty_system_rows(tmp_path)
     assert not findings
     assert rows[0]["target_type"] == "structural_relation"
+
+
+def test_semantic_duplicate_is_p1_review_candidate_not_auto_delete():
+    rows = [
+        {
+            "rule_id": "R-A",
+            "system_no": "51",
+            "condition": "日月吉化吉会",
+            "target_literal": "两类皆佳，但情感型偏安逸，物欲型偏奔波",
+            "source_location": "p140",
+        },
+        {
+            "rule_id": "R-B",
+            "system_no": "51",
+            "condition": "日月吉化吉会",
+            "target_literal": "两类皆佳，但情感型偏安逸、物欲型偏奔波",
+            "source_location": "p140",
+        },
+    ]
+    findings = semantic_duplicate_candidates(Path("systems.csv"), rows)
+    assert len(findings) == 2
+    assert all(f.severity == "P1" for f in findings)
+    assert all(f.category == "semantic_duplicate_candidate" for f in findings)
