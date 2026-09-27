@@ -169,16 +169,18 @@ raw canonical 未被静默拆写。
 
 当前进度（2026-09-27）：
 
-- 已完成 LB-01 ~ LB-05：250 / 800（31.25%）
-- MODEL_SOURCE_NORMALIZATION_REVIEWED：248
+- 已完成 source inspection：LB-01 ~ LB-06，共 300 / 800（37.5%）
+- MODEL_SOURCE_NORMALIZATION_REVIEWED：295
 - QUARANTINED_SOURCE_MISMATCH：1（ZZ-SYS-38-032）
 - QUARANTINED_REDUNDANT_DUPLICATE：1（ZZ-SYS-51-045）
-- 已生成 reviewed effective child rules：420
+- A2_ARCHITECTURE_HOLD：3（ZZ-SYS-31-033 / ZZ-SYS-38-034 / ZZ-SYS-41-023）
+- 已生成 reviewed effective child rules：506
   - LB-01：81
   - LB-02：76
   - LB-03：91
   - LB-04：90
   - LB-05：82
+  - LB-06：86（只覆盖 47 条非 A2-held parent）
 - raw canonical 仍未被覆盖；normalization_verified 仍保持 false
 
 没有因为关键词分类而自动改 canonical。关键词 triage 只用于排队，真正 migration 仍需逐条 source-span review。
@@ -196,6 +198,8 @@ raw canonical 未被静默拆写。
 5. unresolved
 
 LB-05 已进入 likely-L1 区域，并出现一个重要反向验证：大量 heuristic 标成“likely L1”的记录，回源后其实是 compatibility、gate 或 L3 output；因此 triage 不得自动重分类。另一方面，ZZ-SYS-31-014 / 31-018 对“无目的破坏 ↔ 有目的建设/只除旧不布新”的直接对照，进一步增强了 QI-16 目标导向性的独立性。
+
+LB-06 首次触发真正的 architecture-level conflict：至少 3 条 source-supported 规则明确要求“前一运限形成/强化的后天状态影响后运”。它们不是 source error，因此不 quarantine；也不能在当前 memoryless G5 下普通执行，故标记 A2_ARCHITECTURE_HOLD，并形成 Gate A2 提案。
 
 ## 9. Rule engine 去污染
 
@@ -242,9 +246,9 @@ canonical
 
 ## 11. 当前是否需要 Gate A2
 
-**暂不需要。**
+**需要，已触发并暂停架构级自动修改。**
 
-A1 的发现没有推翻：
+A1/LB-01~05 的发现没有推翻：
 
 - G2 分层；
 - G4 六十星系统一架构；
@@ -252,25 +256,27 @@ A1 的发现没有推翻：
 - 十二宫局部节点 + 稀疏图；
 - 气 -> 模态 -> 投影链。
 
-下一阶段可以继续自动执行 P1 normalization/source review。
+但 LB-06 已发现 G5 当前 memoryless reaction 无法表达的 source-explicit path dependence，因此已满足升级条件。
 
-只有出现以下情况才升级 Gate A2：
+Gate A2 文件：
 
-- 需要新增/删除已正式 primitive QI；
-- 需要修改六十星系 principal mode 架构；
-- 发现 G5 的 natal/temporal 分层与源文冲突；
-- 大批 source-span review 表明某一正式 QI 无独立文本支持。
+validation/decontamination/GATE_A2_时序记忆与获得性状态.md
+
+在 PI 批准前，三条 path-dependent rules 保持 architecture hold，不修改 G5 核心模型。
 
 ## 12. 自动继续路线
 
 ~~~text
-LB-06 ... LB-16 source/normalization review
+Gate A2 PI review
+-> if approved: source-gated acquired/history state m_t
+-> migrate held path-dependent rules
+-> history-marker backward scan across 2193 system rules
+-> resume LB-07 ... LB-16
 -> verified layer migrations
 -> ontology/core regression
 -> system-mode regression
 -> WP04 remaining modifier gaps
 -> WP05 palace full extraction
--> Gate A2 only if architecture-level conflict appears
 ~~~
 
 
@@ -315,3 +321,22 @@ LB-05 回源后确认两条特别关键的破军规则：
 - QI-08 行动驱动；
 
 的区分得到更强的全文证据支持，因此目前**不触发 A2，反而增强 A1 对 QI-16 的决定**。
+
+
+## 15. LB-06 与 Gate A2
+
+LB-06 共 50 条：
+
+- 45 SOURCE_SUPPORTED
+- 2 SOURCE_SUPPORTED_NORMALIZATION_OVERREACH
+- 3 SOURCE_SUPPORTED_A2_TRIGGER
+
+A2 triggers：
+
+1. ZZ-SYS-31-033：不良时序可使顽嚣/破坏性进一步固化，并影响后运；
+2. ZZ-SYS-38-034：前期形成的短志/享受结构会改变后续七杀阶段反应；
+3. ZZ-SYS-41-023：大起大落的经历可进一步强化怯懦倾向。
+
+当前 G5 的固定原局 E 仍可保留，但需要审议是否增加独立的 acquired/history state m_t。
+
+本轮没有把这 3 条强行塞进 QI、projection 或普通 gate，也没有写回 natal essence；这是为了避免再次发生“模型先有结构，AI 再把原文硬塞进去”的污染。
