@@ -52,7 +52,7 @@ Only the former is in scope for Paper 1.
 - `tests/` — automated tests
 - `paper/` — manuscript materials
 
-## Current phase: **Phase II knowledge-base construction + A1-approved ontology/core refit + P1 source/normalization audit**
+## Current phase: **Phase II knowledge-base construction + P1 source/normalization audit + Gate A2 PI review**
 
 
 No continuous numerical weights should be invented before a later system-identification stage unless they are clearly marked as illustrative and excluded from empirical claims.
@@ -71,3 +71,12 @@ Current formal state:
 - raw canonical extraction remains provenance-preserving; semantic repairs use auditable sidecars
 
 See `validation/decontamination/A1_POST_APPROVAL_EXECUTION.md`.
+
+
+### Gate A2 status
+
+Gate A2 has been triggered by source-supported cross-period path dependence discovered during LB-06. Three rules are held as `A2_ARCHITECTURE_HOLD`: they are source-supported, not quarantined, but are not executable under the current memoryless G5 reaction model.
+
+The proposal is to keep natal essence fixed and add a strictly source-gated acquired/history state. No G5 architecture change is applied until PI approval.
+
+See `validation/decontamination/GATE_A2_时序记忆与获得性状态.md`.
