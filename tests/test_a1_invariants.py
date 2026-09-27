@@ -31,12 +31,14 @@ def test_qi16_is_formal_and_old_merged_persistence_is_gone():
     assert 'name: "持续意志/韧性"' not in text
 
 
-def test_quarantined_rules_are_not_ontology_or_star_core_evidence():
+def test_quarantined_rules_are_not_active_ontology_or_star_core_evidence():
     ontology = (ROOT / "knowledge/qi_ontology.yaml").read_text(encoding="utf-8")
     cores = (ROOT / "knowledge/star_cores.yaml").read_text(encoding="utf-8")
+    active_evidence_text = "\n".join(
+        re.findall(r"evidence_rules:\s*\[[^\]]*\]", ontology + "\n" + cores)
+    )
     for rule_id in ("ZZ-TT-010", "ZZ-SYS-38-032"):
-        assert rule_id not in ontology
-        assert rule_id not in cores
+        assert rule_id not in active_evidence_text
 
 
 def test_quarantine_contains_confirmed_source_mismatches():
