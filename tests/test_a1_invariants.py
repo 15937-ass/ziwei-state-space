@@ -179,3 +179,33 @@ def test_first_four_layer_batches_are_closed_at_model_review_level():
     assert sum(row["status"] == "QUARANTINED_SOURCE_MISMATCH" for row in lb02) == 1
     assert sum(row["status"] == "QUARANTINED_REDUNDANT_DUPLICATE" for row in lb04) == 1
     assert sum(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb04) == 49
+
+
+def test_lb05_review_and_refit_plan_are_consistent():
+    reviews = read_csv("validation/decontamination/LB05_source_normalization_review_v0.1.csv")
+    plan = read_csv("knowledge/migrations/p1_layer_split_plan_LB05_v0.1.csv")
+    assert len(reviews) == 50
+    assert all(row["source_span_verified"] == "true" for row in reviews)
+    assert {row["parent_rule_id"] for row in plan} == {row["record_id"] for row in reviews}
+    assert len({row["parent_rule_id"] for row in plan}) == 50
+    assert len(plan) == 82
+
+
+def test_lb05_adds_source_reviewed_qi16_contrasts():
+    ontology = (ROOT / "knowledge/qi_ontology.yaml").read_text(encoding="utf-8")
+    assert "ZZ-SYS-31-014" in ontology
+    assert "ZZ-SYS-31-018" in ontology
+    assert 'confidence: "high"' in ontology[ontology.index("  - id: QI-16"):ontology.index("relational_network_states:")]
+
+
+def test_first_five_layer_batches_have_expected_closed_status():
+    rows = read_csv("validation/decontamination/P1_layer_boundary_review_batches_v0.1.csv")
+    for batch in ("LB-01", "LB-03", "LB-05"):
+        selected = [row for row in rows if row["batch_id"] == batch]
+        assert len(selected) == 50
+        assert all(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in selected)
+
+    lb02 = [row for row in rows if row["batch_id"] == "LB-02"]
+    lb04 = [row for row in rows if row["batch_id"] == "LB-04"]
+    assert sum(row["status"] == "QUARANTINED_SOURCE_MISMATCH" for row in lb02) == 1
+    assert sum(row["status"] == "QUARANTINED_REDUNDANT_DUPLICATE" for row in lb04) == 1
