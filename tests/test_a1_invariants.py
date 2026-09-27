@@ -235,3 +235,15 @@ def test_lb06_queue_has_three_architecture_holds():
     assert len(lb06) == 50
     assert sum(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb06) == 47
     assert sum(row["status"] == "A2_ARCHITECTURE_HOLD" for row in lb06) == 3
+
+
+def test_a2_architecture_hold_registry_matches_lb06():
+    holds = read_csv("validation/decontamination/A2_architecture_hold_v0.1.csv")
+    assert {row["record_id"] for row in holds} == {
+        "ZZ-SYS-31-033",
+        "ZZ-SYS-38-034",
+        "ZZ-SYS-41-023",
+    }
+    assert all(row["execution_status"] == "A2_ARCHITECTURE_HOLD" for row in holds)
+    quarantine = {row["record_id"] for row in read_csv("knowledge/review/quarantine_v0.1.csv")}
+    assert not ({row["record_id"] for row in holds} & quarantine)
