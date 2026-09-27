@@ -2,6 +2,7 @@ from src.rule_engine import (
     Rule,
     load_rules,
     apply_layer_split_plan,
+    apply_layer_split_plans,
     query_rules,
     semantic_state_changes,
     trace,
@@ -131,3 +132,31 @@ def test_layer_split_plan_replaces_parent_with_effective_children(tmp_path):
     assert effective[1].operator == "project"
     assert "branch:branch-b" in effective[1].condition
     assert trace(effective[0])["parent_rule_id"] == "ZZ-TY-002"
+
+
+def test_multiple_layer_split_plans_apply_in_order(tmp_path):
+    parent_a = sample_rule()
+    parent_b = Rule(**{**sample_rule().__dict__, "rule_id": "R-B", "subject": "巨门"})
+
+    plan1 = tmp_path / "split1.csv"
+    plan1.write_text(
+        "parent_rule_id,child_rule_id,target_type,target_normalized,operator,state_change,valence,"
+        "condition_refinement,source_epistemic,normalization_epistemic,review_status,"
+        "source_span_verified,normalization_verified\n"
+        "ZZ-TY-002,ZZ-TY-002-A,qi_state,state-a,enhance,increase,context_dependent,"
+        "branch-a,EXPLICIT,INFERRED,SOURCE_SPAN_VERIFIED,true,false\n",
+        encoding="utf-8",
+    )
+    plan2 = tmp_path / "split2.csv"
+    plan2.write_text(
+        "parent_rule_id,child_rule_id,target_type,target_normalized,operator,state_change,valence,"
+        "condition_refinement,source_epistemic,normalization_epistemic,review_status,"
+        "source_span_verified,normalization_verified\n"
+        "R-B,R-B-P,outcome_descriptor,out-b,project,none,favorable,"
+        "branch-b,EXPLICIT,IMPLEMENTATION,SOURCE_SPAN_VERIFIED,true,false\n",
+        encoding="utf-8",
+    )
+
+    effective = apply_layer_split_plans([parent_a, parent_b], plan1, plan2)
+    assert {r.rule_id for r in effective} == {"ZZ-TY-002-A", "R-B-P"}
+    assert {r.parent_rule_id for r in effective} == {"ZZ-TY-002", "R-B"}
