@@ -221,6 +221,17 @@ def apply_layer_split_plan(
             )
     return out
 
+def apply_layer_split_plans(
+    rules: Sequence[Rule],
+    *split_plan_paths: str | Path,
+) -> List[Rule]:
+    """Apply multiple reviewed layer-split sidecars in deterministic order."""
+    effective = list(rules)
+    for path in split_plan_paths:
+        effective = apply_layer_split_plan(effective, path)
+    return effective
+
+
 def query_rules(
     rules: Iterable[Rule],
     *,
