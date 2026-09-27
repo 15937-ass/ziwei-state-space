@@ -340,3 +340,35 @@ A2 triggers：
 当前 G5 的固定原局 E 仍可保留，但需要审议是否增加独立的 acquired/history state m_t。
 
 本轮没有把这 3 条强行塞进 QI、projection 或普通 gate，也没有写回 natal essence；这是为了避免再次发生“模型先有结构，AI 再把原文硬塞进去”的污染。
+
+
+## 15. LB-06 与 Gate A2
+
+LB-06 共 50 条：
+
+- 47 条完成 source/normalization review，并生成 86 条 effective children；
+- 3 条不进入 ordinary migration，状态为 `A2_ARCHITECTURE_HOLD`。
+
+三条为：
+
+- `ZZ-SYS-31-033`
+- `ZZ-SYS-38-034`
+- `ZZ-SYS-41-023`
+
+共同点是：
+
+~~~text
+前一运限
+-> 形成 / 固化 / 强化后天倾向
+-> 后续运限反应因此不同
+~~~
+
+这要求在固定 natal essence E 与 current temporal input 之间加入独立的 acquired/history state `m_t`，但必须 source-gated，不能开放成任意递归动力系统。
+
+为避免漏检，已对 2193 条六十星系规则做 deterministic history-marker 预扫描：
+
+- candidates：45
+- high-priority history review：27
+- sequence-only review：18
+
+这些只是待回源候选；A2 批准前不自动迁移。
