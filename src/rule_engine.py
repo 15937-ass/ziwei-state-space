@@ -87,6 +87,22 @@ def _load_quarantine(path: str | Path | None) -> set[str]:
     return ids
 
 
+def _load_architecture_holds(path: str | Path | None) -> set[str]:
+    """Rules with valid source support but unresolved architecture semantics.
+
+    These are excluded from the executable effective view by default until the
+    corresponding PI gate resolves how they should be represented.
+    """
+    if not path:
+        return set()
+    ids: set[str] = set()
+    for row in _read_csv(path):
+        record_id = row.get("record_id") or row.get("rule_id") or ""
+        if record_id and row.get("status", "") == "ARCHITECTURE_HOLD":
+            ids.add(record_id)
+    return ids
+
+
 def _load_field_overrides(
     path: str | Path | None,
     *,
@@ -127,6 +143,7 @@ def load_rules(
     provenance_overrides_path: str | Path | None = None,
     review_metadata_path: str | Path | None = None,
     source_review_overrides_path: str | Path | None = None,
+    architecture_hold_path: str | Path | None = None,
 ) -> List[Rule]:
     """Load effective rules while preserving immutable canonical files.
 
@@ -141,6 +158,7 @@ def load_rules(
         -> quarantine filter
     """
     quarantined = _load_quarantine(quarantine_path)
+    architecture_holds = _load_architecture_holds(architecture_hold_path)
     schema_overrides = _load_field_overrides(schema_overrides_path)
     provenance_overrides = _load_field_overrides(provenance_overrides_path)
     review_meta = _load_row_metadata(review_metadata_path)
@@ -151,7 +169,7 @@ def load_rules(
         for raw in _read_csv(path):
             row = dict(raw)
             rule_id = row.get("rule_id", "")
-            if not rule_id or rule_id in quarantined:
+            if not rule_id or rule_id in quarantined or rule_id in architecture_holds:
                 continue
 
             if rule_id in review_meta:
