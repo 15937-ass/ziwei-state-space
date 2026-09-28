@@ -4,7 +4,7 @@ repository: "15937-ass/ziwei-state-space"
 project:
   current_phase: "Phase II knowledge-base construction + post-A2-R1 backward history audit"
   execution_state: "POST_A2_R1_ACTIVE"
-  current_work_unit: "HISTORY_BACKWARD_AUDIT"
+  current_work_unit: "HISTORY_SEQUENCE_REVIEW"
   state_sync: "S0_COMPLETE"
   last_approved_gate: "A2-R1"
   pending_gate: null
@@ -28,8 +28,8 @@ gates:
 progress:
   history_marker_candidates:
     total: 45
-    resolved_or_migrated: 6
-    pending_source_review: 39
+    resolved_or_migrated: 28
+    pending_source_review: 17
   layer_boundary_audit:
     total: 800
     closed: 300
@@ -53,6 +53,7 @@ canonical_artifacts:
   a2_source_corrections: "knowledge/migrations/a2_source_corrections_v0.1.csv"
   a2_history_candidates: "validation/decontamination/A2_history_marker_candidates_v0.1.csv"
   post_a2_execution: "validation/decontamination/A2_R1_POST_APPROVAL_EXECUTION.md"
+  history_source_review: "validation/decontamination/A2_R1_history_source_review_v0.1.csv"
 
 historical_noncanonical_gate_documents:
   - "validation/decontamination/GATE_A2_路径依赖与获得性状态审计.md"
