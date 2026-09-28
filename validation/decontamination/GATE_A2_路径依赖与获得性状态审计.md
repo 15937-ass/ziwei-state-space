@@ -1,3 +1,5 @@
+> **历史审计文档 / NON-CANONICAL**：本文件保留用于追踪 A2 形成过程。当前唯一 Gate A2 人工审核入口为 `validation/decontamination/GATE_A2_CANONICAL.md`。不要从本文件单独推断当前批准状态或自动执行边界。
+
 # Gate A2：路径依赖 / 获得性状态与 G5 非递归架构修订
 
 状态：**READY FOR PI REVIEW**  
