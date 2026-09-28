@@ -1,12 +1,12 @@
-schema_version: 1
+schema_version: 2
 repository: "15937-ass/ziwei-state-space"
 
 project:
-  current_phase: "Phase II knowledge-base construction + repository decontamination"
-  execution_state: "FROZEN_FOR_GATE_A2"
-  last_approved_gate: "A1"
-  pending_gate: "A2"
-  blocked_reason: "Awaiting PI approval of the acquired/history-state architecture. Architecture-sensitive migration is paused."
+  current_phase: "Phase II knowledge-base construction + A2-R1 history-memory migration"
+  execution_state: "A2_R1_APPROVED_CHECKPOINT"
+  last_approved_gate: "A2-R1"
+  pending_gate: null
+  blocked_reason: null
 
 git:
   default_branch: "main"
@@ -15,17 +15,20 @@ git:
   canonical_research_state_branch: "audit/decontamination-p0-v2"
   stale_open_prs: []
   branch_cleanup_status: "CLOSED_STALE_PRS; LEGACY_BRANCH_DELETION_PENDING"
-  note: "Merged/superseded legacy branches are non-canonical and must not be selected as active work branches."
+  note: "This branch is the A0/A1/A2-R1 checkpoint pending merge to main. After merge, PROJECT_STATE.yaml will move to the post-A2 branch."
 
 gates:
   A0: "APPROVED"
   A1: "APPROVED"
-  A2: "READY_FOR_PI_REVIEW"
+  A2: "APPROVED_AS_A2-R1"
 
 canonical_artifacts:
   gate_a2: "validation/decontamination/GATE_A2_CANONICAL.md"
   decision_log: "DECISION_LOG.md"
   review_schema: "knowledge/REVIEW_SCHEMA_v0.3.md"
+  history_schema: "knowledge/history/HISTORY_MEMORY_SCHEMA_v0.1.md"
+  history_transitions: "knowledge/history/history_transitions_v0.1.csv"
+  a2_source_corrections: "knowledge/migrations/a2_source_corrections_v0.1.csv"
   a2_holds: "validation/decontamination/A2_architecture_hold_v0.1.csv"
   a2_history_candidates: "validation/decontamination/A2_history_marker_candidates_v0.1.csv"
 
@@ -36,10 +39,12 @@ historical_noncanonical_gate_documents:
 execution_policy:
   - "Every agent/session must read PROJECT_STATE.yaml before selecting a branch, gate, or next task."
   - "Do not infer current state from old chat messages, legacy PRs, or branch names."
-  - "Do not perform architecture-sensitive research writes while execution_state is FROZEN_FOR_GATE_A2."
-  - "Repair-only metadata/documentation changes are allowed while frozen."
   - "Raw canonical extraction remains provenance-preserving; semantic repairs use auditable sidecars."
-  - "After A2 approval, record the decision before resuming LB-07 through LB-16."
+  - "History memory is typed: ACQUIRED_DISPOSITION and PATH_DEPENDENT_GATE must not be conflated."
+  - "Only source-explicit persistence/path-dependence may update history memory."
+  - "No persistence duration, decay, continuous weight, or learning parameter may be invented."
+  - "ZZ-SYS-38-034 is quarantined as a normalization mismatch; use source-supported ZZ-SYS-38-021 for the System-38 history transition."
+  - "After checkpoint merge, continue the full history-marker backward audit and LB-07 through LB-16 on a fresh post-A2 branch."
 
 source_corpus_policy:
   source_corpus_location: "ChatGPT Project files / approved source corpus"

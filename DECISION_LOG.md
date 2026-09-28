@@ -82,14 +82,14 @@ Candidate:
 `x_(t+1) = F_theta(x_t, u_t^astro, G_t)`
 Need ontology and star-system extraction before choosing decomposition.
 
-### P-005 — Structural observability criterion
-**Resolved at G5:** Paper 1 使用结构通路与可区分性审计，不计算经典数值 observability rank。
+### P-005 — Observation-path support / future structural observability
+**Resolved at A1:** 当前只报告 observation-path support 与可区分性启发式审计，不称 structural observability；真正结构能观性须等待正式状态—输出结构图及 generic-rank / matching 条件。
 
 ### P-006 — Modifier operator order
 算子是否交换、作用顺序、饱和形式仍开放，待更完整规则或数据。
 
-### P-007 — QI-17 persistence/resilience
-保持高优先观察候选，暂不升格。
+### P-007 — Will-control / persistence split
+**Resolved at A1:** 原 QI-17 persistence/resilience 合并候选废止；QI-17-CAND=意志控制强度，QI-18-CAND=毅力/持续性，恢复力/韧性仅保留 derived/system-level。
 
 ### P-008 — Star-system mode representation
 连续/离散/概率混合形式留待后续数据决定。
@@ -99,3 +99,26 @@ Paper 2 需要处理 star-core / Delta / modifier / projection 参数混淆。
 
 ### P-010 — Recursive dynamics necessity
 是否需要 x_(t+1) 递归状态由纵向命例数据检验。
+
+### D-014 — Gate A0 去污染与双层认识论审计
+**Decision:** 批准 source_epistemic 与 normalization_epistemic 分离；批准 review_status 四级化（MODEL_EXTRACTED / MODEL_SELF_REVIEWED / SOURCE_SPAN_VERIFIED / HUMAN_VERIFIED）；历史仅由 GPT 生成并自审的 reviewed 默认迁移为 MODEL_SELF_REVIEWED；批准 L1/L2 状态算子与 L3 projection 重新分层；批准 deterministic linter 作为进入 main 的强制 schema gate。  
+**Status:** FROZEN（审计与质量控制原则）；具体规则语义修订仍须 source-span 复核  
+**Approved at:** Gate A0
+
+
+### D-015 — Gate A1 全文反向本体审计批准
+**Decision:** 批准保留 G2 的 L0-L4 分层架构并以全文语料重新拟合具体 QI/QR evidence 与边界；批准 QI-16「目标导向性」正式升格为 L1 状态；否决原合并式 QI-17「持续意志/韧性」并拆为「意志控制」与「毅力/持续性」两个独立候选，恢复力暂留 derived/system-level；批准保留 QI-14 但收窄为「信息/状态遮蔽—显露」，与 QI-01 发射—收敛分离证据；批准 G3-R，以 direct-star > modifier > system-context 的优先级重拟合十四正曜气核，禁止为适配旧 ontology 强填气核；批准将当前路径计数式 structural observability 改称 observation-path support，严格结构能观性留待正式状态—输出结构图后。
+**Status:** FROZEN（A1 方法与边界）；QI-17/QI-18 候选是否升格仍 PROVISIONAL
+**Approved at:** Gate A1
+
+
+### P-011 — Acquired/history state for source-explicit path dependence
+**Resolved at A2-R1.** See D-016 below.
+
+### D-016 — Gate A2-R1 typed history-memory architecture
+**Decision:** 批准在固定原局本质 `E` 之外新增 source-gated 历史记忆层，但不得把所有路径依赖混成单一自由向量。Paper 1 将历史记忆分为两类：`ACQUIRED_DISPOSITION`（后天形成/强化/固化的倾向）与 `PATH_DEPENDENT_GATE`（过去关键阶段/事件对后续规则资格或分支的门控）。只有 source-explicit persistence/path-dependence 证据才能写入历史记忆；无明确 persistence 证据时不得假设永久保存。Paper 1 只实现 symbolic/ordinal/source-gated transition，不引入任意连续记忆权重、衰减率、学习率或一般神经网络递归。一般连续递归动力学继续保留为 Paper 2+ hypothesis。
+**Correction:** Gate 审核回源发现 `ZZ-SYS-38-034` 的“七杀运检验先前意志结构”归一化不受对应源文支持；该 raw canonical 保留审计历史但退出有效推理。系统 38 的路径依赖由已存在且回源匹配的 `ZZ-SYS-38-021`（武曲破军考验性大限影响后运）承接。
+**Status:** FROZEN（A2-R1 架构与边界）
+**Approved at:** Gate A2-R1
+**Approved by:** PI
+

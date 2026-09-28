@@ -1,0 +1,36 @@
+name: decontamination-ci
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - "audit/**"
+
+permissions:
+  contents: read
+
+jobs:
+  test-and-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install test dependency
+        run: python -m pip install --upgrade pytest
+
+      - name: Run tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: python -m pytest -q
+
+      - name: Enforce deterministic P0 gate
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: python src/audit_repository.py --fail-on-p0

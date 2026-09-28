@@ -1,241 +1,273 @@
-version: "0.1"
-status: "G3-approved-provisional"
-ontology_version: "0.2"
+version: "0.2"
+status: "A1-G3R-refit"
+ontology_version: "0.3"
+normalization_epistemic: "INFERRED"
+review_status: "MODEL_SELF_REVIEWED"
+
 principle: >
-  星曜气核只记录跨场景仍可辨识的基础倾向；条件星曜、宫位、四化与运限产生的变化
-  记录为conditional_modifiers，不把财富、名誉、疾病、婚姻、成功失败等下游结果写入气核。
+  Gate A1 后，十四正曜气核只记录 direct-star source 中跨场景仍可辨识的 baseline 倾向。
+  modifier、四化、夹宫与六十星系材料进入 conditional_signature / interaction 层；
+  outcome_descriptor 不作为等权 intrinsic evidence。允许某颗星没有某个 QI，不为适配 ontology 强填维度。
+
+evidence_priority:
+  - tier: DIRECT_STAR
+    priority: 1
+    use: "intrinsic / relational baseline"
+  - tier: SAME_STAR_MODIFIER
+    priority: 2
+    use: "conditional signature"
+  - tier: SYSTEM_CONTEXT
+    priority: 3
+    use: "interaction_delta / mode evidence; normally not intrinsic"
+  - tier: PROJECTION
+    priority: 4
+    use: "downstream support only"
 
 representation:
   substrate:
     fields: [yin_yang, element]
-    note: "仅作L0结构标签，不数值化。"
+    note: "仅作 L0 结构标签，不数值化。"
   intrinsic_signature:
-    fields: [dimension_id, tendency, strength_class, evidence_rules]
-    strength_class: [core, secondary, conditional]
-    note: "strength_class仅表示文本核心程度，不是经验数值权重。"
+    fields: [dimension_id, tendency, strength_class, evidence_rules, evidence_tier]
+    strength_class: [core, secondary]
   relational_signature:
-    fields: [relation_id, tendency, strength_class, evidence_rules]
+    fields: [relation_id, tendency, strength_class, evidence_rules, evidence_tier]
+  conditional_signature:
+    fields: [dimension_id, tendency, condition_class, evidence_rules, evidence_tier]
+    note: "条件修正不等同 baseline core。"
   contextual_sensitivity:
     fields: [level, explanation]
-    note: "用于标识星曜性质对会合、夹宫、四化等上下文的依赖程度。"
 
 stars:
   - id: STAR-ZW
     name: "紫微"
     substrate: {yin_yang: "阴", element: "土"}
-    intrinsic_signature:
-      - {dimension_id: "QI-08", tendency: "行动/统筹驱动偏高", strength_class: "secondary", evidence_rules: [ZZ-ZW-015]}
-      - {dimension_id: "QI-07", tendency: "可受昌曲等增强灵巧与认知修饰", strength_class: "conditional", evidence_rules: [ZZ-ZW-017, ZZ-ZW-024]}
+    intrinsic_signature: []
     relational_signature:
-      - {relation_id: "QR-02", tendency: "主导端", strength_class: "core", evidence_rules: [ZZ-ZW-015, ZZ-ZW-018]}
-      - {relation_id: "QR-04", tendency: "高度受百官朝拱/辅佐资源影响", strength_class: "conditional", evidence_rules: [ZZ-ZW-004, ZZ-ZW-013, ZZ-ZW-014, ZZ-ZW-016]}
+      - {relation_id: "QR-02", tendency: "主导端可被激活", strength_class: "core", evidence_rules: [ZZ-ZW-015, ZZ-ZW-018], evidence_tier: "DIRECT_STAR"}
+    conditional_signature:
+      - {dimension_id: "QI-07", tendency: "昌曲、龙凤等可增强认知/灵巧修饰", condition_class: "modifier", evidence_rules: [ZZ-ZW-017, ZZ-ZW-024], evidence_tier: "SAME_STAR_MODIFIER"}
+      - {dimension_id: "QR-01", tendency: "失去支持时可转孤立主导", condition_class: "support_gate", evidence_rules: [ZZ-ZW-X01, ZZ-ZW-X05], evidence_tier: "DIRECT_STAR"}
     contextual_sensitivity:
       level: "very_high"
-      explanation: "原文明确要求根据同度、会合星曜判定紫微性质；孤君与百官朝拱形成显著分化。"
-    unmapped_source_properties:
-      - {property: "精神与物质的平衡", status: "candidate_extension", note: "六十星系章节进一步强调，G4检验是否应形成独立维度。"}
+      explanation: "紫微性质高度依赖同度、会合与百官朝拱；A1 不把支持资源结果直接写成 intrinsic。"
+    system_only_properties:
+      - {property: "精神—物质平衡", status: "SYSTEM_MODE_NOT_INTRINSIC"}
 
   - id: STAR-TJ
     name: "天机"
     substrate: {yin_yang: "阴", element: "木"}
     intrinsic_signature:
-      - {dimension_id: "QI-07", tendency: "认知机变高", strength_class: "core", evidence_rules: [ZZ-TJ-002, ZZ-TJ-005, ZZ-TJ-014, ZZ-TJ-016]}
-      - {dimension_id: "QI-03", tendency: "变动端", strength_class: "core", evidence_rules: [ZZ-TJ-018, ZZ-TJ-020]}
-      - {dimension_id: "QI-05", tendency: "现实化能力易受空劫等扰动而转为空想", strength_class: "conditional", evidence_rules: [ZZ-TJ-007, ZZ-TJ-025]}
-      - {dimension_id: "QI-06", tendency: "决策激活度高度可变：陀罗延缓、火铃多虑失机", strength_class: "conditional", evidence_rules: [ZZ-TJ-006, ZZ-TJ-024]}
-      - {dimension_id: "QI-08", tendency: "化权等条件下行动/用世驱动增强", strength_class: "conditional", evidence_rules: [ZZ-TJ-013]}
-      - {dimension_id: "QI-10", tendency: "化科时规范约束增强", strength_class: "conditional", evidence_rules: [ZZ-TJ-015]}
-    relational_signature:
-      - {relation_id: "QR-03", tendency: "擎羊等条件可激活竞争", strength_class: "conditional", evidence_rules: [ZZ-TJ-023]}
+      - {dimension_id: "QI-07", tendency: "认知机变高", strength_class: "core", evidence_rules: [ZZ-TJ-002, ZZ-TJ-005, ZZ-TJ-X01], evidence_tier: "DIRECT_STAR"}
+    relational_signature: []
+    conditional_signature:
+      - {dimension_id: "QI-03", tendency: "运限层变化性增强", condition_class: "temporal", evidence_rules: [ZZ-TJ-018, ZZ-TJ-020], evidence_tier: "SAME_STAR_MODIFIER"}
+      - {dimension_id: "QI-05", tendency: "空劫可使机变转为空想", condition_class: "modifier", evidence_rules: [ZZ-TJ-025], evidence_tier: "SAME_STAR_MODIFIER"}
+      - {dimension_id: "QI-06", tendency: "陀罗延缓、火铃可造成认知过载与失机", condition_class: "modifier", evidence_rules: [ZZ-TJ-024, ZZ-TJ-Y04], evidence_tier: "SAME_STAR_MODIFIER"}
+      - {dimension_id: "QI-10", tendency: "化科时规范约束增强", condition_class: "transformation", evidence_rules: [ZZ-TJ-015], evidence_tier: "SAME_STAR_MODIFIER"}
+      - {dimension_id: "QR-03", tendency: "擎羊条件可激活竞争", condition_class: "modifier", evidence_rules: [ZZ-TJ-023], evidence_tier: "SAME_STAR_MODIFIER"}
     contextual_sensitivity:
       level: "high"
-      explanation: "本命天机与运限天机的含义明确分层；运限主要表现变化而非人格本质。"
+      explanation: "本命认知机变与运限变化性分层；不把运限变化自动反推为人格 baseline。"
 
   - id: STAR-TY
     name: "太阳"
     substrate: {yin_yang: "阳", element: "火"}
     intrinsic_signature:
-      - {dimension_id: "QI-01", tendency: "发射端显著", strength_class: "core", evidence_rules: [ZZ-TY-002, ZZ-TY-009, ZZ-TY-016, ZZ-TY-017]}
-      - {dimension_id: "QI-14", tendency: "显明/光华端", strength_class: "secondary", evidence_rules: [ZZ-TY-002, ZZ-TY-003]}
-      - {dimension_id: "QI-05", tendency: "发射过度时现实化下降、空虚增加", strength_class: "conditional", evidence_rules: [ZZ-TY-010]}
-      - {dimension_id: "QI-15", tendency: "强烈依赖中和与补偿", strength_class: "core", evidence_rules: [ZZ-TY-016, ZZ-TY-017, ZZ-TY-018]}
+      - {dimension_id: "QI-01", tendency: "发射端显著", strength_class: "core", evidence_rules: [ZZ-TY-002], evidence_tier: "DIRECT_STAR"}
     relational_signature: []
+    conditional_signature:
+      - {dimension_id: "QI-01", tendency: "过强需收敛、过弱需发射补偿", condition_class: "optimal_region", evidence_rules: [ZZ-TY-009, ZZ-TY-016, ZZ-TY-017], evidence_tier: "DIRECT_STAR"}
+      - {dimension_id: "QI-05", tendency: "发射过度时现实化下降", condition_class: "overactivation", evidence_rules: [ZZ-TY-010, ZZ-TY-X02], evidence_tier: "DIRECT_STAR"}
+      - {dimension_id: "QI-15", tendency: "强弱评估要求中和", condition_class: "balance_requirement", evidence_rules: [ZZ-TY-018], evidence_tier: "DIRECT_STAR"}
     contextual_sensitivity:
       level: "very_high"
-      explanation: "庙旺落陷、昼夜、发射强弱与收敛/发射星会合共同决定状态；存在明确最适区。"
+      explanation: "庙旺落陷、昼夜与发射强弱共同决定太阳状态；A1 不再把太阳发射当作 QI-14 可见性的直接证据。"
 
   - id: STAR-WQ
     name: "武曲"
     substrate: {yin_yang: "阴", element: "金"}
     intrinsic_signature:
-      - {dimension_id: "QI-02", tendency: "刚端显著", strength_class: "core", evidence_rules: [ZZ-WQ-005, ZZ-WQ-009, ZZ-WQ-018, ZZ-WQ-020, ZZ-WQ-022]}
-      - {dimension_id: "QI-05", tendency: "具体/现实化端", strength_class: "core", evidence_rules: [ZZ-WQ-003, ZZ-WQ-004]}
-      - {dimension_id: "QI-08", tendency: "行动驱动高", strength_class: "core", evidence_rules: [ZZ-WQ-004, ZZ-WQ-014]}
-      - {dimension_id: "QI-06", tendency: "与破军等交互时可向躁决端偏移", strength_class: "conditional", evidence_rules: [ZZ-WQ-019, ZZ-WQ-024, ZZ-WQ-025]}
-      - {dimension_id: "QI-15", tendency: "可被昌曲、天府、禄调和", strength_class: "conditional", evidence_rules: [ZZ-WQ-018, ZZ-WQ-020, ZZ-WQ-022]}
+      - {dimension_id: "QI-02", tendency: "刚端显著", strength_class: "core", evidence_rules: [ZZ-WQ-005], evidence_tier: "DIRECT_STAR"}
+      - {dimension_id: "QI-05", tendency: "具体/现实化端", strength_class: "core", evidence_rules: [ZZ-WQ-003, ZZ-WQ-004], evidence_tier: "DIRECT_STAR"}
+      - {dimension_id: "QI-08", tendency: "行动驱动高", strength_class: "core", evidence_rules: [ZZ-WQ-004], evidence_tier: "DIRECT_STAR"}
     relational_signature:
-      - {relation_id: "QR-01", tendency: "孤离/孤克端", strength_class: "core", evidence_rules: [ZZ-WQ-006, ZZ-WQ-010, ZZ-WQ-021]}
-      - {relation_id: "QR-03", tendency: "火铃等条件下竞争激活", strength_class: "conditional", evidence_rules: [ZZ-WQ-015]}
+      - {relation_id: "QR-01", tendency: "孤克/孤离端", strength_class: "core", evidence_rules: [ZZ-WQ-006], evidence_tier: "DIRECT_STAR"}
+    conditional_signature:
+      - {dimension_id: "QI-02", tendency: "羊陀增强刚烈，昌曲/天府/禄可调节", condition_class: "modifier", evidence_rules: [ZZ-WQ-009, ZZ-WQ-018, ZZ-WQ-020, ZZ-WQ-022], evidence_tier: "SAME_STAR_MODIFIER"}
+      - {dimension_id: "QI-06", tendency: "昌曲可优柔，武破条件可躁决", condition_class: "interaction", evidence_rules: [ZZ-WQ-019, ZZ-WQ-024], evidence_tier: "DIRECT_STAR"}
     contextual_sensitivity:
       level: "very_high"
-      explanation: "同一刚烈性质在财帛事业与六亲宫位的评价明显不同，是状态与评价分离的典型案例。"
+      explanation: "刚烈性质在不同宫位与组合中的评价不同；状态与吉凶继续分离。"
 
   - id: STAR-TT
     name: "天同"
     substrate: {yin_yang: "阳", element: "水"}
     intrinsic_signature:
-      - {dimension_id: "QI-02", tendency: "柔和端", strength_class: "core", evidence_rules: [ZZ-TT-002, ZZ-TT-005]}
-      - {dimension_id: "QI-15", tendency: "缓冲/化解能力高", strength_class: "core", evidence_rules: [ZZ-TT-002, ZZ-TT-006, ZZ-TT-008]}
-      - {dimension_id: "QI-09", tendency: "享受趋向", strength_class: "secondary", evidence_rules: [ZZ-TT-004]}
+      - {dimension_id: "QI-02", tendency: "柔和端但存在软弱风险", strength_class: "core", evidence_rules: [ZZ-TT-002, ZZ-TT-005], evidence_tier: "DIRECT_STAR"}
+      - {dimension_id: "QI-15", tendency: "缓冲/化解能力", strength_class: "core", evidence_rules: [ZZ-TT-006, ZZ-TT-X01], evidence_tier: "DIRECT_STAR"}
+      - {dimension_id: "QI-09", tendency: "享受趋向", strength_class: "secondary", evidence_rules: [ZZ-TT-004, ZZ-TT-X02], evidence_tier: "DIRECT_STAR"}
     relational_signature: []
+    conditional_signature:
+      - {dimension_id: "QI-15", tendency: "适度逆境可激发后形成缓冲", condition_class: "nonlinear_modifier", evidence_rules: [ZZ-TT-X03, ZZ-TT-Y05], evidence_tier: "SAME_STAR_MODIFIER"}
+      - {dimension_id: "QR-04", tendency: "辅弼支持与依赖可能同时增加", condition_class: "support_coupling", evidence_rules: [ZZ-TT-X07], evidence_tier: "SAME_STAR_MODIFIER"}
     contextual_sensitivity:
       level: "high"
-      explanation: "吉化可表现为安宁享受，失衡时柔和可转为软弱、注意控制不足；需避免把“柔”直接等同于吉。"
+      explanation: "A1 已隔离 ZZ-TT-010；不再用未经来源支持的注意控制不足作为天同 core。"
 
   - id: STAR-LZ
     name: "廉贞"
     substrate: {yin_yang: "阴", element: "木火"}
     intrinsic_signature:
-      - {dimension_id: "QI-09", tendency: "欲望/感情驱动较强但并非纯物欲", strength_class: "core", evidence_rules: [ZZ-LZ-002, ZZ-LZ-003, ZZ-LZ-004, ZZ-LZ-005]}
-      - {dimension_id: "QI-11", tendency: "感性—理性张力显著", strength_class: "core", evidence_rules: [ZZ-LZ-008, ZZ-LZ-009, ZZ-LZ-010]}
-      - {dimension_id: "QI-07", tendency: "策略手段性可被激活", strength_class: "conditional", evidence_rules: [ZZ-LZ-006, ZZ-LZ-007]}
+      - {dimension_id: "QI-11", tendency: "感性—理性张力为核心", strength_class: "core", evidence_rules: [ZZ-LZ-003, ZZ-LZ-Y01], evidence_tier: "DIRECT_STAR"}
     relational_signature: []
+    conditional_signature:
+      - {dimension_id: "QI-11", tendency: "不同组合可增强感性或调和刚性", condition_class: "modifier", evidence_rules: [ZZ-LZ-X05, ZZ-LZ-X06], evidence_tier: "SAME_STAR_MODIFIER"}
+      - {dimension_id: "QI-09", tendency: "武曲等条件可增加物欲/自利色彩", condition_class: "modifier", evidence_rules: [ZZ-LZ-X08], evidence_tier: "SAME_STAR_MODIFIER"}
     contextual_sensitivity:
       level: "very_high"
-      explanation: "与天相或破军等组合可分别向和缓或躁决方向转化，显示星系交互对廉贞尤重要。"
+      explanation: "六十星系中的感性/理性分化只作为 system-context evidence，不再反推为单星额外 intrinsic。"
+    unmapped_source_properties:
+      - {property: "精神享受/感性取向", status: "ORIENTATION_NOT_PRIMITIVE"}
 
   - id: STAR-TF
     name: "天府"
     substrate: {yin_yang: "阳", element: "土"}
     intrinsic_signature:
-      - {dimension_id: "QI-12", tendency: "资源保存/管理能力高", strength_class: "core", evidence_rules: [ZZ-TF-002, ZZ-TF-003, ZZ-TF-004]}
-      - {dimension_id: "QI-04", tendency: "守成端显著", strength_class: "core", evidence_rules: [ZZ-TF-005]}
-      - {dimension_id: "QI-15", tendency: "具有收敛、稳定其他刚烈性质的能力", strength_class: "secondary", evidence_rules: [ZZ-WQ-020, ZZ-WQ-021]}
+      - {dimension_id: "QI-12", tendency: "资源保存/管理能力高", strength_class: "core", evidence_rules: [ZZ-TF-002, ZZ-TF-003, ZZ-TF-004], evidence_tier: "DIRECT_STAR"}
+      - {dimension_id: "QI-04", tendency: "守成端显著", strength_class: "core", evidence_rules: [ZZ-TF-005], evidence_tier: "DIRECT_STAR"}
     relational_signature:
-      - {relation_id: "QR-02", tendency: "较紫微弱的主导端，偏管理协同", strength_class: "secondary", evidence_rules: [ZZ-TF-006]}
+      - {relation_id: "QR-02", tendency: "主导弱于紫微、偏管理协同", strength_class: "secondary", evidence_rules: [ZZ-TF-006], evidence_tier: "DIRECT_STAR"}
+    conditional_signature:
+      - {dimension_id: "QI-12", tendency: "空库/露库改变资源状态", condition_class: "modifier", evidence_rules: [ZZ-TF-007, ZZ-TF-008, ZZ-TF-X05], evidence_tier: "SAME_STAR_MODIFIER"}
     contextual_sensitivity:
       level: "high"
-      explanation: "空库、露库显示资源管理核心可在特定组合下转化为资源空置、暴露或手段化。"
+      explanation: "A1 删除以武曲规则证明天府 QI-15 的 cross-subject evidence。"
 
   - id: STAR-TYI
     name: "太阴"
     substrate: {yin_yang: "阴", element: "水"}
     intrinsic_signature:
-      - {dimension_id: "QI-01", tendency: "收敛端显著", strength_class: "core", evidence_rules: [ZZ-TYI-002, ZZ-TYI-005, ZZ-TYI-006, ZZ-TYI-007, ZZ-TYI-008]}
-      - {dimension_id: "QI-14", tendency: "潜藏端", strength_class: "core", evidence_rules: [ZZ-TYI-002]}
-      - {dimension_id: "QI-05", tendency: "偏抽象/计划，过度收敛或发射失衡时可虚而不实", strength_class: "secondary", evidence_rules: [ZZ-WQ-003, ZZ-TYI-008, ZZ-TYI-010]}
-      - {dimension_id: "QI-07", tendency: "昌曲等条件可增强认知与文化修饰", strength_class: "conditional", evidence_rules: [ZZ-TYI-003]}
-      - {dimension_id: "QI-15", tendency: "同样遵循收敛—发射的中和补偿", strength_class: "core", evidence_rules: [ZZ-TYI-005, ZZ-TYI-006, ZZ-TYI-007, ZZ-TYI-008]}
+      - {dimension_id: "QI-01", tendency: "收敛端显著", strength_class: "core", evidence_rules: [ZZ-TYI-002], evidence_tier: "DIRECT_STAR"}
     relational_signature: []
+    conditional_signature:
+      - {dimension_id: "QI-01", tendency: "过度收敛与发射过强均可失衡", condition_class: "optimal_region", evidence_rules: [ZZ-TYI-006, ZZ-TYI-007, ZZ-TYI-008], evidence_tier: "DIRECT_STAR"}
+      - {dimension_id: "QI-05", tendency: "失衡时可虚而不实/现实化下降", condition_class: "modifier", evidence_rules: [ZZ-TYI-008, ZZ-TYI-X08], evidence_tier: "DIRECT_STAR"}
+      - {dimension_id: "QR-04", tendency: "辅弼魁钺可提供外部支持", condition_class: "support", evidence_rules: [ZZ-TYI-X04, ZZ-TYI-X05], evidence_tier: "SAME_STAR_MODIFIER"}
     contextual_sensitivity:
       level: "very_high"
-      explanation: "过度收敛、适度内敛与发射过强构成明确非单调结构。"
+      explanation: "A1 移除 QI-14 潜藏映射与武曲 cross-subject evidence；收敛不自动等于信息遮蔽。"
 
   - id: STAR-TL
     name: "贪狼"
     substrate: {yin_yang: "阳", element: "木"}
     intrinsic_signature:
-      - {dimension_id: "QI-09", tendency: "欲望驱动高", strength_class: "core", evidence_rules: [ZZ-TL-002, ZZ-TL-003, ZZ-TL-004, ZZ-TL-005]}
-      - {dimension_id: "QI-08", tendency: "动态活动/行动趋向", strength_class: "secondary", evidence_rules: [ZZ-TL-008]}
-      - {dimension_id: "QI-06", tendency: "火铃等条件可提高急迫性", strength_class: "conditional", evidence_rules: [ZZ-TL-010]}
-      - {dimension_id: "QI-10", tendency: "天刑/空曜等条件可增强自律约束", strength_class: "conditional", evidence_rules: [ZZ-TL-004, ZZ-TL-005]}
-    relational_signature:
-      - {relation_id: "QR-03", tendency: "羊陀等条件可激活欲望/关系冲突", strength_class: "conditional", evidence_rules: [ZZ-TL-006]}
+      - {dimension_id: "QI-09", tendency: "欲望驱动高且存在物欲/情欲类型分化", strength_class: "core", evidence_rules: [ZZ-TL-002, ZZ-TL-X01, ZZ-TL-X02], evidence_tier: "DIRECT_STAR"}
+      - {dimension_id: "QI-08", tendency: "动态活动/行动趋向", strength_class: "secondary", evidence_rules: [ZZ-TL-008], evidence_tier: "DIRECT_STAR"}
+    relational_signature: []
+    conditional_signature:
+      - {dimension_id: "QI-09", tendency: "化禄、武曲、羊陀等改变欲望强度/类型", condition_class: "modifier", evidence_rules: [ZZ-TL-X05, ZZ-TL-X06, ZZ-TL-X08, ZZ-TL-X10, ZZ-TL-X11], evidence_tier: "SAME_STAR_MODIFIER"}
+      - {dimension_id: "QI-10", tendency: "天刑/空曜可增强欲望约束", condition_class: "modifier", evidence_rules: [ZZ-TL-X12, ZZ-TL-Y03], evidence_tier: "SAME_STAR_MODIFIER"}
     contextual_sensitivity:
       level: "high"
-      explanation: "需区分物欲、情欲、审美与活动性；约束条件可抑制部分欲望但不必然抑制全部欲望。"
+      explanation: "欲望强度与欲望对象分离；紫贪等系统性质不再当作贪狼单星 baseline。"
 
   - id: STAR-JM
     name: "巨门"
     substrate: {yin_yang: "阴", element: "土/金"}
     intrinsic_signature:
-      - {dimension_id: "QI-14", tendency: "遮蔽/阴暗端", strength_class: "core", evidence_rules: [ZZ-JM-002]}
-      - {dimension_id: "QI-13", tendency: "表达/传播能力高但方向高度依条件", strength_class: "core", evidence_rules: [ZZ-JM-004, ZZ-JM-005, ZZ-JM-006, ZZ-JM-007, ZZ-JM-009]}
-      - {dimension_id: "QI-07", tendency: "文曜与才华条件可使表达从多言转为善辩", strength_class: "conditional", evidence_rules: [ZZ-JM-007, ZZ-JM-009]}
-    relational_signature:
-      - {relation_id: "QR-03", tendency: "煞忌等条件下言语/关系冲突激活", strength_class: "conditional", evidence_rules: [ZZ-JM-003, ZZ-JM-010]}
+      - {dimension_id: "QI-14", tendency: "遮蔽/暗端显著", strength_class: "core", evidence_rules: [ZZ-JM-002], evidence_tier: "DIRECT_STAR"}
+      - {dimension_id: "QI-13", tendency: "言语表达能力显著", strength_class: "core", evidence_rules: [ZZ-JM-004, ZZ-JM-X01], evidence_tier: "DIRECT_STAR"}
+    relational_signature: []
+    conditional_signature:
+      - {dimension_id: "QI-14", tendency: "太阳可减遮蔽，运限可激活阶段性暗蔽", condition_class: "visibility_gate", evidence_rules: [ZZ-JM-X04, ZZ-JM-X10, ZZ-JM-Y01], evidence_tier: "SAME_STAR_MODIFIER"}
+      - {dimension_id: "QI-13", tendency: "昌曲/文曜可把多言转为善辩", condition_class: "modifier", evidence_rules: [ZZ-JM-007, ZZ-JM-009, ZZ-JM-X09], evidence_tier: "SAME_STAR_MODIFIER"}
     contextual_sensitivity:
       level: "very_high"
-      explanation: "辅弼、昌曲可把疑忌/多言转化为思虑/善辩；煞忌则放大阴暗与冲突。"
+      explanation: "A1 将表达优化从 QI-07 认知机变中移出；暗曜与表达为两条不同状态通路。"
 
   - id: STAR-TX
     name: "天相"
     substrate: {yin_yang: "阳", element: "水"}
     intrinsic_signature:
-      - {dimension_id: "QI-02", tendency: "柔和端但存在软弱风险", strength_class: "core", evidence_rules: [ZZ-TX-002, ZZ-TX-003, ZZ-TX-004]}
-      - {dimension_id: "QI-15", tendency: "调和与平衡能力", strength_class: "core", evidence_rules: [ZZ-TX-003, ZZ-TX-007, ZZ-TX-009]}
-    relational_signature:
-      - {relation_id: "QR-02", tendency: "协同/辅弼端", strength_class: "secondary", evidence_rules: [ZZ-TX-003]}
+      - {dimension_id: "QI-02", tendency: "柔和端且存在软弱风险", strength_class: "core", evidence_rules: [ZZ-TX-001, ZZ-TX-X02], evidence_tier: "DIRECT_STAR"}
+    relational_signature: []
+    conditional_signature:
+      - {dimension_id: "QI-02", tendency: "财荫夹可减软弱，刑忌/煞夹可增强软弱", condition_class: "clamp_gate", evidence_rules: [ZZ-TX-002, ZZ-TX-004], evidence_tier: "SAME_STAR_MODIFIER"}
+      - {dimension_id: "QI-15", tendency: "支持结构可出现能力化/调和，但高度依上下文", condition_class: "system_or_modifier", evidence_rules: [ZZ-TX-X04, ZZ-TX-X07], evidence_tier: "SAME_STAR_MODIFIER"}
     contextual_sensitivity:
       level: "extreme"
-      explanation: "天相是当前十四星中上下文依赖最强的候选之一；夹宫、同会和对宫可将软弱转成能力，也可进一步恶化。"
+      explanation: "A1 不再把 ZZ-TX-003/ZZ-TX-009 的 system-context 性质当成天相 intrinsic QI-15 或 QR-02 充分证据。"
+    provenance_note: "ZZ-TX-003 的直接依据已修正至六十星系·7 武曲天相，保留为 interaction evidence。"
 
   - id: STAR-TLIA
     name: "天梁"
     substrate: {yin_yang: "阳", element: "土"}
     intrinsic_signature:
-      - {dimension_id: "QI-10", tendency: "原则/规范约束高", strength_class: "core", evidence_rules: [ZZ-TLIA-002, ZZ-TLIA-003, ZZ-TLIA-005, ZZ-TLIA-006]}
-      - {dimension_id: "QI-15", tendency: "纠纷调处/化解倾向", strength_class: "secondary", evidence_rules: [ZZ-TLIA-006]}
-      - {dimension_id: "QI-08", tendency: "独立行动倾向", strength_class: "secondary", evidence_rules: [ZZ-TLIA-005]}
+      - {dimension_id: "QI-10", tendency: "原则/规范约束高", strength_class: "core", evidence_rules: [ZZ-TLIA-002, ZZ-TLIA-003, ZZ-TLIA-X01], evidence_tier: "DIRECT_STAR"}
+      - {dimension_id: "QI-15", tendency: "纠纷调处/化解倾向", strength_class: "secondary", evidence_rules: [ZZ-TLIA-006], evidence_tier: "DIRECT_STAR"}
     relational_signature:
-      - {relation_id: "QR-01", tendency: "孤离/孤忌端", strength_class: "core", evidence_rules: [ZZ-TLIA-004, ZZ-TLIA-005]}
+      - {relation_id: "QR-01", tendency: "孤离/孤忌端", strength_class: "core", evidence_rules: [ZZ-TLIA-004, ZZ-TLIA-X01, ZZ-TLIA-X05], evidence_tier: "DIRECT_STAR"}
+    conditional_signature:
+      - {dimension_id: "QI-10", tendency: "天刑可进一步增强规范约束", condition_class: "modifier", evidence_rules: [ZZ-TLIA-X09], evidence_tier: "SAME_STAR_MODIFIER"}
+      - {dimension_id: "QI-03", tendency: "天马可降低稳定性", condition_class: "modifier", evidence_rules: [ZZ-TLIA-X07], evidence_tier: "SAME_STAR_MODIFIER"}
     contextual_sensitivity:
       level: "high"
-      explanation: "同一太阳天梁结构可分祥和与孤忌两种本质，后天反应完全不同，适合后续双稳态/多模态建模。"
+      explanation: "太阳天梁祥和/孤忌等分叉属于 system mode，不反推为单星固定双稳态。"
 
   - id: STAR-QS
     name: "七杀"
     substrate: {yin_yang: "阴", element: "金"}
     intrinsic_signature:
-      - {dimension_id: "QI-02", tendency: "刚克端显著", strength_class: "core", evidence_rules: [ZZ-QS-006, ZZ-QS-009]}
-      - {dimension_id: "QI-04", tendency: "冲刺/承担重任端", strength_class: "core", evidence_rules: [ZZ-QS-002, ZZ-QS-010]}
-      - {dimension_id: "QI-08", tendency: "独立行动驱动高", strength_class: "core", evidence_rules: [ZZ-QS-004]}
+      - {dimension_id: "QI-02", tendency: "刚克端显著", strength_class: "core", evidence_rules: [ZZ-QS-006], evidence_tier: "DIRECT_STAR"}
+      - {dimension_id: "QI-04", tendency: "冲刺/承担重任端", strength_class: "core", evidence_rules: [ZZ-QS-002, ZZ-QS-010], evidence_tier: "DIRECT_STAR"}
+      - {dimension_id: "QI-08", tendency: "独立行动驱动高", strength_class: "core", evidence_rules: [ZZ-QS-004], evidence_tier: "DIRECT_STAR"}
     relational_signature:
-      - {relation_id: "QR-02", tendency: "主导/统帅端", strength_class: "core", evidence_rules: [ZZ-QS-002, ZZ-QS-005]}
-      - {relation_id: "QR-03", tendency: "煞忌条件进一步激活冲突压力", strength_class: "conditional", evidence_rules: [ZZ-QS-009]}
+      - {relation_id: "QR-02", tendency: "主导/统帅端", strength_class: "core", evidence_rules: [ZZ-QS-002, ZZ-QS-X02], evidence_tier: "DIRECT_STAR"}
+    conditional_signature:
+      - {dimension_id: "QI-02", tendency: "煞忌刑可进一步刚性过载", condition_class: "modifier", evidence_rules: [ZZ-QS-009, ZZ-QS-X05], evidence_tier: "SAME_STAR_MODIFIER"}
+      - {dimension_id: "QR-04", tendency: "辅弼魁钺禄可提供支持", condition_class: "support", evidence_rules: [ZZ-QS-X09], evidence_tier: "SAME_STAR_MODIFIER"}
     contextual_sensitivity:
       level: "high"
-      explanation: "紫微可使七杀由“杀”转为“权”，辅佐与煞忌分别显著改变其刚克的社会表现。"
+      explanation: "A1 不再把刚克本身等同 QR-03 竞争；竞争需要独立关系证据。"
 
   - id: STAR-PJ
     name: "破军"
     substrate: {yin_yang: "阳", element: "水"}
     intrinsic_signature:
-      - {dimension_id: "QI-03", tendency: "变动端显著", strength_class: "core", evidence_rules: [ZZ-PJ-002, ZZ-PJ-003, ZZ-PJ-006, ZZ-PJ-007]}
-      - {dimension_id: "QI-04", tendency: "开创/突破/冲锋端显著", strength_class: "core", evidence_rules: [ZZ-PJ-002, ZZ-PJ-003]}
-      - {dimension_id: "QI-08", tendency: "行动推进高", strength_class: "core", evidence_rules: [ZZ-PJ-003, ZZ-PJ-004]}
-      - {dimension_id: "QI-06", tendency: "在特定组合中可进入高激活/骑虎难下状态", strength_class: "conditional", evidence_rules: [ZZ-PJ-007, ZZ-PJ-008, ZZ-PJ-009]}
+      - {dimension_id: "QI-03", tendency: "变动/重构端显著", strength_class: "core", evidence_rules: [ZZ-PJ-002, ZZ-PJ-003, ZZ-PJ-X10], evidence_tier: "DIRECT_STAR"}
+      - {dimension_id: "QI-04", tendency: "开创/突破/冲锋端显著", strength_class: "core", evidence_rules: [ZZ-PJ-002, ZZ-PJ-003, ZZ-PJ-X01], evidence_tier: "DIRECT_STAR"}
+      - {dimension_id: "QI-08", tendency: "行动推进高", strength_class: "core", evidence_rules: [ZZ-PJ-003, ZZ-PJ-004, ZZ-PJ-X02], evidence_tier: "DIRECT_STAR"}
     relational_signature:
-      - {relation_id: "QR-02", tendency: "受更高层主导约束的执行/先锋端", strength_class: "secondary", evidence_rules: [ZZ-PJ-005]}
+      - {relation_id: "QR-02", tendency: "先锋/执行端受更高层主导约束", strength_class: "secondary", evidence_rules: [ZZ-PJ-005], evidence_tier: "DIRECT_STAR"}
+    conditional_signature:
+      - {dimension_id: "QI-06", tendency: "化权等条件可进入高激活/路径锁定", condition_class: "transformation", evidence_rules: [ZZ-PJ-007, ZZ-PJ-009], evidence_tier: "SAME_STAR_MODIFIER"}
+      - {dimension_id: "QI-16", tendency: "缺禄权辅佐且见煞忌时可偏破坏、建设性下降", condition_class: "goal_quality_gate", evidence_rules: [ZZ-PJ-X06], evidence_tier: "DIRECT_STAR"}
+      - {dimension_id: "QR-04", tendency: "辅弼可提供支持缓冲", condition_class: "support", evidence_rules: [ZZ-PJ-Y02], evidence_tier: "SAME_STAR_MODIFIER"}
     contextual_sensitivity:
       level: "high"
-      explanation: "化禄偏向改善变动过程，化权主要增强声势但不保证结果，体现“驱动力”和“结果质量”必须分离。"
+      explanation: "A1 保留变化、开创、行动三者分离；QI-16 只作条件性建设/目标质量通路，不等同结果成功。"
 
-cross_star_hypotheses_for_G4:
-  - id: H-G4-01
-    hypothesis: "星系气核 ≠ 单星气核简单相加，需显式 interaction_delta。"
-    evidence_examples:
-      - "武曲+破军：刚烈可进一步转为躁决"
-      - "天相在不同夹宫中软弱可转为能力或进一步恶化"
-      - "太阳+天梁可分祥和与孤忌两类本质"
-  - id: H-G4-02
-    hypothesis: "每颗星应有context_sensitivity参数族，而不是只有固定气核。"
-  - id: H-G4-03
-    hypothesis: "L0阴阳五行可能调节交互算子，但不直接决定L4吉凶。"
+G3R_audit:
+  removed_cross_subject_intrinsic_evidence:
+    - {star: "天府", removed: [ZZ-WQ-020, ZZ-WQ-021], reason: "subject=武曲，仅可说明交互调节"}
+    - {star: "太阴", removed: [ZZ-WQ-003], reason: "subject=武曲，不能作为太阴 intrinsic 直接证据"}
+  removed_or_demoted_system_context_core_evidence:
+    - {star: "廉贞", dimension: "QI-11", examples: [ZZ-LZ-008, ZZ-LZ-009, ZZ-LZ-010]}
+    - {star: "贪狼", dimension: "QI-09", examples: [ZZ-TL-003, ZZ-TL-004, ZZ-TL-005]}
+    - {star: "天相", dimension: "QI-15", examples: [ZZ-TX-003, ZZ-TX-009]}
+  quarantined_evidence:
+    - {rule_id: "ZZ-TT-010", reason: "P1 source mismatch confirmed"}
 
-G3_approval_record:
-  freeze:
-    - "十四正曜均采用：L0结构标签 + L1内在气核 + L2关系气核 + 上下文敏感度的统一结构。"
-    - "星曜气核中禁止直接写入财富、名誉、疾病、婚姻、成功失败等L3/L4变量。"
-    - "strength_class仅表示文本核心程度，不视为经验权重。"
-    - "条件性质必须留在conditional层，不得伪装成恒定本质。"
-  provisional:
-    - "每颗星具体维度映射"
-    - "context_sensitivity等级"
-    - "未映射性质是否成为新维度"
-    - "各维度真实数值权重"
-
-G3_approval:
-  status: "APPROVED"
+G3R_approval_record:
   approved_by: "PI"
-  note: "冻结统一气核结构与方法原则；具体维度映射和数值权重继续保持可修订。"
+  gate: "A1"
+  freeze:
+    - "L0 substrate + intrinsic + relational + conditional/context structure"
+    - "direct-star > modifier > system-context > projection evidence priority"
+    - "禁止为适配 ontology 强填气核"
+    - "system-context 不自动升格为 intrinsic"
+  provisional:
+    - "每颗星具体 QI/QR 映射"
+    - "strength_class 的最终分级"
+    - "未来经验权重与数值参数"

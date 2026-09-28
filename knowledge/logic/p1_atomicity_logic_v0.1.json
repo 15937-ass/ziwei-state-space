@@ -1,0 +1,939 @@
+{
+  "version": "0.1",
+  "status": "A1_SOURCE_REVIEWED_ATOMICITY_MIGRATION",
+  "policy": {
+    "raw_canonical_immutable": true,
+    "literal_nodes": "opaque condition atoms; no semantic expansion beyond reviewed branching",
+    "case_evidence": "not executable as generic causal rule",
+    "quarantine": "disabled",
+    "normalization_epistemic": "IMPLEMENTATION"
+  },
+  "records": [
+    {
+      "rule_id": "ZZ-SYS-01-005",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "SPLIT_OR_SET",
+      "verified_source_location": "六十星系·1 紫微独坐子午·印刷页34-36",
+      "raw_condition": "贪狼化禄/权、武曲化禄/权、天府化科",
+      "execution_mode": "ANY_LITERAL_BRANCH",
+      "enabled": true,
+      "logic": {
+        "any": [
+          {
+            "literal": "贪狼化禄/权"
+          },
+          {
+            "literal": "武曲化禄/权"
+          },
+          {
+            "literal": "天府化科"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-01-009",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "SPLIT_OR_SET",
+      "verified_source_location": "六十星系·1 紫微独坐子午·印刷页34-36",
+      "raw_condition": "贪狼见天刑/空曜、廉贞见桃花/昌曲、刑忌夹印天相、紫微见空曜华盖桃花",
+      "execution_mode": "ANY_LITERAL_BRANCH",
+      "enabled": true,
+      "logic": {
+        "any": [
+          {
+            "literal": "贪狼见天刑/空曜"
+          },
+          {
+            "literal": "廉贞见桃花/昌曲"
+          },
+          {
+            "literal": "刑忌夹印天相"
+          },
+          {
+            "literal": "紫微见空曜华盖桃花"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-01-015",
+      "source_review_result": "SOURCE_SUPPORTED_DEFINITION",
+      "recommended_action": "KEEP_COMPOSITE_DEFINITION",
+      "verified_source_location": "六十星系·1 紫微独坐子午·印刷页34-36",
+      "raw_condition": "破军化禄/权、廉府禄、武相禄、七杀见禄、天机化禄见辅弼",
+      "execution_mode": "DEFINITION_SET",
+      "enabled": true,
+      "logic": {
+        "definition_members": [
+          {
+            "literal": "破军化禄/权"
+          },
+          {
+            "literal": "廉府禄"
+          },
+          {
+            "literal": "武相禄"
+          },
+          {
+            "literal": "七杀见禄"
+          },
+          {
+            "literal": "天机化禄见辅弼"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-01-016",
+      "source_review_result": "SOURCE_SUPPORTED_DEFINITION",
+      "recommended_action": "KEEP_COMPOSITE_DEFINITION",
+      "verified_source_location": "六十星系·1 紫微独坐子午·印刷页34-36",
+      "raw_condition": "太阴/太阳禄权科、天梁化科、昌曲等",
+      "execution_mode": "DEFINITION_SET",
+      "enabled": true,
+      "logic": {
+        "definition_members": [
+          {
+            "literal": "太阴/太阳禄权科"
+          },
+          {
+            "literal": "天梁化科"
+          },
+          {
+            "literal": "昌曲等"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-01-024",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "STRUCTURED_GATE_REQUIRED",
+      "verified_source_location": "六十星系·1 紫微独坐子午·印刷页34-36",
+      "raw_condition": "物质性重紫微 + 天同巨门；天同化禄/忌或巨门化忌",
+      "execution_mode": "EXPLICIT_AST",
+      "enabled": true,
+      "logic": {
+        "all": [
+          {
+            "literal": "物质性重紫微"
+          },
+          {
+            "literal": "进入天同巨门运限"
+          },
+          {
+            "any": [
+              {
+                "literal": "天同化禄"
+              },
+              {
+                "literal": "天同化忌"
+              },
+              {
+                "literal": "巨门化忌"
+              }
+            ]
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-02-029",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "STRUCTURED_GATE_REQUIRED",
+      "verified_source_location": "六十星系·2 破军独坐寅申·印刷页36-38",
+      "raw_condition": "叛逆型 + 吉化少/辅佐少且重煞未过量",
+      "execution_mode": "EXPLICIT_AST",
+      "enabled": true,
+      "logic": {
+        "all": [
+          {
+            "literal": "叛逆型"
+          },
+          {
+            "literal": "吉化少/辅佐少"
+          },
+          {
+            "literal": "重煞未过量"
+          },
+          {
+            "branch_by": "现实基线"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-03-011",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "SPLIT_OR_SET",
+      "verified_source_location": "六十星系·3 廉贞天府坐辰戌·印刷页38-40",
+      "raw_condition": "武曲化禄/权或天相财荫夹印",
+      "execution_mode": "ANY_LITERAL_BRANCH",
+      "enabled": true,
+      "logic": {
+        "any": [
+          {
+            "literal": "武曲化禄/权"
+          },
+          {
+            "literal": "天相财荫夹印"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-07-008",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "STRUCTURED_GATE_REQUIRED",
+      "verified_source_location": "六十星系·7 武曲天相坐寅申·印刷页46-48",
+      "raw_condition": "天相财荫夹且天府得禄/辅佐会",
+      "execution_mode": "EXPLICIT_AST",
+      "enabled": true,
+      "logic": {
+        "all": [
+          {
+            "literal": "天相财荫夹"
+          },
+          {
+            "any": [
+              {
+                "literal": "天府得禄"
+              },
+              {
+                "literal": "辅佐会"
+              }
+            ]
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-08-005",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "SPLIT_OR_SET",
+      "verified_source_location": "六十星系·8 太阳天梁坐卯酉·印刷页48-50",
+      "raw_condition": "化禄/化权或煞刑同度",
+      "execution_mode": "ANY_LITERAL_BRANCH",
+      "enabled": true,
+      "logic": {
+        "any": [
+          {
+            "literal": "化禄/化权"
+          },
+          {
+            "literal": "煞刑同度"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-09-015",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "STRUCTURED_GATE_REQUIRED",
+      "verified_source_location": "六十星系·9 七杀独坐辰戌·印刷页50-52",
+      "raw_condition": "有理想七杀 + 七杀/破军/贪狼独坐且见佐吉",
+      "execution_mode": "EXPLICIT_AST",
+      "enabled": true,
+      "logic": {
+        "all": [
+          {
+            "literal": "有理想七杀"
+          },
+          {
+            "any": [
+              {
+                "literal": "七杀独坐见佐吉"
+              },
+              {
+                "literal": "破军独坐见佐吉"
+              },
+              {
+                "literal": "贪狼独坐见佐吉"
+              }
+            ]
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-11-010",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "SPLIT_OR_SET",
+      "verified_source_location": "六十星系·11 紫微破军坐丑未·印刷页54-56",
+      "raw_condition": "紫微化权或破军化禄/权",
+      "execution_mode": "ANY_LITERAL_BRANCH",
+      "enabled": true,
+      "logic": {
+        "any": [
+          {
+            "literal": "紫微化权"
+          },
+          {
+            "literal": "破军化禄/权"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-12-040",
+      "source_review_result": "SOURCE_SUPPORTED_CASE",
+      "recommended_action": "CASE_LEVEL_KEEP",
+      "verified_source_location": "六十星系·12 天府独坐卯酉·印刷页56-59",
+      "raw_condition": "后运命宫刑忌夹、事业紫破会武杀/天相缺憾",
+      "execution_mode": "CASE_EVIDENCE_ONLY",
+      "enabled": false,
+      "logic": {
+        "raw": "后运命宫刑忌夹、事业紫破会武杀/天相缺憾"
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-13-015",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "SPLIT_OR_SET",
+      "verified_source_location": "六十星系·13 太阴独坐辰戌·印刷页59-60",
+      "raw_condition": "天同化禄/权或天梁化禄",
+      "execution_mode": "ANY_LITERAL_BRANCH",
+      "enabled": true,
+      "logic": {
+        "any": [
+          {
+            "literal": "天同化禄/权"
+          },
+          {
+            "literal": "天梁化禄"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-14-003",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "SPLIT_OR_SET",
+      "verified_source_location": "六十星系·14 廉贞贪狼坐巳亥·印刷页60-63",
+      "raw_condition": "廉贞化禄或昌曲桃花/才艺曜",
+      "execution_mode": "ANY_LITERAL_BRANCH",
+      "enabled": true,
+      "logic": {
+        "any": [
+          {
+            "literal": "廉贞化禄"
+          },
+          {
+            "literal": "昌曲桃花/才艺曜"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-14-004",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "SPLIT_OR_SET",
+      "verified_source_location": "六十星系·14 廉贞贪狼坐巳亥·印刷页60-63",
+      "raw_condition": "贪狼化禄权或辅弼、恩光天贵、龙凤等",
+      "execution_mode": "ANY_LITERAL_BRANCH",
+      "enabled": true,
+      "logic": {
+        "any": [
+          {
+            "literal": "贪狼化禄权"
+          },
+          {
+            "literal": "辅弼"
+          },
+          {
+            "literal": "恩光天贵"
+          },
+          {
+            "literal": "龙凤等"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-16-039",
+      "source_review_result": "SOURCE_SUPPORTED_CASE",
+      "recommended_action": "CASE_LEVEL_KEEP",
+      "verified_source_location": "六十星系·16 天相独坐丑未·印刷页65-67",
+      "raw_condition": "天相疾厄会贪狼禄、禄存且命宫天机忌羊陀",
+      "execution_mode": "CASE_EVIDENCE_ONLY",
+      "enabled": false,
+      "logic": {
+        "raw": "天相疾厄会贪狼禄、禄存且命宫天机忌羊陀"
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-17-003",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "SPLIT_OR_SET",
+      "verified_source_location": "六十星系·17 天同天梁寅申·印刷页66-68",
+      "raw_condition": "天同化禄/化权、科文或桃花诸曜",
+      "execution_mode": "ANY_LITERAL_BRANCH",
+      "enabled": true,
+      "logic": {
+        "any": [
+          {
+            "literal": "天同化禄/化权"
+          },
+          {
+            "literal": "科文"
+          },
+          {
+            "literal": "桃花诸曜"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-17-004",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "SPLIT_OR_SET",
+      "verified_source_location": "六十星系·17 天同天梁寅申·印刷页66-68",
+      "raw_condition": "天梁化科或羊陀火铃、恩光天贵、三台八座、台辅封诰、华盖、天刑、阴煞、天虚等",
+      "execution_mode": "ANY_LITERAL_BRANCH",
+      "enabled": true,
+      "logic": {
+        "any": [
+          {
+            "literal": "天梁化科"
+          },
+          {
+            "literal": "羊陀火铃"
+          },
+          {
+            "literal": "恩光天贵"
+          },
+          {
+            "literal": "三台八座"
+          },
+          {
+            "literal": "台辅封诰"
+          },
+          {
+            "literal": "华盖"
+          },
+          {
+            "literal": "天刑"
+          },
+          {
+            "literal": "阴煞"
+          },
+          {
+            "literal": "天虚等"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-17-009",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "SPLIT_OR_SET",
+      "verified_source_location": "六十星系·17 天同天梁寅申·印刷页66-68",
+      "raw_condition": "天机化权/化科或太阴化权",
+      "execution_mode": "ANY_LITERAL_BRANCH",
+      "enabled": true,
+      "logic": {
+        "any": [
+          {
+            "literal": "天机化权/化科"
+          },
+          {
+            "literal": "太阴化权"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-19-011",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "STRUCTURED_GATE_REQUIRED",
+      "verified_source_location": "六十星系·19 太阳独坐辰戌·印刷页70-72",
+      "raw_condition": "同梁辅弼昌曲且浪漫/原则调和",
+      "execution_mode": "EXPLICIT_AST",
+      "enabled": true,
+      "logic": {
+        "all": [
+          {
+            "literal": "同梁有辅弼昌曲"
+          },
+          {
+            "any": [
+              {
+                "literal": "浪漫调和"
+              },
+              {
+                "literal": "原则调和"
+              }
+            ]
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-33-009",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "SPLIT_OR_SET",
+      "verified_source_location": "六十星系·33 紫微贪狼卯酉·印刷页100-102",
+      "raw_condition": "火星或铃星成火贪/铃贪",
+      "execution_mode": "ANY_LITERAL_BRANCH",
+      "enabled": true,
+      "logic": {
+        "any": [
+          {
+            "literal": "火星"
+          },
+          {
+            "literal": "铃星成火贪/铃贪"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-33-025",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "STRUCTURED_GATE_REQUIRED",
+      "verified_source_location": "六十星系·33 紫微贪狼卯酉·印刷页100-102",
+      "raw_condition": "廉杀吉化且火贪/铃贪被冲起",
+      "execution_mode": "EXPLICIT_AST",
+      "enabled": true,
+      "logic": {
+        "all": [
+          {
+            "literal": "廉杀吉化"
+          },
+          {
+            "any": [
+              {
+                "literal": "火贪被冲起"
+              },
+              {
+                "literal": "铃贪被冲起"
+              }
+            ]
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-34-004",
+      "source_review_result": "SOURCE_SUPPORTED_DEFINITION",
+      "recommended_action": "KEEP_COMPOSITE_DEFINITION",
+      "verified_source_location": "六十星系·34 巨门独坐辰戌·印刷页102-104",
+      "raw_condition": "辰宫辛年或戌宫癸/辛年等奇格条件",
+      "execution_mode": "DEFINITION_SET",
+      "enabled": true,
+      "logic": {
+        "definition_members": [
+          {
+            "literal": "辰宫辛年"
+          },
+          {
+            "literal": "戌宫癸/辛年等奇格条件"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-37-003",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "STRUCTURED_GATE_REQUIRED",
+      "verified_source_location": "六十星系·37 廉贞七杀丑未·印刷页108-110",
+      "raw_condition": "未宫廉杀+昌曲+禄存/化禄且无四煞空劫",
+      "execution_mode": "EXPLICIT_AST",
+      "enabled": true,
+      "logic": {
+        "all": [
+          {
+            "literal": "未宫廉杀"
+          },
+          {
+            "literal": "昌曲"
+          },
+          {
+            "any": [
+              {
+                "literal": "禄存"
+              },
+              {
+                "literal": "化禄"
+              }
+            ]
+          },
+          {
+            "not": {
+              "literal": "四煞空劫"
+            }
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-41-014",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "SPLIT_OR_SET",
+      "verified_source_location": "六十星系·41 天府独坐丑未·印刷页117-119",
+      "raw_condition": "天相财荫夹+紫贪紫科/权或贪禄权",
+      "execution_mode": "ANY_LITERAL_BRANCH",
+      "enabled": true,
+      "logic": {
+        "any": [
+          {
+            "literal": "天相财荫夹+紫贪紫科/权"
+          },
+          {
+            "literal": "贪禄权"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-41-041",
+      "source_review_result": "SOURCE_SUPPORTED_CASE",
+      "recommended_action": "CASE_LEVEL_KEEP",
+      "verified_source_location": "六十星系·41 天府独坐丑未·印刷页117-119",
+      "raw_condition": "事业宫丑府夹落陷太阳，廉禄陀同且借紫贪羊，后运同忌铃桃花、巨门日忌",
+      "execution_mode": "CASE_EVIDENCE_ONLY",
+      "enabled": false,
+      "logic": {
+        "raw": "事业宫丑府夹落陷太阳，廉禄陀同且借紫贪羊，后运同忌铃桃花、巨门日忌"
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-44-039",
+      "source_review_result": "SOURCE_SUPPORTED_CASE",
+      "recommended_action": "CASE_LEVEL_KEEP",
+      "verified_source_location": "六十星系·44 天梁独坐巳亥·印刷页125-127",
+      "raw_condition": "财帛宫巳梁会天马三煞，后运机巨煞重、武府武忌，后再七杀/贪禄",
+      "execution_mode": "CASE_EVIDENCE_ONLY",
+      "enabled": false,
+      "logic": {
+        "raw": "财帛宫巳梁会天马三煞，后运机巨煞重、武府武忌，后再七杀/贪禄"
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-58-005",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "SPLIT_OR_SET",
+      "verified_source_location": "六十星系·58 太阳巨门寅申·印刷页156-158",
+      "raw_condition": "禄权科或辅佐诸曜/百官朝拱",
+      "execution_mode": "ANY_LITERAL_BRANCH",
+      "enabled": true,
+      "logic": {
+        "any": [
+          {
+            "literal": "禄权科"
+          },
+          {
+            "literal": "辅佐诸曜/百官朝拱"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-SYS-60-006",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "SPLIT_OR_SET",
+      "verified_source_location": "六十星系·60 天机天梁辰戌·印刷页160-164",
+      "raw_condition": "天机化忌或太阴/天同化忌",
+      "execution_mode": "ANY_LITERAL_BRANCH",
+      "enabled": true,
+      "logic": {
+        "any": [
+          {
+            "literal": "天机化忌"
+          },
+          {
+            "literal": "太阴/天同化忌"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-TY-005",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "SPLIT_OR_SET",
+      "verified_source_location": "十四正曜·太阳·书页9",
+      "raw_condition": "太阴、化禄或禄存等财富星会合",
+      "execution_mode": "ANY_LITERAL_BRANCH",
+      "enabled": true,
+      "logic": {
+        "any": [
+          {
+            "literal": "太阴"
+          },
+          {
+            "literal": "化禄"
+          },
+          {
+            "literal": "禄存等财富星会合"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-TY-006",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "SPLIT_OR_SET",
+      "verified_source_location": "十四正曜·太阳·书页9",
+      "raw_condition": "天梁、魁钺等贵显星同度或会合",
+      "execution_mode": "ANY_LITERAL_BRANCH",
+      "enabled": true,
+      "logic": {
+        "any": [
+          {
+            "literal": "天梁"
+          },
+          {
+            "literal": "魁钺等贵显星同度"
+          },
+          {
+            "literal": "会合"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-TT-010",
+      "source_review_result": "SOURCE_MISMATCH_CONFIRMED",
+      "recommended_action": "QUARANTINE_RULE",
+      "verified_source_location": "十四正曜与太阴相关",
+      "raw_condition": "与太阴同度且化忌/煞曜",
+      "execution_mode": "DISABLED_SOURCE_MISMATCH",
+      "enabled": false,
+      "logic": {
+        "raw": "与太阴同度且化忌/煞曜"
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-TL-X11",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "SPLIT_OR_SET",
+      "verified_source_location": "十四正曜·贪狼·书页21-22",
+      "raw_condition": "擎羊或陀罗同躔/三方会",
+      "execution_mode": "ANY_LITERAL_BRANCH",
+      "enabled": true,
+      "logic": {
+        "any": [
+          {
+            "literal": "擎羊"
+          },
+          {
+            "literal": "陀罗同躔/三方会"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-TL-Y05",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "SPLIT_OR_SET",
+      "verified_source_location": "十四正曜·贪狼·书页21-22",
+      "raw_condition": "命贪狼、身七杀或破军并会煞",
+      "execution_mode": "ANY_LITERAL_BRANCH",
+      "enabled": true,
+      "logic": {
+        "any": [
+          {
+            "literal": "命贪狼"
+          },
+          {
+            "literal": "身七杀"
+          },
+          {
+            "literal": "破军并会煞"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-JM-X11",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "STRUCTURED_GATE_REQUIRED",
+      "verified_source_location": "十四正曜·巨门·书页23-24",
+      "raw_condition": "无太阳/权禄化解且见煞忌",
+      "execution_mode": "EXPLICIT_AST",
+      "enabled": true,
+      "logic": {
+        "all": [
+          {
+            "any": [
+              {
+                "literal": "无太阳化解"
+              },
+              {
+                "literal": "无权禄化解"
+              }
+            ]
+          },
+          {
+            "literal": "见煞忌"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-TX-003",
+      "source_review_result": "CLAIM_SUPPORTED_PROVENANCE_WRONG",
+      "recommended_action": "REPAIR_SOURCE_LOCATION",
+      "verified_source_location": "六十星系·7 武曲天相坐寅申·印刷页46-48",
+      "raw_condition": "财荫夹且天府得禄/辅佐会合",
+      "execution_mode": "EXPLICIT_AST",
+      "enabled": true,
+      "logic": {
+        "all": [
+          {
+            "literal": "财荫夹"
+          },
+          {
+            "any": [
+              {
+                "literal": "天府得禄"
+              },
+              {
+                "literal": "辅佐会合"
+              }
+            ]
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-TX-007",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "SOURCE_STRUCTURE_KEEP",
+      "verified_source_location": "十四正曜·天相·书页26",
+      "raw_condition": "巳亥独坐且天梁入庙来夹、天府入庙会合",
+      "execution_mode": "STRUCTURE_LITERAL",
+      "enabled": true,
+      "logic": {
+        "raw": "巳亥独坐且天梁入庙来夹、天府入庙会合"
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-TX-Y02",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "STRUCTURED_GATE_REQUIRED",
+      "verified_source_location": "十四正曜·天相·书页25-26",
+      "raw_condition": "羊陀夹且禄存同度、三方再煞忌",
+      "execution_mode": "EXPLICIT_AST",
+      "enabled": true,
+      "logic": {
+        "all": [
+          {
+            "literal": "羊陀夹"
+          },
+          {
+            "literal": "禄存同度"
+          },
+          {
+            "literal": "三方再见煞忌刑曜"
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    },
+    {
+      "rule_id": "ZZ-PJ-X13",
+      "source_review_result": "SOURCE_SUPPORTED",
+      "recommended_action": "STRUCTURED_GATE_REQUIRED",
+      "verified_source_location": "十四正曜·破军·书页31-32",
+      "raw_condition": "文曲化忌同度且缺昌曲调和/再见煞忌",
+      "execution_mode": "EXPLICIT_AST",
+      "enabled": true,
+      "logic": {
+        "all": [
+          {
+            "literal": "文曲化忌同度"
+          },
+          {
+            "any": [
+              {
+                "literal": "缺昌曲调和"
+              },
+              {
+                "literal": "再见煞忌"
+              }
+            ]
+          }
+        ]
+      },
+      "normalization_verified": false,
+      "note": "Logic sidecar is A1 implementation metadata; source literal remains preserved in canonical."
+    }
+  ]
+}

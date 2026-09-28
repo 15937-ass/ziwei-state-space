@@ -1,6 +1,6 @@
 version: "0.1"
 status: "G4-approved-provisional"
-ontology_version: "0.2"
+ontology_version: "0.3"
 star_core_version: "0.1"
 system_index: "knowledge/sixty_system_index.yaml"
 
@@ -168,20 +168,34 @@ interaction_exemplars:
     delta_candidate: "sensitivity_discipline_balance"
 
 ontology_feedback:
-  new_candidates:
-    - id: "QI-16-CAND"
+  A1_updates:
+    - id: "QI-16"
       name: "目标导向性"
-      definition: "行动/变化是否具有明确目标、方向和建设性结果取向。"
+      definition: "行动、变化与资源投入具有明确目标、方向与建设性组织的程度。"
       evidence_systems: [9,13,31,32,35,56]
-      recommendation: "进入候选池，不在G4直接冻结为primitive；G5前做冗余检验。"
+      status: "FORMAL_L1_AFTER_A1"
       redundancy_with: ["QI-03","QI-04","QI-08"]
+      note: "A1 已确认其不能由变动、开创或行动强度完全替代。"
 
     - id: "QI-17-CAND"
-      name: "持续意志/韧性"
-      definition: "在阻力、延迟或挫折下维持方向和行动的能力。"
-      evidence_systems: [18,22,23,25,38,41,48]
-      recommendation: "进入候选池，不在G4直接冻结为primitive；与QI-06、QI-08区分。"
-      redundancy_with: ["QI-06","QI-08"]
+      name: "意志控制强度"
+      definition: "在欲望、情绪、诱因或环境压力下维持自主约束与方向的能力。"
+      evidence_systems: [22,48]
+      status: "PROVISIONAL_AFTER_A1"
+      redundancy_with: ["QI-09","QI-10","QI-16"]
+
+    - id: "QI-18-CAND"
+      name: "毅力/持续性"
+      definition: "在时间、阻力、延迟或重复挫折下维持行动的持续程度。"
+      evidence_systems: [2,38,48]
+      status: "PROVISIONAL_AFTER_A1"
+      redundancy_with: ["QI-03","QI-06","QI-08"]
+      note: "天同巳亥源文明确区分意志与毅力，因此不得与 QI-17-CAND 合并。"
+
+    - id: "DERIVED-RESILIENCE"
+      name: "恢复力/韧性"
+      status: "DERIVED_ONLY"
+      note: "A1 不升格 primitive，优先作为系统/案例层涌现性质。"
 
   do_not_promote_yet:
     - "精神/物质：当前更像高层取向与多维组合。"
@@ -202,7 +216,7 @@ G4_approval_record:
   provisional:
     - "每个系统的具体Delta_s函数形式"
     - "模式是离散、连续还是概率混合"
-    - "QI-16/QI-17是否升格为正式primitive维度"
+    - "QI-17-CAND / QI-18-CAND 是否未来升格；QI-16 已于 A1 正式进入 L1"
     - "各模态未来的数值阈值和转移概率"
 
 G4_approval:

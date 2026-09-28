@@ -4,7 +4,13 @@ from src.model_spec import (
     Paper1Model,
     StarSystemMode,
     TemporalInput,
-    ObservabilityStatus,
+    ObservationPathSupport,
+    HistoryMemory,
+    HistoryMemoryKind,
+    PersistenceScope,
+    SourceGatedHistoryTransition,
+    EpistemicType,
+    classify_observation_path_support,
     classify_observability,
 )
 
@@ -59,8 +65,55 @@ def test_projection_is_semantic_not_fixed_event_mapping():
     assert result.provenance == ("RULE-001",)
 
 
-def test_observability_classification():
-    assert classify_observability(3) == ObservabilityStatus.STRUCTURALLY_OBSERVABLE
-    assert classify_observability(1) == ObservabilityStatus.PARTIALLY_OBSERVABLE
-    assert classify_observability(0) == ObservabilityStatus.STRUCTURALLY_AT_RISK
-    assert classify_observability(5, derived_from_existing=True) == ObservabilityStatus.DERIVED_ONLY
+def test_observation_path_support_classification():
+    assert classify_observation_path_support(3) == ObservationPathSupport.MULTI_PATH_SUPPORTED
+    assert classify_observation_path_support(1) == ObservationPathSupport.SINGLE_PATH_SUPPORTED
+    assert classify_observation_path_support(0) == ObservationPathSupport.NO_DIRECT_PATH
+    assert classify_observation_path_support(5, derived_from_existing=True) == ObservationPathSupport.DERIVED_ONLY
+
+
+def test_legacy_observability_alias_returns_path_support_not_control_claim():
+    assert classify_observability(2) == ObservationPathSupport.MULTI_PATH_SUPPORTED
+
+
+def test_a2_history_memory_is_separate_from_natal_essence():
+    model = make_model()
+    essence = model.build_natal_essence("P-MING", {"QI-16": "goal-directed"}, {}, [])
+    temporal = TemporalInput("大限A", "decade")
+    memory = HistoryMemory(acquired_dispositions={"timidity": "reinforced"})
+    reaction = model.react(essence, temporal, history_memory=memory)
+    assert reaction.natal_essence is essence
+    assert reaction.history_memory.acquired_dispositions["timidity"] == "reinforced"
+    assert "timidity" not in essence.intrinsic_state
+
+
+def test_a2_typed_history_updates_do_not_conflate_disposition_and_gate():
+    model = make_model()
+    memory = HistoryMemory()
+    disposition = SourceGatedHistoryTransition(
+        "HU-TEST", ("ZZ-SYS-31-033",), HistoryMemoryKind.ACQUIRED_DISPOSITION,
+        "reckless_disposition", "entrench", PersistenceScope.LATER_PERIODS,
+    )
+    gate = SourceGatedHistoryTransition(
+        "HG-TEST", ("ZZ-SYS-31-020",), HistoryMemoryKind.PATH_DEPENDENT_GATE,
+        "key_period_utilization", "set_gate", PersistenceScope.LATER_PERIODS,
+    )
+    memory = model.apply_history_transition(memory, disposition, "entrenched")
+    memory = model.apply_history_transition(memory, gate, "used")
+    assert memory.acquired_dispositions == {"reckless_disposition": "entrenched"}
+    assert memory.path_gates == {"key_period_utilization": "used"}
+    assert memory.provenance == ["ZZ-SYS-31-033", "ZZ-SYS-31-020"]
+
+
+def test_a2_history_transition_rejects_nonexplicit_source():
+    model = make_model()
+    transition = SourceGatedHistoryTransition(
+        "HU-HYP", ("HYP-1",), HistoryMemoryKind.ACQUIRED_DISPOSITION,
+        "x", "reinforce", PersistenceScope.UNSPECIFIED, EpistemicType.HYPOTHESIS,
+    )
+    try:
+        model.apply_history_transition(HistoryMemory(), transition, "stronger")
+    except ValueError as exc:
+        assert "EXPLICIT" in str(exc)
+    else:
+        raise AssertionError("non-explicit history transition must be rejected")

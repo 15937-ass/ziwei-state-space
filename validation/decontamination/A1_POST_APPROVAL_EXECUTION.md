@@ -1,0 +1,374 @@
+# A1 批准后执行报告
+
+状态：**A1 APPROVED / CORE REFIT APPLIED / P1 NORMALIZATION AUDIT CONTINUES**  
+分支：`audit/decontamination-p0-v2`
+
+## 1. Gate A1 已落盘
+
+D-015 已记录以下批准事项：
+
+1. 保留 G2 的 L0-L4 分层架构；
+2. QI-16「目标导向性」正式升格为 L1；
+3. 原 QI-17「持续意志/韧性」废止，拆分为：
+   - QI-17-CAND：意志控制强度
+   - QI-18-CAND：毅力/持续性
+   - 恢复力/韧性：DERIVED_ONLY
+4. QI-14 收窄为「信息/状态遮蔽—显露」；
+5. 批准 G3-R：十四正曜气核按全文重拟合；
+6. 当前所谓 structural observability 改称 observation-path support。
+
+## 2. qi ontology v0.3
+
+`knowledge/qi_ontology.yaml` 已升级至 v0.3。
+
+主要变化：
+
+- basis 从早期 200-rule pilot 改为当前 Phase-II corpus；
+- QI-16 正式进入 L1；
+- QI-14 与 QI-01 分离证据；
+- QI-05 / QI-07 / QI-09 / QI-10 / QR-03 重建或净化 evidence；
+- projection evidence 与 direct state evidence 分层；
+- QI-17-CAND / QI-18-CAND 保持 provisional；
+- 恢复力不再作为 primitive 候选。
+
+当前 ontology 中引用的 157 个 rule id 均可在 canonical corpus 中解析，无 dangling evidence id。
+
+## 3. 十四正曜 G3-R v0.2
+
+`knowledge/star_cores.yaml` 已升级至 v0.2。
+
+新的证据优先级：
+
+~~~text
+DIRECT_STAR
+> SAME_STAR_MODIFIER
+> SYSTEM_CONTEXT
+> PROJECTION
+~~~
+
+本轮明确移除/降级：
+
+- 天府使用武曲规则作为 intrinsic QI-15 证据；
+- 太阴使用武曲规则作为 intrinsic QI-05 证据；
+- 廉贞把六十星系性质直接冻结为单星 QI-11 core；
+- 贪狼把紫贪星系性质直接冻结为贪狼 baseline；
+- 天相把武曲天相 system-context 直接冻结为 intrinsic QI-15 / QR-02；
+- 巨门表达优化同时被写入认知与表达两个 core；
+- 太阴“收敛”被重复解释为 QI-14“遮蔽”。
+
+自动 invariant scan 结果：
+
+- DIRECT_STAR evidence subject mismatch = 0
+- ontology dangling evidence id = 0
+- quarantined ZZ-TT-010 出现在 ontology/core evidence = 0
+
+## 4. QI-16 / 17 / 18
+
+### QI-16
+
+正式状态：
+
+`A1_FORMAL_L1`
+
+定义为目标导向性，不等于：
+
+- 变化量；
+- 开创强度；
+- 行动强度；
+- 成功概率；
+- 吉凶。
+
+### QI-17-CAND
+
+意志控制强度：
+
+> 在欲望、情绪、诱因或环境压力下维持自主约束与方向的能力。
+
+### QI-18-CAND
+
+毅力/持续性：
+
+> 在时间、阻力、延迟或重复挫折下维持行动的持续程度。
+
+二者继续做 disjointness test，不自动进入冻结核心向量。
+
+## 5. G4 未被推翻
+
+`knowledge/star_systems.yaml` 已同步 ontology feedback。
+
+保留：
+
+~~~text
+base composition
++ interaction_delta
++ mode
++ context gates
+~~~
+
+没有发现必须推翻六十星系统一架构的 A1 级冲突。
+
+principal mode 仍属于中尺度状态，不因 QI-16 升格而自动拆成 primitive。
+
+## 6. G5 术语修复
+
+`src/model_spec.py` 与 `theory/state_space_model.md` 已修改。
+
+旧：
+
+~~~text
+STRUCTURALLY_OBSERVABLE
+PARTIALLY_OBSERVABLE
+STRUCTURALLY_AT_RISK
+~~~
+
+新：
+
+~~~text
+MULTI_PATH_SUPPORTED
+SINGLE_PATH_SUPPORTED
+NO_DIRECT_PATH
+DERIVED_ONLY
+~~~
+
+正式名称：
+
+`ObservationPathSupport`
+
+保留 legacy alias 仅为兼容旧代码，但其返回值不再带控制理论 structural-observability claim。
+
+## 7. 原子化迁移
+
+39 条高风险 atomicity candidates 已建立：
+
+`knowledge/logic/p1_atomicity_logic_v0.1.json`
+
+当前：
+
+- ANY_LITERAL_BRANCH：19
+- EXPLICIT_AST：11
+- DEFINITION_SET：3
+- CASE_EVIDENCE_ONLY：4
+- STRUCTURE_LITERAL：1
+- DISABLED_SOURCE_MISMATCH：1
+
+所有 11 条 EXPLICIT_AST 均已具有显式条件结构，无 MANUAL_AST_PENDING。
+
+raw canonical 未被静默拆写。
+
+## 8. L1/L2 -> L3 边界批审
+
+800 条候选已完成 reproducible triage：
+
+| class | count |
+|---|---:|
+| MIXED_STATE_AND_PROJECTION | 206 |
+| LIKELY_L1_STATE | 142 |
+| LIKELY_L2_RELATIONAL | 123 |
+| LIKELY_L3_PROJECTION | 162 |
+| UNRESOLVED | 167 |
+
+当前进度（2026-09-27）：
+
+- 已完成 source inspection：LB-01 ~ LB-06，共 300 / 800（37.5%）
+- MODEL_SOURCE_NORMALIZATION_REVIEWED：295
+- QUARANTINED_SOURCE_MISMATCH：1（ZZ-SYS-38-032）
+- QUARANTINED_REDUNDANT_DUPLICATE：1（ZZ-SYS-51-045）
+- A2_ARCHITECTURE_HOLD：3（ZZ-SYS-31-033 / ZZ-SYS-38-034 / ZZ-SYS-41-023）
+- 已生成 reviewed effective child rules：506
+  - LB-01：81
+  - LB-02：76
+  - LB-03：91
+  - LB-04：90
+  - LB-05：82
+  - LB-06：86（只覆盖 47 条非 A2-held parent）
+- raw canonical 仍未被覆盖；normalization_verified 仍保持 false
+
+没有因为关键词分类而自动改 canonical。关键词 triage 只用于排队，真正 migration 仍需逐条 source-span review。
+
+已建立 16 个 deterministic review batches，每批 50 条：
+
+`validation/decontamination/P1_layer_boundary_review_batches_v0.1.csv`
+
+优先序：
+
+1. mixed state/projection
+2. likely L1
+3. likely L2
+4. likely L3 projection
+5. unresolved
+
+LB-05 已进入 likely-L1 区域，并出现一个重要反向验证：大量 heuristic 标成“likely L1”的记录，回源后其实是 compatibility、gate 或 L3 output；因此 triage 不得自动重分类。另一方面，ZZ-SYS-31-014 / 31-018 对“无目的破坏 ↔ 有目的建设/只除旧不布新”的直接对照，进一步增强了 QI-16 目标导向性的独立性。
+
+LB-06 首次触发真正的 architecture-level conflict：至少 3 条 source-supported 规则明确要求“前一运限形成/强化的后天状态影响后运”。它们不是 source error，因此不 quarantine；也不能在当前 memoryless G5 下普通执行，故标记 A2_ARCHITECTURE_HOLD，并形成 Gate A2 提案。
+
+## 9. Rule engine 去污染
+
+`src/rule_engine.py` 现在可以按以下顺序建立 effective rule：
+
+~~~text
+canonical
+-> review metadata
+-> source-review metadata
+-> schema override
+-> provenance override
+-> quarantine filter
+~~~
+
+因此：
+
+- raw extraction 可以保持 immutable；
+- ZZ-TT-010、ZZ-SYS-38-032 与确认重复的 ZZ-SYS-51-045 默认可被排除；
+- ZZ-TX-003 的 provenance repair 可以在运行时应用；
+- 多个 reviewed layer split plans 可以按确定顺序叠加到 effective executable view；
+- source-span verified 可以作为查询条件；
+- trace 输出 source / normalization / review status。
+
+## 10. 回归约束
+
+新增或扩展：
+
+- `tests/test_a1_invariants.py`
+- `tests/test_rule_engine.py`
+- `tests/test_model_spec.py`
+- `tests/test_layer_boundary_audit.py`
+
+当前确定性检查已验证：
+
+- ontology evidence id 全部存在；
+- DIRECT_STAR evidence 不跨 subject；
+- 39 条 atomicity logic 全覆盖；
+- explicit AST 无 pending；
+- 800 条 boundary audit 全覆盖；
+- ZZ-TT-010 不进入 ontology/core；
+- 旧 STRUCTURALLY_OBSERVABLE 标签已从 model spec 移除；
+- semantic duplicate detector 已加入 P1 audit，不自动删除重复项，只生成 review candidate；
+- LB-01 ~ LB-05 的 review/split/quarantine consistency 已加入回归约束。
+
+## 11. 当前是否需要 Gate A2
+
+**需要，已触发并暂停架构级自动修改。**
+
+A1/LB-01~05 的发现没有推翻：
+
+- G2 分层；
+- G4 六十星系统一架构；
+- G5 原局本质 + 时序输入 + 状态依赖反应；
+- 十二宫局部节点 + 稀疏图；
+- 气 -> 模态 -> 投影链。
+
+但 LB-06 已发现 G5 当前 memoryless reaction 无法表达的 source-explicit path dependence，因此已满足升级条件。
+
+Gate A2 文件：
+
+validation/decontamination/GATE_A2_时序记忆与获得性状态.md
+
+在 PI 批准前，三条 path-dependent rules 保持 architecture hold，不修改 G5 核心模型。
+
+## 12. 自动继续路线
+
+~~~text
+Gate A2 PI review
+-> if approved: source-gated acquired/history state m_t
+-> migrate held path-dependent rules
+-> history-marker backward scan across 2193 system rules
+-> resume LB-07 ... LB-16
+-> verified layer migrations
+-> ontology/core regression
+-> system-mode regression
+-> WP04 remaining modifier gaps
+-> WP05 palace full extraction
+~~~
+
+
+## 13. 新发现：source 正确也可能被“降智污染”
+
+LB-04 发现 `ZZ-SYS-51-042` 与 `ZZ-SYS-51-045`：
+
+- 同一六十星系；
+- 同一触发条件；
+- 同一 source-supported 语义；
+- 仅标点与 evidence paraphrase 略有差异。
+
+如果两条都进入 inference，会造成同一证据被重复激活/重复计数。
+
+因此污染类型现在至少分为：
+
+~~~text
+A. source mismatch
+B. provenance mismatch
+C. normalization overreach
+D. state / projection layer mixing
+E. atomicity flattening
+F. cross-subject / cross-context evidence contamination
+G. redundant duplicate extraction
+~~~
+
+`src/audit_repository.py` 已新增 semantic duplicate candidate 检测；它只报 P1，不会自动删除，因为源文重复强调与抽取重复必须经过 source review 区分。
+
+## 14. LB-05 对 QI-16 的追加验证
+
+LB-05 回源后确认两条特别关键的破军规则：
+
+- `ZZ-SYS-31-014`：良好杀破狼环境可把顽嚣破军的“无目的破坏”转向“有目的建设”；
+- `ZZ-SYS-31-018`：煞重七杀环境下顽嚣破军可“只知除旧不知布新”。
+
+二者已经进入 QI-16 的 system-context evidence。
+
+这使 QI-16 与：
+
+- QI-03 变化性；
+- QI-04 开创性；
+- QI-08 行动驱动；
+
+的区分得到更强的全文证据支持，因此目前**不触发 A2，反而增强 A1 对 QI-16 的决定**。
+
+
+## 15. LB-06 与 Gate A2
+
+LB-06 共 50 条：
+
+- 45 SOURCE_SUPPORTED
+- 2 SOURCE_SUPPORTED_NORMALIZATION_OVERREACH
+- 3 SOURCE_SUPPORTED_A2_TRIGGER
+
+A2 triggers：
+
+1. ZZ-SYS-31-033：不良时序可使顽嚣/破坏性进一步固化，并影响后运；
+2. ZZ-SYS-38-034：前期形成的短志/享受结构会改变后续七杀阶段反应；
+3. ZZ-SYS-41-023：大起大落的经历可进一步强化怯懦倾向。
+
+当前 G5 的固定原局 E 仍可保留，但需要审议是否增加独立的 acquired/history state m_t。
+
+本轮没有把这 3 条强行塞进 QI、projection 或普通 gate，也没有写回 natal essence；这是为了避免再次发生“模型先有结构，AI 再把原文硬塞进去”的污染。
+
+
+## 15. LB-06 与 Gate A2
+
+LB-06 共 50 条：
+
+- 47 条完成 source/normalization review，并生成 86 条 effective children；
+- 3 条不进入 ordinary migration，状态为 `A2_ARCHITECTURE_HOLD`。
+
+三条为：
+
+- `ZZ-SYS-31-033`
+- `ZZ-SYS-38-034`
+- `ZZ-SYS-41-023`
+
+共同点是：
+
+~~~text
+前一运限
+-> 形成 / 固化 / 强化后天倾向
+-> 后续运限反应因此不同
+~~~
+
+这要求在固定 natal essence E 与 current temporal input 之间加入独立的 acquired/history state `m_t`，但必须 source-gated，不能开放成任意递归动力系统。
+
+为避免漏检，已对 2193 条六十星系规则做 deterministic history-marker 预扫描：
+
+- candidates：45
+- high-priority history review：27
+- sequence-only review：18
+
+这些只是待回源候选；A2 批准前不自动迁移。

@@ -26,11 +26,22 @@ class ModifierEffect(str, Enum):
     COUPLE = "couple"
 
 
-class ObservabilityStatus(str, Enum):
-    STRUCTURALLY_OBSERVABLE = "STRUCTURALLY_OBSERVABLE"
-    PARTIALLY_OBSERVABLE = "PARTIALLY_OBSERVABLE"
-    STRUCTURALLY_AT_RISK = "STRUCTURALLY_AT_RISK"
+class ObservationPathSupport(str, Enum):
+    MULTI_PATH_SUPPORTED = "MULTI_PATH_SUPPORTED"
+    SINGLE_PATH_SUPPORTED = "SINGLE_PATH_SUPPORTED"
+    NO_DIRECT_PATH = "NO_DIRECT_PATH"
     DERIVED_ONLY = "DERIVED_ONLY"
+
+
+class HistoryMemoryKind(str, Enum):
+    ACQUIRED_DISPOSITION = "ACQUIRED_DISPOSITION"
+    PATH_DEPENDENT_GATE = "PATH_DEPENDENT_GATE"
+
+
+class PersistenceScope(str, Enum):
+    SPECIFIC_NEXT_PERIOD = "specific_next_period"
+    LATER_PERIODS = "later_periods"
+    UNSPECIFIED = "unspecified"
 
 
 @dataclass(frozen=True)
@@ -101,11 +112,30 @@ class TemporalInput:
     modifiers: Tuple[str, ...] = ()
 
 
+@dataclass(frozen=True)
+class SourceGatedHistoryTransition:
+    transition_id: str
+    source_rule_ids: Tuple[str, ...]
+    memory_kind: HistoryMemoryKind
+    target_key: str
+    operation: str
+    persistence_scope: PersistenceScope
+    source_status: EpistemicType = EpistemicType.EXPLICIT
+
+
+@dataclass
+class HistoryMemory:
+    acquired_dispositions: Dict[str, str] = field(default_factory=dict)
+    path_gates: Dict[str, str] = field(default_factory=dict)
+    provenance: List[str] = field(default_factory=list)
+
+
 @dataclass
 class ReactionState:
     palace_id: str
     natal_essence: NatalEssence
     temporal_input: TemporalInput
+    history_memory: HistoryMemory = field(default_factory=HistoryMemory)
     derived_state: Dict[str, str] = field(default_factory=dict)
     active_modes: List[StarSystemMode] = field(default_factory=list)
 
@@ -156,18 +186,48 @@ class Paper1Model:
         essence: NatalEssence,
         temporal_input: TemporalInput,
         mode_updates: Sequence[StarSystemMode] = (),
+        history_memory: Optional[HistoryMemory] = None,
     ) -> ReactionState:
         """Create a symbolic state-dependent reaction container.
 
-        This intentionally does not implement numerical dynamics.
+        A2-R1 keeps natal essence immutable and passes typed history memory
+        separately. This intentionally does not implement numerical dynamics.
         """
         return ReactionState(
             palace_id=essence.palace_id,
             natal_essence=essence,
             temporal_input=temporal_input,
+            history_memory=history_memory or HistoryMemory(),
             derived_state={},
             active_modes=[*essence.active_modes, *mode_updates],
         )
+
+    def apply_history_transition(
+        self,
+        memory: HistoryMemory,
+        transition: SourceGatedHistoryTransition,
+        symbolic_value: str,
+    ) -> HistoryMemory:
+        """Apply one source-gated symbolic A2-R1 history transition."""
+        if transition.source_status is not EpistemicType.EXPLICIT:
+            raise ValueError("Paper-1 history transitions require EXPLICIT source support")
+        if not transition.source_rule_ids:
+            raise ValueError("History transition requires at least one source rule")
+
+        updated = HistoryMemory(
+            acquired_dispositions=dict(memory.acquired_dispositions),
+            path_gates=dict(memory.path_gates),
+            provenance=list(memory.provenance),
+        )
+        if transition.memory_kind is HistoryMemoryKind.ACQUIRED_DISPOSITION:
+            updated.acquired_dispositions[transition.target_key] = symbolic_value
+        elif transition.memory_kind is HistoryMemoryKind.PATH_DEPENDENT_GATE:
+            updated.path_gates[transition.target_key] = symbolic_value
+        else:
+            raise ValueError(f"Unsupported history memory kind: {transition.memory_kind}")
+
+        updated.provenance.extend(transition.source_rule_ids)
+        return updated
 
     def project(
         self,
@@ -182,15 +242,30 @@ class Paper1Model:
         )
 
 
-def classify_observability(
+def classify_observation_path_support(
     independent_paths: int,
     coupled_only: bool = False,
     derived_from_existing: bool = False,
-) -> ObservabilityStatus:
+) -> ObservationPathSupport:
+    """Heuristic source/output-path support audit.
+
+    This is intentionally NOT a structural-observability test in the
+    control-theoretic sense. It only records how many independent
+    source-to-output paths are currently represented in the symbolic model.
+    """
     if derived_from_existing:
-        return ObservabilityStatus.DERIVED_ONLY
+        return ObservationPathSupport.DERIVED_ONLY
     if independent_paths <= 0:
-        return ObservabilityStatus.STRUCTURALLY_AT_RISK
+        return ObservationPathSupport.NO_DIRECT_PATH
     if independent_paths == 1 or coupled_only:
-        return ObservabilityStatus.PARTIALLY_OBSERVABLE
-    return ObservabilityStatus.STRUCTURALLY_OBSERVABLE
+        return ObservationPathSupport.SINGLE_PATH_SUPPORTED
+    return ObservationPathSupport.MULTI_PATH_SUPPORTED
+
+
+def classify_observability(*args, **kwargs):
+    """Deprecated compatibility alias.
+
+    Kept temporarily so historical callers fail softly during A1 migration.
+    New code must use classify_observation_path_support().
+    """
+    return classify_observation_path_support(*args, **kwargs)
