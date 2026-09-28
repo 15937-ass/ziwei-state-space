@@ -49,6 +49,8 @@ def test_quarantine_contains_confirmed_source_mismatches():
     assert by_id["ZZ-SYS-38-032"]["reason_code"] == "SOURCE_MISMATCH_CONFIRMED"
     assert by_id["ZZ-SYS-38-034"]["effective_status"] == "QUARANTINED"
     assert by_id["ZZ-SYS-38-034"]["reason_code"] == "NORMALIZATION_MISMATCH_CONFIRMED"
+    assert by_id["ZZ-SYS-50-028"]["effective_status"] == "QUARANTINED"
+    assert by_id["ZZ-SYS-50-028"]["reason_code"] == "NORMALIZATION_MISMATCH_CONFIRMED"
 
 
 def test_all_ontology_evidence_ids_exist_in_canonical():
