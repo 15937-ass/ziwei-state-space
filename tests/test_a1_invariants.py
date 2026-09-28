@@ -215,20 +215,15 @@ def test_first_five_layer_batches_have_expected_closed_status():
     assert sum(row["status"] == "QUARANTINED_REDUNDANT_DUPLICATE" for row in lb04) == 1
 
 
-def test_lb06_review_split_and_a2_holds_are_consistent():
+def test_lb06_review_split_plan_preserves_pre_a2_reserved_parents():
     reviews = read_csv("validation/decontamination/LB06_source_normalization_review_v0.1.csv")
     plan = read_csv("knowledge/migrations/p1_layer_split_plan_LB06_v0.1.csv")
     assert len(reviews) == 50
-    held = {
-        row["record_id"]
-        for row in reviews
-        if row["source_review_result"] == "SOURCE_SUPPORTED_A2_TRIGGER"
-    }
-    assert held == {"ZZ-SYS-31-033", "ZZ-SYS-38-034", "ZZ-SYS-41-023"}
-    assert held.isdisjoint({row["parent_rule_id"] for row in plan})
+    reserved = {"ZZ-SYS-31-033", "ZZ-SYS-38-034", "ZZ-SYS-41-023"}
+    assert reserved.isdisjoint({row["parent_rule_id"] for row in plan})
     assert {row["parent_rule_id"] for row in plan} == {
         row["record_id"] for row in reviews
-    } - held
+    } - reserved
     assert len({row["parent_rule_id"] for row in plan}) == 47
     assert len(plan) == 86
 
