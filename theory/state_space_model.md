@@ -1,4 +1,4 @@
-# State-Space Model — v0.4（G5 核心架构 + Gate A1 术语/本体修订）
+# State-Space Model — v0.5（G5 核心架构 + A1 + A2-R1 typed history revision）
 
 ## 1. 目标
 
@@ -665,3 +665,63 @@ Paper 1 不做：
 冻结范围：主模型、十二宫局部节点+稀疏图、输入类型分离、气→象→事分层、结构能观性/可辨识性审计边界，以及 observer/controllability 仅作为未来接口。
 
 具体连续参数、递归动力学真实性、QI-17 是否升格等仍保持开放。
+
+
+---
+
+## 20. Gate A2-R1：source-gated typed history memory
+
+G5 的固定原局本质原则继续有效：
+
+~~~text
+E = fixed natal essence
+~~~
+
+A2-R1 新增历史记忆层，但不允许 temporal input 直接重写 E：
+
+~~~text
+M_t = {D_t, H_t}
+
+D_t = acquired disposition memory
+H_t = path-dependent gate memory
+~~~
+
+Paper-1 当前反应接口修订为：
+
+~~~text
+R_t = React(
+    E,
+    M_t,
+    U_t,
+    Z_t,
+    G_t,
+    C_t
+)
+~~~
+
+其中：
+- `D_t` 只记录源文明示会形成、强化、固化、削弱或保持并影响后运的后天倾向；
+- `H_t` 只记录过去关键阶段/事件对后续规则资格或分支的门控；
+- 两者不得混层；
+- 没有 source-explicit cross-period evidence 时，`M_(t+1)=M_t`；
+- 没有明确 persistence 范围时只能标记 `unspecified`；
+- Paper 1 不引入数值记忆权重、衰减率、学习率或一般递归网络。
+
+因此第一篇当前最准确的系统类型是：
+
+~~~text
+source-constrained symbolic hybrid state-transition system
+~~~
+
+而不是已经辨识完成的连续状态空间动力系统。
+
+### A2-R1 source correction
+
+`ZZ-SYS-38-034` 的“七杀运检验先前意志结构”归一化在回源中未获对应文本支持，已 quarantine。系统 38 的跨期状态证据改由 source-aligned `ZZ-SYS-38-021` 承接。
+
+机器可读 schema 与首批迁移见：
+- `knowledge/history/HISTORY_MEMORY_SCHEMA_v0.1.md`
+- `knowledge/history/history_transitions_v0.1.csv`
+- `knowledge/migrations/a2_source_corrections_v0.1.csv`
+
+一般连续递归 `x_(t+1) = F_theta(...)` 继续保留为 Paper 2+ hypothesis。

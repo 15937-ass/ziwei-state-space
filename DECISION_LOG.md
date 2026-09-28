@@ -113,5 +113,12 @@ Paper 2 需要处理 star-core / Delta / modifier / projection 参数混淆。
 
 
 ### P-011 — Acquired/history state for source-explicit path dependence
-**Status:** PENDING GATE A2  
-LB-06 source review found repeated rules in which a temporal period can form, reinforce, or entrench a later-response disposition. Proposed minimal revision: preserve fixed natal essence E and add a separate source-gated acquired/history state m_t. General learned recursion remains a Paper-2+ hypothesis. See `validation/decontamination/GATE_A2_时序记忆与获得性状态.md`.
+**Resolved at A2-R1.** See D-016 below.
+
+### D-016 — Gate A2-R1 typed history-memory architecture
+**Decision:** 批准在固定原局本质 `E` 之外新增 source-gated 历史记忆层，但不得把所有路径依赖混成单一自由向量。Paper 1 将历史记忆分为两类：`ACQUIRED_DISPOSITION`（后天形成/强化/固化的倾向）与 `PATH_DEPENDENT_GATE`（过去关键阶段/事件对后续规则资格或分支的门控）。只有 source-explicit persistence/path-dependence 证据才能写入历史记忆；无明确 persistence 证据时不得假设永久保存。Paper 1 只实现 symbolic/ordinal/source-gated transition，不引入任意连续记忆权重、衰减率、学习率或一般神经网络递归。一般连续递归动力学继续保留为 Paper 2+ hypothesis。
+**Correction:** Gate 审核回源发现 `ZZ-SYS-38-034` 的“七杀运检验先前意志结构”归一化不受对应源文支持；该 raw canonical 保留审计历史但退出有效推理。系统 38 的路径依赖由已存在且回源匹配的 `ZZ-SYS-38-021`（武曲破军考验性大限影响后运）承接。
+**Status:** FROZEN（A2-R1 架构与边界）
+**Approved at:** Gate A2-R1
+**Approved by:** PI
+

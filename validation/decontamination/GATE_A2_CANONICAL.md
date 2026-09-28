@@ -1,53 +1,23 @@
-# Gate A2（Canonical）：时序记忆与获得性状态架构审计
+# Gate A2（Canonical）：A2-R1 时序记忆与获得性状态架构
 
-状态：**READY FOR PI REVIEW — 未批准**  
+状态：**APPROVED AS A2-R1**  
 前置 Gate：A0 APPROVED；A1 APPROVED  
-当前执行状态：**FROZEN_FOR_GATE_A2**
+批准人：PI  
+批准结论：原 A2 方向通过，但按回源审核加入 typed memory 与 source-correction 两项硬约束。
 
-> 本文件是 Gate A2 的唯一 canonical 人工审核入口。  
-> 以下两个文件保留为历史审计记录，不再作为当前 Gate 入口：
-> - `GATE_A2_路径依赖与获得性状态审计.md`
-> - `GATE_A2_时序记忆与获得性状态.md`
+## 1. 为什么必须修订 G5
 
-## 1. 触发原因
-
-LB-06 source-span review 确认 3 条 source-supported path-dependence rules：
-
-- `ZZ-SYS-31-033`
-- `ZZ-SYS-38-034`
-- `ZZ-SYS-41-023`
-
-其共同结构为：
+原 G5 的 Paper-1 主模型近似为：
 
 ```text
-当前运限
--> 当期反应
--> 形成 / 强化 / 固化后天状态
--> 改变后续运限反应
+fixed natal essence E + current temporal input -> current reaction
 ```
 
-这类规则无法由当前近似 memoryless 的 G5 主结构
-`fixed natal essence E + current temporal input -> reaction`
-完整表达。
+全文回源已确认存在跨期规则：某一运限中的反应、选择或经历可以改变后续运限的反应条件。于是同一 `E` 与同一当前输入，在不同历史下可以产生不同后续反应。
 
-## 2. 当前冻结边界
+同时，中州派文本又区分原局本质与年限反应，因此 A2-R1 不允许用运限直接 overwrite `E`。
 
-在 PI 明确批准 A2 之前：
-
-- 不修改 G5 核心状态结构；
-- 不把 3 条 architecture-hold 规则纳入 ordinary effective inference；
-- 不把 45 条 history-marker heuristic candidates 自动转换为状态更新；
-- 不继续 architecture-sensitive 的 LB-07 ... LB-16 migration；
-- 不新增任意连续记忆权重、衰减率、学习率或一般神经网络递归。
-
-允许继续的仅是：
-
-- 仓库维护；
-- provenance / metadata 修复；
-- deterministic lint / test 修复；
-- 不改变理论含义的文档归一化。
-
-## 3. A2 最小提案
+## 2. A2-R1 核心冻结
 
 保留：
 
@@ -55,101 +25,86 @@ LB-06 source-span review 确认 3 条 source-supported path-dependence rules：
 E = fixed natal essence
 ```
 
-新增独立的获得性历史状态：
+新增 typed history memory：
 
 ```text
-m_t = acquired / history state
+M_t = {D_t, H_t}
+D_t = acquired disposition memory
+H_t = path-dependent gate memory
 ```
 
 当前反应：
 
 ```text
-r_t = R(E, m_t, u_t, z_t, G_t, c_t)
+R_t = React(E, D_t, H_t, U_t, Z_t, G_t, C_t)
 ```
 
-只有 source-explicit persistence/path-dependence rule 才允许：
+只有 source-explicit persistence / path-dependence rule 才允许：
 
 ```text
-m_(t+1) = M_source_gated(m_t, r_t, u_t)
+(D_(t+1), H_(t+1)) = T_k(D_t, H_t, R_t, U_t)
 ```
 
 否则：
 
 ```text
-m_(t+1) = m_t
+D_(t+1) = D_t
+H_(t+1) = H_t
 ```
 
-Paper 1 只允许 symbolic / ordinal / source-gated 的获得性状态更新。一般连续递归
-`x_(t+1)=F_theta(...)`
-继续保留为 Paper 2+ hypothesis。
+## 3. 两类 history memory 不得混层
 
-## 4. 术语归一化
+### ACQUIRED_DISPOSITION
+表示源文明示某种后天倾向被形成、强化、固化、冷退或改变，并会影响后续反应。
 
-历史 A2 草案曾分别使用 `A_t` 与 `m_t` 指代同一类“后天获得性 / 历史依赖状态”。
+### PATH_DEPENDENT_GATE
+表示过去关键阶段、机会利用或事件是否发生，会改变后续规则的资格、分支或发展路径，但源文并未要求把它解释为人格/气机本身的永久改变。
 
-为避免 Agent 分叉，本 canonical Gate 统一使用：
+## 4. Persistence 硬约束
 
-`m_t = acquired_history_state`
+没有 persistence 证据，不得自动假设状态永久保存。
 
-旧文档中的 `A_t` 仅作为历史草案别名，不代表第二套状态对象。
+允许的范围标记：
+- `specific_next_period`
+- `later_periods`
+- `unspecified`
 
-## 5. 已确认与未确认的证据
+`decay` 默认必须为 `UNRESOLVED`。Paper 1 不得自动产生任何数值衰减率、记忆权重、学习率或持续年限。
 
-已确认 architecture trigger：
+## 5. Source correction：ZZ-SYS-38-034
 
-- `ZZ-SYS-31-033`
-- `ZZ-SYS-38-034`
-- `ZZ-SYS-41-023`
+A2-R1 回源发现：`ZZ-SYS-38-034` 当前归一化写成“七杀运检验天同先前形成的意志结构”，但对应源文未支持这一具体条件链。
 
-此前 source-reviewed、具有同类路径依赖意味的规则还包括：
+因此：
+- raw canonical 行保留，仅用于审计历史；
+- `ZZ-SYS-38-034` 加入 quarantine，退出有效推理；
+- 不把它迁移为 HistoryUpdate；
+- 系统 38 的 source-supported path dependence 由已存在的 `ZZ-SYS-38-021` 承接，其对应“武曲破军考验性大限中的反应影响后运”。
 
-- `ZZ-SYS-30-033`
-- `ZZ-SYS-31-020`
+## 6. 第一批 source-gated history transitions
 
-全 corpus deterministic marker scan：
+- `ZZ-SYS-30-033` -> ACQUIRED_DISPOSITION
+- `ZZ-SYS-31-020` -> PATH_DEPENDENT_GATE
+- `ZZ-SYS-31-033` -> ACQUIRED_DISPOSITION
+- `ZZ-SYS-38-021` -> ACQUIRED_DISPOSITION
+- `ZZ-SYS-41-023` -> ACQUIRED_DISPOSITION
 
-- heuristic candidates：45
-- high-priority history review：27
-- sequence-only review：18
+## 7. Paper 1 / Paper 2 边界
 
-注意：45 条只是待回源候选，不等于 45 条已确认 HistoryUpdate。
+Paper 1 允许的是：`source-constrained symbolic hybrid state-transition system`。
 
-## 6. PI 需要审核的五项
+一般连续递归 `x_(t+1)=F_theta(...)` 继续属于 Paper 2+ hypothesis。
 
-### A2-1
-是否批准新增独立于固定原局本质 `E` 的 `acquired_history_state m_t`。
+## 8. A2-1 至 A2-5 决议
 
-### A2-2
-是否批准只有 source-explicit persistence / path-dependence 规则才能更新 `m_t`。
+- A2-1：APPROVED WITH TYPED MEMORY
+- A2-2：APPROVED；source-explicit 为硬门控
+- A2-3：APPROVED；仅 symbolic / ordinal
+- A2-4：APPROVED；一般递归留 Paper 2+
+- A2-5：APPROVED WITH SOURCE CORRECTION；不得原样迁移 `ZZ-SYS-38-034`
 
-### A2-3
-是否批准 Paper 1 只实现 symbolic / ordinal history update，不引入任意连续记忆权重、衰减率或学习参数。
+## 9. Approval record
 
-### A2-4
-是否批准一般连续递归动力学继续作为 Paper 2+ hypothesis，而不把其声称为中州派原文定律。
+**PI approved A2-R1.**
 
-### A2-5
-是否批准 A2 后执行全文 history-marker backward audit，并将当前 3 条 held rules 转为第一批 HistoryUpdate 模板。
-
-## 7. A2 批准后的自动路线
-
-```text
-A2 approval
--> D-016
--> HISTORY_UPDATE_SCHEMA v0.1
--> G5-R state-space revision
--> model_spec acquired-history objects
--> migrate 3 held rules
--> backward audit all 2193 system rules
--> source-review persistence candidates
--> ontology / system-mode regression
--> resume LB-07 ... LB-16
-```
-
-如全文反扫进一步要求重写 natal essence、引入多宫长期状态传播，或出现第二时间尺度以上的新结构，再升级新的人工 Gate。
-
-## 8. 当前唯一合法下一步
-
-在没有 PI 明确回复“批准 A2”之前，**不得进入 A2 后自动路线**。
-
-仓库状态以根目录 `PROJECT_STATE.yaml` 为启动入口。
+如后续全文回源要求重写 natal essence、引入多宫长期历史传播、新增第二独立时间尺度或默认记忆衰减/遗忘机制，必须再次升级人工 Gate。

@@ -37,7 +37,7 @@ def test_quarantined_rules_are_not_active_ontology_or_star_core_evidence():
     active_evidence_text = "\n".join(
         re.findall(r"evidence_rules:\s*\[[^\]]*\]", ontology + "\n" + cores)
     )
-    for rule_id in ("ZZ-TT-010", "ZZ-SYS-38-032"):
+    for rule_id in ("ZZ-TT-010", "ZZ-SYS-38-032", "ZZ-SYS-38-034"):
         assert rule_id not in active_evidence_text
 
 
@@ -47,6 +47,8 @@ def test_quarantine_contains_confirmed_source_mismatches():
     assert by_id["ZZ-TT-010"]["effective_status"] == "QUARANTINED"
     assert by_id["ZZ-SYS-38-032"]["effective_status"] == "QUARANTINED"
     assert by_id["ZZ-SYS-38-032"]["reason_code"] == "SOURCE_MISMATCH_CONFIRMED"
+    assert by_id["ZZ-SYS-38-034"]["effective_status"] == "QUARANTINED"
+    assert by_id["ZZ-SYS-38-034"]["reason_code"] == "NORMALIZATION_MISMATCH_CONFIRMED"
 
 
 def test_all_ontology_evidence_ids_exist_in_canonical():
@@ -239,13 +241,22 @@ def test_lb06_queue_has_three_architecture_holds():
     assert sum(row["status"] == "A2_ARCHITECTURE_HOLD" for row in lb06) == 3
 
 
-def test_a2_architecture_hold_registry_matches_lb06():
+def test_a2_architecture_hold_registry_resolved_by_a2_r1():
     holds = read_csv("validation/decontamination/A2_architecture_hold_v0.1.csv")
-    assert {row["record_id"] for row in holds} == {
-        "ZZ-SYS-31-033",
-        "ZZ-SYS-38-034",
-        "ZZ-SYS-41-023",
-    }
-    assert all(row["execution_status"] == "A2_ARCHITECTURE_HOLD" for row in holds)
+    by_id = {row["record_id"]: row for row in holds}
+    assert set(by_id) == {"ZZ-SYS-31-033", "ZZ-SYS-38-034", "ZZ-SYS-41-023"}
+    assert by_id["ZZ-SYS-31-033"]["execution_status"] == "MIGRATED_A2_R1_ACQUIRED_DISPOSITION"
+    assert by_id["ZZ-SYS-41-023"]["execution_status"] == "MIGRATED_A2_R1_ACQUIRED_DISPOSITION"
+    assert by_id["ZZ-SYS-38-034"]["execution_status"] == "QUARANTINED_REPLACED_BY_ZZ-SYS-38-021"
     quarantine = {row["record_id"] for row in read_csv("knowledge/review/quarantine_v0.1.csv")}
-    assert not ({row["record_id"] for row in holds} & quarantine)
+    assert "ZZ-SYS-38-034" in quarantine
+
+
+def test_a2_history_transition_sidecar_is_typed_and_source_gated():
+    rows = read_csv("knowledge/history/history_transitions_v0.1.csv")
+    assert {row["transition_id"] for row in rows} == {"HU-001", "HG-001", "HU-002", "HU-003", "HU-004"}
+    assert {row["memory_kind"] for row in rows} == {"ACQUIRED_DISPOSITION", "PATH_DEPENDENT_GATE"}
+    assert all(row["source_epistemic"] == "EXPLICIT" for row in rows)
+    assert all(row["persistence_scope"] in {"specific_next_period", "later_periods", "unspecified"} for row in rows)
+    assert "ZZ-SYS-38-034" not in {row["source_rule_id"] for row in rows}
+    assert "ZZ-SYS-38-021" in {row["source_rule_id"] for row in rows}
