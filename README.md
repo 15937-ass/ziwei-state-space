@@ -57,9 +57,9 @@ Only the former is in scope for Paper 1.
 
 ## Current phase
 
-**Phase II knowledge-base construction + P1 source/normalization audit + Gate A2 PI review.**
+**Phase II knowledge-base construction + post-A2-R1 backward history audit.**
 
-Execution is currently **FROZEN_FOR_GATE_A2** for architecture-sensitive research changes. Repair-only metadata/documentation/test work is allowed.
+Gate A2 was approved as **A2-R1** and the A0/A1/A2-R1 checkpoint has been merged to `main`. Execution is active on `audit/post-a2-r1-history` / PR #48.
 
 No continuous numerical weights should be invented before a later system-identification stage unless they are clearly marked as illustrative and excluded from empirical claims.
 
@@ -77,14 +77,19 @@ Current formal state:
 
 See `validation/decontamination/A1_POST_APPROVAL_EXECUTION.md`.
 
-### Gate A2 status
+### Gate A2-R1 status
 
-Gate A2 has been triggered by source-supported cross-period path dependence discovered during LB-06. Three rules are held as `A2_ARCHITECTURE_HOLD`: they are source-supported, not quarantined, but are not executable under the current memoryless G5 reaction model.
+A2-R1 is **APPROVED**. Paper 1 preserves fixed natal essence `E` and adds typed, source-gated history memory:
 
-The proposal is to keep natal essence fixed and add a strictly source-gated acquired/history state. **No G5 architecture change is applied until PI approval.**
+- `ACQUIRED_DISPOSITION`
+- `PATH_DEPENDENT_GATE`
 
-Canonical review entry:
+No arbitrary continuous memory weight, decay rate, learning rate, or general learned recurrence is permitted in Paper 1.
 
-`validation/decontamination/GATE_A2_CANONICAL.md`
+The normalization mismatch `ZZ-SYS-38-034` is quarantined; System-38 cross-period evidence uses source-supported `ZZ-SYS-38-021`.
 
-Historical A2 drafts remain for audit trace only and are not valid current Gate entry points.
+Current automatic sequence:
+
+`history-marker backward audit -> LB-07 ... LB-16 -> WP03 regression -> WP04 closure -> WP05 palace corpus -> WP06 cases -> WP07 inference engine`.
+
+Canonical state is always `PROJECT_STATE.yaml`.
