@@ -58,7 +58,9 @@ def test_history_marker_snapshot_counts_match_full_corpus():
     assert len(rows) == 45
     assert sum(row["priority"] == "P0_HISTORY_REVIEW" for row in rows) == 27
     assert sum(row["priority"] == "P1_SEQUENCE_REVIEW" for row in rows) == 18
-    assert all(row["review_status"] == "HEURISTIC_CANDIDATE" for row in rows)
+    assert sum(row["review_status"] == "HEURISTIC_CANDIDATE" for row in rows) == 39
+    assert sum(row["review_status"].startswith("MIGRATED_A2_R1_") for row in rows) == 5
+    assert sum(row["review_status"] == "QUARANTINED_NORMALIZATION_MISMATCH" for row in rows) == 1
 
 
 def test_a2_confirmed_holds_are_subset_of_history_candidates():
