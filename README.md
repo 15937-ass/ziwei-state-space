@@ -2,6 +2,8 @@
 
 A research repository for formalizing **Zhongzhou Zi Wei Dou Shu (中州派紫微斗数)** as a theory-constrained latent-state dynamical system.
 
+> **Current-state bootstrap:** read `PROJECT_STATE.yaml` before selecting a branch, Gate, work package, or next action. Do not infer project state from legacy PRs, stale branches, or old chat messages.
+
 ## First-paper scope
 
 The first paper does **not** attempt to prove the empirical validity of Zi Wei Dou Shu. Its goal is to make a bounded body of Zhongzhou-school knowledge:
@@ -40,6 +42,7 @@ Only the former is in scope for Paper 1.
 
 ## Repository map
 
+- `PROJECT_STATE.yaml` — canonical machine-readable current state and Gate pointer
 - `PROJECT_CONSTITUTION.md` — non-negotiable research rules
 - `RULE_SCHEMA.md` — atomic rule annotation protocol
 - `AGENT_WORKFLOW.md` — GPT-centered producer/reviewer workflow
@@ -52,11 +55,13 @@ Only the former is in scope for Paper 1.
 - `tests/` — automated tests
 - `paper/` — manuscript materials
 
-## Current phase: **Phase II knowledge-base construction + P1 source/normalization audit + Gate A2 PI review**
+## Current phase
 
+**Phase II knowledge-base construction + P1 source/normalization audit + Gate A2 PI review.**
+
+Execution is currently **FROZEN_FOR_GATE_A2** for architecture-sensitive research changes. Repair-only metadata/documentation/test work is allowed.
 
 No continuous numerical weights should be invented before a later system-identification stage unless they are clearly marked as illustrative and excluded from empirical claims.
-
 
 ### Current audit baseline
 
@@ -72,11 +77,14 @@ Current formal state:
 
 See `validation/decontamination/A1_POST_APPROVAL_EXECUTION.md`.
 
-
 ### Gate A2 status
 
 Gate A2 has been triggered by source-supported cross-period path dependence discovered during LB-06. Three rules are held as `A2_ARCHITECTURE_HOLD`: they are source-supported, not quarantined, but are not executable under the current memoryless G5 reaction model.
 
-The proposal is to keep natal essence fixed and add a strictly source-gated acquired/history state. No G5 architecture change is applied until PI approval.
+The proposal is to keep natal essence fixed and add a strictly source-gated acquired/history state. **No G5 architecture change is applied until PI approval.**
 
-See `validation/decontamination/GATE_A2_时序记忆与获得性状态.md`.
+Canonical review entry:
+
+`validation/decontamination/GATE_A2_CANONICAL.md`
+
+Historical A2 drafts remain for audit trace only and are not valid current Gate entry points.
