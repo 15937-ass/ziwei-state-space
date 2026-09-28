@@ -11,12 +11,12 @@ project:
 git:
   default_branch: "main"
   active_branch: "audit/post-a2-r1-history"
-  active_pull_request: null
+  active_pull_request: 48
   canonical_research_state_branch: "audit/post-a2-r1-history"
   checkpoint_merge: "b3558d7a7e1ff138d1279408b07ddfc7ac6d6463"
   stale_open_prs: []
   branch_cleanup_status: "CLOSED_STALE_PRS; LEGACY_BRANCH_DELETION_PENDING"
-  note: "A0/A1/A2-R1 checkpoint is merged. Post-A2 work must occur on audit/post-a2-r1-history."
+  note: "A0/A1/A2-R1 checkpoint is merged. Post-A2 work occurs on audit/post-a2-r1-history / PR #48."
 
 gates:
   A0: "APPROVED"
@@ -31,6 +31,11 @@ canonical_artifacts:
   history_transitions: "knowledge/history/history_transitions_v0.1.csv"
   a2_source_corrections: "knowledge/migrations/a2_source_corrections_v0.1.csv"
   a2_history_candidates: "validation/decontamination/A2_history_marker_candidates_v0.1.csv"
+  post_a2_execution: "validation/decontamination/A2_R1_POST_APPROVAL_EXECUTION.md"
+
+historical_noncanonical_gate_documents:
+  - "validation/decontamination/GATE_A2_路径依赖与获得性状态审计.md"
+  - "validation/decontamination/GATE_A2_时序记忆与获得性状态.md"
 
 execution_policy:
   - "Every agent/session must read PROJECT_STATE.yaml before selecting a branch, gate, or next task."
