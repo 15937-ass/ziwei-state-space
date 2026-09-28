@@ -233,12 +233,14 @@ def test_lb06_review_split_and_a2_holds_are_consistent():
     assert len(plan) == 86
 
 
-def test_lb06_queue_has_three_architecture_holds():
+def test_lb06_queue_is_closed_after_a2_r1():
     rows = read_csv("validation/decontamination/P1_layer_boundary_review_batches_v0.1.csv")
     lb06 = [row for row in rows if row["batch_id"] == "LB-06"]
     assert len(lb06) == 50
     assert sum(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb06) == 47
-    assert sum(row["status"] == "A2_ARCHITECTURE_HOLD" for row in lb06) == 3
+    assert sum(row["status"] == "A2_R1_HISTORY_MIGRATED" for row in lb06) == 2
+    assert sum(row["status"] == "QUARANTINED_NORMALIZATION_MISMATCH" for row in lb06) == 1
+    assert not any(row["status"] == "A2_ARCHITECTURE_HOLD" for row in lb06)
 
 
 def test_a2_architecture_hold_registry_resolved_by_a2_r1():
