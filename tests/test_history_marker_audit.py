@@ -58,10 +58,10 @@ def test_history_marker_snapshot_counts_match_full_corpus():
     assert len(rows) == 45
     assert sum(row["priority"] == "P0_HISTORY_REVIEW" for row in rows) == 27
     assert sum(row["priority"] == "P1_SEQUENCE_REVIEW" for row in rows) == 18
-    assert sum(row["review_status"] == "HEURISTIC_CANDIDATE" for row in rows) == 17
-    assert sum(row["review_status"].startswith("MIGRATED_A2_R1_") for row in rows) == 17
-    assert sum(row["review_status"] == "QUARANTINED_NORMALIZATION_MISMATCH" for row in rows) == 1
-    assert sum(row["review_status"].startswith("REVIEWED_") for row in rows) == 10
+    assert sum(row["review_status"] == "HEURISTIC_CANDIDATE" for row in rows) == 0
+    assert sum(row["review_status"].startswith("MIGRATED_A2_R1_") for row in rows) == 18
+    assert sum(row["review_status"] == "QUARANTINED_NORMALIZATION_MISMATCH" for row in rows) == 2
+    assert sum(row["review_status"].startswith("REVIEWED_") for row in rows) == 25
 
 
 def test_a2_confirmed_holds_are_subset_of_history_candidates():
@@ -92,5 +92,6 @@ def test_a2_history_source_review_ledger_tracks_all_candidates():
         rows = list(csv.DictReader(handle))
 
     assert len(rows) == 45
-    assert sum(row["source_span_verified"] == "true" for row in rows) == 28
-    assert sum(row["source_review_result"] == "PENDING_SOURCE_REVIEW" for row in rows) == 17
+    assert sum(row["source_span_verified"] == "true" for row in rows) == 45
+    assert sum(row["source_review_result"] == "PENDING_SOURCE_REVIEW" for row in rows) == 0
+    assert sum(row["source_review_result"] == "NORMALIZATION_MISMATCH_CONFIRMED" for row in rows) == 2
