@@ -4,6 +4,8 @@ repository: "15937-ass/ziwei-state-space"
 project:
   current_phase: "Phase II knowledge-base construction + post-A2-R1 backward history audit"
   execution_state: "POST_A2_R1_ACTIVE"
+  current_work_unit: "HISTORY_BACKWARD_AUDIT"
+  state_sync: "S0_COMPLETE"
   last_approved_gate: "A2-R1"
   pending_gate: null
   blocked_reason: null
@@ -16,12 +18,31 @@ git:
   checkpoint_merge: "b3558d7a7e1ff138d1279408b07ddfc7ac6d6463"
   stale_open_prs: []
   branch_cleanup_status: "CLOSED_STALE_PRS; LEGACY_BRANCH_DELETION_PENDING"
-  note: "A0/A1/A2-R1 checkpoint is merged. Post-A2 work occurs on audit/post-a2-r1-history / PR #48."
+  note: "A0/A1/A2-R1 checkpoint is merged. S0 canonical-state synchronization is complete. Post-A2 work occurs on audit/post-a2-r1-history / PR #48."
 
 gates:
   A0: "APPROVED"
   A1: "APPROVED"
   A2: "APPROVED_AS_A2-R1"
+
+progress:
+  history_marker_candidates:
+    total: 45
+    resolved_or_migrated: 6
+    pending_source_review: 39
+  layer_boundary_audit:
+    total: 800
+    closed: 300
+    pending: 500
+    next_batch: "LB-07"
+  corpus_baseline:
+    major_star_rules: 430
+    sixty_system_rules: 2193
+    base_operator_rules: 313
+    system_operator_edges: 654
+  manuscript:
+    file: "paper/manuscript_v0.1.md"
+    status: "STALE_PRE_A2_DRAFT_DO_NOT_USE_FOR_CURRENT_METRICS"
 
 canonical_artifacts:
   gate_a2: "validation/decontamination/GATE_A2_CANONICAL.md"
