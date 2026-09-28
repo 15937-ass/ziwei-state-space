@@ -251,9 +251,20 @@ def test_a2_architecture_hold_registry_resolved_by_a2_r1():
 
 def test_a2_history_transition_sidecar_is_typed_and_source_gated():
     rows = read_csv("knowledge/history/history_transitions_v0.1.csv")
-    assert {row["transition_id"] for row in rows} == {"HU-001", "HG-001", "HU-002", "HU-003", "HU-004"}
+    ids = [row["transition_id"] for row in rows]
+    assert len(ids) == len(set(ids))
+    assert {"HU-001", "HG-001", "HU-002", "HU-003", "HU-004"} <= set(ids)
     assert {row["memory_kind"] for row in rows} == {"ACQUIRED_DISPOSITION", "PATH_DEPENDENT_GATE"}
     assert all(row["source_epistemic"] == "EXPLICIT" for row in rows)
     assert all(row["persistence_scope"] in {"specific_next_period", "later_periods", "unspecified"} for row in rows)
-    assert "ZZ-SYS-38-034" not in {row["source_rule_id"] for row in rows}
-    assert "ZZ-SYS-38-021" in {row["source_rule_id"] for row in rows}
+    source_ids = {row["source_rule_id"] for row in rows}
+    assert "ZZ-SYS-38-034" not in source_ids
+    assert "ZZ-SYS-38-021" in source_ids
+
+    candidates = read_csv("validation/decontamination/A2_history_marker_candidates_v0.1.csv")
+    migrated = {
+        row["record_id"]
+        for row in candidates
+        if row["review_status"].startswith("MIGRATED_A2_R1_")
+    }
+    assert migrated == source_ids
