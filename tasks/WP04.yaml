@@ -1,32 +1,55 @@
 task_id: WP04
-name: 化曜与杂曜算子库构建
-status: active
+name: 辅佐煞化/杂曜算子库全文闭环
+status: near_complete_pending_source_coverage
 
 pipeline:
-  - A1_extract
+  - source_coverage_closure
+  - A1_extract_missing
   - A4_validate
   - A2_normalize
+  - system_edge_regression
   - A6_report
 
 scope:
   primary_source:
-    - 中州派紫微斗数深造讲义
+    - 中州派紫微斗数深造讲义（上）
+  current_baseline:
+    auxiliary_eight_rules: 103
+    six_malefics_rules: 81
+    transformation_rules: 56
+    misc_star_rules: 73
+    total_base_operator_rules: 313
+    system_specific_edges: 654
   target:
+    - 辅佐八曜
+    - 六煞
     - 化禄
     - 化权
     - 化科
     - 化忌
     - 中州派实际使用杂曜
+    - 对应章节逐页coverage closure
 
 output:
-  draft:
-    - knowledge/operators/transformation_v0.1.csv
+  canonical:
+    - knowledge/operators/auxiliary_eight_v0.1.csv
+    - knowledge/operators/six_malefics_v0.1.csv
+    - knowledge/operators/transformation_rules_v0.1.csv
     - knowledge/operators/misc_stars_v0.1.csv
+    - knowledge/operators/system_operator_edges_v0.1.csv
   validation:
-    - validation/WP04_review_report.md
+    - validation/KB_WP04_transformation_misc_audit_v0.1.md
+    - knowledge/coverage/wp04_operator_coverage_v0.1.csv
+    - knowledge/coverage/wp04_system_edge_coverage_v0.1.csv
+
+complete_when:
+  - 对应原章节100% coverage unit已审计
+  - 遗漏operator完成补抽与去重
+  - system-specific edges regression通过
+  - 无未隔离source/normalization mismatch
 
 human_gate:
   trigger:
     - primitive_qi_change
-    - operator_definition_change
+    - core_operator_definition_change
     - unresolved_source_conflict
