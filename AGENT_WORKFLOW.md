@@ -1,6 +1,21 @@
 # AGENT_WORKFLOW.md
 
-Version: 0.2
+Version: 0.3
+
+## Repository bootstrap — mandatory
+
+Before selecting a branch, Gate, work package, or next action, every agent/session must read `PROJECT_STATE.yaml`.
+
+`PROJECT_STATE.yaml` is the canonical machine-readable pointer to:
+- current phase and execution state;
+- active branch and PR;
+- last approved Gate and pending Gate;
+- canonical human-review artifact;
+- work that is currently blocked.
+
+Do **not** infer current state from old chat messages, legacy PRs, stale branches, or branch names.
+
+If `execution_state` is `FROZEN_FOR_GATE_*`, only repair/metadata/test work that does not change theory is permitted until the PI explicitly approves the pending Gate.
 
 ## Principle
 
@@ -86,16 +101,18 @@ Must not invent missing theory to improve narrative flow.
 - G4: 60-star-system logic
 - G5: state-space formulation
 - G6: conclusions and limitations
+- A0/A1/...: post-G6 audit Gates when corpus-wide review exposes architecture-level changes
 
 ## Standard work-package cycle
 
-1. Manager defines bounded source scope.
-2. Extractor produces rules.
-3. Auditor checks provenance and atomicity.
-4. Extractor revises.
-5. Manager produces a **Chinese review summary**.
-6. PI approves/rejects/escalates.
-7. Approved artifact is versioned.
+1. Read `PROJECT_STATE.yaml`.
+2. Manager defines bounded source scope.
+3. Extractor produces rules.
+4. Auditor checks provenance and atomicity.
+5. Extractor revises.
+6. Manager produces a **Chinese review summary**.
+7. PI approves/rejects/escalates.
+8. Approved artifact is versioned and `PROJECT_STATE.yaml` is advanced.
 
 ## Evidence priority
 
