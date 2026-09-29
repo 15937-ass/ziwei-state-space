@@ -4,7 +4,7 @@ repository: "15937-ass/ziwei-state-space"
 project:
   current_phase: "Phase II knowledge-base construction + P1 layer-boundary normalization audit"
   execution_state: "P1_LAYER_AUDIT_ACTIVE"
-  current_work_unit: "LB-11_SOURCE_NORMALIZATION_REVIEW"
+  current_work_unit: "LB11_14_CHECKPOINT_CLOSURE"
   state_sync: "S0_COMPLETE"
   last_approved_gate: "A2-R1"
   pending_gate: null
@@ -31,13 +31,13 @@ progress:
     resolved_or_migrated: 45
     pending_source_review: 0
     semantic_backscan: "COMPLETE_SIXTY_SYSTEMS"
-    executable_transitions: 33
+    executable_transitions: 40
   layer_boundary_audit:
     total: 800
-    closed: 500
-    pending: 300
-    next_batch: "LB-11"
-    history_dependency: "CLOSED_WITH_LB10_SUPPLEMENT"
+    closed: 700
+    pending: 100
+    next_batch: "LB-15"
+    history_dependency: "CLOSED_WITH_LAYER_FEEDBACK_SUPPLEMENTS"
   corpus_baseline:
     major_star_rules: 430
     sixty_system_rules: 2193
@@ -63,6 +63,9 @@ canonical_artifacts:
   history_semantic_split_plan: "knowledge/migrations/history_semantic_split_plan_v0.1.csv"
   history_semantic_report: "validation/decontamination/A2_R1_HISTORY_SEMANTIC_BACKSCAN.md"
   lb10_history_feedback: "validation/decontamination/LB10_history_feedback_v0.1.csv"
+  lb11_history_feedback: "validation/decontamination/LB11_history_feedback_v0.1.csv"
+  lb12_history_feedback: "validation/decontamination/LB12_history_feedback_v0.1.csv"
+  lb12_extraction_gap_additions: "knowledge/migrations/lb12_extraction_gap_additions_v0.1.csv"
 
 historical_noncanonical_gate_documents:
   - "validation/decontamination/GATE_A2_路径依赖与获得性状态审计.md"
