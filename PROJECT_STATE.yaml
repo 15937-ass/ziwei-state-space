@@ -18,7 +18,7 @@ git:
   checkpoint_merge: "e8255d82b9a2ce0343d6f5635919db18ea8199fe"
   stale_open_prs: []
   branch_cleanup_status: "POST_P1_ACTIVE_POINTERS_CLOSED; LEGACY_BRANCH_DELETION_PENDING"
-  note: "PR #61 merged TC05: cumulative transformation-chapter source review is 300 items. Canonical next work is TC06 from the recorded source anchor. User explicitly approved 100-item reporting/checkpoints; no new Human Gate is open."
+  note: "PR #61 merged TC05: cumulative transformation-chapter source review is 300 items. Canonical next work is TC06 from the recorded source anchor. User explicitly approved 200-item reporting cadence; internal recoverable checkpoints remain capped at 100 items per PR; no new Human Gate is open."
 
 gates:
   A0: "APPROVED"
@@ -97,9 +97,9 @@ execution_policy:
   - "No persistence duration, decay, continuous weight, or learning parameter may be invented."
   - "ZZ-SYS-38-034 remains quarantined; System-38 history uses source-supported ZZ-SYS-38-021."
   - "P1 layer-boundary audit is closed at 800/800; do not reopen reviewed batches unless a new source conflict or schema defect is identified."
-  - "Source-review checkpoint size is now 100 items by explicit user approval on 2026-09-29; persist a recoverable GitHub checkpoint before starting the next batch."
+  - "User-facing source-review reporting cadence is now 200 items by explicit user approval on 2026-09-29; persist an internal recoverable GitHub checkpoint every 100 reviewed items."
   - "Hard ceiling is 100 source-review items per PR unless the work is purely mechanical and explicitly approved in advance."
-  - "Do not combine multiple large review batches, multiple PR merges, and final state synchronization into one conversational turn when separate checkpoints are possible."
+  - "For the approved 200-item reporting cadence, two sequential 100-item internal checkpoints/PRs may be completed before the user-facing report, but each 100-item checkpoint must be independently recoverable and pass CI before the next begins."
   - "After a chat/tool timeout, inspect GitHub commit/PR/workflow state before retrying; never replay completed source review solely because the conversation timed out."
   - "Escalate a new human Gate only if source review requires natal-essence rewrite, multi-palace long-memory propagation, a second independent time scale, or default decay/forgetting dynamics."
 
