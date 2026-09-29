@@ -696,3 +696,20 @@ def test_wp04_huake_source_review_preserves_primary_source_mapping():
     assert len(closure) == 127
     variant = [row for row in closure if row["legacy_relation"] == "NEW_SOURCE_VARIANT"]
     assert len(variant) >= 2
+
+
+def test_wp04_huaji_closes_all_40_transformation_source_units():
+    units = read_csv("knowledge/coverage/wp04_transformation_source_units_v0.1.csv")
+    assert len(units) == 40
+    assert all(row["source_span_verified"] == "true" for row in units)
+    assert all(
+        row["coverage_status"] == "SOURCE_REVIEW_COMPLETE_PENDING_CANONICAL_RECONCILIATION"
+        for row in units
+    )
+    hj = [row for row in units if row["group"] == "化忌"]
+    assert len(hj) == 10
+    closure = read_csv("knowledge/operators/transformation_source_closure_v0.1.csv")
+    assert len(closure) == 174
+    assert {row["source_unit_id"] for row in closure} == {row["unit_id"] for row in units}
+    assert all(row["review_status"] == "SOURCE_SPAN_VERIFIED" for row in closure)
+    assert all(row["source_span_verified"] == "true" for row in closure)
