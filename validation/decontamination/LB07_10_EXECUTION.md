@@ -1,6 +1,6 @@
 # LB-07 ... LB-10 EXECUTION
 
-Status: **ACTIVE — LB-07/LB-08/LB-09 COMPLETE; LB-10 NEXT**
+Status: **COMPLETE — LB-07/LB-08/LB-09/LB-10 COMPLETE; CHECKPOINT READY**
 
 Scope: 200 layer-boundary candidates in `P1_layer_boundary_review_batches_v0.1.csv`.
 
@@ -28,3 +28,13 @@ No human Gate is required for ordinary source normalization. Escalate only if ev
 - a core operator-definition change;
 - an unresolved major Zhongzhou conflict;
 - a state architecture beyond A2-R1 typed history memory.
+
+## Checkpoint result
+
+- LB-07 reviewed: 50
+- LB-08 reviewed: 50
+- LB-09 reviewed: 50 (2 normalization mismatches quarantined/repaired)
+- LB-10 reviewed: 50
+- total this PR: 200
+- cumulative layer-boundary review: 500 / 800
+- next batch: LB-11

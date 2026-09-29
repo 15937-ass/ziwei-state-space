@@ -37,7 +37,7 @@ def test_quarantined_rules_are_not_active_ontology_or_star_core_evidence():
     active_evidence_text = "\n".join(
         re.findall(r"evidence_rules:\s*\[[^\]]*\]", ontology + "\n" + cores)
     )
-    for rule_id in ("ZZ-TT-010", "ZZ-SYS-38-032", "ZZ-SYS-38-034"):
+    for rule_id in ("ZZ-TT-010", "ZZ-SYS-38-032", "ZZ-SYS-38-034", "ZZ-SYS-39-029", "ZZ-SYS-50-028"):
         assert rule_id not in active_evidence_text
 
 
@@ -51,6 +51,8 @@ def test_quarantine_contains_confirmed_source_mismatches():
     assert by_id["ZZ-SYS-38-034"]["reason_code"] == "NORMALIZATION_MISMATCH_CONFIRMED"
     assert by_id["ZZ-SYS-50-028"]["effective_status"] == "QUARANTINED"
     assert by_id["ZZ-SYS-50-028"]["reason_code"] == "NORMALIZATION_MISMATCH_CONFIRMED"
+    assert by_id["ZZ-SYS-39-029"]["effective_status"] == "QUARANTINED"
+    assert by_id["ZZ-SYS-39-029"]["reason_code"] == "NORMALIZATION_MISMATCH_CONFIRMED"
 
 
 def test_all_ontology_evidence_ids_exist_in_canonical():
@@ -276,7 +278,7 @@ def test_a2_history_transition_sidecar_is_typed_and_source_gated():
         row["transition_id"] for row in semantic if row["transition_id"]
     }
     assert semantic_transition_ids <= set(ids)
-    assert len(rows) == 30
+    assert len(rows) == 33
 
 def test_history_semantic_split_plan_is_source_reviewed():
     rows = read_csv("knowledge/migrations/history_semantic_split_plan_v0.1.csv")
@@ -389,3 +391,48 @@ def test_lb09_relational_feedback_uses_existing_axes_only():
     assert "ZZ-SYS-54-014" in ontology[ontology.index("  - id: QR-03"):ontology.index("  - id: QR-04")]
     assert "ZZ-SYS-39-027" in ontology[ontology.index("  - id: QR-04"):ontology.index("candidate_intrinsic_dimensions:")]
     assert "QR-05" not in ontology
+
+
+def test_lb10_review_split_and_history_feedback_are_consistent():
+    reviews = read_csv("validation/decontamination/LB10_source_normalization_review_v0.1.csv")
+    plan = read_csv("knowledge/migrations/p1_layer_split_plan_LB10_v0.1.csv")
+    feedback = read_csv("validation/decontamination/LB10_history_feedback_v0.1.csv")
+    assert len(reviews) == 50
+    assert all(row["source_span_verified"] == "true" for row in reviews)
+    assert all(row["source_review_result"] == "SOURCE_SUPPORTED" for row in reviews)
+    assert {row["parent_rule_id"] for row in plan} == {row["record_id"] for row in reviews}
+    child_ids = [row["child_rule_id"] for row in plan]
+    assert len(child_ids) == len(set(child_ids))
+    assert {row["record_id"] for row in feedback} == {
+        "ZZ-SYS-22-024", "ZZ-SYS-28-020", "ZZ-SYS-28-032", "ZZ-SYS-29-033", "ZZ-SYS-31-031"
+    }
+
+
+def test_lb10_queue_is_closed_and_first_500_are_resolved():
+    rows = read_csv("validation/decontamination/P1_layer_boundary_review_batches_v0.1.csv")
+    lb10 = [row for row in rows if row["batch_id"] == "LB-10"]
+    assert len(lb10) == 50
+    assert all(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb10)
+    closed = [row for row in rows if row["batch_id"] in {f"LB-{i:02d}" for i in range(1, 11)}]
+    assert len(closed) == 500
+    assert not any(row["status"] in {"PENDING", "A2_ARCHITECTURE_HOLD"} for row in closed)
+
+
+def test_lb10_adds_three_source_explicit_foundation_history_gates():
+    transitions = read_csv("knowledge/history/history_transitions_v0.1.csv")
+    by_id = {row["transition_id"]: row for row in transitions}
+    assert len(transitions) == 33
+    assert by_id["HG-014"]["source_rule_id"] == "ZZ-SYS-22-024"
+    assert by_id["HG-015"]["source_rule_id"] == "ZZ-SYS-28-020"
+    assert by_id["HG-016"]["source_rule_id"] == "ZZ-SYS-31-031"
+    for tid in ("HG-014", "HG-015", "HG-016"):
+        assert by_id[tid]["memory_kind"] == "PATH_DEPENDENT_GATE"
+        assert by_id[tid]["source_epistemic"] == "EXPLICIT"
+        assert by_id[tid]["persistence_scope"] == "later_periods"
+
+
+def test_lb10_does_not_misclassify_outcome_duration_as_qi18():
+    plan = read_csv("knowledge/migrations/p1_layer_split_plan_LB10_v0.1.csv")
+    rows = [row for row in plan if row["parent_rule_id"] == "ZZ-SYS-58-040"]
+    assert rows
+    assert all(row["dimension_candidate"] != "QI-18-CAND" for row in rows)
