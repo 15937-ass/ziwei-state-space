@@ -563,3 +563,32 @@ def test_lb14_does_not_duplicate_existing_history_transitions():
         source_to_ids.setdefault(row["source_rule_id"], set()).add(row["transition_id"])
     assert "HG-004" in source_to_ids["ZZ-SYS-22-023"]
     assert "HU-007" in source_to_ids["ZZ-SYS-32-014"]
+
+
+def test_lb15_review_split_and_history_guard_are_consistent():
+    reviews = read_csv("validation/decontamination/LB15_source_normalization_review_v0.1.csv")
+    plan = read_csv("knowledge/migrations/p1_layer_split_plan_LB15_v0.1.csv")
+    feedback = read_csv("validation/decontamination/LB15_history_feedback_v0.1.csv")
+    assert len(reviews) == 50
+    assert all(row["source_span_verified"] == "true" for row in reviews)
+    assert all(row["source_review_result"] == "SOURCE_SUPPORTED" for row in reviews)
+    assert {row["parent_rule_id"] for row in plan} == {row["record_id"] for row in reviews}
+    assert len({row["child_rule_id"] for row in plan}) == len(plan)
+    assert len(feedback) == 5
+    assert not any(row["action"] == "ADD" for row in feedback)
+
+
+def test_lb15_queue_is_closed_and_first_750_are_resolved():
+    rows = read_csv("validation/decontamination/P1_layer_boundary_review_batches_v0.1.csv")
+    lb15 = [row for row in rows if row["batch_id"] == "LB-15"]
+    assert len(lb15) == 50
+    assert all(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb15)
+    closed = [row for row in rows if row["batch_id"] in {f"LB-{i:02d}" for i in range(1, 16)}]
+    assert len(closed) == 750
+    assert not any(row["status"] in {"PENDING", "A2_ARCHITECTURE_HOLD"} for row in closed)
+
+
+def test_lb15_does_not_expand_history_architecture():
+    transitions = read_csv("knowledge/history/history_transitions_v0.1.csv")
+    assert len(transitions) == 40
+    assert {row["memory_kind"] for row in transitions} == {"ACQUIRED_DISPOSITION", "PATH_DEPENDENT_GATE"}
