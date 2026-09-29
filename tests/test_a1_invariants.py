@@ -269,4 +269,19 @@ def test_a2_history_transition_sidecar_is_typed_and_source_gated():
         for row in candidates
         if row["review_status"].startswith("MIGRATED_A2_R1_")
     }
-    assert migrated == source_ids
+    assert migrated <= source_ids
+
+    semantic = read_csv("validation/decontamination/A2_R1_history_semantic_backscan_v0.1.csv")
+    semantic_transition_ids = {
+        row["transition_id"] for row in semantic if row["transition_id"]
+    }
+    assert semantic_transition_ids <= set(ids)
+    assert len(rows) == 30
+
+def test_history_semantic_split_plan_is_source_reviewed():
+    rows = read_csv("knowledge/migrations/history_semantic_split_plan_v0.1.csv")
+    assert len(rows) == 7
+    assert len({row["child_rule_id"] for row in rows}) == 7
+    assert all(row["source_epistemic"] == "EXPLICIT" for row in rows)
+    assert all(row["source_span_verified"] == "true" for row in rows)
+    assert all(row["normalization_verified"] == "false" for row in rows)

@@ -4,7 +4,7 @@ repository: "15937-ass/ziwei-state-space"
 project:
   current_phase: "Phase II knowledge-base construction + post-A2-R1 backward history audit"
   execution_state: "POST_A2_R1_ACTIVE"
-  current_work_unit: "HISTORY_SEMANTIC_BACKSCAN"
+  current_work_unit: "LB-07_SOURCE_NORMALIZATION_REVIEW"
   state_sync: "S0_COMPLETE"
   last_approved_gate: "A2-R1"
   pending_gate: null
@@ -30,11 +30,14 @@ progress:
     total: 45
     resolved_or_migrated: 45
     pending_source_review: 0
+    semantic_backscan: "COMPLETE_SIXTY_SYSTEMS"
+    executable_transitions: 30
   layer_boundary_audit:
     total: 800
     closed: 300
     pending: 500
     next_batch: "LB-07"
+    history_dependency: "CLOSED"
   corpus_baseline:
     major_star_rules: 430
     sixty_system_rules: 2193
@@ -56,6 +59,9 @@ canonical_artifacts:
   history_source_review: "validation/decontamination/A2_R1_history_source_review_v0.1.csv"
   history_heuristic_closure: "validation/decontamination/A2_R1_HISTORY_HEURISTIC_CLOSURE.md"
   history_source_corrections: "knowledge/migrations/history_audit_source_corrections_v0.1.csv"
+  history_semantic_backscan: "validation/decontamination/A2_R1_history_semantic_backscan_v0.1.csv"
+  history_semantic_split_plan: "knowledge/migrations/history_semantic_split_plan_v0.1.csv"
+  history_semantic_report: "validation/decontamination/A2_R1_HISTORY_SEMANTIC_BACKSCAN.md"
 
 historical_noncanonical_gate_documents:
   - "validation/decontamination/GATE_A2_路径依赖与获得性状态审计.md"
