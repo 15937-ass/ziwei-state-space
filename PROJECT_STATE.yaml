@@ -18,7 +18,7 @@ git:
   checkpoint_merge: "e8255d82b9a2ce0343d6f5635919db18ea8199fe"
   stale_open_prs: []
   branch_cleanup_status: "POST_P1_ACTIVE_POINTERS_CLOSED; LEGACY_BRANCH_DELETION_PENDING"
-  note: "TC03 working batch has started on audit/wp04-transform-source-closure-tc03 from the recorded source anchor. It is not yet a 50-item checkpoint; no new Human Gate is open."
+  note: "TC03 source review is complete at 50/50 on audit/wp04-transform-source-closure-tc03 and ready for PR/CI. Cumulative transformation-chapter source review is 150 items; no new Human Gate is open."
 
 gates:
   A0: "APPROVED"
@@ -45,12 +45,12 @@ progress:
     system_operator_edges: 654
   wp04_source_closure:
     chapter: "化曜"
-    checkpoint: "TC02"
-    reviewed_items: 100
-    add_candidates: 93
-    case_support_only: 7
-    status: "TC03_WORKING_NOT_YET_CHECKPOINTED"
-    next_anchor: "巳亥宫天机独坐化禄/对宫太阴化忌"
+    checkpoint: "TC03"
+    reviewed_items: 150
+    add_candidates: 137
+    case_support_only: 13
+    status: "TC03_SOURCE_SPAN_VERIFIED_READY_FOR_PR"
+    next_anchor: "事业宫天梁见化禄或叠禄"
   manuscript:
     file: "paper/manuscript_v0.1.md"
     status: "STALE_PRE_A2_DRAFT_DO_NOT_USE_FOR_CURRENT_METRICS"
@@ -79,6 +79,7 @@ canonical_artifacts:
   lb16_final_closure: "validation/decontamination/LB16_P1_FINAL_CLOSURE.md"
   wp04_tc01_source_review: "validation/wp04_source_closure/TC01_TRANSFORMATION_SOURCE_REVIEW.md"
   wp04_tc02_source_review: "validation/wp04_source_closure/TC02_TRANSFORMATION_SOURCE_REVIEW.md"
+  wp04_tc03_source_review: "validation/wp04_source_closure/TC03_TRANSFORMATION_SOURCE_REVIEW.md"
   wp04_source_closure_ledger: "knowledge/coverage/wp04_source_chapter_closure_v0.1.csv"
 
 historical_noncanonical_gate_documents:
