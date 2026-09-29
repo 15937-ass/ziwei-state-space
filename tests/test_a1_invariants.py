@@ -496,3 +496,36 @@ def test_lb12_history_feedback_distinguishes_lookahead_from_path_dependence():
     assert transitions["HG-022"]["source_rule_id"] == "ZZ-SYS-47-SUP-LB12-001"
     feedback = {row["record_id"]: row for row in read_csv("validation/decontamination/LB12_history_feedback_v0.1.csv")}
     assert feedback["ZZ-SYS-47-026"]["history_review_result"] == "LOOKAHEAD_SEQUENCE_NOT_MEMORY"
+
+
+def test_lb13_review_split_and_history_feedback_are_consistent():
+    reviews = read_csv("validation/decontamination/LB13_source_normalization_review_v0.1.csv")
+    plan = read_csv("knowledge/migrations/p1_layer_split_plan_LB13_v0.1.csv")
+    feedback = read_csv("validation/decontamination/LB13_history_feedback_v0.1.csv")
+    assert len(reviews) == 50
+    assert all(row["source_span_verified"] == "true" for row in reviews)
+    assert all(row["source_review_result"] == "SOURCE_SUPPORTED" for row in reviews)
+    assert {row["parent_rule_id"] for row in plan} == {row["record_id"] for row in reviews}
+    child_ids = [row["child_rule_id"] for row in plan]
+    assert len(child_ids) == len(set(child_ids))
+    assert {row["record_id"] for row in feedback} == {"ZZ-SYS-17-019"}
+
+
+def test_lb13_queue_is_closed_and_first_650_are_resolved():
+    rows = read_csv("validation/decontamination/P1_layer_boundary_review_batches_v0.1.csv")
+    lb13 = [row for row in rows if row["batch_id"] == "LB-13"]
+    assert len(lb13) == 50
+    assert all(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb13)
+    closed = [row for row in rows if row["batch_id"] in {f"LB-{i:02d}" for i in range(1, 14)}]
+    assert len(closed) == 650
+    assert not any(row["status"] in {"PENDING", "A2_ARCHITECTURE_HOLD"} for row in closed)
+
+
+def test_lb13_adds_key_limit_history_gate_without_new_memory_type():
+    transitions = read_csv("knowledge/history/history_transitions_v0.1.csv")
+    by_id = {row["transition_id"]: row for row in transitions}
+    assert len(transitions) == 40
+    assert by_id["HG-023"]["source_rule_id"] == "ZZ-SYS-17-019"
+    assert by_id["HG-023"]["memory_kind"] == "PATH_DEPENDENT_GATE"
+    assert by_id["HG-023"]["persistence_scope"] == "later_periods"
+    assert {row["memory_kind"] for row in transitions} == {"ACQUIRED_DISPOSITION", "PATH_DEPENDENT_GATE"}
