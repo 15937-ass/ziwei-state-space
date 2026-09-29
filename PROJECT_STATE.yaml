@@ -4,7 +4,7 @@ repository: "15937-ass/ziwei-state-space"
 project:
   current_phase: "Phase II knowledge-base construction + WP04 operator source-coverage closure"
   execution_state: "WP04_SOURCE_COVERAGE_ACTIVE"
-  current_work_unit: "WP04_TRANSFORMATION_SOURCE_COVERAGE"
+  current_work_unit: "WP04_TRANSFORMATION_CANONICAL_RECONCILIATION"
   state_sync: "S0_COMPLETE"
   last_approved_gate: "A2-R1"
   pending_gate: null
@@ -48,7 +48,7 @@ progress:
     dedicated_transformation_chapter_rows_verified_in_catalog: 0
     source_units_total: 40
     current_group: "四化_CANONICAL_RECONCILIATION"
-    status: "ACTIVE"
+    status: "CANONICAL_RECONCILIATION_ACTIVE"
     hualu_source_units_reviewed: 10
     hualu_closure_rules: 45
     huaquan_source_units_reviewed: 10
@@ -92,6 +92,8 @@ canonical_artifacts:
   huake_source_variant: "validation/WP04_HUAKE_SOURCE_VARIANT.md"
   huake_source_review: "validation/WP04_HUAKE_SOURCE_REVIEW_v0.1.md"
   huaji_source_review: "validation/WP04_HUAJI_SOURCE_REVIEW_v0.1.md"
+  transformation_reconciliation_ledger: "knowledge/migrations/wp04_transformation_canonical_reconciliation_v0.1.csv"
+  transformation_reconciliation_report: "validation/WP04_TRANSFORMATION_CANONICAL_RECONCILIATION_v0.1.md"
 
 historical_noncanonical_gate_documents:
   - "validation/decontamination/GATE_A2_路径依赖与获得性状态审计.md"
