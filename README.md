@@ -57,39 +57,39 @@ Only the former is in scope for Paper 1.
 
 ## Current phase
 
-**Phase II knowledge-base construction + post-A2-R1 backward history audit.**
+**Phase II knowledge-base construction — P1 layer-boundary audit complete; WP04 operator source-coverage closure next.**
 
-Gate A2 was approved as **A2-R1** and the A0/A1/A2-R1 checkpoint has been merged to `main`. Execution is active on `audit/post-a2-r1-history` / PR #48.
+A0, A1, and A2-R1 are approved. The full P1 layer-boundary normalization audit is merged to `main`:
+
+- 800 / 800 candidates source-normalization reviewed;
+- 1,199 auditable child records generated;
+- typed history transitions: 43;
+- pending layer-boundary candidates: 0;
+- no new primitive qi, relational axis, operator family, or history-memory type required.
+
+The consolidated checkpoint is documented in:
+
+- `validation/decontamination/P1_LAYER_BOUNDARY_FINAL_REPORT.md`
+- `validation/KB_WP03_post_P1_validation_summary.md`
 
 No continuous numerical weights should be invented before a later system-identification stage unless they are clearly marked as illustrative and excluded from empirical claims.
 
-### Current audit baseline
+### Current formal baseline
 
-Gate A0 closed deterministic schema drift; Gate A1 approved the full-corpus backward ontology audit.
-
-Current formal state:
 - QI ontology: v0.3
 - fourteen-star cores: G3-R v0.2
 - QI-16 goal-directedness: formal L1
 - QI-17/QI-18: separate provisional will-control / persistence candidates
 - structural-observability wording: replaced by observation-path support
 - raw canonical extraction remains provenance-preserving; semantic repairs use auditable sidecars
+- A2-R1 history memory remains exactly:
+  - `ACQUIRED_DISPOSITION`
+  - `PATH_DEPENDENT_GATE`
 
-See `validation/decontamination/A1_POST_APPROVAL_EXECUTION.md`.
+### Current automatic sequence
 
-### Gate A2-R1 status
+`WP04 source-coverage closure -> WP05 palace corpus -> WP06 structured cases -> WP07 evidence-first inference engine`.
 
-A2-R1 is **APPROVED**. Paper 1 preserves fixed natal essence `E` and adds typed, source-gated history memory:
-
-- `ACQUIRED_DISPOSITION`
-- `PATH_DEPENDENT_GATE`
-
-No arbitrary continuous memory weight, decay rate, learning rate, or general learned recurrence is permitted in Paper 1.
-
-The normalization mismatch `ZZ-SYS-38-034` is quarantined; System-38 cross-period evidence uses source-supported `ZZ-SYS-38-021`.
-
-Current automatic sequence:
-
-`history-marker backward audit -> LB-07 ... LB-16 -> WP03 regression -> WP04 closure -> WP05 palace corpus -> WP06 cases -> WP07 inference engine`.
+WP03 extraction remains 60/60 systems and 2,193 canonical rules. P1 has validated the audited layer boundaries, while full end-to-end validation remains pending WP06/WP07.
 
 Canonical state is always `PROJECT_STATE.yaml`.
