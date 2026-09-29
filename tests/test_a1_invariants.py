@@ -37,7 +37,7 @@ def test_quarantined_rules_are_not_active_ontology_or_star_core_evidence():
     active_evidence_text = "\n".join(
         re.findall(r"evidence_rules:\s*\[[^\]]*\]", ontology + "\n" + cores)
     )
-    for rule_id in ("ZZ-TT-010", "ZZ-SYS-38-032", "ZZ-SYS-38-034"):
+    for rule_id in ("ZZ-TT-010", "ZZ-SYS-38-032", "ZZ-SYS-38-034", "ZZ-SYS-39-029", "ZZ-SYS-50-028"):
         assert rule_id not in active_evidence_text
 
 
@@ -51,6 +51,8 @@ def test_quarantine_contains_confirmed_source_mismatches():
     assert by_id["ZZ-SYS-38-034"]["reason_code"] == "NORMALIZATION_MISMATCH_CONFIRMED"
     assert by_id["ZZ-SYS-50-028"]["effective_status"] == "QUARANTINED"
     assert by_id["ZZ-SYS-50-028"]["reason_code"] == "NORMALIZATION_MISMATCH_CONFIRMED"
+    assert by_id["ZZ-SYS-39-029"]["effective_status"] == "QUARANTINED"
+    assert by_id["ZZ-SYS-39-029"]["reason_code"] == "NORMALIZATION_MISMATCH_CONFIRMED"
 
 
 def test_all_ontology_evidence_ids_exist_in_canonical():
@@ -276,7 +278,7 @@ def test_a2_history_transition_sidecar_is_typed_and_source_gated():
         row["transition_id"] for row in semantic if row["transition_id"]
     }
     assert semantic_transition_ids <= set(ids)
-    assert len(rows) == 30
+    assert len(rows) == 33
 
 def test_history_semantic_split_plan_is_source_reviewed():
     rows = read_csv("knowledge/migrations/history_semantic_split_plan_v0.1.csv")
@@ -285,3 +287,152 @@ def test_history_semantic_split_plan_is_source_reviewed():
     assert all(row["source_epistemic"] == "EXPLICIT" for row in rows)
     assert all(row["source_span_verified"] == "true" for row in rows)
     assert all(row["normalization_verified"] == "false" for row in rows)
+
+
+def test_lb07_review_and_split_plan_are_consistent():
+    reviews = read_csv("validation/decontamination/LB07_source_normalization_review_v0.1.csv")
+    plan = read_csv("knowledge/migrations/p1_layer_split_plan_LB07_v0.1.csv")
+    assert len(reviews) == 50
+    assert all(row["source_span_verified"] == "true" for row in reviews)
+    assert all(row["source_review_result"] == "SOURCE_SUPPORTED" for row in reviews)
+    assert {row["parent_rule_id"] for row in plan} == {row["record_id"] for row in reviews}
+    child_ids = [row["child_rule_id"] for row in plan]
+    assert len(child_ids) == len(set(child_ids))
+    assert all(row["normalization_verified"] == "false" for row in plan)
+
+
+def test_lb07_queue_is_closed_at_model_review_level():
+    rows = read_csv("validation/decontamination/P1_layer_boundary_review_batches_v0.1.csv")
+    lb07 = [row for row in rows if row["batch_id"] == "LB-07"]
+    assert len(lb07) == 50
+    assert all(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb07)
+
+
+def test_lb07_feedback_reaches_ontology_without_new_primitives():
+    ontology = (ROOT / "knowledge/qi_ontology.yaml").read_text(encoding="utf-8")
+    for rule_id in ("ZZ-SYS-50-020", "ZZ-SYS-53-034", "ZZ-SYS-57-025"):
+        assert rule_id in ontology[ontology.index("  - id: QI-03"):ontology.index("  - id: QI-04")]
+    for rule_id in ("ZZ-SYS-52-038", "ZZ-SYS-56-023"):
+        assert rule_id in ontology[ontology.index("  - id: QI-16"):ontology.index("relational_network_states:")]
+    for rule_id in ("ZZ-SYS-52-030", "ZZ-SYS-59-033", "ZZ-SYS-59-039"):
+        assert rule_id in ontology[ontology.index("  - id: QR-02"):ontology.index("  - id: QR-03")]
+    assert "QI-19" not in ontology
+
+
+def test_lb08_review_and_split_plan_are_consistent():
+    reviews = read_csv("validation/decontamination/LB08_source_normalization_review_v0.1.csv")
+    plan = read_csv("knowledge/migrations/p1_layer_split_plan_LB08_v0.1.csv")
+    assert len(reviews) == 50
+    assert all(row["source_span_verified"] == "true" for row in reviews)
+    assert all(row["source_review_result"] == "SOURCE_SUPPORTED" for row in reviews)
+    assert {row["parent_rule_id"] for row in plan} == {row["record_id"] for row in reviews}
+    child_ids = [row["child_rule_id"] for row in plan]
+    assert len(child_ids) == len(set(child_ids))
+
+
+def test_lb08_queue_is_closed_at_model_review_level():
+    rows = read_csv("validation/decontamination/P1_layer_boundary_review_batches_v0.1.csv")
+    lb08 = [row for row in rows if row["batch_id"] == "LB-08"]
+    assert len(lb08) == 50
+    assert all(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb08)
+
+
+def test_lb08_relational_feedback_reaches_existing_qr_axes():
+    ontology = (ROOT / "knowledge/qi_ontology.yaml").read_text(encoding="utf-8")
+    for rule_id in ("ZZ-SYS-36-017", "ZZ-SYS-35-023"):
+        assert rule_id in ontology[ontology.index("  - id: QR-01"):ontology.index("  - id: QR-02")]
+    assert "ZZ-SYS-27-017" in ontology[ontology.index("  - id: QR-02"):ontology.index("  - id: QR-03")]
+    assert "ZZ-SYS-30-026" in ontology[ontology.index("  - id: QR-03"):ontology.index("  - id: QR-04")]
+    assert "ZZ-SYS-22-015" in ontology[ontology.index("  - id: QR-04"):ontology.index("candidate_intrinsic_dimensions:")]
+
+
+def test_lb09_review_split_and_quarantine_are_consistent():
+    reviews = read_csv("validation/decontamination/LB09_source_normalization_review_v0.1.csv")
+    plan = read_csv("knowledge/migrations/p1_layer_split_plan_LB09_v0.1.csv")
+    corrections = read_csv("knowledge/migrations/lb09_source_corrections_v0.1.csv")
+    assert len(reviews) == 50
+    assert all(row["source_span_verified"] == "true" for row in reviews)
+    mismatches = {
+        row["record_id"]
+        for row in reviews
+        if row["source_review_result"] == "NORMALIZATION_MISMATCH_CONFIRMED"
+    }
+    assert mismatches == {"ZZ-SYS-39-029", "ZZ-SYS-50-028"}
+    assert {row["parent_rule_id"] for row in plan} == {
+        row["record_id"] for row in reviews
+    } - mismatches
+    child_ids = [row["child_rule_id"] for row in plan]
+    assert len(child_ids) == len(set(child_ids))
+    assert {row["record_id"] for row in corrections} == mismatches
+
+
+def test_lb09_queue_has_48_closed_and_two_quarantined():
+    rows = read_csv("validation/decontamination/P1_layer_boundary_review_batches_v0.1.csv")
+    lb09 = [row for row in rows if row["batch_id"] == "LB-09"]
+    assert len(lb09) == 50
+    assert sum(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb09) == 48
+    assert sum(row["status"] == "QUARANTINED_NORMALIZATION_MISMATCH" for row in lb09) == 2
+
+
+def test_lb09_quarantine_and_effective_repairs_are_registered():
+    quarantine = {row["record_id"]: row for row in read_csv("knowledge/review/quarantine_v0.1.csv")}
+    assert quarantine["ZZ-SYS-39-029"]["reason_code"] == "NORMALIZATION_MISMATCH_CONFIRMED"
+    assert quarantine["ZZ-SYS-50-028"]["reason_code"] == "NORMALIZATION_MISMATCH_CONFIRMED"
+    repairs = {row["record_id"]: row for row in read_csv("knowledge/migrations/lb09_source_corrections_v0.1.csv")}
+    assert repairs["ZZ-SYS-39-029"]["operator"] == "gate"
+    assert "同时" in repairs["ZZ-SYS-50-028"]["target_normalized"]
+    assert "先后" not in repairs["ZZ-SYS-50-028"]["target_normalized"]
+
+
+def test_lb09_relational_feedback_uses_existing_axes_only():
+    ontology = (ROOT / "knowledge/qi_ontology.yaml").read_text(encoding="utf-8")
+    assert "ZZ-SYS-53-049" in ontology[ontology.index("  - id: QR-01"):ontology.index("  - id: QR-02")]
+    assert "ZZ-SYS-53-044" in ontology[ontology.index("  - id: QR-02"):ontology.index("  - id: QR-03")]
+    assert "ZZ-SYS-54-014" in ontology[ontology.index("  - id: QR-03"):ontology.index("  - id: QR-04")]
+    assert "ZZ-SYS-39-027" in ontology[ontology.index("  - id: QR-04"):ontology.index("candidate_intrinsic_dimensions:")]
+    assert "QR-05" not in ontology
+
+
+def test_lb10_review_split_and_history_feedback_are_consistent():
+    reviews = read_csv("validation/decontamination/LB10_source_normalization_review_v0.1.csv")
+    plan = read_csv("knowledge/migrations/p1_layer_split_plan_LB10_v0.1.csv")
+    feedback = read_csv("validation/decontamination/LB10_history_feedback_v0.1.csv")
+    assert len(reviews) == 50
+    assert all(row["source_span_verified"] == "true" for row in reviews)
+    assert all(row["source_review_result"] == "SOURCE_SUPPORTED" for row in reviews)
+    assert {row["parent_rule_id"] for row in plan} == {row["record_id"] for row in reviews}
+    child_ids = [row["child_rule_id"] for row in plan]
+    assert len(child_ids) == len(set(child_ids))
+    assert {row["record_id"] for row in feedback} == {
+        "ZZ-SYS-22-024", "ZZ-SYS-28-020", "ZZ-SYS-28-032", "ZZ-SYS-29-033", "ZZ-SYS-31-031"
+    }
+
+
+def test_lb10_queue_is_closed_and_first_500_are_resolved():
+    rows = read_csv("validation/decontamination/P1_layer_boundary_review_batches_v0.1.csv")
+    lb10 = [row for row in rows if row["batch_id"] == "LB-10"]
+    assert len(lb10) == 50
+    assert all(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb10)
+    closed = [row for row in rows if row["batch_id"] in {f"LB-{i:02d}" for i in range(1, 11)}]
+    assert len(closed) == 500
+    assert not any(row["status"] in {"PENDING", "A2_ARCHITECTURE_HOLD"} for row in closed)
+
+
+def test_lb10_adds_three_source_explicit_foundation_history_gates():
+    transitions = read_csv("knowledge/history/history_transitions_v0.1.csv")
+    by_id = {row["transition_id"]: row for row in transitions}
+    assert len(transitions) == 33
+    assert by_id["HG-014"]["source_rule_id"] == "ZZ-SYS-22-024"
+    assert by_id["HG-015"]["source_rule_id"] == "ZZ-SYS-28-020"
+    assert by_id["HG-016"]["source_rule_id"] == "ZZ-SYS-31-031"
+    for tid in ("HG-014", "HG-015", "HG-016"):
+        assert by_id[tid]["memory_kind"] == "PATH_DEPENDENT_GATE"
+        assert by_id[tid]["source_epistemic"] == "EXPLICIT"
+        assert by_id[tid]["persistence_scope"] == "later_periods"
+
+
+def test_lb10_does_not_misclassify_outcome_duration_as_qi18():
+    plan = read_csv("knowledge/migrations/p1_layer_split_plan_LB10_v0.1.csv")
+    rows = [row for row in plan if row["parent_rule_id"] == "ZZ-SYS-58-040"]
+    assert rows
+    assert all(row["dimension_candidate"] != "QI-18-CAND" for row in rows)
