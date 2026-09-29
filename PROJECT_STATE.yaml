@@ -3,8 +3,8 @@ repository: "15937-ass/ziwei-state-space"
 
 project:
   current_phase: "Phase II knowledge-base construction + P1 layer-boundary normalization audit"
-  execution_state: "P1_LAYER_AUDIT_ACTIVE"
-  current_work_unit: "LB-15_SOURCE_NORMALIZATION_REVIEW"
+  execution_state: "P1_LAYER_AUDIT_COMPLETE_PENDING_CHECKPOINT_MERGE"
+  current_work_unit: "P1_LAYER_BOUNDARY_AUDIT_CLOSURE"
   state_sync: "S0_COMPLETE"
   last_approved_gate: "A2-R1"
   pending_gate: null
@@ -31,12 +31,12 @@ progress:
     resolved_or_migrated: 45
     pending_source_review: 0
     semantic_backscan: "COMPLETE_SIXTY_SYSTEMS"
-    executable_transitions: 40
+    executable_transitions: 43
   layer_boundary_audit:
     total: 800
-    closed: 700
-    pending: 100
-    next_batch: "LB-15"
+    closed: 800
+    pending: 0
+    next_batch: null
     history_dependency: "CLOSED_WITH_LAYER_FEEDBACK_SUPPLEMENTS"
   corpus_baseline:
     major_star_rules: 430
