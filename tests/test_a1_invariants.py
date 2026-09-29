@@ -746,3 +746,20 @@ def test_wp04_transformation_general_section_is_explicitly_covered():
         "WP04-HG-C179", "WP04-HG-C180", "WP04-HG-C181"
     }
     assert all(row["source_epistemic"] == "EXPLICIT" for row in closure)
+
+def test_wp04_transformation_source_catalog_is_split_without_loss():
+    closure = read_csv("knowledge/operators/transformation_source_closure_v0.1.csv")
+    general = read_csv("knowledge/operators/transformation_general_v0.1.csv")
+    star_specific = read_csv("knowledge/operators/transformation_star_specific_v0.1.csv")
+    assert len(closure) == 181
+    assert len(general) == 7
+    assert len(star_specific) == 174
+    assert {row["closure_rule_id"] for row in closure} == (
+        {row["closure_rule_id"] for row in general}
+        | {row["closure_rule_id"] for row in star_specific}
+    )
+    assert {row["closure_rule_id"] for row in general}.isdisjoint(
+        {row["closure_rule_id"] for row in star_specific}
+    )
+    assert {row["source_unit_id"] for row in general} == {"WP04-HG-00"}
+    assert "WP04-HG-00" not in {row["source_unit_id"] for row in star_specific}
