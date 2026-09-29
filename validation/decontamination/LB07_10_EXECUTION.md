@@ -1,6 +1,6 @@
 # LB-07 ... LB-10 EXECUTION
 
-Status: **ACTIVE**
+Status: **ACTIVE — LB-07 COMPLETE; LB-08 NEXT**
 
 Scope: 200 layer-boundary candidates in `P1_layer_boundary_review_batches_v0.1.csv`.
 
