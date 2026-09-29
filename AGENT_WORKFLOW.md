@@ -1,6 +1,6 @@
 # AGENT_WORKFLOW.md
 
-Version: 0.3
+Version: 0.4
 
 ## Repository bootstrap — mandatory
 
@@ -113,6 +113,18 @@ Must not invent missing theory to improve narrative flow.
 6. Manager produces a **Chinese review summary**.
 7. PI approves/rejects/escalates.
 8. Approved artifact is versioned and `PROJECT_STATE.yaml` is advanced.
+
+## Checkpoint and timeout safety
+
+To keep research recoverable when a chat/tool session times out, all corpus-scale work must use bounded checkpoints.
+
+- Default source-review batch: **50 records/items**.
+- Hard ceiling per PR: **100 source-review items**, unless the change is purely mechanical and explicitly approved in advance.
+- After every batch, persist all review outputs, sidecars, progress counters, and tests to GitHub **before** starting the next batch.
+- A batch is not considered complete until its artifacts are committed and the repository contains enough state to resume from a fresh session without relying on chat memory.
+- Do not chain multiple large review batches, multiple PRs, CI waits, merges, and state-sync work into one conversational turn when they can be checkpointed separately.
+- If a session times out, first inspect GitHub commit/PR/workflow state. Do **not** assume the work failed and do not replay completed source review blindly.
+- Purely operational checkpointing does not create a new Human Gate; only theory/ontology/architecture changes use the existing Gate rules.
 
 ## Evidence priority
 

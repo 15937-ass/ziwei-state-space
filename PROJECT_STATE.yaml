@@ -83,6 +83,10 @@ execution_policy:
   - "No persistence duration, decay, continuous weight, or learning parameter may be invented."
   - "ZZ-SYS-38-034 remains quarantined; System-38 history uses source-supported ZZ-SYS-38-021."
   - "P1 layer-boundary audit is closed at 800/800; do not reopen reviewed batches unless a new source conflict or schema defect is identified."
+  - "Default source-review checkpoint size is 50 items; persist a recoverable GitHub checkpoint before starting the next batch."
+  - "Hard ceiling is 100 source-review items per PR unless the work is purely mechanical and explicitly approved in advance."
+  - "Do not combine multiple large review batches, multiple PR merges, and final state synchronization into one conversational turn when separate checkpoints are possible."
+  - "After a chat/tool timeout, inspect GitHub commit/PR/workflow state before retrying; never replay completed source review solely because the conversation timed out."
   - "Escalate a new human Gate only if source review requires natal-essence rewrite, multi-palace long-memory propagation, a second independent time scale, or default decay/forgetting dynamics."
 
 source_corpus_policy:
