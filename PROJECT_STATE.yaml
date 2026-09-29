@@ -4,7 +4,7 @@ repository: "15937-ass/ziwei-state-space"
 project:
   current_phase: "Phase II knowledge-base construction + WP04 operator source-coverage closure"
   execution_state: "WP04_SOURCE_COVERAGE_ACTIVE"
-  current_work_unit: "WP04_TRANSFORMATION_CANONICAL_RECONCILIATION"
+  current_work_unit: "WP04_TRANSFORMATION_EXECUTION_DEDUP"
   state_sync: "S0_COMPLETE"
   last_approved_gate: "A2-R1"
   pending_gate: null
@@ -62,10 +62,14 @@ progress:
     transformation_star_specific_rules: 174
     canonical_split_catalogs: "CREATED_PENDING_LEGACY_SEMANTIC_RECONCILIATION"
     reconciliation_total_rules: 181
-    reconciliation_completed: 42
-    reconciliation_pending: 139
+    reconciliation_completed: 181
+    reconciliation_pending: 0
     no_legacy_modifier_gaps_closed: 35
     general_rules_reconciled: 7
+    partial_overlap_semantic_reviews: 32
+    additional_source_semantics_reconciled: 106
+    tradition_variants_reconciled: 2
+    execution_dedup_status: "PENDING"
   manuscript:
     file: "paper/manuscript_v0.1.md"
     status: "STALE_PRE_A2_DRAFT_DO_NOT_USE_FOR_CURRENT_METRICS"

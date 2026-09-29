@@ -778,3 +778,15 @@ def test_wp04_first_reconciliation_batch_closes_general_and_no_legacy_modifier_g
     assert len(gaps) == 35
     assert not any(row["reconciliation_status"].startswith("PENDING") for row in gaps)
     assert sum(row["reconciliation_status"] == "RECONCILED_VARIANT_SCOPE_REQUIRED" for row in gaps) == 1
+
+def test_wp04_transformation_semantic_reconciliation_is_closed():
+    rows = read_csv("knowledge/migrations/wp04_transformation_canonical_reconciliation_v0.1.csv")
+    assert len(rows) == 181
+    assert not any(
+        row["reconciliation_status"].startswith("PENDING")
+        or row["reconciliation_status"].startswith("READY_")
+        for row in rows
+    )
+    assert sum(row["reconciliation_status"] == "RECONCILED_PARTIAL_OVERLAP" for row in rows) == 32
+    assert sum(row["reconciliation_status"] == "RECONCILED_ADDITIONAL_SEMANTIC" for row in rows) == 106
+    assert sum(row["reconciliation_status"] == "RECONCILED_VARIANT_SCOPE_REQUIRED" for row in rows) == 2
