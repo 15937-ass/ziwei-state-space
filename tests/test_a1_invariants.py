@@ -315,3 +315,30 @@ def test_lb07_feedback_reaches_ontology_without_new_primitives():
     for rule_id in ("ZZ-SYS-52-030", "ZZ-SYS-59-033", "ZZ-SYS-59-039"):
         assert rule_id in ontology[ontology.index("  - id: QR-02"):ontology.index("  - id: QR-03")]
     assert "QI-19" not in ontology
+
+
+def test_lb08_review_and_split_plan_are_consistent():
+    reviews = read_csv("validation/decontamination/LB08_source_normalization_review_v0.1.csv")
+    plan = read_csv("knowledge/migrations/p1_layer_split_plan_LB08_v0.1.csv")
+    assert len(reviews) == 50
+    assert all(row["source_span_verified"] == "true" for row in reviews)
+    assert all(row["source_review_result"] == "SOURCE_SUPPORTED" for row in reviews)
+    assert {row["parent_rule_id"] for row in plan} == {row["record_id"] for row in reviews}
+    child_ids = [row["child_rule_id"] for row in plan]
+    assert len(child_ids) == len(set(child_ids))
+
+
+def test_lb08_queue_is_closed_at_model_review_level():
+    rows = read_csv("validation/decontamination/P1_layer_boundary_review_batches_v0.1.csv")
+    lb08 = [row for row in rows if row["batch_id"] == "LB-08"]
+    assert len(lb08) == 50
+    assert all(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb08)
+
+
+def test_lb08_relational_feedback_reaches_existing_qr_axes():
+    ontology = (ROOT / "knowledge/qi_ontology.yaml").read_text(encoding="utf-8")
+    for rule_id in ("ZZ-SYS-36-017", "ZZ-SYS-35-023"):
+        assert rule_id in ontology[ontology.index("  - id: QR-01"):ontology.index("  - id: QR-02")]
+    assert "ZZ-SYS-27-017" in ontology[ontology.index("  - id: QR-02"):ontology.index("  - id: QR-03")]
+    assert "ZZ-SYS-30-026" in ontology[ontology.index("  - id: QR-03"):ontology.index("  - id: QR-04")]
+    assert "ZZ-SYS-22-015" in ontology[ontology.index("  - id: QR-04"):ontology.index("candidate_intrinsic_dimensions:")]
