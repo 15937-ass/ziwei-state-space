@@ -4,21 +4,21 @@ repository: "15937-ass/ziwei-state-space"
 project:
   current_phase: "Phase II knowledge-base construction + WP04 operator source-coverage closure"
   execution_state: "P1_LAYER_AUDIT_COMPLETE"
-  current_work_unit: "POST_P1_STATE_SYNC"
-  state_sync: "S0_COMPLETE"
+  current_work_unit: "WP04_OPERATOR_SOURCE_COVERAGE_CLOSURE"
+  state_sync: "POST_P1_MERGE_CLOSURE_COMPLETE"
   last_approved_gate: "A2-R1"
   pending_gate: null
   blocked_reason: null
 
 git:
   default_branch: "main"
-  active_branch: "maintenance/post-p1-sync"
-  active_pull_request: 52
-  canonical_research_state_branch: "maintenance/post-p1-sync"
+  active_branch: null
+  active_pull_request: null
+  canonical_research_state_branch: "main"
   checkpoint_merge: "e8255d82b9a2ce0343d6f5635919db18ea8199fe"
   stale_open_prs: []
-  branch_cleanup_status: "CLOSED_STALE_PRS; LEGACY_BRANCH_DELETION_PENDING"
-  note: "P1 layer-boundary audit is merged and closed at 800/800. PR #52 synchronizes canonical state before WP04 source-coverage closure."
+  branch_cleanup_status: "POST_P1_ACTIVE_POINTERS_CLOSED; LEGACY_BRANCH_DELETION_PENDING"
+  note: "P1 layer-boundary audit is merged and closed at 800/800. PR #52 is merged; canonical execution now resumes from main with WP04 operator source-coverage closure as the sole next work unit."
 
 gates:
   A0: "APPROVED"
