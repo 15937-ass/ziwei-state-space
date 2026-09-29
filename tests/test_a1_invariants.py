@@ -763,3 +763,18 @@ def test_wp04_transformation_source_catalog_is_split_without_loss():
     )
     assert {row["source_unit_id"] for row in general} == {"WP04-HG-00"}
     assert "WP04-HG-00" not in {row["source_unit_id"] for row in star_specific}
+
+def test_wp04_first_reconciliation_batch_closes_general_and_no_legacy_modifier_gaps():
+    rows = read_csv("knowledge/migrations/wp04_transformation_canonical_reconciliation_v0.1.csv")
+    assert len(rows) == 181
+    general = [row for row in rows if row["source_unit_id"] == "WP04-HG-00"]
+    assert len(general) == 7
+    assert all(row["reconciliation_status"] == "RECONCILED_GENERAL_CANONICAL" for row in general)
+    gap_modifiers = {
+        "巨门化禄", "巨门化权", "武曲化科", "文昌化科",
+        "文曲化科", "天府化科_壬干支系", "文曲化忌", "文昌化忌",
+    }
+    gaps = [row for row in rows if row["modifier"] in gap_modifiers]
+    assert len(gaps) == 35
+    assert not any(row["reconciliation_status"].startswith("PENDING") for row in gaps)
+    assert sum(row["reconciliation_status"] == "RECONCILED_VARIANT_SCOPE_REQUIRED" for row in gaps) == 1
