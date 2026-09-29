@@ -66,3 +66,13 @@ No new primitive qi or core operator change is required by this audit opening.
 ## Next mechanical unit
 
 Start with **WP04-HL-01 ... WP04-HL-10 (化禄)**, exhaust the dedicated source spans, then continue 化权 → 化科 → 化忌.
+
+
+## 补充：四化总论 coverage gap 修复
+
+在 canonical reconciliation 阶段发现：原 40 个 source units 全部是化禄/化权/化科/化忌的星曜分节，**没有单列化曜总论**。
+总论明确区分生年四化所表征的宫垣本质与大运/流年四化所表征的时期环境，并规定生年四化在运限冲会时被激活；另明确给出原局禄/忌与运限忌/禄的阶段性反转语义。
+
+因此新增 `WP04-HG-00` 与 7 条 general closure rules。四化 source units 由 40 增至 **41**，closure rules 由 174 增至 **181**。
+
+这属于 source coverage 修复，不触发新 ontology/core operator Gate；反而与既有 natal essence / temporal input 分层一致。

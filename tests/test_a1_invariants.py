@@ -637,9 +637,9 @@ def test_wp04_transformation_source_units_are_distinct_from_legacy_rule_count():
     units = read_csv("knowledge/coverage/wp04_transformation_source_units_v0.1.csv")
     legacy = read_csv("knowledge/operators/transformation_rules_v0.1.csv")
     closure = read_csv("knowledge/operators/transformation_source_closure_v0.1.csv")
-    assert len(units) == 40
+    assert len(units) == 41
     assert len(legacy) == 56
-    assert len(closure) == 174
+    assert len(closure) == 181
     assert sum(int(row["closure_rule_count"]) for row in units) == len(closure)
     assert all(row["source_epistemic"] == "EXPLICIT" for row in closure)
     assert all(row["source_span_verified"] == "true" for row in closure)
@@ -714,9 +714,9 @@ def test_wp04_huake_source_review_preserves_primary_source_mapping():
     assert len(variant) >= 2
 
 
-def test_wp04_huaji_closes_all_40_transformation_source_units():
+def test_wp04_huaji_closes_all_transformation_source_units():
     units = read_csv("knowledge/coverage/wp04_transformation_source_units_v0.1.csv")
-    assert len(units) == 40
+    assert len(units) == 41
     assert all(row["source_span_verified"] == "true" for row in units)
     assert all(
         row["coverage_status"] == "SOURCE_REVIEW_COMPLETE_PENDING_CANONICAL_RECONCILIATION"
@@ -725,7 +725,24 @@ def test_wp04_huaji_closes_all_40_transformation_source_units():
     hj = [row for row in units if row["group"] == "化忌"]
     assert len(hj) == 10
     closure = read_csv("knowledge/operators/transformation_source_closure_v0.1.csv")
-    assert len(closure) == 174
+    assert len(closure) == 181
     assert {row["source_unit_id"] for row in closure} == {row["unit_id"] for row in units}
     assert all(row["review_status"] == "SOURCE_SPAN_VERIFIED" for row in closure)
     assert all(row["source_span_verified"] == "true" for row in closure)
+
+
+def test_wp04_transformation_general_section_is_explicitly_covered():
+    units = read_csv("knowledge/coverage/wp04_transformation_source_units_v0.1.csv")
+    general = [row for row in units if row["unit_id"] == "WP04-HG-00"]
+    assert len(general) == 1
+    assert general[0]["source_span_verified"] == "true"
+    closure = [
+        row for row in read_csv("knowledge/operators/transformation_source_closure_v0.1.csv")
+        if row["source_unit_id"] == "WP04-HG-00"
+    ]
+    assert len(closure) == 7
+    assert {row["closure_rule_id"] for row in closure} == {
+        "WP04-HG-C175", "WP04-HG-C176", "WP04-HG-C177", "WP04-HG-C178",
+        "WP04-HG-C179", "WP04-HG-C180", "WP04-HG-C181"
+    }
+    assert all(row["source_epistemic"] == "EXPLICIT" for row in closure)
