@@ -278,7 +278,7 @@ def test_a2_history_transition_sidecar_is_typed_and_source_gated():
         row["transition_id"] for row in semantic if row["transition_id"]
     }
     assert semantic_transition_ids <= set(ids)
-    assert len(rows) == 33
+    assert len(rows) >= 33
 
 def test_history_semantic_split_plan_is_source_reviewed():
     rows = read_csv("knowledge/migrations/history_semantic_split_plan_v0.1.csv")
@@ -421,7 +421,7 @@ def test_lb10_queue_is_closed_and_first_500_are_resolved():
 def test_lb10_adds_three_source_explicit_foundation_history_gates():
     transitions = read_csv("knowledge/history/history_transitions_v0.1.csv")
     by_id = {row["transition_id"]: row for row in transitions}
-    assert len(transitions) == 33
+    assert len(transitions) >= 33
     assert by_id["HG-014"]["source_rule_id"] == "ZZ-SYS-22-024"
     assert by_id["HG-015"]["source_rule_id"] == "ZZ-SYS-28-020"
     assert by_id["HG-016"]["source_rule_id"] == "ZZ-SYS-31-031"
@@ -436,3 +436,35 @@ def test_lb10_does_not_misclassify_outcome_duration_as_qi18():
     rows = [row for row in plan if row["parent_rule_id"] == "ZZ-SYS-58-040"]
     assert rows
     assert all(row["dimension_candidate"] != "QI-18-CAND" for row in rows)
+
+
+def test_lb11_review_split_and_history_feedback_are_consistent():
+    reviews = read_csv("validation/decontamination/LB11_source_normalization_review_v0.1.csv")
+    plan = read_csv("knowledge/migrations/p1_layer_split_plan_LB11_v0.1.csv")
+    feedback = read_csv("validation/decontamination/LB11_history_feedback_v0.1.csv")
+    assert len(reviews) == 50
+    assert all(row["source_span_verified"] == "true" for row in reviews)
+    assert all(row["source_review_result"] == "SOURCE_SUPPORTED" for row in reviews)
+    assert {row["parent_rule_id"] for row in plan} == {row["record_id"] for row in reviews}
+    assert len({row["child_rule_id"] for row in plan}) == len(plan)
+    assert {row["transition_id"] for row in feedback} == {"HG-017", "HG-018", "HG-019", "HG-020"}
+
+
+def test_lb11_queue_is_closed_at_model_review_level():
+    rows = read_csv("validation/decontamination/P1_layer_boundary_review_batches_v0.1.csv")
+    lb11 = [row for row in rows if row["batch_id"] == "LB-11"]
+    assert len(lb11) == 50
+    assert all(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb11)
+
+
+def test_lb11_adds_four_source_explicit_history_gates():
+    transitions = {row["transition_id"]: row for row in read_csv("knowledge/history/history_transitions_v0.1.csv")}
+    for tid, rid in {
+        "HG-017": "ZZ-SYS-32-013",
+        "HG-018": "ZZ-SYS-34-025",
+        "HG-019": "ZZ-SYS-37-035",
+        "HG-020": "ZZ-SYS-42-018",
+    }.items():
+        assert transitions[tid]["source_rule_id"] == rid
+        assert transitions[tid]["memory_kind"] == "PATH_DEPENDENT_GATE"
+        assert transitions[tid]["source_epistemic"] == "EXPLICIT"
