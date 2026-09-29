@@ -660,3 +660,23 @@ def test_wp04_hualu_source_review_closes_all_ten_source_spans_before_reconciliat
         by_unit[row["source_unit_id"]] += 1
     assert set(by_unit) == {row["unit_id"] for row in hualu}
     assert all(by_unit[row["unit_id"]] >= 3 for row in hualu)
+
+
+def test_wp04_huaquan_source_review_adds_second_ten_source_units():
+    units = read_csv("knowledge/coverage/wp04_transformation_source_units_v0.1.csv")
+    hq = [row for row in units if row["group"] == "化权"]
+    assert len(hq) == 10
+    assert all(row["source_span_verified"] == "true" for row in hq)
+    assert all(
+        row["coverage_status"] == "SOURCE_REVIEW_COMPLETE_PENDING_CANONICAL_RECONCILIATION"
+        for row in hq
+    )
+    closure = read_csv("knowledge/operators/transformation_source_closure_v0.1.csv")
+    assert len(closure) == 85
+    by_unit = {}
+    for row in closure:
+        by_unit.setdefault(row["source_unit_id"], 0)
+        by_unit[row["source_unit_id"]] += 1
+    assert all(by_unit[row["unit_id"]] >= 4 for row in hq)
+    assert all(row["review_status"] == "SOURCE_SPAN_VERIFIED" for row in closure)
+    assert all(row["normalization_epistemic"] in {"INFERRED", "SOURCE_PRESERVING"} for row in closure)
