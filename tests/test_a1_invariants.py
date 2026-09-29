@@ -342,3 +342,50 @@ def test_lb08_relational_feedback_reaches_existing_qr_axes():
     assert "ZZ-SYS-27-017" in ontology[ontology.index("  - id: QR-02"):ontology.index("  - id: QR-03")]
     assert "ZZ-SYS-30-026" in ontology[ontology.index("  - id: QR-03"):ontology.index("  - id: QR-04")]
     assert "ZZ-SYS-22-015" in ontology[ontology.index("  - id: QR-04"):ontology.index("candidate_intrinsic_dimensions:")]
+
+
+def test_lb09_review_split_and_quarantine_are_consistent():
+    reviews = read_csv("validation/decontamination/LB09_source_normalization_review_v0.1.csv")
+    plan = read_csv("knowledge/migrations/p1_layer_split_plan_LB09_v0.1.csv")
+    corrections = read_csv("knowledge/migrations/lb09_source_corrections_v0.1.csv")
+    assert len(reviews) == 50
+    assert all(row["source_span_verified"] == "true" for row in reviews)
+    mismatches = {
+        row["record_id"]
+        for row in reviews
+        if row["source_review_result"] == "NORMALIZATION_MISMATCH_CONFIRMED"
+    }
+    assert mismatches == {"ZZ-SYS-39-029", "ZZ-SYS-50-028"}
+    assert {row["parent_rule_id"] for row in plan} == {
+        row["record_id"] for row in reviews
+    } - mismatches
+    child_ids = [row["child_rule_id"] for row in plan]
+    assert len(child_ids) == len(set(child_ids))
+    assert {row["record_id"] for row in corrections} == mismatches
+
+
+def test_lb09_queue_has_48_closed_and_two_quarantined():
+    rows = read_csv("validation/decontamination/P1_layer_boundary_review_batches_v0.1.csv")
+    lb09 = [row for row in rows if row["batch_id"] == "LB-09"]
+    assert len(lb09) == 50
+    assert sum(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb09) == 48
+    assert sum(row["status"] == "QUARANTINED_NORMALIZATION_MISMATCH" for row in lb09) == 2
+
+
+def test_lb09_quarantine_and_effective_repairs_are_registered():
+    quarantine = {row["record_id"]: row for row in read_csv("knowledge/review/quarantine_v0.1.csv")}
+    assert quarantine["ZZ-SYS-39-029"]["reason_code"] == "NORMALIZATION_MISMATCH_CONFIRMED"
+    assert quarantine["ZZ-SYS-50-028"]["reason_code"] == "NORMALIZATION_MISMATCH_CONFIRMED"
+    repairs = {row["record_id"]: row for row in read_csv("knowledge/migrations/lb09_source_corrections_v0.1.csv")}
+    assert repairs["ZZ-SYS-39-029"]["operator"] == "gate"
+    assert "同时" in repairs["ZZ-SYS-50-028"]["target_normalized"]
+    assert "先后" not in repairs["ZZ-SYS-50-028"]["target_normalized"]
+
+
+def test_lb09_relational_feedback_uses_existing_axes_only():
+    ontology = (ROOT / "knowledge/qi_ontology.yaml").read_text(encoding="utf-8")
+    assert "ZZ-SYS-53-049" in ontology[ontology.index("  - id: QR-01"):ontology.index("  - id: QR-02")]
+    assert "ZZ-SYS-53-044" in ontology[ontology.index("  - id: QR-02"):ontology.index("  - id: QR-03")]
+    assert "ZZ-SYS-54-014" in ontology[ontology.index("  - id: QR-03"):ontology.index("  - id: QR-04")]
+    assert "ZZ-SYS-39-027" in ontology[ontology.index("  - id: QR-04"):ontology.index("candidate_intrinsic_dimensions:")]
+    assert "QR-05" not in ontology
