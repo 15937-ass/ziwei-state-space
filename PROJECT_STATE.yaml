@@ -13,7 +13,7 @@ project:
 git:
   default_branch: "main"
   active_branch: "audit/wp04-source-coverage"
-  active_pull_request: null
+  active_pull_request: 54
   canonical_research_state_branch: "audit/wp04-source-coverage"
   checkpoint_merge: "e8255d82b9a2ce0343d6f5635919db18ea8199fe"
   stale_open_prs: []
@@ -47,8 +47,10 @@ progress:
     transformation_catalog_rules: 56
     dedicated_transformation_chapter_rows_verified_in_catalog: 0
     source_units_total: 40
-    current_group: "化禄"
+    current_group: "化禄_RECONCILIATION"
     status: "ACTIVE"
+    hualu_source_units_reviewed: 10
+    hualu_closure_rules: 45
   manuscript:
     file: "paper/manuscript_v0.1.md"
     status: "STALE_PRE_A2_DRAFT_DO_NOT_USE_FOR_CURRENT_METRICS"
@@ -77,6 +79,8 @@ canonical_artifacts:
   lb16_final_closure: "validation/decontamination/LB16_P1_FINAL_CLOSURE.md"
   wp04_transformation_source_units: "knowledge/coverage/wp04_transformation_source_units_v0.1.csv"
   wp04_transformation_source_audit: "validation/WP04_TRANSFORMATION_SOURCE_COVERAGE_AUDIT_v0.1.md"
+  transformation_source_closure: "knowledge/operators/transformation_source_closure_v0.1.csv"
+  hualu_source_review: "validation/WP04_HUALU_SOURCE_REVIEW_v0.1.md"
 
 historical_noncanonical_gate_documents:
   - "validation/decontamination/GATE_A2_路径依赖与获得性状态审计.md"

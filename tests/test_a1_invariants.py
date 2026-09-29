@@ -631,3 +631,32 @@ def test_p1_layer_boundary_audit_is_fully_closed():
     assert 'pending: 0' in state
     assert 'next_batch: null' in state
     assert 'executable_transitions: 43' in state
+
+
+def test_wp04_transformation_source_units_are_distinct_from_legacy_rule_count():
+    units = read_csv("knowledge/coverage/wp04_transformation_source_units_v0.1.csv")
+    legacy = read_csv("knowledge/operators/transformation_rules_v0.1.csv")
+    closure = read_csv("knowledge/operators/transformation_source_closure_v0.1.csv")
+    assert len(units) == 40
+    assert len(legacy) == 56
+    assert len(closure) == 45
+    assert all(row["source_epistemic"] == "EXPLICIT" for row in closure)
+    assert all(row["source_span_verified"] == "true" for row in closure)
+
+
+def test_wp04_hualu_source_review_closes_all_ten_source_spans_before_reconciliation():
+    units = read_csv("knowledge/coverage/wp04_transformation_source_units_v0.1.csv")
+    hualu = [row for row in units if row["group"] == "化禄"]
+    assert len(hualu) == 10
+    assert all(row["source_span_verified"] == "true" for row in hualu)
+    assert all(
+        row["coverage_status"] == "SOURCE_REVIEW_COMPLETE_PENDING_CANONICAL_RECONCILIATION"
+        for row in hualu
+    )
+    closure = read_csv("knowledge/operators/transformation_source_closure_v0.1.csv")
+    by_unit = {}
+    for row in closure:
+        by_unit.setdefault(row["source_unit_id"], 0)
+        by_unit[row["source_unit_id"]] += 1
+    assert set(by_unit) == {row["unit_id"] for row in hualu}
+    assert all(by_unit[row["unit_id"]] >= 3 for row in hualu)
