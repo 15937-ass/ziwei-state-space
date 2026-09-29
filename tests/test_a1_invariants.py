@@ -592,3 +592,42 @@ def test_lb15_does_not_expand_history_architecture():
     transitions = read_csv("knowledge/history/history_transitions_v0.1.csv")
     assert len(transitions) == 40
     assert {row["memory_kind"] for row in transitions} == {"ACQUIRED_DISPOSITION", "PATH_DEPENDENT_GATE"}
+
+
+def test_lb16_review_closes_full_800_queue():
+    reviews = read_csv("validation/decontamination/LB16_source_normalization_review_v0.1.csv")
+    plan = read_csv("knowledge/migrations/p1_layer_split_plan_LB16_v0.1.csv")
+    feedback = read_csv("validation/decontamination/LB16_history_feedback_v0.1.csv")
+    assert len(reviews) == 50
+    assert all(row["source_span_verified"] == "true" for row in reviews)
+    assert all(row["source_review_result"] == "SOURCE_SUPPORTED" for row in reviews)
+    assert {row["parent_rule_id"] for row in plan} == {row["record_id"] for row in reviews}
+    assert len({row["child_rule_id"] for row in plan}) == len(plan)
+    assert sum(row["action"] == "ADD" for row in feedback) == 3
+
+    queue = read_csv("validation/decontamination/P1_layer_boundary_review_batches_v0.1.csv")
+    assert len(queue) == 800
+    assert not any(row["status"] in {"PENDING", "A2_ARCHITECTURE_HOLD"} for row in queue)
+
+
+def test_lb16_history_feedback_keeps_a2_r1_memory_types_closed():
+    transitions = read_csv("knowledge/history/history_transitions_v0.1.csv")
+    by_id = {row["transition_id"]: row for row in transitions}
+    assert len(transitions) == 43
+    for tid, rid in {
+        "HG-024": "ZZ-SYS-54-025",
+        "HG-025": "ZZ-SYS-55-022",
+        "HG-026": "ZZ-SYS-57-029",
+    }.items():
+        assert by_id[tid]["source_rule_id"] == rid
+        assert by_id[tid]["memory_kind"] == "PATH_DEPENDENT_GATE"
+        assert by_id[tid]["persistence_scope"] == "later_periods"
+    assert {row["memory_kind"] for row in transitions} == {"ACQUIRED_DISPOSITION", "PATH_DEPENDENT_GATE"}
+
+
+def test_p1_layer_boundary_audit_is_fully_closed():
+    state = (ROOT / "PROJECT_STATE.yaml").read_text(encoding="utf-8")
+    assert 'closed: 800' in state
+    assert 'pending: 0' in state
+    assert 'next_batch: null' in state
+    assert 'executable_transitions: 43' in state
