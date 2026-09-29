@@ -680,3 +680,19 @@ def test_wp04_huaquan_source_review_adds_second_ten_source_units():
     assert all(by_unit[row["unit_id"]] >= 4 for row in hq)
     assert all(row["review_status"] == "SOURCE_SPAN_VERIFIED" for row in closure)
     assert all(row["normalization_epistemic"] in {"INFERRED", "SOURCE_PRESERVING"} for row in closure)
+
+
+def test_wp04_huake_source_review_preserves_primary_source_mapping():
+    units = read_csv("knowledge/coverage/wp04_transformation_source_units_v0.1.csv")
+    hk = [row for row in units if row["group"] == "化科"]
+    assert len(hk) == 10
+    assert all(row["source_span_verified"] == "true" for row in hk)
+    subsections = [row["subsection"] for row in hk]
+    assert "太阳化科" in subsections
+    assert "天府化科_壬干支系" in subsections
+    assert "右弼化科" not in subsections
+    assert "左辅化科" not in subsections
+    closure = read_csv("knowledge/operators/transformation_source_closure_v0.1.csv")
+    assert len(closure) == 127
+    variant = [row for row in closure if row["legacy_relation"] == "NEW_SOURCE_VARIANT"]
+    assert len(variant) >= 2
