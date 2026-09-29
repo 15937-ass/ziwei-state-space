@@ -639,7 +639,8 @@ def test_wp04_transformation_source_units_are_distinct_from_legacy_rule_count():
     closure = read_csv("knowledge/operators/transformation_source_closure_v0.1.csv")
     assert len(units) == 40
     assert len(legacy) == 56
-    assert len(closure) == 45
+    assert len(closure) == 174
+    assert sum(int(row["closure_rule_count"]) for row in units) == len(closure)
     assert all(row["source_epistemic"] == "EXPLICIT" for row in closure)
     assert all(row["source_span_verified"] == "true" for row in closure)
 
@@ -653,12 +654,17 @@ def test_wp04_hualu_source_review_closes_all_ten_source_spans_before_reconciliat
         row["coverage_status"] == "SOURCE_REVIEW_COMPLETE_PENDING_CANONICAL_RECONCILIATION"
         for row in hualu
     )
-    closure = read_csv("knowledge/operators/transformation_source_closure_v0.1.csv")
+    hualu_ids = {row["unit_id"] for row in hualu}
+    closure = [
+        row for row in read_csv("knowledge/operators/transformation_source_closure_v0.1.csv")
+        if row["source_unit_id"] in hualu_ids
+    ]
+    assert len(closure) == 45
     by_unit = {}
     for row in closure:
         by_unit.setdefault(row["source_unit_id"], 0)
         by_unit[row["source_unit_id"]] += 1
-    assert set(by_unit) == {row["unit_id"] for row in hualu}
+    assert set(by_unit) == hualu_ids
     assert all(by_unit[row["unit_id"]] >= 3 for row in hualu)
 
 
@@ -671,12 +677,17 @@ def test_wp04_huaquan_source_review_adds_second_ten_source_units():
         row["coverage_status"] == "SOURCE_REVIEW_COMPLETE_PENDING_CANONICAL_RECONCILIATION"
         for row in hq
     )
-    closure = read_csv("knowledge/operators/transformation_source_closure_v0.1.csv")
-    assert len(closure) == 85
+    hq_ids = {row["unit_id"] for row in hq}
+    closure = [
+        row for row in read_csv("knowledge/operators/transformation_source_closure_v0.1.csv")
+        if row["source_unit_id"] in hq_ids
+    ]
+    assert len(closure) == 40
     by_unit = {}
     for row in closure:
         by_unit.setdefault(row["source_unit_id"], 0)
         by_unit[row["source_unit_id"]] += 1
+    assert set(by_unit) == hq_ids
     assert all(by_unit[row["unit_id"]] >= 4 for row in hq)
     assert all(row["review_status"] == "SOURCE_SPAN_VERIFIED" for row in closure)
     assert all(row["normalization_epistemic"] in {"INFERRED", "SOURCE_PRESERVING"} for row in closure)
@@ -692,8 +703,13 @@ def test_wp04_huake_source_review_preserves_primary_source_mapping():
     assert "天府化科_壬干支系" in subsections
     assert "右弼化科" not in subsections
     assert "左辅化科" not in subsections
-    closure = read_csv("knowledge/operators/transformation_source_closure_v0.1.csv")
-    assert len(closure) == 127
+    hk_ids = {row["unit_id"] for row in hk}
+    closure = [
+        row for row in read_csv("knowledge/operators/transformation_source_closure_v0.1.csv")
+        if row["source_unit_id"] in hk_ids
+    ]
+    assert len(closure) == 42
+    assert {row["source_unit_id"] for row in closure} == hk_ids
     variant = [row for row in closure if row["legacy_relation"] == "NEW_SOURCE_VARIANT"]
     assert len(variant) >= 2
 
