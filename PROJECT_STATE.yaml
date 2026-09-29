@@ -4,7 +4,7 @@ repository: "15937-ass/ziwei-state-space"
 project:
   current_phase: "Phase II knowledge-base construction + P1 layer-boundary normalization audit"
   execution_state: "P1_LAYER_AUDIT_ACTIVE"
-  current_work_unit: "LB-12_SOURCE_NORMALIZATION_REVIEW"
+  current_work_unit: "LB-13_SOURCE_NORMALIZATION_REVIEW"
   state_sync: "S0_COMPLETE"
   last_approved_gate: "A2-R1"
   pending_gate: null
@@ -31,12 +31,12 @@ progress:
     resolved_or_migrated: 45
     pending_source_review: 0
     semantic_backscan: "COMPLETE_SIXTY_SYSTEMS"
-    executable_transitions: 37
+    executable_transitions: 39
   layer_boundary_audit:
     total: 800
-    closed: 550
-    pending: 250
-    next_batch: "LB-12"
+    closed: 600
+    pending: 200
+    next_batch: "LB-13"
     history_dependency: "CLOSED_WITH_LAYER_FEEDBACK_SUPPLEMENTS"
   corpus_baseline:
     major_star_rules: 430
@@ -64,6 +64,8 @@ canonical_artifacts:
   history_semantic_report: "validation/decontamination/A2_R1_HISTORY_SEMANTIC_BACKSCAN.md"
   lb10_history_feedback: "validation/decontamination/LB10_history_feedback_v0.1.csv"
   lb11_history_feedback: "validation/decontamination/LB11_history_feedback_v0.1.csv"
+  lb12_history_feedback: "validation/decontamination/LB12_history_feedback_v0.1.csv"
+  lb12_extraction_gap_additions: "knowledge/migrations/lb12_extraction_gap_additions_v0.1.csv"
 
 historical_noncanonical_gate_documents:
   - "validation/decontamination/GATE_A2_路径依赖与获得性状态审计.md"

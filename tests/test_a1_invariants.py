@@ -468,3 +468,31 @@ def test_lb11_adds_four_source_explicit_history_gates():
         assert transitions[tid]["source_rule_id"] == rid
         assert transitions[tid]["memory_kind"] == "PATH_DEPENDENT_GATE"
         assert transitions[tid]["source_epistemic"] == "EXPLICIT"
+
+
+def test_lb12_review_split_history_and_extraction_gap_are_consistent():
+    reviews = read_csv("validation/decontamination/LB12_source_normalization_review_v0.1.csv")
+    plan = read_csv("knowledge/migrations/p1_layer_split_plan_LB12_v0.1.csv")
+    gaps = read_csv("knowledge/migrations/lb12_extraction_gap_additions_v0.1.csv")
+    feedback = read_csv("validation/decontamination/LB12_history_feedback_v0.1.csv")
+    assert len(reviews) == 50
+    assert all(row["source_review_result"] == "SOURCE_SUPPORTED" for row in reviews)
+    assert {row["parent_rule_id"] for row in plan} == {row["record_id"] for row in reviews}
+    assert len(gaps) == 1
+    assert gaps[0]["supplemental_rule_id"] == "ZZ-SYS-47-SUP-LB12-001"
+    assert {"HG-021", "HG-022"} <= {row["transition_id"] for row in feedback}
+
+
+def test_lb12_queue_is_closed_at_model_review_level():
+    rows = read_csv("validation/decontamination/P1_layer_boundary_review_batches_v0.1.csv")
+    lb12 = [row for row in rows if row["batch_id"] == "LB-12"]
+    assert len(lb12) == 50
+    assert all(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb12)
+
+
+def test_lb12_history_feedback_distinguishes_lookahead_from_path_dependence():
+    transitions = {row["transition_id"]: row for row in read_csv("knowledge/history/history_transitions_v0.1.csv")}
+    assert transitions["HG-021"]["source_rule_id"] == "ZZ-SYS-51-029"
+    assert transitions["HG-022"]["source_rule_id"] == "ZZ-SYS-47-SUP-LB12-001"
+    feedback = {row["record_id"]: row for row in read_csv("validation/decontamination/LB12_history_feedback_v0.1.csv")}
+    assert feedback["ZZ-SYS-47-026"]["history_review_result"] == "LOOKAHEAD_SEQUENCE_NOT_MEMORY"

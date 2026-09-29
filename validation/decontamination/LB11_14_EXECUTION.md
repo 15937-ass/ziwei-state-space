@@ -1,6 +1,6 @@
 # LB-11 ... LB-14 EXECUTION
 
-Status: **ACTIVE — LB-11 COMPLETE; LB-12 NEXT**
+Status: **ACTIVE — LB-11/LB-12 COMPLETE; LB-13 NEXT**
 
 Scope: 200 layer-boundary candidates following the merged LB-07...LB-10 checkpoint.
 
