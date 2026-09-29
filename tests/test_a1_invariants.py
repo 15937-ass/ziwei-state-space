@@ -49,6 +49,8 @@ def test_quarantine_contains_confirmed_source_mismatches():
     assert by_id["ZZ-SYS-38-032"]["reason_code"] == "SOURCE_MISMATCH_CONFIRMED"
     assert by_id["ZZ-SYS-38-034"]["effective_status"] == "QUARANTINED"
     assert by_id["ZZ-SYS-38-034"]["reason_code"] == "NORMALIZATION_MISMATCH_CONFIRMED"
+    assert by_id["ZZ-SYS-50-028"]["effective_status"] == "QUARANTINED"
+    assert by_id["ZZ-SYS-50-028"]["reason_code"] == "NORMALIZATION_MISMATCH_CONFIRMED"
 
 
 def test_all_ontology_evidence_ids_exist_in_canonical():
@@ -215,30 +217,27 @@ def test_first_five_layer_batches_have_expected_closed_status():
     assert sum(row["status"] == "QUARANTINED_REDUNDANT_DUPLICATE" for row in lb04) == 1
 
 
-def test_lb06_review_split_and_a2_holds_are_consistent():
+def test_lb06_review_split_plan_preserves_pre_a2_reserved_parents():
     reviews = read_csv("validation/decontamination/LB06_source_normalization_review_v0.1.csv")
     plan = read_csv("knowledge/migrations/p1_layer_split_plan_LB06_v0.1.csv")
     assert len(reviews) == 50
-    held = {
-        row["record_id"]
-        for row in reviews
-        if row["source_review_result"] == "SOURCE_SUPPORTED_A2_TRIGGER"
-    }
-    assert held == {"ZZ-SYS-31-033", "ZZ-SYS-38-034", "ZZ-SYS-41-023"}
-    assert held.isdisjoint({row["parent_rule_id"] for row in plan})
+    reserved = {"ZZ-SYS-31-033", "ZZ-SYS-38-034", "ZZ-SYS-41-023"}
+    assert reserved.isdisjoint({row["parent_rule_id"] for row in plan})
     assert {row["parent_rule_id"] for row in plan} == {
         row["record_id"] for row in reviews
-    } - held
+    } - reserved
     assert len({row["parent_rule_id"] for row in plan}) == 47
     assert len(plan) == 86
 
 
-def test_lb06_queue_has_three_architecture_holds():
+def test_lb06_queue_is_closed_after_a2_r1():
     rows = read_csv("validation/decontamination/P1_layer_boundary_review_batches_v0.1.csv")
     lb06 = [row for row in rows if row["batch_id"] == "LB-06"]
     assert len(lb06) == 50
     assert sum(row["status"] == "MODEL_SOURCE_NORMALIZATION_REVIEWED" for row in lb06) == 47
-    assert sum(row["status"] == "A2_ARCHITECTURE_HOLD" for row in lb06) == 3
+    assert sum(row["status"] == "A2_R1_HISTORY_MIGRATED" for row in lb06) == 2
+    assert sum(row["status"] == "QUARANTINED_NORMALIZATION_MISMATCH" for row in lb06) == 1
+    assert not any(row["status"] == "A2_ARCHITECTURE_HOLD" for row in lb06)
 
 
 def test_a2_architecture_hold_registry_resolved_by_a2_r1():
@@ -254,9 +253,35 @@ def test_a2_architecture_hold_registry_resolved_by_a2_r1():
 
 def test_a2_history_transition_sidecar_is_typed_and_source_gated():
     rows = read_csv("knowledge/history/history_transitions_v0.1.csv")
-    assert {row["transition_id"] for row in rows} == {"HU-001", "HG-001", "HU-002", "HU-003", "HU-004"}
+    ids = [row["transition_id"] for row in rows]
+    assert len(ids) == len(set(ids))
+    assert {"HU-001", "HG-001", "HU-002", "HU-003", "HU-004"} <= set(ids)
     assert {row["memory_kind"] for row in rows} == {"ACQUIRED_DISPOSITION", "PATH_DEPENDENT_GATE"}
     assert all(row["source_epistemic"] == "EXPLICIT" for row in rows)
     assert all(row["persistence_scope"] in {"specific_next_period", "later_periods", "unspecified"} for row in rows)
-    assert "ZZ-SYS-38-034" not in {row["source_rule_id"] for row in rows}
-    assert "ZZ-SYS-38-021" in {row["source_rule_id"] for row in rows}
+    source_ids = {row["source_rule_id"] for row in rows}
+    assert "ZZ-SYS-38-034" not in source_ids
+    assert "ZZ-SYS-38-021" in source_ids
+
+    candidates = read_csv("validation/decontamination/A2_history_marker_candidates_v0.1.csv")
+    migrated = {
+        row["record_id"]
+        for row in candidates
+        if row["review_status"].startswith("MIGRATED_A2_R1_")
+    }
+    assert migrated <= source_ids
+
+    semantic = read_csv("validation/decontamination/A2_R1_history_semantic_backscan_v0.1.csv")
+    semantic_transition_ids = {
+        row["transition_id"] for row in semantic if row["transition_id"]
+    }
+    assert semantic_transition_ids <= set(ids)
+    assert len(rows) == 30
+
+def test_history_semantic_split_plan_is_source_reviewed():
+    rows = read_csv("knowledge/migrations/history_semantic_split_plan_v0.1.csv")
+    assert len(rows) == 7
+    assert len({row["child_rule_id"] for row in rows}) == 7
+    assert all(row["source_epistemic"] == "EXPLICIT" for row in rows)
+    assert all(row["source_span_verified"] == "true" for row in rows)
+    assert all(row["normalization_verified"] == "false" for row in rows)
