@@ -2,9 +2,9 @@ schema_version: 2
 repository: "15937-ass/ziwei-state-space"
 
 project:
-  current_phase: "Phase II knowledge-base construction + P1 layer-boundary normalization audit"
-  execution_state: "P1_LAYER_AUDIT_COMPLETE_PENDING_CHECKPOINT_MERGE"
-  current_work_unit: "P1_LAYER_BOUNDARY_AUDIT_CLOSURE"
+  current_phase: "Phase II knowledge-base construction + WP04 operator source-coverage closure"
+  execution_state: "P1_LAYER_AUDIT_COMPLETE"
+  current_work_unit: "POST_P1_STATE_SYNC"
   state_sync: "S0_COMPLETE"
   last_approved_gate: "A2-R1"
   pending_gate: null
@@ -12,13 +12,13 @@ project:
 
 git:
   default_branch: "main"
-  active_branch: "audit/lb15-16"
-  active_pull_request: 51
-  canonical_research_state_branch: "audit/lb15-16"
-  checkpoint_merge: "b3558d7a7e1ff138d1279408b07ddfc7ac6d6463"
+  active_branch: "maintenance/post-p1-sync"
+  active_pull_request: 52
+  canonical_research_state_branch: "maintenance/post-p1-sync"
+  checkpoint_merge: "e8255d82b9a2ce0343d6f5635919db18ea8199fe"
   stale_open_prs: []
   branch_cleanup_status: "CLOSED_STALE_PRS; LEGACY_BRANCH_DELETION_PENDING"
-  note: "LB-11...LB-14 checkpoint is merged. Current work occurs on audit/lb15-16 / PR #51."
+  note: "P1 layer-boundary audit is merged and closed at 800/800. PR #52 synchronizes canonical state before WP04 source-coverage closure."
 
 gates:
   A0: "APPROVED"
@@ -66,6 +66,9 @@ canonical_artifacts:
   lb11_history_feedback: "validation/decontamination/LB11_history_feedback_v0.1.csv"
   lb12_history_feedback: "validation/decontamination/LB12_history_feedback_v0.1.csv"
   lb12_extraction_gap_additions: "knowledge/migrations/lb12_extraction_gap_additions_v0.1.csv"
+  p1_layer_boundary_final_report: "validation/decontamination/P1_LAYER_BOUNDARY_FINAL_REPORT.md"
+  wp03_post_p1_validation: "validation/KB_WP03_post_P1_validation_summary.md"
+  lb16_final_closure: "validation/decontamination/LB16_P1_FINAL_CLOSURE.md"
 
 historical_noncanonical_gate_documents:
   - "validation/decontamination/GATE_A2_路径依赖与获得性状态审计.md"
@@ -79,7 +82,7 @@ execution_policy:
   - "Only source-explicit persistence/path-dependence may update history memory."
   - "No persistence duration, decay, continuous weight, or learning parameter may be invented."
   - "ZZ-SYS-38-034 remains quarantined; System-38 history uses source-supported ZZ-SYS-38-021."
-  - "Run full history-marker backward audit before or alongside LB-07 through LB-16."
+  - "P1 layer-boundary audit is closed at 800/800; do not reopen reviewed batches unless a new source conflict or schema defect is identified."
   - "Escalate a new human Gate only if source review requires natal-essence rewrite, multi-palace long-memory propagation, a second independent time scale, or default decay/forgetting dynamics."
 
 source_corpus_policy:
