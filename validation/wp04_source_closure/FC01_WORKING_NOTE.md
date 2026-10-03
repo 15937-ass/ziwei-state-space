@@ -1,7 +1,6 @@
-# FC01
+# FC01 — FLOW-STAR SOURCE REVIEW
 
-Working flow-star source-review checkpoint.
-status: ACTIVE
+status: CHECKPOINT_CLOSED_SOURCE_SPAN_VERIFIED
 
 ## FC01 structured review
 schema: id | source_id | page | section | subject | condition | claim | operator | target | change | layer | disposition
@@ -116,3 +115,15 @@ FC01-099 | SRC-ZZ-002 | 240 | 岁前十二神 | 白虎 | 会官符 | 白虎忌�
 FC01-100 | SRC-ZZ-002 | 240 | 岁前十二神 | 白虎 | 一般 | 源文将刑杖作为白虎传统司法投影 | projection | legal_punishment_case | increase | L3_PROJECTION | CASE_SUPPORT_ONLY
 
 next_anchor: 白虎入流年父母宫为凶服 / 天德
+
+## Checkpoint summary
+
+- reviewed: 100
+- ADD_CANDIDATE: 79
+- CASE_SUPPORT_ONLY: 21
+- source_span_verified: 100/100
+- normalization_verified: 100/100
+- new Human Gate: 0
+- new primitive qi: 0
+- new history-memory type: 0
+- next anchor: 白虎入流年父母宫为凶服 / 天德
