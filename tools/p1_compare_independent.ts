@@ -28,6 +28,7 @@ function birthClock(row: Record<string,string>) {
   return { date: row.solar_date, hour: ti * 2, minute: 0 };
 }
 
+async function main() {
 const chartMod = await import(pathToFileURL(path.join(independentRoot, "src/core/chart.ts")).href);
 const annualMod = await import(pathToFileURL(path.join(independentRoot, "src/core/fortune/annual.ts")).href);
 const { createChart } = chartMod;
@@ -106,3 +107,10 @@ const out={
 };
 console.log("P1_INDEPENDENT_SUMMARY="+JSON.stringify(out));
 fs.writeFileSync("/tmp/p1_independent_mismatches.jsonl",mismatches.map(x=>JSON.stringify(x)).join("\n")+(mismatches.length?"\n":""));
+
+}
+
+main().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
