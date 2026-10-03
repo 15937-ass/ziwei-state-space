@@ -27,6 +27,8 @@ def main() -> int:
     ap.add_argument("right")
     ap.add_argument("--report", required=True)
     ap.add_argument("--fail-on-diff", action="store_true")
+    ap.add_argument("--max-total-diffs", type=int, default=500)
+    ap.add_argument("--max-detail-per-case", type=int, default=100)
     args = ap.parse_args()
 
     left = load_jsonl(Path(args.left))
@@ -38,6 +40,7 @@ def main() -> int:
     severity_counts = Counter()
     cases_with_diffs = 0
     total_diffs = 0
+    truncated = False
 
     for case_id in ids:
         if case_id not in left or case_id not in right:
@@ -73,10 +76,14 @@ def main() -> int:
                         "category": d.category,
                         "severity": d.severity,
                     }
-                    for d in diffs[:200]
+                    for d in diffs[: args.max_detail_per_case]
                 ],
                 "difference_count": len(diffs),
             })
+
+        if total_diffs >= args.max_total_diffs:
+            truncated = True
+            break
 
     report = {
         "schema_version": "0.2",
@@ -92,6 +99,9 @@ def main() -> int:
         "severity_counts": dict(severity_counts),
         "top_difference_paths": path_counts.most_common(50),
         "details": details,
+        "truncated_at_difference_cap": truncated,
+        "max_total_diffs": args.max_total_diffs,
+        "max_detail_per_case": args.max_detail_per_case,
     }
     Path(args.report).write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
@@ -107,6 +117,9 @@ def main() -> int:
         for path, count in path_counts.most_common(20):
             print(f"  {count:4d} {path}")
 
+    if truncated:
+        print(f"FAIL-FAST: difference cap reached ({args.max_total_diffs}); report is intentionally truncated")
+        return 2
     if args.fail_on_diff and total_diffs:
         return 1
     return 0
