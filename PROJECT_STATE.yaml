@@ -18,7 +18,7 @@ git:
   checkpoint_merge: "e8255d82b9a2ce0343d6f5635919db18ea8199fe"
   stale_open_prs: []
   branch_cleanup_status: "POST_P1_ACTIVE_POINTERS_CLOSED; LEGACY_BRANCH_DELETION_PENDING"
-  note: "PR #68 merged MC01: misc-star source review is 100 items. Continue with MC02 as internal checkpoint 2/2 for the current 200-item reporting block; no new Human Gate is open."
+  note: "MC02 completes the second internal 100-item checkpoint for the current 200-item misc-star reporting block. Misc-star source review is 200 items total: 145 ADD_CANDIDATE and 55 CASE_SUPPORT_ONLY. No new Human Gate, primitive qi, or history-memory type."
 
 gates:
   A0: "APPROVED"
@@ -45,12 +45,12 @@ progress:
     system_operator_edges: 654
   wp04_source_closure:
     chapter: "杂曜"
-    checkpoint: "MC01"
-    reviewed_items: 100
-    add_candidates: 72
-    case_support_only: 28
-    status: "MC01_MERGED_NEXT_MC02"
-    next_anchor: "恩光天贵与文昌文曲交会利考试/天才"
+    checkpoint: "MC02"
+    reviewed_items: 200
+    add_candidates: 145
+    case_support_only: 55
+    status: "MC02_SOURCE_SPAN_VERIFIED_READY_FOR_PR"
+    next_anchor: "截空主障碍/不喜与禄存化禄同度"
   manuscript:
     file: "paper/manuscript_v0.1.md"
     status: "STALE_PRE_A2_DRAFT_DO_NOT_USE_FOR_CURRENT_METRICS"
@@ -91,6 +91,7 @@ canonical_artifacts:
   wp04_tc11_source_review: "validation/wp04_source_closure/TC11_WORKING_NOTE.md"
   wp04_tc11_history_feedback: "validation/wp04_source_closure/TC11_history_feedback_v0.1.csv"
   wp04_mc01_source_review: "validation/wp04_source_closure/MC01_WORKING_NOTE.md"
+  wp04_mc02_source_review: "validation/wp04_source_closure/MC02_WORKING_NOTE.md"
   wp04_source_closure_ledger: "knowledge/coverage/wp04_source_chapter_closure_v0.1.csv"
 
 historical_noncanonical_gate_documents:
