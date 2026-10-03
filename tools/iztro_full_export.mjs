@@ -29,15 +29,29 @@ function stableStars(stars) {
       mutagen: s.mutagen ?? null,
       scope: s.scope ?? null,
     }))
-    .sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b), "zh-CN"));
+    .sort((a, b) => {
+      const aa = JSON.stringify(a);
+      const bb = JSON.stringify(b);
+      return aa < bb ? -1 : aa > bb ? 1 : 0;
+    });
 }
 
 function stableFlowStars(groups) {
   return (groups ?? []).map((group) =>
     (group ?? [])
       .map((s) => ({ name: s.name, type: s.type ?? null }))
-      .sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b), "zh-CN"))
+      .sort((a, b) => {
+        const aa = JSON.stringify(a);
+        const bb = JSON.stringify(b);
+        return aa < bb ? -1 : aa > bb ? 1 : 0;
+      })
   );
+}
+
+function normalizeSolarDate(value) {
+  const parts = String(value).split("-");
+  if (parts.length !== 3) return String(value);
+  return `${parts[0].padStart(4, "0")}-${parts[1].padStart(2, "0")}-${parts[2].padStart(2, "0")}`;
 }
 
 function normalizeNatal(raw) {
@@ -61,7 +75,7 @@ function normalizeNatal(raw) {
     };
   }
   return {
-    solar_date: raw.solarDate,
+    solar_date: normalizeSolarDate(raw.solarDate),
     lunar_date: raw.lunarDate,
     chinese_date: raw.chineseDate,
     time: raw.time,
