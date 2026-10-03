@@ -74,3 +74,16 @@ TC10-060 | SRC-ZZ-002 | 226 | 天机化忌 | 子午天机独坐 | 压力 | 惊�
 TC10-061 | SRC-ZZ-002 | 226 | 天机化忌 | 子午天机独坐 | 煞刑并照 | 煞刑会放大健康后遗症类传统投影，午宫较子宫重 | projection | health_case | higher_in_wu | L3_PROJECTION | CASE_SUPPORT_ONLY
 TC10-062 | SRC-ZZ-002 | 226 | 天机化忌 | 丑未天机独坐 | 天梁相对 | 麻烦最终可化解，但精神成本很高 | transform | problem_resolution_vs_mental_cost | resolution_preserved_cost_up | DERIVED_RESPONSE | ADD_CANDIDATE
 TC10-063 | SRC-ZZ-002 | 226 | 天机化忌 | 丑未天机独坐 | 计划估计错误 | 突发麻烦常与计划失误或估计错误形成因果链 | transform | planning_error_to_problem | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+
+TC10-064 | SRC-ZZ-002 | 226 | 天机化忌 | 丑未天机独坐 | 婚姻例示 | 源文给出配偶出锋头或夫妻不和的传统关系投影 | projection | relationship_case | conflict | L3_PROJECTION | CASE_SUPPORT_ONLY
+TC10-065 | SRC-ZZ-002 | 226 | 天机化忌 | 寅申机阴 | 太阴同时化权 | 该系统直接联动太阴化权规则 | structural_relation | cross_reference_rule | reuse_taiyin_quan | L0_STRUCTURE | ADD_CANDIDATE
+TC10-066 | SRC-ZZ-002 | 226 | 天机化忌 | 卯酉机巨 | 破荡本质 | 化忌进一步放大不守一业与见异思迁 | enhance | occupational_instability | increase | LOCAL_STATE | ADD_CANDIDATE
+TC10-067 | SRC-ZZ-002 | 226 | 天机化忌 | 卯酉机巨 | 主观体验 | 高频变动可被当事人解释为怀才不遇，客观路径与主观评价需分离 | structural_relation | mobility_vs_self_appraisal | decouple | L0_STRUCTURE | ADD_CANDIDATE
+TC10-068 | SRC-ZZ-002 | 226 | 天机化忌 | 卯酉机巨 | 语言 | 语言失误易集中在重要节点，增加关键决策风险 | transform | communication_error_at_critical_points | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-069 | SRC-ZZ-002 | 226 | 天机化忌 | 卯酉机巨 | 口舌求财 | 即使化忌，口舌型工作仍可作为适配通道 | gate | communication_income_channel | remain_available | STRUCTURAL_GATE | ADD_CANDIDATE
+TC10-070 | SRC-ZZ-002 | 226 | 天机化忌 | 辰戌机梁 | 阴阳化吉会照 | 吉化会照能保留整体力量，使主要问题集中为天梁反复排解 | transform | system_support_vs_problem_load | support_preserved_resolution_cost_up | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-071 | SRC-ZZ-002 | 226 | 天机化忌 | 辰戌机梁 | 流离与举棋不定 | 思想浮动、犹疑与处事反覆共同增加 | enhance | indecision_and_instability | increase | LOCAL_STATE | ADD_CANDIDATE
+TC10-072 | SRC-ZZ-002 | 226 | 天机化忌 | 辰戌机梁 | 预感 | 预感能力可因化忌转成过虑并导致决断错误 | transform | intuition_to_overthinking | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-073 | SRC-ZZ-002 | 226 | 天机化忌 | 辰戌机梁 | 戌 vs 辰 | 戌宫过虑与误判倾向更明显 | gate | overthinking_risk | higher_in_xu | COMPATIBILITY_RELATION | ADD_CANDIDATE
+TC10-074 | SRC-ZZ-002 | 226 | 天机化忌 | 巳亥天机独坐 | 机关错用 | 过度机巧或错误运用策略会同时损害事业与感情 | transform | strategic_misuse | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-075 | SRC-ZZ-002 | 226 | 天机化忌 | 巳亥天机独坐 | 平常心 | 降低过度操控可显著减少波折困扰 | gate | volatility | decrease_by_nonmanipulation | STRUCTURAL_GATE | ADD_CANDIDATE
