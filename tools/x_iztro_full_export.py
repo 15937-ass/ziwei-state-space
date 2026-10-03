@@ -94,7 +94,7 @@ def normalize_horoscope(raw, target):
     yearly_dec = raw.get("yearly", {}).get("yearlyDecStar")
     return {
         "target": target,
-        "solar_date": raw["solarDate"],
+        "solar_date": normalize_solar_date(raw["solarDate"]),
         "lunar_date": raw["lunarDate"],
         "scopes": {
             "decadal": normalize_scope(raw["decadal"]),
