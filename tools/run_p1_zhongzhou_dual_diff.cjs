@@ -30,9 +30,10 @@ const MUT_NAMES = ['禄','权','科','忌'];
 function simp(s) {
   if (s == null) return s;
   return String(s)
-    .replaceAll('祿','禄').replaceAll('機','机').replaceAll('陽','阳').replaceAll('陰','阴')
+    .replaceAll('祿','禄').replaceAll('權','权').replaceAll('機','机').replaceAll('陽','阳').replaceAll('陰','阴')
     .replaceAll('貪','贪').replaceAll('門','门').replaceAll('貞','贞').replaceAll('軍','军')
     .replaceAll('殺','杀').replaceAll('鉞','钺').replaceAll('輔','辅').replaceAll('鈴','铃')
+    .replaceAll('羅','罗').replaceAll('馬','马').replaceAll('鸞','鸾')
     .replaceAll('遷','迁').replaceAll('財','财').replaceAll('僕','仆').replaceAll('業','业')
     .replaceAll('宮','宫').replaceAll('歲','岁').replaceAll('鸞','鸾');
 }
@@ -71,7 +72,14 @@ function fortelTime(t) {
   // it is structurally the same Zi branch, so use early-Zi on the effective date.
   return Number(t)===12 ? 0 : Number(t);
 }
-function entriesTransformFromFortel(map) {
+function natalTransformFromFortel(map) {
+  // DestinyBoard.bornStarDerivativeMap is derivative -> star.
+  const out={};
+  for (const [deriv,star] of map.entries()) out[simp(deriv.displayName)] = simp(star.displayName);
+  return out;
+}
+function runtimeTransformFromFortel(map) {
+  // RuntimeContext.*.starDerivativeMap is star -> derivative.
   const out={};
   for (const [star,deriv] of map.entries()) out[simp(deriv.displayName)] = simp(star.displayName);
   return out;
@@ -111,13 +119,22 @@ function starBranchFortel(board, wanted) {
   }
   return result;
 }
+function flowBaseName(raw) {
+  const n=starName(raw);
+  const suffix=n.replace(/^(运|流|月|日|时)/,'');
+  const aliases={
+    '魁':'天魁','钺':'天钺','昌':'文昌','曲':'文曲','禄':'禄存',
+    '羊':'擎羊','陀':'陀罗','马':'天马','鸾':'红鸾','喜':'天喜'
+  };
+  return aliases[suffix] || n;
+}
 function flowBranchIztro(a, item, wanted) {
   const result={};
   const stars=item?.stars || [];
   for(let i=0;i<stars.length;i++){
     const branch=simp(a.palaces[i].earthlyBranch);
     for(const s of (stars[i]||[])){
-      const n=starName(s);
+      const n=flowBaseName(s);
       if(wanted.includes(n)) result[n]=branch;
     }
   }
@@ -212,7 +229,7 @@ for(const c of cases){
   for(const s of MAJOR) passed &= check(c.case_id,'natal_major_star',s,imaj[s]??null,fmaj[s]??null,{time_index:t});
   const imin=starBranchIztro(iz,SHARED_MINOR), fmin=starBranchFortel(fb,SHARED_MINOR);
   for(const s of SHARED_MINOR) passed &= check(c.case_id,'natal_shared_minor_star',s,imin[s]??null,fmin[s]??null,{time_index:t});
-  passed &= check(c.case_id,'natal','mutagens',natalTransformFromIztro(iz),entriesTransformFromFortel(fb.bornStarDerivativeMap),{time_index:t});
+  passed &= check(c.case_id,'natal','mutagens',natalTransformFromIztro(iz),natalTransformFromFortel(fb.bornStarDerivativeMap),{time_index:t});
 
   const targetT=Number(c.target_time_index);
   const h=iz.horoscope(`${c.target_date} ${clockFor(targetT)}`);
@@ -233,8 +250,9 @@ for(const c of cases){
   for(const [name, ih, fr, fs, fg] of layers){
     passed &= check(c.case_id,name,'stem',simp(ih.heavenlyStem),simp(fs.displayName),{target_date:c.target_date,target_time_index:targetT});
     passed &= check(c.case_id,name,'branch',simp(ih.earthlyBranch),simp(fg.displayName),{target_date:c.target_date,target_time_index:targetT});
-    passed &= check(c.case_id,name,'palace_branch',simp(ih.earthlyBranch),simp(fr.cellGround.displayName),{target_date:c.target_date,target_time_index:targetT});
-    passed &= check(c.case_id,name,'mutagens',transformFromIztro(ih),entriesTransformFromFortel(fr.starDerivativeMap),{target_date:c.target_date,target_time_index:targetT});
+    const izPalaceBranch = ih.index >= 0 ? simp(iz.palaces[ih.index].earthlyBranch) : null;
+    passed &= check(c.case_id,name,'palace_branch',izPalaceBranch,simp(fr.cellGround.displayName),{target_date:c.target_date,target_time_index:targetT});
+    passed &= check(c.case_id,name,'mutagens',transformFromIztro(ih),runtimeTransformFromFortel(fr.starDerivativeMap),{target_date:c.target_date,target_time_index:targetT});
     if(ih.stars && fr.groundStars){
       const isf=flowBranchIztro(iz,ih,SHARED_FLOW);
       const fsf=flowBranchFortel(fr.groundStars,SHARED_FLOW);
