@@ -89,3 +89,32 @@ TC11-072 | SRC-ZZ-002 | 231 | 贪狼化忌 | 丑未武贪 | 理想 | 难以达�
 TC11-073 | SRC-ZZ-002 | 231 | 贪狼化忌 | 丑未武贪 | 才智 | 聪明才智仍可发挥并常导向技艺 | transform | intelligence_to_skill | increase | DERIVED_RESPONSE | ADD_CANDIDATE
 TC11-074 | SRC-ZZ-002 | 231 | 贪狼化忌 | 丑未武贪 | 感情 | 感情困扰虽存在，但源文明确可获圆满解决 | transform | relationship_resolution_capacity | increase | DERIVED_RESPONSE | ADD_CANDIDATE
 TC11-075 | SRC-ZZ-002 | 231 | 贪狼化忌 | 丑未武贪 | 羊陀 | 羊陀会合是该系统的重要结构条件，但不自动破坏事业财帛 | structural_relation | malefic_presence_vs_resource_outcome | nonfatal | L0_STRUCTURE | ADD_CANDIDATE
+
+TC11-076 | SRC-ZZ-002 | 231 | 贪狼化忌 | 寅申贪狼独坐 | 火铃同度 | 火铃可形成意外资源机会，化忌并不排除突发收益 | transform | burst_resource_opportunity | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-077 | SRC-ZZ-002 | 231 | 贪狼化忌 | 寅申贪狼独坐 | 羊陀 | 源文以古代刑罚、疤痕及整容作传统身体投影 | projection | body_case | traditional_mark_case | L3_PROJECTION | CASE_SUPPORT_ONLY
+TC11-078 | SRC-ZZ-002 | 231 | 贪狼化忌 | 寅申贪狼独坐 | 关系例示 | 源文给出被已有关系者追求的传统性别化投影 | projection | relationship_case | triangular_attention | L3_PROJECTION | CASE_SUPPORT_ONLY
+TC11-079 | SRC-ZZ-002 | 231 | 贪狼化忌 | 寅申贪狼独坐 | 申宫禄存 | 申宫额外禄存为资源支持条件 | gate | resource_support | increase_in_shen | STRUCTURAL_GATE | ADD_CANDIDATE
+TC11-080 | SRC-ZZ-002 | 231 | 贪狼化忌 | 卯酉紫贪 | 桃花犯主 | 化忌可降低桃花犯主这一原有风险通道 | transform | romantic_disruption | decrease | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-081 | SRC-ZZ-002 | 231 | 贪狼化忌 | 卯酉紫贪 | 事业 | 同一化忌反可增强事业发展能力 | transform | career_development | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-082 | SRC-ZZ-002 | 231 | 贪狼化忌 | 卯酉紫贪 | 发展速度 | 化忌仍可表现为事业推进速度变慢 | transform | career_tempo | decrease | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-083 | SRC-ZZ-002 | 231 | 贪狼化忌 | 卯酉紫贪 | 贪务多 | 多任务、多行业并行倾向增强 | enhance | multi_venture_tendency | increase | LOCAL_STATE | ADD_CANDIDATE
+TC11-084 | SRC-ZZ-002 | 231 | 贪狼化忌 | 卯酉紫贪 | 兼营 | 兼营更多业务主要增加人生辛苦，不保证收益同步提高 | structural_relation | diversification_vs_return | effort_up_return_not_guaranteed | L0_STRUCTURE | ADD_CANDIDATE
+TC11-085 | SRC-ZZ-002 | 231 | 贪狼化忌 | 卯酉紫贪 | 感情 | 相较其他贪狼化忌结构，该处感情困扰色彩较少 | gate | relationship_distress | attenuate | COMPATIBILITY_RELATION | ADD_CANDIDATE
+TC11-086 | SRC-ZZ-002 | 231-232 | 贪狼化忌 | 辰戌贪狼独坐 | 辰宫叠禄 | 辰宫叠禄可明显提高富格实现条件 | gate | wealth_realization | increase_in_chen | STRUCTURAL_GATE | ADD_CANDIDATE
+TC11-087 | SRC-ZZ-002 | 231-232 | 贪狼化忌 | 辰戌贪狼独坐 | 戌宫无叠禄 | 即使戌宫不叠禄，源文仍允许形成较好资源结果 | structural_relation | wealth_vs_double_lu | not_required | L0_STRUCTURE | ADD_CANDIDATE
+TC11-088 | SRC-ZZ-002 | 231-232 | 贪狼化忌 | 辰戌贪狼独坐 | 非火贪铃贪 | 一般不以暴发方式实现资源增长 | transform | wealth_tempo | gradual | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-089 | SRC-ZZ-002 | 231-232 | 贪狼化忌 | 辰戌贪狼独坐 | 才智技能 | 资源积累更偏依靠个人才智与技能 | transform | skill_to_resource | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-090 | SRC-ZZ-002 | 231-232 | 贪狼化忌 | 辰戌贪狼独坐 | 辛劳 | 较好资源结果仍不能消除辛劳成本 | structural_relation | resource_gain_vs_effort_cost | decouple | L0_STRUCTURE | ADD_CANDIDATE
+TC11-091 | SRC-ZZ-002 | 231-232 | 贪狼化忌 | 辰戌贪狼独坐 | 感情例示 | 源文将过度专注事业与错过关系时机联系，属于传统案例 | projection | relationship_case | delayed_timing | L3_PROJECTION | CASE_SUPPORT_ONLY
+TC11-092 | SRC-ZZ-002 | 232 | 贪狼化忌 | 巳亥廉贪 | 廉贞同度 | 廉贞同度会使贪狼化忌的感情痛苦更明显 | enhance | emotional_relationship_pain | increase | LOCAL_STATE | ADD_CANDIDATE
+TC11-093 | SRC-ZZ-002 | 232 | 贪狼化忌 | 巳亥廉贪 | 艺术性质 | 感情痛苦与艺术表达可耦合，痛苦成为艺术表现来源之一 | transform | emotional_pain_to_artistic_expression | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-094 | SRC-ZZ-002 | 232 | 贪狼化忌 | 巳亥廉贪 | 艺人例示 | 艺人感情困扰属于源文应用案例 | projection | occupation_case | artist_relationship_distress | L3_PROJECTION | CASE_SUPPORT_ONLY
+TC11-095 | SRC-ZZ-002 | 232 | 贪狼化忌 | 巳亥廉贪 | 经商 | 源文明确该结构不宜经商 | gate | business_realization | decrease | STRUCTURAL_GATE | ADD_CANDIDATE
+TC11-096 | SRC-ZZ-002 | 232 | 贪狼化忌 | 巳亥廉贪 | 经商冲动 | 不适合经商却更易产生经商冲动，形成倾向与适配度冲突 | structural_relation | business_drive_vs_fit | drive_up_fit_down | L0_STRUCTURE | ADD_CANDIDATE
+TC11-097 | SRC-ZZ-002 | 232 | 贪狼化忌 | 巳亥廉贪 | 经商冲动 | 在低适配条件下执行经商冲动会增加挫折 | transform | misfit_action_to_setback | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-098 | SRC-ZZ-002 | 232 | 贪狼化忌 | 巳亥廉贪 | 投资 | 投资时更易走向孤注一掷 | enhance | investment_concentration | increase | LOCAL_STATE | ADD_CANDIDATE
+TC11-099 | SRC-ZZ-002 | 232 | 贪狼化忌 | 巳亥廉贪 | 孤注一掷 | 高度集中投资会显著增加破败风险 | transform | concentrated_investment_to_failure | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-100 | SRC-ZZ-002 | 232 | 贪狼化忌 | 巳亥廉贪 | 羊陀与陀罗 | 巳亥两宫煞曜配置不同，是同一星系结果分叉的重要结构条件 | gate | system_quality | branch_by_malefic_layout | STRUCTURAL_GATE | ADD_CANDIDATE
+
+next_anchor: 杂曜总论
+chapter_boundary_reached: true
