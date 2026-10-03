@@ -10,6 +10,13 @@ from pathlib import Path
 from x_iztro import Astro, ChartConfig, __version__
 
 
+def normalize_solar_date(value):
+    parts = str(value).split("-")
+    if len(parts) != 3:
+        return str(value)
+    return f"{int(parts[0]):04d}-{int(parts[1]):02d}-{int(parts[2]):02d}"
+
+
 def stable_stars(stars):
     rows = [
         {
@@ -56,7 +63,7 @@ def normalize_natal(raw):
             ),
         }
     return {
-        "solar_date": raw["solarDate"],
+        "solar_date": normalize_solar_date(raw["solarDate"]),
         "lunar_date": raw["lunarDate"],
         "chinese_date": raw["chineseDate"],
         "time": raw["time"],
