@@ -62,3 +62,29 @@ TC08-047 | SRC-ZZ-002 | 210 | 紫微化科 | 辰戌紫相 | 武府强 vs 廉贞�
 TC08-048 | SRC-ZZ-002 | 210 | 紫微化科 | 巳亥紫杀 | 权力加名誉 | 化科使紫杀的权力与名誉更易协调 | transform | authority_reputation_alignment | increase | DERIVED_RESPONSE | ADD_CANDIDATE
 TC08-049 | SRC-ZZ-002 | 210 | 紫微化科 | 巳亥紫杀 | 理想过高 | 权名齐彰也可能推高理想与持续追求成本，增加劳累 | transform | ideal_level_and_effort | increase | DERIVED_RESPONSE | ADD_CANDIDATE
 TC08-050 | SRC-ZZ-002 | 210 | 紫微化科 | 巳亥紫杀 | 大运流年 | 运限层可表现为权力取得相关的良好变化 | layer_interaction | authority_change | increase | TEMPORAL_LAYER | ADD_CANDIDATE
+
+TC08-051 | SRC-ZZ-002 | 210-211 | 文昌化科 | 文昌化科 | 与文曲比较 | 文昌化科较文曲化科更踏实 | mechanism_comparison | learning_reputation_style | more_grounded | MECHANISM_COMPARISON | ADD_CANDIDATE
+TC08-052 | SRC-ZZ-002 | 211 | 文昌化科 | 文昌化科 | 一般 | 可把学习、文艺或学术表现转化为名誉，进一步可能带来利禄 | transform | learning_to_reputation_resource | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC08-053 | SRC-ZZ-002 | 211 | 文昌化科 | 文昌化科 | 入庙 | 入庙时学习理解和深入发挥能力增强，声誉较有实质支撑 | enhance | learning_depth | increase | LOCAL_STATE | ADD_CANDIDATE
+TC08-054 | SRC-ZZ-002 | 211 | 文昌化科 | 文昌化科 | 落陷寅午戌 | 落陷时较易转为精神自我满足或虚声 | gate | reputation_substance | decrease_in_fall | COMPATIBILITY_RELATION | ADD_CANDIDATE
+TC08-055 | SRC-ZZ-002 | 211 | 文昌化科 | 文昌化科 | 魁钺且正曜纯清 | 魁钺可提高考试与专业资格竞争的实现率 | gate | examination_realization | increase_with_kuiyue | STRUCTURAL_GATE | ADD_CANDIDATE
+TC08-056 | SRC-ZZ-002 | 211 | 文昌化科 | 文昌化科 | 大运流年 | 运限可表现为作品发表、出版或考试有利 | layer_interaction | publication_exam_opportunity | increase | TEMPORAL_LAYER | ADD_CANDIDATE
+TC08-057 | SRC-ZZ-002 | 211 | 文昌化科 | 文昌化科 | 考试前一年 | 有利研习状态可在考试前一时间层出现，不必与结果年完全同层 | time_scale_effect | preparation_to_exam | lead_effect | TEMPORAL_GATE | ADD_CANDIDATE
+TC08-058 | SRC-ZZ-002 | 211 | 文昌化科 | 文昌化科 | 十二宫飞躔 | 文昌化科需与正曜星系联合推断，不宜单星脱离系统使用 | structural_relation | context_dependence | require_system_context | L0_STRUCTURE | ADD_CANDIDATE
+TC08-059 | SRC-ZZ-002 | 211 | 天机化科 | 天机化科 | 一般 | 天机化科本身不等于学术研究，需昌曲魁钺等条件才能稳定导向学术 | gate | academic_orientation | require_literary_support | STRUCTURAL_GATE | ADD_CANDIDATE
+TC08-060 | SRC-ZZ-002 | 211 | 天机化科 | 天机化科 | 专业竞赛 | 非学术表现与专业竞赛也可成为获得赏识的通道 | transform | performance_to_recognition | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC08-061 | SRC-ZZ-002 | 211 | 天机化科 | 天机化科 | 浮动本质 | 化科可使原本浮动而不踏实的学习方式变得较踏实 | transform | learning_stability | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC08-062 | SRC-ZZ-002 | 211 | 天机化科 | 天机化科 | 学习领域 | 化科后学习倾向更偏理工与术数 | projection | knowledge_domain | technical_or_formal | L3_PROJECTION | CASE_SUPPORT_ONLY
+TC08-063 | SRC-ZZ-002 | 211 | 天机化科 | 天机化科 | 计划 vs 实行 | 天机化科利计划而不利实行，规划能力与执行能力必须分离 | structural_relation | planning_vs_execution | planning_up_execution_limited | L0_STRUCTURE | ADD_CANDIDATE
+TC08-064 | SRC-ZZ-002 | 211 | 天机化科 | 天机化科 | 附骥 | 与高知名度人物互动可把外部声誉部分转移为自身知名度 | transform | borrowed_reputation | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC08-065 | SRC-ZZ-002 | 211 | 天机化科 | 天机化科加四煞 | 同度 | 四煞会把学习方向推向数理理工等更技术化场景 | gate | knowledge_domain | toward_technical | STRUCTURAL_GATE | ADD_CANDIDATE
+TC08-066 | SRC-ZZ-002 | 211 | 天机化科 | 天机化科加文曜或空曜 | 同度 | 文曜或空曜会把研究兴趣推向宗教哲学、术数或抽象领域 | gate | knowledge_domain | toward_abstract_or_mystical | STRUCTURAL_GATE | ADD_CANDIDATE
+TC08-067 | SRC-ZZ-002 | 211 | 天机化科 | 子午天机独坐 | 四化毕集 | 巨门化忌使口舌求财成为禄权科会发挥的重要通道 | transform | communication_to_resource | increase_under_multi_transform | DERIVED_RESPONSE | ADD_CANDIDATE
+TC08-068 | SRC-ZZ-002 | 211 | 天机化科 | 子午天机独坐 | 巨门在午 vs 子 | 巨门所在位置改变是非强度，但不改变口舌求财主通道 | gate | conflict_intensity | branch_by_palace | STRUCTURAL_GATE | ADD_CANDIDATE
+TC08-069 | SRC-ZZ-002 | 211 | 天机化科 | 子午天机独坐 | 福德同梁 | 福德同梁的创造力或散漫性会显著门控命宫天机化科性质 | gate | system_realization | depend_on_fude | STRUCTURAL_GATE | ADD_CANDIDATE
+TC08-070 | SRC-ZZ-002 | 211-212 | 天机化科 | 丑未天机化科 | 巨门忌加煞 | 更适合工艺或传播计划设计，独当一面能力仍受限 | transform | planning_specialization_vs_independence | planning_up_independence_low | DERIVED_RESPONSE | ADD_CANDIDATE
+TC08-071 | SRC-ZZ-002 | 212 | 天机化科 | 丑未天机化科 | 大运流年 | 运限有时仅表现为借势出头，实际利益有限 | layer_interaction | borrowed_visibility | increase_limited | TEMPORAL_LAYER | ADD_CANDIDATE
+TC08-072 | SRC-ZZ-002 | 212 | 天机化科 | 寅申机阴 | 太阴同时化禄 | 该系统直接联动太阴化禄规则 | structural_relation | cross_reference_rule | reuse_taiyin_lu | L0_STRUCTURE | ADD_CANDIDATE
+TC08-073 | SRC-ZZ-002 | 212 | 天机化科 | 卯酉机巨 | 科忌同躔且见煞 | 四化毕集并不能消除是非劳累，口舌求财与心力成本同时增强 | transform | communication_gain_vs_effort_cost | both_increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC08-074 | SRC-ZZ-002 | 212 | 天机化科 | 卯酉机巨 | 大运流年 | 运限可出现锋头与口舌同步，并因借势出头招致指责 | layer_interaction | visibility_conflict | both_increase | TEMPORAL_LAYER | ADD_CANDIDATE
+TC08-075 | SRC-ZZ-002 | 212 | 天机化科 | 辰戌机梁 | 事业日巨化忌 | 事业端化忌使口舌求财特征更强，传播法律等场景可转为声望 | transform | communication_profession_to_reputation | increase | DERIVED_RESPONSE | ADD_CANDIDATE
