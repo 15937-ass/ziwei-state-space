@@ -87,3 +87,17 @@ TC10-072 | SRC-ZZ-002 | 226 | 天机化忌 | 辰戌机梁 | 预感 | 预感能�
 TC10-073 | SRC-ZZ-002 | 226 | 天机化忌 | 辰戌机梁 | 戌 vs 辰 | 戌宫过虑与误判倾向更明显 | gate | overthinking_risk | higher_in_xu | COMPATIBILITY_RELATION | ADD_CANDIDATE
 TC10-074 | SRC-ZZ-002 | 226 | 天机化忌 | 巳亥天机独坐 | 机关错用 | 过度机巧或错误运用策略会同时损害事业与感情 | transform | strategic_misuse | increase | DERIVED_RESPONSE | ADD_CANDIDATE
 TC10-075 | SRC-ZZ-002 | 226 | 天机化忌 | 巳亥天机独坐 | 平常心 | 降低过度操控可显著减少波折困扰 | gate | volatility | decrease_by_nonmanipulation | STRUCTURAL_GATE | ADD_CANDIDATE
+
+TC10-076 | SRC-ZZ-002 | 226-227 | 文曲化忌 | 文曲化忌 | 一般 | 文曲化忌首先削弱原有文曲性质，并可由是非引出挫折 | transform | wenqu_function_quality | decrease | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-077 | SRC-ZZ-002 | 226-227 | 文曲化忌 | 文曲化忌 | 口才 | 口才优势可转为语言失误 | transform | verbal_accuracy | decrease | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-078 | SRC-ZZ-002 | 226-227 | 文曲化忌 | 文曲化忌 | 文书契约 | 文书和契约错误会增加麻烦与损失 | transform | document_contract_error | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-079 | SRC-ZZ-002 | 226-227 | 文曲化忌 | 文曲化忌 | 异性欣赏 | 原本的吸引力可转为误会与感情风波 | transform | attraction_to_relationship_conflict | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-080 | SRC-ZZ-002 | 226-227 | 文曲化忌 | 文曲化忌 | 杂学才艺 | 化忌不等于杂学才艺增强，二者需解耦 | structural_relation | miscellaneous_talent_vs_ji | decouple | L0_STRUCTURE | ADD_CANDIDATE
+TC10-081 | SRC-ZZ-002 | 226-227 | 文曲化忌 | 文曲化忌 | 语文能力 | 化忌可抵消语言天赋并提高被批评风险 | transform | language_skill_and_criticism | skill_down_criticism_up | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-082 | SRC-ZZ-002 | 226-227 | 文曲化忌 | 文曲化忌 | 金钱 | 文曲化忌可直接形成受骗、空头支票等物质损失通道 | transform | financial_loss | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-083 | SRC-ZZ-002 | 226-227 | 文曲化忌 | 文曲 vs 文昌化忌 | 金钱责任 | 文曲的物质损失属性强于文昌化忌，二者责任来源不同 | mechanism_comparison | document_finance_failure_mode | differentiate | MECHANISM_COMPARISON | ADD_CANDIDATE
+TC10-084 | SRC-ZZ-002 | 226-227 | 文曲化忌 | 文曲化忌 | 感情与钱财 | 感情和财务风险可耦合为复杂困扰 | transform | relationship_finance_coupling | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-085 | SRC-ZZ-002 | 226-227 | 文曲化忌 | 文曲化忌 | 幻想 | 幻想与执着会提高怀才不遇的主观感受 | transform | fantasy_to_frustrated_self_appraisal | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-086 | SRC-ZZ-002 | 227 | 天同化忌 | 天同化忌 | 一般 | 天同以情绪为核心，化忌主要增加情绪不稳定 | enhance | emotional_instability | increase | LOCAL_STATE | ADD_CANDIDATE
+TC10-087 | SRC-ZZ-002 | 227 | 天同化忌 | 天同化忌 | 入庙 | 入庙时情绪不稳定虽增加但整体危害相对较轻 | gate | adverse_intensity | attenuate_in_dignity | COMPATIBILITY_RELATION | ADD_CANDIDATE
+TC10-088 | SRC-ZZ-002 | 227 | 天同化忌 | 天同化忌 | 白手兴家 | 化忌会加强中年经历艰辛并被迫独立的路径 | time_scale_effect | independence_after_adversity | increase | TEMPORAL_GATE | ADD_CANDIDATE
