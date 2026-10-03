@@ -66,7 +66,7 @@ progress:
 
 productization:
   program: "PRODUCT-FIRST"
-  status: "P1_ADAPTER_CONTRACT_AND_100_SEEDS_READY"
+  status: "P1_ADAPTER_CONTRACT_AND_100_SEEDS_READY; CASEBOOK_INDEX_100_PILOT20_READY"
   completed:
     - "competitor registry v0.1"
     - "license ledger v0.1"
@@ -83,9 +83,11 @@ productization:
   research_track_next: "WP05_P08_LIFE_PALACE_CORPUS"
   casebook_training_corpus:
     collection_id: "LIAORAN_CASEBOOKS_3"
-    status: "REGISTERED_POLICY_READY"
-    visible_bound_sources: 1
-    pending_file_bindings: 2
+    status: "ALL_3_BOUND_INDEXED_100_PILOT20_QUEUED"
+    visible_bound_sources: 3
+    pending_file_bindings: 0
+    indexed_cases: 100
+    pilot_cases: 20
     purpose: "expert reasoning demonstrations, rule-linking, temporal inference training, later outcome calibration"
     canonical_theory: false
   principles:
@@ -174,6 +176,9 @@ canonical_artifacts:
   product_chart_regression_seeds: "validation/product_chart_regression/regression_inputs_v0.1.csv"
   casebook_training_policy: "product/CASEBOOK_TRAINING_POLICY.md"
   casebook_registry: "training_data/CASEBOOK_REGISTRY.yaml"
+  casebook_case_index: "training_data/CASEBOOK_CASE_INDEX_v0.1.csv"
+  casebook_pilot20: "training_data/CASEBOOK_PILOT20_v0.1.csv"
+  casebook_ingestion_plan: "product/CASEBOOK_INGESTION_PLAN_v0.1.md"
   case_evidence_schema: "training_data/CASE_EVIDENCE_SCHEMA_v0.1.md"
 
 historical_noncanonical_gate_documents:
