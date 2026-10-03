@@ -63,3 +63,29 @@ TC11-047 | SRC-ZZ-002 | 230 | 武曲化忌 | 辰戌武曲独坐 | 朋友支出 |
 TC11-048 | SRC-ZZ-002 | 230 | 武曲化忌 | 巳亥武破 | 合作 | 决裂与挫折性质会显著降低合作稳定性 | gate | collaboration_stability | decrease | STRUCTURAL_GATE | ADD_CANDIDATE
 TC11-049 | SRC-ZZ-002 | 230 | 武曲化忌 | 巳亥武破 | 亥宫羊陀夹忌 | 亥宫夹忌会进一步放大经济压力与能力受限 | gate | financial_constraint | higher_in_hai | STRUCTURAL_GATE | ADD_CANDIDATE
 TC11-050 | SRC-ZZ-002 | 230-231 | 武曲化忌 | 武曲化忌会紫贪 | 紫微必化权 | 权力欲或超能力边界的企图可成为经济困难的重要来源 | transform | power_drive_to_financial_strain | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+
+TC11-051 | SRC-ZZ-002 | 230 | 武曲化忌 | 巳亥武破 | 经济压力 | 资源约束可直接限制计划达到理想目标 | transform | financial_constraint_to_goal_failure | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-052 | SRC-ZZ-002 | 230 | 武曲化忌 | 巳亥武破 | 火铃同度 | 火铃会把经济与事业压力放大为功败垂成风险 | transform | constraint_to_collapse | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-053 | SRC-ZZ-002 | 230 | 武曲化忌 | 巳亥武破 | 天月天虚阴煞 | 源文列出体弱病患等传统健康投影 | projection | health_case | traditional_weakness_case | L3_PROJECTION | CASE_SUPPORT_ONLY
+TC11-054 | SRC-ZZ-002 | 230-231 | 武曲化忌 | 武曲化忌会紫贪 | 权力欲 | 经济困难可由权力欲驱动的超负荷行动产生 | transform | ambition_to_financial_strain | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-055 | SRC-ZZ-002 | 230-231 | 武曲化忌 | 巳亥武破 | 关系投影 | 源文给出配偶权力冲突的传统性别化关系案例 | projection | relationship_case | power_conflict | L3_PROJECTION | CASE_SUPPORT_ONLY
+TC11-056 | SRC-ZZ-002 | 231 | 贪狼化忌 | 贪狼化忌 | 一般 | 贪狼化忌核心偏“夺爱/不如理想”的心理挫折，而非直接物质损失 | structural_relation | psychological_vs_material_loss | psychological_priority | L0_STRUCTURE | ADD_CANDIDATE
+TC11-057 | SRC-ZZ-002 | 231 | 贪狼化忌 | 贪狼化忌 | 不利强度 | 其不利性质通常较温和，可表现为争吵或心绪不宁 | transform | emotional_friction | increase_moderately | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-058 | SRC-ZZ-002 | 231 | 贪狼化忌 | 贪狼化忌 | 情绪持续 | 不宁情绪可能持续较久并推动追求刺激 | history_marker | acquired_stimulation_seeking_disposition | persist_unspecified | ACQUIRED_DISPOSITION | ADD_CANDIDATE
+TC11-059 | SRC-ZZ-002 | 231 | 贪狼化忌 | 贪狼化忌 | 装饰 | 装饰倾向可转为失仪、品味失配或结果不如理想 | transform | aesthetic_execution | decrease | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-060 | SRC-ZZ-002 | 231 | 贪狼化忌 | 田宅宫 | 装修 | 高投入不保证满意结果，资源支出与居住满意度可脱钩 | structural_relation | spending_vs_satisfaction | decouple | L0_STRUCTURE | ADD_CANDIDATE
+TC11-061 | SRC-ZZ-002 | 231 | 贪狼化忌 | 交际应酬 | 花费 | 交际支出更易低效，投入不能转化为认可 | transform | social_spending_efficiency | decrease | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-062 | SRC-ZZ-002 | 231 | 贪狼化忌 | 桃花或科文诸曜 | 同度 | 会曜可把贪狼化忌导向艺术、演艺与公开表现，而非桃花事端 | gate | desire_expression_channel | toward_artistic_performance | STRUCTURAL_GATE | ADD_CANDIDATE
+TC11-063 | SRC-ZZ-002 | 231 | 贪狼化忌 | 贪狼化忌 | 辛劳 | 无事奔忙与高事业心会增加总体劳累 | enhance | effort_load | increase | LOCAL_STATE | ADD_CANDIDATE
+TC11-064 | SRC-ZZ-002 | 231 | 贪狼化忌 | 贪狼化忌 | 多方面经营 | 多线经营会进一步提高劳累而收益常低于预期 | transform | diversification_to_effort_gap | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-065 | SRC-ZZ-002 | 231 | 贪狼化忌 | 贪狼化忌 | 家庭投入 | 事业驱动增强时家庭投入可能下降 | transform | career_drive_vs_family_attention | career_up_family_down | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-066 | SRC-ZZ-002 | 231 | 贪狼化忌 | 子午贪狼 | 才艺 | 子午化忌反可增强才艺表现，说明化忌不是固定负增益 | transform | adversity_to_talent | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-067 | SRC-ZZ-002 | 231 | 贪狼化忌 | 子午贪狼 | 感情 | 才艺与事业财帛良好时，感情困扰仍可独立存在 | structural_relation | talent_resource_vs_relationship | decouple | L0_STRUCTURE | ADD_CANDIDATE
+TC11-068 | SRC-ZZ-002 | 231 | 贪狼化忌 | 子午贪狼 | 子 vs 午 | 子宫整体最佳，午宫次之 | gate | system_quality | enhance_in_zi | COMPATIBILITY_RELATION | ADD_CANDIDATE
+TC11-069 | SRC-ZZ-002 | 231 | 贪狼化忌 | 子午贪狼 | 主观感受 | 客观事业财帛较佳仍可伴随“不如理想”的主观评价 | structural_relation | objective_outcome_vs_subjective_satisfaction | decouple | L0_STRUCTURE | ADD_CANDIDATE
+TC11-070 | SRC-ZZ-002 | 231 | 贪狼化忌 | 子午贪狼 | 关系例示 | 源文给出关系纠缠与难以撇脱的传统投影 | projection | relationship_case | lingering_attachment | L3_PROJECTION | CASE_SUPPORT_ONLY
+TC11-071 | SRC-ZZ-002 | 231 | 贪狼化忌 | 丑未武贪 | 事业财帛 | 化忌对事业与财帛不一定造成直接损害 | structural_relation | ji_vs_career_resource | no_direct_damage | L0_STRUCTURE | ADD_CANDIDATE
+TC11-072 | SRC-ZZ-002 | 231 | 贪狼化忌 | 丑未武贪 | 理想 | 难以达到理想与实际能力发挥可以同时存在 | structural_relation | aspiration_vs_capability | decouple | L0_STRUCTURE | ADD_CANDIDATE
+TC11-073 | SRC-ZZ-002 | 231 | 贪狼化忌 | 丑未武贪 | 才智 | 聪明才智仍可发挥并常导向技艺 | transform | intelligence_to_skill | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-074 | SRC-ZZ-002 | 231 | 贪狼化忌 | 丑未武贪 | 感情 | 感情困扰虽存在，但源文明确可获圆满解决 | transform | relationship_resolution_capacity | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-075 | SRC-ZZ-002 | 231 | 贪狼化忌 | 丑未武贪 | 羊陀 | 羊陀会合是该系统的重要结构条件，但不自动破坏事业财帛 | structural_relation | malefic_presence_vs_resource_outcome | nonfatal | L0_STRUCTURE | ADD_CANDIDATE
