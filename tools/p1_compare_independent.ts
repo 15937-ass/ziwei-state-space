@@ -38,9 +38,24 @@ const rows = parseCsv(fs.readFileSync(inputsPath, "utf8"));
 const targetDates = ["2025-01-29","2025-06-21","2026-02-17","2026-09-23"];
 const branchFromOneBased = ["","子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥"];
 
+const MAJOR_STARS_CN = ["紫微","天机","太阳","武曲","天同","廉贞","天府","太阴","贪狼","巨门","天相","天梁","七杀","破军"] as const;
+const INDEPENDENT_MAJOR_STAR_NAMES: Record<string,string> = {
+  ziwei:"紫微", tianji:"天机", taiyang:"太阳", wuqu:"武曲", tiantong:"天同", lianzhen:"廉贞",
+  tianfu:"天府", taiyin:"太阴", tanlang:"贪狼", jumen:"巨门", tianxiang:"天相", tianliang:"天梁",
+  qisha:"七杀", pojun:"破军",
+};
+
+function normalizeIndependentMajorStar(raw:any): string | null {
+  const value = typeof raw === "string" ? raw : (raw?.id ?? raw?.name ?? raw?.starId ?? null);
+  if (typeof value !== "string") return null;
+  if ((MAJOR_STARS_CN as readonly string[]).includes(value)) return value;
+  return INDEPENDENT_MAJOR_STAR_NAMES[value] ?? null;
+}
+
 let checks = 0;
 let mismatches:any[] = [];
 const categoryCount:Record<string,number> = {};
+const adapterErrors:any[] = [];
 
 function check(caseId:string, category:string, field:string, a:any, b:any, context:any={}) {
   checks++;
@@ -75,8 +90,33 @@ for (const row of rows) {
   const izMajor = new Map<string,string>();
   for (const p of izJson.palaces) for (const s of p.majorStars||[]) izMajor.set(s.name,p.earthlyBranch);
   const indMajor = new Map<string,string>();
-  for (const p of ind.palaces) for (const s of p.mainStars||[]) indMajor.set(s,p.branch);
-  for (const star of ["紫微","天机","太阳","武曲","天同","廉贞","天府","太阴","贪狼","巨门","天相","天梁","七杀","破军"]) {
+  for (const p of ind.palaces) {
+    for (const rawStar of p.mainStars||[]) {
+      const star = normalizeIndependentMajorStar(rawStar);
+      if (!star) {
+        adapterErrors.push({
+          case_id:row.case_id,
+          kind:"unknown_independent_major_star",
+          value:rawStar,
+          palace_branch:p.branch,
+          time_index:ti,
+        });
+        continue;
+      }
+      indMajor.set(star,p.branch);
+    }
+  }
+  const missingMajor = MAJOR_STARS_CN.filter((star)=>!indMajor.has(star));
+  if (missingMajor.length) {
+    adapterErrors.push({
+      case_id:row.case_id,
+      kind:"missing_independent_major_stars",
+      missing:missingMajor,
+      observed:[...indMajor.keys()].sort(),
+      time_index:ti,
+    });
+  }
+  for (const star of MAJOR_STARS_CN) {
     check(row.case_id,"major_star",star,izMajor.get(star),indMajor.get(star),{time_index:ti});
   }
 
@@ -102,11 +142,17 @@ const out={
   checks,
   mismatch_count:mismatches.length,
   mismatch_by_category:categoryCount,
+  adapter_error_count:adapterErrors.length,
+  first_adapter_errors:adapterErrors.slice(0,50),
   first_mismatches:mismatches.slice(0,200),
-  note:"monthly/day oracle is explicitly simplified in upstream independent core; disagreements there are diagnostic, not automatic iztro failures."
+  note:"Independent main-star IDs are normalized to Chinese names before comparison. Monthly/day oracle is explicitly simplified in upstream independent core; semantic disagreements are diagnostic, while adapter extraction failures fail this job."
 };
 console.log("P1_INDEPENDENT_SUMMARY="+JSON.stringify(out));
 fs.writeFileSync("/tmp/p1_independent_mismatches.jsonl",mismatches.map(x=>JSON.stringify(x)).join("\n")+(mismatches.length?"\n":""));
+if (adapterErrors.length) {
+  console.error("P1_INDEPENDENT_ADAPTER_FAILED="+JSON.stringify(adapterErrors.slice(0,20)));
+  process.exit(3);
+}
 
 }
 
