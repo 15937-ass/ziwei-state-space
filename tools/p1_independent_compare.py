@@ -26,6 +26,16 @@ def load(path):
     return out
 
 
+def target_core(target):
+    """Keep only executable target fields shared by all engines.
+
+    Boundary manifests may carry validation-only metadata such as
+    expected_lunar_marker; that metadata is not an engine output and must not
+    participate in cross-engine equality.
+    """
+    return {key: target.get(key) for key in ("target_id", "solar_date", "time_index")}
+
+
 def iztro_projection(row):
     natal=row["natal"]
     positions={}
@@ -57,7 +67,7 @@ def iztro_projection(row):
             }
         yd=t.get("yearly_dec_stars") or {}
         temporal.append({
-            "target":t["target"],
+            "target":target_core(t["target"]),
             "solar_date":t["solar_date"],
             "scopes":scopes,
             "suiqian12":[("大耗" if x == "岁破" else x) for x in yd.get("suiqian12",[])],
@@ -91,7 +101,7 @@ def go_projection(row):
                 s.pop("stars", None)
             scopes[name] = s
         temporal.append({
-            "target": t["target"],
+            "target": target_core(t["target"]),
             "solar_date": t["solar_date"],
             "scopes": scopes,
             "suiqian12": [("大耗" if x == "岁破" else x) for x in t.get("suiqian12", [])],
