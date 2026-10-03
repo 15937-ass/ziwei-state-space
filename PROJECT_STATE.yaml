@@ -3,9 +3,9 @@ repository: "15937-ass/ziwei-state-space"
 
 project:
   current_phase: "Phase II knowledge-base construction + product-first engineering"
-  execution_state: "WP05_CHILDREN_CH02_READY_FOR_PR"
+  execution_state: "WP05_CHILDREN_CH03_READY_FOR_PR"
   current_work_unit: "WP05_CHILDREN_PALACE_CORPUS"
-  state_sync: "WP05_CHILDREN_CH02_PENDING"
+  state_sync: "WP05_CHILDREN_CH03_PENDING"
   last_approved_gate: "A2-R1"
   pending_gate: null
   blocked_reason: null
@@ -18,7 +18,7 @@ git:
   checkpoint_merge: "382cbda21ee2701445ce0846fd50179a4bca1ed1"
   stale_open_prs: []
   branch_cleanup_status: "POST_P1_ACTIVE_POINTERS_CLOSED; LEGACY_BRANCH_DELETION_PENDING"
-  note: "Children Palace CH02 closes records 101-200. Cumulative children corpus: 200 reviewed, 135 reusable, 65 case-support-only, 0 history feedback."
+  note: "Children Palace CH03 closes records 201-300. Cumulative children corpus: 300 reviewed, 206 reusable, 94 case-support-only, 0 history feedback."
 
 gates:
   A0: "APPROVED"
@@ -45,13 +45,13 @@ progress:
     system_operator_edges: 654
   wp05_projection_corpus:
     palace: "子女宫"
-    checkpoint: "CH02"
-    reviewed_items: 200
-    reusable_projection_rules: 135
-    case_support_only: 65
+    checkpoint: "CH03"
+    reviewed_items: 300
+    reusable_projection_rules: 206
+    case_support_only: 94
     history_feedback: 0
-    status: "CH02_SOURCE_SPAN_VERIFIED_READY_FOR_PR"
-    next_anchor: "CH03_TIANJI_SIHAI_THEN_SOLAR"
+    status: "CH03_SOURCE_SPAN_VERIFIED_READY_FOR_PR"
+    next_anchor: "CH04_WUQU_THEN_TIANTONG"
   wp04_source_closure:
     chapter: "GLOBAL"
     checkpoint: "MAL01"
@@ -80,7 +80,7 @@ productization:
     - "100 chart-regression seed inputs + validator"
   next_work_unit: "PRODUCT_P1_B02_TEMPORAL_BOUNDARY_MATRIX"
   product_chat_scope: "This conversation owns productization, product data, adapters, inference MVP, benchmark and UX. Knowledge-base extraction continues in other project conversations."
-  research_track_next: "WP05_CHILDREN_CH03_CONTINUE"
+  research_track_next: "WP05_CHILDREN_CH04_CONTINUE"
   casebook_training_corpus:
     collection_id: "LIAORAN_CASEBOOKS_3"
     status: "ALL_3_BOUND_INDEXED_100_PILOT20_QUEUED"
@@ -204,6 +204,8 @@ canonical_artifacts:
   wp05_children_ch01_csv: "validation/wp05/CH01_children_projection_review_001_100.csv"
   wp05_children_ch02_review: "validation/wp05/CH02_CHILDREN_PROJECTION_REVIEW.md"
   wp05_children_ch02_csv: "validation/wp05/CH02_children_projection_review_101_200.csv"
+  wp05_children_ch03_review: "validation/wp05/CH03_CHILDREN_PROJECTION_REVIEW.md"
+  wp05_children_ch03_csv: "validation/wp05/CH03_children_projection_review_201_300.csv"
   wp05_siblings_sb02_review: "validation/wp05/SB02_SIBLINGS_PROJECTION_REVIEW.md"
   wp05_siblings_sb02_csv: "validation/wp05/SB02_siblings_projection_review_101_200.csv"
   wp05_projection_coverage: "knowledge/wp05/wp05_projection_coverage_v0.1.csv"
