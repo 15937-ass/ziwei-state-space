@@ -1,5 +1,5 @@
 task_id: PRODUCT-P1
-version: "0.1"
+version: "0.2"
 status: ACTIVE
 title: "normalized chart adapters + first differential seed set"
 objective: >
@@ -12,13 +12,15 @@ completed_in_this_checkpoint:
   - "iztro exporter v0.1"
   - "100 deterministic regression seed inputs"
   - "seed loader/validator and CSV->JSONL utility"
+  - "B01: 100 natal + 400 horoscope full diff, iztro JS vs x-iztro Rust: 0 differences"
+  - "B01: pinned independent Go school-neutral audit: 0 differences"
+  - "B01: mismatch ledger; 5 observed false-difference classes resolved, UNRESOLVED=0"
 
 next:
-  - "run iztro 2.6.1 export for all 100 seeds"
-  - "implement internal chart adapter or import current chart-engine output"
-  - "compute diffs with src/product/chart_diff.py"
-  - "create mismatch_resolution_v0.1.csv"
-  - "promote only resolved cases to golden expected outputs"
+  - "B02: run explicit lunar-year/month/leap-month/early-late-Zi boundary matrix"
+  - "B02: resolve any true boundary mismatches with source/config adjudication"
+  - "freeze resolved P1 regression contract and acceptance report"
+  - "close PRODUCT-P1 only when boundary matrix is green and UNRESOLVED=0"
 
 mismatch_classes:
   - OUR_BUG

@@ -1,0 +1,6 @@
+mismatch_id,stage,engines,field_pattern,observed_left,observed_right,classification,resolution,status,notes
+M-001,B01,iztro-js_vs_x-iztro-rust,"*.stars[*] ordering","locale-sorted","JSON lexical-sorted",SERIALIZATION_ONLY,"Use language-neutral byte/JSON lexical canonical sort in both adapters",RESOLVED,"No semantic star-set difference"
+M-002,B01,iztro-js_vs_x-iztro-rust,"temporal[*].solar_date","YYYY-M-D","YYYY-MM-DD",SERIALIZATION_ONLY,"Canonicalize solar date to zero-padded YYYY-MM-DD",RESOLVED,"All 400 date-format diffs removed"
+M-003,B01,iztro-zhongzhou_vs_dawang-go,"natal numeric lunar projection","not projected","projected",SERIALIZATION_ONLY,"Remove Go-only fields from school-neutral projection; JS/Rust full diff already verifies lunar text exactly",RESOLVED,"Comparator projection gap, not engine disagreement"
+M-004,B01,iztro-zhongzhou_vs_dawang-go,"temporal[*].scopes.age.stars","absent","12 empty arrays",SERIALIZATION_ONLY,"Omit age.stars from independent projection because both represent no 小限流曜",RESOLVED,"Representation-only nil vs empty-container difference"
+M-005,B01,iztro-zhongzhou_vs_dawang-go,"temporal[*].suiqian12","岁破","大耗",SCHOOL_DIFFERENCE,"Normalize 岁破↔大耗 only in school-neutral audit; preserve native labels in raw artifacts",RESOLVED,"iztro source explicitly uses 岁破 naming for 中州派 while default engine uses 大耗"
