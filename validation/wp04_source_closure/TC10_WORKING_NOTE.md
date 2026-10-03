@@ -60,3 +60,17 @@ TC10-047 | SRC-ZZ-002 | 225 | 巨门化忌 | 辰戌巨门独坐 | 排难解纷 |
 TC10-048 | SRC-ZZ-002 | 225 | 巨门化忌 | 巳亥巨门独坐 | 六亲 vs 是非 | 六亲损害较轻时，是非口舌与感情波折仍可很重 | structural_relation | kinship_damage_vs_conflict | decouple | L0_STRUCTURE | ADD_CANDIDATE
 TC10-049 | SRC-ZZ-002 | 225 | 巨门化忌 | 巳亥巨门独坐 | 外部观感 vs 当事体验 | 外界可视关系良好，而当事人主观不满仍可能存在 | structural_relation | external_relationship_quality_vs_subjective_satisfaction | decouple | L0_STRUCTURE | ADD_CANDIDATE
 TC10-050 | SRC-ZZ-002 | 225 | 巨门化忌 | 巳亥巨门独坐 | 中年关系变化 | 源文给出中年感情变化的传统案例投影 | projection | relationship_case | midlife_change | L3_PROJECTION | CASE_SUPPORT_ONLY
+
+TC10-051 | SRC-ZZ-002 | 225-226 | 天机化忌 | 天机化忌 | 灵动 | 化忌削弱灵动与机动性，增加受阻和失机 | transform | adaptive_mobility | decrease | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-052 | SRC-ZZ-002 | 225-226 | 天机化忌 | 天机化忌 | 计划 | 计划能力可转为计划失误或延误 | transform | planning_quality | decrease | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-053 | SRC-ZZ-002 | 225-226 | 天机化忌 | 天机化忌 | 思考 | 思考可转为过度思虑甚至焦虑 | transform | cognition_to_anxiety | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-054 | SRC-ZZ-002 | 225-226 | 天机化忌 | 天机化忌 | 疾厄宫 | 失眠、神经衰弱等为传统健康投影 | projection | health_case | neuropsychological_symptoms | L3_PROJECTION | CASE_SUPPORT_ONLY
+TC10-055 | SRC-ZZ-002 | 225-226 | 天机化忌 | 天机化忌加煞曜 | 同躔 | 煞曜会放大神经性疾病类传统投影 | projection | health_case | neurological_risk_up | L3_PROJECTION | CASE_SUPPORT_ONLY
+TC10-056 | SRC-ZZ-002 | 225-226 | 天机化忌 | 天机化忌 | 诽谤攻击竞争 | 面对外部攻击若持续对抗，风波易连锁升级 | transform | conflict_feedback | positive_escalation | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-057 | SRC-ZZ-002 | 225-226 | 天机化忌 | 天机化忌 | 以不变应万变 | 降低反应强度可使风波更容易平息 | gate | conflict_damping | increase_by_nonreaction | STRUCTURAL_GATE | ADD_CANDIDATE
+TC10-058 | SRC-ZZ-002 | 226 | 天机化忌 | 子午天机独坐 | 思维 | 简单问题容易被复杂化并导致计划错误 | transform | cognitive_complexification | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-059 | SRC-ZZ-002 | 226 | 天机化忌 | 子午天机独坐 | 工作组织 | 无事奔忙与工作忙乱欠条理可同时增加 | transform | work_disorganization | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-060 | SRC-ZZ-002 | 226 | 天机化忌 | 子午天机独坐 | 压力 | 惊恐、恐吓、恶性竞争等具体形式可统一视作压力输入 | structural_relation | pressure_input | generalized | L0_STRUCTURE | ADD_CANDIDATE
+TC10-061 | SRC-ZZ-002 | 226 | 天机化忌 | 子午天机独坐 | 煞刑并照 | 煞刑会放大健康后遗症类传统投影，午宫较子宫重 | projection | health_case | higher_in_wu | L3_PROJECTION | CASE_SUPPORT_ONLY
+TC10-062 | SRC-ZZ-002 | 226 | 天机化忌 | 丑未天机独坐 | 天梁相对 | 麻烦最终可化解，但精神成本很高 | transform | problem_resolution_vs_mental_cost | resolution_preserved_cost_up | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-063 | SRC-ZZ-002 | 226 | 天机化忌 | 丑未天机独坐 | 计划估计错误 | 突发麻烦常与计划失误或估计错误形成因果链 | transform | planning_error_to_problem | increase | DERIVED_RESPONSE | ADD_CANDIDATE
