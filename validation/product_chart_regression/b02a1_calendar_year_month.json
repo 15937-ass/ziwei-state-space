@@ -1,0 +1,34 @@
+{
+  "version": "0.1",
+  "batch": "P1-B02-A1",
+  "purpose": "calendar year/month boundary isolation; daytime only",
+  "authoritative_calendar_reference": "Hong Kong Observatory Gregorian-Lunar calendar",
+  "max_targets": 8,
+  "targets": [
+    {
+      "target_id": "A1_LUNAR_YEAR_END",
+      "solar_date": "2028-01-25",
+      "time_index": 6,
+      "expected_lunar_marker": "十二月廿九"
+    },
+    {
+      "target_id": "A1_LUNAR_YEAR_START",
+      "solar_date": "2028-01-26",
+      "time_index": 6,
+      "expected_lunar_marker": "正月初一"
+    },
+    {
+      "target_id": "A1_NORMAL_MONTH_END",
+      "solar_date": "2028-03-25",
+      "time_index": 6,
+      "expected_lunar_marker": "二月三十"
+    },
+    {
+      "target_id": "A1_NORMAL_MONTH_START",
+      "solar_date": "2028-03-26",
+      "time_index": 6,
+      "expected_lunar_marker": "三月初一"
+    }
+  ],
+  "note": "All temporal targets are after the latest natal seed date (2026-10-03)."
+}
