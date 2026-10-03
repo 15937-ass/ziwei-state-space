@@ -23,6 +23,8 @@ Status: **CHECKPOINT_CLOSED_SOURCE_SPAN_VERIFIED**
 ## History feedback
 SP09-821 preserves a source-explicit branch: under the stated Yin-Shen Pojun structure, insisting on a formal wedding changes the later branch toward a period of postmarital separation. This maps to the already-approved **PATH_DEPENDENT_GATE** kind.
 
+All 7 Spouse-Palace history-feedback items are stored in `validation/wp05/SPOUSE_HISTORY_FEEDBACK_v0.1.csv`. The canonical P1 `history_transitions_v0.1.csv` remains frozen at 43 executable transitions; WP05 feedback is source-verified but kept in a separate sidecar until a later integration pass.
+
 ## Spouse Palace cumulative closure
 - reviewed: 836
 - reusable projection rules: 700
