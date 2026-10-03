@@ -85,3 +85,9 @@ MC01-067 | SRC-ZZ-002 | 234 | 红鸾天喜 | 鸾喜 | 流年田宅宫且辅弼 |
 MC01-068 | SRC-ZZ-002 | 234 | 三台八座 | 三台八座 | 一般 | 三台八座均为仪仗之星 | structural_relation | status_symbolism | associate | L0_STRUCTURE | ADD_CANDIDATE
 MC01-069 | SRC-ZZ-002 | 234 | 三台八座 | 三台八座 | 成对会照 | 必须成对会照才形成明显地位增益 | gate | status_gain | require_pair | STRUCTURAL_GATE | ADD_CANDIDATE
 MC01-070 | SRC-ZZ-002 | 234 | 三台八座 | 三台八座 | 与紫微天府太阳太阴同会 | 与主曜同会可提高贵显与地位表现 | transform | status_visibility | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+
+MC01-071 | SRC-ZZ-002 | 234 | 三台八座 | 三台八座 | 天梁同会 | 与天梁同会亦有利于地位表现 | transform | status_visibility | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+MC01-072 | SRC-ZZ-002 | 234 | 三台八座 | 三台八座 | 父母宫正曜吉 | 源文将良好家世作为传统父母宫投影 | projection | family_background_case | privileged_lineage | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC01-073 | SRC-ZZ-002 | 234 | 三台八座 | 三台八座 | 父母宫正曜不吉且单辅佐或桃花 | 源文给出复杂家庭结构的传统六亲投影 | projection | family_background_case | complex_parent_structure | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC01-074 | SRC-ZZ-002 | 234 | 三台八座 | 三台八座 | 夫妻宫且原局不吉 | 台座会放大原有夫妻宫不利性质 | enhance | relationship_adversity | increase | LOCAL_STATE | ADD_CANDIDATE
+MC01-075 | SRC-ZZ-002 | 234 | 龙池凤阁 | 龙池凤阁 | 一般 | 龙池凤阁为文明之宿，成对会入主才艺 | structural_relation | artistic_skill | increase_if_paired | L0_STRUCTURE | ADD_CANDIDATE
