@@ -174,7 +174,14 @@ function iztroPalaceByBranch(a) {
   }
   return out;
 }
-function eq(a,b){ return JSON.stringify(a)===JSON.stringify(b); }
+function stable(value) {
+  if(Array.isArray(value)) return value.map(stable);
+  if(value && typeof value==='object'){
+    return Object.fromEntries(Object.keys(value).sort().map(k=>[k,stable(value[k])]));
+  }
+  return value;
+}
+function eq(a,b){ return JSON.stringify(stable(a))===JSON.stringify(stable(b)); }
 
 const cases=parseCSV(fs.readFileSync(INPUT,'utf8'));
 const mismatches=[];
@@ -194,8 +201,7 @@ function check(caseId, group, field, a, b, meta={}) {
 
 for(const c of cases){
   const t=Number(c.time_index);
-  const effectiveBirth=t===12 ? addDays(c.solar_date,1) : c.solar_date;
-  const [by,bm,bd]=effectiveBirth.split('-').map(Number);
+  const [by,bm,bd]=c.solar_date.split('-').map(Number);
   const g=c.gender==='male' ? fortel.Gender.M : fortel.Gender.F;
 
   const iz=astro.withOptions({
@@ -207,10 +213,28 @@ for(const c of cases){
     },
   });
 
-  const fb=new fortel.DestinyBoard(fortel.DestinyConfigBuilder.withSolar({
-    year:by, month:bm, day:bd, bornTimeGround:fortel.DayTimeGround.get(fortelTime(t)),
+  const fbBaseConfig=fortel.DestinyConfigBuilder.withSolar({
+    year:by, month:bm, day:bd, bornTimeGround:fortel.DayTimeGround.get(t),
     configType:fortel.ConfigType.SKY, gender:g,
-  }));
+  });
+  let fbConfig=fbBaseConfig;
+  if(t===12){
+    // iztro forward late-Zi keeps birth month/palace geometry on the civil date,
+    // but uses the next lunar day (wrapped within the lunar month) for Ziwei-day
+    // placement and the next sexagenary day pillar.
+    const [ny,nm,nd]=addDays(c.solar_date,1).split('-').map(Number);
+    const nextLunar=fortel.defaultCalendar.solar2lunar(ny,nm,nd);
+    fbConfig=new fortel.DestinyConfig({
+      year:fbBaseConfig.year, month:fbBaseConfig.month, day:nextLunar.lunarDay,
+      isLeapMonth:fbBaseConfig.isLeapMonth,
+      yearSky:fbBaseConfig.yearSky, yearGround:fbBaseConfig.yearGround,
+      monthSky:fbBaseConfig.monthSky, monthGround:fbBaseConfig.monthGround,
+      daySky:nextLunar.daySky, dayGround:nextLunar.dayGround,
+      bornTimeGround:fortel.DayTimeGround.get(12),
+      configType:fortel.ConfigType.SKY, gender:g,
+    });
+  }
+  const fb=new fortel.DestinyBoard(fbConfig);
 
   let passed=true;
   passed &= check(c.case_id,'natal','five_elements',simp(iz.fiveElementsClass),simp(fb.element.displayName),{time_index:t});
@@ -233,29 +257,39 @@ for(const c of cases){
 
   const targetT=Number(c.target_time_index);
   const h=iz.horoscope(`${c.target_date} ${clockFor(targetT)}`);
-  const effectiveTarget=targetT===12 ? addDays(c.target_date,1) : c.target_date;
-  const [ty,tm,td]=effectiveTarget.split('-').map(Number);
+  const [ty,tm,td]=c.target_date.split('-').map(Number);
   const lunar=fortel.defaultCalendar.solar2lunar(ty,tm,td);
   const rt=fb.getRuntimContext({
     lunarYear:lunar.lunarYear,lunarMonth:lunar.lunarMonth,lunarDay:lunar.lunarDay,
     leap:lunar.isLeapMonth,
   });
+  let rtDay=rt;
+  if(targetT===12){
+    // Horoscope geometry (monthly/daily palace index) uses the target civil lunar
+    // date in iztro, while the sexagenary daily pillar follows next-day late-Zi.
+    const [ey,em,ed]=addDays(c.target_date,1).split('-').map(Number);
+    const el=fortel.defaultCalendar.solar2lunar(ey,em,ed);
+    rtDay=fb.getRuntimContext({
+      lunarYear:el.lunarYear,lunarMonth:el.lunarMonth,lunarDay:el.lunarDay,
+      leap:el.isLeapMonth,
+    });
+  }
 
   const layers=[
-    ['decadal',h.decadal,rt.tenYear,rt.tenYearSky,rt.tenYearGround],
-    ['yearly',h.yearly,rt.year,rt.yearSky,rt.yearGround],
-    ['monthly',h.monthly,rt.month,rt.monthSky,rt.monthGround],
-    ['daily',h.daily,rt.day,rt.daySky,rt.dayGround],
+    ['decadal',h.decadal,rt.tenYear,rt.tenYearSky,rt.tenYearGround,rt.tenYear],
+    ['yearly',h.yearly,rt.year,rt.yearSky,rt.yearGround,rt.year],
+    ['monthly',h.monthly,rt.month,rt.monthSky,rt.monthGround,rt.month],
+    ['daily',h.daily,rt.day,rtDay.daySky,rtDay.dayGround,rtDay.day],
   ];
-  for(const [name, ih, fr, fs, fg] of layers){
+  for(const [name, ih, fr, fs, fg, fForDerivative] of layers){
     passed &= check(c.case_id,name,'stem',simp(ih.heavenlyStem),simp(fs.displayName),{target_date:c.target_date,target_time_index:targetT});
     passed &= check(c.case_id,name,'branch',simp(ih.earthlyBranch),simp(fg.displayName),{target_date:c.target_date,target_time_index:targetT});
     const izPalaceBranch = ih.index >= 0 ? simp(iz.palaces[ih.index].earthlyBranch) : null;
     passed &= check(c.case_id,name,'palace_branch',izPalaceBranch,simp(fr.cellGround.displayName),{target_date:c.target_date,target_time_index:targetT});
-    passed &= check(c.case_id,name,'mutagens',transformFromIztro(ih),runtimeTransformFromFortel(fr.starDerivativeMap),{target_date:c.target_date,target_time_index:targetT});
-    if(ih.stars && fr.groundStars){
+    passed &= check(c.case_id,name,'mutagens',transformFromIztro(ih),runtimeTransformFromFortel(fForDerivative.starDerivativeMap),{target_date:c.target_date,target_time_index:targetT});
+    if(ih.stars && fForDerivative.groundStars){
       const isf=flowBranchIztro(iz,ih,SHARED_FLOW);
-      const fsf=flowBranchFortel(fr.groundStars,SHARED_FLOW);
+      const fsf=flowBranchFortel(fForDerivative.groundStars,SHARED_FLOW);
       for(const s of SHARED_FLOW) passed &= check(c.case_id,name,`flow_star.${s}`,isf[s]??null,fsf[s]??null,{target_date:c.target_date,target_time_index:targetT});
     }
   }
