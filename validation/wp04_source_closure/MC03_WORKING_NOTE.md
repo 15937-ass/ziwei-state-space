@@ -1,7 +1,6 @@
-# MC03
+# MC03 — MISC SOURCE REVIEW
 
-Final misc-star chapter source-review checkpoint.
-status: ACTIVE
+status: CHECKPOINT_CLOSED_SOURCE_SPAN_VERIFIED
 
 ## MC03 structured review
 schema: id | source_id | page | section | subject | condition | claim | operator | target | change | layer | disposition
@@ -68,3 +67,16 @@ MC03-052 | SRC-ZZ-002 | 237 | 长生十二神 | 养 | 一般 | 养主培育 | en
 
 next_anchor: 流曜总论
 chapter_boundary_reached: true
+
+## Checkpoint summary
+
+- reviewed: 52
+- ADD_CANDIDATE: 48
+- CASE_SUPPORT_ONLY: 4
+- source_span_verified: 52/52
+- normalization_verified: 52/52
+- new Human Gate: 0
+- new primitive qi: 0
+- new history-memory type: 0
+- chapter boundary reached: YES
+- next heading: 流曜总论
