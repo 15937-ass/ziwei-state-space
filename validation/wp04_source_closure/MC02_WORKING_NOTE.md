@@ -77,3 +77,11 @@ MC02-060 | SRC-ZZ-002 | 236 | 天月 | 天月在迁移宫 | 原星系不吉 | �
 MC02-061 | SRC-ZZ-002 | 236 | 天月 | 天月 | 财帛宫见煞 | 健康负担可转化为资源支出 | transform | health_cost_to_financial_loss | increase | DERIVED_RESPONSE | ADD_CANDIDATE
 MC02-062 | SRC-ZZ-002 | 236 | 天月 | 天月 | 交友宫见煞 | 源文给出下属导致资源损失的传统人际投影 | projection | subordinate_case | resource_loss | L3_PROJECTION | CASE_SUPPORT_ONLY
 MC02-063 | SRC-ZZ-002 | 236 | 天月 | 天月 | 事业宫见吉 | 可提高医药相关职业场景适配 | projection | occupation_example | medical_domain | L3_PROJECTION | CASE_SUPPORT_ONLY
+
+MC02-064 | SRC-ZZ-002 | 236 | 阴煞 | 阴煞 | 一般 | 阴煞主险损与暗中干扰 | enhance | hidden_adversity | increase | LOCAL_STATE | ADD_CANDIDATE
+MC02-065 | SRC-ZZ-002 | 236 | 阴煞 | 阴煞 | 健康 | 源文给出耗损型健康象义，保留为传统案例 | projection | health_case | depletion_case | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC02-066 | SRC-ZZ-002 | 236 | 阴煞 | 廉贞阴煞 | 田宅宫并见煞忌 | 源文给出传统文化中的异常环境投影，不作现代事实外推 | projection | traditional_symbolic_case | preserve_source_only | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC02-067 | SRC-ZZ-002 | 236 | 阴煞 | 敏感正曜加阴煞 | 命宫 | 源文给出传统文化中的异常感应投影 | projection | traditional_symbolic_case | preserve_source_only | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC02-068 | SRC-ZZ-002 | 236 | 华盖 | 华盖 | 一般 | 华盖主孤高 | enhance | aloofness | increase | LOCAL_STATE | ADD_CANDIDATE
+MC02-069 | SRC-ZZ-002 | 236 | 华盖 | 华盖 | 见科文诸曜 | 可把孤高导向哲学、文艺兴趣及独特见解 | transform | isolation_to_intellectual_creativity | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+MC02-070 | SRC-ZZ-002 | 236 | 华盖 | 华盖 | 见空曜 | 可把兴趣导向宗教领域 | gate | intellectual_domain | toward_religion | STRUCTURAL_GATE | ADD_CANDIDATE
