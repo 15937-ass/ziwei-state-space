@@ -1,7 +1,6 @@
-# TC09
+# TC09 — TRANSFORMATION SOURCE REVIEW
 
-Working source-review checkpoint.
-status: ACTIVE
+status: CHECKPOINT_CLOSED_SOURCE_SPAN_VERIFIED
 
 ## TC09 structured review
 schema: id | source_id | page | section | subject | condition | claim | operator | target | change | layer | disposition
@@ -116,3 +115,15 @@ TC09-099 | SRC-ZZ-002 | 223 | 太阴化忌 | 戌宫太阴 | 对宫太阳在辰 |
 TC09-100 | SRC-ZZ-002 | 223 | 太阴化忌 | 亥宫太阴 | 变景 | 亥宫化忌可形成一度艰辛后反而成业的反转结构，显示化忌不能编码为固定负增益 | transform | adversity_to_achievement_reversal | increase_after_hardship | DERIVED_RESPONSE | ADD_CANDIDATE
 
 next_anchor: 廉贞(丙干化忌)
+
+## Checkpoint summary
+
+- reviewed: 100
+- ADD_CANDIDATE: 89
+- CASE_SUPPORT_ONLY: 11
+- source_span_verified: 100/100
+- normalization_verified: 100/100
+- new Human Gate: 0
+- new primitive qi: 0
+- new history-memory type: 0
+- next anchor: 廉贞(丙干化忌)
