@@ -3,7 +3,7 @@ repository: "15937-ass/ziwei-state-space"
 
 project:
   current_phase: "Phase II knowledge-base construction + WP04 operator source-coverage closure"
-  execution_state: "WP04_SOURCE_CLOSURE_CHECKPOINTED"
+  execution_state: "WP04_SOURCE_CLOSURE_ACTIVE"
   current_work_unit: "WP04_AUXILIARY_SOURCE_CLOSURE_AUX02"
   state_sync: "WP04_AUX01_MERGED"
   last_approved_gate: "A2-R1"
@@ -12,13 +12,13 @@ project:
 
 git:
   default_branch: "main"
-  active_branch: null
-  active_pull_request: null
+  active_branch: "audit/wp04-auxiliary-aux02"
+  active_pull_request: 75
   canonical_research_state_branch: "main"
   checkpoint_merge: "e8255d82b9a2ce0343d6f5635919db18ea8199fe"
   stale_open_prs: []
   branch_cleanup_status: "POST_P1_ACTIVE_POINTERS_CLOSED; LEGACY_BRANCH_DELETION_PENDING"
-  note: "PR #74 merged AUX01: 100 auxiliary rules source-verified via v0.3 sidecar. AUX02 will review the final 3 auxiliary rules and close the chapter; no new Human Gate is open."
+  note: "AUX02 source-verifies the final 3 auxiliary rules and closes the 103-row 辅佐八曜 catalog. Cumulative: 73 ADD_CANDIDATE, 30 CASE_SUPPORT_ONLY. Raw legacy catalog remains provenance-preserving; AUX01/AUX02 sidecars are authoritative. Next source gap is 六煞."
 
 gates:
   A0: "APPROVED"
@@ -45,12 +45,12 @@ progress:
     system_operator_edges: 654
   wp04_source_closure:
     chapter: "辅佐八曜"
-    checkpoint: "AUX01"
-    reviewed_items: 100
-    add_candidates: 71
-    case_support_only: 29
-    status: "AUX01_MERGED_NEXT_AUX02"
-    next_anchor: "MOD-AUX-0101/禄存天马页170-171"
+    checkpoint: "AUX02"
+    reviewed_items: 103
+    add_candidates: 73
+    case_support_only: 30
+    status: "AUX02_SOURCE_SPAN_VERIFIED_AUXILIARY_CHAPTER_CLOSED_READY_FOR_PR"
+    next_anchor: "煞曜/六煞总论页171"
   manuscript:
     file: "paper/manuscript_v0.1.md"
     status: "STALE_PRE_A2_DRAFT_DO_NOT_USE_FOR_CURRENT_METRICS"
@@ -102,6 +102,9 @@ canonical_artifacts:
   wp04_dignity_chapter_closure_audit: "validation/wp04_source_closure/WP04_DIGNITY_CHAPTER_CLOSURE_AUDIT.md"
   wp04_aux01_source_review: "validation/wp04_source_closure/AUX01_AUXILIARY_SOURCE_REVIEW.md"
   wp04_aux01_review_csv: "validation/wp04_source_closure/AUX01_auxiliary_source_review_v0.1.csv"
+  wp04_aux02_source_review: "validation/wp04_source_closure/AUX02_AUXILIARY_SOURCE_REVIEW.md"
+  wp04_aux02_review_csv: "validation/wp04_source_closure/AUX02_auxiliary_source_review_v0.1.csv"
+  wp04_auxiliary_chapter_closure_audit: "validation/wp04_source_closure/WP04_AUXILIARY_CHAPTER_CLOSURE_AUDIT.md"
   wp04_source_closure_ledger: "knowledge/coverage/wp04_source_chapter_closure_v0.1.csv"
 
 historical_noncanonical_gate_documents:
