@@ -120,16 +120,21 @@ def main():
     ap.add_argument("go")
     ap.add_argument("--report",required=True)
     ap.add_argument("--fail-on-core-diff",action="store_true")
+    ap.add_argument("--max-total-diffs",type=int,default=500)
+    ap.add_argument("--max-detail-per-case",type=int,default=100)
     args=ap.parse_args()
     left=load(args.iztro); right=load(args.go)
-    details=[]; total=0; cases=0
+    details=[]; total=0; cases=0; truncated=False
     for cid in sorted(set(left)|set(right)):
         if cid not in left or cid not in right:
             d=[{"path":"record","left":cid in left,"right":cid in right}]
         else:
             d=walk(iztro_projection(left[cid]),go_projection(right[cid]))
         if d:
-            cases+=1; total+=len(d); details.append({"case_id":cid,"difference_count":len(d),"differences":d[:300]})
+            cases+=1; total+=len(d); details.append({"case_id":cid,"difference_count":len(d),"differences":d[:args.max_detail_per_case]})
+            if total >= args.max_total_diffs:
+                truncated=True
+                break
     report={
         "case_count":len(set(left)|set(right)),
         "cases_with_differences":cases,
@@ -138,6 +143,9 @@ def main():
         "comparison_scope":"school-neutral natal core + decadal/year/month/day/hour structural fields",
         "go_source_revision":"947166fc45cd7c8c0849da1bd870f570972a7172",
         "details":details,
+        "truncated_at_difference_cap":truncated,
+        "max_total_diffs":args.max_total_diffs,
+        "max_detail_per_case":args.max_detail_per_case,
     }
     Path(args.report).write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
     print("P1 INDEPENDENT GO CORE AUDIT")
@@ -150,6 +158,9 @@ def main():
             print("CASE",item["case_id"],"diffs",item["difference_count"])
             for d in item["differences"][:15]:
                 print(" ",d["path"],"LEFT=",d["left"],"RIGHT=",d["right"])
+    if truncated:
+        print(f"FAIL-FAST: difference cap reached ({args.max_total_diffs}); report is intentionally truncated")
+        return 2
     return 1 if args.fail_on_core_diff and total else 0
 
 if __name__=="__main__":
