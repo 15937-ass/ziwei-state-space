@@ -94,7 +94,8 @@ function simp(s) {
     .replaceAll('傷','伤').replaceAll('虛','虚').replaceAll('廚','厨').replaceAll('貴','贵')
     .replaceAll('誥','诰').replaceAll('將','将').replaceAll('書','书').replaceAll('氣','气')
     .replaceAll('紅','红').replaceAll('臺','台').replaceAll('廕','荫').replaceAll('弔','吊')
-    .replaceAll('喪','丧').replaceAll('貫','贯').replaceAll('華','华').replaceAll('災','灾')
+    .replaceAll('喪','丧').replaceAll('貫','贯').replaceAll('華','华').replaceAll('蓋','盖')
+    .replaceAll('災','灾').replaceAll('驛','驿').replaceAll('飛','飞')
     .replaceAll('遷','迁').replaceAll('財','财').replaceAll('僕','仆').replaceAll('業','业')
     .replaceAll('宮','宫').replaceAll('歲','岁').replaceAll('鸞','鸾');
 }
