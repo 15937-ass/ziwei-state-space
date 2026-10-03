@@ -26,6 +26,44 @@ const MAJOR = ['紫微','天机','太阳','武曲','天同','廉贞','天府','�
 const SHARED_MINOR = ['禄存','天魁','天钺','文昌','文曲','左辅','右弼','地空','地劫','火星','铃星','擎羊','陀罗','天马'];
 const SHARED_FLOW = ['禄存','天魁','天钺','文昌','文曲','擎羊','陀罗'];
 const MUT_NAMES = ['禄','权','科','忌'];
+const FORTEL_STATIC_NAMES = new Set([
+  ...fortel.MajorStar.stars,
+  ...fortel.MinorStar.stars,
+  ...fortel.MiniStar.stars,
+].map(s=>simp(s.displayName)));
+
+function brightnessBandIztro(v) {
+  const x=simp(v || '');
+  if(['庙','旺'].includes(x)) return 2;
+  if(['得','利'].includes(x)) return 1;
+  if(['平','不',''].includes(x)) return 0;
+  if(x==='陷') return -1;
+  return null;
+}
+function allStaticBranchesIztro(a) {
+  const out={};
+  for(const p of a.palaces){
+    for(const s of [...(p.majorStars||[]),...(p.minorStars||[]),...(p.adjectiveStars||[])]){
+      const n=starName(s);
+      if(!FORTEL_STATIC_NAMES.has(n)) continue;
+      (out[n] ??= []).push(simp(p.earthlyBranch));
+    }
+  }
+  for(const k of Object.keys(out)) out[k].sort();
+  return out;
+}
+function allStaticBranchesFortel(board) {
+  const out={};
+  for(const cell of board.cells){
+    for(const s of cell.allStars){
+      const n=simp(s.displayName);
+      if(!FORTEL_STATIC_NAMES.has(n)) continue;
+      (out[n] ??= []).push(simp(cell.ground.displayName));
+    }
+  }
+  for(const k of Object.keys(out)) out[k].sort();
+  return out;
+}
 
 function simp(s) {
   if (s == null) return s;
@@ -183,6 +221,30 @@ function stable(value) {
 }
 function eq(a,b){ return JSON.stringify(stable(a))===JSON.stringify(stable(b)); }
 
+function fix12(x){ return ((x%12)+12)%12; }
+function canonicalTemporalPalaces(iz, h, lunar) {
+  const monthlyIndex=h.monthly.index;
+  let dailyIndex=h.daily.index;
+  let rule='NORMAL_MONTH';
+  if(lunar.isLeapMonth){
+    const regularDays=fortel.defaultCalendar.lunarMonthDays(lunar.lunarYear,lunar.lunarMonth,false);
+    if(lunar.lunarDay <= 15){
+      dailyIndex=fix12(monthlyIndex + regularDays + lunar.lunarDay - 1);
+      rule='LEAP_FIRST_HALF_CONTINUES_PREVIOUS_MONTH';
+    } else {
+      dailyIndex=fix12(monthlyIndex + lunar.lunarDay - 16);
+      rule='LEAP_SECOND_HALF_STARTS_FROM_NEXT_MONTH_PALACE';
+    }
+  }
+  return {
+    monthly_branch:simp(iz.palaces[monthlyIndex].earthlyBranch),
+    daily_branch:simp(iz.palaces[dailyIndex].earthlyBranch),
+    monthly_index:monthlyIndex,
+    daily_index:dailyIndex,
+    rule,
+  };
+}
+
 const cases=parseCSV(fs.readFileSync(INPUT,'utf8'));
 const mismatches=[];
 const caseResults=[];
@@ -253,12 +315,32 @@ for(const c of cases){
   for(const s of MAJOR) passed &= check(c.case_id,'natal_major_star',s,imaj[s]??null,fmaj[s]??null,{time_index:t});
   const imin=starBranchIztro(iz,SHARED_MINOR), fmin=starBranchFortel(fb,SHARED_MINOR);
   for(const s of SHARED_MINOR) passed &= check(c.case_id,'natal_shared_minor_star',s,imin[s]??null,fmin[s]??null,{time_index:t});
+
+  // Compare every static star name implemented by Fortel and present in iztro,
+  // using branch multisets so duplicate stars (e.g. 旬空/截空) remain visible.
+  const iAll=allStaticBranchesIztro(iz), fAll=allStaticBranchesFortel(fb);
+  const commonStatic=[...new Set([...Object.keys(iAll),...Object.keys(fAll)])].filter(n=>FORTEL_STATIC_NAMES.has(n)).sort();
+  for(const s of commonStatic) passed &= check(c.case_id,'natal_static_star',s,iAll[s]??[],fAll[s]??[],{time_index:t});
+
+  // Fortel exposes a four-band major-star energy table. Collapse iztro's
+  // 庙/旺/得/利/平/不/陷 to the same four bands for an independent sanity check.
+  for(const p of iz.palaces){
+    for(const s of (p.majorStars||[])){
+      const n=starName(s);
+      const fs=fortel.MajorStar.stars.find(x=>simp(x.displayName)===n);
+      if(fs){
+        passed &= check(c.case_id,'natal_major_brightness_band',n,brightnessBandIztro(s.brightness),fb.getMajorStarEnergyLevel(fs),{branch:simp(p.earthlyBranch),raw_iztro:simp(s.brightness)});
+      }
+    }
+  }
+
   passed &= check(c.case_id,'natal','mutagens',natalTransformFromIztro(iz),natalTransformFromFortel(fb.bornStarDerivativeMap),{time_index:t});
 
   const targetT=Number(c.target_time_index);
   const h=iz.horoscope(`${c.target_date} ${clockFor(targetT)}`);
   const [ty,tm,td]=c.target_date.split('-').map(Number);
   const lunar=fortel.defaultCalendar.solar2lunar(ty,tm,td);
+  const canonicalPalaces=canonicalTemporalPalaces(iz,h,lunar);
   const rt=fb.getRuntimContext({
     lunarYear:lunar.lunarYear,lunarMonth:lunar.lunarMonth,lunarDay:lunar.lunarDay,
     leap:lunar.isLeapMonth,
@@ -301,21 +383,61 @@ const byGroup={};
 for(const m of mismatches){
   byGroup[m.group]=(byGroup[m.group]||0)+1;
 }
+
+// Source-resolve the known leap-month flow-palace algorithm divergence.
+// Zhongzhou source: leap month 1-15 belongs previous month and flow-day count
+// continues; day 16+ belongs next month and starts from that next-month palace.
+const sourceResolutions=[];
+const unresolved=[];
+for(const m of mismatches){
+  if((m.group==='monthly' || m.group==='daily') && m.field==='palace_branch'){
+    const row=cases.find(x=>x.case_id===m.case_id);
+    const [y,mo,d]=row.target_date.split('-').map(Number);
+    const lu=fortel.defaultCalendar.solar2lunar(y,mo,d);
+    if(lu.isLeapMonth){
+      // Recreate iztro horoscope only to derive the source-canonical palace index.
+      const izCase=astro.withOptions({
+        type:'solar', dateStr:row.solar_date, timeIndex:Number(row.time_index), gender:row.gender,
+        fixLeap:true, language:'zh-CN', astroType:'heaven',
+        config:{algorithm:'zhongzhou',dayDivide:'forward',yearDivide:'normal',horoscopeDivide:'normal',mutagens:ZZ_MUTAGENS},
+      });
+      const hh=izCase.horoscope(`${row.target_date} ${clockFor(Number(row.target_time_index))}`);
+      const cp=canonicalTemporalPalaces(izCase,hh,lu);
+      const canonical=m.group==='monthly' ? cp.monthly_branch : cp.daily_branch;
+      const winner=(m.iztro===canonical && m.fortel===canonical) ? 'BOTH'
+        : (m.iztro===canonical ? 'IZTRO'
+        : (m.fortel===canonical ? 'FORTEL' : 'CANONICAL_OVERRIDE'));
+      sourceResolutions.push({...m,classification:'SOURCE_RESOLVED_LEAP_MONTH',canonical,winner,lunar:{year:lu.lunarYear,month:lu.lunarMonth,day:lu.lunarDay,isLeap:true},rule:cp.rule});
+      continue;
+    }
+  }
+  unresolved.push(m);
+}
 const summary={
   engine_a:{name:'iztro',version:'2.6.1',algorithm:'zhongzhou',astroType:'heaven',dayDivide:'forward',yearDivide:'normal',horoscopeDivide:'normal',customMutagens:'ZHONGZHOU_v0.2'},
-  engine_b:{name:'fortel-ziweidoushu',version:'1.3.4',configType:'SKY',lateZiAdapter:'shift_to_next_date_then_early_Zi'},
+  engine_b:{name:'fortel-ziweidoushu',version:'1.3.4',configType:'SKY',lateZiAdapter:'source-compatible split semantics for natal day placement and temporal day pillar'},
   total_cases:cases.length,
   fully_matching_cases:caseResults.filter(x=>x.passed).length,
   cases_with_mismatch:caseResults.filter(x=>!x.passed).length,
-  total_field_mismatches:mismatches.length,
+  total_raw_field_mismatches:mismatches.length,
+  source_resolved_mismatches:sourceResolutions.length,
+  unresolved_core_mismatches:unresolved.length,
   mismatch_by_group:byGroup,
   field_stats:fieldStats,
 };
 fs.mkdirSync(path.dirname(REPORT),{recursive:true});
-fs.writeFileSync(REPORT,JSON.stringify({summary,cases:caseResults,mismatches},null,2)+'\n');
+fs.writeFileSync(REPORT,JSON.stringify({summary,cases:caseResults,mismatches,source_resolutions:sourceResolutions,unresolved},null,2)+'\n');
 console.log(JSON.stringify(summary,null,2));
 console.log('REPORT='+REPORT);
 if(mismatches.length){
   console.log('FIRST_MISMATCHES');
   console.log(JSON.stringify(mismatches.slice(0,30),null,2));
+}
+if(sourceResolutions.length){
+  console.log('SOURCE_RESOLUTIONS');
+  console.log(JSON.stringify(sourceResolutions,null,2));
+}
+if(unresolved.length){
+  console.error('UNRESOLVED_CORE_MISMATCHES='+unresolved.length);
+  process.exitCode=2;
 }
