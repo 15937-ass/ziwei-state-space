@@ -1,7 +1,6 @@
-# TC08
+# TC08 — TRANSFORMATION SOURCE REVIEW
 
-Working source-review checkpoint.
-status: ACTIVE
+status: CHECKPOINT_CLOSED_SOURCE_SPAN_VERIFIED
 
 ## TC08 structured review
 schema: id | source_id | page | section | subject | condition | claim | operator | target | change | layer | disposition
@@ -117,3 +116,15 @@ TC08-099 | SRC-ZZ-002 | 215 | 天梁化科 | 卯酉阳梁 | 文曲化忌条件 |
 TC08-100 | SRC-ZZ-002 | 215-216 | 天梁化科 | 巳亥天梁 | 外界扬名 | 化科主要增加内部声望，外界扬名反会放大灾险；即便有灾危仍较易忍受并转危为安 | transform | internal_reputation_vs_external_risk | internal_up_external_risk_up | DERIVED_RESPONSE | ADD_CANDIDATE
 
 next_anchor: 天府(庚干化科)
+
+## Checkpoint summary
+
+- reviewed: 100
+- ADD_CANDIDATE: 93
+- CASE_SUPPORT_ONLY: 7
+- source_span_verified: 100/100
+- normalization_verified: 100/100
+- new Human Gate: 0
+- new primitive qi: 0
+- new history-memory type: 0
+- next anchor: 天府(庚干化科)
