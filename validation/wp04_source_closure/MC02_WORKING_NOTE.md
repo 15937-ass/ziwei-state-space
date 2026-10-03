@@ -91,3 +91,31 @@ MC02-072 | SRC-ZZ-002 | 236 | 华盖 | 华盖 | 重病者命宫 | 源文以丧�
 MC02-073 | SRC-ZZ-002 | 236 | 咸池 | 咸池 | 一般 | 咸池主桃花与欲望倾向 | enhance | attraction_desire | increase | LOCAL_STATE | ADD_CANDIDATE
 MC02-074 | SRC-ZZ-002 | 236 | 咸池 | 咸池 | 与天德同躔 | 天德可把咸池的桃花性转化为才艺 | transform | attraction_to_talent | increase | DERIVED_RESPONSE | ADD_CANDIDATE
 MC02-075 | SRC-ZZ-002 | 236 | 咸池 | 咸池加天德 | 才艺 | 转化后的才艺更易获得异性欢迎，为传统社会反馈投影 | projection | social_response_case | talent_based_attraction | L3_PROJECTION | CASE_SUPPORT_ONLY
+
+MC02-076 | SRC-ZZ-002 | 236 | 咸池 | 廉贞贪狼加咸池 | 再见煞忌刑耗 | 欲望与桃花条件叠加会提高资源损失和是非纠纷风险 | transform | attraction_to_resource_conflict | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+MC02-077 | SRC-ZZ-002 | 236 | 咸池 | 咸池加昌曲 | 再见禄存或化禄 | 源文将受异性青睐并得财作为传统社会资源投影 | projection | social_resource_case | attraction_to_gain | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC02-078 | SRC-ZZ-002 | 236 | 咸池 | 咸池 | 疾厄宫 | 源文给出生殖系统相关传统健康投影 | projection | health_case | reproductive_system_case | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC02-079 | SRC-ZZ-002 | 236 | 大耗 | 大耗 | 一般 | 大耗主损耗 | enhance | depletion | increase | LOCAL_STATE | ADD_CANDIDATE
+MC02-080 | SRC-ZZ-002 | 236 | 大耗 | 大耗 | 会咸池 | 欲望或桃花事件可转化为资源损失 | transform | attraction_to_financial_loss | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+MC02-081 | SRC-ZZ-002 | 236 | 大耗 | 大耗 | 桃花诸曜加煞忌 | 桃花与煞忌并见会进一步放大损耗和灾扰 | gate | attraction_adversity | increase | STRUCTURAL_GATE | ADD_CANDIDATE
+MC02-082 | SRC-ZZ-002 | 236 | 大耗 | 大耗 | 一般 | 大耗带不继祖业的传统性质 | projection | inheritance_case | discontinuity | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC02-083 | SRC-ZZ-002 | 236 | 大耗 | 大耗 | 田宅宫或父母宫 | 田宅、父母宫会强化祖业连续性受损的传统投影 | gate | inheritance_continuity | decrease | STRUCTURAL_GATE | CASE_SUPPORT_ONLY
+MC02-084 | SRC-ZZ-002 | 236 | 大耗 | 太阴文曲大耗 | 再逢化忌 | 源文给出跌失或财物被取的传统事件投影 | projection | loss_case | accidental_or_external_loss | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC02-085 | SRC-ZZ-002 | 236-237 | 天空 | 天空 | 与地空比较 | 天空与地空性质相近，均带超脱与非现实倾向 | mechanism_comparison | emptiness_style | similar_to_dikong | MECHANISM_COMPARISON | ADD_CANDIDATE
+MC02-086 | SRC-ZZ-002 | 236-237 | 天空 | 天空 | 一般 | 天空增强思想独特与超脱 | enhance | unconventional_thought | increase | LOCAL_STATE | ADD_CANDIDATE
+MC02-087 | SRC-ZZ-002 | 236-237 | 天空 | 天空 | 与地空比较 | 天空较不与人正面抵触，因此社会摩擦低于地空 | mechanism_comparison | social_friction | lower_than_dikong | MECHANISM_COMPARISON | ADD_CANDIDATE
+MC02-088 | SRC-ZZ-002 | 236-237 | 天空 | 天空 | 失衡 | 超脱若缺少现实支撑可转为空想 | transform | transcendence_to_fantasy | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+MC02-089 | SRC-ZZ-002 | 236-237 | 天空 | 天空加紫微 | 同宫 | 宏阔想象可转化为事业开创 | transform | imagination_to_career_creation | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+MC02-090 | SRC-ZZ-002 | 236-237 | 天空 | 天空加贪狼 | 同宫 | 天空可把贪狼桃花性质转向物欲 | transform | attraction_to_material_desire | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+MC02-091 | SRC-ZZ-002 | 236-237 | 天空 | 天空加红鸾天喜 | 同度 | 可增强平易近人与社交接受度 | transform | social_approachability | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+MC02-092 | SRC-ZZ-002 | 236-237 | 天空 | 天空加鸾喜 | 社交过强 | 源文给出因人缘过盛而生困扰的传统关系投影 | projection | relationship_case | social_overload | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC02-093 | SRC-ZZ-002 | 236-237 | 天空 | 天梁天空 | 同度 | 容易出现表达多而行动不足 | transform | speech_to_action_conversion | decrease | DERIVED_RESPONSE | ADD_CANDIDATE
+MC02-094 | SRC-ZZ-002 | 236-237 | 天空 | 天机天空 | 同度 | 计划更容易脱离现实约束 | transform | planning_realism | decrease | DERIVED_RESPONSE | ADD_CANDIDATE
+MC02-095 | SRC-ZZ-002 | 236-237 | 天空 | 天府天空 | 同度 | 天府与天空构成空库 | structural_relation | treasury_state | empty_storehouse | L0_STRUCTURE | ADD_CANDIDATE
+MC02-096 | SRC-ZZ-002 | 236-237 | 天空 | 天府天空 | 财帛宫 | 空库进入财帛宫时资源保存风险更高 | gate | resource_retention | decrease | STRUCTURAL_GATE | ADD_CANDIDATE
+MC02-097 | SRC-ZZ-002 | 237 | 截空旬空 | 截空旬空 | 一般 | 截空旬空均区分正空与旁空 | structural_relation | void_classification | two_classes | L0_STRUCTURE | ADD_CANDIDATE
+MC02-098 | SRC-ZZ-002 | 237 | 截空旬空 | 正空旁空 | 阳年出生 | 阳年阳宫为正空、阴宫为旁空 | structural_relation | placement_rule | branch_by_year_yinyang | L0_STRUCTURE | ADD_CANDIDATE
+MC02-099 | SRC-ZZ-002 | 237 | 截空旬空 | 正空旁空 | 阴年出生 | 阴年阴宫为正空、阳宫为旁空 | structural_relation | placement_rule | reverse_by_year_yinyang | L0_STRUCTURE | ADD_CANDIDATE
+MC02-100 | SRC-ZZ-002 | 237 | 截空旬空 | 正空旁空 | 推断 | 源文只论正空，旁空不纳入同等效力 | gate | void_effect | active_only_for_primary_void | STRUCTURAL_GATE | ADD_CANDIDATE
+
+next_anchor: 截空主障碍 / 不喜与禄存化禄同度
