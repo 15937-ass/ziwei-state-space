@@ -71,7 +71,14 @@ jobs:
           m=json.loads(p.read_text(encoding="utf-8"))
           n=len(m.get("targets", []))
           assert 1 <= n <= 8, f"target count out of guardrail: {n}"
-          print(f"manifest={p} targets={n}")
+          from datetime import date
+          inputs=[]
+          for line in Path("/tmp/p1_inputs.jsonl").read_text(encoding="utf-8").splitlines():
+              if line.strip(): inputs.append(json.loads(line))
+          latest=max(date.fromisoformat(x["solar_date"]) for x in inputs)
+          earliest_target=min(date.fromisoformat(x["solar_date"]) for x in m["targets"])
+          assert earliest_target >= latest, f"temporal target precedes natal seed: earliest_target={earliest_target} latest_birth={latest}"
+          print(f"manifest={p} targets={n} latest_birth={latest} earliest_target={earliest_target}")
           PY
 
       - name: Install pinned engines
