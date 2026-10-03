@@ -3,9 +3,9 @@ repository: "15937-ass/ziwei-state-space"
 
 project:
   current_phase: "Phase II knowledge-base construction + product-first engineering"
-  execution_state: "WP05_SIBLINGS_SB04_READY_FOR_PR"
-  current_work_unit: "WP05_SIBLINGS_PALACE_CORPUS"
-  state_sync: "WP05_SIBLINGS_SB02_PENDING"
+  execution_state: "WP05_SIBLINGS_CLOSED_READY_FOR_PR"
+  current_work_unit: "WP05_SPOUSE_PALACE_ZIWEI"
+  state_sync: "WP05_SIBLINGS_CLOSURE_PENDING"
   last_approved_gate: "A2-R1"
   pending_gate: null
   blocked_reason: null
@@ -18,7 +18,7 @@ git:
   checkpoint_merge: "382cbda21ee2701445ce0846fd50179a4bca1ed1"
   stale_open_prs: []
   branch_cleanup_status: "POST_P1_ACTIVE_POINTERS_CLOSED; LEGACY_BRANCH_DELETION_PENDING"
-  note: "Siblings Palace SB02 closes records 101-200. Cumulative siblings corpus: 200 reviewed, 177 reusable, 23 case-support-only, 0 history feedback."
+  note: "Siblings Palace closed at 461 reviewed records: 387 reusable, 74 case-support-only, 0 history feedback. Next: Spouse Palace, beginning with Ziwei."
 
 gates:
   A0: "APPROVED"
@@ -45,13 +45,13 @@ progress:
     system_operator_edges: 654
   wp05_projection_corpus:
     palace: "兄弟宫"
-    checkpoint: "SB04"
-    reviewed_items: 400
-    reusable_projection_rules: 337
-    case_support_only: 63
+    checkpoint: "SB05_CLOSURE"
+    reviewed_items: 461
+    reusable_projection_rules: 387
+    case_support_only: 74
     history_feedback: 0
-    status: "SB04_SOURCE_SPAN_VERIFIED_READY_FOR_PR"
-    next_anchor: "SB05_tianxiang_tianliang_qisha_pojun_close"
+    status: "SIBLINGS_PALACE_CLOSED_NEXT_SPOUSE_ZIWEI"
+    next_anchor: "SPOUSE_PALACE_ZIWEI"
   wp04_source_closure:
     chapter: "GLOBAL"
     checkpoint: "MAL01"
