@@ -1,0 +1,57 @@
+name: p1-dual-engine-temporal
+
+on:
+  push:
+    branches:
+      - "product/p1-close-dual-engine-temporal"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "tools/p1_*"
+      - "validation/product_chart_regression/**"
+      - ".github/workflows/p1-dual-engine-temporal.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  cross-implementation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install pinned engines
+        run: |
+          npm install --no-save --no-package-lock iztro@2.6.1
+          python -m pip install --upgrade pip
+          python -m pip install x-iztro==0.6.1
+
+      - name: Generate 100 natal + 3600 temporal snapshots with JS iztro
+        run: |
+          node tools/p1_generate_iztro.mjs \
+            validation/product_chart_regression/regression_inputs_v0.1.csv \
+            /tmp/p1_iztro_js.jsonl
+
+      - name: Compare all JS fields against Rust/Python x-iztro
+        run: |
+          python tools/p1_compare_xiztro.py \
+            validation/product_chart_regression/regression_inputs_v0.1.csv \
+            /tmp/p1_iztro_js.jsonl \
+            /tmp/p1_mismatches.jsonl
+
+      - name: Show generated artifact sizes and hashes
+        if: always()
+        run: |
+          wc -l /tmp/p1_iztro_js.jsonl || true
+          wc -l /tmp/p1_mismatches.jsonl || true
+          sha256sum /tmp/p1_iztro_js.jsonl /tmp/p1_mismatches.jsonl || true
