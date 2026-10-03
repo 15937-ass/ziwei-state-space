@@ -49,3 +49,17 @@ TC11-034 | SRC-ZZ-002 | 230 | 武曲化忌 | 丑未武贪 | 理想过高 | 理�
 TC11-035 | SRC-ZZ-002 | 230 | 武曲化忌 | 丑未武贪 | 桃花诸曜 | 桃花会曜可把能量导向演艺娱乐等场景并缓冲部分不利 | gate | occupation_channel | toward_entertainment | STRUCTURAL_GATE | CASE_SUPPORT_ONLY
 TC11-036 | SRC-ZZ-002 | 230 | 武曲化忌 | 丑未武贪 | 煞曜 | 煞曜可把结构导向工程工艺等技术场景并部分转化不利 | gate | occupation_channel | toward_technical | STRUCTURAL_GATE | CASE_SUPPORT_ONLY
 TC11-037 | SRC-ZZ-002 | 230 | 武曲化忌 | 丑未武贪 | 火铃同度 | 火铃会放大暴发后的暴败风险 | transform | burst_to_collapse_risk | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+
+TC11-038 | SRC-ZZ-002 | 230 | 武曲化忌 | 寅申武相 | 合作创业 | 合作与急于求成耦合时更易造成失败受损 | transform | collaboration_haste_failure | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-039 | SRC-ZZ-002 | 230 | 武曲化忌 | 寅申武相 | 合作条件 | 细化合作计划与条件可降低失败风险 | gate | collaboration_risk | decrease_by_contract_clarity | STRUCTURAL_GATE | ADD_CANDIDATE
+TC11-040 | SRC-ZZ-002 | 230 | 武曲化忌 | 寅申武相 | 经商 vs 独当一面 | 不经商而承担独立职责时挫败机会相对较低 | mechanism_comparison | work_mode_risk | lower_in_nonbusiness_role | MECHANISM_COMPARISON | ADD_CANDIDATE
+TC11-041 | SRC-ZZ-002 | 230 | 武曲化忌 | 卯酉武杀 | 人生波动 | 该结构显著增加人生波动、谋事费力与精神压力 | enhance | life_volatility_and_effort | increase | LOCAL_STATE | ADD_CANDIDATE
+TC11-042 | SRC-ZZ-002 | 230 | 武曲化忌 | 卯酉武杀 | 卯 vs 酉 | 卯宫整体较佳 | gate | system_quality | enhance_in_mao | COMPATIBILITY_RELATION | ADD_CANDIDATE
+TC11-043 | SRC-ZZ-002 | 230 | 武曲化忌 | 卯酉武杀 | 消费减压 | 压力可转化为消费行为，形成情绪到资源支出的通道 | transform | stress_to_spending | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-044 | SRC-ZZ-002 | 230 | 武曲化忌 | 卯酉武杀 | 蜚廉同度 | 蜚廉会进一步放大无效消费与购物冲动 | enhance | inefficient_consumption | increase | LOCAL_STATE | ADD_CANDIDATE
+TC11-045 | SRC-ZZ-002 | 230 | 武曲化忌 | 辰戌武曲独坐 | 罗网 | 罗网中易急于突破却反增困扰 | transform | constraint_breakthrough_backfire | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-046 | SRC-ZZ-002 | 230 | 武曲化忌 | 辰戌武曲独坐 | 挫折 | 挫折可进一步转为进退失据与意志下降 | transform | setback_to_demoralization | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-047 | SRC-ZZ-002 | 230 | 武曲化忌 | 辰戌武曲独坐 | 朋友支出 | 对友人高支出而缺少回报会削弱资源保存 | transform | social_spending_to_retention_loss | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-048 | SRC-ZZ-002 | 230 | 武曲化忌 | 巳亥武破 | 合作 | 决裂与挫折性质会显著降低合作稳定性 | gate | collaboration_stability | decrease | STRUCTURAL_GATE | ADD_CANDIDATE
+TC11-049 | SRC-ZZ-002 | 230 | 武曲化忌 | 巳亥武破 | 亥宫羊陀夹忌 | 亥宫夹忌会进一步放大经济压力与能力受限 | gate | financial_constraint | higher_in_hai | STRUCTURAL_GATE | ADD_CANDIDATE
+TC11-050 | SRC-ZZ-002 | 230-231 | 武曲化忌 | 武曲化忌会紫贪 | 紫微必化权 | 权力欲或超能力边界的企图可成为经济困难的重要来源 | transform | power_drive_to_financial_strain | increase | DERIVED_RESPONSE | ADD_CANDIDATE
