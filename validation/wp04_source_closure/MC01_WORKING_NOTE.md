@@ -62,3 +62,9 @@ MC01-047 | SRC-ZZ-002 | 233 | 天刑天姚 | 天姚 | 流年同沐浴咸池大�
 MC01-048 | SRC-ZZ-002 | 233 | 天哭天虚 | 天哭 | 一般 | 天哭主刑克忧伤 | enhance | sorrow | increase | LOCAL_STATE | ADD_CANDIDATE
 MC01-049 | SRC-ZZ-002 | 233 | 天哭天虚 | 天虚 | 一般 | 天虚主空虚忧虑 | enhance | emptiness_anxiety | increase | LOCAL_STATE | ADD_CANDIDATE
 MC01-050 | SRC-ZZ-002 | 233 | 天哭天虚 | 天哭 | 福德宫 | 天哭的情感痛苦性质在福德宫更不利 | gate | inner_distress | increase_in_fude | STRUCTURAL_GATE | ADD_CANDIDATE
+
+MC01-051 | SRC-ZZ-002 | 233 | 天哭天虚 | 天虚 | 财帛宫 | 天虚在财帛宫强化物质缺乏与资源不足 | gate | material_sufficiency | decrease_in_wealth_palace | STRUCTURAL_GATE | ADD_CANDIDATE
+MC01-052 | SRC-ZZ-002 | 233 | 天哭天虚 | 天虚 | 疾厄宫 | 传统资料将其作为身体虚耗类投影 | projection | health_case | depletion_related_weakness | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC01-053 | SRC-ZZ-002 | 233 | 天哭天虚 | 哭虚 | 禄存或化禄同度且正曜财气旺 | 得财可同步提高外部知名度 | transform | resource_gain_to_visibility | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+MC01-054 | SRC-ZZ-002 | 233 | 天哭天虚 | 哭虚 | 卯申财气旺 | 卯申是源文给出的因财增名条件 | gate | resource_to_reputation_conversion | increase_in_mao_shen | COMPATIBILITY_RELATION | ADD_CANDIDATE
+MC01-055 | SRC-ZZ-002 | 233 | 天哭天虚 | 哭虚 | 天同星系守兄弟宫 | 传统资料给出特定姻亲关系不和投影 | projection | kinship_case | inlaw_conflict | L3_PROJECTION | CASE_SUPPORT_ONLY
