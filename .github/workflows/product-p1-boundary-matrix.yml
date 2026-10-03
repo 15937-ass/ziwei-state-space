@@ -1,0 +1,122 @@
+name: product-p1-boundary-matrix
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - "product/**"
+
+permissions:
+  contents: read
+
+jobs:
+  p1-boundary-matrix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.25.x"
+
+      - name: Build 100-case adapter input
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python tools/chart_inputs_to_jsonl.py \
+            validation/product_chart_regression/regression_inputs_v0.1.csv \
+            /tmp/p1_inputs.jsonl
+          test "$(wc -l < /tmp/p1_inputs.jsonl)" -eq 100
+
+      - name: Install pinned engines and calendar selector
+        run: |
+          npm install --no-save iztro@2.6.1 lunar-lite@0.2.8
+          python -m pip install --upgrade "x-iztro==0.6.1"
+
+      - name: Build B02 temporal boundary matrix
+        run: |
+          node tools/build_p1_edge_targets.mjs /tmp/p1_edge_targets.json
+          python - <<'PY'
+          import json
+          p=json.load(open("/tmp/p1_edge_targets.json",encoding="utf-8"))
+          assert len(p["targets"]) == 18
+          print("B02 target count:", len(p["targets"]))
+          for x in p["targets"]:
+              print(x["target_id"], x["solar_date"], "h"+str(x["time_index"]), x["edge"])
+          PY
+
+      - name: Export iztro JS boundary snapshots
+        env:
+          IZTRO_VERSION: "2.6.1"
+        run: |
+          node tools/iztro_full_export.mjs \
+            /tmp/p1_inputs.jsonl \
+            /tmp/p1_edge_targets.json \
+            /tmp/p1_b02_iztro_js.jsonl
+
+      - name: Export x-iztro Rust boundary snapshots
+        run: |
+          python tools/x_iztro_full_export.py \
+            /tmp/p1_inputs.jsonl \
+            /tmp/p1_edge_targets.json \
+            /tmp/p1_b02_xiztro_rust.jsonl
+
+      - name: Full boundary diff
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python tools/p1_compare_full.py \
+            /tmp/p1_b02_iztro_js.jsonl \
+            /tmp/p1_b02_xiztro_rust.jsonl \
+            --report /tmp/p1_b02_dual_engine_report.json \
+            --fail-on-diff
+
+      - name: Export pinned independent Go boundary snapshots
+        run: |
+          git clone --quiet https://github.com/dawang20250107/ziweidoushu.git /tmp/dawang
+          cd /tmp/dawang
+          git checkout --quiet 947166fc45cd7c8c0849da1bd870f570972a7172
+          mkdir -p cmd/p1export
+          cp "$GITHUB_WORKSPACE/tools/dawang_p1_export/main.go" cmd/p1export/main.go
+          go run ./cmd/p1export \
+            /tmp/p1_inputs.jsonl \
+            /tmp/p1_edge_targets.json \
+            /tmp/p1_b02_dawang_go.jsonl
+
+      - name: Independent Go boundary audit
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python tools/p1_independent_compare.py \
+            /tmp/p1_b02_iztro_js.jsonl \
+            /tmp/p1_b02_dawang_go.jsonl \
+            --report /tmp/p1_b02_independent_go_report.json \
+            --fail-on-core-diff
+
+      - name: Upload B02 boundary artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p1-boundary-matrix-${{ github.sha }}
+          path: |
+            /tmp/p1_edge_targets.json
+            /tmp/p1_b02_iztro_js.jsonl
+            /tmp/p1_b02_xiztro_rust.jsonl
+            /tmp/p1_b02_dual_engine_report.json
+            /tmp/p1_b02_dawang_go.jsonl
+            /tmp/p1_b02_independent_go_report.json
+          retention-days: 30
