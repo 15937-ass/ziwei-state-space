@@ -1,7 +1,6 @@
-# FC02
+# FC02 — FLOW-STAR SOURCE REVIEW
 
-Final flow-star chapter source-review checkpoint.
-status: ACTIVE
+status: CHECKPOINT_CLOSED_SOURCE_SPAN_VERIFIED
 
 ## FC02 structured review
 schema: id | source_id | page | section | subject | condition | claim | operator | target | change | layer | disposition
@@ -22,3 +21,16 @@ FC02-008 | SRC-ZZ-002 | 240 | 岁前十二神 | 病符 | 一般 | 病符主小�
 
 next_anchor: 星曜庙陷
 chapter_boundary_reached: true
+
+## Checkpoint summary
+
+- reviewed: 8
+- ADD_CANDIDATE: 3
+- CASE_SUPPORT_ONLY: 5
+- source_span_verified: 8/8
+- normalization_verified: 8/8
+- new Human Gate: 0
+- new primitive qi: 0
+- new history-memory type: 0
+- chapter boundary reached: YES
+- next heading: 星曜庙陷
