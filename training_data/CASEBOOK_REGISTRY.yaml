@@ -1,39 +1,60 @@
-version: "0.1"
+version: "0.2"
 status: ACTIVE
 collection_id: "LIAORAN_CASEBOOKS_3"
 description: >
-  用户新增的三本了然山人案例书。作为 product-side Case Reasoning Corpus，
-  用于 expert demonstration、推理链训练和后续案例校准，不作为 canonical theory ground truth。
+  三本了然山人《紫微斗数论命技巧及实例解析》。
+  作为 product-side Case Reasoning Corpus，用于 expert demonstration、
+  推理链训练、规则链接验证与后续案例校准，不作为 canonical theory ground truth。
 
 sources:
-  - source_id: "LIAORAN_CASEBOOK_VISIBLE_01"
-    title: "紫微斗数论命技巧及实例解析下册"
+  - source_id: "LIAORAN_UPPER_01"
+    title: "紫微斗数论命技巧及实例解析（上册）"
+    author: "了然山人"
+    file_binding_status: "BOUND_PROJECT_FILE"
+    project_file_name: "紫微斗数论命技巧及实例解析 上册  250P.pdf"
+    pdf_pages: 250
+    case_range: "1-15"
+    case_count: 15
+    canonical_theory: false
+
+  - source_id: "LIAORAN_MIDDLE_02"
+    title: "紫微斗数论命技巧及实例解析（中册）"
+    author: "了然山人"
+    file_binding_status: "BOUND_PROJECT_FILE"
+    project_file_name: "紫微斗数论命技巧及实例解析中册  298P.pdf"
+    pdf_pages: 298
+    case_range: "16-56"
+    case_count: 41
+    canonical_theory: false
+
+  - source_id: "LIAORAN_LOWER_03"
+    title: "紫微斗数论命技巧及实例解析（下册）"
     author: "了然山人"
     file_binding_status: "BOUND_PROJECT_FILE"
     project_file_name: "紫微斗数论命技巧及实例解析下册  270P.pdf"
-    observed_structure:
-      - "case question"
-      - "reply/conclusion"
-      - "natal chart explanation"
-      - "decade/year chart explanation in many cases"
-      - "questioner feedback in some cases"
-    corpus_role:
-      - "expert_reasoning_demonstration"
-      - "temporal_reasoning_training"
-      - "rule-linking_validation"
+    pdf_pages: 270
+    case_range: "57-100"
+    case_count: 44
     canonical_theory: false
 
-  - source_id: "LIAORAN_CASEBOOK_PENDING_02"
-    title: null
-    author: "了然山人"
-    file_binding_status: "PENDING_PROJECT_VISIBILITY"
-    canonical_theory: false
+collection_stats:
+  source_count: 3
+  indexed_case_count: 100
+  pilot_case_count: 20
+  full_extraction_complete: 0
 
-  - source_id: "LIAORAN_CASEBOOK_PENDING_03"
-    title: null
-    author: "了然山人"
-    file_binding_status: "PENDING_PROJECT_VISIBILITY"
-    canonical_theory: false
+observed_structure:
+  - "case question"
+  - "reply/conclusion"
+  - "natal chart explanation"
+  - "decade/year chart explanation in many cases"
+  - "questioner feedback in some cases"
+
+corpus_role:
+  - "expert_reasoning_demonstration"
+  - "temporal_reasoning_training"
+  - "rule-linking_validation"
+  - "case-based regression"
 
 ingestion_policy:
   extract_case_level_records: true
@@ -52,10 +73,14 @@ split_policy:
   heldout_casebook_test: 0.15
   external_benchmark_isolated: true
 
+artifacts:
+  case_index: "training_data/CASEBOOK_CASE_INDEX_v0.1.csv"
+  pilot20: "training_data/CASEBOOK_PILOT20_v0.1.csv"
+  ingestion_plan: "product/CASEBOOK_INGESTION_PLAN_v0.1.md"
+  record_schema: "training_data/CASE_EVIDENCE_SCHEMA_v0.1.md"
+
 next:
-  - "bind the other two book filenames once visible on the project file surface"
-  - "build case index and page ranges"
-  - "extract first 20 pilot cases"
-  - "reconstruct charts through normalized chart adapter"
+  - "extract Pilot 20 into CaseEvidenceRecord records"
+  - "reconstruct charts when birth inputs are sufficient"
   - "link author reasoning to canonical rule IDs"
   - "measure trace coverage and unresolved inference gaps"
