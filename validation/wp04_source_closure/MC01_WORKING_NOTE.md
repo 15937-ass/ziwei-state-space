@@ -91,3 +91,31 @@ MC01-072 | SRC-ZZ-002 | 234 | 三台八座 | 三台八座 | 父母宫正曜吉 |
 MC01-073 | SRC-ZZ-002 | 234 | 三台八座 | 三台八座 | 父母宫正曜不吉且单辅佐或桃花 | 源文给出复杂家庭结构的传统六亲投影 | projection | family_background_case | complex_parent_structure | L3_PROJECTION | CASE_SUPPORT_ONLY
 MC01-074 | SRC-ZZ-002 | 234 | 三台八座 | 三台八座 | 夫妻宫且原局不吉 | 台座会放大原有夫妻宫不利性质 | enhance | relationship_adversity | increase | LOCAL_STATE | ADD_CANDIDATE
 MC01-075 | SRC-ZZ-002 | 234 | 龙池凤阁 | 龙池凤阁 | 一般 | 龙池凤阁为文明之宿，成对会入主才艺 | structural_relation | artistic_skill | increase_if_paired | L0_STRUCTURE | ADD_CANDIDATE
+
+MC01-076 | SRC-ZZ-002 | 234 | 龙池凤阁 | 龙池凤阁 | 昌曲魁钺同会 | 昌曲、魁钺可进一步增强龙凤的才艺与科文性质 | enhance | artistic_academic_skill | increase | LOCAL_STATE | ADD_CANDIDATE
+MC01-077 | SRC-ZZ-002 | 234 | 龙池凤阁 | 龙池凤阁 | 科文诸曜 | 与科文诸曜组合时更利考试与竞争 | transform | exam_competition | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+MC01-078 | SRC-ZZ-002 | 234 | 龙池凤阁 | 龙凤夹财帛或事业 | 再见辅弼夹或昌曲夹 | 名气、才艺可转化为资源收益，形成先名后利 | transform | reputation_skill_to_resource | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+MC01-079 | SRC-ZZ-002 | 234 | 龙池凤阁 | 龙池凤阁 | 一般 | 龙凤偏清贵而非富贵，声誉与财富需分离 | structural_relation | reputation_vs_wealth | reputation_priority | L0_STRUCTURE | ADD_CANDIDATE
+MC01-080 | SRC-ZZ-002 | 234 | 龙池凤阁 | 龙池凤阁 | 职业投影 | 源文将艺术、建筑、营造列为传统才艺职业场景 | projection | occupation_example | creative_design_domain | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC01-081 | SRC-ZZ-002 | 234 | 龙池凤阁 | 龙凤 | 夹府相 | 可增加外在风姿与文采 | transform | presentation_and_grace | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+MC01-082 | SRC-ZZ-002 | 234 | 龙池凤阁 | 七杀加龙池 | 命宫或疾厄宫 | 源文给出老年听觉下降的传统健康投影 | projection | health_case | sensory_decline_case | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC01-083 | SRC-ZZ-002 | 234 | 龙池凤阁 | 七杀加凤阁 | 命宫或疾厄宫 | 源文给出嗅味觉下降的传统健康投影 | projection | health_case | sensory_decline_case | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC01-084 | SRC-ZZ-002 | 234 | 龙池凤阁 | 七杀龙凤健康投影 | 流煞冲起 | 上述传统健康投影需流煞冲起才作为应期候选 | layer_interaction | latent_health_case_activation | require_flow_trigger | TEMPORAL_LAYER | CASE_SUPPORT_ONLY
+MC01-085 | SRC-ZZ-002 | 234-235 | 孤辰寡宿 | 孤辰寡宿 | 一般 | 孤辰寡宿主孤寡与关系疏离 | enhance | social_isolation | increase | LOCAL_STATE | ADD_CANDIDATE
+MC01-086 | SRC-ZZ-002 | 234-235 | 孤辰寡宿 | 孤辰寡宿 | 父母宫或夫妻宫 | 进入六亲关键宫位时关系疏离性质更易显现 | gate | kinship_closeness | decrease | STRUCTURAL_GATE | ADD_CANDIDATE
+MC01-087 | SRC-ZZ-002 | 234-235 | 孤辰寡宿 | 孤辰寡宿 | 武曲天梁天机巨门七杀破军系统 | 这些正曜系统会放大孤辰寡宿性质 | gate | isolation_expression | increase_by_system | STRUCTURAL_GATE | ADD_CANDIDATE
+MC01-088 | SRC-ZZ-002 | 234-235 | 孤辰寡宿 | 孤辰寡宿 | 强孤克系统 | 源文给出早孤、离乡、子女分离等传统家庭投影 | projection | family_case | separation | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC01-089 | SRC-ZZ-002 | 234-235 | 孤辰寡宿 | 夫妻宫 | 强孤克系统 | 源文提出迟婚作为降低关系分离风险的传统趋避条件 | gate | relationship_separation_risk | decrease_by_delay | STRUCTURAL_GATE | CASE_SUPPORT_ONLY
+MC01-090 | SRC-ZZ-002 | 234-235 | 孤辰寡宿 | 武曲化忌加孤寡 | 夫妻宫 | 源文给出夫妻生活疏离的传统关系投影 | projection | relationship_case | low_intimacy | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC01-091 | SRC-ZZ-002 | 235 | 孤辰寡宿 | 孤辰寡宿 | 福德宫 | 福德宫中可增加精神空虚 | enhance | inner_emptiness | increase | LOCAL_STATE | ADD_CANDIDATE
+MC01-092 | SRC-ZZ-002 | 235 | 孤辰寡宿 | 孤辰寡宿 | 福德宫 | 同时亦可增强思想独立，结果由正曜本质决定 | structural_relation | emptiness_vs_independence | context_branch | L0_STRUCTURE | ADD_CANDIDATE
+MC01-093 | SRC-ZZ-002 | 235 | 孤辰寡宿 | 孤辰 | 财帛宫见吉曜 | 可表现为较早建立独立资源或事业基础 | transform | independent_resource_base | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+MC01-094 | SRC-ZZ-002 | 235 | 孤辰寡宿 | 寡宿 | 事业宫见吉曜 | 可表现为较早自立，不依赖家族事业余荫 | transform | career_independence | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+MC01-095 | SRC-ZZ-002 | 235 | 恩光天贵 | 恩光天贵 | 一般 | 恩光天贵主殊荣与奖励，并由奖励带来地位提升 | transform | reward_to_status | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+MC01-096 | SRC-ZZ-002 | 235 | 恩光天贵 | 恩光天贵 | 与三台八座比较 | 恩光天贵偏奖励导致地位，三台八座偏直接地位象征 | mechanism_comparison | status_mechanism | reward_based_vs_status_based | MECHANISM_COMPARISON | ADD_CANDIDATE
+MC01-097 | SRC-ZZ-002 | 235 | 恩光天贵 | 恩光天贵 | 竞争考试 | 可提供竞争得利与考试成功的实际利益 | transform | competition_exam_success | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+MC01-098 | SRC-ZZ-002 | 235 | 恩光天贵 | 恩光天贵 | 紫微天府太阴太阳同会或夹 | 与主曜同会或夹持时作用更佳 | gate | reward_status_realization | increase_with_main_stars | STRUCTURAL_GATE | ADD_CANDIDATE
+MC01-099 | SRC-ZZ-002 | 235 | 恩光天贵 | 恩光天贵 | 夹事业宫且魁钺加夹 | 源文以专业发展与专利型收益作为现代场景例示 | projection | occupation_example | professional_innovation | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC01-100 | SRC-ZZ-002 | 235 | 恩光天贵 | 恩光天贵 | 夹财帛宫 | 名誉可转化为资源收益，形成由名得利 | transform | reputation_to_resource | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+
+next_anchor: 恩光天贵与文昌文曲交会利考试 / 天才
