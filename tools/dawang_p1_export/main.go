@@ -33,6 +33,7 @@ type Target struct {
 	TargetID string `json:"target_id"`
 	SolarDate string `json:"solar_date"`
 	TimeIndex int `json:"time_index"`
+	Edge string `json:"edge,omitempty"`
 }
 type TargetManifest struct { Targets []Target `json:"targets"` }
 
