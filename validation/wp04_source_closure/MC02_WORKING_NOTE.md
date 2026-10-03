@@ -85,3 +85,9 @@ MC02-067 | SRC-ZZ-002 | 236 | 阴煞 | 敏感正曜加阴煞 | 命宫 | 源文�
 MC02-068 | SRC-ZZ-002 | 236 | 华盖 | 华盖 | 一般 | 华盖主孤高 | enhance | aloofness | increase | LOCAL_STATE | ADD_CANDIDATE
 MC02-069 | SRC-ZZ-002 | 236 | 华盖 | 华盖 | 见科文诸曜 | 可把孤高导向哲学、文艺兴趣及独特见解 | transform | isolation_to_intellectual_creativity | increase | DERIVED_RESPONSE | ADD_CANDIDATE
 MC02-070 | SRC-ZZ-002 | 236 | 华盖 | 华盖 | 见空曜 | 可把兴趣导向宗教领域 | gate | intellectual_domain | toward_religion | STRUCTURAL_GATE | ADD_CANDIDATE
+
+MC02-071 | SRC-ZZ-002 | 236 | 华盖 | 华盖 | 与紫微同躔 | 华盖与紫微具有正向兼容性 | structural_relation | compatibility | positive_with_ziwei | COMPATIBILITY_RELATION | ADD_CANDIDATE
+MC02-072 | SRC-ZZ-002 | 236 | 华盖 | 华盖 | 重病者命宫 | 源文以丧礼仪仗解释其传统高风险象义 | projection | high_risk_case | traditional_funeral_symbolism | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC02-073 | SRC-ZZ-002 | 236 | 咸池 | 咸池 | 一般 | 咸池主桃花与欲望倾向 | enhance | attraction_desire | increase | LOCAL_STATE | ADD_CANDIDATE
+MC02-074 | SRC-ZZ-002 | 236 | 咸池 | 咸池 | 与天德同躔 | 天德可把咸池的桃花性转化为才艺 | transform | attraction_to_talent | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+MC02-075 | SRC-ZZ-002 | 236 | 咸池 | 咸池加天德 | 才艺 | 转化后的才艺更易获得异性欢迎，为传统社会反馈投影 | projection | social_response_case | talent_based_attraction | L3_PROJECTION | CASE_SUPPORT_ONLY
