@@ -36,3 +36,16 @@ TC11-022 | SRC-ZZ-002 | 229 | 文昌化忌 | 文昌化忌 | 传播撰述 | 文�
 TC11-023 | SRC-ZZ-002 | 229 | 文昌化忌 | 文昌化忌 | 婚礼 | 源文将婚礼不完整与感情困扰列为传统关系投影 | projection | relationship_case | ritual_disruption | L3_PROJECTION | CASE_SUPPORT_ONLY
 TC11-024 | SRC-ZZ-002 | 229 | 文昌化忌 | 文昌化忌 | 身体投影 | 斑点等身体表征属于传统案例性投影 | projection | health_case | skin_marker | L3_PROJECTION | CASE_SUPPORT_ONLY
 TC11-025 | SRC-ZZ-002 | 229 | 文昌化忌 | 文昌化忌 | 会曜 | 具体事件必须由实际星曜会合进一步决定，不能由化忌单独定象 | structural_relation | context_dependence | require_full_configuration | L0_STRUCTURE | ADD_CANDIDATE
+
+TC11-026 | SRC-ZZ-002 | 229-230 | 武曲化忌 | 武曲化忌 | 一般 | 武曲化忌首先表现为周转困难、收入中断或超预算支出 | transform | liquidity_and_cashflow | decrease | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-027 | SRC-ZZ-002 | 229-230 | 武曲化忌 | 武曲化忌 | 财帛 | 财帛损失是其基础通道之一 | enhance | financial_loss | increase | LOCAL_STATE | ADD_CANDIDATE
+TC11-028 | SRC-ZZ-002 | 229-230 | 武曲化忌 | 武曲化忌 | 事件拖延 | 事情旷日持久会通过持续支出放大资源损耗 | time_scale_effect | delay_to_cost | increase | TEMPORAL_GATE | ADD_CANDIDATE
+TC11-029 | SRC-ZZ-002 | 229-230 | 武曲化忌 | 武曲化忌 | 决断 | 决断可转为决裂，过刚的解决方式反而引发挫折 | transform | decisiveness_to_rupture | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC11-030 | SRC-ZZ-002 | 229-230 | 武曲化忌 | 武曲化忌 | 感情 | 过刚处理方式在关系领域可转为破裂风险 | projection | relationship_case | rupture_risk | L3_PROJECTION | CASE_SUPPORT_ONLY
+TC11-031 | SRC-ZZ-002 | 229-230 | 武曲化忌 | 武曲化忌 | 身体投影 | 源文列出手术等传统身体投影 | projection | health_case | traditional_surgical_case | L3_PROJECTION | CASE_SUPPORT_ONLY
+TC11-032 | SRC-ZZ-002 | 229-230 | 武曲化忌 | 武曲化忌 | 十二宫通则 | 源文以“引刀成一快”概括其过刚处理倾向 | structural_relation | abrupt_resolution_style | increase | L0_STRUCTURE | ADD_CANDIDATE
+TC11-033 | SRC-ZZ-002 | 230 | 武曲化忌 | 子午武府 | 天府同时化科 | 该系统直接联动壬干天府化科规则 | structural_relation | cross_reference_rule | reuse_tianfu_ke | L0_STRUCTURE | ADD_CANDIDATE
+TC11-034 | SRC-ZZ-002 | 230 | 武曲化忌 | 丑未武贪 | 理想过高 | 理想超过能力与财力会提高功败垂成风险 | gate | goal_capacity_mismatch | increase | STRUCTURAL_GATE | ADD_CANDIDATE
+TC11-035 | SRC-ZZ-002 | 230 | 武曲化忌 | 丑未武贪 | 桃花诸曜 | 桃花会曜可把能量导向演艺娱乐等场景并缓冲部分不利 | gate | occupation_channel | toward_entertainment | STRUCTURAL_GATE | CASE_SUPPORT_ONLY
+TC11-036 | SRC-ZZ-002 | 230 | 武曲化忌 | 丑未武贪 | 煞曜 | 煞曜可把结构导向工程工艺等技术场景并部分转化不利 | gate | occupation_channel | toward_technical | STRUCTURAL_GATE | CASE_SUPPORT_ONLY
+TC11-037 | SRC-ZZ-002 | 230 | 武曲化忌 | 丑未武贪 | 火铃同度 | 火铃会放大暴发后的暴败风险 | transform | burst_to_collapse_risk | increase | DERIVED_RESPONSE | ADD_CANDIDATE
