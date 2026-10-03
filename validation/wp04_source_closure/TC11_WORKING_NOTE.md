@@ -1,7 +1,5 @@
-# TC11
-
-Working source-review checkpoint.
-status: ACTIVE
+# TC11 — TRANSFORMATION SOURCE REVIEW
+status: CHECKPOINT_CLOSED_SOURCE_SPAN_VERIFIED
 
 ## TC11 structured review
 schema: id | source_id | page | section | subject | condition | claim | operator | target | change | layer | disposition
@@ -118,3 +116,17 @@ TC11-100 | SRC-ZZ-002 | 232 | 贪狼化忌 | 巳亥廉贪 | 羊陀与陀罗 | �
 
 next_anchor: 杂曜总论
 chapter_boundary_reached: true
+
+## Checkpoint summary
+
+- reviewed: 100
+- ADD_CANDIDATE: 84
+- CASE_SUPPORT_ONLY: 16
+- source_span_verified: 100/100
+- normalization_verified: 100/100
+- explicit history marker: 1 (TC11-058; existing ACQUIRED_DISPOSITION family)
+- new Human Gate: 0
+- new primitive qi: 0
+- new history-memory type: 0
+- next anchor: 杂曜总论
+- 化曜 chapter boundary reached: YES
