@@ -27,6 +27,16 @@ def digest(path: Path) -> str:
             h.update(chunk)
     return h.hexdigest()
 
+def _canonical_scalar(value: Any, path: str) -> Any:
+    # iztro JS serializes dates as YYYY-M-D while x-iztro preserves/normalizes
+    # zero padding in some paths. Compare semantic date value, not display formatting.
+    if path.endswith("solarDate") and isinstance(value, str):
+        parts = value.split("-")
+        if len(parts) == 3 and all(part.isdigit() for part in parts):
+            return tuple(int(part) for part in parts)
+    return value
+
+
 def compare_js_keys(js: Any, other: Any, path: str = "") -> list[dict[str, Any]]:
     out: list[dict[str, Any]] = []
     if isinstance(js, dict):
@@ -47,7 +57,9 @@ def compare_js_keys(js: Any, other: Any, path: str = "") -> list[dict[str, Any]]
         for i, (a, b) in enumerate(zip(js, other)):
             out.extend(compare_js_keys(a, b, f"{path}[{i}]"))
         return out
-    if js != other:
+    cjs = _canonical_scalar(js, path)
+    cother = _canonical_scalar(other, path)
+    if cjs != cother:
         out.append({"path": path, "js": js, "x": other, "reason": "value"})
     return out
 
