@@ -47,15 +47,17 @@ jobs:
           npm install --no-save iztro@2.6.1 lunar-lite@0.2.8
           python -m pip install --upgrade "x-iztro==0.6.1"
 
-      - name: Build B02 temporal boundary matrix
+      - name: Verify frozen B02 temporal boundary matrix
         run: |
-          node tools/build_p1_edge_targets.mjs /tmp/p1_edge_targets.json
+          node tools/build_p1_edge_targets.mjs /tmp/p1_edge_targets_generated.json
           python - <<'PY'
           import json
-          p=json.load(open("/tmp/p1_edge_targets.json",encoding="utf-8"))
-          assert len(p["targets"]) == 18
-          print("B02 target count:", len(p["targets"]))
-          for x in p["targets"]:
+          generated=json.load(open("/tmp/p1_edge_targets_generated.json",encoding="utf-8"))
+          frozen=json.load(open("validation/product_chart_regression/temporal_edge_targets_v0.3.json",encoding="utf-8"))
+          assert generated == frozen, "frozen B02 target manifest drifted from pinned lunar-lite selector"
+          assert len(frozen["targets"]) == 18
+          print("B02 target count:", len(frozen["targets"]))
+          for x in frozen["targets"]:
               print(x["target_id"], x["solar_date"], "h"+str(x["time_index"]), x["edge"])
           PY
 
@@ -65,14 +67,18 @@ jobs:
         run: |
           node tools/iztro_full_export.mjs \
             /tmp/p1_inputs.jsonl \
-            /tmp/p1_edge_targets.json \
+            validation/product_chart_regression/temporal_edge_targets_v0.3.json \
             /tmp/p1_b02_iztro_js.jsonl
+
+      - name: Verify temporal semantic invariants
+        run: |
+          python tools/p1_verify_temporal_invariants.py /tmp/p1_b02_iztro_js.jsonl
 
       - name: Export x-iztro Rust boundary snapshots
         run: |
           python tools/x_iztro_full_export.py \
             /tmp/p1_inputs.jsonl \
-            /tmp/p1_edge_targets.json \
+            validation/product_chart_regression/temporal_edge_targets_v0.3.json \
             /tmp/p1_b02_xiztro_rust.jsonl
 
       - name: Full boundary diff
@@ -94,7 +100,7 @@ jobs:
           cp "$GITHUB_WORKSPACE/tools/dawang_p1_export/main.go" cmd/p1export/main.go
           go run ./cmd/p1export \
             /tmp/p1_inputs.jsonl \
-            /tmp/p1_edge_targets.json \
+            validation/product_chart_regression/temporal_edge_targets_v0.3.json \
             /tmp/p1_b02_dawang_go.jsonl
 
       - name: Independent Go boundary audit
@@ -113,7 +119,7 @@ jobs:
         with:
           name: p1-boundary-matrix-${{ github.sha }}
           path: |
-            /tmp/p1_edge_targets.json
+            validation/product_chart_regression/temporal_edge_targets_v0.3.json
             /tmp/p1_b02_iztro_js.jsonl
             /tmp/p1_b02_xiztro_rust.jsonl
             /tmp/p1_b02_dual_engine_report.json
