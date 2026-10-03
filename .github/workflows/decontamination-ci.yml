@@ -31,6 +31,10 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}
         run: python -m pytest -q
 
+      - name: Check product JS adapters
+        run: |
+          if [ -f tools/iztro_export.mjs ]; then node --check tools/iztro_export.mjs; fi
+
       - name: Enforce deterministic P0 gate
         env:
           PYTHONPATH: ${{ github.workspace }}

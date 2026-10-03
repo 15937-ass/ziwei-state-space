@@ -66,7 +66,7 @@ progress:
 
 productization:
   program: "PRODUCT-FIRST"
-  status: "P0_BASELINE_BOOTSTRAPPED"
+  status: "P1_ADAPTER_CONTRACT_AND_100_SEEDS_READY"
   completed:
     - "competitor registry v0.1"
     - "license ledger v0.1"
@@ -75,7 +75,10 @@ productization:
     - "evaluation protocol v0.1"
     - "deterministic chart-diff utility + tests"
     - "EvidencePackage contract + tests"
-  next_work_unit: "PRODUCT_P1_CHART_ADAPTERS_AND_GOLDEN_CASES"
+    - "Normalized Chart Snapshot schema v0.1"
+    - "iztro exporter v0.1"
+    - "100 chart-regression seed inputs + validator"
+  next_work_unit: "PRODUCT_P1_RUN_EXTERNAL_EXPORT_AND_INTERNAL_ADAPTER"
   research_track_next: "WP05_P08_LIFE_PALACE_CORPUS"
   principles:
     - "Product accuracy/explainability is the primary optimization target."
@@ -159,6 +162,8 @@ canonical_artifacts:
   competitor_registry: "competitive_intelligence/PROJECT_REGISTRY.yaml"
   license_ledger: "competitive_intelligence/LICENSE_LEDGER.csv"
   benchmark_tracker: "competitive_intelligence/BENCHMARK_TRACKER.csv"
+  normalized_chart_schema: "product/NORMALIZED_CHART_SCHEMA_v0.1.md"
+  product_chart_regression_seeds: "validation/product_chart_regression/regression_inputs_v0.1.csv"
 
 historical_noncanonical_gate_documents:
   - "validation/decontamination/GATE_A2_路径依赖与获得性状态审计.md"

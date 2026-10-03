@@ -1,0 +1,37 @@
+task_id: PRODUCT-P1
+version: "0.1"
+status: ACTIVE
+title: "normalized chart adapters + first differential seed set"
+objective: >
+  建立多排盘引擎共同输出格式和第一批 100 个结构回归输入，
+  使排盘差异从主观对照变为机器可复现 diff。
+
+completed_in_this_checkpoint:
+  - "Normalized Chart Snapshot schema v0.1"
+  - "Python snapshot validator + ChartAdapter protocol"
+  - "iztro exporter v0.1"
+  - "100 deterministic regression seed inputs"
+  - "seed loader/validator and CSV->JSONL utility"
+
+next:
+  - "run iztro 2.6.1 export for all 100 seeds"
+  - "implement internal chart adapter or import current chart-engine output"
+  - "compute diffs with src/product/chart_diff.py"
+  - "create mismatch_resolution_v0.1.csv"
+  - "promote only resolved cases to golden expected outputs"
+
+mismatch_classes:
+  - OUR_BUG
+  - EXTERNAL_BUG
+  - SCHOOL_DIFFERENCE
+  - CONFIG_DIFFERENCE
+  - INPUT_AMBIGUITY
+  - SERIALIZATION_ONLY
+  - UNRESOLVED
+
+constraints:
+  - "Agreement is not ground truth."
+  - "All engine/config versions must be stored with outputs."
+  - "No unresolved mismatch can become a golden assertion."
+
+pi_review_required: false
