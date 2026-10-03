@@ -109,3 +109,12 @@ TC10-091 | SRC-ZZ-002 | 227 | 天同化忌 | 天同化忌 | 理想高于现实 |
 TC10-092 | SRC-ZZ-002 | 227 | 天同化忌 | 天同化忌 | 煞刑重 | 煞刑会进一步放大多疑多虑 | enhance | suspicious_rumination | increase | LOCAL_STATE | ADD_CANDIDATE
 TC10-093 | SRC-ZZ-002 | 227 | 天同化忌 | 天同化忌 | 健康投影 | 源文给出神经系统相关传统投影 | projection | health_case | traditional_neuro_case | L3_PROJECTION | CASE_SUPPORT_ONLY
 TC10-094 | SRC-ZZ-002 | 227 | 天同化忌 | 子午同阴 | 子 vs 午 | 子宫较午宫能承受化忌，午宫双星落陷时疑虑更重 | gate | emotional_stability | enhance_in_zi | COMPATIBILITY_RELATION | ADD_CANDIDATE
+
+TC10-095 | SRC-ZZ-002 | 227 | 天同化忌 | 子午同阴 | 午宫 | 无原则疑虑可进一步造成不必要的感情麻烦 | transform | rumination_to_relationship_problem | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-096 | SRC-ZZ-002 | 227 | 天同化忌 | 子午同阴 | 求财 | 求财不顺与财禄并不匮乏可以并存 | structural_relation | income_friction_vs_resource_availability | decouple | L0_STRUCTURE | ADD_CANDIDATE
+TC10-097 | SRC-ZZ-002 | 227-228 | 天同化忌 | 丑未同巨 | 感情与口舌 | 感情困扰可进一步触发是非口舌 | transform | emotional_distress_to_verbal_conflict | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-098 | SRC-ZZ-002 | 227-228 | 天同化忌 | 丑未同巨 | 学术研究 | 太阳天梁化禄会合时，焦虑可被导入研究心力投入 | transform | anxiety_to_research_effort | convert | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-099 | SRC-ZZ-002 | 228 | 天同化忌 | 寅申同梁 | 无火铃空劫 | 无重煞时可白手生财，但精神成本仍高 | transform | self_made_resource_vs_mental_cost | gain_up_cost_up | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-100 | SRC-ZZ-002 | 228 | 天同化忌 | 寅申同梁 | 火铃空劫 | 煞曜会把不安定放大为频繁变动并影响发展稳定性 | gate | development_stability | decrease_with_malefics | STRUCTURAL_GATE | ADD_CANDIDATE
+
+next_anchor: 天同化忌寅申宫之后
