@@ -79,3 +79,9 @@ MC01-062 | SRC-ZZ-002 | 234 | 红鸾天喜 | 鸾喜 | 财帛宫正曜吉 | 可�
 MC01-063 | SRC-ZZ-002 | 234 | 红鸾天喜 | 鸾喜 | 喜庆行业 | 与喜庆场景结合可提高职业适配 | projection | occupation_example | celebration_related_business | L3_PROJECTION | CASE_SUPPORT_ONLY
 MC01-064 | SRC-ZZ-002 | 234 | 红鸾天喜 | 流年鸾喜 | 命宫或夫妻宫 | 流年鸾喜可作为婚育应期候选信号 | layer_interaction | relationship_family_timing | activate | TEMPORAL_LAYER | ADD_CANDIDATE
 MC01-065 | SRC-ZZ-002 | 234 | 红鸾天喜 | 流年鸾喜 | 正曜星系不稳定 | 若正曜不稳则应期可延后，鸾喜不能单独决定事件发生 | gate | event_timing | delay_if_base_unstable | STRUCTURAL_GATE | ADD_CANDIDATE
+
+MC01-066 | SRC-ZZ-002 | 234 | 红鸾天喜 | 鸾喜 | 流年田宅宫 | 源文将家庭人口变化作为传统田宅宫投影 | projection | household_case | household_growth | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC01-067 | SRC-ZZ-002 | 234 | 红鸾天喜 | 鸾喜 | 流年田宅宫且辅弼 | 源文将宾客借居作为另一种家庭空间投影 | projection | household_case | temporary_resident | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC01-068 | SRC-ZZ-002 | 234 | 三台八座 | 三台八座 | 一般 | 三台八座均为仪仗之星 | structural_relation | status_symbolism | associate | L0_STRUCTURE | ADD_CANDIDATE
+MC01-069 | SRC-ZZ-002 | 234 | 三台八座 | 三台八座 | 成对会照 | 必须成对会照才形成明显地位增益 | gate | status_gain | require_pair | STRUCTURAL_GATE | ADD_CANDIDATE
+MC01-070 | SRC-ZZ-002 | 234 | 三台八座 | 三台八座 | 与紫微天府太阳太阴同会 | 与主曜同会可提高贵显与地位表现 | transform | status_visibility | increase | DERIVED_RESPONSE | ADD_CANDIDATE
