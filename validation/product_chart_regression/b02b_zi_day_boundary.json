@@ -1,0 +1,102 @@
+{
+  "version": "0.1",
+  "batch": "P1-B02-B",
+  "purpose": "late-Zi forward-day attribution across lunar year and lunar month boundaries",
+  "config_contract": {
+    "day_divide": "forward",
+    "meaning": "late Zi (time_index=12) is calculated as next day"
+  },
+  "max_targets": 8,
+  "targets": [
+    {
+      "target_id": "B1_YEAR_HAI",
+      "solar_date": "2028-01-25",
+      "time_index": 11,
+      "expected_lunar_marker": "十二月廿九"
+    },
+    {
+      "target_id": "B1_YEAR_LATE_ZI",
+      "solar_date": "2028-01-25",
+      "time_index": 12,
+      "expected_lunar_marker": "十二月廿九"
+    },
+    {
+      "target_id": "B1_YEAR_NEXT_EARLY_ZI",
+      "solar_date": "2028-01-26",
+      "time_index": 0,
+      "expected_lunar_marker": "正月初一"
+    },
+    {
+      "target_id": "B1_YEAR_NEXT_CHOU",
+      "solar_date": "2028-01-26",
+      "time_index": 1,
+      "expected_lunar_marker": "正月初一"
+    },
+    {
+      "target_id": "B2_MONTH_HAI",
+      "solar_date": "2028-03-25",
+      "time_index": 11,
+      "expected_lunar_marker": "二月三十"
+    },
+    {
+      "target_id": "B2_MONTH_LATE_ZI",
+      "solar_date": "2028-03-25",
+      "time_index": 12,
+      "expected_lunar_marker": "二月三十"
+    },
+    {
+      "target_id": "B2_MONTH_NEXT_EARLY_ZI",
+      "solar_date": "2028-03-26",
+      "time_index": 0,
+      "expected_lunar_marker": "三月初一"
+    },
+    {
+      "target_id": "B2_MONTH_NEXT_CHOU",
+      "solar_date": "2028-03-26",
+      "time_index": 1,
+      "expected_lunar_marker": "三月初一"
+    }
+  ],
+  "effective_equivalence": [
+    {
+      "left": "B1_YEAR_LATE_ZI",
+      "right": "B1_YEAR_NEXT_EARLY_ZI",
+      "scopes": [
+        "yearly",
+        "monthly",
+        "daily",
+        "hourly"
+      ]
+    },
+    {
+      "left": "B2_MONTH_LATE_ZI",
+      "right": "B2_MONTH_NEXT_EARLY_ZI",
+      "scopes": [
+        "yearly",
+        "monthly",
+        "daily",
+        "hourly"
+      ]
+    }
+  ],
+  "change_expectations": [
+    {
+      "left": "B1_YEAR_HAI",
+      "right": "B1_YEAR_LATE_ZI",
+      "scopes": [
+        "yearly",
+        "monthly",
+        "daily"
+      ]
+    },
+    {
+      "left": "B2_MONTH_HAI",
+      "right": "B2_MONTH_LATE_ZI",
+      "scopes": [
+        "monthly",
+        "daily"
+      ]
+    }
+  ],
+  "note": "lunar_date markers describe civil-date display; effective-equivalence checks the forward-day computational contract."
+}
