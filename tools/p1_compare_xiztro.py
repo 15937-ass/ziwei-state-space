@@ -48,6 +48,8 @@ def compare_js_keys(js: Any, other: Any, path: str = "") -> list[dict[str, Any]]
             return [{"path": path, "js": js, "x": other, "reason": "type"}]
         for key, value in js.items():
             p = f"{path}.{key}" if path else key
+            if p in NON_COMPUTATIONAL_PATHS:
+                continue
             if key not in other:
                 out.append({"path": p, "js": value, "x": None, "reason": "missing_key"})
             else:
