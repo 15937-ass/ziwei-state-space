@@ -1,0 +1,58 @@
+{
+  "version": "0.1",
+  "batch": "P1-B02-A2",
+  "purpose": "leap-month and Gregorian leap-day boundaries; daytime only",
+  "authoritative_calendar_reference": "Hong Kong Observatory Gregorian-Lunar calendar",
+  "max_targets": 8,
+  "targets": [
+    {
+      "target_id": "A2_LEAP_MONTH_ENTER_PREV",
+      "solar_date": "2028-06-22",
+      "time_index": 6,
+      "expected_lunar_marker": "五月三十"
+    },
+    {
+      "target_id": "A2_LEAP_MONTH_ENTER",
+      "solar_date": "2028-06-23",
+      "time_index": 6,
+      "expected_lunar_marker": "闰五月初一"
+    },
+    {
+      "target_id": "A2_LEAP_MONTH_DAY15",
+      "solar_date": "2028-07-07",
+      "time_index": 6,
+      "expected_lunar_marker": "闰五月十五"
+    },
+    {
+      "target_id": "A2_LEAP_MONTH_DAY16",
+      "solar_date": "2028-07-08",
+      "time_index": 6,
+      "expected_lunar_marker": "闰五月十六"
+    },
+    {
+      "target_id": "A2_LEAP_MONTH_EXIT_LAST",
+      "solar_date": "2028-07-21",
+      "time_index": 6,
+      "expected_lunar_marker": "闰五月廿九"
+    },
+    {
+      "target_id": "A2_LEAP_MONTH_EXIT_NEXT",
+      "solar_date": "2028-07-22",
+      "time_index": 6,
+      "expected_lunar_marker": "六月初一"
+    },
+    {
+      "target_id": "A2_GREGORIAN_LEAP_PRE",
+      "solar_date": "2028-02-28",
+      "time_index": 6,
+      "expected_lunar_marker": "二月初四"
+    },
+    {
+      "target_id": "A2_GREGORIAN_LEAP_DAY",
+      "solar_date": "2028-02-29",
+      "time_index": 6,
+      "expected_lunar_marker": "二月初五"
+    }
+  ],
+  "note": "All targets are after the latest natal seed. Leap-month dates corrected from HKO 2028 conversion sequence: 五月三十=2028-06-22; 闰五月初一=2028-06-23."
+}
