@@ -36,7 +36,7 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install x-iztro==0.6.1
 
-      - name: Generate 100 natal + 3600 temporal snapshots with JS iztro
+      - name: Generate 100 natal and valid temporal snapshots with JS iztro
         run: |
           node tools/p1_generate_iztro.mjs \
             validation/product_chart_regression/regression_inputs_v0.1.csv \
@@ -56,10 +56,9 @@ jobs:
           wc -l /tmp/p1_mismatches.jsonl || true
           sha256sum /tmp/p1_iztro_js.jsonl /tmp/p1_mismatches.jsonl || true
 
-
-  independent-core-sanity:
+  liki-independent-oracle:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
 
@@ -67,25 +66,30 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Install local runner deps
-        run: |
-          npm install --no-save --no-package-lock iztro@2.6.1 tsx@4 typescript@5
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.24"
 
-      - name: Clone independent self-developed core
+      - name: Install iztro and generate the same JS snapshots
         run: |
-          git clone --depth 1 https://github.com/yzhi1065-bot/ziwei-dou-shu.git /tmp/ziwei-independent
-          npm ci --prefix /tmp/ziwei-independent
+          npm install --no-save --no-package-lock iztro@2.6.1
+          node tools/p1_generate_iztro.mjs \
+            validation/product_chart_regression/regression_inputs_v0.1.csv \
+            /tmp/p1_iztro_js.jsonl
 
-      - name: Run independent natal + temporal sanity comparison
+      - name: Clone independent Go implementation
+        run: |
+          git clone --depth 1 https://github.com/ml8s/liki.git /tmp/liki
+
+      - name: Inject P1 crosscheck into independent engine package
+        run: |
+          cp tools/p1_liki_crosscheck_test.go \
+            /tmp/liki/engine/internal/engine/ziwei/p1_external_compare_test.go
+
+      - name: Compare natal and yearly/monthly/daily/hourly flow invariants
         env:
-          INDEPENDENT_ENGINE_ROOT: /tmp/ziwei-independent
+          P1_IZTRO_JSONL: /tmp/p1_iztro_js.jsonl
         run: |
           set -o pipefail
-          npx tsx tools/p1_compare_independent.ts \
-            validation/product_chart_regression/regression_inputs_v0.1.csv | tee /tmp/p1_independent_summary.log
-
-      - name: Show independent mismatch sample
-        if: always()
-        run: |
-          wc -l /tmp/p1_independent_mismatches.jsonl || true
-          head -20 /tmp/p1_independent_mismatches.jsonl || true
+          cd /tmp/liki/engine
+          go test ./internal/engine/ziwei -run TestP1ExternalCrossCheck -count=1 -v | tee /tmp/p1_liki.log
