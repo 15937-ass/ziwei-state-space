@@ -68,3 +68,14 @@ MC01-052 | SRC-ZZ-002 | 233 | 天哭天虚 | 天虚 | 疾厄宫 | 传统资料�
 MC01-053 | SRC-ZZ-002 | 233 | 天哭天虚 | 哭虚 | 禄存或化禄同度且正曜财气旺 | 得财可同步提高外部知名度 | transform | resource_gain_to_visibility | increase | DERIVED_RESPONSE | ADD_CANDIDATE
 MC01-054 | SRC-ZZ-002 | 233 | 天哭天虚 | 哭虚 | 卯申财气旺 | 卯申是源文给出的因财增名条件 | gate | resource_to_reputation_conversion | increase_in_mao_shen | COMPATIBILITY_RELATION | ADD_CANDIDATE
 MC01-055 | SRC-ZZ-002 | 233 | 天哭天虚 | 哭虚 | 天同星系守兄弟宫 | 传统资料给出特定姻亲关系不和投影 | projection | kinship_case | inlaw_conflict | L3_PROJECTION | CASE_SUPPORT_ONLY
+
+MC01-056 | SRC-ZZ-002 | 234 | 红鸾天喜 | 红鸾 | 一般 | 红鸾主婚姻 | structural_relation | marriage_signal | associate | L0_STRUCTURE | ADD_CANDIDATE
+MC01-057 | SRC-ZZ-002 | 234 | 红鸾天喜 | 天喜 | 一般 | 天喜主生育 | structural_relation | fertility_signal | associate | L0_STRUCTURE | ADD_CANDIDATE
+MC01-058 | SRC-ZZ-002 | 234 | 红鸾天喜 | 红鸾天喜 | 永远相对 | 两星性质会互相影响，不能完全拆开使用 | structural_relation | paired_modifier | coupled | L0_STRUCTURE | ADD_CANDIDATE
+MC01-059 | SRC-ZZ-002 | 234 | 红鸾天喜 | 红鸾天喜 | 命宫例示 | 源文以俏艳、冷艳区分两星外在气质，保留为传统案例 | projection | appearance_case | differentiated_style | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC01-060 | SRC-ZZ-002 | 234 | 红鸾天喜 | 鸾喜 | 子女宫 | 源文给出传统子女结构投影 | projection | offspring_case | traditional_projection | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC01-061 | SRC-ZZ-002 | 234 | 红鸾天喜 | 紫微加鸾喜 | 再见吉曜 | 年龄阶段改变其投影：少年偏婚姻，老年偏荣衔 | time_scale_effect | age_dependent_projection | branch_by_age | TEMPORAL_GATE | ADD_CANDIDATE
+MC01-062 | SRC-ZZ-002 | 234 | 红鸾天喜 | 鸾喜 | 财帛宫正曜吉 | 可形成小额喜庆型资源收益 | transform | celebratory_income | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+MC01-063 | SRC-ZZ-002 | 234 | 红鸾天喜 | 鸾喜 | 喜庆行业 | 与喜庆场景结合可提高职业适配 | projection | occupation_example | celebration_related_business | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC01-064 | SRC-ZZ-002 | 234 | 红鸾天喜 | 流年鸾喜 | 命宫或夫妻宫 | 流年鸾喜可作为婚育应期候选信号 | layer_interaction | relationship_family_timing | activate | TEMPORAL_LAYER | ADD_CANDIDATE
+MC01-065 | SRC-ZZ-002 | 234 | 红鸾天喜 | 流年鸾喜 | 正曜星系不稳定 | 若正曜不稳则应期可延后，鸾喜不能单独决定事件发生 | gate | event_timing | delay_if_base_unstable | STRUCTURAL_GATE | ADD_CANDIDATE
