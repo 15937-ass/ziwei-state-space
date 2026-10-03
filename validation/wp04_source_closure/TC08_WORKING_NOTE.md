@@ -101,3 +101,19 @@ TC08-084 | SRC-ZZ-002 | 213 | 太阳化科 | 太阳化科 | 昌曲交会 | 昌�
 TC08-085 | SRC-ZZ-002 | 213 | 太阳化科 | 子午太阳独坐 | 子宫 | 子宫化科主要减少是非孤克，声誉范围较局限 | transform | conflict_reduction_vs_reputation_scope | conflict_down_scope_limited | DERIVED_RESPONSE | ADD_CANDIDATE
 TC08-086 | SRC-ZZ-002 | 213 | 太阳化科 | 子午太阳独坐 | 午宫 | 午宫化科更能形成公众声誉，但过度发射可造成事业表面广大而内在空虚 | transform | public_reputation_vs_substance | reputation_up_substance_risk | DERIVED_RESPONSE | ADD_CANDIDATE
 TC08-087 | SRC-ZZ-002 | 213 | 太阳化科 | 寅申巨阳 | 天机忌同会 | 化科可增强说服力，并把部分天机忌从是非失误转为劳心费神 | transform | conflict_to_effort_conversion | increase_effort_reduce_error | DERIVED_RESPONSE | ADD_CANDIDATE
+
+TC08-088 | SRC-ZZ-002 | 213 | 太阳化科 | 寅申巨阳 | 大运流年 | 运限层可通过说服他人取得机会 | layer_interaction | persuasion_opportunity | increase | TEMPORAL_LAYER | ADD_CANDIDATE
+TC08-089 | SRC-ZZ-002 | 213-214 | 太阳化科 | 卯酉阳梁 | 知名度 | 化科可把原本行业内声名扩大到更广社会范围 | transform | reputation_scope | expand_to_public | DERIVED_RESPONSE | ADD_CANDIDATE
+TC08-090 | SRC-ZZ-002 | 214 | 太阳化科 | 卯酉阳梁 | 太阴化权同会 | 太阴在此不直接主财富，而主要使声名带来的收益更稳定 | transform | reputation_income_stability | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC08-091 | SRC-ZZ-002 | 214 | 天梁化科 | 天梁化科 | 一般 | 化科加强独立原则与不随波逐流的倾向 | enhance | principled_independence | increase | LOCAL_STATE | ADD_CANDIDATE
+TC08-092 | SRC-ZZ-002 | 214 | 天梁化科 | 天梁化科 | 智慧观察 | 化科提高领悟、观察与专业考试能力 | enhance | comprehension_observation | increase | LOCAL_STATE | ADD_CANDIDATE
+TC08-093 | SRC-ZZ-002 | 214 | 天梁化科 | 天梁化科 | 孤芳自赏 | 智慧与名誉提升也可能转为孤芳自赏，使实际收益有限 | transform | reputation_vs_realized_gain | reputation_up_gain_limited | DERIVED_RESPONSE | ADD_CANDIDATE
+TC08-094 | SRC-ZZ-002 | 214 | 天梁化科 | 天梁化科 | 消灾解难 | 化科增强根本解决问题与清理长期拖延困扰的能力 | transform | problem_resolution_completeness | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC08-095 | SRC-ZZ-002 | 214 | 天梁化科 | 天梁化科 | 处理手段 | 化科使原本激烈的化解手段趋于温和并降低过程痛苦 | transform | resolution_harshness | decrease | DERIVED_RESPONSE | ADD_CANDIDATE
+TC08-096 | SRC-ZZ-002 | 214-215 | 天梁化科 | 天梁化科 | 职业例示 | 源文列举医疗、社会工作等以替人解难为生的职业 | projection | occupation_example | helping_profession | L3_PROJECTION | CASE_SUPPORT_ONLY
+TC08-097 | SRC-ZZ-002 | 215 | 天梁化科 | 子午天梁 | 阳梁昌禄可能成格 | 化科可加强考试竞争与服务型声誉，但原则性也可能过强 | transform | competitive_reputation_vs_rigidity | mixed | DERIVED_RESPONSE | ADD_CANDIDATE
+TC08-098 | SRC-ZZ-002 | 215 | 天梁化科 | 丑未天梁 | 天机相对加擎羊 | 化科可稳定情绪，但日月并照与擎羊又可能带来犹疑和拘执原则 | transform | emotional_stability_vs_rigidity | mixed | DERIVED_RESPONSE | ADD_CANDIDATE
+TC08-099 | SRC-ZZ-002 | 215 | 天梁化科 | 卯酉阳梁 | 文曲化忌条件 | 化科利竞争与研究，但文曲忌会把研究推向冷僻领域，否则争论增多 | gate | research_domain_and_conflict | branch_by_wenqu_ji | STRUCTURAL_GATE | ADD_CANDIDATE
+TC08-100 | SRC-ZZ-002 | 215-216 | 天梁化科 | 巳亥天梁 | 外界扬名 | 化科主要增加内部声望，外界扬名反会放大灾险；即便有灾危仍较易忍受并转危为安 | transform | internal_reputation_vs_external_risk | internal_up_external_risk_up | DERIVED_RESPONSE | ADD_CANDIDATE
+
+next_anchor: 天府(庚干化科)
