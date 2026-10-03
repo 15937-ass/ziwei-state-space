@@ -21,6 +21,10 @@ def load_jsonl(path: Path) -> list[dict]:
     return rows
 
 
+def normalize_lunar_label(value: str) -> str:
+    return str(value).replace("腊月", "十二月").replace("冬月", "十一月")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("engine_output")
@@ -47,7 +51,7 @@ def main() -> int:
         for target_id, marker in expected.items():
             if target_id not in by_id:
                 errors.append(f"{row.get('case_id')}: missing target {target_id}")
-            elif marker and marker not in str(by_id[target_id].get("lunar_date", "")):
+            elif marker and marker not in normalize_lunar_label(by_id[target_id].get("lunar_date", "")):
                 errors.append(
                     f"{row.get('case_id')}:{target_id}: lunar_date={by_id[target_id].get('lunar_date')!r} "
                     f"does not contain expected marker {marker!r}"
