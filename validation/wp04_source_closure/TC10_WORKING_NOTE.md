@@ -101,3 +101,5 @@ TC10-085 | SRC-ZZ-002 | 226-227 | 文曲化忌 | 文曲化忌 | 幻想 | 幻想�
 TC10-086 | SRC-ZZ-002 | 227 | 天同化忌 | 天同化忌 | 一般 | 天同以情绪为核心，化忌主要增加情绪不稳定 | enhance | emotional_instability | increase | LOCAL_STATE | ADD_CANDIDATE
 TC10-087 | SRC-ZZ-002 | 227 | 天同化忌 | 天同化忌 | 入庙 | 入庙时情绪不稳定虽增加但整体危害相对较轻 | gate | adverse_intensity | attenuate_in_dignity | COMPATIBILITY_RELATION | ADD_CANDIDATE
 TC10-088 | SRC-ZZ-002 | 227 | 天同化忌 | 天同化忌 | 白手兴家 | 化忌会加强中年经历艰辛并被迫独立的路径 | time_scale_effect | independence_after_adversity | increase | TEMPORAL_GATE | ADD_CANDIDATE
+
+TC10-089 | SRC-ZZ-002 | 227 | 天同化忌 | 天同化忌 | 感情 | 感情困扰可干扰事业专注 | transform | relationship_distress_to_career | increase | DERIVED_RESPONSE | ADD_CANDIDATE
