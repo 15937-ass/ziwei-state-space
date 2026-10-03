@@ -103,3 +103,9 @@ TC10-087 | SRC-ZZ-002 | 227 | 天同化忌 | 天同化忌 | 入庙 | 入庙时�
 TC10-088 | SRC-ZZ-002 | 227 | 天同化忌 | 天同化忌 | 白手兴家 | 化忌会加强中年经历艰辛并被迫独立的路径 | time_scale_effect | independence_after_adversity | increase | TEMPORAL_GATE | ADD_CANDIDATE
 
 TC10-089 | SRC-ZZ-002 | 227 | 天同化忌 | 天同化忌 | 感情 | 感情困扰可干扰事业专注 | transform | relationship_distress_to_career | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+
+TC10-090 | SRC-ZZ-002 | 227 | 天同化忌 | 天同化忌 | 陷宫 | 陷宫时情绪低落更易降低事业专注 | gate | career_focus | decrease_in_fall | COMPATIBILITY_RELATION | ADD_CANDIDATE
+TC10-091 | SRC-ZZ-002 | 227 | 天同化忌 | 天同化忌 | 理想高于现实 | 理想现实差距会提高长期追求成本 | transform | aspiration_reality_gap | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-092 | SRC-ZZ-002 | 227 | 天同化忌 | 天同化忌 | 煞刑重 | 煞刑会进一步放大多疑多虑 | enhance | suspicious_rumination | increase | LOCAL_STATE | ADD_CANDIDATE
+TC10-093 | SRC-ZZ-002 | 227 | 天同化忌 | 天同化忌 | 健康投影 | 源文给出神经系统相关传统投影 | projection | health_case | traditional_neuro_case | L3_PROJECTION | CASE_SUPPORT_ONLY
+TC10-094 | SRC-ZZ-002 | 227 | 天同化忌 | 子午同阴 | 子 vs 午 | 子宫较午宫能承受化忌，午宫双星落陷时疑虑更重 | gate | emotional_stability | enhance_in_zi | COMPATIBILITY_RELATION | ADD_CANDIDATE
