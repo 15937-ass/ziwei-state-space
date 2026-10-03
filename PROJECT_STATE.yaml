@@ -18,7 +18,7 @@ git:
   checkpoint_merge: "e8255d82b9a2ce0343d6f5635919db18ea8199fe"
   stale_open_prs: []
   branch_cleanup_status: "POST_P1_ACTIVE_POINTERS_CLOSED; LEGACY_BRANCH_DELETION_PENDING"
-  note: "PR #67 merged TC11 and closes the 化曜 source-coverage chapter at 900 reviewed items. TC10+TC11 complete the current 200-item user-facing block. Canonical next work is 杂曜 source closure from 杂曜总论/天伤天使; no new Human Gate is open."
+  note: "MC01 completes the first 100-item internal checkpoint for 杂曜 source closure: 72 ADD_CANDIDATE and 28 CASE_SUPPORT_ONLY. No new Human Gate, primitive qi, or history-memory type."
 
 gates:
   A0: "APPROVED"
@@ -44,13 +44,13 @@ progress:
     base_operator_rules: 313
     system_operator_edges: 654
   wp04_source_closure:
-    chapter: "化曜"
-    checkpoint: "TC11"
-    reviewed_items: 900
-    add_candidates: 810
-    case_support_only: 90
-    status: "TRANSFORMATION_CHAPTER_CLOSED_NEXT_MISC"
-    next_anchor: "杂曜总论/天伤天使"
+    chapter: "杂曜"
+    checkpoint: "MC01"
+    reviewed_items: 100
+    add_candidates: 72
+    case_support_only: 28
+    status: "MC01_SOURCE_SPAN_VERIFIED_READY_FOR_PR"
+    next_anchor: "恩光天贵与文昌文曲交会利考试/天才"
   manuscript:
     file: "paper/manuscript_v0.1.md"
     status: "STALE_PRE_A2_DRAFT_DO_NOT_USE_FOR_CURRENT_METRICS"
@@ -90,6 +90,7 @@ canonical_artifacts:
   wp04_tc10_history_feedback: "validation/wp04_source_closure/TC10_history_feedback_v0.1.csv"
   wp04_tc11_source_review: "validation/wp04_source_closure/TC11_WORKING_NOTE.md"
   wp04_tc11_history_feedback: "validation/wp04_source_closure/TC11_history_feedback_v0.1.csv"
+  wp04_mc01_source_review: "validation/wp04_source_closure/MC01_WORKING_NOTE.md"
   wp04_source_closure_ledger: "knowledge/coverage/wp04_source_chapter_closure_v0.1.csv"
 
 historical_noncanonical_gate_documents:
