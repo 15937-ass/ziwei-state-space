@@ -62,3 +62,10 @@ MC02-047 | SRC-ZZ-002 | 236 | 解神 | 年解 | 流年命宫或财帛宫 | 年�
 MC02-048 | SRC-ZZ-002 | 236 | 解神 | 月解 | 流月命宫或财帛宫 | 月解可在月度层提高纠纷化解能力 | layer_interaction | dispute_resolution | increase | TEMPORAL_LAYER | ADD_CANDIDATE
 MC02-049 | SRC-ZZ-002 | 236 | 解神 | 解神 | 原星系凶 | 化解过程自身可伴随破财或事业受损 | transform | resolution_cost | increase_if_base_adverse | DERIVED_RESPONSE | ADD_CANDIDATE
 MC02-050 | SRC-ZZ-002 | 236 | 解神 | 解神加天马 | 流年夫妻宫或命宫 | 源文将其作为关系离散的一部分组合条件，不能单独定象 | projection | relationship_case | separation_component | L3_PROJECTION | CASE_SUPPORT_ONLY
+
+MC02-051 | SRC-ZZ-002 | 236 | 天巫 | 天巫 | 一般 | 天巫主遗产 | structural_relation | inheritance_signal | associate | L0_STRUCTURE | ADD_CANDIDATE
+MC02-052 | SRC-ZZ-002 | 236 | 天巫 | 天巫 | 一般 | 天巫亦主升迁 | structural_relation | promotion_signal | associate | L0_STRUCTURE | ADD_CANDIDATE
+MC02-053 | SRC-ZZ-002 | 236 | 天巫 | 天梁天巫 | 命宫或财帛宫 | 源文将承接长上资源作为传统遗产投影 | projection | inheritance_case | elder_resource_transfer | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC02-054 | SRC-ZZ-002 | 236 | 天巫 | 天巫加财星 | 子女宫 | 源文给出后代承接事业的传统投影 | projection | succession_case | family_business_succession | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC02-055 | SRC-ZZ-002 | 236 | 天巫 | 天梁天巫擎羊 | 同会 | 可增加财务争议 | transform | financial_dispute | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+MC02-056 | SRC-ZZ-002 | 236 | 天巫 | 流年天巫 | 命宫或事业宫原星系吉 | 可提高升职机会 | layer_interaction | promotion_opportunity | increase | TEMPORAL_LAYER | ADD_CANDIDATE
