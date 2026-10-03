@@ -28,6 +28,11 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.25.x"
+
       - name: Build 100-case adapter input
         env:
           PYTHONPATH: ${{ github.workspace }}
@@ -69,6 +74,29 @@ jobs:
             --fail-on-diff
           cat /tmp/p1_dual_engine_report.json | head -80
 
+      - name: Export pinned independent Go engine
+        run: |
+          git clone --quiet https://github.com/dawang20250107/ziweidoushu.git /tmp/dawang
+          cd /tmp/dawang
+          git checkout --quiet 947166fc45cd7c8c0849da1bd870f570972a7172
+          mkdir -p cmd/p1export
+          cp "$GITHUB_WORKSPACE/tools/dawang_p1_export/main.go" cmd/p1export/main.go
+          go run ./cmd/p1export \
+            /tmp/p1_inputs.jsonl \
+            "$GITHUB_WORKSPACE/validation/product_chart_regression/temporal_targets_v0.2.json" \
+            /tmp/p1_dawang_go.jsonl
+
+      - name: Independent Go core audit
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python tools/p1_independent_compare.py \
+            /tmp/p1_iztro_js.jsonl \
+            /tmp/p1_dawang_go.jsonl \
+            --report /tmp/p1_independent_go_report.json \
+            --fail-on-core-diff
+          cat /tmp/p1_independent_go_report.json | head -100
+
       - name: Upload P1 differential artifacts
         if: always()
         uses: actions/upload-artifact@v4
@@ -78,4 +106,6 @@ jobs:
             /tmp/p1_iztro_js.jsonl
             /tmp/p1_xiztro_rust.jsonl
             /tmp/p1_dual_engine_report.json
+            /tmp/p1_dawang_go.jsonl
+            /tmp/p1_independent_go_report.json
           retention-days: 30
