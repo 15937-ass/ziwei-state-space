@@ -106,7 +106,7 @@ function normalizeHoroscope(raw, target) {
   const yearlyDec = raw.yearly?.yearlyDecStar ?? null;
   return {
     target: target,
-    solar_date: raw.solarDate,
+    solar_date: normalizeSolarDate(raw.solarDate),
     lunar_date: raw.lunarDate,
     scopes: {
       decadal: normalizeScope(raw.decadal),
