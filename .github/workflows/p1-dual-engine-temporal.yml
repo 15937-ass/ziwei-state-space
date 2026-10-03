@@ -80,6 +80,7 @@ jobs:
         env:
           INDEPENDENT_ENGINE_ROOT: /tmp/ziwei-independent
         run: |
+          set -o pipefail
           npx tsx tools/p1_compare_independent.ts \
             validation/product_chart_regression/regression_inputs_v0.1.csv | tee /tmp/p1_independent_summary.log
 
