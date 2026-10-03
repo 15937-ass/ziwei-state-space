@@ -1,0 +1,33 @@
+name: p1-chart-differential
+
+on:
+  push:
+    branches:
+      - "product/p1-close-full-temporal-diff"
+    paths:
+      - "tools/run_p1_zhongzhou_dual_diff.cjs"
+      - "validation/product_chart_regression/**"
+      - "product/ZHONGZHOU_CHART_CONVENTIONS_v0.2.md"
+      - ".github/workflows/p1-chart-differential.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  zhongzhou-independent-diff:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install pinned engines
+        run: npm install --no-save --package-lock=false iztro@2.6.1 fortel-ziweidoushu@1.3.4
+      - name: Run 100-case Zhongzhou natal + temporal diff
+        run: node tools/run_p1_zhongzhou_dual_diff.cjs
+      - name: Upload raw differential report
+        uses: actions/upload-artifact@v4
+        with:
+          name: p1-zhongzhou-dual-diff
+          path: validation/product_chart_regression/p1_zhongzhou_dual_diff_report.json
