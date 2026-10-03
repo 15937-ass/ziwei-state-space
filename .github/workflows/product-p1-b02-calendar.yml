@@ -1,0 +1,130 @@
+name: product-p1-b02-calendar
+
+on:
+  pull_request:
+    paths:
+      - "validation/product_chart_regression/b02a*.json"
+      - "tools/p1_*"
+      - "tools/iztro_full_export.mjs"
+      - "tools/x_iztro_full_export.py"
+      - "tools/dawang_p1_export/**"
+      - ".github/workflows/product-p1-b02-calendar.yml"
+      - "product/EXECUTION_GUARDRAILS.md"
+  push:
+    branches:
+      - main
+      - "product/**"
+    paths:
+      - "validation/product_chart_regression/b02a*.json"
+      - "tools/p1_*"
+      - "tools/iztro_full_export.mjs"
+      - "tools/x_iztro_full_export.py"
+      - "tools/dawang_p1_export/**"
+      - ".github/workflows/product-p1-b02-calendar.yml"
+      - "product/EXECUTION_GUARDRAILS.md"
+
+permissions:
+  contents: read
+
+jobs:
+  b02-calendar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - batch: A1
+            manifest: validation/product_chart_regression/b02a1_calendar_year_month.json
+          - batch: A2
+            manifest: validation/product_chart_regression/b02a2_leap_month_day.json
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.25.x"
+
+      - name: Build bounded 100-case input
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          timeout 60s python tools/chart_inputs_to_jsonl.py             validation/product_chart_regression/regression_inputs_v0.1.csv             /tmp/p1_inputs.jsonl
+          test "$(wc -l < /tmp/p1_inputs.jsonl)" -eq 100
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("${{ matrix.manifest }}")
+          m=json.loads(p.read_text(encoding="utf-8"))
+          n=len(m.get("targets", []))
+          assert 1 <= n <= 8, f"target count out of guardrail: {n}"
+          print(f"manifest={p} targets={n}")
+          PY
+
+      - name: Install pinned engines
+        run: |
+          timeout 300s npm install --no-save iztro@2.6.1
+          timeout 300s python -m pip install --upgrade "x-iztro==0.6.1"
+
+      - name: Export iztro JS boundary snapshots
+        env:
+          IZTRO_VERSION: "2.6.1"
+        run: |
+          timeout 300s node tools/iztro_full_export.mjs             /tmp/p1_inputs.jsonl             "${{ matrix.manifest }}"             /tmp/p1_iztro_${{ matrix.batch }}.jsonl
+
+      - name: Export x-iztro Rust boundary snapshots
+        run: |
+          timeout 300s python tools/x_iztro_full_export.py             /tmp/p1_inputs.jsonl             "${{ matrix.manifest }}"             /tmp/p1_xiztro_${{ matrix.batch }}.jsonl
+
+      - name: Validate authoritative calendar markers
+        run: |
+          timeout 120s python tools/p1_validate_boundary_expectations.py             /tmp/p1_iztro_${{ matrix.batch }}.jsonl             "${{ matrix.manifest }}"             --max-errors 10 --max-targets 8
+
+      - name: Cross-implementation full diff
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          timeout 180s python tools/p1_compare_full.py             /tmp/p1_iztro_${{ matrix.batch }}.jsonl             /tmp/p1_xiztro_${{ matrix.batch }}.jsonl             --report /tmp/p1_dual_${{ matrix.batch }}_report.json             --max-total-diffs 500             --max-detail-per-case 100             --fail-on-diff
+          head -80 /tmp/p1_dual_${{ matrix.batch }}_report.json
+
+      - name: Export pinned independent Go engine
+        run: |
+          timeout 180s git clone --quiet https://github.com/dawang20250107/ziweidoushu.git /tmp/dawang
+          cd /tmp/dawang
+          git checkout --quiet 947166fc45cd7c8c0849da1bd870f570972a7172
+          mkdir -p cmd/p1export
+          cp "$GITHUB_WORKSPACE/tools/dawang_p1_export/main.go" cmd/p1export/main.go
+          timeout 360s go run ./cmd/p1export             /tmp/p1_inputs.jsonl             "$GITHUB_WORKSPACE/${{ matrix.manifest }}"             /tmp/p1_dawang_${{ matrix.batch }}.jsonl
+
+      - name: Independent Go boundary audit
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          timeout 180s python tools/p1_independent_compare.py             /tmp/p1_iztro_${{ matrix.batch }}.jsonl             /tmp/p1_dawang_${{ matrix.batch }}.jsonl             --report /tmp/p1_independent_${{ matrix.batch }}_report.json             --max-total-diffs 500             --max-detail-per-case 100             --fail-on-core-diff
+          head -100 /tmp/p1_independent_${{ matrix.batch }}_report.json
+
+      - name: Upload bounded B02 artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: p1-b02-calendar-${{ matrix.batch }}-${{ github.sha }}
+          path: |
+            /tmp/p1_iztro_${{ matrix.batch }}.jsonl
+            /tmp/p1_xiztro_${{ matrix.batch }}.jsonl
+            /tmp/p1_dual_${{ matrix.batch }}_report.json
+            /tmp/p1_dawang_${{ matrix.batch }}.jsonl
+            /tmp/p1_independent_${{ matrix.batch }}_report.json
+          retention-days: 30
