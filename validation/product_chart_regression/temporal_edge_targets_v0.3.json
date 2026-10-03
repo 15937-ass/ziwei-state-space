@@ -1,0 +1,33 @@
+{
+  "version": "0.3",
+  "generated_with": "lunar-lite@0.2.8",
+  "scan_window": ["2032-01-01", "2035-12-31"],
+  "selected_lunar_boundaries": {
+    "cny": {"solar":"2033-01-31","lunarYear":2033,"lunarMonth":1,"lunarDay":1,"isLeap":false},
+    "regular_month_start": {"solar":"2033-05-28","lunarYear":2033,"lunarMonth":5,"lunarDay":1,"isLeap":false},
+    "leap_month_start": {"solar":"2033-12-22","lunarYear":2033,"lunarMonth":11,"lunarDay":1,"isLeap":true},
+    "leap_month_day15": {"solar":"2034-01-05","lunarYear":2033,"lunarMonth":11,"lunarDay":15,"isLeap":true},
+    "leap_month_day16": {"solar":"2034-01-06","lunarYear":2033,"lunarMonth":11,"lunarDay":16,"isLeap":true},
+    "leap_month_last": {"solar":"2034-01-19","lunarYear":2033,"lunarMonth":11,"lunarDay":29,"isLeap":true}
+  },
+  "targets": [
+    {"target_id":"B02_GREG_LEAP_H0","solar_date":"2032-02-29","time_index":0,"edge":"gregorian_leap_day_early_zi"},
+    {"target_id":"B02_GREG_LEAP_H12","solar_date":"2032-02-29","time_index":12,"edge":"gregorian_leap_day_late_zi"},
+    {"target_id":"B02_CNY_EVE_H11","solar_date":"2033-01-30","time_index":11,"edge":"lunar_year_end_hai"},
+    {"target_id":"B02_CNY_EVE_H12","solar_date":"2033-01-30","time_index":12,"edge":"lunar_year_end_late_zi_forward"},
+    {"target_id":"B02_CNY_DAY_H0","solar_date":"2033-01-31","time_index":0,"edge":"lunar_new_year_early_zi"},
+    {"target_id":"B02_CNY_DAY_H1","solar_date":"2033-01-31","time_index":1,"edge":"lunar_new_year_chou"},
+    {"target_id":"B02_NORMAL_MONTH_PREV_H12","solar_date":"2033-05-27","time_index":12,"edge":"normal_month_end_late_zi"},
+    {"target_id":"B02_NORMAL_MONTH_DAY1_H0","solar_date":"2033-05-28","time_index":0,"edge":"normal_month_first_day"},
+    {"target_id":"B02_LEAP_ENTER_PREV_H12","solar_date":"2033-12-21","time_index":12,"edge":"before_leap_month_late_zi"},
+    {"target_id":"B02_LEAP_ENTER_DAY1_H0","solar_date":"2033-12-22","time_index":0,"edge":"leap_month_first_day"},
+    {"target_id":"B02_LEAP_DAY15_H0","solar_date":"2034-01-05","time_index":0,"edge":"leap_month_first_half_day15"},
+    {"target_id":"B02_LEAP_DAY15_H12","solar_date":"2034-01-05","time_index":12,"edge":"leap_month_day15_late_zi"},
+    {"target_id":"B02_LEAP_DAY16_H0","solar_date":"2034-01-06","time_index":0,"edge":"leap_month_second_half_day16"},
+    {"target_id":"B02_LEAP_LAST_H12","solar_date":"2034-01-19","time_index":12,"edge":"leap_month_last_day_late_zi"},
+    {"target_id":"B02_LEAP_EXIT_H0","solar_date":"2034-01-20","time_index":0,"edge":"first_day_after_leap_month"},
+    {"target_id":"B02_GREG_YEAR_END_H12","solar_date":"2033-12-31","time_index":12,"edge":"gregorian_year_end_late_zi"},
+    {"target_id":"B02_GREG_YEAR_START_H0","solar_date":"2034-01-01","time_index":0,"edge":"gregorian_year_start_early_zi"},
+    {"target_id":"B02_BASELINE_DAYTIME","solar_date":"2034-08-03","time_index":6,"edge":"ordinary_control"}
+  ]
+}
