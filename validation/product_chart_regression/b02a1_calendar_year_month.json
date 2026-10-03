@@ -1,0 +1,33 @@
+{
+  "version": "0.1",
+  "batch": "P1-B02-A1",
+  "purpose": "calendar year/month boundary isolation; daytime only",
+  "authoritative_calendar_reference": "Hong Kong Observatory Gregorian-Lunar calendar",
+  "max_targets": 8,
+  "targets": [
+    {
+      "target_id": "A1_LUNAR_YEAR_END",
+      "solar_date": "2024-02-09",
+      "time_index": 6,
+      "expected_lunar_marker": "十二月三十"
+    },
+    {
+      "target_id": "A1_LUNAR_YEAR_START",
+      "solar_date": "2024-02-10",
+      "time_index": 6,
+      "expected_lunar_marker": "正月初一"
+    },
+    {
+      "target_id": "A1_NORMAL_MONTH_END",
+      "solar_date": "2024-03-09",
+      "time_index": 6,
+      "expected_lunar_marker": "正月廿九"
+    },
+    {
+      "target_id": "A1_NORMAL_MONTH_START",
+      "solar_date": "2024-03-10",
+      "time_index": 6,
+      "expected_lunar_marker": "二月初一"
+    }
+  ]
+}
