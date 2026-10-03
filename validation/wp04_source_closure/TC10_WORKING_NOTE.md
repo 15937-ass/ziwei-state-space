@@ -34,3 +34,29 @@ TC10-022 | SRC-ZZ-002 | 224 | 廉贞化忌 | 卯酉廉破 | 大额资金经手 |
 TC10-023 | SRC-ZZ-002 | 224 | 廉贞化忌 | 辰戌廉府 | 罗网 | 罗网中化忌反可增加斗志，显示 constraint → activation 反转 | transform | constraint_to_drive | increase | DERIVED_RESPONSE | ADD_CANDIDATE
 TC10-024 | SRC-ZZ-002 | 224 | 廉贞化忌 | 辰戌廉府 | 成败不一 | 外部成败波动与内部心境开朗可以并存 | structural_relation | outcome_vs_affect | decouple | L0_STRUCTURE | ADD_CANDIDATE
 TC10-025 | SRC-ZZ-002 | 224 | 廉贞化忌 | 巳亥廉贪 | 文曜 | 文曜可把深度忧郁部分转化为文艺情绪 | transform | distress_to_artistic_expression | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+
+TC10-026 | SRC-ZZ-002 | 224 | 廉贞化忌 | 巳亥廉贪 | 地空地劫 | 空劫会进一步放大忧郁与自寻困扰 | enhance | emotional_distress | increase | LOCAL_STATE | ADD_CANDIDATE
+TC10-027 | SRC-ZZ-002 | 224 | 廉贞化忌 | 巳亥廉贪 | 理财 | 该结构资源流入与保存能力分离，呈现左手来右手去 | structural_relation | resource_inflow_vs_retention | decouple | L0_STRUCTURE | ADD_CANDIDATE
+TC10-028 | SRC-ZZ-002 | 224 | 廉贞化忌 | 巳亥廉贪 | 奔波流浪 | 该结构显著提高生活与环境变动性 | enhance | mobility_instability | increase | LOCAL_STATE | ADD_CANDIDATE
+TC10-029 | SRC-ZZ-002 | 224-225 | 巨门化忌 | 巨门化忌 | 一般 | 巨门原有是非口舌被化忌明显放大 | enhance | verbal_conflict | increase | LOCAL_STATE | ADD_CANDIDATE
+TC10-030 | SRC-ZZ-002 | 224-225 | 巨门化忌 | 巨门化忌 | 非自招 | 是非可在并非主动招惹的情况下进入系统 | transform | exogenous_social_conflict | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-031 | SRC-ZZ-002 | 224-225 | 巨门化忌 | 巨门化忌 | 感情 | 感情发展容易出现不可预期的反覆与困扰 | transform | relationship_volatility | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-032 | SRC-ZZ-002 | 224-225 | 巨门化忌 | 巨门化忌 | 首次关系 | 源文把首次婚恋痛苦描述为长期难忘，属于传统关系案例且含持续性 | projection | relationship_case | persistent_distress | L3_PROJECTION | CASE_SUPPORT_ONLY
+TC10-033 | SRC-ZZ-002 | 224-225 | 巨门化忌 | 巨门化忌 | 求全求美 | 完美主义提高事业不如理想时的失望与劳累 | transform | perfectionism_cost | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-034 | SRC-ZZ-002 | 224-225 | 巨门化忌 | 巨门化忌 | 陀罗同度 | 陀罗进一步放大执着、忧煎与劳累 | enhance | rumination_effort | increase | LOCAL_STATE | ADD_CANDIDATE
+TC10-035 | SRC-ZZ-002 | 224-225 | 巨门化忌 | 子午巨门独坐 | 凶事 | 挫折可反成激发力并改善最终结果，形成“视凶实吉” | transform | adversity_to_outcome | improve_after_setback | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-036 | SRC-ZZ-002 | 224-225 | 巨门化忌 | 子午巨门独坐 | 多次挫折 | 每次挫折可累积为结局改善，但过程压力仍存在 | time_scale_effect | repeated_setback_feedback | cumulative_improvement | TEMPORAL_GATE | ADD_CANDIDATE
+TC10-037 | SRC-ZZ-002 | 224-225 | 巨门化忌 | 子午巨门独坐 | 午 vs 子 | 午宫是非更强，但激发效应也更明显 | gate | conflict_activation | higher_in_wu | COMPATIBILITY_RELATION | ADD_CANDIDATE
+TC10-038 | SRC-ZZ-002 | 225 | 巨门化忌 | 丑未同巨 | 天同同时化权 | 该系统需直接联动天同化权规则 | structural_relation | cross_reference_rule | reuse_tiantong_quan | L0_STRUCTURE | ADD_CANDIDATE
+TC10-039 | SRC-ZZ-002 | 225 | 巨门化忌 | 寅申巨阳 | 四化同会 | 四化同会仍不能消除人际关系损害 | structural_relation | multi_transform_vs_social_conflict | conflict_persists | L0_STRUCTURE | ADD_CANDIDATE
+TC10-040 | SRC-ZZ-002 | 225 | 巨门化忌 | 寅申巨阳 | 上司关系 | 是非口舌可投影为上司冲突与权威关系摩擦 | projection | authority_conflict | increase | L3_PROJECTION | ADD_CANDIDATE
+TC10-041 | SRC-ZZ-002 | 225 | 巨门化忌 | 寅申巨阳 | 口舌求财 | 口舌型工作可把冲突通道部分转为名誉与财禄 | transform | verbal_conflict_to_resource | convert | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-042 | SRC-ZZ-002 | 225 | 巨门化忌 | 寅申巨阳 | 职业例示 | 律师等口舌求财职业属于传统应用场景 | projection | occupation_example | communication_role | L3_PROJECTION | CASE_SUPPORT_ONLY
+TC10-043 | SRC-ZZ-002 | 225 | 巨门化忌 | 卯酉机巨 | 天机化科 | 该系统直接联动天机化科规则 | structural_relation | cross_reference_rule | reuse_tianji_ke | L0_STRUCTURE | ADD_CANDIDATE
+TC10-044 | SRC-ZZ-002 | 225 | 巨门化忌 | 辰戌巨门独坐 | 罗网 | 罗网中化忌反而最明显呈现“视凶实吉” | transform | constraint_to_favorable_outcome | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-045 | SRC-ZZ-002 | 225 | 巨门化忌 | 辰戌巨门独坐 | 过程成本 | 最终结果改善并不消除排解辛苦、忧虑与是非 | structural_relation | outcome_vs_process_cost | decouple | L0_STRUCTURE | ADD_CANDIDATE
+TC10-046 | SRC-ZZ-002 | 225 | 巨门化忌 | 辰戌巨门独坐 | 火铃或空劫 | 火铃空劫可进一步加强口舌求财适配 | gate | communication_income_channel | increase | STRUCTURAL_GATE | ADD_CANDIDATE
+TC10-047 | SRC-ZZ-002 | 225 | 巨门化忌 | 辰戌巨门独坐 | 排难解纷 | 事业可因替人排难解纷而佳，但生活宁静度下降 | transform | problem_solving_vs_calmness | career_up_calmness_down | DERIVED_RESPONSE | ADD_CANDIDATE
+TC10-048 | SRC-ZZ-002 | 225 | 巨门化忌 | 巳亥巨门独坐 | 六亲 vs 是非 | 六亲损害较轻时，是非口舌与感情波折仍可很重 | structural_relation | kinship_damage_vs_conflict | decouple | L0_STRUCTURE | ADD_CANDIDATE
+TC10-049 | SRC-ZZ-002 | 225 | 巨门化忌 | 巳亥巨门独坐 | 外部观感 vs 当事体验 | 外界可视关系良好，而当事人主观不满仍可能存在 | structural_relation | external_relationship_quality_vs_subjective_satisfaction | decouple | L0_STRUCTURE | ADD_CANDIDATE
+TC10-050 | SRC-ZZ-002 | 225 | 巨门化忌 | 巳亥巨门独坐 | 中年关系变化 | 源文给出中年感情变化的传统案例投影 | projection | relationship_case | midlife_change | L3_PROJECTION | CASE_SUPPORT_ONLY
