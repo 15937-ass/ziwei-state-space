@@ -3,7 +3,7 @@ repository: "15937-ass/ziwei-state-space"
 
 project:
   current_phase: "Phase II knowledge-base construction + WP05 twelve-palace projection corpus"
-  execution_state: "WP04_SOURCE_CLOSURE_COMPLETE_WP05_READY"
+  execution_state: "WP05_P00_SCHEMA_CLOSED_READY_FOR_PR"
   current_work_unit: "WP05_TWELVE_PALACE_PROJECTION_CORPUS_P00"
   state_sync: "WP04_MAL01_MERGED_GLOBAL_CLOSED"
   last_approved_gate: "A2-R1"
@@ -12,13 +12,13 @@ project:
 
 git:
   default_branch: "main"
-  active_branch: null
-  active_pull_request: null
+  active_branch: "audit/wp05-p00-palace-schema"
+  active_pull_request: 77
   canonical_research_state_branch: "main"
   checkpoint_merge: "b341c08b0dc411ce9846becb1624d7bd0629677e"
   stale_open_prs: []
   branch_cleanup_status: "POST_P1_ACTIVE_POINTERS_CLOSED; LEGACY_BRANCH_DELETION_PENDING"
-  note: "PR #76 merged MAL01 and closes WP04 source coverage globally: 1511 reviewed items, 1274 ADD_CANDIDATE, 237 CASE_SUPPORT_ONLY. One nonblocking HG-027 feedback remains queued under the existing PATH_DEPENDENT_GATE type. Canonical next work is WP05 twelve-palace projection corpus."
+  note: "WP05 P00 defines the twelve-palace projection schema: 12 palace ontology records, 24 scene records, explicit topology, temporal semantics and L3 routing. No new Human Gate, primitive qi, or numeric palace weights. Ready for P01 命宫 corpus extraction."
 
 gates:
   A0: "APPROVED"
@@ -110,6 +110,11 @@ canonical_artifacts:
   wp04_mal01_history_feedback: "validation/wp04_source_closure/MAL01_history_feedback_v0.1.csv"
   wp04_source_verified_coverage: "knowledge/coverage/wp04_source_verified_coverage_v0.1.csv"
   wp04_global_source_closure_audit: "validation/wp04_source_closure/WP04_GLOBAL_SOURCE_CLOSURE_AUDIT.md"
+  wp05_palace_projection_schema: "knowledge/wp05/PALACE_PROJECTION_SCHEMA_v0.1.md"
+  wp05_palace_ontology: "knowledge/wp05/palace_ontology_v0.1.csv"
+  wp05_palace_scene_ontology: "knowledge/wp05/palace_scene_ontology_v0.1.csv"
+  wp05_projection_rule_template: "knowledge/wp05/projection_rule_template_v0.1.csv"
+  wp05_p00_schema_audit: "validation/wp05/P00_PALACE_PROJECTION_SCHEMA_AUDIT.md"
   wp04_source_closure_ledger: "knowledge/coverage/wp04_source_chapter_closure_v0.1.csv"
 
 historical_noncanonical_gate_documents:
