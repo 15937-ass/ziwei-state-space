@@ -18,7 +18,7 @@ git:
   checkpoint_merge: "e8255d82b9a2ce0343d6f5635919db18ea8199fe"
   stale_open_prs: []
   branch_cleanup_status: "POST_P1_ACTIVE_POINTERS_CLOSED; LEGACY_BRANCH_DELETION_PENDING"
-  note: "PR #65 merged TC09. TC08+TC09 complete the current 200-item user-facing reporting block. Cumulative transformation-chapter source review is 700 items. Canonical next work is TC10 from the recorded source anchor; no new Human Gate is open."
+  note: "TC10 internal 100-item checkpoint is complete and ready for PR/CI. Cumulative transformation-chapter source review is 800 items. One source-explicit persistence item was routed to the existing history family; no new Human Gate is open."
 
 gates:
   A0: "APPROVED"
@@ -45,12 +45,12 @@ progress:
     system_operator_edges: 654
   wp04_source_closure:
     chapter: "化曜"
-    checkpoint: "TC09"
-    reviewed_items: 700
-    add_candidates: 637
-    case_support_only: 63
-    status: "TC09_MERGED_NEXT_TC10"
-    next_anchor: "廉贞(丙干化忌)"
+    checkpoint: "TC10"
+    reviewed_items: 800
+    add_candidates: 726
+    case_support_only: 74
+    status: "TC10_SOURCE_SPAN_VERIFIED_READY_FOR_PR"
+    next_anchor: "天同化忌寅申宫之后"
   manuscript:
     file: "paper/manuscript_v0.1.md"
     status: "STALE_PRE_A2_DRAFT_DO_NOT_USE_FOR_CURRENT_METRICS"
@@ -86,6 +86,8 @@ canonical_artifacts:
   wp04_tc07_source_review: "validation/wp04_source_closure/TC07_TRANSFORMATION_SOURCE_REVIEW.md"
   wp04_tc08_source_review: "validation/wp04_source_closure/TC08_WORKING_NOTE.md"
   wp04_tc09_source_review: "validation/wp04_source_closure/TC09_WORKING_NOTE.md"
+  wp04_tc10_source_review: "validation/wp04_source_closure/TC10_WORKING_NOTE.md"
+  wp04_tc10_history_feedback: "validation/wp04_source_closure/TC10_history_feedback_v0.1.csv"
   wp04_source_closure_ledger: "knowledge/coverage/wp04_source_chapter_closure_v0.1.csv"
 
 historical_noncanonical_gate_documents:
