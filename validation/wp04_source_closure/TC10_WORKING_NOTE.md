@@ -118,3 +118,16 @@ TC10-099 | SRC-ZZ-002 | 228 | 天同化忌 | 寅申同梁 | 无火铃空劫 | �
 TC10-100 | SRC-ZZ-002 | 228 | 天同化忌 | 寅申同梁 | 火铃空劫 | 煞曜会把不安定放大为频繁变动并影响发展稳定性 | gate | development_stability | decrease_with_malefics | STRUCTURAL_GATE | ADD_CANDIDATE
 
 next_anchor: 天同化忌寅申宫之后
+
+## Checkpoint summary
+
+- reviewed: 100
+- ADD_CANDIDATE: 89
+- CASE_SUPPORT_ONLY: 11
+- source_span_verified: 100/100
+- normalization_verified: 100/100
+- explicit history marker: 1 (TC10-002; existing ACQUIRED_DISPOSITION family)
+- new Human Gate: 0
+- new primitive qi: 0
+- new history-memory type: 0
+- next anchor: 天同化忌寅申宫之后
