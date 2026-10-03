@@ -32,13 +32,12 @@ const FORTEL_STATIC_NAMES = new Set([
   ...fortel.MiniStar.stars,
 ].map(s=>simp(s.displayName)));
 
-function brightnessBandIztro(v) {
+function brightnessRiskIztro(v) {
   const x=simp(v || '');
-  if(['庙','旺'].includes(x)) return 2;
-  if(['得','利'].includes(x)) return 1;
-  if(['平','不',''].includes(x)) return 0;
-  if(x==='陷') return -1;
-  return null;
+  return x==='陷' ? 'FALLEN' : 'NOT_FALLEN';
+}
+function brightnessRiskFortel(v) {
+  return Number(v) < 0 ? 'FALLEN' : 'NOT_FALLEN';
 }
 function allStaticBranchesIztro(a) {
   const out={};
@@ -55,7 +54,9 @@ function allStaticBranchesIztro(a) {
 function allStaticBranchesFortel(board) {
   const out={};
   for(const cell of board.cells){
-    for(const s of cell.allStars){
+    // Compare static natal stars only. Fortel's allStars also appends the three
+    // rotating 12-star systems (博士/岁前/将前), which are a different layer.
+    for(const s of [...cell.majorStars,...cell.minorStars,...cell.miniStars]){
       const n=simp(s.displayName);
       if(!FORTEL_STATIC_NAMES.has(n)) continue;
       (out[n] ??= []).push(simp(cell.ground.displayName));
@@ -72,6 +73,9 @@ function simp(s) {
     .replaceAll('貪','贪').replaceAll('門','门').replaceAll('貞','贞').replaceAll('軍','军')
     .replaceAll('殺','杀').replaceAll('鉞','钺').replaceAll('輔','辅').replaceAll('鈴','铃')
     .replaceAll('羅','罗').replaceAll('馬','马').replaceAll('鸞','鸾')
+    .replaceAll('壽','寿').replaceAll('龍','龙').replaceAll('鳳','凤').replaceAll('閣','阁')
+    .replaceAll('傷','伤').replaceAll('虛','虚').replaceAll('廚','厨').replaceAll('貴','贵')
+    .replaceAll('誥','诰').replaceAll('將','将').replaceAll('書','书').replaceAll('氣','气')
     .replaceAll('遷','迁').replaceAll('財','财').replaceAll('僕','仆').replaceAll('業','业')
     .replaceAll('宮','宫').replaceAll('歲','岁').replaceAll('鸞','鸾');
 }
@@ -322,14 +326,16 @@ for(const c of cases){
   const commonStatic=[...new Set([...Object.keys(iAll),...Object.keys(fAll)])].filter(n=>FORTEL_STATIC_NAMES.has(n)).sort();
   for(const s of commonStatic) passed &= check(c.case_id,'natal_static_star',s,iAll[s]??[],fAll[s]??[],{time_index:t});
 
-  // Fortel exposes a four-band major-star energy table. Collapse iztro's
-  // 庙/旺/得/利/平/不/陷 to the same four bands for an independent sanity check.
+  // The two libraries use different brightness granularity. Compare the
+  // source-relevant risk class (落陷 vs 非落陷); retain iztro's richer label
+  // as display metadata, not as a falsely comparable numeric scale.
   for(const p of iz.palaces){
     for(const s of (p.majorStars||[])){
       const n=starName(s);
       const fs=fortel.MajorStar.stars.find(x=>simp(x.displayName)===n);
       if(fs){
-        passed &= check(c.case_id,'natal_major_brightness_band',n,brightnessBandIztro(s.brightness),fb.getMajorStarEnergyLevel(fs),{branch:simp(p.earthlyBranch),raw_iztro:simp(s.brightness)});
+        const fv=fb.getMajorStarEnergyLevel(fs);
+        passed &= check(c.case_id,'natal_major_brightness_risk',n,brightnessRiskIztro(s.brightness),brightnessRiskFortel(fv),{branch:simp(p.earthlyBranch),raw_iztro:simp(s.brightness),fortel_energy:fv});
       }
     }
   }
