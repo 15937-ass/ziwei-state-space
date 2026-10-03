@@ -1,0 +1,55 @@
+task_id: PRODUCT-P0
+version: "0.1"
+status: ACTIVE
+title: "竞品审计 + 排盘差异框架 + inference MVP 前置"
+objective: >
+  在不打断 KB-WP05 source closure 的前提下，建立产品主轨的可恢复工程骨架，
+  优先解决竞品技术借鉴、许可证、排盘交叉验证和后续 inference MVP 接口。
+
+workstreams:
+  competitive_intelligence:
+    status: STARTED
+    outputs:
+      - competitive_intelligence/PROJECT_REGISTRY.yaml
+      - competitive_intelligence/COMPETITOR_MATRIX.csv
+      - competitive_intelligence/LICENSE_LEDGER.csv
+      - competitive_intelligence/BENCHMARK_TRACKER.csv
+
+  chart_differential:
+    status: STARTED
+    outputs:
+      - src/product/chart_diff.py
+      - tests/test_product_chart_diff.py
+    next:
+      - define normalized-chart adapter contract
+      - create iztro fixture/export adapter
+      - create internal chart fixture/export adapter
+      - build first 100 golden regression inputs
+
+  inference_mvp:
+    status: SPEC_DEFINED
+    scope:
+      temporal: "natal + one decade + one year"
+      domains: ["career", "resource_finance"]
+    next:
+      - EvidencePackage executable contract
+      - deterministic active-rule resolver
+      - palace projection resolver
+      - conflict/alternative output
+
+  benchmark:
+    status: REGISTERED
+    next:
+      - ingest metadata only for Fate-Bench
+      - keep answer-bearing test material isolated
+      - define blind runner before any model comparison
+
+constraints:
+  - "External projects never overwrite Zhongzhou canonical knowledge."
+  - "Agreement between chart engines is not ground truth."
+  - "No benchmark answer leakage into rule/prompt development."
+  - "No new continuous predictive weight before explicit empirical calibration."
+  - "GPL code remains reference-only unless distribution obligations are intentionally accepted."
+
+pi_review_required: false
+reason: "This work package changes product engineering and evaluation infrastructure, not frozen domain theory."

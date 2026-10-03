@@ -1,0 +1,104 @@
+version: "0.1"
+as_of: "2026-10-03"
+status: "ACTIVE"
+principle: >
+  竞品与依赖只用于技术借鉴、基准设计和许可证治理。
+  外部项目结论不得自动进入 Zhongzhou canonical knowledge。
+
+projects:
+  - id: iztro
+    repository: "SylarLong/iztro"
+    category: "chart-engine-and-hosted-ai"
+    language: "TypeScript"
+    license: "MIT"
+    snapshot:
+      stars: 4199
+      forks: 679
+    observed_capabilities:
+      - "deterministic Zi Wei chart generation"
+      - "decade/year/month/day/hour temporal layers"
+      - "three-harmony/four-directions queries"
+      - "transformations and flying-star queries"
+      - "school configuration and plugin mechanism"
+      - "hosted Zi Wei AI models"
+    planned_use:
+      - "external chart-engine differential testing"
+      - "API/interface design reference"
+      - "plugin/configuration design reference"
+    canonical_knowledge_import: false
+
+  - id: renhuai_ziwei_doushu
+    repository: "Renhuai123/ziwei-doushu"
+    category: "chart-engine-dataset-knowledge"
+    language: "TypeScript"
+    license:
+      code: "MIT"
+      dataset: "CC BY 4.0"
+    snapshot:
+      stars: 4333
+      forks: 865
+      generated_chart_samples: 518400
+    observed_capabilities:
+      - "deterministic chart engine"
+      - "true solar time support"
+      - "China DST handling"
+      - "lunar/solar conversion"
+      - "large synthetic/full-combination chart corpus"
+      - "regression tests and CI"
+    known_data_note: "README discloses invalid calendar-date samples in the 518,400 corpus; audit before use."
+    planned_use:
+      - "chart differential testing"
+      - "stress/schema testing"
+      - "data-pipeline design reference"
+    canonical_knowledge_import: false
+
+  - id: fate_bench
+    repository: "shunshi-ai/fate-bench"
+    category: "external-real-outcome-benchmark"
+    language: "Python"
+    license:
+      code: "MIT"
+      data: "CC BY 4.0"
+    snapshot:
+      questions: 295
+      people: 63
+      editions: "2010-2025, ten included editions"
+    observed_capabilities:
+      - "birth records paired with documented life outcomes"
+      - "answer provenance"
+      - "human baseline for multiple editions"
+      - "Zi Wei and BaZi chart fields"
+    planned_use:
+      - "external blind evaluation"
+      - "human-baseline comparison where applicable"
+      - "benchmark protocol reference"
+    canonical_knowledge_import: false
+
+  - id: ziwei_knows_chart
+    repository: "ziweiknows/ziwei-chart"
+    category: "open-source-user-product"
+    language: "TypeScript"
+    license: "GPL-3.0-or-later"
+    observed_capabilities:
+      - "user-facing chart UI"
+      - "true solar time/location UX"
+      - "trend visualization"
+      - "relationship view"
+      - "optional LLM interpretation"
+      - "separation of deterministic chart facts and AI explanation"
+    planned_use:
+      - "UX and information-architecture reference"
+      - "do not copy GPL code into incompatible distribution"
+    canonical_knowledge_import: false
+
+review_policy:
+  refresh_trigger:
+    - "major product work package closure"
+    - "benchmark release"
+    - "material competitor release"
+  required_fields_for_new_repo:
+    - "repository"
+    - "license"
+    - "capabilities"
+    - "planned_use"
+    - "canonical_knowledge_import"
