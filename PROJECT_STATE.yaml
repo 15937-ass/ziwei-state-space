@@ -66,7 +66,7 @@ progress:
 
 productization:
   program: "PRODUCT-FIRST"
-  status: "P1_ADAPTER_CONTRACT_AND_100_SEEDS_READY; CASEBOOK_INDEX_100_PILOT20_READY"
+  status: "P1_B01_PASS; P1_B02A_PASS; CASEBOOK_INDEX_100_PILOT20_READY"
   completed:
     - "competitor registry v0.1"
     - "license ledger v0.1"
@@ -78,7 +78,7 @@ productization:
     - "Normalized Chart Snapshot schema v0.1"
     - "iztro exporter v0.1"
     - "100 chart-regression seed inputs + validator"
-  next_work_unit: "PRODUCT_P1_B02_TEMPORAL_BOUNDARY_MATRIX"
+  next_work_unit: "PRODUCT_P1_B02B_ZI_DAY_BOUNDARY_MATRIX"
   product_chat_scope: "This conversation owns productization, product data, adapters, inference MVP, benchmark and UX. Knowledge-base extraction continues in other project conversations."
   research_track_next: "WP05_CHILDREN_CH08_CONTINUE"
   casebook_training_corpus:
@@ -231,6 +231,10 @@ canonical_artifacts:
   p1_b01_full_diff: "PASS: 100 natal + 400 horoscope; JS/Rust exact diffs=0; independent Go core diffs=0"
   p1_mismatch_ledger: "validation/product_chart_regression/mismatch_resolution_v0.1.csv"
   p1_b01_acceptance: "product/P1_B01_ACCEPTANCE.md"
+  p1_b02a_acceptance: "product/P1_B02A_ACCEPTANCE.md"
+  execution_guardrails: "product/EXECUTION_GUARDRAILS.md"
+  p1_b02a1_targets: "validation/product_chart_regression/b02a1_calendar_year_month.json"
+  p1_b02a2_targets: "validation/product_chart_regression/b02a2_leap_month_day.json"
   casebook_training_policy: "product/CASEBOOK_TRAINING_POLICY.md"
   casebook_registry: "training_data/CASEBOOK_REGISTRY.yaml"
   casebook_case_index: "training_data/CASEBOOK_CASE_INDEX_v0.1.csv"
