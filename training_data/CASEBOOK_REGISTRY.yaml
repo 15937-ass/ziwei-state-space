@@ -1,0 +1,61 @@
+version: "0.1"
+status: ACTIVE
+collection_id: "LIAORAN_CASEBOOKS_3"
+description: >
+  用户新增的三本了然山人案例书。作为 product-side Case Reasoning Corpus，
+  用于 expert demonstration、推理链训练和后续案例校准，不作为 canonical theory ground truth。
+
+sources:
+  - source_id: "LIAORAN_CASEBOOK_VISIBLE_01"
+    title: "紫微斗数论命技巧及实例解析下册"
+    author: "了然山人"
+    file_binding_status: "BOUND_PROJECT_FILE"
+    project_file_name: "紫微斗数论命技巧及实例解析下册  270P.pdf"
+    observed_structure:
+      - "case question"
+      - "reply/conclusion"
+      - "natal chart explanation"
+      - "decade/year chart explanation in many cases"
+      - "questioner feedback in some cases"
+    corpus_role:
+      - "expert_reasoning_demonstration"
+      - "temporal_reasoning_training"
+      - "rule-linking_validation"
+    canonical_theory: false
+
+  - source_id: "LIAORAN_CASEBOOK_PENDING_02"
+    title: null
+    author: "了然山人"
+    file_binding_status: "PENDING_PROJECT_VISIBILITY"
+    canonical_theory: false
+
+  - source_id: "LIAORAN_CASEBOOK_PENDING_03"
+    title: null
+    author: "了然山人"
+    file_binding_status: "PENDING_PROJECT_VISIBILITY"
+    canonical_theory: false
+
+ingestion_policy:
+  extract_case_level_records: true
+  preserve_page_provenance: true
+  preserve_author_text_span_refs: true
+  rebuild_chart_deterministically: true
+  link_to_canonical_rule_ids: true
+  allow_case_derived_rule_candidates: true
+  auto_promote_case_rule_to_canonical: false
+  allow_blind_accuracy_claim_from_author_conclusion: false
+
+split_policy:
+  unit: "person_group_id"
+  train: 0.70
+  development: 0.15
+  heldout_casebook_test: 0.15
+  external_benchmark_isolated: true
+
+next:
+  - "bind the other two book filenames once visible on the project file surface"
+  - "build case index and page ranges"
+  - "extract first 20 pilot cases"
+  - "reconstruct charts through normalized chart adapter"
+  - "link author reasoning to canonical rule IDs"
+  - "measure trace coverage and unresolved inference gaps"
