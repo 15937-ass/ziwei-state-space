@@ -100,7 +100,7 @@ jobs:
           cp "$GITHUB_WORKSPACE/tools/dawang_p1_export/main.go" cmd/p1export/main.go
           go run ./cmd/p1export \
             /tmp/p1_inputs.jsonl \
-            validation/product_chart_regression/temporal_edge_targets_v0.3.json \
+            "$GITHUB_WORKSPACE/validation/product_chart_regression/temporal_edge_targets_v0.3.json" \
             /tmp/p1_b02_dawang_go.jsonl
 
       - name: Independent Go boundary audit
