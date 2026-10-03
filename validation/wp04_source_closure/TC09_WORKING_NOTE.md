@@ -62,3 +62,29 @@ TC09-047 | SRC-ZZ-002 | 218-219 | 太阴化科 | 太阴化科 | 落陷 | 落陷�
 TC09-048 | SRC-ZZ-002 | 219 | 太阴化科 | 太阴化科 | 性别化性格例示 | 源文给出家庭责任、温柔或减少内向等性别化表述 | projection | gendered_personality_case | traditional_projection | L3_PROJECTION | CASE_SUPPORT_ONLY
 TC09-049 | SRC-ZZ-002 | 219 | 太阴化科 | 太阴化科 | 婚姻例示 | 源文整体把化科与婚姻改善联系，但属于传统关系投影 | projection | relationship_case | improve | L3_PROJECTION | CASE_SUPPORT_ONLY
 TC09-050 | SRC-ZZ-002 | 219 | 太阴化科 | 太阴化科 | 父母宫贪狼化忌 | 才华与声誉提升可伴随外部压制或妒忌，需结合后续运限判断是否怀才不遇 | gate | talent_realization | constrained_by_external_pressure | STRUCTURAL_GATE | ADD_CANDIDATE
+
+TC09-051 | SRC-ZZ-002 | 219 | 太阴化科 | 子午同阴 | 昌曲会照 | 得禄且见昌曲时可增强学术研究与科名表现 | gate | academic_reputation | increase_with_changqu | STRUCTURAL_GATE | ADD_CANDIDATE
+TC09-052 | SRC-ZZ-002 | 219 | 太阴化科 | 子午同阴 | 外在风度 | 源文将太阴化科与风度、修饰及受欢迎联系 | projection | social_presentation | increase | L3_PROJECTION | CASE_SUPPORT_ONLY
+TC09-053 | SRC-ZZ-002 | 219 | 太阴化科 | 子午同阴 | 大运流年 | 运限层可财禄顺遂，但不是创建事业的直接表征 | layer_interaction | resource_gain_vs_entrepreneurship | gain_up_creation_not_implied | TEMPORAL_LAYER | ADD_CANDIDATE
+TC09-054 | SRC-ZZ-002 | 219 | 太阴化科 | 丑未日月 | 太阴太阳同度 | 太阳同度会压缩太阴化科的显赫度，使声誉较虚而实际收获有限 | transform | reputation_substance | decrease | DERIVED_RESPONSE | ADD_CANDIDATE
+TC09-055 | SRC-ZZ-002 | 219 | 太阴化科 | 丑未日月 | 丑 vs 未 | 丑宫较未宫实际，宫位改变化科实质化程度 | gate | reputation_realization | enhance_in_chou | COMPATIBILITY_RELATION | ADD_CANDIDATE
+TC09-056 | SRC-ZZ-002 | 219 | 太阴化科 | 丑未日月 | 机巨化权借会 | 口舌求财可成为发挥说服力与资源转换的通道 | transform | communication_to_resource | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC09-057 | SRC-ZZ-002 | 219 | 太阴化科 | 寅申机阴 | 化科 | 化科可降低机阴原本浮动性，使在地发展与声誉实现更稳定 | transform | mobility_to_stability | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC09-058 | SRC-ZZ-002 | 219 | 太阴化科 | 寅申机阴 | 财源 | 稳定与声誉改善不等于财源稳定，资源波折仍可存在 | structural_relation | reputation_vs_resource_stability | decouple | L0_STRUCTURE | ADD_CANDIDATE
+TC09-059 | SRC-ZZ-002 | 219 | 太阴化科 | 寅申机阴 | 内务 | 化科增强适合内务与行政服务的倾向 | projection | occupation_example | internal_administration | L3_PROJECTION | CASE_SUPPORT_ONLY
+TC09-060 | SRC-ZZ-002 | 219 | 太阴化科 | 寅申机阴 | 大运流年 | 运限层主要表现为受赏识与获得发越机会 | layer_interaction | recognition_opportunity | increase | TEMPORAL_LAYER | ADD_CANDIDATE
+TC09-061 | SRC-ZZ-002 | 219 | 太阴化科 | 卯酉太阴独坐 | 卯 vs 酉 | 酉宫较易受赏识，卯宫更易孤芳自赏 | gate | recognition_realization | enhance_in_you | COMPATIBILITY_RELATION | ADD_CANDIDATE
+TC09-062 | SRC-ZZ-002 | 219 | 太阴化科 | 卯酉太阴独坐 | 大运流年 | 运限层有时仅主心情愉快，并不等于外部成就 | layer_interaction | subjective_wellbeing | increase_only | TEMPORAL_LAYER | ADD_CANDIDATE
+TC09-063 | SRC-ZZ-002 | 219-220 | 太阴化科 | 辰戌太阴独坐 | 罗网 | 罗网中的太阴喜化科，可提高表现并改善原有受限状态 | transform | constraint_breakthrough | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC09-064 | SRC-ZZ-002 | 220 | 太阴化科 | 巳亥太阴独坐 | 巳 vs 亥 | 亥宫更能形成策划设计等实际表现，巳宫多为小幅改善或虚名 | gate | reputation_substance | enhance_in_hai | COMPATIBILITY_RELATION | ADD_CANDIDATE
+TC09-065 | SRC-ZZ-002 | 220 | 太阳化忌 | 太阳化忌 | 一般 | 太阳化忌常通过人际关系损害与地位受损表现 | transform | social_status_damage | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC09-066 | SRC-ZZ-002 | 220 | 太阳化忌 | 太阳化忌 | 太阳主贵 | 化忌更偏影响地位与上司关系，而非直接财富损失 | structural_relation | status_vs_wealth_damage | status_priority | L0_STRUCTURE | ADD_CANDIDATE
+TC09-067 | SRC-ZZ-002 | 220 | 太阳化忌 | 太阳化忌 | 人际损害类型 | 可投影为离别、是非、妒忌、恶性竞争、攻击或诉讼等不同社会冲突 | projection | social_conflict_modes | diversify | L3_PROJECTION | ADD_CANDIDATE
+TC09-068 | SRC-ZZ-002 | 220 | 太阳化忌 | 太阳化忌 | 庙旺 vs 落陷 | 落陷更不利，庙旺时影响相对减轻 | gate | adverse_intensity | branch_by_dignity | COMPATIBILITY_RELATION | ADD_CANDIDATE
+TC09-069 | SRC-ZZ-002 | 220 | 太阳化忌 | 太阳化忌 | 名誉 | 化忌可损害名誉，具体投影受时代与社会语境影响 | projection | reputation_damage | increase | L3_PROJECTION | ADD_CANDIDATE
+TC09-070 | SRC-ZZ-002 | 220 | 太阳化忌 | 太阳化忌 | 健康 | 源文同时把太阳化忌与健康不良联系，具体性质需结合系统 | projection | health_case | context_dependent | L3_PROJECTION | CASE_SUPPORT_ONLY
+TC09-071 | SRC-ZZ-002 | 220 | 太阳化忌 | 子宫太阳 | 落陷 | 子宫宜收敛锋芒与潜修，过早显露更易受挫 | gate | visibility_risk | increase_in_zi | STRUCTURAL_GATE | ADD_CANDIDATE
+TC09-072 | SRC-ZZ-002 | 220 | 太阳化忌 | 丑宫日月 | 陀罗 | 反复与上司助力不足可被陀罗进一步放大 | enhance | career_support_friction | increase | LOCAL_STATE | ADD_CANDIDATE
+TC09-073 | SRC-ZZ-002 | 220-221 | 太阳化忌 | 寅宫巨阳 | 口舌求财 | 是非口舌可通过职业通道转化，口舌型工作成为部分趋避方式 | transform | conflict_to_income_channel | convert | DERIVED_RESPONSE | ADD_CANDIDATE
+TC09-074 | SRC-ZZ-002 | 221 | 太阳化忌 | 卯宫阳梁 | 变景 | 早期挫折可成为后续发展激发，形成 adversity-to-growth 路径 | transform | adversity_to_growth | increase_after_setback | DERIVED_RESPONSE | ADD_CANDIDATE
+TC09-075 | SRC-ZZ-002 | 221 | 太阳化忌 | 卯宫阳梁 | 大运流年 | 运限中的变景反可利竞争并提高最终胜出机会 | layer_interaction | competition_outcome | improve | TEMPORAL_LAYER | ADD_CANDIDATE
