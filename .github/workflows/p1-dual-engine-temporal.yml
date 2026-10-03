@@ -56,7 +56,7 @@ jobs:
           wc -l /tmp/p1_mismatches.jsonl || true
           sha256sum /tmp/p1_iztro_js.jsonl /tmp/p1_mismatches.jsonl || true
 
-  liki-independent-oracle:
+  liki-third-engine-diagnostic:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -86,7 +86,7 @@ jobs:
           cp tools/p1_liki_crosscheck_test.go \
             /tmp/liki/engine/internal/engine/ziwei/p1_external_compare_test.go
 
-      - name: Compare natal and yearly/monthly/daily/hourly flow invariants
+      - name: Diagnostic compare natal and yearly/monthly/daily/hourly flow invariants
         env:
           P1_IZTRO_JSONL: /tmp/p1_iztro_js.jsonl
         run: |
