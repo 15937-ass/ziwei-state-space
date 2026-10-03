@@ -1,7 +1,6 @@
-# MC02
+# MC02 — MISC SOURCE REVIEW
 
-Working misc source-review checkpoint.
-status: ACTIVE
+status: CHECKPOINT_CLOSED_SOURCE_SPAN_VERIFIED
 
 ## MC02 structured review
 schema: id | source_id | page | section | subject | condition | claim | operator | target | change | layer | disposition
@@ -119,3 +118,15 @@ MC02-099 | SRC-ZZ-002 | 237 | 截空旬空 | 正空旁空 | 阴年出生 | 阴�
 MC02-100 | SRC-ZZ-002 | 237 | 截空旬空 | 正空旁空 | 推断 | 源文只论正空，旁空不纳入同等效力 | gate | void_effect | active_only_for_primary_void | STRUCTURAL_GATE | ADD_CANDIDATE
 
 next_anchor: 截空主障碍 / 不喜与禄存化禄同度
+
+## Checkpoint summary
+
+- reviewed: 100
+- ADD_CANDIDATE: 73
+- CASE_SUPPORT_ONLY: 27
+- source_span_verified: 100/100
+- normalization_verified: 100/100
+- new Human Gate: 0
+- new primitive qi: 0
+- new history-memory type: 0
+- next anchor: 截空主障碍 / 不喜与禄存化禄同度
