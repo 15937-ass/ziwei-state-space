@@ -55,3 +55,36 @@ jobs:
           wc -l /tmp/p1_iztro_js.jsonl || true
           wc -l /tmp/p1_mismatches.jsonl || true
           sha256sum /tmp/p1_iztro_js.jsonl /tmp/p1_mismatches.jsonl || true
+
+
+  independent-core-sanity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install local runner deps
+        run: |
+          npm install --no-save --no-package-lock iztro@2.6.1 tsx@4 typescript@5
+
+      - name: Clone independent self-developed core
+        run: |
+          git clone --depth 1 https://github.com/yzhi1065-bot/ziwei-dou-shu.git /tmp/ziwei-independent
+          npm ci --prefix /tmp/ziwei-independent
+
+      - name: Run independent natal + temporal sanity comparison
+        env:
+          INDEPENDENT_ENGINE_ROOT: /tmp/ziwei-independent
+        run: |
+          npx tsx tools/p1_compare_independent.ts \
+            validation/product_chart_regression/regression_inputs_v0.1.csv | tee /tmp/p1_independent_summary.log
+
+      - name: Show independent mismatch sample
+        if: always()
+        run: |
+          wc -l /tmp/p1_independent_mismatches.jsonl || true
+          head -20 /tmp/p1_independent_mismatches.jsonl || true
