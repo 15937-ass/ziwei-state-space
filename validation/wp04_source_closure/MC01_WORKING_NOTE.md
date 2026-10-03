@@ -1,7 +1,6 @@
-# MC01
+# MC01 — MISC SOURCE REVIEW
 
-Working misc source-review checkpoint.
-status: ACTIVE
+status: CHECKPOINT_CLOSED_SOURCE_SPAN_VERIFIED
 
 ## MC01 structured review
 schema: id | source_id | page | section | subject | condition | claim | operator | target | change | layer | disposition
@@ -119,3 +118,15 @@ MC01-099 | SRC-ZZ-002 | 235 | 恩光天贵 | 恩光天贵 | 夹事业宫且魁�
 MC01-100 | SRC-ZZ-002 | 235 | 恩光天贵 | 恩光天贵 | 夹财帛宫 | 名誉可转化为资源收益，形成由名得利 | transform | reputation_to_resource | increase | DERIVED_RESPONSE | ADD_CANDIDATE
 
 next_anchor: 恩光天贵与文昌文曲交会利考试 / 天才
+
+## Checkpoint summary
+
+- reviewed: 100
+- ADD_CANDIDATE: 72
+- CASE_SUPPORT_ONLY: 28
+- source_span_verified: 100/100
+- normalization_verified: 100/100
+- new Human Gate: 0
+- new primitive qi: 0
+- new history-memory type: 0
+- next anchor: 恩光天贵与文昌文曲交会利考试 / 天才
