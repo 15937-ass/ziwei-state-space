@@ -69,3 +69,11 @@ MC02-053 | SRC-ZZ-002 | 236 | 天巫 | 天梁天巫 | 命宫或财帛宫 | 源�
 MC02-054 | SRC-ZZ-002 | 236 | 天巫 | 天巫加财星 | 子女宫 | 源文给出后代承接事业的传统投影 | projection | succession_case | family_business_succession | L3_PROJECTION | CASE_SUPPORT_ONLY
 MC02-055 | SRC-ZZ-002 | 236 | 天巫 | 天梁天巫擎羊 | 同会 | 可增加财务争议 | transform | financial_dispute | increase | DERIVED_RESPONSE | ADD_CANDIDATE
 MC02-056 | SRC-ZZ-002 | 236 | 天巫 | 流年天巫 | 命宫或事业宫原星系吉 | 可提高升职机会 | layer_interaction | promotion_opportunity | increase | TEMPORAL_LAYER | ADD_CANDIDATE
+
+MC02-057 | SRC-ZZ-002 | 236 | 天月 | 天月 | 一般 | 天月在源文中属于健康风险类杂曜 | structural_relation | health_adversity_signal | associate | L0_STRUCTURE | ADD_CANDIDATE
+MC02-058 | SRC-ZZ-002 | 236 | 天月 | 天月 | 疾病类型 | 源文给出流行性或缠绵性病象，保留为传统健康案例 | projection | health_case | persistent_or_epidemic_case | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC02-059 | SRC-ZZ-002 | 236 | 天月 | 天月 | 迁移宫 | 源文将异地适应不良作为传统迁移健康投影 | projection | health_case | travel_adaptation_case | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC02-060 | SRC-ZZ-002 | 236 | 天月 | 天月在迁移宫 | 原星系不吉 | 不良基础会放大异地健康风险 | gate | travel_health_risk | increase_if_base_adverse | STRUCTURAL_GATE | CASE_SUPPORT_ONLY
+MC02-061 | SRC-ZZ-002 | 236 | 天月 | 天月 | 财帛宫见煞 | 健康负担可转化为资源支出 | transform | health_cost_to_financial_loss | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+MC02-062 | SRC-ZZ-002 | 236 | 天月 | 天月 | 交友宫见煞 | 源文给出下属导致资源损失的传统人际投影 | projection | subordinate_case | resource_loss | L3_PROJECTION | CASE_SUPPORT_ONLY
+MC02-063 | SRC-ZZ-002 | 236 | 天月 | 天月 | 事业宫见吉 | 可提高医药相关职业场景适配 | projection | occupation_example | medical_domain | L3_PROJECTION | CASE_SUPPORT_ONLY
