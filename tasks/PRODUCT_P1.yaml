@@ -1,6 +1,6 @@
 task_id: PRODUCT-P1
-version: "0.2"
-status: ACTIVE
+version: "0.3"
+status: ACTIVE_B02
 title: "normalized chart adapters + first differential seed set"
 objective: >
   建立多排盘引擎共同输出格式和第一批 100 个结构回归输入，
@@ -15,12 +15,16 @@ completed_in_this_checkpoint:
   - "B01: 100 natal + 400 horoscope full diff, iztro JS vs x-iztro Rust: 0 differences"
   - "B01: pinned independent Go school-neutral audit: 0 differences"
   - "B01: mismatch ledger; 5 observed false-difference classes resolved, UNRESOLVED=0"
+  - "Execution guardrails v0.1: bounded records, error caps, timeouts, bounded logs, retry limit"
+  - "B02-A target matrices prepared: A1 lunar year/month boundaries; A2 leap-month/Gregorian leap-day boundaries"
 
 next:
-  - "B02: run explicit lunar-year/month/leap-month/early-late-Zi boundary matrix"
-  - "B02: resolve any true boundary mismatches with source/config adjudication"
+  - "B02-A: execute A1/A2 calendar boundary CI and write acceptance note"
+  - "B02-B: early/late-Zi and day-boundary matrix"
+  - "B02-C: decadal/age/year/month/day transition-boundary matrix"
+  - "resolve any true boundary mismatches with source/config adjudication"
   - "freeze resolved P1 regression contract and acceptance report"
-  - "close PRODUCT-P1 only when boundary matrix is green and UNRESOLVED=0"
+  - "close PRODUCT-P1 only when A/B/C are green and UNRESOLVED=0"
 
 mismatch_classes:
   - OUR_BUG
@@ -37,3 +41,14 @@ constraints:
   - "No unresolved mismatch can become a golden assertion."
 
 pi_review_required: false
+
+execution_guardrails:
+  file: "product/EXECUTION_GUARDRAILS.md"
+  max_natal_inputs_per_batch: 100
+  max_targets_per_manifest: 8
+  max_horoscope_snapshots_per_job: 800
+  max_engine_errors: 10
+  max_total_differences_before_fail_fast: 500
+  max_detail_per_case: 100
+  automated_retry_limit_same_commit: 1
+  job_timeout_minutes: 15
