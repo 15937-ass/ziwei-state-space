@@ -52,7 +52,7 @@ def iztro_projection(row):
                 "branch":s["branch"],
                 "palace_names":s["palace_names"],
                 "mutagen":s["mutagen"],
-                "stars":[sorted(x["name"] for x in group) for group in s["stars"]],
+                **({"stars":[sorted(x["name"] for x in group) for group in s["stars"]]} if name != "age" else {}),
                 **({"nominal_age":s["nominal_age"]} if s.get("nominal_age") is not None else {}),
             }
         yd=t.get("yearly_dec_stars") or {}
@@ -60,7 +60,7 @@ def iztro_projection(row):
             "target":t["target"],
             "solar_date":t["solar_date"],
             "scopes":scopes,
-            "suiqian12":yd.get("suiqian12",[]),
+            "suiqian12":[("大耗" if x == "岁破" else x) for x in yd.get("suiqian12",[])],
             "jiangqian12":yd.get("jiangqian12",[]),
         })
     return {
@@ -75,6 +75,29 @@ def iztro_projection(row):
         "temporal":temporal,
     }
 
+
+def go_projection(row):
+    """Drop representation-only fields and normalize known school aliases."""
+    natal = dict(row["natal"])
+    for key in ("lunar_year", "lunar_month", "lunar_day", "is_leap"):
+        natal.pop(key, None)
+
+    temporal = []
+    for t in row["temporal"]:
+        scopes = {}
+        for name, s0 in t["scopes"].items():
+            s = dict(s0)
+            if name == "age":
+                s.pop("stars", None)
+            scopes[name] = s
+        temporal.append({
+            "target": t["target"],
+            "solar_date": t["solar_date"],
+            "scopes": scopes,
+            "suiqian12": [("大耗" if x == "岁破" else x) for x in t.get("suiqian12", [])],
+            "jiangqian12": t.get("jiangqian12", []),
+        })
+    return {"natal": natal, "temporal": temporal}
 
 def walk(a,b,path="",out=None):
     if out is None: out=[]
@@ -104,7 +127,7 @@ def main():
         if cid not in left or cid not in right:
             d=[{"path":"record","left":cid in left,"right":cid in right}]
         else:
-            d=walk(iztro_projection(left[cid]),{"natal":right[cid]["natal"],"temporal":right[cid]["temporal"]})
+            d=walk(iztro_projection(left[cid]),go_projection(right[cid]))
         if d:
             cases+=1; total+=len(d); details.append({"case_id":cid,"difference_count":len(d),"differences":d[:300]})
     report={
