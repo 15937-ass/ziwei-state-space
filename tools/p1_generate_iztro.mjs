@@ -66,6 +66,9 @@ for (const row of rows) {
   natalCount += 1;
 
   for (const targetDate of TARGET_DATES) {
+    // 运限目标早于出生日期没有产品语义；不同实现对 pre-birth 童限的
+    // fallback 处理也不同，因此不把它混入“有效运限一致性”指标。
+    if (targetDate < row.solar_date) continue;
     for (const targetTimeIndex of TARGET_TIME_INDICES) {
       const h = chart.horoscope(targetDate, targetTimeIndex);
       out.write(JSON.stringify({
@@ -88,9 +91,10 @@ console.log(JSON.stringify({
   version: "2.6.1",
   cases: rows.length,
   natal_snapshots: natalCount,
-  target_dates_per_case: TARGET_DATES.length,
+  candidate_target_dates_per_case: TARGET_DATES.length,
   target_times_per_date: TARGET_TIME_INDICES.length,
   horoscope_snapshots: horoscopeCount,
+  skipped_pre_birth_targets: rows.length * TARGET_DATES.length * TARGET_TIME_INDICES.length - horoscopeCount,
   horoscope_layers_each: ["decadal", "age", "yearly", "monthly", "daily", "hourly"],
   output: outPath,
   sha256: sha256(outPath),
