@@ -88,3 +88,16 @@ TC08-072 | SRC-ZZ-002 | 212 | 天机化科 | 寅申机阴 | 太阴同时化禄 |
 TC08-073 | SRC-ZZ-002 | 212 | 天机化科 | 卯酉机巨 | 科忌同躔且见煞 | 四化毕集并不能消除是非劳累，口舌求财与心力成本同时增强 | transform | communication_gain_vs_effort_cost | both_increase | DERIVED_RESPONSE | ADD_CANDIDATE
 TC08-074 | SRC-ZZ-002 | 212 | 天机化科 | 卯酉机巨 | 大运流年 | 运限可出现锋头与口舌同步，并因借势出头招致指责 | layer_interaction | visibility_conflict | both_increase | TEMPORAL_LAYER | ADD_CANDIDATE
 TC08-075 | SRC-ZZ-002 | 212 | 天机化科 | 辰戌机梁 | 事业日巨化忌 | 事业端化忌使口舌求财特征更强，传播法律等场景可转为声望 | transform | communication_profession_to_reputation | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+
+TC08-076 | SRC-ZZ-002 | 212 | 天机化科 | 巳亥天机独坐 | 太阳天梁决定格局 | 太阳天梁系统性质决定天机化科格局高低，巳宫整体较亥宫踏实 | gate | system_quality | branch_by_related_system | STRUCTURAL_GATE | ADD_CANDIDATE
+TC08-077 | SRC-ZZ-002 | 212 | 天机化科 | 巳亥天机独坐 | 迟发 | 该结构具有迟发表征，尤其亥宫；破军运程及辅佐诸曜决定能否完成开创 | time_scale_effect | development_timing | delayed_and_context_gated | TEMPORAL_GATE | ADD_CANDIDATE
+TC08-078 | SRC-ZZ-002 | 212 | 天机化科 | 巳亥天机独坐 | 大运流年 | 运限一般可名利双收，但需不见煞刑诸曜 | layer_interaction | reputation_resource_gain | conditional_increase | TEMPORAL_LAYER | ADD_CANDIDATE
+TC08-079 | SRC-ZZ-002 | 212-213 | 太阳化科 | 太阳化科 | 庙旺 vs 陷地 | 庙旺时较能形成名誉与社会地位，陷地则偏虚名并可能受其所累 | gate | reputation_substance | branch_by_dignity | COMPATIBILITY_RELATION | ADD_CANDIDATE
+TC08-080 | SRC-ZZ-002 | 213 | 太阳化科 | 太阳化科 | 发射力 | 化科增强可见度，同时也提高受注视与妒忌的社会反馈 | transform | visibility_and_envy | both_increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC08-081 | SRC-ZZ-002 | 213 | 太阳化科 | 太阳化科 | 兄弟交友宫 | 声誉结果需由兄弟宫与交友宫进一步门控 | gate | reputation_outcome | depend_on_social_palaces | STRUCTURAL_GATE | ADD_CANDIDATE
+TC08-082 | SRC-ZZ-002 | 213 | 太阳化科 | 太阳化科 | 天梁加煞忌刑 | 源文给出医疗错误、药物等高风险传统投影，必须结合全局 | projection | hazard_case | traditional_high_risk_case | L3_PROJECTION | CASE_SUPPORT_ONLY
+TC08-083 | SRC-ZZ-002 | 213 | 太阳化科 | 命宫太阳化科 | 福德天机化忌 | 求名可同时增加精神困扰，声誉增益与心理成本并行 | transform | reputation_vs_mental_cost | both_increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC08-084 | SRC-ZZ-002 | 213 | 太阳化科 | 太阳化科 | 昌曲交会 | 昌曲是把太阳化科进一步导向典试竞争的重要门控 | gate | examination_realization | increase_with_changqu | STRUCTURAL_GATE | ADD_CANDIDATE
+TC08-085 | SRC-ZZ-002 | 213 | 太阳化科 | 子午太阳独坐 | 子宫 | 子宫化科主要减少是非孤克，声誉范围较局限 | transform | conflict_reduction_vs_reputation_scope | conflict_down_scope_limited | DERIVED_RESPONSE | ADD_CANDIDATE
+TC08-086 | SRC-ZZ-002 | 213 | 太阳化科 | 子午太阳独坐 | 午宫 | 午宫化科更能形成公众声誉，但过度发射可造成事业表面广大而内在空虚 | transform | public_reputation_vs_substance | reputation_up_substance_risk | DERIVED_RESPONSE | ADD_CANDIDATE
+TC08-087 | SRC-ZZ-002 | 213 | 太阳化科 | 寅申巨阳 | 天机忌同会 | 化科可增强说服力，并把部分天机忌从是非失误转为劳心费神 | transform | conflict_to_effort_conversion | increase_effort_reduce_error | DERIVED_RESPONSE | ADD_CANDIDATE
