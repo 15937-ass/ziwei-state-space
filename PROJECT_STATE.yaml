@@ -3,22 +3,22 @@ repository: "15937-ass/ziwei-state-space"
 
 project:
   current_phase: "Phase II knowledge-base construction + WP04 operator source-coverage closure"
-  execution_state: "WP04_SOURCE_CLOSURE_ACTIVE"
-  current_work_unit: "WP04_MISC_SOURCE_CLOSURE_MC03"
-  state_sync: "WP04_MC02_MERGED"
+  execution_state: "WP04_SOURCE_CLOSURE_CHECKPOINTED"
+  current_work_unit: "WP04_FLOW_SOURCE_CLOSURE_FC01"
+  state_sync: "WP04_MC03_MERGED_MISC_CLOSED"
   last_approved_gate: "A2-R1"
   pending_gate: null
   blocked_reason: null
 
 git:
   default_branch: "main"
-  active_branch: "audit/wp04-misc-source-closure-mc03"
-  active_pull_request: 70
+  active_branch: null
+  active_pull_request: null
   canonical_research_state_branch: "main"
   checkpoint_merge: "e8255d82b9a2ce0343d6f5635919db18ea8199fe"
   stale_open_prs: []
   branch_cleanup_status: "POST_P1_ACTIVE_POINTERS_CLOSED; LEGACY_BRANCH_DELETION_PENDING"
-  note: "MC03 completes the remaining misc-star chapter source review with 52 items and reaches the 流曜总论 boundary. Misc-star source closure totals 252 reviewed items: 193 ADD_CANDIDATE and 59 CASE_SUPPORT_ONLY. No new Human Gate, primitive qi, or history-memory type."
+  note: "PR #70 merged MC03 and closes the 杂曜 source-coverage chapter at 252 reviewed items. Canonical next work is 流曜 source closure from 流曜总论; no new Human Gate is open."
 
 gates:
   A0: "APPROVED"
@@ -49,7 +49,7 @@ progress:
     reviewed_items: 252
     add_candidates: 193
     case_support_only: 59
-    status: "MC03_SOURCE_SPAN_VERIFIED_MISC_CHAPTER_CLOSED_READY_FOR_PR"
+    status: "MISC_CHAPTER_CLOSED_NEXT_FLOW"
     next_anchor: "流曜总论"
   manuscript:
     file: "paper/manuscript_v0.1.md"
