@@ -88,3 +88,31 @@ TC09-072 | SRC-ZZ-002 | 220 | 太阳化忌 | 丑宫日月 | 陀罗 | 反复与�
 TC09-073 | SRC-ZZ-002 | 220-221 | 太阳化忌 | 寅宫巨阳 | 口舌求财 | 是非口舌可通过职业通道转化，口舌型工作成为部分趋避方式 | transform | conflict_to_income_channel | convert | DERIVED_RESPONSE | ADD_CANDIDATE
 TC09-074 | SRC-ZZ-002 | 221 | 太阳化忌 | 卯宫阳梁 | 变景 | 早期挫折可成为后续发展激发，形成 adversity-to-growth 路径 | transform | adversity_to_growth | increase_after_setback | DERIVED_RESPONSE | ADD_CANDIDATE
 TC09-075 | SRC-ZZ-002 | 221 | 太阳化忌 | 卯宫阳梁 | 大运流年 | 运限中的变景反可利竞争并提高最终胜出机会 | layer_interaction | competition_outcome | improve | TEMPORAL_LAYER | ADD_CANDIDATE
+
+TC09-076 | SRC-ZZ-002 | 221 | 太阳化忌 | 辰宫太阳 | 罗网 | 罗网中的太阳化忌增加与父母或权威的代沟，并强化自立需求 | transform | authority_distance_and_independence | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC09-077 | SRC-ZZ-002 | 221 | 太阳化忌 | 辰宫太阳 | 再逢昌曲化忌运限 | 原局与运限忌性叠加可显著提高学业中断等具体事件风险 | layer_interaction | educational_disruption_risk | increase | TEMPORAL_LAYER | CASE_SUPPORT_ONLY
+TC09-078 | SRC-ZZ-002 | 221 | 太阳化忌 | 巳宫太阳 | 化忌加陀罗 | 巳宫仍可通过口舌求财通道转化部分压力，整体灾难强度较低 | transform | conflict_to_income_and_adversity | conflict_convert_adversity_lower | DERIVED_RESPONSE | ADD_CANDIDATE
+TC09-079 | SRC-ZZ-002 | 221 | 太阳化忌 | 午宫太阳 | 事业外大内空 | 过度扩张可见度和规模会放大外大内空风险，踏实发展是重要门控 | gate | scale_substance_balance | improve_by_grounded_growth | STRUCTURAL_GATE | ADD_CANDIDATE
+TC09-080 | SRC-ZZ-002 | 221 | 太阳化忌 | 午宫太阳 | 太阳双化忌运限 | 双重忌性在时间层叠加时，倾败风险明显上升 | layer_interaction | collapse_risk | increase_with_double_ji | TEMPORAL_LAYER | ADD_CANDIDATE
+TC09-081 | SRC-ZZ-002 | 221 | 太阳化忌 | 未宫日月 | 羊陀交会 | 人际依赖的可靠性下降，结构更强调自力而非依赖外部支持 | transform | external_support_dependence | decrease | DERIVED_RESPONSE | ADD_CANDIDATE
+TC09-082 | SRC-ZZ-002 | 221 | 太阳化忌 | 申宫巨阳 | 感情与事业 | 感情困扰与事业是非可同时存在，口舌求财不能完全抵消系统摩擦 | transform | relationship_career_conflict | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC09-083 | SRC-ZZ-002 | 221 | 太阳化忌 | 酉宫阳梁 | 主观与原则 | 化忌可把主观性放大并削弱原则稳定，天梁只能部分化解 | transform | subjectivity_vs_principle | subjectivity_up_principle_down | DERIVED_RESPONSE | ADD_CANDIDATE
+TC09-084 | SRC-ZZ-002 | 221 | 太阳化忌 | 戌亥太阳 | 落陷时序 | 戌亥位置整体较弱，亥宫又表现为早期浮沉后才可能发展，显示明显阶段性 | time_scale_effect | development_timing | early_low_later_recovery | TEMPORAL_GATE | ADD_CANDIDATE
+TC09-085 | SRC-ZZ-002 | 221-222 | 太阴化忌 | 太阴化忌 | 一般 | 太阴化忌最普遍表现为女亲关系不利，但不等同于死亡或疾病 | structural_relation | female_relative_relation | adverse_not_fatal | L0_STRUCTURE | ADD_CANDIDATE
+TC09-086 | SRC-ZZ-002 | 222 | 太阴化忌 | 太阴化忌 | 关系损害形式 | 不利可表现为缘分不足、沟通困难或客观分离，须依实际会曜判定 | projection | relationship_adversity_modes | diversify | L3_PROJECTION | ADD_CANDIDATE
+TC09-087 | SRC-ZZ-002 | 222 | 太阴化忌 | 太阴化忌 | 感情隐衷 | 化忌可增加内隐型感情困扰，火铃昌曲等会曜改变具体投影 | transform | hidden_emotional_distress | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC09-088 | SRC-ZZ-002 | 222 | 太阴化忌 | 太阴庙旺化忌 | 庙旺 | 庙旺化忌较可能表现为阶段性怀才不遇，而非全面失效 | transform | talent_realization | temporarily_constrained | DERIVED_RESPONSE | ADD_CANDIDATE
+TC09-089 | SRC-ZZ-002 | 222 | 太阴化忌 | 太阴落陷化忌 | 煞曜刺激 | 落陷化忌时，煞曜反可能把能量导向工艺、工程、理工等技能通道 | transform | adversity_to_technical_skill | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC09-090 | SRC-ZZ-002 | 222 | 太阴化忌 | 子宫同阴 | 一般 | 才华或受欢迎与关系缘分不足可以同时存在，表现与关系结果需分离 | structural_relation | talent_vs_relationship_outcome | decouple | L0_STRUCTURE | ADD_CANDIDATE
+TC09-091 | SRC-ZZ-002 | 222 | 太阴化忌 | 丑宫日月 | 化忌拖累太阳 | 太阴忌可经同度关系增加太阳一侧劳累，事业流动与心力成本上升 | transform | coupled_star_burden | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC09-092 | SRC-ZZ-002 | 222 | 太阴化忌 | 丑宫日月 | 生活较佳 | 舒适度上升反可能降低工作投入，从而影响事业发展 | transform | comfort_vs_work_drive | comfort_up_drive_down | DERIVED_RESPONSE | ADD_CANDIDATE
+TC09-093 | SRC-ZZ-002 | 222 | 太阴化忌 | 寅宫机阴 | 火铃 | 火铃条件可放大先用未来资源的倾向，与天机化禄规则联动 | gate | future_resource_prepayment | increase_with_fire_bell | STRUCTURAL_GATE | ADD_CANDIDATE
+TC09-094 | SRC-ZZ-002 | 222 | 太阴化忌 | 卯宫太阴 | 事业与关系 | 关系分离与事业波动都可能增加，且不适合的经营选择可放大挫折 | transform | relationship_and_career_volatility | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC09-095 | SRC-ZZ-002 | 222 | 太阴化忌 | 辰宫太阴 | 离乡 vs 留乡 | 辰宫落陷化忌下，迁移可成为改善路径；不同煞刑配置又会改变其效应 | mechanism_comparison | mobility_strategy | context_dependent | MECHANISM_COMPARISON | ADD_CANDIDATE
+TC09-096 | SRC-ZZ-002 | 222 | 太阴化忌 | 巳宫太阴 | 天机禄马迁移 | 主动离乡可借迁移宫禄马结构提高外部发展机会 | transform | mobility_to_opportunity | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC09-097 | SRC-ZZ-002 | 222 | 太阴化忌 | 午宫同阴 | 火铃等会曜 | 事业波动程度需由煞曜会合进一步门控，强调脚踏实地可降低波动成本 | gate | career_volatility | depend_on_malefics | STRUCTURAL_GATE | ADD_CANDIDATE
+TC09-098 | SRC-ZZ-002 | 222-223 | 太阴化忌 | 未宫日月 | 双星弱势 | 日月同时偏弱会把家庭关系与事业情感挫折集中到同一系统 | transform | multi_domain_adversity | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+TC09-099 | SRC-ZZ-002 | 223 | 太阴化忌 | 戌宫太阴 | 对宫太阳在辰 | 戌宫化忌并无明显不良影响，可表现为缺少余荫但增强白手兴家路径 | transform | inherited_support_vs_self_made | support_down_self_made_up | DERIVED_RESPONSE | ADD_CANDIDATE
+TC09-100 | SRC-ZZ-002 | 223 | 太阴化忌 | 亥宫太阴 | 变景 | 亥宫化忌可形成一度艰辛后反而成业的反转结构，显示化忌不能编码为固定负增益 | transform | adversity_to_achievement_reversal | increase_after_hardship | DERIVED_RESPONSE | ADD_CANDIDATE
+
+next_anchor: 廉贞(丙干化忌)
