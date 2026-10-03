@@ -37,7 +37,11 @@ def _canonical_scalar(value: Any, path: str) -> Any:
     return value
 
 
+NON_COMPUTATIONAL_PATHS = {"copyright"}
+
 def compare_js_keys(js: Any, other: Any, path: str = "") -> list[dict[str, Any]]:
+    if path in NON_COMPUTATIONAL_PATHS:
+        return []
     out: list[dict[str, Any]] = []
     if isinstance(js, dict):
         if not isinstance(other, dict):
