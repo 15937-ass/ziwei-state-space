@@ -3,7 +3,7 @@ repository: "15937-ass/ziwei-state-space"
 
 project:
   current_phase: "Phase II knowledge-base construction + WP04 operator source-coverage closure"
-  execution_state: "WP04_SOURCE_CLOSURE_CHECKPOINTED"
+  execution_state: "WP04_SOURCE_CLOSURE_ACTIVE"
   current_work_unit: "WP04_TRANSFORMATION_SOURCE_CLOSURE_TC11"
   state_sync: "WP04_TC10_MERGED"
   last_approved_gate: "A2-R1"
@@ -12,13 +12,13 @@ project:
 
 git:
   default_branch: "main"
-  active_branch: null
+  active_branch: "work/wp04-tc11"
   active_pull_request: null
   canonical_research_state_branch: "main"
   checkpoint_merge: "e8255d82b9a2ce0343d6f5635919db18ea8199fe"
   stale_open_prs: []
   branch_cleanup_status: "POST_P1_ACTIVE_POINTERS_CLOSED; LEGACY_BRANCH_DELETION_PENDING"
-  note: "PR #66 merged TC10: cumulative transformation-chapter source review is 800 items. Continue with TC11 as internal checkpoint 2/2 for the current 200-item reporting block; one source-explicit persistence item is routed to the existing history family; no new Human Gate is open."
+  note: "TC11 completes the second internal 100-item checkpoint and reaches the 化曜 chapter boundary. Cumulative transformation-chapter review is 900 items; two source-explicit persistence items are routed to the existing history family; no new Human Gate is open."
 
 gates:
   A0: "APPROVED"
@@ -45,12 +45,12 @@ progress:
     system_operator_edges: 654
   wp04_source_closure:
     chapter: "化曜"
-    checkpoint: "TC10"
-    reviewed_items: 800
-    add_candidates: 726
-    case_support_only: 74
-    status: "TC10_MERGED_NEXT_TC11"
-    next_anchor: "天同化忌寅申宫之后"
+    checkpoint: "TC11"
+    reviewed_items: 900
+    add_candidates: 810
+    case_support_only: 90
+    status: "TC11_SOURCE_SPAN_VERIFIED_TRANSFORMATION_CHAPTER_CLOSED_READY_FOR_PR"
+    next_anchor: "杂曜总论/天伤天使"
   manuscript:
     file: "paper/manuscript_v0.1.md"
     status: "STALE_PRE_A2_DRAFT_DO_NOT_USE_FOR_CURRENT_METRICS"
@@ -88,6 +88,8 @@ canonical_artifacts:
   wp04_tc09_source_review: "validation/wp04_source_closure/TC09_WORKING_NOTE.md"
   wp04_tc10_source_review: "validation/wp04_source_closure/TC10_WORKING_NOTE.md"
   wp04_tc10_history_feedback: "validation/wp04_source_closure/TC10_history_feedback_v0.1.csv"
+  wp04_tc11_source_review: "validation/wp04_source_closure/TC11_WORKING_NOTE.md"
+  wp04_tc11_history_feedback: "validation/wp04_source_closure/TC11_history_feedback_v0.1.csv"
   wp04_source_closure_ledger: "knowledge/coverage/wp04_source_chapter_closure_v0.1.csv"
 
 historical_noncanonical_gate_documents:
