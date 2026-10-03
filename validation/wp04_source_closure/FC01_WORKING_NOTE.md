@@ -88,3 +88,31 @@ FC01-072 | SRC-ZZ-002 | 240 | 将前十二神 | 亡神 | 见煞 | 亡神见煞�
 FC01-073 | SRC-ZZ-002 | 240 | 岁前十二神 | 岁建 | 所在宫垣 | 岁建所在宫垣作为一年吉凶的重要观察位置 | structural_relation | annual_palace_focus | set | L0_STRUCTURE | ADD_CANDIDATE
 FC01-074 | SRC-ZZ-002 | 240 | 岁前十二神 | 岁建 | 喜吉曜同躔 | 岁建与吉曜同躔时喜庆增加 | gate | annual_positive_events | increase | STRUCTURAL_GATE | ADD_CANDIDATE
 FC01-075 | SRC-ZZ-002 | 240 | 岁前十二神 | 岁建 | 凶曜同躔 | 岁建与凶曜同躔时灾咎风险增加 | gate | annual_adversity | increase | STRUCTURAL_GATE | ADD_CANDIDATE
+
+FC01-076 | SRC-ZZ-002 | 240 | 岁前十二神 | 岁建 | 同躔星曜 | 岁建年度性质须视同躔星曜而定 | structural_relation | annual_context_dependence | require_co_stars | L0_STRUCTURE | ADD_CANDIDATE
+FC01-077 | SRC-ZZ-002 | 240 | 岁前十二神 | 岁建 | 流年 | 岁建所在即流年命宫所在 | structural_relation | annual_life_palace | identify | L0_STRUCTURE | ADD_CANDIDATE
+FC01-078 | SRC-ZZ-002 | 240 | 岁前十二神 | 晦气 | 一般 | 晦气主波折 | enhance | disruption | increase | LOCAL_STATE | ADD_CANDIDATE
+FC01-079 | SRC-ZZ-002 | 240 | 岁前十二神 | 晦气 | 一般 | 晦气主暗晦 | enhance | obscurity | increase | LOCAL_STATE | ADD_CANDIDATE
+FC01-080 | SRC-ZZ-002 | 240 | 岁前十二神 | 晦气 | 一般 | 晦气主情绪不稳定 | enhance | emotional_instability | increase | LOCAL_STATE | ADD_CANDIDATE
+FC01-081 | SRC-ZZ-002 | 240 | 岁前十二神 | 丧门 | 一般 | 丧门主孝服类传统投影 | projection | family_bereavement_case | traditional_mourning | L3_PROJECTION | CASE_SUPPORT_ONLY
+FC01-082 | SRC-ZZ-002 | 240 | 岁前十二神 | 丧门 | 见煞忌 | 煞忌会提高丧门传统凶象的显著程度 | gate | mourning_case_strength | increase | STRUCTURAL_GATE | CASE_SUPPORT_ONLY
+FC01-083 | SRC-ZZ-002 | 240 | 岁前十二神 | 丧门 | 流日 | 流日逢丧门可作吊丧类传统事件候选 | layer_interaction | daily_mourning_case | activate | TEMPORAL_LAYER | CASE_SUPPORT_ONLY
+FC01-084 | SRC-ZZ-002 | 240 | 岁前十二神 | 贯索 | 一般 | 贯索主束缚 | enhance | constraint | increase | LOCAL_STATE | ADD_CANDIDATE
+FC01-085 | SRC-ZZ-002 | 240 | 岁前十二神 | 贯索 | 见煞忌 | 源文将牢狱作为煞忌并见时的传统司法投影 | projection | legal_confinement_case | increase | L3_PROJECTION | CASE_SUPPORT_ONLY
+FC01-086 | SRC-ZZ-002 | 240 | 岁前十二神 | 贯索 | 疾厄宫见煞忌 | 源文将留医作为传统健康投影 | projection | health_case | hospitalization | L3_PROJECTION | CASE_SUPPORT_ONLY
+FC01-087 | SRC-ZZ-002 | 240 | 岁前十二神 | 官符 | 一般 | 官符主讼事 | enhance | litigation | increase | LOCAL_STATE | ADD_CANDIDATE
+FC01-088 | SRC-ZZ-002 | 240 | 岁前十二神 | 官符 | 一般 | 官符主官府追索 | projection | administrative_case | official_claim | L3_PROJECTION | CASE_SUPPORT_ONLY
+FC01-089 | SRC-ZZ-002 | 240 | 岁前十二神 | 小耗 | 一般 | 小耗主耗财 | enhance | resource_depletion | increase | LOCAL_STATE | ADD_CANDIDATE
+FC01-090 | SRC-ZZ-002 | 240 | 岁前十二神 | 小耗 | 一般 | 小耗主遗失 | projection | loss_case | lost_property | L3_PROJECTION | CASE_SUPPORT_ONLY
+FC01-091 | SRC-ZZ-002 | 240 | 岁前十二神 | 小耗 | 时间适用 | 此处小耗仅用于流月流日 | structural_relation | temporal_scope | month_and_day_only | L0_STRUCTURE | ADD_CANDIDATE
+FC01-092 | SRC-ZZ-002 | 240 | 岁前十二神 | 大耗 | 一般 | 大耗主耗财 | enhance | resource_depletion | increase | LOCAL_STATE | ADD_CANDIDATE
+FC01-093 | SRC-ZZ-002 | 240 | 岁前十二神 | 大耗 | 一般 | 大耗带桃花性质 | enhance | attraction | increase | LOCAL_STATE | ADD_CANDIDATE
+FC01-094 | SRC-ZZ-002 | 240 | 岁前十二神 | 大耗 | 时间适用 | 此处大耗仅用于流月流日 | structural_relation | temporal_scope | month_and_day_only | L0_STRUCTURE | ADD_CANDIDATE
+FC01-095 | SRC-ZZ-002 | 240 | 岁前十二神 | 大耗 | 与博士十二神大耗比较 | 岁前大耗的耗损程度较博士十二神大耗轻 | mechanism_comparison | depletion_intensity | lower_than_doctor_cycle | MECHANISM_COMPARISON | ADD_CANDIDATE
+FC01-096 | SRC-ZZ-002 | 240 | 岁前十二神 | 龙德 | 一般 | 龙德主逢凶化吉 | enhance | adversity_resolution | increase | LOCAL_STATE | ADD_CANDIDATE
+FC01-097 | SRC-ZZ-002 | 240 | 岁前十二神 | 龙德 | 一般 | 龙德主受赏 | transform | reward | increase | DERIVED_RESPONSE | ADD_CANDIDATE
+FC01-098 | SRC-ZZ-002 | 240 | 岁前十二神 | 白虎 | 一般 | 白虎主凶祸 | enhance | adversity | increase | LOCAL_STATE | ADD_CANDIDATE
+FC01-099 | SRC-ZZ-002 | 240 | 岁前十二神 | 白虎 | 会官符 | 白虎忌会官符，组合会增强司法风险 | gate | legal_adversity | increase | STRUCTURAL_GATE | ADD_CANDIDATE
+FC01-100 | SRC-ZZ-002 | 240 | 岁前十二神 | 白虎 | 一般 | 源文将刑杖作为白虎传统司法投影 | projection | legal_punishment_case | increase | L3_PROJECTION | CASE_SUPPORT_ONLY
+
+next_anchor: 白虎入流年父母宫为凶服 / 天德
