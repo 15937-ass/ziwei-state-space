@@ -195,7 +195,8 @@ jobs:
         run: |
           python tools/p1_aggregate_b02c_reports.py \
             /tmp/b02c-artifacts \
-            --report /tmp/p1_b02c_aggregate.json
+            --report /tmp/p1_b02c_aggregate.json \
+            --require-full-decadal-coverage
           cat /tmp/p1_b02c_aggregate.json
 
       - name: Upload aggregate report
