@@ -1,0 +1,107 @@
+{
+  "version": "0.2",
+  "batch": "P1-B02-B",
+  "purpose": "profile late-Zi day attribution across lunar year/month boundaries without imposing a school-universal equivalence",
+  "config_contract": {
+    "day_divide": "forward",
+    "meaning": "the compared iztro implementations are invoked with forward day-divide, while late-Zi attribution itself is treated as school-sensitive rather than universal truth"
+  },
+  "semantic_policy": {
+    "classification": "SCHOOL_SENSITIVE_BOUNDARY",
+    "universal_equivalence_required": false,
+    "strict_gate": "iztro-js vs x-iztro full normalized diff under identical configuration",
+    "independent_oracle": "exclude late-Zi temporal targets from hard equality because an independent school may attribute Zi hour to a different civil/effective day",
+    "candidate_models": [
+      "same_day",
+      "forward_to_next_day",
+      "dual_chart_composite"
+    ],
+    "downstream_inference": "preserve both same-day and next-day candidates for late-Zi cases and allow later source/evidence weighted composite interpretation"
+  },
+  "school_sensitive_target_ids": [
+    "B1_YEAR_LATE_ZI",
+    "B2_MONTH_LATE_ZI"
+  ],
+  "max_targets": 8,
+  "targets": [
+    {
+      "target_id": "B1_YEAR_HAI",
+      "solar_date": "2028-01-25",
+      "time_index": 11,
+      "expected_lunar_marker": "十二月廿九"
+    },
+    {
+      "target_id": "B1_YEAR_LATE_ZI",
+      "solar_date": "2028-01-25",
+      "time_index": 12,
+      "expected_lunar_marker": "十二月廿九"
+    },
+    {
+      "target_id": "B1_YEAR_NEXT_EARLY_ZI",
+      "solar_date": "2028-01-26",
+      "time_index": 0,
+      "expected_lunar_marker": "正月初一"
+    },
+    {
+      "target_id": "B1_YEAR_NEXT_CHOU",
+      "solar_date": "2028-01-26",
+      "time_index": 1,
+      "expected_lunar_marker": "正月初一"
+    },
+    {
+      "target_id": "B2_MONTH_HAI",
+      "solar_date": "2028-03-25",
+      "time_index": 11,
+      "expected_lunar_marker": "二月三十"
+    },
+    {
+      "target_id": "B2_MONTH_LATE_ZI",
+      "solar_date": "2028-03-25",
+      "time_index": 12,
+      "expected_lunar_marker": "二月三十"
+    },
+    {
+      "target_id": "B2_MONTH_NEXT_EARLY_ZI",
+      "solar_date": "2028-03-26",
+      "time_index": 0,
+      "expected_lunar_marker": "三月初一"
+    },
+    {
+      "target_id": "B2_MONTH_NEXT_CHOU",
+      "solar_date": "2028-03-26",
+      "time_index": 1,
+      "expected_lunar_marker": "三月初一"
+    }
+  ],
+  "relation_probes": [
+    {
+      "probe_id": "year_latezi_vs_next_earlyzi",
+      "left": "B1_YEAR_LATE_ZI",
+      "right": "B1_YEAR_NEXT_EARLY_ZI",
+      "scopes": ["yearly", "monthly", "daily", "hourly"],
+      "mode": "observe"
+    },
+    {
+      "probe_id": "month_latezi_vs_next_earlyzi",
+      "left": "B2_MONTH_LATE_ZI",
+      "right": "B2_MONTH_NEXT_EARLY_ZI",
+      "scopes": ["yearly", "monthly", "daily", "hourly"],
+      "mode": "observe"
+    },
+    {
+      "probe_id": "year_hai_vs_latezi",
+      "left": "B1_YEAR_HAI",
+      "right": "B1_YEAR_LATE_ZI",
+      "scopes": ["yearly", "monthly", "daily", "hourly"],
+      "mode": "observe"
+    },
+    {
+      "probe_id": "month_hai_vs_latezi",
+      "left": "B2_MONTH_HAI",
+      "right": "B2_MONTH_LATE_ZI",
+      "scopes": ["yearly", "monthly", "daily", "hourly"],
+      "mode": "observe"
+    }
+  ],
+  "note": "Civil lunar-date display is validated separately. Relation probes are descriptive signatures, not universal truth assertions. Late-Zi ambiguity must survive into downstream inference rather than being erased by a single hard-coded school convention."
+}
