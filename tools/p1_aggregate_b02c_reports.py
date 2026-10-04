@@ -35,12 +35,16 @@ def main() -> int:
     all_seen: set[str] = set()
     changed_union: set[str] = set()
     change_count: Counter[str] = Counter()
+    unmatched_range_cases: set[str] = set()
     for report in reports:
         if report.get("structural_errors"):
             errors.append(f"{report.get('batch')}: structural_errors={report['structural_errors'][:3]}")
         if report.get("semantic_errors"):
             errors.append(f"{report.get('batch')}: semantic_errors={report['semantic_errors'][:3]}")
 
+        unmatched_range_cases.update(
+            report.get("decadal_range_consistency", {}).get("unmatched_case_ids", [])
+        )
         coverage = report.get("year_transition_coverage", {})
         seen = coverage.get("per_case_year_pairs_seen", {})
         all_seen.update(seen)
@@ -51,11 +55,22 @@ def main() -> int:
 
     zero_cases = sorted(all_seen - changed_union)
     distribution = Counter(change_count.get(cid, 0) for cid in all_seen)
+    multi_transition_cases = sorted(
+        cid for cid in all_seen if change_count.get(cid, 0) > 1
+    )
+    unexplained_multi_transition_cases = sorted(
+        set(multi_transition_cases) - unmatched_range_cases
+    )
 
     if len(all_seen) != 100:
         errors.append(f"expected 100 case IDs across reports, got {len(all_seen)}")
     if args.require_full_decadal_coverage and zero_cases:
         errors.append(f"decadal transition coverage missing {len(zero_cases)} cases: {zero_cases[:20]}")
+    if unexplained_multi_transition_cases:
+        errors.append(
+            "multiple decadal transitions without any unmatched/pre-range target: "
+            + str(unexplained_multi_transition_cases[:20])
+        )
 
     result = {
         "reports_found": len(paths),
@@ -66,6 +81,9 @@ def main() -> int:
         "decadal_transition_count_distribution": {
             str(k): v for k, v in sorted(distribution.items())
         },
+        "multiple_transition_case_ids": multi_transition_cases,
+        "unmatched_decadal_range_case_ids": sorted(unmatched_range_cases),
+        "multiple_transition_cases_without_unmatched_ranges": unexplained_multi_transition_cases,
         "semantic_assertions_all_clean": not any(r.get("semantic_errors") for r in reports),
         "structural_errors_all_clean": not any(r.get("structural_errors") for r in reports),
         "errors": errors,
