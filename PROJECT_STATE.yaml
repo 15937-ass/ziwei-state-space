@@ -3,9 +3,9 @@ repository: "15937-ass/ziwei-state-space"
 
 project:
   current_phase: "Phase II knowledge-base construction + product-first engineering"
-  execution_state: "WP05_DISEASE_D04_MERGED"
+  execution_state: "WP05_DISEASE_D05_READY_FOR_PR"
   current_work_unit: "WP05_DISEASE_PALACE_CORPUS"
-  state_sync: "WP05_DISEASE_D04_MERGED"
+  state_sync: "WP05_DISEASE_D05_PENDING"
   last_approved_gate: "A2-R1"
   pending_gate: null
   blocked_reason: null
@@ -18,7 +18,7 @@ git:
   checkpoint_merge: "382cbda21ee2701445ce0846fd50179a4bca1ed1"
   stale_open_prs: []
   branch_cleanup_status: "POST_P1_ACTIVE_POINTERS_CLOSED; LEGACY_BRANCH_DELETION_PENDING"
-  note: "Disease Palace D04 closes records 301-400. Cumulative disease corpus: 400 reviewed, 164 reusable, 236 case-support-only, 2 history feedback."
+  note: "Disease Palace D05 closes records 401-500. Cumulative disease corpus: 500 reviewed, 205 reusable, 295 case-support-only, 3 history feedback."
 
 gates:
   A0: "APPROVED"
@@ -45,13 +45,13 @@ progress:
     system_operator_edges: 654
   wp05_projection_corpus:
     palace: "疾厄宫"
-    checkpoint: "D04"
-    reviewed_items: 400
-    reusable_projection_rules: 164
-    case_support_only: 236
-    history_feedback: 2
-    status: "D04_MERGED_NEXT_D05"
-    next_anchor: "D05_JUMEN_TAIL_TIANXIANG_TIANLIANG"
+    checkpoint: "D05"
+    reviewed_items: 500
+    reusable_projection_rules: 205
+    case_support_only: 295
+    history_feedback: 3
+    status: "D05_SOURCE_SPAN_VERIFIED_READY_FOR_PR"
+    next_anchor: "D06_POJUN_TAIL_AND_DISEASE_REINDEX"
   wp04_source_closure:
     chapter: "GLOBAL"
     checkpoint: "MAL01"
@@ -84,7 +84,7 @@ productization:
     - "PRODUCT-P1 final acceptance"
   next_work_unit: "PRODUCT_PL2_RULE_RUNTIME_V0_1"
   product_chat_scope: "This conversation owns productization, product data, adapters, inference MVP, benchmark and UX. Knowledge-base extraction continues in other project conversations."
-  research_track_next: "WP05_DISEASE_D05_CONTINUE"
+  research_track_next: "WP05_DISEASE_D06_CONTINUE"
   casebook_training_corpus:
     collection_id: "LIAORAN_CASEBOOKS_3"
     status: "ALL_3_BOUND_INDEXED_100_PILOT20_QUEUED"
@@ -264,6 +264,9 @@ canonical_artifacts:
   wp05_disease_d04_review: "validation/wp05/D04_DISEASE_PROJECTION_REVIEW.md"
   wp05_disease_d04_csv: "validation/wp05/D04_disease_projection_review_301_400.csv"
   wp05_disease_d04_history_feedback: "validation/wp05/D04_disease_history_feedback.csv"
+  wp05_disease_d05_review: "validation/wp05/D05_DISEASE_PROJECTION_REVIEW.md"
+  wp05_disease_d05_csv: "validation/wp05/D05_disease_projection_review_401_500.csv"
+  wp05_disease_d05_history_feedback: "validation/wp05/D05_disease_history_feedback.csv"
   wp05_children_history_feedback: "validation/wp05/CHILDREN_HISTORY_FEEDBACK_v0.1.csv"
   wp05_siblings_sb02_review: "validation/wp05/SB02_SIBLINGS_PROJECTION_REVIEW.md"
   wp05_siblings_sb02_csv: "validation/wp05/SB02_siblings_projection_review_101_200.csv"
