@@ -321,3 +321,24 @@ def build_wealth_evidence_package(
         engine_version=engine_version,
         knowledge_version="W01+PL2C-v0.1",
     )
+
+
+def build_wealth_structure_report(
+    snapshot: Mapping[str, Any],
+    projection_rows: Iterable[Mapping[str, str]],
+    registry: Mapping[str, Any],
+    semantic_registry: Mapping[str, Any],
+    *,
+    question: str = "财帛结构",
+):
+    """Build the deterministic PL2-E natal wealth structure report."""
+
+    from .wealth_semantics import aggregate_wealth_evidence
+
+    package = build_wealth_evidence_package(
+        snapshot,
+        projection_rows,
+        registry,
+        question=question,
+    )
+    return aggregate_wealth_evidence(package, semantic_registry)

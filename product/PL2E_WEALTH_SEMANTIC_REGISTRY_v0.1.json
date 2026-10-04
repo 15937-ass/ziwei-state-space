@@ -1,0 +1,161 @@
+{
+  "schema_version": "0.1",
+  "report_type": "WEALTH_NATAL_STRUCTURE",
+  "palace_id": "P05",
+  "time_layer": "NATAL",
+  "basis": {
+    "source": "validation/wp05/WEALTH_PALACE_CLOSURE_AUDIT.md",
+    "principle": "P05 is a multi-state financial subsystem; do not collapse it into one wealth score."
+  },
+  "sections": [
+    {
+      "id": "acquisition",
+      "label": "获取能力与机会",
+      "domains": [
+        "acquisition",
+        "opportunity",
+        "resource"
+      ]
+    },
+    {
+      "id": "earning_mode",
+      "label": "生财方式",
+      "domains": [
+        "earning_mode"
+      ]
+    },
+    {
+      "id": "effort",
+      "label": "投入与心力成本",
+      "domains": [
+        "effort"
+      ]
+    },
+    {
+      "id": "flow",
+      "label": "资金流动",
+      "domains": [
+        "flow"
+      ]
+    },
+    {
+      "id": "management",
+      "label": "管理与调度",
+      "domains": [
+        "management"
+      ]
+    },
+    {
+      "id": "retention",
+      "label": "积累与留存",
+      "domains": [
+        "retention"
+      ]
+    },
+    {
+      "id": "volatility",
+      "label": "波动性",
+      "domains": [
+        "volatility"
+      ]
+    },
+    {
+      "id": "risk_competition",
+      "label": "损失与竞争风险",
+      "domains": [
+        "risk",
+        "competition"
+      ]
+    },
+    {
+      "id": "control",
+      "label": "财务权力与控制",
+      "domains": [
+        "control"
+      ]
+    },
+    {
+      "id": "reputation_income",
+      "label": "名誉与地位介导收入",
+      "domains": [
+        "reputation"
+      ]
+    },
+    {
+      "id": "mobility_income",
+      "label": "流动与异地收入",
+      "domains": [
+        "mobility"
+      ]
+    },
+    {
+      "id": "structural_interpretation",
+      "label": "结构约束与解释",
+      "domains": [
+        "interpretation"
+      ]
+    }
+  ],
+  "rules": {
+    "W01-025": {
+      "section": "acquisition",
+      "display_claim": "化禄对财帛形成直接的正向收入修饰。"
+    },
+    "W01-026": {
+      "section": "retention",
+      "display_claim": "单见禄存而无天马时，偏向积累多于主动生财。"
+    },
+    "W01-028": {
+      "section": "earning_mode",
+      "display_claim": "武曲在财帛语境中偏向主动行动型的求财方式。"
+    },
+    "W01-029": {
+      "section": "earning_mode",
+      "display_claim": "太阴在财帛语境中偏向计划型的财务方式。"
+    },
+    "W01-031": {
+      "section": "retention",
+      "display_claim": "天府在财帛语境中偏向资产管理与储存。"
+    },
+    "W01-038": {
+      "section": "acquisition",
+      "display_claim": "化禄对财帛的收入获取作用较直接。"
+    },
+    "W01-040": {
+      "section": "volatility",
+      "display_claim": "化忌在财帛语境中对应挫折与竞争压力。"
+    },
+    "W01-042": {
+      "section": "risk_competition",
+      "display_claim": "文曲化忌在财帛语境中对应受骗风险。"
+    },
+    "W01-058": {
+      "section": "risk_competition",
+      "display_claim": "擎羊坐财帛宫时，财务竞争性增强。"
+    },
+    "W01-090": {
+      "section": "flow",
+      "display_claim": "紫微守财帛宫时，收入与资源表现可较充足。"
+    },
+    "W01-091": {
+      "section": "retention",
+      "display_claim": "收入与资源充足不等同于能够形成积累。"
+    },
+    "W01-092": {
+      "section": "structural_interpretation",
+      "display_claim": "紫微偏重名誉与权力取向，不应直接等同为财星。"
+    },
+    "W01-097": {
+      "section": "earning_mode",
+      "display_claim": "紫微化科时，可表现为通过名誉或信用获得收入。"
+    }
+  },
+  "policy": {
+    "no_scalar_score": true,
+    "no_net_good_bad": true,
+    "no_probability": true,
+    "no_llm_required": true,
+    "unknown_rule_policy": "FAIL_CLOSED",
+    "note": "Chinese display claims are product presentation normalizations tied one-to-one to already executable PL2-C rules; they do not create new rule semantics."
+  }
+}
