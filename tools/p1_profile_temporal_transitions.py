@@ -157,6 +157,7 @@ def main() -> int:
     range_actual_mismatch = 0
     range_transition_checks = 0
     range_transition_mismatches = 0
+    range_unmatched_by_case: Counter[str] = Counter()
 
     for row in rows:
         cid = row.get("case_id")
@@ -179,6 +180,7 @@ def main() -> int:
             matches = decadal_matches_for_age(row, nominal_age)
             if len(matches) == 0:
                 range_unmatched_targets += 1
+                range_unmatched_by_case[cid] += 1
                 target_range_keys[tid] = None
             elif len(matches) > 1:
                 range_ambiguous_targets += 1
@@ -322,6 +324,8 @@ def main() -> int:
             "active_scope_mismatches": range_actual_mismatch,
             "transition_checks": range_transition_checks,
             "transition_mismatches": range_transition_mismatches,
+            "unmatched_case_ids": sorted(range_unmatched_by_case),
+            "unmatched_targets_by_case": dict(sorted(range_unmatched_by_case.items())),
         },
         "examples": examples,
         "structural_errors": structural_errors,
