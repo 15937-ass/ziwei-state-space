@@ -117,6 +117,64 @@ def load_wealth_semantic_registry(path: str | Path) -> dict[str, Any]:
     return data
 
 
+def load_wealth_semantic_overlay(path: str | Path) -> dict[str, Any]:
+    with Path(path).open("r", encoding="utf-8") as handle:
+        data = json.load(handle)
+    if data.get("schema_version") != "0.1":
+        raise ValueError("wealth semantic overlay schema_version must be 0.1")
+    if data.get("palace_id") != "P05":
+        raise ValueError("wealth semantic overlay must target P05")
+    rules = data.get("rules")
+    if not isinstance(rules, Mapping) or not rules:
+        raise ValueError("wealth semantic overlay requires rule mappings")
+    return data
+
+
+def compose_wealth_semantic_registries(
+    base: Mapping[str, Any],
+    *overlays: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Compose presentation mappings while preserving the PL2-E section ontology."""
+
+    sections = base.get("sections")
+    if not isinstance(sections, list) or not sections:
+        raise ValueError("base wealth semantic registry requires sections")
+    section_ids = {str(section.get("id", "")).strip() for section in sections}
+    if "" in section_ids:
+        raise ValueError("base wealth semantic registry has empty section id")
+
+    combined = dict(base)
+    combined_rules = dict(base.get("rules", {}))
+
+    for overlay in overlays:
+        if overlay.get("schema_version") != "0.1":
+            raise ValueError("wealth semantic overlay schema_version must be 0.1")
+        if overlay.get("palace_id") != base.get("palace_id"):
+            raise ValueError("wealth semantic overlay palace_id mismatch")
+        rules = overlay.get("rules")
+        if not isinstance(rules, Mapping) or not rules:
+            raise ValueError("wealth semantic overlay requires rule mappings")
+
+        overlap = set(combined_rules).intersection(rules)
+        if overlap:
+            raise ValueError(
+                "duplicate wealth semantic rule across registries: "
+                + ", ".join(sorted(overlap))
+            )
+
+        for rule_id, spec in rules.items():
+            section_id = str(spec.get("section", "")).strip()
+            if section_id not in section_ids:
+                raise ValueError(f"{rule_id}: semantic section is not registered")
+            if not str(spec.get("display_claim", "")).strip():
+                raise ValueError(f"{rule_id}: display_claim is required")
+            combined_rules[str(rule_id)] = dict(spec)
+
+    combined["rules"] = dict(sorted(combined_rules.items()))
+    combined["knowledge_version"] = f"WEALTH_SEMANTIC_{len(combined_rules)}"
+    return combined
+
+
 def _projection_index(package: EvidencePackage) -> dict[str, Mapping[str, Any]]:
     out: dict[str, Mapping[str, Any]] = {}
     for projection in package.projections:

@@ -1,0 +1,256 @@
+{
+  "schema_version": "0.1",
+  "batch_id": "PL2F-WEALTH-B02",
+  "palace_id": "P05",
+  "palace_name": "财帛宫",
+  "source_csv": "validation/wp05/W01_wealth_projection_review_001_100.csv",
+  "policy": {
+    "source_review_required": "SOURCE_SPAN_VERIFIED",
+    "case_support_only_allowed": false,
+    "normalization_epistemic": "IMPLEMENTATION",
+    "normalization_verified": true,
+    "time_layer": "NATAL",
+    "note": "Batch 2 selects only explicit, locally observable conditions. Shorthand pairs such as 昌曲/魁钺/火铃 are expanded only as named-star aliases; no triad/opposition/temporal inference is added."
+  },
+  "rules": {
+    "W01-032": {
+      "expected_condition": "天府不一定善生财",
+      "expected_projection_target": "management_retention_not_equal_income_generation",
+      "expected_projection_mode": "PALACE_SEMANTIC_BOUNDARY",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "天府"
+            }
+          }
+        ]
+      }
+    },
+    "W01-037": {
+      "expected_condition": "化禄化权化科对财帛均有良好影响",
+      "expected_projection_target": "positive_transformation_modifiers",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "any_of": [
+          [
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P05",
+                "mutagen": "禄"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P05",
+                "mutagen": "权"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P05",
+                "mutagen": "科"
+              }
+            }
+          ]
+        ]
+      }
+    },
+    "W01-039": {
+      "expected_condition": "化权宜发挥该星曜本质求财",
+      "expected_projection_target": "huaquan_activates_star_specific_earning_mode",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P05",
+              "mutagen": "权"
+            }
+          }
+        ]
+      }
+    },
+    "W01-041": {
+      "expected_condition": "文昌化忌或文曲化忌",
+      "expected_projection_target": "document_or_contract_error_loss",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "any_of": [
+          [
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P05",
+                "star": "文昌",
+                "mutagen": "忌"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P05",
+                "star": "文曲",
+                "mutagen": "忌"
+              }
+            }
+          ]
+        ]
+      }
+    },
+    "W01-047": {
+      "expected_condition": "财帛宫见魁钺",
+      "expected_projection_target": "income_opportunity_from_institutional_change",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "any_of": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "天魁"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "天钺"
+              }
+            }
+          ]
+        ]
+      }
+    },
+    "W01-048": {
+      "expected_condition": "财帛宫见昌曲",
+      "expected_projection_target": "reputation_increase_more_than_direct_income",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "any_of": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "文昌"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "文曲"
+              }
+            }
+          ]
+        ]
+      }
+    },
+    "W01-049": {
+      "expected_condition": "昌曲化科",
+      "expected_projection_target": "arts_or_academics_can_generate_income",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "any_of": [
+          [
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P05",
+                "star": "文昌",
+                "mutagen": "科"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P05",
+                "star": "文曲",
+                "mutagen": "科"
+              }
+            }
+          ]
+        ]
+      }
+    },
+    "W01-061": {
+      "expected_condition": "擎羊与廉贞贪狼同度且不见火铃",
+      "expected_projection_target": "unexpected_compensation_like_income",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "擎羊"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "廉贞"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "贪狼"
+            }
+          }
+        ],
+        "none_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "火星"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "铃星"
+            }
+          }
+        ]
+      }
+    },
+    "W01-066": {
+      "expected_condition": "火铃在财帛宫基本性质",
+      "expected_projection_target": "greater_difficulty_and_effort_to_gain",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "any_of": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "火星"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "铃星"
+              }
+            }
+          ]
+        ]
+      }
+    }
+  }
+}
