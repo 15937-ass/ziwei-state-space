@@ -1,0 +1,22 @@
+{
+  "version": "0.1",
+  "batch": "P1-B02-C3",
+  "purpose": "complete ten-year decadal coverage and test month/day transition locality at daytime",
+  "max_targets": 8,
+  "targets": [
+    {"target_id":"Y2035_PRE","solar_date":"2035-02-07","time_index":6},
+    {"target_id":"Y2035_POST","solar_date":"2035-02-08","time_index":6},
+    {"target_id":"Y2036_PRE","solar_date":"2036-01-27","time_index":6},
+    {"target_id":"Y2036_POST","solar_date":"2036-01-28","time_index":6},
+    {"target_id":"M2028_PRE","solar_date":"2028-03-25","time_index":6},
+    {"target_id":"M2028_POST","solar_date":"2028-03-26","time_index":6},
+    {"target_id":"D2028_PRE","solar_date":"2028-03-20","time_index":6},
+    {"target_id":"D2028_POST","solar_date":"2028-03-21","time_index":6}
+  ],
+  "transition_pairs": [
+    {"pair_id":"YEAR_2035","kind":"YEAR","left":"Y2035_PRE","right":"Y2035_POST"},
+    {"pair_id":"YEAR_2036","kind":"YEAR","left":"Y2036_PRE","right":"Y2036_POST"},
+    {"pair_id":"MONTH_2028_03","kind":"MONTH","left":"M2028_PRE","right":"M2028_POST"},
+    {"pair_id":"DAY_2028_03","kind":"DAY","left":"D2028_PRE","right":"D2028_POST"}
+  ]
+}
