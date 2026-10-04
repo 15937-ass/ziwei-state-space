@@ -116,7 +116,8 @@ jobs:
             /tmp/p1_iztro_b02c.jsonl \
             ${{ matrix.manifest }} \
             --report /tmp/p1_b02c_transition_report.json \
-            --max-errors 10
+            --max-errors 10 \
+            --assert-semantics
           head -160 /tmp/p1_b02c_transition_report.json
 
       - name: Cross-implementation full diff
@@ -166,4 +167,40 @@ jobs:
             /tmp/p1_b02c_transition_report.json
             /tmp/p1_dual_b02c_report.json
             /tmp/p1_independent_b02c_report.json
+          retention-days: 30
+
+
+  b02c-aggregate:
+    needs: b02c-transition
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download B02-C matrix artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: p1-b02c-*-${{ github.sha }}
+          path: /tmp/b02c-artifacts
+          merge-multiple: false
+
+      - name: Aggregate transition coverage
+        run: |
+          python tools/p1_aggregate_b02c_reports.py \
+            /tmp/b02c-artifacts \
+            --report /tmp/p1_b02c_aggregate.json
+          cat /tmp/p1_b02c_aggregate.json
+
+      - name: Upload aggregate report
+        uses: actions/upload-artifact@v4
+        with:
+          name: p1-b02c-aggregate-${{ github.sha }}
+          path: /tmp/p1_b02c_aggregate.json
           retention-days: 30
