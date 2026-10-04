@@ -1,7 +1,7 @@
-# 产品化路线图 — Product-First Program v0.1
+# 产品化路线图 — Product-First Program v0.2
 
 状态：ACTIVE  
-生效日期：2026-10-03  
+生效日期：2026-10-04  
 主目标：在继续完成中州派知识工程的同时，把项目推进为**排盘可靠、推理稳定、外部基准可测、证据链可审计、用户体验可用**的产品。
 
 ## 1. 目标优先级
@@ -179,3 +179,110 @@ chart -> rules -> latent states -> modes -> operators
 - provenance；
 
 尽早接成可运行系统，让案例和 benchmark 反向暴露知识工程缺口。
+
+
+## 8. 执行责任边界（2026-10-04 冻结）
+
+产品与知识抽取采用并行会话，避免一个会话同时承担大规模 source review 与产品工程。
+
+- **本产品会话**：只负责 productization、chart/adapters、regression、Rule Runtime、Inference MVP、EvidencePackage、benchmark、calibration、UI/UX、产品数据与发布治理。
+- **其他知识工程会话**：继续负责 source-span review、十二宫 projection corpus、规则抽取、回源核验与知识库 closure。
+- 产品会话只消费已经进入 GitHub canonical state 且满足 provenance/review gate 的知识资产；不得在产品代码里偷偷补写传统规则。
+- 知识工程会话不得因为产品需要而降低 provenance 标准或回看 benchmark answer。
+
+## 9. 产品层八阶段执行路线
+
+### PL1 — Chart Trust Layer
+目标：把排盘从“能用”提升到“可审计、可回归、边界可解释”。
+
+交付：
+- Normalized Chart Contract；
+- deterministic regression seeds；
+- calendar / temporal boundary registry；
+- multi-engine diff CI；
+- mismatch ledger；
+- ambiguity registry；
+- Chart Trust Report v1.0。
+
+### PL2 — Executable Knowledge
+目标：把 canonical knowledge 编译成产品可执行的 Rule IR。
+
+最小链路：
+```text
+source span -> reviewed atomic rule -> condition -> operator
+-> target state -> executable rule -> trace
+```
+
+任何运行时规则必须保留 rule_id、source pointer、review status 与 school namespace。
+
+### PL3 — Inference MVP
+第一版只做窄域端到端：
+- 本命；
+- 一个大限；
+- 一个流年；
+- 事业 + 财帛；
+- EvidencePackage；
+- deterministic confidence/conflict 输出。
+
+MVP 在没有 LLM 的情况下也必须能输出结构化结论；LLM 只负责 verbalization。
+
+### PL4 — Evaluation Harness
+同一测试集并行比较：
+- Pure LLM；
+- RAG；
+- Flat rules；
+- Symbolic engine；
+- Symbolic + LLM。
+
+至少统计 Accuracy、High-confidence Accuracy、Coverage、Consistency、Traceability、Conflict Detection 与 Calibration。
+
+### PL5 — Empirical Calibration
+严格分层：
+- Layer A：Traditional Knowledge；
+- Layer B：Empirical Calibration；
+- Layer C：User/Context Adaptation。
+
+B/C 不得回写或篡改 A。
+
+### PL6 — Product UX
+三层界面：
+1. 普通用户：结论 + 核心证据 + 不确定性；
+2. 高级用户：原局/星系/四化/宫位/时序链；
+3. Expert/Debug：Rule ID / source / operator / state delta / conflict / version。
+
+### PL7 — Data Flywheel
+只收结构化、带时间窗、可验证的事件反馈；禁止把“感觉很准/不准”直接当训练标签。
+
+### PL8 — Multi-school / Production
+中州派保持 canonical core；其他体系以 Adapter 接入：
+```text
+Core ontology
+  ├─ Zhongzhou Adapter
+  ├─ Qintian Adapter
+  ├─ Heluo Adapter
+  └─ other adapters
+```
+
+产品输出区分 cross-school consensus 与 school-specific disagreement。
+
+## 10. 边界歧义与多模型状态
+
+B02-B 后，产品正式承认某些输入不是单一确定状态。晚子时是第一类：
+
+```text
+SCHOOL_SENSITIVE_BOUNDARY
+  -> same-day candidate
+  -> next-day candidate
+  -> dual-chart/composite candidate
+```
+
+排盘层负责保留候选，不负责伪造“唯一真值”；后续可由 school selection、source evidence、history evidence 与 empirical calibration 做显式 resolution。
+
+## 11. 当前立即执行顺序
+
+1. 关闭 P1 B02-B 并冻结子时 boundary policy；
+2. 执行 P1 B02-C：大限/小限/流年/流月/流日动态切换边界；
+3. 形成 P1 FINAL acceptance + Chart Trust Report v1.0；
+4. 开始 PL2 Rule Runtime；
+5. 立即进入 PL3 首个事业/财帛 Inference MVP；
+6. MVP 一跑通就建立 PL4 benchmark harness，而不是等十二宫全部抽取完成。
