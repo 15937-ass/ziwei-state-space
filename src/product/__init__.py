@@ -6,6 +6,18 @@ new domain theory.
 
 from .chart_diff import ChartDifference, compare_chart_snapshots, summarize_differences
 from .evidence_package import ConfidenceBand, EvidenceItem, EvidencePackage
+from .rule_runtime import (
+    ActiveRuleGraph,
+    ActiveRuleNode,
+    CompilationReport,
+    CompileDisposition,
+    CompileIssue,
+    RuleIR,
+    RuleRuntime,
+    RuntimeState,
+    compile_rule_row,
+    compile_rule_rows,
+)
 
 __all__ = [
     "ChartDifference",
@@ -14,4 +26,14 @@ __all__ = [
     "ConfidenceBand",
     "EvidenceItem",
     "EvidencePackage",
+    "ActiveRuleGraph",
+    "ActiveRuleNode",
+    "CompilationReport",
+    "CompileDisposition",
+    "CompileIssue",
+    "RuleIR",
+    "RuleRuntime",
+    "RuntimeState",
+    "compile_rule_row",
+    "compile_rule_rows",
 ]
