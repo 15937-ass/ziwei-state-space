@@ -66,7 +66,7 @@ progress:
 
 productization:
   program: "PRODUCT-FIRST"
-  status: "P1_COMPLETE; CHART_TRUST_V1_FROZEN; PL2A_RULE_RUNTIME_CORE_MERGED; PL2B_CONDITION_ATOMS_MERGED; PL2C_WEALTH_PILOT13_MERGED; PL2D_EVIDENCE_BRIDGE_MERGED; PL2E_WEALTH_SEMANTIC_REPORT_MERGED; PL2F_WEALTH_EXECUTABLE22_MERGED; PL2G_STRUCTURE_RESOLVER_MERGED; CASEBOOK_INDEX_100_PILOT20_READY"
+  status: "P1_COMPLETE; CHART_TRUST_V1_FROZEN; PL2A_RULE_RUNTIME_CORE_MERGED; PL2B_CONDITION_ATOMS_MERGED; PL2C_WEALTH_PILOT13_MERGED; PL2D_EVIDENCE_BRIDGE_MERGED; PL2E_WEALTH_SEMANTIC_REPORT_MERGED; PL2F_WEALTH_EXECUTABLE22_MERGED; PL2G_STRUCTURE_RESOLVER_MERGED; PL2H_WEALTH_EXECUTABLE28_MERGED; CASEBOOK_INDEX_100_PILOT20_READY"
   completed:
     - "competitor registry v0.1"
     - "license ledger v0.1"
@@ -89,7 +89,8 @@ productization:
     - "PL2-E deterministic wealth semantic aggregation + no-LLM natal structure report"
     - "PL2-F wealth normalization batch 2: +9 rules, 22/100 W01 executable"
     - "PL2-G ontology-bound 12-palace structure resolver v0.1"
-  next_work_unit: "PRODUCT_PL2H_WEALTH_CROSS_PALACE_BATCH"
+    - "PL2-H wealth cross-palace executable batch: +6 rules, 28/100 W01 executable"
+  next_work_unit: "PRODUCT_PL2I_WEALTH_STRUCTURE_COVERAGE_GAP_AUDIT"
   product_chat_scope: "This conversation owns productization, product data, adapters, inference MVP, benchmark and UX. Knowledge-base extraction continues in other project conversations."
   research_track_next: "WP05_MIGRATION_M05_CONTINUE"
   casebook_training_corpus:
@@ -338,6 +339,10 @@ canonical_artifacts:
   pl2g_structure_resolver_acceptance: "product/PL2G_STRUCTURE_RESOLVER_ACCEPTANCE.md"
   pl2g_structure_resolver: "src/product/palace_structure.py"
   pl2g_palace_ontology: "knowledge/wp05/palace_ontology_v0.1.csv"
+  pl2h_wealth_cross_palace_registry: "product/PL2H_WEALTH_CROSS_PALACE_BATCH_v0.1.json"
+  pl2h_wealth_semantic_batch3: "product/PL2H_WEALTH_SEMANTIC_BATCH3_v0.1.json"
+  pl2h_wealth_acceptance: "product/PL2H_WEALTH_CROSS_PALACE_ACCEPTANCE.md"
+  pl2h_wealth_report_tool: "tools/pl2h_wealth_report.py"
   chart_trust_report_v1: "product/CHART_TRUST_REPORT_v1.0.md"
   p1_b02c_c1_targets: "validation/product_chart_regression/b02c1_year_transitions_2027_2030.json"
   p1_b02c_c2_targets: "validation/product_chart_regression/b02c2_year_transitions_2031_2034.json"
