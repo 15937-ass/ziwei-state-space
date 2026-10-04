@@ -1,0 +1,234 @@
+{
+  "schema_version": "0.1",
+  "palace_id": "P05",
+  "palace_name": "财帛宫",
+  "source_csv": "validation/wp05/W01_wealth_projection_review_001_100.csv",
+  "policy": {
+    "source_review_required": "SOURCE_SPAN_VERIFIED",
+    "case_support_only_allowed": false,
+    "normalization_epistemic": "IMPLEMENTATION",
+    "normalization_verified": true,
+    "note": "Only literal, low-ambiguity W01 conditions are selected. The registry does not infer unlisted conditions."
+  },
+  "rules": {
+    "W01-025": {
+      "expected_condition": "财帛宫见化禄",
+      "expected_projection_target": "direct_positive_income_modifier",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P05",
+              "mutagen": "禄"
+            }
+          }
+        ]
+      }
+    },
+    "W01-026": {
+      "expected_condition": "财帛宫单见禄存无天马",
+      "expected_projection_target": "accumulation_more_than_generation",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "禄存"
+            }
+          }
+        ],
+        "none_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "天马"
+            }
+          }
+        ]
+      }
+    },
+    "W01-028": {
+      "expected_condition": "武曲为财星主行动",
+      "expected_projection_target": "active_financial_action",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "武曲"
+            }
+          }
+        ]
+      }
+    },
+    "W01-029": {
+      "expected_condition": "太阴为财星主计划",
+      "expected_projection_target": "financial_planning",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "太阴"
+            }
+          }
+        ]
+      }
+    },
+    "W01-031": {
+      "expected_condition": "天府为财库",
+      "expected_projection_target": "asset_management_and_storage",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "天府"
+            }
+          }
+        ]
+      }
+    },
+    "W01-038": {
+      "expected_condition": "化禄对财帛最直接",
+      "expected_projection_target": "hualu_direct_income_gain",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P05",
+              "mutagen": "禄"
+            }
+          }
+        ]
+      }
+    },
+    "W01-040": {
+      "expected_condition": "化忌对财帛不良",
+      "expected_projection_target": "setbacks_and_competition",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P05",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      }
+    },
+    "W01-042": {
+      "expected_condition": "文曲化忌",
+      "expected_projection_target": "deception_risk",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P05",
+              "star": "文曲",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      }
+    },
+    "W01-058": {
+      "expected_condition": "擎羊坐财帛宫",
+      "expected_projection_target": "financial_competition",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "擎羊"
+            }
+          }
+        ]
+      }
+    },
+    "W01-090": {
+      "expected_condition": "紫微守财帛宫",
+      "expected_projection_target": "income_resources_abundant",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "紫微"
+            }
+          }
+        ]
+      }
+    },
+    "W01-091": {
+      "expected_condition": "紫微守财帛宫",
+      "expected_projection_target": "abundance_does_not_imply_accumulation",
+      "expected_projection_mode": "STRUCTURAL_CONSTRAINT",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "紫微"
+            }
+          }
+        ]
+      }
+    },
+    "W01-092": {
+      "expected_condition": "紫微偏重名誉权力而非财星",
+      "expected_projection_target": "status_power_orientation_not_direct_wealth_star",
+      "expected_projection_mode": "STRUCTURAL_CONSTRAINT",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "紫微"
+            }
+          }
+        ]
+      }
+    },
+    "W01-097": {
+      "expected_condition": "紫微化科",
+      "expected_projection_target": "income_through_reputation_or_goodwill",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P05",
+              "star": "紫微",
+              "mutagen": "科"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
