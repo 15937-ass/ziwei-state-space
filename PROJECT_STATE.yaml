@@ -66,7 +66,7 @@ progress:
 
 productization:
   program: "PRODUCT-FIRST"
-  status: "P1_COMPLETE; CHART_TRUST_V1_FROZEN; PL2A_RULE_RUNTIME_CORE_MERGED; PL2B_CONDITION_ATOMS_MERGED; PL2C_WEALTH_PILOT13_MERGED; PL2D_EVIDENCE_BRIDGE_MERGED; PL2E_WEALTH_SEMANTIC_REPORT_MERGED; CASEBOOK_INDEX_100_PILOT20_READY"
+  status: "P1_COMPLETE; CHART_TRUST_V1_FROZEN; PL2A_RULE_RUNTIME_CORE_MERGED; PL2B_CONDITION_ATOMS_MERGED; PL2C_WEALTH_PILOT13_MERGED; PL2D_EVIDENCE_BRIDGE_MERGED; PL2E_WEALTH_SEMANTIC_REPORT_MERGED; PL2F_WEALTH_EXECUTABLE22_MERGED; CASEBOOK_INDEX_100_PILOT20_READY"
   completed:
     - "competitor registry v0.1"
     - "license ledger v0.1"
@@ -87,7 +87,8 @@ productization:
     - "PL2-C wealth palace bounded executable pilot: 13/100 W01 rules"
     - "PL2-D ActiveRuleGraph to EvidencePackage bridge + no-LLM structured sample"
     - "PL2-E deterministic wealth semantic aggregation + no-LLM natal structure report"
-  next_work_unit: "PRODUCT_PL2F_WEALTH_NORMALIZATION_BATCH2"
+    - "PL2-F wealth normalization batch 2: +9 rules, 22/100 W01 executable"
+  next_work_unit: "PRODUCT_PL2G_STRUCTURE_RESOLVER_V0_1"
   product_chat_scope: "This conversation owns productization, product data, adapters, inference MVP, benchmark and UX. Knowledge-base extraction continues in other project conversations."
   research_track_next: "WP05_MIGRATION_M03_CONTINUE"
   casebook_training_corpus:
@@ -324,6 +325,10 @@ canonical_artifacts:
   pl2e_wealth_semantic_registry: "product/PL2E_WEALTH_SEMANTIC_REGISTRY_v0.1.json"
   pl2e_wealth_acceptance: "product/PL2E_WEALTH_SEMANTIC_ACCEPTANCE.md"
   pl2e_wealth_report_tool: "tools/pl2e_wealth_report.py"
+  pl2f_wealth_batch2_registry: "product/PL2F_WEALTH_NORMALIZATION_BATCH2_v0.1.json"
+  pl2f_wealth_semantic_batch2: "product/PL2F_WEALTH_SEMANTIC_BATCH2_v0.1.json"
+  pl2f_wealth_batch2_acceptance: "product/PL2F_WEALTH_NORMALIZATION_BATCH2_ACCEPTANCE.md"
+  pl2f_wealth_report_tool: "tools/pl2f_wealth_report.py"
   chart_trust_report_v1: "product/CHART_TRUST_REPORT_v1.0.md"
   p1_b02c_c1_targets: "validation/product_chart_regression/b02c1_year_transitions_2027_2030.json"
   p1_b02c_c2_targets: "validation/product_chart_regression/b02c2_year_transitions_2031_2034.json"
