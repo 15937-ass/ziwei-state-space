@@ -1,6 +1,6 @@
 task_id: PRODUCT-P1
-version: "0.3"
-status: ACTIVE_B02
+version: "0.4"
+status: ACTIVE_B02C
 title: "normalized chart adapters + first differential seed set"
 objective: >
   建立多排盘引擎共同输出格式和第一批 100 个结构回归输入，
@@ -18,9 +18,12 @@ completed_in_this_checkpoint:
   - "Execution guardrails v0.1: bounded records, error caps, timeouts, bounded logs, retry limit"
   - "B02-A target matrices prepared: A1 lunar year/month boundaries; A2 leap-month/Gregorian leap-day boundaries"
   - "B02-A: PASS; 100 seeds × 12 boundary targets = 1200 horoscope snapshots; JS/Rust diff=0; independent Go core diff=0; calendar marker errors=0"
+  - "B02-B: PASS; 100 seeds × 8 Zi/day boundary targets = 800 horoscope snapshots; civil marker errors=0; JS/Rust full diff=0"
+  - "B02-B: late-Zi classified SCHOOL_SENSITIVE_BOUNDARY; independent cross-school hard gate excludes only explicitly marked late-Zi targets; non-sensitive core diff=0"
+  - "B02-B: relation-signature artifact freezes observed yearly/monthly/daily/hourly behavior without claiming a universal school truth"
 
 next:
-  - "B02-B: early/late-Zi and day-boundary matrix"
+  - "B02-C: begin from current main; do not reuse stale B02 branches"
   - "B02-C: decadal/age/year/month/day transition-boundary matrix"
   - "resolve any true boundary mismatches with source/config adjudication"
   - "freeze resolved P1 regression contract and acceptance report"
