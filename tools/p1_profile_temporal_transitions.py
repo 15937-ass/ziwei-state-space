@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-"""Profile P1 B02-C temporal transition boundaries.
+"""Profile and validate P1 B02-C temporal transition boundaries.
 
-This profiler is deliberately observational on its first pass: it records which
-temporal scopes change across YEAR/MONTH/DAY boundary pairs and tracks nominal-age
-and decadal coverage. Hard semantic assertions can then be frozen from the
-observed, cross-engine-verified signature rather than invented in advance.
+B02-C first observed the transition signatures, then freezes the stable
+YEAR/MONTH/DAY locality invariants. It also checks that the selected decadal
+scope is consistent with the natal decadal ranges whenever the target nominal
+age falls inside exactly one such range.
 """
 
 from __future__ import annotations
 
 import argparse
 import json
-from collections import Counter, defaultdict
+from collections import Counter
 from pathlib import Path
 
 
@@ -42,28 +42,100 @@ def normalized_scope(scope: dict) -> dict:
     }
 
 
+def decadal_matches_for_age(row: dict, nominal_age: int) -> list[dict]:
+    matches: list[dict] = []
+    for palace_branch, palace in row.get("natal", {}).get("palaces", {}).items():
+        dec = palace.get("decadal")
+        if not dec:
+            continue
+        rng = dec.get("range")
+        if not isinstance(rng, list) or len(rng) != 2:
+            continue
+        lo, hi = rng
+        if isinstance(lo, int) and isinstance(hi, int) and lo <= nominal_age <= hi:
+            matches.append({
+                "palace_branch": palace_branch,
+                "stem": dec.get("stem"),
+                "branch": dec.get("branch"),
+                "range": rng,
+            })
+    return matches
+
+
+def only_relation(counter: Counter, relation: str, n: int) -> bool:
+    return counter.get(relation, 0) == n and sum(counter.values()) == n
+
+
+def validate_pair_semantics(pid: str, stats: dict, n: int) -> list[str]:
+    kind = stats["kind"]
+    rel = stats["scope_relations"]
+    delta = stats["age_nominal_delta"]
+    patterns = stats["changed_scope_patterns"]
+    errors: list[str] = []
+
+    def expect(scope: str, relation: str) -> None:
+        if not only_relation(rel[scope], relation, n):
+            errors.append(
+                f"{pid}: expected {scope}={relation} for all {n}, got {dict(rel[scope])}"
+            )
+
+    if kind == "YEAR":
+        for scope in ("age", "yearly", "monthly", "daily", "hourly"):
+            expect(scope, "different")
+        if delta.get("1", 0) != n or sum(delta.values()) != n:
+            errors.append(f"{pid}: expected age nominal delta +1 for all {n}, got {dict(delta)}")
+        allowed = {
+            "age|yearly|monthly|daily|hourly",
+            "decadal|age|yearly|monthly|daily|hourly",
+        }
+        if set(patterns) - allowed or sum(patterns.values()) != n:
+            errors.append(f"{pid}: unexpected YEAR changed-scope patterns {dict(patterns)}")
+    elif kind == "MONTH":
+        for scope in ("decadal", "age", "yearly"):
+            expect(scope, "equal")
+        for scope in ("monthly", "daily", "hourly"):
+            expect(scope, "different")
+        if delta.get("0", 0) != n or sum(delta.values()) != n:
+            errors.append(f"{pid}: expected age nominal delta 0 for all {n}, got {dict(delta)}")
+        if patterns != Counter({"monthly|daily|hourly": n}):
+            errors.append(f"{pid}: unexpected MONTH changed-scope patterns {dict(patterns)}")
+    elif kind == "DAY":
+        for scope in ("decadal", "age", "yearly", "monthly"):
+            expect(scope, "equal")
+        for scope in ("daily", "hourly"):
+            expect(scope, "different")
+        if delta.get("0", 0) != n or sum(delta.values()) != n:
+            errors.append(f"{pid}: expected age nominal delta 0 for all {n}, got {dict(delta)}")
+        if patterns != Counter({"daily|hourly": n}):
+            errors.append(f"{pid}: unexpected DAY changed-scope patterns {dict(patterns)}")
+
+    return errors
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("engine_output")
     ap.add_argument("manifest")
     ap.add_argument("--report", required=True)
     ap.add_argument("--max-errors", type=int, default=10)
+    ap.add_argument("--assert-semantics", action="store_true")
     args = ap.parse_args()
 
     rows = load_jsonl(Path(args.engine_output))
     manifest = json.loads(Path(args.manifest).read_text(encoding="utf-8"))
     pairs = manifest.get("transition_pairs", [])
-    errors: list[str] = []
+    structural_errors: list[str] = []
+    semantic_errors: list[str] = []
 
     if not pairs:
-        errors.append("manifest contains no transition_pairs")
+        structural_errors.append("manifest contains no transition_pairs")
 
     pair_stats: dict[str, dict] = {}
     for pair in pairs:
         pid = pair.get("pair_id")
         kind = pair.get("kind")
         if not pid or kind not in {"YEAR", "MONTH", "DAY"} or not pair.get("left") or not pair.get("right"):
-            errors.append(f"malformed transition pair: {pair}")
+            structural_errors.append(f"malformed transition pair: {pair}")
             continue
         pair_stats[pid] = {
             "kind": kind,
@@ -79,6 +151,13 @@ def main() -> int:
     per_case_year_pairs_seen: Counter[str] = Counter()
     examples: list[dict] = []
 
+    range_checkable_targets = 0
+    range_unmatched_targets = 0
+    range_ambiguous_targets = 0
+    range_actual_mismatch = 0
+    range_transition_checks = 0
+    range_transition_mismatches = 0
+
     for row in rows:
         cid = row.get("case_id")
         temporal = row.get("temporal", [])
@@ -88,8 +167,42 @@ def main() -> int:
             if item.get("target", {}).get("target_id")
         }
 
+        # Target-level invariant: when a nominal age maps to exactly one natal
+        # decadal range, the active decadal stem/branch must match that range.
+        target_range_keys: dict[str, tuple | None] = {}
+        for tid, item in by_id.items():
+            age_scope = item.get("scopes", {}).get("age", {})
+            nominal_age = age_scope.get("nominal_age")
+            if not isinstance(nominal_age, int):
+                target_range_keys[tid] = None
+                continue
+            matches = decadal_matches_for_age(row, nominal_age)
+            if len(matches) == 0:
+                range_unmatched_targets += 1
+                target_range_keys[tid] = None
+            elif len(matches) > 1:
+                range_ambiguous_targets += 1
+                target_range_keys[tid] = None
+                if args.assert_semantics:
+                    semantic_errors.append(
+                        f"{cid}/{tid}: nominal_age={nominal_age} matches multiple natal decadal ranges"
+                    )
+            else:
+                match = matches[0]
+                key = (match["palace_branch"], match["stem"], match["branch"], tuple(match["range"]))
+                target_range_keys[tid] = key
+                range_checkable_targets += 1
+                actual = item.get("scopes", {}).get("decadal", {})
+                if actual.get("stem") != match["stem"] or actual.get("branch") != match["branch"]:
+                    range_actual_mismatch += 1
+                    if args.assert_semantics:
+                        semantic_errors.append(
+                            f"{cid}/{tid}: active decadal {actual.get('stem')}{actual.get('branch')} "
+                            f"!= natal-range {match['stem']}{match['branch']} age={nominal_age} range={match['range']}"
+                        )
+
         for pair in pairs:
-            if len(errors) >= args.max_errors:
+            if len(structural_errors) >= args.max_errors:
                 break
             pid = pair.get("pair_id")
             if pid not in pair_stats:
@@ -100,7 +213,7 @@ def main() -> int:
             left = by_id.get(left_id)
             right = by_id.get(right_id)
             if left is None or right is None:
-                errors.append(f"{cid}: missing transition target {left_id} or {right_id}")
+                structural_errors.append(f"{cid}: missing transition target {left_id} or {right_id}")
                 continue
 
             changed_scopes: list[str] = []
@@ -108,8 +221,8 @@ def main() -> int:
                 a0 = left.get("scopes", {}).get(scope_name)
                 b0 = right.get("scopes", {}).get(scope_name)
                 if a0 is None or b0 is None:
-                    errors.append(f"{cid}: missing scope={scope_name} pair={pid}")
-                    if len(errors) >= args.max_errors:
+                    structural_errors.append(f"{cid}: missing scope={scope_name} pair={pid}")
+                    if len(structural_errors) >= args.max_errors:
                         break
                     continue
 
@@ -144,16 +257,33 @@ def main() -> int:
                 per_case_year_pairs_seen[cid] += 1
                 left_dec = normalized_scope(left["scopes"]["decadal"])
                 right_dec = normalized_scope(right["scopes"]["decadal"])
-                if left_dec != right_dec:
+                actual_changed = left_dec != right_dec
+                if actual_changed:
                     year_decadal_changed_cases.add(cid)
                     per_case_year_decadal_changes[cid] += 1
-                left_age = normalized_scope(left["scopes"]["age"])
-                right_age = normalized_scope(right["scopes"]["age"])
-                if left_age != right_age:
+
+                left_key = target_range_keys.get(left_id)
+                right_key = target_range_keys.get(right_id)
+                if left_key is not None and right_key is not None:
+                    range_transition_checks += 1
+                    expected_changed = left_key != right_key
+                    if expected_changed != actual_changed:
+                        range_transition_mismatches += 1
+                        if args.assert_semantics:
+                            semantic_errors.append(
+                                f"{cid}/{pid}: decadal transition actual={actual_changed} "
+                                f"expected_from_natal_ranges={expected_changed}"
+                            )
+
+                if normalized_scope(left["scopes"]["age"]) != normalized_scope(right["scopes"]["age"]):
                     year_age_changed_cases.add(cid)
 
-        if len(errors) >= args.max_errors:
+        if len(structural_errors) >= args.max_errors:
             break
+
+    if args.assert_semantics and not structural_errors:
+        for pid, stats in pair_stats.items():
+            semantic_errors.extend(validate_pair_semantics(pid, stats, len(rows)))
 
     serializable_pairs = {}
     for pid, stats in pair_stats.items():
@@ -176,6 +306,7 @@ def main() -> int:
         "manifest_version": manifest.get("version"),
         "records": len(rows),
         "transition_pair_count": len(pairs),
+        "semantic_assertions_enabled": args.assert_semantics,
         "pair_stats": serializable_pairs,
         "year_transition_coverage": {
             "cases_with_decadal_change_in_this_manifest": len(year_decadal_changed_cases),
@@ -184,8 +315,17 @@ def main() -> int:
             "per_case_year_decadal_change_count": dict(sorted(per_case_year_decadal_changes.items())),
             "per_case_year_pairs_seen": dict(sorted(per_case_year_pairs_seen.items())),
         },
+        "decadal_range_consistency": {
+            "checkable_targets": range_checkable_targets,
+            "unmatched_targets": range_unmatched_targets,
+            "ambiguous_targets": range_ambiguous_targets,
+            "active_scope_mismatches": range_actual_mismatch,
+            "transition_checks": range_transition_checks,
+            "transition_mismatches": range_transition_mismatches,
+        },
         "examples": examples,
-        "structural_errors": errors,
+        "structural_errors": structural_errors,
+        "semantic_errors": semantic_errors,
     }
 
     Path(args.report).write_text(
@@ -195,7 +335,10 @@ def main() -> int:
 
     print("P1 B02-C TEMPORAL TRANSITION PROFILE")
     print(f"batch={report['batch']}")
-    print(f"records={len(rows)} pairs={len(pairs)} structural_errors={len(errors)}")
+    print(
+        f"records={len(rows)} pairs={len(pairs)} "
+        f"structural_errors={len(structural_errors)} semantic_errors={len(semantic_errors)}"
+    )
     for pid, stats in serializable_pairs.items():
         print(f"PAIR {pid} kind={stats['kind']}")
         for scope in SCOPES:
@@ -203,20 +346,17 @@ def main() -> int:
         if stats["age_nominal_delta"]:
             print("  age_nominal_delta", json.dumps(stats["age_nominal_delta"], ensure_ascii=False))
         print("  changed_patterns", json.dumps(stats["changed_scope_patterns"], ensure_ascii=False))
-    print(
-        "year_decadal_coverage=",
-        len(year_decadal_changed_cases),
-        "/",
-        len(rows),
-    )
+    print("decadal_range_consistency=", json.dumps(report["decadal_range_consistency"], ensure_ascii=False))
+    print("year_decadal_coverage=", len(year_decadal_changed_cases), "/", len(rows))
 
-    for item in errors[: args.max_errors]:
+    all_errors = structural_errors + semantic_errors
+    for item in all_errors[: args.max_errors]:
         print(" ", item)
 
-    if len(errors) >= args.max_errors:
-        print(f"FAIL-FAST: structural errors reached cap {args.max_errors}")
+    if len(all_errors) >= args.max_errors:
+        print(f"FAIL-FAST: errors reached cap {args.max_errors}")
         return 2
-    return 1 if errors else 0
+    return 1 if all_errors else 0
 
 
 if __name__ == "__main__":
