@@ -1,0 +1,247 @@
+{
+  "schema_version": "0.1",
+  "batch_id": "PL2H-WEALTH-B03",
+  "palace_id": "P05",
+  "palace_name": "财帛宫",
+  "source_csv": "validation/wp05/W01_wealth_projection_review_001_100.csv",
+  "requires_palace_structure": true,
+  "policy": {
+    "source_review_required": "SOURCE_SPAN_VERIFIED",
+    "case_support_only_allowed": false,
+    "normalization_epistemic": "IMPLEMENTATION",
+    "normalization_verified": true,
+    "time_layer": "NATAL",
+    "structure_provider": "PL2G_STRUCTURE_RESOLVER_V0_1",
+    "note": "Batch 3 selects only cross-palace conditions whose palace relation and local star/branch facts are explicit in W01 and supported by the approved palace ontology."
+  },
+  "rules": {
+    "W01-001": {
+      "expected_condition": "财帛宫必与福德宫相对并彼此影响",
+      "expected_projection_target": "wealth_and_fortune_palaces_must_be_read_together",
+      "expected_projection_mode": "PALACE_SEMANTIC_BOUNDARY",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P05",
+              "target": "P11",
+              "relation": "OPPOSITE"
+            }
+          }
+        ]
+      }
+    },
+    "W01-006": {
+      "expected_condition": "财帛武曲七杀武曲化忌而福德天府化科",
+      "expected_projection_target": "loss_risk_with_reputation_preserved",
+      "expected_projection_mode": "CROSS_PALACE_CONSTRAINT",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P05",
+              "target": "P11",
+              "relation": "OPPOSITE"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "武曲"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "七杀"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P05",
+              "star": "武曲",
+              "mutagen": "忌"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P11",
+              "star": "天府"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P11",
+              "star": "天府",
+              "mutagen": "科"
+            }
+          }
+        ]
+      }
+    },
+    "W01-013": {
+      "expected_condition": "财帛宫与事业宫三合会照",
+      "expected_projection_target": "wealth_and_career_palaces_jointly_define_income_nature",
+      "expected_projection_mode": "PALACE_SEMANTIC_BOUNDARY",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P05",
+              "target": "P09",
+              "relation": "TRIAD"
+            }
+          }
+        ]
+      }
+    },
+    "W01-014": {
+      "expected_condition": "财帛太阳在巳事业天梁在丑",
+      "expected_projection_target": "service_or_professional_work_preferred_over_business",
+      "expected_projection_mode": "CROSS_PALACE_CONSTRAINT",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P05",
+              "target": "P09",
+              "relation": "TRIAD"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P05",
+              "branch": "巳"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "太阳"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "丑"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "天梁"
+            }
+          }
+        ]
+      }
+    },
+    "W01-083": {
+      "expected_condition": "天姚阴煞性质须详命宫福德宫",
+      "expected_projection_target": "life_and_fortune_context_disambiguates_scheme_direction",
+      "expected_projection_mode": "CROSS_PALACE_CONSTRAINT",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "天姚"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "阴煞"
+            }
+          },
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P05",
+              "target": "P01",
+              "relation": "TRIAD"
+            }
+          },
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P05",
+              "target": "P11",
+              "relation": "OPPOSITE"
+            }
+          }
+        ]
+      }
+    },
+    "W01-100": {
+      "expected_condition": "紫微与禄存或化禄同度或对拱",
+      "expected_projection_target": "external_abundance_becomes_internal_substance",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "紫微"
+            }
+          },
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P05",
+              "target": "P11",
+              "relation": "OPPOSITE"
+            }
+          }
+        ],
+        "any_of": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "禄存"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P05",
+                "mutagen": "禄"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P11",
+                "star": "禄存"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P11",
+                "mutagen": "禄"
+              }
+            }
+          ]
+        ]
+      }
+    }
+  }
+}
