@@ -127,6 +127,24 @@ def load_wealth_semantic_overlay(path: str | Path) -> dict[str, Any]:
     rules = data.get("rules")
     if not isinstance(rules, Mapping) or not rules:
         raise ValueError("wealth semantic overlay requires rule mappings")
+
+    sections = data.get("sections", [])
+    if not isinstance(sections, list):
+        raise ValueError("wealth semantic overlay sections must be a list")
+    seen: set[str] = set()
+    for section in sections:
+        if not isinstance(section, Mapping):
+            raise ValueError("wealth semantic overlay section must be a mapping")
+        section_id = str(section.get("id", "")).strip()
+        label = str(section.get("label", "")).strip()
+        domains = section.get("domains")
+        if not section_id or section_id in seen:
+            raise ValueError("wealth semantic overlay section ids must be unique")
+        if not label:
+            raise ValueError(f"{section_id}: section label is required")
+        if not isinstance(domains, list) or not all(str(x).strip() for x in domains):
+            raise ValueError(f"{section_id}: section domains must be a non-empty list")
+        seen.add(section_id)
     return data
 
 
@@ -145,6 +163,7 @@ def compose_wealth_semantic_registries(
 
     combined = dict(base)
     combined_rules = dict(base.get("rules", {}))
+    combined_sections = [dict(section) for section in sections]
 
     for overlay in overlays:
         if overlay.get("schema_version") != "0.1":
@@ -154,6 +173,21 @@ def compose_wealth_semantic_registries(
         rules = overlay.get("rules")
         if not isinstance(rules, Mapping) or not rules:
             raise ValueError("wealth semantic overlay requires rule mappings")
+
+        for section in overlay.get("sections", []):
+            section_id = str(section.get("id", "")).strip()
+            if not section_id or section_id in section_ids:
+                raise ValueError(
+                    f"duplicate or empty wealth semantic section: {section_id!r}"
+                )
+            label = str(section.get("label", "")).strip()
+            domains = section.get("domains")
+            if not label:
+                raise ValueError(f"{section_id}: section label is required")
+            if not isinstance(domains, list) or not domains:
+                raise ValueError(f"{section_id}: section domains are required")
+            combined_sections.append(dict(section))
+            section_ids.add(section_id)
 
         overlap = set(combined_rules).intersection(rules)
         if overlap:
@@ -170,6 +204,7 @@ def compose_wealth_semantic_registries(
                 raise ValueError(f"{rule_id}: display_claim is required")
             combined_rules[str(rule_id)] = dict(spec)
 
+    combined["sections"] = combined_sections
     combined["rules"] = dict(sorted(combined_rules.items()))
     combined["knowledge_version"] = f"WEALTH_SEMANTIC_{len(combined_rules)}"
     return combined

@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import Any, Iterable, Mapping
 
 from .condition_atoms import compile_condition_spec, fact_from_atom
+from .palace_structure import PalaceOntology, resolve_palace_structure
 from .rule_runtime import CompilationReport, RuleRuntime, RuntimeState, compile_rule_row
 
 
@@ -57,6 +58,7 @@ def compose_wealth_registries(
     combined_rules: dict[str, Any] = {}
     source_csv = ""
     batch_ids: list[str] = []
+    requires_palace_structure = False
 
     for registry in registries:
         if registry.get("schema_version") != "0.1":
@@ -76,6 +78,15 @@ def compose_wealth_registries(
         if batch_id:
             batch_ids.append(batch_id)
 
+        requires_palace_structure = (
+            requires_palace_structure
+            or bool(registry.get("requires_palace_structure"))
+            or bool(
+                isinstance(registry.get("policy"), Mapping)
+                and registry["policy"].get("requires_palace_structure")
+            )
+        )
+
         overlap = set(combined_rules).intersection(rules)
         if overlap:
             raise ValueError(
@@ -91,6 +102,7 @@ def compose_wealth_registries(
         "palace_name": "财帛宫",
         "source_csv": source_csv,
         "batch_ids": batch_ids,
+        "requires_palace_structure": requires_palace_structure,
         "knowledge_version": f"W01+WEALTH_EXECUTABLE_{len(combined_rules)}",
         "rules": dict(sorted(combined_rules.items())),
     }
@@ -252,8 +264,11 @@ def _find_wealth_palace(snapshot: Mapping[str, Any]) -> Mapping[str, Any]:
     raise ValueError("wealth palace not found in normalized snapshot")
 
 
-def extract_wealth_facts(snapshot: Mapping[str, Any]) -> frozenset[str]:
-    """Extract only chart facts needed by the current PL2-C pilot."""
+def extract_wealth_facts(
+    snapshot: Mapping[str, Any],
+    palace_ontology: PalaceOntology | None = None,
+) -> frozenset[str]:
+    """Extract local wealth facts and, when supplied, PL2-G structure facts."""
 
     palace = _find_wealth_palace(snapshot)
     facts: set[str] = {
@@ -296,12 +311,29 @@ def extract_wealth_facts(snapshot: Mapping[str, Any]) -> frozenset[str]:
                     )
                 )
 
+    if palace_ontology is not None:
+        structure = resolve_palace_structure(snapshot, palace_ontology)
+        facts.update(structure.runtime_facts())
+
     return frozenset(facts)
 
 
-def build_wealth_runtime_state(snapshot: Mapping[str, Any]) -> RuntimeState:
+def _require_runtime_dependencies(
+    registry: Mapping[str, Any],
+    palace_ontology: PalaceOntology | None,
+) -> None:
+    if registry.get("requires_palace_structure") and palace_ontology is None:
+        raise ValueError(
+            "wealth executable registry requires PL2-G palace structure ontology"
+        )
+
+
+def build_wealth_runtime_state(
+    snapshot: Mapping[str, Any],
+    palace_ontology: PalaceOntology | None = None,
+) -> RuntimeState:
     return RuntimeState(
-        facts=extract_wealth_facts(snapshot),
+        facts=extract_wealth_facts(snapshot, palace_ontology),
         latent_states={},
         time_scope="NATAL",
         palace_scope="P05",
@@ -312,13 +344,16 @@ def run_wealth_pilot(
     snapshot: Mapping[str, Any],
     projection_rows: Iterable[Mapping[str, str]],
     registry: Mapping[str, Any],
+    *,
+    palace_ontology: PalaceOntology | None = None,
 ):
+    _require_runtime_dependencies(registry, palace_ontology)
     report = compile_wealth_pilot(projection_rows, registry)
     if report.issues:
         raise ValueError(f"wealth pilot contains compile issues: {report.issues!r}")
     runtime = RuleRuntime(report.executable)
     return runtime.match(
-        build_wealth_runtime_state(snapshot),
+        build_wealth_runtime_state(snapshot, palace_ontology),
         question_scope="财帛",
     )
 
@@ -329,16 +364,18 @@ def build_wealth_evidence_package(
     registry: Mapping[str, Any],
     *,
     question: str = "财帛结构",
+    palace_ontology: PalaceOntology | None = None,
 ):
     """Build a deterministic no-LLM EvidencePackage for the PL2-C pilot."""
 
     from .evidence_bridge import graph_to_evidence_package
 
+    _require_runtime_dependencies(registry, palace_ontology)
     report = compile_wealth_pilot(projection_rows, registry)
     if report.issues:
         raise ValueError(f"wealth pilot contains compile issues: {report.issues!r}")
 
-    runtime_state = build_wealth_runtime_state(snapshot)
+    runtime_state = build_wealth_runtime_state(snapshot, palace_ontology)
     runtime = RuleRuntime(report.executable)
     graph = runtime.match(runtime_state, question_scope="财帛")
 
@@ -380,6 +417,7 @@ def build_wealth_structure_report(
     semantic_registry: Mapping[str, Any],
     *,
     question: str = "财帛结构",
+    palace_ontology: PalaceOntology | None = None,
 ):
     """Build the deterministic PL2-E natal wealth structure report."""
 
@@ -390,5 +428,6 @@ def build_wealth_structure_report(
         projection_rows,
         registry,
         question=question,
+        palace_ontology=palace_ontology,
     )
     return aggregate_wealth_evidence(package, semantic_registry)

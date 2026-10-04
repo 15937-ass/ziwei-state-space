@@ -1,0 +1,48 @@
+{
+  "schema_version": "0.1",
+  "batch_id": "PL2H-WEALTH-B03",
+  "palace_id": "P05",
+  "sections": [
+    {
+      "id": "career_income_relation",
+      "label": "事业与收入联动",
+      "domains": [
+        "career",
+        "business"
+      ],
+      "basis": "knowledge/wp05/palace_ontology_v0.1.csv:P05 secondary_semantic_scope=career_income_relation"
+    }
+  ],
+  "rules": {
+    "W01-001": {
+      "section": "structural_interpretation",
+      "display_claim": "财帛宫必须与对宫福德宫联读，二者彼此影响。"
+    },
+    "W01-006": {
+      "section": "acquisition",
+      "display_claim": "财帛见武曲、七杀且武曲化忌，同时福德天府化科时，财务损失风险仍在，但名誉或声望可保留。"
+    },
+    "W01-013": {
+      "section": "structural_interpretation",
+      "display_claim": "财帛宫与事业宫为三合关系，收入性质需要结合事业宫共同判断。"
+    },
+    "W01-014": {
+      "section": "career_income_relation",
+      "display_claim": "财帛太阳在巳、事业天梁在丑时，较偏服务或专业工作，而非经商取向。"
+    },
+    "W01-083": {
+      "section": "structural_interpretation",
+      "display_claim": "财帛宫见天姚、阴煞时，其方向需要结合命宫与福德宫语境辨别。"
+    },
+    "W01-100": {
+      "section": "retention",
+      "display_claim": "紫微与禄存或化禄同度、或由对宫相拱时，外在资源较易转为可留存的实质。"
+    }
+  },
+  "policy": {
+    "presentation_only": true,
+    "no_new_rule_semantics": true,
+    "new_section_basis": "P05 ontology explicitly includes career_income_relation",
+    "unknown_rule_policy": "FAIL_CLOSED"
+  }
+}
