@@ -2,7 +2,10 @@
 """Independent-core audit: iztro zhongzhou projection vs pinned Go engine.
 
 The Go engine is a separate implementation. It targets iztro/default historically,
-so this audit intentionally compares only school-neutral/core fields.
+so this audit intentionally compares only school-neutral/core fields. A manifest
+may additionally identify late-Zi targets as school-sensitive; those temporal
+targets are excluded from the hard equality gate rather than being mislabeled as
+engine bugs.
 """
 
 from __future__ import annotations
@@ -27,16 +30,11 @@ def load(path):
 
 
 def target_core(target):
-    """Keep only executable target fields shared by all engines.
-
-    Boundary manifests may carry validation-only metadata such as
-    expected_lunar_marker; that metadata is not an engine output and must not
-    participate in cross-engine equality.
-    """
     return {key: target.get(key) for key in ("target_id", "solar_date", "time_index")}
 
 
-def iztro_projection(row):
+def iztro_projection(row, excluded_target_ids=None):
+    excluded_target_ids = excluded_target_ids or set()
     natal=row["natal"]
     positions={}
     birth_mutagen={}
@@ -54,6 +52,8 @@ def iztro_projection(row):
 
     temporal=[]
     for t in row["temporal"]:
+        if t.get("target", {}).get("target_id") in excluded_target_ids:
+            continue
         scopes={}
         for name,s in t["scopes"].items():
             scopes[name]={
@@ -86,14 +86,16 @@ def iztro_projection(row):
     }
 
 
-def go_projection(row):
-    """Drop representation-only fields and normalize known school aliases."""
+def go_projection(row, excluded_target_ids=None):
+    excluded_target_ids = excluded_target_ids or set()
     natal = dict(row["natal"])
     for key in ("lunar_year", "lunar_month", "lunar_day", "is_leap"):
         natal.pop(key, None)
 
     temporal = []
     for t in row["temporal"]:
+        if t.get("target", {}).get("target_id") in excluded_target_ids:
+            continue
         scopes = {}
         for name, s0 in t["scopes"].items():
             s = dict(s0)
@@ -108,6 +110,7 @@ def go_projection(row):
             "jiangqian12": t.get("jiangqian12", []),
         })
     return {"natal": natal, "temporal": temporal}
+
 
 def walk(a,b,path="",out=None):
     if out is None: out=[]
@@ -130,16 +133,26 @@ def main():
     ap.add_argument("go")
     ap.add_argument("--report",required=True)
     ap.add_argument("--fail-on-core-diff",action="store_true")
+    ap.add_argument("--school-sensitive-manifest")
     ap.add_argument("--max-total-diffs",type=int,default=500)
     ap.add_argument("--max-detail-per-case",type=int,default=100)
     args=ap.parse_args()
+
+    excluded_target_ids=set()
+    if args.school_sensitive_manifest:
+        manifest=json.loads(Path(args.school_sensitive_manifest).read_text(encoding="utf-8"))
+        excluded_target_ids=set(manifest.get("school_sensitive_target_ids", []))
+
     left=load(args.iztro); right=load(args.go)
     details=[]; total=0; cases=0; truncated=False
     for cid in sorted(set(left)|set(right)):
         if cid not in left or cid not in right:
             d=[{"path":"record","left":cid in left,"right":cid in right}]
         else:
-            d=walk(iztro_projection(left[cid]),go_projection(right[cid]))
+            d=walk(
+                iztro_projection(left[cid], excluded_target_ids),
+                go_projection(right[cid], excluded_target_ids),
+            )
         if d:
             cases+=1; total+=len(d); details.append({"case_id":cid,"difference_count":len(d),"differences":d[:args.max_detail_per_case]})
             if total >= args.max_total_diffs:
@@ -150,7 +163,8 @@ def main():
         "cases_with_differences":cases,
         "total_differences":total,
         "exact_case_agreement_rate":(len(left)-cases)/len(left) if left else 0,
-        "comparison_scope":"school-neutral natal core + decadal/year/month/day/hour structural fields",
+        "comparison_scope":"school-neutral natal core + non-school-sensitive temporal structural fields",
+        "school_sensitive_target_ids_excluded_from_hard_gate":sorted(excluded_target_ids),
         "go_source_revision":"947166fc45cd7c8c0849da1bd870f570972a7172",
         "details":details,
         "truncated_at_difference_cap":truncated,
@@ -163,6 +177,7 @@ def main():
     print(f"cases_with_differences={cases}")
     print(f"total_differences={total}")
     print(f"exact_case_agreement_rate={report['exact_case_agreement_rate']:.6f}")
+    print(f"school_sensitive_target_ids_excluded={sorted(excluded_target_ids)}")
     if details:
         for item in details[:5]:
             print("CASE",item["case_id"],"diffs",item["difference_count"])
