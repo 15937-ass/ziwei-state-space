@@ -40,6 +40,7 @@ from .wealth_pilot import (
     build_wealth_runtime_state,
     build_wealth_structure_report,
     compile_wealth_pilot,
+    compose_wealth_registries,
     extract_wealth_facts,
     load_pilot_registry,
     load_projection_rows,
@@ -52,6 +53,8 @@ from .wealth_semantics import (
     WealthSemanticSection,
     WealthStructureReport,
     aggregate_wealth_evidence,
+    compose_wealth_semantic_registries,
+    load_wealth_semantic_overlay,
     load_wealth_semantic_registry,
     render_wealth_structure_report,
 )
@@ -89,6 +92,7 @@ __all__ = [
     "build_wealth_runtime_state",
     "build_wealth_structure_report",
     "compile_wealth_pilot",
+    "compose_wealth_registries",
     "extract_wealth_facts",
     "load_pilot_registry",
     "load_projection_rows",
@@ -99,6 +103,8 @@ __all__ = [
     "WealthSemanticSection",
     "WealthStructureReport",
     "aggregate_wealth_evidence",
+    "compose_wealth_semantic_registries",
+    "load_wealth_semantic_overlay",
     "load_wealth_semantic_registry",
     "render_wealth_structure_report",
 ]

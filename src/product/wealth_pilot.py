@@ -46,6 +46,56 @@ def load_pilot_registry(path: str | Path) -> dict[str, Any]:
     return data
 
 
+def compose_wealth_registries(
+    *registries: Mapping[str, Any],
+) -> dict[str, Any]:
+    """Compose bounded executable batches without mutating historical registries."""
+
+    if not registries:
+        raise ValueError("at least one wealth registry is required")
+
+    combined_rules: dict[str, Any] = {}
+    source_csv = ""
+    batch_ids: list[str] = []
+
+    for registry in registries:
+        if registry.get("schema_version") != "0.1":
+            raise ValueError("wealth registry schema_version must be 0.1")
+        if registry.get("palace_id") != "P05":
+            raise ValueError("wealth registry must target P05")
+        rules = registry.get("rules")
+        if not isinstance(rules, Mapping) or not rules:
+            raise ValueError("wealth registry requires a non-empty rules mapping")
+
+        current_source = str(registry.get("source_csv", "")).strip()
+        if source_csv and current_source and current_source != source_csv:
+            raise ValueError("wealth registries must share the same source_csv")
+        source_csv = source_csv or current_source
+
+        batch_id = str(registry.get("batch_id", "")).strip()
+        if batch_id:
+            batch_ids.append(batch_id)
+
+        overlap = set(combined_rules).intersection(rules)
+        if overlap:
+            raise ValueError(
+                "duplicate executable wealth rule across batches: "
+                + ", ".join(sorted(overlap))
+            )
+        for rule_id, spec in rules.items():
+            combined_rules[str(rule_id)] = spec
+
+    return {
+        "schema_version": "0.1",
+        "palace_id": "P05",
+        "palace_name": "财帛宫",
+        "source_csv": source_csv,
+        "batch_ids": batch_ids,
+        "knowledge_version": f"W01+WEALTH_EXECUTABLE_{len(combined_rules)}",
+        "rules": dict(sorted(combined_rules.items())),
+    }
+
+
 def _row_index(rows: Iterable[Mapping[str, str]]) -> dict[str, Mapping[str, str]]:
     out: dict[str, Mapping[str, str]] = {}
     for row in rows:
@@ -161,10 +211,10 @@ def build_w01_coverage_ledger(
             reason = "history feedback requires typed temporal/history integration"
         elif rule_id in selected:
             disposition = "EXECUTABLE"
-            reason = "explicit PL2-C normalization registry"
+            reason = "explicit product normalization registry"
         else:
             disposition = "NORMALIZATION_PENDING"
-            reason = "not atomized in bounded PL2-C pilot"
+            reason = "not atomized in current bounded product registry"
         ledger.append(WealthPilotLedgerRow(rule_id, disposition, reason))
     return tuple(ledger)
 
@@ -319,7 +369,7 @@ def build_wealth_evidence_package(
             "observed_fact_count": len(runtime_state.facts),
         },
         engine_version=engine_version,
-        knowledge_version="W01+PL2C-v0.1",
+        knowledge_version=str(registry.get("knowledge_version") or f"W01+WEALTH_EXECUTABLE_{len(registry.get('rules', {}))}"),
     )
 
 
