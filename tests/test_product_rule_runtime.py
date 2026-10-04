@@ -1,5 +1,6 @@
 import pytest
 
+from src.product.condition_atoms import compile_condition_spec, fact_from_atom
 from src.product.rule_runtime import (
     CompileDisposition,
     RuleRuntime,
@@ -56,6 +57,61 @@ def test_free_text_condition_requires_explicit_atoms():
     assert issue is None
     assert ir is not None
     assert "relation:会合" in ir.required_facts
+
+
+def test_structured_condition_can_use_any_and_none():
+    row = _row(condition="结构化条件")
+    condition = compile_condition_spec(
+        {
+            "all_of": [
+                {"atom_type": "PALACE_PRESENT", "args": {"palace": "P05"}}
+            ],
+            "any_of": [
+                [
+                    {"atom_type": "STAR_PRESENT", "args": {"star": "武曲"}},
+                    {"atom_type": "STAR_PRESENT", "args": {"star": "天府"}},
+                ]
+            ],
+            "none_of": [
+                {"atom_type": "TAG_PRESENT", "args": {"tag": "QUARANTINED"}}
+            ],
+        }
+    )
+    ir, issue = compile_rule_row(row, condition_spec=condition)
+    assert issue is None
+    runtime = RuleRuntime([ir])
+
+    facts = frozenset(
+        {
+            "subject:紫微",
+            fact_from_atom("PALACE_PRESENT", palace="P05"),
+            fact_from_atom("STAR_PRESENT", star="武曲"),
+        }
+    )
+    graph = runtime.match(
+        RuntimeState(
+            facts=facts,
+            latent_states={},
+            time_scope="natal",
+            palace_scope="命宫",
+        ),
+        question_scope="事业",
+    )
+    assert [node.rule_id for node in graph.nodes] == ["ZZ-TEST-001"]
+
+    blocked = frozenset(
+        set(facts) | {fact_from_atom("TAG_PRESENT", tag="QUARANTINED")}
+    )
+    graph = runtime.match(
+        RuntimeState(
+            facts=blocked,
+            latent_states={},
+            time_scope="natal",
+            palace_scope="命宫",
+        ),
+        question_scope="事业",
+    )
+    assert graph.nodes == ()
 
 
 def test_compilation_report_is_deterministic_and_counts_blocks():
