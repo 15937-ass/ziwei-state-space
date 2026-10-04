@@ -3,9 +3,9 @@ repository: "15937-ass/ziwei-state-space"
 
 project:
   current_phase: "Phase II knowledge-base construction + product-first engineering"
-  execution_state: "WP05_WEALTH_W08_READY_FOR_PR"
+  execution_state: "WP05_WEALTH_W09_READY_FOR_PR"
   current_work_unit: "WP05_WEALTH_PALACE_CORPUS"
-  state_sync: "WP05_WEALTH_W08_PENDING"
+  state_sync: "WP05_WEALTH_W09_PENDING"
   last_approved_gate: "A2-R1"
   pending_gate: null
   blocked_reason: null
@@ -18,7 +18,7 @@ git:
   checkpoint_merge: "382cbda21ee2701445ce0846fd50179a4bca1ed1"
   stale_open_prs: []
   branch_cleanup_status: "POST_P1_ACTIVE_POINTERS_CLOSED; LEGACY_BRANCH_DELETION_PENDING"
-  note: "Wealth Palace W08 closes records 701-800. Cumulative wealth corpus: 800 reviewed, 800 reusable, 0 case-support-only, 37 history feedback."
+  note: "Wealth Palace W09 closes records 801-900. Cumulative wealth corpus: 900 reviewed, 900 reusable, 0 case-support-only, 47 history feedback."
 
 gates:
   A0: "APPROVED"
@@ -45,13 +45,13 @@ progress:
     system_operator_edges: 654
   wp05_projection_corpus:
     palace: "财帛宫"
-    checkpoint: "W08"
-    reviewed_items: 800
-    reusable_projection_rules: 800
+    checkpoint: "W09"
+    reviewed_items: 900
+    reusable_projection_rules: 900
     case_support_only: 0
-    history_feedback: 37
-    status: "W08_SOURCE_SPAN_VERIFIED_READY_FOR_PR"
-    next_anchor: "W09_TIANLIANG_TAIL_THEN_QISHA_POJUN"
+    history_feedback: 47
+    status: "W09_SOURCE_SPAN_VERIFIED_READY_FOR_PR"
+    next_anchor: "W10_POJUN_TAIL_AND_WEALTH_CLOSURE"
   wp04_source_closure:
     chapter: "GLOBAL"
     checkpoint: "MAL01"
@@ -80,7 +80,7 @@ productization:
     - "100 chart-regression seed inputs + validator"
   next_work_unit: "PRODUCT_P1_B02B_ZI_DAY_BOUNDARY_MATRIX"
   product_chat_scope: "This conversation owns productization, product data, adapters, inference MVP, benchmark and UX. Knowledge-base extraction continues in other project conversations."
-  research_track_next: "WP05_WEALTH_W09_CONTINUE"
+  research_track_next: "WP05_WEALTH_W10_CLOSE"
   casebook_training_corpus:
     collection_id: "LIAORAN_CASEBOOKS_3"
     status: "ALL_3_BOUND_INDEXED_100_PILOT20_QUEUED"
@@ -243,6 +243,9 @@ canonical_artifacts:
   wp05_wealth_w08_review: "validation/wp05/W08_WEALTH_PROJECTION_REVIEW.md"
   wp05_wealth_w08_csv: "validation/wp05/W08_wealth_projection_review_701_800.csv"
   wp05_wealth_w08_history_feedback: "validation/wp05/W08_wealth_history_feedback.csv"
+  wp05_wealth_w09_review: "validation/wp05/W09_WEALTH_PROJECTION_REVIEW.md"
+  wp05_wealth_w09_csv: "validation/wp05/W09_wealth_projection_review_801_900.csv"
+  wp05_wealth_w09_history_feedback: "validation/wp05/W09_wealth_history_feedback.csv"
   wp05_children_history_feedback: "validation/wp05/CHILDREN_HISTORY_FEEDBACK_v0.1.csv"
   wp05_siblings_sb02_review: "validation/wp05/SB02_SIBLINGS_PROJECTION_REVIEW.md"
   wp05_siblings_sb02_csv: "validation/wp05/SB02_siblings_projection_review_101_200.csv"
