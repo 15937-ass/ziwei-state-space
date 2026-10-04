@@ -21,6 +21,15 @@ from .evidence_package import (
     EvidenceItem,
     EvidencePackage,
 )
+from .palace_structure import (
+    PalaceOntology,
+    PalaceOntologyEntry,
+    ResolvedPalace,
+    ResolvedPalaceStructure,
+    compile_palace_ontology,
+    load_palace_ontology,
+    resolve_palace_structure,
+)
 from .rule_runtime import (
     ActiveRuleGraph,
     ActiveRuleNode,
@@ -76,6 +85,13 @@ __all__ = [
     "ContrastiveItem",
     "EvidenceItem",
     "EvidencePackage",
+    "PalaceOntology",
+    "PalaceOntologyEntry",
+    "ResolvedPalace",
+    "ResolvedPalaceStructure",
+    "compile_palace_ontology",
+    "load_palace_ontology",
+    "resolve_palace_structure",
     "ActiveRuleGraph",
     "ActiveRuleNode",
     "CompilationReport",
