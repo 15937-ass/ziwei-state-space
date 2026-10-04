@@ -13,7 +13,14 @@ from .condition_atoms import (
     compile_condition_spec,
     fact_from_atom,
 )
-from .evidence_package import ConfidenceBand, EvidenceItem, EvidencePackage
+from .evidence_bridge import determine_confidence, graph_to_evidence_package
+from .evidence_package import (
+    ConfidenceBand,
+    ConflictItem,
+    ContrastiveItem,
+    EvidenceItem,
+    EvidencePackage,
+)
 from .rule_runtime import (
     ActiveRuleGraph,
     ActiveRuleNode,
@@ -29,6 +36,7 @@ from .rule_runtime import (
 from .wealth_pilot import (
     WealthPilotLedgerRow,
     build_w01_coverage_ledger,
+    build_wealth_evidence_package,
     build_wealth_runtime_state,
     compile_wealth_pilot,
     extract_wealth_facts,
@@ -48,7 +56,11 @@ __all__ = [
     "compile_condition_registry",
     "compile_condition_spec",
     "fact_from_atom",
+    "determine_confidence",
+    "graph_to_evidence_package",
     "ConfidenceBand",
+    "ConflictItem",
+    "ContrastiveItem",
     "EvidenceItem",
     "EvidencePackage",
     "ActiveRuleGraph",
@@ -63,6 +75,7 @@ __all__ = [
     "compile_rule_rows",
     "WealthPilotLedgerRow",
     "build_w01_coverage_ledger",
+    "build_wealth_evidence_package",
     "build_wealth_runtime_state",
     "compile_wealth_pilot",
     "extract_wealth_facts",

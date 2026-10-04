@@ -271,3 +271,53 @@ def run_wealth_pilot(
         build_wealth_runtime_state(snapshot),
         question_scope="财帛",
     )
+
+
+def build_wealth_evidence_package(
+    snapshot: Mapping[str, Any],
+    projection_rows: Iterable[Mapping[str, str]],
+    registry: Mapping[str, Any],
+    *,
+    question: str = "财帛结构",
+):
+    """Build a deterministic no-LLM EvidencePackage for the PL2-C pilot."""
+
+    from .evidence_bridge import graph_to_evidence_package
+
+    report = compile_wealth_pilot(projection_rows, registry)
+    if report.issues:
+        raise ValueError(f"wealth pilot contains compile issues: {report.issues!r}")
+
+    runtime_state = build_wealth_runtime_state(snapshot)
+    runtime = RuleRuntime(report.executable)
+    graph = runtime.match(runtime_state, question_scope="财帛")
+
+    ledger = build_w01_coverage_ledger(projection_rows, registry)
+    coverage = summarize_ledger(ledger)
+
+    engine = snapshot.get("engine", {})
+    if isinstance(engine, Mapping):
+        engine_name = str(engine.get("name", "")).strip()
+        engine_version_value = str(engine.get("version", "")).strip()
+    else:
+        engine_name = ""
+        engine_version_value = ""
+
+    engine_version = ":".join(
+        part for part in (engine_name, engine_version_value) if part
+    )
+
+    return graph_to_evidence_package(
+        graph,
+        report.executable,
+        facts=runtime_state.facts,
+        question=question,
+        coverage=coverage,
+        chart_facts={
+            "palace_id": "P05",
+            "time_layer": "NATAL",
+            "observed_fact_count": len(runtime_state.facts),
+        },
+        engine_version=engine_version,
+        knowledge_version="W01+PL2C-v0.1",
+    )
