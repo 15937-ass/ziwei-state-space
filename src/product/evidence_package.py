@@ -45,6 +45,33 @@ class ConflictItem:
     description: str
     rule_ids: tuple[str, ...] = ()
 
+    def validate(self) -> None:
+        if not self.conflict_id.strip():
+            raise ValueError("ConflictItem.conflict_id is required")
+        if len(self.rule_ids) < 2:
+            raise ValueError("ConflictItem requires at least two rule_ids")
+
+
+@dataclass(frozen=True)
+class ContrastiveItem:
+    """Why an executable candidate did not activate.
+
+    This is a deterministic gate report, not a free-form counterfactual
+    prediction.
+    """
+
+    rule_id: str
+    candidate_claim: str
+    missing_all_of: tuple[str, ...] = ()
+    unsatisfied_any_of: tuple[tuple[str, ...], ...] = ()
+    blocked_by: tuple[str, ...] = ()
+
+    def validate(self) -> None:
+        if not self.rule_id.strip():
+            raise ValueError("ContrastiveItem.rule_id is required")
+        if not self.candidate_claim.strip():
+            raise ValueError("ContrastiveItem.candidate_claim is required")
+
 
 @dataclass
 class EvidencePackage:
@@ -56,8 +83,11 @@ class EvidencePackage:
     projections: list[dict[str, Any]] = field(default_factory=list)
     history_state: dict[str, Any] = field(default_factory=dict)
     conflicts: list[ConflictItem] = field(default_factory=list)
+    contrastive: list[ContrastiveItem] = field(default_factory=list)
     alternative_interpretations: list[str] = field(default_factory=list)
+    coverage: dict[str, Any] = field(default_factory=dict)
     confidence_band: ConfidenceBand = ConfidenceBand.INSUFFICIENT_EVIDENCE
+    confidence_rationale: str = ""
     engine_version: str = ""
     knowledge_version: str = ""
 
@@ -66,9 +96,15 @@ class EvidencePackage:
             raise ValueError("EvidencePackage.question is required")
         for item in self.active_rules:
             item.validate()
+        for item in self.conflicts:
+            item.validate()
+        for item in self.contrastive:
+            item.validate()
 
         if self.confidence_band is ConfidenceBand.HIGH_CONFIDENCE and not self.active_rules:
             raise ValueError("HIGH_CONFIDENCE requires at least one active evidence rule")
+        if self.confidence_band is ConfidenceBand.CONFLICTED and not self.conflicts:
+            raise ValueError("CONFLICTED requires at least one explicit conflict")
 
     def to_dict(self) -> dict[str, Any]:
         self.validate()
