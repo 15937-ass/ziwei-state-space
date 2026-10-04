@@ -26,6 +26,17 @@ from .rule_runtime import (
     compile_rule_row,
     compile_rule_rows,
 )
+from .wealth_pilot import (
+    WealthPilotLedgerRow,
+    build_w01_coverage_ledger,
+    build_wealth_runtime_state,
+    compile_wealth_pilot,
+    extract_wealth_facts,
+    load_pilot_registry,
+    load_projection_rows,
+    run_wealth_pilot,
+    summarize_ledger,
+)
 
 __all__ = [
     "ChartDifference",
@@ -50,4 +61,13 @@ __all__ = [
     "RuntimeState",
     "compile_rule_row",
     "compile_rule_rows",
+    "WealthPilotLedgerRow",
+    "build_w01_coverage_ledger",
+    "build_wealth_runtime_state",
+    "compile_wealth_pilot",
+    "extract_wealth_facts",
+    "load_pilot_registry",
+    "load_projection_rows",
+    "run_wealth_pilot",
+    "summarize_ledger",
 ]
