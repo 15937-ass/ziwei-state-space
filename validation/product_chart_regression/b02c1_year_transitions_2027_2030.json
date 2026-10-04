@@ -1,0 +1,22 @@
+{
+  "version": "0.1",
+  "batch": "P1-B02-C1",
+  "purpose": "observe and cross-check temporal scope transitions across four consecutive lunar-year boundaries",
+  "max_targets": 8,
+  "targets": [
+    {"target_id":"Y2027_PRE","solar_date":"2027-02-05","time_index":6},
+    {"target_id":"Y2027_POST","solar_date":"2027-02-06","time_index":6},
+    {"target_id":"Y2028_PRE","solar_date":"2028-01-25","time_index":6},
+    {"target_id":"Y2028_POST","solar_date":"2028-01-26","time_index":6},
+    {"target_id":"Y2029_PRE","solar_date":"2029-02-12","time_index":6},
+    {"target_id":"Y2029_POST","solar_date":"2029-02-13","time_index":6},
+    {"target_id":"Y2030_PRE","solar_date":"2030-02-02","time_index":6},
+    {"target_id":"Y2030_POST","solar_date":"2030-02-03","time_index":6}
+  ],
+  "transition_pairs": [
+    {"pair_id":"YEAR_2027","kind":"YEAR","left":"Y2027_PRE","right":"Y2027_POST"},
+    {"pair_id":"YEAR_2028","kind":"YEAR","left":"Y2028_PRE","right":"Y2028_POST"},
+    {"pair_id":"YEAR_2029","kind":"YEAR","left":"Y2029_PRE","right":"Y2029_POST"},
+    {"pair_id":"YEAR_2030","kind":"YEAR","left":"Y2030_PRE","right":"Y2030_POST"}
+  ]
+}
