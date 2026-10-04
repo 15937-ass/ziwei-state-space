@@ -66,7 +66,7 @@ progress:
 
 productization:
   program: "PRODUCT-FIRST"
-  status: "P1_B01_PASS; P1_B02A_PASS; CASEBOOK_INDEX_100_PILOT20_READY"
+  status: "P1_B01_PASS; P1_B02A_PASS; P1_B02B_PASS; CASEBOOK_INDEX_100_PILOT20_READY"
   completed:
     - "competitor registry v0.1"
     - "license ledger v0.1"
@@ -78,7 +78,8 @@ productization:
     - "Normalized Chart Snapshot schema v0.1"
     - "iztro exporter v0.1"
     - "100 chart-regression seed inputs + validator"
-  next_work_unit: "PRODUCT_P1_B02B_ZI_DAY_BOUNDARY_MATRIX"
+    - "P1 B02-B Zi/day boundary policy + ambiguity profile"
+  next_work_unit: "PRODUCT_P1_B02C_TEMPORAL_TRANSITION_BOUNDARY_MATRIX"
   product_chat_scope: "This conversation owns productization, product data, adapters, inference MVP, benchmark and UX. Knowledge-base extraction continues in other project conversations."
   research_track_next: "WP05_WEALTH_W09_CONTINUE"
   casebook_training_corpus:
@@ -260,6 +261,9 @@ canonical_artifacts:
   p1_mismatch_ledger: "validation/product_chart_regression/mismatch_resolution_v0.1.csv"
   p1_b01_acceptance: "product/P1_B01_ACCEPTANCE.md"
   p1_b02a_acceptance: "product/P1_B02A_ACCEPTANCE.md"
+  p1_b02b_acceptance: "product/P1_B02B_ACCEPTANCE.md"
+  p1_b02b_policy: "validation/product_chart_regression/P1_B02B_ZI_BOUNDARY_POLICY.md"
+  p1_b02b_targets: "validation/product_chart_regression/b02b_zi_day_boundary.json"
   execution_guardrails: "product/EXECUTION_GUARDRAILS.md"
   p1_b02a1_targets: "validation/product_chart_regression/b02a1_calendar_year_month.json"
   p1_b02a2_targets: "validation/product_chart_regression/b02a2_leap_month_day.json"
