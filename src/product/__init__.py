@@ -38,12 +38,22 @@ from .wealth_pilot import (
     build_w01_coverage_ledger,
     build_wealth_evidence_package,
     build_wealth_runtime_state,
+    build_wealth_structure_report,
     compile_wealth_pilot,
     extract_wealth_facts,
     load_pilot_registry,
     load_projection_rows,
     run_wealth_pilot,
     summarize_ledger,
+)
+from .wealth_semantics import (
+    SharedTriggerGroup,
+    WealthSemanticFinding,
+    WealthSemanticSection,
+    WealthStructureReport,
+    aggregate_wealth_evidence,
+    load_wealth_semantic_registry,
+    render_wealth_structure_report,
 )
 
 __all__ = [
@@ -77,10 +87,18 @@ __all__ = [
     "build_w01_coverage_ledger",
     "build_wealth_evidence_package",
     "build_wealth_runtime_state",
+    "build_wealth_structure_report",
     "compile_wealth_pilot",
     "extract_wealth_facts",
     "load_pilot_registry",
     "load_projection_rows",
     "run_wealth_pilot",
     "summarize_ledger",
+    "SharedTriggerGroup",
+    "WealthSemanticFinding",
+    "WealthSemanticSection",
+    "WealthStructureReport",
+    "aggregate_wealth_evidence",
+    "load_wealth_semantic_registry",
+    "render_wealth_structure_report",
 ]
