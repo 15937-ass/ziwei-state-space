@@ -42,6 +42,14 @@ from .rule_runtime import (
     compile_rule_row,
     compile_rule_rows,
 )
+from .wealth_gap_audit import (
+    READINESS_CLASSES,
+    READY_CLASSES,
+    WealthGapAuditRow,
+    WealthGapAuditSummary,
+    load_wealth_gap_audit,
+    validate_wealth_gap_audit,
+)
 from .wealth_pilot import (
     WealthPilotLedgerRow,
     build_w01_coverage_ledger,
@@ -102,6 +110,12 @@ __all__ = [
     "RuntimeState",
     "compile_rule_row",
     "compile_rule_rows",
+    "READINESS_CLASSES",
+    "READY_CLASSES",
+    "WealthGapAuditRow",
+    "WealthGapAuditSummary",
+    "load_wealth_gap_audit",
+    "validate_wealth_gap_audit",
     "WealthPilotLedgerRow",
     "build_w01_coverage_ledger",
     "build_wealth_evidence_package",
