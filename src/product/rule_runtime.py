@@ -1,9 +1,8 @@
 """Safe executable Rule IR for the product layer.
 
-PL2 v0.1 deliberately refuses to guess executable semantics from free-form
-traditional text. A rule becomes executable only when provenance and
-normalization are verified and every non-trivial condition is supplied as an
-explicit structured atom list.
+PL2 refuses to guess executable semantics from free-form traditional text.
+A rule becomes executable only when provenance and normalization are verified
+and every non-trivial condition has an explicit structured representation.
 """
 
 from __future__ import annotations
@@ -12,6 +11,8 @@ import json
 from dataclasses import asdict, dataclass
 from enum import Enum
 from typing import Any, Iterable, Mapping, Sequence
+
+from .condition_atoms import CompiledCondition
 
 
 _ALLOWED_REVIEW = {"SOURCE_SPAN_VERIFIED", "HUMAN_VERIFIED"}
@@ -46,6 +47,8 @@ class RuleIR:
     subject: str
     context: str
     required_facts: tuple[str, ...]
+    any_of_facts: tuple[tuple[str, ...], ...]
+    forbidden_facts: tuple[str, ...]
     time_scopes: tuple[str, ...]
     palace_scopes: tuple[str, ...]
     topic_scopes: tuple[str, ...]
@@ -60,6 +63,13 @@ class RuleIR:
     @property
     def source_pointer(self) -> str:
         return f"{self.source_work}::{self.source_location}"
+
+    def condition(self) -> CompiledCondition:
+        return CompiledCondition(
+            all_of=self.required_facts,
+            any_of=self.any_of_facts,
+            none_of=self.forbidden_facts,
+        )
 
 
 @dataclass(frozen=True)
@@ -147,6 +157,7 @@ def compile_rule_row(
     row: Mapping[str, Any],
     *,
     condition_atoms: Sequence[str] | None = None,
+    condition_spec: CompiledCondition | None = None,
 ) -> tuple[RuleIR | None, CompileIssue | None]:
     """Compile one reviewed rule without interpreting free-form condition text."""
 
@@ -192,20 +203,37 @@ def compile_rule_row(
         )
 
     subject = str(row.get("subject", "")).strip()
-    required_facts: list[str] = []
+    required_facts: set[str] = set()
     if subject:
-        required_facts.append(f"subject:{subject}")
+        required_facts.add(f"subject:{subject}")
+
+    any_of_facts: tuple[tuple[str, ...], ...] = ()
+    forbidden_facts: tuple[str, ...] = ()
 
     condition = str(row.get("condition", "")).strip()
-    if condition.lower() not in _NO_CONDITION and condition not in _NO_CONDITION:
-        atoms = tuple(sorted({str(atom).strip() for atom in (condition_atoms or ()) if str(atom).strip()}))
-        if not atoms:
-            return None, CompileIssue(
-                rule_id,
-                CompileDisposition.NEEDS_CONDITION_NORMALIZATION,
-                "free-form condition is not parsed heuristically; explicit condition atoms are required",
+    has_free_condition = condition.lower() not in _NO_CONDITION and condition not in _NO_CONDITION
+    if has_free_condition:
+        if condition_spec is not None:
+            required_facts.update(condition_spec.all_of)
+            any_of_facts = condition_spec.any_of
+            forbidden_facts = condition_spec.none_of
+        else:
+            atoms = tuple(
+                sorted(
+                    {
+                        str(atom).strip()
+                        for atom in (condition_atoms or ())
+                        if str(atom).strip()
+                    }
+                )
             )
-        required_facts.extend(atoms)
+            if not atoms:
+                return None, CompileIssue(
+                    rule_id,
+                    CompileDisposition.NEEDS_CONDITION_NORMALIZATION,
+                    "free-form condition is not parsed heuristically; explicit condition atoms are required",
+                )
+            required_facts.update(atoms)
 
     ir = RuleIR(
         rule_id=rule_id,
@@ -217,7 +245,9 @@ def compile_rule_row(
         normalization_epistemic=normalization_epistemic,
         subject=subject,
         context=str(row.get("context", "")).strip(),
-        required_facts=tuple(sorted(set(required_facts))),
+        required_facts=tuple(sorted(required_facts)),
+        any_of_facts=any_of_facts,
+        forbidden_facts=forbidden_facts,
         time_scopes=_parse_scope(row.get("time_scope")),
         palace_scopes=_parse_scope(row.get("palace_scope")),
         topic_scopes=_parse_scope(row.get("topic_scope")),
@@ -235,7 +265,7 @@ def compile_rule_row(
 def compile_rule_rows(
     rows: Iterable[Mapping[str, Any]],
     *,
-    condition_registry: Mapping[str, Sequence[str]] | None = None,
+    condition_registry: Mapping[str, Sequence[str] | CompiledCondition] | None = None,
 ) -> CompilationReport:
     executable: list[RuleIR] = []
     issues: list[CompileIssue] = []
@@ -243,7 +273,12 @@ def compile_rule_rows(
 
     for row in rows:
         rule_id = str(row.get("rule_id", "")).strip()
-        ir, issue = compile_rule_row(row, condition_atoms=registry.get(rule_id))
+        condition_value = registry.get(rule_id)
+        if isinstance(condition_value, CompiledCondition):
+            ir, issue = compile_rule_row(row, condition_spec=condition_value)
+        else:
+            ir, issue = compile_rule_row(row, condition_atoms=condition_value)
+
         if ir is not None:
             executable.append(ir)
         if issue is not None:
@@ -287,7 +322,9 @@ class RuleRuntime:
                 continue
             if rule.topic_scopes and question_scope not in rule.topic_scopes:
                 continue
-            if not set(rule.required_facts).issubset(all_facts):
+
+            condition = rule.condition()
+            if not condition.matches(all_facts):
                 continue
 
             before = chart_state.latent_states.get(
@@ -299,7 +336,7 @@ class RuleRuntime:
                 school=rule.school,
                 source_pointer=rule.source_pointer,
                 review_status=rule.review_status,
-                matched_conditions=rule.required_facts,
+                matched_conditions=condition.matched_facts(all_facts),
                 operator=rule.operator,
                 target_state=rule.target_state,
                 before_state=before,
