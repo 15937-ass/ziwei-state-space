@@ -3,9 +3,9 @@ repository: "15937-ass/ziwei-state-space"
 
 project:
   current_phase: "Phase II knowledge-base construction + product-first engineering"
-  execution_state: "WP05_MIGRATION_M04_MERGED"
+  execution_state: "WP05_MIGRATION_M05_READY_FOR_PR"
   current_work_unit: "WP05_MIGRATION_PALACE_CORPUS"
-  state_sync: "WP05_MIGRATION_M04_MERGED"
+  state_sync: "WP05_MIGRATION_M05_PENDING"
   last_approved_gate: "HG-P07-TEMPORAL-01-A"
   pending_gate: null
   blocked_reason: null
@@ -18,7 +18,7 @@ git:
   checkpoint_merge: "382cbda21ee2701445ce0846fd50179a4bca1ed1"
   stale_open_prs: []
   branch_cleanup_status: "POST_P1_ACTIVE_POINTERS_CLOSED; LEGACY_BRANCH_DELETION_PENDING"
-  note: "Migration Palace M04 closes records 301-400. Cumulative migration corpus: 400 reviewed, 353 reusable, 47 case-support-only, 10 history feedback. HG-P07 Option A remains active."
+  note: "Migration Palace M05 closes records 401-500. Cumulative migration corpus: 500 reviewed, 444 reusable, 56 case-support-only, 12 history feedback. HG-P07 Option A remains active."
 
 gates:
   A0: "APPROVED"
@@ -45,13 +45,13 @@ progress:
     system_operator_edges: 654
   wp05_projection_corpus:
     palace: "迁移宫"
-    checkpoint: "M04"
-    reviewed_items: 400
-    reusable_projection_rules: 353
-    case_support_only: 47
-    history_feedback: 10
-    status: "M04_MERGED_NEXT_M05"
-    next_anchor: "M05_JUMEN_TAIL_TIANXIANG_TIANLIANG"
+    checkpoint: "M05"
+    reviewed_items: 500
+    reusable_projection_rules: 444
+    case_support_only: 56
+    history_feedback: 12
+    status: "M05_SOURCE_SPAN_VERIFIED_READY_FOR_PR"
+    next_anchor: "M06_QISHA_TAIL_POJUN_CLOSE"
   wp04_source_closure:
     chapter: "GLOBAL"
     checkpoint: "MAL01"
@@ -91,7 +91,7 @@ productization:
     - "PL2-G ontology-bound 12-palace structure resolver v0.1"
   next_work_unit: "PRODUCT_PL2H_WEALTH_CROSS_PALACE_BATCH"
   product_chat_scope: "This conversation owns productization, product data, adapters, inference MVP, benchmark and UX. Knowledge-base extraction continues in other project conversations."
-  research_track_next: "WP05_MIGRATION_M05_CONTINUE"
+  research_track_next: "WP05_MIGRATION_M06_CLOSE"
   casebook_training_corpus:
     collection_id: "LIAORAN_CASEBOOKS_3"
     status: "ALL_3_BOUND_INDEXED_100_PILOT20_QUEUED"
@@ -299,6 +299,9 @@ canonical_artifacts:
   wp05_migration_m04_review: "validation/wp05/M04_MIGRATION_PROJECTION_REVIEW.md"
   wp05_migration_m04_csv: "validation/wp05/M04_migration_projection_review_301_400.csv"
   wp05_migration_m04_history_feedback: "validation/wp05/M04_migration_history_feedback.csv"
+  wp05_migration_m05_review: "validation/wp05/M05_MIGRATION_PROJECTION_REVIEW.md"
+  wp05_migration_m05_csv: "validation/wp05/M05_migration_projection_review_401_500.csv"
+  wp05_migration_m05_history_feedback: "validation/wp05/M05_migration_history_feedback.csv"
   wp05_children_history_feedback: "validation/wp05/CHILDREN_HISTORY_FEEDBACK_v0.1.csv"
   wp05_siblings_sb02_review: "validation/wp05/SB02_SIBLINGS_PROJECTION_REVIEW.md"
   wp05_siblings_sb02_csv: "validation/wp05/SB02_siblings_projection_review_101_200.csv"
