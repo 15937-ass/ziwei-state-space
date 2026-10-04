@@ -1,4 +1,4 @@
-# Product Architecture v0.1
+# Product Architecture v0.2
 
 状态：IMPLEMENTATION DESIGN  
 不改变 G1-G6 / A0-A2-R1 已冻结领域理论。
@@ -156,3 +156,80 @@ MVP：
 - LLM verbalizer 可替换。
 
 MVP 通过后，再扩到关系、健康、迁移等主题。
+
+
+## 10. Temporal Ambiguity State
+
+Temporal Resolver 不得假设所有时间边界都有唯一跨流派真值。
+
+第一类正式 ambiguity：`ZI_DAY_BOUNDARY`。
+
+推荐结构：
+
+```json
+{
+  "ambiguity_type": "ZI_DAY_BOUNDARY",
+  "classification": "SCHOOL_SENSITIVE_BOUNDARY",
+  "candidates": [
+    {"id": "same_day", "state_ref": "..."},
+    {"id": "next_day", "state_ref": "..."}
+  ],
+  "composite_allowed": true,
+  "resolution": "UNRESOLVED"
+}
+```
+
+规则：
+- civil date、display lunar date、effective calculation day 分离存储；
+- 同一 engine/config family 仍要求 deterministic equality；
+- 跨流派差异进入 ambiguity/conflict，不自动标 bug；
+- candidate state 不得在进入 inference 之前被静默删除；
+- downstream 可输出 single-model、consensus、conflicted 或 composite interpretation。
+
+## 11. School Adapter Boundary
+
+中州派继续作为 canonical core。其他流派不得把自己的 primitive 直接写入中州 canonical rule namespace。
+
+```text
+Core Ontology
+  -> Zhongzhou Adapter
+  -> Qintian Adapter
+  -> Heluo Adapter
+  -> future adapters
+```
+
+跨流派一致时可形成 consensus evidence；冲突时必须保留 school attribution。
+
+## 12. Rule Runtime Contract
+
+产品层下一关键接口：
+
+```python
+RuleRuntime.match(chart_state, temporal_state, question_scope) -> ActiveRuleGraph
+```
+
+ActiveRuleGraph 每个节点至少包含：
+- rule_id；
+- school；
+- source pointer；
+- review status；
+- matched conditions；
+- operator；
+- target state；
+- before/after state；
+- conflict group；
+- evidence status。
+
+Rule Runtime 不允许从自由文本临时生成不存在的规则。
+
+## 13. Inference MVP Gate
+
+第一版只覆盖事业/财帛，本命 + 一个大限 + 一个流年。
+
+通过条件：
+1. 无 LLM 时可生成完整 EvidencePackage；
+2. 同输入/同版本 active-rule graph 稳定；
+3. 每个关键结论可追至 source/rule；
+4. 冲突和 ambiguity 不被静默消解；
+5. confidence band 可由结构化证据计算；
+6. LLM verbalizer 可替换且不改变底层结论。
