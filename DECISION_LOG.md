@@ -122,3 +122,10 @@ Paper 2 需要处理 star-core / Delta / modifier / projection 参数混淆。
 **Approved at:** Gate A2-R1
 **Approved by:** PI
 
+
+
+### D-017 — HG-P07-TEMPORAL-01 event-relative relocation window
+**Decision:** 批准方案 A。迁移宫对“远地定居后头三年”的明示规则，形式化为一个极窄、来源约束的事件相对时间窗：仅当“远地定居事件已确认”且 `1 <= years_since_distant_relocation <= 3` 时，迁移宫对迁移后总体趋势取得 PRIMARY 路由优先级；其他宫位仍按通常流年命宫轮排。该窗口不改写原局本质，不进入 A2-R1 历史记忆，不设置数值权重、衰减函数或概率，也不得泛化为任意事件计时器。
+**Status:** FROZEN（HG-P07-TEMPORAL-01 Option A）
+**Approved at:** HG-P07-TEMPORAL-01
+**Approved by:** PI

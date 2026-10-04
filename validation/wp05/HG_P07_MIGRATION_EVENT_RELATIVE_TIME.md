@@ -1,6 +1,6 @@
 # HG-P07-TEMPORAL-01 — Migration Palace Event-Relative Time Window
 
-Status: **HUMAN GATE — APPROVAL REQUIRED BEFORE P07 EXTRACTION**
+Status: **APPROVED — OPTION A IMPLEMENTED**
 
 ## Source trigger
 SRC-ZZ-003, Migration Palace opening methodology, printed p109, explicitly distinguishes:
@@ -47,7 +47,14 @@ Duplicate the rule into annual layers without tracking years-since-relocation.
 
 This is not recommended: it cannot distinguish year 1–3 after relocation from unrelated calendar years and breaks the source semantics.
 
-## Recommendation
-Approve **Option A** as a minimal, source-bounded extension of the temporal resolver.
+## Approval decision
 
-This approval would authorize a finite event-relative relocation window only. It would **not** authorize arbitrary persistence durations, decay functions, learned temporal weights, or generalized event-relative clocks elsewhere without new source support / later review.
+**Option A approved by PI.**
+
+Implemented contract:
+- `knowledge/temporal/EVENT_RELATIVE_TIME_SCHEMA_v0.1.md`
+- `knowledge/temporal/event_relative_windows_v0.1.csv`
+- `src/wp05_event_relative_time.py`
+- `tests/test_wp05_event_relative_time.py`
+
+The approval authorizes only the finite first-three-years relocation window. It does **not** authorize arbitrary persistence durations, decay functions, learned temporal weights, or generalized event-relative clocks elsewhere without new source support / later review.

@@ -101,6 +101,21 @@ A temporal palace does not rewrite natal essence.
 
 If a source explicitly states that one period changes a later period, the record must route through the approved A2-R1 history schema. WP05 itself must not invent recurrence.
 
+### 5.1 Approved event-relative overlay
+
+HG-P07-TEMPORAL-01 Option A adds one source-bounded overlay without changing the six canonical `time_layer` values:
+
+```text
+event_relative_overlay = MIGRATION_FIRST_THREE_YEARS
+trigger = confirmed distant relocation / settlement
+clock = years_since_distant_relocation
+active = 1..3
+effect = Migration Palace primary routing for relocation trend
+preserve = ordinary annual Life-Palace rotation for other palace domains
+```
+
+This overlay is not a seventh `time_layer`, not A2-R1 history memory, and not a generic event timer. No numeric weight or decay is introduced. Canonical contract: `knowledge/temporal/EVENT_RELATIVE_TIME_SCHEMA_v0.1.md`.
+
 ## 6. Projection record schema
 
 Canonical WP05 projection records use the following fields.
