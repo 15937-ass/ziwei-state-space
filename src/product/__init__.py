@@ -145,6 +145,15 @@ from .rule_runtime import (
     compile_rule_row,
     compile_rule_rows,
 )
+from .temporal_asset_adapter import (
+    REQUIRED_SCOPE_KEYS,
+    SCOPE_TO_LAYER,
+    TemporalAssetBundle,
+    adapt_normalized_temporal_snapshot,
+    adapt_target_from_full_snapshot,
+    build_temporal_environment_from_assets,
+    find_temporal_snapshot,
+)
 from .temporal_environment import (
     MAGNITUDE_STATUSES,
     REACTION_EFFECTS,
@@ -202,6 +211,13 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "REQUIRED_SCOPE_KEYS",
+    "SCOPE_TO_LAYER",
+    "TemporalAssetBundle",
+    "adapt_normalized_temporal_snapshot",
+    "adapt_target_from_full_snapshot",
+    "build_temporal_environment_from_assets",
+    "find_temporal_snapshot",
     "MAGNITUDE_STATUSES",
     "REACTION_EFFECTS",
     "TEMPORAL_LAYERS",

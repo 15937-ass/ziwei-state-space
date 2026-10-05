@@ -5,9 +5,9 @@ project_state_dependency: "../PROJECT_STATE.yaml"
 
 execution:
   current_phase: "PL3-T"
-  completed_work_unit: "PRODUCT_PL3T_TEMPORAL_ENVIRONMENT_CORE_V0_1"
-  next_work_unit: "PRODUCT_PL3T_TEMPORAL_ASSET_ADAPTER_V0_1"
-  status: "PL3T_ENVIRONMENT_CORE_READY; TEMPORAL_ASSET_ADAPTER_NEXT; PL3N_CAREER_REMAINS_BLOCKED_ON_KB_REPAIR_AND_CA09"
+  completed_work_unit: "PRODUCT_PL3T_TEMPORAL_ASSET_ADAPTER_V0_1"
+  next_work_unit: "PRODUCT_PL3T_NATAL_TEMPORAL_REACTION_COMPILER_V0_1"
+  status: "PL3T_TEMPORAL_ASSET_ADAPTER_READY; REACTION_COMPILER_NEXT; PL3N_CAREER_REMAINS_BLOCKED_ON_KB_REPAIR_AND_CA09"
   canonical_branch: "main"
 
 boundaries:
@@ -46,6 +46,7 @@ completed:
   - "PL7 longitudinal observation schema v0.2: interval event-time normal form, lossless v0.1 migration, strict target-window assignment"
   - "PL7 check-in bridge v0.2: DAY/MONTH/YEAR/INTERVAL reports, deterministic normalization, temporal-assignment ambiguity guard"
   - "PL3-T temporal environment core v0.1: deterministic environment-only profile, non-numeric reaction evidence, Natal version lock"
+  - "PL3-T temporal asset adapter v0.1: PL1 decadal/age/year/month/day/hour facts mapped losslessly into PL3-T with engine provenance"
 
 artifacts:
   human_gate_decision: "product/PL2Q_HUMAN_GATE_DECISION_SPEC_v0.1.md"
@@ -104,6 +105,10 @@ artifacts:
   temporal_environment_schema: "product/PL3T_TEMPORAL_ENVIRONMENT_SCHEMA_v0.1.md"
   temporal_environment_api: "src/product/temporal_environment.py"
   temporal_environment_tests: "tests/test_product_temporal_environment.py"
+  temporal_asset_adapter: "src/product/temporal_asset_adapter.py"
+  temporal_asset_adapter_acceptance: "product/PL3T_TEMPORAL_ASSET_ADAPTER_ACCEPTANCE.md"
+  temporal_asset_fixture: "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.1.json"
+  temporal_asset_adapter_tests: "tests/test_product_temporal_asset_adapter.py"
 
 parallel_work_policy:
   - "Every product session reads top-level PROJECT_STATE.yaml first for repository/knowledge state."
