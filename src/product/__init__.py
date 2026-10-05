@@ -164,6 +164,15 @@ from .temporal_environment import (
     TemporalReactionEvidence,
     build_temporal_environment_profile,
 )
+from .temporal_reaction_compiler import (
+    ALLOWED_REACTION_NORMALIZATION,
+    ALLOWED_REACTION_REVIEW,
+    ReactionMatchIssue,
+    TemporalReactionMatchReport,
+    TemporalReactionRuleSpec,
+    compile_temporal_reaction_registry,
+    match_temporal_reactions,
+)
 from .wealth_blocker_refresh import (
     ROUTE_CLASSES,
     WealthBlockerRoute,
@@ -211,6 +220,13 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "ALLOWED_REACTION_NORMALIZATION",
+    "ALLOWED_REACTION_REVIEW",
+    "ReactionMatchIssue",
+    "TemporalReactionMatchReport",
+    "TemporalReactionRuleSpec",
+    "compile_temporal_reaction_registry",
+    "match_temporal_reactions",
     "REQUIRED_SCOPE_KEYS",
     "SCOPE_TO_LAYER",
     "TemporalAssetBundle",
