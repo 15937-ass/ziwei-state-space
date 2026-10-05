@@ -139,6 +139,18 @@ from .manifestation_ontology import (
     ManifestationSourceRef,
     compile_manifestation_ontology_registry,
 )
+from .manifestation_probability import (
+    EMPIRICAL_PARAMETER_LAYERS,
+    PROBABILITY_MODEL_STATUSES,
+    PROBABILITY_REGISTRY_STATUSES,
+    PROBABILITY_RESULT_STATUSES,
+    EmpiricalProbabilityResult,
+    PopulationProbabilityPlugin,
+    ProbabilityModelDescriptor,
+    ProbabilityModelRegistry,
+    compile_probability_model_registry,
+    evaluate_empirical_manifestation_probability,
+)
 from .manifestation_router import (
     MAPPING_EVIDENCE_TIERS,
     MAPPING_REGISTRY_STATUSES,
@@ -323,6 +335,16 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "EMPIRICAL_PARAMETER_LAYERS",
+    "PROBABILITY_MODEL_STATUSES",
+    "PROBABILITY_REGISTRY_STATUSES",
+    "PROBABILITY_RESULT_STATUSES",
+    "EmpiricalProbabilityResult",
+    "PopulationProbabilityPlugin",
+    "ProbabilityModelDescriptor",
+    "ProbabilityModelRegistry",
+    "compile_probability_model_registry",
+    "evaluate_empirical_manifestation_probability",
     "CONTEXT_MODES",
     "PERSONALIZATION_READINESS",
     "ManifestationRoutingContext",
