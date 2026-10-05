@@ -5,9 +5,9 @@ project_state_dependency: "../PROJECT_STATE.yaml"
 
 execution:
   current_phase: "PL3-T"
-  completed_work_unit: "PRODUCT_PL3T_EVENT_RELATIVE_WINDOW_SUPPORT_V0_1"
-  next_work_unit: "PRODUCT_PL3T_TEMPORAL_FIXTURE_BENCHMARK_V0_1"
-  status: "PL3T_EVENT_RELATIVE_WINDOW_READY; ONLY_HG_P07_TEMPORAL_01_A_IMPLEMENTED; TEMPORAL_FIXTURE_BENCHMARK_NEXT; REACTION_REGISTRY_PENDING_KB_WP07B"
+  completed_work_unit: "PRODUCT_PL3T_TEMPORAL_FIXTURE_BENCHMARK_V0_1"
+  next_work_unit: "PRODUCT_PL3T_TEMPORAL_EVIDENCE_PACKAGE_INTEGRATION_V0_1"
+  status: "PL3T_TEMPORAL_FIXTURE_BENCHMARK_READY; EVIDENCE_PACKAGE_INTEGRATION_NEXT; REACTION_REGISTRY_PENDING_KB_WP07B"
   canonical_branch: "main"
 
 boundaries:
@@ -49,6 +49,7 @@ completed:
   - "PL3-T temporal asset adapter v0.1: PL1 decadal/age/year/month/day/hour facts mapped losslessly into PL3-T with engine provenance"
   - "PL3-T natal-temporal reaction compiler v0.1: explicit structured antecedents only; production registry intentionally empty pending KB-WP07B normalization"
   - "PL3-T event-relative window v0.1: only MIGRATION_FIRST_THREE_YEARS, explicit external trigger provenance, no generic timer/decay/generalization"
+  - "PL3-T temporal fixture benchmark v0.1: four deterministic contract cases for base environment and event-relative boundaries; no empirical accuracy claim"
 
 artifacts:
   human_gate_decision: "product/PL2Q_HUMAN_GATE_DECISION_SPEC_v0.1.md"
@@ -119,6 +120,10 @@ artifacts:
   event_relative_window_api: "src/product/event_relative_window.py"
   event_relative_window_acceptance: "product/PL3T_EVENT_RELATIVE_WINDOW_SUPPORT_ACCEPTANCE.md"
   event_relative_window_tests: "tests/test_product_event_relative_window.py"
+  temporal_fixture_registry: "product/PL3T_TEMPORAL_FIXTURES_v0.1.json"
+  temporal_fixture_benchmark_api: "src/product/temporal_fixture_benchmark.py"
+  temporal_fixture_benchmark_acceptance: "product/PL3T_TEMPORAL_FIXTURE_BENCHMARK_ACCEPTANCE.md"
+  temporal_fixture_benchmark_tests: "tests/test_product_temporal_fixture_benchmark.py"
 
 parallel_work_policy:
   - "Every product session reads top-level PROJECT_STATE.yaml first for repository/knowledge state."
