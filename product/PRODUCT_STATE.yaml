@@ -5,9 +5,9 @@ project_state_dependency: "../PROJECT_STATE.yaml"
 
 execution:
   current_phase: "PL3-S"
-  completed_work_unit: "PRODUCT_PL3S_DETERMINISTIC_STATE_UPDATER_V0_1"
-  next_work_unit: "PRODUCT_PL3S_MISSINGNESS_CONTRADICTION_MODEL_V0_1"
-  status: "PL3S_DETERMINISTIC_UPDATER_READY; MISSINGNESS_CONTRADICTION_MODEL_NEXT; PRODUCTION_TEMPORAL_REACTION_REGISTRY_PENDING_KB_WP07B"
+  completed_work_unit: "PRODUCT_PL3S_MISSINGNESS_CONTRADICTION_MODEL_V0_1"
+  next_work_unit: "PRODUCT_PL3S_BAYESIAN_BELIEF_V0_1"
+  status: "PL3S_STATE_QUALITY_MODEL_READY; BAYESIAN_BELIEF_NEXT_WITH_NO_INVENTED_PRIORS_OR_LIKELIHOODS; PRODUCTION_TEMPORAL_REACTION_REGISTRY_PENDING_KB_WP07B"
   canonical_branch: "main"
 
 boundaries:
@@ -53,6 +53,7 @@ completed:
   - "PL3-T layered EvidencePackage v0.1: CANONICAL/TEMPORAL/PERSONAL/EMPIRICAL namespaces; PL3-T populates canonical+temporal only"
   - "PL3-S acquired-state schema v0.1: provenance-bound reality assertions/actions/context, explicit missingness/conflicts, deterministic state snapshots"
   - "PL3-S deterministic state updater v0.1: event labels never mutate state; explicit confirmed directives only; same-key disagreement preserved as conflict"
+  - "PL3-S missingness/contradiction model v0.1: OBSERVED/MISSING/CONFLICTED audit, UNKNOWN!=false, no imputation/conflict resolution/probability mapping"
 
 artifacts:
   human_gate_decision: "product/PL2Q_HUMAN_GATE_DECISION_SPEC_v0.1.md"
@@ -139,6 +140,9 @@ artifacts:
   state_updater_fixture: "product/PL3S_STATE_UPDATE_FIXTURE_v0.1.json"
   state_updater_acceptance: "product/PL3S_DETERMINISTIC_STATE_UPDATER_ACCEPTANCE.md"
   state_updater_tests: "tests/test_product_state_updater.py"
+  state_quality_api: "src/product/state_quality.py"
+  state_quality_acceptance: "product/PL3S_MISSINGNESS_CONTRADICTION_MODEL_ACCEPTANCE.md"
+  state_quality_tests: "tests/test_product_state_quality.py"
 
 parallel_work_policy:
   - "Every product session reads top-level PROJECT_STATE.yaml first for repository/knowledge state."
