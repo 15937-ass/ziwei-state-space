@@ -1,0 +1,92 @@
+{
+  "schema_version": "0.1",
+  "observation": {
+    "schema_version": "0.2",
+    "record_id": "OBS-PL3S-UPDATER-001",
+    "person_key": "PERSON-UPDATER-001",
+    "observation_design": "PROSPECTIVE",
+    "window": {
+      "start_date": "2027-01-01",
+      "end_date": "2027-12-31",
+      "observed_through": "2027-06-30",
+      "timezone": "Asia/Shanghai",
+      "precision": "DAY"
+    },
+    "target": {
+      "target_id": "T-CAR-STATE",
+      "domain": "career",
+      "manifestation_family": "career_transition",
+      "event_type": "job_change",
+      "ontology_version": "MANIFESTATION-0.1"
+    },
+    "actions": [
+      {
+        "action_id": "ACT-JOB-SEARCH",
+        "label": "active job search",
+        "status": "ACTUAL",
+        "confidence": "HIGH",
+        "date": "2027-06-01"
+      }
+    ],
+    "context": {
+      "exposures": [
+        "recruiter outreach"
+      ],
+      "external_factors": [
+        "hiring market uncertain"
+      ],
+      "counterparty_factors": [
+        "employer decision pending"
+      ]
+    },
+    "outcome": {
+      "status": "UNKNOWN",
+      "event_time": null,
+      "severity": null,
+      "duration_days": null,
+      "censor_reason": null
+    },
+    "observation": {
+      "source_type": "USER_SELF_REPORT",
+      "confidence": "HIGH",
+      "collected_date": "2027-06-30",
+      "notes_ref": null
+    },
+    "model_linkage": {
+      "chart_version": "CHART-1",
+      "knowledge_version": "KB-1",
+      "natal_state_ref": "NATAL-1",
+      "temporal_environment_ref": "TEMP-1",
+      "state_before_ref": null,
+      "forecast": {
+        "mode": "NONE",
+        "forecast_id": null,
+        "model_version": null,
+        "locked_date": null
+      }
+    }
+  },
+  "update_request": {
+    "schema_version": "0.1",
+    "observation_ref": "OBS-PL3S-UPDATER-001",
+    "state_confidence": "HIGH",
+    "directives": [
+      {
+        "directive_id": "DIR-CAREER-001",
+        "observation_ref": "OBS-PL3S-UPDATER-001",
+        "operation": "UPSERT_ASSERTION",
+        "user_confirmed": true,
+        "domain": "CAREER",
+        "key": "employment_status",
+        "value": "EMPLOYED",
+        "assertion_status": "CONFIRMED",
+        "confidence": "HIGH",
+        "valid_from": "2027-01-01",
+        "valid_through": null,
+        "supersedes_existing": false,
+        "missingness_reason": null,
+        "source_note": "explicitly confirmed current employment"
+      }
+    ]
+  }
+}
