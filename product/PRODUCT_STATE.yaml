@@ -5,9 +5,9 @@ project_state_dependency: "../PROJECT_STATE.yaml"
 
 execution:
   current_phase: "PL3-T"
-  completed_work_unit: "PRODUCT_PL3T_NATAL_TEMPORAL_REACTION_COMPILER_V0_1"
-  next_work_unit: "PRODUCT_PL3T_EVENT_RELATIVE_WINDOW_SUPPORT_V0_1"
-  status: "PL3T_REACTION_COMPILER_READY; PRODUCTION_REACTION_REGISTRY_EMPTY_PENDING_KB_WP07B; EVENT_RELATIVE_WINDOW_NEXT; PL3N_CAREER_REMAINS_BLOCKED_ON_KB_REPAIR_AND_CA09"
+  completed_work_unit: "PRODUCT_PL3T_EVENT_RELATIVE_WINDOW_SUPPORT_V0_1"
+  next_work_unit: "PRODUCT_PL3T_TEMPORAL_FIXTURE_BENCHMARK_V0_1"
+  status: "PL3T_EVENT_RELATIVE_WINDOW_READY; ONLY_HG_P07_TEMPORAL_01_A_IMPLEMENTED; TEMPORAL_FIXTURE_BENCHMARK_NEXT; REACTION_REGISTRY_PENDING_KB_WP07B"
   canonical_branch: "main"
 
 boundaries:
@@ -48,6 +48,7 @@ completed:
   - "PL3-T temporal environment core v0.1: deterministic environment-only profile, non-numeric reaction evidence, Natal version lock"
   - "PL3-T temporal asset adapter v0.1: PL1 decadal/age/year/month/day/hour facts mapped losslessly into PL3-T with engine provenance"
   - "PL3-T natal-temporal reaction compiler v0.1: explicit structured antecedents only; production registry intentionally empty pending KB-WP07B normalization"
+  - "PL3-T event-relative window v0.1: only MIGRATION_FIRST_THREE_YEARS, explicit external trigger provenance, no generic timer/decay/generalization"
 
 artifacts:
   human_gate_decision: "product/PL2Q_HUMAN_GATE_DECISION_SPEC_v0.1.md"
@@ -115,6 +116,9 @@ artifacts:
   temporal_reaction_fixture: "product/PL3T_TEMPORAL_REACTION_FIXTURE_v0.1.json"
   temporal_reaction_acceptance: "product/PL3T_NATAL_TEMPORAL_REACTION_COMPILER_ACCEPTANCE.md"
   temporal_reaction_tests: "tests/test_product_temporal_reaction_compiler.py"
+  event_relative_window_api: "src/product/event_relative_window.py"
+  event_relative_window_acceptance: "product/PL3T_EVENT_RELATIVE_WINDOW_SUPPORT_ACCEPTANCE.md"
+  event_relative_window_tests: "tests/test_product_event_relative_window.py"
 
 parallel_work_policy:
   - "Every product session reads top-level PROJECT_STATE.yaml first for repository/knowledge state."
