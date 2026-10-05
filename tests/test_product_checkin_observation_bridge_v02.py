@@ -57,7 +57,11 @@ def test_month_event_creates_v02_observation():
 
 def test_year_event_is_valid_for_full_year_target():
     response = _response("YES", "CLOSE", "2028-01-02")
-    response["event_time_report"] = {"precision": "YEAR", "value": "2027"}
+    response["event_time_report"] = {
+        "precision": "INTERVAL",
+        "lower_bound_date": "2027-01-01",
+        "upper_bound_date": "2027-06-30",
+    }
     result = bridge_checkin_response_v02(_plan(), response)
     assert result.disposition == "OBSERVATION_READY"
 
