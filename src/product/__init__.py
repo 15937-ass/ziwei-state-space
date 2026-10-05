@@ -42,6 +42,12 @@ from .rule_runtime import (
     compile_rule_row,
     compile_rule_rows,
 )
+from .wealth_blocker_refresh import (
+    ROUTE_CLASSES,
+    WealthBlockerRoute,
+    load_wealth_blocker_refresh,
+    validate_wealth_blocker_refresh,
+)
 from .wealth_gap_audit import (
     READINESS_CLASSES,
     READY_CLASSES,
@@ -110,6 +116,10 @@ __all__ = [
     "RuntimeState",
     "compile_rule_row",
     "compile_rule_rows",
+    "ROUTE_CLASSES",
+    "WealthBlockerRoute",
+    "load_wealth_blocker_refresh",
+    "validate_wealth_blocker_refresh",
     "READINESS_CLASSES",
     "READY_CLASSES",
     "WealthGapAuditRow",
