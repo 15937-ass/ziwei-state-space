@@ -53,6 +53,29 @@ def _probability(value: Any, field: str) -> float:
     return number
 
 
+def _likelihood_vector(
+    raw: Mapping[str, Any],
+    *,
+    expected: set[str],
+    field: str,
+) -> tuple[tuple[str, float], ...]:
+    keys = {str(key).strip() for key in raw}
+    if keys != expected:
+        raise ValueError(
+            f"{field} keys must exactly match hypotheses: "
+            f"expected={sorted(expected)}, got={sorted(keys)}"
+        )
+    return tuple(
+        sorted(
+            (
+                str(key).strip(),
+                _probability(value, f"{field}.{key}"),
+            )
+            for key, value in raw.items()
+        )
+    )
+
+
 def _normalize_distribution(
     raw: Mapping[str, Any],
     *,
@@ -279,7 +302,7 @@ def compile_discrete_belief_model(
                 raise ValueError(
                     f"{evidence_id}.likelihoods.{value_key} must be an object"
                 )
-            by_value[value_key] = _normalize_distribution(
+            by_value[value_key] = _likelihood_vector(
                 distribution,
                 expected=hypothesis_set,
                 field=f"{evidence_id}.likelihoods.{value_key}",
