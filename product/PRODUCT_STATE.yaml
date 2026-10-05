@@ -5,9 +5,9 @@ project_state_dependency: "../PROJECT_STATE.yaml"
 
 execution:
   current_phase: "PL3-M"
-  completed_work_unit: "PRODUCT_PL3S_STATE_BELIEF_BENCHMARK_V0_1"
-  next_work_unit: "PRODUCT_PL3M_MANIFESTATION_ONTOLOGY_ADAPTER_V0_1"
-  status: "PL3S_V0_1_PRODUCT_SKELETON_COMPLETE; PL3M_ONTOLOGY_ADAPTER_NEXT; PRODUCTION_BELIEF_REGISTRY_EMPTY_PENDING_EMPIRICAL_CALIBRATION; PRODUCTION_TEMPORAL_REACTION_REGISTRY_PENDING_KB_WP07B"
+  completed_work_unit: "PRODUCT_PL3M_MANIFESTATION_ONTOLOGY_ADAPTER_V0_1"
+  next_work_unit: "PRODUCT_PL3M_SOURCE_SUPPORTED_POSSIBILITY_ROUTER_V0_1"
+  status: "PL3M_ONTOLOGY_ADAPTER_READY; PRODUCTION_ONTOLOGY_EMPTY_PENDING_KB_WP06B; SOURCE_SUPPORTED_ROUTER_NEXT; PRODUCTION_BELIEF_REGISTRY_EMPTY_PENDING_EMPIRICAL_CALIBRATION; PRODUCTION_TEMPORAL_REACTION_REGISTRY_PENDING_KB_WP07B"
   canonical_branch: "main"
 
 boundaries:
@@ -56,6 +56,7 @@ completed:
   - "PL3-S missingness/contradiction model v0.1: requirement-driven readiness, explicit MNAR-risk flags, no imputation or confidence scoring"
   - "PL3-S Bayesian belief v0.1: discrete personal-state posterior interface, missing/conflict abstention, production parameters empty pending empirical calibration"
   - "PL3-S state belief benchmark v0.1: deterministic posterior + abstention contract across base/missing/conflict/low-confidence/unmodelled-value fixtures"
+  - "PL3-M manifestation ontology adapter v0.1: topology/provenance validator only; probability fields forbidden; production ontology empty pending KB-WP06B"
 
 artifacts:
   human_gate_decision: "product/PL2Q_HUMAN_GATE_DECISION_SPEC_v0.1.md"
@@ -155,6 +156,11 @@ artifacts:
   state_belief_benchmark_fixtures: "product/PL3S_STATE_BELIEF_FIXTURES_v0.1.json"
   state_belief_benchmark_acceptance: "product/PL3S_STATE_BELIEF_BENCHMARK_ACCEPTANCE.md"
   state_belief_benchmark_tests: "tests/test_product_state_belief_benchmark.py"
+  manifestation_ontology_api: "src/product/manifestation_ontology.py"
+  manifestation_ontology_registry: "product/PL3M_MANIFESTATION_ONTOLOGY_REGISTRY_v0.1.json"
+  manifestation_ontology_fixture: "product/PL3M_MANIFESTATION_ONTOLOGY_FIXTURE_v0.1.json"
+  manifestation_ontology_acceptance: "product/PL3M_MANIFESTATION_ONTOLOGY_ADAPTER_ACCEPTANCE.md"
+  manifestation_ontology_tests: "tests/test_product_manifestation_ontology.py"
 
 parallel_work_policy:
   - "Every product session reads top-level PROJECT_STATE.yaml first for repository/knowledge state."
