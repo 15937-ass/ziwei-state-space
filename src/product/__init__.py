@@ -138,6 +138,17 @@ from .palace_structure import (
     load_palace_ontology,
     resolve_palace_structure,
 )
+from .state_belief import (
+    BELIEF_STATUSES,
+    PARAMETER_PROVENANCE_TYPES,
+    BayesianParameterProvenance,
+    DiscreteObservationLikelihood,
+    DiscreteStateBelief,
+    DiscreteStatePrior,
+    bayesian_state_update,
+    compile_discrete_state_prior,
+    compile_observation_likelihood,
+)
 from .state_quality import (
     MISSINGNESS_AUDIT_CLASSES,
     QUALITY_ITEM_STATUSES,
@@ -275,6 +286,15 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "BELIEF_STATUSES",
+    "PARAMETER_PROVENANCE_TYPES",
+    "BayesianParameterProvenance",
+    "DiscreteObservationLikelihood",
+    "DiscreteStateBelief",
+    "DiscreteStatePrior",
+    "bayesian_state_update",
+    "compile_discrete_state_prior",
+    "compile_observation_likelihood",
     "MISSINGNESS_AUDIT_CLASSES",
     "QUALITY_ITEM_STATUSES",
     "STATE_READINESS_STATUSES",
