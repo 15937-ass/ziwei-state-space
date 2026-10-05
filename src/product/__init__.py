@@ -72,6 +72,12 @@ from .evidence_package import (
     EvidenceItem,
     EvidencePackage,
 )
+from .layered_evidence_package import (
+    CanonicalEvidenceNamespace,
+    LayeredEvidencePackage,
+    TemporalEvidenceNamespace,
+    build_layered_evidence_package,
+)
 from .longitudinal_observation import (
     ACTION_STATUSES,
     CONFIDENCE_LEVELS,
@@ -235,6 +241,10 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "CanonicalEvidenceNamespace",
+    "LayeredEvidencePackage",
+    "TemporalEvidenceNamespace",
+    "build_layered_evidence_package",
     "TemporalFixture",
     "TemporalFixtureResult",
     "load_temporal_fixtures",
