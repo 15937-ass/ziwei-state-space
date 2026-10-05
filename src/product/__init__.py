@@ -138,6 +138,14 @@ from .palace_structure import (
     load_palace_ontology,
     resolve_palace_structure,
 )
+from .state_quality import (
+    BELIEF_INPUT_DISPOSITIONS,
+    SLOT_STATUSES,
+    StateQualityReport,
+    StateSlotAudit,
+    audit_acquired_state_quality,
+    select_ready_observed_slots,
+)
 from .state_updater import (
     STATE_UPDATE_OPERATIONS,
     StateUpdateDirective,
@@ -264,6 +272,12 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "BELIEF_INPUT_DISPOSITIONS",
+    "SLOT_STATUSES",
+    "StateQualityReport",
+    "StateSlotAudit",
+    "audit_acquired_state_quality",
+    "select_ready_observed_slots",
     "STATE_UPDATE_OPERATIONS",
     "StateUpdateDirective",
     "StateUpdateReport",
