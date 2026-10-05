@@ -1,0 +1,124 @@
+{
+  "schema_version": "0.1",
+  "batch_id": "PL2O2-WEALTH-B08",
+  "palace_id": "P05",
+  "palace_name": "财帛宫",
+  "source_csv": "validation/wp05/W01_wealth_projection_review_001_100.csv",
+  "normalization_review": "product/PL2O_WEALTH_NORMALIZATION_REVIEW_v0.1.csv",
+  "requires_palace_structure": true,
+  "policy": {
+    "normalization_epistemic": "IMPLEMENTATION",
+    "normalization_verified": true,
+    "selection_policy": "only PL2-O rows marked EXECUTABLE_NORMALIZATION_READY",
+    "boolean_extension": "alternatives is an engineering-only OR-of-conjunctions form; it adds no Zi Wei semantic primitive"
+  },
+  "rules": {
+    "W01-067": {
+      "expected_condition": "火铃与忌星空劫同度",
+      "expected_projection_target": "sudden_failure_or_collapse",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P05",
+              "mutagen": "忌"
+            }
+          }
+        ],
+        "any_of": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "火星"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "铃星"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "地空"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "地劫"
+              }
+            }
+          ]
+        ]
+      }
+    },
+    "W01-071": {
+      "expected_condition": "铃星与空曜或火星与地劫同度",
+      "expected_projection_target": "rapid_financial_collapse",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "铃星"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "地空"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "铃星"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "地劫"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "火星"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "地劫"
+              }
+            }
+          ]
+        ]
+      }
+    }
+  }
+}

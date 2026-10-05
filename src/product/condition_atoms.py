@@ -72,6 +72,7 @@ class CompiledCondition:
     all_of: tuple[str, ...] = ()
     any_of: tuple[tuple[str, ...], ...] = ()
     none_of: tuple[str, ...] = ()
+    alternatives: tuple[tuple[str, ...], ...] = ()
 
     def matches(self, facts: frozenset[str]) -> bool:
         if not set(self.all_of).issubset(facts):
@@ -81,6 +82,10 @@ class CompiledCondition:
                 return False
         if set(self.none_of).intersection(facts):
             return False
+        if self.alternatives and not any(
+            set(branch).issubset(facts) for branch in self.alternatives
+        ):
+            return False
         return True
 
     def matched_facts(self, facts: frozenset[str]) -> tuple[str, ...]:
@@ -89,6 +94,9 @@ class CompiledCondition:
         matched = set(self.all_of)
         for group in self.any_of:
             matched.update(set(group).intersection(facts))
+        for branch in self.alternatives:
+            if set(branch).issubset(facts):
+                matched.update(branch)
         return tuple(sorted(matched))
 
 
@@ -103,6 +111,7 @@ def compile_condition_spec(spec: Mapping[str, Any]) -> CompiledCondition:
     - all_of: every atom must be present.
     - any_of: each nested group requires at least one present atom.
     - none_of: none of the atoms may be present.
+    - alternatives: at least one complete nested conjunction must be present.
 
     No free-form text parsing occurs here.
     """
@@ -110,6 +119,7 @@ def compile_condition_spec(spec: Mapping[str, Any]) -> CompiledCondition:
     all_raw = spec.get("all_of", [])
     any_raw = spec.get("any_of", [])
     none_raw = spec.get("none_of", [])
+    alternatives_raw = spec.get("alternatives", [])
 
     if not isinstance(all_raw, list):
         raise ValueError("all_of must be a list")
@@ -117,6 +127,8 @@ def compile_condition_spec(spec: Mapping[str, Any]) -> CompiledCondition:
         raise ValueError("any_of must be a list of atom lists")
     if not isinstance(none_raw, list):
         raise ValueError("none_of must be a list")
+    if not isinstance(alternatives_raw, list):
+        raise ValueError("alternatives must be a list of non-empty atom lists")
 
     all_of = tuple(sorted({_compile_atom(atom) for atom in all_raw}))
 
@@ -129,14 +141,25 @@ def compile_condition_spec(spec: Mapping[str, Any]) -> CompiledCondition:
 
     none_of = tuple(sorted({_compile_atom(atom) for atom in none_raw}))
 
+    alternative_branches: list[tuple[str, ...]] = []
+    for branch in alternatives_raw:
+        if not isinstance(branch, list) or not branch:
+            raise ValueError("each alternatives branch must be a non-empty list")
+        compiled = tuple(sorted({_compile_atom(atom) for atom in branch}))
+        alternative_branches.append(compiled)
+
     overlap = set(all_of).intersection(none_of)
     if overlap:
         raise ValueError("condition cannot require and forbid the same atom")
+    for branch in alternative_branches:
+        if set(branch).intersection(none_of):
+            raise ValueError("alternatives branch cannot contain a forbidden atom")
 
     return CompiledCondition(
         all_of=all_of,
         any_of=tuple(sorted(any_groups)),
         none_of=none_of,
+        alternatives=tuple(sorted(alternative_branches)),
     )
 
 

@@ -49,6 +49,7 @@ class RuleIR:
     required_facts: tuple[str, ...]
     any_of_facts: tuple[tuple[str, ...], ...]
     forbidden_facts: tuple[str, ...]
+    alternative_fact_sets: tuple[tuple[str, ...], ...]
     antecedent_rule_ids: tuple[str, ...]
     time_scopes: tuple[str, ...]
     palace_scopes: tuple[str, ...]
@@ -70,6 +71,7 @@ class RuleIR:
             all_of=self.required_facts,
             any_of=self.any_of_facts,
             none_of=self.forbidden_facts,
+            alternatives=self.alternative_fact_sets,
         )
 
 
@@ -211,6 +213,7 @@ def compile_rule_row(
 
     any_of_facts: tuple[tuple[str, ...], ...] = ()
     forbidden_facts: tuple[str, ...] = ()
+    alternative_fact_sets: tuple[tuple[str, ...], ...] = ()
 
     condition = str(row.get("condition", "")).strip()
     has_free_condition = condition.lower() not in _NO_CONDITION and condition not in _NO_CONDITION
@@ -219,6 +222,7 @@ def compile_rule_row(
             required_facts.update(condition_spec.all_of)
             any_of_facts = condition_spec.any_of
             forbidden_facts = condition_spec.none_of
+            alternative_fact_sets = condition_spec.alternatives
         else:
             atoms = tuple(
                 sorted(
@@ -250,6 +254,7 @@ def compile_rule_row(
         required_facts=tuple(sorted(required_facts)),
         any_of_facts=any_of_facts,
         forbidden_facts=forbidden_facts,
+        alternative_fact_sets=alternative_fact_sets,
         antecedent_rule_ids=_parse_scope(row.get("antecedent_rule_ids")),
         time_scopes=_parse_scope(row.get("time_scope")),
         palace_scopes=_parse_scope(row.get("palace_scope")),
