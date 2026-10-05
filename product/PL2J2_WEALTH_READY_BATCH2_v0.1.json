@@ -1,0 +1,415 @@
+{
+  "schema_version": "0.1",
+  "batch_id": "PL2J2-WEALTH-B05",
+  "palace_id": "P05",
+  "palace_name": "财帛宫",
+  "source_csv": "validation/wp05/W01_wealth_projection_review_001_100.csv",
+  "readiness_audit": "product/PL2I_WEALTH_STRUCTURE_COVERAGE_GAP_AUDIT_v0.1.csv",
+  "requires_palace_structure": true,
+  "policy": {
+    "source_review_required": "SOURCE_SPAN_VERIFIED",
+    "case_support_only_allowed": false,
+    "normalization_epistemic": "IMPLEMENTATION",
+    "normalization_verified": true,
+    "time_layer": "NATAL",
+    "selection_policy": "consume the remaining PL2-I READY rows with no secondary blocker",
+    "note": "B05 adds no new runtime primitive. Pair shorthands are expanded as explicit named-star OR sets. W01-056 encodes at-least-two lu-bearing palaces across the approved P05/P01/P09 triad using three any_of groups."
+  },
+  "rules": {
+    "W01-004": {
+      "expected_condition": "由福德宫看财帛宫影响财帛享受",
+      "expected_projection_target": "wealth_possession_and_enjoyment_must_be_separated",
+      "expected_projection_mode": "PALACE_SEMANTIC_BOUNDARY",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_PRESENT",
+            "args": {
+              "palace": "P05"
+            }
+          },
+          {
+            "atom_type": "PALACE_PRESENT",
+            "args": {
+              "palace": "P11"
+            }
+          },
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P05",
+              "target": "P11",
+              "relation": "OPPOSITE"
+            }
+          }
+        ]
+      }
+    },
+    "W01-045": {
+      "expected_condition": "财帛宫见辅弼",
+      "expected_projection_target": "others_help_generate_income",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "any_of": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "左辅"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "右弼"
+              }
+            }
+          ]
+        ]
+      }
+    },
+    "W01-056": {
+      "expected_condition": "叠禄仅在三方宫相叠",
+      "expected_projection_target": "triadic_stacked_lu_is_weaker",
+      "expected_projection_mode": "STRUCTURAL_CONSTRAINT",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P05",
+              "target": "P01",
+              "relation": "TRIAD"
+            }
+          },
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P05",
+              "target": "P09",
+              "relation": "TRIAD"
+            }
+          }
+        ],
+        "any_of": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "禄存"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P05",
+                "mutagen": "禄"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P01",
+                "star": "禄存"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P01",
+                "mutagen": "禄"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "禄存"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P05",
+                "mutagen": "禄"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "禄存"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "mutagen": "禄"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P01",
+                "star": "禄存"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P01",
+                "mutagen": "禄"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "禄存"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "mutagen": "禄"
+              }
+            }
+          ]
+        ]
+      }
+    },
+    "W01-060": {
+      "expected_condition": "擎羊与天刑大耗空劫同度",
+      "expected_projection_target": "loss_from_competition_or_attack",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "擎羊"
+            }
+          }
+        ],
+        "any_of": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "天刑"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "大耗"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "地空"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "地劫"
+              }
+            }
+          ]
+        ]
+      }
+    },
+    "W01-072": {
+      "expected_condition": "地空地劫在财帛宫",
+      "expected_projection_target": "abrupt_setback_change",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "any_of": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "地空"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "地劫"
+              }
+            }
+          ]
+        ]
+      }
+    },
+    "W01-075": {
+      "expected_condition": "空劫与武曲化忌同度",
+      "expected_projection_target": "bankruptcy_or_unemployment",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P05",
+              "star": "武曲",
+              "mutagen": "忌"
+            }
+          }
+        ],
+        "any_of": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "地空"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "地劫"
+              }
+            }
+          ]
+        ]
+      }
+    },
+    "W01-078": {
+      "expected_condition": "龙池凤阁在财帛宫",
+      "expected_projection_target": "specialized_skill_income",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "any_of": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "龙池"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "凤阁"
+              }
+            }
+          ]
+        ]
+      }
+    },
+    "W01-079": {
+      "expected_condition": "天厨或火星天厨在财帛宫",
+      "expected_projection_target": "food_industry_income",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "天厨"
+            }
+          }
+        ]
+      }
+    },
+    "W01-080": {
+      "expected_condition": "红鸾天喜在财帛宫",
+      "expected_projection_target": "customer_segment_linked_to_opposite_sex",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "any_of": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "红鸾"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "天喜"
+              }
+            }
+          ]
+        ]
+      }
+    },
+    "W01-081": {
+      "expected_condition": "天刑蜚廉在财帛宫",
+      "expected_projection_target": "law_dispute_related_income",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "any_of": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "天刑"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "蜚廉"
+              }
+            }
+          ]
+        ]
+      }
+    },
+    "W01-082": {
+      "expected_condition": "天姚阴煞在财帛宫",
+      "expected_projection_target": "scheme_related_loss_or_scheme_based_income",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "any_of": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "天姚"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "阴煞"
+              }
+            }
+          ]
+        ]
+      }
+    }
+  }
+}
