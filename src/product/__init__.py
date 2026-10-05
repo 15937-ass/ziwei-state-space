@@ -145,6 +145,16 @@ from .rule_runtime import (
     compile_rule_row,
     compile_rule_rows,
 )
+from .temporal_environment import (
+    MAGNITUDE_STATUSES,
+    REACTION_EFFECTS,
+    TEMPORAL_LAYERS,
+    EventRelativeContextEvidence,
+    TemporalEnvironmentProfile,
+    TemporalFact,
+    TemporalReactionEvidence,
+    build_temporal_environment_profile,
+)
 from .wealth_blocker_refresh import (
     ROUTE_CLASSES,
     WealthBlockerRoute,
@@ -192,6 +202,14 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "MAGNITUDE_STATUSES",
+    "REACTION_EFFECTS",
+    "TEMPORAL_LAYERS",
+    "EventRelativeContextEvidence",
+    "TemporalEnvironmentProfile",
+    "TemporalFact",
+    "TemporalReactionEvidence",
+    "build_temporal_environment_profile",
     "BRIDGE_V02_DISPOSITIONS",
     "CheckinBridgeResultV02",
     "bridge_checkin_response_v02",
