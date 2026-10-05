@@ -15,6 +15,7 @@ from typing import Any, Iterable, Mapping
 
 from .condition_atoms import compile_condition_spec, fact_from_atom
 from .palace_structure import PalaceOntology, resolve_palace_structure
+from .structure_primitives import source_backed_structure_facts
 from .rule_runtime import CompilationReport, RuleRuntime, RuntimeState, compile_rule_row
 
 
@@ -319,6 +320,7 @@ def extract_wealth_facts(
     if palace_ontology is not None:
         structure = resolve_palace_structure(snapshot, palace_ontology)
         facts.update(structure.runtime_facts())
+        facts.update(source_backed_structure_facts(structure))
 
     return frozenset(facts)
 

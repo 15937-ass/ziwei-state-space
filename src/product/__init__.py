@@ -21,6 +21,7 @@ from .condition_atoms import (
     fact_from_atom,
 )
 from .evidence_bridge import determine_confidence, graph_to_evidence_package
+from .dignity import DignityEvidence, DignityTable, load_dignity_table
 from .evidence_package import (
     ConfidenceBand,
     ConflictItem,
@@ -36,6 +37,16 @@ from .palace_structure import (
     compile_palace_ontology,
     load_palace_ontology,
     resolve_palace_structure,
+)
+from .structure_primitives import (
+    BRANCH_ORDER,
+    FLANKING_PAIRS,
+    SOURCE_BACKED_STRUCTURES,
+    adjacent_palaces,
+    has_lu_ma_jiao_chi,
+    has_lu_stack,
+    is_flanked_by,
+    source_backed_structure_facts,
 )
 from .rule_runtime import (
     ActiveRuleGraph,
@@ -104,6 +115,9 @@ __all__ = [
     "compile_condition_registry",
     "compile_condition_spec",
     "fact_from_atom",
+    "DignityEvidence",
+    "DignityTable",
+    "load_dignity_table",
     "determine_confidence",
     "graph_to_evidence_package",
     "ConfidenceBand",
@@ -118,6 +132,14 @@ __all__ = [
     "compile_palace_ontology",
     "load_palace_ontology",
     "resolve_palace_structure",
+    "BRANCH_ORDER",
+    "FLANKING_PAIRS",
+    "SOURCE_BACKED_STRUCTURES",
+    "adjacent_palaces",
+    "has_lu_ma_jiao_chi",
+    "has_lu_stack",
+    "is_flanked_by",
+    "source_backed_structure_facts",
     "ActiveRuleGraph",
     "ActiveRuleNode",
     "CompilationReport",
