@@ -190,6 +190,7 @@ def compile_wealth_pilot(
             "source_span_verified": source_row["source_span_verified"],
             "normalization_verified": "true",
             "evidence_text": source_row["condition"],
+            "antecedent_rule_ids": registry_row.get("antecedent_rule_ids", []),
         }
 
         condition = compile_condition_spec(registry_row["condition"])
@@ -199,8 +200,12 @@ def compile_wealth_pilot(
         if issue is not None:
             issues.append(issue)
 
+    executable = sorted(executable, key=lambda item: item.rule_id)
+    if not issues:
+        RuleRuntime(executable)
+
     return CompilationReport(
-        executable=tuple(sorted(executable, key=lambda item: item.rule_id)),
+        executable=tuple(executable),
         issues=tuple(sorted(issues, key=lambda item: item.rule_id)),
     )
 
