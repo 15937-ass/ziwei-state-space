@@ -4,6 +4,21 @@ These modules consume approved research artifacts but must not silently create
 new domain theory.
 """
 
+from .acquired_state import (
+    ACQUIRED_STATE_DOMAINS,
+    ASSERTION_STATUSES,
+    CONTEXT_KINDS,
+    CONTEXT_STATUSES,
+    FORBIDDEN_CANONICAL_KEYS,
+    MISSINGNESS_REASONS,
+    AcquiredAction,
+    AcquiredContextItem,
+    AcquiredStateAssertion,
+    AcquiredStateProfile,
+    StateConflict,
+    StateMissingness,
+    compile_acquired_state,
+)
 from .career_readiness_audit import (
     ALLOWED_TIME_LAYERS,
     SCHEMA_DRIFT_TIME_CONDITION_SWAP,
@@ -241,6 +256,19 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "ACQUIRED_STATE_DOMAINS",
+    "ASSERTION_STATUSES",
+    "CONTEXT_KINDS",
+    "CONTEXT_STATUSES",
+    "FORBIDDEN_CANONICAL_KEYS",
+    "MISSINGNESS_REASONS",
+    "AcquiredAction",
+    "AcquiredContextItem",
+    "AcquiredStateAssertion",
+    "AcquiredStateProfile",
+    "StateConflict",
+    "StateMissingness",
+    "compile_acquired_state",
     "CanonicalEvidenceNamespace",
     "LayeredEvidencePackage",
     "TemporalEvidenceNamespace",
