@@ -66,6 +66,12 @@ from .wealth_blocker_refresh import (
     load_wealth_blocker_refresh,
     validate_wealth_blocker_refresh,
 )
+from .wealth_normalization_review import (
+    DISPOSITIONS as NORMALIZATION_REVIEW_DISPOSITIONS,
+    NormalizationReview,
+    load_normalization_review,
+    validate_normalization_review,
+)
 from .wealth_gap_audit import (
     READINESS_CLASSES,
     READY_CLASSES,
@@ -150,6 +156,10 @@ __all__ = [
     "RuntimeState",
     "compile_rule_row",
     "compile_rule_rows",
+    "NORMALIZATION_REVIEW_DISPOSITIONS",
+    "NormalizationReview",
+    "load_normalization_review",
+    "validate_normalization_review",
     "ROUTE_CLASSES",
     "WealthBlockerRoute",
     "load_wealth_blocker_refresh",
