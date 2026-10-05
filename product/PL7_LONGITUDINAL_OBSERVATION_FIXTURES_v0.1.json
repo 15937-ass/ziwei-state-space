@@ -1,0 +1,225 @@
+{
+  "schema_version": "0.1",
+  "fixtures": [
+    {
+      "schema_version": "0.1",
+      "record_id": "LO-FX-001",
+      "person_key": "P-DEMO-001",
+      "observation_design": "PROSPECTIVE",
+      "window": {
+        "start_date": "2027-01-01",
+        "end_date": "2027-12-31",
+        "observed_through": "2027-12-31",
+        "timezone": "Asia/Shanghai",
+        "precision": "YEAR"
+      },
+      "target": {
+        "target_id": "T-REL-001",
+        "domain": "relationship",
+        "manifestation_family": "relationship_activation",
+        "event_type": "new_relationship",
+        "ontology_version": "MANIFESTATION-0.1"
+      },
+      "actions": [
+        {
+          "action_id": "A1",
+          "status": "ACTUAL",
+          "label": "regular social exposure",
+          "date": "2027-03-01",
+          "confidence": "HIGH"
+        }
+      ],
+      "context": {
+        "exposures": [
+          "social_activity"
+        ],
+        "external_factors": [],
+        "counterparty_factors": []
+      },
+      "outcome": {
+        "status": "EVENT_OCCURRED",
+        "event_date": "2027-06-15",
+        "severity": null,
+        "duration_days": null,
+        "censor_reason": null
+      },
+      "observation": {
+        "source_type": "USER_SELF_REPORT",
+        "confidence": "HIGH",
+        "collected_date": "2028-01-05",
+        "notes_ref": null
+      },
+      "model_linkage": {
+        "chart_version": "chart-v1",
+        "knowledge_version": "kb-v1",
+        "natal_state_ref": "N-1",
+        "temporal_environment_ref": "E-2027",
+        "state_before_ref": "S-2026",
+        "forecast": {
+          "mode": "BLIND",
+          "forecast_id": "F-1",
+          "model_version": "m-v1",
+          "locked_date": "2026-12-20"
+        }
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "record_id": "LO-FX-002",
+      "person_key": "P-DEMO-002",
+      "observation_design": "PROSPECTIVE",
+      "window": {
+        "start_date": "2027-01-01",
+        "end_date": "2027-12-31",
+        "observed_through": "2027-12-31",
+        "timezone": "Asia/Shanghai",
+        "precision": "YEAR"
+      },
+      "target": {
+        "target_id": "T-CAR-001",
+        "domain": "career",
+        "manifestation_family": "career_change",
+        "event_type": "job_change",
+        "ontology_version": "MANIFESTATION-0.1"
+      },
+      "actions": [],
+      "context": {
+        "exposures": [],
+        "external_factors": [],
+        "counterparty_factors": []
+      },
+      "outcome": {
+        "status": "EVENT_NOT_OCCURRED",
+        "event_date": null,
+        "severity": null,
+        "duration_days": null,
+        "censor_reason": null
+      },
+      "observation": {
+        "source_type": "USER_SELF_REPORT",
+        "confidence": "MEDIUM",
+        "collected_date": "2028-01-04",
+        "notes_ref": null
+      },
+      "model_linkage": {
+        "chart_version": "chart-v1",
+        "knowledge_version": "kb-v1",
+        "natal_state_ref": "N-2",
+        "temporal_environment_ref": "E-2027",
+        "state_before_ref": "S-2026",
+        "forecast": {
+          "mode": "NONE",
+          "forecast_id": null,
+          "model_version": null,
+          "locked_date": null
+        }
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "record_id": "LO-FX-003",
+      "person_key": "P-DEMO-003",
+      "observation_design": "PROSPECTIVE",
+      "window": {
+        "start_date": "2027-01-01",
+        "end_date": "2027-12-31",
+        "observed_through": "2027-07-31",
+        "timezone": "Asia/Shanghai",
+        "precision": "YEAR"
+      },
+      "target": {
+        "target_id": "T-MIG-001",
+        "domain": "migration",
+        "manifestation_family": "relocation",
+        "event_type": "residential_move",
+        "ontology_version": "MANIFESTATION-0.1"
+      },
+      "actions": [],
+      "context": {
+        "exposures": [],
+        "external_factors": [
+          "follow_up_lost"
+        ],
+        "counterparty_factors": []
+      },
+      "outcome": {
+        "status": "CENSORED",
+        "event_date": null,
+        "severity": null,
+        "duration_days": null,
+        "censor_reason": "follow-up ended before target window close"
+      },
+      "observation": {
+        "source_type": "RESEARCH_INTERVIEW",
+        "confidence": "MEDIUM",
+        "collected_date": "2027-08-01",
+        "notes_ref": null
+      },
+      "model_linkage": {
+        "chart_version": null,
+        "knowledge_version": null,
+        "natal_state_ref": null,
+        "temporal_environment_ref": null,
+        "state_before_ref": null,
+        "forecast": {
+          "mode": "NONE",
+          "forecast_id": null,
+          "model_version": null,
+          "locked_date": null
+        }
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "record_id": "LO-FX-004",
+      "person_key": "P-DEMO-004",
+      "observation_design": "RETROSPECTIVE",
+      "window": {
+        "start_date": "2024-01-01",
+        "end_date": "2024-12-31",
+        "observed_through": "2024-12-31",
+        "timezone": "Asia/Shanghai",
+        "precision": "YEAR"
+      },
+      "target": {
+        "target_id": "T-WEA-001",
+        "domain": "wealth",
+        "manifestation_family": "resource_change",
+        "event_type": "major_income_change",
+        "ontology_version": "MANIFESTATION-0.1"
+      },
+      "actions": [],
+      "context": {
+        "exposures": [],
+        "external_factors": [],
+        "counterparty_factors": []
+      },
+      "outcome": {
+        "status": "UNKNOWN",
+        "event_date": null,
+        "severity": null,
+        "duration_days": null,
+        "censor_reason": null
+      },
+      "observation": {
+        "source_type": "USER_SELF_REPORT",
+        "confidence": "INSUFFICIENT",
+        "collected_date": "2026-10-05",
+        "notes_ref": null
+      },
+      "model_linkage": {
+        "chart_version": null,
+        "knowledge_version": null,
+        "natal_state_ref": null,
+        "temporal_environment_ref": null,
+        "state_before_ref": null,
+        "forecast": {
+          "mode": "NONE",
+          "forecast_id": null,
+          "model_version": null,
+          "locked_date": null
+        }
+      }
+    }
+  ]
+}

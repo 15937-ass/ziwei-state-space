@@ -4,10 +4,10 @@ state_owner: "product conversation"
 project_state_dependency: "../PROJECT_STATE.yaml"
 
 execution:
-  current_phase: "PL3-N"
-  completed_work_unit: "PRODUCT_PL3N_CAREER_READINESS_AUDIT"
-  next_work_unit: "PRODUCT_PL7_LONGITUDINAL_OBSERVATION_SCHEMA_V0_1"
-  status: "PL3N_CAREER_PROVIDER_BLOCKED_ON_KB_REPAIR_AND_CA09; PARALLEL_DATA_INFRA_NEXT"
+  current_phase: "PL7-PARALLEL-DATA-INFRA"
+  completed_work_unit: "PRODUCT_PL7_LONGITUDINAL_OBSERVATION_SCHEMA_V0_1"
+  next_work_unit: "PRODUCT_PL7_PROSPECTIVE_CHECKIN_PROTOCOL_V0_1"
+  status: "PL7_OBSERVATION_CONTRACT_READY; NO_TRAINING; PL3N_CAREER_REMAINS_BLOCKED_ON_KB_REPAIR_AND_CA09"
   canonical_branch: "main"
 
 boundaries:
@@ -39,6 +39,7 @@ completed:
   - "PL3-N generic domain-provider registry"
   - "PL3-N natal fixture benchmark v0.1"
   - "PL3-N career readiness audit: 800 rows source-verified; CA04-CA08 schema drift detected; career provider blocked pending repair + CA09 closure"
+  - "PL7 longitudinal observation schema v0.1: prospective/retrospective windows, explicit negative/unknown/censored outcomes, action/context separation, blind-lock guard"
 
 artifacts:
   human_gate_decision: "product/PL2Q_HUMAN_GATE_DECISION_SPEC_v0.1.md"
@@ -71,6 +72,11 @@ artifacts:
   career_readiness_acceptance: "product/PL3N_CAREER_READINESS_AUDIT_ACCEPTANCE.md"
   career_readiness_api: "src/product/career_readiness_audit.py"
   career_readiness_tests: "tests/test_product_career_readiness_audit.py"
+  longitudinal_observation_schema: "product/PL7_LONGITUDINAL_OBSERVATION_SCHEMA_v0.1.json"
+  longitudinal_observation_acceptance: "product/PL7_LONGITUDINAL_OBSERVATION_SCHEMA_ACCEPTANCE.md"
+  longitudinal_observation_fixtures: "product/PL7_LONGITUDINAL_OBSERVATION_FIXTURES_v0.1.json"
+  longitudinal_observation_api: "src/product/longitudinal_observation.py"
+  longitudinal_observation_tests: "tests/test_product_longitudinal_observation.py"
 
 parallel_work_policy:
   - "Every product session reads top-level PROJECT_STATE.yaml first for repository/knowledge state."

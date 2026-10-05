@@ -1,0 +1,354 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ziwei/pl7-longitudinal-observation-v0.1.schema.json",
+  "title": "PL7 Longitudinal Observation Record v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "record_id",
+    "person_key",
+    "observation_design",
+    "window",
+    "target",
+    "actions",
+    "context",
+    "outcome",
+    "observation",
+    "model_linkage"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "person_key": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Pseudonymous subject key only; do not store a real name here."
+    },
+    "observation_design": {
+      "enum": [
+        "PROSPECTIVE",
+        "RETROSPECTIVE"
+      ]
+    },
+    "window": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start_date",
+        "end_date",
+        "observed_through"
+      ],
+      "properties": {
+        "start_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "end_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "observed_through": {
+          "type": "string",
+          "format": "date"
+        },
+        "timezone": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "precision": {
+          "enum": [
+            "DAY",
+            "MONTH",
+            "YEAR"
+          ]
+        }
+      }
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target_id",
+        "domain",
+        "manifestation_family",
+        "event_type",
+        "ontology_version"
+      ],
+      "properties": {
+        "target_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "domain": {
+          "type": "string",
+          "minLength": 1
+        },
+        "manifestation_family": {
+          "type": "string",
+          "minLength": 1
+        },
+        "event_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ontology_version": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "action_id",
+          "status",
+          "label",
+          "confidence"
+        ],
+        "properties": {
+          "action_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "INTENDED",
+              "PLANNED",
+              "ACTUAL",
+              "ABANDONED",
+              "UNKNOWN"
+            ]
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "date": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date"
+          },
+          "confidence": {
+            "enum": [
+              "HIGH",
+              "MEDIUM",
+              "LOW",
+              "INSUFFICIENT"
+            ]
+          }
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "exposures",
+        "external_factors",
+        "counterparty_factors"
+      ],
+      "properties": {
+        "exposures": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "external_factors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "counterparty_factors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "outcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "event_date",
+        "severity",
+        "duration_days",
+        "censor_reason"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "EVENT_OCCURRED",
+            "EVENT_NOT_OCCURRED",
+            "UNKNOWN",
+            "CENSORED"
+          ]
+        },
+        "event_date": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date"
+        },
+        "severity": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "duration_days": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "censor_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_type",
+        "confidence",
+        "collected_date",
+        "notes_ref"
+      ],
+      "properties": {
+        "source_type": {
+          "enum": [
+            "USER_SELF_REPORT",
+            "DOCUMENTED_RECORD",
+            "RESEARCH_INTERVIEW",
+            "PUBLIC_RECORD",
+            "OTHER"
+          ]
+        },
+        "confidence": {
+          "enum": [
+            "HIGH",
+            "MEDIUM",
+            "LOW",
+            "INSUFFICIENT"
+          ]
+        },
+        "collected_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "notes_ref": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Reference to separately governed raw notes; no raw narrative required in this record."
+        }
+      }
+    },
+    "model_linkage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "chart_version",
+        "knowledge_version",
+        "natal_state_ref",
+        "temporal_environment_ref",
+        "state_before_ref",
+        "forecast"
+      ],
+      "properties": {
+        "chart_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "knowledge_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "natal_state_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "temporal_environment_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "state_before_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "forecast": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "mode",
+            "forecast_id",
+            "model_version",
+            "locked_date"
+          ],
+          "properties": {
+            "mode": {
+              "enum": [
+                "NONE",
+                "BLIND",
+                "PERSONALIZED"
+              ]
+            },
+            "forecast_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "model_version": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "locked_date": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "format": "date"
+            }
+          }
+        }
+      }
+    }
+  }
+}

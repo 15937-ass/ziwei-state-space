@@ -54,6 +54,16 @@ from .evidence_package import (
     EvidenceItem,
     EvidencePackage,
 )
+from .longitudinal_observation import (
+    ACTION_STATUSES,
+    CONFIDENCE_LEVELS,
+    EVENT_STATUSES,
+    FORECAST_MODES,
+    OBSERVATION_DESIGNS,
+    SOURCE_TYPES,
+    LongitudinalObservationRecord,
+    compile_longitudinal_observation,
+)
 from .natal_domain_registry import (
     NatalDomainProvider,
     NatalDomainProviderRegistry,
@@ -151,6 +161,14 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "ACTION_STATUSES",
+    "CONFIDENCE_LEVELS",
+    "EVENT_STATUSES",
+    "FORECAST_MODES",
+    "OBSERVATION_DESIGNS",
+    "SOURCE_TYPES",
+    "LongitudinalObservationRecord",
+    "compile_longitudinal_observation",
     "ALLOWED_TIME_LAYERS",
     "SCHEMA_DRIFT_TIME_CONDITION_SWAP",
     "CareerBatchAudit",
