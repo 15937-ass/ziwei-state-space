@@ -12,6 +12,11 @@ from .career_readiness_audit import (
     audit_career_batch,
     audit_career_projection_batches,
 )
+from .checkin_observation_bridge import (
+    BRIDGE_DISPOSITIONS,
+    CheckinBridgeResult,
+    bridge_checkin_response,
+)
 from .chart_diff import ChartDifference, compare_chart_snapshots, summarize_differences
 from .antecedent_links import (
     LINK_STATUSES,
@@ -174,6 +179,9 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "BRIDGE_DISPOSITIONS",
+    "CheckinBridgeResult",
+    "bridge_checkin_response",
     "ANSWER_MAPPING",
     "CHECKIN_ANSWERS",
     "CHECKPOINT_TYPES",
