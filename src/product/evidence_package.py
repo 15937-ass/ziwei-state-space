@@ -74,6 +74,64 @@ class ContrastiveItem:
             raise ValueError("ContrastiveItem.candidate_claim is required")
 
 
+@dataclass(frozen=True)
+class TemporalEvidenceNamespace:
+    """Environment-only evidence derived from a TemporalEnvironmentProfile.
+
+    This namespace is structurally separate from canonical, personal, and
+    empirical evidence. It must never carry outcome truth, personal posterior,
+    acquired-state payloads, or empirical probability.
+    """
+
+    profile_id: str
+    natal_profile_id: str
+    target_label: str
+    active_layers: tuple[str, ...] = ()
+    temporal_facts: tuple[dict[str, Any], ...] = ()
+    temporal_reactions: tuple[dict[str, Any], ...] = ()
+    environment_states: tuple[str, ...] = ()
+    event_relative_context: tuple[dict[str, Any], ...] = ()
+    conflicts: tuple[str, ...] = ()
+    external_event_trigger_used: bool = False
+
+    def validate(self) -> None:
+        if not self.profile_id.strip():
+            raise ValueError("TemporalEvidenceNamespace.profile_id is required")
+        if not self.natal_profile_id.strip():
+            raise ValueError("TemporalEvidenceNamespace.natal_profile_id is required")
+        if not self.target_label.strip():
+            raise ValueError("TemporalEvidenceNamespace.target_label is required")
+
+        forbidden_keys = {
+            "probability",
+            "posterior",
+            "outcome",
+            "outcome_used",
+            "acquired_state",
+            "acquired_state_used",
+            "personal_state",
+            "empirical_calibration",
+            "empirical_calibration_used",
+        }
+
+        def walk(value: Any) -> None:
+            if isinstance(value, dict):
+                for key, item in value.items():
+                    if str(key) in forbidden_keys:
+                        raise ValueError(
+                            "TEMPORAL namespace cannot contain personal/empirical/"
+                            f"outcome field: {key}"
+                        )
+                    walk(item)
+            elif isinstance(value, (list, tuple)):
+                for item in value:
+                    walk(item)
+
+        walk(self.temporal_facts)
+        walk(self.temporal_reactions)
+        walk(self.event_relative_context)
+
+
 @dataclass
 class EvidencePackage:
     question: str
@@ -91,6 +149,7 @@ class EvidencePackage:
     confidence_rationale: str = ""
     engine_version: str = ""
     knowledge_version: str = ""
+    temporal: TemporalEvidenceNamespace | None = None
 
     def validate(self) -> None:
         if not self.question.strip():
@@ -101,6 +160,9 @@ class EvidencePackage:
             item.validate()
         for item in self.contrastive:
             item.validate()
+
+        if self.temporal is not None:
+            self.temporal.validate()
 
         if self.confidence_band is ConfidenceBand.HIGH_CONFIDENCE and not self.active_rules:
             raise ValueError("HIGH_CONFIDENCE requires at least one active evidence rule")
