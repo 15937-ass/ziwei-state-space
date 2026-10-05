@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1",
+  "state_id": null,
+  "person_key": "PERSON-FX-001",
+  "as_of_date": "2027-06-30",
+  "previous_state_id": null,
+  "assertions": [
+    {
+      "fact_id": "SF-CAREER-001",
+      "domain": "CAREER",
+      "key": "employment_status",
+      "value": "EMPLOYED",
+      "status": "CONFIRMED",
+      "confidence": "HIGH",
+      "valid_from": "2027-01-01",
+      "valid_through": null,
+      "observation_refs": [
+        "OBS-STATE-001"
+      ],
+      "source_note": "confirmed current employment"
+    },
+    {
+      "fact_id": "SF-RELOC-001",
+      "domain": "RELOCATION",
+      "key": "distant_settlement_status",
+      "value": "SETTLED",
+      "status": "REPORTED",
+      "confidence": "MEDIUM",
+      "valid_from": "2026-09-01",
+      "valid_through": null,
+      "observation_refs": [
+        "OBS-STATE-002"
+      ],
+      "source_note": null
+    }
+  ],
+  "actions": [
+    {
+      "action_id": "ACT-001",
+      "label": "actively applying for new roles",
+      "status": "ACTUAL",
+      "confidence": "HIGH",
+      "date": "2027-06-15",
+      "observation_refs": [
+        "OBS-STATE-001"
+      ]
+    }
+  ],
+  "context_items": [
+    {
+      "context_id": "CTX-EXP-001",
+      "kind": "EXPOSURE",
+      "label": "regular recruiter contact",
+      "status": "ACTIVE",
+      "confidence": "MEDIUM",
+      "observation_refs": [
+        "OBS-STATE-001"
+      ]
+    },
+    {
+      "context_id": "CTX-COUNTER-001",
+      "kind": "COUNTERPARTY",
+      "label": "employer decision pending",
+      "status": "ACTIVE",
+      "confidence": "MEDIUM",
+      "observation_refs": [
+        "OBS-STATE-001"
+      ]
+    }
+  ],
+  "missingness": [
+    {
+      "domain": "RESOURCE",
+      "key": "liquid_asset_level",
+      "reason": "NOT_ASKED",
+      "last_observed_date": null
+    }
+  ],
+  "conflicts": [],
+  "source_observation_ids": [
+    "OBS-STATE-001",
+    "OBS-STATE-002"
+  ],
+  "state_confidence": "MEDIUM"
+}
