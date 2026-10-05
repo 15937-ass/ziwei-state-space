@@ -15,7 +15,9 @@
 - PL7 minimum data-entry loop：v0.2 interval-time bridge 完成；
 - PL3-T TemporalEnvironmentProfile core：完成；
 - PL3-T Existing temporal asset adapter：完成；
-- 下一主工作单元：`PRODUCT_PL3T_NATAL_TEMPORAL_REACTION_COMPILER_V0_1`。
+- PL3-T Natal × Temporal reaction compiler：完成（production registry 等待 KB-WP07B structured normalization）；
+- PL3-T Event-relative window support：完成，仅实现 HG-P07 批准的 `MIGRATION_FIRST_THREE_YEARS`；
+- 下一主工作单元：`PRODUCT_PL3T_TEMPORAL_FIXTURE_BENCHMARK_V0_1`。
 
 ## 2. 主线执行顺序
 
@@ -285,8 +287,8 @@ Symbolic / deterministic
 
 ## 16. 当前下一步
 
-PL3-T core 与 Existing temporal asset adapter 已完成。当前主线继续到：
+PL3-T core、Temporal Asset Adapter、Natal × Temporal Reaction Compiler 与单一批准的 Event-relative Window Support 均已完成。当前主线继续到：
 
-**PRODUCT_PL3T_NATAL_TEMPORAL_REACTION_COMPILER_V0_1**
+**PRODUCT_PL3T_TEMPORAL_FIXTURE_BENCHMARK_V0_1**
 
-该阶段只编译 source-reviewed temporal reaction，不训练概率、不把时间环境直接升级为事件。PL7 后续质量工程继续并行；Career provider 等知识侧 unblock 后插回 PL3-N domain expansion，不打乱主线。
+该阶段把现有 PL3-T 组件组合进固定 fixture benchmark，验证相同原局、相同目标时间、相同 knowledge version 会稳定产生相同 TemporalEnvironmentProfile；production reaction registry 在 KB-WP07B structured normalization 到位前继续保持为空。PL7 后续质量工程继续并行；Career provider 等知识侧 unblock 后插回 PL3-N domain expansion，不打乱主线。
