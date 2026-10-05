@@ -138,6 +138,14 @@ from .palace_structure import (
     load_palace_ontology,
     resolve_palace_structure,
 )
+from .state_updater import (
+    STATE_UPDATE_OPERATIONS,
+    StateUpdateDirective,
+    StateUpdateReport,
+    StateUpdateRequest,
+    compile_state_update_request,
+    update_acquired_state,
+)
 from .structure_primitives import (
     BRANCH_ORDER,
     FLANKING_PAIRS,
@@ -256,6 +264,12 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "STATE_UPDATE_OPERATIONS",
+    "StateUpdateDirective",
+    "StateUpdateReport",
+    "StateUpdateRequest",
+    "compile_state_update_request",
+    "update_acquired_state",
     "ACQUIRED_STATE_DOMAINS",
     "ASSERTION_STATUSES",
     "CONTEXT_KINDS",
