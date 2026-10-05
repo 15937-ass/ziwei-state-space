@@ -1,0 +1,278 @@
+{
+  "schema_version": "0.1",
+  "batch_id": "PL2J-WEALTH-B04",
+  "palace_id": "P05",
+  "palace_name": "财帛宫",
+  "source_csv": "validation/wp05/W01_wealth_projection_review_001_100.csv",
+  "readiness_audit": "product/PL2I_WEALTH_STRUCTURE_COVERAGE_GAP_AUDIT_v0.1.csv",
+  "requires_palace_structure": true,
+  "policy": {
+    "source_review_required": "SOURCE_SPAN_VERIFIED",
+    "case_support_only_allowed": false,
+    "normalization_epistemic": "IMPLEMENTATION",
+    "normalization_verified": true,
+    "time_layer": "NATAL",
+    "selection_policy": "consume only PL2-I READY rows with no secondary blocker",
+    "note": "B04 is data-only: it adds no new runtime primitive. 辅弼 is explicitly expanded to 左辅/右弼; 禄星 is explicitly expanded to 禄存 or 化禄."
+  },
+  "rules": {
+    "W01-002": {
+      "expected_condition": "由财帛宫看福德宫影响生财难易",
+      "expected_projection_target": "earning_difficulty_modified_by_fortune_palace",
+      "expected_projection_mode": "PALACE_SEMANTIC_BOUNDARY",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P05",
+              "target": "P11",
+              "relation": "OPPOSITE"
+            }
+          }
+        ]
+      }
+    },
+    "W01-003": {
+      "expected_condition": "福德宫可表现劳心劳力或运筹帷幄等生财方式",
+      "expected_projection_target": "earning_effort_mode_from_fortune_palace",
+      "expected_projection_mode": "PALACE_SEMANTIC_BOUNDARY",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_PRESENT",
+            "args": {
+              "palace": "P11"
+            }
+          },
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P05",
+              "target": "P11",
+              "relation": "OPPOSITE"
+            }
+          }
+        ]
+      }
+    },
+    "W01-005": {
+      "expected_condition": "财帛宫与福德宫需综合判断",
+      "expected_projection_target": "joint_wealth_fortune_reading_required",
+      "expected_projection_mode": "STRUCTURAL_CONSTRAINT",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P05",
+              "target": "P11",
+              "relation": "OPPOSITE"
+            }
+          }
+        ]
+      }
+    },
+    "W01-020": {
+      "expected_condition": "财帛宫所主",
+      "expected_projection_target": "earning_ability_and_opportunity",
+      "expected_projection_mode": "PALACE_SEMANTIC_BOUNDARY",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_PRESENT",
+            "args": {
+              "palace": "P05"
+            }
+          }
+        ]
+      }
+    },
+    "W01-021": {
+      "expected_condition": "命宫所主",
+      "expected_projection_target": "life_scale_is_distinct_from_wealth_capacity",
+      "expected_projection_mode": "PALACE_SEMANTIC_BOUNDARY",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_PRESENT",
+            "args": {
+              "palace": "P01"
+            }
+          },
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P05",
+              "target": "P01",
+              "relation": "TRIAD"
+            }
+          }
+        ]
+      }
+    },
+    "W01-036": {
+      "expected_condition": "田宅宫亦表征自己经营店号",
+      "expected_projection_target": "property_palace_can_modify_small_business_sustenance",
+      "expected_projection_mode": "CROSS_PALACE_CONSTRAINT",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_PRESENT",
+            "args": {
+              "palace": "P10"
+            }
+          }
+        ]
+      }
+    },
+    "W01-046": {
+      "expected_condition": "财帛宫见辅弼",
+      "expected_projection_target": "independent_operation_more_feasible",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "any_of": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "左辅"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "右弼"
+              }
+            }
+          ]
+        ]
+      }
+    },
+    "W01-068": {
+      "expected_condition": "火星与天机及禄星同度",
+      "expected_projection_target": "sudden_income_opportunity",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "火星"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "天机"
+            }
+          }
+        ],
+        "any_of": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "禄存"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P05",
+                "mutagen": "禄"
+              }
+            }
+          ]
+        ]
+      }
+    },
+    "W01-069": {
+      "expected_condition": "火星与破军及禄星同度",
+      "expected_projection_target": "multiple_job_or_side_income_opportunity",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "火星"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "破军"
+            }
+          }
+        ],
+        "any_of": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "禄存"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P05",
+                "mutagen": "禄"
+              }
+            }
+          ]
+        ]
+      }
+    },
+    "W01-070": {
+      "expected_condition": "火星与地空及禄星同度",
+      "expected_projection_target": "sudden_but_unrealized_paper_wealth",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "火星"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P05",
+              "star": "地空"
+            }
+          }
+        ],
+        "any_of": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P05",
+                "star": "禄存"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P05",
+                "mutagen": "禄"
+              }
+            }
+          ]
+        ]
+      }
+    }
+  }
+}
