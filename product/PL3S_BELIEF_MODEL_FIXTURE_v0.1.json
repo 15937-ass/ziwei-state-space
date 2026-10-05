@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.1",
+  "model_id": "BELIEF-FX-CAREER-001",
+  "model_version": "fixture-0.1",
+  "domain": "CAREER",
+  "state_key": "near_term_job_transition_state",
+  "hypotheses": [
+    "STABLE",
+    "TRANSITIONING"
+  ],
+  "prior": {
+    "STABLE": 0.5,
+    "TRANSITIONING": 0.5
+  },
+  "evidence_channels": [
+    {
+      "evidence_id": "EV-EMPLOYMENT",
+      "domain": "CAREER",
+      "key": "employment_status",
+      "accepted_confidences": [
+        "HIGH",
+        "MEDIUM"
+      ],
+      "likelihoods": {
+        "EMPLOYED": {
+          "STABLE": 0.8,
+          "TRANSITIONING": 0.2
+        },
+        "UNEMPLOYED": {
+          "STABLE": 0.2,
+          "TRANSITIONING": 0.8
+        }
+      }
+    }
+  ],
+  "parameter_layer": "TEST_FIXTURE",
+  "parameter_source": "PL3S test fixture only; not empirical product parameters",
+  "model_status": "TEST_ONLY"
+}
