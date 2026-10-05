@@ -5,9 +5,9 @@ project_state_dependency: "../PROJECT_STATE.yaml"
 
 execution:
   current_phase: "PL3-S"
-  completed_work_unit: "PRODUCT_PL3T_TEMPORAL_EVIDENCE_PACKAGE_INTEGRATION_V0_1"
-  next_work_unit: "PRODUCT_PL3S_ACQUIRED_STATE_SCHEMA_V0_1"
-  status: "PL3T_PRODUCT_SKELETON_COMPLETE; PL3S_ACQUIRED_STATE_NEXT; PRODUCTION_TEMPORAL_REACTION_REGISTRY_PENDING_KB_WP07B"
+  completed_work_unit: "PRODUCT_PL3S_ACQUIRED_STATE_SCHEMA_V0_1"
+  next_work_unit: "PRODUCT_PL3S_DETERMINISTIC_STATE_UPDATER_V0_1"
+  status: "PL3S_ACQUIRED_STATE_SCHEMA_READY; DETERMINISTIC_STATE_UPDATER_NEXT; PRODUCTION_TEMPORAL_REACTION_REGISTRY_PENDING_KB_WP07B"
   canonical_branch: "main"
 
 boundaries:
@@ -51,6 +51,7 @@ completed:
   - "PL3-T event-relative window v0.1: only MIGRATION_FIRST_THREE_YEARS, explicit external trigger provenance, no generic timer/decay/generalization"
   - "PL3-T temporal fixture benchmark v0.1: four deterministic contract cases for base environment and event-relative boundaries; no empirical accuracy claim"
   - "PL3-T layered EvidencePackage v0.1: CANONICAL/TEMPORAL/PERSONAL/EMPIRICAL namespaces; PL3-T populates canonical+temporal only"
+  - "PL3-S AcquiredState schema v0.1: deterministic reality-state snapshot with provenance, missingness, contradiction containers, and strict Natal/Temporal/Empirical boundaries"
 
 artifacts:
   human_gate_decision: "product/PL2Q_HUMAN_GATE_DECISION_SPEC_v0.1.md"
@@ -128,6 +129,11 @@ artifacts:
   layered_evidence_package_api: "src/product/layered_evidence_package.py"
   layered_evidence_package_acceptance: "product/PL3T_TEMPORAL_EVIDENCE_PACKAGE_INTEGRATION_ACCEPTANCE.md"
   layered_evidence_package_tests: "tests/test_product_layered_evidence_package.py"
+  acquired_state_schema: "product/PL3S_ACQUIRED_STATE_SCHEMA_v0.1.md"
+  acquired_state_fixture: "product/PL3S_ACQUIRED_STATE_FIXTURE_v0.1.json"
+  acquired_state_acceptance: "product/PL3S_ACQUIRED_STATE_SCHEMA_ACCEPTANCE.md"
+  acquired_state_api: "src/product/acquired_state.py"
+  acquired_state_tests: "tests/test_product_acquired_state.py"
 
 parallel_work_policy:
   - "Every product session reads top-level PROJECT_STATE.yaml first for repository/knowledge state."
