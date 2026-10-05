@@ -171,6 +171,14 @@ from .temporal_environment import (
     TemporalReactionEvidence,
     build_temporal_environment_profile,
 )
+from .temporal_fixture_benchmark import (
+    TemporalFixture,
+    TemporalFixtureResult,
+    load_temporal_fixtures,
+    run_temporal_fixture,
+    run_temporal_fixture_benchmark,
+    validate_temporal_fixture,
+)
 from .temporal_reaction_compiler import (
     ALLOWED_REACTION_NORMALIZATION,
     ALLOWED_REACTION_REVIEW,
@@ -227,6 +235,12 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "TemporalFixture",
+    "TemporalFixtureResult",
+    "load_temporal_fixtures",
+    "run_temporal_fixture",
+    "run_temporal_fixture_benchmark",
+    "validate_temporal_fixture",
     "EVENT_RELATIVE_STATUSES",
     "MIGRATION_WINDOW_ID",
     "EventRelativeWindowResolution",
