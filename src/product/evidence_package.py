@@ -65,6 +65,7 @@ class ContrastiveItem:
     missing_all_of: tuple[str, ...] = ()
     unsatisfied_any_of: tuple[tuple[str, ...], ...] = ()
     blocked_by: tuple[str, ...] = ()
+    missing_antecedents: tuple[str, ...] = ()
 
     def validate(self) -> None:
         if not self.rule_id.strip():
