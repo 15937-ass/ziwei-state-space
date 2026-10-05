@@ -1,0 +1,42 @@
+{
+  "schema_version": "0.1",
+  "batch_id": "PL2M-WEALTH-B06",
+  "palace_id": "P05",
+  "sections": [
+    {
+      "id": "decision",
+      "label": "财务决策边界",
+      "domains": [
+        "decision"
+      ],
+      "basis": "W01-007 projection_domain=decision; display-only view of source-span-verified target"
+    }
+  ],
+  "rules": {
+    "W01-007": {
+      "section": "decision",
+      "display_claim": "该结构下，不宜轻率承担财务承诺或金钱责任。"
+    },
+    "W01-008": {
+      "section": "acquisition",
+      "display_claim": "从福德宫角度看同一结构时，可表现为理想所需资本不足。"
+    },
+    "W01-009": {
+      "section": "career_income_relation",
+      "display_claim": "该结构不偏好需要承担金钱责任或财务保证的行业场景。"
+    },
+    "W01-015": {
+      "section": "career_income_relation",
+      "display_claim": "前述太阳天梁结构可投射到政府、福利机构、上市公司、专业或自由职业等场景。"
+    },
+    "W01-062": {
+      "section": "retention",
+      "display_claim": "前述意外补偿类收入即使出现，也较难留存。"
+    }
+  },
+  "policy": {
+    "presentation_only": true,
+    "no_new_rule_semantics": true,
+    "antecedent_trace_required": true
+  }
+}
