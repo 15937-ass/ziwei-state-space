@@ -49,6 +49,7 @@ class RuleIR:
     required_facts: tuple[str, ...]
     any_of_facts: tuple[tuple[str, ...], ...]
     forbidden_facts: tuple[str, ...]
+    antecedent_rule_ids: tuple[str, ...]
     time_scopes: tuple[str, ...]
     palace_scopes: tuple[str, ...]
     topic_scopes: tuple[str, ...]
@@ -87,6 +88,7 @@ class ActiveRuleNode:
     source_pointer: str
     review_status: str
     matched_conditions: tuple[str, ...]
+    matched_antecedents: tuple[str, ...]
     operator: str
     target_state: str
     before_state: Any
@@ -248,6 +250,7 @@ def compile_rule_row(
         required_facts=tuple(sorted(required_facts)),
         any_of_facts=any_of_facts,
         forbidden_facts=forbidden_facts,
+        antecedent_rule_ids=_parse_scope(row.get("antecedent_rule_ids")),
         time_scopes=_parse_scope(row.get("time_scope")),
         palace_scopes=_parse_scope(row.get("palace_scope")),
         topic_scopes=_parse_scope(row.get("topic_scope")),
@@ -291,7 +294,11 @@ def compile_rule_rows(
 
 
 class RuleRuntime:
-    """Deterministic matcher over already-compiled RuleIR."""
+    """Deterministic matcher over already-compiled RuleIR.
+
+    Antecedent dependencies are explicit engineering links between executable
+    rules. They never create chart facts and are never inferred from prose.
+    """
 
     def __init__(self, rules: Iterable[RuleIR]):
         by_id: dict[str, RuleIR] = {}
@@ -299,7 +306,37 @@ class RuleRuntime:
             if rule.rule_id in by_id:
                 raise ValueError(f"duplicate rule_id: {rule.rule_id}")
             by_id[rule.rule_id] = rule
+        self._by_id = by_id
         self._rules = tuple(by_id[key] for key in sorted(by_id))
+        self._validate_antecedents()
+
+    def _validate_antecedents(self) -> None:
+        for rule in self._rules:
+            missing = sorted(set(rule.antecedent_rule_ids) - set(self._by_id))
+            if missing:
+                raise ValueError(
+                    f"{rule.rule_id}: missing antecedent rule(s): {', '.join(missing)}"
+                )
+            if rule.rule_id in rule.antecedent_rule_ids:
+                raise ValueError(f"{rule.rule_id}: self antecedent is not allowed")
+
+        visit_state: dict[str, int] = {}
+
+        def visit(rule_id: str, trail: tuple[str, ...]) -> None:
+            state = visit_state.get(rule_id, 0)
+            if state == 2:
+                return
+            if state == 1:
+                cycle = " -> ".join(trail + (rule_id,))
+                raise ValueError(f"antecedent cycle detected: {cycle}")
+            visit_state[rule_id] = 1
+            rule = self._by_id[rule_id]
+            for antecedent in rule.antecedent_rule_ids:
+                visit(antecedent, trail + (rule_id,))
+            visit_state[rule_id] = 2
+
+        for rule_id in sorted(self._by_id):
+            visit(rule_id, ())
 
     def match(
         self,
@@ -312,9 +349,7 @@ class RuleRuntime:
         time_scope = temporal.time_scope or chart_state.time_scope
         palace_scope = temporal.palace_scope or chart_state.palace_scope
 
-        nodes: list[ActiveRuleNode] = []
-        conflicts: dict[str, list[str]] = {}
-
+        candidates: dict[str, tuple[RuleIR, CompiledCondition]] = {}
         for rule in self._rules:
             if rule.time_scopes and time_scope not in rule.time_scopes:
                 continue
@@ -322,11 +357,27 @@ class RuleRuntime:
                 continue
             if rule.topic_scopes and question_scope not in rule.topic_scopes:
                 continue
-
             condition = rule.condition()
-            if not condition.matches(all_facts):
-                continue
+            if condition.matches(all_facts):
+                candidates[rule.rule_id] = (rule, condition)
 
+        active_ids: set[str] = set()
+        while True:
+            changed = False
+            for rule_id in sorted(candidates):
+                if rule_id in active_ids:
+                    continue
+                rule, _ = candidates[rule_id]
+                if set(rule.antecedent_rule_ids).issubset(active_ids):
+                    active_ids.add(rule_id)
+                    changed = True
+            if not changed:
+                break
+
+        nodes: list[ActiveRuleNode] = []
+        conflicts: dict[str, list[str]] = {}
+        for rule_id in sorted(active_ids):
+            rule, condition = candidates[rule_id]
             before = chart_state.latent_states.get(
                 rule.target_state,
                 temporal.latent_states.get(rule.target_state),
@@ -337,6 +388,7 @@ class RuleRuntime:
                 source_pointer=rule.source_pointer,
                 review_status=rule.review_status,
                 matched_conditions=condition.matched_facts(all_facts),
+                matched_antecedents=tuple(rule.antecedent_rule_ids),
                 operator=rule.operator,
                 target_state=rule.target_state,
                 before_state=before,
@@ -353,7 +405,7 @@ class RuleRuntime:
                 conflicts.setdefault(rule.conflict_group, []).append(rule.rule_id)
 
         return ActiveRuleGraph(
-            nodes=tuple(sorted(nodes, key=lambda n: n.rule_id)),
+            nodes=tuple(nodes),
             conflict_groups={
                 key: tuple(sorted(ids))
                 for key, ids in sorted(conflicts.items())
