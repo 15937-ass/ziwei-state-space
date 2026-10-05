@@ -138,7 +138,6 @@ class TemporalEnvironmentProfile:
             "acquired_state_used": self.acquired_state_used,
             "outcome_used": self.outcome_used,
             "empirical_calibration_used": self.empirical_calibration_used,
-            "external_event_trigger_used": self.external_event_trigger_used,
         }
         active = [name for name, value in forbidden.items() if value]
         if active:
@@ -165,6 +164,7 @@ class TemporalEnvironmentProfile:
             "acquired_state_used": self.acquired_state_used,
             "outcome_used": self.outcome_used,
             "empirical_calibration_used": self.empirical_calibration_used,
+            "external_event_trigger_used": self.external_event_trigger_used,
         }
 
 
