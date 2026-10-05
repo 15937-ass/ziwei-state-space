@@ -11,6 +11,7 @@ import json
 from dataclasses import dataclass
 from typing import Any, Iterable, Mapping, Sequence
 
+from .condition_atoms import fact_from_atom
 from .temporal_environment import TemporalEnvironmentProfile, TemporalFact, build_temporal_environment_profile
 from .natal_prior import NatalStateProfile
 
@@ -46,6 +47,7 @@ class TemporalAssetBundle:
     engine_version: str
     adapter_version: str
     temporal_facts: tuple[TemporalFact, ...]
+    condition_facts: tuple[str, ...]
 
     @property
     def target_label(self) -> str:
@@ -83,7 +85,7 @@ def _scope_facts(
     scope_key: str,
     scope: Mapping[str, Any],
     provenance: str,
-) -> list[TemporalFact]:
+) -> tuple[list[TemporalFact], set[str]]:
     if scope_key not in SCOPE_TO_LAYER:
         raise ValueError(f"unsupported normalized scope: {scope_key}")
     layer = SCOPE_TO_LAYER[scope_key]
@@ -95,6 +97,14 @@ def _scope_facts(
         )
 
     facts: list[TemporalFact] = []
+    condition_facts: set[str] = {
+        fact_from_atom("TIME_LAYER", layer=layer),
+    }
+    branch_value = str(scope.get("branch") or "").strip()
+    if branch_value:
+        condition_facts.add(
+            fact_from_atom("BRANCH_PRESENT", layer=layer, branch=branch_value)
+        )
     scalar_keys = ("index", "name", "stem", "branch", "nominal_age")
     for key in scalar_keys:
         value = scope.get(key)
@@ -119,6 +129,16 @@ def _scope_facts(
                 provenance=provenance,
             )
         )
+        palace_name = str(value or "").strip()
+        if palace_name:
+            condition_facts.add(
+                fact_from_atom(
+                    "PALACE_PRESENT",
+                    layer=layer,
+                    palace_name=palace_name,
+                    palace_index=str(index),
+                )
+            )
 
     mutagen = _as_sequence(scope.get("mutagen"), f"scopes.{scope_key}.mutagen")
     for index, value in enumerate(mutagen):
@@ -129,6 +149,15 @@ def _scope_facts(
                 provenance=provenance,
             )
         )
+        mutagen_value = str(value or "").strip()
+        if mutagen_value:
+            condition_facts.add(
+                fact_from_atom(
+                    "TRANSFORMATION_PRESENT",
+                    layer=layer,
+                    mutagen=mutagen_value,
+                )
+            )
 
     stars = _as_sequence(scope.get("stars"), f"scopes.{scope_key}.stars")
     for palace_index, group in enumerate(stars):
@@ -151,8 +180,27 @@ def _scope_facts(
                     provenance=provenance,
                 )
             )
+            star_name = str(star.get("name") or "").strip()
+            if star_name:
+                condition_facts.add(
+                    fact_from_atom("STAR_PRESENT", layer=layer, star=star_name)
+                )
+                palace_name = (
+                    str(palace_names[palace_index] or "").strip()
+                    if palace_index < len(palace_names)
+                    else ""
+                )
+                if palace_name:
+                    condition_facts.add(
+                        fact_from_atom(
+                            "PALACE_HAS_STAR",
+                            layer=layer,
+                            palace_name=palace_name,
+                            star=star_name,
+                        )
+                    )
 
-    return facts
+    return facts, condition_facts
 
 
 def adapt_normalized_temporal_snapshot(
@@ -194,17 +242,18 @@ def adapt_normalized_temporal_snapshot(
     )
 
     facts: list[TemporalFact] = []
+    condition_facts: set[str] = set()
     for scope_key in SCOPE_TO_LAYER:
         scope = scopes.get(scope_key)
         if not isinstance(scope, Mapping):
             raise ValueError(f"temporal scopes missing object: {scope_key}")
-        facts.extend(
-            _scope_facts(
-                scope_key=scope_key,
-                scope=scope,
-                provenance=f"{provenance_root}:scope={scope_key}",
-            )
+        scope_facts, scope_condition_facts = _scope_facts(
+            scope_key=scope_key,
+            scope=scope,
+            provenance=f"{provenance_root}:scope={scope_key}",
         )
+        facts.extend(scope_facts)
+        condition_facts.update(scope_condition_facts)
 
     yearly_dec = temporal_snapshot.get("yearly_dec_stars")
     if yearly_dec is not None:
@@ -222,6 +271,17 @@ def adapt_normalized_temporal_snapshot(
                         provenance=f"{provenance_root}:yearly_dec",
                     )
                 )
+                tag_value = str(value or "").strip()
+                if tag_value:
+                    condition_facts.add(
+                        fact_from_atom(
+                            "TAG_PRESENT",
+                            layer="YEAR",
+                            tag_system=key,
+                            tag=tag_value,
+                            index=str(index),
+                        )
+                    )
 
     return TemporalAssetBundle(
         target_id=target_id,
@@ -237,6 +297,7 @@ def adapt_normalized_temporal_snapshot(
                 key=lambda item: (item.layer, item.fact, item.provenance),
             )
         ),
+        condition_facts=tuple(sorted(condition_facts)),
     )
 
 
