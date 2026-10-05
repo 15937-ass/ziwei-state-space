@@ -131,6 +131,20 @@ from .manifestation_ontology import (
     ManifestationSourceRef,
     compile_manifestation_ontology_registry,
 )
+from .manifestation_router import (
+    MAPPING_EVIDENCE_TIERS,
+    MAPPING_REGISTRY_STATUSES,
+    ROUTABLE_EVIDENCE_TIERS,
+    ROUTER_DISPOSITIONS,
+    HeldManifestationMapping,
+    ManifestationMapping,
+    ManifestationMappingRegistry,
+    PossibilityRoutingResult,
+    SourceSupportedPossibility,
+    SymbolicActivationContext,
+    compile_manifestation_mapping_registry,
+    route_source_supported_possibilities,
+)
 from .natal_domain_registry import (
     NatalDomainProvider,
     NatalDomainProviderRegistry,
@@ -301,6 +315,18 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "MAPPING_EVIDENCE_TIERS",
+    "MAPPING_REGISTRY_STATUSES",
+    "ROUTABLE_EVIDENCE_TIERS",
+    "ROUTER_DISPOSITIONS",
+    "HeldManifestationMapping",
+    "ManifestationMapping",
+    "ManifestationMappingRegistry",
+    "PossibilityRoutingResult",
+    "SourceSupportedPossibility",
+    "SymbolicActivationContext",
+    "compile_manifestation_mapping_registry",
+    "route_source_supported_possibilities",
     "EVENT_SPECIFICITIES",
     "PROBABILITY_STATUSES",
     "REGISTRY_STATUSES",
