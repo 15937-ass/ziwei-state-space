@@ -6,7 +6,7 @@ project:
   execution_state: "WP05_CAREER_CA06_MERGED"
   current_work_unit: "WP05_CAREER_PALACE_CORPUS"
   state_sync: "WP05_CAREER_CA06_MERGED"
-  last_approved_gate: "HG-P07-TEMPORAL-01-A"
+  last_approved_gate: "HG_PL2N_PALACE_VALENCE_MODEL + HG_PL2L_BAIGUAN_STRUCTURE"
   pending_gate: null
   blocked_reason: null
 
@@ -66,12 +66,12 @@ progress:
 
 productization:
   program: "PRODUCT-FIRST"
-  status: "P1_COMPLETE; CHART_TRUST_V1_FROZEN; PL2A_RULE_RUNTIME_CORE_MERGED; PL2B_CONDITION_ATOMS_MERGED; PL2C_WEALTH_PILOT13_MERGED; PL2D_EVIDENCE_BRIDGE_MERGED; PL2E_WEALTH_SEMANTIC_REPORT_MERGED; PL2F_WEALTH_EXECUTABLE22_MERGED; PL2G_STRUCTURE_RESOLVER_MERGED; PL2H_WEALTH_EXECUTABLE28_MERGED; PL2I_WEALTH_GAP_AUDIT_MERGED; PL2J_WEALTH_EXECUTABLE38_MERGED; PL2J2_WEALTH_EXECUTABLE49_MERGED; PL2K_BLOCKER_REFRESH_MERGED; PL2M_ANTECEDENT_LINKING_MERGED; PL2M_WEALTH_EXECUTABLE54_MERGED; PL2L_SOURCE_BACKED_STRUCTURES_MERGED; PL2L_WEALTH_EXECUTABLE57_MERGED; PL2O_NORMALIZATION_REVIEW_MERGED; PL2O2_WEALTH_EXECUTABLE59_MERGED; PL2P_BLOCKER_HANDOFF_MERGED; CASEBOOK_INDEX_100_PILOT20_READY"
+  status: "P1_COMPLETE; CHART_TRUST_V1_FROZEN; PL2A_RULE_RUNTIME_CORE_MERGED; PL2B_CONDITION_ATOMS_MERGED; PL2C_WEALTH_PILOT13_MERGED; PL2D_EVIDENCE_BRIDGE_MERGED; PL2E_WEALTH_SEMANTIC_REPORT_MERGED; PL2F_WEALTH_EXECUTABLE22_MERGED; PL2G_STRUCTURE_RESOLVER_MERGED; PL2H_WEALTH_EXECUTABLE28_MERGED; PL2I_WEALTH_GAP_AUDIT_MERGED; PL2J_WEALTH_EXECUTABLE38_MERGED; PL2J2_WEALTH_EXECUTABLE49_MERGED; PL2K_BLOCKER_REFRESH_MERGED; PL2M_ANTECEDENT_LINKING_MERGED; PL2M_WEALTH_EXECUTABLE54_MERGED; PL2L_SOURCE_BACKED_STRUCTURES_MERGED; PL2L_WEALTH_EXECUTABLE57_MERGED; PL2O_NORMALIZATION_REVIEW_MERGED; PL2O2_WEALTH_EXECUTABLE59_MERGED; PL2P_BLOCKER_HANDOFF_MERGED; CASEBOOK_INDEX_100_PILOT20_READY; PL2_HUMAN_GATES_APPROVED; DYNAMIC_INFERENCE_ARCHITECTURE_V0_1_DEFINED; PL2Q_HUMAN_GATE_INTEGRATION_COMPLETE"
   completed:
     - "competitor registry v0.1"
     - "license ledger v0.1"
     - "benchmark tracker v0.1"
-    - "product architecture v0.2"
+    - "product architecture v0.3 aligned with dynamic inference architecture"
     - "evaluation protocol v0.1"
     - "deterministic chart-diff utility + tests"
     - "EvidencePackage contract + tests"
@@ -99,7 +99,10 @@ productization:
     - "PL2-O source-grounded normalization review: 15 rows reviewed, 2 executable-ready, 13 held"
     - "PL2-O2 safe normalization batch: +2 rules, 59/100 W01 executable; OR-of-ANDs boolean alternatives added"
     - "PL2-P final blocker handoff: 41 pending -> 14 knowledge, 5 upstream, 8 Human Gate, 14 PL3 temporal"
-  next_work_unit: "AWAIT_PRODUCT_HUMAN_REVIEW_PL2_GATES"
+    - "PL2 Human Gate decisions: palace valence approved with constraints; Baiguan structure approved with activation threshold deferred"
+    - "Dynamic inference architecture v0.1: Natal Prior / Temporal Environment / Acquired State / Manifestation Routing / Calibration boundaries frozen"
+    - "PL2-Q Human Gate integration: non-numeric pattern/contextual-valence contracts + BAIGUAN_SUPPORT_PROFILE + 8-row blocker refresh; pytest CI passed"
+  next_work_unit: "PRODUCT_PL3N_NATAL_PRIOR_ENGINE"
   product_chat_scope: "This conversation owns productization, product data, adapters, inference MVP, benchmark and UX. Knowledge-base extraction continues in other project conversations."
   research_track_next: "WP05_CAREER_CA07_CONTINUE"
   casebook_training_corpus:
@@ -358,6 +361,13 @@ canonical_artifacts:
   wp05_projection_coverage: "knowledge/wp05/wp05_projection_coverage_v0.1.csv"
   wp04_source_closure_ledger: "knowledge/coverage/wp04_source_chapter_closure_v0.1.csv"
   product_roadmap: "PRODUCT_ROADMAP.md"
+  knowledge_base_roadmap_v02: "KNOWLEDGE_BASE_ROADMAP.md"
+  dynamic_inference_architecture_v01: "product/DYNAMIC_INFERENCE_ARCHITECTURE_v0.1.md"
+  pl2q_human_gate_decision_spec: "product/PL2Q_HUMAN_GATE_DECISION_SPEC_v0.1.md"
+  pl2q_human_gate_contract_registry: "product/PL2Q_HUMAN_GATE_CONTRACT_REGISTRY_v0.1.json"
+  pl2q_wealth_human_gate_refresh: "product/PL2Q_WEALTH_HUMAN_GATE_REFRESH_v0.1.csv"
+  pl2q_human_gate_integration_acceptance: "product/PL2Q_HUMAN_GATE_INTEGRATION_ACCEPTANCE.md"
+  pl2q_human_gate_contract_api: "src/product/human_gate_contracts.py"
   product_architecture: "product/PRODUCT_ARCHITECTURE.md"
   product_evaluation_protocol: "product/EVALUATION_PROTOCOL.md"
   competitor_registry: "competitive_intelligence/PROJECT_REGISTRY.yaml"
@@ -463,6 +473,11 @@ execution_policy:
   - "For the approved 200-item reporting cadence, two sequential 100-item internal checkpoints/PRs may be completed before the user-facing report, but each 100-item checkpoint must be independently recoverable and pass CI before the next begins."
   - "After a chat/tool timeout, inspect GitHub commit/PR/workflow state before retrying; never replay completed source review solely because the conversation timed out."
   - "Escalate a new human Gate only if source review requires natal-essence rewrite, multi-palace long-memory propagation, a second independent time scale, or default decay/forgetting dynamics."
+  - "Canonical Natal Prior is feedback-independent: empirical outcomes may update acquired state/calibration but must not rewrite canonical natal rule truth."
+  - "Traditional source-supported manifestation possibility, empirical manifestation probability, and personalized posterior are distinct layers and must not be conflated."
+  - "Blind predictive evaluation and personalized forecasting must remain separate; target-period outcomes must never leak into blind inputs."
+  - "Longitudinal calibration data must represent EVENT_OCCURRED, EVENT_NOT_OCCURRED, UNKNOWN, and CENSORED states; memorable-event-only collections are not valid probability denominators."
+  - "Empirical calibration may generate KNOWLEDGE_GAP_REPORT artifacts but may not silently mutate canonical knowledge."
 
 source_corpus_policy:
   source_corpus_location: "ChatGPT Project files / approved source corpus"
