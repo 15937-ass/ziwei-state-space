@@ -71,6 +71,7 @@ from .evidence_package import (
     ContrastiveItem,
     EvidenceItem,
     EvidencePackage,
+    TemporalEvidenceNamespace,
 )
 from .longitudinal_observation import (
     ACTION_STATUSES,
@@ -178,6 +179,10 @@ from .temporal_fixture_benchmark import (
     run_temporal_fixture,
     run_temporal_fixture_benchmark,
     validate_temporal_fixture,
+)
+from .temporal_evidence import (
+    attach_temporal_profile_to_evidence_package,
+    temporal_profile_to_evidence_namespace,
 )
 from .temporal_reaction_compiler import (
     ALLOWED_REACTION_NORMALIZATION,
@@ -344,6 +349,9 @@ __all__ = [
     "ContrastiveItem",
     "EvidenceItem",
     "EvidencePackage",
+    "TemporalEvidenceNamespace",
+    "attach_temporal_profile_to_evidence_package",
+    "temporal_profile_to_evidence_namespace",
     "NatalDomainProvider",
     "NatalDomainProviderRegistry",
     "load_default_natal_domain_registry",
