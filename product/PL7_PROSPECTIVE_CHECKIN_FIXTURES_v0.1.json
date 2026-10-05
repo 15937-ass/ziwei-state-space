@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1",
+  "fixtures": [
+    {
+      "schema_version": "0.1",
+      "plan_id": "CP-FX-BLIND-001",
+      "person_key": "P-DEMO-101",
+      "collection_purpose": "BLIND_BENCHMARK",
+      "prediction_exposure": "HIDDEN",
+      "plan_created_date": "2026-12-10",
+      "target_lock_date": "2026-12-20",
+      "window": {
+        "start_date": "2027-01-01",
+        "end_date": "2027-12-31"
+      },
+      "targets": [
+        {
+          "target_id": "T-CAR-CHANGE",
+          "domain": "career",
+          "manifestation_family": "career_change",
+          "event_type": "job_change",
+          "ontology_version": "MANIFESTATION-0.1"
+        },
+        {
+          "target_id": "T-REL-NEW",
+          "domain": "relationship",
+          "manifestation_family": "relationship_activation",
+          "event_type": "new_relationship",
+          "ontology_version": "MANIFESTATION-0.1"
+        }
+      ],
+      "schedule": [
+        {
+          "checkpoint_id": "Q2",
+          "type": "MID_WINDOW",
+          "scheduled_date": "2027-06-30"
+        },
+        {
+          "checkpoint_id": "CLOSE",
+          "type": "WINDOW_CLOSE",
+          "scheduled_date": "2027-12-31"
+        }
+      ],
+      "forecast": {
+        "forecast_id": "F-BLIND-101",
+        "model_version": "m-v1",
+        "locked_date": "2026-12-19"
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "plan_id": "CP-FX-PERS-001",
+      "person_key": "P-DEMO-102",
+      "collection_purpose": "PERSONALIZED_FOLLOWUP",
+      "prediction_exposure": "VISIBLE",
+      "plan_created_date": "2026-12-10",
+      "target_lock_date": "2026-12-20",
+      "window": {
+        "start_date": "2027-01-01",
+        "end_date": "2027-06-30"
+      },
+      "targets": [
+        {
+          "target_id": "T-WEA-CHANGE",
+          "domain": "wealth",
+          "manifestation_family": "resource_change",
+          "event_type": "major_income_change",
+          "ontology_version": "MANIFESTATION-0.1"
+        }
+      ],
+      "schedule": [
+        {
+          "checkpoint_id": "CLOSE",
+          "type": "WINDOW_CLOSE",
+          "scheduled_date": "2027-06-30"
+        }
+      ],
+      "forecast": {
+        "forecast_id": "F-PERS-102",
+        "model_version": "m-v1",
+        "locked_date": "2026-12-18"
+      }
+    }
+  ]
+}

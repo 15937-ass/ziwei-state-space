@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.1",
+  "protocol_id": "PL7_PROSPECTIVE_CHECKIN_PROTOCOL",
+  "principles": {
+    "predefined_targets_required": true,
+    "target_lock_before_window": true,
+    "final_closeout_required": true,
+    "event_triggered_reporting_allowed": true,
+    "midwindow_checkins_optional": true,
+    "negative_requires_window_close": true,
+    "llm_parser_candidate_only": true,
+    "user_confirmation_required": true,
+    "blind_benchmark_requires_hidden_prediction": true,
+    "prompt_must_not_reveal_predicted_probability": true
+  },
+  "collection_purposes": [
+    "BLIND_BENCHMARK",
+    "PERSONALIZED_FOLLOWUP",
+    "CALIBRATION_ONLY"
+  ],
+  "prediction_exposure_states": [
+    "HIDDEN",
+    "VISIBLE",
+    "NO_FORECAST"
+  ],
+  "scheduled_checkpoint_types": [
+    "MID_WINDOW",
+    "WINDOW_CLOSE"
+  ],
+  "answers": [
+    "YES",
+    "NO",
+    "UNSURE",
+    "NO_RESPONSE"
+  ],
+  "answer_mapping": {
+    "MID_WINDOW": {
+      "YES": "EVENT_OCCURRED_CANDIDATE",
+      "NO": "NO_EVENT_YET",
+      "UNSURE": "UNKNOWN_CANDIDATE",
+      "NO_RESPONSE": "NO_OBSERVATION"
+    },
+    "WINDOW_CLOSE": {
+      "YES": "EVENT_OCCURRED_CANDIDATE",
+      "NO": "EVENT_NOT_OCCURRED_CANDIDATE",
+      "UNSURE": "UNKNOWN_CANDIDATE",
+      "NO_RESPONSE": "NO_OBSERVATION"
+    }
+  },
+  "prompt_templates": {
+    "MID_WINDOW": "截至本次检查日期，在已定义的观察窗口内，目标事件是否已经发生？",
+    "WINDOW_CLOSE": "在完整观察窗口内，目标事件是否发生？",
+    "EVENT_TRIGGERED": "你是否正在主动报告一个已经发生的目标事件？"
+  }
+}
