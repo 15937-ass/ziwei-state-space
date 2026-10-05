@@ -4,6 +4,14 @@ These modules consume approved research artifacts but must not silently create
 new domain theory.
 """
 
+from .career_readiness_audit import (
+    ALLOWED_TIME_LAYERS,
+    SCHEMA_DRIFT_TIME_CONDITION_SWAP,
+    CareerBatchAudit,
+    CareerReadinessSummary,
+    audit_career_batch,
+    audit_career_projection_batches,
+)
 from .chart_diff import ChartDifference, compare_chart_snapshots, summarize_differences
 from .antecedent_links import (
     LINK_STATUSES,
@@ -143,6 +151,12 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "ALLOWED_TIME_LAYERS",
+    "SCHEMA_DRIFT_TIME_CONDITION_SWAP",
+    "CareerBatchAudit",
+    "CareerReadinessSummary",
+    "audit_career_batch",
+    "audit_career_projection_batches",
     "LINK_STATUSES",
     "LINK_TYPES",
     "AntecedentLink",
