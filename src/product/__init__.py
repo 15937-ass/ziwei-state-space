@@ -40,6 +40,15 @@ from .condition_atoms import (
     fact_from_atom,
 )
 from .evidence_bridge import determine_confidence, graph_to_evidence_package
+from .event_relative_window import (
+    APPROVED_HUMAN_GATE,
+    DEFAULT_WINDOW_REGISTRY_PATH,
+    ApprovedMigrationWindowSpec,
+    ProductMigrationWindowResolution,
+    build_temporal_environment_with_migration_window,
+    load_approved_migration_window_spec,
+    resolve_approved_migration_window,
+)
 from .human_gate_contracts import (
     BAIGUAN_ACTIVATION_STATUSES,
     BAIGUAN_COMPONENT_FAMILIES,
@@ -220,6 +229,13 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "APPROVED_HUMAN_GATE",
+    "DEFAULT_WINDOW_REGISTRY_PATH",
+    "ApprovedMigrationWindowSpec",
+    "ProductMigrationWindowResolution",
+    "build_temporal_environment_with_migration_window",
+    "load_approved_migration_window_spec",
+    "resolve_approved_migration_window",
     "ALLOWED_REACTION_NORMALIZATION",
     "ALLOWED_REACTION_REVIEW",
     "ReactionMatchIssue",
