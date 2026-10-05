@@ -5,6 +5,13 @@ new domain theory.
 """
 
 from .chart_diff import ChartDifference, compare_chart_snapshots, summarize_differences
+from .antecedent_links import (
+    LINK_STATUSES,
+    LINK_TYPES,
+    AntecedentLink,
+    load_antecedent_links,
+    validate_antecedent_links,
+)
 from .condition_atoms import (
     ALLOWED_ATOM_TYPES,
     CompiledCondition,
@@ -83,6 +90,11 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "LINK_STATUSES",
+    "LINK_TYPES",
+    "AntecedentLink",
+    "load_antecedent_links",
+    "validate_antecedent_links",
     "ChartDifference",
     "compare_chart_snapshots",
     "summarize_differences",
