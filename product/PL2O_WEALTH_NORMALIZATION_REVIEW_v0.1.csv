@@ -1,0 +1,16 @@
+projection_rule_id,review_disposition,human_gate_required,normalized_condition_proposal,source_clarification,remaining_blocker,recommended_work_unit
+W01-010,SOURCE_CLARIFIED_RELATION_PENDING,NO,财帛宫紫微破军且破军化禄；福德宫天相；福德宫天相受羊陀会照或与擎羊同度,下册财帛宫 printed_p69：明确为“羊陀会照或与擎羊同度”,仍需冻结会照/受的可执行 relation 语义,KNOWLEDGE_RELATION_NORMALIZATION
+W01-018,SOURCE_CLARIFIED_RELATION_PENDING,NO,事业宫廉贞破军；命宫紫微七杀并见文曲化忌；财帛宫武曲贪狼且武曲化禄、贪狼化权,下册财帛宫 printed_p69：明确武曲化禄、贪狼化权，且事业宫会命宫紫杀及文曲化忌,星曜与四化归属已澄清，但“会命宫”仍需 relation normalization,KNOWLEDGE_RELATION_NORMALIZATION
+W01-019,SOURCE_SPAN_RECHECK,NO,事业宫武曲贪狼禄权；财帛宫紫微七杀文曲化忌,W01 source row 已 verified，但当前检索未取得足以唯一冻结四化/文曲所在宫位的完整原句,不得根据对称性猜测 W01-018 的镜像结构,KNOWLEDGE_SOURCE_SPAN_RECHECK
+W01-033,SOURCE_CLARIFIED_STRUCTURE_PENDING,NO,廉贞贪狼须得禄；或形成 source-defined 火贪/铃贪财格,上册相关星系材料明确火贪/铃贪及得禄条件，但 W01 printed_p70 的具体 OR 边界需保持 source-span 对齐,不能把任意火星/铃星+廉贪自动等同于成格,KNOWLEDGE_NAMED_STRUCTURE_NORMALIZATION
+W01-059,SOURCE_CLARIFIED_RELATION_PENDING,NO,财帛宫擎羊并会其他煞星,WP04 六煞 taxonomy 已 source-verified,“会”范围未冻结；不能自行等同同宫/三合/对宫,KNOWLEDGE_RELATION_NORMALIZATION
+W01-064,SOURCE_CLARIFIED_RELATION_PENDING,NO,火贪或铃贪结构，再有陀罗会照,WP04 有火贪/铃贪+擎羊/陀罗相关 operator 材料,“会照” relation 仍未冻结,KNOWLEDGE_RELATION_NORMALIZATION
+W01-065,SOURCE_CLARIFIED_RELATION_PENDING,NO,火贪或铃贪结构，再有陀罗会照,与 W01-064 同一 unresolved trigger，projection target 不同,不得因 target 不同复制一个未冻结 trigger,KNOWLEDGE_RELATION_NORMALIZATION
+W01-067,EXECUTABLE_NORMALIZATION_READY,NO,财帛宫见火星或铃星；同宫见任一化忌星；同宫见地空或地劫,W01 condition 明示“同度”；火铃/空劫沿用已批准 pair shorthand OR；忌星可由 TRANSFORMATION_PRESENT(mutagen=忌) 表示,现有 local atoms 足够，无需新 primitive,PRODUCT_PL2O2_NORMALIZATION_SAFE_BATCH
+W01-071,EXECUTABLE_NORMALIZATION_READY,NO,(铃星同度地空或地劫) OR (火星同度地劫),下册财帛宫原句明确“铃星不宜与空劫同度，火星不宜与地劫同度”,两分支均为 P05 local co-presence，可用现有 any_of/all_of 布尔组合表达,PRODUCT_PL2O2_NORMALIZATION_SAFE_BATCH
+W01-073,SOURCE_CLARIFIED_RELATION_PENDING,NO,财帛宫见地空/地劫，并见武曲化忌、贪狼化忌、天机化忌或太阴化忌,下册财帛宫原句明确四个化忌对象,“见”尚未唯一对应 same-palace / triad / opposite relation,KNOWLEDGE_RELATION_NORMALIZATION
+W01-074,SOURCE_CLARIFIED_RELATION_PENDING,NO,空劫与文曲同度，并冲会忌星；或文曲化忌,下册财帛宫原句明确“空劫与文曲同度，冲会忌星，或文曲化忌”,冲会的 relation 语义未冻结，且 OR 边界需保持原句结构,KNOWLEDGE_RELATION_NORMALIZATION
+W01-076,SOURCE_SPLIT_REQUIRED,NO,基础支：天同在财帛宫；增强支：再与孤辰同度,下册财帛宫原句明确“天同在财帛宫主白手兴家，何孤辰同度者，性质尤为明显”,单一 W01 row 混合 base trigger 与 stronger modifier；应拆分而不是丢弃增强信息,KNOWLEDGE_RULE_SPLIT_REVIEW
+W01-077,OPEN_SET_UNRESOLVED,NO,恩光、天贵、天官、天福等杂曜在财帛宫,下册财帛宫原句列出恩光、天贵、天官、天福后带“等”,“等”表示集合未闭合；产品不能擅自声明四星为完整集合,KNOWLEDGE_OPEN_SET_REVIEW
+W01-093,SOURCE_CLARIFIED_RELATION_PENDING,NO,紫微化权且见煞，同时武曲化忌,上/下册均支持紫微化权与武曲化忌的绑定背景,“见煞”需要 closed malefic set + relation semantics,KNOWLEDGE_RELATION_NORMALIZATION
+W01-099,SOURCE_CLARIFIED_RELATION_PENDING,NO,紫微化科且见煞,下册财帛宫 printed_p72 明确“见煞，不过声誉减等，或范围缩小”,“见煞”仍需 closed malefic set + relation semantics,KNOWLEDGE_RELATION_NORMALIZATION
