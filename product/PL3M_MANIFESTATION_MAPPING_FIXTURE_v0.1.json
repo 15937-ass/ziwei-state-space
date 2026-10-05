@@ -1,0 +1,48 @@
+{
+  "schema_version": "0.1",
+  "registry_status": "TEST_ONLY",
+  "knowledge_artifact_version": "TEST-FIXTURE-MAPPING-0.1",
+  "blocked_reason": null,
+  "mappings": [
+    {
+      "mapping_id": "MAP-FX-EXPLICIT",
+      "required_activation_ids": [
+        "ACT-FX-001"
+      ],
+      "required_rule_ids": [
+        "RULE-FX-001"
+      ],
+      "manifestation_id": "MFX-CHILD",
+      "evidence_tier": "EXPLICIT",
+      "probability_status": "UNKNOWN",
+      "source_refs": [
+        {
+          "source_id": "TEST-SOURCE",
+          "source_location": "fixture-only",
+          "review_status": "TEST_ONLY",
+          "source_span_verified": false
+        }
+      ],
+      "notes": "fixture only"
+    },
+    {
+      "mapping_id": "MAP-FX-HYPOTHESIS",
+      "required_activation_ids": [
+        "ACT-FX-001"
+      ],
+      "required_rule_ids": [],
+      "manifestation_id": "MFX-ROOT",
+      "evidence_tier": "HYPOTHESIS",
+      "probability_status": "UNKNOWN",
+      "source_refs": [
+        {
+          "source_id": "TEST-SOURCE",
+          "source_location": "fixture-only",
+          "review_status": "TEST_ONLY",
+          "source_span_verified": false
+        }
+      ],
+      "notes": "must be held, never routed as source-supported possibility"
+    }
+  ]
+}
