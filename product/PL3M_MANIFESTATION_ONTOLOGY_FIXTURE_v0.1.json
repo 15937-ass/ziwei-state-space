@@ -1,0 +1,54 @@
+{
+  "schema_version": "0.1",
+  "registry_status": "TEST_ONLY",
+  "knowledge_artifact_version": "TEST-FIXTURE-0.1",
+  "blocked_reason": null,
+  "nodes": [
+    {
+      "manifestation_id": "MFX-ROOT",
+      "parent_id": null,
+      "domain": "TEST_DOMAIN",
+      "abstraction_level": "TEST_ROOT",
+      "source_supported_labels": [
+        "fixture_root_label"
+      ],
+      "source_rule_ids": [
+        "TEST-RULE-ROOT"
+      ],
+      "event_specificity": "ABSTRACT",
+      "ambiguity_notes": "fixture only; carries no traditional semantics",
+      "probability_status": "UNKNOWN",
+      "source_refs": [
+        {
+          "source_id": "TEST-SOURCE",
+          "source_location": "fixture-only",
+          "review_status": "TEST_ONLY",
+          "source_span_verified": false
+        }
+      ]
+    },
+    {
+      "manifestation_id": "MFX-CHILD",
+      "parent_id": "MFX-ROOT",
+      "domain": "TEST_DOMAIN",
+      "abstraction_level": "TEST_CHILD",
+      "source_supported_labels": [
+        "fixture_child_label"
+      ],
+      "source_rule_ids": [
+        "TEST-RULE-CHILD"
+      ],
+      "event_specificity": "SCENE_LEVEL",
+      "ambiguity_notes": null,
+      "probability_status": "UNKNOWN",
+      "source_refs": [
+        {
+          "source_id": "TEST-SOURCE",
+          "source_location": "fixture-only",
+          "review_status": "TEST_ONLY",
+          "source_span_verified": false
+        }
+      ]
+    }
+  ]
+}
