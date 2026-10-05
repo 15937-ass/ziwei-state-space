@@ -31,6 +31,16 @@ from .bayesian_belief import (
     compile_discrete_belief_model,
     update_discrete_belief,
 )
+from .manifestation_ontology import (
+    ABSTRACTION_LEVELS,
+    MAPPING_EVIDENCE_TIERS,
+    PROBABILITY_STATUSES,
+    ManifestationMapping,
+    ManifestationNode,
+    ManifestationOntologyBundle,
+    compile_manifestation_ontology_bundle,
+    require_manifestation_domain,
+)
 from .career_readiness_audit import (
     ALLOWED_TIME_LAYERS,
     SCHEMA_DRIFT_TIME_CONDITION_SWAP,
@@ -292,6 +302,14 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "ABSTRACTION_LEVELS",
+    "MAPPING_EVIDENCE_TIERS",
+    "PROBABILITY_STATUSES",
+    "ManifestationMapping",
+    "ManifestationNode",
+    "ManifestationOntologyBundle",
+    "compile_manifestation_ontology_bundle",
+    "require_manifestation_domain",
     "BeliefBenchmarkCaseResult",
     "BeliefBenchmarkReport",
     "run_state_belief_benchmark",
