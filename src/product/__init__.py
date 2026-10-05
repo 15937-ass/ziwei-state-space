@@ -150,6 +150,11 @@ from .palace_structure import (
     load_palace_ontology,
     resolve_palace_structure,
 )
+from .state_belief_benchmark import (
+    BeliefBenchmarkCaseResult,
+    BeliefBenchmarkReport,
+    run_state_belief_benchmark,
+)
 from .state_quality import (
     MISSINGNESS_AUDIT_CLASSES,
     QUALITY_ITEM_STATUSES,
@@ -287,6 +292,9 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "BeliefBenchmarkCaseResult",
+    "BeliefBenchmarkReport",
+    "run_state_belief_benchmark",
     "BELIEF_MODEL_STATUSES",
     "BELIEF_PARAMETER_LAYERS",
     "BELIEF_UPDATE_STATUSES",
