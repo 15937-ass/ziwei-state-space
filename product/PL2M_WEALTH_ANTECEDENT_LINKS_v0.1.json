@@ -1,0 +1,94 @@
+{
+  "schema_version": "0.1",
+  "scope": "W01 wealth antecedent/reference relationships",
+  "policy": {
+    "source_text_is_not_parsed_heuristically": true,
+    "compare_references_are_not_runtime_activation_dependencies": true,
+    "inherit_active_requires_all_antecedents_active": true
+  },
+  "links": {
+    "W01-007": {
+      "link_type": "INHERIT_ACTIVE",
+      "antecedent_rule_ids": [
+        "W01-006"
+      ],
+      "status": "EXECUTABLE_NOW",
+      "note": "前述武杀福德天府结构"
+    },
+    "W01-008": {
+      "link_type": "INHERIT_ACTIVE",
+      "antecedent_rule_ids": [
+        "W01-006"
+      ],
+      "status": "EXECUTABLE_NOW",
+      "note": "从福德宫角度看前述结构"
+    },
+    "W01-009": {
+      "link_type": "INHERIT_ACTIVE",
+      "antecedent_rule_ids": [
+        "W01-006"
+      ],
+      "status": "EXECUTABLE_NOW",
+      "note": "前述结构的行业场景翻译"
+    },
+    "W01-015": {
+      "link_type": "INHERIT_ACTIVE",
+      "antecedent_rule_ids": [
+        "W01-014"
+      ],
+      "status": "EXECUTABLE_NOW",
+      "note": "前述太阳天梁结构"
+    },
+    "W01-027": {
+      "link_type": "COMPARE_REFERENCES",
+      "antecedent_rule_ids": [
+        "W01-024",
+        "W01-026"
+      ],
+      "status": "REFERENCE_ONLY",
+      "note": "比较禄马交驰与单禄存，不要求两结构同盘同时激活"
+    },
+    "W01-030": {
+      "link_type": "COMPARE_REFERENCES",
+      "antecedent_rule_ids": [
+        "W01-028",
+        "W01-029"
+      ],
+      "status": "REFERENCE_ONLY",
+      "note": "概念比较武曲行动型与太阴计划型，不转成双星同现触发"
+    },
+    "W01-034": {
+      "link_type": "INHERIT_ACTIVE",
+      "antecedent_rule_ids": [
+        "W01-033"
+      ],
+      "status": "UPSTREAM_BLOCKED",
+      "note": "W01-033 尚需结构 normalization"
+    },
+    "W01-044": {
+      "link_type": "INHERIT_ACTIVE",
+      "antecedent_rule_ids": [
+        "W01-043"
+      ],
+      "status": "UPSTREAM_BLOCKED",
+      "note": "W01-043 尚需 dignity/disjunction normalization"
+    },
+    "W01-062": {
+      "link_type": "INHERIT_ACTIVE",
+      "antecedent_rule_ids": [
+        "W01-061"
+      ],
+      "status": "EXECUTABLE_NOW",
+      "note": "前述擎羊廉贪意外财"
+    },
+    "W01-094": {
+      "link_type": "INHERIT_ACTIVE_PLUS_LOCAL_CONDITION",
+      "antecedent_rule_ids": [
+        "W01-093"
+      ],
+      "status": "UPSTREAM_AND_LOCAL_BLOCKED",
+      "local_condition_note": "从事持利器行业",
+      "note": "W01-093 见煞未冻结，且职业场景仍需 typed normalization"
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "schema_version": "0.1",
+  "batch_id": "PL2M-WEALTH-B06",
+  "palace_id": "P05",
+  "palace_name": "财帛宫",
+  "source_csv": "validation/wp05/W01_wealth_projection_review_001_100.csv",
+  "antecedent_registry": "product/PL2M_WEALTH_ANTECEDENT_LINKS_v0.1.json",
+  "requires_palace_structure": true,
+  "policy": {
+    "normalization_epistemic": "IMPLEMENTATION",
+    "normalization_verified": true,
+    "execution_policy": "only INHERIT_ACTIVE links whose antecedents are already executable",
+    "compare_reference_policy": "do not promote reference-only comparisons to chart triggers"
+  },
+  "rules": {
+    "W01-007": {
+      "expected_condition": "前述武杀福德天府结构",
+      "expected_projection_target": "avoid_light_financial_commitments",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "antecedent_rule_ids": [
+        "W01-006"
+      ],
+      "condition": {
+        "all_of": []
+      }
+    },
+    "W01-008": {
+      "expected_condition": "从福德宫角度看前述结构",
+      "expected_projection_target": "insufficient_capital_for_ideals",
+      "expected_projection_mode": "CROSS_PALACE_CONSTRAINT",
+      "antecedent_rule_ids": [
+        "W01-006"
+      ],
+      "condition": {
+        "all_of": []
+      }
+    },
+    "W01-009": {
+      "expected_condition": "前述结构不宜金钱责任承诺行业",
+      "expected_projection_target": "financial_guarantee_responsibility_not_preferred",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "antecedent_rule_ids": [
+        "W01-006"
+      ],
+      "condition": {
+        "all_of": []
+      }
+    },
+    "W01-015": {
+      "expected_condition": "前述太阳天梁结构",
+      "expected_projection_target": "government_welfare_listed_company_professional_or_freelance_scenes",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "antecedent_rule_ids": [
+        "W01-014"
+      ],
+      "condition": {
+        "all_of": []
+      }
+    },
+    "W01-062": {
+      "expected_condition": "前述擎羊廉贪意外财",
+      "expected_projection_target": "unexpected_compensation_income_hard_to_retain",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "antecedent_rule_ids": [
+        "W01-061"
+      ],
+      "condition": {
+        "all_of": []
+      }
+    }
+  }
+}
