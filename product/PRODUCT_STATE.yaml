@@ -5,9 +5,9 @@ project_state_dependency: "../PROJECT_STATE.yaml"
 
 execution:
   current_phase: "PL3-M"
-  completed_work_unit: "PRODUCT_PL3M_CONTEXT_GATE_V0_1"
-  next_work_unit: "PRODUCT_PL3M_PROBABILITY_INTERFACE_V0_1"
-  status: "PL3M_CONTEXT_GATE_READY; BLIND_PERSONALIZED_SEPARATION_FROZEN; PROBABILITY_INTERFACE_NEXT; PRODUCTION_ONTOLOGY_EMPTY_PENDING_KB_WP06B; PRODUCTION_MAPPING_EMPTY_PENDING_KB_WP06C; PRODUCTION_BELIEF_REGISTRY_EMPTY_PENDING_EMPIRICAL_CALIBRATION; PRODUCTION_TEMPORAL_REACTION_REGISTRY_PENDING_KB_WP07B"
+  completed_work_unit: "PRODUCT_PL3M_PROBABILITY_INTERFACE_V0_1"
+  next_work_unit: "PRODUCT_PL3M_PERSONALIZED_POSTERIOR_INTERFACE_V0_1"
+  status: "PL3M_EMPIRICAL_PROBABILITY_INTERFACE_READY; PRODUCTION_PROBABILITY_MODELS_EMPTY_PENDING_PL5; PERSONALIZED_POSTERIOR_INTERFACE_NEXT; PRODUCTION_ONTOLOGY_EMPTY_PENDING_KB_WP06B; PRODUCTION_MAPPING_EMPTY_PENDING_KB_WP06C; PRODUCTION_BELIEF_REGISTRY_EMPTY_PENDING_EMPIRICAL_CALIBRATION; PRODUCTION_TEMPORAL_REACTION_REGISTRY_PENDING_KB_WP07B"
   canonical_branch: "main"
 
 boundaries:
@@ -59,6 +59,7 @@ completed:
   - "PL3-M manifestation ontology adapter v0.1: topology/provenance validator only; probability fields forbidden; production ontology empty pending KB-WP06B"
   - "PL3-M source-supported possibility router v0.1: explicit activation/rule antecedents only; EXPLICIT/TRANSPARENT_INFERENCE routable; no probability/ranking; production mapping empty pending KB-WP06C"
   - "PL3-M context gate v0.1: deterministic N/E/S/A/C assembly, strict BLIND vs PERSONALIZED separation, state-quality abstention preserved"
+  - "PL3-M empirical probability interface v0.1: population/cohort plugin namespace only; production model registry empty pending PL5 calibration"
 
 artifacts:
   human_gate_decision: "product/PL2Q_HUMAN_GATE_DECISION_SPEC_v0.1.md"
@@ -171,6 +172,11 @@ artifacts:
   manifestation_context_api: "src/product/manifestation_context.py"
   manifestation_context_acceptance: "product/PL3M_CONTEXT_GATE_ACCEPTANCE.md"
   manifestation_context_tests: "tests/test_product_manifestation_context.py"
+  manifestation_probability_api: "src/product/manifestation_probability.py"
+  manifestation_probability_registry: "product/PL3M_PROBABILITY_MODEL_REGISTRY_v0.1.json"
+  manifestation_probability_fixture: "product/PL3M_PROBABILITY_MODEL_FIXTURE_v0.1.json"
+  manifestation_probability_acceptance: "product/PL3M_PROBABILITY_INTERFACE_ACCEPTANCE.md"
+  manifestation_probability_tests: "tests/test_product_manifestation_probability.py"
 
 parallel_work_policy:
   - "Every product session reads top-level PROJECT_STATE.yaml first for repository/knowledge state."
