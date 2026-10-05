@@ -66,7 +66,7 @@ progress:
 
 productization:
   program: "PRODUCT-FIRST"
-  status: "P1_COMPLETE; CHART_TRUST_V1_FROZEN; PL2A_RULE_RUNTIME_CORE_MERGED; PL2B_CONDITION_ATOMS_MERGED; PL2C_WEALTH_PILOT13_MERGED; PL2D_EVIDENCE_BRIDGE_MERGED; PL2E_WEALTH_SEMANTIC_REPORT_MERGED; PL2F_WEALTH_EXECUTABLE22_MERGED; PL2G_STRUCTURE_RESOLVER_MERGED; PL2H_WEALTH_EXECUTABLE28_MERGED; PL2I_WEALTH_GAP_AUDIT_MERGED; PL2J_WEALTH_EXECUTABLE38_MERGED; PL2J2_WEALTH_EXECUTABLE49_MERGED; PL2K_BLOCKER_REFRESH_MERGED; PL2M_ANTECEDENT_LINKING_MERGED; PL2M_WEALTH_EXECUTABLE54_MERGED; PL2L_SOURCE_BACKED_STRUCTURES_MERGED; PL2L_WEALTH_EXECUTABLE57_MERGED; PL2O_NORMALIZATION_REVIEW_MERGED; PL2O2_WEALTH_EXECUTABLE59_MERGED; PL2P_BLOCKER_HANDOFF_MERGED; CASEBOOK_INDEX_100_PILOT20_READY; PL2_HUMAN_GATES_APPROVED; DYNAMIC_INFERENCE_ARCHITECTURE_V0_1_DEFINED"
+  status: "P1_COMPLETE; CHART_TRUST_V1_FROZEN; PL2A_RULE_RUNTIME_CORE_MERGED; PL2B_CONDITION_ATOMS_MERGED; PL2C_WEALTH_PILOT13_MERGED; PL2D_EVIDENCE_BRIDGE_MERGED; PL2E_WEALTH_SEMANTIC_REPORT_MERGED; PL2F_WEALTH_EXECUTABLE22_MERGED; PL2G_STRUCTURE_RESOLVER_MERGED; PL2H_WEALTH_EXECUTABLE28_MERGED; PL2I_WEALTH_GAP_AUDIT_MERGED; PL2J_WEALTH_EXECUTABLE38_MERGED; PL2J2_WEALTH_EXECUTABLE49_MERGED; PL2K_BLOCKER_REFRESH_MERGED; PL2M_ANTECEDENT_LINKING_MERGED; PL2M_WEALTH_EXECUTABLE54_MERGED; PL2L_SOURCE_BACKED_STRUCTURES_MERGED; PL2L_WEALTH_EXECUTABLE57_MERGED; PL2O_NORMALIZATION_REVIEW_MERGED; PL2O2_WEALTH_EXECUTABLE59_MERGED; PL2P_BLOCKER_HANDOFF_MERGED; CASEBOOK_INDEX_100_PILOT20_READY; PL2_HUMAN_GATES_APPROVED; DYNAMIC_INFERENCE_ARCHITECTURE_V0_1_DEFINED; PL2Q_HUMAN_GATE_INTEGRATION_COMPLETE"
   completed:
     - "competitor registry v0.1"
     - "license ledger v0.1"
@@ -101,7 +101,8 @@ productization:
     - "PL2-P final blocker handoff: 41 pending -> 14 knowledge, 5 upstream, 8 Human Gate, 14 PL3 temporal"
     - "PL2 Human Gate decisions: palace valence approved with constraints; Baiguan structure approved with activation threshold deferred"
     - "Dynamic inference architecture v0.1: Natal Prior / Temporal Environment / Acquired State / Manifestation Routing / Calibration boundaries frozen"
-  next_work_unit: "PRODUCT_PL2Q_HUMAN_GATE_INTEGRATION"
+    - "PL2-Q Human Gate integration: non-numeric pattern/contextual-valence contracts + BAIGUAN_SUPPORT_PROFILE + 8-row blocker refresh; pytest CI passed"
+  next_work_unit: "PRODUCT_PL3N_NATAL_PRIOR_ENGINE"
   product_chat_scope: "This conversation owns productization, product data, adapters, inference MVP, benchmark and UX. Knowledge-base extraction continues in other project conversations."
   research_track_next: "WP05_CAREER_CA05_CONTINUE"
   casebook_training_corpus:
@@ -357,6 +358,10 @@ canonical_artifacts:
   knowledge_base_roadmap_v02: "KNOWLEDGE_BASE_ROADMAP.md"
   dynamic_inference_architecture_v01: "product/DYNAMIC_INFERENCE_ARCHITECTURE_v0.1.md"
   pl2q_human_gate_decision_spec: "product/PL2Q_HUMAN_GATE_DECISION_SPEC_v0.1.md"
+  pl2q_human_gate_contract_registry: "product/PL2Q_HUMAN_GATE_CONTRACT_REGISTRY_v0.1.json"
+  pl2q_wealth_human_gate_refresh: "product/PL2Q_WEALTH_HUMAN_GATE_REFRESH_v0.1.csv"
+  pl2q_human_gate_integration_acceptance: "product/PL2Q_HUMAN_GATE_INTEGRATION_ACCEPTANCE.md"
+  pl2q_human_gate_contract_api: "src/product/human_gate_contracts.py"
   product_architecture: "product/PRODUCT_ARCHITECTURE.md"
   product_evaluation_protocol: "product/EVALUATION_PROTOCOL.md"
   competitor_registry: "competitive_intelligence/PROJECT_REGISTRY.yaml"
