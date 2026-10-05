@@ -39,6 +39,13 @@ from .condition_atoms import (
     compile_condition_spec,
     fact_from_atom,
 )
+from .event_relative_window import (
+    EVENT_RELATIVE_STATUSES,
+    MIGRATION_WINDOW_ID,
+    EventRelativeWindowResolution,
+    MigrationFirstThreeYearsInput,
+    resolve_migration_first_three_years,
+)
 from .evidence_bridge import determine_confidence, graph_to_evidence_package
 from .human_gate_contracts import (
     BAIGUAN_ACTIVATION_STATUSES,
@@ -220,6 +227,11 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "EVENT_RELATIVE_STATUSES",
+    "MIGRATION_WINDOW_ID",
+    "EventRelativeWindowResolution",
+    "MigrationFirstThreeYearsInput",
+    "resolve_migration_first_three_years",
     "ALLOWED_REACTION_NORMALIZATION",
     "ALLOWED_REACTION_REVIEW",
     "ReactionMatchIssue",
