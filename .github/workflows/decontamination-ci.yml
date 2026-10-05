@@ -1,12 +1,36 @@
 name: decontamination-ci
 
 on:
+  workflow_dispatch:
   pull_request:
+    types: [opened, reopened, ready_for_review]
+    branches:
+      - main
+    paths:
+      - "src/**"
+      - "tests/**"
+      - "tools/**"
+      - "knowledge/**"
+      - "validation/**"
+      - "pyproject.toml"
+      - "requirements*.txt"
+      - ".github/workflows/decontamination-ci.yml"
   push:
     branches:
       - main
-      - "audit/**"
-      - "product/**"
+    paths:
+      - "src/**"
+      - "tests/**"
+      - "tools/**"
+      - "knowledge/**"
+      - "validation/**"
+      - "pyproject.toml"
+      - "requirements*.txt"
+      - ".github/workflows/decontamination-ci.yml"
+
+concurrency:
+  group: decontamination-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
