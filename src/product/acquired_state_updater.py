@@ -41,6 +41,7 @@ class StateUpdateCommand:
     command_id: str
     operation: str
     payload: Mapping[str, Any]
+    observation_refs: tuple[str, ...]
 
     def __post_init__(self) -> None:
         if not str(self.command_id or "").strip():
@@ -49,6 +50,11 @@ class StateUpdateCommand:
             raise ValueError(f"unsupported state update operation: {self.operation}")
         if not isinstance(self.payload, Mapping):
             raise ValueError("StateUpdateCommand.payload must be an object")
+        refs = tuple(str(item).strip() for item in self.observation_refs)
+        if not refs or any(not item for item in refs):
+            raise ValueError(
+                "StateUpdateCommand requires non-empty observation_refs"
+            )
 
 
 @dataclass(frozen=True)
@@ -204,6 +210,18 @@ def update_acquired_state(
     observation_ids.update(
         str(value).strip() for value in new_source_observation_ids if str(value).strip()
     )
+
+    unknown_command_refs = sorted({
+        ref
+        for command in command_items
+        for ref in command.observation_refs
+        if ref not in observation_ids
+    })
+    if unknown_command_refs:
+        raise ValueError(
+            "state update command references unknown observations: "
+            + ", ".join(unknown_command_refs)
+        )
 
     for command in command_items:
         payload = dict(command.payload)
