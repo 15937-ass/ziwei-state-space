@@ -5,9 +5,9 @@ project_state_dependency: "../PROJECT_STATE.yaml"
 
 execution:
   current_phase: "PL3-N"
-  completed_work_unit: "PRODUCT_PL3N_WEALTH_DOMAIN_PROVIDER"
-  next_work_unit: "PRODUCT_PL3N_DOMAIN_PROVIDER_REGISTRY"
-  status: "PL3N_WEALTH_PROVIDER_COMPLETE_GENERIC_REGISTRY_NEXT"
+  completed_work_unit: "PRODUCT_PL3N_DOMAIN_PROVIDER_REGISTRY"
+  next_work_unit: "PRODUCT_PL3N_NATAL_FIXTURE_BENCHMARK"
+  status: "PL3N_DOMAIN_REGISTRY_COMPLETE_FIXTURE_BENCHMARK_NEXT"
   canonical_branch: "main"
 
 boundaries:
@@ -36,6 +36,7 @@ completed:
   - "PL3-N deterministic NatalStateProfile core v0.1"
   - "PL3-N feedback/history rejection boundary"
   - "PL3-N W01 executable-59 wealth domain provider"
+  - "PL3-N generic domain-provider registry"
 
 artifacts:
   human_gate_decision: "product/PL2Q_HUMAN_GATE_DECISION_SPEC_v0.1.md"
@@ -56,6 +57,10 @@ artifacts:
   wealth_natal_provider_acceptance: "product/PL3N_WEALTH_DOMAIN_PROVIDER_ACCEPTANCE.md"
   natal_domain_provider_api: "src/product/natal_domain_providers.py"
   wealth_natal_provider_tests: "tests/test_product_natal_wealth_provider.py"
+  natal_domain_registry: "product/PL3N_DOMAIN_PROVIDER_REGISTRY_v0.1.json"
+  natal_domain_registry_acceptance: "product/PL3N_DOMAIN_PROVIDER_REGISTRY_ACCEPTANCE.md"
+  natal_domain_registry_api: "src/product/natal_domain_registry.py"
+  natal_domain_registry_tests: "tests/test_product_natal_domain_registry.py"
 
 parallel_work_policy:
   - "Every product session reads top-level PROJECT_STATE.yaml first for repository/knowledge state."
