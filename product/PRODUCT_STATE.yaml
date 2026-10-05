@@ -5,9 +5,9 @@ project_state_dependency: "../PROJECT_STATE.yaml"
 
 execution:
   current_phase: "PL3-S"
-  completed_work_unit: "PRODUCT_PL3S_MISSINGNESS_CONTRADICTION_MODEL_V0_1"
-  next_work_unit: "PRODUCT_PL3S_BAYESIAN_BELIEF_V0_1"
-  status: "PL3S_STATE_QUALITY_GATE_READY; BAYESIAN_BELIEF_NEXT; PRODUCTION_TEMPORAL_REACTION_REGISTRY_PENDING_KB_WP07B"
+  completed_work_unit: "PRODUCT_PL3S_BAYESIAN_BELIEF_V0_1"
+  next_work_unit: "PRODUCT_PL3S_STATE_BELIEF_BENCHMARK_V0_1"
+  status: "PL3S_CALIBRATED_DISCRETE_BAYES_INTERFACE_READY; NO_PRODUCTION_PRIORS_OR_LIKELIHOODS_BUNDLED; STATE_BELIEF_BENCHMARK_NEXT; PRODUCTION_TEMPORAL_REACTION_REGISTRY_PENDING_KB_WP07B"
   canonical_branch: "main"
 
 boundaries:
@@ -54,6 +54,7 @@ completed:
   - "PL3-S acquired-state schema v0.1: provenance-bound reality assertions/actions/context, explicit missingness/conflicts, deterministic state snapshots"
   - "PL3-S deterministic state updater v0.1: event labels never mutate state; explicit confirmed directives only; same-key disagreement preserved as conflict"
   - "PL3-S missingness/contradiction model v0.1: requirement-driven readiness, explicit MNAR-risk flags, no imputation or confidence scoring"
+  - "PL3-S Bayesian belief v0.1: discrete Bayes interface; empirical parameter provenance required; synthetic parameters test-only; no product default priors/likelihoods"
 
 artifacts:
   human_gate_decision: "product/PL2Q_HUMAN_GATE_DECISION_SPEC_v0.1.md"
@@ -144,6 +145,9 @@ artifacts:
   state_quality_requirements_fixture: "product/PL3S_STATE_QUALITY_REQUIREMENTS_FIXTURE_v0.1.json"
   state_quality_acceptance: "product/PL3S_MISSINGNESS_CONTRADICTION_MODEL_ACCEPTANCE.md"
   state_quality_tests: "tests/test_product_state_quality.py"
+  state_belief_api: "src/product/state_belief.py"
+  state_belief_acceptance: "product/PL3S_BAYESIAN_BELIEF_ACCEPTANCE.md"
+  state_belief_tests: "tests/test_product_state_belief.py"
 
 parallel_work_policy:
   - "Every product session reads top-level PROJECT_STATE.yaml first for repository/knowledge state."
