@@ -1,0 +1,54 @@
+schema_version: 1
+program: "PRODUCT-FIRST"
+state_owner: "product conversation"
+project_state_dependency: "../PROJECT_STATE.yaml"
+
+execution:
+  current_phase: "PL3-N"
+  completed_work_unit: "PRODUCT_PL2Q_HUMAN_GATE_INTEGRATION"
+  next_work_unit: "PRODUCT_PL3N_NATAL_PRIOR_ENGINE"
+  status: "PL2Q_COMPLETE_PL3N_STARTED"
+  canonical_branch: "main"
+
+boundaries:
+  canonical_natal_feedback_independent: true
+  temporal_environment_not_outcome: true
+  empirical_probability_separate_from_source_possibility: true
+  personalized_posterior_separate_from_population_calibration: true
+  blind_and_personalized_evaluation_separate: true
+  negative_and_censored_data_required: true
+  llm_owns_rule_selection: false
+  llm_owns_probability: false
+
+human_gates:
+  HG_PL2N_PALACE_VALENCE_MODEL: "APPROVE_WITH_CONSTRAINTS"
+  HG_PL2L_BAIGUAN_STRUCTURE: "APPROVE_STRUCTURE_DEFER_ACTIVATION_THRESHOLD"
+
+completed:
+  - "PL2 Human Gate decision specification v0.1"
+  - "Product Roadmap v0.3"
+  - "Knowledge Base Roadmap v0.2"
+  - "Product Architecture v0.3"
+  - "Dynamic Inference Architecture v0.1"
+  - "PL2-Q non-numeric pattern/contextual-valence contracts"
+  - "PL2-Q BAIGUAN_SUPPORT_PROFILE evidence contract"
+  - "PL2-Q eight-row Human Gate blocker refresh"
+
+artifacts:
+  human_gate_decision: "product/PL2Q_HUMAN_GATE_DECISION_SPEC_v0.1.md"
+  human_gate_contract_registry: "product/PL2Q_HUMAN_GATE_CONTRACT_REGISTRY_v0.1.json"
+  human_gate_acceptance: "product/PL2Q_HUMAN_GATE_INTEGRATION_ACCEPTANCE.md"
+  human_gate_api: "src/product/human_gate_contracts.py"
+  human_gate_tests: "tests/test_product_human_gate_contracts.py"
+  blocker_refresh: "product/PL2Q_WEALTH_HUMAN_GATE_REFRESH_v0.1.csv"
+  dynamic_architecture: "product/DYNAMIC_INFERENCE_ARCHITECTURE_v0.1.md"
+  product_architecture: "product/PRODUCT_ARCHITECTURE.md"
+  product_roadmap: "PRODUCT_ROADMAP.md"
+  knowledge_roadmap: "KNOWLEDGE_BASE_ROADMAP.md"
+
+parallel_work_policy:
+  - "Every product session reads top-level PROJECT_STATE.yaml first for repository/knowledge state."
+  - "Then read product/PRODUCT_STATE.yaml for the product work-unit pointer."
+  - "Knowledge-side corpus progress remains owned by top-level PROJECT_STATE.yaml."
+  - "Product feature PRs should avoid editing top-level PROJECT_STATE.yaml unless a coordinated state-sync commit is explicitly needed."
+  - "This separation exists to prevent routine knowledge checkpoints and product engineering from repeatedly conflicting on the same state file."
