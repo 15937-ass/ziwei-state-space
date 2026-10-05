@@ -1,0 +1,65 @@
+{
+  "schema_version": "0.1",
+  "benchmark_id": "PL3N_NATAL_CONTRACT_FIXTURES",
+  "purpose": "deterministic product-contract regression; not empirical prediction accuracy",
+  "fixtures": [
+    {
+      "fixture_id": "NF01_W01_067_FIRE_KONG_JI",
+      "stars_by_palace": {
+        "财帛宫": [
+          {"name": "火星"},
+          {"name": "地空"},
+          {"name": "武曲", "mutagen": "忌"}
+        ]
+      },
+      "expected_active_rules_all": ["W01-067"],
+      "expected_inactive_rules": [],
+      "expected_structure_contains": [],
+      "forbidden_structure_contains": ["BAIGUAN"],
+      "expected_baiguan_statuses": []
+    },
+    {
+      "fixture_id": "NF02_LU_MA_JIAO_CHI",
+      "stars_by_palace": {
+        "财帛宫": [{"name": "禄存"}],
+        "福德宫": [{"name": "天马"}]
+      },
+      "expected_active_rules_all": ["W01-024"],
+      "expected_inactive_rules": [],
+      "expected_structure_contains": ["LU_MA_JIAO_CHI"],
+      "forbidden_structure_contains": ["BAIGUAN"],
+      "expected_baiguan_statuses": []
+    },
+    {
+      "fixture_id": "NF03_BAIGUAN_PARTIAL_NOT_PREDICATE",
+      "stars_by_palace": {
+        "命宫": [{"name": "紫微"}],
+        "事业宫": [{"name": "左辅"}, {"name": "天魁"}]
+      },
+      "expected_active_rules_all": [],
+      "expected_inactive_rules": ["W01-095", "W01-096", "W01-098"],
+      "expected_structure_contains": [],
+      "forbidden_structure_contains": ["BAIGUAN"],
+      "expected_baiguan_statuses": ["PARTIAL_SUPPORT"]
+    },
+    {
+      "fixture_id": "NF04_BAIGUAN_TIANFU_EMPTY_CONFLICT",
+      "stars_by_palace": {
+        "命宫": [{"name": "紫微"}],
+        "事业宫": [{"name": "天府"}, {"name": "地空"}]
+      },
+      "expected_active_rules_all": [],
+      "expected_inactive_rules": ["W01-095", "W01-096", "W01-098"],
+      "expected_structure_contains": [],
+      "forbidden_structure_contains": ["BAIGUAN"],
+      "expected_baiguan_statuses": ["CONFLICTED"]
+    }
+  ],
+  "policy": {
+    "golden_profile_id_frozen": false,
+    "profile_id_reported_for_audit": true,
+    "active_rule_expectations_frozen": true,
+    "structure_expectations_frozen": true,
+    "empirical_accuracy_claim": false
+  }
+}
