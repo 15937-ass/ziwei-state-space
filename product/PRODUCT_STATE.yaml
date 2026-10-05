@@ -4,10 +4,10 @@ state_owner: "product conversation"
 project_state_dependency: "../PROJECT_STATE.yaml"
 
 execution:
-  current_phase: "PL7-PARALLEL-DATA-INFRA"
-  completed_work_unit: "PRODUCT_PL7_LONGITUDINAL_OBSERVATION_SCHEMA_V0_2"
-  next_work_unit: "PRODUCT_PL7_CHECKIN_BRIDGE_V0_2_INTERVAL_TIME"
-  status: "PL7_OBSERVATION_V0_2_INTERVAL_TIME_READY; BRIDGE_UPGRADE_NEXT; NO_TRAINING; PL3N_CAREER_REMAINS_BLOCKED_ON_KB_REPAIR_AND_CA09"
+  current_phase: "PL3-T"
+  completed_work_unit: "PRODUCT_PL7_CHECKIN_BRIDGE_V0_2_INTERVAL_TIME"
+  next_work_unit: "PRODUCT_PL3T_TEMPORAL_ENVIRONMENT_CORE_V0_1"
+  status: "PL7_MINIMUM_DATA_ENTRY_LOOP_READY; RETURN_TO_MAINLINE_PL3T; NO_TRAINING; PL3N_CAREER_REMAINS_BLOCKED_ON_KB_REPAIR_AND_CA09"
   canonical_branch: "main"
 
 boundaries:
@@ -44,6 +44,7 @@ completed:
   - "PL7 check-in to observation bridge v0.1: confirmed-response gate, locked-target provenance, deterministic candidate mapping, no fabricated event dates"
   - "PL7 event-time precision review: adopt DAY/MONTH/YEAR/INTERVAL bounded normal form; no midpoint imputation; partial overlap remains temporally ambiguous"
   - "PL7 longitudinal observation schema v0.2: interval event-time normal form, lossless v0.1 migration, strict target-window assignment"
+  - "PL7 check-in bridge v0.2: DAY/MONTH/YEAR/INTERVAL reports, deterministic normalization, temporal-assignment ambiguity guard"
 
 artifacts:
   human_gate_decision: "product/PL2Q_HUMAN_GATE_DECISION_SPEC_v0.1.md"
@@ -95,6 +96,10 @@ artifacts:
   longitudinal_observation_v02_acceptance: "product/PL7_LONGITUDINAL_OBSERVATION_SCHEMA_v0.2_ACCEPTANCE.md"
   longitudinal_observation_v02_api: "src/product/longitudinal_observation_v02.py"
   longitudinal_observation_v02_tests: "tests/test_product_longitudinal_observation_v02.py"
+  checkin_observation_bridge_v02: "src/product/checkin_observation_bridge_v02.py"
+  checkin_observation_bridge_v02_acceptance: "product/PL7_CHECKIN_BRIDGE_V0.2_INTERVAL_TIME_ACCEPTANCE.md"
+  checkin_observation_bridge_v02_tests: "tests/test_product_checkin_observation_bridge_v02.py"
+  future_workplan: "product/PRODUCT_FUTURE_WORKPLAN_v0.1.md"
 
 parallel_work_policy:
   - "Every product session reads top-level PROJECT_STATE.yaml first for repository/knowledge state."
