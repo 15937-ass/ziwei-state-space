@@ -5,9 +5,9 @@ project_state_dependency: "../PROJECT_STATE.yaml"
 
 execution:
   current_phase: "PL3-N"
-  completed_work_unit: "PRODUCT_PL3N_DOMAIN_PROVIDER_REGISTRY"
-  next_work_unit: "PRODUCT_PL3N_NATAL_FIXTURE_BENCHMARK"
-  status: "PL3N_DOMAIN_REGISTRY_COMPLETE_FIXTURE_BENCHMARK_NEXT"
+  completed_work_unit: "PRODUCT_PL3N_CAREER_READINESS_AUDIT"
+  next_work_unit: "PRODUCT_PL7_LONGITUDINAL_OBSERVATION_SCHEMA_V0_1"
+  status: "PL3N_CAREER_PROVIDER_BLOCKED_ON_KB_REPAIR_AND_CA09; PARALLEL_DATA_INFRA_NEXT"
   canonical_branch: "main"
 
 boundaries:
@@ -37,6 +37,8 @@ completed:
   - "PL3-N feedback/history rejection boundary"
   - "PL3-N W01 executable-59 wealth domain provider"
   - "PL3-N generic domain-provider registry"
+  - "PL3-N natal fixture benchmark v0.1"
+  - "PL3-N career readiness audit: 800 rows source-verified; CA04-CA08 schema drift detected; career provider blocked pending repair + CA09 closure"
 
 artifacts:
   human_gate_decision: "product/PL2Q_HUMAN_GATE_DECISION_SPEC_v0.1.md"
@@ -61,6 +63,14 @@ artifacts:
   natal_domain_registry_acceptance: "product/PL3N_DOMAIN_PROVIDER_REGISTRY_ACCEPTANCE.md"
   natal_domain_registry_api: "src/product/natal_domain_registry.py"
   natal_domain_registry_tests: "tests/test_product_natal_domain_registry.py"
+  natal_fixture_registry: "product/PL3N_NATAL_FIXTURES_v0.1.json"
+  natal_fixture_acceptance: "product/PL3N_NATAL_FIXTURE_BENCHMARK_ACCEPTANCE.md"
+  natal_fixture_api: "src/product/natal_fixture_benchmark.py"
+  natal_fixture_tests: "tests/test_product_natal_fixture_benchmark.py"
+  career_readiness_audit: "product/PL3N_CAREER_READINESS_AUDIT_v0.1.json"
+  career_readiness_acceptance: "product/PL3N_CAREER_READINESS_AUDIT_ACCEPTANCE.md"
+  career_readiness_api: "src/product/career_readiness_audit.py"
+  career_readiness_tests: "tests/test_product_career_readiness_audit.py"
 
 parallel_work_policy:
   - "Every product session reads top-level PROJECT_STATE.yaml first for repository/knowledge state."
