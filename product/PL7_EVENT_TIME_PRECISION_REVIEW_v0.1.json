@@ -1,0 +1,37 @@
+{
+  "schema_version": "0.1",
+  "review_id": "PL7_EVENT_TIME_PRECISION_REVIEW",
+  "decision": "ADOPT_INTERVAL_NORMAL_FORM_IN_OBSERVATION_SCHEMA_V0_2",
+  "motivation": [
+    "exact event dates are often unavailable in retrospective or low-burden follow-up",
+    "fabricating a midpoint or default day would corrupt event-history calibration",
+    "month/year reports are naturally represented as bounded event-time intervals"
+  ],
+  "supported_precisions": [
+    "DAY",
+    "MONTH",
+    "YEAR",
+    "INTERVAL"
+  ],
+  "normal_form": {
+    "lower_bound_date": "YYYY-MM-DD",
+    "upper_bound_date": "YYYY-MM-DD",
+    "reported_precision": "DAY | MONTH | YEAR | INTERVAL",
+    "rule": "DAY has equal bounds; MONTH/YEAR expand deterministically to calendar bounds; INTERVAL preserves supplied bounds"
+  },
+  "invariants": [
+    "EVENT_OCCURRED requires non-null event_time interval",
+    "EVENT_NOT_OCCURRED/UNKNOWN/CENSORED require null event_time",
+    "never impute midpoint or random date",
+    "an occurred event can be assigned to a target window only when the reported interval is fully contained in that window",
+    "mere interval overlap is TEMPORAL_ASSIGNMENT_AMBIGUOUS and cannot become target-specific occurrence truth",
+    "v0.1 event_date migrates losslessly to DAY with lower_bound=upper_bound=event_date"
+  ],
+  "deferred": [
+    "multiple recurrent events per target window",
+    "sub-day/hour precision",
+    "probabilistic event-time imputation",
+    "survival-model choice"
+  ],
+  "next_work_unit": "PRODUCT_PL7_LONGITUDINAL_OBSERVATION_SCHEMA_V0_2"
+}
