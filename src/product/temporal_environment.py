@@ -86,6 +86,8 @@ class EventRelativeContextEvidence:
     source_id: str
     source_location: str
     review_status: str
+    trigger_provenance: str = ""
+    routing_facts: tuple[str, ...] = ()
 
     def __post_init__(self) -> None:
         for value, name in (
@@ -117,6 +119,7 @@ class TemporalEnvironmentProfile:
     acquired_state_used: bool = False
     outcome_used: bool = False
     empirical_calibration_used: bool = False
+    external_event_trigger_used: bool = False
 
     def __post_init__(self) -> None:
         if self.schema_version != "0.1":
@@ -135,6 +138,7 @@ class TemporalEnvironmentProfile:
             "acquired_state_used": self.acquired_state_used,
             "outcome_used": self.outcome_used,
             "empirical_calibration_used": self.empirical_calibration_used,
+            "external_event_trigger_used": self.external_event_trigger_used,
         }
         active = [name for name, value in forbidden.items() if value]
         if active:
