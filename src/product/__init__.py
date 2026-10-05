@@ -122,6 +122,14 @@ from .longitudinal_observation_v02 import (
     compile_longitudinal_observation_v02,
     migrate_longitudinal_observation_v01_to_v02,
 )
+from .manifestation_context import (
+    CONTEXT_MODES,
+    PERSONALIZATION_READINESS,
+    ManifestationRoutingContext,
+    RoutingAction,
+    RoutingStateAssertion,
+    build_manifestation_routing_context,
+)
 from .manifestation_ontology import (
     EVENT_SPECIFICITIES,
     PROBABILITY_STATUSES,
@@ -315,6 +323,12 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "CONTEXT_MODES",
+    "PERSONALIZATION_READINESS",
+    "ManifestationRoutingContext",
+    "RoutingAction",
+    "RoutingStateAssertion",
+    "build_manifestation_routing_context",
     "MAPPING_EVIDENCE_TIERS",
     "MAPPING_REGISTRY_STATUSES",
     "ROUTABLE_EVIDENCE_TIERS",
