@@ -1,0 +1,708 @@
+{
+  "schema_version": "0.1",
+  "purpose": "DETERMINISM_AND_ABSTENTION_CONTRACT_ONLY",
+  "cases": [
+    {
+      "case_id": "SB-FX-BASE",
+      "state": {
+        "schema_version": "0.1",
+        "state_id": null,
+        "person_key": "PERSON-FX-001",
+        "as_of_date": "2027-06-30",
+        "previous_state_id": null,
+        "assertions": [
+          {
+            "fact_id": "SF-CAREER-001",
+            "domain": "CAREER",
+            "key": "employment_status",
+            "value": "EMPLOYED",
+            "status": "CONFIRMED",
+            "confidence": "HIGH",
+            "valid_from": "2027-01-01",
+            "valid_through": null,
+            "observation_refs": [
+              "OBS-STATE-001"
+            ],
+            "source_note": "confirmed current employment"
+          },
+          {
+            "fact_id": "SF-RELOC-001",
+            "domain": "RELOCATION",
+            "key": "distant_settlement_status",
+            "value": "SETTLED",
+            "status": "REPORTED",
+            "confidence": "MEDIUM",
+            "valid_from": "2026-09-01",
+            "valid_through": null,
+            "observation_refs": [
+              "OBS-STATE-002"
+            ],
+            "source_note": null
+          }
+        ],
+        "actions": [
+          {
+            "action_id": "ACT-001",
+            "label": "actively applying for new roles",
+            "status": "ACTUAL",
+            "confidence": "HIGH",
+            "date": "2027-06-15",
+            "observation_refs": [
+              "OBS-STATE-001"
+            ]
+          }
+        ],
+        "context_items": [
+          {
+            "context_id": "CTX-EXP-001",
+            "kind": "EXPOSURE",
+            "label": "regular recruiter contact",
+            "status": "ACTIVE",
+            "confidence": "MEDIUM",
+            "observation_refs": [
+              "OBS-STATE-001"
+            ]
+          },
+          {
+            "context_id": "CTX-COUNTER-001",
+            "kind": "COUNTERPARTY",
+            "label": "employer decision pending",
+            "status": "ACTIVE",
+            "confidence": "MEDIUM",
+            "observation_refs": [
+              "OBS-STATE-001"
+            ]
+          }
+        ],
+        "missingness": [
+          {
+            "domain": "RESOURCE",
+            "key": "liquid_asset_level",
+            "reason": "NOT_ASKED",
+            "last_observed_date": null
+          }
+        ],
+        "conflicts": [],
+        "source_observation_ids": [
+          "OBS-STATE-001",
+          "OBS-STATE-002"
+        ],
+        "state_confidence": "MEDIUM"
+      },
+      "model": {
+        "schema_version": "0.1",
+        "model_id": "BELIEF-FX-CAREER-001",
+        "model_version": "fixture-0.1",
+        "domain": "CAREER",
+        "state_key": "near_term_job_transition_state",
+        "hypotheses": [
+          "STABLE",
+          "TRANSITIONING"
+        ],
+        "prior": {
+          "STABLE": 0.5,
+          "TRANSITIONING": 0.5
+        },
+        "evidence_channels": [
+          {
+            "evidence_id": "EV-EMPLOYMENT",
+            "domain": "CAREER",
+            "key": "employment_status",
+            "accepted_confidences": [
+              "HIGH",
+              "MEDIUM"
+            ],
+            "likelihoods": {
+              "EMPLOYED": {
+                "STABLE": 0.8,
+                "TRANSITIONING": 0.2
+              },
+              "UNEMPLOYED": {
+                "STABLE": 0.2,
+                "TRANSITIONING": 0.8
+              }
+            }
+          }
+        ],
+        "parameter_layer": "TEST_FIXTURE",
+        "parameter_source": "PL3S test fixture only; not empirical product parameters",
+        "model_status": "TEST_ONLY"
+      },
+      "expected": {
+        "status": "UPDATED",
+        "posterior": {
+          "STABLE": 0.8,
+          "TRANSITIONING": 0.2
+        },
+        "evidence_statuses": [
+          "USED"
+        ]
+      }
+    },
+    {
+      "case_id": "SB-FX-MISSING",
+      "state": {
+        "schema_version": "0.1",
+        "state_id": null,
+        "person_key": "PERSON-FX-001",
+        "as_of_date": "2027-06-30",
+        "previous_state_id": null,
+        "assertions": [
+          {
+            "fact_id": "SF-RELOC-001",
+            "domain": "RELOCATION",
+            "key": "distant_settlement_status",
+            "value": "SETTLED",
+            "status": "REPORTED",
+            "confidence": "MEDIUM",
+            "valid_from": "2026-09-01",
+            "valid_through": null,
+            "observation_refs": [
+              "OBS-STATE-002"
+            ],
+            "source_note": null
+          }
+        ],
+        "actions": [
+          {
+            "action_id": "ACT-001",
+            "label": "actively applying for new roles",
+            "status": "ACTUAL",
+            "confidence": "HIGH",
+            "date": "2027-06-15",
+            "observation_refs": [
+              "OBS-STATE-001"
+            ]
+          }
+        ],
+        "context_items": [
+          {
+            "context_id": "CTX-EXP-001",
+            "kind": "EXPOSURE",
+            "label": "regular recruiter contact",
+            "status": "ACTIVE",
+            "confidence": "MEDIUM",
+            "observation_refs": [
+              "OBS-STATE-001"
+            ]
+          },
+          {
+            "context_id": "CTX-COUNTER-001",
+            "kind": "COUNTERPARTY",
+            "label": "employer decision pending",
+            "status": "ACTIVE",
+            "confidence": "MEDIUM",
+            "observation_refs": [
+              "OBS-STATE-001"
+            ]
+          }
+        ],
+        "missingness": [
+          {
+            "domain": "RESOURCE",
+            "key": "liquid_asset_level",
+            "reason": "NOT_ASKED",
+            "last_observed_date": null
+          },
+          {
+            "domain": "CAREER",
+            "key": "employment_status",
+            "reason": "NOT_OBSERVED",
+            "last_observed_date": null
+          }
+        ],
+        "conflicts": [],
+        "source_observation_ids": [
+          "OBS-STATE-001",
+          "OBS-STATE-002"
+        ],
+        "state_confidence": "MEDIUM"
+      },
+      "model": {
+        "schema_version": "0.1",
+        "model_id": "BELIEF-FX-CAREER-001",
+        "model_version": "fixture-0.1",
+        "domain": "CAREER",
+        "state_key": "near_term_job_transition_state",
+        "hypotheses": [
+          "STABLE",
+          "TRANSITIONING"
+        ],
+        "prior": {
+          "STABLE": 0.5,
+          "TRANSITIONING": 0.5
+        },
+        "evidence_channels": [
+          {
+            "evidence_id": "EV-EMPLOYMENT",
+            "domain": "CAREER",
+            "key": "employment_status",
+            "accepted_confidences": [
+              "HIGH",
+              "MEDIUM"
+            ],
+            "likelihoods": {
+              "EMPLOYED": {
+                "STABLE": 0.8,
+                "TRANSITIONING": 0.2
+              },
+              "UNEMPLOYED": {
+                "STABLE": 0.2,
+                "TRANSITIONING": 0.8
+              }
+            }
+          }
+        ],
+        "parameter_layer": "TEST_FIXTURE",
+        "parameter_source": "PL3S test fixture only; not empirical product parameters",
+        "model_status": "TEST_ONLY"
+      },
+      "expected": {
+        "status": "NO_USABLE_EVIDENCE",
+        "posterior": {
+          "STABLE": 0.5,
+          "TRANSITIONING": 0.5
+        },
+        "evidence_statuses": [
+          "SKIPPED_MISSING"
+        ]
+      }
+    },
+    {
+      "case_id": "SB-FX-CONFLICT",
+      "state": {
+        "schema_version": "0.1",
+        "state_id": null,
+        "person_key": "PERSON-FX-001",
+        "as_of_date": "2027-06-30",
+        "previous_state_id": null,
+        "assertions": [
+          {
+            "fact_id": "SF-CAREER-001",
+            "domain": "CAREER",
+            "key": "employment_status",
+            "value": "EMPLOYED",
+            "status": "CONFIRMED",
+            "confidence": "HIGH",
+            "valid_from": "2027-01-01",
+            "valid_through": null,
+            "observation_refs": [
+              "OBS-STATE-001"
+            ],
+            "source_note": "confirmed current employment"
+          },
+          {
+            "fact_id": "SF-RELOC-001",
+            "domain": "RELOCATION",
+            "key": "distant_settlement_status",
+            "value": "SETTLED",
+            "status": "REPORTED",
+            "confidence": "MEDIUM",
+            "valid_from": "2026-09-01",
+            "valid_through": null,
+            "observation_refs": [
+              "OBS-STATE-002"
+            ],
+            "source_note": null
+          },
+          {
+            "fact_id": "SF-CAREER-ALT",
+            "domain": "CAREER",
+            "key": "employment_status",
+            "value": "UNEMPLOYED",
+            "status": "CONFIRMED",
+            "confidence": "HIGH",
+            "valid_from": "2027-01-01",
+            "valid_through": null,
+            "observation_refs": [
+              "OBS-STATE-001"
+            ],
+            "source_note": "confirmed current employment"
+          }
+        ],
+        "actions": [
+          {
+            "action_id": "ACT-001",
+            "label": "actively applying for new roles",
+            "status": "ACTUAL",
+            "confidence": "HIGH",
+            "date": "2027-06-15",
+            "observation_refs": [
+              "OBS-STATE-001"
+            ]
+          }
+        ],
+        "context_items": [
+          {
+            "context_id": "CTX-EXP-001",
+            "kind": "EXPOSURE",
+            "label": "regular recruiter contact",
+            "status": "ACTIVE",
+            "confidence": "MEDIUM",
+            "observation_refs": [
+              "OBS-STATE-001"
+            ]
+          },
+          {
+            "context_id": "CTX-COUNTER-001",
+            "kind": "COUNTERPARTY",
+            "label": "employer decision pending",
+            "status": "ACTIVE",
+            "confidence": "MEDIUM",
+            "observation_refs": [
+              "OBS-STATE-001"
+            ]
+          }
+        ],
+        "missingness": [
+          {
+            "domain": "RESOURCE",
+            "key": "liquid_asset_level",
+            "reason": "NOT_ASKED",
+            "last_observed_date": null
+          }
+        ],
+        "conflicts": [
+          {
+            "conflict_id": "CF-CAREER-001",
+            "domain": "CAREER",
+            "key": "employment_status",
+            "fact_ids": [
+              "SF-CAREER-001",
+              "SF-CAREER-ALT"
+            ],
+            "status": "UNRESOLVED"
+          }
+        ],
+        "source_observation_ids": [
+          "OBS-STATE-001",
+          "OBS-STATE-002"
+        ],
+        "state_confidence": "MEDIUM"
+      },
+      "model": {
+        "schema_version": "0.1",
+        "model_id": "BELIEF-FX-CAREER-001",
+        "model_version": "fixture-0.1",
+        "domain": "CAREER",
+        "state_key": "near_term_job_transition_state",
+        "hypotheses": [
+          "STABLE",
+          "TRANSITIONING"
+        ],
+        "prior": {
+          "STABLE": 0.5,
+          "TRANSITIONING": 0.5
+        },
+        "evidence_channels": [
+          {
+            "evidence_id": "EV-EMPLOYMENT",
+            "domain": "CAREER",
+            "key": "employment_status",
+            "accepted_confidences": [
+              "HIGH",
+              "MEDIUM"
+            ],
+            "likelihoods": {
+              "EMPLOYED": {
+                "STABLE": 0.8,
+                "TRANSITIONING": 0.2
+              },
+              "UNEMPLOYED": {
+                "STABLE": 0.2,
+                "TRANSITIONING": 0.8
+              }
+            }
+          }
+        ],
+        "parameter_layer": "TEST_FIXTURE",
+        "parameter_source": "PL3S test fixture only; not empirical product parameters",
+        "model_status": "TEST_ONLY"
+      },
+      "expected": {
+        "status": "NO_USABLE_EVIDENCE",
+        "posterior": {
+          "STABLE": 0.5,
+          "TRANSITIONING": 0.5
+        },
+        "evidence_statuses": [
+          "SKIPPED_CONFLICT"
+        ]
+      }
+    },
+    {
+      "case_id": "SB-FX-LOW-CONFIDENCE",
+      "state": {
+        "schema_version": "0.1",
+        "state_id": null,
+        "person_key": "PERSON-FX-001",
+        "as_of_date": "2027-06-30",
+        "previous_state_id": null,
+        "assertions": [
+          {
+            "fact_id": "SF-CAREER-001",
+            "domain": "CAREER",
+            "key": "employment_status",
+            "value": "EMPLOYED",
+            "status": "CONFIRMED",
+            "confidence": "LOW",
+            "valid_from": "2027-01-01",
+            "valid_through": null,
+            "observation_refs": [
+              "OBS-STATE-001"
+            ],
+            "source_note": "confirmed current employment"
+          },
+          {
+            "fact_id": "SF-RELOC-001",
+            "domain": "RELOCATION",
+            "key": "distant_settlement_status",
+            "value": "SETTLED",
+            "status": "REPORTED",
+            "confidence": "MEDIUM",
+            "valid_from": "2026-09-01",
+            "valid_through": null,
+            "observation_refs": [
+              "OBS-STATE-002"
+            ],
+            "source_note": null
+          }
+        ],
+        "actions": [
+          {
+            "action_id": "ACT-001",
+            "label": "actively applying for new roles",
+            "status": "ACTUAL",
+            "confidence": "HIGH",
+            "date": "2027-06-15",
+            "observation_refs": [
+              "OBS-STATE-001"
+            ]
+          }
+        ],
+        "context_items": [
+          {
+            "context_id": "CTX-EXP-001",
+            "kind": "EXPOSURE",
+            "label": "regular recruiter contact",
+            "status": "ACTIVE",
+            "confidence": "MEDIUM",
+            "observation_refs": [
+              "OBS-STATE-001"
+            ]
+          },
+          {
+            "context_id": "CTX-COUNTER-001",
+            "kind": "COUNTERPARTY",
+            "label": "employer decision pending",
+            "status": "ACTIVE",
+            "confidence": "MEDIUM",
+            "observation_refs": [
+              "OBS-STATE-001"
+            ]
+          }
+        ],
+        "missingness": [
+          {
+            "domain": "RESOURCE",
+            "key": "liquid_asset_level",
+            "reason": "NOT_ASKED",
+            "last_observed_date": null
+          }
+        ],
+        "conflicts": [],
+        "source_observation_ids": [
+          "OBS-STATE-001",
+          "OBS-STATE-002"
+        ],
+        "state_confidence": "MEDIUM"
+      },
+      "model": {
+        "schema_version": "0.1",
+        "model_id": "BELIEF-FX-CAREER-001",
+        "model_version": "fixture-0.1",
+        "domain": "CAREER",
+        "state_key": "near_term_job_transition_state",
+        "hypotheses": [
+          "STABLE",
+          "TRANSITIONING"
+        ],
+        "prior": {
+          "STABLE": 0.5,
+          "TRANSITIONING": 0.5
+        },
+        "evidence_channels": [
+          {
+            "evidence_id": "EV-EMPLOYMENT",
+            "domain": "CAREER",
+            "key": "employment_status",
+            "accepted_confidences": [
+              "HIGH",
+              "MEDIUM"
+            ],
+            "likelihoods": {
+              "EMPLOYED": {
+                "STABLE": 0.8,
+                "TRANSITIONING": 0.2
+              },
+              "UNEMPLOYED": {
+                "STABLE": 0.2,
+                "TRANSITIONING": 0.8
+              }
+            }
+          }
+        ],
+        "parameter_layer": "TEST_FIXTURE",
+        "parameter_source": "PL3S test fixture only; not empirical product parameters",
+        "model_status": "TEST_ONLY"
+      },
+      "expected": {
+        "status": "NO_USABLE_EVIDENCE",
+        "posterior": {
+          "STABLE": 0.5,
+          "TRANSITIONING": 0.5
+        },
+        "evidence_statuses": [
+          "SKIPPED_CONFIDENCE"
+        ]
+      }
+    },
+    {
+      "case_id": "SB-FX-UNMODELLED",
+      "state": {
+        "schema_version": "0.1",
+        "state_id": null,
+        "person_key": "PERSON-FX-001",
+        "as_of_date": "2027-06-30",
+        "previous_state_id": null,
+        "assertions": [
+          {
+            "fact_id": "SF-CAREER-001",
+            "domain": "CAREER",
+            "key": "employment_status",
+            "value": "SELF_EMPLOYED",
+            "status": "CONFIRMED",
+            "confidence": "HIGH",
+            "valid_from": "2027-01-01",
+            "valid_through": null,
+            "observation_refs": [
+              "OBS-STATE-001"
+            ],
+            "source_note": "confirmed current employment"
+          },
+          {
+            "fact_id": "SF-RELOC-001",
+            "domain": "RELOCATION",
+            "key": "distant_settlement_status",
+            "value": "SETTLED",
+            "status": "REPORTED",
+            "confidence": "MEDIUM",
+            "valid_from": "2026-09-01",
+            "valid_through": null,
+            "observation_refs": [
+              "OBS-STATE-002"
+            ],
+            "source_note": null
+          }
+        ],
+        "actions": [
+          {
+            "action_id": "ACT-001",
+            "label": "actively applying for new roles",
+            "status": "ACTUAL",
+            "confidence": "HIGH",
+            "date": "2027-06-15",
+            "observation_refs": [
+              "OBS-STATE-001"
+            ]
+          }
+        ],
+        "context_items": [
+          {
+            "context_id": "CTX-EXP-001",
+            "kind": "EXPOSURE",
+            "label": "regular recruiter contact",
+            "status": "ACTIVE",
+            "confidence": "MEDIUM",
+            "observation_refs": [
+              "OBS-STATE-001"
+            ]
+          },
+          {
+            "context_id": "CTX-COUNTER-001",
+            "kind": "COUNTERPARTY",
+            "label": "employer decision pending",
+            "status": "ACTIVE",
+            "confidence": "MEDIUM",
+            "observation_refs": [
+              "OBS-STATE-001"
+            ]
+          }
+        ],
+        "missingness": [
+          {
+            "domain": "RESOURCE",
+            "key": "liquid_asset_level",
+            "reason": "NOT_ASKED",
+            "last_observed_date": null
+          }
+        ],
+        "conflicts": [],
+        "source_observation_ids": [
+          "OBS-STATE-001",
+          "OBS-STATE-002"
+        ],
+        "state_confidence": "MEDIUM"
+      },
+      "model": {
+        "schema_version": "0.1",
+        "model_id": "BELIEF-FX-CAREER-001",
+        "model_version": "fixture-0.1",
+        "domain": "CAREER",
+        "state_key": "near_term_job_transition_state",
+        "hypotheses": [
+          "STABLE",
+          "TRANSITIONING"
+        ],
+        "prior": {
+          "STABLE": 0.5,
+          "TRANSITIONING": 0.5
+        },
+        "evidence_channels": [
+          {
+            "evidence_id": "EV-EMPLOYMENT",
+            "domain": "CAREER",
+            "key": "employment_status",
+            "accepted_confidences": [
+              "HIGH",
+              "MEDIUM"
+            ],
+            "likelihoods": {
+              "EMPLOYED": {
+                "STABLE": 0.8,
+                "TRANSITIONING": 0.2
+              },
+              "UNEMPLOYED": {
+                "STABLE": 0.2,
+                "TRANSITIONING": 0.8
+              }
+            }
+          }
+        ],
+        "parameter_layer": "TEST_FIXTURE",
+        "parameter_source": "PL3S test fixture only; not empirical product parameters",
+        "model_status": "TEST_ONLY"
+      },
+      "expected": {
+        "status": "NO_USABLE_EVIDENCE",
+        "posterior": {
+          "STABLE": 0.5,
+          "TRANSITIONING": 0.5
+        },
+        "evidence_statuses": [
+          "SKIPPED_UNMODELLED_VALUE"
+        ]
+      }
+    }
+  ]
+}

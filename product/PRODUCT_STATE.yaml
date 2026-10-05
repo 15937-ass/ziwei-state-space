@@ -4,10 +4,10 @@ state_owner: "product conversation"
 project_state_dependency: "../PROJECT_STATE.yaml"
 
 execution:
-  current_phase: "PL3-S"
-  completed_work_unit: "PRODUCT_PL3S_BAYESIAN_BELIEF_V0_1"
-  next_work_unit: "PRODUCT_PL3S_STATE_BELIEF_BENCHMARK_V0_1"
-  status: "PL3S_BAYESIAN_INTERFACE_READY; PRODUCTION_BELIEF_REGISTRY_EMPTY_PENDING_EMPIRICAL_CALIBRATION; STATE_BELIEF_BENCHMARK_NEXT; PRODUCTION_TEMPORAL_REACTION_REGISTRY_PENDING_KB_WP07B"
+  current_phase: "PL3-M"
+  completed_work_unit: "PRODUCT_PL3S_STATE_BELIEF_BENCHMARK_V0_1"
+  next_work_unit: "PRODUCT_PL3M_MANIFESTATION_ONTOLOGY_ADAPTER_V0_1"
+  status: "PL3S_V0_1_PRODUCT_SKELETON_COMPLETE; PL3M_ONTOLOGY_ADAPTER_NEXT; PRODUCTION_BELIEF_REGISTRY_EMPTY_PENDING_EMPIRICAL_CALIBRATION; PRODUCTION_TEMPORAL_REACTION_REGISTRY_PENDING_KB_WP07B"
   canonical_branch: "main"
 
 boundaries:
@@ -55,6 +55,7 @@ completed:
   - "PL3-S deterministic state updater v0.1: event labels never mutate state; explicit confirmed directives only; same-key disagreement preserved as conflict"
   - "PL3-S missingness/contradiction model v0.1: requirement-driven readiness, explicit MNAR-risk flags, no imputation or confidence scoring"
   - "PL3-S Bayesian belief v0.1: discrete personal-state posterior interface, missing/conflict abstention, production parameters empty pending empirical calibration"
+  - "PL3-S state belief benchmark v0.1: deterministic posterior + abstention contract across base/missing/conflict/low-confidence/unmodelled-value fixtures"
 
 artifacts:
   human_gate_decision: "product/PL2Q_HUMAN_GATE_DECISION_SPEC_v0.1.md"
@@ -150,6 +151,10 @@ artifacts:
   bayesian_belief_fixture: "product/PL3S_BELIEF_MODEL_FIXTURE_v0.1.json"
   bayesian_belief_acceptance: "product/PL3S_BAYESIAN_BELIEF_ACCEPTANCE.md"
   bayesian_belief_tests: "tests/test_product_bayesian_belief.py"
+  state_belief_benchmark_api: "src/product/state_belief_benchmark.py"
+  state_belief_benchmark_fixtures: "product/PL3S_STATE_BELIEF_FIXTURES_v0.1.json"
+  state_belief_benchmark_acceptance: "product/PL3S_STATE_BELIEF_BENCHMARK_ACCEPTANCE.md"
+  state_belief_benchmark_tests: "tests/test_product_state_belief_benchmark.py"
 
 parallel_work_policy:
   - "Every product session reads top-level PROJECT_STATE.yaml first for repository/knowledge state."
