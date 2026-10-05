@@ -46,6 +46,11 @@ from .evidence_package import (
     EvidenceItem,
     EvidencePackage,
 )
+from .natal_domain_registry import (
+    NatalDomainProvider,
+    NatalDomainProviderRegistry,
+    load_default_natal_domain_registry,
+)
 from .natal_domain_providers import (
     DEFAULT_PALACE_ONTOLOGY_PATH,
     DEFAULT_WEALTH_BATCH_PATHS,
@@ -177,6 +182,9 @@ __all__ = [
     "ContrastiveItem",
     "EvidenceItem",
     "EvidencePackage",
+    "NatalDomainProvider",
+    "NatalDomainProviderRegistry",
+    "load_default_natal_domain_registry",
     "DEFAULT_PALACE_ONTOLOGY_PATH",
     "DEFAULT_WEALTH_BATCH_PATHS",
     "DEFAULT_WEALTH_PROJECTION_PATH",
