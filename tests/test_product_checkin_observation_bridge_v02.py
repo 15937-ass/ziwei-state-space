@@ -57,11 +57,7 @@ def test_month_event_creates_v02_observation():
 
 def test_year_event_is_valid_for_full_year_target():
     response = _response("YES", "CLOSE", "2028-01-02")
-    response["event_time_report"] = {
-        "precision": "INTERVAL",
-        "lower_bound_date": "2027-01-01",
-        "upper_bound_date": "2027-06-30",
-    }
+    response["event_time_report"] = {"precision": "YEAR", "value": "2027"}
     result = bridge_checkin_response_v02(_plan(), response)
     assert result.disposition == "OBSERVATION_READY"
 
@@ -72,7 +68,11 @@ def test_partial_overlap_returns_ambiguous_instead_of_positive_truth():
     object.__setattr__(plan, "window_start", __import__("datetime").date(2027, 4, 1))
     object.__setattr__(plan, "window_end", __import__("datetime").date(2027, 6, 30))
     response = _response("YES", "Q2", "2027-06-30")
-    response["event_time_report"] = {"precision": "YEAR", "value": "2027"}
+    response["event_time_report"] = {
+        "precision": "INTERVAL",
+        "lower_bound_date": "2027-01-01",
+        "upper_bound_date": "2027-06-30",
+    }
     result = bridge_checkin_response_v02(plan, response)
     assert result.disposition == "TEMPORAL_ASSIGNMENT_AMBIGUOUS"
     assert result.observation_payload is None
