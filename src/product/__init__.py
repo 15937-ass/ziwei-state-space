@@ -24,6 +24,21 @@ from .checkin_observation_bridge_v02 import (
     normalize_event_time_report,
 )
 from .chart_diff import ChartDifference, compare_chart_snapshots, summarize_differences
+from .acquired_state import (
+    ACQUIRED_STATE_DOMAINS,
+    MISSINGNESS_STATUSES,
+    PROVENANCE_SOURCE_TYPES,
+    REALITY_RECORD_TYPES,
+    STATE_CONFIDENCE_LEVELS,
+    STATE_VALUE_STATUSES,
+    AcquiredStateEntry,
+    AcquiredStateProfile,
+    MissingStateDimension,
+    ObservationProvenance,
+    RealityContextRecord,
+    StateContradiction,
+    build_acquired_state_profile,
+)
 from .antecedent_links import (
     LINK_STATUSES,
     LINK_TYPES,
@@ -241,6 +256,19 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "ACQUIRED_STATE_DOMAINS",
+    "MISSINGNESS_STATUSES",
+    "PROVENANCE_SOURCE_TYPES",
+    "REALITY_RECORD_TYPES",
+    "STATE_CONFIDENCE_LEVELS",
+    "STATE_VALUE_STATUSES",
+    "AcquiredStateEntry",
+    "AcquiredStateProfile",
+    "MissingStateDimension",
+    "ObservationProvenance",
+    "RealityContextRecord",
+    "StateContradiction",
+    "build_acquired_state_profile",
     "CanonicalEvidenceNamespace",
     "LayeredEvidencePackage",
     "TemporalEvidenceNamespace",
