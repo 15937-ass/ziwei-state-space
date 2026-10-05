@@ -19,6 +19,12 @@ from .acquired_state import (
     StateMissingness,
     compile_acquired_state,
 )
+from .acquired_state_updater import (
+    UPDATE_OPERATIONS,
+    StateUpdateCommand,
+    StateUpdateResult,
+    update_acquired_state,
+)
 from .career_readiness_audit import (
     ALLOWED_TIME_LAYERS,
     SCHEMA_DRIFT_TIME_CONDITION_SWAP,
@@ -256,6 +262,10 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "UPDATE_OPERATIONS",
+    "StateUpdateCommand",
+    "StateUpdateResult",
+    "update_acquired_state",
     "ACQUIRED_STATE_DOMAINS",
     "ASSERTION_STATUSES",
     "CONTEXT_KINDS",
