@@ -1,0 +1,47 @@
+{
+  "schema_version": "0.1",
+  "work_unit": "PRODUCT_PL2Q_HUMAN_GATE_INTEGRATION",
+  "human_gate_decision": "product/PL2Q_HUMAN_GATE_DECISION_SPEC_v0.1.md",
+  "palace_valence_contract": {
+    "decision": "APPROVE_WITH_CONSTRAINTS",
+    "universal_numeric_score": false,
+    "numeric_magnitude_in_pl2": false,
+    "pattern_status": ["FORMED", "BROKEN", "UNFORMED", "UNKNOWN"],
+    "pattern_scale": ["LARGE", "NOT_LARGE", "UNKNOWN"],
+    "pattern_integrity_direction": ["PRESERVED", "DEGRADED", "TRANSFORMED", "UNRESOLVED"],
+    "magnitude_status": "UNIDENTIFIED",
+    "contextual_valence": {
+      "states": ["FAVORABLE", "UNFAVORABLE", "MIXED", "UNRESOLVED"],
+      "requires_palace": true,
+      "requires_domain": true,
+      "requires_target": true,
+      "requires_rule_evidence_when_resolved": true
+    }
+  },
+  "baiguan_contract": {
+    "decision": "APPROVE_STRUCTURE_DEFER_ACTIVATION_THRESHOLD",
+    "structure_id": "BAIGUAN_SUPPORT_PROFILE",
+    "anchor_scope": ["紫微"],
+    "component_families": {
+      "ORTHODOX_SUPPORT": ["天府", "天相"],
+      "ASSISTANT_SUPPORT": ["左辅", "右弼", "天魁", "天钺"],
+      "AUXILIARY_SUPPORT": ["文昌", "文曲", "禄存", "天马"],
+      "MINOR_ATTENDANTS": ["三台", "八座", "恩光", "天贵", "台辅", "封诰", "龙池", "凤阁", "天福", "天寿"]
+    },
+    "explicit_exclusions": ["化禄", "化权", "化科"],
+    "activation_statuses": ["EXPLICIT_TEMPLATE_MATCH", "PARTIAL_SUPPORT", "CONFLICTED", "ABSENT", "UNKNOWN"],
+    "runtime_v0_1_may_emit_explicit_template_match": false,
+    "activation_criterion": "DEFERRED_NO_UNIVERSAL_THRESHOLD",
+    "source_basis": [
+      "SRC-ZZ-002:十四正曜·紫微·百官朝拱",
+      "SRC-ZZ-003:财帛宫·紫微化权/化科见百官"
+    ]
+  },
+  "guardrails": {
+    "human_gate_approval_does_not_auto_promote_w01": true,
+    "partial_baiguan_support_is_not_structure_present_fact": true,
+    "structure_is_not_global_good_bad": true,
+    "unknown_is_valid": true,
+    "llm_may_not_supply_missing_weights_or_thresholds": true
+  }
+}

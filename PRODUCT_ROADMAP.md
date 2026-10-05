@@ -1,288 +1,669 @@
-# 产品化路线图 — Product-First Program v0.2
+# 产品化路线图 — Product-First Program v0.3
 
 状态：ACTIVE  
-生效日期：2026-10-04  
-主目标：在继续完成中州派知识工程的同时，把项目推进为**排盘可靠、推理稳定、外部基准可测、证据链可审计、用户体验可用**的产品。
+生效日期：2026-10-05  
+替代：Product-First Program v0.2
 
-## 1. 目标优先级
+## 0. 本版本的核心调整
 
-从本版本起，项目采用双轨：
+v0.3 不推翻 PL1/PL2 已完成工作，而是重新冻结 PL3 之后的产品目标。
 
-1. **产品主轨**：准确性、可靠性、可解释性、可复现性、用户体验优先；
-2. **学术副轨**：把产品建设自然产生的本体、规则系统、benchmark、ablation、系统辨识结果整理为论文。
+旧路线较接近：
 
-学术表述不得阻碍产品工程，但产品也不得通过伪造权重、混合证据层或回看答案来制造“高准确率”。
+\`\`\`text
+chart -> rules -> inference -> answer
+\`\`\`
 
-## 2. 五类准确性
+新路线统一为：
 
-产品不得使用单一“准不准”指标。
+\`\`\`text
+birth/chart facts
+    -> canonical natal prior
+    -> temporal environment
+    -> acquired personal state
+    -> manifestation routing
+    -> probabilistic calibration
+    -> feedback / posterior update
+    -> conditional scenario / decision support
+\`\`\`
 
-### A. 排盘准确性
-- 公历/农历转换
-- 闰月、早晚子时
-- 真太阳时与夏令时口径
-- 星曜、宫位、四化
-- 大限/流年/流月/流日/流时
+关键边界：
 
-要求：确定性计算；LLM 不参与排盘事实生成。
+1. **原局层**只输出由命盘与 canonical knowledge 决定的先天结构、性质与倾向，不依赖用户现实反馈；
+2. **大限/流年层**表示时变环境与激活条件，不直接等同现实事件；
+3. **现实反馈**更新 acquired state、个体 posterior 与经验参数，不得反写 canonical natal truth；
+4. **应象概率**属于 empirical calibration，不属于传统知识本体；
+5. **行动选择**是 control input，不是 noise；
+6. **外部不可控条件**属于 exogenous context / disturbance；
+7. **LLM**只负责结构化反馈解析、问答交互与表达，不拥有 canonical rule selection 或概率拍板权。
 
-### B. 规则还原准确性
-给定命盘结构，系统是否激活了正确的中州派规则、条件、算子和宫位投影。
+---
 
-### C. 推理一致性
-同输入、同知识版本必须产生同一 active-rule graph 与兼容的语义结论；LLM 只能表达，不得自行补规则。
+## 1. 项目三层永久隔离
 
-### D. 外部案例准确性
-只在系统未见过答案的真实案例/公开 benchmark 上统计。训练、规则修订、提示优化与测试集必须隔离。
+### Layer A — Canonical Traditional Knowledge
 
-### E. Calibration / Abstention
-产品需要区分：
-- HIGH_CONFIDENCE
-- MEDIUM_CONFIDENCE
-- LOW_CONFIDENCE
-- CONFLICTED
-- INSUFFICIENT_EVIDENCE
+来源：
+- 中州派 approved source corpus；
+- reviewed atomic rules；
+- star cores / sixty-system modes；
+- modifier / transformation / palace / temporal operators；
+- source-backed named structures。
 
-高置信集合应在外部测试上显著优于低置信集合，否则置信机制无效。
+性质：
 
-## 3. 产品技术主链
+\`\`\`text
+immutable by empirical learning
+\`\`\`
 
-```text
-birth input
-  -> deterministic chart engine
-  -> normalized chart snapshot
-  -> natal-state builder
-  -> star cores / system modes / palace graph
-  -> modifier + transformation engine
-  -> temporal resolver
-  -> typed history memory
-  -> evidence-first inference graph
-  -> confidence/conflict resolver
-  -> EvidencePackage
-  -> LLM verbalizer
-  -> user-facing explanation
-```
+案例数据或用户反馈发现异常时，只能触发知识缺口回源复核，不能直接改写 Layer A。
 
-硬原则：**LLM 位于推理链末端，不拥有底层规则选择权。**
+### Layer B — Empirical Calibration
 
-## 4. 产品工作包
+保存：
+- manifestation frequencies；
+- conditional risks / hazards；
+- interaction strengths；
+- cohort effects；
+- calibrated parameter intervals/posteriors；
+- model versions。
 
-### PROD-P0：竞品与依赖审计
-- 建立 GitHub/产品 registry；
-- 许可证台账；
-- 功能矩阵；
-- 可复用能力与不可直接复用边界；
-- 持续跟踪竞品版本变化。
+性质：
+- 可训练；
+- 可版本化；
+- 可回滚；
+- 必须与 Layer A 物理和语义隔离。
 
-### PROD-P1：双/多排盘引擎交叉验证
-目标不是把“多数一致”当真理，而是自动发现差异。
+### Layer C — Personal Adaptation
 
-```text
-our chart engine
-      \
-       -> normalized snapshot -> diff -> disagreement ledger
-      /
-external engine adapter(s)
-```
+保存：
+- 当前现实状态；
+- 已发生事件；
+- 用户行为与计划；
+- exposure / opportunity；
+- 个体 posterior；
+- individual random effects / personalization state。
 
-每个差异最终归类为：
-- OUR_BUG
-- EXTERNAL_BUG
-- SCHOOL_DIFFERENCE
-- CONFIG_DIFFERENCE
-- INPUT_AMBIGUITY
-- UNRESOLVED
+性质：
+- 只影响当前个体；
+- 不自动升级为总体经验；
+- 更不能升级为 canonical traditional rule。
 
-首批参考：iztro、Renhuai123/ziwei-doushu。
+---
 
-### PROD-P2：中州派知识库继续 closure
-与现有 KB-WP05/06 并行推进；不得为产品速度降低 provenance 标准。
+## 2. 统一数学接口
 
-### PROD-P3：Inference MVP
-先做窄域 end-to-end：
-- 本命；
-- 一个大限；
-- 一个流年；
-- 优先事业/财帛两个主题。
+### 2.1 原局先验
 
-最小链路：
-```text
-chart -> rules -> latent states -> modes -> operators
--> palace projection -> temporal reaction -> evidence package
-```
+\`\`\`text
+N = K(B)
+\`\`\`
 
-### PROD-P4：Benchmark Harness
-至少支持：
-- 内部教材 case reconstruction；
-- Fate-Bench 等外部盲测；
-- pure LLM baseline；
-- RAG baseline；
-- flat-rule baseline；
-- symbolic engine；
-- symbolic engine + LLM verbalizer。
+- B：出生资料与确定性排盘；
+- K：canonical symbolic engine；
+- N：Natal Prior / 先天气核与结构状态。
 
-### PROD-P5：真实案例校准
-只在版本冻结后的训练/开发集合上学习可学习参数；测试集保持盲态。
+N 在同一知识版本下必须 deterministic。
 
-### PROD-P6：产品 UI/UX
-三层解释：
-1. 普通用户摘要；
-2. 高级用户推理链；
-3. 专家/debug rule + source trace。
+### 2.2 时间环境
 
-### PROD-P7：数据飞轮
-结构化、可撤回、可匿名反馈；优先可验证事件，不用模糊“感觉准”。
+\`\`\`text
+E_t = T(B, t)
+\`\`\`
 
-### PROD-P8：学术输出
-在产品证据成熟后生成：
-- formalization paper；
-- benchmark/ablation paper；
-- empirical calibration/system-identification paper。
+E_t 由大限、流年、流月等时间层结构产生，是已知时变 context，不是现实结果。
 
-## 5. 竞品借鉴原则
+### 2.3 动态现实状态
 
-### 可以复用
-- MIT/兼容许可代码，在台账中记录版本与用途；
-- CC BY 数据，按协议署名；
-- API/schema/测试方法/交互思路；
-- 开放 benchmark。
+使用 augmented state，避免另立一个无法定义的 history 变量：
 
-### 不可以偷换
-- 外部项目的断语不能自动升级为中州派 canonical truth；
-- 外部引擎与本项目一致不等于“真实正确”；
-- GPL 代码不得在不了解传播义务时复制进入未来闭源产品；
-- 托管模型的不可见内部实现不能被当成可复现实验。
+\`\`\`text
+S_(t+1) ~ F_theta(S_t, N, E_t, A_t, C_t)
+\`\`\`
 
-## 6. 产品成功判据
+- S_t：当前现实/获得性状态，包含对未来预测必要的历史摘要；
+- A_t：本人选择/行动；
+- C_t：外部环境、暴露机会、对手方/他人行为等上下文；
+- theta：待辨识参数。
 
-产品真正形成竞争力时，应同时满足：
+若未来发现 S_t 不能满足 Markov sufficiency，再显式升级 semi-Markov / history-dependent model，不在 v0.3 先行假定。
 
-- chart regression：核心排盘域有系统性双引擎差异审计；
-- source trace：关键判断可追至 rule/source；
-- deterministic reasoning：同版本输入稳定；
-- conflict-aware：冲突不被 LLM 静默消解；
-- benchmarked：有外部盲测；
-- calibrated：高置信预测优于低置信预测；
-- explainable：可回答“为什么这样判断”和“为什么不是另一种判断”；
-- reproducible：版本、模型、知识库和测试集可复现。
+### 2.4 应象路由
 
-## 7. 与 Phase II 的关系
+\`\`\`text
+M_t ~ P_phi(M | N, E_t, S_t, A_t, C_t)
+\`\`\`
 
-现有 Phase II 不停止。当前 KB-WP05 十二宫投影语料继续执行。
+M_t 表示 manifestation family / channel，不代表宿命唯一结果。
 
-产品轨不是另起炉灶，而是把已有：
-- star core；
-- sixty-system mode；
-- operator catalog；
-- typed history；
-- palace projection；
-- provenance；
+### 2.5 观察与反馈
 
-尽早接成可运行系统，让案例和 benchmark 反向暴露知识工程缺口。
+\`\`\`text
+Y_t ~ O_psi(Y | S_t, M_t, C_t)
+\`\`\`
 
+现实观察用于更新：
 
-## 8. 执行责任边界（2026-10-04 冻结）
+\`\`\`text
+P(S_t, theta_person, phi_person | Y_1:t, A_1:t-1, E_1:t)
+\`\`\`
 
-产品与知识抽取采用并行会话，避免一个会话同时承担大规模 source review 与产品工程。
+但不得更新或重写 N 的 canonical content。
 
-- **本产品会话**：只负责 productization、chart/adapters、regression、Rule Runtime、Inference MVP、EvidencePackage、benchmark、calibration、UI/UX、产品数据与发布治理。
-- **其他知识工程会话**：继续负责 source-span review、十二宫 projection corpus、规则抽取、回源核验与知识库 closure。
-- 产品会话只消费已经进入 GitHub canonical state 且满足 provenance/review gate 的知识资产；不得在产品代码里偷偷补写传统规则。
-- 知识工程会话不得因为产品需要而降低 provenance 标准或回看 benchmark answer。
+---
 
-## 9. 产品层八阶段执行路线
+## 3. 五类准确性继续保留，并新增第六类
 
-### PL1 — Chart Trust Layer
-目标：把排盘从“能用”提升到“可审计、可回归、边界可解释”。
+原 v0.2 的五类准确性继续有效：
 
-交付：
-- Normalized Chart Contract；
-- deterministic regression seeds；
-- calendar / temporal boundary registry；
-- multi-engine diff CI；
-- mismatch ledger；
+1. 排盘准确性；
+2. 规则还原准确性；
+3. 推理一致性；
+4. 外部案例准确性；
+5. Calibration / Abstention。
+
+新增：
+
+### F. Incremental Predictive Value
+
+必须回答：
+
+> 加入命盘结构后，是否比只知道年龄、职业、婚恋状态等一般背景信息具有额外预测价值？
+
+至少比较：
+
+\`\`\`text
+Context-only baseline
+vs
+Context + Natal
+vs
+Context + Natal + Temporal
+vs
+Context + Natal + Temporal + Personal history
+\`\`\`
+
+可用指标：
+- Brier score / log loss 改善；
+- calibration error；
+- AUC / ranking（适用时）；
+- likelihood ratio / information gain；
+- coverage-at-confidence。
+
+禁止用“某象出现者中多少发生某事”替代增量价值评估。
+
+---
+
+## 4. 产品阶段重新编排
+
+## PL1 — Chart Trust Layer
+
+状态：**COMPLETE / FROZEN**
+
+继续维持：
+- deterministic chart contract；
+- calendar / Zi-hour boundary；
+- multi-engine diff；
 - ambiguity registry；
-- Chart Trust Report v1.0。
+- Chart Trust Report。
 
-### PL2 — Executable Knowledge
-目标：把 canonical knowledge 编译成产品可执行的 Rule IR。
+除新发现 bug 或 source/config conflict 外不重开。
 
-最小链路：
-```text
-source span -> reviewed atomic rule -> condition -> operator
--> target state -> executable rule -> trace
-```
+---
 
-任何运行时规则必须保留 rule_id、source pointer、review status 与 school namespace。
+## PL2 — Executable Canonical Knowledge
 
-### PL3 — Inference MVP
-第一版只做窄域端到端：
-- 本命；
-- 一个大限；
-- 一个流年；
-- 事业 + 财帛；
-- EvidencePackage；
-- deterministic confidence/conflict 输出。
+状态：**ACTIVE**
 
-MVP 在没有 LLM 的情况下也必须能输出结构化结论；LLM 只负责 verbalization。
+目标：
+- source span -> reviewed rule -> condition/operator -> state/projection -> trace；
+- 继续 fail closed；
+- 不为覆盖率伪造权重、阈值或 universal valence。
 
-### PL4 — Evaluation Harness
-同一测试集并行比较：
-- Pure LLM；
+当前新增工作单元：
+
+### PL2Q — Human Gate Integration
+
+实现：
+- contextual valence/state contract；
+- pattern status / pattern scale / pattern integrity 分离；
+- BAIGUAN_SUPPORT_PROFILE；
+- uncertainty / insufficient-evidence contract；
+- regression tests；
+- W01 blocker refresh。
+
+注意：
+- Human Gate 批准不自动把 8 条 W01 升为 executable；
+- 百官 activation criterion 未冻结前不得人工计数判真。
+
+---
+
+## PL3-N — Natal Prior Engine
+
+这是 PL2 后的第一主目标。
+
+输入：
+- NormalizedChartSnapshot；
+- canonical knowledge version；
+- school/config。
+
+输出：
+- NatalStateProfile；
+- active natal rules；
+- star cores；
+- system modes；
+- palace states；
+- named structures；
+- cross-palace dependencies；
+- source-backed priors / tendencies；
+- conflict / ambiguity / confidence；
+- complete EvidencePackage。
+
+硬指标：
+- feedback-free；
+- same input + same knowledge version -> same N；
+- 无 LLM 也能完整运行；
+- 每个关键状态可回溯 source/rule。
+
+禁止：
+- 通过用户现实反馈“校正原局”；
+- 使用 empirical outcome frequency 改写 natal truth。
+
+---
+
+## PL3-T — Temporal Environment Engine
+
+输入：
+
+\`\`\`text
+NatalStateProfile + target time layer
+\`\`\`
+
+输出：
+
+\`\`\`text
+TemporalEnvironmentProfile
+\`\`\`
+
+内容包括：
+- 大限/流年/流月等 active temporal facts；
+- temporal transformation / activation；
+- 对 natal states 的加强、削弱、转化、触发；
+- time-layer conflicts；
+- candidate manifestation families（仅 source-supported）。
+
+PL3-T 输出的是**环境与激活状态**，不是“今年必发生 X”。
+
+---
+
+## PL3-S — Personal State Observer
+
+目的：把现实世界的用户状态与命盘状态分开建模。
+
+输入：
+- user-reported verified events；
+- imported structured records（未来可选）；
+- actions / intentions / exposures；
+- previous state estimate。
+
+输出：
+- AcquiredState；
+- state confidence；
+- missingness；
+- contradictory reports；
+- observation provenance。
+
+v0.1 优先：
+- deterministic state updater；
+- simple Bayesian belief update。
+
+仅在数据形态证明有必要后，再升级：
+- Dynamic Bayesian Network；
+- particle filter / sequential Monte Carlo；
+- neural state-space model。
+
+---
+
+## PL3-M — Manifestation Router MVP
+
+输入：
+
+\`\`\`text
+N + E_t + S_t + A_t + C_t
+\`\`\`
+
+输出：
+
+\`\`\`text
+candidate manifestation channels
++ source support
++ empirical probability if calibrated
++ uncertainty
+\`\`\`
+
+v0.1 必须区分：
+
+\`\`\`text
+SOURCE_SUPPORTED_POSSIBILITY
+EMPIRICALLY_CALIBRATED_PROBABILITY
+PERSONALIZED_POSTERIOR
+\`\`\`
+
+三者不得混写。
+
+---
+
+## PL4-A — Internal Fidelity Benchmark
+
+测“是否忠实实现中州派”，不测现实世界预测有效性。
+
+指标：
+- chart reconstruction；
+- canonical rule trace coverage；
+- author-reasoning reconstruction；
+- temporal-layer fidelity；
+- source trace completeness；
+- deterministic consistency；
+- conflict preservation。
+
+教材案例主要属于此层。
+
+---
+
+## PL4-B — Predictive Blind Benchmark
+
+严格使用未见过现实答案的数据。
+
+必须预注册：
+- forecast time；
+- prediction target；
+- model version；
+- available context；
+- forbidden leakage；
+- observation window。
+
+至少比较：
+- population/context-only baseline；
+- pure LLM；
 - RAG；
-- Flat rules；
-- Symbolic engine；
-- Symbolic + LLM。
+- flat rules；
+- symbolic natal；
+- symbolic natal + temporal；
+- calibrated manifestation model；
+- personalized model。
 
-至少统计 Accuracy、High-confidence Accuracy、Coverage、Consistency、Traceability、Conflict Detection 与 Calibration。
+Internal fidelity 与 predictive accuracy 永久分开报告。
 
-### PL5 — Empirical Calibration
-严格分层：
-- Layer A：Traditional Knowledge；
-- Layer B：Empirical Calibration；
-- Layer C：User/Context Adaptation。
+---
 
-B/C 不得回写或篡改 A。
+## PL5 — Empirical Calibration Program
 
-### PL6 — Product UX
-三层界面：
-1. 普通用户：结论 + 核心证据 + 不确定性；
-2. 高级用户：原局/星系/四化/宫位/时序链；
-3. Expert/Debug：Rule ID / source / operator / state delta / conflict / version。
+### PL5-A Manifestation Frequency Baseline
 
-### PL7 — Data Flywheel
-只收结构化、带时间窗、可验证的事件反馈；禁止把“感觉很准/不准”直接当训练标签。
+学习：
 
-### PL8 — Multi-school / Production
-中州派保持 canonical core；其他体系以 Adapter 接入：
-```text
-Core ontology
+\`\`\`text
+P(M | Q)
+\`\`\`
+
+只作为最简单 baseline。
+
+### PL5-B Context-Conditioned Manifestation
+
+学习：
+
+\`\`\`text
+P(M | Q, S, C)
+\`\`\`
+
+优先从可解释模型开始：
+- logistic / multinomial；
+- survival / event-history；
+- competing-risks（仅在事件定义满足其统计假设时使用）。
+
+“多个应象通道竞争”可以是产品概念，但只有满足 time-to-event / mutually exclusive risk 定义时才称正式 competing-risks model。
+
+### PL5-C Hierarchical Bayesian Calibration
+
+层级：
+
+\`\`\`text
+population
+  -> cohort/context
+     -> individual
+\`\`\`
+
+数据少时强 shrinkage 回总体；
+数据增加后才允许个体 posterior 偏离总体。
+
+### PL5-D Incremental Predictive Value
+
+验证：
+
+\`\`\`text
+P(Y | context + chart)
+vs
+P(Y | context)
+\`\`\`
+
+只有 chart features 带来稳定 out-of-sample improvement，才可声称其具有增量预测价值。
+
+### PL5-E Causal / Action Analysis
+
+仅在数据和因果假设成熟后启用。
+
+目标：
+- 区分 chart association、selection、action、exposure、confounding；
+- 不把 observational correlation 冒充“做 X 会改善 Y”。
+
+在因果识别不足时只输出：
+- conditional scenario；
+- association；
+- uncertainty。
+
+不得输出伪因果建议。
+
+---
+
+## PL6 — Product UX
+
+保留三层解释 UI：
+
+1. 普通用户；
+2. 高级用户；
+3. Expert/Debug。
+
+新增三个运行模式：
+
+### Mode A — Natal Mode
+只解释 N，不需要现实反馈。
+
+### Mode B — Blind Forecast Mode
+仅使用允许的 chart/time/context 信息，不读取目标期结果，用于研究与 benchmark。
+
+### Mode C — Personalized Forecast Mode
+允许加入 S_t / A_t / C_t / past feedback，输出条件化结果。
+
+UI 必须明确标注当前模式，禁止把 Personalized Mode 的高准确度当成 Blind Forecast 能力宣传。
+
+---
+
+## PL7 — Longitudinal Data Flywheel
+
+基础设施立即建设，训练延后到数据质量过关。
+
+数据单位从“单盘 + 一个事件”改为：
+
+\`\`\`text
+Person x Time
+\`\`\`
+
+每个 observation window 至少支持：
+- state_before；
+- action；
+- exposure / opportunity；
+- external context；
+- outcome；
+- event time / interval；
+- severity/intensity；
+- EVENT_OCCURRED / EVENT_NOT_OCCURRED / UNKNOWN / CENSORED；
+- source/provenance；
+- observation confidence；
+- linked forecast version。
+
+### 关键数据原则
+
+1. 必须收 negative samples；
+2. 必须收“什么也没发生”的 observation window；
+3. 历史回顾与前瞻 observation 分开；
+4. memorable-event-only 数据不得用于无修正总体概率；
+5. outcome coding schema 在预测前冻结；
+6. missing-not-at-random 风险必须记录。
+
+---
+
+## PL8 — Multi-school / Production
+
+中州派继续 canonical core。
+
+\`\`\`text
+Core Ontology
   ├─ Zhongzhou Adapter
   ├─ Qintian Adapter
   ├─ Heluo Adapter
-  └─ other adapters
-```
+  └─ future adapters
+\`\`\`
 
-产品输出区分 cross-school consensus 与 school-specific disagreement。
+跨流派一致可以形成 consensus evidence；
+冲突必须保留 school attribution。
 
-## 10. 边界歧义与多模型状态
+其他流派 empirical data 不得静默回写中州派 Layer A。
 
-B02-B 后，产品正式承认某些输入不是单一确定状态。晚子时是第一类：
+---
 
-```text
-SCHOOL_SENSITIVE_BOUNDARY
-  -> same-day candidate
-  -> next-day candidate
-  -> dual-chart/composite candidate
-```
+## PL9 — Conditional Scenario & Decision Support
 
-排盘层负责保留候选，不负责伪造“唯一真值”；后续可由 school selection、source evidence、history evidence 与 empirical calibration 做显式 resolution。
+只有在 PL4/PL5 校准达到门槛后进入。
 
-## 11. 当前立即执行顺序
+形式：
 
-1. 关闭 P1 B02-B 并冻结子时 boundary policy；
-2. 执行 P1 B02-C：大限/小限/流年/流月/流日动态切换边界；
-3. 形成 P1 FINAL acceptance + Chart Trust Report v1.0；
-4. 开始 PL2 Rule Runtime；
-5. 立即进入 PL3 首个事业/财帛 Inference MVP；
-6. MVP 一跑通就建立 PL4 benchmark harness，而不是等十二宫全部抽取完成。
+\`\`\`text
+P(S_(t+H), Y_(t:t+H) | current belief, candidate action)
+\`\`\`
+
+支持：
+- 维持现状；
+- 行动 A；
+- 行动 B；
+- 不同行动约束下的多目标轨迹。
+
+若未来进入 MPC：
+
+\`\`\`text
+a* = argmax E[U(trajectory) | belief, constraints]
+\`\`\`
+
+但 U 必须由用户目标定义或显式多目标表示，不能把系统自己的“吉”当 universal reward。
+
+健康、法律、金融等高风险领域不得把本系统替代专业判断；这类输出最多作为非专业的情境解释，不提供高风险决策指令。
+
+---
+
+## 5. AI / 控制方法启用顺序
+
+| 阶段 | 首选方法 | 暂不优先 |
+|---|---|---|
+| PL2–PL3-N | symbolic / rule engine | neural end-to-end |
+| PL3-T | hybrid symbolic state-space | black-box predictor |
+| PL3-S | deterministic updater + Bayesian belief | particle filter by default |
+| PL5-A/B | frequency / GLM / survival baseline | deep neural model |
+| PL5-C | hierarchical Bayesian | per-user independent model |
+| PL5-E | SCM / causal inference | RL without identification |
+| large-data stage | Mixture-of-Experts / graph models / neural SSM | untraceable monolith |
+| PL9 | scenario simulation / MPC | “命盘直接给行动命令” |
+
+每引入更复杂模型，必须证明相对简单 baseline 的 out-of-sample 增益。
+
+---
+
+## 6. LLM 角色重新冻结
+
+LLM 可以：
+- 解析自然语言现实反馈为候选结构化事件；
+- 生成澄清问题；
+- verbalize EvidencePackage；
+- 做 contrastive explanation；
+- 展示 conditional scenarios；
+- 帮助人工 source review，但不能自动升级 source status。
+
+LLM 不可以：
+- 创造 canonical rule；
+- 创造未冻结数值权重；
+- 用语言感觉决定 manifestation probability；
+- 修改 Natal Prior；
+- 隐藏 conflict / uncertainty；
+- 把 correlation 改写成 causation。
+
+---
+
+## 7. Human Gate 新触发条件
+
+除既有 G1–G6 / A0–A2 外，下列变化必须 PI Human Gate：
+
+- 新增 primitive qi；
+- 改变 natal vs temporal 边界；
+- 允许反馈修改 canonical Natal Prior；
+- 把 empirical parameter 升级为 canonical rule；
+- 定义新的 universal manifestation family；
+- 新增跨宫长期记忆或默认 persistence / decay；
+- 对 source 未给出的效应指定固定数值；
+- 让黑盒 AI 替代 canonical symbolic layer；
+- 将关联模型升级为因果行动建议。
+
+普通参数重训、posterior 更新、案例增加、UI 变化，在不越过上述边界时不触发 Human Gate。
+
+---
+
+## 8. 当前执行顺序
+
+### 产品轨
+
+\`\`\`text
+PL2Q Human Gate Integration
+  -> PL3-N Natal Prior Engine
+  -> PL3-T Temporal Environment Engine
+  -> PL3-S Personal State Observer
+  -> PL3-M Manifestation Router MVP
+  -> PL4-A fidelity benchmark
+  -> PL4-B predictive blind benchmark
+  -> PL5 calibration
+  -> PL9 decision support
+\`\`\`
+
+### 与数据轨并行
+
+\`\`\`text
+Longitudinal schema
+  -> prospective collection
+  -> quality audit
+  -> calibration-ready corpus
+\`\`\`
+
+PL7 schema 可提前做，但不得在 quality gate 前把早期反馈当稳定概率真值。
+
+---
+
+## 9. 产品最终定位
+
+> 一个以中州派传统知识为固定先验，以原局气核—时变环境—行为—应象为动态机制，以纵向现实反馈进行概率校准，并支持个体化状态估计与条件轨迹分析的可解释智能紫微斗数系统。
+
+简化技术表达：
+
+\`\`\`text
+Symbolic Prior
++ Dynamic State Space
++ Bayesian Calibration
++ Causal Evaluation
++ AI Interface
++ Conditional Decision Support
+\`\`\`
+
