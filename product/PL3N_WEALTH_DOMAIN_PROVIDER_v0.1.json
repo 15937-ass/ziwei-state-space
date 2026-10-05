@@ -1,0 +1,37 @@
+{
+  "schema_version": "0.1",
+  "provider_id": "PL3N_WEALTH_W01_PROVIDER",
+  "domain_id": "wealth",
+  "time_layer": "NATAL",
+  "projection_source": "validation/wp05/W01_wealth_projection_review_001_100.csv",
+  "palace_ontology": "knowledge/wp05/palace_ontology_v0.1.csv",
+  "batch_paths": [
+    "product/PL2C_WEALTH_PILOT_v0.1.json",
+    "product/PL2F_WEALTH_NORMALIZATION_BATCH2_v0.1.json",
+    "product/PL2H_WEALTH_CROSS_PALACE_BATCH_v0.1.json",
+    "product/PL2J_WEALTH_READY_BATCH1_v0.1.json",
+    "product/PL2J2_WEALTH_READY_BATCH2_v0.1.json",
+    "product/PL2M_WEALTH_ANTECEDENT_EXECUTABLE_BATCH_v0.1.json",
+    "product/PL2L_WEALTH_SOURCE_BACKED_BATCH_v0.1.json",
+    "product/PL2O2_WEALTH_NORMALIZATION_SAFE_BATCH_v0.1.json"
+  ],
+  "expected_executable_rules": 59,
+  "knowledge_version": "W01+WEALTH_EXECUTABLE_59",
+  "excluded_human_gate_rules": [
+    "W01-016",
+    "W01-017",
+    "W01-022",
+    "W01-023",
+    "W01-035",
+    "W01-095",
+    "W01-096",
+    "W01-098"
+  ],
+  "policy": {
+    "feedback_allowed": false,
+    "empirical_probability_allowed": false,
+    "free_text_rule_generation_allowed": false,
+    "human_gate_approval_auto_promotes_rule": false,
+    "source_backed_palace_structure_required": true
+  }
+}

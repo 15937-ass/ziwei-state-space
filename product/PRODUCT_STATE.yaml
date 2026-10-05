@@ -5,9 +5,9 @@ project_state_dependency: "../PROJECT_STATE.yaml"
 
 execution:
   current_phase: "PL3-N"
-  completed_work_unit: "PRODUCT_PL3N_NATAL_PRIOR_CORE_V0_1"
-  next_work_unit: "PRODUCT_PL3N_WEALTH_DOMAIN_PROVIDER"
-  status: "PL3N_CORE_MVP_COMPLETE_DOMAIN_INTEGRATION_NEXT"
+  completed_work_unit: "PRODUCT_PL3N_WEALTH_DOMAIN_PROVIDER"
+  next_work_unit: "PRODUCT_PL3N_DOMAIN_PROVIDER_REGISTRY"
+  status: "PL3N_WEALTH_PROVIDER_COMPLETE_GENERIC_REGISTRY_NEXT"
   canonical_branch: "main"
 
 boundaries:
@@ -35,6 +35,7 @@ completed:
   - "PL2-Q eight-row Human Gate blocker refresh"
   - "PL3-N deterministic NatalStateProfile core v0.1"
   - "PL3-N feedback/history rejection boundary"
+  - "PL3-N W01 executable-59 wealth domain provider"
 
 artifacts:
   human_gate_decision: "product/PL2Q_HUMAN_GATE_DECISION_SPEC_v0.1.md"
@@ -51,6 +52,10 @@ artifacts:
   natal_prior_acceptance: "product/PL3N_NATAL_PRIOR_ACCEPTANCE.md"
   natal_prior_api: "src/product/natal_prior.py"
   natal_prior_tests: "tests/test_product_natal_prior.py"
+  wealth_natal_provider_registry: "product/PL3N_WEALTH_DOMAIN_PROVIDER_v0.1.json"
+  wealth_natal_provider_acceptance: "product/PL3N_WEALTH_DOMAIN_PROVIDER_ACCEPTANCE.md"
+  natal_domain_provider_api: "src/product/natal_domain_providers.py"
+  wealth_natal_provider_tests: "tests/test_product_natal_wealth_provider.py"
 
 parallel_work_policy:
   - "Every product session reads top-level PROJECT_STATE.yaml first for repository/knowledge state."
