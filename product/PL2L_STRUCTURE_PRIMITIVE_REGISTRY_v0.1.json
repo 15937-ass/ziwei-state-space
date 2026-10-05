@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1",
+  "scope": "bounded source-backed natal structure primitives",
+  "policy": {
+    "no_generic_traditional_parser": true,
+    "no_numeric_dignity_score": true,
+    "flanking_requires_two_named_pair_members_on_opposite_adjacent_branches": true,
+    "target_palace_must_participate_in_same_or_opposite_wealth_pair": true
+  },
+  "structures": {
+    "LU_MA_JIAO_CHI": {
+      "kind": "SAME_OR_OPPOSITE_PAIR",
+      "members": [
+        "禄存",
+        "天马"
+      ],
+      "source_basis": [
+        "SRC-ZZ-003:财帛宫printed_p69-70",
+        "knowledge/operators/auxiliary_eight_v0.1.csv:MOD-AUX-0026"
+      ],
+      "executable_definition": "target palace has both members, or target/opposite split the two members in either orientation"
+    },
+    "LU_STACK": {
+      "kind": "SAME_OR_OPPOSITE_PAIR",
+      "members": [
+        "化禄",
+        "禄存"
+      ],
+      "source_basis": [
+        "SRC-ZZ-003:财帛宫printed_p70"
+      ],
+      "executable_definition": "target palace has 化禄 and 禄存, or target/opposite split 化禄 and 禄存 in either orientation"
+    },
+    "KUI_YUE_FLANK": {
+      "kind": "FLANKING_PAIR",
+      "members": [
+        "天魁",
+        "天钺"
+      ],
+      "source_basis": [
+        "SRC-ZZ-003:财帛宫printed_p70",
+        "knowledge/operators/auxiliary_eight_v0.1.csv:MOD-AUX-0043"
+      ]
+    },
+    "FU_BI_FLANK": {
+      "kind": "FLANKING_PAIR",
+      "members": [
+        "左辅",
+        "右弼"
+      ],
+      "source_basis": [
+        "SRC-ZZ-003:财帛宫printed_p70",
+        "knowledge/operators/auxiliary_eight_v0.1.csv:MOD-AUX-0019"
+      ]
+    },
+    "CHANG_QU_FLANK": {
+      "kind": "FLANKING_PAIR",
+      "members": [
+        "文昌",
+        "文曲"
+      ],
+      "source_basis": [
+        "SRC-ZZ-003:财帛宫printed_p70",
+        "knowledge/operators/auxiliary_eight_v0.1.csv:MOD-AUX-0078"
+      ]
+    },
+    "YANG_TUO_FLANK": {
+      "kind": "FLANKING_PAIR",
+      "members": [
+        "擎羊",
+        "陀罗"
+      ],
+      "source_basis": [
+        "SRC-ZZ-003:财帛宫printed_p70",
+        "knowledge/operators/six_malefics_v0.1.csv:MOD-MAL-0034/MOD-MAL-0036/MOD-MAL-0037"
+      ]
+    }
+  },
+  "dignity_lookup": {
+    "source": "validation/wp04_source_closure/DG01_dignity_tables_v0.1.csv",
+    "semantics": "source-preserving discrete lookup only",
+    "numeric_mapping": null,
+    "runtime_rule_promotion": "W01-043 remains blocked pending its full disjunction/system normalization"
+  }
+}
