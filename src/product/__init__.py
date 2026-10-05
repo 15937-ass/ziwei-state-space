@@ -46,6 +46,12 @@ from .evidence_package import (
     EvidenceItem,
     EvidencePackage,
 )
+from .natal_prior import (
+    NatalDomainEvidence,
+    NatalRuleEvidence,
+    NatalStateProfile,
+    build_natal_state_profile,
+)
 from .palace_structure import (
     PalaceOntology,
     PalaceOntologyEntry,
@@ -163,6 +169,10 @@ __all__ = [
     "ContrastiveItem",
     "EvidenceItem",
     "EvidencePackage",
+    "NatalDomainEvidence",
+    "NatalRuleEvidence",
+    "NatalStateProfile",
+    "build_natal_state_profile",
     "PalaceOntology",
     "PalaceOntologyEntry",
     "ResolvedPalace",

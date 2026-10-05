@@ -5,9 +5,9 @@ project_state_dependency: "../PROJECT_STATE.yaml"
 
 execution:
   current_phase: "PL3-N"
-  completed_work_unit: "PRODUCT_PL2Q_HUMAN_GATE_INTEGRATION"
-  next_work_unit: "PRODUCT_PL3N_NATAL_PRIOR_ENGINE"
-  status: "PL2Q_COMPLETE_PL3N_STARTED"
+  completed_work_unit: "PRODUCT_PL3N_NATAL_PRIOR_CORE_V0_1"
+  next_work_unit: "PRODUCT_PL3N_WEALTH_DOMAIN_PROVIDER"
+  status: "PL3N_CORE_MVP_COMPLETE_DOMAIN_INTEGRATION_NEXT"
   canonical_branch: "main"
 
 boundaries:
@@ -33,6 +33,8 @@ completed:
   - "PL2-Q non-numeric pattern/contextual-valence contracts"
   - "PL2-Q BAIGUAN_SUPPORT_PROFILE evidence contract"
   - "PL2-Q eight-row Human Gate blocker refresh"
+  - "PL3-N deterministic NatalStateProfile core v0.1"
+  - "PL3-N feedback/history rejection boundary"
 
 artifacts:
   human_gate_decision: "product/PL2Q_HUMAN_GATE_DECISION_SPEC_v0.1.md"
@@ -45,6 +47,10 @@ artifacts:
   product_architecture: "product/PRODUCT_ARCHITECTURE.md"
   product_roadmap: "PRODUCT_ROADMAP.md"
   knowledge_roadmap: "KNOWLEDGE_BASE_ROADMAP.md"
+  natal_prior_schema: "product/PL3N_NATAL_PRIOR_SCHEMA_v0.1.md"
+  natal_prior_acceptance: "product/PL3N_NATAL_PRIOR_ACCEPTANCE.md"
+  natal_prior_api: "src/product/natal_prior.py"
+  natal_prior_tests: "tests/test_product_natal_prior.py"
 
 parallel_work_policy:
   - "Every product session reads top-level PROJECT_STATE.yaml first for repository/knowledge state."
