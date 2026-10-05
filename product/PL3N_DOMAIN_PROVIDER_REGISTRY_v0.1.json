@@ -1,0 +1,30 @@
+{
+  "schema_version": "0.1",
+  "registry_id": "PL3N_NATAL_DOMAIN_PROVIDERS",
+  "active_providers": [
+    {
+      "domain_id": "wealth",
+      "provider_id": "PL3N_WEALTH_W01_PROVIDER",
+      "status": "ACTIVE",
+      "time_layer": "NATAL",
+      "knowledge_version": "W01+WEALTH_EXECUTABLE_59",
+      "registry": "product/PL3N_WEALTH_DOMAIN_PROVIDER_v0.1.json"
+    }
+  ],
+  "planned_providers": [
+    {
+      "domain_id": "career",
+      "status": "PENDING_EXECUTABLE_REGISTRY",
+      "dependency": "WP05 Career corpus closure + product executable normalization"
+    }
+  ],
+  "policy": {
+    "provider_ids_unique": true,
+    "shared_palace_ontology_required": true,
+    "feedback_allowed": false,
+    "temporal_input_allowed": false,
+    "empirical_probability_allowed": false,
+    "domain_subset_selection_allowed": true,
+    "unknown_domain_fails_closed": true
+  }
+}
