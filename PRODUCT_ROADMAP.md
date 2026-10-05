@@ -6,6 +6,24 @@
 
 ## 0. 本版本的核心调整
 
+## 0.1 并行状态治理
+
+从 v0.3 起，产品侧使用 \`product/PRODUCT_STATE.yaml\` 保存产品 work-unit 指针。
+
+每个产品会话必须按顺序读取：
+
+\`\`\`text
+PROJECT_STATE.yaml
+-> product/PRODUCT_STATE.yaml
+\`\`\`
+
+其中：
+- 顶层 \`PROJECT_STATE.yaml\` 继续拥有知识侧 corpus / gate / repository 总状态；
+- \`product/PRODUCT_STATE.yaml\` 拥有产品阶段、产品下一工作单元和产品边界；
+- 产品 feature PR 默认不再修改顶层 \`PROJECT_STATE.yaml\`，避免与持续推进的 WP05 source-review checkpoint 发生无意义合并冲突；
+- 只有需要跨轨冻结的重大状态变化，才单独执行 coordinated state-sync。
+
+
 v0.3 不推翻 PL1/PL2 已完成工作，而是重新冻结 PL3 之后的产品目标。
 
 旧路线较接近：
