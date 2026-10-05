@@ -1,0 +1,80 @@
+{
+  "schema_version": "0.1",
+  "fixture_id": "PL3S-STATE-FX-001",
+  "person_key": "PERSON-DEMO-001",
+  "as_of": "2030-01-15",
+  "provenance": [
+    {
+      "observation_ref": "OBS-CAREER-001",
+      "source_type": "USER_CONFIRMED",
+      "observed_at": "2030-01-15",
+      "confirmed": true,
+      "source_ref": "CHECKIN-001"
+    },
+    {
+      "observation_ref": "OBS-MOVE-001",
+      "source_type": "STRUCTURED_RECORD",
+      "observed_at": "2030-01-10",
+      "confirmed": true,
+      "source_ref": "RECORD-001"
+    },
+    {
+      "observation_ref": "OBS-ACTION-001",
+      "source_type": "ACTION_LOG",
+      "observed_at": "2030-01-15",
+      "confirmed": true,
+      "source_ref": "ACTION-001"
+    }
+  ],
+  "entries": [
+    {
+      "domain": "CAREER",
+      "state_key": "employment_status",
+      "value": "EMPLOYED",
+      "status": "KNOWN",
+      "confidence": "CONFIRMED",
+      "provenance_refs": [
+        "OBS-CAREER-001"
+      ]
+    },
+    {
+      "domain": "RELOCATION",
+      "state_key": "distant_settlement_status",
+      "value": "SETTLED",
+      "status": "KNOWN",
+      "confidence": "CONFIRMED",
+      "provenance_refs": [
+        "OBS-MOVE-001"
+      ]
+    },
+    {
+      "domain": "RESOURCE",
+      "state_key": "debt_state",
+      "value": null,
+      "status": "UNKNOWN",
+      "confidence": "UNKNOWN",
+      "provenance_refs": []
+    }
+  ],
+  "reality_context": [
+    {
+      "record_id": "ACT-001",
+      "record_type": "ACTION",
+      "domain": "CAREER",
+      "key": "job_application",
+      "value": "SUBMITTED",
+      "status": "CONFIRMED",
+      "provenance_refs": [
+        "OBS-ACTION-001"
+      ]
+    }
+  ],
+  "missingness": [
+    {
+      "domain": "RELATIONSHIP",
+      "state_key": "relationship_status",
+      "status": "NOT_COLLECTED"
+    }
+  ],
+  "contradictions": []
+}
