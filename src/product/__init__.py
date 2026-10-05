@@ -17,6 +17,12 @@ from .checkin_observation_bridge import (
     CheckinBridgeResult,
     bridge_checkin_response,
 )
+from .checkin_observation_bridge_v02 import (
+    BRIDGE_V02_DISPOSITIONS,
+    CheckinBridgeResultV02,
+    bridge_checkin_response_v02,
+    normalize_event_time_report,
+)
 from .chart_diff import ChartDifference, compare_chart_snapshots, summarize_differences
 from .antecedent_links import (
     LINK_STATUSES,
@@ -186,6 +192,10 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "BRIDGE_V02_DISPOSITIONS",
+    "CheckinBridgeResultV02",
+    "bridge_checkin_response_v02",
+    "normalize_event_time_report",
     "EVENT_TIME_PRECISIONS",
     "EventTimeInterval",
     "LongitudinalObservationRecordV02",
