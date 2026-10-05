@@ -28,7 +28,11 @@ def _rule_index(rules: Iterable[RuleIR]) -> dict[str, RuleIR]:
     return out
 
 
-def _contrastive_item(rule: RuleIR, facts: frozenset[str]) -> ContrastiveItem:
+def _contrastive_item(
+    rule: RuleIR,
+    facts: frozenset[str],
+    active_rule_ids: frozenset[str],
+) -> ContrastiveItem:
     missing = tuple(sorted(set(rule.required_facts) - set(facts)))
     unsatisfied_any: list[tuple[str, ...]] = []
     for group in rule.any_of_facts:
@@ -41,6 +45,9 @@ def _contrastive_item(rule: RuleIR, facts: frozenset[str]) -> ContrastiveItem:
         missing_all_of=missing,
         unsatisfied_any_of=tuple(unsatisfied_any),
         blocked_by=blocked,
+        missing_antecedents=tuple(
+            sorted(set(rule.antecedent_rule_ids) - set(active_rule_ids))
+        ),
     )
 
 
@@ -126,6 +133,7 @@ def graph_to_evidence_package(
                 "projection_mode": rule.state_change,
                 "operator": rule.operator,
                 "matched_conditions": list(node.matched_conditions),
+                "matched_antecedents": list(node.matched_antecedents),
                 "source_pointer": rule.source_pointer,
                 "evidence_status": node.evidence_status,
             }
@@ -141,7 +149,7 @@ def graph_to_evidence_package(
     ]
 
     contrastive = [
-        _contrastive_item(rule, facts)
+        _contrastive_item(rule, facts, frozenset(active_ids))
         for rule in sorted(rule_by_id.values(), key=lambda item: item.rule_id)
         if rule.rule_id not in active_ids
     ]
