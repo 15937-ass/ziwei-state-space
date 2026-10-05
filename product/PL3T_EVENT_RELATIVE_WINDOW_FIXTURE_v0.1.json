@@ -1,0 +1,48 @@
+{
+  "schema_version": "0.1",
+  "fixture_id": "PL3T_EVENT_RELATIVE_MIGRATION_V0_1",
+  "approved_window_id": "MIGRATION_FIRST_THREE_YEARS",
+  "human_gate": "HG-P07-TEMPORAL-01-A",
+  "cases": [
+    {
+      "case_id": "ACTIVE_YEAR_1",
+      "confirmed_distant_settlement": true,
+      "years_since_distant_relocation": 1,
+      "travel_only": false,
+      "expected_status": "ACTIVE",
+      "expected_active": true
+    },
+    {
+      "case_id": "ACTIVE_YEAR_3",
+      "confirmed_distant_settlement": true,
+      "years_since_distant_relocation": 3,
+      "travel_only": false,
+      "expected_status": "ACTIVE",
+      "expected_active": true
+    },
+    {
+      "case_id": "OUTSIDE_YEAR_4",
+      "confirmed_distant_settlement": true,
+      "years_since_distant_relocation": 4,
+      "travel_only": false,
+      "expected_status": "INACTIVE_OUTSIDE_APPROVED_WINDOW",
+      "expected_active": false
+    },
+    {
+      "case_id": "UNCONFIRMED_YEAR_2",
+      "confirmed_distant_settlement": false,
+      "years_since_distant_relocation": 2,
+      "travel_only": false,
+      "expected_status": "INACTIVE_EVENT_UNCONFIRMED",
+      "expected_active": false
+    },
+    {
+      "case_id": "TRAVEL_ONLY",
+      "confirmed_distant_settlement": false,
+      "years_since_distant_relocation": null,
+      "travel_only": true,
+      "expected_status": "INACTIVE_TRAVEL_ONLY",
+      "expected_active": false
+    }
+  ]
+}
