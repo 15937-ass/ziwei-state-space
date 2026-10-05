@@ -53,6 +53,9 @@ class TemporalReactionEvidence:
     source_location: str
     review_status: str
     magnitude_status: str = "UNIDENTIFIED"
+    matched_natal_facts: tuple[str, ...] = ()
+    matched_temporal_facts: tuple[str, ...] = ()
+    matched_natal_rule_ids: tuple[str, ...] = ()
 
     def __post_init__(self) -> None:
         for value, name in (
