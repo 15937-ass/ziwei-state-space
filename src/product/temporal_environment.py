@@ -276,9 +276,6 @@ def build_temporal_environment_profile(
         reactions=reaction_items,
         conflicts=conflict_items,
         event_relative_context=relative_items,
-        external_event_trigger_used=any(
-            item.status == "ACTIVE" for item in relative_items
-        ),
     )
 
     return TemporalEnvironmentProfile(
@@ -292,4 +289,7 @@ def build_temporal_environment_profile(
         reactions=reaction_items,
         conflicts=conflict_items,
         event_relative_context=relative_items,
+        external_event_trigger_used=any(
+            item.status == "ACTIVE" for item in relative_items
+        ),
     )
