@@ -1,0 +1,76 @@
+{
+  "schema_version": "0.1",
+  "batch_id": "PL2J2-WEALTH-B05",
+  "palace_id": "P05",
+  "sections": [
+    {
+      "id": "consumption",
+      "label": "财富持有与享用",
+      "domains": [
+        "consumption"
+      ],
+      "basis": "W01-004 projection_domain=consumption and source-span-verified P05/P11 semantic boundary"
+    },
+    {
+      "id": "support",
+      "label": "外部助力",
+      "domains": [
+        "support"
+      ],
+      "basis": "W01-045 projection_domain=support and source-span-verified auxiliary-star modifier"
+    }
+  ],
+  "rules": {
+    "W01-004": {
+      "section": "consumption",
+      "display_claim": "财富的持有与实际享用需要区分，并结合福德宫共同判断。"
+    },
+    "W01-045": {
+      "section": "support",
+      "display_claim": "财帛宫见左辅或右弼时，可表现为他人助力生财。"
+    },
+    "W01-056": {
+      "section": "structural_interpretation",
+      "display_claim": "若叠禄只发生在财帛、命、事业三合宫之间，其作用相对较弱。"
+    },
+    "W01-060": {
+      "section": "risk_competition",
+      "display_claim": "擎羊与天刑、大耗、地空或地劫同度时，竞争或外在冲击导致损失的风险增加。"
+    },
+    "W01-072": {
+      "section": "volatility",
+      "display_claim": "财帛宫见地空或地劫时，较容易出现突发挫折与变化。"
+    },
+    "W01-075": {
+      "section": "risk_competition",
+      "display_claim": "地空或地劫与武曲化忌同度时，需警惕破产或失业类财务风险。"
+    },
+    "W01-078": {
+      "section": "earning_mode",
+      "display_claim": "财帛宫见龙池或凤阁时，可表现为依靠专业技能取得收入。"
+    },
+    "W01-079": {
+      "section": "career_income_relation",
+      "display_claim": "财帛宫见天厨时，可对应饮食行业相关收入；与火星同见仍属于该范围。"
+    },
+    "W01-080": {
+      "section": "career_income_relation",
+      "display_claim": "财帛宫见红鸾或天喜时，收入场景可与异性客户群体相关。"
+    },
+    "W01-081": {
+      "section": "career_income_relation",
+      "display_claim": "财帛宫见天刑或蜚廉时，收入场景可与法律、纠纷等事务相关。"
+    },
+    "W01-082": {
+      "section": "risk_competition",
+      "display_claim": "财帛宫见天姚或阴煞时，可表现为谋略相关的损失，或依靠谋略取得收入。"
+    }
+  },
+  "policy": {
+    "presentation_only": true,
+    "no_new_rule_semantics": true,
+    "source_of_selection": "remaining PL2-I READY rows only",
+    "new_sections_are_projection_domain_views": true,
+    "unknown_rule_policy": "FAIL_CLOSED"
+  }
+}
