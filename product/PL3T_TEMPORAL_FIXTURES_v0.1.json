@@ -1,0 +1,106 @@
+{
+  "schema_version": "0.1",
+  "benchmark_id": "PL3T_TEMPORAL_CONTRACT_FIXTURES",
+  "purpose": "deterministic product-contract regression; not empirical prediction accuracy",
+  "fixtures": [
+    {
+      "fixture_id": "TF01_BASE_TEMPORAL_ENVIRONMENT",
+      "target_id": "T-DEMO",
+      "event_relative_input": null,
+      "expected_active_layers": [
+        "DAY",
+        "DECADE",
+        "HOUR",
+        "MONTH",
+        "SMALL_LIMIT",
+        "YEAR"
+      ],
+      "expected_event_relative_status": null,
+      "expected_routing_facts_all": [],
+      "expected_external_event_trigger_used": false
+    },
+    {
+      "fixture_id": "TF02_MIGRATION_YEAR_2_ACTIVE",
+      "target_id": "T-DEMO",
+      "event_relative_input": {
+        "confirmed_distant_settlement": true,
+        "years_since_distant_relocation": 2,
+        "travel_only": false,
+        "trigger_provenance": "OBS-RELOCATION-FIXTURE-001"
+      },
+      "expected_active_layers": [
+        "DAY",
+        "DECADE",
+        "HOUR",
+        "MONTH",
+        "SMALL_LIMIT",
+        "YEAR"
+      ],
+      "expected_event_relative_status": "ACTIVE",
+      "expected_routing_facts_all": [
+        "event:distant_relocation_settlement:confirmed",
+        "event_relative:distant_relocation_year:2",
+        "gate:migration_first_three_years:active",
+        "projection_priority:migration_palace:primary",
+        "rotation:annual_life_palace:preserved",
+        "rotation:other_palace:preserved"
+      ],
+      "expected_external_event_trigger_used": true
+    },
+    {
+      "fixture_id": "TF03_MIGRATION_YEAR_4_INACTIVE",
+      "target_id": "T-DEMO",
+      "event_relative_input": {
+        "confirmed_distant_settlement": true,
+        "years_since_distant_relocation": 4,
+        "travel_only": false,
+        "trigger_provenance": "OBS-RELOCATION-FIXTURE-002"
+      },
+      "expected_active_layers": [
+        "DAY",
+        "DECADE",
+        "HOUR",
+        "MONTH",
+        "SMALL_LIMIT",
+        "YEAR"
+      ],
+      "expected_event_relative_status": "INACTIVE",
+      "expected_routing_facts_all": [
+        "event:distant_relocation_settlement:confirmed",
+        "event_relative:distant_relocation_year:4",
+        "gate:migration_first_three_years:inactive_outside_window"
+      ],
+      "expected_external_event_trigger_used": false
+    },
+    {
+      "fixture_id": "TF04_MIGRATION_TRAVEL_ONLY_INACTIVE",
+      "target_id": "T-DEMO",
+      "event_relative_input": {
+        "confirmed_distant_settlement": true,
+        "years_since_distant_relocation": 2,
+        "travel_only": true,
+        "trigger_provenance": "OBS-TRAVEL-FIXTURE-001"
+      },
+      "expected_active_layers": [
+        "DAY",
+        "DECADE",
+        "HOUR",
+        "MONTH",
+        "SMALL_LIMIT",
+        "YEAR"
+      ],
+      "expected_event_relative_status": "INACTIVE",
+      "expected_routing_facts_all": [
+        "event:distant_relocation_settlement:confirmed",
+        "gate:migration_first_three_years:inactive_travel_only"
+      ],
+      "expected_external_event_trigger_used": false
+    }
+  ],
+  "policy": {
+    "golden_profile_id_frozen": false,
+    "repeated_run_identity_required": true,
+    "empirical_accuracy_claim": false,
+    "production_reaction_registry_required": false
+  }
+}
