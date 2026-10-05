@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ziwei/pl3s-acquired-state-v0.1.schema.json",
+  "title": "PL3-S AcquiredState v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "person_key",
+    "as_of_date",
+    "previous_state_id",
+    "assertions",
+    "actions",
+    "context_items",
+    "missingness",
+    "conflicts",
+    "source_observation_ids",
+    "state_confidence"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "state_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "person_key": {
+      "type": "string",
+      "minLength": 1
+    },
+    "as_of_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "previous_state_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "assertions": {
+      "type": "array"
+    },
+    "actions": {
+      "type": "array"
+    },
+    "context_items": {
+      "type": "array"
+    },
+    "missingness": {
+      "type": "array"
+    },
+    "conflicts": {
+      "type": "array"
+    },
+    "source_observation_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "state_confidence": {
+      "enum": [
+        "HIGH",
+        "MEDIUM",
+        "LOW",
+        "INSUFFICIENT"
+      ]
+    }
+  }
+}
