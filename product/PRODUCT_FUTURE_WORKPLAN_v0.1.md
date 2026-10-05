@@ -13,7 +13,9 @@
 - PL3-N Natal Prior：核心、wealth provider、domain registry、fixture benchmark 已完成；
 - Career provider：等待知识侧 CA09 closure + CA04–CA08 schema repair；
 - PL7 minimum data-entry loop：v0.2 interval-time bridge 完成；
-- 下一主工作单元：`PRODUCT_PL3T_TEMPORAL_ENVIRONMENT_CORE_V0_1`。
+- PL3-T TemporalEnvironmentProfile core：完成；
+- PL3-T Existing temporal asset adapter：完成；
+- 下一主工作单元：`PRODUCT_PL3T_NATAL_TEMPORAL_REACTION_COMPILER_V0_1`。
 
 ## 2. 主线执行顺序
 
@@ -283,8 +285,8 @@ Symbolic / deterministic
 
 ## 16. 当前下一步
 
-在 PL7 v0.2 bridge 合并后，主线立即回到：
+PL3-T core 与 Existing temporal asset adapter 已完成。当前主线继续到：
 
-**PRODUCT_PL3T_TEMPORAL_ENVIRONMENT_CORE_V0_1**
+**PRODUCT_PL3T_NATAL_TEMPORAL_REACTION_COMPILER_V0_1**
 
-PL7 后续质量工程并行推进；Career provider 等知识侧 unblock 后插回 PL3-N domain expansion，不打乱主线。
+该阶段只编译 source-reviewed temporal reaction，不训练概率、不把时间环境直接升级为事件。PL7 后续质量工程继续并行；Career provider 等知识侧 unblock 后插回 PL3-N domain expansion，不打乱主线。
