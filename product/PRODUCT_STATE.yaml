@@ -5,9 +5,9 @@ project_state_dependency: "../PROJECT_STATE.yaml"
 
 execution:
   current_phase: "PL7-PARALLEL-DATA-INFRA"
-  completed_work_unit: "PRODUCT_PL7_CHECKIN_TO_OBSERVATION_BRIDGE_V0_1"
-  next_work_unit: "PRODUCT_PL7_EVENT_TIME_PRECISION_REVIEW_V0_1"
-  status: "PL7_CHECKIN_BRIDGE_READY; EXACT_EVENT_DATE_LIMITATION_EXPLICIT; NO_TRAINING; PL3N_CAREER_REMAINS_BLOCKED_ON_KB_REPAIR_AND_CA09"
+  completed_work_unit: "PRODUCT_PL7_EVENT_TIME_PRECISION_REVIEW_V0_1"
+  next_work_unit: "PRODUCT_PL7_LONGITUDINAL_OBSERVATION_SCHEMA_V0_2"
+  status: "PL7_EVENT_TIME_INTERVAL_DECISION_FROZEN; V0_2_SCHEMA_NEXT; NO_TRAINING; PL3N_CAREER_REMAINS_BLOCKED_ON_KB_REPAIR_AND_CA09"
   canonical_branch: "main"
 
 boundaries:
@@ -42,6 +42,7 @@ completed:
   - "PL7 longitudinal observation schema v0.1: prospective/retrospective windows, explicit negative/unknown/censored outcomes, action/context separation, blind-lock guard"
   - "PL7 prospective check-in protocol v0.1: target lock, neutral close-out, prediction exposure tagging, mid-window NO not negative, outcome-leakage guard"
   - "PL7 check-in to observation bridge v0.1: confirmed-response gate, locked-target provenance, deterministic candidate mapping, no fabricated event dates"
+  - "PL7 event-time precision review: adopt DAY/MONTH/YEAR/INTERVAL bounded normal form; no midpoint imputation; partial overlap remains temporally ambiguous"
 
 artifacts:
   human_gate_decision: "product/PL2Q_HUMAN_GATE_DECISION_SPEC_v0.1.md"
@@ -87,6 +88,8 @@ artifacts:
   checkin_observation_bridge: "src/product/checkin_observation_bridge.py"
   checkin_observation_bridge_acceptance: "product/PL7_CHECKIN_TO_OBSERVATION_BRIDGE_ACCEPTANCE.md"
   checkin_observation_bridge_tests: "tests/test_product_checkin_observation_bridge.py"
+  event_time_precision_review: "product/PL7_EVENT_TIME_PRECISION_REVIEW_v0.1.json"
+  event_time_precision_acceptance: "product/PL7_EVENT_TIME_PRECISION_REVIEW.md"
 
 parallel_work_policy:
   - "Every product session reads top-level PROJECT_STATE.yaml first for repository/knowledge state."
