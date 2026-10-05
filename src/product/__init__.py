@@ -122,6 +122,15 @@ from .longitudinal_observation_v02 import (
     compile_longitudinal_observation_v02,
     migrate_longitudinal_observation_v01_to_v02,
 )
+from .manifestation_ontology import (
+    EVENT_SPECIFICITIES,
+    PROBABILITY_STATUSES,
+    REGISTRY_STATUSES,
+    ManifestationNode,
+    ManifestationOntologyRegistry,
+    ManifestationSourceRef,
+    compile_manifestation_ontology_registry,
+)
 from .natal_domain_registry import (
     NatalDomainProvider,
     NatalDomainProviderRegistry,
@@ -292,6 +301,13 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "EVENT_SPECIFICITIES",
+    "PROBABILITY_STATUSES",
+    "REGISTRY_STATUSES",
+    "ManifestationNode",
+    "ManifestationOntologyRegistry",
+    "ManifestationSourceRef",
+    "compile_manifestation_ontology_registry",
     "BeliefBenchmarkCaseResult",
     "BeliefBenchmarkReport",
     "run_state_belief_benchmark",
