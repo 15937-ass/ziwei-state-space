@@ -102,6 +102,19 @@ from .structure_primitives import (
     is_flanked_by,
     source_backed_structure_facts,
 )
+from .prospective_checkin import (
+    ANSWER_MAPPING,
+    CHECKIN_ANSWERS,
+    CHECKPOINT_TYPES,
+    COLLECTION_PURPOSES,
+    FORBIDDEN_PLAN_KEYS,
+    PREDICTION_EXPOSURES,
+    CheckinTarget,
+    ProspectiveCheckinPlan,
+    ScheduledCheckpoint,
+    classify_checkin_answer,
+    compile_prospective_checkin_plan,
+)
 from .rule_runtime import (
     ActiveRuleGraph,
     ActiveRuleNode,
@@ -161,6 +174,17 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "ANSWER_MAPPING",
+    "CHECKIN_ANSWERS",
+    "CHECKPOINT_TYPES",
+    "COLLECTION_PURPOSES",
+    "FORBIDDEN_PLAN_KEYS",
+    "PREDICTION_EXPOSURES",
+    "CheckinTarget",
+    "ProspectiveCheckinPlan",
+    "ScheduledCheckpoint",
+    "classify_checkin_answer",
+    "compile_prospective_checkin_plan",
     "ACTION_STATUSES",
     "CONFIDENCE_LEVELS",
     "EVENT_STATUSES",
