@@ -95,3 +95,4 @@ def test_active_overlay_marks_explicit_external_trigger_without_feedback_mutatio
     assert not profile.acquired_state_used
     assert not profile.outcome_used
     assert not profile.empirical_calibration_used
+    assert profile.to_dict()["external_event_trigger_used"] is True
