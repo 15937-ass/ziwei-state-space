@@ -69,6 +69,13 @@ from .longitudinal_observation import (
     LongitudinalObservationRecord,
     compile_longitudinal_observation,
 )
+from .longitudinal_observation_v02 import (
+    EVENT_TIME_PRECISIONS,
+    EventTimeInterval,
+    LongitudinalObservationRecordV02,
+    compile_longitudinal_observation_v02,
+    migrate_longitudinal_observation_v01_to_v02,
+)
 from .natal_domain_registry import (
     NatalDomainProvider,
     NatalDomainProviderRegistry,
@@ -179,6 +186,11 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "EVENT_TIME_PRECISIONS",
+    "EventTimeInterval",
+    "LongitudinalObservationRecordV02",
+    "compile_longitudinal_observation_v02",
+    "migrate_longitudinal_observation_v01_to_v02",
     "BRIDGE_DISPOSITIONS",
     "CheckinBridgeResult",
     "bridge_checkin_response",
