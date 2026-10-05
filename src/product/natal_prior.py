@@ -199,6 +199,9 @@ def _profile_id(
     knowledge_version: str,
     canonical_facts: Iterable[str],
     named_structure_facts: Iterable[str],
+    baiguan_profiles: Iterable[BaiguanSupportProfile],
+    pattern_assessments: Iterable[PatternAssessment],
+    contextual_valences: Iterable[ContextualValence],
     domains: Iterable[NatalDomainEvidence],
 ) -> str:
     payload = {
@@ -206,10 +209,31 @@ def _profile_id(
         "knowledge_version": knowledge_version,
         "canonical_facts": sorted(canonical_facts),
         "named_structure_facts": sorted(named_structure_facts),
+        "baiguan_profiles": [
+            asdict(item)
+            for item in sorted(
+                baiguan_profiles,
+                key=lambda value: value.anchor_palace_id,
+            )
+        ],
+        "pattern_assessments": [
+            asdict(item)
+            for item in sorted(
+                pattern_assessments,
+                key=lambda value: value.pattern_id,
+            )
+        ],
+        "contextual_valences": [
+            asdict(item)
+            for item in sorted(
+                contextual_valences,
+                key=lambda value: (value.palace_id, value.domain, value.target),
+            )
+        ],
         "domains": [
             {
                 "domain_id": domain.domain_id,
-                "active_rule_ids": [rule.rule_id for rule in domain.active_rules],
+                "active_rules": [asdict(rule) for rule in domain.active_rules],
                 "projection_payloads": list(domain.projection_payloads),
                 "latent_state_payload": domain.latent_state_payload,
                 "conflict_payloads": list(domain.conflict_payloads),
@@ -270,6 +294,9 @@ def build_natal_state_profile(
         knowledge_version=knowledge_version,
         canonical_facts=canonical_facts,
         named_structure_facts=named_structure_facts,
+        baiguan_profiles=baiguan_profiles,
+        pattern_assessments=patterns,
+        contextual_valences=valences,
         domains=domains,
     )
 
