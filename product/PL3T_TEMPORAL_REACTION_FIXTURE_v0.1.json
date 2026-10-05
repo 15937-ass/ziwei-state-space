@@ -1,0 +1,51 @@
+{
+  "schema_version": "0.1",
+  "status": "TEST_FIXTURE_ONLY_NOT_CANONICAL",
+  "rules": [
+    {
+      "reaction_id": "TR-FX-001",
+      "rule_id": "TR-RULE-FX-001",
+      "layer": "YEAR",
+      "domain": "career",
+      "target": "career_mobility_activation",
+      "effect": "ACTIVATE",
+      "source_id": "TEST-FIXTURE",
+      "source_location": "test-only",
+      "review_status": "SOURCE_SPAN_VERIFIED",
+      "source_span_verified": true,
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "normalization_verified": true,
+      "case_support_only": false,
+      "magnitude_status": "UNIDENTIFIED",
+      "required_natal_rule_ids": [],
+      "natal_condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "紫微"
+            }
+          }
+        ]
+      },
+      "temporal_condition": {
+        "all_of": [
+          {
+            "atom_type": "TIME_LAYER",
+            "args": {
+              "layer": "YEAR"
+            }
+          },
+          {
+            "atom_type": "STAR_PRESENT",
+            "args": {
+              "layer": "YEAR",
+              "star": "天马"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
