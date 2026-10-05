@@ -19,6 +19,18 @@ from .acquired_state import (
     StateMissingness,
     compile_acquired_state,
 )
+from .bayesian_belief import (
+    BELIEF_MODEL_STATUSES,
+    BELIEF_PARAMETER_LAYERS,
+    BELIEF_UPDATE_STATUSES,
+    EVIDENCE_USE_STATUSES,
+    BeliefEvidenceChannel,
+    BeliefUpdateResult,
+    DiscreteBeliefModel,
+    EvidenceUse,
+    compile_discrete_belief_model,
+    update_discrete_belief,
+)
 from .career_readiness_audit import (
     ALLOWED_TIME_LAYERS,
     SCHEMA_DRIFT_TIME_CONDITION_SWAP,
@@ -275,6 +287,16 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "BELIEF_MODEL_STATUSES",
+    "BELIEF_PARAMETER_LAYERS",
+    "BELIEF_UPDATE_STATUSES",
+    "EVIDENCE_USE_STATUSES",
+    "BeliefEvidenceChannel",
+    "BeliefUpdateResult",
+    "DiscreteBeliefModel",
+    "EvidenceUse",
+    "compile_discrete_belief_model",
+    "update_discrete_belief",
     "MISSINGNESS_AUDIT_CLASSES",
     "QUALITY_ITEM_STATUSES",
     "STATE_READINESS_STATUSES",
