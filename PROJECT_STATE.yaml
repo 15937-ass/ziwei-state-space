@@ -66,7 +66,7 @@ progress:
 
 productization:
   program: "PRODUCT-FIRST"
-  status: "P1_COMPLETE; CHART_TRUST_V1_FROZEN; PL2A_RULE_RUNTIME_CORE_MERGED; PL2B_CONDITION_ATOMS_MERGED; PL2C_WEALTH_PILOT13_MERGED; PL2D_EVIDENCE_BRIDGE_MERGED; PL2E_WEALTH_SEMANTIC_REPORT_MERGED; PL2F_WEALTH_EXECUTABLE22_MERGED; PL2G_STRUCTURE_RESOLVER_MERGED; PL2H_WEALTH_EXECUTABLE28_MERGED; PL2I_WEALTH_GAP_AUDIT_MERGED; PL2J_WEALTH_EXECUTABLE38_MERGED; PL2J2_WEALTH_EXECUTABLE49_MERGED; PL2K_BLOCKER_REFRESH_MERGED; PL2M_ANTECEDENT_LINKING_MERGED; PL2M_WEALTH_EXECUTABLE54_MERGED; PL2L_SOURCE_BACKED_STRUCTURES_MERGED; PL2L_WEALTH_EXECUTABLE57_MERGED; CASEBOOK_INDEX_100_PILOT20_READY"
+  status: "P1_COMPLETE; CHART_TRUST_V1_FROZEN; PL2A_RULE_RUNTIME_CORE_MERGED; PL2B_CONDITION_ATOMS_MERGED; PL2C_WEALTH_PILOT13_MERGED; PL2D_EVIDENCE_BRIDGE_MERGED; PL2E_WEALTH_SEMANTIC_REPORT_MERGED; PL2F_WEALTH_EXECUTABLE22_MERGED; PL2G_STRUCTURE_RESOLVER_MERGED; PL2H_WEALTH_EXECUTABLE28_MERGED; PL2I_WEALTH_GAP_AUDIT_MERGED; PL2J_WEALTH_EXECUTABLE38_MERGED; PL2J2_WEALTH_EXECUTABLE49_MERGED; PL2K_BLOCKER_REFRESH_MERGED; PL2M_ANTECEDENT_LINKING_MERGED; PL2M_WEALTH_EXECUTABLE54_MERGED; PL2L_SOURCE_BACKED_STRUCTURES_MERGED; PL2L_WEALTH_EXECUTABLE57_MERGED; PL2O_NORMALIZATION_REVIEW_MERGED; PL2O2_WEALTH_EXECUTABLE59_MERGED; CASEBOOK_INDEX_100_PILOT20_READY"
   completed:
     - "competitor registry v0.1"
     - "license ledger v0.1"
@@ -96,7 +96,9 @@ productization:
     - "PL2-K blocker-only refresh: remaining 51 routed to antecedent/source-backed/source-normalization/Human-Gate/PL3"
     - "PL2-M explicit antecedent/reference linking: +5 inherited rules, 54/100 W01 executable"
     - "PL2-L source-backed structures: 禄马交驰/叠禄/flanking + dignity lookup; +3 rules, 57/100 W01 executable"
-  next_work_unit: "PRODUCT_PL2O_NORMALIZATION_REVIEW"
+    - "PL2-O source-grounded normalization review: 15 rows reviewed, 2 executable-ready, 13 held"
+    - "PL2-O2 safe normalization batch: +2 rules, 59/100 W01 executable; OR-of-ANDs boolean alternatives added"
+  next_work_unit: "PRODUCT_PL2P_BLOCKER_HANDOFF"
   product_chat_scope: "This conversation owns productization, product data, adapters, inference MVP, benchmark and UX. Knowledge-base extraction continues in other project conversations."
   research_track_next: "WP05_CAREER_CA03_CONTINUE"
   casebook_training_corpus:
@@ -406,6 +408,12 @@ canonical_artifacts:
   pl2l_acceptance: "product/PL2L_SOURCE_BACKED_STRUCTURE_ACCEPTANCE.md"
   pl2l_structure_api: "src/product/structure_primitives.py"
   pl2l_dignity_api: "src/product/dignity.py"
+  pl2o_wealth_normalization_review_csv: "product/PL2O_WEALTH_NORMALIZATION_REVIEW_v0.1.csv"
+  pl2o_wealth_normalization_review_report: "product/PL2O_WEALTH_NORMALIZATION_REVIEW.md"
+  pl2o_wealth_normalization_review_api: "src/product/wealth_normalization_review.py"
+  pl2o2_wealth_safe_batch: "product/PL2O2_WEALTH_NORMALIZATION_SAFE_BATCH_v0.1.json"
+  pl2o2_wealth_semantic_batch8: "product/PL2O2_WEALTH_SEMANTIC_BATCH8_v0.1.json"
+  pl2o2_acceptance: "product/PL2O2_NORMALIZATION_SAFE_BATCH_ACCEPTANCE.md"
   chart_trust_report_v1: "product/CHART_TRUST_REPORT_v1.0.md"
   p1_b02c_c1_targets: "validation/product_chart_regression/b02c1_year_transitions_2027_2030.json"
   p1_b02c_c2_targets: "validation/product_chart_regression/b02c2_year_transitions_2031_2034.json"
