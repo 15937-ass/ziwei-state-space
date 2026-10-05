@@ -1,0 +1,88 @@
+{
+  "schema_version": "0.1",
+  "batch_id": "PL2L-WEALTH-B07",
+  "palace_id": "P05",
+  "palace_name": "财帛宫",
+  "source_csv": "validation/wp05/W01_wealth_projection_review_001_100.csv",
+  "structure_registry": "product/PL2L_STRUCTURE_PRIMITIVE_REGISTRY_v0.1.json",
+  "requires_palace_structure": true,
+  "policy": {
+    "normalization_epistemic": "IMPLEMENTATION",
+    "normalization_verified": true,
+    "selection_policy": "only source-backed structure rows whose complete executable condition is frozen",
+    "held_source_backed_row": "W01-043 remains pending because dignity lookup alone does not resolve the 太阳天梁 disjunction/system scope"
+  },
+  "rules": {
+    "W01-024": {
+      "expected_condition": "财帛宫见禄马交驰",
+      "expected_projection_target": "money_flow_easier",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "STRUCTURE_PRESENT",
+            "args": {
+              "palace": "P05",
+              "structure": "LU_MA_JIAO_CHI"
+            }
+          }
+        ]
+      }
+    },
+    "W01-050": {
+      "expected_condition": "魁钺夹辅弼夹昌曲夹",
+      "expected_projection_target": "clamp_patterns_inherit_corresponding_wealth_modifiers",
+      "expected_projection_mode": "STRUCTURAL_CONSTRAINT",
+      "condition": {
+        "any_of": [
+          [
+            {
+              "atom_type": "STRUCTURE_PRESENT",
+              "args": {
+                "palace": "P05",
+                "structure": "KUI_YUE_FLANK"
+              }
+            },
+            {
+              "atom_type": "STRUCTURE_PRESENT",
+              "args": {
+                "palace": "P05",
+                "structure": "FU_BI_FLANK"
+              }
+            },
+            {
+              "atom_type": "STRUCTURE_PRESENT",
+              "args": {
+                "palace": "P05",
+                "structure": "CHANG_QU_FLANK"
+              }
+            }
+          ]
+        ]
+      }
+    },
+    "W01-057": {
+      "expected_condition": "化禄与禄存相叠必有羊陀夹",
+      "expected_projection_target": "yangtuo_can_act_as_motivation_not_automatic_harm",
+      "expected_projection_mode": "STRUCTURAL_CONSTRAINT",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "STRUCTURE_PRESENT",
+            "args": {
+              "palace": "P05",
+              "structure": "LU_STACK"
+            }
+          },
+          {
+            "atom_type": "STRUCTURE_PRESENT",
+            "args": {
+              "palace": "P05",
+              "structure": "YANG_TUO_FLANK"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
