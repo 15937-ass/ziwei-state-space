@@ -20,12 +20,12 @@ Measure whether implemented product logic faithfully reconstructs approved Zhong
 
 ## Work Units
 
-1. PL4A-01 Chart reconstruction fidelity
-2. PL4A-02 W01 wealth-rule fidelity
-3. PL4A-03 Rule -> ActiveRuleGraph -> EvidencePackage trace fidelity
-4. PL4A-04 Temporal fidelity and Natal/Temporal boundary checks
-5. PL4A-05 Textbook author-reasoning reconstruction
-6. PL4A-06 Coverage/conflict/gap closure audit
+1. PL4A-01 Chart reconstruction fidelity — Issue #279
+2. PL4A-02 W01 wealth-rule fidelity — Issue #280
+3. PL4A-03 Rule -> ActiveRuleGraph -> EvidencePackage trace fidelity — Issue #281
+4. PL4A-04 Temporal fidelity and Natal/Temporal boundary checks — Issue #282
+5. PL4A-05 Textbook author-reasoning reconstruction — Issue #283
+6. PL4A-06 Coverage/conflict/gap closure audit — Issue #284
 
 Only one Product work unit may be ACTIVE at a time.
 
