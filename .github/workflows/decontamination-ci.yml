@@ -1,35 +1,17 @@
-name: decontamination-ci
+name: repository-quality-gate
 
 on:
   workflow_dispatch:
   pull_request:
-    types: [opened, reopened, ready_for_review]
+    types: [opened, synchronize, reopened, ready_for_review]
     branches:
       - main
-    paths:
-      - "src/**"
-      - "tests/**"
-      - "tools/**"
-      - "knowledge/**"
-      - "validation/**"
-      - "pyproject.toml"
-      - "requirements*.txt"
-      - ".github/workflows/decontamination-ci.yml"
   push:
     branches:
       - main
-    paths:
-      - "src/**"
-      - "tests/**"
-      - "tools/**"
-      - "knowledge/**"
-      - "validation/**"
-      - "pyproject.toml"
-      - "requirements*.txt"
-      - ".github/workflows/decontamination-ci.yml"
 
 concurrency:
-  group: decontamination-${{ github.workflow }}-${{ github.ref }}
+  group: repository-gate-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 permissions:
@@ -41,6 +23,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -59,7 +43,17 @@ jobs:
         run: |
           if [ -f tools/iztro_export.mjs ]; then node --check tools/iztro_export.mjs; fi
 
-      - name: Enforce deterministic P0 gate
+      - name: Enforce deterministic P0 repository gate
         env:
           PYTHONPATH: ${{ github.workspace }}
         run: python src/audit_repository.py --fail-on-p0
+
+      - name: Enforce Repository Governance v1
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            python tools/validate_governance.py \
+              --base-ref "origin/${{ github.base_ref }}" \
+              --head-branch "${{ github.head_ref }}"
+          else
+            python tools/validate_governance.py --allow-main
+          fi

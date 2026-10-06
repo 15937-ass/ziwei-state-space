@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "branch_prefixes": {
+    "product/": "PRODUCT_ONLY",
+    "knowledge/": "KNOWLEDGE_ONLY",
+    "governance/": "GOVERNANCE_ONLY"
+  },
+  "allowed_paths": {
+    "PRODUCT_ONLY": [
+      "product/**",
+      "src/product/**",
+      "tests/test_product_*.py",
+      "validation/product/**"
+    ],
+    "KNOWLEDGE_ONLY": [
+      "knowledge/**",
+      "validation/**",
+      "tests/test_knowledge_*.py",
+      "tools/knowledge_*.py"
+    ],
+    "GOVERNANCE_ONLY": [
+      "governance/**",
+      ".github/**",
+      "PROJECT_CONSTITUTION.md",
+      "GOVERNANCE.md",
+      "AGENT_WORKFLOW.md",
+      "DECISION_LOG.md",
+      "PRODUCT_ROADMAP.md",
+      "KNOWLEDGE_BASE_ROADMAP.md",
+      "PROJECT_STATE.yaml",
+      "product/PRODUCT_STATE.yaml",
+      "knowledge/KNOWLEDGE_STATE.yaml",
+      "product/phases/**",
+      "tools/validate_governance.py",
+      "tests/test_governance_*.py",
+      "tests/test_a1_invariants.py"
+    ]
+  },
+  "note": "Read access is broad. Routine writes follow lane ownership. The exact shared invariant test is governance-writable because Governance v1 moves historical closure truth out of PROJECT_STATE into its canonical closure report."
+}

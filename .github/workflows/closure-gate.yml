@@ -1,0 +1,36 @@
+name: phase-closure-gate
+
+on:
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: "Phase/closure identifier"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  closure-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install --upgrade pytest
+      - name: Full tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: python -m pytest -q
+      - name: Repository P0 audit
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: python src/audit_repository.py --fail-on-p0
+      - name: Governance static audit
+        run: python tools/validate_governance.py --allow-main
+      - name: Record requested closure scope
+        run: echo "Closure scope: ${{ inputs.scope }}"

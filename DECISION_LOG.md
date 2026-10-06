@@ -129,3 +129,11 @@ Paper 2 需要处理 star-core / Delta / modifier / projection 参数混淆。
 **Status:** FROZEN（HG-P07-TEMPORAL-01 Option A）
 **Approved at:** HG-P07-TEMPORAL-01
 **Approved by:** PI
+
+### D-018 — Repository Governance v1.0
+**Decision:** 批准将仓库治理迁移为“Constitution / Approved Proposal -> Roadmap/Architecture -> Phase Contract -> GitHub Issue -> PR -> CI -> main”的分层模型；Chat 永久退出项目状态真相。建立 PRODUCT_ONLY / KNOWLEDGE_ONLY / GOVERNANCE_ONLY 三条写入轨，GitHub Issue 成为 bounded work unit 的执行权威，State YAML 仅作为恢复指针；产品能力采用多维 maturity/readiness，不再以接口完成冒充生产成熟；重大改变走 Proposal，普通工作不升格；main 仅保存已验收状态。
+**Status:** FROZEN（仓库治理原则）
+**Approved at:** Repository Governance v1.0 / Issue #275
+**Approved by:** PI
+**Approved date:** 2026-10-06
+
