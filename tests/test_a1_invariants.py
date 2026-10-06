@@ -626,8 +626,12 @@ def test_lb16_history_feedback_keeps_a2_r1_memory_types_closed():
 
 
 def test_p1_layer_boundary_audit_is_fully_closed():
-    state = (ROOT / "PROJECT_STATE.yaml").read_text(encoding="utf-8")
-    assert 'closed: 800' in state
-    assert 'pending: 0' in state
-    assert 'next_batch: null' in state
-    assert 'executable_transitions: 43' in state
+    # The closure report is the canonical evidence for this historical audit.
+    # PROJECT_STATE is intentionally only a recovery pointer under Governance v1.
+    report = (ROOT / "validation/decontamination/LB16_P1_FINAL_CLOSURE.md").read_text(
+        encoding="utf-8"
+    )
+    assert "Layer-boundary candidates: **800**" in report
+    assert "Closed: **800**" in report
+    assert "Pending: **0**" in report
+    assert "Typed history transitions: **43**" in report
