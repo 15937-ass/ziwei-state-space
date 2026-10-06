@@ -3,12 +3,12 @@ repository: "15937-ass/ziwei-state-space"
 
 project:
   current_phase: "Phase II knowledge-base construction + product-first engineering"
-  execution_state: "WP05_TWELVE_PALACE_FINAL_CLOSURE_READY_FOR_PR"
-  current_work_unit: "WP05_TWELVE_PALACE_FINAL_CLOSURE"
-  state_sync: "WP05_GLOBAL_CLOSURE_PENDING"
+  execution_state: "KB_WP06B_SCHEMA_FROZEN_HUMAN_GATE_PENDING"
+  current_work_unit: "KB_WP06B_MANIFESTATION_ONTOLOGY_PREPARATION"
+  state_sync: "KB_WP06B_ROOT_GATE_PENDING"
   last_approved_gate: "HG-P07-TEMPORAL-01-A"
-  pending_gate: null
-  blocked_reason: null
+  pending_gate: "HG-WP06B-MANIFESTATION-ROOT-01"
+  blocked_reason: "Canonical manifestation FAMILY root policy requires human approval before ontology node population."
 
 git:
   default_branch: "main"
@@ -51,7 +51,7 @@ progress:
     case_support_only: 1424
     history_feedback: 192
     status: "TWELVE_PALACE_SOURCE_CLOSURE_READY_FOR_PR"
-    next_anchor: "KB_WP06B_MANIFESTATION_ONTOLOGY_PREPARATION_SCHEMA_FREEZE"
+    next_anchor: "HG_WP06B_MANIFESTATION_ROOT_01"
   wp04_source_closure:
     chapter: "GLOBAL"
     checkpoint: "MAL01"
@@ -101,7 +101,7 @@ productization:
     - "PL2-P final blocker handoff: 41 pending -> 14 knowledge, 5 upstream, 8 Human Gate, 14 PL3 temporal"
   next_work_unit: "AWAIT_PRODUCT_HUMAN_REVIEW_PL2_GATES"
   product_chat_scope: "This conversation owns productization, product data, adapters, inference MVP, benchmark and UX. Knowledge-base extraction continues in other project conversations."
-  research_track_next: "KB_WP06B_MANIFESTATION_ONTOLOGY_PREPARATION_SCHEMA_FREEZE"
+  research_track_next: "HG_WP06B_MANIFESTATION_ROOT_01"
   casebook_training_corpus:
     collection_id: "LIAORAN_CASEBOOKS_3"
     status: "ALL_3_BOUND_INDEXED_100_PILOT20_QUEUED"
