@@ -10,6 +10,27 @@ execution:
   status: "PL3M_MVP_INTERFACES_COMPLETE; PERSONALIZED_POSTERIOR_INTERFACE_READY; PRODUCTION_PERSONAL_POSTERIOR_MODELS_EMPTY_PENDING_PL5C; PRODUCTION_PROBABILITY_MODELS_EMPTY_PENDING_PL5; PRODUCTION_ONTOLOGY_EMPTY_PENDING_KB_WP06B; PRODUCTION_MAPPING_EMPTY_PENDING_KB_WP06C; PRODUCTION_BELIEF_REGISTRY_EMPTY_PENDING_EMPIRICAL_CALIBRATION; PRODUCTION_TEMPORAL_REACTION_REGISTRY_PENDING_KB_WP07B"
   canonical_branch: "main"
 
+maturity:
+  architecture_interface_status: "PL3M_MVP_INTERFACES_COMPLETE"
+  production_capability_status: "NOT_PRODUCTION_READY"
+  anti_scaffolding_policy: "NO_NEW_INTERFACE_ONLY_WORK_BEFORE_PL4A_FIDELITY_EVIDENCE"
+  phase_exit_meaning: "PL3-M interface completion closes interface design only; it does not claim populated production knowledge, calibrated probabilities, or predictive validity."
+  asset_readiness:
+    deterministic_chart_engine: "READY_P1_CHART_TRUST_V1"
+    rule_runtime: "READY_WITH_BOUNDED_EXECUTABLE_COVERAGE"
+    natal_wealth_provider: "PARTIAL_W01_59_OF_100_EXECUTABLE"
+    natal_career_provider: "BLOCKED_PENDING_KNOWLEDGE_CA04_CA08_REPAIR_AND_CA09_CLOSURE"
+    temporal_reaction_registry: "EMPTY_PENDING_KB_WP07B"
+    manifestation_ontology_registry: "EMPTY_PENDING_KB_WP06B"
+    manifestation_mapping_registry: "EMPTY_PENDING_KB_WP06C"
+    population_probability_registry: "EMPTY_PENDING_PL5"
+    personalized_posterior_registry: "EMPTY_PENDING_PL5C"
+  pl4a_entry_guard:
+    - "PL4-A may benchmark only non-empty, source-traceable assets."
+    - "Empty registries count as uncovered/blocked, never as a passing fidelity result."
+    - "No new abstraction/interface layer is added unless a concrete PL4-A failure demonstrates the need."
+    - "Internal fidelity remains separate from external predictive validity."
+
 boundaries:
   canonical_natal_feedback_independent: true
   temporal_environment_not_outcome: true
@@ -183,6 +204,7 @@ artifacts:
   personalized_posterior_fixture: "product/PL3M_PERSONALIZED_POSTERIOR_FIXTURE_v0.1.json"
   personalized_posterior_acceptance: "product/PL3M_PERSONALIZED_POSTERIOR_ACCEPTANCE.md"
   personalized_posterior_tests: "tests/test_product_personalized_posterior.py"
+  product_maturity_audit: "product/PL3_PRODUCT_MATURITY_AUDIT_v0.1.md"
 
 parallel_work_policy:
   - "Every product session reads top-level PROJECT_STATE.yaml first for repository/knowledge state."
