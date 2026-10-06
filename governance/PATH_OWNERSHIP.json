@@ -32,8 +32,9 @@
       "knowledge/KNOWLEDGE_STATE.yaml",
       "product/phases/**",
       "tools/validate_governance.py",
-      "tests/test_governance_*.py"
+      "tests/test_governance_*.py",
+      "tests/test_a1_invariants.py"
     ]
   },
-  "note": "Read access is broad. This file governs routine write ownership. Cross-lane semantic changes require a governance task/Proposal."
+  "note": "Read access is broad. Routine writes follow lane ownership. The exact shared invariant test is governance-writable because Governance v1 moves historical closure truth out of PROJECT_STATE into its canonical closure report."
 }
