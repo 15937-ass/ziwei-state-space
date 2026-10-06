@@ -4,13 +4,13 @@ authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  status: "FROZEN_FOR_GOVERNANCE_V1_MIGRATION"
+  status: "ARCHIVED_NO_ACTIVE_WORK"
   phase: "PL3_M_EXIT"
   active_issue: null
-  active_pr: 274
-  active_pr_status: "DRAFT_LEGACY_REQUIRES_RECONSTITUTION_AFTER_GOVERNANCE"
-  last_merged_pr: 265
-  next_after_governance: "Reconstitute personalized-posterior work on a clean product/<issue>-... branch; only then activate PL4-A."
+  active_pr: null
+  resume_entry: "Reconstitute archived personalized-posterior work from PR #274 on a clean Governance-v1 Product Issue/branch before PL4-A."
+  archived_reference_pr: 274
+  archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
 
 capability_snapshot:
   deterministic_chart:
@@ -42,7 +42,6 @@ capability_snapshot:
     internal_validation: "NONE"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    dependency: "Career CA04-CA08 schema repair + CA09 closure"
   temporal_reactions:
     specification: "SPECIFIED"
     implementation: "IMPLEMENTED"
@@ -50,7 +49,6 @@ capability_snapshot:
     internal_validation: "CONTRACT"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    dependency: "KB-WP07B"
   manifestation_ontology:
     specification: "SPECIFIED"
     implementation: "IMPLEMENTED"
@@ -58,7 +56,6 @@ capability_snapshot:
     internal_validation: "CONTRACT"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    dependency: "KB-WP06B"
   manifestation_mapping:
     specification: "SPECIFIED"
     implementation: "IMPLEMENTED"
@@ -66,7 +63,6 @@ capability_snapshot:
     internal_validation: "CONTRACT"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    dependency: "KB-WP06C"
   population_probability:
     specification: "SPECIFIED"
     implementation: "IMPLEMENTED"
@@ -74,15 +70,24 @@ capability_snapshot:
     internal_validation: "CONTRACT"
     empirical_calibration: "NONE"
     production_readiness: "NOT_READY"
-    dependency: "PL5"
   personalized_posterior:
     specification: "SPECIFIED"
-    implementation: "PARTIAL"
+    implementation: "ARCHIVED_BRANCH_ONLY"
     canonical_content: "NOT_APPLICABLE"
-    internal_validation: "NONE"
+    internal_validation: "NONE_ON_MAIN"
     empirical_calibration: "NONE"
     production_readiness: "NOT_READY"
-    note: "Legacy implementation is isolated in draft PR #274 until governance migration."
+
+resume_queue_reference:
+  pl3m_reconstitution_issue: 277
+  pl4a_issues:
+    - 279
+    - 280
+    - 281
+    - 282
+    - 283
+    - 284
+  note: "These Issues may be archived/closed during project pause and reopened or recreated on resume."
 
 permanent_boundaries:
   canonical_natal_feedback_independent: true
