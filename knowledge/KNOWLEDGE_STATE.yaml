@@ -1,0 +1,37 @@
+schema_version: 1
+lane: "KNOWLEDGE_ONLY"
+authoritative_execution: "GITHUB_ISSUE"
+canonical_branch: "main"
+
+execution:
+  status: "PAUSED_AT_RECOVERABLE_CHECKPOINT_FOR_GOVERNANCE_V1_MIGRATION"
+  program: "KB_WP05"
+  domain: "事业宫"
+  canonical_main_checkpoint: "CA08"
+  active_issue: null
+  legacy_open_prs:
+    - 229
+    - 233
+  next_after_governance: "Migrate/rebase CA04-CA08 schema repair and CA09 final closure under the new Issue/branch rules, then continue P10 Property Palace."
+
+canonical_main_snapshot:
+  reviewed_items: 800
+  reusable_projection_rules: 786
+  case_support_only: 14
+  history_feedback: 28
+  status: "CA08_MERGED"
+
+pending_legacy_work_snapshot:
+  ca09_reviewed_total_if_integrated: 888
+  reusable_projection_rules_if_integrated: 869
+  case_support_only_if_integrated: 19
+  history_feedback_if_integrated: 37
+  note: "These numbers are branch/PR results, not canonical main until integrated."
+
+human_gate:
+  pending: null
+
+integrity:
+  source_truth_not_modified_by_empirical_feedback: true
+  unresolved_conflicts_preserved: true
+  no_invented_numeric_weights: true
