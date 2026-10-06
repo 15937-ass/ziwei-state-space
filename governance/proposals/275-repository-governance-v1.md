@@ -111,4 +111,4 @@ APPROVED on 2026-10-06.
 ## Implementation History
 
 - #275 created as tracking Issue.
-- #274 converted to draft/frozen during migration.
+- #274 converted to draft/frozen during migration.\n- #276 opened as the Governance v1 migration PR.\n- #277/#278 created to migrate legacy Product/Knowledge work after governance lands.\n- #279-#284 created as the frozen PL4-A work-unit queue.\n- #285 created for repository-admin settings unavailable to the connector.
