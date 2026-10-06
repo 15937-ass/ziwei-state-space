@@ -120,38 +120,39 @@ Use short-lived branches:
 Scope creep becomes a new Issue/Proposal.
 Stacked PRs are exceptional and limited to two levels.
 
-## 13. Mandatory Chinese progress report
+## 13. Mandatory PI-facing Chinese progress report
 
-【执行轨道】
-PRODUCT_ONLY / KNOWLEDGE_ONLY / GOVERNANCE_ONLY
+The PI-facing report is domain- and project-oriented, not Git-oriented. The PI is expected to judge Ziwei theory, research boundaries, interpretation quality, and major product direction; routine Git mechanics should be hidden unless they block progress or create risk.
 
-【Issue / Work Unit】
-#<id> <title>
+Default report order:
 
-【完成】
-- ...
+【整个项目现在到哪了】
+- State the current macro stage in plain Chinese.
+- Explain how the current work fits into the full path: knowledge construction -> faithful inference -> empirical validation -> personalization/productization.
+- State what has already become stable and what is still only preparatory.
 
-【自主处理】
-- ...
+【这一步刚刚完成了什么】
+- Explain the substantive result, not commit/branch details.
+- Distinguish clearly between "framework/interface ready", "knowledge/content ready", "internally validated", and "empirically validated".
 
-【验证】
-- ...
+【下一步准备做什么】
+- Name the next 1–2 substantive tasks and why they are next.
+- Do not present a long technical backlog unless requested.
 
-【GitHub】
-Branch:
-PR:
-CI:
+【现在需要 PI 帮助什么】
+- Explicitly state whether PI input is needed.
+- If YES, ask only questions that require Ziwei knowledge, source interpretation, school-boundary judgment, case interpretation, research priority, or major product/research choice.
+- If NO, say "本阶段暂不需要你介入，我可以继续自动推进。"
+- Never ask the PI to decide routine Git/CI/branch mechanics.
 
-【跨轨依赖】
-- none / ...
+【需要你特别警惕的风险】
+- Only include material risks: theory contamination, school mixing, unsupported inference, benchmark misuse, empirical/canonical boundary violation, product maturity overclaim, or a decision that may lock future architecture.
+- Omit routine technical noise.
 
-【Human Gate】
-NONE / REQUIRED
+Technical appendix is optional and normally omitted. Include GitHub Issue/PR/CI identifiers only when:
+- a technical failure blocks progress;
+- the PI explicitly asks;
+- a Human Gate/audit needs a durable reference;
+- there is a repository-integrity risk.
 
-【当前状态】
-- ...
-
-【下一步】
-- next Issue or recovery action
-
-本轮结束。
+Human Gate material remains in Chinese and must explain the Ziwei/research meaning before technical implementation consequences.
