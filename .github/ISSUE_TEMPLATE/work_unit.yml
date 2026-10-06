@@ -1,0 +1,76 @@
+name: Bounded Work Unit
+description: Product / Knowledge / Governance 的单一可验收工作单元
+title: "[WORK] "
+body:
+  - type: dropdown
+    id: lane
+    attributes:
+      label: Lane
+      options:
+        - PRODUCT_ONLY
+        - KNOWLEDGE_ONLY
+        - GOVERNANCE_ONLY
+    validations:
+      required: true
+  - type: input
+    id: work_unit
+    attributes:
+      label: Work Unit ID
+      placeholder: PL4A-02 / KB-WP05-P10-01
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+    validations:
+      required: true
+  - type: textarea
+    id: non_goals
+    attributes:
+      label: Non-Goals
+    validations:
+      required: true
+  - type: textarea
+    id: inputs
+    attributes:
+      label: Required Inputs
+    validations:
+      required: true
+  - type: textarea
+    id: deliverables
+    attributes:
+      label: Deliverables
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies / Cross-lane blockers
+  - type: dropdown
+    id: risk
+    attributes:
+      label: Risk
+      options:
+        - R0
+        - R1
+        - R2
+        - R3
+    validations:
+      required: true
+  - type: dropdown
+    id: human_gate
+    attributes:
+      label: Human Gate
+      options:
+        - NONE
+        - REQUIRED
+        - ALREADY_APPROVED
+    validations:
+      required: true
