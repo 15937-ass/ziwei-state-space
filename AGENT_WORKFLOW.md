@@ -156,3 +156,15 @@ Technical appendix is optional and normally omitted. Include GitHub Issue/PR/CI 
 - there is a repository-integrity risk.
 
 Human Gate material remains in Chinese and must explain the Ziwei/research meaning before technical implementation consequences.
+## 14. Archive / Resume rule
+
+If `PROJECT_STATE.yaml` says `project_status: "ARCHIVED"`:
+- do not start Product, Knowledge, benchmark, Proposal, or Human-Gate execution;
+- first read the versioned archive checkpoint named in PROJECT_STATE;
+- require an explicit PI instruction to resume the project;
+- after resume, perform a repository health/recovery check and create or reopen exactly one bounded Issue for the selected lane;
+- archived branch/PR progress is evidence to recover from, not canonical main truth;
+- never silently merge a legacy stack just because it existed before archive.
+
+For PI-facing archive/resume reporting, explain the research stage, preserved knowledge progress, next substantive work, and upcoming Ziwei-knowledge decisions. Omit routine Git mechanics unless they create a recovery risk.
+

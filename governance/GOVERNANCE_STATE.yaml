@@ -4,29 +4,28 @@ authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  active_issue: 275
-  active_branch: "governance/275-repository-governance-v1"
-  active_pr: 276
-  status: "MIGRATION_PR_OPEN_CI_PENDING"
-  proposal: "governance/proposals/275-repository-governance-v1.md"
+  status: "ARCHIVED_NO_ACTIVE_WORK"
+  active_issue: null
+  active_branch: null
+  active_pr: null
+  governance_version: "1.0"
+  archive_checkpoint: "governance/archive/2026-10-06-project-checkpoint.md"
 
-manual_admin_after_merge:
-  - "Configure main ruleset/branch protection: PR required, required quality gate, force-push blocked, linear history if compatible."
-  - "Create/assign GitHub milestones for PL4-A and current KB-WP05 stage if desired; connector currently exposes issue milestone assignment but not milestone creation."
+completed:
+  repository_governance_v1:
+    tracking_issue: 275
+    merge_pr: 276
+    status: "MERGED"
 
-legacy_work:
-  product_pr_274: "DRAFT_FROZEN"
-  knowledge_pr_229: "OPEN_LEGACY"
-  knowledge_pr_233: "OPEN_LEGACY_STACKED"
+deferred_admin:
+  issue: 285
+  status: "DEFERRED_UNTIL_RESUME"
+  items:
+    - "Configure main ruleset/branch protection: PR required, required quality gate, force-push blocked, linear history if compatible."
+    - "Create/assign milestones if useful after resume."
 
-followup_issues:
-  product_legacy_reconstitution: 277
-  knowledge_legacy_integration: 278
-  pl4a_queue:
-    - 279
-    - 280
-    - 281
-    - 282
-    - 283
-    - 284
-  admin_controls: 285
+archived_work_references:
+  product_pr_274: "CLOSE_WITH_BRANCH_PRESERVED"
+  knowledge_top_wp05_pr_272: "CLOSE_WITH_BRANCH_PRESERVED"
+  knowledge_wp06b_prep_pr_273: "CLOSE_WITH_BRANCH_PRESERVED"
+  archive_issue: 286

@@ -4,32 +4,44 @@ authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  status: "PAUSED_AT_RECOVERABLE_CHECKPOINT_FOR_GOVERNANCE_V1_MIGRATION"
+  status: "ARCHIVED_NO_ACTIVE_WORK"
   program: "KB_WP05"
-  domain: "事业宫"
-  canonical_main_checkpoint: "CA08"
   active_issue: null
-  legacy_open_prs:
-    - 229
-    - 233
-  next_after_governance: "Migrate/rebase CA04-CA08 schema repair and CA09 final closure under the new Issue/branch rules, then continue P10 Property Palace."
+  canonical_main_checkpoint: "CAREER_CA08"
+  resume_entry: "Audit and re-integrate archived WP05 branch progress under Governance v1; do not blindly merge the old stack."
 
 canonical_main_snapshot:
+  domain: "事业宫"
   reviewed_items: 800
   reusable_projection_rules: 786
   case_support_only: 14
   history_feedback: 28
   status: "CA08_MERGED"
 
-pending_legacy_work_snapshot:
-  ca09_reviewed_total_if_integrated: 888
-  reusable_projection_rules_if_integrated: 869
-  case_support_only_if_integrated: 19
-  history_feedback_if_integrated: 37
-  note: "These numbers are branch/PR results, not canonical main until integrated."
+archived_noncanonical_snapshots:
+  wp05_all_twelve_palaces:
+    pr: 272
+    branch: "knowledge/wp05-twelve-palace-final-closure"
+    head: "6be1fb79875d3caf56893792eec42d3171110ebc"
+    reported_reviewed_items: 7713
+    reported_reusable_projection_rules: 6289
+    reported_case_support_only: 1424
+    reported_history_feedback: 192
+    status: "BRANCH_PROGRESS_NOT_CANONICAL_MAIN"
+  wp06b_manifestation_ontology_prep:
+    pr: 273
+    branch: "knowledge/wp06b-manifestation-ontology-prep"
+    head: "d453d0b56a6d6c36b0002dc69d7d8b525f760e30"
+    status: "BRANCH_PREPARATION_NOT_CANONICAL_MAIN"
+    pending_future_human_gate: "HG-WP06B-MANIFESTATION-ROOT-01"
+
+resume_queue_reference:
+  legacy_integration_issue: 278
+  note: "Issue may be archived/closed during project pause; on resume create/reopen a Governance-v1 knowledge integration work unit using the archive checkpoint as source."
 
 human_gate:
-  pending: null
+  pending_on_main: null
+  future_branch_gate: "HG-WP06B-MANIFESTATION-ROOT-01"
 
 integrity:
   source_truth_not_modified_by_empirical_feedback: true

@@ -2,6 +2,7 @@ schema_version: 3
 repository: "15937-ass/ziwei-state-space"
 canonical_branch: "main"
 governance_version: "1.0"
+project_status: "ARCHIVED"
 
 authority:
   constitution: "PROJECT_CONSTITUTION.md"
@@ -18,14 +19,16 @@ state_files:
   knowledge: "knowledge/KNOWLEDGE_STATE.yaml"
   governance: "governance/GOVERNANCE_STATE.yaml"
 
+archive:
+  archived_at: "2026-10-06"
+  checkpoint: "governance/archive/2026-10-06-project-checkpoint.md"
+  resume_requires_explicit_pi_instruction: true
+  active_execution_allowed: false
+  canonical_main_governance: "REPOSITORY_GOVERNANCE_V1_ACTIVE"
+  note: "Read the archive checkpoint before reopening any Product/Knowledge work."
+
 recovery_order:
   - "Read PROJECT_STATE.yaml."
-  - "Read the active lane state file."
-  - "Open the active GitHub Issue."
-  - "Open its linked PR if present."
-  - "Read only the artifacts required by the Issue."
-
-migration:
-  tracking_issue: 275
-  status: "GOVERNANCE_V1_MIGRATION_IN_PROGRESS"
-  legacy_state_history: "Preserved by Git history; do not infer current execution from PROJECT_STATE schema v2."
+  - "If project_status is ARCHIVED, read the archive checkpoint and do not execute work unless the PI explicitly requests resume."
+  - "After explicit resume, read the selected lane state."
+  - "Create/reopen one bounded GitHub Issue before execution."
