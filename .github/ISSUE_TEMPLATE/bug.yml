@@ -1,0 +1,43 @@
+name: Bug
+description: 可复现的实现或数据错误
+title: "[Bug] "
+body:
+  - type: dropdown
+    id: lane
+    attributes:
+      label: Lane
+      options:
+        - PRODUCT_ONLY
+        - KNOWLEDGE_ONLY
+        - GOVERNANCE_ONLY
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behavior
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction / Evidence
+    validations:
+      required: true
+  - type: dropdown
+    id: risk
+    attributes:
+      label: Risk
+      options:
+        - R0
+        - R1
+        - R2
+        - R3
+    validations:
+      required: true
