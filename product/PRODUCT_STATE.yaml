@@ -5,9 +5,9 @@ project_state_dependency: "../PROJECT_STATE.yaml"
 
 execution:
   current_phase: "PL3-M"
-  completed_work_unit: "PRODUCT_PL3M_PROBABILITY_INTERFACE_V0_1"
-  next_work_unit: "PRODUCT_PL3M_PERSONALIZED_POSTERIOR_INTERFACE_V0_1"
-  status: "PL3M_EMPIRICAL_PROBABILITY_INTERFACE_READY; PRODUCTION_PROBABILITY_MODELS_EMPTY_PENDING_PL5; PERSONALIZED_POSTERIOR_INTERFACE_NEXT; PRODUCTION_ONTOLOGY_EMPTY_PENDING_KB_WP06B; PRODUCTION_MAPPING_EMPTY_PENDING_KB_WP06C; PRODUCTION_BELIEF_REGISTRY_EMPTY_PENDING_EMPIRICAL_CALIBRATION; PRODUCTION_TEMPORAL_REACTION_REGISTRY_PENDING_KB_WP07B"
+  completed_work_unit: "PRODUCT_PL3M_PERSONALIZED_POSTERIOR_INTERFACE_V0_1"
+  next_work_unit: "PRODUCT_PL4A_INTERNAL_FIDELITY_BENCHMARK_CONTRACT_V0_1"
+  status: "PL3M_MVP_INTERFACES_COMPLETE; PERSONALIZED_POSTERIOR_INTERFACE_READY; PRODUCTION_PERSONAL_POSTERIOR_MODELS_EMPTY_PENDING_PL5C; PRODUCTION_PROBABILITY_MODELS_EMPTY_PENDING_PL5; PRODUCTION_ONTOLOGY_EMPTY_PENDING_KB_WP06B; PRODUCTION_MAPPING_EMPTY_PENDING_KB_WP06C; PRODUCTION_BELIEF_REGISTRY_EMPTY_PENDING_EMPIRICAL_CALIBRATION; PRODUCTION_TEMPORAL_REACTION_REGISTRY_PENDING_KB_WP07B"
   canonical_branch: "main"
 
 boundaries:
@@ -60,6 +60,7 @@ completed:
   - "PL3-M source-supported possibility router v0.1: explicit activation/rule antecedents only; EXPLICIT/TRANSPARENT_INFERENCE routable; no probability/ranking; production mapping empty pending KB-WP06C"
   - "PL3-M context gate v0.1: deterministic N/E/S/A/C assembly, strict BLIND vs PERSONALIZED separation, state-quality abstention preserved"
   - "PL3-M empirical probability interface v0.1: population/cohort plugin namespace only; production model registry empty pending PL5 calibration"
+  - "PL3-M personalized posterior interface v0.1: PERSONALIZED-only, population-baseline-locked plugin namespace; production personal registry empty pending PL5-C calibration"
 
 artifacts:
   human_gate_decision: "product/PL2Q_HUMAN_GATE_DECISION_SPEC_v0.1.md"
@@ -177,6 +178,11 @@ artifacts:
   manifestation_probability_fixture: "product/PL3M_PROBABILITY_MODEL_FIXTURE_v0.1.json"
   manifestation_probability_acceptance: "product/PL3M_PROBABILITY_INTERFACE_ACCEPTANCE.md"
   manifestation_probability_tests: "tests/test_product_manifestation_probability.py"
+  personalized_posterior_api: "src/product/personalized_posterior.py"
+  personalized_posterior_registry: "product/PL3M_PERSONALIZED_POSTERIOR_REGISTRY_v0.1.json"
+  personalized_posterior_fixture: "product/PL3M_PERSONALIZED_POSTERIOR_FIXTURE_v0.1.json"
+  personalized_posterior_acceptance: "product/PL3M_PERSONALIZED_POSTERIOR_ACCEPTANCE.md"
+  personalized_posterior_tests: "tests/test_product_personalized_posterior.py"
 
 parallel_work_policy:
   - "Every product session reads top-level PROJECT_STATE.yaml first for repository/knowledge state."
