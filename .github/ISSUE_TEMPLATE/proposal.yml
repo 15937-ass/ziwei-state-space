@@ -1,0 +1,50 @@
+name: Proposal
+description: 重大架构、理论或治理改变
+title: "[Proposal] "
+body:
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+    validations:
+      required: true
+  - type: textarea
+    id: goals
+    attributes:
+      label: Goals
+    validations:
+      required: true
+  - type: textarea
+    id: non_goals
+    attributes:
+      label: Non-Goals
+    validations:
+      required: true
+  - type: textarea
+    id: design
+    attributes:
+      label: Proposed Design
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks / Failure Modes
+    validations:
+      required: true
+  - type: textarea
+    id: graduation
+    attributes:
+      label: Graduation Criteria
+    validations:
+      required: true
+  - type: dropdown
+    id: human_gate
+    attributes:
+      label: Human Gate
+      options:
+        - NONE
+        - MAY_REQUIRE
+        - REQUIRED
+    validations:
+      required: true
