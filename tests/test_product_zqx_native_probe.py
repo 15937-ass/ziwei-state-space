@@ -171,3 +171,69 @@ def test_zqx_native_p1_through_pl3_temporal():
                           str(out),str(other),"--report",str(compare)],100)
         comp=json.loads(compare.read_text(encoding="utf-8")) if compare.exists() else {}
         notice("PL1_DUAL_ENGINE",{"comparison":comp,"command":diff})
+
+
+def test_zqx_native_all_80_years_dual_engine_and_temporal():
+    """80 annual targets, each manifest bounded to 8 targets per project guardrails."""
+    from src.product.temporal_asset_adapter import adapt_target_from_full_snapshot
+    if not (ROOT/"node_modules"/"iztro").exists():
+        notice("80Y_BLOCKED",{"reason":"prior iztro installation unavailable"})
+        return
+    try:
+        import x_iztro
+    except ImportError as exc:
+        notice("80Y_BLOCKED",{"reason":"x-iztro unavailable","detail":str(exc)})
+        return
+    summaries=[]
+    total_target_count=0
+    total_both_engine_diffs=0
+    total_temporal_facts=0
+    with tempfile.TemporaryDirectory() as td:
+        base=Path(td)
+        inp=base/"js.jsonl"; xp=base/"rust.jsonl"
+        inp.write_text(json.dumps(CASE,ensure_ascii=False)+"\n",encoding="utf-8")
+        xp.write_text(json.dumps(dict(CASE,gender="female"),ensure_ascii=False)+"\n",encoding="utf-8")
+        for block in range(10):
+            years=tuple(range(2006+block*8,2014+block*8))
+            assert len(years)==8
+            mf=base/f"targets_{block}.json"
+            targets=[{"target_id":str(y),"solar_date":f"{y}-06-15","time_index":6}
+                     for y in years]
+            mf.write_text(json.dumps({"targets":targets}),encoding="utf-8")
+            a=base/f"js_{block}.jsonl"; b=base/f"rust_{block}.jsonl"
+            ra=run_command(["node","tools/iztro_full_export.mjs",str(inp),str(mf),str(a)],130)
+            rb=run_command([sys.executable,"tools/x_iztro_full_export.py",str(xp),str(mf),str(b)],130)
+            assert ra["ok"],f"JS PL1 block {block} failed: {ra}"
+            assert rb["ok"],f"Rust PL1 block {block} failed: {rb}"
+            js=json.loads(a.read_text(encoding="utf-8").splitlines()[0])
+            rust=json.loads(b.read_text(encoding="utf-8").splitlines()[0])
+            assert len(js["temporal"])==8==len(rust["temporal"])
+            # Normalize only input metadata label, never computed natal/time results.
+            raw_label=(js["input"]["gender"],rust["input"]["gender"])
+            rust["input"]["gender"]=js["input"]["gender"]
+            bb=base/f"rust_canonical_{block}.jsonl"
+            bb.write_text(json.dumps(rust,ensure_ascii=False)+"\n",encoding="utf-8")
+            report=base/f"diff_{block}.json"
+            rd=run_command([sys.executable,"tools/p1_compare_full.py",
+                            str(a),str(bb),"--report",str(report),"--fail-on-diff"],130)
+            results=json.loads(report.read_text(encoding="utf-8")) if report.exists() else {}
+            assert rd["ok"],f"PL1 dual engine chart diff at block {block}: {results}, {rd}"
+            differences=results.get("total_differences",-1)
+            total_both_engine_diffs+=differences
+            total_target_count+=len(js["temporal"])
+            c=0
+            for yr in years:
+                bundle=adapt_target_from_full_snapshot(js,target_id=str(yr))
+                assert len(bundle.condition_facts)>0 and len(bundle.temporal_facts)>0
+                c+=len(bundle.temporal_facts)
+            total_temporal_facts+=c
+            summaries.append({"from":years[0],"to":years[-1],
+                "horoscope_snapshots":len(js["temporal"]),
+                "computed_diff":differences,"scope_layers":6,
+                "temporal_facts":c,"raw_gender_labels":raw_label})
+    assert total_target_count==80
+    assert total_both_engine_diffs==0
+    notice("80Y_NATIVE_COMPLETE",{"batches":summaries,"targets":total_target_count,
+                                   "computed_differences":total_both_engine_diffs,
+                                   "total_temporal_facts":total_temporal_facts,
+                                   "comparison_policy":"input.gender metadata only normalized, computed natal and horoscope unchanged"})
