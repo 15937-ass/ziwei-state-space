@@ -116,7 +116,18 @@ def test_zqx_native_p1_through_pl3_temporal():
                       "targets":len(full["temporal"]),"major_star_differences":diffs,
                       "soul_palace":full["natal"].get("soul_palace_branch"),
                       "body_palace":full["natal"].get("body_palace_branch")})
-        profile,ids=native_wealth(full)
+        # Explicit PL1 -> WP05 legacy name compatibility. Keep the original
+        # PL1 snapshot unchanged so temporal adapter still sees engine output.
+        # This is a boundary adapter in the diagnostic, not a rule rewrite.
+        normalized=json.loads(json.dumps(full,ensure_ascii=False))
+        aliases={"仆役":"交友"}
+        conversions=[]
+        for branch_key,palace in normalized["natal"]["palaces"].items():
+            if palace["name"] in aliases:
+                conversions.append({"branch":branch_key,"before":palace["name"],"after":aliases[palace["name"]]})
+                palace["name"]=aliases[palace["name"]]
+        notice("PL1_PL2_ALIASES",conversions)
+        profile,ids=native_wealth(normalized)
         notice("PL2_PL3N_PL1_NATIVE",{"active_count":len(ids),"active_ids":ids,
                     "profile_id":profile.profile_id,
                     "knowledge_version":profile.knowledge_version})
