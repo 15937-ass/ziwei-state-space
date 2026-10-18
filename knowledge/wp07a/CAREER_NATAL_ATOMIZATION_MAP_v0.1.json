@@ -1,0 +1,255 @@
+{
+  "schema_version": "0.1",
+  "audit_id": "KB-WP07A-CAREER-NATAL-ATOMIZATION",
+  "work_unit": "KB-WP07A-CAREER-NATAL-ATOMIZATION-PILOT",
+  "lane": "KNOWLEDGE_ONLY",
+  "status": "SOURCE_GROUNDED_MAPPING_COMPLETE_NOT_EXECUTABLE",
+  "source_id": "SRC-ZZ-003",
+  "source_title": "《中州派紫微斗数深造讲义（下）》",
+  "canonical_corpus": "CAREER_CA09_FINAL",
+  "scope": {
+    "palace_id": "P09",
+    "palace_name": "事业宫",
+    "nominated_source_rule_ids": [
+      "CA04-347",
+      "CA04-349",
+      "CA09-852"
+    ],
+    "purpose": "为产品后续实现提供可审计的原局条件原子映射；本文件不是运行时规则注册表，也不声称现实预测有效。"
+  },
+  "mappings": [
+    {
+      "source_rule_id": "CA04-347",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p140",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false
+      },
+      "source_condition_text": "武曲化科",
+      "source_span_summary": "作者将武曲化科与声誉相连，并指出各行业均应以建立声誉为要务。",
+      "source_anchor_phrase": "武曲化科，主声誉",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "武曲",
+              "mutagen": "科"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact": {
+        "atom_type": "TRANSFORMATION_PRESENT",
+        "args": {
+          "palace": "P09",
+          "star": "武曲",
+          "mutagen": "科"
+        }
+      },
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "当 P09 的武曲星对象自身带 mutagen=科 时，现有原局运行事实会发出同构的 palace/star/mutagen 三元事实。"
+      },
+      "expected_projection": {
+        "projection_domain": "reputation",
+        "projection_target": "career_requires_reputation_building",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA04-349",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p141",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false
+      },
+      "source_condition_text": "武曲化忌",
+      "source_span_summary": "作者在武曲化忌的事业宫论述中，将技艺类工作作为适宜场景；本映射保留已审核的场景投影，不把邻近的经商资金限制另写成独立事件结论。",
+      "source_anchor_phrase": "故宜从事技艺为宜",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "武曲",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact": {
+        "atom_type": "TRANSFORMATION_PRESENT",
+        "args": {
+          "palace": "P09",
+          "star": "武曲",
+          "mutagen": "忌"
+        }
+      },
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "当 P09 的武曲星对象自身带 mutagen=忌 时，现有原局运行事实会发出同构的 palace/star/mutagen 三元事实。"
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "technical_skill_work_scene_preferred",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA09-852",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p154",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false
+      },
+      "source_condition_text": "破军化禄",
+      "source_span_summary": "作者将破军化禄与兼行、兼职兼差等多线工作形态相连。本映射只承接该条已审核的多角色/多业务线投影；非重点行业或职务后来成为事业基础的路径关系留在 CA09-853，不并入此条件。",
+      "source_anchor_phrase": "兼职兼差",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "破军",
+              "mutagen": "禄"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact": {
+        "atom_type": "TRANSFORMATION_PRESENT",
+        "args": {
+          "palace": "P09",
+          "star": "破军",
+          "mutagen": "禄"
+        }
+      },
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "当 P09 的破军星对象自身带 mutagen=禄 时，现有原局运行事实会发出同构的 palace/star/mutagen 三元事实。"
+      },
+      "expected_projection": {
+        "projection_domain": "role",
+        "projection_target": "multiple_jobs_side_roles_or_business_lines_are_common",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "executable_registry_entry": false
+    }
+  ],
+  "exclusions": [
+    {
+      "source_rule_id": "CA04-345",
+      "source_location": "事业宫 printed p.140",
+      "reason_code": "CASE_SUPPORT_ONLY_EVENT_CANDIDATE",
+      "reason": "该行明确标为 CASE_SUPPORT_ONLY 且 projection_mode=EVENT_CANDIDATE；不得推广成可复用的确定性事业结论。"
+    },
+    {
+      "source_rule_id": "CA04-346",
+      "source_location": "事业宫 printed p.140",
+      "reason_code": "TEMPORAL_SCOPE_NOT_NATAL",
+      "reason": "该行是 DECADE/TIMING_TRIGGER，且原文涉及大限或流年，属于已完成的 WP07B 时序资格审计范围，不属于本次 NATAL 原子化。"
+    },
+    {
+      "source_rule_id": "CA04-348",
+      "source_location": "事业宫 printed p.141",
+      "reason_code": "CONTEXT_DEPENDENT_COMMERCE_GATE",
+      "reason": "条件包含“经商”这一现实行为/职业背景；仅凭原局武曲化忌事实不能证明当事人正在经商。本试点不新增行为或情境原子。"
+    },
+    {
+      "source_rule_id": "CA04-350",
+      "source_location": "事业宫 printed p.141",
+      "reason_code": "TEMPORAL_SCOPE_NOT_NATAL",
+      "reason": "该行是 DECADE/TIMING_TRIGGER，原文指向大运与流年；其时序条件和星曜四化绑定缺口已由 WP07B 审计，不在本次 NATAL 映射内。"
+    },
+    {
+      "source_rule_id": "CA09-851",
+      "source_location": "事业宫 printed p.154",
+      "reason_code": "PATH_DEPENDENT_MULTIYEAR_SEQUENCE",
+      "reason": "该行要求连续数年良好流年并保留 PATH_DEPENDENT_GATE；不能将单年 NATAL 原子化映射替代为跨年状态或新计时器。"
+    },
+    {
+      "source_rule_id": "CA09-853",
+      "source_location": "事业宫 printed p.154",
+      "reason_code": "PATH_DEPENDENT_CAREER_BASE",
+      "reason": "该行表达非重点行业/职务先行、之后成为事业基础的路径关系，并标记 PATH_DEPENDENT_GATE；不是单一原局条件即可完成的静态投影。"
+    },
+    {
+      "source_rule_id": "CA09-854",
+      "source_location": "事业宫 printed p.154",
+      "reason_code": "PATH_DEPENDENT_EXPANSION",
+      "reason": "该行表达困苦在先、突然发展在后的顺序关系，并标记 PATH_DEPENDENT_GATE；本试点不把顺序关系压缩成静态 NATAL 条件。"
+    },
+    {
+      "source_rule_id": "CA09-855",
+      "source_location": "事业宫 printed p.154",
+      "reason_code": "ACQUIRED_BEHAVIOR_AND_PATH_DEPENDENCE",
+      "reason": "该行需要突发之后的现实行为（是否亲力亲为、是否贪心无厌）及其后续结果；这些不是原局事实，不新增用户行为原子。"
+    },
+    {
+      "source_rule_id": "CA09-863",
+      "source_location": "事业宫 printed p.155",
+      "reason_code": "FIRE_BELL_CONDITION_AMBIGUITY",
+      "reason": "该行的“破军与火铃同度”条件在当前归一化记录中被标记为语义需进一步澄清；本试点不猜测其星曜组合边界，也不借用该行验证其他映射。"
+    }
+  ],
+  "validation": {
+    "nominated_rows": 3,
+    "mapped_rows": 3,
+    "blocked_nominated_rows": 0,
+    "source_span_verified_all": true,
+    "review_status_all": "SOURCE_SPAN_VERIFIED",
+    "time_layer_all": "NATAL",
+    "case_support_only_all": false,
+    "atom_types_used": [
+      "TRANSFORMATION_PRESENT"
+    ],
+    "atom_types_are_within_current_allowed_atom_types": true,
+    "each_condition_matches_existing_natal_runtime_fact_shape": true,
+    "source_targets_and_projection_modes_preserved_exactly": true,
+    "source_rows_modified": false,
+    "executable_rule_created": false,
+    "product_runtime_modified": false,
+    "production_registry_modified": false,
+    "new_atom_or_ontology_semantics_created": false,
+    "empirical_probability_or_numeric_weight_created": false
+  },
+  "guardrails": [
+    "只使用现有 TRANSFORMATION_PRESENT 原子，且必须同时绑定 palace、star、mutagen；不得用互不绑定的星曜存在与四化存在替代。",
+    "P09 原局事实与运限事实分离；本映射只接受 NATAL 条件。",
+    "保留 projection_domain、projection_target、projection_mode 的原值，不改写为事件结果、吉凶分数或概率。",
+    "知识侧只提供映射，不写入产品可执行注册表；产品实现与测试由 PRODUCT_ONLY 工作单元完成。"
+  ]
+}
