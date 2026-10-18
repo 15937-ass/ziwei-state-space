@@ -4,11 +4,12 @@ authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  status: "ARCHIVED_NO_ACTIVE_WORK"
+  status: "ACTIVE"
   program: "KB_WP05"
-  active_issue: null
+  active_issue: 292
   canonical_main_checkpoint: "CAREER_CA08"
-  resume_entry: "Audit and re-integrate archived WP05 branch progress under Governance v1; do not blindly merge the old stack."
+  resume_entry: "Reconstitute the documented CA04-CA08 schema-position repair and CA09 closure from legacy PRs #229/#233 on a clean branch. Use PR #272 only as a non-canonical comparison snapshot; do not blindly merge the twelve-palace stack."
+  resume_issue: 290
 
 canonical_main_snapshot:
   domain: "事业宫"
@@ -37,7 +38,7 @@ archived_noncanonical_snapshots:
 
 resume_queue_reference:
   legacy_integration_issue: 278
-  note: "Issue may be archived/closed during project pause; on resume create/reopen a Governance-v1 knowledge integration work unit using the archive checkpoint as source."
+  note: "Issue #278 is historical and closed. Current active knowledge work is Issue #292; use a clean branch from current main and retain a segment-level audit ledger."
 
 human_gate:
   pending_on_main: null

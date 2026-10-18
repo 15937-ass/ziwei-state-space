@@ -4,13 +4,14 @@ authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  status: "ARCHIVED_NO_ACTIVE_WORK"
-  phase: "PL3_M_EXIT"
-  active_issue: null
+  status: "ACTIVE"
+  phase: "PL3_END_TO_END_INFERENCE_MVP"
+  active_issue: 291
   active_pr: null
-  resume_entry: "Reconstitute archived personalized-posterior work from PR #274 on a clean Governance-v1 Product Issue/branch before PL4-A."
+  resume_entry: "Build a bounded end-to-end symbolic inference MVP for natal career + one decade/year. Audit existing PL1/PL2/PL3 assets first; include the approved natal-temporal reaction compiler only as needed to complete the real chart-to-inference path."
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
+  resume_issue: 290
 
 capability_snapshot:
   deterministic_chart:
@@ -79,15 +80,15 @@ capability_snapshot:
     production_readiness: "NOT_READY"
 
 resume_queue_reference:
-  pl3m_reconstitution_issue: 277
-  pl4a_issues:
+  legacy_pl3m_reconstitution_issue: 277
+  legacy_pl4a_issues:
     - 279
     - 280
     - 281
     - 282
     - 283
     - 284
-  note: "These Issues may be archived/closed during project pause and reopened or recreated on resume."
+  note: "Legacy Issues are historical references, not current active work. Current active work is Issue #291 under the PI-approved end-to-end inference MVP priority."
 
 permanent_boundaries:
   canonical_natal_feedback_independent: true
@@ -97,3 +98,4 @@ permanent_boundaries:
   blind_and_personalized_evaluation_separate: true
   llm_owns_rule_selection: false
   llm_owns_probability: false
+  world_model_is_current_critical_path: false
