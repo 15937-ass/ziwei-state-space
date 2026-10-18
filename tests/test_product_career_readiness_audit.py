@@ -56,3 +56,19 @@ def test_closure_flag_cannot_override_unrepaired_schema_drift():
     else:
         assert not summary.ready_for_executable_normalization
         assert summary.blockers == (SCHEMA_DRIFT_TIME_CONDITION_SWAP,)
+
+
+def test_canonical_ca01_to_ca09_corpus_is_schema_clean_and_ready_for_normalization_review():
+    full_corpus = BATCHES + (
+        ROOT / "validation/wp05/CA09_career_projection_review_801_888.csv",
+    )
+    summary = audit_career_projection_batches(full_corpus, closure_complete=True)
+
+    assert summary.batch_count == 9
+    assert summary.total_rows == 888
+    assert summary.source_verified_rows == 888
+    assert summary.case_support_only_rows == 19
+    assert summary.history_feedback_rows == 37
+    assert summary.schema_drift_rows == 0
+    assert summary.ready_for_executable_normalization
+    assert summary.blockers == ()
