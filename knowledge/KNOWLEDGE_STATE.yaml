@@ -5,19 +5,22 @@ canonical_branch: "main"
 
 execution:
   status: "ACTIVE"
-  program: "KB_WP05"
-  active_issue: 292
-  canonical_main_checkpoint: "CAREER_CA08"
-  resume_entry: "Reconstitute the documented CA04-CA08 schema-position repair and CA09 closure from legacy PRs #229/#233 on a clean branch. Use PR #272 only as a non-canonical comparison snapshot; do not blindly merge the twelve-palace stack."
+  program: "KB_WP07B"
+  active_issue: 296
+  canonical_main_checkpoint: "CAREER_CA09_FINAL"
+  resume_entry: "Audit the nine non-NATAL Career/P09 rows and determine whether any can be source-faithfully normalized into the existing PL3-T reaction contract. Do not force the production registry to become non-empty."
   resume_issue: 290
+  last_state_sync_issue: 297
 
 canonical_main_snapshot:
   domain: "事业宫"
-  reviewed_items: 800
-  reusable_projection_rules: 786
-  case_support_only: 14
-  history_feedback: 28
-  status: "CA08_MERGED"
+  reviewed_items: 888
+  reusable_projection_rules: 869
+  case_support_only: 19
+  history_feedback: 37
+  status: "CA09_FINAL_MERGED"
+  source_schema_repair: "CA04_CA08_COLUMN_ORDER_REPAIRED"
+  canonical_source_pr: 294
 
 archived_noncanonical_snapshots:
   wp05_all_twelve_palaces:
@@ -38,7 +41,8 @@ archived_noncanonical_snapshots:
 
 resume_queue_reference:
   legacy_integration_issue: 278
-  note: "Issue #278 is historical and closed. Current active knowledge work is Issue #292; use a clean branch from current main and retain a segment-level audit ledger."
+  completed_career_closure_pr: 294
+  note: "Issue #278 is historical and closed. CA09 is now canonical on main. Current active knowledge work is Issue #296; PR #272 remains a non-canonical comparison snapshot and must be audited segment by segment."
 
 human_gate:
   pending_on_main: null
