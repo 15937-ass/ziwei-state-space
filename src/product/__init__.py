@@ -288,6 +288,13 @@ from .temporal_reaction_compiler import (
     compile_temporal_reaction_registry,
     match_temporal_reactions,
 )
+from .symbolic_inference_pipeline import (
+    CANONICAL_REACTION_REGISTRY_STATUS,
+    EMPTY_REACTION_REGISTRY_STATUS,
+    TEST_ONLY_REACTION_REGISTRY_STATUS,
+    SymbolicInferenceRun,
+    run_symbolic_inference,
+)
 from .wealth_blocker_refresh import (
     ROUTE_CLASSES,
     WealthBlockerRoute,
@@ -433,6 +440,11 @@ __all__ = [
     "TemporalReactionRuleSpec",
     "compile_temporal_reaction_registry",
     "match_temporal_reactions",
+    "CANONICAL_REACTION_REGISTRY_STATUS",
+    "EMPTY_REACTION_REGISTRY_STATUS",
+    "TEST_ONLY_REACTION_REGISTRY_STATUS",
+    "SymbolicInferenceRun",
+    "run_symbolic_inference",
     "REQUIRED_SCOPE_KEYS",
     "SCOPE_TO_LAYER",
     "TemporalAssetBundle",
