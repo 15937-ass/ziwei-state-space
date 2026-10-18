@@ -1,6 +1,6 @@
 # PL3-N Career Readiness Audit v0.1
 
-状态：**AUDITED — BLOCKED BEFORE EXECUTABLE NORMALIZATION**
+状态：**MIGRATION-AWARE AUDIT — READINESS DERIVED FROM CANONICAL ARTIFACTS**
 
 ## 1. 目的
 
@@ -92,3 +92,16 @@ generic NatalDomainProviderRegistry
 - 保持 rule IDs 与 source provenance 不变。
 
 产品侧在等待期间可以继续不依赖 Career provider 的基础设施工作，但事业宫 executable normalization 必须等待上述两个 blocker 消失。
+
+
+## 8. Migration-aware regression contract
+
+The initial audit above recorded the pre-migration state: CA04–CA08 had a 500-row `time_layer` / `condition` column-position drift, and CA09 closure was pending. That finding is historical evidence and must not be rewritten.
+
+After the Knowledge lane lands `validation/wp05/CAREER_CA04_CA08_SCHEMA_REPAIR.md` and the CA09 closure artifacts on canonical main, the Product audit must:
+- observe zero schema-drift rows in CA04–CA08;
+- preserve the same rule IDs, source locations, review status, CASE_SUPPORT_ONLY flags, and history-feedback markers;
+- continue to block career executable normalization until the canonical CA09 closure is present and the audited totals reconcile;
+- never repair or normalize the Knowledge CSVs inside Product code.
+
+The migration marker is a status signal, not a substitute for parsing and validating the actual rows. The Product audit continues to calculate schema drift from the data itself.
