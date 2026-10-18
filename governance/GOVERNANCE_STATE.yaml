@@ -4,12 +4,13 @@ authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  status: "ARCHIVED_NO_ACTIVE_WORK"
-  active_issue: null
-  active_branch: null
+  status: "ACTIVE"
+  active_issue: 290
+  active_branch: "governance/290-resume-project"
   active_pr: null
   governance_version: "1.0"
   archive_checkpoint: "governance/archive/2026-10-06-project-checkpoint.md"
+  resumed_at: "2026-10-18"
 
 completed:
   repository_governance_v1:
@@ -19,13 +20,13 @@ completed:
 
 deferred_admin:
   issue: 285
-  status: "DEFERRED_UNTIL_RESUME"
+  status: "DEFERRED_UNTIL_ADMIN_ACCESS"
   items:
     - "Configure main ruleset/branch protection: PR required, required quality gate, force-push blocked, linear history if compatible."
     - "Create/assign milestones if useful after resume."
 
 archived_work_references:
-  product_pr_274: "CLOSE_WITH_BRANCH_PRESERVED"
-  knowledge_top_wp05_pr_272: "CLOSE_WITH_BRANCH_PRESERVED"
-  knowledge_wp06b_prep_pr_273: "CLOSE_WITH_BRANCH_PRESERVED"
+  product_pr_274: "PRESERVE_BRANCH_FOR_AUDIT; do not merge without reconstitution."
+  knowledge_top_wp05_pr_272: "PRESERVE_BRANCH_FOR_SEGMENTED_AUDIT; do not merge directly."
+  knowledge_wp06b_prep_pr_273: "PRESERVE_BRANCH_FOR_AUDIT; Human Gate remains unresolved."
   archive_issue: 286
