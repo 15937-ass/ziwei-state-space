@@ -1,0 +1,36 @@
+{
+  "schema_version": "0.1",
+  "audit_id": "PL3N_CAREER_READINESS_REAUDIT",
+  "corpus_state": "WP05_CAREER_CA09_FINAL_MERGED",
+  "closure_complete": true,
+  "inputs": [
+    "validation/wp05/CA01_career_projection_review_001_100.csv",
+    "validation/wp05/CA02_career_projection_review_101_200.csv",
+    "validation/wp05/CA03_career_projection_review_201_300.csv",
+    "validation/wp05/CA04_career_projection_review_301_400.csv",
+    "validation/wp05/CA05_career_projection_review_401_500.csv",
+    "validation/wp05/CA06_career_projection_review_501_600.csv",
+    "validation/wp05/CA07_career_projection_review_601_700.csv",
+    "validation/wp05/CA08_career_projection_review_701_800.csv",
+    "validation/wp05/CA09_career_projection_review_801_888.csv"
+  ],
+  "observed": {
+    "batch_count": 9,
+    "total_rows": 888,
+    "source_verified_rows": 888,
+    "reusable_projection_rules": 869,
+    "case_support_only_rows": 19,
+    "history_feedback_rows": 37,
+    "schema_drift_rows": 0,
+    "schema_drift_batches": []
+  },
+  "blockers": [],
+  "decision": "ELIGIBLE_FOR_EXECUTABLE_NORMALIZATION_REVIEW",
+  "guardrails": {
+    "product_may_silently_swap_columns": false,
+    "product_may_edit_canonical_wp05_rows": false,
+    "case_support_only_may_be_promoted_automatically": false,
+    "source_verified_does_not_imply_executable": true
+  },
+  "next_after_reaudit": "PRODUCT_PL3N_CAREER_EXECUTABLE_NORMALIZATION"
+}
