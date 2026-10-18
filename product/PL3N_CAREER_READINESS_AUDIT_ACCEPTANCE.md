@@ -105,3 +105,18 @@ After the Knowledge lane lands `validation/wp05/CAREER_CA04_CA08_SCHEMA_REPAIR.m
 - never repair or normalize the Knowledge CSVs inside Product code.
 
 The migration marker is a status signal, not a substitute for parsing and validating the actual rows. The Product audit continues to calculate schema drift from the data itself.
+
+
+## 9. Canonical CA09 re-audit (2026-10-18)
+
+After the Knowledge lane merged the source-preserving CA04–CA08 schema repair and CA09 closure, the Product audit was rerun against all nine canonical batches:
+
+- 888 reviewed rows and 888 source-verified rows;
+- 869 reusable projection rows and 19 CASE_SUPPORT_ONLY rows;
+- 37 history-feedback markers;
+- zero schema-drift rows;
+- no remaining corpus-closure or schema blockers.
+
+Decision: **ELIGIBLE_FOR_EXECUTABLE_NORMALIZATION_REVIEW**.
+
+This is not the same as provider-ready or executable. Product still must normalize only a small source-faithful subset into the existing condition-atom contract, validate its rule registry, and keep every unsupported condition blocked. The 19 CASE_SUPPORT_ONLY rows remain excluded.
