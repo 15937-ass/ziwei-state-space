@@ -11,11 +11,14 @@
   "executable_pilot_emitted": false,
   "production_registry_should_remain_empty": true,
   "findings": {
-    "antecedent_or_case_support": 3,
-    "temporal_scope_mismatch": 6,
-    "temporal_fact_contract_gap": 2,
-    "undefined_temporal_predicate": 3,
-    "multi_year_sequence": 1
+    "non_exclusive_blocker_counts": {
+      "case_support_only_row_or_antecedent": 4,
+      "temporal_scope_mismatch": 6,
+      "temporal_fact_or_compound_condition_gap": 3,
+      "undefined_temporal_predicate": 3,
+      "multi_year_sequence": 1
+    },
+    "note": "Blocker categories overlap; counts are candidate-level flags, not mutually exclusive partitions."
   },
   "decision": "NO_ELIGIBLE_SOURCE_EXPLICIT_TEMPORAL_RULE_UNDER_CURRENT_CONTRACT"
 }
