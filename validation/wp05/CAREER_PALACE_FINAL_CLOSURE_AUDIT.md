@@ -93,3 +93,8 @@ The canonical source starts **田宅宫** immediately after the final Chen-Xu Po
 
 ## Next work
 Proceed to **P10 田宅宫 semantic-boundary audit**, then begin source-span extraction under the same source-first, schema-validated, no-invented-weight discipline.
+
+
+## Product handoff
+
+After this migration is merged to canonical main, the Product lane must rerun its career-readiness audit against the canonical CA01–CA09 files. Zero schema drift is necessary but not sufficient for CareerNatalDomainProvider readiness; executable normalization remains a separate Product work unit and must preserve the source-review boundary.
