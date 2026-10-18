@@ -5,12 +5,12 @@ canonical_branch: "main"
 
 execution:
   status: "ACTIVE"
-  program: "KB_WP07B"
-  active_issue: 296
+  program: "KB_WP07A"
+  active_issue: 302
   canonical_main_checkpoint: "CAREER_CA09_FINAL"
-  resume_entry: "Audit the nine non-NATAL Career/P09 rows and determine whether any can be source-faithfully normalized into the existing PL3-T reaction contract. Do not force the production registry to become non-empty."
+  resume_entry: "Prepare a source-grounded condition-atom mapping for CA04-347 (武曲化科), CA04-349 (武曲化忌), and CA09-852 (破军化禄). This is a Knowledge mapping artifact for Product implementation, not an executable registry."
   resume_issue: 290
-  last_state_sync_issue: 297
+  last_state_sync_issue: 303
 
 canonical_main_snapshot:
   domain: "事业宫"
@@ -21,6 +21,17 @@ canonical_main_snapshot:
   status: "CA09_FINAL_MERGED"
   source_schema_repair: "CA04_CA08_COLUMN_ORDER_REPAIRED"
   canonical_source_pr: 294
+
+completed_work_units:
+  - work_unit: "KB_WP05-CAREER-CA09-CLOSURE"
+    issue: 292
+    pr: 294
+    status: "MERGED"
+  - work_unit: "KB_WP07B-CAREER-TEMPORAL-PILOT"
+    issue: 296
+    pr: 301
+    status: "MERGED_NO_ELIGIBLE_TEMPORAL_RULES"
+    finding: "Nine non-NATAL rows audited; zero eligible for executable normalization under the current PL3-T contract. Production temporal reaction registry remains empty."
 
 archived_noncanonical_snapshots:
   wp05_all_twelve_palaces:
@@ -42,7 +53,8 @@ archived_noncanonical_snapshots:
 resume_queue_reference:
   legacy_integration_issue: 278
   completed_career_closure_pr: 294
-  note: "Issue #278 is historical and closed. CA09 is now canonical on main. Current active knowledge work is Issue #296; PR #272 remains a non-canonical comparison snapshot and must be audited segment by segment."
+  completed_temporal_eligibility_pr: 301
+  note: "Legacy Issue #278 is historical and closed. PR #272 remains a non-canonical comparison snapshot and must be audited segment by segment. Current active Knowledge work is Issue #302."
 
 human_gate:
   pending_on_main: null
