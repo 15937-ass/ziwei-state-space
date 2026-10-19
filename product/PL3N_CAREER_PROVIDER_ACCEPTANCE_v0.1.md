@@ -119,3 +119,10 @@ CLI example with an explicit external trigger:
 ```
 
 Save the object as `migration-window.json` and pass `--migration-window migration-window.json`. The provenance token identifies the externally supplied observation; it is not inferred from the Zi Wei chart. If the user has only travelled without confirmed distant settlement, the window must remain inactive.
+
+
+## Normalized full-chart input gate
+
+Before loading a provider, `run_career_inference` now validates the PL1 full-exporter schema v0.2 through `validate_normalized_full_chart_snapshot`. The Product contract is documented in `product/PL3_FULL_CHART_SNAPSHOT_CONTRACT_v0.2.md` and represented as `product/PL3_FULL_CHART_SNAPSHOT_SCHEMA_v0.2.json`.
+
+The validator checks engine provenance, the twelve-branch natal palace map, target uniqueness and selection, target/date consistency, all six temporal scopes and adapter-required fields, and optional `yearly_dec_stars`. Invalid snapshots fail closed with deterministic diagnostics; the validator never mutates or repairs input. Both Python API and module CLI use the same gate.
