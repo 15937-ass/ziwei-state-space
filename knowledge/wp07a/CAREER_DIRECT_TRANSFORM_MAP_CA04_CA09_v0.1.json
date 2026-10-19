@@ -1,0 +1,553 @@
+{
+  "schema_version": "0.1",
+  "audit_id": "KB-WP07A-CAREER-DIRECT-TRANSFORM-MAP-CA04-CA09",
+  "work_unit": "KB-WP07A-CAREER-DIRECT-TRANSFORM-MAP-CA04-CA09",
+  "lane": "KNOWLEDGE_ONLY",
+  "status": "SOURCE_GROUNDED_MAPPING_COMPLETE_NOT_EXECUTABLE",
+  "source_id": "SRC-ZZ-003",
+  "source_title": "《中州派紫微斗数深造讲义（下）》",
+  "canonical_corpus": "CAREER_CA09_FINAL",
+  "scope": {
+    "palace_id": "P09",
+    "palace_name": "事业宫",
+    "source_batches": [
+      "CA04",
+      "CA05",
+      "CA06",
+      "CA07",
+      "CA08",
+      "CA09"
+    ],
+    "nominated_source_rule_ids": [
+      "CA04-327",
+      "CA05-403",
+      "CA05-469",
+      "CA07-671",
+      "CA07-672",
+      "CA07-673",
+      "CA08-765",
+      "CA08-766"
+    ],
+    "purpose": "把 CA04–CA09 中剩余的八条单一四化原局条件映射到既有运行事实；条件可映射不等于输出可静态执行。"
+  },
+  "mappings": [
+    {
+      "source_rule_id": "CA04-327",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p140",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "太阳化忌",
+      "source_anchor_phrase": "若太阳化忌，所业非带排难解纷色彩不可，否则反易招压力",
+      "source_span_summary": "来源将太阳化忌的事业投影限定为带排难解纷色彩的工作性质；不将压力或是非改写为必然发生的现实事件。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "太阳",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "太阳",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "现有运行时对事业宫 P09 中星曜对象自身的 mutagen 发出绑定 palace=P09、star 与 mutagen 的 TRANSFORMATION_PRESENT 事实；本条条件不附加未声明的宫支、亮度或煞曜假设。"
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "conflict_resolution_or_problem_solving_work_required",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA05-403",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p142",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "天同化忌",
+      "source_anchor_phrase": "天同化忌",
+      "source_span_summary": "原始目标涉及工作起步与事业建立的时间关系，且 projection_mode 为 TIMING_TRIGGER；本映射只表达原局条件，不据此推算具体年龄或时间窗口。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天同",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天同",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "现有运行时对事业宫 P09 中星曜对象自身的 mutagen 发出绑定 palace=P09、star 与 mutagen 的 TRANSFORMATION_PRESENT 事实；本条条件不附加未声明的宫支、亮度或煞曜假设。"
+      },
+      "expected_projection": {
+        "projection_domain": "timing",
+        "projection_target": "work_can_begin_early_while_career_establishment_occurs_relatively_early",
+        "projection_mode": "TIMING_TRIGGER"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "BLOCKED_TIMING_TRIGGER_REQUIRES_TEMPORAL_SPEC",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA05-469",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p144",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "廉贞化忌",
+      "source_anchor_phrase": "廉贞化忌与带血光象义的行业场景",
+      "source_span_summary": "来源将廉贞化忌的象义引申至带血光性质的行业，并举饮食、化验等工作场景；此处保留为行业场景映射，不是疾病或伤害事件预测。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "廉贞",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "廉贞",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "现有运行时对事业宫 P09 中星曜对象自身的 mutagen 发出绑定 palace=P09、star 与 mutagen 的 TRANSFORMATION_PRESENT 事实；本条条件不附加未声明的宫支、亮度或煞曜假设。"
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "blood_or_injury_symbolism_related_industry_scene",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA07-671",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p150",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "巨门化禄",
+      "source_anchor_phrase": "巨门化禄为贵",
+      "source_span_summary": "来源在口舌/表达类行业语境中评价巨门化禄；映射保留事业表达与发展投影，不推断收入金额。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "巨门",
+              "mutagen": "禄"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "巨门",
+              "mutagen": "禄"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "现有运行时对事业宫 P09 中星曜对象自身的 mutagen 发出绑定 palace=P09、star 与 mutagen 的 TRANSFORMATION_PRESENT 事实；本条条件不附加未声明的宫支、亮度或煞曜假设。"
+      },
+      "expected_projection": {
+        "projection_domain": "development",
+        "projection_target": "speech_based_career_expression_strengthened",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA07-672",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p150",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "巨门化权",
+      "source_anchor_phrase": "化权亦可",
+      "source_span_summary": "来源在口舌/表达类行业语境中将巨门化权列为可取条件；不把表达优势升级为必然职业成功。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "巨门",
+              "mutagen": "权"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "巨门",
+              "mutagen": "权"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "现有运行时对事业宫 P09 中星曜对象自身的 mutagen 发出绑定 palace=P09、star 与 mutagen 的 TRANSFORMATION_PRESENT 事实；本条条件不附加未声明的宫支、亮度或煞曜假设。"
+      },
+      "expected_projection": {
+        "projection_domain": "development",
+        "projection_target": "speech_based_career_expression_is_supported",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA07-673",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p150",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "巨门化忌",
+      "source_anchor_phrase": "化忌带偏门，或一半牵涉政治",
+      "source_span_summary": "来源把巨门化忌与偏门或带政治色彩的行业场景相连；原文另有限定：口舌行业且煞刑不重时，不应直接推为官非诉讼。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "巨门",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "巨门",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "现有运行时对事业宫 P09 中星曜对象自身的 mutagen 发出绑定 palace=P09、star 与 mutagen 的 TRANSFORMATION_PRESENT 事实；本条条件不附加未声明的宫支、亮度或煞曜假设。"
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "marginal_or_partly_political_scene",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA08-765",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p152",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "天梁化权",
+      "source_anchor_phrase": "天梁化权，利于权威性工作",
+      "source_span_summary": "来源将天梁化权联系到权威性工作，并举法律、监察、秘书等场景；映射保留职业性质，不替现实职业选择作确定结论。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天梁",
+              "mutagen": "权"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天梁",
+              "mutagen": "权"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "现有运行时对事业宫 P09 中星曜对象自身的 mutagen 发出绑定 palace=P09、star 与 mutagen 的 TRANSFORMATION_PRESENT 事实；本条条件不附加未声明的宫支、亮度或煞曜假设。"
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "authority_based_legal_supervisory_or_secretarial_scene",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA08-766",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p152",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": "PATH_DEPENDENT_GATE"
+      },
+      "source_condition_text": "天梁化科",
+      "source_anchor_phrase": "天梁化科，以清贵为宜；名为主，利从于名",
+      "source_span_summary": "来源明确表达社会地位/声誉在先、财富随后的次序；原始 history_feedback 标记 PATH_DEPENDENT_GATE 必须保留，因此不作为静态直接执行结论。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天梁",
+              "mutagen": "科"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天梁",
+              "mutagen": "科"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "现有运行时对事业宫 P09 中星曜对象自身的 mutagen 发出绑定 palace=P09、star 与 mutagen 的 TRANSFORMATION_PRESENT 事实；本条条件不附加未声明的宫支、亮度或煞曜假设。"
+      },
+      "expected_projection": {
+        "projection_domain": "development",
+        "projection_target": "social_status_should_precede_wealth",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "BLOCKED_PATH_DEPENDENT_TARGET",
+      "executable_registry_entry": false
+    }
+  ],
+  "exclusions": [
+    {
+      "source_rule_id": "CA04-329",
+      "source_location": "事业宫printed_p140",
+      "reason_code": "MULTI_MUTAGEN_DISJUNCTION_OUT_OF_SCOPE",
+      "reason": "“太阳化禄或化权”需要显式表达同一来源条件中的析取；本批仅处理单一四化条件，留待后续 OR/alternatives 审查。"
+    },
+    {
+      "source_rule_id": "CA04-332",
+      "source_location": "事业宫printed_p140",
+      "reason_code": "BRIGHTNESS_AND_NEGATIVE_STAR_CONDITIONS",
+      "reason": "同时要求太阳落陷、吉星与无四煞刑耗；当前运行事实未提供亮度原子，且否定条件需要独立的封闭世界契约。"
+    },
+    {
+      "source_rule_id": "CA04-368",
+      "source_location": "事业宫printed_p141",
+      "reason_code": "PREVIOUS_RULE_CONTEXT_REQUIRED",
+      "reason": "“前格武曲化科”依赖前格/前段语境，不能直接压缩成单星四化条件。"
+    },
+    {
+      "source_rule_id": "CA06-558",
+      "source_location": "事业宫printed_p147",
+      "reason_code": "BRIGHTNESS_FACT_NOT_EMITTED",
+      "reason": "“天府入庙化科”要求入庙信息，不能仅映射化科而丢弃亮度条件。"
+    },
+    {
+      "source_rule_id": "CA07-624",
+      "source_location": "事业宫printed_p148",
+      "reason_code": "COMPOUND_TRANSFORMATION_SEMANTICS_UNRESOLVED",
+      "reason": "“贪狼化禄化权”的复合表达仍需单独回源审查，避免未经证实地将两种四化绑定到同一星曜。"
+    },
+    {
+      "source_rule_id": "CA09-853",
+      "source_location": "事业宫printed_p154",
+      "reason_code": "PATH_DEPENDENT_TARGET",
+      "reason": "目标描述非重点行业/职务先于事业基础形成的路径关系，不在本批静态单条件范围内。"
+    }
+  ],
+  "validation": {
+    "nominated_rows": 8,
+    "mapped_rows": 8,
+    "blocked_nominated_rows": 0,
+    "source_span_verified_all": true,
+    "review_status_all": "SOURCE_SPAN_VERIFIED",
+    "time_layer_all": "NATAL",
+    "case_support_only_all": false,
+    "atom_types_used": [
+      "TRANSFORMATION_PRESENT"
+    ],
+    "atom_types_are_within_current_allowed_atom_types": true,
+    "each_condition_matches_existing_natal_runtime_fact_shape": true,
+    "source_conditions_and_provenance_preserved_exactly": true,
+    "source_targets_and_projection_modes_preserved_exactly": true,
+    "raw_history_feedback_preserved": true,
+    "timing_trigger_rows_blocked": 1,
+    "path_dependent_rows_blocked": 1,
+    "source_rows_modified": false,
+    "executable_rule_created": false,
+    "product_runtime_modified": false,
+    "production_registry_modified": false,
+    "new_atom_or_ontology_semantics_created": false,
+    "empirical_probability_or_numeric_weight_created": false
+  },
+  "guardrails": [
+    "只使用现有 TRANSFORMATION_PRESENT，并同时绑定 palace、star、mutagen；不得以星曜存在与四化存在两个不绑定事实代替。",
+    "原始 source condition、projection_domain、projection_target、projection_mode 与 history_feedback 均保留原值。",
+    "CA05-403 虽然条件可映射，但 TIMING_TRIGGER 目标不能在静态原局投影中直接执行。",
+    "CA08-766 的 PATH_DEPENDENT_GATE 元数据及名先利后的顺序语义均保留，不压缩为无条件的财富结论。",
+    "所有映射均为知识侧审查产物，不写入产品执行注册表，不代表现实预测概率或效度。"
+  ]
+}
