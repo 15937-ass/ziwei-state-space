@@ -6,6 +6,7 @@ normalization registry. It does not infer condition atoms from source prose.
 
 from __future__ import annotations
 
+import csv
 import json
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -21,7 +22,6 @@ from .palace_structure import (
 )
 from .rule_runtime import RuleIR, RuleRuntime, RuntimeState, compile_rule_row
 from .structure_primitives import source_backed_structure_facts
-from .wealth_pilot import load_projection_rows
 
 
 _ALLOWED_REVIEW_STATUSES = frozenset({"SOURCE_SPAN_VERIFIED", "HUMAN_VERIFIED"})
@@ -29,6 +29,11 @@ _ALLOWED_REVIEW_STATUSES = frozenset({"SOURCE_SPAN_VERIFIED", "HUMAN_VERIFIED"})
 
 def _truthy(value: Any) -> bool:
     return str(value or "").strip().lower() in {"1", "true", "yes", "y"}
+
+
+def _load_projection_rows(path: str | Path) -> list[dict[str, str]]:
+    with Path(path).open("r", encoding="utf-8-sig", newline="") as handle:
+        return list(csv.DictReader(handle))
 
 
 def _engine_version(snapshot: Mapping[str, Any]) -> str:
@@ -133,6 +138,10 @@ class RegistryDrivenNatalDomainProvider:
             if not isinstance(condition_document, Mapping):
                 raise ValueError(f"{rule_id}: explicit structured condition is required")
             condition = compile_condition_spec(condition_document)
+            if not (condition.all_of or condition.any_of or condition.alternatives):
+                raise ValueError(
+                    f"{rule_id}: condition requires at least one positive atom"
+                )
             normalized_row = {
                 "rule_id": rule_id,
                 "school": str(self.registry.get("school", "中州派")).strip() or "中州派",
@@ -263,6 +272,8 @@ def load_registry_driven_natal_provider(
         registry_path = root / registry_path
     with registry_path.open("r", encoding="utf-8") as handle:
         registry = json.load(handle)
+    if str(registry.get("status", "")).strip() != "CANONICAL_READY":
+        raise ValueError("production domain provider registry must be CANONICAL_READY")
 
     source_paths = registry.get("projection_sources")
     if not isinstance(source_paths, list) or not source_paths:
@@ -273,7 +284,7 @@ def load_registry_driven_natal_provider(
         path = Path(str(relative_path))
         if not path.is_absolute():
             path = root / path
-        for row in load_projection_rows(path):
+        for row in _load_projection_rows(path):
             rule_id = str(row.get("projection_rule_id", "")).strip()
             if not rule_id:
                 raise ValueError(f"{path}: projection row missing projection_rule_id")
@@ -282,9 +293,10 @@ def load_registry_driven_natal_provider(
             seen.add(rule_id)
             rows.append(row)
 
-    ontology_path = Path(str(registry.get("palace_ontology", "")).strip())
-    if not str(ontology_path):
+    ontology_value = str(registry.get("palace_ontology", "")).strip()
+    if not ontology_value:
         raise ValueError("domain provider registry requires palace_ontology")
+    ontology_path = Path(ontology_value)
     if not ontology_path.is_absolute():
         ontology_path = root / ontology_path
     ontology = load_palace_ontology(ontology_path)
