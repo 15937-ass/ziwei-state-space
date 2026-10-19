@@ -7,6 +7,7 @@ import pytest
 import src.product.career_inference_service as career_service
 from src.product.full_chart_snapshot_contract import (
     FULL_CHART_SCHEMA_VERSION,
+    REQUIRED_ENGINE_FIELDS,
     validate_normalized_full_chart_snapshot,
 )
 
@@ -64,6 +65,36 @@ def _assert_invalid(snapshot, target_id, expected_message):
     )
     assert result.ok is False
     assert any(expected_message in error for error in result.errors)
+
+
+def test_machine_readable_schema_matches_runtime_contract_constants():
+    schema = json.loads(
+        (ROOT / "product/PL3_FULL_CHART_SNAPSHOT_SCHEMA_v0.2.json").read_text(
+            encoding="utf-8"
+        )
+    )
+
+    assert schema["properties"]["schema_version"]["const"] == FULL_CHART_SCHEMA_VERSION
+    assert set(schema["properties"]["engine"]["required"]) == set(REQUIRED_ENGINE_FIELDS)
+    assert set(schema["properties"]["natal"]["properties"]["palaces"]["required"]) == set(BRANCH.values())
+    assert set(schema["$defs"]["scope"]["required"]) == {
+        "index",
+        "name",
+        "stem",
+        "branch",
+        "palace_names",
+        "mutagen",
+        "nominal_age",
+        "stars",
+    }
+    assert set(schema["$defs"]["temporalTarget"]["properties"]["scopes"]["required"]) == {
+        "decadal",
+        "age",
+        "yearly",
+        "monthly",
+        "daily",
+        "hourly",
+    }
 
 
 def test_valid_full_chart_v02_snapshot_is_accepted_without_mutation():
