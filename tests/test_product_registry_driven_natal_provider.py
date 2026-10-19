@@ -159,7 +159,11 @@ def test_registry_driven_provider_does_not_activate_rule_when_condition_is_absen
         ({"source_span_verified": "false"}, "verified source provenance"),
         ({"time_layer": "YEAR"}, "NATAL rows only"),
         ({"palace_id": "P05"}, "does not match provider palace"),
-        ({"condition": "changed source text"}, "canonical source drift"),
+        ({"source_id": "SRC-DRIFT"}, "canonical source drift in source_id"),
+        ({"source_location": "changed page"}, "canonical source drift in source_location"),
+        ({"review_status": "HUMAN_VERIFIED"}, "canonical source drift in review_status"),
+        ({"projection_domain": "changed-domain"}, "canonical source drift in projection_domain"),
+        ({"condition": "changed source text"}, "canonical source drift in condition"),
     ],
 )
 def test_registry_driven_provider_fails_closed_on_source_row_blockers(overrides, match):
