@@ -82,7 +82,7 @@ The report builder checks that active rule evidence and projection fields still 
 From the repository root:
 
 ```bash
-python tools/run_career_inference.py \
+python -m src.product.career_inference_cli \
   --snapshot path/to/normalized-full-chart.json \
   --target-id T-2030 \
   --question "事业本命结构及大限、流年环境" \
@@ -90,7 +90,7 @@ python tools/run_career_inference.py \
   --output path/to/career-report.json
 ```
 
-The CLI calls the same Product APIs as Python callers, writes deterministic UTF-8 JSON, and refuses to overwrite the input snapshot. If `--output` is omitted, the report is written to stdout. The CLI intentionally has no option for substituting a temporal test registry.
+The module CLI calls the same Product APIs as Python callers, writes deterministic UTF-8 JSON, and refuses to overwrite the input snapshot and optional migration-window file. If `--output` is omitted, the report is written to stdout. The CLI intentionally has no option for substituting a temporal test registry.
 
 A successful invocation can still return `PARTIAL_TEMPORAL_REGISTRY_EMPTY`; process success means the report was generated correctly, not that temporal rules were available or that a real-world event was predicted.
 
