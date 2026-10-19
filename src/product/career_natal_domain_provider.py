@@ -78,16 +78,27 @@ def _validate_mapping_handoff(
         for item in mappings
         if isinstance(item, Mapping) and str(item.get("source_rule_id", "")).strip()
     }
-    if nominated_ids != set(mapping_by_id) or nominated_ids != {
-        str(item).strip() for item in rules
-    }:
+    selected = mapping_meta.get("selected_rule_ids", sorted(nominated_ids))
+    if (not isinstance(selected, list) or not selected
+        or any(not isinstance(item, str) or not item for item in selected)
+        or len(selected) != len(set(selected))):
+        raise ValueError("Career mapping selected_rule_ids must be a nonempty unique list")
+    selected_ids = set(selected)
+    if (len(mapping_by_id) != len(mappings) or nominated_ids != set(mapping_by_id)
+        or not selected_ids <= nominated_ids or selected_ids != set(rules)):
         raise ValueError("Career provider rules must exactly match nominated source mapping IDs")
 
-    for rule_id in sorted(nominated_ids):
+    for rule_id in sorted(selected_ids):
         source_map = mapping_by_id[rule_id]
         product_rule = rules[rule_id]
         if not isinstance(product_rule, Mapping):
             raise ValueError(f"{rule_id}: Product registry rule must be an object")
+        required_readiness = mapping_meta.get("required_execution_readiness")
+        readiness = source_map.get("execution_readiness")
+        if (required_readiness is not None and readiness != required_readiness) or (
+            isinstance(readiness, str) and readiness.startswith("BLOCKED_")
+        ):
+            raise ValueError(f"{rule_id}: source mapping execution readiness is blocked or mismatched")
         provenance = source_map.get("source_provenance")
         projection = source_map.get("expected_projection")
         if not isinstance(provenance, Mapping) or not isinstance(projection, Mapping):
@@ -117,15 +128,49 @@ def _validate_mapping_handoff(
                 raise ValueError(f"{rule_id}: Product/source mapping drift in {field_name}")
 
 
+def load_career_source_mappings(
+    repository_root: str | Path, registry: Mapping[str, Any]
+) -> dict[str, Any]:
+    """Validate disjoint, explicit mapping handoffs and return selected source rows."""
+    additional = registry.get("additional_source_mappings", [])
+    if not isinstance(additional, list):
+        raise ValueError("Career additional_source_mappings must be a list")
+    rules = registry.get("rules")
+    if not isinstance(rules, Mapping):
+        raise ValueError("Career rules must be an object")
+    result = {}
+    for meta in [registry.get("source_mapping"), *additional]:
+        if not isinstance(meta, Mapping):
+            raise ValueError("Career source mapping metadata must be an object")
+        root = Path(repository_root).resolve()
+        mapping_path = (root / str(meta.get("path", ""))).resolve()
+        if not mapping_path.is_relative_to(root):
+            raise ValueError("Career provider source mapping must remain inside repository root")
+        mapping = _load_json(mapping_path)
+        selected = meta.get("selected_rule_ids", mapping.get("scope", {}).get("nominated_source_rule_ids", []))
+        if not isinstance(selected, list) or any(not isinstance(i, str) for i in selected):
+            raise ValueError("Career selected_rule_ids must be a string list")
+        if set(selected) & set(result):
+            raise ValueError("Career source mapping selections must be disjoint")
+        subregistry = dict(registry, source_mapping=meta,
+                           rules={i: rules[i] for i in selected if i in rules})
+        _validate_mapping_handoff(repository_root, subregistry)
+        result.update({item["source_rule_id"]: item for item in mapping["mappings"]
+                       if item["source_rule_id"] in selected})
+    if set(result) != set(rules):
+        raise ValueError("Career mappings must cover every Product rule exactly once")
+    return result
+
+
 def load_default_career_natal_provider(
     repository_root: str | Path,
 ) -> RegistryDrivenNatalDomainProvider:
-    """Load the source-pinned three-rule Career NATAL provider."""
+    """Load the source-pinned Career NATAL provider."""
 
     root = Path(repository_root)
     registry_path = root / DEFAULT_CAREER_PROVIDER_REGISTRY_PATH
     registry = _load_json(registry_path)
-    _validate_mapping_handoff(root, registry)
+    load_career_source_mappings(root, registry)
     return load_registry_driven_natal_provider(
         root,
         DEFAULT_CAREER_PROVIDER_REGISTRY_PATH,
