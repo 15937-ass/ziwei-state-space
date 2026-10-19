@@ -7,6 +7,7 @@ from src.product.career_natal_domain_provider import (
     _validate_mapping_handoff,
     load_default_career_natal_provider,
 )
+from src.product.career_inference_service import run_career_inference
 from src.product.natal_domain_registry import load_default_natal_domain_registry
 from src.product.symbolic_inference_pipeline import run_symbolic_inference
 
@@ -223,6 +224,28 @@ def test_career_mapping_handoff_validator_rejects_product_mapping_drift(tmp_path
 
     with pytest.raises(ValueError, match="drift in projection_target"):
         _validate_mapping_handoff(tmp_path, registry)
+
+
+def test_high_level_career_service_uses_production_registry_and_defaults_to_decade_year():
+    result = run_career_inference(
+        ROOT,
+        _full_snapshot({"事业宫": [_star("破军", "禄")]}),
+        target_id="T-DEMO",
+        question="事业本命结构及大限、流年环境",
+    )
+
+    assert result.selected_domains == ("career",)
+    assert result.selected_temporal_layers == ("DECADE", "YEAR")
+    assert result.status == "PARTIAL_TEMPORAL_REGISTRY_EMPTY"
+    assert result.blockers == ("PRODUCTION_TEMPORAL_REACTION_REGISTRY_EMPTY",)
+    assert [rule.rule_id for rule in result.natal_profile.domains[0].active_rules] == [
+        "CA09-852"
+    ]
+    conclusion = result.evidence_package.to_dict()["conclusion"]
+    assert conclusion["selected_domains"] == ["career"]
+    assert conclusion["selected_temporal_layers"] == ["DECADE", "YEAR"]
+    assert conclusion["canonical_rule_ids"] == ["CA09-852"]
+    assert conclusion["temporal_reaction_rule_ids"] == []
 
 
 def test_product_registry_keeps_temporal_and_event_claims_disabled():
