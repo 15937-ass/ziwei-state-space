@@ -11,9 +11,12 @@ from src.product.registry_driven_natal_provider import (
     RegistryDrivenNatalDomainProvider,
     load_registry_driven_natal_provider,
 )
+from src.product.symbolic_inference_pipeline import run_symbolic_inference
 
 ROOT = Path(__file__).resolve().parents[1]
 ONTOLOGY_PATH = ROOT / DEFAULT_PALACE_ONTOLOGY_PATH
+ASSET_PATH = ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.1.json"
+PRODUCTION_REACTION_REGISTRY = ROOT / "product/PL3T_TEMPORAL_REACTION_REGISTRY_v0.1.json"
 
 BRANCH = {
     "命宫": "酉",
@@ -85,6 +88,7 @@ def _source_row(**overrides):
 def _registry(**overrides):
     registry = {
         "schema_version": "0.1",
+        "status": "TEST_FIXTURE_ONLY",
         "provider_id": "PL3N_TEST_CAREER_PROVIDER",
         "domain_id": "career",
         "palace_id": "P09",
@@ -189,6 +193,41 @@ def test_default_registry_remains_wealth_only_until_provider_is_explicitly_added
     )
     assert [item.domain_id for item in profile.domains] == ["career"]
     assert [item.rule_id for item in profile.domains[0].active_rules] == ["CA-TEST-001"]
+
+
+def test_test_only_career_provider_is_explicitly_blocked_in_end_to_end_run():
+    snapshot = json.loads(ASSET_PATH.read_text(encoding="utf-8"))
+    snapshot["natal"] = _snapshot({"事业宫": [_star("紫微")]} )["natal"]
+    provider = _provider()
+    registry = load_default_natal_domain_registry(
+        ROOT,
+        additional_providers=(provider,),
+    )
+    reaction_document = json.loads(
+        PRODUCTION_REACTION_REGISTRY.read_text(encoding="utf-8")
+    )
+
+    result = run_symbolic_inference(
+        snapshot,
+        target_id="T-DEMO",
+        question="本命事业结构及目标时间层",
+        domain_registry=registry,
+        reaction_registry_document=reaction_document,
+        selected_domains=("career",),
+    )
+
+    assert result.status == "TEST_FIXTURE_ONLY"
+    assert set(result.blockers) == {
+        "NON_CANONICAL_NATAL_DOMAIN_PROVIDER",
+        "PRODUCTION_TEMPORAL_REACTION_REGISTRY_EMPTY",
+    }
+    assert [item.rule_id for item in result.natal_profile.domains[0].active_rules] == [
+        "CA-TEST-001"
+    ]
+    conclusion = result.evidence_package.to_dict()["conclusion"]
+    assert conclusion["status"] == "PARTIAL"
+    assert conclusion["canonical_rule_ids"] == ["CA-TEST-001"]
+    assert "NON_CANONICAL_NATAL_DOMAIN_PROVIDER" in conclusion["unknowns"]
 
 
 def test_registry_loader_requires_canonical_ready_status_and_reads_source_files(tmp_path):
