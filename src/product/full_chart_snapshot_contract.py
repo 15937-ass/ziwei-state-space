@@ -73,6 +73,13 @@ def _validate_star_array(
                 errors.append(f"{star_path} missing field: {field}")
         if "name" in star and not _non_empty_text(star["name"]):
             errors.append(f"{star_path}.name must be a non-empty string")
+        for field in required_fields:
+            if field != "name" and field in star and star[field] is not None and not isinstance(
+                star[field], str
+            ):
+                errors.append(
+                    f"{star_path}.{field} must be a string or null"
+                )
 
 
 def _validate_natal(snapshot: Mapping[str, Any], errors: list[str]) -> None:
@@ -80,6 +87,24 @@ def _validate_natal(snapshot: Mapping[str, Any], errors: list[str]) -> None:
     if not isinstance(natal, Mapping):
         errors.append("natal must be an object")
         return
+
+    if "solar_date" in natal and not _valid_iso_date(natal["solar_date"]):
+        errors.append("natal.solar_date must be a valid YYYY-MM-DD date")
+    for field in (
+        "lunar_date",
+        "chinese_date",
+        "time",
+        "time_range",
+        "soul_star",
+        "body_star",
+        "five_elements_class",
+        "soul_palace_branch",
+        "body_palace_branch",
+    ):
+        if field in natal and natal[field] is not None and not isinstance(
+            natal[field], str
+        ):
+            errors.append(f"natal.{field} must be a string or null")
 
     palaces = natal.get("palaces")
     if not isinstance(palaces, Mapping):
@@ -151,6 +176,11 @@ def _validate_natal(snapshot: Mapping[str, Any], errors: list[str]) -> None:
                 for field in ("range", "stem", "branch"):
                     if field not in decadal:
                         errors.append(f"{path}.decadal missing field: {field}")
+                for field in ("stem", "branch"):
+                    if field in decadal and not _non_empty_text(decadal[field]):
+                        errors.append(
+                            f"{path}.decadal.{field} must be a non-empty string"
+                        )
 
 
 def _validate_scope(scope_key: str, scope: Any, errors: list[str]) -> None:
@@ -162,6 +192,11 @@ def _validate_scope(scope_key: str, scope: Any, errors: list[str]) -> None:
     missing = [field for field in REQUIRED_SCOPE_KEYS if field not in scope]
     for field in missing:
         errors.append(f"{path} missing field: {field}")
+    extra_fields = sorted(str(field) for field in scope if field not in REQUIRED_SCOPE_KEYS)
+    if extra_fields:
+        errors.append(
+            f"{path} contains unsupported field(s): " + ", ".join(extra_fields)
+        )
 
     if "index" in scope and (
         isinstance(scope["index"], bool) or not isinstance(scope["index"], int)
@@ -181,6 +216,8 @@ def _validate_scope(scope_key: str, scope: Any, errors: list[str]) -> None:
         if not isinstance(palace_names, list):
             errors.append(f"{path}.palace_names must be an array")
         else:
+            if not palace_names:
+                errors.append(f"{path}.palace_names must contain at least one item")
             for index, name in enumerate(palace_names):
                 if not _non_empty_text(name):
                     errors.append(
@@ -295,6 +332,16 @@ def _validate_temporal(
             if not isinstance(yearly_dec, Mapping):
                 errors.append(f"{path}.yearly_dec_stars must be an object or null")
             else:
+                extra_fields = sorted(
+                    str(field)
+                    for field in yearly_dec
+                    if field not in REQUIRED_YEARLY_DEC_STAR_FIELDS
+                )
+                if extra_fields:
+                    errors.append(
+                        f"{path}.yearly_dec_stars contains unsupported field(s): "
+                        + ", ".join(extra_fields)
+                    )
                 for field in REQUIRED_YEARLY_DEC_STAR_FIELDS:
                     if field not in yearly_dec:
                         errors.append(
@@ -332,6 +379,11 @@ def validate_normalized_full_chart_snapshot(
             False,
             ("normalized full-chart snapshot must be an object",),
         )
+
+    if "case_id" in snapshot and snapshot["case_id"] is not None and not isinstance(
+        snapshot["case_id"], str
+    ):
+        errors.append("case_id must be a string or null")
 
     schema_version = snapshot.get("schema_version")
     if schema_version != FULL_CHART_SCHEMA_VERSION:
