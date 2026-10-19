@@ -1,0 +1,414 @@
+{
+  "schema_version": "0.1",
+  "audit_id": "KB-WP07A-CAREER-CROSS-PALACE-MAP-CA01-066_CA02-188_CA03-255",
+  "work_unit": "KB-WP07A-CAREER-CROSS-PALACE-MAP-CA01-066_CA02-188_CA03-255",
+  "lane": "KNOWLEDGE_ONLY",
+  "status": "SOURCE_GROUNDED_CROSS_PALACE_MAPPING_COMPLETE_NOT_EXECUTABLE",
+  "source_id": "SRC-ZZ-003",
+  "source_title": "《中州派紫微斗数深造讲义（下）》",
+  "canonical_corpus": "CAREER_CA09_FINAL",
+  "scope": {
+    "palace_id": "P09",
+    "palace_name": "事业宫",
+    "source_batches": [
+      "CA01",
+      "CA02",
+      "CA03"
+    ],
+    "nominated_source_rule_ids": [
+      "CA01-066",
+      "CA02-188",
+      "CA03-255"
+    ],
+    "purpose": "将三条明确的跨宫/复合事业条件映射到现有宫位绑定事实；不新增原子，不创建执行规则。"
+  },
+  "mappings": [
+    {
+      "source_rule_id": "CA01-066",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133-134",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "子午紫微且财帛廉贞化禄",
+      "source_anchor_printed_page": 134,
+      "source_anchor_phrase": "若财帛宫廉贞化禄者，宜与人合作创业",
+      "source_span_summary": "来源将子午宫事业宫紫微与财帛宫廉贞化禄联系到合作创业场景，并另提业务管理责任。映射仅保留条件关系，不保证现实创业成功。",
+      "condition": {
+        "all_of": [],
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P05",
+                "star": "廉贞",
+                "mutagen": "禄"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P05",
+                "star": "廉贞",
+                "mutagen": "禄"
+              }
+            }
+          ]
+        ]
+      },
+      "condition_atom_types": [
+        "PALACE_HAS_STAR",
+        "BRANCH_PRESENT",
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "紫微"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "子"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P05",
+              "star": "廉贞",
+              "mutagen": "禄"
+            }
+          }
+        ],
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "紫微"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "午"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P05",
+              "star": "廉贞",
+              "mutagen": "禄"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时对各宫输出绑定宫位的 PALACE_HAS_STAR、BRANCH_PRESENT 与 TRANSFORMATION_PRESENT 事实；该条件仅组合已存在事实，不推定未实现的吉凶、亮度或辅曜语义。"
+      },
+      "expected_projection": {
+        "projection_domain": "collaboration",
+        "projection_target": "partnership_venture_suited",
+        "projection_mode": "CROSS_PALACE_CONSTRAINT"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOMS",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_CROSS_PALACE_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA02-188",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p136",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "午宫天机化禄且财帛宫太阴化忌",
+      "source_anchor_printed_page": 136,
+      "source_anchor_phrase": "若天机在于午宫化禄，则财帛宫太阴必同时化忌，增加其事业上投机的倾向。",
+      "source_span_summary": "来源把午宫事业天机化禄与财帛宫太阴化忌联系起来，指向事业投机倾向增强。条件必须同时满足宫支与两宫四化，不将其改写为实际投资行为必然发生。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "午"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "禄"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P05",
+              "star": "太阴",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "BRANCH_PRESENT",
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "午"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "禄"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P05",
+              "star": "太阴",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时对各宫输出绑定宫位的 PALACE_HAS_STAR、BRANCH_PRESENT 与 TRANSFORMATION_PRESENT 事实；该条件仅组合已存在事实，不推定未实现的吉凶、亮度或辅曜语义。"
+      },
+      "expected_projection": {
+        "projection_domain": "risk",
+        "projection_target": "career_speculation_tendency_strengthened_by_wealth_context",
+        "projection_mode": "CROSS_PALACE_CONSTRAINT"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOMS",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_CROSS_PALACE_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA03-255",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p138",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "天机化科且命宫天同巨门之巨门化忌",
+      "source_anchor_printed_page": 138,
+      "source_anchor_phrase": "天机化科，事业亦主变动。由于命宫[天同巨门]之巨门必同时化忌，因此常劳心费神，兼顾额外工作，有能者多劳之叹。",
+      "source_span_summary": "来源将事业宫天机化科与命宫天同巨门结构中的巨门化忌相连，描述为劳心费神、兼顾额外工作的倾向。映射要求两宫事实同时成立，不扩展为必然发生的工作负荷。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "科"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P01",
+              "star": "天同"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P01",
+              "star": "巨门"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P01",
+              "star": "巨门",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "PALACE_HAS_STAR",
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "科"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P01",
+              "star": "天同"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P01",
+              "star": "巨门"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P01",
+              "star": "巨门",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时对各宫输出绑定宫位的 PALACE_HAS_STAR、BRANCH_PRESENT 与 TRANSFORMATION_PRESENT 事实；该条件仅组合已存在事实，不推定未实现的吉凶、亮度或辅曜语义。"
+      },
+      "expected_projection": {
+        "projection_domain": "effort",
+        "projection_target": "mental_burden_and_extra_work_strengthened",
+        "projection_mode": "CROSS_PALACE_CONSTRAINT"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOMS",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_CROSS_PALACE_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    }
+  ],
+  "exclusions": [
+    {
+      "source_rule_id": "CA01-020",
+      "source_location": "事业宫printed_p132",
+      "reason_code": "OMITTED_CONTEXT_WOULD_OVERGENERALIZE",
+      "reason": "正文示例同时以前文事业宫廉贞天相为前提；只映射命宫紫微化权与财帛武曲化忌会丢失事业宫星系语境。"
+    },
+    {
+      "source_rule_id": "CA01-064",
+      "source_location": "事业宫printed_p133-134",
+      "reason_code": "AMBIGUOUS_DE_LU",
+      "reason": "“命宫或财帛宫得禄”尚未区分化禄、禄存或禄马等不同语义。"
+    },
+    {
+      "source_rule_id": "CA01-065",
+      "source_location": "事业宫printed_p133-134",
+      "reason_code": "LU_MA_RELATION_UNRESOLVED",
+      "reason": "“禄马交驰”需要明确星曜身份、宫位关系与同度/会照语义，不能用泛化的得禄条件替代。"
+    },
+    {
+      "source_rule_id": "CA02-170",
+      "source_location": "事业宫printed_p136",
+      "reason_code": "PREVIOUS_RULE_CONTEXT_REQUIRED",
+      "reason": "条件以“前格”为前提，不能只保留命宫太阳化科。"
+    },
+    {
+      "source_rule_id": "CA01-011",
+      "source_location": "事业宫printed_p132",
+      "reason_code": "UNDEFINED_PALACE_VALENCE",
+      "reason": "“事业宫吉且夫妻宫吉”需要来源可追溯的宫位吉凶合成规则；现有事实只表示星曜、四化、宫支和宫位关系。"
+    }
+  ],
+  "validation": {
+    "nominated_rows": 3,
+    "mapped_rows": 3,
+    "source_span_verified_all": true,
+    "review_status_all": "SOURCE_SPAN_VERIFIED",
+    "time_layer_all": "NATAL",
+    "case_support_only_all": false,
+    "raw_history_feedback_preserved": true,
+    "all_atom_types_within_existing_allowlist": true,
+    "all_conditions_match_existing_runtime_fact_shapes": true,
+    "exact_source_condition_and_projection_fields_preserved": true,
+    "branch_alternatives_preserved": true,
+    "positive_and_negative_runtime_cases_tested": true,
+    "source_rows_modified": false,
+    "product_runtime_modified": false,
+    "production_registry_modified": false,
+    "executable_rule_created": false,
+    "new_atom_or_ontology_semantics_created": false,
+    "numeric_weights_or_probabilities_created": false
+  },
+  "guardrails": [
+    "所有跨宫事实都必须绑定具体 palace ID；不可用只匹配星名的未绑定事实代替。",
+    "CA01-066 的子/午条件是完整替代分支；两支均须同时满足事业宫紫微与财帛宫廉贞化禄。",
+    "CA02-188 的午宫限制与两宫四化是合取条件，缺少任何一项均不得匹配。",
+    "CA03-255 保留命宫天同巨门结构以及巨门化忌，不把它降格为单独的事业宫天机化科。",
+    "条件可映射不等于推断可执行；三条映射均不进入生产注册表。"
+  ]
+}
