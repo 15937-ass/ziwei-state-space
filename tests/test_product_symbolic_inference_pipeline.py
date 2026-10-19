@@ -219,6 +219,8 @@ def test_unsupported_or_empty_temporal_layer_selection_fails_closed():
         _run(selected_temporal_layers=("LIFETIME",))
     with pytest.raises(ValueError, match="at least one selected temporal layer"):
         _run(selected_temporal_layers=())
+    with pytest.raises(ValueError, match="must be an array"):
+        _run(selected_temporal_layers="YEAR")
 
 
 def test_missing_temporal_target_fails_closed():
