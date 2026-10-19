@@ -48,14 +48,16 @@ One lane has at most one ACTIVE Issue.
 
 1. recover state;
 2. confirm lane and Issue;
-3. producer pass;
+3. producer pass in ChatGPT Work / Codex;
 4. critic/red-team pass;
 5. revision;
-6. deterministic/local validation;
-7. create/update one PR for the Issue;
-8. run CI at the hard checkpoint;
+6. deterministic validation in the OpenAI execution environment;
+7. record exact validation commands and results in the Issue/PR;
+8. create/update one PR for the Issue;
 9. report status;
 10. stop.
+
+GitHub Actions is not a routine execution dependency after G7.
 
 Do not automatically chain into the next Issue in the same turn.
 
@@ -69,8 +71,8 @@ An implementation Issue may not broaden an approved Proposal.
 ## 7. Autonomy and risk
 
 R0: mechanical bug/fixture/formatting — autonomous.
-R1: normal bounded work — GPT review + CI.
-R2: phase closure/cross-module integration/material ambiguity — independent review + PI-facing report.
+R1: normal bounded work — GPT review + deterministic Work/Codex validation.
+R2: phase closure/cross-module integration/material ambiguity — independent review + full Work/Codex validation + PI-facing report.
 R3: Human Gate/canonical meaning/architecture boundary/causal upgrade — explicit PI approval.
 
 All PI review/Human-Gate material is written in Chinese.
@@ -102,12 +104,25 @@ Default source-review reasoning sub-batch remains about 50 items; durable integr
 
 After timeout, inspect GitHub first. Never replay work blindly.
 
-## 11. CI policy
+## 11. Execution and validation policy
 
-Routine reasoning should not consume Actions.
-CI is triggered for PR/hard checkpoints and reruns on new PR commits.
-If CI is pending after one status check, record CI_PENDING and stop.
-One autonomous repair/retry is allowed for ordinary technical failure; repeated/conceptual failures escalate.
+Routine execution must not consume GitHub Actions minutes.
+
+Primary execution runtime:
+- ChatGPT Work for orchestration, research, review and multi-step coordination;
+- Codex/OpenAI coding runtime for repository edits, commands, tests and regressions;
+- GitHub for Issues, PRs, commits, version history and Human-Gate audit.
+
+At each hard checkpoint, run the validation scope required by governance/WORK_CODEX_EXECUTION_PROTOCOL_v0.1.md and record:
+- exact command(s);
+- environment/runtime used;
+- pass/fail counts;
+- any skipped checks and why;
+- relevant generated report paths.
+
+GitHub Actions workflows are manual emergency fallbacks only. They must not have automatic push or pull_request triggers while G7 is active.
+
+One autonomous repair/retry is allowed for ordinary technical failure; repeated or conceptual failures escalate.
 
 ## 12. Pull Request discipline
 

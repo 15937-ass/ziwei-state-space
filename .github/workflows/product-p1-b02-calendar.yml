@@ -1,18 +1,9 @@
 name: product-p1-b02-calendar
 
+# G7: routine execution moved to ChatGPT Work + Codex.
+# GitHub Actions is retained only as an explicit manual emergency fallback.
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths:
-      - "validation/product_chart_regression/b02a*.json"
-      - "tools/p1_*"
-      - "tools/iztro_full_export.mjs"
-      - "tools/x_iztro_full_export.py"
-      - "tools/dawang_p1_export/**"
-      - ".github/workflows/product-p1-b02-calendar.yml"
-      - "product/EXECUTION_GUARDRAILS.md"
 
 concurrency:
   group: product-p1-b02-calendar-${{ github.ref }}
