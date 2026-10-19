@@ -78,8 +78,12 @@ def test_cli_writes_utf8_report_to_output_file(tmp_path):
     assert report["real_world_event_prediction_supported"] is False
 
 
-def test_cli_stdout_is_deterministic_for_same_snapshot_and_arguments(capsys):
-    snapshot_path = ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.1.json"
+def test_cli_stdout_is_deterministic_for_same_snapshot_and_arguments(capsys, tmp_path):
+    snapshot_path = tmp_path / "snapshot.json"
+    snapshot_path.write_text(
+        json.dumps(_snapshot("破军", "禄"), ensure_ascii=False),
+        encoding="utf-8",
+    )
     args = [
         "--snapshot",
         str(snapshot_path),
