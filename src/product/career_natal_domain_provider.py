@@ -111,6 +111,15 @@ def _validate_mapping_handoff(
                 raise ValueError(f"{rule_id}: source modality note is required")
             if product_rule.get("expected_source_modality_note") != modality:
                 raise ValueError(f"{rule_id}: Product/source mapping drift in source modality note")
+        if "source_context" in source_map or "expected_source_context" in product_rule:
+            context = source_map.get("source_context")
+            if not isinstance(context, Mapping) or any(
+                not isinstance(context.get(field), str) or not context[field].strip()
+                for field in ("source_scope_note", "branch_gate_reading", "normalized_reading", "relation_basis")
+            ):
+                raise ValueError(f"{rule_id}: complete source context is required")
+            if product_rule.get("expected_source_context") != context:
+                raise ValueError(f"{rule_id}: Product/source mapping drift in source context")
         provenance = source_map.get("source_provenance")
         projection = source_map.get("expected_projection")
         if not isinstance(provenance, Mapping) or not isinstance(projection, Mapping):

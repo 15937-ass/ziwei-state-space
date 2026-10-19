@@ -126,7 +126,13 @@ def build_career_inference_report(
             {
                 "rule_id": rule_id,
                 "condition": str(product_rule["expected_condition"]),
-                "source_summary": str(source_mapping["source_span_summary"]),
+                "source_summary": (
+                    str(source_mapping["source_span_summary"])
+                    if "source_span_summary" in source_mapping
+                    else str(source_mapping["source_context"]["normalized_reading"])
+                ),
+                **({"source_context": dict(source_mapping["source_context"])}
+                   if "source_context" in source_mapping else {}),
                 **({"source_modality_note": source_mapping["source_modality_note"]}
                    if "source_modality_note" in source_mapping else {}),
                 "projection": {

@@ -251,3 +251,28 @@ probability or event certainty is established.
 CA01-023 spouse空劫 and CA01-020/064/065 remain unselected in this unit. No
 PALACE_RELATION semantics or ontology change is needed by these three rules.
 The production temporal reaction registry remains empty.
+
+
+## Career–Spouse 空劫 (Issue #356)
+
+The Career provider now executes35 explicit NATAL rules. The previous34 entries
+remain unchanged. CA01-023 comes solely from the reviewed mapping merged in #331.
+
+The condition preserves a global P09 -> P03 OPPOSITE prerequisite plus four full
+alternatives: P09寅/P03申 or P09申/P03寅, each with either P09地空/P03地劫 or
+P09地劫/P03地空. Both branch facts and both stars are required. Same-palace pairs,
+other branches, missing stars and a missing relation fact cannot substitute.
+
+This source mapping stores source_context rather than source_span_summary.
+Product pins the entire reviewed context and requires its four nonempty fields:
+source_scope_note, branch_gate_reading, normalized_reading and relation_basis.
+The actual report uses the reviewed normalized_reading as source_summary, and
+also exposes the exact source_context, including source-scope/OCR uncertainty.
+No new source paraphrase, relationship advice or empirical causal conclusion is
+introduced. Existing summary/modality fields for prior rules retain their values.
+
+The target spouse_influence_can_impair_career is preserved as a conditional
+source projection, not a finding that a real spouse harms an individual's career.
+The report still declares real_world_event_prediction_supported=false, and the
+production temporal reaction registry remains empty. Deterministic testing proves
+logical prerequisites and source traces, not real-world causation or accuracy.
