@@ -75,3 +75,21 @@ The wrapper never substitutes a temporal test fixture. With the current empty pr
 - matched temporal rule IDs, registry status, blockers, unknowns, conflicts, and limitations.
 
 The report builder checks that active rule evidence and projection fields still match the Product registry. It always emits `real_world_event_prediction_supported=false`; it does not turn a rule projection into a real-world event forecast.
+
+
+## Command-line invocation
+
+From the repository root:
+
+```bash
+python tools/run_career_inference.py \
+  --snapshot path/to/normalized-full-chart.json \
+  --target-id T-2030 \
+  --question "事业本命结构及大限、流年环境" \
+  --temporal-layers DECADE YEAR \
+  --output path/to/career-report.json
+```
+
+The CLI calls the same Product APIs as Python callers, writes deterministic UTF-8 JSON, and refuses to overwrite the input snapshot. If `--output` is omitted, the report is written to stdout. The CLI intentionally has no option for substituting a temporal test registry.
+
+A successful invocation can still return `PARTIAL_TEMPORAL_REGISTRY_EMPTY`; process success means the report was generated correctly, not that temporal rules were available or that a real-world event was predicted.
