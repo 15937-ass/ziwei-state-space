@@ -6,11 +6,11 @@ canonical_branch: "main"
 execution:
   status: "ACTIVE"
   program: "KB_WP07A"
-  active_issue: 326
+  active_issue: 330
   canonical_main_checkpoint: "CAREER_CA09_FINAL"
-  resume_entry: "Preserve the full source context for CA01-020, the illustrative condition 命宫紫微化权且财帛武曲化忌示例. Require the explicitly cited Career-palace 廉贞天相 context, retain unresolved inheritance from the preceding [紫微天府]/武曲独坐 setup, and keep the mapping non-executable."
-  resume_issue: 326
-  last_state_sync_issue: 326
+  resume_entry: "Map CA01-023, 事业夫妻两宫一空一劫, as a source-grounded cross-palace condition. Preserve the 寅/申 branch gate, both assignments of 地空 and 地劫 across Career P09 and Spouse P03, and the existing OPPOSITE relation; keep the mapping non-executable."
+  resume_issue: 330
+  last_state_sync_issue: 330
 
 canonical_main_snapshot:
   domain: "事业宫"
@@ -48,6 +48,10 @@ completed_work_units:
     issue: 319
     pr: 322
     status: "MERGED_NOT_EXECUTABLE"
+  - work_unit: "KB-WP07A-CAREER-CONTEXT-RECOVERY-CA01-020"
+    issue: 326
+    pr: 328
+    status: "MERGED_CONTEXT_BOUND_NOT_EXECUTABLE"
 
 archived_noncanonical_snapshots:
   wp05_all_twelve_palaces:
@@ -70,7 +74,7 @@ resume_queue_reference:
   legacy_integration_issue: 278
   completed_career_closure_pr: 294
   completed_temporal_eligibility_pr: 301
-  note: "Legacy Issue #278 is historical and closed. PR #272 remains a non-canonical comparison snapshot and must be audited segment by segment. Recent merged Career Knowledge mappings are #305, #308, #315 and #322; current active Knowledge work is Issue #326."
+  note: "Legacy Issue #278 is historical and closed. PR #272 remains a non-canonical comparison snapshot and must be audited segment by segment. Recent merged Career Knowledge mappings are #305, #308, #315, #322 and #328; current active Knowledge work is Issue #330."
 
 human_gate:
   pending_on_main: null
