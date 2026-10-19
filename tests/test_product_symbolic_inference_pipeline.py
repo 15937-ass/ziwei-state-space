@@ -202,10 +202,10 @@ def test_explicit_decade_year_selection_filters_temporal_facts_and_evidence():
         "YEAR",
     }
     assert result.temporal_profile.active_layers == ("DECADE", "YEAR")
-    assert result.evidence_package.to_dict()["temporal"]["active_layers"] == [
+    assert result.evidence_package.to_dict()["temporal"]["active_layers"] == (
         "DECADE",
         "YEAR",
-    ]
+    )
     conclusion = result.evidence_package.to_dict()["conclusion"]
     assert conclusion["selected_temporal_layers"] == ["DECADE", "YEAR"]
     assert all(
