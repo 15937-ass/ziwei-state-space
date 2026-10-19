@@ -3,7 +3,10 @@ from pathlib import Path
 
 import pytest
 
-from src.product.career_natal_domain_provider import load_default_career_natal_provider
+from src.product.career_natal_domain_provider import (
+    _validate_mapping_handoff,
+    load_default_career_natal_provider,
+)
 from src.product.natal_domain_registry import load_default_natal_domain_registry
 from src.product.symbolic_inference_pipeline import run_symbolic_inference
 
@@ -201,6 +204,25 @@ def test_end_to_end_career_natal_trace_is_canonical_but_temporal_result_remains_
         and ref["source_id"] == "SRC-ZZ-003"
         for ref in conclusion["evidence_refs"]
     )
+
+
+def test_career_mapping_handoff_validator_rejects_product_mapping_drift(tmp_path):
+    registry = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
+    mapping = json.loads(MAPPING_PATH.read_text(encoding="utf-8"))
+
+    mapping_dir = tmp_path / "knowledge" / "wp07a"
+    mapping_dir.mkdir(parents=True)
+    (mapping_dir / MAPPING_PATH.name).write_text(
+        json.dumps(mapping, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    registry["source_mapping"]["path"] = str(
+        Path("knowledge") / "wp07a" / MAPPING_PATH.name
+    )
+    registry["rules"]["CA04-347"]["expected_projection_target"] = "drifted_target"
+
+    with pytest.raises(ValueError, match="drift in projection_target"):
+        _validate_mapping_handoff(tmp_path, registry)
 
 
 def test_product_registry_keeps_temporal_and_event_claims_disabled():
