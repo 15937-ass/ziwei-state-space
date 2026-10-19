@@ -1,0 +1,1315 @@
+{
+  "schema_version": "0.1",
+  "audit_id": "KB-WP07A-CAREER-NATAL-TRANSFORMATION-MAP-CA01-CA03",
+  "work_unit": "KB-WP07A-CAREER-NATAL-TRANSFORMATION-MAP-CA01-CA03",
+  "lane": "KNOWLEDGE_ONLY",
+  "status": "SOURCE_GROUNDED_MAPPING_COMPLETE_NOT_EXECUTABLE",
+  "source_id": "SRC-ZZ-003",
+  "source_title": "《中州派紫微斗数深造讲义（下）》",
+  "canonical_corpus": "CAREER_CA09_FINAL",
+  "scope": {
+    "palace_id": "P09",
+    "palace_name": "事业宫",
+    "source_batches": [
+      "CA01",
+      "CA02",
+      "CA03"
+    ],
+    "nominated_source_rule_ids": [
+      "CA01-052",
+      "CA01-053",
+      "CA01-054",
+      "CA01-055",
+      "CA01-070",
+      "CA01-071",
+      "CA01-078",
+      "CA02-155",
+      "CA02-158",
+      "CA02-160",
+      "CA02-164",
+      "CA02-194",
+      "CA03-252",
+      "CA03-254",
+      "CA03-279",
+      "CA03-283",
+      "CA03-285"
+    ],
+    "purpose": "扩展事业宫原局四化条件的源文到现有运行事实映射；不是可执行注册表，也不声称现实预测有效。"
+  },
+  "mappings": [
+    {
+      "source_rule_id": "CA01-052",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "紫微化权",
+      "source_anchor_phrase": "紫微化权",
+      "source_span_summary": "紫微化权强调独当一面或工作独立性；来源明确不应由此直接推出富贵。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "紫微",
+              "mutagen": "权"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "紫微",
+              "mutagen": "权"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时提供绑定 palace/star/mutagen 的 TRANSFORMATION_PRESENT；本条来源条件没有额外宫支限定。"
+      },
+      "expected_projection": {
+        "projection_domain": "role",
+        "projection_target": "work_independence_strengthened",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA01-053",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "紫微化权",
+      "source_anchor_phrase": "紫微化权",
+      "source_span_summary": "该条保留结构性限制：权力或独立性本身不等于财富或高阶地位。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "紫微",
+              "mutagen": "权"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "紫微",
+              "mutagen": "权"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时提供绑定 palace/star/mutagen 的 TRANSFORMATION_PRESENT；本条来源条件没有额外宫支限定。"
+      },
+      "expected_projection": {
+        "projection_domain": "methodology",
+        "projection_target": "authority_does_not_itself_imply_wealth_or_high_rank",
+        "projection_mode": "STRUCTURAL_CONSTRAINT"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA01-054",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "紫微化科",
+      "source_anchor_phrase": "紫微化科",
+      "source_span_summary": "紫微化科偏重名誉而非财利，来源举自由职业、专业人士为适宜场景。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "紫微",
+              "mutagen": "科"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "紫微",
+              "mutagen": "科"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时提供绑定 palace/star/mutagen 的 TRANSFORMATION_PRESENT；本条来源条件没有额外宫支限定。"
+      },
+      "expected_projection": {
+        "projection_domain": "reputation",
+        "projection_target": "reputation_exceeds_financial_return",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA01-055",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "紫微化科",
+      "source_anchor_phrase": "紫微化科",
+      "source_span_summary": "紫微化科可投影为独立专业工作场景；不由此直接推断现实收入。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "紫微",
+              "mutagen": "科"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "紫微",
+              "mutagen": "科"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时提供绑定 palace/star/mutagen 的 TRANSFORMATION_PRESENT；本条来源条件没有额外宫支限定。"
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "independent_professional_work_scene",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA01-070",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p134",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "子午紫微化权",
+      "source_anchor_phrase": "子午紫微化权",
+      "source_span_summary": "来源将子午宫位条件与事业有利、婚姻受压的并存关系相连，必须保留宫支限制。",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "权"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "权"
+              }
+            }
+          ]
+        ]
+      },
+      "condition_atom_types": [
+        "BRANCH_PRESENT",
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "子"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "紫微",
+              "mutagen": "权"
+            }
+          }
+        ],
+        [
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "午"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "紫微",
+              "mutagen": "权"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时同时提供 P09 的 BRANCH_PRESENT 与星曜自身绑定 palace/star/mutagen 的 TRANSFORMATION_PRESENT；每个备选分支必须同时满足宫支和四化条件。"
+      },
+      "expected_projection": {
+        "projection_domain": "development",
+        "projection_target": "career_advantage_strengthened",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA01-071",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p134",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "子午紫微化权",
+      "source_anchor_phrase": "子午紫微化权",
+      "source_span_summary": "该条是跨宫关系约束，不应缩减为单独的事业优势结论。",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "权"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "权"
+              }
+            }
+          ]
+        ]
+      },
+      "condition_atom_types": [
+        "BRANCH_PRESENT",
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "子"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "紫微",
+              "mutagen": "权"
+            }
+          }
+        ],
+        [
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "午"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "紫微",
+              "mutagen": "权"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时同时提供 P09 的 BRANCH_PRESENT 与星曜自身绑定 palace/star/mutagen 的 TRANSFORMATION_PRESENT；每个备选分支必须同时满足宫支和四化条件。"
+      },
+      "expected_projection": {
+        "projection_domain": "relationship",
+        "projection_target": "career_advantage_can_coexist_with_marriage_tension",
+        "projection_mode": "CROSS_PALACE_CONSTRAINT"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA01-078",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p134",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "子午紫微化科",
+      "source_anchor_phrase": "子午紫微化科",
+      "source_span_summary": "子午紫微化科仍保留名大于利的来源判断；不得去掉子午条件。",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "科"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "科"
+              }
+            }
+          ]
+        ]
+      },
+      "condition_atom_types": [
+        "BRANCH_PRESENT",
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "子"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "紫微",
+              "mutagen": "科"
+            }
+          }
+        ],
+        [
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "午"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "紫微",
+              "mutagen": "科"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时同时提供 P09 的 BRANCH_PRESENT 与星曜自身绑定 palace/star/mutagen 的 TRANSFORMATION_PRESENT；每个备选分支必须同时满足宫支和四化条件。"
+      },
+      "expected_projection": {
+        "projection_domain": "reputation",
+        "projection_target": "reputation_exceeds_financial_return",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA02-155",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p136",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "天机化禄",
+      "source_anchor_phrase": "天机化禄",
+      "source_span_summary": "来源明确指出化禄不消除天机原有的不稳定性质，属于结构性限制。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "禄"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "禄"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时提供绑定 palace/star/mutagen 的 TRANSFORMATION_PRESENT；本条来源条件没有额外宫支限定。"
+      },
+      "expected_projection": {
+        "projection_domain": "methodology",
+        "projection_target": "hualu_does_not_remove_tianji_instability",
+        "projection_mode": "STRUCTURAL_CONSTRAINT"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA02-158",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p136",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": "PATH_DEPENDENT_GATE"
+      },
+      "source_condition_text": "天机化权",
+      "source_anchor_phrase": "天机化权",
+      "source_span_summary": "来源描述先发生一次改变、之后才趋于稳定，输出含有明确先后路径。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "权"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "权"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时提供绑定 palace/star/mutagen 的 TRANSFORMATION_PRESENT；本条来源条件没有额外宫支限定。"
+      },
+      "expected_projection": {
+        "projection_domain": "stability",
+        "projection_target": "career_becomes_more_stable_after_prior_change",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "BLOCKED_PATH_DEPENDENT_TARGET",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA02-160",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p136",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "天机化科",
+      "source_anchor_phrase": "天机化科",
+      "source_span_summary": "来源将天机化科联系到计划、管理、设计等工作场景及行业声誉。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "科"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "科"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时提供绑定 palace/star/mutagen 的 TRANSFORMATION_PRESENT；本条来源条件没有额外宫支限定。"
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "planning_management_or_design_work_suited",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA02-164",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p136",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "天机化忌",
+      "source_anchor_phrase": "天机化忌",
+      "source_span_summary": "来源描述安定后再变更及计划错误，包含反复/先后路径，不可当作静态事实直接执行。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时提供绑定 palace/star/mutagen 的 TRANSFORMATION_PRESENT；本条来源条件没有额外宫支限定。"
+      },
+      "expected_projection": {
+        "projection_domain": "stability",
+        "projection_target": "career_changes_recur_after_each_period_of_settlement",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "BLOCKED_PATH_DEPENDENT_TARGET",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA02-194",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p136",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "子午天机化忌",
+      "source_anchor_phrase": "子午天机化忌",
+      "source_span_summary": "来源将子午天机化忌与事业相关的人身攻击相连；映射不等于现实事件断言或概率。",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "天机",
+                "mutagen": "忌"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "天机",
+                "mutagen": "忌"
+              }
+            }
+          ]
+        ]
+      },
+      "condition_atom_types": [
+        "BRANCH_PRESENT",
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "子"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "忌"
+            }
+          }
+        ],
+        [
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "午"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时同时提供 P09 的 BRANCH_PRESENT 与星曜自身绑定 palace/star/mutagen 的 TRANSFORMATION_PRESENT；每个备选分支必须同时满足宫支和四化条件。"
+      },
+      "expected_projection": {
+        "projection_domain": "relation",
+        "projection_target": "career_can_trigger_personal_attack",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "BLOCKED_EVENT_LIKE_TARGET_REQUIRES_MANIFESTATION_REVIEW",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA03-252",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p137-138",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "巳亥天机化忌",
+      "source_anchor_phrase": "巳亥天机化忌",
+      "source_span_summary": "巳亥宫位下，来源将天机化忌联系到保险行业场景；宫支门控必须保留。",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "巳"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "天机",
+                "mutagen": "忌"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "亥"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "天机",
+                "mutagen": "忌"
+              }
+            }
+          ]
+        ]
+      },
+      "condition_atom_types": [
+        "BRANCH_PRESENT",
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "巳"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "忌"
+            }
+          }
+        ],
+        [
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "亥"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时同时提供 P09 的 BRANCH_PRESENT 与星曜自身绑定 palace/star/mutagen 的 TRANSFORMATION_PRESENT；每个备选分支必须同时满足宫支和四化条件。"
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "insurance_scene_suited",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA03-254",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p138",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "天机化科",
+      "source_anchor_phrase": "天机化科",
+      "source_span_summary": "来源指出天机化科仍有事业变动性质；本映射保留该投影，不推造具体事件。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "科"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "科"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时提供绑定 palace/star/mutagen 的 TRANSFORMATION_PRESENT；本条来源条件没有额外宫支限定。"
+      },
+      "expected_projection": {
+        "projection_domain": "stability",
+        "projection_target": "career_change_property_remains",
+        "projection_mode": "STRUCTURAL_CONSTRAINT"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA03-279",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p138",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "太阳化禄",
+      "source_anchor_phrase": "太阳化禄",
+      "source_span_summary": "太阳化禄的事业投影重声名；经商时的商标/商誉是来源语境，不扩写成收入数值。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "太阳",
+              "mutagen": "禄"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "太阳",
+              "mutagen": "禄"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时提供绑定 palace/star/mutagen 的 TRANSFORMATION_PRESENT；本条来源条件没有额外宫支限定。"
+      },
+      "expected_projection": {
+        "projection_domain": "reputation",
+        "projection_target": "career_reputation_or_brand_value_strengthened",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA03-283",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p138-139",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "太阳化科",
+      "source_anchor_phrase": "太阳化科",
+      "source_span_summary": "太阳化科对应有荣誉或信誉要求的专业工作场景。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "太阳",
+              "mutagen": "科"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "太阳",
+              "mutagen": "科"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时提供绑定 palace/star/mutagen 的 TRANSFORMATION_PRESENT；本条来源条件没有额外宫支限定。"
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "reputation_dependent_professional_scene",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA03-285",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p139",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "太阳化忌",
+      "source_anchor_phrase": "太阳化忌",
+      "source_span_summary": "太阳化忌对应排难解纷或口舌性质的工作场景；口舌不必然等同纠纷事件。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "太阳",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "太阳",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时提供绑定 palace/star/mutagen 的 TRANSFORMATION_PRESENT；本条来源条件没有额外宫支限定。"
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "dispute_resolution_or_speech_based_work_scene",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    }
+  ],
+  "exclusions": [
+    {
+      "source_rule_id": "CA04-368",
+      "source_location": "事业宫printed_p141",
+      "reason_code": "PREVIOUS_RULE_CONTEXT_REQUIRED",
+      "reason": "条件“前格武曲化科”依赖前一段/前格语境，不能直接压缩成武曲化科单条件。"
+    },
+    {
+      "source_rule_id": "CA05-403",
+      "source_location": "事业宫printed_p142",
+      "reason_code": "TIMING_TRIGGER_OUTPUT",
+      "reason": "投影模式为 TIMING_TRIGGER，涉及工作开始与事业确立的时间关系，不纳入静态投影候选。"
+    },
+    {
+      "source_rule_id": "CA06-558",
+      "source_location": "事业宫printed_p147",
+      "reason_code": "BRIGHTNESS_FACT_NOT_EMITTED",
+      "reason": "条件“天府入庙化科”包含入庙/亮度信息，现有运行事实不发出该事实，不能仅映射化科。"
+    },
+    {
+      "source_rule_id": "CA07-624",
+      "source_location": "事业宫printed_p148",
+      "reason_code": "COMPOUND_TRANSFORMATION_SEMANTICS_UNRESOLVED",
+      "reason": "“贪狼化禄化权”的组合语义需要回到原文与四化规则确认；不擅自解释为同星同时具有两种四化。"
+    },
+    {
+      "source_rule_id": "CA09-852",
+      "source_location": "事业宫printed_p154",
+      "reason_code": "ALREADY_MAPPED_IN_PILOT",
+      "reason": "已由 WP07A 试点 PR #305 映射，避免重复定义。"
+    }
+  ],
+  "validation": {
+    "nominated_rows": 17,
+    "mapped_rows": 17,
+    "blocked_nominated_rows": 0,
+    "source_span_verified_all": true,
+    "review_status_all": "SOURCE_SPAN_VERIFIED",
+    "time_layer_all": "NATAL",
+    "case_support_only_all": false,
+    "branch_gated_rows": 5,
+    "path_dependent_outputs_blocked": 2,
+    "event_like_outputs_blocked_for_manifestation_review": 1,
+    "atom_types_used": [
+      "BRANCH_PRESENT",
+      "TRANSFORMATION_PRESENT"
+    ],
+    "atom_types_are_within_current_allowed_atom_types": true,
+    "each_condition_matches_existing_natal_runtime_fact_shape": true,
+    "branch_restrictions_preserved": true,
+    "source_targets_and_projection_modes_preserved_exactly": true,
+    "history_feedback_metadata_preserved": true,
+    "source_rows_modified": false,
+    "executable_rule_created": false,
+    "product_runtime_modified": false,
+    "production_registry_modified": false,
+    "new_atom_or_ontology_semantics_created": false,
+    "empirical_probability_or_numeric_weight_created": false
+  },
+  "guardrails": [
+    "直接条件映射与运行时可执行性是两个不同判断；路径依赖输出与事件式目标已单独标注，不得当作静态确定结论。",
+    "对子午、巳亥等宫支限定，必须同时满足 BRANCH_PRESENT 与绑定星曜/四化事实，不得丢掉宫支门控。",
+    "仅使用现有 TRANSFORMATION_PRESENT 和 BRANCH_PRESENT；不得用互不绑定的星曜存在与四化存在替代星曜自身四化。",
+    "保留 source projection_domain、projection_target、projection_mode 的原值。",
+    "知识侧只提供映射，不写入产品可执行注册表；产品实现、语义门控与经验校准另行审查。",
+    "history_feedback 仅作为审计元数据保留，不可用于修改来源原义。"
+  ]
+}
