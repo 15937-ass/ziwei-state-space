@@ -195,6 +195,7 @@ from .career_inference_service import (
     run_career_inference,
 )
 from .career_inference_report import build_career_inference_report
+from .inference_snapshot_contract import validate_normalized_inference_snapshot
 from .natal_prior import (
     NatalDomainEvidence,
     NatalRuleEvidence,
