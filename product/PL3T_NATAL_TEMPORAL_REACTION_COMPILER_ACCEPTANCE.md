@@ -53,6 +53,8 @@ PL3T asset adapter 在保留原始 normalized facts 的同时，现在额外输�
 - TRANSFORMATION_PRESENT；
 - TAG_PRESENT。
 
+当且仅当 PL1 的 temporal star object 显式携带 `mutagen` 字段时，adapter 还会输出带有 `layer + palace_name + star + mutagen` 的 star-bound `TRANSFORMATION_PRESENT`。scope 级 `mutagen` 数组仍单独保留，不会与同层星曜进行位置猜测或自动关联。
+
 这些只是 PL1 排盘字段的结构化镜像，不包含吉凶、事件或概率解释。
 
 ## 5. Reaction evidence
@@ -96,3 +98,10 @@ production temporal reaction registry = EMPTY
 **PRODUCT_PL3T_EVENT_RELATIVE_WINDOW_SUPPORT_V0_1**
 
 实现已获 HG-P07-TEMPORAL-01-A 批准的 `MIGRATION_FIRST_THREE_YEARS`，只做这个明示窗口，不建立通用事件计时器。
+
+
+## 9. Product-only fact-contract gap audit
+
+The detailed status is recorded in `product/PL3T_TEMPORAL_FACT_CONTRACT_GAPS_v0.1.md`.
+
+The adapter change does not make any existing free-text temporal rule executable by itself. Activation/convergence semantics, favorable/unfavorable-period predicates, and multi-year sequence gates remain blocked; the canonical production reaction registry stays empty until source-faithful normalization is approved.

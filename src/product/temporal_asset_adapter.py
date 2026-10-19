@@ -199,6 +199,20 @@ def _scope_facts(
                             star=star_name,
                         )
                     )
+                    # Preserve a star-bound transformation only when PL1 explicitly
+                    # attaches the mutagen to this star object. The scope-level
+                    # mutagen list above is intentionally not joined to stars.
+                    star_mutagen = str(star.get("mutagen") or "").strip()
+                    if star_mutagen:
+                        condition_facts.add(
+                            fact_from_atom(
+                                "TRANSFORMATION_PRESENT",
+                                layer=layer,
+                                palace_name=palace_name,
+                                star=star_name,
+                                mutagen=star_mutagen,
+                            )
+                        )
 
     return facts, condition_facts
 

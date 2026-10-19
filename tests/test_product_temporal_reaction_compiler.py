@@ -65,6 +65,55 @@ def test_explicit_natal_and_temporal_conditions_match_reaction():
     assert reaction.matched_temporal_facts
 
 
+def test_star_bound_temporal_transformation_requires_explicit_pl1_binding():
+    def run(explicit_mutagen):
+        snapshot = json.loads(ASSET.read_text(encoding="utf-8"))
+        star = snapshot["temporal"][0]["scopes"]["yearly"]["stars"][0][0]
+        star["name"] = "武曲"
+        if explicit_mutagen:
+            star["mutagen"] = "忌"
+        bundle = adapt_target_from_full_snapshot(snapshot, target_id="T-DEMO")
+
+        document = json.loads(REGISTRY.read_text(encoding="utf-8"))
+        rule = document["rules"][0]
+        rule["reaction_id"] = "TR-STAR-MUTAGEN-TEST"
+        rule["rule_id"] = "TR-STAR-MUTAGEN-TEST"
+        rule["temporal_condition"] = {
+            "all_of": [
+                {
+                    "atom_type": "TIME_LAYER",
+                    "args": {"layer": "YEAR"},
+                },
+                {
+                    "atom_type": "TRANSFORMATION_PRESENT",
+                    "args": {
+                        "layer": "YEAR",
+                        "palace_name": "命宫",
+                        "star": "武曲",
+                        "mutagen": "忌",
+                    },
+                },
+            ]
+        }
+        rules = compile_temporal_reaction_registry(document)
+        return match_temporal_reactions(_natal(), bundle, rules)
+
+    explicit_report = run(explicit_mutagen=True)
+    assert len(explicit_report.matched) == 1
+    expected_fact = fact_from_atom(
+        "TRANSFORMATION_PRESENT",
+        layer="YEAR",
+        palace_name="命宫",
+        star="武曲",
+        mutagen="忌",
+    )
+    assert expected_fact in explicit_report.matched[0].matched_temporal_facts
+
+    unbound_report = run(explicit_mutagen=False)
+    assert unbound_report.matched == ()
+    assert unbound_report.issues
+
+
 def test_missing_natal_antecedent_fails_closed():
     report = match_temporal_reactions(_natal(with_star=False), _bundle(), _rules())
     assert not report.matched
