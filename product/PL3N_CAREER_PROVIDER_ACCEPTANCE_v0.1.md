@@ -105,3 +105,17 @@ This uses only the already approved `MIGRATION_FIRST_THREE_YEARS` resolver:
 - confirmed settlement with no elapsed-year value: `INSUFFICIENT`.
 
 The context is reported with its source provenance and routing facts. It is not a temporal reaction rule, does not add a seventh calendar time layer, and does not change `PARTIAL_TEMPORAL_REGISTRY_EMPTY` while the production reaction registry remains empty.
+
+
+CLI example with an explicit external trigger:
+
+```json
+{
+  "confirmed_distant_settlement": true,
+  "years_since_distant_relocation": 2,
+  "travel_only": false,
+  "trigger_provenance": "OBS-RELOCATION-001"
+}
+```
+
+Save the object as `migration-window.json` and pass `--migration-window migration-window.json`. The provenance token identifies the externally supplied observation; it is not inferred from the Zi Wei chart. If the user has only travelled without confirmed distant settlement, the window must remain inactive.
