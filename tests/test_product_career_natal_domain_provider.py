@@ -12,6 +12,7 @@ from src.product.career_inference_report import (
     _load_temporal_blocker_diagnostics,
     build_career_inference_report,
 )
+from src.product.event_relative_window import MigrationFirstThreeYearsInput
 from src.product.natal_domain_registry import load_default_natal_domain_registry
 from src.product.symbolic_inference_pipeline import run_symbolic_inference
 
@@ -250,6 +251,67 @@ def test_high_level_career_service_uses_production_registry_and_defaults_to_deca
     assert conclusion["selected_temporal_layers"] == ["DECADE", "YEAR"]
     assert conclusion["canonical_rule_ids"] == ["CA09-852"]
     assert conclusion["temporal_reaction_rule_ids"] == []
+
+
+def test_approved_migration_window_flows_through_service_and_report_without_changing_reaction_status():
+    run = run_career_inference(
+        ROOT,
+        _full_snapshot({"事业宫": [_star("武曲", "科")]}),
+        target_id="T-DEMO",
+        question="事业本命结构及大限、流年环境",
+        migration_window=MigrationFirstThreeYearsInput(
+            confirmed_distant_settlement=True,
+            years_since_distant_relocation=2,
+            travel_only=False,
+            trigger_provenance="OBS-RELOCATION-001",
+        ),
+    )
+    report = build_career_inference_report(ROOT, run)
+
+    assert run.status == "PARTIAL_TEMPORAL_REGISTRY_EMPTY"
+    assert run.blockers == ("PRODUCTION_TEMPORAL_REACTION_REGISTRY_EMPTY",)
+    assert run.temporal_profile.external_event_trigger_used is True
+    assert run.temporal_profile.active_layers == ("DECADE", "YEAR")
+    context = report["temporal"]["event_relative_context"]
+    assert len(context) == 1
+    assert context[0]["context_id"] == "MIGRATION_FIRST_THREE_YEARS"
+    assert context[0]["status"] == "ACTIVE"
+    assert context[0]["source"]["source_id"] == "SRC-ZZ-003"
+    assert context[0]["trigger_provenance"] == "OBS-RELOCATION-001"
+    assert "projection_priority:migration_palace:primary" in context[0]["routing_facts"]
+    assert report["temporal"]["matched_reaction_rule_ids"] == []
+    assert report["real_world_event_prediction_supported"] is False
+    assert "EVENT_RELATIVE_CONTEXT_IS_NOT_A_TEMPORAL_REACTION" in report["limitations"]
+
+
+@pytest.mark.parametrize(
+    "years,travel_only,expected_status",
+    [
+        (None, False, "INSUFFICIENT"),
+        (4, False, "INACTIVE"),
+        (2, True, "INACTIVE"),
+    ],
+)
+def test_migration_window_non_active_cases_remain_context_only(years, travel_only, expected_status):
+    run = run_career_inference(
+        ROOT,
+        _full_snapshot(),
+        target_id="T-DEMO",
+        question="迁移事件相对窗口测试",
+        migration_window=MigrationFirstThreeYearsInput(
+            confirmed_distant_settlement=True,
+            years_since_distant_relocation=years,
+            travel_only=travel_only,
+            trigger_provenance="OBS-RELOCATION-002",
+        ),
+    )
+    report = build_career_inference_report(ROOT, run)
+
+    assert run.status == "PARTIAL_TEMPORAL_REGISTRY_EMPTY"
+    assert run.temporal_profile.event_relative_context[0].status == expected_status
+    assert report["temporal"]["event_relative_context"][0]["status"] == expected_status
+    assert report["temporal"]["matched_reaction_rule_ids"] == []
+    assert report["real_world_event_prediction_supported"] is False
 
 
 def test_career_inference_report_is_chinese_traceable_and_preserves_partial_status():
