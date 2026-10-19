@@ -49,3 +49,10 @@ The validator checks the selected target's six scopes, while enforcing unique, n
 ## Integration
 
 `run_career_inference` validates the snapshot before loading the Career provider or production reaction registry. Python callers and the CLI therefore share the same input contract. A valid snapshot can still produce `PARTIAL_TEMPORAL_REGISTRY_EMPTY`; structural validity is not evidence of a temporal conclusion or real-world prediction accuracy.
+
+
+## Invocation
+
+The contract is enforced by `run_career_inference(repository_root, normalized_snapshot, target_id=..., question=...)` before the provider registry or production temporal registry is loaded. The CLI uses the same service, so malformed JSON snapshots receive the same structural validation.
+
+A valid v0.2 snapshot does not imply that a temporal conclusion exists. The current production reaction registry may still be empty, in which case the expected result remains `PARTIAL_TEMPORAL_REGISTRY_EMPTY`.
