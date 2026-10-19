@@ -2,6 +2,7 @@ import pytest
 
 from src.product.layered_evidence_package import (
     LayeredEvidencePackage,
+    StructuredInferenceConclusion,
     build_layered_evidence_package,
 )
 from src.product.natal_prior import NatalStateProfile
@@ -122,4 +123,59 @@ def test_pl3t_layered_package_forbids_empirical_namespace():
             canonical=base.canonical,
             temporal=base.temporal,
             empirical={"probability": 0.8},
+        )
+
+
+def test_structured_conclusion_round_trips_inside_evidence_package():
+    natal = _natal()
+    conclusion = StructuredInferenceConclusion(
+        schema_version="0.1",
+        status="PARTIAL",
+        question="2030年的迁移环境",
+        target_id="T-2030",
+        selected_domains=("wealth",),
+        canonical_rule_ids=(),
+        temporal_reaction_rule_ids=(),
+        evidence_refs=(),
+        conflicts=("SOURCE_CONFLICT",),
+        unknowns=("PRODUCTION_TEMPORAL_REACTION_REGISTRY_EMPTY",),
+        limitations=("NO_REAL_WORLD_EVENT_CLAIM",),
+    )
+    package = build_layered_evidence_package(
+        question="2030年的迁移环境",
+        natal_profile=natal,
+        temporal_profile=_temporal(natal),
+        conclusion=conclusion,
+    )
+
+    payload = package.to_dict()
+    assert payload["conclusion"]["status"] == "PARTIAL"
+    assert payload["conclusion"]["target_id"] == "T-2030"
+    assert payload["conclusion"]["unknowns"] == [
+        "PRODUCTION_TEMPORAL_REACTION_REGISTRY_EMPTY"
+    ]
+    assert payload["conclusion"]["conflicts"] == ["SOURCE_CONFLICT"]
+
+
+def test_structured_conclusion_question_must_match_package_question():
+    natal = _natal()
+    conclusion = StructuredInferenceConclusion(
+        schema_version="0.1",
+        status="PARTIAL",
+        question="different question",
+        target_id="T-2030",
+        selected_domains=("wealth",),
+        canonical_rule_ids=(),
+        temporal_reaction_rule_ids=(),
+        evidence_refs=(),
+        conflicts=(),
+        unknowns=("UNKNOWN",),
+        limitations=("NO_REAL_WORLD_EVENT_CLAIM",),
+    )
+    with pytest.raises(ValueError, match="question must match"):
+        build_layered_evidence_package(
+            question="2030年的迁移环境",
+            natal_profile=natal,
+            temporal_profile=_temporal(natal),
+            conclusion=conclusion,
         )
