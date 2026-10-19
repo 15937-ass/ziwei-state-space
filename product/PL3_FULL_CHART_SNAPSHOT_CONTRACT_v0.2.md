@@ -19,7 +19,7 @@ The Python validator is the dependency-free runtime gate. Its tests pin the key 
 - `natal.palaces` must map exactly the twelve earthly branches to palace objects. Each palace must provide `name`, `stem`, `branch`, `is_body_palace`, `major_stars`, `minor_stars`, and `adjective_stars`. The embedded branch must match its mapping key.
 - Every natal star object must preserve the PL1 v0.2 fields `name`, `type`, `brightness`, `mutagen`, and `scope`; nullable metadata stays null and is never guessed.
 - `temporal` must be a non-empty array. Each item must have a unique non-empty `target.target_id`, a valid target date, an integer time index, a matching top-level temporal solar date, a non-empty lunar date, and all six required scopes.
-- Each of the six scopes must preserve the adapter-required fields `index`, `name`, `stem`, `branch`, `palace_names`, `mutagen`, `nominal_age`, and `stars`. Scope arrays and star groups are type-checked, and star-group count must equal `palace_names` length.
+- Each of the six scopes must preserve the adapter-required fields `index`, `name`, `stem`, `branch`, `palace_names`, `mutagen`, `nominal_age`, and `stars`. Scope arrays and star groups are type-checked. An explicit `stars=[]` is accepted as the existing exporter representation of no supplied flow-star groups; non-empty star-group arrays must equal `palace_names` length. Missing `stars`, null, malformed groups and misaligned non-empty arrays remain errors. No empty array is expanded or filled.
 - `yearly_dec_stars` may be absent or null. If present, it must contain array fields `suiqian12` and `jiangqian12`.
 - The requested `target_id` must exist exactly once in the temporal array.
 
@@ -48,3 +48,13 @@ for inference acceptance. Existing small temporal adapter fixtures remain valid.
 
 中文边界：来源字段完整不等于来源真实性已认证；输入结构合格不等于预测有效。
 本次不改动原典、安星算法、本命规则或生产时间反应库。
+
+
+## 中文兼容性复核结论（#336）
+
+两个固定版本引擎对 100 张回归盘、400 个时序快照的小限层均输出十二个宫名和
+明确的 `stars=[]`。既有适配器直接遍历该空数组；它不会猜测星曜，也不会将宫名
+当作星曜。因此输入关口接受这一既有表示，并继续要求非空星曜分组与宫名数组
+逐项对齐。该处理适用于六个 scope 的同一传输字段，不新增命理判断或推演规则。
+来源：`tools/iztro_full_export.mjs` 的 `stableFlowStars` / `normalizeScope`、
+`tools/x_iztro_full_export.py`、`src/product/temporal_asset_adapter.py`。

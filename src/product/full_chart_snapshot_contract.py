@@ -247,7 +247,10 @@ def _validate_scope(path: str, scope: Any, errors: list[str]) -> None:
         if not isinstance(stars, list):
             errors.append(f"{path}.stars must be an array of arrays")
         else:
-            if isinstance(palace_names, list) and len(stars) != len(palace_names):
+            # The pinned exporters use [] when a scope has no flow-star
+            # groups (notably age). Preserve that explicit representation.
+            # Supplied non-empty groups must still align palace by palace.
+            if stars and isinstance(palace_names, list) and len(stars) != len(palace_names):
                 errors.append(
                     f"{path}.stars group count must equal palace_names length"
                 )

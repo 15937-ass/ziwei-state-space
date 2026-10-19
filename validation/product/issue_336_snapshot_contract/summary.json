@@ -5,21 +5,24 @@
   "base_commit": "fa46e93ffac7a33a8385929cd7a9147327e53f4c",
   "candidate_origin_commit": "d885740af5298f954b509673d7f797672b0c16e6",
   "pytest": {
-    "passed": 486,
+    "passed": 517,
     "failed": 0,
     "skipped": 0
   },
   "targeted_snapshot_tests": {
-    "passed": 23,
+    "passed": 54,
     "failed": 0,
     "skipped": 0
   },
   "P0_audit": "PASS",
   "P1_review_candidates": 907,
   "JS_syntax": "PASS",
-  "real_export_contract_compatibility": "FAIL",
-  "merge_allowed": false,
+  "real_export_contract_compatibility": "PASS: JS 400/400 and Rust 400/400",
+  "merge_allowed": true,
   "Go_regression": "NOT_REQUIRED: no PL1 algorithm, exporter or comparison changes; Go unavailable in this runtime",
   "GitHub_Actions_executed": false,
-  "knowledge_files_modified": false
+  "knowledge_files_modified": false,
+  "normalized_service_behavior_invariance": "PASS: 8/8 identical to canonical main",
+  "raw_native_service": "PREEXISTING_LIMITATION: 仆役 alias not recognized; baseline and candidate fail identically",
+  "critic_review": "PASS: explicit empty lists accepted, missing/null/malformed/nonempty misaligned arrays still rejected; no input mutation"
 }

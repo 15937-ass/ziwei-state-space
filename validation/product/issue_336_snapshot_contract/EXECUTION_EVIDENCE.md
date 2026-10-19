@@ -1,84 +1,112 @@
-# Issue #336 — Codex recovery and validation evidence
+# Issue #336 — Final Codex validation evidence
 
-Execution runtime: Codex / OpenAI cloud environment. Python 3.12.14, Node v24.19.0,
-pytest 9.1.1, iztro-js 2.6.1, x-iztro 0.6.1. No GitHub Actions run was requested.
-
+Execution runtime: Codex / OpenAI cloud environment.
+Python 3.12.14, Node v24.19.0, pytest 9.1.1, iztro-js 2.6.1, x-iztro 0.6.1.
 Base commit: `fa46e93ffac7a33a8385929cd7a9147327e53f4c`.
-Recovered candidate: `d885740af5298f954b509673d7f797672b0c16e6` (PR #339).
-The full base Git tree was reconstructed through the authenticated connector and
-verified as `3c725ccc1e4d7820eaa0052fc51391084763e41a` before edits. The original
-signed base commit object was recovered with its exact SHA. Direct private-repo
-cloning was unavailable; no substitute/synthetic base was used.
+Prior blocked checkpoint: `945a58677a115f7a3dd5592d3da3ebd7f80c538c`.
+Exact validated head SHA is recorded in the PR/Issue Validation Evidence block.
+
+## 中文验收结论
+
+**#336 输入结构契约通过验收。** 修复了既有导出器 `age.stars=[]` 被误拒绝的问题。
+六个 scope 均接受明确的空数组；非空数组仍须逐宫对齐。缺失字段、null、畸形
+分组、错位非空数组继续拒绝；不补齐或推算星曜，不变更原典或规则语义。
+复核依据为两个固定版本引擎的实际导出、`stableFlowStars` / `normalizeScope`
+及既有 `temporal_asset_adapter` 对空数组的直接遍历行为。
+
+验收区分：结构关口通过，不等于原始引擎输出已经能直接完成全部推演。
+原始盘的“仆役”别名仍不被下游本命适配器识别；主线与候选对同一原始输入
+出现完全相同的 ValueError。该既有局限记录在本 Issue，未在本次扩大范围修复。
+规范化测试输入的本命证据与时间限制则与主线完全一致。
 
 ## Commands and results
 
-Run from repository root, in this order where dependent:
+Dependencies were installed in this Codex environment during recovery:
 
 ```bash
 python -m pip install --upgrade pytest
-PYTHONPATH="$PWD" python -m pytest -q
+npm install --no-save iztro@2.6.1
+python -m pip install --upgrade "x-iztro==0.6.1"
 ```
 
-Original candidate: 478 passed, 5 failed (missing target-array position in scope
-error diagnostics). One autonomous repair updated diagnostics, rejected padded
-target IDs that conflict with adapter lookup, and added negative tests.
+Final verification from repository root:
 
 ```bash
 PYTHONPATH="$PWD" python -m pytest -q tests/test_product_full_chart_snapshot_contract.py
 PYTHONPATH="$PWD" python -m pytest -q
 node --check tools/iztro_export.mjs
 node --check tools/iztro_full_export.mjs
-PYTHONPATH="$PWD" python src/audit_repository.py --fail-on-p0
-PYTHONPATH="$PWD" python src/audit_repository.py --fail-on-p0 --output /tmp/ziwei-336/repository_audit.json
+PYTHONPATH="$PWD" python src/audit_repository.py --fail-on-p0 --output /tmp/ziwei-336/repository_audit.json > /tmp/ziwei-336/repository_audit.stdout
 ```
 
-23 targeted tests passed. Full suite: **486 passed, 0 failed, 0 skipped**.
-Both JS syntax checks passed. P0 audit passed; 907 P1 review candidates remain,
-not certified semantic errors and not resolved by this Product-only work.
+Targeted tests: **54 passed, 0 failed, 0 skipped**.
+Full suite: **517 passed, 0 failed, 0 skipped**.
+Both JS syntax checks PASS. P0 audit PASS; 907 existing P1 review candidates
+remain unresolved by this Product-only work and are not certified semantic errors.
 
 ```bash
-npm install --no-save iztro@2.6.1
-python -m pip install --upgrade "x-iztro==0.6.1"
 mkdir -p /tmp/ziwei-336
 PYTHONPATH="$PWD" python tools/chart_inputs_to_jsonl.py validation/product_chart_regression/regression_inputs_v0.1.csv /tmp/ziwei-336/p1_inputs.jsonl
 IZTRO_VERSION=2.6.1 node tools/iztro_full_export.mjs /tmp/ziwei-336/p1_inputs.jsonl validation/product_chart_regression/temporal_targets_v0.2.json /tmp/ziwei-336/p1_iztro_js.jsonl
 python tools/x_iztro_full_export.py /tmp/ziwei-336/p1_inputs.jsonl validation/product_chart_regression/temporal_targets_v0.2.json /tmp/ziwei-336/p1_xiztro_rust.jsonl
-PYTHONPATH="$PWD" python tools/p1_compare_full.py /tmp/ziwei-336/p1_iztro_js.jsonl /tmp/ziwei-336/p1_xiztro_rust.jsonl --report /tmp/ziwei-336/p1_dual_engine_report.json --fail-on-diff
+PYTHONPATH="$PWD" python tools/p1_compare_full.py /tmp/ziwei-336/p1_iztro_js.jsonl /tmp/ziwei-336/p1_xiztro_rust.jsonl --report validation/product/issue_336_snapshot_contract/dual_engine_report.json --fail-on-diff
 PYTHONPATH="$PWD" python validation/product/issue_336_snapshot_contract/validate_exports.py /tmp/ziwei-336/p1_iztro_js.jsonl /tmp/ziwei-336/p1_xiztro_rust.jsonl --report validation/product/issue_336_snapshot_contract/compatibility_report.json
 ```
 
-Dual-engine comparison PASS: 100 natal records and 400 temporal snapshots,
-zero differences. **Real-export input compatibility FAIL**: JS 0/400 passed;
-Rust 0/400 passed. Each engine exports `age.palace_names` with 12 entries and
-`age.stars=[]`; the validator incorrectly requires equal lengths. The old
-adapter iterates the supplied empty array without adding or inferring stars.
-This is a compatibility failure, not an engine-disagreement or Ziwei-theory claim.
+Dual-engine comparison PASS: 100 natal + 400 temporal snapshots, zero differences.
+Real-export structural compatibility PASS: JS 400/400, Rust 400/400. Both engine
+export SHA-256 hashes and observed age shapes are in the compatibility report.
 
-The initial exploratory compatibility command also failed for the same reason;
-`validate_exports.py` is the durable, compact reproducer. The report pins SHA-256
-of both generated exports. Synthetic regression exports stay in `/tmp/ziwei-336`;
-compact evidence is versioned alongside this document.
+Raw snapshot extraction for the service smoke check:
 
-PR lane validation (after committing all Product paths):
+```bash
+python - <<'PY'
+import json
+from pathlib import Path
+snapshot = json.loads(next(open('/tmp/ziwei-336/p1_iztro_js.jsonl')))
+Path('/tmp/ziwei-336/real_snapshot.json').write_text(json.dumps(snapshot, ensure_ascii=False))
+PY
+PYTHONPATH="$PWD" python -m src.product.career_inference_cli --snapshot /tmp/ziwei-336/real_snapshot.json --target-id T1_LEAP_LATE_ZI --question '真实引擎输入结构验收' --output /tmp/ziwei-336/real_career_report.json
+```
+
+The raw CLI smoke check FAILS on the pre-existing `仆役` alias limitation.
+No successful native end-to-end smoke run is claimed. Baseline comparison:
+
+```bash
+PYTHONPATH="$PWD" python validation/product/issue_336_snapshot_contract/compare_service_baseline.py --base-ref fa46e93ffac7a33a8385929cd7a9147327e53f4c --raw-snapshot /tmp/ziwei-336/real_snapshot.json --target-id T1_LEAP_LATE_ZI --report validation/product/issue_336_snapshot_contract/service_baseline_comparison.json
+```
+
+PASS: eight normalized fixture comparisons are byte-equivalent as serialized
+run objects (no rule; 武曲科; 武曲忌; 破军禄; each with normal/empty-age arrays).
+All retain `PARTIAL_TEMPORAL_REGISTRY_EMPTY`. Raw snapshot comparison also has
+identical baseline/candidate errors; this proves no introduced behavior change,
+not native exporter readiness. No input snapshot is repaired by the gate.
+
+After committing the full Product tree:
 
 ```bash
 python tools/validate_governance.py --base-ref origin/main --head-branch product/336-full-chart-snapshot-contract
 ```
 
-The PR/Issue comment records the exact validated head SHA and lane result.
-Go and B02 calendar/zi-day/temporal engine-change suites are NOT_REQUIRED for
-this input-contract-only change: no exporter, chart arithmetic or engine adapter
-is modified. Go is not installed; no Go pass is claimed.
+The PR/Issue records exact head and lane validation results. All five workflows
+remain manual-only. No GitHub Actions were run. Go and B02 engine-change suites
+are NOT_REQUIRED: no PL1 algorithm, exporter or engine adapter changed. Go is
+unavailable; no Go pass is claimed.
 
-## 中文审查结论及恢复边界
+## Review and checkpoint
 
-**本工作单元尚未通过验收，不得合并。** 单元测试通过不能替代真实导出兼容性。
-按照 G7 执行协议一轮自主修复限制，将第二项失败升级记录为 Product 契约审查，
-不再自动进行第二轮修复，也不改变测试断言掩盖失败。
+Producer: minimal empty-array compatibility fix and contract clarification.
+Critic: confirmed no coercion/mutation, required fields remain required, malformed
+non-empty arrays remain rejected across all six scopes, and actual downstream
+service limitations are disclosed. No Knowledge-owned path changes, new atoms,
+weights, probabilities, production reaction rules or empirical claims.
 
-建议下一次在同一 Issue/PR 内审查：如何忠实接受现有 exporter 的空流曜数组，
-同时继续拒绝缺失字段和畸形的非空数组；随后重跑本兼容性复现及全量门禁。
-这属于输入表示问题，不需要 PI 判断常规程序细节，也不构成紫微理论 Human Gate。
-候选修复仅保存在 PR；生产主线保持原状。原典、Knowledge 文件、生产时间反应库、
-概率和现实预测结论均未变更。当前 Product 恢复指针记录本阻塞；Knowledge 指针
-滞后应由 Knowledge lane 在其原工作单元内恢复，本轮不跨 lane 修改。
+The prior checkpoint preserved initial failures (478 passed/5 failed; then 486
+passed with JS/Rust real-export rejection). This resumed unit explicitly reviewed
+that blocker against existing transport behavior and resolved it. Earlier failure
+evidence remains in Git/PR history; it is superseded only for this contract check.
+
+Durable reports: `summary.json`, `compatibility_report.json`,
+`dual_engine_report.json`, `service_baseline_comparison.json`.
+Raw synthetic exports remain under `/tmp/ziwei-336` and are reproducible using
+versioned commands; compact reports pin their hashes.

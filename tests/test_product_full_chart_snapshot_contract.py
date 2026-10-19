@@ -11,6 +11,8 @@ from src.product.full_chart_snapshot_contract import (
     validate_normalized_full_chart_snapshot,
 )
 
+from src.product.temporal_asset_adapter import SCOPE_TO_LAYER, adapt_target_from_full_snapshot
+
 ROOT = Path(__file__).resolve().parents[1]
 ASSET_PATH = ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.1.json"
 
@@ -264,3 +266,51 @@ def test_unselected_target_scope_errors_identify_the_actual_array_position():
     other["scopes"]["yearly"]["index"] = False
     snapshot["temporal"].append(other)
     _assert_invalid(snapshot, "T-DEMO", "temporal[1].scopes.yearly.index must be an integer")
+
+
+@pytest.mark.parametrize("scope_key", SCOPE_TO_LAYER)
+def test_explicit_empty_flow_star_array_is_accepted_without_inventing_stars(scope_key):
+    snapshot = _valid_snapshot()
+    snapshot["temporal"][0]["scopes"][scope_key]["stars"] = []
+    before = copy.deepcopy(snapshot)
+    assert validate_normalized_full_chart_snapshot(snapshot, target_id="T-DEMO").ok
+    bundle = adapt_target_from_full_snapshot(snapshot, target_id="T-DEMO")
+    assert not any(
+        fact.layer == SCOPE_TO_LAYER[scope_key] and fact.fact.startswith("stars[")
+        for fact in bundle.temporal_facts
+    )
+    assert snapshot == before
+
+
+@pytest.mark.parametrize("scope_key", SCOPE_TO_LAYER)
+@pytest.mark.parametrize("bad_value", [None, {}, [[]]])
+def test_empty_array_compatibility_still_rejects_malformed_flow_star_arrays(scope_key, bad_value):
+    snapshot = _valid_snapshot()
+    snapshot["temporal"][0]["scopes"][scope_key]["stars"] = bad_value
+    assert not validate_normalized_full_chart_snapshot(snapshot, target_id="T-DEMO").ok
+
+
+@pytest.mark.parametrize("scope_key", SCOPE_TO_LAYER)
+def test_empty_array_compatibility_does_not_make_stars_optional(scope_key):
+    snapshot = _valid_snapshot()
+    del snapshot["temporal"][0]["scopes"][scope_key]["stars"]
+    _assert_invalid(snapshot, "T-DEMO", f"scopes.{scope_key} missing field: stars")
+
+
+def test_real_export_age_shape_reaches_service_without_changing_natal_or_temporal_claims():
+    snapshot = _valid_snapshot()
+    snapshot["temporal"][0]["scopes"]["age"] = {
+        "index": 8, "name": "小限", "stem": "甲", "branch": "戌",
+        "palace_names": ["官禄", "仆役", "迁移", "疾厄", "财帛", "子女",
+                         "夫妻", "兄弟", "命宫", "父母", "福德", "田宅"],
+        "mutagen": ["廉贞", "破军", "武曲", "太阳"],
+        "nominal_age": 49, "stars": [],
+    }
+    before = copy.deepcopy(snapshot)
+    run = career_service.run_career_inference(
+        ROOT, snapshot, target_id="T-DEMO", question="真实小限输入兼容验收",
+    )
+    assert run.status == "PARTIAL_TEMPORAL_REGISTRY_EMPTY"
+    assert [rule.rule_id for rule in run.natal_profile.domains[0].active_rules] == ["CA04-347"]
+    assert run.reaction_report.matched == ()
+    assert snapshot == before
