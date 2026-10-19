@@ -102,3 +102,10 @@ def test_relation_fact_and_non_executable_guard_are_preserved():
     assert doc["validation"]["product_runtime_modified"] is False
     assert doc["validation"]["production_registry_modified"] is False
     assert doc["validation"]["new_atom_or_ontology_semantics_created"] is False
+
+def test_source_branch_gate_and_ocr_uncertainty_are_documented():
+    context = _mapping()["mappings"][0]["source_context"]
+    assert context["branch_gate_reading"] == "此唯寅申两宫有之"
+    assert "OCR 噪声" in context["source_scope_note"]
+    assert "寅申" in context["normalized_reading"]
+    assert _mapping()["validation"]["branch_gate_preserved"] is True
