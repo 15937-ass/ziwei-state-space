@@ -48,7 +48,12 @@ def _validate_mapping_handoff(
         raise ValueError("Career provider source mapping must remain inside repository root")
 
     mapping = _load_json(mapping_path)
-    expected_status = "SOURCE_GROUNDED_MAPPING_COMPLETE_NOT_EXECUTABLE"
+    expected_status = mapping_meta.get("mapping_status")
+    if not isinstance(expected_status, str) or expected_status not in {
+        "SOURCE_GROUNDED_MAPPING_COMPLETE_NOT_EXECUTABLE",
+        "SOURCE_GROUNDED_STAR_PRESENCE_MAPPING_COMPLETE_NOT_EXECUTABLE",
+    }:
+        raise ValueError("Career provider mapping_status is not an approved reviewed mapping status")
     if str(mapping.get("schema_version", "")).strip() != str(
         mapping_meta.get("schema_version", "")
     ).strip():
@@ -99,6 +104,12 @@ def _validate_mapping_handoff(
             isinstance(readiness, str) and readiness.startswith("BLOCKED_")
         ):
             raise ValueError(f"{rule_id}: source mapping execution readiness is blocked or mismatched")
+        if expected_status == "SOURCE_GROUNDED_STAR_PRESENCE_MAPPING_COMPLETE_NOT_EXECUTABLE":
+            modality = source_map.get("source_modality_note")
+            if not isinstance(modality, str) or not modality.strip():
+                raise ValueError(f"{rule_id}: source modality note is required")
+            if product_rule.get("expected_source_modality_note") != modality:
+                raise ValueError(f"{rule_id}: Product/source mapping drift in source modality note")
         provenance = source_map.get("source_provenance")
         projection = source_map.get("expected_projection")
         if not isinstance(provenance, Mapping) or not isinstance(projection, Mapping):

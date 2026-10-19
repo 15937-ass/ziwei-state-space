@@ -8,7 +8,7 @@
   "time_layer": "NATAL",
   "topic_scope": "事业",
   "school": "中州派",
-  "knowledge_version": "CAREER_CA09_FINAL+WP07A_PILOT+CA01_CA09_STATIC_v0.1",
+  "knowledge_version": "CAREER_CA09_FINAL+WP07A_STATIC_AND_STAR_PRESENCE_v0.1",
   "source_mapping": {
     "path": "knowledge/wp07a/CAREER_NATAL_ATOMIZATION_MAP_v0.1.json",
     "audit_id": "KB-WP07A-CAREER-NATAL-ATOMIZATION",
@@ -642,6 +642,210 @@
         ]
       },
       "mapping_rule_id": "CA08-765"
+    },
+    "CA01-026": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p132-133",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "事业宫见地空地劫",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "niche_or_nonmainstream_industry_suited",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "地空"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "地劫"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA01-026",
+      "expected_source_modality_note": "一般情况下的行业适宜性；原文另提醒后天人事可影响成败，不作事件必然断言。"
+    },
+    "CA01-027": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p132-133",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "事业宫见地空地劫",
+      "expected_projection_domain": "method",
+      "expected_projection_target": "unconventional_operating_method_suited",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "地空"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "地劫"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA01-027",
+      "expected_source_modality_note": "与行业选择并列的可选营运方式解释，不表示行业和营运方式必然同时发生。"
+    },
+    "CA01-031": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p133",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "事业宫见陀罗",
+      "expected_projection_domain": "development",
+      "expected_projection_target": "career_development_slow",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "陀罗"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA01-031",
+      "expected_source_modality_note": "来源的事业发展缓慢倾向，不推断具体延迟时长。"
+    },
+    "CA01-032": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p133",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "事业宫见陀罗",
+      "expected_projection_domain": "role",
+      "expected_projection_target": "nominal_status_exceeds_real_authority",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "陀罗"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA01-032",
+      "expected_source_modality_note": "原文限定为“往往”，非必然有名无实或权力被挂空。"
+    },
+    "CA01-033": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p133",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "事业宫见陀罗",
+      "expected_projection_domain": "stability",
+      "expected_projection_target": "career_reversals_or_instability",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "陀罗"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA01-033",
+      "expected_source_modality_note": "原文限定为“有时亦主”，非必然反覆。"
+    },
+    "CA01-034": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p133",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "事业宫见擎羊古今转换",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "engineering_or_technical_scene",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "擎羊"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA01-034",
+      "expected_source_modality_note": "原文限定现代解释“往往”为工程科技人员，非唯一职业或确定职业。"
+    },
+    "CA01-042": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p133",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "事业宫与禄存同度",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "existing_business_or_salaried_role_preferred",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "禄存"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA01-042",
+      "expected_source_modality_note": "原文限定“一般只宜”，且明确不可单凭此条件作为富论。"
+    },
+    "CA01-044": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p133",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "禄存再与空劫同度",
+      "expected_projection_domain": "decision",
+      "expected_projection_target": "advance_retreat_indecision",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "禄存"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "地空"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "地劫"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA01-044",
+      "expected_source_modality_note": "继承事业宫禄存语境；只保留进退失据倾向，后续勉强求变及困境留在排除项。"
     }
   },
   "guardrails": {
@@ -691,6 +895,23 @@
         "CA08-765"
       ],
       "required_execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE"
+    },
+    {
+      "path": "knowledge/wp07a/CAREER_STAR_PRESENCE_MAP_CA01_026_044_v0.1.json",
+      "audit_id": "KB-WP07A-CAREER-STAR-PRESENCE-CA01-026_027_031_034_042_044",
+      "mapping_status": "SOURCE_GROUNDED_STAR_PRESENCE_MAPPING_COMPLETE_NOT_EXECUTABLE",
+      "schema_version": "0.1",
+      "selected_rule_ids": [
+        "CA01-026",
+        "CA01-027",
+        "CA01-031",
+        "CA01-032",
+        "CA01-033",
+        "CA01-034",
+        "CA01-042",
+        "CA01-044"
+      ],
+      "required_execution_readiness": "STATIC_STAR_PRESENCE_CANDIDATE_NOT_EXECUTABLE"
     }
   ]
 }

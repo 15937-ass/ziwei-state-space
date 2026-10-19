@@ -187,3 +187,34 @@ remain unchanged and non-executable; only this explicit Product subset runs.
 
 The production temporal reaction registry is still empty. This expansion is
 internally verified source-faithful rule execution, not empirical validation.
+
+
+## Star-presence expansion and modality (Issue #350)
+
+The Career provider now executes 31 explicit NATAL rules. The prior 23 entries
+remain unchanged. Eight entries from merged Knowledge PR #335 are compiled
+separately in Product:
+
+| Rules | Exact P09 condition | Source boundary |
+|---|---|---|
+| CA01-026 / 027 | 地空 AND 地劫 | Distinct industry/method projections; alternative interpretations, not two guaranteed outcomes |
+| CA01-031 / 032 / 033 | 陀罗 | Three distinct targets; “往往”“有时亦主” remain qualitative, with no predicted delay length |
+| CA01-034 | 擎羊 | Modern engineering/technical scene preserves ancient-to-modern translation, not a unique occupation |
+| CA01-042 | 禄存 | Existing-business/salaried scene; cannot alone establish wealth |
+| CA01-044 | 禄存 AND 地空 AND 地劫 | All three in P09; indecision tendency only, no forced-change outcome |
+
+The handoff recognizes exactly the reviewed transformation-mapping status and
+reviewed star-presence-mapping status. It still requires non-executable Knowledge
+entries, source verification, NATAL, non-case status, precise selected IDs and
+exact conditions/projections. Star-presence source modality is pinned in Product
+and must be nonempty and unchanged. Unknown statuses fail closed.
+
+The actual Chinese report adds `source_modality_note` for these eight entries,
+verbatim from the reviewed mapping. Existing transformation report entries retain
+their previous fields. Empty charts are not negative outcomes; they simply do
+not match these rules. Missing any required star or placing it in any other
+palace cannot complete a same-palace condition.
+
+CA01-035, CA01-043 and CA01-045 are not activated here. Active Knowledge context
+recovery is independent of this Product unit and does not authorize automatic
+execution. No temporal reaction, probability, severity or empirical claim is added.
