@@ -1,6 +1,8 @@
 name: manual-phase-closure-audit
-run-name: Phase closure audit — ${{ inputs.scope }}
+run-name: Phase closure audit — ${{ github.event_name == 'workflow_dispatch' && inputs.scope || 'push ignored' }}
 
+# Keep this audit manually invokable. The all-paths push exclusion is an explicit
+# guard against the repository's observed empty, failed push-event runs.
 on:
   workflow_dispatch:
     inputs:
@@ -8,12 +10,16 @@ on:
         description: "Phase/closure identifier"
         required: true
         type: string
+  push:
+    paths-ignore:
+      - "**"
 
 permissions:
   contents: read
 
 jobs:
   closure-audit:
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
