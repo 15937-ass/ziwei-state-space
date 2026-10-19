@@ -189,6 +189,11 @@ from .career_natal_domain_provider import (
     DEFAULT_CAREER_PROVIDER_REGISTRY_PATH,
     load_default_career_natal_provider,
 )
+from .career_inference_service import (
+    DEFAULT_CAREER_TEMPORAL_LAYERS,
+    DEFAULT_TEMPORAL_REACTION_REGISTRY_PATH,
+    run_career_inference,
+)
 from .natal_prior import (
     NatalDomainEvidence,
     NatalRuleEvidence,
