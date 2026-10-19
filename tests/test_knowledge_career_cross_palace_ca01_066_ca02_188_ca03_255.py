@@ -13,7 +13,7 @@ CSV_PATHS = (
     ROOT / "validation/wp05/CA02_career_projection_review_101_200.csv",
     ROOT / "validation/wp05/CA03_career_projection_review_201_300.csv",
 )
-BRANCHES = list("子丑寅卯辰巳午未申酉戌")
+BRANCHES = list("子丑寅卯辰巳午未申酉戌亥")
 PALACES = [
     ("P01", "命宫"), ("P02", "兄弟宫"), ("P03", "夫妻宫"),
     ("P04", "子女宫"), ("P05", "财帛宫"), ("P06", "疾厄宫"),
