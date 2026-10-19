@@ -34,6 +34,37 @@ _STATUS_MESSAGES = {
 }
 
 
+def _load_temporal_blocker_diagnostics(
+    path: str | Path,
+) -> tuple[dict[str, Any], dict[str, dict[str, Any]]]:
+    with Path(path).open("r", encoding="utf-8") as handle:
+        diagnostics_document = json.load(handle)
+    if not isinstance(diagnostics_document, Mapping):
+        raise ValueError("temporal blocker diagnostics must be a JSON object")
+    if str(diagnostics_document.get("schema_version", "")).strip() != "0.1":
+        raise ValueError("temporal blocker diagnostics schema_version must be 0.1")
+    policy = diagnostics_document.get("policy")
+    raw_diagnostics = diagnostics_document.get("items")
+    if not isinstance(policy, Mapping) or not isinstance(raw_diagnostics, list):
+        raise ValueError("temporal blocker diagnostics requires policy and items")
+    if policy.get("new_temporal_rule_activation_allowed") is not False:
+        raise ValueError("temporal blocker diagnostics must fail closed on activation")
+    diagnostic_by_code: dict[str, dict[str, Any]] = {}
+    for item in raw_diagnostics:
+        if not isinstance(item, Mapping):
+            raise ValueError("each temporal blocker diagnostic must be an object")
+        code = str(item.get("code", "")).strip()
+        if not code or code in diagnostic_by_code:
+            raise ValueError("temporal blocker diagnostic code is empty or duplicated")
+        if item.get("activation_allowed") is not False:
+            raise ValueError(f"{code}: activation_allowed must remain false")
+        for required in ("status", "message_zh", "unblock_requirement"):
+            if not str(item.get(required, "")).strip():
+                raise ValueError(f"{code}: diagnostic {required} is required")
+        diagnostic_by_code[code] = dict(item)
+    return dict(diagnostics_document), diagnostic_by_code
+
+
 def build_career_inference_report(
     repository_root: str | Path,
     run: SymbolicInferenceRun,
@@ -121,31 +152,9 @@ def build_career_inference_report(
     temporal_fact_counts = Counter(item.layer for item in run.temporal_bundle.temporal_facts)
 
     diagnostics_path = root / "product/PL3T_TEMPORAL_BLOCKERS_v0.1.json"
-    with diagnostics_path.open("r", encoding="utf-8") as handle:
-        diagnostics_document = json.load(handle)
-    if not isinstance(diagnostics_document, Mapping):
-        raise ValueError("temporal blocker diagnostics must be a JSON object")
-    if str(diagnostics_document.get("schema_version", "")).strip() != "0.1":
-        raise ValueError("temporal blocker diagnostics schema_version must be 0.1")
-    policy = diagnostics_document.get("policy")
-    raw_diagnostics = diagnostics_document.get("items")
-    if not isinstance(policy, Mapping) or not isinstance(raw_diagnostics, list):
-        raise ValueError("temporal blocker diagnostics requires policy and items")
-    if policy.get("new_temporal_rule_activation_allowed") is not False:
-        raise ValueError("temporal blocker diagnostics must fail closed on activation")
-    diagnostic_by_code: dict[str, dict[str, Any]] = {}
-    for item in raw_diagnostics:
-        if not isinstance(item, Mapping):
-            raise ValueError("each temporal blocker diagnostic must be an object")
-        code = str(item.get("code", "")).strip()
-        if not code or code in diagnostic_by_code:
-            raise ValueError("temporal blocker diagnostic code is empty or duplicated")
-        if item.get("activation_allowed") is not False:
-            raise ValueError(f"{code}: activation_allowed must remain false")
-        for required in ("status", "message_zh", "unblock_requirement"):
-            if not str(item.get(required, "")).strip():
-                raise ValueError(f"{code}: diagnostic {required} is required")
-        diagnostic_by_code[code] = dict(item)
+    diagnostics_document, diagnostic_by_code = _load_temporal_blocker_diagnostics(
+        diagnostics_path
+    )
 
     diagnostic_items = []
     for code in sorted(diagnostic_by_code):
