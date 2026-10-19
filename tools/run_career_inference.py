@@ -11,7 +11,6 @@ from typing import Sequence
 
 from src.product.career_inference_report import build_career_inference_report
 from src.product.career_inference_service import run_career_inference
-from src.product.event_relative_window import MigrationFirstThreeYearsInput
 from src.product.temporal_environment import TEMPORAL_LAYERS
 
 
@@ -42,13 +41,6 @@ def _parser() -> argparse.ArgumentParser:
         help="repository root containing Product registries (default: repository root)",
     )
     parser.add_argument(
-        "--migration-window",
-        help=(
-            "optional JSON with confirmed_distant_settlement, "
-            "years_since_distant_relocation, travel_only, and trigger_provenance"
-        ),
-    )
-    parser.add_argument(
         "--output",
         help="optional output JSON path; omit to write the report to stdout",
     )
@@ -58,57 +50,16 @@ def _parser() -> argparse.ArgumentParser:
 def main(argv: Sequence[str] | None = None) -> int:
     args = _parser().parse_args(argv)
     snapshot_path = Path(args.snapshot)
-    migration_path = Path(args.migration_window) if args.migration_window else None
     output_path = Path(args.output) if args.output else None
 
     try:
-        input_paths = [snapshot_path]
-        if migration_path is not None:
-            input_paths.append(migration_path)
-        if output_path is not None and any(
-            path.resolve() == output_path.resolve() for path in input_paths
-        ):
-            raise ValueError("output path must not overwrite any input file")
+        if output_path is not None and snapshot_path.resolve() == output_path.resolve():
+            raise ValueError("output path must not overwrite the input snapshot")
 
         with snapshot_path.open("r", encoding="utf-8") as handle:
             snapshot = json.load(handle)
         if not isinstance(snapshot, dict):
             raise ValueError("snapshot JSON root must be an object")
-
-        migration_window = None
-        if migration_path is not None:
-            with migration_path.open("r", encoding="utf-8") as handle:
-                raw_window = json.load(handle)
-            if not isinstance(raw_window, dict):
-                raise ValueError("migration-window JSON root must be an object")
-            allowed_keys = {
-                "confirmed_distant_settlement",
-                "years_since_distant_relocation",
-                "travel_only",
-                "trigger_provenance",
-            }
-            unknown_keys = sorted(set(raw_window) - allowed_keys)
-            if unknown_keys:
-                raise ValueError(
-                    "migration-window JSON has unsupported field(s): "
-                    + ", ".join(unknown_keys)
-                )
-            required_keys = {
-                "confirmed_distant_settlement",
-                "years_since_distant_relocation",
-                "travel_only",
-            }
-            missing_keys = sorted(required_keys - set(raw_window))
-            if missing_keys:
-                raise ValueError(
-                    "migration-window JSON missing required field(s): "
-                    + ", ".join(missing_keys)
-                )
-            if "trigger_provenance" in raw_window and not isinstance(
-                raw_window["trigger_provenance"], str
-            ):
-                raise ValueError("migration-window trigger_provenance must be a string")
-            migration_window = MigrationFirstThreeYearsInput(**raw_window)
 
         run = run_career_inference(
             args.repo_root,
@@ -116,7 +67,6 @@ def main(argv: Sequence[str] | None = None) -> int:
             target_id=args.target_id,
             question=args.question,
             selected_temporal_layers=args.temporal_layers,
-            migration_window=migration_window,
         )
         report = build_career_inference_report(args.repo_root, run)
         serialized = json.dumps(
