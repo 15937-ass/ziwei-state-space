@@ -51,6 +51,7 @@ class StructuredInferenceConclusion:
     question: str
     target_id: str
     selected_domains: tuple[str, ...]
+    selected_temporal_layers: tuple[str, ...]
     canonical_rule_ids: tuple[str, ...]
     temporal_reaction_rule_ids: tuple[str, ...]
     evidence_refs: tuple[EvidenceReference, ...]
@@ -69,6 +70,10 @@ class StructuredInferenceConclusion:
             raise ValueError("StructuredInferenceConclusion.target_id is required")
         if not self.selected_domains:
             raise ValueError("StructuredInferenceConclusion.selected_domains is required")
+        if not self.selected_temporal_layers:
+            raise ValueError(
+                "StructuredInferenceConclusion.selected_temporal_layers is required"
+            )
         if len(set(self.canonical_rule_ids)) != len(self.canonical_rule_ids):
             raise ValueError("canonical_rule_ids must be unique")
         if len(set(self.temporal_reaction_rule_ids)) != len(
@@ -95,6 +100,7 @@ class StructuredInferenceConclusion:
             "question": self.question,
             "target_id": self.target_id,
             "selected_domains": list(self.selected_domains),
+            "selected_temporal_layers": list(self.selected_temporal_layers),
             "canonical_rule_ids": list(self.canonical_rule_ids),
             "temporal_reaction_rule_ids": list(self.temporal_reaction_rule_ids),
             "evidence_refs": [asdict(item) for item in self.evidence_refs],

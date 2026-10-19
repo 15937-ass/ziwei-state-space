@@ -214,8 +214,11 @@ def test_test_only_career_provider_is_explicitly_blocked_in_end_to_end_run():
         domain_registry=registry,
         reaction_registry_document=reaction_document,
         selected_domains=("career",),
+        selected_temporal_layers=("DECADE", "YEAR"),
     )
 
+    assert result.selected_temporal_layers == ("DECADE", "YEAR")
+    assert result.temporal_profile.active_layers == ("DECADE", "YEAR")
     assert result.status == "TEST_FIXTURE_ONLY"
     assert set(result.blockers) == {
         "NON_CANONICAL_NATAL_DOMAIN_PROVIDER",

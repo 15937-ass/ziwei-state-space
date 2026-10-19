@@ -58,3 +58,10 @@ This work unit adds orchestration and regression tests around existing component
 - Explicit handling of empty production registry and test-only registry.
 - Product quality gate passes.
 - A separate gap report identifies the remaining Career provider and source-normalized temporal-reaction dependencies.
+
+
+## Explicit temporal layer selection
+
+`run_symbolic_inference` now accepts `selected_temporal_layers`. A caller can select, for example, `("DECADE", "YEAR")` for the Career vertical slice. The pipeline filters both temporal facts and condition facts to the selected layers before matching reactions and building the temporal namespace. Unknown, empty, scalar, or unavailable layer selections fail closed.
+
+When the argument is omitted, the existing behavior is preserved and all layers present in the selected target are included. The selected layers are recorded in the run identity and structured conclusion.

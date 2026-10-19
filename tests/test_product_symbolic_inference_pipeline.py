@@ -63,6 +63,7 @@ def _run(
     target_id="T-DEMO",
     snapshot=None,
     temporal_conflicts=(),
+    selected_temporal_layers=None,
 ):
     normalized_snapshot = snapshot if snapshot is not None else _snapshot(stars_by_palace)
     domain_registry = load_default_natal_domain_registry(ROOT)
@@ -74,6 +75,7 @@ def _run(
         domain_registry=domain_registry,
         reaction_registry_document=reaction_document,
         selected_domains=("wealth",),
+        selected_temporal_layers=selected_temporal_layers,
         temporal_conflicts=temporal_conflicts,
     )
 
@@ -189,6 +191,36 @@ def test_unknown_domain_fails_closed_before_inference():
             ),
             selected_domains=("career",),
         )
+
+
+def test_explicit_decade_year_selection_filters_temporal_facts_and_evidence():
+    result = _run(selected_temporal_layers=("DECADE", "YEAR"))
+
+    assert result.selected_temporal_layers == ("DECADE", "YEAR")
+    assert {item.layer for item in result.temporal_bundle.temporal_facts} == {
+        "DECADE",
+        "YEAR",
+    }
+    assert result.temporal_profile.active_layers == ("DECADE", "YEAR")
+    assert result.evidence_package.to_dict()["temporal"]["active_layers"] == (
+        "DECADE",
+        "YEAR",
+    )
+    conclusion = result.evidence_package.to_dict()["conclusion"]
+    assert conclusion["selected_temporal_layers"] == ["DECADE", "YEAR"]
+    assert all(
+        any(f'"layer":"{layer}"' in fact for layer in ("DECADE", "YEAR"))
+        for fact in result.temporal_bundle.condition_facts
+    )
+
+
+def test_unsupported_or_empty_temporal_layer_selection_fails_closed():
+    with pytest.raises(ValueError, match="unsupported selected temporal layer"):
+        _run(selected_temporal_layers=("LIFETIME",))
+    with pytest.raises(ValueError, match="at least one selected temporal layer"):
+        _run(selected_temporal_layers=())
+    with pytest.raises(ValueError, match="must be an array"):
+        _run(selected_temporal_layers="YEAR")
 
 
 def test_missing_temporal_target_fails_closed():
