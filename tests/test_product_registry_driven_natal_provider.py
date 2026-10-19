@@ -141,7 +141,7 @@ def test_registry_driven_provider_does_not_activate_rule_when_condition_is_absen
 
     assert evidence.active_rules == ()
     assert evidence.confidence_band == "INSUFFICIENT_EVIDENCE"
-    assert "CA-TEST-001" in evidence.projection_payloads[0] or evidence.projection_payloads
+    assert evidence.projection_payloads == ()
 
 
 @pytest.mark.parametrize(
