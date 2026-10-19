@@ -120,6 +120,42 @@ def build_career_inference_report(
     temporal_rule_ids = sorted(item.rule_id for item in run.reaction_report.matched)
     temporal_fact_counts = Counter(item.layer for item in run.temporal_bundle.temporal_facts)
 
+    diagnostics_path = root / "product/PL3T_TEMPORAL_BLOCKERS_v0.1.json"
+    with diagnostics_path.open("r", encoding="utf-8") as handle:
+        diagnostics_document = json.load(handle)
+    if not isinstance(diagnostics_document, Mapping):
+        raise ValueError("temporal blocker diagnostics must be a JSON object")
+    if str(diagnostics_document.get("schema_version", "")).strip() != "0.1":
+        raise ValueError("temporal blocker diagnostics schema_version must be 0.1")
+    policy = diagnostics_document.get("policy")
+    raw_diagnostics = diagnostics_document.get("items")
+    if not isinstance(policy, Mapping) or not isinstance(raw_diagnostics, list):
+        raise ValueError("temporal blocker diagnostics requires policy and items")
+    if policy.get("new_temporal_rule_activation_allowed") is not False:
+        raise ValueError("temporal blocker diagnostics must fail closed on activation")
+    diagnostic_by_code: dict[str, dict[str, Any]] = {}
+    for item in raw_diagnostics:
+        if not isinstance(item, Mapping):
+            raise ValueError("each temporal blocker diagnostic must be an object")
+        code = str(item.get("code", "")).strip()
+        if not code or code in diagnostic_by_code:
+            raise ValueError("temporal blocker diagnostic code is empty or duplicated")
+        if item.get("activation_allowed") is not False:
+            raise ValueError(f"{code}: activation_allowed must remain false")
+        for required in ("status", "message_zh", "unblock_requirement"):
+            if not str(item.get(required, "")).strip():
+                raise ValueError(f"{code}: diagnostic {required} is required")
+        diagnostic_by_code[code] = dict(item)
+
+    diagnostic_items = []
+    for code in sorted(diagnostic_by_code):
+        item = dict(diagnostic_by_code[code])
+        item["blocks_current_run"] = code in set(run.blockers)
+        diagnostic_items.append(item)
+    active_diagnostics = [
+        item for item in diagnostic_items if item["blocks_current_run"]
+    ]
+
     return {
         "schema_version": "0.1",
         "run_id": run.run_id,
@@ -152,6 +188,13 @@ def build_career_inference_report(
             "reaction_rule_count": run.reaction_rule_count,
             "matched_reaction_rule_ids": temporal_rule_ids,
             "has_temporal_reaction_evidence": bool(temporal_rule_ids),
+            "readiness_diagnostics": {
+                "diagnostic_set_id": diagnostics_document.get("diagnostic_set_id"),
+                "status": diagnostics_document.get("status"),
+                "active_blockers": active_diagnostics,
+                "unresolved_gaps": diagnostic_items,
+                "new_temporal_rule_activation_allowed": False,
+            },
         },
         "blockers": list(run.blockers),
         "unknowns": list(conclusion.get("unknowns", [])),
