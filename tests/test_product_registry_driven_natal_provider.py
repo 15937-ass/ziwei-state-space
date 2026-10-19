@@ -98,7 +98,11 @@ def _registry(**overrides):
         "knowledge_version": "TEST_ONLY_CAREER_RULES_1",
         "rules": {
             "CA-TEST-001": {
+                "expected_source_id": "SRC-TEST-ONLY",
+                "expected_source_location": "fixture page 1",
+                "expected_review_status": "SOURCE_SPAN_VERIFIED",
                 "expected_condition": "事业宫见紫微",
+                "expected_projection_domain": "career_structure",
                 "expected_projection_target": "career_management",
                 "expected_projection_mode": "FUNCTIONAL_PROJECTION",
                 "condition": {
