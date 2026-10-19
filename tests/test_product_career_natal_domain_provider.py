@@ -1,0 +1,216 @@
+import json
+from pathlib import Path
+
+import pytest
+
+from src.product.career_natal_domain_provider import load_default_career_natal_provider
+from src.product.natal_domain_registry import load_default_natal_domain_registry
+from src.product.symbolic_inference_pipeline import run_symbolic_inference
+
+ROOT = Path(__file__).resolve().parents[1]
+ASSET_PATH = ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.1.json"
+REACTION_REGISTRY_PATH = ROOT / "product/PL3T_TEMPORAL_REACTION_REGISTRY_v0.1.json"
+MAPPING_PATH = ROOT / "knowledge/wp07a/CAREER_NATAL_ATOMIZATION_MAP_v0.1.json"
+REGISTRY_PATH = ROOT / "product/PL3N_CAREER_DOMAIN_PROVIDER_v0.1.json"
+
+BRANCH = {
+    "命宫": "酉",
+    "兄弟宫": "戌",
+    "夫妻宫": "未",
+    "子女宫": "申",
+    "财帛宫": "巳",
+    "疾厄宫": "午",
+    "迁移宫": "卯",
+    "交友宫": "辰",
+    "事业宫": "丑",
+    "田宅宫": "寅",
+    "福德宫": "亥",
+    "父母宫": "子",
+}
+
+
+def _star(name, mutagen=None):
+    return {
+        "name": name,
+        "brightness": None,
+        "mutagen": mutagen,
+        "type": None,
+        "scope": None,
+    }
+
+
+def _natal(stars_by_palace=None):
+    stars_by_palace = stars_by_palace or {}
+    palaces = {}
+    for palace_name, branch in BRANCH.items():
+        palaces[branch] = {
+            "name": palace_name[:-1],
+            "stem": "甲",
+            "branch": branch,
+            "is_body_palace": False,
+            "major_stars": list(stars_by_palace.get(palace_name, [])),
+            "minor_stars": [],
+            "adjective_stars": [],
+        }
+    return {"palaces": palaces}
+
+
+def _full_snapshot(stars_by_palace=None):
+    snapshot = json.loads(ASSET_PATH.read_text(encoding="utf-8"))
+    snapshot["natal"] = _natal(stars_by_palace)
+    return snapshot
+
+
+@pytest.fixture(scope="module")
+def provider():
+    return load_default_career_natal_provider(ROOT)
+
+
+def test_canonical_career_provider_is_opt_in_and_has_only_three_pinned_rules(provider):
+    assert provider.domain_id == "career"
+    assert provider.is_test_only is False
+    assert provider.executable_rule_count == 3
+    assert {rule.rule_id for rule in provider._executable_rules} == {
+        "CA04-347",
+        "CA04-349",
+        "CA09-852",
+    }
+
+    default = load_default_natal_domain_registry(ROOT)
+    assert default.domain_ids == ("wealth",)
+
+    expanded = load_default_natal_domain_registry(
+        ROOT,
+        additional_providers=(provider,),
+    )
+    assert expanded.domain_ids == ("career", "wealth")
+    assert expanded.test_only_domain_ids == ()
+
+
+@pytest.mark.parametrize(
+    "star_name,mutagen,expected_rule",
+    [
+        ("武曲", "科", "CA04-347"),
+        ("武曲", "忌", "CA04-349"),
+        ("破军", "禄", "CA09-852"),
+    ],
+)
+def test_only_exact_star_bound_transformation_activates_its_mapped_rule(
+    provider, star_name, mutagen, expected_rule
+):
+    evidence = provider.build_domain_evidence(
+        _natal({"事业宫": [_star(star_name, mutagen)]}),
+        question="事业原局结构",
+    )
+
+    assert [rule.rule_id for rule in evidence.active_rules] == [expected_rule]
+    active = evidence.active_rules[0]
+    assert active.source_id == "SRC-ZZ-003"
+    assert active.review_status == "SOURCE_SPAN_VERIFIED"
+    assert active.source_location in {
+        "事业宫printed_p140",
+        "事业宫printed_p141",
+        "事业宫printed_p154",
+    }
+
+
+def test_career_provider_fails_closed_when_transformation_is_missing_or_wrong(provider):
+    missing = provider.build_domain_evidence(
+        _natal({"事业宫": [_star("武曲")]}),
+        question="事业原局结构",
+    )
+    wrong_star = provider.build_domain_evidence(
+        _natal({"事业宫": [_star("天同", "科")]}),
+        question="事业原局结构",
+    )
+    wrong_palace = provider.build_domain_evidence(
+        _natal({"命宫": [_star("武曲", "科")]}),
+        question="事业原局结构",
+    )
+
+    assert missing.active_rules == ()
+    assert wrong_star.active_rules == ()
+    assert wrong_palace.active_rules == ()
+
+
+def test_product_registry_matches_the_reviewed_mapping_without_mutating_it():
+    registry = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
+    mapping = json.loads(MAPPING_PATH.read_text(encoding="utf-8"))
+    mapping_by_id = {item["source_rule_id"]: item for item in mapping["mappings"]}
+
+    assert registry["status"] == "CANONICAL_READY"
+    assert registry["source_mapping"]["mapping_status"] == (
+        "SOURCE_GROUNDED_MAPPING_COMPLETE_NOT_EXECUTABLE"
+    )
+    assert set(registry["rules"]) == set(mapping["scope"]["nominated_source_rule_ids"])
+    assert set(registry["rules"]) == set(mapping_by_id)
+
+    for rule_id, product_rule in registry["rules"].items():
+        source_mapping = mapping_by_id[rule_id]
+        expected = source_mapping["expected_projection"]
+        assert product_rule["expected_condition"] == source_mapping["source_condition_text"]
+        assert product_rule["condition"] == source_mapping["condition"]
+        assert product_rule["expected_source_id"] == source_mapping["source_provenance"]["source_id"]
+        assert product_rule["expected_source_location"] == source_mapping["source_provenance"]["source_location"]
+        assert product_rule["expected_review_status"] == source_mapping["source_provenance"]["review_status"]
+        assert product_rule["expected_projection_domain"] == expected["projection_domain"]
+        assert product_rule["expected_projection_target"] == expected["projection_target"]
+        assert product_rule["expected_projection_mode"] == expected["projection_mode"]
+        assert source_mapping["executable_registry_entry"] is False
+
+
+def test_end_to_end_career_natal_trace_is_canonical_but_temporal_result_remains_partial(provider):
+    snapshot = _full_snapshot({"事业宫": [_star("武曲", "科")]})
+    domain_registry = load_default_natal_domain_registry(
+        ROOT,
+        additional_providers=(provider,),
+    )
+    reaction_registry = json.loads(
+        REACTION_REGISTRY_PATH.read_text(encoding="utf-8")
+    )
+
+    result = run_symbolic_inference(
+        snapshot,
+        target_id="T-DEMO",
+        question="事业本命结构及所选大限、流年环境",
+        domain_registry=domain_registry,
+        reaction_registry_document=reaction_registry,
+        selected_domains=("career",),
+        selected_temporal_layers=("DECADE", "YEAR"),
+    )
+
+    assert result.status == "PARTIAL_TEMPORAL_REGISTRY_EMPTY"
+    assert result.blockers == ("PRODUCTION_TEMPORAL_REACTION_REGISTRY_EMPTY",)
+    assert result.selected_temporal_layers == ("DECADE", "YEAR")
+    assert result.natal_profile.domains[0].domain_id == "career"
+    assert [rule.rule_id for rule in result.natal_profile.domains[0].active_rules] == [
+        "CA04-347"
+    ]
+    assert result.temporal_profile.active_layers == ("DECADE", "YEAR")
+
+    conclusion = result.evidence_package.to_dict()["conclusion"]
+    assert conclusion["status"] == "PARTIAL"
+    assert conclusion["canonical_rule_ids"] == ["CA04-347"]
+    assert conclusion["temporal_reaction_rule_ids"] == []
+    assert "PRODUCTION_TEMPORAL_REACTION_REGISTRY_EMPTY" in conclusion["unknowns"]
+    assert "NO_REAL_WORLD_EVENT_CLAIM" in conclusion["limitations"]
+    assert "NO_NUMERIC_PROBABILITY_OR_MAGNITUDE_ESTIMATED" in conclusion["limitations"]
+    assert any(
+        ref["namespace"] == "CANONICAL"
+        and ref["rule_id"] == "CA04-347"
+        and ref["source_id"] == "SRC-ZZ-003"
+        for ref in conclusion["evidence_refs"]
+    )
+
+
+def test_product_registry_keeps_temporal_and_event_claims_disabled():
+    registry = json.loads(REGISTRY_PATH.read_text(encoding="utf-8"))
+    guardrails = registry["guardrails"]
+
+    assert guardrails["free_text_rule_generation_allowed"] is False
+    assert guardrails["case_support_only_allowed"] is False
+    assert guardrails["time_layer_other_than_natal_allowed"] is False
+    assert guardrails["numeric_probability_allowed"] is False
+    assert guardrails["universal_valence_allowed"] is False
+    assert guardrails["event_manifestation_inference_allowed"] is False
+    assert guardrails["default_registry_activation"] is False
