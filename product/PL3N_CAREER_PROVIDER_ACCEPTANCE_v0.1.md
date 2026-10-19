@@ -93,3 +93,15 @@ python tools/run_career_inference.py \
 The CLI calls the same Product APIs as Python callers, writes deterministic UTF-8 JSON, and refuses to overwrite the input snapshot. If `--output` is omitted, the report is written to stdout. The CLI intentionally has no option for substituting a temporal test registry.
 
 A successful invocation can still return `PARTIAL_TEMPORAL_REGISTRY_EMPTY`; process success means the report was generated correctly, not that temporal rules were available or that a real-world event was predicted.
+
+
+## Approved event-relative migration window
+
+The Product API optionally accepts a typed `MigrationFirstThreeYearsInput`, and the CLI exposes it through `--migration-window path/to/window.json`. The JSON object must contain `confirmed_distant_settlement`, `years_since_distant_relocation`, and `travel_only`; confirmed settlement also requires non-empty `trigger_provenance`.
+
+This uses only the already approved `MIGRATION_FIRST_THREE_YEARS` resolver:
+- confirmed distant settlement, not travel-only, year 1–3: `ACTIVE`;
+- travel-only or year 4+: `INACTIVE`;
+- confirmed settlement with no elapsed-year value: `INSUFFICIENT`.
+
+The context is reported with its source provenance and routing facts. It is not a temporal reaction rule, does not add a seventh calendar time layer, and does not change `PARTIAL_TEMPORAL_REGISTRY_EMPTY` while the production reaction registry remains empty.
