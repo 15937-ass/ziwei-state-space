@@ -194,6 +194,7 @@ from .career_inference_service import (
     DEFAULT_TEMPORAL_REACTION_REGISTRY_PATH,
     run_career_inference,
 )
+from .career_inference_report import build_career_inference_report
 from .natal_prior import (
     NatalDomainEvidence,
     NatalRuleEvidence,
