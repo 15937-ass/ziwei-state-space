@@ -85,6 +85,10 @@ class RegistryDrivenNatalDomainProvider:
         palace_id = str(self.registry["palace_id"]).strip()
         palace_name = str(self.registry["palace_name"]).strip()
         topic_scope = str(self.registry["topic_scope"]).strip()
+        if self.palace_ontology.resolve_label(palace_name) != palace_id:
+            raise ValueError(
+                f"provider palace {palace_name!r} does not resolve to {palace_id!r}"
+            )
         executable: list[RuleIR] = []
 
         for raw_rule_id in sorted(rules):
