@@ -328,6 +328,15 @@ def run_symbolic_inference(
         status = "NO_TEMPORAL_REACTION_MATCHED"
         blockers = ()
 
+    selected_test_only_domains = set(domains).intersection(
+        domain_registry.test_only_domain_ids
+    )
+    if selected_test_only_domains:
+        status = "TEST_FIXTURE_ONLY"
+        blockers = tuple(
+            sorted(set(blockers) | {"NON_CANONICAL_NATAL_DOMAIN_PROVIDER"})
+        )
+
     conclusion = _build_structured_conclusion(
         question=normalized_question,
         target_id=normalized_target_id,

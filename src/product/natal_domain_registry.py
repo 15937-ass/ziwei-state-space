@@ -61,6 +61,18 @@ class NatalDomainProviderRegistry:
         return tuple(sorted(provider.domain_id for provider in self.providers))
 
     @property
+    def test_only_domain_ids(self) -> tuple[str, ...]:
+        """Domains backed by explicitly marked test-only providers."""
+
+        return tuple(
+            sorted(
+                provider.domain_id
+                for provider in self.providers
+                if bool(getattr(provider, "is_test_only", False))
+            )
+        )
+
+    @property
     def knowledge_version(self) -> str:
         parts = [
             f"{provider.domain_id}={provider.knowledge_version}"

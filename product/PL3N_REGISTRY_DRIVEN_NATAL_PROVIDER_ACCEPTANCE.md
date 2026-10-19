@@ -32,6 +32,7 @@ The provider builds facts from the normalized chart and shared palace ontology, 
 ## Registry loading and activation
 
 - The production loader accepts only a registry with `status=CANONICAL_READY`.
+- Direct test fixtures must declare `status=TEST_FIXTURE_ONLY`; the inference pipeline labels runs using these providers `TEST_FIXTURE_ONLY` and adds `NON_CANONICAL_NATAL_DOMAIN_PROVIDER` to blockers.
 - The default natal domain registry remains Wealth-only.
 - Additional providers must be explicitly constructed and passed to `load_default_natal_domain_registry(..., additional_providers=...)`.
 - No Career provider or Career rule mapping is activated by this PR.
@@ -48,3 +49,8 @@ This is Product-owned runtime code and test coverage only. It does not change Kn
 - case-support-only, unverified, wrong-layer, wrong-palace, source-drift, unknown-atom, and unconditional-rule cases fail closed;
 - registry loader refuses non-canonical-ready status;
 - the default registry remains Wealth-only unless an additional provider is explicitly supplied.
+
+
+## Test-fixture isolation
+
+A test-only provider may be explicitly injected to exercise the complete pipeline, but this cannot be mistaken for a canonical Career run. If a selected provider declares `TEST_FIXTURE_ONLY`, the pipeline returns `TEST_FIXTURE_ONLY` regardless of whether a test rule matches. If the production temporal registry is also empty, both blockers are preserved in the structured conclusion.
