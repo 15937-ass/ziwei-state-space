@@ -57,3 +57,10 @@ The following are not executable through this provider:
 - numeric probabilities, weights, and thresholds.
 
 Those require separate source-faithful Product contracts and reviewed temporal mappings. This acceptance file records implementation behavior, not empirical predictive validity.
+
+
+## High-level Product API
+
+The Product exports `run_career_inference(repository_root, normalized_snapshot, target_id=..., question=...)`. It loads the source-pinned Career provider, adds it explicitly to the domain registry, and always uses the production temporal reaction registry. The default selected temporal layers are `DECADE + YEAR`; callers may supply a different valid selection.
+
+The wrapper never substitutes a temporal test fixture. With the current empty production reaction registry, it returns `PARTIAL_TEMPORAL_REGISTRY_EMPTY`, preserves the matched canonical NATAL evidence, and reports the temporal blocker. Invalid or absent targets still fail closed.
