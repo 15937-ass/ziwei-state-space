@@ -181,6 +181,10 @@ from .natal_domain_providers import (
     WealthNatalDomainProvider,
     load_default_wealth_natal_provider,
 )
+from .registry_driven_natal_provider import (
+    RegistryDrivenNatalDomainProvider,
+    load_registry_driven_natal_provider,
+)
 from .natal_prior import (
     NatalDomainEvidence,
     NatalRuleEvidence,
