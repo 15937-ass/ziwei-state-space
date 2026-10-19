@@ -8,7 +8,7 @@
   "time_layer": "NATAL",
   "topic_scope": "事业",
   "school": "中州派",
-  "knowledge_version": "CAREER_CA09_FINAL+WP07A_STATIC_AND_STAR_PRESENCE_v0.1",
+  "knowledge_version": "CAREER_CA09_FINAL+WP07A_STATIC_STAR_CROSS_v0.1",
   "source_mapping": {
     "path": "knowledge/wp07a/CAREER_NATAL_ATOMIZATION_MAP_v0.1.json",
     "audit_id": "KB-WP07A-CAREER-NATAL-ATOMIZATION",
@@ -846,6 +846,150 @@
       },
       "mapping_rule_id": "CA01-044",
       "expected_source_modality_note": "继承事业宫禄存语境；只保留进退失据倾向，后续勉强求变及困境留在排除项。"
+    },
+    "CA01-066": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p133-134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "子午紫微且财帛廉贞化禄",
+      "expected_projection_domain": "collaboration",
+      "expected_projection_target": "partnership_venture_suited",
+      "expected_projection_mode": "CROSS_PALACE_CONSTRAINT",
+      "condition": {
+        "all_of": [],
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P05",
+                "star": "廉贞",
+                "mutagen": "禄"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P05",
+                "star": "廉贞",
+                "mutagen": "禄"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA01-066"
+    },
+    "CA02-188": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p136",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "午宫天机化禄且财帛宫太阴化忌",
+      "expected_projection_domain": "risk",
+      "expected_projection_target": "career_speculation_tendency_strengthened_by_wealth_context",
+      "expected_projection_mode": "CROSS_PALACE_CONSTRAINT",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "午"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "禄"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P05",
+              "star": "太阴",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA02-188"
+    },
+    "CA03-255": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p138",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "天机化科且命宫天同巨门之巨门化忌",
+      "expected_projection_domain": "effort",
+      "expected_projection_target": "mental_burden_and_extra_work_strengthened",
+      "expected_projection_mode": "CROSS_PALACE_CONSTRAINT",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "科"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P01",
+              "star": "天同"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P01",
+              "star": "巨门"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P01",
+              "star": "巨门",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA03-255"
     }
   },
   "guardrails": {
@@ -912,6 +1056,18 @@
         "CA01-044"
       ],
       "required_execution_readiness": "STATIC_STAR_PRESENCE_CANDIDATE_NOT_EXECUTABLE"
+    },
+    {
+      "path": "knowledge/wp07a/CAREER_CROSS_PALACE_MAP_CA01_066_CA02_188_CA03_255_v0.1.json",
+      "audit_id": "KB-WP07A-CAREER-CROSS-PALACE-MAP-CA01-066_CA02-188_CA03-255",
+      "mapping_status": "SOURCE_GROUNDED_CROSS_PALACE_MAPPING_COMPLETE_NOT_EXECUTABLE",
+      "schema_version": "0.1",
+      "selected_rule_ids": [
+        "CA01-066",
+        "CA02-188",
+        "CA03-255"
+      ],
+      "required_execution_readiness": "STATIC_CROSS_PALACE_CANDIDATE_NOT_EXECUTABLE"
     }
   ]
 }

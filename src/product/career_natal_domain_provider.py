@@ -52,6 +52,7 @@ def _validate_mapping_handoff(
     if not isinstance(expected_status, str) or expected_status not in {
         "SOURCE_GROUNDED_MAPPING_COMPLETE_NOT_EXECUTABLE",
         "SOURCE_GROUNDED_STAR_PRESENCE_MAPPING_COMPLETE_NOT_EXECUTABLE",
+        "SOURCE_GROUNDED_CROSS_PALACE_MAPPING_COMPLETE_NOT_EXECUTABLE",
     }:
         raise ValueError("Career provider mapping_status is not an approved reviewed mapping status")
     if str(mapping.get("schema_version", "")).strip() != str(
@@ -119,7 +120,11 @@ def _validate_mapping_handoff(
             or provenance.get("source_span_verified") is not True
             or provenance.get("time_layer") != "NATAL"
             or provenance.get("case_support_only") is not False
-            or source_map.get("mapping_status") != "MAPPED_EXISTING_ATOM"
+            or source_map.get("mapping_status") != (
+                "MAPPED_EXISTING_ATOMS"
+                if expected_status == "SOURCE_GROUNDED_CROSS_PALACE_MAPPING_COMPLETE_NOT_EXECUTABLE"
+                else "MAPPED_EXISTING_ATOM"
+            )
             or source_map.get("executable_registry_entry") is not False
         ):
             raise ValueError(f"{rule_id}: source mapping provenance is not eligible for Product compilation")

@@ -218,3 +218,36 @@ palace cannot complete a same-palace condition.
 CA01-035, CA01-043 and CA01-045 are not activated here. Active Knowledge context
 recovery is independent of this Product unit and does not authorize automatic
 execution. No temporal reaction, probability, severity or empirical claim is added.
+
+
+## Cross-palace expansion (Issue #353)
+
+The provider now executes34 explicitly selected NATAL rules. The prior31 entries
+remain unchanged. Three entries come from the reviewed mapping in merged PR #322:
+
+| Rule | Complete condition | Preserved projection |
+|---|---|---|
+| CA01-066 | P09紫微 at子 or午 AND P05廉贞化禄 | 合作创业场景，非保证创业成功 |
+| CA02-188 | P09午宫天机化禄 AND P05太阴化忌 | 事业投机倾向的跨宫联系，非必然投资行为 |
+| CA03-255 | P09天机化科 AND P01天同与巨门同在，且P01巨门化忌 | 劳心与额外工作倾向，非必然工作负荷事件 |
+
+Each condition retains the exact reviewed all_of/alternatives structure. A
+matching star or transformation in another palace cannot substitute for the
+required palace. Generic transformation facts without the named star are not
+sufficient. The report preserves source summaries, locations and exact
+CROSS_PALACE_CONSTRAINT projection targets.
+
+The handoff separately recognizes the reviewed cross-palace mapping status and
+requires its MAPPED_EXISTING_ATOMS entry marker; existing single-atom handoffs
+retain their original marker. No arbitrary status is accepted. Knowledge files
+remain non-executable; Product activates only these three nominated entries.
+
+The tested synthetic chart fixtures establish conditional logic and source
+traces, not that every injected star pattern is reachable from a birth input or
+that the described outcomes occur. The raw pinned engine audit exercises actual
+exported charts separately. No causal inference, time forecast, empirical
+probability or event certainty is established.
+
+CA01-023 spouse空劫 and CA01-020/064/065 remain unselected in this unit. No
+PALACE_RELATION semantics or ontology change is needed by these three rules.
+The production temporal reaction registry remains empty.
