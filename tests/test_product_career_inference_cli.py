@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from tools.run_career_inference import main
+from src.product.career_inference_cli import main
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSET_PATH = ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.1.json"
