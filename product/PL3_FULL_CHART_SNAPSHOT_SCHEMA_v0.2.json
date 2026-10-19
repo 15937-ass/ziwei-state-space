@@ -1,0 +1,536 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/15937-ass/ziwei-state-space/blob/main/product/PL3_FULL_CHART_SNAPSHOT_SCHEMA_v0.2.json",
+  "title": "PL1 Normalized Full-Chart Snapshot v0.2",
+  "description": "Product-owned structural contract for the full exporter consumed by Career inference. Cross-field invariants are additionally enforced by src/product/full_chart_snapshot_contract.py.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "engine",
+    "input",
+    "natal",
+    "temporal"
+  ],
+  "properties": {
+    "case_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "schema_version": {
+      "const": "0.2"
+    },
+    "engine": {
+      "type": "object",
+      "required": [
+        "name",
+        "version",
+        "source_revision",
+        "adapter_version"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "adapter_version": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "input": {
+      "type": "object"
+    },
+    "natal": {
+      "type": "object",
+      "required": [
+        "palaces"
+      ],
+      "properties": {
+        "solar_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "lunar_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "chinese_date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "time": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "time_range": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "soul_star": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "body_star": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "five_elements_class": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "soul_palace_branch": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "body_palace_branch": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "palaces": {
+          "type": "object",
+          "required": [
+            "子",
+            "丑",
+            "寅",
+            "卯",
+            "辰",
+            "巳",
+            "午",
+            "未",
+            "申",
+            "酉",
+            "戌",
+            "亥"
+          ],
+          "propertyNames": {
+            "enum": [
+              "子",
+              "丑",
+              "寅",
+              "卯",
+              "辰",
+              "巳",
+              "午",
+              "未",
+              "申",
+              "酉",
+              "戌",
+              "亥"
+            ]
+          },
+          "properties": {
+            "子": {
+              "$ref": "#/$defs/palace"
+            },
+            "丑": {
+              "$ref": "#/$defs/palace"
+            },
+            "寅": {
+              "$ref": "#/$defs/palace"
+            },
+            "卯": {
+              "$ref": "#/$defs/palace"
+            },
+            "辰": {
+              "$ref": "#/$defs/palace"
+            },
+            "巳": {
+              "$ref": "#/$defs/palace"
+            },
+            "午": {
+              "$ref": "#/$defs/palace"
+            },
+            "未": {
+              "$ref": "#/$defs/palace"
+            },
+            "申": {
+              "$ref": "#/$defs/palace"
+            },
+            "酉": {
+              "$ref": "#/$defs/palace"
+            },
+            "戌": {
+              "$ref": "#/$defs/palace"
+            },
+            "亥": {
+              "$ref": "#/$defs/palace"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": true
+    },
+    "temporal": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/temporalTarget"
+      }
+    }
+  },
+  "$defs": {
+    "natalStar": {
+      "type": "object",
+      "required": [
+        "name",
+        "type",
+        "brightness",
+        "mutagen",
+        "scope"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "brightness": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mutagen": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "scope": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "palace": {
+      "type": "object",
+      "required": [
+        "name",
+        "stem",
+        "branch",
+        "is_body_palace",
+        "major_stars",
+        "minor_stars",
+        "adjective_stars"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stem": {
+          "type": "string",
+          "minLength": 1
+        },
+        "branch": {
+          "type": "string",
+          "enum": [
+            "子",
+            "丑",
+            "寅",
+            "卯",
+            "辰",
+            "巳",
+            "午",
+            "未",
+            "申",
+            "酉",
+            "戌",
+            "亥"
+          ]
+        },
+        "is_body_palace": {
+          "type": "boolean"
+        },
+        "major_stars": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/natalStar"
+          }
+        },
+        "minor_stars": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/natalStar"
+          }
+        },
+        "adjective_stars": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/natalStar"
+          }
+        },
+        "decadal": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "required": [
+                "range",
+                "stem",
+                "branch"
+              ],
+              "properties": {
+                "range": {},
+                "stem": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "branch": {
+                  "type": "string",
+                  "enum": [
+                    "子",
+                    "丑",
+                    "寅",
+                    "卯",
+                    "辰",
+                    "巳",
+                    "午",
+                    "未",
+                    "申",
+                    "酉",
+                    "戌",
+                    "亥"
+                  ]
+                }
+              },
+              "additionalProperties": true
+            }
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "flowStar": {
+      "type": "object",
+      "required": [
+        "name",
+        "type"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "index",
+        "name",
+        "stem",
+        "branch",
+        "palace_names",
+        "mutagen",
+        "nominal_age",
+        "stars"
+      ],
+      "properties": {
+        "index": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stem": {
+          "type": "string",
+          "minLength": 1
+        },
+        "branch": {
+          "type": "string",
+          "minLength": 1
+        },
+        "palace_names": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "mutagen": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "nominal_age": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "stars": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/flowStar"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "target": {
+      "type": "object",
+      "required": [
+        "target_id",
+        "solar_date",
+        "time_index"
+      ],
+      "properties": {
+        "target_id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^\\S(?:[\\s\\S]*\\S)?$"
+        },
+        "solar_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "time_index": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": true
+    },
+    "yearlyDecStars": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "required": [
+        "suiqian12",
+        "jiangqian12"
+      ],
+      "properties": {
+        "suiqian12": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "jiangqian12": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "temporalTarget": {
+      "type": "object",
+      "required": [
+        "target",
+        "solar_date",
+        "lunar_date",
+        "scopes"
+      ],
+      "properties": {
+        "target": {
+          "$ref": "#/$defs/target"
+        },
+        "solar_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "lunar_date": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scopes": {
+          "type": "object",
+          "required": [
+            "decadal",
+            "age",
+            "yearly",
+            "monthly",
+            "daily",
+            "hourly"
+          ],
+          "properties": {
+            "decadal": {
+              "$ref": "#/$defs/scope"
+            },
+            "age": {
+              "$ref": "#/$defs/scope"
+            },
+            "yearly": {
+              "$ref": "#/$defs/scope"
+            },
+            "monthly": {
+              "$ref": "#/$defs/scope"
+            },
+            "daily": {
+              "$ref": "#/$defs/scope"
+            },
+            "hourly": {
+              "$ref": "#/$defs/scope"
+            }
+          },
+          "additionalProperties": false
+        },
+        "yearly_dec_stars": {
+          "$ref": "#/$defs/yearlyDecStars"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
