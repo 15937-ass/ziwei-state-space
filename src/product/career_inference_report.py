@@ -197,6 +197,21 @@ def build_career_inference_report(
             "reaction_rule_count": run.reaction_rule_count,
             "matched_reaction_rule_ids": temporal_rule_ids,
             "has_temporal_reaction_evidence": bool(temporal_rule_ids),
+            "external_event_trigger_used": run.temporal_profile.external_event_trigger_used,
+            "event_relative_context": [
+                {
+                    "context_id": item.context_id,
+                    "status": item.status,
+                    "source": {
+                        "source_id": item.source_id,
+                        "source_location": item.source_location,
+                        "review_status": item.review_status,
+                    },
+                    "trigger_provenance": item.trigger_provenance,
+                    "routing_facts": list(item.routing_facts),
+                }
+                for item in run.temporal_profile.event_relative_context
+            ],
             "readiness_diagnostics": {
                 "diagnostic_set_id": diagnostics_document.get("diagnostic_set_id"),
                 "status": diagnostics_document.get("status"),
@@ -214,6 +229,11 @@ def build_career_inference_report(
                 "REAL_WORLD_EVENT_PREDICTION_NOT_ESTABLISHED",
                 "SOURCE_RULES_NOT_EMPIRICALLY_CALIBRATED",
             }
+            | (
+                {"EVENT_RELATIVE_CONTEXT_IS_NOT_A_TEMPORAL_REACTION"}
+                if run.temporal_profile.event_relative_context
+                else set()
+            )
         ),
         "real_world_event_prediction_supported": False,
     }
