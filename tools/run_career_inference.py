@@ -104,6 +104,10 @@ def main(argv: Sequence[str] | None = None) -> int:
                     "migration-window JSON missing required field(s): "
                     + ", ".join(missing_keys)
                 )
+            if "trigger_provenance" in raw_window and not isinstance(
+                raw_window["trigger_provenance"], str
+            ):
+                raise ValueError("migration-window trigger_provenance must be a string")
             migration_window = MigrationFirstThreeYearsInput(**raw_window)
 
         run = run_career_inference(
