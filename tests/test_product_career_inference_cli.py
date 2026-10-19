@@ -105,6 +105,90 @@ def test_cli_stdout_is_deterministic_for_same_snapshot_and_arguments(capsys, tmp
     assert payload["status"] == "PARTIAL_TEMPORAL_REGISTRY_EMPTY"
 
 
+def test_cli_accepts_only_explicit_migration_window_input_and_reports_overlay(tmp_path, capsys):
+    snapshot_path = tmp_path / "snapshot.json"
+    window_path = tmp_path / "migration-window.json"
+    output_path = tmp_path / "report.json"
+    snapshot_path.write_text(
+        json.dumps(_snapshot(), ensure_ascii=False),
+        encoding="utf-8",
+    )
+    window_path.write_text(
+        json.dumps(
+            {
+                "confirmed_distant_settlement": True,
+                "years_since_distant_relocation": 2,
+                "travel_only": False,
+                "trigger_provenance": "OBS-CLI-RELOCATION-001",
+            },
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+
+    result = main(
+        [
+            "--snapshot",
+            str(snapshot_path),
+            "--target-id",
+            "T-DEMO",
+            "--question",
+            "事业推理与迁移事件相对窗口",
+            "--migration-window",
+            str(window_path),
+            "--output",
+            str(output_path),
+        ]
+    )
+
+    report = json.loads(output_path.read_text(encoding="utf-8"))
+    assert result == 0
+    context = report["temporal"]["event_relative_context"]
+    assert len(context) == 1
+    assert context[0]["context_id"] == "MIGRATION_FIRST_THREE_YEARS"
+    assert context[0]["status"] == "ACTIVE"
+    assert context[0]["trigger_provenance"] == "OBS-CLI-RELOCATION-001"
+    assert report["status"] == "PARTIAL_TEMPORAL_REGISTRY_EMPTY"
+    assert report["temporal"]["matched_reaction_rule_ids"] == []
+    assert report["real_world_event_prediction_supported"] is False
+
+
+def test_cli_rejects_migration_window_without_required_trigger_provenance(tmp_path, capsys):
+    snapshot_path = tmp_path / "snapshot.json"
+    window_path = tmp_path / "migration-window.json"
+    snapshot_path.write_text(
+        json.dumps(_snapshot(), ensure_ascii=False),
+        encoding="utf-8",
+    )
+    window_path.write_text(
+        json.dumps(
+            {
+                "confirmed_distant_settlement": True,
+                "years_since_distant_relocation": 1,
+                "travel_only": False,
+            }
+        ),
+        encoding="utf-8",
+    )
+
+    result = main(
+        [
+            "--snapshot",
+            str(snapshot_path),
+            "--target-id",
+            "T-DEMO",
+            "--question",
+            "missing trigger provenance",
+            "--migration-window",
+            str(window_path),
+        ]
+    )
+    error = capsys.readouterr()
+
+    assert result == 2
+    assert "trigger_provenance" in error.err
+
+
 def test_cli_fails_closed_on_missing_target_and_refuses_input_overwrite(tmp_path, capsys):
     snapshot_path = tmp_path / "snapshot.json"
     snapshot_path.write_text(
