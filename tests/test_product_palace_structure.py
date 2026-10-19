@@ -219,3 +219,72 @@ def test_broken_ontology_symmetry_is_rejected():
 
     with pytest.raises(ValueError):
         compile_palace_ontology(rows)
+
+
+@pytest.mark.parametrize("engine,version", [("iztro-js", "2.6.1"), ("x-iztro-rust", "0.6.1")])
+@pytest.mark.parametrize("label", ["仆役", "仆役宫"])
+def test_pinned_engine_transport_alias_preserves_raw_and_matches_canonical_facts(engine, version, label):
+    import copy
+    ontology = load_palace_ontology(ONTOLOGY)
+    snapshot = _snapshot()
+    snapshot['engine'].update(name=engine, version=version)
+    expected = resolve_palace_structure(snapshot, ontology).runtime_facts()
+    snapshot['natal']['palaces'][BRANCHES[7]]['name'] = label
+    before = copy.deepcopy(snapshot)
+    labels = dict(ontology.label_to_id)
+    structure = resolve_palace_structure(snapshot, ontology)
+    assert structure.palace('P08').observed_name == label
+    assert structure.palace('P08').raw is snapshot['natal']['palaces'][BRANCHES[7]]
+    assert structure.runtime_facts() == expected
+    assert snapshot == before
+    assert dict(ontology.label_to_id) == labels
+    assert ontology.resolve_label('仆役') is None
+
+
+@pytest.mark.parametrize('field,bad', [('name', 'other-engine'), ('version', 'future'), ('adapter_version', 'future'), ('version', [])])
+def test_unrecognized_engine_metadata_cannot_activate_transport_alias(field, bad):
+    ontology = load_palace_ontology(ONTOLOGY)
+    snapshot = _snapshot()
+    snapshot['engine'].update(name='iztro-js', version='2.6.1')
+    snapshot['engine'][field] = bad
+    snapshot['natal']['palaces'][BRANCHES[7]]['name'] = '仆役'
+    with pytest.raises(ValueError, match='cannot map snapshot palace'):
+        resolve_palace_structure(snapshot, ontology)
+
+
+@pytest.mark.parametrize('engine', ['iztro-js', 'x-iztro-rust'])
+def test_pinned_engine_still_rejects_unknown_names_and_duplicate_palaces(engine):
+    ontology = load_palace_ontology(ONTOLOGY)
+    snapshot = _snapshot()
+    snapshot['engine'].update(name=engine, version='2.6.1' if engine=='iztro-js' else '0.6.1')
+    snapshot['natal']['palaces'][BRANCHES[7]]['name'] = '未知仆役'
+    with pytest.raises(ValueError, match='cannot map snapshot palace'):
+        resolve_palace_structure(snapshot, ontology)
+    snapshot['natal']['palaces'][BRANCHES[7]]['name'] = '仆役'
+    snapshot['natal']['palaces'][BRANCHES[0]]['name'] = '交友'
+    with pytest.raises(ValueError, match='multiple palaces to P08'):
+        resolve_palace_structure(snapshot, ontology)
+
+
+def test_explicit_alias_cannot_override_pinned_transport_or_canonical_mapping():
+    ontology = load_palace_ontology(ONTOLOGY)
+    snapshot = _snapshot()
+    snapshot['engine'].update(name='iztro-js', version='2.6.1')
+    for aliases in ({'仆役': 'P05'}, {'交友': 'P05'}):
+        with pytest.raises(ValueError, match='conflicts with palace mapping'):
+            resolve_palace_structure(snapshot, ontology, extra_aliases=aliases)
+
+
+def test_pinned_alias_cannot_override_conflicting_ontology_label():
+    import csv
+    with ONTOLOGY.open(encoding='utf-8') as stream:
+        rows = list(csv.DictReader(stream))
+    # Model a future ontology conflict without touching canonical Knowledge.
+    for row in rows:
+        if row['palace_id'] == 'P09':
+            row['legacy_alias'] = '仆役'
+    ontology = compile_palace_ontology(rows)
+    snapshot = _snapshot()
+    snapshot['engine'].update(name='iztro-js', version='2.6.1')
+    with pytest.raises(ValueError, match='conflicts with palace mapping'):
+        resolve_palace_structure(snapshot, ontology)

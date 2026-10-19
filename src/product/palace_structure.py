@@ -17,6 +17,13 @@ from .condition_atoms import fact_from_atom
 
 _STAR_FIELDS = ("major_stars", "minor_stars", "adjective_stars")
 
+# Product transport labels, not additions to the canonical Knowledge ontology.
+# Match exact pinned engine/version/adapter tuples; never guess unknown labels.
+_PINNED_ENGINE_PALACE_ALIASES = {
+    ("iztro-js", "2.6.1", "0.2"): {"仆役": "P08"},
+    ("x-iztro-rust", "0.6.1", "0.2"): {"仆役": "P08"},
+}
+
 
 def _label_variants(label: str) -> tuple[str, ...]:
     text = str(label).strip()
@@ -318,20 +325,41 @@ def resolve_palace_structure(
 ) -> ResolvedPalaceStructure:
     """Bind a normalized snapshot to the canonical 12-palace ontology.
 
-    extra_aliases is an explicit adapter compatibility hook. It is never
-    populated heuristically.
+    Pinned exporter transport labels are explicit Product compatibility aliases.
+    extra_aliases remains the caller's explicit hook. Neither changes the
+    ontology or raw input, and conflicting aliases fail closed.
     """
 
     raw_palaces = _palace_mapping(snapshot)
     if len(raw_palaces) != 12:
         raise ValueError(f"snapshot must contain 12 palaces, got {len(raw_palaces)}")
 
+    engine = snapshot.get("engine")
+    engine_key = (
+        tuple(engine.get(field) for field in ("name", "version", "adapter_version"))
+        if isinstance(engine, Mapping)
+        else ()
+    )
+    # Invalid metadata is rejected by the service's structural gate. A direct
+    # resolver caller must not turn unhashable values into a runtime TypeError.
+    pinned_aliases = (
+        _PINNED_ENGINE_PALACE_ALIASES.get(engine_key, {})
+        if all(isinstance(value, str) for value in engine_key)
+        else {}
+    )
     explicit_aliases: dict[str, str] = {}
-    for label, palace_id in (extra_aliases or {}).items():
-        if palace_id not in ontology.entries:
-            raise ValueError(f"extra alias {label!r} targets unknown {palace_id}")
-        for variant in _label_variants(label):
-            explicit_aliases[variant] = palace_id
+    for aliases in (pinned_aliases, extra_aliases or {}):
+        for label, palace_id in aliases.items():
+            if palace_id not in ontology.entries:
+                raise ValueError(f"extra alias {label!r} targets unknown {palace_id}")
+            for variant in _label_variants(label):
+                existing = ontology.resolve_label(variant) or explicit_aliases.get(variant)
+                if existing and existing != palace_id:
+                    raise ValueError(
+                        f"adapter alias {label!r} conflicts with palace mapping: "
+                        f"{existing} vs {palace_id}"
+                    )
+                explicit_aliases[variant] = palace_id
 
     resolved: dict[str, ResolvedPalace] = {}
     branches: set[str] = set()
