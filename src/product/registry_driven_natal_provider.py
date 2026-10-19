@@ -126,7 +126,11 @@ class RegistryDrivenNatalDomainProvider:
                 )
 
             checks = {
+                "source_id": "expected_source_id",
+                "source_location": "expected_source_location",
+                "review_status": "expected_review_status",
                 "condition": "expected_condition",
+                "projection_domain": "expected_projection_domain",
                 "projection_target": "expected_projection_target",
                 "projection_mode": "expected_projection_mode",
             }

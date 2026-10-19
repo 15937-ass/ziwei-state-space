@@ -185,6 +185,10 @@ from .registry_driven_natal_provider import (
     RegistryDrivenNatalDomainProvider,
     load_registry_driven_natal_provider,
 )
+from .career_natal_domain_provider import (
+    DEFAULT_CAREER_PROVIDER_REGISTRY_PATH,
+    load_default_career_natal_provider,
+)
 from .natal_prior import (
     NatalDomainEvidence,
     NatalRuleEvidence,

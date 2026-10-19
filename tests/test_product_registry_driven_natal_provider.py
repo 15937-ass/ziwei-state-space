@@ -98,7 +98,11 @@ def _registry(**overrides):
         "knowledge_version": "TEST_ONLY_CAREER_RULES_1",
         "rules": {
             "CA-TEST-001": {
+                "expected_source_id": "SRC-TEST-ONLY",
+                "expected_source_location": "fixture page 1",
+                "expected_review_status": "SOURCE_SPAN_VERIFIED",
                 "expected_condition": "事业宫见紫微",
+                "expected_projection_domain": "career_structure",
                 "expected_projection_target": "career_management",
                 "expected_projection_mode": "FUNCTIONAL_PROJECTION",
                 "condition": {
@@ -155,7 +159,11 @@ def test_registry_driven_provider_does_not_activate_rule_when_condition_is_absen
         ({"source_span_verified": "false"}, "verified source provenance"),
         ({"time_layer": "YEAR"}, "NATAL rows only"),
         ({"palace_id": "P05"}, "does not match provider palace"),
-        ({"condition": "changed source text"}, "canonical source drift"),
+        ({"source_id": "SRC-DRIFT"}, "canonical source drift in source_id"),
+        ({"source_location": "changed page"}, "canonical source drift in source_location"),
+        ({"review_status": "HUMAN_VERIFIED"}, "canonical source drift in review_status"),
+        ({"projection_domain": "changed-domain"}, "canonical source drift in projection_domain"),
+        ({"condition": "changed source text"}, "canonical source drift in condition"),
     ],
 )
 def test_registry_driven_provider_fails_closed_on_source_row_blockers(overrides, match):

@@ -1,0 +1,101 @@
+{
+  "schema_version": "0.1",
+  "status": "CANONICAL_READY",
+  "provider_id": "PL3N_CAREER_CA04_CA09_WP07A_PROVIDER",
+  "domain_id": "career",
+  "palace_id": "P09",
+  "palace_name": "事业宫",
+  "time_layer": "NATAL",
+  "topic_scope": "事业",
+  "school": "中州派",
+  "knowledge_version": "CAREER_CA09_FINAL+WP07A_MAP_v0.1",
+  "source_mapping": {
+    "path": "knowledge/wp07a/CAREER_NATAL_ATOMIZATION_MAP_v0.1.json",
+    "audit_id": "KB-WP07A-CAREER-NATAL-ATOMIZATION",
+    "mapping_status": "SOURCE_GROUNDED_MAPPING_COMPLETE_NOT_EXECUTABLE",
+    "schema_version": "0.1",
+    "note": "This Product registry is the separately implemented executable form. The Knowledge mapping file remains unchanged and is not loaded as a runtime registry."
+  },
+  "projection_sources": [
+    "validation/wp05/CA04_career_projection_review_301_400.csv",
+    "validation/wp05/CA09_career_projection_review_801_888.csv"
+  ],
+  "palace_ontology": "knowledge/wp05/palace_ontology_v0.1.csv",
+  "rules": {
+    "CA04-347": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p140",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "武曲化科",
+      "expected_projection_domain": "reputation",
+      "expected_projection_target": "career_requires_reputation_building",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "武曲",
+              "mutagen": "科"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA04-347"
+    },
+    "CA04-349": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p141",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "武曲化忌",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "technical_skill_work_scene_preferred",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "武曲",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA04-349"
+    },
+    "CA09-852": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p154",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "破军化禄",
+      "expected_projection_domain": "role",
+      "expected_projection_target": "multiple_jobs_side_roles_or_business_lines_are_common",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "破军",
+              "mutagen": "禄"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA09-852"
+    }
+  },
+  "guardrails": {
+    "free_text_rule_generation_allowed": false,
+    "case_support_only_allowed": false,
+    "time_layer_other_than_natal_allowed": false,
+    "numeric_probability_allowed": false,
+    "universal_valence_allowed": false,
+    "event_manifestation_inference_allowed": false,
+    "default_registry_activation": false
+  }
+}
