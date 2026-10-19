@@ -12,6 +12,7 @@ from .event_relative_window import (
     MigrationFirstThreeYearsInput,
     resolve_migration_first_three_years,
 )
+from .inference_snapshot_contract import validate_normalized_inference_snapshot
 from .natal_domain_registry import load_default_natal_domain_registry
 from .symbolic_inference_pipeline import SymbolicInferenceRun, run_symbolic_inference
 from .temporal_environment import EventRelativeContextEvidence
@@ -41,6 +42,10 @@ def run_career_inference(
     the underlying pipeline returns an explicit partial result.
     """
 
+    validate_normalized_inference_snapshot(
+        normalized_snapshot,
+        target_id=target_id,
+    )
     root = Path(repository_root)
     career_provider = load_default_career_natal_provider(root)
     domain_registry = load_default_natal_domain_registry(
