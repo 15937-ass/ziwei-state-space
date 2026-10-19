@@ -1,0 +1,203 @@
+{
+  "schema_version": "0.1",
+  "audit_id": "KB-WP07A-CAREER-CONTEXT-RECOVERY-CA01-020",
+  "work_unit": "KB-WP07A-CAREER-CONTEXT-RECOVERY-CA01-020",
+  "lane": "KNOWLEDGE_ONLY",
+  "status": "SOURCE_CONTEXT_RECOVERED_ILLUSTRATIVE_EXAMPLE_BLOCKED",
+  "source_id": "SRC-ZZ-003",
+  "source_title": "《中州派紫微斗数深造讲义（下）》",
+  "canonical_corpus": "CAREER_CA09_FINAL",
+  "scope": {
+    "palace_id": "P09",
+    "palace_name": "事业宫",
+    "source_batches": [
+      "CA01"
+    ],
+    "nominated_source_rule_ids": [
+      "CA01-020"
+    ],
+    "purpose": "保留跨宫示例的显式事业宫星系前提，并将未能确定是否继承的前文语境单独标记；不将示例泛化为通用规则。"
+  },
+  "mappings": [
+    {
+      "source_rule_id": "CA01-020",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p132",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "命宫紫微化权且财帛武曲化忌示例",
+      "source_anchor_printed_page": 132,
+      "source_anchor_phrase": "若命宫紫微化权，而财帛宫武曲化忌，则以任职于大机构或政府部门为宜，此则根据事业宫【廉相】的性质，且以担任行政部门为宜。",
+      "source_context": {
+        "source_paragraph_excerpt": "例如命宫[紫微天府]，财帛宫武曲独坐，事业宫『廉贞天相』若武曲化权，迁移宫坐禄存，则宜据命宫及财帛宫星曜，可作贸迁。但由于事业宫为[廉相]，故宜与人合作事业，尤须亲自参加事业的经营。若命宫紫微化权，而财帛宫武曲化忌，则以任职于大机构或政府部门为宜，此则根据事业宫【廉相】的性质，且以担任行政部门为宜。",
+        "context_type": "ILLUSTRATIVE_EXAMPLE_IN_EXPLANATORY_TEXT",
+        "explicit_prerequisites": [
+          {
+            "condition": "事业宫为[廉相]（廉贞、天相同宫）",
+            "status": "EXPLICIT_IN_TARGET_SENTENCE",
+            "representation": "PALACE_HAS_STAR(P09, 廉贞) AND PALACE_HAS_STAR(P09, 天相)"
+          }
+        ],
+        "inherited_context": [
+          {
+            "condition": "命宫[紫微天府]",
+            "status": "INHERITANCE_UNRESOLVED",
+            "reason": "段首先以[紫微天府]引入示例，后句以“若”转入紫微化权/武曲化忌分支，但语法不足以确定天府是否为后分支必要条件。"
+          },
+          {
+            "condition": "财帛宫武曲独坐",
+            "status": "INHERITANCE_UNRESOLVED",
+            "reason": "武曲化忌已明确属于财帛宫，但“独坐”是否延续到后分支，来源行文未作独立重述。"
+          }
+        ],
+        "excluded_neighbor_context": [
+          {
+            "condition": "迁移宫坐禄存",
+            "status": "NOT_IMPORTED",
+            "reason": "该条件在前面的武曲化权/贸迁分支中出现；后续武曲化忌分支没有明确重申，不得自动继承。"
+          }
+        ]
+      },
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P01",
+              "star": "紫微",
+              "mutagen": "权"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P05",
+              "star": "武曲",
+              "mutagen": "忌"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "廉贞"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "天相"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "PALACE_HAS_STAR",
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P01",
+              "star": "紫微",
+              "mutagen": "权"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P05",
+              "star": "武曲",
+              "mutagen": "忌"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "廉贞"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "天相"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "现有运行时可以发出绑定具体宫位的星曜存在与四化事实；本映射不新增结构语义。"
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "large_institution_or_public_employment_scene",
+        "projection_mode": "CROSS_PALACE_CONSTRAINT"
+      },
+      "mapping_status": "MAPPED_WITH_EXPLICIT_SOURCE_CONTEXT_NOT_GENERAL_RULE",
+      "normalization_epistemic": "SOURCE_PRESERVING_WITH_CONTEXT_GUARD",
+      "source_epistemic": "EXPLICIT_ILLUSTRATIVE_EXAMPLE",
+      "execution_readiness": "BLOCKED_ILLUSTRATIVE_EXAMPLE_SCOPE_AND_CONTEXT_INHERITANCE_UNRESOLVED",
+      "executable_registry_entry": false
+    }
+  ],
+  "exclusions": [
+    {
+      "source_rule_id": "CA02-170",
+      "source_location": "事业宫printed_p136",
+      "reason_code": "PREVIOUS_CONTEXT_AND_AUSPICIOUS_STAR_GATE_UNRESOLVED",
+      "reason": "该条依赖“前格”以及“吉曜同会”，后者目前没有可执行且来源定义清楚的通用原子。"
+    },
+    {
+      "source_rule_id": "CA01-064",
+      "source_location": "事业宫printed_p133-134",
+      "reason_code": "AMBIGUOUS_DE_LU",
+      "reason": "“得禄”尚未区分化禄、禄存或禄马语义。"
+    },
+    {
+      "source_rule_id": "CA01-065",
+      "source_location": "事业宫printed_p133-134",
+      "reason_code": "LU_MA_RELATION_UNRESOLVED",
+      "reason": "“禄马交驰”需要单独的星曜关系定义。"
+    }
+  ],
+  "validation": {
+    "nominated_rows": 1,
+    "mapped_rows": 1,
+    "source_span_verified": true,
+    "review_status": "SOURCE_SPAN_VERIFIED",
+    "time_layer": "NATAL",
+    "case_support_only": false,
+    "raw_history_feedback_preserved": true,
+    "source_condition_and_projection_fields_preserved": true,
+    "explicit_career_system_context_required": true,
+    "inherited_context_uncertainty_preserved": true,
+    "prior_subexample_lucun_not_imported": true,
+    "atom_types_within_existing_allowlist": true,
+    "runtime_fact_compatibility_tested": true,
+    "source_rows_modified": false,
+    "product_runtime_modified": false,
+    "production_registry_modified": false,
+    "executable_rule_created": false,
+    "new_atom_or_ontology_semantics_created": false,
+    "numeric_weights_or_probabilities_created": false
+  },
+  "guardrails": [
+    "source condition 含“示例”，必须保留为 context-bound illustrative example，不能升级为普遍规则。",
+    "事业宫廉贞与天相是目标句显式依赖，必须同时出现。",
+    "命宫[紫微天府]与财帛宫武曲独坐的前文继承关系标记为未决，不得静默假定。",
+    "不把前一分支的迁移宫禄存带入本分支。",
+    "全部映射不可执行，直至上下文继承语义另有来源证据或人工审核。"
+  ]
+}
