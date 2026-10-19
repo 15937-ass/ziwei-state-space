@@ -6,11 +6,11 @@ canonical_branch: "main"
 execution:
   status: "ACTIVE"
   program: "KB_WP07A"
-  active_issue: 302
+  active_issue: 319
   canonical_main_checkpoint: "CAREER_CA09_FINAL"
-  resume_entry: "Prepare a source-grounded condition-atom mapping for CA04-347 (武曲化科), CA04-349 (武曲化忌), and CA09-852 (破军化禄). This is a Knowledge mapping artifact for Product implementation, not an executable registry."
-  resume_issue: 290
-  last_state_sync_issue: 303
+  resume_entry: "Map three source-grounded cross-palace Career conditions CA01-066 (子午紫微 + 财帛廉贞化禄), CA02-188 (午宫天机化禄 + 财帛太阴化忌), and CA03-255 (事业天机化科 + 命宫天同巨门之巨门化忌). Use existing palace-bound facts only; this is a Knowledge mapping artifact, not an executable registry."
+  resume_issue: 319
+  last_state_sync_issue: 319
 
 canonical_main_snapshot:
   domain: "事业宫"
@@ -32,6 +32,18 @@ completed_work_units:
     pr: 301
     status: "MERGED_NO_ELIGIBLE_TEMPORAL_RULES"
     finding: "Nine non-NATAL rows audited; zero eligible for executable normalization under the current PL3-T contract. Production temporal reaction registry remains empty."
+  - work_unit: "KB-WP07A-CAREER-NATAL-ATOMIZATION-PILOT"
+    issue: 302
+    pr: 305
+    status: "MERGED_NOT_EXECUTABLE"
+  - work_unit: "KB-WP07A-CAREER-NATAL-TRANSFORMATION-MAP-CA01-CA03"
+    issue: 307
+    pr: 308
+    status: "MERGED_NOT_EXECUTABLE"
+  - work_unit: "KB-WP07A-CAREER-DIRECT-TRANSFORM-MAP-CA04-CA09"
+    issue: 313
+    pr: 315
+    status: "MERGED_NOT_EXECUTABLE"
 
 archived_noncanonical_snapshots:
   wp05_all_twelve_palaces:
@@ -54,7 +66,7 @@ resume_queue_reference:
   legacy_integration_issue: 278
   completed_career_closure_pr: 294
   completed_temporal_eligibility_pr: 301
-  note: "Legacy Issue #278 is historical and closed. PR #272 remains a non-canonical comparison snapshot and must be audited segment by segment. Current active Knowledge work is Issue #302."
+  note: "Legacy Issue #278 is historical and closed. PR #272 remains a non-canonical comparison snapshot and must be audited segment by segment. Recent merged Career Knowledge mappings are #305, #308 and #315; current active Knowledge work is Issue #319."
 
 human_gate:
   pending_on_main: null
