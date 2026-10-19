@@ -3,6 +3,7 @@ from pathlib import Path
 
 import pytest
 
+from src.product.condition_atoms import fact_from_atom
 from src.product.natal_prior import NatalStateProfile
 from src.product.temporal_asset_adapter import (
     SCOPE_TO_LAYER,
@@ -65,6 +66,46 @@ def test_adapter_preserves_direct_scope_payload_as_atomic_facts():
         'stars[0][0]={"name":"天马","type":"tianma"}',
     ) in facts
     assert ("YEAR", 'yearly_dec.suiqian12[0]="岁建"') in facts
+
+
+def test_scope_mutagen_is_not_silently_bound_to_a_temporal_star():
+    bundle = adapt_target_from_full_snapshot(_snapshot(), target_id="T-DEMO")
+
+    scope_level = fact_from_atom("TRANSFORMATION_PRESENT", layer="YEAR", mutagen="科")
+    unsupported_join = fact_from_atom(
+        "TRANSFORMATION_PRESENT",
+        layer="YEAR",
+        palace_name="命宫",
+        star="天马",
+        mutagen="科",
+    )
+    assert scope_level in bundle.condition_facts
+    assert unsupported_join not in bundle.condition_facts
+
+
+def test_adapter_emits_star_bound_mutagen_only_when_explicit_on_star_object():
+    snapshot = _snapshot()
+    star = snapshot["temporal"][0]["scopes"]["yearly"]["stars"][0][0]
+    star["name"] = "武曲"
+    star["mutagen"] = "忌"
+
+    bundle = adapt_target_from_full_snapshot(snapshot, target_id="T-DEMO")
+    expected = fact_from_atom(
+        "TRANSFORMATION_PRESENT",
+        layer="YEAR",
+        palace_name="命宫",
+        star="武曲",
+        mutagen="忌",
+    )
+
+    assert expected in bundle.condition_facts
+    assert fact_from_atom(
+        "TRANSFORMATION_PRESENT",
+        layer="YEAR",
+        palace_name="命宫",
+        star="武曲",
+        mutagen="科",
+    ) not in bundle.condition_facts
 
 
 def test_build_profile_from_assets_is_deterministic():
