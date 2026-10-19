@@ -55,12 +55,12 @@ def _natal(stars_by_palace=None):
             "minor_stars": [],
             "adjective_stars": [],
         }
-    return {"palaces": palaces}
+    return {"natal": {"palaces": palaces}}
 
 
 def _full_snapshot(stars_by_palace=None):
     snapshot = json.loads(ASSET_PATH.read_text(encoding="utf-8"))
-    snapshot["natal"] = _natal(stars_by_palace)
+    snapshot["natal"] = _natal(stars_by_palace)["natal"]
     return snapshot
 
 
