@@ -8,6 +8,7 @@ from src.product.inference_snapshot_contract import (
     SUPPORTED_SCHEMA_VERSION,
     validate_normalized_inference_snapshot,
 )
+import src.product.career_inference_service as career_service
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSET_PATH = ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.1.json"
@@ -84,6 +85,27 @@ def test_contract_rejects_malformed_scope_arrays_and_yearly_dec_stars():
     snapshot["temporal"][0]["yearly_dec_stars"]["suiqian12"] = None
     with pytest.raises(ValueError, match="yearly_dec_stars.suiqian12 must be an array"):
         validate_normalized_inference_snapshot(snapshot, target_id="T-DEMO")
+
+
+def test_service_validates_snapshot_before_loading_provider(monkeypatch):
+    snapshot = _snapshot()
+    del snapshot["temporal"][0]["scopes"]["yearly"]
+
+    def provider_must_not_load(*args, **kwargs):
+        raise AssertionError("provider must not load before snapshot validation")
+
+    monkeypatch.setattr(
+        career_service,
+        "load_default_career_natal_provider",
+        provider_must_not_load,
+    )
+    with pytest.raises(ValueError, match="scopes.yearly must be an object"):
+        career_service.run_career_inference(
+            ROOT,
+            snapshot,
+            target_id="T-DEMO",
+            question="invalid snapshot",
+        )
 
 
 def test_contract_rejects_missing_selected_target_and_invalid_natal_palace_count():
