@@ -8,7 +8,7 @@ from __future__ import annotations
 
 import hashlib
 import json
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
 from typing import Any, Iterable, Mapping
 
 from .layered_evidence_package import (
@@ -25,6 +25,7 @@ from .temporal_asset_adapter import (
     build_temporal_environment_from_assets,
 )
 from .temporal_environment import (
+    TEMPORAL_LAYERS,
     EventRelativeContextEvidence,
     TemporalEnvironmentProfile,
 )
@@ -60,6 +61,7 @@ class SymbolicInferenceRun:
     question: str
     target_id: str
     selected_domains: tuple[str, ...]
+    selected_temporal_layers: tuple[str, ...]
     status: str
     blockers: tuple[str, ...]
     reaction_registry_status: str
@@ -77,6 +79,7 @@ class SymbolicInferenceRun:
             "question": self.question,
             "target_id": self.target_id,
             "selected_domains": list(self.selected_domains),
+            "selected_temporal_layers": list(self.selected_temporal_layers),
             "status": self.status,
             "blockers": list(self.blockers),
             "reaction_registry": {
@@ -122,6 +125,7 @@ def _build_structured_conclusion(
     question: str,
     target_id: str,
     selected_domains: tuple[str, ...],
+    selected_temporal_layers: tuple[str, ...],
     run_status: str,
     blockers: tuple[str, ...],
     natal_profile: NatalStateProfile,
@@ -212,12 +216,55 @@ def _build_structured_conclusion(
         question=question,
         target_id=target_id,
         selected_domains=selected_domains,
+        selected_temporal_layers=selected_temporal_layers,
         canonical_rule_ids=canonical_rule_ids,
         temporal_reaction_rule_ids=temporal_rule_ids,
         evidence_refs=evidence_refs,
         conflicts=tuple(temporal_profile.conflicts),
         unknowns=tuple(sorted(set(unknowns))),
         limitations=tuple(sorted(set(limitations))),
+    )
+
+
+def _condition_fact_layer(condition_fact: str) -> str | None:
+    if not condition_fact.startswith("atom:"):
+        return None
+    try:
+        payload = json.loads(condition_fact[len("atom:"):])
+    except (TypeError, ValueError, json.JSONDecodeError):
+        return None
+    args = payload.get("args") if isinstance(payload, Mapping) else None
+    if not isinstance(args, Mapping):
+        return None
+    layer = str(args.get("layer", "")).strip()
+    return layer or None
+
+
+def _select_temporal_layers(
+    bundle: TemporalAssetBundle,
+    selected_layers: tuple[str, ...],
+) -> TemporalAssetBundle:
+    selected = frozenset(selected_layers)
+    temporal_facts = tuple(
+        item for item in bundle.temporal_facts if item.layer in selected
+    )
+    condition_facts = tuple(
+        sorted(
+            fact
+            for fact in bundle.condition_facts
+            if _condition_fact_layer(fact) in selected
+        )
+    )
+    observed_layers = {item.layer for item in temporal_facts}
+    if observed_layers != selected:
+        missing = sorted(selected - observed_layers)
+        raise ValueError(
+            "selected temporal layer(s) have no adapted facts: " + ", ".join(missing)
+        )
+    return replace(
+        bundle,
+        temporal_facts=temporal_facts,
+        condition_facts=condition_facts,
     )
 
 
@@ -229,6 +276,7 @@ def run_symbolic_inference(
     domain_registry: NatalDomainProviderRegistry,
     reaction_registry_document: Mapping[str, Any],
     selected_domains: Iterable[str] | None = None,
+    selected_temporal_layers: Iterable[str] | None = None,
     domain_questions: Mapping[str, str] | None = None,
     temporal_conflicts: Iterable[str] = (),
     event_relative_context: Iterable[EventRelativeContextEvidence] = (),
@@ -282,6 +330,34 @@ def run_symbolic_inference(
         normalized_snapshot,
         target_id=normalized_target_id,
     )
+    available_layers = {item.layer for item in temporal_bundle.temporal_facts}
+    if selected_temporal_layers is None:
+        temporal_layers = tuple(sorted(available_layers))
+    else:
+        temporal_layers = tuple(
+            sorted(
+                {
+                    str(item).strip()
+                    for item in selected_temporal_layers
+                    if str(item).strip()
+                }
+            )
+        )
+        if not temporal_layers:
+            raise ValueError("at least one selected temporal layer is required")
+        unsupported_layers = sorted(set(temporal_layers) - TEMPORAL_LAYERS)
+        if unsupported_layers:
+            raise ValueError(
+                "unsupported selected temporal layer(s): "
+                + ", ".join(unsupported_layers)
+            )
+        unavailable_layers = sorted(set(temporal_layers) - available_layers)
+        if unavailable_layers:
+            raise ValueError(
+                "selected temporal layer(s) not present in target: "
+                + ", ".join(unavailable_layers)
+            )
+        temporal_bundle = _select_temporal_layers(temporal_bundle, temporal_layers)
 
     expected_engine = ":".join(
         value
@@ -341,6 +417,7 @@ def run_symbolic_inference(
         question=normalized_question,
         target_id=normalized_target_id,
         selected_domains=domains,
+        selected_temporal_layers=temporal_layers,
         run_status=status,
         blockers=blockers,
         natal_profile=natal_profile,
@@ -359,6 +436,7 @@ def run_symbolic_inference(
         "question": normalized_question,
         "target_id": normalized_target_id,
         "selected_domains": list(domains),
+        "selected_temporal_layers": list(temporal_layers),
         "natal_profile_id": natal_profile.profile_id,
         "temporal_profile_id": temporal_profile.profile_id,
         "reaction_registry_status": registry_status,
@@ -380,6 +458,7 @@ def run_symbolic_inference(
         question=normalized_question,
         target_id=normalized_target_id,
         selected_domains=domains,
+        selected_temporal_layers=temporal_layers,
         status=status,
         blockers=blockers,
         reaction_registry_status=registry_status,
