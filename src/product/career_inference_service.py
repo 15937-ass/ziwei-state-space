@@ -12,6 +12,7 @@ from .event_relative_window import (
     MigrationFirstThreeYearsInput,
     resolve_migration_first_three_years,
 )
+from .full_chart_snapshot_contract import validate_normalized_full_chart_snapshot
 from .natal_domain_registry import load_default_natal_domain_registry
 from .symbolic_inference_pipeline import SymbolicInferenceRun, run_symbolic_inference
 from .temporal_environment import EventRelativeContextEvidence
@@ -40,6 +41,16 @@ def run_career_inference(
     substitutes a test fixture. If no canonical temporal reactions are present,
     the underlying pipeline returns an explicit partial result.
     """
+
+    validation = validate_normalized_full_chart_snapshot(
+        normalized_snapshot,
+        target_id=target_id,
+    )
+    if not validation.ok:
+        raise ValueError(
+            "invalid normalized full-chart snapshot: "
+            + "; ".join(validation.errors)
+        )
 
     root = Path(repository_root)
     career_provider = load_default_career_natal_provider(root)
