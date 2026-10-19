@@ -2,6 +2,12 @@ name: repository-quality-gate
 
 on:
   workflow_dispatch:
+    inputs:
+      scope:
+        description: "Optional phase/closure identifier for this full repository audit"
+        required: false
+        default: "manual-full-audit"
+        type: string
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
     branches:
@@ -57,3 +63,9 @@ jobs:
           else
             python tools/validate_governance.py --allow-main
           fi
+
+      - name: Record manual closure scope
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          CLOSURE_SCOPE: ${{ inputs.scope }}
+        run: echo "Manual closure scope: ${CLOSURE_SCOPE:-manual-full-audit}"
