@@ -1,0 +1,402 @@
+{
+  "schema_version": "0.1",
+  "audit_id": "KB-WP07A-CAREER-SPOUSE-KONGJIE-CA01-023",
+  "work_unit": "KB-WP07A-CAREER-SPOUSE-KONGJIE-CA01-023",
+  "lane": "KNOWLEDGE_ONLY",
+  "status": "SOURCE_GROUNDED_CROSS_PALACE_MAPPING_COMPLETE_NOT_EXECUTABLE",
+  "source_id": "SRC-ZZ-003",
+  "source_title": "《中州派紫微斗数深造讲义（下）》",
+  "canonical_corpus": "CAREER_CA09_FINAL",
+  "scope": {
+    "palace_id": "P09",
+    "palace_name": "事业宫",
+    "source_batches": [
+      "CA01"
+    ],
+    "nominated_source_rule_ids": [
+      "CA01-023"
+    ],
+    "purpose": "将事业宫与夫妻宫之间“一宫地空、一宫地劫”的条件表达为完整宫位绑定替代分支，并保留来源限定的寅申宫支门槛。"
+  },
+  "mappings": [
+    {
+      "source_rule_id": "CA01-023",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p132-133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "事业夫妻两宫一空一劫",
+      "source_anchor_printed_pages": [
+        132,
+        133
+      ],
+      "source_anchor_phrase": "主因受配偶影响而致事业不利",
+      "source_context": {
+        "source_scope_note": "同段对“事业夫妻两宫一宫地空、一宫地劫”的影响作寅申两宫限定；文本提取在“宫”字附近有 OCR 噪声，故此处同时保留 canonical 条件原文与页码，不把条件泛化到所有宫支。",
+        "branch_gate_reading": "此唯寅申两宫有之",
+        "normalized_reading": "事业宫与夫妻宫分别出现地空、地劫，且二宫为寅申相对宫支组合时，才保留此条事业受配偶影响的投影候选。",
+        "relation_basis": "knowledge/wp05/palace_ontology_v0.1.csv：P09 事业宫与 P03 夫妻宫为 OPPOSITE。"
+      },
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P09",
+              "target": "P03",
+              "relation": "OPPOSITE"
+            }
+          }
+        ],
+        "alternatives": [
+          [
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "寅"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P03",
+                "branch": "申"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "地空"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P03",
+                "star": "地劫"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "寅"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P03",
+                "branch": "申"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "地劫"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P03",
+                "star": "地空"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "申"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P03",
+                "branch": "寅"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "地空"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P03",
+                "star": "地劫"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "申"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P03",
+                "branch": "寅"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "地劫"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P03",
+                "star": "地空"
+              }
+            }
+          ]
+        ]
+      },
+      "condition_atom_types": [
+        "PALACE_HAS_STAR",
+        "BRANCH_PRESENT",
+        "PALACE_RELATION"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P09",
+              "target": "P03",
+              "relation": "OPPOSITE"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "寅"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P03",
+              "branch": "申"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "地空"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P03",
+              "star": "地劫"
+            }
+          }
+        ],
+        [
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P09",
+              "target": "P03",
+              "relation": "OPPOSITE"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "寅"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P03",
+              "branch": "申"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "地劫"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P03",
+              "star": "地空"
+            }
+          }
+        ],
+        [
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P09",
+              "target": "P03",
+              "relation": "OPPOSITE"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "申"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P03",
+              "branch": "寅"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "地空"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P03",
+              "star": "地劫"
+            }
+          }
+        ],
+        [
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P09",
+              "target": "P03",
+              "relation": "OPPOSITE"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "申"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P03",
+              "branch": "寅"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "地劫"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P03",
+              "star": "地空"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时会为每宫输出宫位绑定的星曜存在与宫支事实，并根据宫位本体输出 P09 -> P03 的 OPPOSITE 关系；本映射只组合现有事实。"
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "spouse_influence_can_impair_career",
+        "projection_mode": "CROSS_PALACE_CONSTRAINT"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOMS",
+      "normalization_epistemic": "SOURCE_PRESERVING_WITH_EXPLICIT_BRANCH_GATE",
+      "execution_readiness": "STATIC_CROSS_PALACE_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    }
+  ],
+  "exclusions": [
+    {
+      "source_rule_id": "CA01-011",
+      "source_location": "事业宫printed_p132",
+      "reason_code": "UNDEFINED_PALACE_VALENCE",
+      "reason": "“事业宫吉且夫妻宫吉”不能仅凭星曜存在事实转成一般布尔条件。"
+    },
+    {
+      "source_rule_id": "CA01-012",
+      "source_location": "事业宫printed_p132",
+      "reason_code": "UNDEFINED_PALACE_VALENCE",
+      "reason": "同样依赖来源尚未形式化的宫位吉凶合成语义。"
+    },
+    {
+      "source_rule_id": "CA01-014",
+      "source_location": "事业宫printed_p132",
+      "reason_code": "UNDEFINED_NEGATIVE_PALACE_VALENCE",
+      "reason": "“事业宫不吉且夫妻宫不吉”不能以缺少吉星事实来替代；当前运行事实不是封闭世界。"
+    }
+  ],
+  "validation": {
+    "nominated_rows": 1,
+    "mapped_rows": 1,
+    "source_span_verified": true,
+    "review_status": "SOURCE_SPAN_VERIFIED",
+    "time_layer": "NATAL",
+    "case_support_only": false,
+    "raw_history_feedback_preserved": true,
+    "source_condition_and_projection_fields_preserved": true,
+    "branch_gate_preserved": true,
+    "branch_orientations_covered": 2,
+    "star_allocations_covered": 2,
+    "complete_alternatives": 4,
+    "positive_and_negative_runtime_cases_tested": true,
+    "all_atom_types_within_existing_allowlist": true,
+    "source_rows_modified": false,
+    "product_runtime_modified": false,
+    "production_registry_modified": false,
+    "executable_rule_created": false,
+    "new_atom_or_ontology_semantics_created": false,
+    "numeric_weights_or_probabilities_created": false
+  },
+  "guardrails": [
+    "空劫必须分别落在 P09 与 P03；两曜同在一宫不能匹配。",
+    "必须满足 P09/P03 为寅/申或申/寅的宫支组合；其他宫支不得匹配。",
+    "四种有效组合由完整 alternatives 分支表示，不能用未绑定宫位的星曜存在条件代替。",
+    "此映射仍是知识侧候选，不进入可执行注册表。"
+  ]
+}
