@@ -1,0 +1,223 @@
+{
+  "schema_version": "0.1",
+  "audit_id": "KB-WP07A-CAREER-CONTEXT-CA01-035_043_045",
+  "work_unit": "KB-WP07A-CAREER-CONTEXT-CA01-035_043_045",
+  "lane": "KNOWLEDGE_ONLY",
+  "status": "CONTEXT_AUDIT_COMPLETE_NO_EXECUTABLE_OUTCOME_CONDITIONS",
+  "source_id": "SRC-ZZ-003",
+  "source_title": "《中州派紫微斗数深造讲义（下）》",
+  "source_attachment_sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+  "canonical_corpus": "CAREER_CA09_FINAL",
+  "scope": {
+    "palace_id": "P09",
+    "nominated_source_rule_ids": [
+      "CA01-035",
+      "CA01-043",
+      "CA01-045"
+    ],
+    "purpose": "恢复前格语境并分清方法约束、行为前提及未决简写；不将任一审查条目交给生产推演。"
+  },
+  "mappings": [
+    {
+      "source_rule_id": "CA01-035",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "事业宫见火铃",
+      "source_anchor_printed_page": 133,
+      "source_anchor_pdf_page": 67,
+      "expected_projection": {
+        "projection_domain": "development",
+        "projection_target": "career_setbacks_before_stabilization",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "source_epistemic": "EXPLICIT",
+      "normalization_epistemic": "SOURCE_PRESERVING_CONTEXT_AUDIT",
+      "condition": null,
+      "outcome_condition_compilation_supported": false,
+      "executable_registry_entry": false,
+      "source_anchor_phrase": "事业宫见火铃，主波折。故往往经艰苦而始能底定事业。",
+      "source_span_summary": "源文将事业宫见火铃与波折及经艰苦而底定事业联系，但该句没有展开火铃简写的组合量词。",
+      "mapping_status": "BLOCKED_SHORTHAND_QUANTIFIER_UNRESOLVED",
+      "execution_readiness": "BLOCKED_FIRE_BELL_AND_OR_UNRESOLVED",
+      "source_context": {
+        "chart_context_spec": null,
+        "inherited_source_rule_ids": [],
+        "unresolved_interpretations": [
+          {
+            "interpretation_id": "BOTH_STARS",
+            "text": "火星与铃星同时出现于事业宫",
+            "selected": false
+          },
+          {
+            "interpretation_id": "EITHER_STAR",
+            "text": "火星或铃星任一出现于事业宫",
+            "selected": false
+          }
+        ],
+        "resolution_status": "INSUFFICIENT_SOURCE_IN_REVIEWED_PASSAGE",
+        "reason": "印刷133页该句只有火铃简写，没有明确“同度”“二星同时”或“任一”；本轮未取得足以定解的批准来源证据。",
+        "modality": "保留“往往”；不将事业稳定时点或现实结果确定化。"
+      }
+    },
+    {
+      "source_rule_id": "CA01-043",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "前格",
+      "source_anchor_printed_page": 133,
+      "source_anchor_pdf_page": 67,
+      "expected_projection": {
+        "projection_domain": "methodology",
+        "projection_target": "lucun_in_career_does_not_itself_imply_wealth",
+        "projection_mode": "STRUCTURAL_CONSTRAINT"
+      },
+      "source_epistemic": "EXPLICIT",
+      "normalization_epistemic": "SOURCE_PRESERVING_CONTEXT_AUDIT",
+      "condition": null,
+      "outcome_condition_compilation_supported": false,
+      "executable_registry_entry": false,
+      "source_anchor_phrase": "事业宫与禄存同度，一般只宜经营现成事业，或作受薪阶级，反而不可作为富论。",
+      "source_span_summary": "“不可作为富论”限制的是仅凭事业宫禄存同度作富裕推断的方法，不是断定命主不富。",
+      "mapping_status": "CONTEXT_RECOVERED_METHODOLOGICAL_CONSTRAINT",
+      "execution_readiness": "BLOCKED_METHODOLOGICAL_CONSTRAINT_NOT_OUTCOME_RULE",
+      "source_context": {
+        "chart_context_spec": {
+          "all_of": [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "禄存"
+              }
+            }
+          ]
+        },
+        "inherited_source_rule_ids": [
+          "CA01-042"
+        ],
+        "antecedent_text": "事业宫与禄存同度",
+        "inheritance_basis": "“反而不可作为富论”与禄存同度位于同一句，空劫同度出现在后一句“若更见”中，不能反向设为本句必要条件。",
+        "context_completeness": "COMPLETE_FOR_METHODOLOGICAL_SCOPE",
+        "required_non_chart_prerequisites": [],
+        "methodological_force": "INSUFFICIENT_BASIS_FOR_WEALTH_INFERENCE",
+        "wealth_outcome_assertion": null,
+        "forbidden_reinterpretations": [
+          "WEALTH_ABSENT",
+          "WEALTH_NEGATIVE",
+          "POOR",
+          "LUCUN_ALONE_SUFFICIENT_FOR_WEALTH"
+        ],
+        "modality": "一般只宜是源文的职业适宜性限制；本条仅审查不能单独论富的推断边界。"
+      }
+    },
+    {
+      "source_rule_id": "CA01-045",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "前格勉强求变",
+      "source_anchor_printed_page": 133,
+      "source_anchor_pdf_page": 67,
+      "expected_projection": {
+        "projection_domain": "development",
+        "projection_target": "forced_change_can_create_career_difficulty",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "source_epistemic": "EXPLICIT",
+      "normalization_epistemic": "SOURCE_PRESERVING_CONTEXT_AUDIT",
+      "condition": null,
+      "outcome_condition_compilation_supported": false,
+      "executable_registry_entry": false,
+      "source_anchor_phrase": "若更见空劫同度，则主进退失据，往往不安于受薪，或不甘心经营现成事业，勉强求变，结果反而陷入困境。",
+      "source_span_summary": "“勉强求变”位于事业宫禄存再见空劫同度的语境中，源文把行为及后续困境联系；不能省略行为前提。",
+      "mapping_status": "CONTEXT_RECOVERED_ACTION_PREREQUISITE_UNREPRESENTED",
+      "execution_readiness": "BLOCKED_NON_CHART_ACTION_PREREQUISITE",
+      "source_context": {
+        "chart_context_spec": {
+          "all_of": [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "禄存"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "地空"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "地劫"
+              }
+            }
+          ]
+        },
+        "inherited_source_rule_ids": [
+          "CA01-042",
+          "CA01-044"
+        ],
+        "antecedent_text": "事业宫禄存，再见空劫同度",
+        "inheritance_basis": "段落以事业宫禄存同度起句，“若更见空劫同度”增加空劫；勉强求变为该后续分支中的行为，不能丢失禄存或误归前句的普遍结论。",
+        "context_completeness": "CHART_CONTEXT_COMPLETE_FULL_ANTECEDENT_INCOMPLETE",
+        "required_non_chart_prerequisites": [
+          {
+            "text": "勉强求变",
+            "kind": "ACTION_PREREQUISITE",
+            "source_status": "EXPLICIT_IN_SOURCE_SENTENCE",
+            "representation_status": "UNREPRESENTED_BY_APPROVED_CHART_FACTS",
+            "satisfied_by_chart_context_alone": false
+          }
+        ],
+        "action_prerequisite_required": true,
+        "neighbor_description": "往往不安于受薪，或不甘心经营现成事业",
+        "neighbor_description_policy": "保留描述及“或”关系，不据星曜自动认定该行为或心理已发生，不新增未定义心理原子。",
+        "modality": "保留源文往往与或，不作事件必然性、经验因果或概率升级。"
+      }
+    }
+  ],
+  "validation": {
+    "reviewed_rows": 3,
+    "context_recovered_rows": 2,
+    "shorthand_unresolved_rows": 1,
+    "executable_outcome_conditions": 0,
+    "executable_registry_entries": 0,
+    "source_rows_modified": false,
+    "product_runtime_modified": false,
+    "production_registry_modified": false,
+    "new_atom_or_ontology_semantics_created": false,
+    "numeric_weights_or_probabilities_created": false
+  },
+  "consumer_boundary": {
+    "role": "AUDIT_ONLY",
+    "chart_context_spec_is_complete_outcome_condition": false,
+    "null_condition_must_not_be_coerced_to_empty_condition": true,
+    "production_selection_allowed": false,
+    "prior_exclusions_preserved": "#335 artifact remains unchanged as its historical audit; this separate artifact records the follow-up result."
+  }
+}
