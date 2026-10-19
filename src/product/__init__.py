@@ -100,8 +100,11 @@ from .evidence_package import (
     EvidencePackage,
 )
 from .layered_evidence_package import (
+    CONCLUSION_STATUSES,
     CanonicalEvidenceNamespace,
+    EvidenceReference,
     LayeredEvidencePackage,
+    StructuredInferenceConclusion,
     TemporalEvidenceNamespace,
     build_layered_evidence_package,
 )

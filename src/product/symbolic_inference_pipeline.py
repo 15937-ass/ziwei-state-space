@@ -11,7 +11,12 @@ import json
 from dataclasses import asdict, dataclass
 from typing import Any, Iterable, Mapping
 
-from .layered_evidence_package import LayeredEvidencePackage, build_layered_evidence_package
+from .layered_evidence_package import (
+    EvidenceReference,
+    LayeredEvidencePackage,
+    StructuredInferenceConclusion,
+    build_layered_evidence_package,
+)
 from .natal_domain_registry import NatalDomainProviderRegistry
 from .natal_prior import NatalStateProfile
 from .temporal_asset_adapter import (
@@ -112,6 +117,110 @@ def _stable_run_id(payload: Mapping[str, Any]) -> str:
     return "INFER-" + hashlib.sha256(raw).hexdigest()[:24]
 
 
+def _build_structured_conclusion(
+    *,
+    question: str,
+    target_id: str,
+    selected_domains: tuple[str, ...],
+    run_status: str,
+    blockers: tuple[str, ...],
+    natal_profile: NatalStateProfile,
+    temporal_profile: TemporalEnvironmentProfile,
+    reaction_report: TemporalReactionMatchReport,
+) -> StructuredInferenceConclusion:
+    canonical_rules = tuple(
+        sorted(
+            (
+                rule
+                for domain in natal_profile.domains
+                for rule in domain.active_rules
+            ),
+            key=lambda item: (item.rule_id, item.source_id, item.source_location),
+        )
+    )
+    temporal_rules = tuple(
+        sorted(
+            reaction_report.matched,
+            key=lambda item: (item.rule_id, item.source_id, item.source_location),
+        )
+    )
+    canonical_rule_ids = tuple(sorted({item.rule_id for item in canonical_rules}))
+    temporal_rule_ids = tuple(sorted({item.rule_id for item in temporal_rules}))
+
+    evidence_refs = tuple(
+        sorted(
+            [
+                EvidenceReference(
+                    namespace="CANONICAL",
+                    rule_id=item.rule_id,
+                    source_id=item.source_id,
+                    source_location=item.source_location,
+                    review_status=item.review_status,
+                )
+                for item in canonical_rules
+            ]
+            + [
+                EvidenceReference(
+                    namespace="TEMPORAL",
+                    rule_id=item.rule_id,
+                    source_id=item.source_id,
+                    source_location=item.source_location,
+                    review_status=item.review_status,
+                )
+                for item in temporal_rules
+            ],
+            key=lambda item: (
+                item.namespace,
+                item.rule_id,
+                item.source_id,
+                item.source_location,
+            ),
+        )
+    )
+
+    unknowns = list(blockers)
+    unknowns.extend(
+        f"TEMPORAL_RULE_UNRESOLVED:{item.rule_id}:{item.reason}"
+        for item in reaction_report.issues
+    )
+    if not canonical_rule_ids:
+        unknowns.append("NO_ACTIVE_NATAL_RULES_MATCHED")
+    if run_status == "NO_TEMPORAL_REACTION_MATCHED":
+        unknowns.append("NO_TEMPORAL_REACTION_MATCHED_FOR_TARGET")
+
+    if blockers:
+        conclusion_status = "PARTIAL"
+    elif temporal_rule_ids:
+        conclusion_status = "TRACEABLE"
+    elif canonical_rule_ids:
+        conclusion_status = "NO_TEMPORAL_MATCH"
+    else:
+        conclusion_status = "INSUFFICIENT_EVIDENCE"
+
+    limitations = [
+        "NO_REAL_WORLD_EVENT_CLAIM",
+        "NO_NUMERIC_PROBABILITY_OR_MAGNITUDE_ESTIMATED",
+    ]
+    if run_status != "STRUCTURED_TRACE_READY":
+        limitations.append("TEMPORAL_CONCLUSION_NOT_FULLY_RESOLVED")
+    if not canonical_rule_ids:
+        limitations.append("NO_ACTIVE_CANONICAL_RULE_EVIDENCE")
+
+    return StructuredInferenceConclusion(
+        schema_version="0.1",
+        status=conclusion_status,
+        question=question,
+        target_id=target_id,
+        selected_domains=selected_domains,
+        canonical_rule_ids=canonical_rule_ids,
+        temporal_reaction_rule_ids=temporal_rule_ids,
+        evidence_refs=evidence_refs,
+        conflicts=tuple(temporal_profile.conflicts),
+        unknowns=tuple(sorted(set(unknowns))),
+        limitations=tuple(sorted(set(limitations))),
+    )
+
+
 def run_symbolic_inference(
     normalized_snapshot: Mapping[str, Any],
     *,
@@ -200,12 +309,6 @@ def run_symbolic_inference(
         conflicts=temporal_conflicts,
         event_relative_context=event_relative_context,
     )
-    evidence_package = build_layered_evidence_package(
-        question=normalized_question,
-        natal_profile=natal_profile,
-        temporal_profile=temporal_profile,
-    )
-
     if registry_status == TEST_ONLY_REACTION_REGISTRY_STATUS:
         status = "TEST_FIXTURE_ONLY"
         blockers = ("NON_CANONICAL_TEMPORAL_REACTION_REGISTRY",)
@@ -225,6 +328,23 @@ def run_symbolic_inference(
         status = "NO_TEMPORAL_REACTION_MATCHED"
         blockers = ()
 
+    conclusion = _build_structured_conclusion(
+        question=normalized_question,
+        target_id=normalized_target_id,
+        selected_domains=domains,
+        run_status=status,
+        blockers=blockers,
+        natal_profile=natal_profile,
+        temporal_profile=temporal_profile,
+        reaction_report=reaction_report,
+    )
+    evidence_package = build_layered_evidence_package(
+        question=normalized_question,
+        natal_profile=natal_profile,
+        temporal_profile=temporal_profile,
+        conclusion=conclusion,
+    )
+
     run_identity = {
         "schema_version": "0.1",
         "question": normalized_question,
@@ -241,6 +361,7 @@ def run_symbolic_inference(
         ],
         "status": status,
         "blockers": list(blockers),
+        "structured_conclusion": conclusion.to_dict(),
     }
     run_id = _stable_run_id(run_identity)
 

@@ -1,3 +1,4 @@
+import copy
 import json
 from pathlib import Path
 
@@ -55,17 +56,25 @@ def _snapshot(stars_by_palace=None):
     return full
 
 
-def _run(*, registry_path=PRODUCTION_REGISTRY, stars_by_palace=None, target_id="T-DEMO"):
-    snapshot = _snapshot(stars_by_palace)
+def _run(
+    *,
+    registry_path=PRODUCTION_REGISTRY,
+    stars_by_palace=None,
+    target_id="T-DEMO",
+    snapshot=None,
+    temporal_conflicts=(),
+):
+    normalized_snapshot = snapshot if snapshot is not None else _snapshot(stars_by_palace)
     domain_registry = load_default_natal_domain_registry(ROOT)
     reaction_document = json.loads(registry_path.read_text(encoding="utf-8"))
     return run_symbolic_inference(
-        snapshot,
+        normalized_snapshot,
         target_id=target_id,
         question="本命结构与目标时间层的关系",
         domain_registry=domain_registry,
         reaction_registry_document=reaction_document,
         selected_domains=("wealth",),
+        temporal_conflicts=temporal_conflicts,
     )
 
 
@@ -79,6 +88,73 @@ def test_empty_production_registry_is_reported_as_partial_not_success():
     payload = result.evidence_package.to_dict()
     assert payload["personal"] == {}
     assert payload["empirical"] == {}
+
+
+def test_structured_conclusion_is_embedded_and_empty_registry_stays_unknown():
+    result = _run(
+        stars_by_palace={
+            "财帛宫": [_star("火星"), _star("地空"), _star("武曲", "忌")],
+        },
+        temporal_conflicts=("FIXTURE_CONFLICT",),
+    )
+    conclusion = result.evidence_package.to_dict()["conclusion"]
+
+    assert conclusion["status"] == "PARTIAL"
+    assert conclusion["target_id"] == "T-DEMO"
+    assert conclusion["selected_domains"] == ["wealth"]
+    assert "PRODUCTION_TEMPORAL_REACTION_REGISTRY_EMPTY" in conclusion["unknowns"]
+    assert "FIXTURE_CONFLICT" in conclusion["conflicts"]
+    assert "NO_REAL_WORLD_EVENT_CLAIM" in conclusion["limitations"]
+    assert "NO_NUMERIC_PROBABILITY_OR_MAGNITUDE_ESTIMATED" in conclusion["limitations"]
+
+    active_ids = sorted(
+        {
+            rule.rule_id
+            for domain in result.natal_profile.domains
+            for rule in domain.active_rules
+        }
+    )
+    assert conclusion["canonical_rule_ids"] == active_ids
+    canonical_refs = [
+        item for item in conclusion["evidence_refs"] if item["namespace"] == "CANONICAL"
+    ]
+    assert {item["rule_id"] for item in canonical_refs} == set(active_ids)
+    assert all(
+        item["source_id"] and item["source_location"] and item["review_status"]
+        for item in canonical_refs
+    )
+    assert conclusion["temporal_reaction_rule_ids"] == []
+
+
+def test_changing_target_time_preserves_natal_profile_and_changes_only_temporal_namespace():
+    snapshot = _snapshot(
+        stars_by_palace={
+            "财帛宫": [_star("火星"), _star("地空"), _star("武曲", "忌")],
+        }
+    )
+    alternate = copy.deepcopy(snapshot["temporal"][0])
+    alternate["target"]["target_id"] = "T-ALT"
+    alternate["target"]["time_index"] = 7
+    alternate["target"]["solar_date"] = "2034-08-03"
+    alternate["solar_date"] = "2034-08-03"
+    alternate["lunar_date"] = "二〇三四年七月初九"
+    alternate["scopes"]["yearly"]["branch"] = "酉"
+    alternate["scopes"]["yearly"]["mutagen"] = ["忌"]
+    alternate["scopes"]["yearly"]["stars"] = [[_star("破军", "禄")], []]
+    snapshot["temporal"].append(alternate)
+
+    first = _run(snapshot=snapshot, target_id="T-DEMO")
+    second = _run(snapshot=snapshot, target_id="T-ALT")
+
+    assert first.natal_profile.to_dict() == second.natal_profile.to_dict()
+    assert first.natal_profile.profile_id == second.natal_profile.profile_id
+    assert first.evidence_package.to_dict()["canonical"] == second.evidence_package.to_dict()["canonical"]
+    assert first.temporal_profile.profile_id != second.temporal_profile.profile_id
+    assert first.temporal_profile.target_label != second.temporal_profile.target_label
+    assert first.temporal_bundle.condition_facts != second.temporal_bundle.condition_facts
+    assert first.evidence_package.to_dict()["temporal"] != second.evidence_package.to_dict()["temporal"]
+    assert first.status == second.status == "PARTIAL_TEMPORAL_REGISTRY_EMPTY"
+    assert first.run_id != second.run_id
 
 
 def test_same_snapshot_and_versions_produce_same_run_id_and_payload():

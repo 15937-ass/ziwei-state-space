@@ -1,9 +1,7 @@
 """Layered EvidencePackage vNext.
 
-This module adds explicit CANONICAL / TEMPORAL / PERSONAL / EMPIRICAL
-namespaces without breaking the legacy EvidencePackage contract.  PL3-T only
-populates CANONICAL + TEMPORAL.  PERSONAL and EMPIRICAL remain empty until
-their owning product stages are implemented.
+PL3-T serializes source-traceable CANONICAL and TEMPORAL evidence. PERSONAL
+and EMPIRICAL remain empty until their owning product stages are implemented.
 """
 
 from __future__ import annotations
@@ -14,6 +12,96 @@ from typing import Any, Mapping
 from .evidence_package import EvidencePackage
 from .natal_prior import NatalStateProfile
 from .temporal_environment import TemporalEnvironmentProfile
+
+
+CONCLUSION_STATUSES = frozenset(
+    {"PARTIAL", "TRACEABLE", "NO_TEMPORAL_MATCH", "INSUFFICIENT_EVIDENCE"}
+)
+
+
+@dataclass(frozen=True)
+class EvidenceReference:
+    """Minimal source pointer for a rule that actually contributed to a run."""
+
+    namespace: str
+    rule_id: str
+    source_id: str
+    source_location: str
+    review_status: str
+
+    def __post_init__(self) -> None:
+        if self.namespace not in {"CANONICAL", "TEMPORAL"}:
+            raise ValueError(f"unsupported evidence reference namespace: {self.namespace}")
+        for value, name in (
+            (self.rule_id, "rule_id"),
+            (self.source_id, "source_id"),
+            (self.source_location, "source_location"),
+            (self.review_status, "review_status"),
+        ):
+            if not str(value).strip():
+                raise ValueError(f"EvidenceReference.{name} is required")
+
+
+@dataclass(frozen=True)
+class StructuredInferenceConclusion:
+    """Machine-readable conclusion contract; it makes no unsupported outcome claim."""
+
+    schema_version: str
+    status: str
+    question: str
+    target_id: str
+    selected_domains: tuple[str, ...]
+    canonical_rule_ids: tuple[str, ...]
+    temporal_reaction_rule_ids: tuple[str, ...]
+    evidence_refs: tuple[EvidenceReference, ...]
+    conflicts: tuple[str, ...]
+    unknowns: tuple[str, ...]
+    limitations: tuple[str, ...]
+
+    def __post_init__(self) -> None:
+        if self.schema_version != "0.1":
+            raise ValueError("StructuredInferenceConclusion schema_version must be 0.1")
+        if self.status not in CONCLUSION_STATUSES:
+            raise ValueError(f"unsupported structured conclusion status: {self.status}")
+        if not self.question.strip():
+            raise ValueError("StructuredInferenceConclusion.question is required")
+        if not self.target_id.strip():
+            raise ValueError("StructuredInferenceConclusion.target_id is required")
+        if not self.selected_domains:
+            raise ValueError("StructuredInferenceConclusion.selected_domains is required")
+        if len(set(self.canonical_rule_ids)) != len(self.canonical_rule_ids):
+            raise ValueError("canonical_rule_ids must be unique")
+        if len(set(self.temporal_reaction_rule_ids)) != len(
+            self.temporal_reaction_rule_ids
+        ):
+            raise ValueError("temporal_reaction_rule_ids must be unique")
+        canonical_refs = {
+            item.rule_id for item in self.evidence_refs if item.namespace == "CANONICAL"
+        }
+        temporal_refs = {
+            item.rule_id for item in self.evidence_refs if item.namespace == "TEMPORAL"
+        }
+        if not canonical_refs.issubset(set(self.canonical_rule_ids)):
+            raise ValueError("canonical evidence references must be listed in canonical_rule_ids")
+        if not temporal_refs.issubset(set(self.temporal_reaction_rule_ids)):
+            raise ValueError(
+                "temporal evidence references must be listed in temporal_reaction_rule_ids"
+            )
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "schema_version": self.schema_version,
+            "status": self.status,
+            "question": self.question,
+            "target_id": self.target_id,
+            "selected_domains": list(self.selected_domains),
+            "canonical_rule_ids": list(self.canonical_rule_ids),
+            "temporal_reaction_rule_ids": list(self.temporal_reaction_rule_ids),
+            "evidence_refs": [asdict(item) for item in self.evidence_refs],
+            "conflicts": list(self.conflicts),
+            "unknowns": list(self.unknowns),
+            "limitations": list(self.limitations),
+        }
 
 
 @dataclass(frozen=True)
@@ -64,6 +152,7 @@ class LayeredEvidencePackage:
     personal: Mapping[str, Any] = field(default_factory=dict)
     empirical: Mapping[str, Any] = field(default_factory=dict)
     legacy_symbolic: Mapping[str, Any] = field(default_factory=dict)
+    conclusion: StructuredInferenceConclusion | None = None
 
     def __post_init__(self) -> None:
         if self.schema_version != "0.1":
@@ -86,6 +175,10 @@ class LayeredEvidencePackage:
             raise ValueError(
                 "PL3-T EvidencePackage integration must not populate EMPIRICAL namespace"
             )
+        if self.conclusion is not None and self.conclusion.question != self.question:
+            raise ValueError(
+                "structured conclusion question must match EvidencePackage.question"
+            )
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -96,6 +189,7 @@ class LayeredEvidencePackage:
             "personal": dict(self.personal),
             "empirical": dict(self.empirical),
             "legacy_symbolic": dict(self.legacy_symbolic),
+            "conclusion": self.conclusion.to_dict() if self.conclusion else None,
         }
 
 
@@ -117,12 +211,9 @@ def build_layered_evidence_package(
     natal_profile: NatalStateProfile,
     temporal_profile: TemporalEnvironmentProfile,
     legacy_symbolic_package: EvidencePackage | None = None,
+    conclusion: StructuredInferenceConclusion | None = None,
 ) -> LayeredEvidencePackage:
-    """Build the PL3-T layered evidence package.
-
-    The function serializes already-computed objects only.  It does not select
-    rules, infer new temporal semantics, or create probabilities.
-    """
+    """Serialize computed evidence without selecting rules or creating probabilities."""
 
     if temporal_profile.natal_profile_id != natal_profile.profile_id:
         raise ValueError(
@@ -173,4 +264,5 @@ def build_layered_evidence_package(
         canonical=canonical,
         temporal=temporal,
         legacy_symbolic=legacy_payload,
+        conclusion=conclusion,
     )

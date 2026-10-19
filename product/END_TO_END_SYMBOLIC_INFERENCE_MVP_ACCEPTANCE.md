@@ -1,6 +1,6 @@
 # End-to-End Symbolic Inference MVP Acceptance v0.1
 
-Status: IMPLEMENTATION IN PROGRESS
+Status: IMPLEMENTATION IN PROGRESS — STRUCTURED CONCLUSION CONTRACT ADDED
 
 ## Goal
 
@@ -31,6 +31,21 @@ Final target: natal Career analysis with one selected decade and one selected ye
 - No numeric gain, probability, universal valence, or unsupported manifestation mapping is inferred.
 - Personal and empirical namespaces remain empty unless a separately approved component supplies them.
 - NatalStateProfile remains independent of the selected target time; only the temporal profile changes with the temporal target.
+
+## Structured conclusion contract
+
+The layered EvidencePackage now carries a validated `conclusion` object with:
+- a bounded status (`PARTIAL`, `TRACEABLE`, `NO_TEMPORAL_MATCH`, or `INSUFFICIENT_EVIDENCE`);
+- selected domains and the exact temporal target;
+- active canonical rule IDs and matched temporal reaction rule IDs;
+- source references for each rule that actually contributed;
+- explicit conflicts, unknowns, and limitations.
+
+A missing temporal reaction registry is represented as a partial result with an explicit unknown. It is not interpreted as evidence that no event will occur. Numeric probabilities, event certainty, and unsupported manifestation claims remain outside this contract.
+
+## Temporal-isolation regression
+
+The product test suite now exercises two target snapshots for the same natal chart. The natal profile and canonical evidence namespace must remain identical, while target-specific temporal facts and the temporal profile ID must change. This guards against accidentally leaking the selected decade/year into the natal prior.
 
 ## Current implementation boundary
 
