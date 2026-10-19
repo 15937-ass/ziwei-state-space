@@ -224,4 +224,4 @@ def test_cli_fails_closed_on_missing_target_and_refuses_input_overwrite(tmp_path
     )
     error = capsys.readouterr()
     assert overwrite == 2
-    assert "must not overwrite the input snapshot" in error.err
+    assert "must not overwrite any input file" in error.err
