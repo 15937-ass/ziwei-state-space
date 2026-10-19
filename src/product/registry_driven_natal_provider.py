@@ -211,8 +211,10 @@ class RegistryDrivenNatalDomainProvider:
         structure = resolve_palace_structure(snapshot, self.palace_ontology)
         facts = set(structure.runtime_facts())
         facts.update(source_backed_structure_facts(structure))
-        frozen_facts = frozenset(facts)
         palace_id = str(self.registry["palace_id"]).strip()
+        palace_name = str(self.registry["palace_name"]).strip()
+        facts.add(f"subject:{palace_name}")
+        frozen_facts = frozenset(facts)
         topic_scope = str(self.registry["topic_scope"]).strip()
         state = RuntimeState(
             facts=frozen_facts,
