@@ -1,0 +1,68 @@
+{
+  "schema_version": "0.1",
+  "diagnostic_set_id": "PL3T_TEMPORAL_BLOCKERS_V0_1",
+  "status": "PRODUCT_DIAGNOSTICS_ONLY",
+  "source_document": "product/PL3T_TEMPORAL_FACT_CONTRACT_GAPS_v0.1.md",
+  "policy": {
+    "free_text_condition_execution_allowed": false,
+    "new_temporal_rule_activation_allowed": false,
+    "numeric_probability_allowed": false,
+    "real_world_event_claim_allowed": false
+  },
+  "items": [
+    {
+      "code": "PRODUCTION_TEMPORAL_REACTION_REGISTRY_EMPTY",
+      "category": "REGISTRY",
+      "status": "UNRESOLVED",
+      "scope": "PRODUCTION_TEMPORAL_INFERENCE",
+      "message_zh": "正式时间反应规则库为空；当前只能读取时间层事实，不能据此形成时间反应结论。",
+      "unblock_requirement": "Source-faithful temporal rules must be normalized into the approved structured condition contract and pass Product compilation.",
+      "activation_allowed": false
+    },
+    {
+      "code": "SCOPE_MUTAGEN_STAR_BINDING_UNRESOLVED",
+      "category": "FACT_BINDING",
+      "status": "UNRESOLVED",
+      "scope": "TEMPORAL_TRANSFORMATION_FACTS",
+      "message_zh": "仅有时间层四化列表时，无法确定四化属于哪颗星；不得将 scope 级四化自动关联到星曜。",
+      "unblock_requirement": "The normalized PL1 star object must explicitly carry the star-bound mutagen, or an independently approved lossless source field must provide the association.",
+      "activation_allowed": false
+    },
+    {
+      "code": "ACTIVATION_CONVERGENCE_SEMANTICS_UNRESOLVED",
+      "category": "SEMANTICS",
+      "status": "UNRESOLVED",
+      "scope": "TEMPORAL_REACTION_CONDITIONS",
+      "message_zh": "“煞忌冲起”等激活语义尚无获批准的可执行事实关系；不能通过关键词直接触发规则。",
+      "unblock_requirement": "A source-faithful, versioned condition contract must define the required relations and regression cases before any rule can use them.",
+      "activation_allowed": false
+    },
+    {
+      "code": "COMPOUND_CONVERGENCE_UNRESOLVED",
+      "category": "SEMANTICS",
+      "status": "UNRESOLVED",
+      "scope": "COMPOUND_TEMPORAL_CONFIGURATIONS",
+      "message_zh": "“凑会”等复合汇合条件不能由当前简单存在事实自动推出。",
+      "unblock_requirement": "An explicit relation/condition contract must specify the required configuration and preserve the original source scope.",
+      "activation_allowed": false
+    },
+    {
+      "code": "FAVORABLE_PERIOD_PREDICATE_UNRESOLVED",
+      "category": "PREDICATE",
+      "status": "UNRESOLVED",
+      "scope": "TEMPORAL_PERIOD_QUALIFICATION",
+      "message_zh": "“流年良好”“年限不佳”“配合”等时期判断尚无独立、非循环且获批准的结构化谓词。",
+      "unblock_requirement": "Define a source-grounded predicate independent of the rule outcome, then test it against explicit positive and negative fixtures.",
+      "activation_allowed": false
+    },
+    {
+      "code": "MULTIYEAR_PERSISTENCE_UNMODELED",
+      "category": "TEMPORAL_SEQUENCE",
+      "status": "UNRESOLVED",
+      "scope": "MULTIYEAR_CAREER_PATHS",
+      "message_zh": "当前推理目标是单个时间快照，不能据此推导连续三四年、持续时间或自动衰减。",
+      "unblock_requirement": "A separately approved sequence/window contract must define observations, boundaries, missing years, and termination without inventing a threshold or probability.",
+      "activation_allowed": false
+    }
+  ]
+}

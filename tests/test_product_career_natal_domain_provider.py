@@ -8,7 +8,10 @@ from src.product.career_natal_domain_provider import (
     load_default_career_natal_provider,
 )
 from src.product.career_inference_service import run_career_inference
-from src.product.career_inference_report import build_career_inference_report
+from src.product.career_inference_report import (
+    _load_temporal_blocker_diagnostics,
+    build_career_inference_report,
+)
 from src.product.natal_domain_registry import load_default_natal_domain_registry
 from src.product.symbolic_inference_pipeline import run_symbolic_inference
 
@@ -272,6 +275,32 @@ def test_career_inference_report_is_chinese_traceable_and_preserves_partial_stat
     assert report["temporal"]["has_temporal_reaction_evidence"] is False
     assert report["real_world_event_prediction_supported"] is False
     assert "REAL_WORLD_EVENT_PREDICTION_NOT_ESTABLISHED" in report["limitations"]
+
+    readiness = report["temporal"]["readiness_diagnostics"]
+    assert readiness["diagnostic_set_id"] == "PL3T_TEMPORAL_BLOCKERS_V0_1"
+    assert readiness["new_temporal_rule_activation_allowed"] is False
+    assert [
+        item["code"] for item in readiness["active_blockers"]
+    ] == ["PRODUCTION_TEMPORAL_REACTION_REGISTRY_EMPTY"]
+    assert len(readiness["unresolved_gaps"]) == 6
+    assert all(
+        item["activation_allowed"] is False
+        for item in readiness["unresolved_gaps"]
+    )
+
+
+def test_temporal_blocker_diagnostics_reject_any_activation_permission(tmp_path):
+    document = json.loads(
+        (ROOT / "product/PL3T_TEMPORAL_BLOCKERS_v0.1.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    document["items"][0]["activation_allowed"] = True
+    path = tmp_path / "unsafe-diagnostics.json"
+    path.write_text(json.dumps(document, ensure_ascii=False), encoding="utf-8")
+
+    with pytest.raises(ValueError, match="activation_allowed must remain false"):
+        _load_temporal_blocker_diagnostics(path)
 
 
 def test_product_registry_keeps_temporal_and_event_claims_disabled():

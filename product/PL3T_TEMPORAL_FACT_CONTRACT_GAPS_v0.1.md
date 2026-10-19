@@ -45,3 +45,15 @@ A future normalized reaction may ask whether a particular star carries a particu
 - An empty production reaction registry remains an explicit partial-result condition.
 - Test-only reaction matches demonstrate plumbing, not canonical validity or predictive accuracy.
 - This PR modifies Product-owned code, tests, and Product documentation only.
+
+
+## Machine-readable Product diagnostics
+
+The same unresolved boundaries are now represented in `product/PL3T_TEMPORAL_BLOCKERS_v0.1.json`. The Career report and CLI expose:
+- the diagnostic set version;
+- the blocker that actually explains the current partial run;
+- the full unresolved gap inventory;
+- the evidence/contract required to unblock each gap;
+- `activation_allowed=false` for every diagnostic item.
+
+This is a reporting contract only. It does not add reaction rules, change the production registry, or imply that every unresolved gap is a blocker for every possible future rule.
