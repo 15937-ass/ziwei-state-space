@@ -63,6 +63,11 @@ class RegistryDrivenNatalDomainProvider:
     def __post_init__(self) -> None:
         if str(self.registry.get("schema_version", "")).strip() != "0.1":
             raise ValueError("domain provider registry schema_version must be 0.1")
+        status = str(self.registry.get("status", "")).strip()
+        if status not in {"CANONICAL_READY", "TEST_FIXTURE_ONLY"}:
+            raise ValueError(
+                "domain provider registry status must be CANONICAL_READY or TEST_FIXTURE_ONLY"
+            )
         for key in ("provider_id", "domain_id", "palace_id", "palace_name", "topic_scope", "knowledge_version"):
             if not str(self.registry.get(key, "")).strip():
                 raise ValueError(f"domain provider registry requires {key}")
@@ -197,6 +202,10 @@ class RegistryDrivenNatalDomainProvider:
     @property
     def knowledge_version(self) -> str:
         return str(self.registry["knowledge_version"]).strip()
+
+    @property
+    def is_test_only(self) -> bool:
+        return str(self.registry.get("status", "")).strip() == "TEST_FIXTURE_ONLY"
 
     @property
     def executable_rule_count(self) -> int:
