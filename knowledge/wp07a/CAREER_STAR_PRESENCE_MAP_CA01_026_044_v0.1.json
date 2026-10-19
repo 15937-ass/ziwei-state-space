@@ -1,0 +1,582 @@
+{
+  "schema_version": "0.1",
+  "audit_id": "KB-WP07A-CAREER-STAR-PRESENCE-CA01-026_027_031_034_042_044",
+  "work_unit": "KB-WP07A-CAREER-STAR-PRESENCE-CA01-026_027_031_034_042_044",
+  "lane": "KNOWLEDGE_ONLY",
+  "status": "SOURCE_GROUNDED_STAR_PRESENCE_MAPPING_COMPLETE_NOT_EXECUTABLE",
+  "source_id": "SRC-ZZ-003",
+  "source_title": "《中州派紫微斗数深造讲义（下）》",
+  "canonical_corpus": "CAREER_CA09_FINAL",
+  "scope": {
+    "palace_id": "P09",
+    "palace_name": "事业宫",
+    "source_batches": [
+      "CA01"
+    ],
+    "nominated_source_rule_ids": [
+      "CA01-026",
+      "CA01-027",
+      "CA01-031",
+      "CA01-032",
+      "CA01-033",
+      "CA01-034",
+      "CA01-042",
+      "CA01-044"
+    ],
+    "purpose": "将八条由事业宫指定星曜存在条件触发的不同投影映射到现有 PALACE_HAS_STAR 事实，并保留同条件多目标之间的差异。"
+  },
+  "mappings": [
+    {
+      "source_rule_id": "CA01-026",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p132-133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "事业宫见地空地劫",
+      "source_anchor_printed_page": 132,
+      "source_anchor_phrase": "事业宫见地劫地空，一般情况下宜从事较冷僻的行业",
+      "source_span_summary": "来源将事业宫同时见地空、地劫联系到较冷僻的行业场景；这是职业场景投影，不表示现实职业必然如此。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "地空"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "地劫"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "PALACE_HAS_STAR"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "地空"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "地劫"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时会为各宫输出绑定宫位的 PALACE_HAS_STAR 事实；所有条件均要求星曜在 P09 事业宫出现，不使用未实现的吉凶或强度语义。"
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "niche_or_nonmainstream_industry_suited",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_STAR_PRESENCE_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false,
+      "source_modality_note": "一般情况下的行业适宜性；原文另提醒后天人事可影响成败，不作事件必然断言。"
+    },
+    {
+      "source_rule_id": "CA01-027",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p132-133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "事业宫见地空地劫",
+      "source_anchor_printed_page": 132,
+      "source_anchor_phrase": "事业宫见地劫地空，一般情况下宜从事较冷僻的行业，或奇兵突出",
+      "source_span_summary": "来源将地空、地劫联系到营运方式出人意料的倾向；本条与 CA01-026 共用条件，但保留独立投影目标。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "地空"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "地劫"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "PALACE_HAS_STAR"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "地空"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "地劫"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时会为各宫输出绑定宫位的 PALACE_HAS_STAR 事实；所有条件均要求星曜在 P09 事业宫出现，不使用未实现的吉凶或强度语义。"
+      },
+      "expected_projection": {
+        "projection_domain": "method",
+        "projection_target": "unconventional_operating_method_suited",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_STAR_PRESENCE_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false,
+      "source_modality_note": "与行业选择并列的可选营运方式解释，不表示行业和营运方式必然同时发生。"
+    },
+    {
+      "source_rule_id": "CA01-031",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "事业宫见陀罗",
+      "source_anchor_printed_page": 133,
+      "source_anchor_phrase": "事业宫最不宜见陀罗，不但事业发展缓慢",
+      "source_span_summary": "来源将陀罗与事业发展缓慢联系；不推断具体延迟时长。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "陀罗"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "PALACE_HAS_STAR"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "陀罗"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时会为各宫输出绑定宫位的 PALACE_HAS_STAR 事实；所有条件均要求星曜在 P09 事业宫出现，不使用未实现的吉凶或强度语义。"
+      },
+      "expected_projection": {
+        "projection_domain": "development",
+        "projection_target": "career_development_slow",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_STAR_PRESENCE_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false,
+      "source_modality_note": "来源的事业发展缓慢倾向，不推断具体延迟时长。"
+    },
+    {
+      "source_rule_id": "CA01-032",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "事业宫见陀罗",
+      "source_anchor_printed_page": 133,
+      "source_anchor_phrase": "往往有名无实，权力被挂空",
+      "source_span_summary": "来源将陀罗与名义地位、实际权力不相称联系；本条保留独立角色投影。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "陀罗"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "PALACE_HAS_STAR"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "陀罗"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时会为各宫输出绑定宫位的 PALACE_HAS_STAR 事实；所有条件均要求星曜在 P09 事业宫出现，不使用未实现的吉凶或强度语义。"
+      },
+      "expected_projection": {
+        "projection_domain": "role",
+        "projection_target": "nominal_status_exceeds_real_authority",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_STAR_PRESENCE_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false,
+      "source_modality_note": "原文限定为“往往”，非必然有名无实或权力被挂空。"
+    },
+    {
+      "source_rule_id": "CA01-033",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "事业宫见陀罗",
+      "source_anchor_printed_page": 133,
+      "source_anchor_phrase": "有时亦主事业反覆，难安居以坐享其成",
+      "source_span_summary": "来源将陀罗与事业反覆联系；不推断具体事件或发生概率。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "陀罗"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "PALACE_HAS_STAR"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "陀罗"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时会为各宫输出绑定宫位的 PALACE_HAS_STAR 事实；所有条件均要求星曜在 P09 事业宫出现，不使用未实现的吉凶或强度语义。"
+      },
+      "expected_projection": {
+        "projection_domain": "stability",
+        "projection_target": "career_reversals_or_instability",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_STAR_PRESENCE_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false,
+      "source_modality_note": "原文限定为“有时亦主”，非必然反覆。"
+    },
+    {
+      "source_rule_id": "CA01-034",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "事业宫见擎羊古今转换",
+      "source_anchor_printed_page": 133,
+      "source_anchor_phrase": "事业宫见擎羊，古人认为只宜武职，在现代则往往为工程科技人员。",
+      "source_span_summary": "来源明确作古今职业解释转换：古代武职语汇在现代可对应工程科技场景。映射保留这一现代化解释，不把古代职业标签原样套用于现代人。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "擎羊"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "PALACE_HAS_STAR"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "擎羊"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时会为各宫输出绑定宫位的 PALACE_HAS_STAR 事实；所有条件均要求星曜在 P09 事业宫出现，不使用未实现的吉凶或强度语义。"
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "engineering_or_technical_scene",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_STAR_PRESENCE_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false,
+      "source_modality_note": "原文限定现代解释“往往”为工程科技人员，非唯一职业或确定职业。"
+    },
+    {
+      "source_rule_id": "CA01-042",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "事业宫与禄存同度",
+      "source_anchor_printed_page": 133,
+      "source_anchor_phrase": "事业宫与禄存同度，一般只宜经营现成事业，或作受薪阶级",
+      "source_span_summary": "来源将事业宫与禄存同度联系到经营现成事业或受薪的场景；同段明确提醒不可单凭此条件论富。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "禄存"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "PALACE_HAS_STAR"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "禄存"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时会为各宫输出绑定宫位的 PALACE_HAS_STAR 事实；所有条件均要求星曜在 P09 事业宫出现，不使用未实现的吉凶或强度语义。"
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "existing_business_or_salaried_role_preferred",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_STAR_PRESENCE_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false,
+      "source_modality_note": "原文限定“一般只宜”，且明确不可单凭此条件作为富论。"
+    },
+    {
+      "source_rule_id": "CA01-044",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "禄存再与空劫同度",
+      "source_anchor_printed_page": 133,
+      "source_anchor_phrase": "若更见空劫同度，则主进退失据",
+      "source_span_summary": "来源在事业宫禄存同度的语境下，进一步以空劫同度联系到进退失据。条件要求禄存、地空、地劫同在 P09，不将前文的单一禄存条件与本条混为一谈。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "禄存"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "地空"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "地劫"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "PALACE_HAS_STAR"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "禄存"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "地空"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "地劫"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "运行时会为各宫输出绑定宫位的 PALACE_HAS_STAR 事实；所有条件均要求星曜在 P09 事业宫出现，不使用未实现的吉凶或强度语义。"
+      },
+      "expected_projection": {
+        "projection_domain": "decision",
+        "projection_target": "advance_retreat_indecision",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "execution_readiness": "STATIC_STAR_PRESENCE_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false,
+      "source_modality_note": "继承事业宫禄存语境；只保留进退失据倾向，后续勉强求变及困境留在排除项。"
+    }
+  ],
+  "exclusions": [
+    {
+      "source_rule_id": "CA01-035",
+      "source_location": "事业宫printed_p133",
+      "reason_code": "HUO_LING_SHORTHAND_AMBIGUOUS",
+      "reason": "“火铃”需明确指火星与铃星同时存在，还是来源允许任一星曜；本批不擅自定解。"
+    },
+    {
+      "source_rule_id": "CA01-043",
+      "source_location": "事业宫printed_p133",
+      "reason_code": "PREVIOUS_RULE_CONTEXT_REQUIRED",
+      "reason": "条件为“前格”，依赖 CA01-042 的上下文；留待专门的规则依赖审查。"
+    },
+    {
+      "source_rule_id": "CA01-045",
+      "source_location": "事业宫printed_p133",
+      "reason_code": "PREVIOUS_RULE_CONTEXT_REQUIRED",
+      "reason": "“前格勉强求变”依赖前文，当前不把它压缩为单一星曜条件。"
+    }
+  ],
+  "validation": {
+    "nominated_rows": 8,
+    "mapped_rows": 8,
+    "source_span_verified_all": true,
+    "review_status_all": "SOURCE_SPAN_VERIFIED",
+    "time_layer_all": "NATAL",
+    "case_support_only_all": false,
+    "raw_history_feedback_preserved": true,
+    "exact_source_condition_and_projection_fields_preserved": true,
+    "all_conditions_palace_bound_to_P09": true,
+    "shared_conditions_keep_distinct_targets": true,
+    "all_atom_types_within_existing_allowlist": true,
+    "positive_and_negative_runtime_cases_tested": true,
+    "source_rows_modified": false,
+    "product_runtime_modified": false,
+    "production_registry_modified": false,
+    "executable_rule_created": false,
+    "new_atom_or_ontology_semantics_created": false,
+    "numeric_weights_or_probabilities_created": false
+  },
+  "guardrails": [
+    "地空与地劫在 CA01-026/027 中必须同时出现在 P09。",
+    "CA01-031/032/033 共用陀罗条件，但必须保留三个不同的原始投影目标。",
+    "CA01-034 的目标来自原文古今职业转换，不可按古代武职语义直接推断现代职业。",
+    "CA01-042 仅表达禄存同度的来源场景，不将它独立解释为富裕。",
+    "CA01-044 要求禄存、地空、地劫同在 P09。",
+    "所有映射均为知识侧候选，不进入生产执行注册表。"
+  ]
+}

@@ -45,3 +45,24 @@ Results:
 Reused unchanged pinned exports from #336/#342, rather than reinstalling engines or regenerating identical exports. Full input SHA256 values and engine source revisions are in native_inference_report.json; exporter reproduction commands are preserved in Issue #336 evidence. Synthetic repository fixtures are not personal cases or empirical outcomes. Cached exports cover a subset of active rules; the new API/source tests exercise every new rule, including branch-gated positives and negatives. Repeated targets share a natal chart and are not independent natal samples.
 
 No PL1 algorithm, exporter, calendar, Zi-day or engine adapter change. Independent Go/B02 regressions NOT_REQUIRED and not claimed; Go is unavailable in this environment. Existing installed dependencies reused. No GitHub Actions executed. Empirical calibration, event prediction and production temporal-rule readiness remain unestablished.
+
+## Concurrent-main integration
+
+During PR publication, Knowledge PR #335 merged as main
+`ac850304bbe57bbfc279a6b499abb99618aa1dba`. Its five changed files were
+retrieved byte-for-byte and checked against Git blob SHAs, its exact base tree
+was reconstructed, and its signed commit was restored locally. Product scope
+remains unchanged; the new star-presence mappings are not activated in this unit.
+
+Repeated commands on the integrated tree:
+
+```bash
+PYTHONPATH="$PWD" python -m pytest -q
+python tools/validate_governance.py --base-ref origin/main --head-branch product/344-career-static-transform
+git diff --exit-code origin/main -- knowledge .github tests/test_knowledge_career_star_presence_ca01_026_044.py validation/knowledge
+```
+
+Results: 565 passed / 0 failed / 0 skipped; Product lane governance PASS;
+no Knowledge/workflow changes relative to latest main. Only inherited Knowledge
+files differ from the original base. Final integration head/tree are recorded
+in the PR and Issue. The earlier 550-test result remains historical evidence.
