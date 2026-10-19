@@ -8,6 +8,7 @@ from src.product.career_natal_domain_provider import (
     load_default_career_natal_provider,
 )
 from src.product.career_inference_service import run_career_inference
+from src.product.career_inference_report import build_career_inference_report
 from src.product.natal_domain_registry import load_default_natal_domain_registry
 from src.product.symbolic_inference_pipeline import run_symbolic_inference
 
@@ -246,6 +247,31 @@ def test_high_level_career_service_uses_production_registry_and_defaults_to_deca
     assert conclusion["selected_temporal_layers"] == ["DECADE", "YEAR"]
     assert conclusion["canonical_rule_ids"] == ["CA09-852"]
     assert conclusion["temporal_reaction_rule_ids"] == []
+
+
+def test_career_inference_report_is_chinese_traceable_and_preserves_partial_status():
+    run = run_career_inference(
+        ROOT,
+        _full_snapshot({"事业宫": [_star("武曲", "忌")]}),
+        target_id="T-DEMO",
+        question="事业本命结构及大限、流年环境",
+    )
+    report = build_career_inference_report(ROOT, run)
+
+    assert report["status"] == "PARTIAL_TEMPORAL_REGISTRY_EMPTY"
+    assert "正式时间反应规则库为空" in report["status_message_zh"]
+    assert report["natal"]["active_rule_count"] == 1
+    active = report["natal"]["active_rules"][0]
+    assert active["rule_id"] == "CA04-349"
+    assert active["condition"] == "武曲化忌"
+    assert active["source"]["source_id"] == "SRC-ZZ-003"
+    assert active["source"]["source_location"] == "事业宫printed_p141"
+    assert active["projection"]["target"] == "technical_skill_work_scene_preferred"
+    assert report["temporal"]["active_layers"] == ["DECADE", "YEAR"]
+    assert report["temporal"]["matched_reaction_rule_ids"] == []
+    assert report["temporal"]["has_temporal_reaction_evidence"] is False
+    assert report["real_world_event_prediction_supported"] is False
+    assert "REAL_WORLD_EVENT_PREDICTION_NOT_ESTABLISHED" in report["limitations"]
 
 
 def test_product_registry_keeps_temporal_and_event_claims_disabled():
