@@ -64,3 +64,14 @@ Those require separate source-faithful Product contracts and reviewed temporal m
 The Product exports `run_career_inference(repository_root, normalized_snapshot, target_id=..., question=...)`. It loads the source-pinned Career provider, adds it explicitly to the domain registry, and always uses the production temporal reaction registry. The default selected temporal layers are `DECADE + YEAR`; callers may supply a different valid selection.
 
 The wrapper never substitutes a temporal test fixture. With the current empty production reaction registry, it returns `PARTIAL_TEMPORAL_REGISTRY_EMPTY`, preserves the matched canonical NATAL evidence, and reports the temporal blocker. Invalid or absent targets still fail closed.
+
+
+## Chinese-facing report contract
+
+`build_career_inference_report(repository_root, run)` produces a deterministic report view for the Career-only run. It exposes:
+- Chinese status text that explicitly says when temporal inference is partial;
+- each activated NATAL rule's source condition, mapping summary, preserved projection, and source provenance;
+- selected time layers and temporal fact counts;
+- matched temporal rule IDs, registry status, blockers, unknowns, conflicts, and limitations.
+
+The report builder checks that active rule evidence and projection fields still match the Product registry. It always emits `real_world_event_prediction_supported=false`; it does not turn a rule projection into a real-world event forecast.
