@@ -181,6 +181,14 @@ def _validate_natal(snapshot: Mapping[str, Any], errors: list[str]) -> None:
                         errors.append(
                             f"{path}.decadal.{field} must be a non-empty string"
                         )
+                if (
+                    "branch" in decadal
+                    and _non_empty_text(decadal["branch"])
+                    and decadal["branch"] not in EARTHLY_BRANCHES
+                ):
+                    errors.append(
+                        f"{path}.decadal.branch must be an earthly branch"
+                    )
 
 
 def _validate_scope(scope_key: str, scope: Any, errors: list[str]) -> None:
@@ -271,7 +279,6 @@ def _validate_temporal(
         errors.append("target_id must be a non-empty string")
 
     seen_ids: set[str] = set()
-    target_ids: list[str] = []
     for index, item in enumerate(temporal):
         path = f"temporal[{index}]"
         if not isinstance(item, Mapping):
@@ -290,7 +297,6 @@ def _validate_temporal(
             if target_id in seen_ids:
                 errors.append(f"duplicate temporal target_id: {target_id}")
             seen_ids.add(target_id)
-            target_ids.append(target_id)
 
         target_date = target.get("solar_date")
         if not _valid_iso_date(target_date):
