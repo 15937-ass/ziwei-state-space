@@ -166,6 +166,13 @@ class _WealthProviderAdapter:
 
 def load_default_natal_domain_registry(
     repository_root: str | Path,
+    *,
+    additional_providers: Iterable[NatalDomainProvider] = (),
 ) -> NatalDomainProviderRegistry:
+    """Load Wealth by default; add other explicitly constructed providers only on opt-in."""
+
     wealth = load_default_wealth_natal_provider(repository_root)
-    return NatalDomainProviderRegistry(providers=(_WealthProviderAdapter(wealth),))
+    extras = tuple(additional_providers)
+    return NatalDomainProviderRegistry(
+        providers=(_WealthProviderAdapter(wealth), *extras)
+    )
