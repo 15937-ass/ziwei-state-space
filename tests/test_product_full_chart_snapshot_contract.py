@@ -246,3 +246,21 @@ def test_unknown_scope_is_not_silently_discarded():
         "T-DEMO",
         "temporal[0].scopes contains unsupported scope(s): future_scope",
     )
+
+
+@pytest.mark.parametrize("selected_id", ["T-DEMO", " T-DEMO "])
+def test_padded_target_ids_cannot_bypass_adapter_target_uniqueness(selected_id):
+    snapshot = _valid_snapshot()
+    duplicate = copy.deepcopy(snapshot["temporal"][0])
+    duplicate["target"]["target_id"] = " T-DEMO "
+    snapshot["temporal"].append(duplicate)
+    _assert_invalid(snapshot, selected_id, "must not contain surrounding whitespace")
+
+
+def test_unselected_target_scope_errors_identify_the_actual_array_position():
+    snapshot = _valid_snapshot()
+    other = copy.deepcopy(snapshot["temporal"][0])
+    other["target"]["target_id"] = "T-OTHER"
+    other["scopes"]["yearly"]["index"] = False
+    snapshot["temporal"].append(other)
+    _assert_invalid(snapshot, "T-DEMO", "temporal[1].scopes.yearly.index must be an integer")

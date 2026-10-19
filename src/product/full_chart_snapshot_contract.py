@@ -191,8 +191,7 @@ def _validate_natal(snapshot: Mapping[str, Any], errors: list[str]) -> None:
                     )
 
 
-def _validate_scope(scope_key: str, scope: Any, errors: list[str]) -> None:
-    path = f"temporal.scopes.{scope_key}"
+def _validate_scope(path: str, scope: Any, errors: list[str]) -> None:
     if not isinstance(scope, Mapping):
         errors.append(f"{path} must be an object")
         return
@@ -278,6 +277,9 @@ def _validate_temporal(
     if not _non_empty_text(selected_target_id):
         errors.append("target_id must be a non-empty string")
 
+    if _non_empty_text(selected_target_id) and selected_target_id != selected_target_id.strip():
+        errors.append("target_id must not contain surrounding whitespace")
+
     seen_ids: set[str] = set()
     for index, item in enumerate(temporal):
         path = f"temporal[{index}]"
@@ -294,6 +296,8 @@ def _validate_temporal(
         if not _non_empty_text(target_id):
             errors.append(f"{path}.target.target_id must be a non-empty string")
         else:
+            if target_id != target_id.strip():
+                errors.append(f"{path}.target.target_id must not contain surrounding whitespace")
             if target_id in seen_ids:
                 errors.append(f"duplicate temporal target_id: {target_id}")
             seen_ids.add(target_id)
@@ -331,7 +335,7 @@ def _validate_temporal(
             )
         for scope_key in SCOPE_TO_LAYER:
             if scope_key in scopes:
-                _validate_scope(scope_key, scopes[scope_key], errors)
+                _validate_scope(f"{path}.scopes.{scope_key}", scopes[scope_key], errors)
 
         yearly_dec = item.get("yearly_dec_stars")
         if yearly_dec is not None:
