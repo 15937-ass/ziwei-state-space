@@ -1,0 +1,167 @@
+"""Auditable Product presentation for a canonical Career inference run.
+
+This module reformats existing rule/evidence records. It does not add Zi Wei
+semantics, infer outcomes, or estimate probabilities.
+"""
+
+from __future__ import annotations
+
+import json
+from collections import Counter
+from pathlib import Path
+from typing import Any, Mapping
+
+from .career_natal_domain_provider import load_default_career_natal_provider
+from .symbolic_inference_pipeline import SymbolicInferenceRun
+
+
+_STATUS_MESSAGES = {
+    "PARTIAL_TEMPORAL_REGISTRY_EMPTY": (
+        "部分完成：本命事业规则已运行，所选大限与流年事实已载入；"
+        "但正式时间反应规则库为空，因此不能输出基于时间反应规则的结论。"
+    ),
+    "PARTIAL_NO_EXECUTABLE_TEMPORAL_RULES": (
+        "部分完成：已载入本命和时间层事实，但没有可执行的正式时间反应规则。"
+    ),
+    "NO_TEMPORAL_REACTION_MATCHED": (
+        "没有匹配到时间反应规则；这不代表现实中不会发生相关事件。"
+    ),
+    "STRUCTURED_TRACE_READY": (
+        "已形成可追溯的结构化规则匹配结果；这不代表现实预测准确性已获验证。"
+    ),
+    "TEST_FIXTURE_ONLY": "当前结果使用测试规则或测试数据，不能作为正式推理结果。",
+    "BLOCKED_TEMPORAL_REGISTRY_STATUS": "时间反应规则库状态不符合正式执行要求，时序推理已阻止。",
+}
+
+
+def build_career_inference_report(
+    repository_root: str | Path,
+    run: SymbolicInferenceRun,
+) -> dict[str, Any]:
+    """Build a Chinese-facing report while preserving exact source and status data."""
+
+    if tuple(run.selected_domains) != ("career",):
+        raise ValueError("Career report requires exactly the career domain")
+
+    root = Path(repository_root)
+    provider = load_default_career_natal_provider(root)
+    registry = provider.registry
+    mapping_path = root / str(registry["source_mapping"]["path"])
+    with mapping_path.open("r", encoding="utf-8") as handle:
+        mapping_document = json.load(handle)
+
+    mappings = {
+        str(item["source_rule_id"]): item
+        for item in mapping_document.get("mappings", [])
+    }
+    product_rules = registry["rules"]
+    career_domains = [
+        item for item in run.natal_profile.domains if item.domain_id == "career"
+    ]
+    if len(career_domains) != 1:
+        raise ValueError("Career inference run must contain exactly one Career domain")
+    domain = career_domains[0]
+
+    projection_by_id: dict[str, dict[str, Any]] = {}
+    for raw in domain.projection_payloads:
+        payload = json.loads(raw)
+        if not isinstance(payload, Mapping):
+            raise ValueError("Career projection payload must be a JSON object")
+        rule_id = str(payload.get("rule_id", "")).strip()
+        if not rule_id or rule_id in projection_by_id:
+            raise ValueError("Career projection payload has an empty or duplicate rule_id")
+        projection_by_id[rule_id] = dict(payload)
+
+    active_natal_rules: list[dict[str, Any]] = []
+    for evidence in domain.active_rules:
+        rule_id = evidence.rule_id
+        product_rule = product_rules.get(rule_id)
+        source_mapping = mappings.get(rule_id)
+        projection = projection_by_id.get(rule_id)
+        if not isinstance(product_rule, Mapping) or not isinstance(source_mapping, Mapping):
+            raise ValueError(f"{rule_id}: active rule lacks registry or mapping provenance")
+        if projection is None:
+            raise ValueError(f"{rule_id}: active rule lacks its projection payload")
+        if (
+            evidence.source_id != product_rule.get("expected_source_id")
+            or evidence.source_location != product_rule.get("expected_source_location")
+            or evidence.review_status != product_rule.get("expected_review_status")
+        ):
+            raise ValueError(f"{rule_id}: active evidence source does not match Product registry")
+        if (
+            projection.get("projection_domain") != product_rule.get("expected_projection_domain")
+            or projection.get("projection_target") != product_rule.get("expected_projection_target")
+            or projection.get("projection_mode") != product_rule.get("expected_projection_mode")
+        ):
+            raise ValueError(f"{rule_id}: active projection does not match Product registry")
+
+        active_natal_rules.append(
+            {
+                "rule_id": rule_id,
+                "condition": str(product_rule["expected_condition"]),
+                "source_summary": str(source_mapping["source_span_summary"]),
+                "projection": {
+                    "domain": projection["projection_domain"],
+                    "target": projection["projection_target"],
+                    "mode": projection["projection_mode"],
+                },
+                "source": {
+                    "source_id": evidence.source_id,
+                    "source_location": evidence.source_location,
+                    "review_status": evidence.review_status,
+                    "epistemic": evidence.epistemic,
+                },
+                "matched_conditions": list(projection.get("matched_conditions", [])),
+            }
+        )
+
+    active_natal_rules.sort(key=lambda item: item["rule_id"])
+    conclusion = run.evidence_package.to_dict().get("conclusion") or {}
+    temporal_rule_ids = sorted(item.rule_id for item in run.reaction_report.matched)
+    temporal_fact_counts = Counter(item.layer for item in run.temporal_bundle.temporal_facts)
+
+    return {
+        "schema_version": "0.1",
+        "run_id": run.run_id,
+        "question": run.question,
+        "target_id": run.target_id,
+        "status": run.status,
+        "status_message_zh": _STATUS_MESSAGES.get(
+            run.status,
+            "推理结果已生成；请同时检查状态、阻塞项和限制条件。",
+        ),
+        "selected_domains": list(run.selected_domains),
+        "selected_temporal_layers": list(run.selected_temporal_layers),
+        "natal": {
+            "profile_id": run.natal_profile.profile_id,
+            "knowledge_version": run.natal_profile.knowledge_version,
+            "active_rule_count": len(active_natal_rules),
+            "active_rules": active_natal_rules,
+            "confidence_band": domain.confidence_band,
+            "confidence_rationale": domain.confidence_rationale,
+        },
+        "temporal": {
+            "profile_id": run.temporal_profile.profile_id,
+            "target_label": run.temporal_profile.target_label,
+            "active_layers": list(run.temporal_profile.active_layers),
+            "fact_count_by_layer": {
+                layer: temporal_fact_counts[layer]
+                for layer in sorted(temporal_fact_counts)
+            },
+            "reaction_registry_status": run.reaction_registry_status,
+            "reaction_rule_count": run.reaction_rule_count,
+            "matched_reaction_rule_ids": temporal_rule_ids,
+            "has_temporal_reaction_evidence": bool(temporal_rule_ids),
+        },
+        "blockers": list(run.blockers),
+        "unknowns": list(conclusion.get("unknowns", [])),
+        "conflicts": list(conclusion.get("conflicts", [])),
+        "limitations": sorted(
+            set(conclusion.get("limitations", []))
+            | {
+                "REAL_WORLD_EVENT_PREDICTION_NOT_ESTABLISHED",
+                "SOURCE_RULES_NOT_EMPIRICALLY_CALIBRATED",
+            }
+        ),
+        "real_world_event_prediction_supported": False,
+    }
