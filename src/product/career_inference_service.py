@@ -7,6 +7,11 @@ from pathlib import Path
 from typing import Iterable, Mapping, Any
 
 from .career_natal_domain_provider import load_default_career_natal_provider
+from .event_relative_window import (
+    MIGRATION_WINDOW_ID,
+    MigrationFirstThreeYearsInput,
+    resolve_migration_first_three_years,
+)
 from .natal_domain_registry import load_default_natal_domain_registry
 from .symbolic_inference_pipeline import SymbolicInferenceRun, run_symbolic_inference
 from .temporal_environment import EventRelativeContextEvidence
@@ -27,6 +32,7 @@ def run_career_inference(
     selected_temporal_layers: Iterable[str] = DEFAULT_CAREER_TEMPORAL_LAYERS,
     temporal_conflicts: Iterable[str] = (),
     event_relative_context: Iterable[EventRelativeContextEvidence] = (),
+    migration_window: MigrationFirstThreeYearsInput | None = None,
 ) -> SymbolicInferenceRun:
     """Run the canonical Career provider with explicitly selected time layers.
 
@@ -48,6 +54,15 @@ def run_career_inference(
     if not isinstance(reaction_registry, Mapping):
         raise ValueError("production temporal reaction registry must be a JSON object")
 
+    relative_context_items = list(event_relative_context)
+    if migration_window is not None:
+        if any(item.context_id == MIGRATION_WINDOW_ID for item in relative_context_items):
+            raise ValueError(
+                f"event_relative_context already contains {MIGRATION_WINDOW_ID}"
+            )
+        resolution = resolve_migration_first_three_years(migration_window)
+        relative_context_items.append(resolution.evidence)
+
     return run_symbolic_inference(
         normalized_snapshot,
         target_id=target_id,
@@ -57,5 +72,5 @@ def run_career_inference(
         selected_domains=("career",),
         selected_temporal_layers=selected_temporal_layers,
         temporal_conflicts=temporal_conflicts,
-        event_relative_context=event_relative_context,
+        event_relative_context=tuple(relative_context_items),
     )
