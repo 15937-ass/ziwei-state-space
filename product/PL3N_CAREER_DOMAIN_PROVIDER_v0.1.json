@@ -8,15 +8,23 @@
   "time_layer": "NATAL",
   "topic_scope": "事业",
   "school": "中州派",
-  "knowledge_version": "CAREER_CA09_FINAL+WP07A_MAP_v0.1",
+  "knowledge_version": "CAREER_CA09_FINAL+WP07A_PILOT+CA01_CA03_STATIC_v0.1",
   "source_mapping": {
     "path": "knowledge/wp07a/CAREER_NATAL_ATOMIZATION_MAP_v0.1.json",
     "audit_id": "KB-WP07A-CAREER-NATAL-ATOMIZATION",
     "mapping_status": "SOURCE_GROUNDED_MAPPING_COMPLETE_NOT_EXECUTABLE",
     "schema_version": "0.1",
-    "note": "This Product registry is the separately implemented executable form. The Knowledge mapping file remains unchanged and is not loaded as a runtime registry."
+    "note": "This Product registry is the separately implemented executable form. The Knowledge mapping file remains unchanged and is not loaded as a runtime registry.",
+    "selected_rule_ids": [
+      "CA04-347",
+      "CA04-349",
+      "CA09-852"
+    ]
   },
   "projection_sources": [
+    "validation/wp05/CA01_career_projection_review_001_100.csv",
+    "validation/wp05/CA02_career_projection_review_101_200.csv",
+    "validation/wp05/CA03_career_projection_review_201_300.csv",
     "validation/wp05/CA04_career_projection_review_301_400.csv",
     "validation/wp05/CA09_career_projection_review_801_888.csv"
   ],
@@ -87,6 +95,418 @@
         ]
       },
       "mapping_rule_id": "CA09-852"
+    },
+    "CA01-052": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p133",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "紫微化权",
+      "expected_projection_domain": "role",
+      "expected_projection_target": "work_independence_strengthened",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "紫微",
+              "mutagen": "权"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA01-052"
+    },
+    "CA01-053": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p133",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "紫微化权",
+      "expected_projection_domain": "methodology",
+      "expected_projection_target": "authority_does_not_itself_imply_wealth_or_high_rank",
+      "expected_projection_mode": "STRUCTURAL_CONSTRAINT",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "紫微",
+              "mutagen": "权"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA01-053"
+    },
+    "CA01-054": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p133",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "紫微化科",
+      "expected_projection_domain": "reputation",
+      "expected_projection_target": "reputation_exceeds_financial_return",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "紫微",
+              "mutagen": "科"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA01-054"
+    },
+    "CA01-055": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p133",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "紫微化科",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "independent_professional_work_scene",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "紫微",
+              "mutagen": "科"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA01-055"
+    },
+    "CA01-070": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "子午紫微化权",
+      "expected_projection_domain": "development",
+      "expected_projection_target": "career_advantage_strengthened",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "权"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "权"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA01-070"
+    },
+    "CA01-071": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "子午紫微化权",
+      "expected_projection_domain": "relationship",
+      "expected_projection_target": "career_advantage_can_coexist_with_marriage_tension",
+      "expected_projection_mode": "CROSS_PALACE_CONSTRAINT",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "权"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "权"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA01-071"
+    },
+    "CA01-078": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "子午紫微化科",
+      "expected_projection_domain": "reputation",
+      "expected_projection_target": "reputation_exceeds_financial_return",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "科"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "科"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA01-078"
+    },
+    "CA02-155": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p136",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "天机化禄",
+      "expected_projection_domain": "methodology",
+      "expected_projection_target": "hualu_does_not_remove_tianji_instability",
+      "expected_projection_mode": "STRUCTURAL_CONSTRAINT",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "禄"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA02-155"
+    },
+    "CA02-160": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p136",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "天机化科",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "planning_management_or_design_work_suited",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "科"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA02-160"
+    },
+    "CA03-252": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p137-138",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "巳亥天机化忌",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "insurance_scene_suited",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "巳"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "天机",
+                "mutagen": "忌"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "亥"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "天机",
+                "mutagen": "忌"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA03-252"
+    },
+    "CA03-254": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p138",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "天机化科",
+      "expected_projection_domain": "stability",
+      "expected_projection_target": "career_change_property_remains",
+      "expected_projection_mode": "STRUCTURAL_CONSTRAINT",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天机",
+              "mutagen": "科"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA03-254"
+    },
+    "CA03-279": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p138",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "太阳化禄",
+      "expected_projection_domain": "reputation",
+      "expected_projection_target": "career_reputation_or_brand_value_strengthened",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "太阳",
+              "mutagen": "禄"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA03-279"
+    },
+    "CA03-283": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p138-139",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "太阳化科",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "reputation_dependent_professional_scene",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "太阳",
+              "mutagen": "科"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA03-283"
+    },
+    "CA03-285": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p139",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "太阳化忌",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "dispute_resolution_or_speech_based_work_scene",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "太阳",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA03-285"
     }
   },
   "guardrails": {
@@ -97,5 +517,30 @@
     "universal_valence_allowed": false,
     "event_manifestation_inference_allowed": false,
     "default_registry_activation": false
-  }
+  },
+  "additional_source_mappings": [
+    {
+      "path": "knowledge/wp07a/CAREER_NATAL_TRANSFORMATION_MAP_CA01_CA03_v0.1.json",
+      "audit_id": "KB-WP07A-CAREER-NATAL-TRANSFORMATION-MAP-CA01-CA03",
+      "mapping_status": "SOURCE_GROUNDED_MAPPING_COMPLETE_NOT_EXECUTABLE",
+      "schema_version": "0.1",
+      "selected_rule_ids": [
+        "CA01-052",
+        "CA01-053",
+        "CA01-054",
+        "CA01-055",
+        "CA01-070",
+        "CA01-071",
+        "CA01-078",
+        "CA02-155",
+        "CA02-160",
+        "CA03-252",
+        "CA03-254",
+        "CA03-279",
+        "CA03-283",
+        "CA03-285"
+      ],
+      "required_execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE"
+    }
+  ]
 }

@@ -11,7 +11,10 @@ from collections import Counter
 from pathlib import Path
 from typing import Any, Mapping
 
-from .career_natal_domain_provider import load_default_career_natal_provider
+from .career_natal_domain_provider import (
+    load_career_source_mappings,
+    load_default_career_natal_provider,
+)
 from .symbolic_inference_pipeline import SymbolicInferenceRun
 
 
@@ -77,14 +80,7 @@ def build_career_inference_report(
     root = Path(repository_root)
     provider = load_default_career_natal_provider(root)
     registry = provider.registry
-    mapping_path = root / str(registry["source_mapping"]["path"])
-    with mapping_path.open("r", encoding="utf-8") as handle:
-        mapping_document = json.load(handle)
-
-    mappings = {
-        str(item["source_rule_id"]): item
-        for item in mapping_document.get("mappings", [])
-    }
+    mappings = load_career_source_mappings(root, registry)
     product_rules = registry["rules"]
     career_domains = [
         item for item in run.natal_profile.domains if item.domain_id == "career"

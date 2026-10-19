@@ -75,14 +75,14 @@ def provider():
     return load_default_career_natal_provider(ROOT)
 
 
-def test_canonical_career_provider_is_opt_in_and_has_only_three_pinned_rules(provider):
+def test_canonical_career_provider_is_opt_in_and_has_seventeen_pinned_rules(provider):
     assert provider.domain_id == "career"
     assert provider.is_test_only is False
-    assert provider.executable_rule_count == 3
+    assert provider.executable_rule_count == 17
     assert {rule.rule_id for rule in provider._executable_rules} == {
-        "CA04-347",
-        "CA04-349",
-        "CA09-852",
+        "CA04-347", "CA04-349", "CA09-852",
+        "CA01-052", "CA01-053", "CA01-054", "CA01-055", "CA01-070", "CA01-071", "CA01-078",
+        "CA02-155", "CA02-160", "CA03-252", "CA03-254", "CA03-279", "CA03-283", "CA03-285",
     }
 
     default = load_default_natal_domain_registry(ROOT)
@@ -151,10 +151,11 @@ def test_product_registry_matches_the_reviewed_mapping_without_mutating_it():
     assert registry["source_mapping"]["mapping_status"] == (
         "SOURCE_GROUNDED_MAPPING_COMPLETE_NOT_EXECUTABLE"
     )
-    assert set(registry["rules"]) == set(mapping["scope"]["nominated_source_rule_ids"])
-    assert set(registry["rules"]) == set(mapping_by_id)
+    assert set(registry["source_mapping"]["selected_rule_ids"]) == set(mapping["scope"]["nominated_source_rule_ids"])
+    assert set(mapping_by_id) <= set(registry["rules"])
 
-    for rule_id, product_rule in registry["rules"].items():
+    for rule_id in mapping_by_id:
+        product_rule = registry["rules"][rule_id]
         source_mapping = mapping_by_id[rule_id]
         expected = source_mapping["expected_projection"]
         assert product_rule["expected_condition"] == source_mapping["source_condition_text"]
@@ -225,6 +226,7 @@ def test_career_mapping_handoff_validator_rejects_product_mapping_drift(tmp_path
     registry["source_mapping"]["path"] = str(
         Path("knowledge") / "wp07a" / MAPPING_PATH.name
     )
+    registry["rules"] = {i: registry["rules"][i] for i in registry["source_mapping"]["selected_rule_ids"]}
     registry["rules"]["CA04-347"]["expected_projection_target"] = "drifted_target"
 
     with pytest.raises(ValueError, match="drift in projection_target"):
