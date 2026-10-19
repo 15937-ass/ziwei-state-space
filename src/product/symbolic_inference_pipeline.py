@@ -334,6 +334,8 @@ def run_symbolic_inference(
     if selected_temporal_layers is None:
         temporal_layers = tuple(sorted(available_layers))
     else:
+        if isinstance(selected_temporal_layers, (str, bytes)):
+            raise ValueError("selected_temporal_layers must be an array of layer IDs")
         temporal_layers = tuple(
             sorted(
                 {
