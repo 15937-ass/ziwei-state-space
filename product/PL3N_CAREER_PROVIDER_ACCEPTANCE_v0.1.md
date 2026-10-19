@@ -158,3 +158,32 @@ The handoff rejects blocked readiness even if an entry is manually selected.
 
 This is internal condition/source-trace validation. It is not empirical validation,
 career advice, event prediction, a time forecast, or an accuracy estimate.
+
+
+## CA04–CA09 static expansion (Issue #346)
+
+The provider now executes 23 NATAL rules. The previous 17 remain unchanged.
+Six additional entries come exclusively from the reviewed direct-transformation
+mapping merged in PR #315:
+
+| Rule | P09 condition | Preserved scene or function |
+|---|---|---|
+| CA04-327 | 太阳化忌 | 排难解纷性质的工作，不推成现实是非事件 |
+| CA05-469 | 廉贞化忌 | 带血光象义的行业场景，保留饮食/化验语境，不作疾病或伤害预测 |
+| CA07-671 | 巨门化禄 | 口舌/表达类事业投影，不推断收入金额 |
+| CA07-672 | 巨门化权 | 表达类事业支持，不推出必然职业成功 |
+| CA07-673 | 巨门化忌 | 偏门或带政治色彩的行业场景；保留“不应直接推为官非诉讼”的来源限定 |
+| CA08-765 | 天梁化权 | 权威性质工作，法律/监察/秘书为来源举例，不作唯一职业判断 |
+
+Exact source summaries, projections, modes, conditions and provenance are shown
+in the actual Chinese report. Missing transformation, a different transformation,
+a wrong named star, or the same transformation outside P09 cannot activate its
+rule. There is no additional branch restriction for these six source conditions.
+
+CA05-403 remains blocked as a timing trigger. CA08-766 remains blocked for its
+social-status-before-wealth ordering and PATH_DEPENDENT_GATE metadata. Selecting
+such IDs manually cannot bypass the readiness validator. Knowledge mapping files
+remain unchanged and non-executable; only this explicit Product subset runs.
+
+The production temporal reaction registry is still empty. This expansion is
+internally verified source-faithful rule execution, not empirical validation.

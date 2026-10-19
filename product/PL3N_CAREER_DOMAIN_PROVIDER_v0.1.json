@@ -8,7 +8,7 @@
   "time_layer": "NATAL",
   "topic_scope": "事业",
   "school": "中州派",
-  "knowledge_version": "CAREER_CA09_FINAL+WP07A_PILOT+CA01_CA03_STATIC_v0.1",
+  "knowledge_version": "CAREER_CA09_FINAL+WP07A_PILOT+CA01_CA09_STATIC_v0.1",
   "source_mapping": {
     "path": "knowledge/wp07a/CAREER_NATAL_ATOMIZATION_MAP_v0.1.json",
     "audit_id": "KB-WP07A-CAREER-NATAL-ATOMIZATION",
@@ -26,6 +26,9 @@
     "validation/wp05/CA02_career_projection_review_101_200.csv",
     "validation/wp05/CA03_career_projection_review_201_300.csv",
     "validation/wp05/CA04_career_projection_review_301_400.csv",
+    "validation/wp05/CA05_career_projection_review_401_500.csv",
+    "validation/wp05/CA07_career_projection_review_601_700.csv",
+    "validation/wp05/CA08_career_projection_review_701_800.csv",
     "validation/wp05/CA09_career_projection_review_801_888.csv"
   ],
   "palace_ontology": "knowledge/wp05/palace_ontology_v0.1.csv",
@@ -507,6 +510,138 @@
         ]
       },
       "mapping_rule_id": "CA03-285"
+    },
+    "CA04-327": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p140",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "太阳化忌",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "conflict_resolution_or_problem_solving_work_required",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "太阳",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA04-327"
+    },
+    "CA05-469": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p144",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "廉贞化忌",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "blood_or_injury_symbolism_related_industry_scene",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "廉贞",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA05-469"
+    },
+    "CA07-671": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p150",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "巨门化禄",
+      "expected_projection_domain": "development",
+      "expected_projection_target": "speech_based_career_expression_strengthened",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "巨门",
+              "mutagen": "禄"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA07-671"
+    },
+    "CA07-672": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p150",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "巨门化权",
+      "expected_projection_domain": "development",
+      "expected_projection_target": "speech_based_career_expression_is_supported",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "巨门",
+              "mutagen": "权"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA07-672"
+    },
+    "CA07-673": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p150",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "巨门化忌",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "marginal_or_partly_political_scene",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "巨门",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA07-673"
+    },
+    "CA08-765": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p152",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "天梁化权",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "authority_based_legal_supervisory_or_secretarial_scene",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "天梁",
+              "mutagen": "权"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA08-765"
     }
   },
   "guardrails": {
@@ -539,6 +674,21 @@
         "CA03-279",
         "CA03-283",
         "CA03-285"
+      ],
+      "required_execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE"
+    },
+    {
+      "path": "knowledge/wp07a/CAREER_DIRECT_TRANSFORM_MAP_CA04_CA09_v0.1.json",
+      "audit_id": "KB-WP07A-CAREER-DIRECT-TRANSFORM-MAP-CA04-CA09",
+      "mapping_status": "SOURCE_GROUNDED_MAPPING_COMPLETE_NOT_EXECUTABLE",
+      "schema_version": "0.1",
+      "selected_rule_ids": [
+        "CA04-327",
+        "CA05-469",
+        "CA07-671",
+        "CA07-672",
+        "CA07-673",
+        "CA08-765"
       ],
       "required_execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE"
     }

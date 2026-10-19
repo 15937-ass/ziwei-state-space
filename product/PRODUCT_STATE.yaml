@@ -8,7 +8,7 @@ execution:
   phase: "PL3_END_TO_END_INFERENCE_MVP"
   active_issue: null
   active_pr: null
-  resume_entry: "Issue #344 expands the source-pinned Career NATAL provider to 17 static rules using reviewed CA01–CA03 mappings, retaining branch gates and blocking path/event-dependent targets. Production temporal reaction registry remains empty. No next Product work unit is selected."
+  resume_entry: "Issue #346 expands the source-pinned Career NATAL provider to 23 static rules using reviewed direct-transformation mappings, retaining scene-only limitations and blocking timing/path-dependent targets. Production temporal reaction registry remains empty. No next Product work unit is selected."
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
   resume_issue: 290
@@ -39,10 +39,11 @@ capability_snapshot:
   natal_career:
     specification: "SPECIFIED"
     implementation: "PARTIAL"
-    canonical_content: "BLOCKED"
-    internal_validation: "NONE"
+    canonical_content: "PARTIAL"
+    internal_validation: "CONTRACT"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
+    note: "23 explicitly source-pinned NATAL rules; internal API/report tests only; no empirical prediction validation."
   temporal_reactions:
     specification: "SPECIFIED"
     implementation: "IMPLEMENTED"
@@ -88,7 +89,7 @@ resume_queue_reference:
     - 282
     - 283
     - 284
-  note: "Legacy Issues are historical references, not current active work. Issues #291, #336, #342 and #344 are completed; no Product work unit is currently active."
+  note: "Legacy Issues are historical references, not current active work. Issues #291, #336, #342, #344 and #346 are completed; no Product work unit is currently active."
 
 permanent_boundaries:
   canonical_natal_feedback_independent: true
