@@ -8,17 +8,17 @@
   "summary": {
     "constraints_audited": 130,
     "impact_counts": {
-      "NO_BLOCKER_REDUCTION": 95,
-      "QUALITATIVE_REFINEMENT_ONLY": 35
+      "NO_BLOCKER_REDUCTION": 94,
+      "QUALITATIVE_REFINEMENT_ONLY": 36
     },
-    "unique_activation_rules_touched": 32,
+    "unique_activation_rules_touched": 33,
     "blockers_resolved_by_ordinal_evidence": 0,
     "execution_unlocked": 0
   },
   "interpretation": {
     "core_finding": "Ordinal evidence enriches ordering/emphasis but does not provide the missing activation membership/cardinality, numeric severity threshold, dependency compiler behavior, or closed-world evidence.",
     "zero_resolution_is_valid_result": true,
-    "next_target": "Preserve ordinal registry as a qualitative constraint layer; do not use it to inflate executability."
+    "next_target": "Preserve ordinal registry as a qualitative constraint layer; recover the three source-explicit atomic-rule gaps separately, then continue compiler-readiness work."
   },
   "records": [
     {
@@ -1018,13 +1018,18 @@
       "constraint_id": "OC-070",
       "relation_type": "SOURCE_LOCAL_EMPHASIS",
       "linked_rule_ids": [
-        "CA06-536"
+        "CA06-538"
       ],
-      "linked_activation_rule_ids": [],
-      "linked_activation_blockers": [],
-      "blocker_impact": "NO_BLOCKER_REDUCTION",
+      "linked_activation_rule_ids": [
+        "CA06-538"
+      ],
+      "linked_activation_blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blocker_impact": "QUALITATIVE_REFINEMENT_ONLY",
       "resolved_blockers": [],
-      "reason": "Constraint is not linked to a current activation-scope rule or has no activation blocker effect.",
+      "reason": "Adds source-explicit ordering/emphasis to linked interpretation, but does not supply missing group cardinality, open-category membership, numeric threshold, dependency compilation, or closed-world evidence.",
       "execution_unlocked": false
     },
     {
