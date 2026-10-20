@@ -77,7 +77,7 @@ def active_ids(value):
 def test_exact_review03_selection_and_current_total():
     meta = next(m for m in REGISTRY["additional_source_mappings"] if m["path"] == MP)
     assert meta["mapping_status"] == "REVIEW_COMPLETE_NON_PRODUCTION"
-    assert meta["source_context_schema"] == "REVIEW_BATCH_PARAGRAPH_SCOPE_V0_1"
+    assert meta["source_context_schema"] == "REVIEW_COMPLETE_CONTEXT_V0_1"
     assert meta["selected_rule_ids"] == SELECTED
     assert set(BY_ID) == set(SELECTED)
     assert len(REGISTRY["rules"]) == 134
@@ -203,7 +203,7 @@ def test_blocked_and_context_only_review03_rows_do_not_enter_product():
 
 @pytest.mark.parametrize("mutation,error", [
     ("source_status", "reviewed non-executable mapping"),
-    ("context_flag", "invalid review-batch paragraph context scope"),
+    ("context_flag", "invalid review-complete source context"),
     ("context_drift", "drift in source context"),
     ("condition_drift", "condition atoms"),
     ("blocked", "readiness"),
