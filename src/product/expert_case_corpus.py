@@ -289,6 +289,17 @@ def validate_wang_loco_manifest(
         raise ValueError("Wang LOCO case_count must be 24")
     if manifest.get("fold_count") != EXPECTED_CASE_COUNT:
         raise ValueError("Wang LOCO fold_count must be 24")
+    excluded_resources = manifest.get("blind_excluded_resources")
+    if not isinstance(excluded_resources, list) or not {
+        "CASE_SOURCE_INVENTORY_v0.1.json",
+        "SOURCE_SUBJECT_LABEL_MAPPING",
+        "EXPERT_CASE_PROSE",
+        "EXPERT_REASONING_GRAPH",
+        "EXPERT_CONCLUSIONS",
+        "SOURCE_OUTCOMES",
+        "EXTERNAL_BIOGRAPHICAL_KNOWLEDGE",
+    }.issubset(set(excluded_resources)):
+        raise ValueError("Wang LOCO blind excluded-resource policy is incomplete")
     if len(folds) != EXPECTED_CASE_COUNT:
         raise ValueError("Wang LOCO must contain 24 folds")
 
