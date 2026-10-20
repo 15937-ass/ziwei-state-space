@@ -25,6 +25,7 @@ Status: **IMPLEMENTED IN PRODUCT #462 — VALIDATION PENDING**
 - Relation Binding 132/132；
 - Open Category review 59 occurrences；
 - Contextual Activation closure 251/251；
+- Career Ordinal/Constraint registry v0.1（130 normalized constraints）；
 - #458 source recheck 后的 antecedent closure：
   - unresolved antecedent refs = 0；
   - explicit antecedent dependency rows = 64。
@@ -200,6 +201,17 @@ v0.1 的 `absence_evidence_ready()` 只检查该前提；即使 evidence ready�
 
 ## 10. Ordinal / emphasis / severity
 
+在本 work unit 验证期间，Knowledge #461 / PR #463 新增了 Career ordinal/constraint registry。Product 同步最新 main 后把它作为只读输入消费。
+
+当前 registry：
+
+~~~text
+normalized constraints = 130
+runtime execution unlocked = 0
+numericized constraints = 0
+transitive closure authorized = 0
+~~~
+
 Knowledge 已保存的：
 
 - 尤其；
@@ -238,7 +250,10 @@ Explicit antecedent dependencies    64
 Unresolved antecedent refs           0
 Relation-bound rows                132
 Category-reviewed rows              59
-Real runtime effects authorized      0
+Career ordinal constraints          130
+Ordinal runtime unlock                0
+Ordinal numericized constraints       0
+Real runtime effects authorized       0
 Unauthorized unlock                  0
 ~~~
 
