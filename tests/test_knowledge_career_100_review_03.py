@@ -26,9 +26,9 @@ def test_counts_and_scope():
     assert len(RECORDS) == 100
     assert RECORDS[0]["source_rule_id"] == "CA03-236"
     assert RECORDS[-1]["source_rule_id"] == "CA04-342"
-    assert counts["first_time_complete_condition_mappings"] == 32
-    assert counts["methodology_or_context_only"] == 7
-    assert counts["blocked_outcome_mappings"] == 61
+    assert counts["first_time_complete_condition_mappings"] == 30
+    assert counts["methodology_or_context_only"] == 8
+    assert counts["blocked_outcome_mappings"] == 62
     assert counts["unique_structured_rule_records_before"] == 252
     assert counts["unique_structured_rule_records_after"] == 352
 
@@ -69,3 +69,11 @@ def test_changqu_quantifier_and_preg_inheritance_are_conservative():
     }
     for rid, inherited in expected.items():
         assert by_id[rid]["source_context"]["inherited_source_rule_ids"] == inherited
+
+
+def test_relation_and_example_red_team_corrections():
+    by_id = {item["source_rule_id"]: item for item in RECORDS}
+    assert by_id["CA03-278"]["condition"] is None
+    assert by_id["CA03-278"]["blocker_code"] == "RELATION"
+    assert by_id["CA03-286"]["condition"] is None
+    assert by_id["CA03-286"]["review_disposition"] == "METHODOLOGY_OR_CONTEXT_ONLY"
