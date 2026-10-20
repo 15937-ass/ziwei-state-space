@@ -1,0 +1,3477 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP07C-CAREER-GROUP-LEXICON-REVIEW-02-v0.1",
+  "lane": "KNOWLEDGE_ONLY",
+  "status": "SOURCE_LEXICON_REVIEW_COMPLETE_NO_NEW_SEMANTICS",
+  "issue": 412,
+  "scope": {
+    "source_blocker_artifact": "knowledge/wp07c/CAREER_BLOCKER_ONTOLOGY_BACKLOG_v0.1.json",
+    "previous_review_artifact": "knowledge/wp07c/CAREER_GROUP_LEXICON_REVIEW_01_v0.1.json",
+    "workstream_id": "WS-GROUP-QUANTIFIER",
+    "group_related_blocker_total": 251,
+    "review_batch_ordinal": 2,
+    "review_batch_size": 100,
+    "cumulative_reviewed": 200,
+    "first_source_rule_id": "CA04-383",
+    "last_source_rule_id": "CA07-691",
+    "previous_last_source_rule_id": "CA04-382",
+    "next_batch_start_source_rule_id": "CA07-692",
+    "blocker_codes": [
+      "GROUP",
+      "RELATION_AND_GROUP",
+      "ABSENCE_AND_GROUP",
+      "DIGNITY_AND_GROUP"
+    ],
+    "review_order": "NUMERIC_SOURCE_RULE_ID_ASC"
+  },
+  "source_evidence_catalog": [
+    {
+      "evidence_id": "GLEX2-E01",
+      "source_id": "SRC-ZZ-002",
+      "source_title": "《中州派紫微斗数深造讲义（上）》",
+      "source_attachment_sha256": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a",
+      "pdf_page": 2,
+      "printed_page": 5,
+      "evidence_category": "SIX_MALEFICS_TAXONOMY_DECLARED",
+      "source_excerpt": "十四正曜、四辅曜，四佐曜、六煞曜、四化曜",
+      "finding": "总论明确存在“六煞曜”这一上位分类；后续煞曜章节依次以擎羊陀罗、火星铃星、地空地劫分节。",
+      "candidate_membership": [
+        "擎羊",
+        "陀罗",
+        "火星",
+        "铃星",
+        "地空",
+        "地劫"
+      ],
+      "membership_status": "SOURCE_STRONGLY_SUPPORTED_CANDIDATE_NOT_CANONICALLY_FROZEN",
+      "quantifier_transfer": "NOT_APPLICABLE"
+    },
+    {
+      "evidence_id": "GLEX2-E02",
+      "source_id": "SRC-ZZ-002",
+      "source_title": "《中州派紫微斗数深造讲义（上）》",
+      "source_attachment_sha256": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a",
+      "pdf_page": 87,
+      "printed_page": 172,
+      "evidence_category": "FOUR_MALEFICS_COMBINATION_EXPOSITION",
+      "source_excerpt": "擎羊遇火星…陀罗遇铃星…四煞的凶性便互相抵消…以上为四煞结合的特点。",
+      "finding": "该段在“擎羊 陀罗”节中把擎羊/陀罗与火星/铃星作为四煞组合讨论，可作为“四煞=羊陀火铃”的高强度成员候选证据；本批仍不冻结其触发量词。",
+      "candidate_membership": [
+        "擎羊",
+        "陀罗",
+        "火星",
+        "铃星"
+      ],
+      "membership_status": "SOURCE_STRONGLY_SUPPORTED_CANDIDATE_NOT_CANONICALLY_FROZEN",
+      "quantifier_transfer": "NO_TRIGGER_QUANTIFIER_INFERRED"
+    },
+    {
+      "evidence_id": "GLEX2-E03",
+      "source_id": "SRC-ZZ-002",
+      "source_title": "《中州派紫微斗数深造讲义（上）》",
+      "source_attachment_sha256": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a",
+      "pdf_page": 118,
+      "printed_page": 234,
+      "evidence_category": "EXPLICIT_PAIR_REQUIREMENT",
+      "term": "三台八座",
+      "source_excerpt": "三台属阳土，八座属阴土，均为仪仗之星，必须成对会照，然后才主增高地位。",
+      "finding": "对“三台八座”，来源直接给出“必须成对会照”的局部条件，是强量词/关系证据。",
+      "candidate_membership": [
+        "三台",
+        "八座"
+      ],
+      "local_quantifier_finding": "EXPLICIT_BOTH_AS_PAIR",
+      "relation_finding": "PAIR_ASPECT_REQUIRED_IN_THIS_STATEMENT",
+      "canonical_default_frozen": false
+    },
+    {
+      "evidence_id": "GLEX2-E04",
+      "source_id": "SRC-ZZ-002",
+      "source_title": "《中州派紫微斗数深造讲义（上）》",
+      "source_attachment_sha256": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a",
+      "pdf_page": 118,
+      "printed_page": 234,
+      "evidence_category": "EXPLICIT_PAIR_AND_COMPOSITE_CATEGORY_EVIDENCE",
+      "term": "龙池凤阁 / 科文诸曜",
+      "source_excerpt": "龙池属阳水，凤阁属阳土，皆为文明之宿，成对会入，主才艺。昌曲、魁钺与龙凤同会，可增加力量。古人称为[科文诸曜]利考试、竞争。",
+      "finding": "“龙池凤阁”有明确成对会入证据；同段把昌曲、魁钺、龙凤并列到“科文诸曜”语境，可作为成员候选，但不足以从一句话冻结“科文诸曜”的全局闭包或触发量词。",
+      "pair_candidate_membership": [
+        "龙池",
+        "凤阁"
+      ],
+      "local_quantifier_finding": "EXPLICIT_BOTH_AS_PAIR_FOR_LONGFENG",
+      "kewen_membership_candidates": [
+        "文昌",
+        "文曲",
+        "天魁",
+        "天钺",
+        "龙池",
+        "凤阁"
+      ],
+      "kewen_membership_status": "SOURCE_SUPPORTED_CANDIDATE_BOUNDARY_NOT_FROZEN",
+      "canonical_default_frozen": false
+    },
+    {
+      "evidence_id": "GLEX2-E05",
+      "evidence_category": "BATCH_LOCAL_EXPLICIT_OR",
+      "source_rule_examples": [
+        {
+          "source_rule_id": "CA04-397",
+          "condition": "武曲破军见魁钺或辅弼",
+          "source_span_ids": [
+            "ZZ003-P142"
+          ]
+        },
+        {
+          "source_rule_id": "CA05-423",
+          "condition": "子午天同太阴见禄存或化禄",
+          "source_span_ids": [
+            "ZZ003-P143"
+          ]
+        },
+        {
+          "source_rule_id": "CA05-484",
+          "condition": "廉贞天相会武曲化禄禄存或天府化科",
+          "source_span_ids": [
+            "ZZ003-P145"
+          ]
+        },
+        {
+          "source_rule_id": "CA06-585",
+          "condition": "太阴与魁钺或辅弼同会",
+          "source_span_ids": [
+            "ZZ003-P147"
+          ]
+        },
+        {
+          "source_rule_id": "CA07-602",
+          "condition": "太阴与天机同度或相对且见吉化吉曜",
+          "source_span_ids": [
+            "ZZ003-P148"
+          ]
+        },
+        {
+          "source_rule_id": "CA07-652",
+          "condition": "寅申贪狼与廉贞相对且见陀罗或煞",
+          "source_span_ids": [
+            "ZZ003-P149"
+          ]
+        }
+      ],
+      "finding": "本批条件中“或”明确绑定不同对象：魁钺或辅弼、禄存或化禄、不同化曜/关系等。OR 可以记录在具体原句，却不能提升为群组词内部的默认量词。",
+      "local_quantifier_finding": "EXPLICIT_OR_WHERE_WRITTEN",
+      "universal_group_or_supported": false
+    }
+  ],
+  "batch_summary": {
+    "blocker_code_counts": {
+      "GROUP": 51,
+      "RELATION_AND_GROUP": 37,
+      "DIGNITY_AND_GROUP": 3,
+      "ABSENCE_AND_GROUP": 9
+    },
+    "dependency_class_counts": {
+      "GROUP_OR_CATEGORY_SHORTHAND": 37,
+      "INHERITED_ANTECEDENT_DEPENDENCY": 28,
+      "RELATIONAL_GROUP_COMPOSITION": 27,
+      "DIGNITY_GROUP_COMPOSITION": 1,
+      "NEGATED_GROUP_RELATION": 7
+    },
+    "surface_group_token_counts": {
+      "见煞": 17,
+      "空劫": 10,
+      "吉曜": 9,
+      "昌曲": 7,
+      "煞忌": 6,
+      "煞曜": 6,
+      "吉化": 5,
+      "火铃": 5,
+      "辅弼": 5,
+      "桃花": 4,
+      "科文诸曜": 4,
+      "见吉": 4,
+      "吉化吉曜": 3,
+      "得禄": 3,
+      "魁钺": 3,
+      "刑耗": 2,
+      "四煞": 2,
+      "左辅右弼": 2,
+      "桃花诸曜": 2,
+      "煞轻": 2,
+      "羊陀": 2,
+      "吉星祥曜": 1,
+      "文昌文曲": 1,
+      "煞刑诸曜": 1,
+      "煞耗诸曜": 1,
+      "百官朝拱": 1,
+      "辅佐": 1,
+      "辅佐吉曜": 1,
+      "龙池凤阁": 1
+    },
+    "explicit_surface_marker_counts": {
+      "PRESENCE_RELATION": 39,
+      "SAME_PALACE_RELATION": 21,
+      "CO_OCCURRENCE_RELATION": 21,
+      "EXPLICIT_NEGATION": 10,
+      "CONJUNCTION": 9,
+      "ADDITIVE": 7,
+      "EXPLICIT_OR": 6,
+      "EXPLICIT_NECESSITY": 2,
+      "OPPOSITION_RELATION": 2,
+      "EXPLICIT_SIMULTANEITY": 1,
+      "ASPECT_RELATION": 1
+    },
+    "records_starting_with_inherited_前格": 28,
+    "explicit_or_record_count": 6,
+    "explicit_absence_blocker_count": 9,
+    "explicit_relation_and_group_count": 37
+  },
+  "records": [
+    {
+      "source_rule_id": "CA04-383",
+      "blocker_code": "GROUP",
+      "source_condition_text": "武曲七杀见煞刑诸曜",
+      "source_location": "事业宫printed_p142",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "surgery_or_trauma_medicine_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P142"
+      ],
+      "review_reason_zh": "原文条件“武曲七杀见煞刑诸曜”条件使用合称星曜群组、未定量词或未绑定载体的“化禄/吉化/煞忌”等集合语义；当前事实契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“surgery_or_trauma_medicine_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "煞刑诸曜",
+        "见煞"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA04-386",
+      "blocker_code": "GROUP",
+      "source_condition_text": "辰戌武曲与空劫同度",
+      "source_location": "事业宫printed_p142",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "major_career_setback_or_low_development_risk",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P142"
+      ],
+      "review_reason_zh": "原文条件“辰戌武曲与空劫同度”条件使用合称星曜群组、未定量词或未绑定载体的“化禄/吉化/煞忌”等集合语义；当前事实契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“major_career_setback_or_low_development_risk”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "空劫"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA04-390",
+      "blocker_code": "GROUP",
+      "source_condition_text": "前格煞忌重重",
+      "source_location": "事业宫printed_p142",
+      "time_layer": "NATAL",
+      "projection_domain": "risk",
+      "projection_target": "hazard_and_career_danger_strengthened",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P142"
+      ],
+      "review_reason_zh": "原文条件“前格煞忌重重”条件使用合称星曜群组、未定量词或未绑定载体的“化禄/吉化/煞忌”等集合语义；当前事实契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“hazard_and_career_danger_strengthened”。",
+      "inherited_source_rule_ids": [
+        "CA04-389"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [
+        "煞忌"
+      ],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA04-391",
+      "blocker_code": "GROUP",
+      "source_condition_text": "武曲破军与铃星陀罗阴煞华盖天刑同度",
+      "source_location": "事业宫printed_p142",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "marginal_or_nonmainstream_industry_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P142"
+      ],
+      "review_reason_zh": "原文条件“武曲破军与铃星陀罗阴煞华盖天刑同度”条件使用合称星曜群组、未定量词或未绑定载体的“化禄/吉化/煞忌”等集合语义；当前事实契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“marginal_or_nonmainstream_industry_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA04-393",
+      "blocker_code": "GROUP",
+      "source_condition_text": "武曲破军煞轻",
+      "source_location": "事业宫printed_p142",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "engineering_or_technical_entry_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P142"
+      ],
+      "review_reason_zh": "原文条件“武曲破军煞轻”条件使用合称星曜群组、未定量词或未绑定载体的“化禄/吉化/煞忌”等集合语义；当前事实契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“engineering_or_technical_entry_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "煞轻"
+      ],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA04-397",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "武曲破军见魁钺或辅弼",
+      "source_location": "事业宫printed_p142",
+      "time_layer": "NATAL",
+      "projection_domain": "support",
+      "projection_target": "opportunities_and_assistance_are_separable_support_channels",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P142"
+      ],
+      "review_reason_zh": "原文条件“武曲破军见魁钺或辅弼”条件同时依赖未定星曜群组与会照/同拱等空间关系，不能只保留其中一部分。 因此前件保持 condition=null，不以近似条件触发“opportunities_and_assistance_are_separable_support_channels”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "魁钺",
+        "辅弼"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "或",
+          "type": "EXPLICIT_OR"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-409",
+      "blocker_code": "GROUP",
+      "source_condition_text": "天同与火铃同度",
+      "source_location": "事业宫printed_p142",
+      "time_layer": "NATAL",
+      "projection_domain": "effort",
+      "projection_target": "career_anxiety_and_effort_strengthened",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P142"
+      ],
+      "review_reason_zh": "原文条件“天同与火铃同度”条件使用合称星曜群组、未定量词或未绑定载体的“化禄/吉化/煞忌”等集合语义；当前事实契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“career_anxiety_and_effort_strengthened”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "火铃"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-410",
+      "blocker_code": "GROUP",
+      "source_condition_text": "前格",
+      "source_location": "事业宫printed_p142",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "intensive_effort_can_precede_later_achievement",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P142"
+      ],
+      "review_reason_zh": "原文条件“前格”条件使用合称星曜群组、未定量词或未绑定载体的“化禄/吉化/煞忌”等集合语义；当前事实契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“intensive_effort_can_precede_later_achievement”。",
+      "inherited_source_rule_ids": [
+        "CA05-409"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-411",
+      "blocker_code": "GROUP",
+      "source_condition_text": "天同化忌又与四煞同度",
+      "source_location": "事业宫printed_p142",
+      "time_layer": "NATAL",
+      "projection_domain": "stability",
+      "projection_target": "career_setbacks_become_repeated_and_heavy",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P142"
+      ],
+      "review_reason_zh": "原文条件“天同化忌又与四煞同度”条件使用合称星曜群组、未定量词或未绑定载体的“化禄/吉化/煞忌”等集合语义；当前事实契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“career_setbacks_become_repeated_and_heavy”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "四煞"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "又",
+          "type": "ADDITIVE"
+        },
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-413",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "天同见桃花诸曜",
+      "source_location": "事业宫printed_p142",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "artistic_or_music_related_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P142"
+      ],
+      "review_reason_zh": "原文条件“天同见桃花诸曜”条件同时依赖未定星曜群组与会照/同拱等空间关系，不能只保留其中一部分。 因此前件保持 condition=null，不以近似条件触发“artistic_or_music_related_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "桃花诸曜",
+        "桃花"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-414",
+      "blocker_code": "GROUP",
+      "source_condition_text": "天同天梁星系见火铃",
+      "source_location": "事业宫printed_p142",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "artistic_path_has_halfway_abandonment_risk",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P142"
+      ],
+      "review_reason_zh": "原文条件“天同天梁星系见火铃”条件使用合称星曜群组、未定量词或未绑定载体的“化禄/吉化/煞忌”等集合语义；当前事实契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“artistic_path_has_halfway_abandonment_risk”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "火铃"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-416",
+      "blocker_code": "GROUP",
+      "source_condition_text": "天同与昌曲天才同度",
+      "source_location": "事业宫printed_p143",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "literary_or_artistic_work_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P143"
+      ],
+      "review_reason_zh": "原文条件“天同与昌曲天才同度”条件使用合称星曜群组、未定量词或未绑定载体的“化禄/吉化/煞忌”等集合语义；当前事实契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“literary_or_artistic_work_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "昌曲"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-417",
+      "blocker_code": "GROUP",
+      "source_condition_text": "天同与龙池凤阁同度",
+      "source_location": "事业宫printed_p143",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "instrumental_or_cultural_technical_work_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P143"
+      ],
+      "review_reason_zh": "原文条件“天同与龙池凤阁同度”条件使用合称星曜群组、未定量词或未绑定载体的“化禄/吉化/煞忌”等集合语义；当前事实契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“instrumental_or_cultural_technical_work_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "龙池凤阁"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-419",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "天同化忌又见左辅右弼",
+      "source_location": "事业宫printed_p143",
+      "time_layer": "NATAL",
+      "projection_domain": "support",
+      "projection_target": "subordinates_may_exist_without_effective_assistance",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P143"
+      ],
+      "review_reason_zh": "原文条件“天同化忌又见左辅右弼”条件同时依赖未定星曜群组与会照/同拱等空间关系，不能只保留其中一部分。 因此前件保持 condition=null，不以近似条件触发“subordinates_may_exist_without_effective_assistance”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "左辅右弼"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "又",
+          "type": "ADDITIVE"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-420",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "前格",
+      "source_location": "事业宫printed_p143",
+      "time_layer": "NATAL",
+      "projection_domain": "effort",
+      "projection_target": "self_reliance_and_personal_execution_remain_required",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P143"
+      ],
+      "review_reason_zh": "原文条件“前格”条件同时依赖未定星曜群组与会照/同拱等空间关系，不能只保留其中一部分。 因此前件保持 condition=null，不以近似条件触发“self_reliance_and_personal_execution_remain_required”。",
+      "inherited_source_rule_ids": [
+        "CA05-419"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-423",
+      "blocker_code": "GROUP",
+      "source_condition_text": "子午天同太阴见禄存或化禄",
+      "source_location": "事业宫printed_p143",
+      "time_layer": "NATAL",
+      "projection_domain": "support",
+      "projection_target": "inherited_or_existing_career_base_available",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P143"
+      ],
+      "review_reason_zh": "原文条件“子午天同太阴见禄存或化禄”条件使用合称星曜群组、未定量词或未绑定载体的“化禄/吉化/煞忌”等集合语义；当前事实契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“inherited_or_existing_career_base_available”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [
+        {
+          "surface": "或",
+          "type": "EXPLICIT_OR"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-424",
+      "blocker_code": "GROUP",
+      "source_condition_text": "前格",
+      "source_location": "事业宫printed_p143",
+      "time_layer": "NATAL",
+      "projection_domain": "strategy",
+      "projection_target": "preservation_preferred_over_innovation",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P143"
+      ],
+      "review_reason_zh": "原文条件“前格”条件使用合称星曜群组、未定量词或未绑定载体的“化禄/吉化/煞忌”等集合语义；当前事实契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“preservation_preferred_over_innovation”。",
+      "inherited_source_rule_ids": [
+        "CA05-423"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-429",
+      "blocker_code": "GROUP",
+      "source_condition_text": "前格同时见火铃",
+      "source_location": "事业宫printed_p143",
+      "time_layer": "NATAL",
+      "projection_domain": "severity",
+      "projection_target": "mobility_and_turbulence_strengthened",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P143"
+      ],
+      "review_reason_zh": "原文条件“前格同时见火铃”条件使用合称星曜群组、未定量词或未绑定载体的“化禄/吉化/煞忌”等集合语义；当前事实契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“mobility_and_turbulence_strengthened”。",
+      "inherited_source_rule_ids": [
+        "CA05-428"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [
+        "火铃"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "同时",
+          "type": "EXPLICIT_SIMULTANEITY"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-433",
+      "blocker_code": "GROUP",
+      "source_condition_text": "天同巨门见天厨火星",
+      "source_location": "事业宫printed_p143",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "food_or_catering_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P143"
+      ],
+      "review_reason_zh": "原文条件“天同巨门见天厨火星”条件使用合称星曜群组、未定量词或未绑定载体的“化禄/吉化/煞忌”等集合语义；当前事实契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“food_or_catering_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-437",
+      "blocker_code": "GROUP",
+      "source_condition_text": "天同巨门见煞忌",
+      "source_location": "事业宫printed_p143",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "hardship_can_precede_major_career_achievement",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P143"
+      ],
+      "review_reason_zh": "原文条件“天同巨门见煞忌”条件使用合称星曜群组、未定量词或未绑定载体的“化禄/吉化/煞忌”等集合语义；当前事实契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“hardship_can_precede_major_career_achievement”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "煞忌",
+        "见煞"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-442",
+      "blocker_code": "GROUP",
+      "source_condition_text": "天同巨门煞忌刑耗重重",
+      "source_location": "事业宫printed_p143",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "career_can_remain_unaccomplished_without_matching_effort_structure",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P143"
+      ],
+      "review_reason_zh": "原文条件“天同巨门煞忌刑耗重重”条件使用合称星曜群组、未定量词或未绑定载体的“化禄/吉化/煞忌”等集合语义；当前事实契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“career_can_remain_unaccomplished_without_matching_effort_structure”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "刑耗",
+        "煞忌"
+      ],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-447",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "天同天梁见吉化昌曲",
+      "source_location": "事业宫printed_p143-144",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "artistic_work_with_internal_operational_role",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P143",
+        "ZZ003-P144"
+      ],
+      "review_reason_zh": "原文条件“天同天梁见吉化昌曲”同时包含星曜群组与“见／会／同会／对拱”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“artistic_work_with_internal_operational_role”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "昌曲",
+        "吉化",
+        "见吉"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-456",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "巳亥天同见煞忌",
+      "source_location": "事业宫printed_p144",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "marginal_or_nonmainstream_industry_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P144"
+      ],
+      "review_reason_zh": "原文条件“巳亥天同见煞忌”同时包含星曜群组与“见／会／同会／对拱”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“marginal_or_nonmainstream_industry_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "煞忌",
+        "见煞"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-459",
+      "blocker_code": "DIGNITY_AND_GROUP",
+      "source_condition_text": "廉贞入庙不与煞忌同度",
+      "source_location": "事业宫printed_p144",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "military_or_disciplined_role_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P144"
+      ],
+      "review_reason_zh": "原文条件“廉贞入庙不与煞忌同度”同时依赖庙旺/落陷状态及煞忌等群组，当前事实契约两层均未完整建模。 因此前件保持 condition=null，不以近似条件触发“military_or_disciplined_role_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "DIGNITY_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "煞忌"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "不与",
+          "type": "EXPLICIT_NEGATION"
+        },
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-460",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "廉贞见煞",
+      "source_location": "事业宫printed_p144",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "engineering_or_craft_scene_preferred_over_military_role",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P144"
+      ],
+      "review_reason_zh": "原文条件“廉贞见煞”同时包含星曜群组与“见／会／同会／对拱”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“engineering_or_craft_scene_preferred_over_military_role”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "见煞"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-464",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "前格见煞",
+      "source_location": "事业宫printed_p144",
+      "time_layer": "NATAL",
+      "projection_domain": "severity",
+      "projection_target": "appearance_over_substance_tendency_strengthened",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P144"
+      ],
+      "review_reason_zh": "原文条件“前格见煞”同时包含星曜群组与“见／会／同会／对拱”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“appearance_over_substance_tendency_strengthened”。",
+      "inherited_source_rule_ids": [
+        "CA05-463"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [
+        "见煞"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-465",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "廉贞与空劫同会",
+      "source_location": "事业宫printed_p144",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "hollow_or_unsubstantial_career_expression_risk",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P144"
+      ],
+      "review_reason_zh": "原文条件“廉贞与空劫同会”同时包含星曜群组与“见／会／同会／对拱”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“hollow_or_unsubstantial_career_expression_risk”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "空劫"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "同会",
+          "type": "CO_OCCURRENCE_RELATION"
+        },
+        {
+          "surface": "会",
+          "type": "CO_OCCURRENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-471",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "廉贞会紫微吉曜百官朝拱",
+      "source_location": "事业宫printed_p144",
+      "time_layer": "NATAL",
+      "projection_domain": "role",
+      "projection_target": "civil_administrative_role_with_independent_responsibility",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P144"
+      ],
+      "review_reason_zh": "原文条件“廉贞会紫微吉曜百官朝拱”同时包含星曜群组与“见／会／同会／对拱”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“civil_administrative_role_with_independent_responsibility”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "百官朝拱",
+        "吉曜"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "会",
+          "type": "CO_OCCURRENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-473",
+      "blocker_code": "ABSENCE_AND_GROUP",
+      "source_condition_text": "前格煞曜不居本宫",
+      "source_location": "事业宫printed_p144",
+      "time_layer": "NATAL",
+      "projection_domain": "methodology",
+      "projection_target": "malefic_location_modifies_suitability_of_military_expression",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P144"
+      ],
+      "review_reason_zh": "原文条件“前格煞曜不居本宫”依赖“无／不见／不居本宫”等闭世界缺席判断并涉及星曜群组，当前契约不能由未列事实推导不存在。 因此前件保持 condition=null，不以近似条件触发“malefic_location_modifies_suitability_of_military_expression”。",
+      "inherited_source_rule_ids": [
+        "CA05-471",
+        "CA05-472"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [
+        "煞曜"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "不居",
+          "type": "EXPLICIT_NEGATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-483",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "廉贞天相见煞",
+      "source_location": "事业宫printed_p145",
+      "time_layer": "NATAL",
+      "projection_domain": "stability",
+      "projection_target": "career_rises_and_falls_repeatedly",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P145"
+      ],
+      "review_reason_zh": "原文条件“廉贞天相见煞”同时包含星曜群组与“见／会／同会／对拱”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“career_rises_and_falls_repeatedly”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "见煞"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-484",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "廉贞天相会武曲化禄禄存或天府化科",
+      "source_location": "事业宫printed_p145",
+      "time_layer": "NATAL",
+      "projection_domain": "power",
+      "projection_target": "financial_control_or_budget_authority_suited",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P145"
+      ],
+      "review_reason_zh": "原文条件“廉贞天相会武曲化禄禄存或天府化科”同时包含星曜群组与“见／会／同会／对拱”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“financial_control_or_budget_authority_suited”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [
+        {
+          "surface": "或",
+          "type": "EXPLICIT_OR"
+        },
+        {
+          "surface": "会",
+          "type": "CO_OCCURRENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-492",
+      "blocker_code": "GROUP",
+      "source_condition_text": "廉贞七杀本宫有煞",
+      "source_location": "事业宫printed_p145",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "industrial_work_scene_preferred",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P145"
+      ],
+      "review_reason_zh": "原文条件“廉贞七杀本宫有煞”条件使用煞曜、禄、吉曜等群组或未绑定载体的集合语义，成员/量词/载体不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“industrial_work_scene_preferred”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA05-493",
+      "blocker_code": "GROUP",
+      "source_condition_text": "廉贞七杀廉贞化忌更见煞同度",
+      "source_location": "事业宫printed_p145",
+      "time_layer": "NATAL",
+      "projection_domain": "event",
+      "projection_target": "fatal_or_major_legal_hazard_in_military_police_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P145"
+      ],
+      "review_reason_zh": "原文条件“廉贞七杀廉贞化忌更见煞同度”条件使用煞曜、禄、吉曜等群组或未绑定载体的集合语义，成员/量词/载体不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“fatal_or_major_legal_hazard_in_military_police_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "见煞"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "更",
+          "type": "ADDITIVE"
+        },
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-501",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "寅申廉贞见刑煞曜同会",
+      "source_location": "事业宫printed_p145",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "marginal_or_nonmainstream_industry_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P145"
+      ],
+      "review_reason_zh": "原文条件“寅申廉贞见刑煞曜同会”同时包含星曜群组与“见／会／同会／对拱”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“marginal_or_nonmainstream_industry_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "煞曜"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "同会",
+          "type": "CO_OCCURRENCE_RELATION"
+        },
+        {
+          "surface": "会",
+          "type": "CO_OCCURRENCE_RELATION"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-502",
+      "blocker_code": "GROUP",
+      "source_condition_text": "卯酉廉贞破军必须见禄",
+      "source_location": "事业宫printed_p145",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "career_establishment_requires_lu_support",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P145"
+      ],
+      "review_reason_zh": "原文条件“卯酉廉贞破军必须见禄”条件使用煞曜、禄、吉曜等群组或未绑定载体的集合语义，成员/量词/载体不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“career_establishment_requires_lu_support”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [
+        {
+          "surface": "必须",
+          "type": "EXPLICIT_NECESSITY"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-506",
+      "blocker_code": "GROUP",
+      "source_condition_text": "卯酉廉贞破军见煞轻",
+      "source_location": "事业宫printed_p145",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "marginal_or_pleasure_oriented_industry_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P145"
+      ],
+      "review_reason_zh": "原文条件“卯酉廉贞破军见煞轻”条件使用煞曜、禄、吉曜等群组或未绑定载体的集合语义，成员/量词/载体不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“marginal_or_pleasure_oriented_industry_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "煞轻",
+        "见煞"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-508",
+      "blocker_code": "GROUP",
+      "source_condition_text": "廉贞破军见吉",
+      "source_location": "事业宫printed_p145",
+      "time_layer": "NATAL",
+      "projection_domain": "network",
+      "projection_target": "career_socializing_and_entertainment_can_expand_business",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P145"
+      ],
+      "review_reason_zh": "原文条件“廉贞破军见吉”条件使用煞曜、禄、吉曜等群组或未绑定载体的集合语义，成员/量词/载体不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“career_socializing_and_entertainment_can_expand_business”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "见吉"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-509",
+      "blocker_code": "GROUP",
+      "source_condition_text": "前格",
+      "source_location": "事业宫printed_p145",
+      "time_layer": "NATAL",
+      "projection_domain": "role",
+      "projection_target": "career_operations_often_span_multiple_business_lines",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P145"
+      ],
+      "review_reason_zh": "原文条件“前格”条件使用煞曜、禄、吉曜等群组或未绑定载体的集合语义，成员/量词/载体不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“career_operations_often_span_multiple_business_lines”。",
+      "inherited_source_rule_ids": [
+        "CA06-508"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-516",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "廉贞天府见昌曲辅弼魁钺",
+      "source_location": "事业宫printed_p145-146",
+      "time_layer": "NATAL",
+      "projection_domain": "role",
+      "projection_target": "civil_and_martial_or_industry_and_commerce_functions_can_mix",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P145",
+        "ZZ003-P146"
+      ],
+      "review_reason_zh": "原文条件“廉贞天府见昌曲辅弼魁钺”同时包含星曜群组与“见／会／同会／对拱”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“civil_and_martial_or_industry_and_commerce_functions_can_mix”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "魁钺",
+        "辅弼",
+        "昌曲"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-519",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "前格更见煞",
+      "source_location": "事业宫printed_p146",
+      "time_layer": "NATAL",
+      "projection_domain": "relation",
+      "projection_target": "career_litigation_risk_strengthened",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_reason_zh": "原文条件“前格更见煞”同时包含星曜群组与“见／会／同会／对拱”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“career_litigation_risk_strengthened”。",
+      "inherited_source_rule_ids": [
+        "CA06-518"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [
+        "见煞"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "更",
+          "type": "ADDITIVE"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-520",
+      "blocker_code": "GROUP",
+      "source_condition_text": "巳亥廉贞贪狼与空劫同度",
+      "source_location": "事业宫printed_p146",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "artistic_or_performance_industry_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_reason_zh": "原文条件“巳亥廉贞贪狼与空劫同度”条件使用煞曜、禄、吉曜等群组或未绑定载体的集合语义，成员/量词/载体不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“artistic_or_performance_industry_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "空劫"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-526",
+      "blocker_code": "GROUP",
+      "source_condition_text": "廉贞贪狼与煞曜同度",
+      "source_location": "事业宫printed_p146",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "industrial_design_or_craft_art_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_reason_zh": "原文条件“廉贞贪狼与煞曜同度”条件使用煞曜、禄、吉曜等群组或未绑定载体的集合语义，成员/量词/载体不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“industrial_design_or_craft_art_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "煞曜"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-532",
+      "blocker_code": "GROUP",
+      "source_condition_text": "廉贞贪狼必须得禄",
+      "source_location": "事业宫printed_p146",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "career_flourishing_requires_lu_support",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_reason_zh": "原文条件“廉贞贪狼必须得禄”条件使用煞曜、禄、吉曜等群组或未绑定载体的集合语义，成员/量词/载体不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“career_flourishing_requires_lu_support”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "得禄"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "必须",
+          "type": "EXPLICIT_NECESSITY"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-533",
+      "blocker_code": "ABSENCE_AND_GROUP",
+      "source_condition_text": "廉贞贪狼无禄见煞",
+      "source_location": "事业宫printed_p146",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "craft_or_technical_path_is_preferred",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_reason_zh": "原文条件“廉贞贪狼无禄见煞”依赖“无／不见／不居本宫”等闭世界缺席判断并涉及星曜群组，当前契约不能由未列事实推导不存在。 因此前件保持 condition=null，不以近似条件触发“craft_or_technical_path_is_preferred”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "NEGATED_GROUP_RELATION",
+      "surface_group_tokens": [
+        "见煞"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "无",
+          "type": "EXPLICIT_NEGATION"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-538",
+      "blocker_code": "DIGNITY_AND_GROUP",
+      "source_condition_text": "前格见煞",
+      "source_location": "事业宫printed_p146",
+      "time_layer": "NATAL",
+      "projection_domain": "severity",
+      "projection_target": "overcaution_and_development_constraint_strengthened",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_reason_zh": "原文条件“前格见煞”同时依赖庙旺/落陷状态及煞忌等群组，当前事实契约两层均未完整建模。 因此前件保持 condition=null，不以近似条件触发“overcaution_and_development_constraint_strengthened”。",
+      "inherited_source_rule_ids": [
+        "CA06-537"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [
+        "见煞"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-539",
+      "blocker_code": "GROUP",
+      "source_condition_text": "主星在午宫守事业且天府得禄",
+      "source_location": "事业宫printed_p146",
+      "time_layer": "NATAL",
+      "projection_domain": "scale",
+      "projection_target": "career_scale_and_support_strengthened",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_reason_zh": "原文条件“主星在午宫守事业且天府得禄”条件使用煞曜、禄、吉曜等群组或未绑定载体的集合语义，成员/量词/载体不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“career_scale_and_support_strengthened”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "得禄"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "且",
+          "type": "CONJUNCTION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-542",
+      "blocker_code": "ABSENCE_AND_GROUP",
+      "source_condition_text": "天府无禄无煞忌刑且有吉曜",
+      "source_location": "事业宫printed_p146",
+      "time_layer": "NATAL",
+      "projection_domain": "stability",
+      "projection_target": "conservative_preservation_remains_possible",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_reason_zh": "原文条件“天府无禄无煞忌刑且有吉曜”依赖“无／不见／不居本宫”等闭世界缺席判断并涉及星曜群组，当前契约不能由未列事实推导不存在。 因此前件保持 condition=null，不以近似条件触发“conservative_preservation_remains_possible”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "NEGATED_GROUP_RELATION",
+      "surface_group_tokens": [
+        "吉曜",
+        "煞忌"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "无",
+          "type": "EXPLICIT_NEGATION"
+        },
+        {
+          "surface": "且",
+          "type": "CONJUNCTION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-543",
+      "blocker_code": "ABSENCE_AND_GROUP",
+      "source_condition_text": "天府无吉曜而有煞曜凑会",
+      "source_location": "事业宫printed_p146",
+      "time_layer": "NATAL",
+      "projection_domain": "relation",
+      "projection_target": "career_can_fail_through_other_people_or_entanglement",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_reason_zh": "原文条件“天府无吉曜而有煞曜凑会”依赖“无／不见／不居本宫”等闭世界缺席判断并涉及星曜群组，当前契约不能由未列事实推导不存在。 因此前件保持 condition=null，不以近似条件触发“career_can_fail_through_other_people_or_entanglement”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "NEGATED_GROUP_RELATION",
+      "surface_group_tokens": [
+        "吉曜",
+        "煞曜"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "无",
+          "type": "EXPLICIT_NEGATION"
+        },
+        {
+          "surface": "会",
+          "type": "CO_OCCURRENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-549",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "天府见火铃照射",
+      "source_location": "事业宫printed_p146",
+      "time_layer": "NATAL",
+      "projection_domain": "stability",
+      "projection_target": "career_volatility_strengthened",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_reason_zh": "原文条件“天府见火铃照射”同时包含星曜群组与“见／会／照／同会”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“career_volatility_strengthened”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "火铃"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        },
+        {
+          "surface": "照射",
+          "type": "ASPECT_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-550",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "前格",
+      "source_location": "事业宫printed_p146",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "industrial_or_engineering_scene_preferred",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_reason_zh": "原文条件“前格”同时包含星曜群组与“见／会／照／同会”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“industrial_or_engineering_scene_preferred”。",
+      "inherited_source_rule_ids": [
+        "CA06-549"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-551",
+      "blocker_code": "GROUP",
+      "source_condition_text": "天府与空劫同度",
+      "source_location": "事业宫printed_p146",
+      "time_layer": "NATAL",
+      "projection_domain": "decision",
+      "projection_target": "reform_and_preservation_impulses_can_conflict",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_reason_zh": "原文条件“天府与空劫同度”条件使用空劫、昌曲、桃花、羊陀、吉曜、煞曜等群组/合称或数量语义，成员与量词不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“reform_and_preservation_impulses_can_conflict”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "空劫"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-552",
+      "blocker_code": "GROUP",
+      "source_condition_text": "前格",
+      "source_location": "事业宫printed_p146",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "advance_retreat_indecision_can_hinder_career_development",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_reason_zh": "原文条件“前格”条件使用空劫、昌曲、桃花、羊陀、吉曜、煞曜等群组/合称或数量语义，成员与量词不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“advance_retreat_indecision_can_hinder_career_development”。",
+      "inherited_source_rule_ids": [
+        "CA06-551"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-553",
+      "blocker_code": "GROUP",
+      "source_condition_text": "前格",
+      "source_location": "事业宫printed_p146",
+      "time_layer": "NATAL",
+      "projection_domain": "strategy",
+      "projection_target": "real_economy_or_concrete_industry_preferred_over_speculation",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_reason_zh": "原文条件“前格”条件使用空劫、昌曲、桃花、羊陀、吉曜、煞曜等群组/合称或数量语义，成员与量词不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“real_economy_or_concrete_industry_preferred_over_speculation”。",
+      "inherited_source_rule_ids": [
+        "CA06-551"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-554",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "天府会羊陀",
+      "source_location": "事业宫printed_p146",
+      "time_layer": "NATAL",
+      "projection_domain": "stability",
+      "projection_target": "career_setbacks_or_obstacles_strengthened",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_reason_zh": "原文条件“天府会羊陀”同时包含星曜群组与“见／会／照／同会”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“career_setbacks_or_obstacles_strengthened”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "羊陀"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "会",
+          "type": "CO_OCCURRENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-555",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "前格",
+      "source_location": "事业宫printed_p146",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "industrial_or_engineering_scene_preferred",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_reason_zh": "原文条件“前格”同时包含星曜群组与“见／会／照／同会”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“industrial_or_engineering_scene_preferred”。",
+      "inherited_source_rule_ids": [
+        "CA06-554"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-559",
+      "blocker_code": "DIGNITY_AND_GROUP",
+      "source_condition_text": "前格见煞",
+      "source_location": "事业宫printed_p147",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "engineering_or_industrial_scene_overrides_credit_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P147"
+      ],
+      "review_reason_zh": "原文条件“前格见煞”同时依赖庙陷状态与煞曜等群组，当前事实契约两层均未完整建模。 因此前件保持 condition=null，不以近似条件触发“engineering_or_industrial_scene_overrides_credit_scene”。",
+      "inherited_source_rule_ids": [
+        "CA06-558"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [
+        "见煞"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-573",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "前格见辅弼",
+      "source_location": "事业宫printed_p147",
+      "time_layer": "NATAL",
+      "projection_domain": "support",
+      "projection_target": "support_can_moderate_authority_isolation",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P147"
+      ],
+      "review_reason_zh": "原文条件“前格见辅弼”同时包含星曜群组与“见／会／照／同会”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“support_can_moderate_authority_isolation”。",
+      "inherited_source_rule_ids": [
+        "CA06-572"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [
+        "辅弼"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-574",
+      "blocker_code": "ABSENCE_AND_GROUP",
+      "source_condition_text": "前格无辅弼",
+      "source_location": "事业宫printed_p147",
+      "time_layer": "NATAL",
+      "projection_domain": "relation",
+      "projection_target": "career_isolation_risk_strengthened",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P147"
+      ],
+      "review_reason_zh": "原文条件“前格无辅弼”依赖无辅弼、无煞、无昌曲等闭世界缺席判断并涉及群组，当前契约不能由未列事实推导不存在。 因此前件保持 condition=null，不以近似条件触发“career_isolation_risk_strengthened”。",
+      "inherited_source_rule_ids": [
+        "CA06-572"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [
+        "辅弼"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "无",
+          "type": "EXPLICIT_NEGATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-576",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "前格见煞",
+      "source_location": "事业宫printed_p147",
+      "time_layer": "NATAL",
+      "projection_domain": "severity",
+      "projection_target": "showiness_and_instability_strengthened",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P147"
+      ],
+      "review_reason_zh": "原文条件“前格见煞”同时包含星曜群组与“见／会／照／同会”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“showiness_and_instability_strengthened”。",
+      "inherited_source_rule_ids": [
+        "CA06-575"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [
+        "见煞"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-582",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "太阴见文昌文曲同会",
+      "source_location": "事业宫printed_p147",
+      "time_layer": "NATAL",
+      "projection_domain": "status",
+      "projection_target": "social_status_support_strengthened",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P147"
+      ],
+      "review_reason_zh": "原文条件“太阴见文昌文曲同会”同时包含星曜群组与“见／会／照／同会”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“social_status_support_strengthened”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "文昌文曲"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "同会",
+          "type": "CO_OCCURRENCE_RELATION"
+        },
+        {
+          "surface": "会",
+          "type": "CO_OCCURRENCE_RELATION"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-583",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "太阴会科文诸曜",
+      "source_location": "事业宫printed_p147",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "arts_media_or_culture_related_public_work_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P147"
+      ],
+      "review_reason_zh": "原文条件“太阴会科文诸曜”同时包含星曜群组与“见／会／照／同会”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“arts_media_or_culture_related_public_work_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "科文诸曜"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "会",
+          "type": "CO_OCCURRENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-584",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "太阴科文诸曜又见桃花诸曜",
+      "source_location": "事业宫printed_p147",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "performing_art_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P147"
+      ],
+      "review_reason_zh": "原文条件“太阴科文诸曜又见桃花诸曜”同时包含星曜群组与“见／会／照／同会”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“performing_art_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "科文诸曜",
+        "桃花诸曜",
+        "桃花"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "又",
+          "type": "ADDITIVE"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-585",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "太阴与魁钺或辅弼同会",
+      "source_location": "事业宫printed_p147",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "public_service_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P147"
+      ],
+      "review_reason_zh": "原文条件“太阴与魁钺或辅弼同会”同时包含星曜群组与“见／会／照／同会”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“public_service_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "魁钺",
+        "辅弼"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "或",
+          "type": "EXPLICIT_OR"
+        },
+        {
+          "surface": "同会",
+          "type": "CO_OCCURRENCE_RELATION"
+        },
+        {
+          "surface": "会",
+          "type": "CO_OCCURRENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-593",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "太阴与空劫同会且有科文诸曜",
+      "source_location": "事业宫printed_p148",
+      "time_layer": "NATAL",
+      "projection_domain": "method",
+      "projection_target": "career_can_break_industry_conventions_or_support_invention",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_reason_zh": "原文条件“太阴与空劫同会且有科文诸曜”同时包含星曜群组与“见／会／照／同会”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“career_can_break_industry_conventions_or_support_invention”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "科文诸曜",
+        "空劫"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "且",
+          "type": "CONJUNCTION"
+        },
+        {
+          "surface": "同会",
+          "type": "CO_OCCURRENCE_RELATION"
+        },
+        {
+          "surface": "会",
+          "type": "CO_OCCURRENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA06-594",
+      "blocker_code": "ABSENCE_AND_GROUP",
+      "source_condition_text": "太阴与空劫同会且无科文诸曜",
+      "source_location": "事业宫printed_p148",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "ideals_can_exceed_reality_and_career_can_become_hollow",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_reason_zh": "原文条件“太阴与空劫同会且无科文诸曜”依赖无辅弼、无煞、无昌曲等闭世界缺席判断并涉及群组，当前契约不能由未列事实推导不存在。 因此前件保持 condition=null，不以近似条件触发“ideals_can_exceed_reality_and_career_can_become_hollow”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "NEGATED_GROUP_RELATION",
+      "surface_group_tokens": [
+        "科文诸曜",
+        "空劫"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "无",
+          "type": "EXPLICIT_NEGATION"
+        },
+        {
+          "surface": "且",
+          "type": "CONJUNCTION"
+        },
+        {
+          "surface": "同会",
+          "type": "CO_OCCURRENCE_RELATION"
+        },
+        {
+          "surface": "会",
+          "type": "CO_OCCURRENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-602",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "太阴与天机同度或相对且见吉化吉曜",
+      "source_location": "事业宫printed_p148",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "engineering_or_craft_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_reason_zh": "原文条件“太阴与天机同度或相对且见吉化吉曜”同时包含星曜群组与“见／会／照／同会”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“engineering_or_craft_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "吉化吉曜",
+        "吉化",
+        "吉曜",
+        "见吉"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "或",
+          "type": "EXPLICIT_OR"
+        },
+        {
+          "surface": "且",
+          "type": "CONJUNCTION"
+        },
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        },
+        {
+          "surface": "相对",
+          "type": "OPPOSITION_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-603",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "前格",
+      "source_location": "事业宫printed_p148",
+      "time_layer": "NATAL",
+      "projection_domain": "strategy",
+      "projection_target": "speculation_not_preferred",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_reason_zh": "原文条件“前格”同时包含星曜群组与“见／会／照／同会”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“speculation_not_preferred”。",
+      "inherited_source_rule_ids": [
+        "CA07-602"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-604",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "前格",
+      "source_location": "事业宫printed_p148",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "mobile_engineering_transport_or_aerospace_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_reason_zh": "原文条件“前格”同时包含星曜群组与“见／会／照／同会”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“mobile_engineering_transport_or_aerospace_scene”。",
+      "inherited_source_rule_ids": [
+        "CA07-602"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-609",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "天同化忌且有煞",
+      "source_location": "事业宫printed_p148",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "career_setbacks_strengthened",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_reason_zh": "原文条件“天同化忌且有煞”同时包含星曜群组与“见／会／照／同会”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“career_setbacks_strengthened”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [
+        {
+          "surface": "且",
+          "type": "CONJUNCTION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-610",
+      "blocker_code": "ABSENCE_AND_GROUP",
+      "source_condition_text": "天同化忌而无煞",
+      "source_location": "事业宫printed_p148",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "low_level_start_can_precede_later_achievement",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_reason_zh": "原文条件“天同化忌而无煞”依赖无辅弼、无煞、无昌曲等闭世界缺席判断并涉及群组，当前契约不能由未列事实推导不存在。 因此前件保持 condition=null，不以近似条件触发“low_level_start_can_precede_later_achievement”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "NEGATED_GROUP_RELATION",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [
+        {
+          "surface": "无",
+          "type": "EXPLICIT_NEGATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-620",
+      "blocker_code": "GROUP",
+      "source_condition_text": "亥宫太阴见吉化吉曜",
+      "source_location": "事业宫printed_p148",
+      "time_layer": "NATAL",
+      "projection_domain": "resource",
+      "projection_target": "material_success_potential_strengthened",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_reason_zh": "原文条件“亥宫太阴见吉化吉曜”条件使用空劫、昌曲、桃花、羊陀、吉曜、煞曜等群组/合称或数量语义，成员与量词不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“material_success_potential_strengthened”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "吉化吉曜",
+        "吉化",
+        "吉曜",
+        "见吉"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-621",
+      "blocker_code": "GROUP",
+      "source_condition_text": "巳亥太阴见煞",
+      "source_location": "事业宫printed_p148",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "engineering_electronics_or_computer_engineering_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_reason_zh": "原文条件“巳亥太阴见煞”条件使用空劫、昌曲、桃花、羊陀、吉曜、煞曜等群组/合称或数量语义，成员与量词不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“engineering_electronics_or_computer_engineering_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "见煞"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-625",
+      "blocker_code": "GROUP",
+      "source_condition_text": "贪狼与昌曲同度",
+      "source_location": "事业宫printed_p148",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "public_facing_or_entertainment_media_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_reason_zh": "原文条件“贪狼与昌曲同度”条件使用空劫、昌曲、桃花、羊陀、吉曜、煞曜等群组/合称或数量语义，成员与量词不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“public_facing_or_entertainment_media_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "昌曲"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-626",
+      "blocker_code": "GROUP",
+      "source_condition_text": "贪狼与桃花同度",
+      "source_location": "事业宫printed_p148",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "high_opposite_sex_contact_work_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_reason_zh": "原文条件“贪狼与桃花同度”条件使用空劫、昌曲、桃花、羊陀、吉曜、煞曜等群组/合称或数量语义，成员与量词不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“high_opposite_sex_contact_work_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "桃花"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-628",
+      "blocker_code": "GROUP",
+      "source_condition_text": "贪狼与空劫同度且有昌曲",
+      "source_location": "事业宫printed_p148",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "artistic_scene_preferred",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_reason_zh": "原文条件“贪狼与空劫同度且有昌曲”条件使用空劫、昌曲、桃花、羊陀、吉曜、煞曜等群组/合称或数量语义，成员与量词不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“artistic_scene_preferred”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "空劫",
+        "昌曲"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "且",
+          "type": "CONJUNCTION"
+        },
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-629",
+      "blocker_code": "ABSENCE_AND_GROUP",
+      "source_condition_text": "贪狼与空劫同度且无昌曲",
+      "source_location": "事业宫printed_p148",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "concrete_industry_or_real_economy_scene_preferred",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_reason_zh": "原文条件“贪狼与空劫同度且无昌曲”依赖无辅弼、无煞、无昌曲等闭世界缺席判断并涉及群组，当前契约不能由未列事实推导不存在。 因此前件保持 condition=null，不以近似条件触发“concrete_industry_or_real_economy_scene_preferred”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "NEGATED_GROUP_RELATION",
+      "surface_group_tokens": [
+        "空劫",
+        "昌曲"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "无",
+          "type": "EXPLICIT_NEGATION"
+        },
+        {
+          "surface": "且",
+          "type": "CONJUNCTION"
+        },
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-632",
+      "blocker_code": "GROUP",
+      "source_condition_text": "贪狼化权见煞不多",
+      "source_location": "事业宫printed_p148",
+      "time_layer": "NATAL",
+      "projection_domain": "competition",
+      "projection_target": "competitive_sports_expression_strengthened",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_reason_zh": "原文条件“贪狼化权见煞不多”条件使用空劫、昌曲、桃花、羊陀、吉曜、煞曜等群组/合称或数量语义，成员与量词不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“competitive_sports_expression_strengthened”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "见煞"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-633",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "贪狼与吉化吉曜及多辅曜会合",
+      "source_location": "事业宫printed_p149",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "political_or_public_affairs_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_reason_zh": "原文条件“贪狼与吉化吉曜及多辅曜会合”同时包含星曜群组与“见／会／照／同会”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“political_or_public_affairs_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "吉化吉曜",
+        "吉化",
+        "吉曜"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "会合",
+          "type": "CO_OCCURRENCE_RELATION"
+        },
+        {
+          "surface": "会",
+          "type": "CO_OCCURRENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-634",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "前格",
+      "source_location": "事业宫printed_p149",
+      "time_layer": "NATAL",
+      "projection_domain": "role",
+      "projection_target": "compromise_mediation_or_faction_buffer_role",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_reason_zh": "原文条件“前格”同时包含星曜群组与“见／会／照／同会”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“compromise_mediation_or_faction_buffer_role”。",
+      "inherited_source_rule_ids": [
+        "CA07-633"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-636",
+      "blocker_code": "GROUP",
+      "source_condition_text": "贪狼与羊陀同度",
+      "source_location": "事业宫printed_p149",
+      "time_layer": "NATAL",
+      "projection_domain": "strategy",
+      "projection_target": "commerce_is_preferred_over_public_office",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_reason_zh": "原文条件“贪狼与羊陀同度”条件使用空劫、昌曲、桃花、羊陀、吉曜、煞曜等群组/合称或数量语义，成员与量词不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“commerce_is_preferred_over_public_office”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "羊陀"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-637",
+      "blocker_code": "GROUP",
+      "source_condition_text": "前格",
+      "source_location": "事业宫printed_p149",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "consumer_decoration_entertainment_or_consumer_goods_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_reason_zh": "原文条件“前格”条件使用空劫、昌曲、桃花、羊陀、吉曜、煞曜等群组/合称或数量语义，成员与量词不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“consumer_decoration_entertainment_or_consumer_goods_scene”。",
+      "inherited_source_rule_ids": [
+        "CA07-636"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-638",
+      "blocker_code": "GROUP",
+      "source_condition_text": "贪狼与左辅右弼同度",
+      "source_location": "事业宫printed_p149",
+      "time_layer": "NATAL",
+      "projection_domain": "support",
+      "projection_target": "subordinate_base_is_large",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_reason_zh": "原文条件“贪狼与左辅右弼同度”条件使用空劫、昌曲、桃花、羊陀、吉曜、煞曜等群组/合称或数量语义，成员与量词不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“subordinate_base_is_large”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "左辅右弼"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-639",
+      "blocker_code": "GROUP",
+      "source_condition_text": "前格",
+      "source_location": "事业宫printed_p149",
+      "time_layer": "NATAL",
+      "projection_domain": "scale",
+      "projection_target": "career_operation_tends_to_have_visible_scale_or_presence",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_reason_zh": "原文条件“前格”条件使用空劫、昌曲、桃花、羊陀、吉曜、煞曜等群组/合称或数量语义，成员与量词不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“career_operation_tends_to_have_visible_scale_or_presence”。",
+      "inherited_source_rule_ids": [
+        "CA07-638"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-643",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "贪狼化忌又见煞曜",
+      "source_location": "事业宫printed_p149",
+      "time_layer": "NATAL",
+      "projection_domain": "severity",
+      "projection_target": "competition_pressure_strengthened",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_reason_zh": "原文条件“贪狼化忌又见煞曜”同时包含星曜群组与“见／会／照／同会”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“competition_pressure_strengthened”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "煞曜",
+        "见煞"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "又",
+          "type": "ADDITIVE"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-644",
+      "blocker_code": "GROUP",
+      "source_condition_text": "贪狼化忌与空劫同度",
+      "source_location": "事业宫printed_p149",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "competition_can_lead_to_setback",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_reason_zh": "原文条件“贪狼化忌与空劫同度”条件使用空劫、昌曲、桃花、羊陀、吉曜、煞曜等群组/合称或数量语义，成员与量词不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“competition_can_lead_to_setback”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "空劫"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-645",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "贪狼化忌有吉曜同会",
+      "source_location": "事业宫printed_p149",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "failure_of_initial_ideal_can_open_alternative_career_path",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_reason_zh": "原文条件“贪狼化忌有吉曜同会”同时包含星曜群组与“见／会／照／同会”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“failure_of_initial_ideal_can_open_alternative_career_path”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "吉曜"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "同会",
+          "type": "CO_OCCURRENCE_RELATION"
+        },
+        {
+          "surface": "会",
+          "type": "CO_OCCURRENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-648",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "子午贪狼见桃花昌曲",
+      "source_location": "事业宫printed_p149",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "opposite_sex_oriented_service_industry_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_reason_zh": "原文条件“子午贪狼见桃花昌曲”同时包含桃花、昌曲、吉曜、煞忌、魁钺等群组与“见／会／同会”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“opposite_sex_oriented_service_industry_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "昌曲",
+        "桃花"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-649",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "子午贪狼见禄权科及辅佐吉曜",
+      "source_location": "事业宫printed_p149",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "political_or_public_affairs_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_reason_zh": "原文条件“子午贪狼见禄权科及辅佐吉曜”同时包含桃花、昌曲、吉曜、煞忌、魁钺等群组与“见／会／同会”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“political_or_public_affairs_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [
+        "辅佐吉曜",
+        "吉曜",
+        "辅佐"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-652",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "寅申贪狼与廉贞相对且见陀罗或煞",
+      "source_location": "事业宫printed_p149",
+      "time_layer": "NATAL",
+      "projection_domain": "event",
+      "projection_target": "political_corruption_and_consequent_harm_candidate",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_reason_zh": "原文条件“寅申贪狼与廉贞相对且见陀罗或煞”同时包含桃花、昌曲、吉曜、煞忌、魁钺等群组与“见／会／同会”等未固定空间范围，当前关系契约不能无歧义展开。 因此前件保持 condition=null，不以近似条件触发“political_corruption_and_consequent_harm_candidate”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [
+        {
+          "surface": "或",
+          "type": "EXPLICIT_OR"
+        },
+        {
+          "surface": "且",
+          "type": "CONJUNCTION"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        },
+        {
+          "surface": "相对",
+          "type": "OPPOSITION_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-658",
+      "blocker_code": "ABSENCE_AND_GROUP",
+      "source_condition_text": "辰戌贪狼无吉化但有吉曜",
+      "source_location": "事业宫printed_p149",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "public_fiscal_or_taxation_scene",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_reason_zh": "原文条件“辰戌贪狼无吉化但有吉曜”依赖“无吉化/无吉曜”等闭世界缺席判断并涉及集合语义，当前契约不能由未列事实推导不存在。 因此前件保持 condition=null，不以近似条件触发“public_fiscal_or_taxation_scene”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "NEGATED_GROUP_RELATION",
+      "surface_group_tokens": [
+        "吉化",
+        "吉曜"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "无",
+          "type": "EXPLICIT_NEGATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-659",
+      "blocker_code": "GROUP",
+      "source_condition_text": "辰戌贪狼有煞同度",
+      "source_location": "事业宫printed_p149",
+      "time_layer": "NATAL",
+      "projection_domain": "strategy",
+      "projection_target": "commerce_is_preferred",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_reason_zh": "原文条件“辰戌贪狼有煞同度”条件使用火铃、四煞、空劫、吉曜、煞曜、得禄、昌曲等群组/合称或数量语义，成员、量词或载体不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“commerce_is_preferred”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-660",
+      "blocker_code": "GROUP",
+      "source_condition_text": "前格",
+      "source_location": "事业宫printed_p149",
+      "time_layer": "NATAL",
+      "projection_domain": "role",
+      "projection_target": "multiple_business_directions_are_common",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_reason_zh": "原文条件“前格”条件使用火铃、四煞、空劫、吉曜、煞曜、得禄、昌曲等群组/合称或数量语义，成员、量词或载体不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“multiple_business_directions_are_common”。",
+      "inherited_source_rule_ids": [
+        "CA07-659"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-668",
+      "blocker_code": "GROUP",
+      "source_condition_text": "巨门化忌见四煞空劫刑耗",
+      "source_location": "事业宫printed_p149-150",
+      "time_layer": "NATAL",
+      "projection_domain": "event",
+      "projection_target": "career_litigation_or_major_dispute_candidate",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P149",
+        "ZZ003-P150"
+      ],
+      "review_reason_zh": "原文条件“巨门化忌见四煞空劫刑耗”条件使用火铃、四煞、空劫、吉曜、煞曜、得禄、昌曲等群组/合称或数量语义，成员、量词或载体不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“career_litigation_or_major_dispute_candidate”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "四煞",
+        "空劫",
+        "刑耗"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-678",
+      "blocker_code": "GROUP",
+      "source_condition_text": "巨门与火铃同度",
+      "source_location": "事业宫printed_p150",
+      "time_layer": "NATAL",
+      "projection_domain": "stability",
+      "projection_target": "career_can_show_sudden_gain_and_sudden_loss",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_reason_zh": "原文条件“巨门与火铃同度”条件使用火铃、四煞、空劫、吉曜、煞曜、得禄、昌曲等群组/合称或数量语义，成员、量词或载体不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“career_can_show_sudden_gain_and_sudden_loss”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "火铃"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-679",
+      "blocker_code": "GROUP",
+      "source_condition_text": "前格",
+      "source_location": "事业宫printed_p150",
+      "time_layer": "NATAL",
+      "projection_domain": "strategy",
+      "projection_target": "restraint_and_timing_are_important_for_preservation",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_reason_zh": "原文条件“前格”条件使用火铃、四煞、空劫、吉曜、煞曜、得禄、昌曲等群组/合称或数量语义，成员、量词或载体不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“restraint_and_timing_are_important_for_preservation”。",
+      "inherited_source_rule_ids": [
+        "CA07-678"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-681",
+      "blocker_code": "GROUP",
+      "source_condition_text": "子午巨门得禄",
+      "source_location": "事业宫printed_p150",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "a_period_of_development_can_precede_rapid_career_expansion",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_reason_zh": "原文条件“子午巨门得禄”条件使用火铃、四煞、空劫、吉曜、煞曜、得禄、昌曲等群组/合称或数量语义，成员、量词或载体不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“a_period_of_development_can_precede_rapid_career_expansion”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "得禄"
+      ],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-682",
+      "blocker_code": "GROUP",
+      "source_condition_text": "前格",
+      "source_location": "事业宫printed_p150",
+      "time_layer": "NATAL",
+      "projection_domain": "strategy",
+      "projection_target": "avoid_showing_off",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_reason_zh": "原文条件“前格”条件使用火铃、四煞、空劫、吉曜、煞曜、得禄、昌曲等群组/合称或数量语义，成员、量词或载体不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“avoid_showing_off”。",
+      "inherited_source_rule_ids": [
+        "CA07-681"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-686",
+      "blocker_code": "GROUP",
+      "source_condition_text": "前格有吉星祥曜",
+      "source_location": "事业宫printed_p150",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "secondary_business_lines_can_also_develop",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_reason_zh": "原文条件“前格有吉星祥曜”条件使用火铃、四煞、空劫、吉曜、煞曜、得禄、昌曲等群组/合称或数量语义，成员、量词或载体不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“secondary_business_lines_can_also_develop”。",
+      "inherited_source_rule_ids": [
+        "CA07-684"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [
+        "吉星祥曜"
+      ],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-687",
+      "blocker_code": "GROUP",
+      "source_condition_text": "前格有煞曜",
+      "source_location": "事业宫printed_p150",
+      "time_layer": "NATAL",
+      "projection_domain": "stability",
+      "projection_target": "career_changes_become_more_frequent",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_reason_zh": "原文条件“前格有煞曜”条件使用火铃、四煞、空劫、吉曜、煞曜、得禄、昌曲等群组/合称或数量语义，成员、量词或载体不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“career_changes_become_more_frequent”。",
+      "inherited_source_rule_ids": [
+        "CA07-684"
+      ],
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "surface_group_tokens": [
+        "煞曜"
+      ],
+      "explicit_surface_markers": [],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    },
+    {
+      "source_rule_id": "CA07-691",
+      "blocker_code": "GROUP",
+      "source_condition_text": "辰戌巨门化忌又见煞耗诸曜",
+      "source_location": "事业宫printed_p150",
+      "time_layer": "NATAL",
+      "projection_domain": "event",
+      "projection_target": "major_litigation_candidate",
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_reason_zh": "原文条件“辰戌巨门化忌又见煞耗诸曜”条件使用火铃、四煞、空劫、吉曜、煞曜、得禄、昌曲等群组/合称或数量语义，成员、量词或载体不足以无歧义展开。 因此前件保持 condition=null，不以近似条件触发“major_litigation_candidate”。",
+      "inherited_source_rule_ids": [],
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "surface_group_tokens": [
+        "煞耗诸曜",
+        "见煞"
+      ],
+      "explicit_surface_markers": [
+        {
+          "surface": "又",
+          "type": "ADDITIVE"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "quantifier_resolution": "UNRESOLVED_NO_DEFAULT",
+      "canonical_group_membership_committed": false,
+      "default_quantifier": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "normalization_epistemic": "SOURCE_PRESERVING_LEXICAL_CLASSIFICATION"
+    }
+  ],
+  "findings": {
+    "cumulative_group_quantifier_reviewed": 200,
+    "group_quantifier_remaining": 51,
+    "source_taxonomy_candidate_six_malefics": [
+      "擎羊",
+      "陀罗",
+      "火星",
+      "铃星",
+      "地空",
+      "地劫"
+    ],
+    "source_taxonomy_candidate_four_malefics": [
+      "擎羊",
+      "陀罗",
+      "火星",
+      "铃星"
+    ],
+    "term_specific_pair_evidence": {
+      "三台八座": "EXPLICIT_BOTH_AS_PAIR",
+      "龙池凤阁": "EXPLICIT_BOTH_AS_PAIR"
+    },
+    "kewen_membership_candidates": [
+      "文昌",
+      "文曲",
+      "天魁",
+      "天钺",
+      "龙池",
+      "凤阁"
+    ],
+    "generic_pair_shorthand_still_has_no_global_default": true,
+    "explicit_or_is_clause_local_not_group_internal_default": true,
+    "absence_scope_requires_membership_plus_negation_scope": true,
+    "inherited_前格_requires_dependency_preservation": true,
+    "rules_unlocked": 0,
+    "next_human_gate": "HG-KB-GROUP-QUANTIFIER-01"
+  },
+  "guardrails": {
+    "role": "AUDIT_ONLY_SOURCE_LEXICON_EVIDENCE",
+    "conditions_compiled": 0,
+    "executable_rules_added": 0,
+    "canonical_group_defaults_added": 0,
+    "canonical_group_memberships_added": 0,
+    "product_runtime_modified": false,
+    "production_registry_modified": false,
+    "cross_school_evidence_imported": false,
+    "numeric_weights_or_probabilities_created": false,
+    "source_rows_modified": false
+  }
+}
