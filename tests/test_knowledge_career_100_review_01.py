@@ -145,6 +145,8 @@ def test_unrepresented_behaviors_groups_timing_and_methods_cannot_become_empty_c
     for rid in ('CA01-048','CA01-049','CA01-069','CA01-090','CA02-129'):
         assert RECORDS[rid]['condition'] is None
         assert RECORDS[rid]['review_disposition']=='METHODOLOGY_OR_CONTEXT_ONLY'
-    registry=json.loads((ROOT/'product/PL3N_CAREER_DOMAIN_PROVIDER_v0.1.json').read_text())
-    assert not set(RECORDS).intersection(registry['rules'])
+    assert DOC['status']=='HUNDRED_RULE_REVIEW_COMPLETE_NOT_PRODUCTION'
+    assert DOC['progress_counts']['new_production_executable_rules']==0
+    assert DOC['guardrails']['production_registry_modified'] is False
+    assert all(m['executable_registry_entry'] is False for m in RECORDS.values())
     assert DOC['guardrails']['null_condition_must_not_be_coerced_to_empty'] is True
