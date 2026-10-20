@@ -4,12 +4,12 @@ authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  status: "ACTIVE"
+  status: "ACTIVE_NO_ACTIVE_WORK"
   program: "KB_WP07A"
-  active_issue: 357
+  active_issue: null
   active_pr: null
   canonical_main_checkpoint: "CAREER_CA09_FINAL"
-  resume_entry: "Complete eight source-preserving static mappings for CA01-047/050/083/087/088/089/093/095; retain 丑未 紫破 scope, named transformations and auxiliary conjunction. All remain non-executable."
+  resume_entry: "Issue #357 completed by PR #360: eight new non-executable static condition mappings, zero blocked in this unit, zero production additions. Career source-reviewed count remains888; unique structured mapping/audit IDs44->52 including blocked records. Report rechecked/mapped/blocked/production counts separately each turn. No next Knowledge unit selected."
   resume_issue: 357
   last_state_sync_issue: 357
 
@@ -73,6 +73,11 @@ completed_work_units:
     pr: 355
     status: "MERGED_BOUNDED_EVIDENCE_TARGET_QUANTIFIER_UNRESOLVED"
 
+  - work_unit: "KB-WP07A-CAREER-ZIWEI-ZIPO-STATIC-8"
+    issue: 357
+    pr: 360
+    status: "MERGED_8_NON_EXECUTABLE_CONDITION_MAPPINGS"
+
 archived_noncanonical_snapshots:
   wp05_all_twelve_palaces:
     pr: 272
@@ -94,7 +99,7 @@ resume_queue_reference:
   legacy_integration_issue: 278
   completed_career_closure_pr: 294
   completed_temporal_eligibility_pr: 301
-  note: "Legacy Issue #278 is historical and closed. PR #272 remains a non-canonical comparison snapshot and must be audited segment by segment. Recent merged Career Knowledge mappings are #305, #308, #315, #322, #328, #331 and #335; Issue #334 is completed; Issue #347 is completed by #349; Issue #352 completed by #355; active Knowledge work is Issue #357."
+  note: "Legacy Issue #278 is historical and closed. PR #272 remains a non-canonical comparison snapshot and must be audited segment by segment. Recent merged Career Knowledge mappings are #305, #308, #315, #322, #328, #331 and #335; Issue #334 is completed; Issue #347 is completed by #349; Issue #352 completed by #355; Issue #357 completed by #360; no next Knowledge unit selected."
 
 human_gate:
   pending_on_main: null
