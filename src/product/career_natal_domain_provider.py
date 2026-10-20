@@ -54,6 +54,7 @@ def _validate_mapping_handoff(
         "SOURCE_GROUNDED_STAR_PRESENCE_MAPPING_COMPLETE_NOT_EXECUTABLE",
         "SOURCE_GROUNDED_CROSS_PALACE_MAPPING_COMPLETE_NOT_EXECUTABLE",
         "HUNDRED_RULE_REVIEW_COMPLETE_NOT_PRODUCTION",
+        "REVIEW_COMPLETE_NON_PRODUCTION",
     }:
         raise ValueError("Career provider mapping_status is not an approved reviewed mapping status")
     if str(mapping.get("schema_version", "")).strip() != str(
