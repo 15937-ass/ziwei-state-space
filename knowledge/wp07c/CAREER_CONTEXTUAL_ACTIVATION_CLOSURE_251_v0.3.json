@@ -35,19 +35,20 @@
       "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED": 6,
       "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED": 129,
       "ANTECEDENT_DEPENDENCY": 49,
+      "SOURCE_LIST_QUANTIFIER_UNSPECIFIED": 4,
       "CARDINALITY_THRESHOLD_UNSPECIFIED": 2,
       "SEVERITY_THRESHOLD_UNSPECIFIED": 6,
-      "TRANSFORMATION_CARRIER_UNSPECIFIED": 1
+      "TRANSFORMATION_CARRIER_UNSPECIFIED": 2
     },
     "readiness_class_counts": {
       "MULTI_CLASS_BLOCKED": 46,
-      "LOCAL_STRUCTURE_READY": 22,
-      "SOURCE_UNDERDETERMINED": 155,
+      "LOCAL_STRUCTURE_READY": 17,
+      "SOURCE_UNDERDETERMINED": 160,
       "STRUCTURED_PATTERN_COMPILER_GATED": 1,
       "DEPENDENCY_COMPILER_GATED": 27
     },
-    "rows_with_no_current_activation_blocker": 22,
-    "rows_with_source_underdetermination": 199,
+    "rows_with_no_current_activation_blocker": 17,
+    "rows_with_source_underdetermination": 204,
     "unresolved_antecedent_reference_rows": 0,
     "explicit_antecedent_dependency_rows": 64,
     "closed_world_evidence_gated_rows": 23,
@@ -75,7 +76,7 @@
     "product_compiler_ready_claim": false,
     "source_underdetermined_is_valid_completion_state": true,
     "note": "The remaining blockers are no longer unresolved 前格 references. They are source-underdetermined group/category/severity semantics, closed-world evidence needs, or normalization/compiler work.",
-    "semantic_normalization_pass": "36/36 generic source-literal blockers replaced by normalized structure or precise source-underdetermination blockers."
+    "semantic_normalization_pass": "36/36 generic source-literal blockers replaced by normalized structure or precise source-underdetermination blockers; prior unresolved source quantifier findings are preserved."
   },
   "records": [
     {
@@ -948,8 +949,10 @@
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
-      "readiness_class": "LOCAL_STRUCTURE_READY",
-      "blockers": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
       "source_resolution_changed": false,
       "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
     },
@@ -1386,8 +1389,10 @@
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
-      "readiness_class": "LOCAL_STRUCTURE_READY",
-      "blockers": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
       "source_resolution_changed": false,
       "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
     },
@@ -1528,8 +1533,10 @@
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
-      "readiness_class": "LOCAL_STRUCTURE_READY",
-      "blockers": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "TRANSFORMATION_CARRIER_UNSPECIFIED"
+      ],
       "source_resolution_changed": false,
       "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
     },
@@ -1567,8 +1574,10 @@
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
-      "readiness_class": "LOCAL_STRUCTURE_READY",
-      "blockers": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
       "source_resolution_changed": false,
       "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
     },
@@ -1721,8 +1730,10 @@
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
-      "readiness_class": "LOCAL_STRUCTURE_READY",
-      "blockers": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
       "source_resolution_changed": false,
       "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
     },
