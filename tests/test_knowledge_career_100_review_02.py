@@ -223,8 +223,10 @@ def test_groups_relations_actions_and_timing_never_become_empty_match_all_condit
         assert mapping["condition"] is None
         assert mapping["blocker_code"] == blocker
         assert mapping["review_disposition"] == "BLOCKED_OUTCOME_MAPPING"
-    registry = json.loads((ROOT / "product/PL3N_CAREER_DOMAIN_PROVIDER_v0.1.json").read_text())
-    assert not set(RECORDS).intersection(registry["rules"])
+    assert DOC["status"] == "HUNDRED_RULE_REVIEW_COMPLETE_NOT_PRODUCTION"
+    assert DOC["progress_counts"]["new_production_executable_rules"] == 0
+    assert DOC["guardrails"]["production_registry_modified"] is False
+    assert all(mapping["executable_registry_entry"] is False for mapping in RECORDS.values())
     assert DOC["guardrails"]["null_condition_must_not_be_coerced_to_empty"] is True
     assert DOC["scope"]["pi_report_requires_substantive_content_synopsis"] is True
     assert len(DOC["content_synopsis_zh"]) == 8
