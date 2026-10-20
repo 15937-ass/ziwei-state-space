@@ -8,12 +8,12 @@ execution:
   phase: "PL3_METHOD_RESPONSE_VERTICAL_SLICE"
   active_issue: null
   active_pr: null
-  next_work_unit: "WANG_EXPERT_CASE_STRUCTURING_AND_LOCO"
-  resume_entry: "Product #431 / PR #435 are complete on main. The expert-method contract substrate is CONTRACT_READY: CaseBundle, ExpertReasoningGraph, InferenceTrace, MethodPattern and SchoolCompatibility now have fail-closed validation and a synthetic fixture. No real Wang Tingzhi case has been ingested and no LOCO replay or method fidelity has been validated yet. The next Product work unit is WANG_EXPERT_CASE_STRUCTURING_AND_LOCO."
+  next_work_unit: "METHOD_POLICY_V0_1_CBR_HEURISTIC_SYMBOLIC"
+  resume_entry: "Product #441 / PR #444 are complete on main. Wang Tingzhi 《安星法与推断实例》 now has a source-backed 24-case inventory covering 12 palace topics × 2, 24 CaseBundles, 6 SOURCE_EXPLICIT/SEMANTIC_ONLY method patterns, and a deterministic LOCO-24 manifest. The case graphs are deliberately minimal: 72 SOURCE_DEMONSTRATED nodes and 0 RECONSTRUCTED nodes. Blind identity/outcome/expert-answer/external-biography exclusions are enforced. Machine replay remains NOT_RUN; Method Policy π remains NOT_IMPLEMENTED; method fidelity and predictive validity remain NOT_VALIDATED. The next Product work unit is METHOD_POLICY_V0_1_CBR_HEURISTIC_SYMBOLIC."
   v04_entry_checkpoint_issue: 416
   v04_entry_checkpoint_pr: 418
-  last_completed_product_issue: 431
-  last_completed_product_pr: 435
+  last_completed_product_issue: 441
+  last_completed_product_pr: 444
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
   resume_issue: 290
@@ -75,12 +75,12 @@ capability_snapshot:
 
   expert_method:
     specification: "V0_4_ARCHITECTURE_APPROVED"
-    implementation: "CONTRACT_READY"
+    implementation: "CORPUS_STRUCTURED"
     canonical_content: "NOT_APPLICABLE"
-    internal_validation: "CONTRACT"
+    internal_validation: "CONTRACT_AND_CORPUS"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    note: "Product #431 / PR #435 define CaseBundle, ExpertReasoningGraph, InferenceTrace, MethodPattern and SchoolCompatibility with fail-closed validation. Real Wang cases, LOCO replay, method policy and method fidelity remain not started."
+    note: "Product #431 / PR #435 define the expert-method contracts. Product #441 / PR #444 add the source-backed Wang 24-case corpus, 6 SOURCE_EXPLICIT/SEMANTIC_ONLY method patterns and LOCO-24 manifest. Case graphs remain minimal (72 SOURCE_DEMONSTRATED, 0 RECONSTRUCTED). Machine replay is NOT_RUN; Method Policy π is NOT_IMPLEMENTED; method fidelity and predictive validity are NOT_VALIDATED."
 
   response_semantics_adapter:
     specification: "V0_4_ARCHITECTURE_APPROVED"
@@ -145,7 +145,6 @@ capability_snapshot:
 
 critical_path:
   now:
-    - "WANG_EXPERT_CASE_STRUCTURING_AND_LOCO"
     - "METHOD_POLICY_V0_1_CBR_HEURISTIC_SYMBOLIC"
     - "RESPONSE_SEMANTICS_FAIL_CLOSED_ADAPTER"
     - "SOURCE_BACKED_RESPONSE_CORPUS_DEPENDENCY"
