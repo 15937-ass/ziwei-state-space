@@ -93,3 +93,19 @@ def test_closure_preserves_unknown_instead_of_forcing_execution():
     assert cl["summary"]["source_resolution_changes"] == 0
     assert cl["summary"]["conditions_compiled"] == 0
     assert cl["summary"]["execution_unlocked"] == 0
+
+def test_emphasis_does_not_become_activation_blocker():
+    b3=load(B3)
+    rows=[r for r in b3["records"] if r["emphasis_modifiers"]]
+    assert rows
+    for row in rows:
+        assert "SOURCE_EMPHASIS_NON_NUMERIC_ONLY" not in row["unresolved_blockers"]
+
+def test_closure_separates_unresolved_from_explicit_antecedents():
+    cl=load(CLOSURE)
+    assert cl["summary"]["unresolved_antecedent_reference_rows"] == 16
+    assert cl["summary"]["explicit_antecedent_dependency_rows"] == 49
+    follow=cl["targeted_followups"]["antecedent_source_recheck"]
+    assert follow["count"] == 16
+    assert len(follow["source_rule_ids"]) == 16
+    assert follow["policy"] == "RECHECK_SOURCE_CONTEXT_BEFORE_PI;NEVER_GUESS_BY_ADJACENCY"
