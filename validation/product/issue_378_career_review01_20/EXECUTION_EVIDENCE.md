@@ -49,3 +49,8 @@ These gates establish deterministic source/condition/projection integrity and en
 regression consistency only. They do not establish empirical predictive accuracy,
 event certainty, temporal activation, numeric probability, causal validity or real-world
 career outcome guarantees.
+
+
+## Final-base synchronization
+
+While the final Product run was completing, main advanced with Knowledge #381 to `a9354f87f16230a183452ea82184d059b9350cd6`. The prior 1065-test run was green against the immediately preceding main, but is not treated as the final merge gate. This branch is retriggered once more so acceptance evidence is generated against the new main that includes the fourth hundred-rule Knowledge review. No new Knowledge mappings from #381 are activated by Issue #378.
