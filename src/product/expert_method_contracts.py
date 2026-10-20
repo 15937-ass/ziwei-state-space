@@ -397,6 +397,15 @@ class CaseBundle:
                 f"unsupported case allowed_use: {self.allowed_use}"
             )
 
+        leaked = set(self.available_information_refs) & (
+            set(self.expert_conclusion_refs) | set(self.outcome_refs)
+        )
+        if leaked:
+            raise ValueError(
+                "available_information_refs cannot contain expert conclusions/outcomes: "
+                + ", ".join(sorted(leaked))
+            )
+
     def to_dict(self) -> dict[str, Any]:
         return _serialize(self)
 
@@ -1020,13 +1029,20 @@ def compile_contract_fixture(payload: Mapping[str, Any]) -> dict[str, Any]:
         },
         path="fixture",
     )
+    case_bundle = compile_case_bundle(
+        _object(value.get("case_bundle"), "fixture.case_bundle")
+    )
+    inference_trace = compile_inference_trace(
+        _object(value.get("inference_trace"), "fixture.inference_trace")
+    )
+    if inference_trace.case_id != case_bundle.case_id:
+        raise ValueError(
+            "fixture inference_trace.case_id must match case_bundle.case_id"
+        )
+
     return {
-        "case_bundle": compile_case_bundle(
-            _object(value.get("case_bundle"), "fixture.case_bundle")
-        ),
-        "inference_trace": compile_inference_trace(
-            _object(value.get("inference_trace"), "fixture.inference_trace")
-        ),
+        "case_bundle": case_bundle,
+        "inference_trace": inference_trace,
         "method_pattern": compile_method_pattern(
             _object(value.get("method_pattern"), "fixture.method_pattern")
         ),
