@@ -36,6 +36,13 @@ class ClaimTrace:
     def validate(self) -> None:
         if not self.claim_id.strip():
             raise ValueError("ClaimTrace.claim_id is required")
+        if self.origin in {
+            ClaimOrigin.RUNTIME_CANONICAL,
+            ClaimOrigin.RUNTIME_TEMPORAL,
+        } and not self.runtime_run_id.strip():
+            raise ValueError(
+                "runtime_run_id is required for RUNTIME_CANONICAL/RUNTIME_TEMPORAL"
+            )
 
 
 @dataclass(frozen=True)
@@ -158,16 +165,25 @@ def build_dual_output(
         if item.llm_added_semantics
     ]
 
-    sentence_audit = []
     used_claim_ids: set[str] = set()
     for item in sentence_rows:
         used_claim_ids.update(item.claim_ids)
+
+    missing_traces = sorted(used_claim_ids - set(trace_by_id))
+    if missing_traces:
+        raise ValueError(
+            "explicit ClaimTrace is required for every rendered claim; missing: "
+            + ", ".join(missing_traces)
+        )
+
+    sentence_audit = []
+    for item in sentence_rows:
         evidence = []
         origins = []
         for claim_id in item.claim_ids:
             claim = selected[claim_id]
-            trace = trace_by_id.get(claim_id)
-            origin = trace.origin if trace else _default_origin(claim)
+            trace = trace_by_id[claim_id]
+            origin = trace.origin
             origins.append(origin.value)
             evidence.extend(
                 {
@@ -194,8 +210,8 @@ def build_dual_output(
     origins_summary: dict[str, int] = {}
     for claim_id in sorted(used_claim_ids):
         claim = selected[claim_id]
-        trace = trace_by_id.get(claim_id)
-        origin = trace.origin if trace else _default_origin(claim)
+        trace = trace_by_id[claim_id]
+        origin = trace.origin
         origins_summary[origin.value] = origins_summary.get(origin.value, 0) + 1
 
     public_ready = not unsupported
