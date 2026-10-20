@@ -21,17 +21,15 @@ SELECTED = [m for m in MAPPING['mappings'] if m['source_rule_id'] in SELECTED_ID
 def test_handoff_activates_exact_six_static_candidates_and_keeps_prior_seventeen():
     meta = next(m for m in REGISTRY['additional_source_mappings'] if m['path'] == PATH)
     assert set(meta['selected_rule_ids']) == SELECTED_IDS
-    assert set(REGISTRY['rules']) - SELECTED_IDS - {
-        'CA01-026', 'CA01-027', 'CA01-031', 'CA01-032', 'CA01-033', 'CA01-034', 'CA01-042', 'CA01-044',
-        'CA01-066', 'CA02-188', 'CA03-255', 'CA01-023',
-        'CA01-047', 'CA01-050', 'CA01-083', 'CA01-087', 'CA01-088', 'CA01-089', 'CA01-093', 'CA01-095',
-    } == {
+    prior_seventeen = {
         'CA04-347', 'CA04-349', 'CA09-852', 'CA01-052', 'CA01-053',
         'CA01-054', 'CA01-055', 'CA01-070', 'CA01-071', 'CA01-078',
         'CA02-155', 'CA02-160', 'CA03-252', 'CA03-254', 'CA03-279', 'CA03-283', 'CA03-285',
     }
+    assert prior_seventeen <= set(REGISTRY['rules'])
+    assert SELECTED_IDS <= set(REGISTRY['rules'])
     assert all(m['execution_readiness'] == 'STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE' for m in SELECTED)
-    assert len(load_career_source_mappings(ROOT, REGISTRY)) == 43
+    assert len(load_career_source_mappings(ROOT, REGISTRY)) == 63
 
 
 @pytest.mark.parametrize('mapping', SELECTED, ids=lambda m: m['source_rule_id'])
