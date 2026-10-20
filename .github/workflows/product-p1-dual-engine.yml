@@ -1,8 +1,17 @@
 name: product-p1-dual-engine
 
-# G7: routine execution moved to ChatGPT Work + Codex.
-# GitHub Actions is retained only as an explicit manual emergency fallback.
+# G8: public-repository standard runners are enabled for Product regression validation.
+# No push trigger is allowed; workflow_dispatch remains a manual fallback.
 on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "product/**"
+      - "src/product/**"
+      - "tools/**"
+      - "validation/product_chart_regression/**"
+      - ".github/workflows/product-p1-*.yml"
   workflow_dispatch:
 
 concurrency:
