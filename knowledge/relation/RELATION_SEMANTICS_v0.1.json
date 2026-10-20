@@ -91,44 +91,74 @@
       "surface": "同度",
       "operator": "EXACT_GEOMETRY",
       "canonical_geometry": "SAME_PALACE",
-      "evidence_status": "DIRECT_SOURCE_DEFINITION"
+      "evidence_status": "DIRECT_SOURCE_DEFINITION",
+      "palace_offset_constraint": [
+        0
+      ]
     },
     {
       "surface": "拱照",
       "operator": "EXACT_GEOMETRY",
       "canonical_geometry": "OPPOSITION",
-      "evidence_status": "DIRECT_SOURCE_DEFINITION"
+      "evidence_status": "DIRECT_SOURCE_DEFINITION",
+      "palace_offset_constraint": [
+        6
+      ]
     },
     {
       "surface": "朝拱",
       "operator": "EXACT_GEOMETRY",
       "canonical_geometry": "OPPOSITION",
       "evidence_status": "DIRECT_SOURCE_ALIAS",
-      "guard": "NAMED_PATTERN_PHRASES_REMAIN_STRUCTURED"
+      "guard": "NAMED_PATTERN_PHRASES_REMAIN_STRUCTURED",
+      "palace_offset_constraint": [
+        6
+      ]
     },
     {
       "surface": "相对",
       "operator": "EXACT_GEOMETRY",
       "canonical_geometry": "OPPOSITION",
-      "evidence_status": "SOURCE_STRUCTURAL_EQUIVALENCE"
+      "evidence_status": "SOURCE_STRUCTURAL_EQUIVALENCE",
+      "palace_offset_constraint": [
+        6
+      ]
     },
     {
       "surface": "会照",
       "operator": "EXACT_GEOMETRY",
       "canonical_geometry": "TRINE_ASPECT",
-      "evidence_status": "DIRECT_SOURCE_DEFINITION"
+      "evidence_status": "DIRECT_SOURCE_DEFINITION",
+      "palace_offset_constraint": [
+        4,
+        8
+      ]
     },
     {
       "surface": "相夹",
       "operator": "EXACT_GEOMETRY",
       "canonical_geometry": "FLANKING",
-      "evidence_status": "DIRECT_SOURCE_DEFINITION"
+      "evidence_status": "DIRECT_SOURCE_DEFINITION",
+      "palace_offset_constraint": {
+        "required_delta_set": [
+          1,
+          11
+        ],
+        "multi_object": true
+      }
     },
     {
       "surface": "夹",
       "operator": "EXACT_GEOMETRY",
       "canonical_geometry": "FLANKING",
-      "evidence_status": "LEXICAL_SHORT_FORM_REQUIRES_VALID_TWO_SIDED_BINDING"
+      "evidence_status": "LEXICAL_SHORT_FORM_REQUIRES_VALID_TWO_SIDED_BINDING",
+      "palace_offset_constraint": {
+        "required_delta_set": [
+          1,
+          11
+        ],
+        "multi_object": true
+      }
     },
     {
       "surface": "见",
@@ -139,7 +169,13 @@
         "TRINE_ASPECT",
         "OPPOSITION"
       ],
-      "evidence_status": "DIRECT_SOURCE_DEFINITION"
+      "evidence_status": "DIRECT_SOURCE_DEFINITION",
+      "palace_offset_constraint": [
+        0,
+        4,
+        6,
+        8
+      ]
     },
     {
       "surface": "三方",
@@ -149,32 +185,41 @@
         "SAME_PALACE",
         "TRINE_ASPECT"
       ],
-      "evidence_status": "DIRECT_SOURCE_DEFINITION"
+      "evidence_status": "DIRECT_SOURCE_DEFINITION",
+      "palace_offset_constraint": [
+        0,
+        4,
+        8
+      ]
     },
     {
       "surface": "会",
       "operator": "MEETING_GENERIC",
       "canonical_geometry": "UNSPECIFIED",
-      "evidence_status": "COMPRESSED_LEXICAL_FAMILY"
+      "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+      "palace_offset_constraint": null
     },
     {
       "surface": "同会",
       "operator": "MEETING_GENERIC",
       "canonical_geometry": "UNSPECIFIED",
       "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
-      "note": "同字可在 clause composition 层保留 jointness，但不创建新 geometry"
+      "note": "同字可在 clause composition 层保留 jointness，但不创建新 geometry",
+      "palace_offset_constraint": null
     },
     {
       "surface": "会合",
       "operator": "MEETING_GENERIC",
       "canonical_geometry": "UNSPECIFIED",
-      "evidence_status": "COMPRESSED_LEXICAL_FAMILY"
+      "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+      "palace_offset_constraint": null
     },
     {
       "surface": "照射",
       "operator": "ASPECT_GENERIC",
       "canonical_geometry": "UNSPECIFIED",
-      "evidence_status": "SOURCE_RECHECK_REQUIRED"
+      "evidence_status": "SOURCE_RECHECK_REQUIRED",
+      "palace_offset_constraint": null
     }
   ],
   "normalization_rules": {
@@ -193,7 +238,10 @@
     "allowed_geometry_field": "allowed_geometry",
     "binding_field": "relation_binding",
     "binding_default": "UNRESOLVED",
-    "named_pattern_field": "structured_pattern_ref"
+    "named_pattern_field": "structured_pattern_ref",
+    "palace_coordinate_field": "palace_index_mod_12",
+    "relative_offset_field": "relation_delta_mod_12",
+    "geometry_compilation_rule": "Prefer Z12 offset constraints; canonical geometry labels remain human-readable aliases."
   },
   "guardrails": {
     "source_truth_rewritten": false,
@@ -216,5 +264,54 @@
       "numeric_weight": null,
       "global_transfer": "NOT_ALLOWED_OUTSIDE_PAIR_STAR_CONFIGURATION_WITHOUT_REVIEW"
     }
-  ]
+  ],
+  "coordinate_model": {
+    "id": "PALACE_RELATION_Z12_OFFSET",
+    "description": "将十二宫视为循环群 Z_12。对 subject 宫位 p_s 与 object 宫位 p_o，定义相对位移 delta=(p_o-p_s) mod 12；中文关系词映射到 delta 约束，而不是各自成为独立 runtime primitive。",
+    "palace_index_domain": "Z_12",
+    "delta_formula": "delta=(p_object-p_subject) mod 12",
+    "constraints": {
+      "SAME_PALACE": {
+        "allowed_delta": [
+          0
+        ]
+      },
+      "OPPOSITION": {
+        "allowed_delta": [
+          6
+        ]
+      },
+      "TRINE_ASPECT": {
+        "allowed_delta": [
+          4,
+          8
+        ]
+      },
+      "FOUR_DIRECTIONS_VISIBILITY": {
+        "allowed_delta": [
+          0,
+          4,
+          6,
+          8
+        ]
+      },
+      "THREE_DIRECTIONS_SCOPE": {
+        "allowed_delta": [
+          0,
+          4,
+          8
+        ]
+      },
+      "FLANKING": {
+        "arity": "SUBJECT_PLUS_TWO_OBJECTS",
+        "required_delta_set": [
+          1,
+          11
+        ],
+        "note": "必须同时占据目标宫两侧邻宫，不能拆成单个 pairwise relation 后丢失双侧约束。"
+      }
+    },
+    "invariant": "ROTATION_INVARIANT_RELATIVE_GEOMETRY",
+    "unresolved_surface_policy": "MEETING_GENERIC / ASPECT_GENERIC 在 source 未指定时不猜 delta。"
+  }
 }
