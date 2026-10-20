@@ -57,3 +57,34 @@ def test_no_numericization_or_product_change():
     assert links["guardrails"]["product_runtime_modified"] is False
     assert impact["guardrails"]["severity_numericized"] is False
     assert impact["guardrails"]["ordinal_as_probability"] is False
+
+def test_final_link_disposition_counts_and_zero_ambiguity():
+    links=load(LINKS)
+    assert links["disposition_counts"] == {
+        "DIRECT_ATOMIC_RULE": 111,
+        "METHODOLOGY_OR_CONTEXT_ONLY": 1,
+        "MULTI_RULE_SHARED_SOURCE_SENTENCE": 15,
+        "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP": 3,
+    }
+    assert not any(r["disposition"]=="AMBIGUOUS_RULE_LINK" for r in links["records"])
+    assert links["coverage"]["linked_atomic_rule_ids"] == 127
+
+def test_three_explicit_atomic_gaps_are_preserved():
+    links=load(LINKS)
+    gaps={r["constraint_id"] for r in links["records"] if r["disposition"]=="SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP"}
+    assert gaps == {"OC-018","OC-038","OC-102"}
+
+def test_oc070_source_context_link_uses_tianfu_luoxian_severity_row():
+    links={r["constraint_id"]:r for r in load(LINKS)["records"]}
+    row=links["OC-070"]
+    assert row["linked_rule_ids"] == ["CA06-538"]
+    assert row["link_epistemic"] == "SOURCE_CONTEXT_CRITIC_OVERRIDE"
+
+def test_final_impact_counts_and_zero_resolution():
+    impact=load(IMPACT)
+    assert impact["summary"]["impact_counts"] == {
+        "NO_BLOCKER_REDUCTION": 94,
+        "QUALITATIVE_REFINEMENT_ONLY": 36,
+    }
+    assert impact["summary"]["unique_activation_rules_touched"] == 33
+    assert impact["summary"]["blockers_resolved_by_ordinal_evidence"] == 0
