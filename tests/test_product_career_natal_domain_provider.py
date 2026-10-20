@@ -165,7 +165,9 @@ def test_transformation_rules_fail_closed_while_general_wuqu_rules_still_apply(p
     ]
     assert "CA04-347" not in {rule.rule_id for rule in missing.active_rules}
     assert "CA04-349" not in {rule.rule_id for rule in missing.active_rules}
-    assert wrong_star.active_rules == ()
+    wrong_star_ids = {rule.rule_id for rule in wrong_star.active_rules}
+    assert {"CA04-347", "CA04-349", "CA04-352"}.isdisjoint(wrong_star_ids)
+    assert {"CA04-398", "CA04-399", "CA05-406", "CA05-421"} <= wrong_star_ids
     assert wrong_palace.active_rules == ()
 
 
