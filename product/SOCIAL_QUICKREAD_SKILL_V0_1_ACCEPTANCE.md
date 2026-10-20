@@ -107,10 +107,14 @@ PYTHONPATH="$PWD" pytest -q tests/test_product_social_quickread.py
 
 覆盖：缺证据拒绝、流派拒绝、temporal gate、current relationship 事实门槛、relationship/custom scope 过滤、年份 domain/period 过滤、verbalizer payload 隔离、session capsule 全量 claim/evidence 保留、同一 session 切换窗口、audit trace、style linter。
 
-## 9. 下一步
+## 9. Manual Pilot
 
-下一版本不应先扩写话术，而应做：
+当前功能定位为 PI 自用的小测试辅助，不以完整产品化为目标。新增中文简易窗口解析：例如“只看感情”“事业简批”“看父母关系”，直接映射到已有 scope；未识别时默认 full。
 
-1. 从现有 knowledge/runtime 中建立 topic -> executable claim adapter；
-2. 选 10–20 张已有案例盘做 blind-style rendering 对比；
-3. 由 PI 只评“像不像真人、有没有说过头”，把失败反馈分成 theory error / claim selection error / verbalization error。
+现阶段不做独立 UI、数据库或复杂会话服务，优先在同一 GPT 对话里用真实命盘试用。
+
+## 10. 下一步
+
+1. 直接用真实命盘开始 manual pilot；
+2. 每次记录“命理判断是否合理 / 有没有说过头 / 像不像真人”；
+3. 只有反复出现的缺口才回到 topic adapter 或知识侧补规则，不提前把这个小功能做重。
