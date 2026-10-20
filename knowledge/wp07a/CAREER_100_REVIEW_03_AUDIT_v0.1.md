@@ -4,9 +4,9 @@ Issue #369。按百条节奏复核事业宫下一批规则，范围 CA03-236 至
 
 ## 结果
 
-- 完整条件映射：32
-- 方法／语境：7
-- 阻塞：61
+- 完整条件映射：30
+- 方法／语境：8
+- 阻塞：62
 - 生产新增：0
 - 去重结构化记录：252 → 352
 - canonical 源规则：888 → 888
@@ -15,7 +15,7 @@ Issue #369。按百条节奏复核事业宫下一批规则，范围 CA03-236 至
 
 方法／语境：CA03-267、CA03-270、CA03-271、CA04-302、CA04-320、CA04-333、CA04-335
 
-阻塞分类：GROUP=33；RELATION=6；CONTEXT_STATE=6；DIGNITY_AND_GROUP=1；ABSENCE=1；COMPOSITE=8；RELATION_AND_GROUP=2；DIGNITY=4
+阻塞分类：GROUP=33；RELATION=7；RELATION=6；CONTEXT_STATE=6；DIGNITY_AND_GROUP=1；ABSENCE=1；COMPOSITE=8；RELATION_AND_GROUP=2；DIGNITY=4
 
 ## 内容概说
 
@@ -28,3 +28,6 @@ Issue #369。按百条节奏复核事业宫下一批规则，范围 CA03-236 至
 SRC-ZZ-003《中州派紫微斗数深造讲义（下册）》印刷 137–140 页，对应 PDF 69–70 页。原页已复核；OCR 错字不静默修订。附件 SHA-256：6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c。
 
 本批不修改 Product、runtime、registry、canonical CSV，不新增 atom、概率、经验权重或因果结论。所有映射均保持 non-production。
+
+- CA03-278：critic pass 发现“同会事业宫”不能等价为左辅右弼均在 P09 同宫，降为 RELATION 阻塞。
+- CA03-286：教学、演唱是太阳化忌“口舌”性质的例示，不作为具体职业直接激活，降为方法／语境记录。
