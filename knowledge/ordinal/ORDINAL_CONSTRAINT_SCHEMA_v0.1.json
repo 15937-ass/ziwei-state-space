@@ -1,0 +1,62 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-ORDINAL-CONSTRAINT-SCHEMA-v0.1",
+  "lane": "KNOWLEDGE_ONLY",
+  "issue": 461,
+  "status": "SOURCE_EXPLICIT_NONNUMERIC_ORDINAL_SCHEMA",
+  "purpose": "Preserve source-explicit relative order, preference, avoidance, local emphasis, and qualitative degree without inventing numeric gains or probabilities.",
+  "relation_types": [
+    "STRONGER_THAN",
+    "WEAKER_THAN",
+    "PREFERRED_OVER",
+    "LESS_PREFERRED_THAN",
+    "ESPECIALLY_PREFERRED",
+    "ESPECIALLY_AVOID",
+    "RANKED_AHEAD_OF",
+    "LESS_STABLE_THAN",
+    "MORE_IMPORTANT_THAN",
+    "MORE_PRONOUNCED_THAN",
+    "DEGREE_LABEL_ONLY",
+    "SOURCE_LOCAL_EMPHASIS"
+  ],
+  "arity_contract": {
+    "binary": [
+      "STRONGER_THAN",
+      "WEAKER_THAN",
+      "PREFERRED_OVER",
+      "LESS_PREFERRED_THAN",
+      "RANKED_AHEAD_OF",
+      "LESS_STABLE_THAN",
+      "MORE_IMPORTANT_THAN",
+      "MORE_PRONOUNCED_THAN"
+    ],
+    "contextual_unary": [
+      "ESPECIALLY_PREFERRED",
+      "ESPECIALLY_AVOID"
+    ],
+    "qualitative": [
+      "DEGREE_LABEL_ONLY",
+      "SOURCE_LOCAL_EMPHASIS"
+    ]
+  },
+  "invariants": [
+    "SOURCE_EXPLICIT_ONLY",
+    "NO_NUMERICIZATION_OF_QUALITATIVE_ORDER",
+    "NO_PROBABILITY_FROM_ORDINAL_LANGUAGE",
+    "NO_TRANSITIVE_CLOSURE_BY_DEFAULT",
+    "EXTREME_PREFERENCE_DOES_NOT_IMPLY_OUTCOME_CERTAINTY",
+    "SOURCE_LOCAL_EMPHASIS_DOES_NOT_IMPLY_UNIVERSAL_ORDERING",
+    "OCR_UNSAFE_COMPARISON_IS_EXCLUDED_NOT_REPAIRED_SILENTLY"
+  ],
+  "epistemic_fields": [
+    "source_epistemic",
+    "normalization_epistemic"
+  ],
+  "guardrails": {
+    "numeric_weights_added": false,
+    "probabilities_added": false,
+    "transitive_closure_materialized": false,
+    "product_runtime_modified": false,
+    "execution_unlocked": false
+  }
+}
