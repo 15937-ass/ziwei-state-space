@@ -98,3 +98,8 @@ reachability or empirical prediction validity. Production temporal registry empt
 After #364 lands: retain all source/runtime tests; repeat full pytest and required
 validation; update current Product readiness and
 accepted43 count; mark PR ready only after passing; then merge and close #363.
+
+
+## G8 revalidation checkpoint
+
+After Knowledge dependency #364 merged and Governance G8 enabled public-repository PR validation, this Product branch must be revalidated against the current main through the automatic repository quality gate and Product P1 workflows before merge. The prior Work/Codex evidence remains historical; the new GitHub Actions run references will be recorded on PR #365 after completion.
