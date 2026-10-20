@@ -1,0 +1,128 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-RELATION-BINDING-SEMANTICS-v0.1",
+  "lane": "KNOWLEDGE_ONLY",
+  "issue": 436,
+  "status": "PROGRAM_REPRESENTATION_SCHEMA_NO_EXECUTION_UNLOCK",
+  "principle": "BIND_RELATION_TO_SOURCE_SEMANTIC_NODE_BEFORE_MEMBER_EXPANSION",
+  "source_vs_model": {
+    "source_supported": [
+      "宫位关系术语及其空间定义来自中州派原文。",
+      "显式列名成员、对星/成对结构、命名复合词等保留来源结构。"
+    ],
+    "model_representation": [
+      "NODE binding / expansion_policy / clause composition 是为避免把关系语义与 activation 混在一起而建立的程序表示。",
+      "模型表示不新增任何星曜吉凶、成员量词、经验权重或概率。"
+    ]
+  },
+  "target_node_types": [
+    {
+      "id": "ATOMIC_LITERAL_NODE",
+      "meaning": "来源直接出现的单一星曜/星系/字面对象；当前 GROUP 专项未必已有 token。"
+    },
+    {
+      "id": "GROUP_SYMBOL_NODE",
+      "meaning": "已知成员集合但 activation 未定的 shorthand，如火铃、昌曲、辅弼、魁钺、空劫、四煞。",
+      "default_expansion_policy": "NO_MEMBER_EXPANSION"
+    },
+    {
+      "id": "SCOPED_GROUP_SYMBOL_NODE",
+      "meaning": "成员表仅在特定 domain/context 成立的 group，如事业宫语境中的科文诸曜。",
+      "default_expansion_policy": "NO_MEMBER_EXPANSION"
+    },
+    {
+      "id": "EXPLICIT_MEMBER_SET",
+      "meaning": "来源在本句直接列出成员，如左辅右弼、文昌文曲。",
+      "default_expansion_policy": "EXPLICIT_MEMBERS_LOCAL_ONLY"
+    },
+    {
+      "id": "OPEN_CATEGORY_NODE",
+      "meaning": "吉曜、煞曜、桃花诸曜、辅佐吉曜等当前未闭合类别。",
+      "default_expansion_policy": "CATEGORY_EXPANSION_DEFERRED"
+    },
+    {
+      "id": "NAMED_COMPOSITE_NODE",
+      "meaning": "来源支持内部结构/成对要求的命名复合，如三台八座、龙池凤阁。",
+      "default_expansion_policy": "PRESERVE_COMPOSITE_INTEGRITY"
+    },
+    {
+      "id": "STRUCTURED_PATTERN_NODE",
+      "meaning": "百官朝拱等不是普通 flat group 的结构模式。",
+      "default_expansion_policy": "NEVER_FLATTEN_TO_RELATION_MEMBERS"
+    },
+    {
+      "id": "GENERIC_SHORTHAND_NODE",
+      "meaning": "字面 shorthand 与已知命名 composite 不等价，如禄马 != 自动禄马交驰。",
+      "default_expansion_policy": "NO_NAMED_COMPOSITE_INHERITANCE"
+    },
+    {
+      "id": "SEVERITY_MODIFIER_NODE",
+      "meaning": "煞轻、煞重等修饰响应强弱，不作为 relation member expansion 的依据。",
+      "default_expansion_policy": "NO_RELATION_MEMBER_EXPANSION"
+    },
+    {
+      "id": "SOURCE_LITERAL_EXPRESSION_NODE",
+      "meaning": "来源关系目标字面可定位，但当前 GROUP token registry 未覆盖或尚未正规化为 canonical semantic node；保留完整 source expression 后再做语义正规化。",
+      "default_expansion_policy": "SEMANTIC_NORMALIZATION_DEFERRED"
+    }
+  ],
+  "binding_modes": [
+    {
+      "id": "BIND_SYMBOLIC_NODE",
+      "meaning": "relation 绑定到 group/category/shorthand 节点本身；不向成员分发。"
+    },
+    {
+      "id": "BIND_EXPLICIT_MEMBER_SET",
+      "meaning": "来源本句显式列名成员时，可保存这些成员共同位于 relation scope 的局部结构；不推广为 shorthand 的全局 ALL。"
+    },
+    {
+      "id": "BIND_COMPOSITE_NODE",
+      "meaning": "relation 绑定命名 composite；内部 pair/geometry constraint 由 composite semantics 单独校验。"
+    },
+    {
+      "id": "BIND_STRUCTURED_PATTERN_NODE",
+      "meaning": "relation 与 structured pattern 发生组合，但 pattern 不被拆成普通成员边。"
+    },
+    {
+      "id": "BIND_LITERAL_EXPRESSION",
+      "meaning": "来源字面对象可识别，但尚未进入当前 semantic token registry。"
+    },
+    {
+      "id": "CLAUSE_COMPOSITION_REVIEW",
+      "meaning": "同一 normalized condition 中存在多个 relation/polarity/alternative，需要先确定 clause composition，不能机械分边。"
+    }
+  ],
+  "expansion_policies": {
+    "NO_MEMBER_EXPANSION": "Group shorthand relation binding does not assert ANY/ALL or distribute geometry to members.",
+    "EXPLICIT_MEMBERS_LOCAL_ONLY": "Only literal members named in this clause may receive local set binding.",
+    "CATEGORY_EXPANSION_DEFERRED": "Category node remains symbolic until scoped membership is separately resolved.",
+    "PRESERVE_COMPOSITE_INTEGRITY": "Named composite stays one semantic object with its own internal activation/relation contract.",
+    "NEVER_FLATTEN_TO_RELATION_MEMBERS": "Structured pattern remains graph/pattern node.",
+    "NO_NAMED_COMPOSITE_INHERITANCE": "Generic shorthand cannot borrow semantics from a named composite.",
+    "SEMANTIC_NORMALIZATION_DEFERRED": "Preserve the source target expression and defer semantic normalization; binding success does not imply ontology completion."
+  },
+  "clause_model": {
+    "relation_claim_form": "RELATION_CLAIM(subject_anchor, target_node, relation_operator, geometry_or_scope, polarity, source_surface)",
+    "member_realization_form": "REALIZE_TARGET_MEMBERS(target_node, activation_context) -> deferred",
+    "invariant": "RELATION_CLAIM_NEVER_IMPLIES_MEMBER_REALIZATION_UNLESS_SOURCE_EXPLICIT_SET",
+    "source_literal_policy": "SOURCE_LITERAL_EXPRESSION_NODE may satisfy relation-target binding while semantic normalization remains explicitly deferred."
+  },
+  "compound_clause_rules": [
+    "且/又/而/更/有/无/不 等可产生新的 clause segment；source surface 全部保留。",
+    "或可能是 target-level alternative，也可能连接两个 relation clauses；若同一句出现多个 relation surface，优先保留 clause graph 而不是扁平化。",
+    "三方 + 见属于 scope composition：三方约束见的 allowed geometry。",
+    "见 X 同度 / 见 X 同会 等可视为同一 target 上的 relation composition，但只有 exact source wording 才可组合。",
+    "命名 pattern 内部词，如百官朝拱中的朝拱，不自动抽成独立普通 relation atom。"
+  ],
+  "guardrails": {
+    "global_any_or_all_inferred": false,
+    "group_member_geometry_distributed_by_default": false,
+    "category_closed_by_default": false,
+    "named_composite_flattened": false,
+    "structured_pattern_flattened": false,
+    "source_truth_rewritten": false,
+    "product_runtime_modified": false,
+    "numeric_weights_added": false,
+    "probabilities_added": false
+  }
+}
