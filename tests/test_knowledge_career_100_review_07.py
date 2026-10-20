@@ -112,3 +112,59 @@ def test_real_world_role_conditions_stay_external():
     for rid in ["CA07-653", "CA07-655", "CA07-661", "CA07-662", "CA08-706", "CA08-738", "CA08-739"]:
         assert BY_ID[rid]["condition"] is None
         assert BY_ID[rid]["blocker_code"] == "CONTEXT_STATE"
+
+
+def test_selection_is_next_100_after_exact_652_baseline():
+    baseline = set()
+    for rel in DOC["baseline_mapping_paths"]:
+        prior = json.loads((ROOT / rel).read_text())
+        baseline.update(
+            item["source_rule_id"]
+            for item in prior.get("mappings", [])
+            if item.get("source_rule_id")
+        )
+    assert len(baseline) == 652
+
+    import csv
+    canonical = []
+    for filename in [
+        "CA01_career_projection_review_001_100.csv",
+        "CA02_career_projection_review_101_200.csv",
+        "CA03_career_projection_review_201_300.csv",
+        "CA04_career_projection_review_301_400.csv",
+        "CA05_career_projection_review_401_500.csv",
+        "CA06_career_projection_review_501_600.csv",
+        "CA07_career_projection_review_601_700.csv",
+        "CA08_career_projection_review_701_800.csv",
+        "CA09_career_projection_review_801_888.csv",
+    ]:
+        with (ROOT / "validation/wp05" / filename).open(
+            encoding="utf-8-sig", newline=""
+        ) as handle:
+            canonical.extend(csv.DictReader(handle))
+
+    expected = [
+        row["projection_rule_id"]
+        for row in canonical
+        if row["projection_rule_id"] not in baseline
+    ][:100]
+    assert [item["source_rule_id"] for item in RECORDS] == expected
+    assert len(baseline | set(expected)) == 752
+
+
+def test_embedded_rows_match_canonical_sources():
+    import csv
+    source_by_id = {}
+    for filename in [
+        "CA07_career_projection_review_601_700.csv",
+        "CA08_career_projection_review_701_800.csv",
+    ]:
+        with (ROOT / "validation/wp05" / filename).open(
+            encoding="utf-8-sig", newline=""
+        ) as handle:
+            for row in csv.DictReader(handle):
+                source_by_id[row["projection_rule_id"]] = row
+
+    for item in RECORDS:
+        assert item["source_record"] == source_by_id[item["source_rule_id"]]
+        assert item["source_condition_text"] == item["source_record"]["condition"]
