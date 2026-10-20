@@ -80,7 +80,7 @@ def test_every_star_and_mutagen_is_required_in_its_own_palace(rule_id,stars,allo
 def test_exact_three_selected_and_unreviewed_extensions_absent():
     meta=next(m for m in REGISTRY['additional_source_mappings'] if m['path']==MP)
     assert set(meta['selected_rule_ids'])=={c[0] for c in CASES}
-    assert len(load_career_source_mappings(ROOT,REGISTRY))==63
+    assert len(load_career_source_mappings(ROOT,REGISTRY))==len(REGISTRY['rules'])
     assert not {'CA01-020','CA01-064','CA01-065'} & set(REGISTRY['rules'])
 
 
