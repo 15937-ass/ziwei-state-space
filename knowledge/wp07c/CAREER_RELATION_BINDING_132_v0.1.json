@@ -57,8 +57,8 @@
       "NO_NAMED_COMPOSITE_INHERITANCE": 1
     },
     "polarity_counts": {
-      "AFFIRMATIVE": 137,
-      "NEGATED": 5
+      "AFFIRMATIVE": 139,
+      "NEGATED": 3
     },
     "semantic_child_coverage_counts": {
       "SEMANTIC_CHILDREN_RELATION_LOCAL": 100,
@@ -77,7 +77,7 @@
     "execution_unlocked": 0,
     "findings": [
       "Relation binding 与 member activation 正式解耦：关系先绑定 source-expression / semantic node，group shorthand 不默认向成员分发。",
-      "132/132 source rules、142 个 relation claims 均有 binding disposition；19 类 claim 含 source literal node，用于保存当前 GROUP token registry 未覆盖的原子星曜、化曜或字面类别，而不是把它们错误判为“关系未知”。",
+      "132/132 source rules、142 个 relation claims 均有 binding disposition；其中 25 个 claim 含 SOURCE_LITERAL_EXPRESSION_NODE，用于保存当前 GROUP token registry 未覆盖的原子星曜、化曜或字面类别，而不是把它们错误判为“关系未知”。",
       "relation-local selection 防止把“且有昌曲 / 无昌曲 / 尤其火铃”等附加条件误绑定到前一 relation；source expression 始终保留，semantic child 可标 COMPLETE / PARTIAL / MIXED。",
       "显式文昌文曲/左辅右弼只在本句允许 EXPLICIT_MEMBERS_LOCAL_ONLY；generic 昌曲/辅弼仍 NO_MEMBER_EXPANSION。",
       "named composite 保持 composite integrity；open category 仅 symbolic binding；structured pattern 不扁平化。",
@@ -133,8 +133,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -196,8 +195,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -262,8 +260,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -328,8 +325,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -517,8 +513,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -578,8 +573,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -721,8 +715,7 @@
               "scope": null,
               "activation": "PAIR_REQUIRED",
               "expansion_policy": "PRESERVE_COMPOSITE_INTEGRITY",
-              "binding_mode": "BIND_COMPOSITE_NODE",
-              "distance": 0
+              "binding_mode": "BIND_COMPOSITE_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -787,8 +780,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -853,8 +845,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -919,8 +910,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -985,8 +975,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             },
             {
               "source_token": "火铃",
@@ -1000,8 +989,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 2
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -1063,8 +1051,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             },
             {
               "source_token": "火铃",
@@ -1078,8 +1065,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 2
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -1142,8 +1128,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -1444,8 +1429,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -1508,8 +1492,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -1788,8 +1771,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -1849,8 +1831,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -1918,8 +1899,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 2
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             },
             {
               "source_token": "空劫",
@@ -1933,8 +1913,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -2003,8 +1982,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -2069,8 +2047,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -2205,8 +2182,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             },
             {
               "source_token": "辅弼",
@@ -2220,8 +2196,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 3
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -2286,8 +2261,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -2354,8 +2328,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -2424,8 +2397,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -2497,8 +2469,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -2640,8 +2611,7 @@
               "scope": null,
               "activation": "PAIR_REQUIRED",
               "expansion_policy": "PRESERVE_COMPOSITE_INTEGRITY",
-              "binding_mode": "BIND_COMPOSITE_NODE",
-              "distance": 0
+              "binding_mode": "BIND_COMPOSITE_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -2713,8 +2683,7 @@
               "scope": null,
               "activation": "EXPLICIT_AND_LOCAL_CLAUSE",
               "expansion_policy": "EXPLICIT_MEMBERS_LOCAL_ONLY",
-              "binding_mode": "BIND_EXPLICIT_MEMBER_SET",
-              "distance": 0
+              "binding_mode": "BIND_EXPLICIT_MEMBER_SET"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -2856,8 +2825,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -2996,8 +2964,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -3070,8 +3037,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 2
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             },
             {
               "source_token": "吉化",
@@ -3082,8 +3048,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -3152,8 +3117,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -3215,8 +3179,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -3285,8 +3248,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -3355,8 +3317,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -3419,8 +3380,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -3572,8 +3532,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -3956,8 +3915,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_RELATION_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -4026,8 +3984,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -4100,8 +4057,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 4
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             },
             {
               "source_token": "辅弼",
@@ -4115,8 +4071,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 2
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             },
             {
               "source_token": "昌曲",
@@ -4130,8 +4085,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -4200,8 +4154,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -4266,8 +4219,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -4329,8 +4281,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -4385,7 +4336,7 @@
               "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
             }
           ],
-          "polarity": "NEGATED",
+          "polarity": "AFFIRMATIVE",
           "logical_connector": null,
           "target_expression_kind": "SINGLE_NODE",
           "target_source_expression": "煞",
@@ -4399,8 +4350,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -4469,8 +4419,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -4530,8 +4479,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 1
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -4685,8 +4633,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -4746,8 +4693,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -4816,8 +4762,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -4889,8 +4834,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -4959,8 +4903,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -5113,8 +5056,7 @@
               "scope": "事业宫",
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -5183,8 +5125,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -5247,8 +5188,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 3
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             },
             {
               "source_token": "辅弼",
@@ -5262,8 +5202,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -5326,8 +5265,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -5390,8 +5328,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -5598,8 +5535,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -5668,8 +5604,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -5734,8 +5669,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -5797,8 +5731,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -5863,8 +5796,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -5929,8 +5861,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -5999,8 +5930,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -6134,8 +6064,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -6200,8 +6129,7 @@
               "scope": null,
               "activation": "EXPLICIT_AND_LOCAL_CLAUSE",
               "expansion_policy": "EXPLICIT_MEMBERS_LOCAL_ONLY",
-              "binding_mode": "BIND_EXPLICIT_MEMBER_SET",
-              "distance": 0
+              "binding_mode": "BIND_EXPLICIT_MEMBER_SET"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -6270,8 +6198,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -6336,8 +6263,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -6397,8 +6323,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -6470,8 +6395,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 2
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             },
             {
               "source_token": "桃花",
@@ -6482,8 +6406,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -6552,8 +6475,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 4
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -6808,8 +6730,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             },
             {
               "source_token": "空劫",
@@ -6823,8 +6744,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 2
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             },
             {
               "source_token": "刑耗",
@@ -6835,8 +6755,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 4
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -6901,8 +6820,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -6971,8 +6889,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -7037,8 +6954,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -7107,8 +7023,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_NAMED_COMPOSITE_INHERITANCE",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -7171,8 +7086,7 @@
               "scope": null,
               "activation": "EXPLICIT_AND_LOCAL_CLAUSE",
               "expansion_policy": "EXPLICIT_MEMBERS_LOCAL_ONLY",
-              "binding_mode": "BIND_EXPLICIT_MEMBER_SET",
-              "distance": 0
+              "binding_mode": "BIND_EXPLICIT_MEMBER_SET"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -7241,8 +7155,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -7314,8 +7227,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -7380,8 +7292,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -7450,8 +7361,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -7520,8 +7430,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -7693,8 +7602,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -7884,8 +7792,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -7954,8 +7861,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -8024,8 +7930,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -8090,8 +7995,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -8151,8 +8055,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -8324,8 +8227,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -8497,8 +8399,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -8560,8 +8461,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -8626,8 +8526,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -8692,8 +8591,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -8819,8 +8717,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -8943,8 +8840,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -8999,7 +8895,7 @@
               "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
             }
           ],
-          "polarity": "NEGATED",
+          "polarity": "AFFIRMATIVE",
           "logical_connector": null,
           "target_expression_kind": "SINGLE_NODE",
           "target_source_expression": "辅佐吉曜",
@@ -9013,8 +8909,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -9083,8 +8978,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -9146,8 +9040,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -9210,8 +9103,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 4
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             },
             {
               "source_token": "辅弼",
@@ -9225,8 +9117,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             },
             {
               "source_token": "魁钺",
@@ -9240,8 +9131,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 2
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -9497,8 +9387,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -9686,8 +9575,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
@@ -9880,8 +9768,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 0
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             },
             {
               "source_token": "吉曜",
@@ -9892,8 +9779,7 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE",
-              "distance": 3
+              "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
