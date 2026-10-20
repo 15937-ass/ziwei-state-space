@@ -150,6 +150,7 @@ class QuickReadClaim:
     evidence_refs: tuple[QuickReadEvidenceRef, ...]
     target_period: str = ""
     domains: tuple[QuickReadDomain, ...] = ()
+    semantic_group: str = ""
 
     def resolved_domains(self) -> tuple[QuickReadDomain, ...]:
         return self.domains or TOPIC_DEFAULT_DOMAINS[self.topic]
@@ -159,6 +160,8 @@ class QuickReadClaim:
             raise ValueError("QuickReadClaim.claim_id is required")
         if not self.proposition.strip():
             raise ValueError("QuickReadClaim.proposition is required")
+        if not self.semantic_group.strip():
+            raise ValueError("QuickReadClaim.semantic_group is required")
         if not self.evidence_refs:
             raise ValueError("QuickReadClaim requires at least one evidence ref")
         for item in self.evidence_refs:
@@ -256,8 +259,24 @@ class QuickReadPackage:
         self.scope.validate()
         for item in self.claims:
             item.validate()
-        if not self.selected_claims():
+        selected = self.selected_claims()
+        if not selected:
             raise ValueError("QuickReadPackage scope selects no supported claims")
+        seen_semantics: set[tuple[str, str]] = set()
+        duplicates: set[tuple[str, str]] = set()
+        for claim in selected:
+            key = (claim.semantic_group.strip(), claim.target_period.strip())
+            if key in seen_semantics:
+                duplicates.add(key)
+            seen_semantics.add(key)
+        if duplicates:
+            labels = ", ".join(
+                f"{group}@{period or 'NATAL'}"
+                for group, period in sorted(duplicates)
+            )
+            raise ValueError(
+                "QuickReadPackage contains redundant semantic claims: " + labels
+            )
 
     def verbalizer_payload(self) -> dict[str, Any]:
         """Return only approved semantic claims plus style constraints.
@@ -286,6 +305,7 @@ class QuickReadPackage:
                     "topic": claim.topic.value,
                     "domains": [item.value for item in claim.resolved_domains()],
                     "proposition": claim.proposition,
+                    "semantic_group": claim.semantic_group,
                     "assertion_mode": claim.assertion_mode.value,
                     "target_period": claim.target_period or None,
                 }
@@ -300,6 +320,9 @@ class QuickReadPackage:
                 "prefer_plain_spoken_chinese": True,
                 "default_opening": "整体看",
                 "hedges_only_when_needed": True,
+                "pre_send_audit_required": True,
+                "one_semantic_group_one_point": True,
+                "sentence_claim_mapping_required": True,
             },
         }
 
@@ -368,6 +391,7 @@ class QuickReadConversationContext:
                     "topic": claim.topic.value,
                     "domains": [item.value for item in claim.resolved_domains()],
                     "proposition": claim.proposition,
+                    "semantic_group": claim.semantic_group,
                     "assertion_mode": claim.assertion_mode.value,
                     "target_period": claim.target_period or None,
                     "evidence_refs": [
@@ -401,6 +425,60 @@ class QuickReadConversationContext:
         )
         package.validate()
         return package
+
+
+
+@dataclass(frozen=True)
+class QuickReadSentenceAudit:
+    text: str
+    claim_ids: tuple[str, ...]
+
+    def validate(self) -> None:
+        if not self.text.strip():
+            raise ValueError("QuickReadSentenceAudit.text is required")
+        if not self.claim_ids:
+            raise ValueError("each rendered sentence must map to at least one claim")
+        if len(set(self.claim_ids)) != len(self.claim_ids):
+            raise ValueError("QuickReadSentenceAudit.claim_ids must be unique")
+
+
+@dataclass(frozen=True)
+class QuickReadRenderAudit:
+    """Blocking pre-send audit for the rendered quick-read draft.
+
+    Every sentence must point back to selected claims. The same semantic group
+    cannot be restated in another sentence for the same target period.
+    """
+
+    package: QuickReadPackage
+    sentences: tuple[QuickReadSentenceAudit, ...]
+
+    def validate(self) -> None:
+        self.package.validate()
+        if not self.sentences:
+            raise ValueError("QuickReadRenderAudit requires rendered sentences")
+        selected = {claim.claim_id: claim for claim in self.package.selected_claims()}
+        used_semantics: dict[tuple[str, str], int] = {}
+        for index, sentence in enumerate(self.sentences):
+            sentence.validate()
+            for claim_id in sentence.claim_ids:
+                if claim_id not in selected:
+                    raise ValueError(
+                        f"rendered sentence references unselected claim: {claim_id}"
+                    )
+                claim = selected[claim_id]
+                key = (claim.semantic_group.strip(), claim.target_period.strip())
+                previous = used_semantics.get(key)
+                if previous is not None and previous != index:
+                    raise ValueError(
+                        "rendered draft repeats semantic group "
+                        f"{claim.semantic_group}@{claim.target_period or 'NATAL'}"
+                    )
+                used_semantics[key] = index
+
+    def rendered_text(self) -> str:
+        self.validate()
+        return "".join(sentence.text.strip() for sentence in self.sentences)
 
 
 FORBIDDEN_SURFACE_TOKENS = (
