@@ -101,3 +101,90 @@ claim_id -> rule_id -> source_id -> source_location -> review_status
 ```
 
 用户最终评论不得暴露这些技术字段。`verbalizer_payload()` 故意不发送 source refs，防止 LLM 顺着原文继续扩写新的命理判断。
+
+
+## 9. 用户可限定的简批窗口
+
+QuickRead 不强制“整盘都说”。用户可以限定一个 focus window，只把相关 claim 送进 verbalizer。
+
+预设窗口：
+
+```text
+full
+relationship
+personality
+appearance
+social
+family
+study_work
+custom
+```
+
+例如“只要感情简批”：
+
+```text
+scope = relationship
+```
+
+允许进入的内容包括：
+
+- 长期感情模式；
+- 喜欢/容易被什么类型吸引；
+- 当前感情环境（必须有 TEMPORAL evidence）；
+- 标记为 relationship domain 的具体年份判断。
+
+不会混入无关的事业、外貌、父母内容。
+
+`custom` 还可以进一步限制 topic 和年份，例如：
+
+```text
+domain = relationship
+topic = specific_year
+period = 2025
+```
+
+这时只写 2025 年感情相关简批。
+
+## 10. 简批后继续在同一 GPT 对话深入批盘
+
+对外发布的 120–220 字只是一个窄 render，不等于丢弃其余推理结果。
+
+每次简批后生成一个 `QuickReadConversationContext`，在同一 GPT 对话中保留：
+
+- subject key；
+- knowledge version；
+- normalized chart / birth context 的结构化上下文或引用；
+- natal profile reference；
+- temporal profile references；
+- 本次已使用的 claims；
+- 本次没写出来、但已经验证过的其他 claims；
+- 每个 claim 的 rule/source trace；
+- 上一段已经发出的简批；
+- 当前 focus window。
+
+因此如果最开始只发了“感情简批”，之后盘主继续追问：
+
+> 那事业呢？
+> 
+> 为什么说我喜欢这种类型？
+> 
+> 具体看看 23–25 年。
+> 
+> 我和父母怎么样？
+
+系统可以在**同一个盘主 session**中切换 scope，优先复用已经验证过的 claims；如果问题需要新的判断，则重新走 canonical/temporal runtime 后再加入 session，而不是让 GPT 根据原始命盘自由发挥。
+
+这里有两个不同 payload：
+
+```text
+verbalizer_payload
+  -> 很窄，只包含这次允许说的 claims
+  -> 用于生成 120–220 字评论
+
+continuation_payload
+  -> 很全，留在 GPT 对话上下文
+  -> 包含所有已验证 claims + evidence refs + chart/profile context
+  -> 用于后续追问和换窗口
+```
+
+`continuation_payload` 可以被 UI 做成“盘主上下文卡”供用户查看；即使 UI 暂时不展示，产品也不能只依赖聊天模型自己记忆上一轮内容，必须把 session capsule 持续传回后续对话。
