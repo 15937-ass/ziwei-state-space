@@ -137,3 +137,12 @@ Paper 2 需要处理 star-core / Delta / modifier / projection 参数混淆。
 **Approved by:** PI
 **Approved date:** 2026-10-06
 
+
+
+### D-019 — Product v0.4 expert-reasoning + response architecture
+**Decision:** 批准 Product v0.4 将长期产品对象冻结为 Kc（canonical declarative knowledge）、Kr（canonical response knowledge）、π（inference policy / procedural knowledge）、θ（empirical calibration parameters）与 b（individual state belief）五类隔离对象；将 Temporal Environment E_t 与 ResponseProfile τ_t 正式分层；新增 PL3-METHOD 专家推理层、PL3-R Response Engine、PL3-M0 canonical manifestation candidates 与 PL4-M Expert Method Fidelity；王亭之约 10 个完整案例全部进入 Expert Case Bank，但采用 Leave-One-Case-Out expert replay，禁止把案例当现实概率 ground truth；其他三合派案例只可在 school compatibility 审查后用于 procedural generalization / cross-school robustness，不得静默修改中州派 canonical truth；当前 Product critical path 从继续扩充 Career NATAL 数量转为“专家方法契约 -> Wang 案例结构化/LOCO -> method policy v0.1 -> Response adapter -> decade/year response compiler -> M0 -> fidelity benchmark -> Forecast Ledger”。状态空间、Bayesian、neural、causal/MPC/RL 均保留为数据与验证成熟后的 future architecture。
+**Status:** FROZEN（Product v0.4 架构与阶段排序）；具体 runtime contracts / case extraction / response implementation 仍需后续 PRODUCT_ONLY Issues。
+**Rationale:** 现有中州派 source 明确区分本质、运限环境与反应，Knowledge Response Semantics 已开始提供更细表达能力；Product 需要同时学习 declarative knowledge 与 expert procedural method，但必须保持 source truth、method induction、empirical validation、personalization 四类认识论边界。
+**Approved at:** Proposal #425 / Product v0.4
+**Approved by:** PI
+**Approved date:** 2026-10-20
