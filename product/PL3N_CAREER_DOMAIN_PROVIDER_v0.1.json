@@ -14234,6 +14234,3067 @@
         "inherited_source_rule_ids": [],
         "additional_semantics_must_not_be_invented": true
       }
+    },
+    "CA04-351": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p141",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "武曲与陀罗同度",
+      "expected_projection_domain": "development",
+      "expected_projection_target": "career_adversity_strengthened",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "武曲"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "陀罗"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA04-351",
+      "expected_source_context": {
+        "paragraph_scope": "武曲事业宫总论",
+        "supported_chart_context_only": {
+          "all_of": [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "武曲"
+              }
+            }
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA04-352": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p141",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "武曲化忌或陀罗同度",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "risk_or_hazard_industry_scene",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "武曲"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "武曲",
+                "mutagen": "忌"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "武曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "陀罗"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA04-352",
+      "expected_source_context": {
+        "paragraph_scope": "武曲事业宫总论",
+        "supported_chart_context_only": {
+          "all_of": [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "武曲"
+              }
+            }
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA04-361": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p141",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "武曲天府而天府化科",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "financial_industry_scene_even_without_lu",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "武曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天府"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "天府",
+                "mutagen": "科"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "武曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天府"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "天府",
+                "mutagen": "科"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA04-361",
+      "expected_source_context": {
+        "paragraph_scope": "子午事业宫武曲天府",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "武曲"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天府"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "子"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "武曲"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天府"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "午"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA04-364": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p141",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "丑未武曲贪狼见贪狼化忌",
+      "expected_projection_domain": "effort",
+      "expected_projection_target": "career_busyness_and_multiple_business_responsibilities_strengthened",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "武曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "丑"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼",
+                "mutagen": "忌"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "武曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "未"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼",
+                "mutagen": "忌"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA04-364",
+      "expected_source_context": {
+        "paragraph_scope": "丑未事业宫武曲贪狼",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "武曲"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "贪狼"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "丑"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "武曲"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "贪狼"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "未"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA04-369": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p141",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "武曲贪狼武曲化禄贪狼化权",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "finance_plus_trend_sensitive_industry_orientation",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "武曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "丑"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "武曲",
+                "mutagen": "禄"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼",
+                "mutagen": "权"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "武曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "未"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "武曲",
+                "mutagen": "禄"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼",
+                "mutagen": "权"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA04-369",
+      "expected_source_context": {
+        "paragraph_scope": "丑未事业宫武曲贪狼",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "武曲"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "贪狼"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "丑"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "武曲"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "贪狼"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "未"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA04-370": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p141",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "武曲贪狼守事业宫",
+      "expected_projection_domain": "collaboration",
+      "expected_projection_target": "cooperation_and_multiple_business_lines_are_common",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "武曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "丑"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "武曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "未"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA04-370",
+      "expected_source_context": {
+        "paragraph_scope": "丑未事业宫武曲贪狼",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "武曲"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "贪狼"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "丑"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "武曲"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "贪狼"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "未"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA04-371": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p141",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "寅申武曲天相",
+      "expected_projection_domain": "role",
+      "expected_projection_target": "internal_external_or_civil_martial_function_mixing",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "武曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天相"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "寅"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "武曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天相"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "申"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA04-371",
+      "expected_source_context": {
+        "paragraph_scope": "寅申事业宫武曲天相",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "武曲"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天相"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "寅"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "武曲"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天相"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "申"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA04-380": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p142",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "酉宫武曲七杀见火星",
+      "expected_projection_domain": "development",
+      "expected_projection_target": "setbacks_can_precede_later_achievement",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "武曲"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "七杀"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "火星"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "酉"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA04-380",
+      "expected_source_context": {
+        "paragraph_scope": "卯酉事业宫武曲七杀",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "武曲"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "七杀"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "卯"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "武曲"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "七杀"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "酉"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA04-381": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p142",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "卯宫武曲七杀见火星",
+      "expected_projection_domain": "development",
+      "expected_projection_target": "heavy_effort_can_fail_to_produce_results",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "武曲"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "七杀"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "火星"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "卯"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA04-381",
+      "expected_source_context": {
+        "paragraph_scope": "卯酉事业宫武曲七杀",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "武曲"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "七杀"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "卯"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "武曲"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "七杀"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "酉"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA04-387": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p142",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "巳亥武曲破军",
+      "expected_projection_domain": "role",
+      "expected_projection_target": "career_involvement_spreads_across_many_fields",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "武曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "巳"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "武曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "亥"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA04-387",
+      "expected_source_context": {
+        "paragraph_scope": "巳亥事业宫武曲破军",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "武曲"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "破军"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "巳"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "武曲"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "破军"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "亥"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA04-389": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p142",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "武曲破军与天刑同度",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "military_discipline_intelligence_or_security_scene",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "武曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "巳"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天刑"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "武曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "亥"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天刑"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA04-389",
+      "expected_source_context": {
+        "paragraph_scope": "巳亥事业宫武曲破军",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "武曲"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "破军"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "巳"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "武曲"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "破军"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "亥"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA04-395": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p142",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "武曲破军见破军化禄",
+      "expected_projection_domain": "development",
+      "expected_projection_target": "creation_strength_exceeds_preservation_capacity",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "武曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "巳"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "破军",
+                "mutagen": "禄"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "武曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "亥"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "破军",
+                "mutagen": "禄"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA04-395",
+      "expected_source_context": {
+        "paragraph_scope": "巳亥事业宫武曲破军",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "武曲"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "破军"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "巳"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "武曲"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "破军"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "亥"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA04-396": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p142",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "前格",
+      "expected_projection_domain": "decision",
+      "expected_projection_target": "ideas_can_exceed_practical_follow_through",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "武曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "巳"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "破军",
+                "mutagen": "禄"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "武曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "亥"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "破军",
+                "mutagen": "禄"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA04-396",
+      "expected_source_context": {
+        "paragraph_scope": "巳亥事业宫武曲破军",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "武曲"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "破军"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "巳"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "武曲"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "破军"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "亥"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [
+          "CA04-395"
+        ],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA04-398": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p142",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "天同守事业宫",
+      "expected_projection_domain": "development",
+      "expected_projection_target": "career_tends_to_be_self_established_rather_than_inherited",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "天同"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA04-398",
+      "expected_source_context": {
+        "paragraph_scope": "天同事业宫总论",
+        "supported_chart_context_only": {
+          "all_of": [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            }
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA04-399": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p142",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "前格",
+      "expected_projection_domain": "development",
+      "expected_projection_target": "difficulty_precedes_later_career_establishment",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "天同"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA04-399",
+      "expected_source_context": {
+        "paragraph_scope": "天同事业宫总论",
+        "supported_chart_context_only": {
+          "all_of": [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            }
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [
+          "CA04-398"
+        ],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA04-400": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p142",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "天同化禄或与禄存同度",
+      "expected_projection_domain": "development",
+      "expected_projection_target": "self_establishment_tendency_strengthened",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "天同",
+                "mutagen": "禄"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "禄存"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA04-400",
+      "expected_source_context": {
+        "paragraph_scope": "天同事业宫总论",
+        "supported_chart_context_only": {
+          "all_of": [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            }
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA05-401": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p142",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "天同化禄或与禄存同度",
+      "expected_projection_domain": "development",
+      "expected_projection_target": "self_established_career_orientation_strengthened",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "天同",
+                "mutagen": "禄"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "禄存"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA05-401",
+      "expected_source_context": {
+        "paragraph_scope": "天同事业宫总论",
+        "supported_chart_context_only": {
+          "all_of": [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            }
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA05-406": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p142",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "天同在事业宫",
+      "expected_projection_domain": "mobility",
+      "expected_projection_target": "career_development_away_from_hometown_is_often_suitable",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "天同"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA05-406",
+      "expected_source_context": {
+        "paragraph_scope": "天同事业宫总论",
+        "supported_chart_context_only": {
+          "all_of": [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            }
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA05-407": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p142",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "天同与擎羊同度",
+      "expected_projection_domain": "competition",
+      "expected_projection_target": "career_competition_or_contestation_strengthened",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "天同"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "擎羊"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA05-407",
+      "expected_source_context": {
+        "paragraph_scope": "天同事业宫总论",
+        "supported_chart_context_only": {
+          "all_of": [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            }
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA05-408": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p142",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "天同与陀罗同度",
+      "expected_projection_domain": "stability",
+      "expected_projection_target": "career_can_undergo_implicit_change_after_a_stage_of_development",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "天同"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "陀罗"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA05-408",
+      "expected_source_context": {
+        "paragraph_scope": "天同事业宫总论",
+        "supported_chart_context_only": {
+          "all_of": [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            }
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA05-421": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p143",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "天同主享受",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "beauty_leisure_or_enjoyment_industry_scene",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "天同"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA05-421",
+      "expected_source_context": {
+        "paragraph_scope": "天同事业宫总论",
+        "supported_chart_context_only": {
+          "all_of": [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            }
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA05-425": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p143",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "天同太阴守事业宫",
+      "expected_projection_domain": "role",
+      "expected_projection_target": "multiple_career_lines_or_responsibility_changes_are_common",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "太阴"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "太阴"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA05-425",
+      "expected_source_context": {
+        "paragraph_scope": "子午事业宫天同太阴",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天同"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "太阴"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "子"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天同"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "太阴"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "午"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA05-426": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p143",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "天同太阴而太阴化忌",
+      "expected_projection_domain": "development",
+      "expected_projection_target": "inherited_base_is_not_preserved",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "太阴"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "太阴",
+                "mutagen": "忌"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "太阴"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "太阴",
+                "mutagen": "忌"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA05-426",
+      "expected_source_context": {
+        "paragraph_scope": "子午事业宫天同太阴",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天同"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "太阴"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "子"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天同"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "太阴"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "午"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA05-427": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p143",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "前格",
+      "expected_projection_domain": "stability",
+      "expected_projection_target": "career_change_precedes_later_income_stability",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "太阴"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "太阴",
+                "mutagen": "忌"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "太阴"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "太阴",
+                "mutagen": "忌"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA05-427",
+      "expected_source_context": {
+        "paragraph_scope": "子午事业宫天同太阴",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天同"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "太阴"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "子"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天同"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "太阴"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "午"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [
+          "CA05-426"
+        ],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA05-428": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p143",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "天同太阴而天同化忌",
+      "expected_projection_domain": "mobility",
+      "expected_projection_target": "leaving_hometown_can_precede_self_established_career",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "太阴"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "天同",
+                "mutagen": "忌"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "太阴"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "天同",
+                "mutagen": "忌"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA05-428",
+      "expected_source_context": {
+        "paragraph_scope": "子午事业宫天同太阴",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天同"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "太阴"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "子"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天同"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "太阴"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "午"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA05-430": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p143",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "天同太阴",
+      "expected_projection_domain": "role",
+      "expected_projection_target": "internal_and_external_operations_can_both_be_handled_with_responsibility",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "太阴"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "太阴"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA05-430",
+      "expected_source_context": {
+        "paragraph_scope": "子午事业宫天同太阴",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天同"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "太阴"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "子"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天同"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "太阴"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "午"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA05-431": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p143",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "前格",
+      "expected_projection_domain": "role",
+      "expected_projection_target": "independent_top_level_responsibility_is_less_common",
+      "expected_projection_mode": "STRUCTURAL_CONSTRAINT",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "太阴"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "太阴"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA05-431",
+      "expected_source_context": {
+        "paragraph_scope": "子午事业宫天同太阴",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天同"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "太阴"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "子"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天同"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "太阴"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "午"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [
+          "CA05-430"
+        ],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA05-432": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p143",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "丑未天同巨门",
+      "expected_projection_domain": "development",
+      "expected_projection_target": "career_projects_can_be_abandoned_halfway_even_with_benefic_support",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "巨门"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "丑"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "巨门"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "未"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA05-432",
+      "expected_source_context": {
+        "paragraph_scope": "丑未事业宫天同巨门",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天同"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "巨门"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "丑"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天同"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "巨门"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "未"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA05-434": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p143",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "天同巨门口舌性质",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "advertising_or_communications_scene",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "巨门"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "丑"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "巨门"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "未"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA05-434",
+      "expected_source_context": {
+        "paragraph_scope": "丑未事业宫天同巨门",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天同"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "巨门"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "丑"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天同"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "巨门"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "未"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA05-440": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p143",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "天同巨门而巨门化禄",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "speech_based_income_scene",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "巨门"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "丑"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "巨门",
+                "mutagen": "禄"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "巨门"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "未"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "巨门",
+                "mutagen": "禄"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA05-440",
+      "expected_source_context": {
+        "paragraph_scope": "丑未事业宫天同巨门",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天同"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "巨门"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "丑"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天同"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "巨门"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "未"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA05-444": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p143",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "寅申天同天梁",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "public_service_or_institutional_employment_scene",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天梁"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "寅"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天同"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天梁"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "申"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA05-444",
+      "expected_source_context": {
+        "paragraph_scope": "寅申事业宫天同天梁",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天同"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天梁"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "寅"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天同"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天梁"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "申"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": true,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
     }
   },
   "guardrails": {
@@ -14456,6 +17517,46 @@
         "CA04-336",
         "CA04-338",
         "CA04-341"
+      ],
+      "source_context_schema": "REVIEW_COMPLETE_CONTEXT_V0_1"
+    },
+    {
+      "path": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "audit_id": "KB-WP07A-CAREER-100-REVIEW-04",
+      "mapping_status": "REVIEW_COMPLETE_NON_PRODUCTION",
+      "schema_version": "0.1",
+      "selected_rule_ids": [
+        "CA04-351",
+        "CA04-352",
+        "CA04-361",
+        "CA04-364",
+        "CA04-369",
+        "CA04-370",
+        "CA04-371",
+        "CA04-380",
+        "CA04-381",
+        "CA04-387",
+        "CA04-389",
+        "CA04-395",
+        "CA04-396",
+        "CA04-398",
+        "CA04-399",
+        "CA04-400",
+        "CA05-401",
+        "CA05-406",
+        "CA05-407",
+        "CA05-408",
+        "CA05-421",
+        "CA05-425",
+        "CA05-426",
+        "CA05-427",
+        "CA05-428",
+        "CA05-430",
+        "CA05-431",
+        "CA05-432",
+        "CA05-434",
+        "CA05-440",
+        "CA05-444"
       ],
       "source_context_schema": "REVIEW_COMPLETE_CONTEXT_V0_1"
     }
