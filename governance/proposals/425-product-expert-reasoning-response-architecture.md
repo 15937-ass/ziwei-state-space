@@ -5,7 +5,7 @@ Tracking Issue: #425
 Risk: **R3 / Human Gate**  
 Lane: **GOVERNANCE_ONLY**
 
-## 1. Motivation
+## Motivation
 
 Product v0.3 已经建立了 deterministic chart、canonical natal、temporal environment、personal state、manifestation、calibration 与 decision support 的长期方向，但现阶段出现了明显的结构性失衡：
 
@@ -35,7 +35,7 @@ Product v0.3 已经建立了 deterministic chart、canonical natal、temporal en
 
 ---
 
-## 2. Goals
+## Goals
 
 ### 2.1 建立五个永久隔离的核心对象
 
@@ -104,7 +104,7 @@ Chart -> N -> E_t -> τ_t -> M0
 
 ---
 
-## 3. Non-Goals
+## Non-Goals
 
 本 Proposal 不：
 
@@ -119,6 +119,10 @@ Chart -> N -> E_t -> τ_t -> M0
 - 宣称斗数现实预测有效。
 
 ---
+
+## Proposed Design
+
+以下第 4–17 节构成 Product v0.4 的详细设计：来源与认识论隔离、六层产品架构、响应中间态、专家案例计划、Knowledge→Product contract、评估、当前/未来工作与测试。
 
 ## 4. Source and epistemic separation
 
@@ -672,7 +676,19 @@ evaluation
 
 ---
 
-## 16. Testing strategy
+## Risks and Failure Modes
+
+主要风险：
+- 把案例记忆误当成方法学习；
+- 把其他流派的语义污染到中州 canonical core；
+- 把 Response Semantics compatibility 误当成 execution eligibility；
+- 让 LLM planner 越权成为 truth engine；
+- 把 expert-case fidelity 误报成现实预测有效；
+- 在符号垂直链未跑通前过早建设 Bayesian/neural/causal/control 层。
+
+控制方式：source provenance、allowed-use、school namespace、canonical verifier、LOCO/cross-school benchmark、Forecast Ledger 与 stage gate。
+
+## Test Plan
 
 除现有 deterministic regression 外，增加：
 
@@ -706,7 +722,7 @@ production ready
 
 ---
 
-## 18. Migration
+## Migration Plan
 
 本 Proposal 首次只修改：
 - Product authoritative roadmap；
@@ -721,14 +737,14 @@ production ready
 
 ---
 
-## 19. Rollback
+## Rollback Plan
 
 回滚本 Proposal 实施 PR 即恢复 v0.3。
 由于本 Proposal 不修改 runtime / canonical data，因此 rollback 不需迁移用户数据或知识规则。
 
 ---
 
-## 20. Graduation criteria
+## Graduation Criteria
 
 满足全部条件：
 - Product v0.4 成为 authoritative roadmap；
@@ -744,7 +760,7 @@ production ready
 
 ---
 
-## 21. Human Gate
+## Human Gate
 
 PI 于 2026-10-20 在完整架构讨论后明确要求将该设计和安排写入 Git。
 
@@ -757,7 +773,7 @@ PI 于 2026-10-20 在完整架构讨论后明确要求将该设计和安排写�
 
 ---
 
-## 22. Decision
+## Decision
 
 **APPROVED.**
 
