@@ -70,3 +70,14 @@ def test_no_defaults_numericization_or_execution_unlock():
     assert g["numeric_weights_added"] is False
     assert g["probabilities_added"] is False
     assert g["product_runtime_modified"] is False
+
+def test_explicit_lists_preserve_source_quantifier_uncertainty():
+    n={r["source_rule_id"]:r for r in load(NORM)["records"]}
+    for rid in ["CA03-289","CA04-391","CA05-433","CA05-484"]:
+        assert "SOURCE_LIST_QUANTIFIER_UNSPECIFIED" in n[rid]["blockers_after"]
+    assert "TRANSFORMATION_CARRIER_UNSPECIFIED" in n["CA05-423"]["blockers_after"]
+
+def test_normalization_does_not_inflate_no_blocker_count():
+    c2,c3=load(C2),load(C3)
+    assert c2["summary"]["rows_with_no_current_activation_blocker"]==17
+    assert c3["summary"]["rows_with_no_current_activation_blocker"]==17
