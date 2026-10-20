@@ -1,0 +1,1733 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP08-CAREER-ORDINAL-CANDIDATE-AUDIT-v0.1",
+  "lane": "KNOWLEDGE_ONLY",
+  "issue": 461,
+  "scan_scope": {
+    "source_id": "SRC-ZZ-003",
+    "printed_pages": [
+      132,
+      155
+    ],
+    "source_spans_scanned": 24
+  },
+  "scan_policy": "Broad lexical recall followed by conservative source-preserving normalization.",
+  "candidate_markers": [
+    "最喜/最喜欢/最不喜/最嫌/最畏",
+    "最宜/最不宜/最为适宜",
+    "尤其/尤以/尤然/尤甚/尤重",
+    "优于/不如/不及/稍逊/重于/远比",
+    "上格/次之/第一",
+    "较大/较小/较轻/较下",
+    "名大于利/名重于利/权大于利",
+    "煞轻/煞重/重重/均弱/力量微薄"
+  ],
+  "summary": {
+    "candidate_sentences": 131,
+    "accepted": 118,
+    "excluded": 13,
+    "normalized_constraints": 130,
+    "exclusion_reason_counts": {
+      "BACKGROUND_HISTORICAL_COMPARISON_NOT_ZIWEI_CONSTRAINT": 1,
+      "OCR_UNSAFE_COMPOUND_SENTENCE": 1,
+      "VALUATION_WITHOUT_RELATIVE_ORDER": 5,
+      "OUTCOME_TARGET_MAGNITUDE_NOT_RULE_STRENGTH": 1,
+      "OCR_UNSAFE_DEGREE_WORDING": 1,
+      "OCR_UNSAFE_TARGET_ENTITY": 1,
+      "OCR_UNSAFE_CONDITION_SCOPE": 1,
+      "VALUATION_WITHOUT_STABLE_COMPARATOR": 1,
+      "LEXICAL_FALSE_POSITIVE_FIRST_SEAT": 1
+    }
+  },
+  "records": [
+    {
+      "candidate_id": "ORD-CAND-001",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 132,
+      "span_id": "ZZ003-P132",
+      "sentence_index": 7,
+      "source_sentence": "古人行业单纯，不及现代复杂。",
+      "disposition": "EXCLUDED",
+      "reason": "BACKGROUND_HISTORICAL_COMPARISON_NOT_ZIWEI_CONSTRAINT",
+      "constraint_ids": []
+    },
+    {
+      "candidate_id": "ORD-CAND-002",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 132,
+      "span_id": "ZZ003-P132",
+      "sentence_index": 15,
+      "source_sentence": "尤其是当夫妻宫星曜有宝贵的性质时，有时为利于夫妻合作创业的征兆。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-001"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-003",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 132,
+      "span_id": "ZZ003-P132",
+      "sentence_index": 19,
+      "source_sentence": "故本宫星曜远比对宫星曜为重要。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-002"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-004",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 132,
+      "span_id": "ZZ003-P132",
+      "sentence_index": 30,
+      "source_sentence": "事业夫妻两宫，最不喜一麓地空，一隧地劫(此唯寅申两富有之则主因受配偶影响而致事业不利(例如因迁就配偶，自己牺牲一份较优厚的职位等)但彼此又不能迁就到底，故亦常影响婚姻。",
+      "disposition": "EXCLUDED",
+      "reason": "OCR_UNSAFE_COMPOUND_SENTENCE",
+      "constraint_ids": []
+    },
+    {
+      "candidate_id": "ORD-CAND-005",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 133,
+      "span_id": "ZZ003-P133",
+      "sentence_index": 4,
+      "source_sentence": "这是因为见煞则主社会地位较低，或由低位发展至高地位，故在古代即适宜于经商(商人社会地位较低；",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-003"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-006",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 133,
+      "span_id": "ZZ003-P133",
+      "sentence_index": 9,
+      "source_sentence": "事业宫最不宜见陀罗，不但事业发展缓慢，而且往往有名无实，权力被挂空，有时亦主事业反覆，难安居以坐享其成。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-004"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-007",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 133,
+      "span_id": "ZZ003-P133",
+      "sentence_index": 32,
+      "source_sentence": "紫微化科在事业宫，主名大于利，故以自由职业，或专业人士为宜。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-005"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-008",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 133,
+      "span_id": "ZZ003-P133",
+      "sentence_index": 39,
+      "source_sentence": "以命宫或财帛宫得禄为贵。",
+      "disposition": "EXCLUDED",
+      "reason": "VALUATION_WITHOUT_RELATIVE_ORDER",
+      "constraint_ids": []
+    },
+    {
+      "candidate_id": "ORD-CAND-009",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 134,
+      "span_id": "ZZ003-P134",
+      "sentence_index": 2,
+      "source_sentence": "子午紫微化权，则利事业而不利婚姻，女命尤然。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-006"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-010",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 134,
+      "span_id": "ZZ003-P134",
+      "sentence_index": 4,
+      "source_sentence": "一一凡女命权星在事业宫者，皆须注意婚姻，紫微尤然耳。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-007"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-011",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 134,
+      "span_id": "ZZ003-P134",
+      "sentence_index": 8,
+      "source_sentence": "子午紫微化科，无论有煞无煞，皆主名大于利。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-008"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-012",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 135,
+      "span_id": "ZZ003-P135",
+      "sentence_index": 14,
+      "source_sentence": "[紫相]守事业宫，常居副贰，虽实际工作独当～面，而名义则不如实际。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-009"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-013",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 135,
+      "span_id": "ZZ003-P135",
+      "sentence_index": 17,
+      "source_sentence": "最喜巨门化禄来夹，主得道多助，故亦可从政。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-010"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-014",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 135,
+      "span_id": "ZZ003-P135",
+      "sentence_index": 29,
+      "source_sentence": "『紫杀』最喜紫微化科，可加强管理领导之力。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-011"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-015",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 135,
+      "span_id": "ZZ003-P135",
+      "sentence_index": 31,
+      "source_sentence": "『紫杀』见煞忌，一生必有破败，煞忌重者，且虽东山复起。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-012"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-016",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 135,
+      "span_id": "ZZ003-P135",
+      "sentence_index": 38,
+      "source_sentence": "但亦必先发生一次改变，然后才能从事较为稳定的事业。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-013"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-017",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 136,
+      "span_id": "ZZ003-P136",
+      "sentence_index": 26,
+      "source_sentence": "子宫天移不如午宫。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-014"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-018",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 136,
+      "span_id": "ZZ003-P136",
+      "sentence_index": 36,
+      "source_sentence": "则服务机构局面较大。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-015"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-019",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 136,
+      "span_id": "ZZ003-P136",
+      "sentence_index": 44,
+      "source_sentence": "见巨门化权，宜口舌生财，故最宜从事销售部门之监管计划工作：有时亦可从事自由职业，如传播、广告、计划、推广等。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-016"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-020",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 137,
+      "span_id": "ZZ003-P137",
+      "sentence_index": 10,
+      "source_sentence": "唯巨门化禄则较优。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-017"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-021",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 137,
+      "span_id": "ZZ003-P137",
+      "sentence_index": 12,
+      "source_sentence": "尤忌投机。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-018"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-022",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 137,
+      "span_id": "ZZ003-P137",
+      "sentence_index": 27,
+      "source_sentence": "天机天梁喜会太阳化禄，则须先建立地位而后寻求较高收入；",
+      "disposition": "EXCLUDED",
+      "reason": "OUTCOME_TARGET_MAGNITUDE_NOT_RULE_STRENGTH",
+      "constraint_ids": []
+    },
+    {
+      "candidate_id": "ORD-CAND-023",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 138,
+      "span_id": "ZZ003-P138",
+      "sentence_index": 11,
+      "source_sentence": "但小心此格有许多变格，例如文昌化忌，即其研究一生质便宜带有较低层次色彩。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-019"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-024",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 138,
+      "span_id": "ZZ003-P138",
+      "sentence_index": 17,
+      "source_sentence": ")太阳与火铃羊陀同度，其动更甚，故宜从事本质奔忙变动的行业。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-020"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-025",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 138,
+      "span_id": "ZZ003-P138",
+      "sentence_index": 19,
+      "source_sentence": "太阳主散，故容易流为空虚不实，加空劫者尤然。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-021"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-026",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 138,
+      "span_id": "ZZ003-P138",
+      "sentence_index": 25,
+      "source_sentence": "若太阳昌曲同躔，其贵反而较轻，仅主其事业与文艺有关，或与传播、公关、演艺等有关。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-022"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-027",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 139,
+      "span_id": "ZZ003-P139",
+      "sentence_index": 9,
+      "source_sentence": "子午宫太阳，与天梁对拱，名重于利，最宜专业工作，或建立商标商誉。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-023",
+        "OC-024"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-028",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 139,
+      "span_id": "ZZ003-P139",
+      "sentence_index": 10,
+      "source_sentence": "卯酉寓太阳天梁同度，亦为名重于利，亦宜专业工作，但事业却较子午宫者不稳定，尤以酉宫者为然，必须日夜奔忙，或不居一地，或时时更换工作环境。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-025",
+        "OC-026",
+        "OC-027"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-029",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 139,
+      "span_id": "ZZ003-P139",
+      "sentence_index": 11,
+      "source_sentence": "太阳天梁的星系，最宜从事医药、保险等服务性行业。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-028"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-030",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 139,
+      "span_id": "ZZ003-P139",
+      "sentence_index": 33,
+      "source_sentence": "太阳太阴与空劫同度，其由空中楼阁创造事业的能机一般较太阳天梁星系为弱。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-029"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-031",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 140,
+      "span_id": "ZZ003-P140",
+      "sentence_index": 1,
+      "source_sentence": "巳亥宫太阳守事业宫，对宫必为巨门，本质亦与寅申宫者相近，但外务性质则更重，巳宫者又重于亥宫。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-030",
+        "OC-031"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-032",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 140,
+      "span_id": "ZZ003-P140",
+      "sentence_index": 2,
+      "source_sentence": "(以寅申二宫言，寅宫又重于申宫。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-032"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-033",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 140,
+      "span_id": "ZZ003-P140",
+      "sentence_index": 12,
+      "source_sentence": "此种性质，寅申宫重于巳亥宫。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-033"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-034",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 141,
+      "span_id": "ZZ003-P141",
+      "sentence_index": 3,
+      "source_sentence": "武曲最不喜与陀罗同度，因陀罗亦为忌星。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-034"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-035",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 141,
+      "span_id": "ZZ003-P141",
+      "sentence_index": 9,
+      "source_sentence": "唯武曲最喜会廉贞化禄，即武曲亦同时化为科星，这种吉化则有助于订为高格。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-035"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-036",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 141,
+      "span_id": "ZZ003-P141",
+      "sentence_index": 15,
+      "source_sentence": "[武曲天府]，子宫优于午宫，盖子宫者，对宫七杀在午，有火炼阴金之象，可影响[武府]之性质，经磨练而成大器，倘见辅佐诸曜同拱，更宜行伍出身。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-036",
+        "OC-037"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-037",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 141,
+      "span_id": "ZZ003-P141",
+      "sentence_index": 28,
+      "source_sentence": "倘煞曜重重，则主辛霜露酸，江湖流浪。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-038"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-038",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 142,
+      "span_id": "ZZ003-P142",
+      "sentence_index": 1,
+      "source_sentence": "卯宫属木，得火星嫌火过旺，纳音属火者尤忌。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-039"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-039",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 142,
+      "span_id": "ZZ003-P142",
+      "sentence_index": 4,
+      "source_sentence": "以见吉化吉曜为佳，煞重则须防挫折。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-040"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-040",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 142,
+      "span_id": "ZZ003-P142",
+      "sentence_index": 12,
+      "source_sentence": "以见辅佐吉曜为宜，若煞忌重重，则须防凶危。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-041"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-041",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 142,
+      "span_id": "ZZ003-P142",
+      "sentence_index": 14,
+      "source_sentence": "[武破]煞轻，亦宜工程技术起家，若【武破】吉化，同时又见廉贞化禄或贪狼化橡者，亦可经商，则虽时生计较之心，但手面则异常阔绰。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-042"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-042",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 142,
+      "span_id": "ZZ003-P142",
+      "sentence_index": 21,
+      "source_sentence": "天同化禄，或与禄存同度．白手创业的意味尤其明显。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-043"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-043",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 142,
+      "span_id": "ZZ003-P142",
+      "sentence_index": 24,
+      "source_sentence": "存辰戌丑未四宫者尤确，又以在戌宫者最为上格，未宫次之。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-044",
+        "OC-045"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-044",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 142,
+      "span_id": "ZZ003-P142",
+      "sentence_index": 29,
+      "source_sentence": "故当四煞同度之时，天同若化为忌星者，则一生事业必波折重重，与天同化忌不与煞星同度者，性质截然不同。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-046"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-045",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 143,
+      "span_id": "ZZ003-P143",
+      "sentence_index": 13,
+      "source_sentence": "同时见火铃者尤确。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-047"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-046",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 143,
+      "span_id": "ZZ003-P143",
+      "sentence_index": 15,
+      "source_sentence": "唯独当一面之机会则较小。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-048"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-047",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 143,
+      "span_id": "ZZ003-P143",
+      "sentence_index": 17,
+      "source_sentence": "[天同巨门]可从事饮食业，见天厨、火星同度者尤然。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-049"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-048",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 143,
+      "span_id": "ZZ003-P143",
+      "sentence_index": 24,
+      "source_sentence": "天同忌又优于巨门化忌，艰辛较小，劳心费神较少。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-050",
+        "OC-051"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-049",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 143,
+      "span_id": "ZZ003-P143",
+      "sentence_index": 25,
+      "source_sentence": "若天同化禄，事业虽较优悠，但成就之期亦晚；",
+      "disposition": "EXCLUDED",
+      "reason": "OCR_UNSAFE_DEGREE_WORDING",
+      "constraint_ids": []
+    },
+    {
+      "candidate_id": "ORD-CAND-050",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 143,
+      "span_id": "ZZ003-P143",
+      "sentence_index": 27,
+      "source_sentence": "唯以整体成就而言，反而不及有忌星刺激者之佳。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-052"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-051",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 143,
+      "span_id": "ZZ003-P143",
+      "sentence_index": 28,
+      "source_sentence": "唯【天同巨门】而煞忌刑耗重重者，则反可能一事无成，蹉跎至老。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-053"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-052",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 144,
+      "span_id": "ZZ003-P144",
+      "sentence_index": 0,
+      "source_sentence": "中州派紫薇斗数深造讲义下144绝非表演行业，以见天梁化科者最为高格。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-054"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-053",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 144,
+      "span_id": "ZZ003-P144",
+      "sentence_index": 2,
+      "source_sentence": "见禄马交驰者更甚，火铃照会者亦甚。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-055"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-054",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 144,
+      "span_id": "ZZ003-P144",
+      "sentence_index": 18,
+      "source_sentence": "见煞者尤然。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-056"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-055",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 144,
+      "span_id": "ZZ003-P144",
+      "sentence_index": 19,
+      "source_sentence": "故最不喜空劫同会。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-057"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-056",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 144,
+      "span_id": "ZZ003-P144",
+      "sentence_index": 20,
+      "source_sentence": "廉贞守事业宫，武曲必在财帛宫，若昌曲入此两宫度(尤其是文曲与武曲同躔)，则主武职文做，或文职武做。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-058"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-057",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 144,
+      "span_id": "ZZ003-P144",
+      "sentence_index": 29,
+      "source_sentence": "亦以煞曜不居本宫为贵。",
+      "disposition": "EXCLUDED",
+      "reason": "VALUATION_WITHOUT_RELATIVE_ORDER",
+      "constraint_ids": []
+    },
+    {
+      "candidate_id": "ORD-CAND-058",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 144,
+      "span_id": "ZZ003-P144",
+      "sentence_index": 33,
+      "source_sentence": "廉贞化禄于事业宫，论富裕的程度，不及廉贞化禄守命或财帛宫。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-059"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-059",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 145,
+      "span_id": "ZZ003-P145",
+      "sentence_index": 5,
+      "source_sentence": "[廉相]会禄(武曲化禄为上，禄存次之)，或会天府化科，宜握财权。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-060"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-060",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 145,
+      "span_id": "ZZ003-P145",
+      "sentence_index": 6,
+      "source_sentence": "若禄煞交躔，则最宜任军需之职。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-061"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-061",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 145,
+      "span_id": "ZZ003-P145",
+      "sentence_index": 13,
+      "source_sentence": "[廉相]为财荫所夹，其吉比同会魁钺为更大。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-062"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-062",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 145,
+      "span_id": "ZZ003-P145",
+      "sentence_index": 18,
+      "source_sentence": "三方有煞而本宫无煞者尤确。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-063"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-063",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 145,
+      "span_id": "ZZ003-P145",
+      "sentence_index": 19,
+      "source_sentence": "若本宫有煞，则不如从事工业。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-064"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-064",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 145,
+      "span_id": "ZZ003-P145",
+      "sentence_index": 21,
+      "source_sentence": "故不如从事带血光之行业，如饮食业、化验所等，反可趋吉避凶。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-065"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-065",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 145,
+      "span_id": "ZZ003-P145",
+      "sentence_index": 26,
+      "source_sentence": "寅申宫廉贞，亦带投机性质，故若从商，最宜投身财经金融行业，负买卖之责。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-066"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-066",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 145,
+      "span_id": "ZZ003-P145",
+      "sentence_index": 28,
+      "source_sentence": "廉贞化安者尤为吉利，．可以白手成富。",
+      "disposition": "EXCLUDED",
+      "reason": "OCR_UNSAFE_TARGET_ENTITY",
+      "constraint_ids": []
+    },
+    {
+      "candidate_id": "ORD-CAND-067",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 145,
+      "span_id": "ZZ003-P145",
+      "sentence_index": 33,
+      "source_sentence": "卯西『廉破』，见煞轻者．亦带偏门或半偏门色彩，所从事行业，多外表浮华?或与酒色财气有关。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-067"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-068",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 145,
+      "span_id": "ZZ003-P145",
+      "sentence_index": 40,
+      "source_sentence": "廉府守事业宫．最喜廉贞化禄，则可成富格。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-068"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-069",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 146,
+      "span_id": "ZZ003-P146",
+      "sentence_index": 4,
+      "source_sentence": "巳亥宫[廉贞贪狼l 同度，空劫又同瞍耆，最宜艺术，尤以表演行业为宜。",
+      "disposition": "EXCLUDED",
+      "reason": "OCR_UNSAFE_CONDITION_SCOPE",
+      "constraint_ids": []
+    },
+    {
+      "candidate_id": "ORD-CAND-070",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 146,
+      "span_id": "ZZ003-P146",
+      "sentence_index": 12,
+      "source_sentence": "[廉贪]守事业宫者，亦多事业上的应酬，又由应酬而扩展事业，其性质与[廉破]略同，唯权力欲则稍逊。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-069"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-071",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 146,
+      "span_id": "ZZ003-P146",
+      "sentence_index": 19,
+      "source_sentence": "若煞曜同躔者尤甚。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-070"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-072",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 146,
+      "span_id": "ZZ003-P146",
+      "sentence_index": 21,
+      "source_sentence": "以得禄为贵。",
+      "disposition": "EXCLUDED",
+      "reason": "VALUATION_WITHOUT_RELATIVE_ORDER",
+      "constraint_ids": []
+    },
+    {
+      "candidate_id": "ORD-CAND-073",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 146,
+      "span_id": "ZZ003-P146",
+      "sentence_index": 23,
+      "source_sentence": "此乃[武曲天府]守事业宫的上格。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-071"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-074",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 146,
+      "span_id": "ZZ003-P146",
+      "sentence_index": 30,
+      "source_sentence": "最坏的结构是，天府落陷，天姚及文曲化忌同度，则主受骗。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-072"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-075",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 146,
+      "span_id": "ZZ003-P146",
+      "sentence_index": 33,
+      "source_sentence": "天府在事业宫，宜兼视财帛宫之天相，以得财荫夹者为上格。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-073"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-076",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 147,
+      "span_id": "ZZ003-P147",
+      "sentence_index": 12,
+      "source_sentence": "以任职公司机构为宜，更不宜从政。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-074"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-077",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 147,
+      "span_id": "ZZ003-P147",
+      "sentence_index": 16,
+      "source_sentence": "巳亥宫天府，仅慎之心较小，故事业往往带浮夸性质。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-075"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-078",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 147,
+      "span_id": "ZZ003-P147",
+      "sentence_index": 17,
+      "source_sentence": "有煞者更甚。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-076"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-079",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 147,
+      "span_id": "ZZ003-P147",
+      "sentence_index": 24,
+      "source_sentence": "若见科文诸曜，又见桃花诸曜来会，则主艺术成衾、更宜表演艺术。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-077"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-080",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 147,
+      "span_id": "ZZ003-P147",
+      "sentence_index": 26,
+      "source_sentence": "太阴入庙，或[机月同梁]格，得太阴化禄，天同化权，天机化科，而不见巨门化忌，又不见煞曜者，则反宜任职军警界，或刑法纪律部队，可得掌大权，此尤经夜生人为贵，曰生人次之。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-078"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-081",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 148,
+      "span_id": "ZZ003-P148",
+      "sentence_index": 11,
+      "source_sentence": "太阴最喜欢天同化禄，则亦主白手与家。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-079"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-082",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 148,
+      "span_id": "ZZ003-P148",
+      "sentence_index": 14,
+      "source_sentence": "一般情形下酉优于卯，在酉事业广大，可以扩展至外国，或一生事业与外国有关，在卯者，以任职为宜。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-080"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-083",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 148,
+      "span_id": "ZZ003-P148",
+      "sentence_index": 16,
+      "source_sentence": "若太阳化忌，则宜任职内务，若太阳化禄，则为外务人材，无化曜，则以戌宫优于辰宫。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-081"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-084",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 148,
+      "span_id": "ZZ003-P148",
+      "sentence_index": 18,
+      "source_sentence": "巳亥宫太阴，亥富优于巳宫甚多。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-082"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-085",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 148,
+      "span_id": "ZZ003-P148",
+      "sentence_index": 24,
+      "source_sentence": "化禄、化权者，此项性质尤重，故绝对适宜于外务。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-083"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-086",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 148,
+      "span_id": "ZZ003-P148",
+      "sentence_index": 25,
+      "source_sentence": "贪狼与昌曲同度，最宜公开事业，或可从事带娱乐性之传播事业。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-084"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-087",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 149,
+      "span_id": "ZZ003-P149",
+      "sentence_index": 9,
+      "source_sentence": "有煞曜同度者更甚，空劫同度则主因竞争而遭挫折。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-085"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-088",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 149,
+      "span_id": "ZZ003-P149",
+      "sentence_index": 18,
+      "source_sentence": "寅申宫贪狼与廉贞相对，最不宜陀罗同度。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-086"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-089",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 149,
+      "span_id": "ZZ003-P149",
+      "sentence_index": 32,
+      "source_sentence": "太阳入庙会照则吉，若太阳落陷，则格局较下。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-087"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-090",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 149,
+      "span_id": "ZZ003-P149",
+      "sentence_index": 35,
+      "source_sentence": "尤其当巨门化忌之时，若不从事依赖口才，或费劳唇舌的行业，则反招是非口舌。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-088"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-091",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 149,
+      "span_id": "ZZ003-P149",
+      "sentence_index": 36,
+      "source_sentence": "即使巨门为入庙的太阳会照，．亦仅主是非较轻而已。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-089"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-092",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 150,
+      "span_id": "ZZ003-P150",
+      "sentence_index": 4,
+      "source_sentence": "以巨辩证化禄为贵，化权亦可，化忌带偏门，或一半牵涉政治。",
+      "disposition": "EXCLUDED",
+      "reason": "VALUATION_WITHOUT_STABLE_COMPARATOR",
+      "constraint_ids": []
+    },
+    {
+      "candidate_id": "ORD-CAND-093",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 150,
+      "span_id": "ZZ003-P150",
+      "sentence_index": 14,
+      "source_sentence": "但仍不宜出锋头，亦不宜坐第一把交椅，否则事业又因竞争、排挤而致冷退。",
+      "disposition": "EXCLUDED",
+      "reason": "LEXICAL_FALSE_POSITIVE_FIRST_SEAT",
+      "constraint_ids": []
+    },
+    {
+      "candidate_id": "ORD-CAND-094",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 150,
+      "span_id": "ZZ003-P150",
+      "sentence_index": 28,
+      "source_sentence": "若带艺术气质者尤佳。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-090"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-095",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 150,
+      "span_id": "ZZ003-P150",
+      "sentence_index": 30,
+      "source_sentence": "巳亥宫巨门太阳相对，亥宫优于巳宫。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-091"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-096",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 150,
+      "span_id": "ZZ003-P150",
+      "sentence_index": 33,
+      "source_sentence": "故以同会文昌、文曲为贵。",
+      "disposition": "EXCLUDED",
+      "reason": "VALUATION_WITHOUT_RELATIVE_ORDER",
+      "constraint_ids": []
+    },
+    {
+      "candidate_id": "ORD-CAND-097",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 150,
+      "span_id": "ZZ003-P150",
+      "sentence_index": 35,
+      "source_sentence": "巳亥巨门见煞忌(尤以巳宫者为甚)，则事业多虎头蛇尾，终无结局。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-092"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-098",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 151,
+      "span_id": "ZZ003-P151",
+      "sentence_index": 4,
+      "source_sentence": "如此则所得利益便应较大。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-093"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-099",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 151,
+      "span_id": "ZZ003-P151",
+      "sentence_index": 6,
+      "source_sentence": "天相与紫微化权相会一名大于利，亦权大于利。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-094",
+        "OC-095"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-100",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 151,
+      "span_id": "ZZ003-P151",
+      "sentence_index": 8,
+      "source_sentence": "天相与紫微化科相会，亦名大于利，虽独当一面，但却往往易受架空，必须同时见辅佐吉曜然后始有主有名可实。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-096"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-101",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 151,
+      "span_id": "ZZ003-P151",
+      "sentence_index": 22,
+      "source_sentence": "丑未天相守事业宫，若有桃花，最宜从事酒色财气事业。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-097"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-102",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 151,
+      "span_id": "ZZ003-P151",
+      "sentence_index": 26,
+      "source_sentence": "卯酉天相与[廉贞破军]相对，以卯宫较佳，因为寅宫的太阳所来，较为光辉。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-098"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-103",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 151,
+      "span_id": "ZZ003-P151",
+      "sentence_index": 28,
+      "source_sentence": "若从商，最宜为商品代理，若任职，则宜为跨国机构一地之首脑。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-099"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-104",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 152,
+      "span_id": "ZZ003-P152",
+      "sentence_index": 12,
+      "source_sentence": "天梁化禄于事业宫，若从事财务稽核之职者，最为适宜。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-100"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-105",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 152,
+      "span_id": "ZZ003-P152",
+      "sentence_index": 22,
+      "source_sentence": "尤以在巳宫者，从政则有特殊任务，从商亦别有目的手段。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-101"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-106",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 152,
+      "span_id": "ZZ003-P152",
+      "sentence_index": 23,
+      "source_sentence": "是则以同和大众为第一要务。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-102"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-107",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 152,
+      "span_id": "ZZ003-P152",
+      "sentence_index": 30,
+      "source_sentence": "子午宫天梁，最嫌太阳化忌，除非从事刑法纪律，或招人畏忌的行业，甚至所谓[厌恶性行业]而带服务色彩者，否则反招是非尤怨，或在职务上替人受过。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-103"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-108",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 152,
+      "span_id": "ZZ003-P152",
+      "sentence_index": 32,
+      "source_sentence": "若太阴化忌尤甚，自行经营，往往计划出错，俏无足够资历，学历，则仅宜从事零售业。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-104"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-109",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 152,
+      "span_id": "ZZ003-P152",
+      "sentence_index": 38,
+      "source_sentence": "巳亥天梁，最畏借会巨门化忌，最喜借会巨门化禄。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-105",
+        "OC-106"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-110",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 153,
+      "span_id": "ZZ003-P153",
+      "sentence_index": 2,
+      "source_sentence": "13 七杀七杀居事业宫，主管理能力强，尤以紫微七杀为然。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-107"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-111",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 153,
+      "span_id": "ZZ003-P153",
+      "sentence_index": 5,
+      "source_sentence": "凡管理，必须恩威并济，七杀守事业宫者，威有馀而恩不足，[紫微七杀]尤然。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-108"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-112",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 153,
+      "span_id": "ZZ003-P153",
+      "sentence_index": 6,
+      "source_sentence": "故以得辅弼、魁铖、三台八座朝拱同会者为贵，得此则自能则柔相济，虽千万人皆能号令。",
+      "disposition": "EXCLUDED",
+      "reason": "VALUATION_WITHOUT_RELATIVE_ORDER",
+      "constraint_ids": []
+    },
+    {
+      "candidate_id": "ORD-CAND-113",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 153,
+      "span_id": "ZZ003-P153",
+      "sentence_index": 7,
+      "source_sentence": "七杀不宜与煞曜同度，火铃同会者更不宜，从事武职或人事管理，皆主生枝节，甚且有意外，或风波重重。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-109",
+        "OC-110"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-114",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 153,
+      "span_id": "ZZ003-P153",
+      "sentence_index": 8,
+      "source_sentence": "七杀有煞曜同度，最宜一技傍身，故必需学习专门技术，不宜管理。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-111"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-115",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 153,
+      "span_id": "ZZ003-P153",
+      "sentence_index": 17,
+      "source_sentence": "七杀守事业宫者(命宫亦如之)，必须注意后天培养，尤以人和为第一，技能训练次之。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-112",
+        "OC-113"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-116",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 153,
+      "span_id": "ZZ003-P153",
+      "sentence_index": 24,
+      "source_sentence": "子午宫七杀，与『武曲天府』相对，有煞者最宜工艺设计，主有独特概念，易为欣赏。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-114"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-117",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 154,
+      "span_id": "ZZ003-P154",
+      "sentence_index": 0,
+      "source_sentence": "中州派紫薇斗数深造讲义下154会破军化禄者，一生至少有一次重要行业变动，会贪狼化禄者，从商为宜，仍不宜投机，会紫微化科，天府化科者，名大于利，以争取学历，资历为生，财帛多寡，视此而定。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-115"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-118",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 154,
+      "span_id": "ZZ003-P154",
+      "sentence_index": 6,
+      "source_sentence": "辰戌七杀守事业宫，亦一定生名大于利。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-116"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-119",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 154,
+      "span_id": "ZZ003-P154",
+      "sentence_index": 7,
+      "source_sentence": "最喜见廉贞化禄、破军化权，则权利皆重。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-117"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-120",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 154,
+      "span_id": "ZZ003-P154",
+      "sentence_index": 11,
+      "source_sentence": "14 破军破军守事业宫，大致略向七杀，其主要分别为七杀之开创力不如破军，然而风险亦较破军为小一一七杀守事业宫，虽必有一段时期困境，只需不投机，纵有挫折，终能东山复起，而破军则可能一蹶不振，且于顺境之时，亦必见风波，仅能安然渡过而己。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-118",
+        "OC-119"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-121",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 154,
+      "span_id": "ZZ003-P154",
+      "sentence_index": 12,
+      "source_sentence": "以事业性质言，破军不与煞忌同躔，三方亦煞轻者，可以武职荣身。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-120"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-122",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 154,
+      "span_id": "ZZ003-P154",
+      "sentence_index": 13,
+      "source_sentence": "化禄、化权尤佳，更见辅佐吉曜同会，则富贵不力。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-121"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-123",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 154,
+      "span_id": "ZZ003-P154",
+      "sentence_index": 18,
+      "source_sentence": "以毅力言，破军优于七杀。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-122"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-124",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 155,
+      "span_id": "ZZ003-P155",
+      "sentence_index": 4,
+      "source_sentence": "化禄、权时尤甚。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-123"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-125",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 155,
+      "span_id": "ZZ003-P155",
+      "sentence_index": 8,
+      "source_sentence": "女命破军于子午守事业宫，主夫唱妇随，最宜与丈夫合作创业。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-124"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-126",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 155,
+      "span_id": "ZZ003-P155",
+      "sentence_index": 10,
+      "source_sentence": "若武曲化忌，只利从工，亦有风波意外，唯风险毕竟较小。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-125"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-127",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 155,
+      "span_id": "ZZ003-P155",
+      "sentence_index": 12,
+      "source_sentence": "最不宜从商，主财不足以济其用，往往因此损失，挫败。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-126"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-128",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 155,
+      "span_id": "ZZ003-P155",
+      "sentence_index": 14,
+      "source_sentence": "空劫同度者更甚。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-127"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-129",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 155,
+      "span_id": "ZZ003-P155",
+      "sentence_index": 18,
+      "source_sentence": "故最喜见魁铖。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-128"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-130",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 155,
+      "span_id": "ZZ003-P155",
+      "sentence_index": 19,
+      "source_sentence": "若无吉曜，又无煞曜(或二者均见，但力量微薄者)则必须一技傍身始能生发。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-129"
+      ]
+    },
+    {
+      "candidate_id": "ORD-CAND-131",
+      "source_id": "SRC-ZZ-003",
+      "printed_page": 155,
+      "span_id": "ZZ003-P155",
+      "sentence_index": 21,
+      "source_sentence": "煞重者，宜技术谋生，不宜自行经营。",
+      "disposition": "ACCEPTED",
+      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
+      "constraint_ids": [
+        "OC-130"
+      ]
+    }
+  ]
+}
