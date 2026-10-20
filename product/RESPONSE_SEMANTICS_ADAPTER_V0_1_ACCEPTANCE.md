@@ -39,6 +39,10 @@ Status: **IMPLEMENTED / VALIDATION PENDING**
 | explicit antecedent dependencies | **64** | latest #458 closure |
 | relation-bound source rows | **132** | Relation Binding input |
 | category-reviewed occurrences | **59** | Category input |
+| Career ordinal constraints consumed | **130** | latest Knowledge #461 / PR #463 |
+| ordinal runtime unlock | **0** | source registry preserved |
+| ordinal numericized constraints | **0** | non-numeric boundary |
+| ordinal transitive closure authorized | **0** | source-local boundary |
 | closed-world absence gates preserved | PASS | 23 rows + evidence precondition |
 | relation binding != member realization | PASS | no execution inference |
 | open category != closed membership | PASS | category statuses preserved |
@@ -94,6 +98,18 @@ Latest Knowledge #458 / PR #460 state is used:
 - explicit antecedent dependency rows -> 64。
 
 Product does not reinterpret these source corrections; it only consumes the latest closure.
+
+## Concurrent ordinal registry consumed
+
+Knowledge #461 / PR #463 merged while this Product work unit was validating. The final branch therefore synchronizes latest main and consumes `CAREER_ORDINAL_CONSTRAINTS_v0.1.json` read-only.
+
+The 130 normalized constraints remain:
+- source/scoped qualitative constraints;
+- product_execution_unlocked=false;
+- transitive_closure_allowed=false;
+- numeric fields null.
+
+No ordinal constraint is converted into a Product weight, global ordering, probability, or runtime effect.
 
 ## Maturity claim
 
