@@ -96,12 +96,6 @@ class RenderedSentenceTrace:
             raise ValueError("RenderedSentenceTrace.claim_ids must be unique")
 
 
-def _default_origin(claim) -> ClaimOrigin:
-    namespaces = {ref.namespace.value for ref in claim.evidence_refs}
-    if "TEMPORAL" in namespaces:
-        return ClaimOrigin.RUNTIME_TEMPORAL
-    return ClaimOrigin.RUNTIME_CANONICAL
-
 
 def build_dual_output(
     *,
