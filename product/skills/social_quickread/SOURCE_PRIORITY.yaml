@@ -1,0 +1,41 @@
+schema_version: "0.1"
+skill: social_quickread
+school: ZHONGZHOU
+
+truth_priority:
+  - rank: 1
+    source_type: project_executable_canonical
+    usage: fact_claim
+    note: "已审核并进入 canonical/runtime 的中州派规则。"
+  - rank: 2
+    source_type: project_reviewed_zhongzhou_asset
+    usage: upstream_candidate_only
+    note: "不得由 Product Skill 自行升级成 canonical truth。"
+  - rank: 3
+    source_type: approved_zhongzhou_primary
+    usage: knowledge_review_input
+    sources:
+      - "王亭之《中州派紫微斗数初级讲义》"
+      - "中州派-紫微斗数深造讲义(上册)"
+      - "中州派-紫微斗数深造讲义(下册)"
+      - "王亭之-安星法与推断实例"
+      - "王亭之-斗数四书（一）：太微赋与形性赋"
+      - "王亭之-斗数四书（二）：骨髓赋与女命骨髓赋"
+  - rank: 4
+    source_type: classical_with_zhongzhou_attribution
+    usage: supporting_context_only
+    sources:
+      - "紫微斗数全书"
+
+style_only:
+  - "紫薇斗数话术研究.pdf"
+  - "PI gold quick-read examples"
+
+forbidden_as_implicit_truth:
+  - "模型预训练记忆中的紫微知识"
+  - "未注明来源的网络口诀"
+  - "钦天四化规则"
+  - "河洛规则"
+  - "其他流派未经 adapter 对齐的解释"
+
+fail_closed: true
