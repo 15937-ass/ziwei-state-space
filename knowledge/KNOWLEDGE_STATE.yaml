@@ -4,12 +4,12 @@ authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  status: "ACTIVE"
+  status: "ACTIVE_NO_ACTIVE_WORK"
   program: "KB_WP07A"
-  active_issue: 362
+  active_issue: null
   active_pr: null
   canonical_main_checkpoint: "CAREER_CA09_FINAL"
-  resume_entry: "Complete Issue #362 next100 Career reviews in one publication batch (internal50+50). Preserve separate complete/methodology/blocked/production counts; source-reviewed888 is not increased by duplicate review."
+  resume_entry: "Issue #362 completed by PR #366:100 reviewed,20 new complete condition mappings,30 methodology/context,50 blocked outcome mappings,0 production additions. Unique structured IDs52->152; canonical source-reviewed888 unchanged. PI reporting cadence100 per unit, internal50+50; no next unit selected."
   resume_issue: 362
   last_state_sync_issue: 362
 
@@ -78,6 +78,11 @@ completed_work_units:
     pr: 360
     status: "MERGED_8_NON_EXECUTABLE_CONDITION_MAPPINGS"
 
+  - work_unit: "KB-WP07A-CAREER-100-REVIEW-01"
+    issue: 362
+    pr: 366
+    status: "MERGED_100_REVIEWED_20_MAPPED_30_CONTEXT_50_BLOCKED"
+
 archived_noncanonical_snapshots:
   wp05_all_twelve_palaces:
     pr: 272
@@ -99,7 +104,7 @@ resume_queue_reference:
   legacy_integration_issue: 278
   completed_career_closure_pr: 294
   completed_temporal_eligibility_pr: 301
-  note: "Legacy Issue #278 is historical and closed. PR #272 remains a non-canonical comparison snapshot and must be audited segment by segment. Recent merged Career Knowledge mappings are #305, #308, #315, #322, #328, #331 and #335; Issue #334 is completed; Issue #347 is completed by #349; Issue #352 completed by #355; Issue #357 completed by #360; active Knowledge work is Issue #362,100-rule batch."
+  note: "Legacy Issue #278 is historical and closed. PR #272 remains a non-canonical comparison snapshot and must be audited segment by segment. Recent merged Career Knowledge mappings are #305, #308, #315, #322, #328, #331 and #335; Issue #334 is completed; Issue #347 is completed by #349; Issue #352 completed by #355; Issue #357 completed by #360; Issue #362 completed by #366; next unit not selected; PI reporting batch100 rules."
 
 human_gate:
   pending_on_main: null
