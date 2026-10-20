@@ -1,0 +1,43 @@
+# Local secrets and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+.secrets/
+secrets.local.*
+credentials.local.*
+
+# Python local/runtime artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+.venv/
+venv/
+
+# Node local dependencies and logs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local editor / OS state
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Temporary local files
+*.tmp
+*.swp
+*~
