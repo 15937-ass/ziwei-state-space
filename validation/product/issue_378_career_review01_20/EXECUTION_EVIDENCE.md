@@ -51,3 +51,8 @@ validation and Product regressions are all green.
 
 Passing deterministic gates will establish source/condition execution integrity only. It will
 not establish empirical prediction accuracy, event certainty, temporal activation or numeric probability.
+
+
+## Dependency resolution and final rerun
+
+Knowledge #382 merged to main as commit `0e470688568d082b845866bd296bf559cf688080` after G8 validation (1018 passed, P0 PASS, Knowledge governance PASS). The stale permanent Product-absence assertion is now replaced by Knowledge-owned non-production invariants. This Product PR is being retriggered against the updated main; final acceptance requires the new repository-quality and all Product P1/B02 runs to pass.
