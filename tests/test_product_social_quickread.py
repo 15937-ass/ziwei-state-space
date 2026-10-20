@@ -4,8 +4,12 @@ from src.product.social_quickread import (
     AssertionMode,
     EvidenceNamespace,
     QuickReadClaim,
+    QuickReadConversationContext,
+    QuickReadDomain,
     QuickReadEvidenceRef,
     QuickReadPackage,
+    QuickReadScope,
+    QuickReadScopePreset,
     QuickReadTopic,
     evidence_rule_ids,
     lint_rendered_text,
@@ -25,6 +29,27 @@ def _ref(
         source_location="p.1",
         review_status="REVIEWED",
         school=school,
+    )
+
+
+def _claim(
+    claim_id,
+    topic,
+    proposition,
+    *,
+    namespace=EvidenceNamespace.CANONICAL,
+    target_period="",
+    domains=(),
+    mode=AssertionMode.DIRECT_TENDENCY,
+):
+    return QuickReadClaim(
+        claim_id=claim_id,
+        topic=topic,
+        proposition=proposition,
+        assertion_mode=mode,
+        evidence_refs=(_ref(namespace, rid=f"ZZ-{claim_id}"),),
+        target_period=target_period,
+        domains=domains,
     )
 
 
@@ -77,33 +102,140 @@ def test_current_relationship_requires_temporal_and_non_direct_mode():
 
 
 def test_specific_year_requires_temporal_evidence_and_period():
-    claim = QuickReadClaim(
-        claim_id="y1",
-        topic=QuickReadTopic.SPECIFIC_YEAR,
-        proposition="这一年做事阻力偏大",
-        assertion_mode=AssertionMode.DIRECT_TENDENCY,
-        evidence_refs=(_ref(EvidenceNamespace.TEMPORAL, rid="ZZ-T2"),),
+    claim = _claim(
+        "y1",
+        QuickReadTopic.SPECIFIC_YEAR,
+        "这一年做事阻力偏大",
+        namespace=EvidenceNamespace.TEMPORAL,
         target_period="2024",
     )
     claim.validate()
 
 
-def test_verbalizer_payload_hides_source_and_raw_evidence():
-    claim = QuickReadClaim(
-        claim_id="c1",
-        topic=QuickReadTopic.PERSONALITY,
-        proposition="整体务实，有行动力",
-        assertion_mode=AssertionMode.DIRECT_TENDENCY,
-        evidence_refs=(_ref(),),
+def test_relationship_scope_selects_only_relationship_claims_including_year_tags():
+    claims = (
+        _claim("p1", QuickReadTopic.PERSONALITY, "主体性强"),
+        _claim(
+            "r1",
+            QuickReadTopic.PARTNER_PREFERENCE,
+            "喜欢果决利落的类型",
+        ),
+        _claim(
+            "y1",
+            QuickReadTopic.SPECIFIC_YEAR,
+            "2025年感情互动明显",
+            namespace=EvidenceNamespace.TEMPORAL,
+            target_period="2025",
+            domains=(QuickReadDomain.RELATIONSHIP,),
+            mode=AssertionMode.TENDENCY,
+        ),
+        _claim(
+            "y2",
+            QuickReadTopic.SPECIFIC_YEAR,
+            "2025年学习工作有变动",
+            namespace=EvidenceNamespace.TEMPORAL,
+            target_period="2025",
+            domains=(QuickReadDomain.STUDY_WORK,),
+        ),
     )
+    package = QuickReadPackage(
+        claims=claims,
+        knowledge_version="kb-test",
+        scope=QuickReadScope(preset=QuickReadScopePreset.RELATIONSHIP),
+    )
+    assert [item.claim_id for item in package.selected_claims()] == ["r1", "y1"]
+    payload = package.verbalizer_payload()
+    assert payload["scope"]["preset"] == "relationship"
+    assert {item["claim_id"] for item in payload["claims"]} == {"r1", "y1"}
+
+
+def test_custom_scope_can_limit_to_one_topic_and_period():
+    claims = (
+        _claim(
+            "y24",
+            QuickReadTopic.SPECIFIC_YEAR,
+            "2024年感情压力偏大",
+            namespace=EvidenceNamespace.TEMPORAL,
+            target_period="2024",
+            domains=(QuickReadDomain.RELATIONSHIP,),
+            mode=AssertionMode.TENDENCY,
+        ),
+        _claim(
+            "y25",
+            QuickReadTopic.SPECIFIC_YEAR,
+            "2025年感情更活跃",
+            namespace=EvidenceNamespace.TEMPORAL,
+            target_period="2025",
+            domains=(QuickReadDomain.RELATIONSHIP,),
+            mode=AssertionMode.TENDENCY,
+        ),
+    )
+    scope = QuickReadScope(
+        preset=QuickReadScopePreset.CUSTOM,
+        include_domains=(QuickReadDomain.RELATIONSHIP,),
+        include_topics=(QuickReadTopic.SPECIFIC_YEAR,),
+        period_labels=("2025",),
+    )
+    package = QuickReadPackage(claims=claims, knowledge_version="kb-test", scope=scope)
+    assert [item.claim_id for item in package.selected_claims()] == ["y25"]
+
+
+def test_verbalizer_payload_hides_source_and_raw_evidence():
+    claim = _claim("c1", QuickReadTopic.PERSONALITY, "整体务实，有行动力")
     package = QuickReadPackage(claims=(claim,), knowledge_version="kb-test")
     payload = package.verbalizer_payload()
     serialized = repr(payload)
     assert "ZHONGZHOU_PRIMARY" not in serialized
     assert "p.1" not in serialized
-    assert "ZZ-R1" not in serialized
+    assert "ZZ-c1" not in serialized
     assert payload["claims"][0]["proposition"] == "整体务实，有行动力"
     assert payload["style_contract"]["do_not_add_claims"] is True
+
+
+def test_conversation_context_keeps_all_claims_and_evidence_for_followup():
+    claims = (
+        _claim("p1", QuickReadTopic.PERSONALITY, "主体性强"),
+        _claim("r1", QuickReadTopic.PARTNER_PREFERENCE, "喜欢果决的类型"),
+    )
+    context = QuickReadConversationContext(
+        subject_key="subject-001",
+        knowledge_version="kb-test",
+        all_claims=claims,
+        active_scope=QuickReadScope(preset=QuickReadScopePreset.RELATIONSHIP),
+        rendered_text="整体看感情里比较看重对方做事是否果决。",
+        chart_context={"birth_input_ref": "birth-001", "ming_palace": "X"},
+        natal_profile_ref="natal-001",
+        temporal_profile_refs=("temporal-2026",),
+    )
+    payload = context.continuation_payload()
+    assert len(payload["claims"]) == 2
+    assert payload["chart_context"]["birth_input_ref"] == "birth-001"
+    assert payload["claims"][0]["evidence_refs"][0]["rule_id"] == "ZZ-p1"
+    selected = {
+        item["claim_id"]
+        for item in payload["claims"]
+        if item["selected_in_last_render"]
+    }
+    assert selected == {"r1"}
+    assert payload["continuation_policy"]["new_claim_requires_runtime_evidence"] is True
+
+
+def test_same_session_can_switch_from_relationship_to_personality_scope():
+    claims = (
+        _claim("p1", QuickReadTopic.PERSONALITY, "主体性强"),
+        _claim("r1", QuickReadTopic.PARTNER_PREFERENCE, "喜欢果决的类型"),
+    )
+    context = QuickReadConversationContext(
+        subject_key="subject-001",
+        knowledge_version="kb-test",
+        all_claims=claims,
+        active_scope=QuickReadScope(preset=QuickReadScopePreset.RELATIONSHIP),
+        rendered_text="感情简批",
+    )
+    package = context.package_for_scope(
+        QuickReadScope(preset=QuickReadScopePreset.PERSONALITY)
+    )
+    assert [item.claim_id for item in package.selected_claims()] == ["p1"]
 
 
 def test_rule_ids_remain_available_for_audit():
