@@ -137,3 +137,21 @@ def test_relation_guardrails_hold():
     assert g['product_runtime_modified'] is False
     assert g['numeric_weights_added'] is False
     assert g['probabilities_added'] is False
+
+
+def test_pair_star_relation_strength_is_ordinal_not_numeric():
+    data = load(ONTOLOGY)
+    evidence = data["ordinal_relation_evidence"][0]
+    assert evidence["status"] == "SOURCE_RELATIVE_ORDER_PRESERVED_NO_NUMERICIZATION"
+    assert evidence["safe_formalized_edges"] == [
+        {"stronger": "SAME_PALACE", "weaker": "OPPOSITION"}
+    ]
+    assert evidence["numeric_weight"] is None
+    assert evidence["global_transfer"] == "NOT_ALLOWED_OUTSIDE_PAIR_STAR_CONFIGURATION_WITHOUT_REVIEW"
+
+
+def test_flanking_is_not_flattened_to_pairwise_edge():
+    data = load(ONTOLOGY)
+    flanking = next(g for g in data["canonical_geometry"] if g["id"] == "FLANKING")
+    assert flanking["binding_shape"] == "SUBJECT_PLUS_TWO_NEIGHBORING_FLANKERS"
+    assert flanking["pairwise_edge_equivalent"] is False
