@@ -34,18 +34,34 @@ PI 提供命盘/出生资料
 
 ## 3. 输出标准
 
-默认：
+Manual Pilot 对 PI **固定双输出**，不得只返回一段公开文案。
+
+### A. 用户可读版
 
 - 约 120–220 字；
 - 1 段；
-- 不列标题；
-- 不解释星曜；
+- 不列技术标题；
+- 不解释 rule/source；
 - 先说最明显的 3–6 个判断；
 - 强判断直接说；
 - 落地不唯一时才用“感觉/可能/看起来”；
 - 具体年份只在有 temporal evidence 时写。
 
 如果窗口很窄而证据不足，可以少于 120 字，不为了凑字数跨领域补内容。
+
+### B. PI 审计版
+
+紧跟用户版输出，至少逐点列出：
+
+- 输出判断；
+- `semantic_origin`；
+- 是实际 runtime 推演、source-backed fallback，还是仅 LLM verbalization；
+- rule/source trace；
+- `llm_added_semantics` 是否为 0；
+- coverage gap；
+- 已知盘主 observation（如有）。
+
+首次简批、指定窗口简批、盘主追问、年份追问都遵守同一双输出要求。
 
 ## 4. 同一盘继续批
 
@@ -76,7 +92,7 @@ PI 提供命盘/出生资料
 2. 不把钦天/河洛混进中州派；
 3. 具体 claim 必须能回到现有 source/reviewed rule；找不到就少说。
 
-试用阶段不要求每次把 rule/source 展示给 PI，但后台要能追溯。
+试用阶段每次都必须把 **PI 审计版** 展示给 PI。可以先给简要 trace，但不得只在后台保存；PI 必须能看到每个判断是 runtime、source fallback 还是模型措辞。
 
 ## 6. 当前不做
 
