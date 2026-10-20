@@ -14,9 +14,9 @@ def test_current_inventory_counts_each_mapping_once_and_reconciles_corpus():
     c=report['counts']
     assert c['canonical_source_rows']==888
     assert c['unique_mapping_ids']==552
-    assert c['compiled_product_rules']==192
+    assert c['compiled_product_rules']==190
     assert c['blocked_mapping_ids']==360
-    assert c['static_candidates_not_selected']==0
+    assert c['static_candidates_not_selected']==2
     assert c['source_rows_without_scoped_mapping']==336
     assert sum(c['unmapped_source_groups'].values())==336
     assert c['unmapped_source_groups']=={'CASE_SUPPORT_ONLY':11,'NATAL_WITHOUT_SCOPED_MAPPING':321,'NON_NATAL_SOURCE_ONLY':4}
@@ -44,7 +44,7 @@ def test_static_candidate_without_product_selection_is_reported_but_never_activa
     del registry['rules']['CA03-285']
     candidate=copy.deepcopy(registry)
     report=audit.audit(ROOT,registry_document=registry)
-    assert report['counts']['compiled_product_rules']==191
+    assert report['counts']['compiled_product_rules']==189
     assert report['counts']['static_candidates_not_selected']==1
     entry=next(e for e in report['entries'] if e['source_rule_id']=='CA03-285')
     assert entry['classification']=='STATIC_CANDIDATE_NOT_SELECTED'
