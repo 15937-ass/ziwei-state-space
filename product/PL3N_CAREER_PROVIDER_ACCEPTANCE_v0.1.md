@@ -429,3 +429,25 @@ than unique occupation predictions.
 The production temporal reaction registry remains empty. Deterministic validation
 establishes source/condition/projection execution integrity only, not empirical
 predictive validity, event certainty, causal truth or numeric probability.
+
+
+## Review-04 expansion (Issue #407)
+
+Product selects exactly 31 complete Review-04 mappings and expands the Career NATAL
+provider from 134 to 165 rules. The handoff reuses the explicit
+`REVIEW_COMPLETE_NON_PRODUCTION` / `REVIEW_COMPLETE_CONTEXT_V0_1` contract already
+approved for reviewed hundred-rule batches.
+
+The selected rules preserve source provenance, reviewed conditions, projection targets,
+paragraph context and inherited source IDs verbatim. Named transformation atoms remain
+bound to their named star carrier. Review-04 blocked/context-only rows remain outside
+the Product registry.
+
+Issue #407 also preserves the layered inference rule established in Issue #400:
+general star-system rules and more-specific transformation/combination rules may coexist
+when the same chart satisfies both. In particular, 武曲化忌 may simultaneously satisfy
+general 武曲 properties, CA04-349, and the Review-04 risk-industry rule CA04-352.
+Product must not invent negative/exclusion conditions merely to force single-rule output.
+
+All rules remain static NATAL evidence. No temporal reaction, empirical probability,
+real-world event certainty or unique occupation claim is authorized.

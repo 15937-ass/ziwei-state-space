@@ -75,10 +75,10 @@ def provider():
     return load_default_career_natal_provider(ROOT)
 
 
-def test_canonical_career_provider_is_opt_in_and_has_one_hundred_thirty_four_pinned_rules(provider):
+def test_canonical_career_provider_is_opt_in_and_has_one_hundred_sixty_five_pinned_rules(provider):
     assert provider.domain_id == "career"
     assert provider.is_test_only is False
-    assert provider.executable_rule_count == 134
+    assert provider.executable_rule_count == 165
     assert {rule.rule_id for rule in provider._executable_rules} == {
         "CA04-347", "CA04-349", "CA09-852",
         "CA01-066", "CA02-188", "CA03-255", "CA01-023",
@@ -101,6 +101,11 @@ def test_canonical_career_provider_is_opt_in_and_has_one_hundred_thirty_four_pin
         "CA03-292", "CA03-293", "CA03-294", "CA03-295", "CA03-296", "CA03-297", "CA03-299", "CA03-300",
         "CA04-306", "CA04-307", "CA04-308", "CA04-310", "CA04-315", "CA04-318", "CA04-319", "CA04-322",
         "CA04-329", "CA04-330", "CA04-334", "CA04-336", "CA04-338", "CA04-341",
+        "CA04-351", "CA04-352", "CA04-361", "CA04-364", "CA04-369", "CA04-370", "CA04-371",
+        "CA04-380", "CA04-381", "CA04-387", "CA04-389", "CA04-395", "CA04-396", "CA04-398",
+        "CA04-399", "CA04-400", "CA05-401", "CA05-406", "CA05-407", "CA05-408", "CA05-421",
+        "CA05-425", "CA05-426", "CA05-427", "CA05-428", "CA05-430", "CA05-431", "CA05-432",
+        "CA05-434", "CA05-440", "CA05-444",
     }
 
     default = load_default_natal_domain_registry(ROOT)
@@ -118,7 +123,7 @@ def test_canonical_career_provider_is_opt_in_and_has_one_hundred_thirty_four_pin
     "star_name,mutagen,expected_rules,transformation_rule",
     [
         ("武曲", "科", ["CA04-336", "CA04-338", "CA04-341", "CA04-347"], "CA04-347"),
-        ("武曲", "忌", ["CA04-336", "CA04-338", "CA04-341", "CA04-349"], "CA04-349"),
+        ("武曲", "忌", ["CA04-336", "CA04-338", "CA04-341", "CA04-349", "CA04-352"], "CA04-349"),
         ("破军", "禄", ["CA09-852"], "CA09-852"),
     ],
 )
@@ -160,7 +165,9 @@ def test_transformation_rules_fail_closed_while_general_wuqu_rules_still_apply(p
     ]
     assert "CA04-347" not in {rule.rule_id for rule in missing.active_rules}
     assert "CA04-349" not in {rule.rule_id for rule in missing.active_rules}
-    assert wrong_star.active_rules == ()
+    wrong_star_ids = {rule.rule_id for rule in wrong_star.active_rules}
+    assert {"CA04-347", "CA04-349", "CA04-352"}.isdisjoint(wrong_star_ids)
+    assert {"CA04-398", "CA04-399", "CA05-406", "CA05-421"} <= wrong_star_ids
     assert wrong_palace.active_rules == ()
 
 
@@ -351,9 +358,9 @@ def test_career_inference_report_is_chinese_traceable_and_preserves_partial_stat
 
     assert report["status"] == "PARTIAL_TEMPORAL_REGISTRY_EMPTY"
     assert "正式时间反应规则库为空" in report["status_message_zh"]
-    assert report["natal"]["active_rule_count"] == 4
+    assert report["natal"]["active_rule_count"] == 5
     assert [item["rule_id"] for item in report["natal"]["active_rules"]] == [
-        "CA04-336", "CA04-338", "CA04-341", "CA04-349"
+        "CA04-336", "CA04-338", "CA04-341", "CA04-349", "CA04-352"
     ]
     active = next(item for item in report["natal"]["active_rules"] if item["rule_id"] == "CA04-349")
     assert active["condition"] == "武曲化忌"
