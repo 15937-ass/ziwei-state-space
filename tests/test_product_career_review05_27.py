@@ -15,9 +15,9 @@ MP = "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json"
 REGISTRY_PATH = "product/PL3N_CAREER_DOMAIN_PROVIDER_v0.1.json"
 SELECTED = [
     "CA05-446","CA05-449","CA05-452","CA05-453","CA05-454","CA05-455","CA05-461",
-    "CA05-463","CA05-468","CA05-476","CA05-478","CA05-479","CA05-495","CA05-498",
+    "CA05-463","CA05-468","CA05-476","CA05-478","CA05-479","CA05-498",
     "CA06-503","CA06-504","CA06-505","CA06-513","CA06-514","CA06-515","CA06-518",
-    "CA06-524","CA06-525","CA06-527","CA06-528","CA06-530","CA06-534",
+    "CA06-524","CA06-525","CA06-528","CA06-530","CA06-534",
 ]
 MAPPING = json.loads((ROOT / MP).read_text())
 REGISTRY = json.loads((ROOT / REGISTRY_PATH).read_text())
@@ -166,7 +166,6 @@ def test_reviewed_inheritance_relation_and_named_transform_boundaries():
         "CA06-514": {("廉贞", "禄")},
         "CA06-515": {("天府", "科")},
         "CA06-518": {("廉贞", "忌")},
-        "CA06-527": {("贪狼", "忌")},
         "CA06-528": {("廉贞", "忌")},
     }
     for rule_id, expected in expected_transforms.items():
@@ -179,21 +178,12 @@ def test_reviewed_inheritance_relation_and_named_transform_boundaries():
         assert actual == expected
 
 
-def test_event_candidates_remain_natal_evidence_not_real_world_prediction():
-    for rule_id in ["CA05-495", "CA06-527"]:
-        mapping = BY_ID[rule_id]
-        atoms = groups(mapping)[0]
-        run = run_career_inference(
-            ROOT,
-            snapshot(branch_for(atoms), placements_for(atoms)),
-            target_id="T-DEMO",
-            question="EVENT_CANDIDATE边界",
-        )
-        report = build_career_inference_report(ROOT, run)
-        item = next(x for x in report["natal"]["active_rules"] if x["rule_id"] == rule_id)
-        assert item["projection"]["mode"] == "EVENT_CANDIDATE"
-        assert report["real_world_event_prediction_supported"] is False
-        assert report["temporal"]["matched_reaction_rule_ids"] == []
+def test_case_support_event_candidates_remain_outside_product_registry():
+    all_rows = {m["source_rule_id"]: m for m in MAPPING["mappings"]}
+    case_only = {"CA05-495", "CA06-527"}
+    assert all(all_rows[rid]["source_provenance"]["case_support_only"] is True for rid in case_only)
+    assert all(all_rows[rid]["expected_projection"]["projection_mode"] == "EVENT_CANDIDATE" for rid in case_only)
+    assert case_only.isdisjoint(REGISTRY["rules"])
 
 
 def test_nonselected_review05_rows_do_not_enter_product():
