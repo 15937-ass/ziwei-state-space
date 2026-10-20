@@ -1,0 +1,2413 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP07C-CAREER-RESPONSE-COMPATIBILITY-03-v0.1",
+  "lane": "KNOWLEDGE_ONLY",
+  "issue": 426,
+  "status": "FINAL_51_COMPATIBILITY_CLASSIFIED_NO_EXECUTION_UNLOCK",
+  "scope": {
+    "input": "knowledge/wp07c/CAREER_GROUP_LEXICON_REVIEW_03_v0.1.json",
+    "count": 51,
+    "first_source_rule_id": "CA07-692",
+    "last_source_rule_id": "CA09-887",
+    "cumulative_classified": 251,
+    "remaining_after_batch": 0,
+    "method": "DERIVED_FROM_EXISTING_SOURCE_REVIEW_NO_NEW_SOURCE_INTERPRETATION"
+  },
+  "summary": {
+    "compatibility_band_counts": {
+      "RS0_NO_DIRECT_RESPONSE_GAIN": 29,
+      "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS": 15,
+      "RS2_PARTIAL_RESPONSE_GAIN": 7
+    },
+    "token_semantic_support_counts": {
+      "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED": 25,
+      "GENERIC_SHORTHAND_NOT_EQ_NAMED_COMPOSITE": 1,
+      "EXPLICIT_MEMBER_LIST_BOTH_LOCAL": 1,
+      "UNRESOLVED_CATEGORY_OR_COMPOSITE": 46,
+      "NAMED_COMPOSITE_PAIR_REQUIREMENT_KNOWN": 2,
+      "SEVERITY_LITERAL_UNNUMERICIZED": 1
+    },
+    "local_clause_operator_counts": {
+      "SIMULTANEOUS": 1,
+      "AND": 4,
+      "OR": 4,
+      "NEGATION": 7,
+      "LOCAL_RELATIVE_EMPHASIS": 2,
+      "LOCAL_ORDINAL_SEVERITY": 1
+    },
+    "remaining_blocker_counts": {
+      "INHERITED_ANTECEDENT_GRAPH": 7,
+      "RELATION_SCOPE_SEMANTICS": 38,
+      "CONTEXTUAL_ACTIVATION_SEMANTICS": 21,
+      "CATEGORY_OR_COMPOSITE_LEXICON": 31,
+      "ABSENCE_SCOPE_OPEN_WORLD": 7,
+      "COMPOSITE_RELATION_BINDING": 2,
+      "DIGNITY_CARRIER_SEMANTICS": 1,
+      "SEVERITY_ORDINAL_SEMANTICS": 2
+    },
+    "source_resolution_changes": 0,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0,
+    "notable_findings": [
+      "最后 51 条完成后，Response Semantics compatibility 已覆盖 251/251 GROUP-related reviewed blockers。",
+      "本批 RS1=15、RS2=7、RS0=29；relation scope 38、category/composite lexicon 31、contextual activation 21、inherited antecedent 7、absence/open-world 7。",
+      "CA07-697 的“禄马”保持 generic shorthand unresolved；不会继承命名 composite“禄马交驰”的 BOTH + 同度/相对语义。",
+      "CA07-699 原文直接写“文昌文曲”，只保存 source-clause-local BOTH，不推广为 generic 昌曲默认 ALL。",
+      "CA08-799 / CA09-804 的“三台八座”保留 named pair requirement；朝拱/同会如何绑定复合成员仍交给 relation/composite binding。",
+      "CA08-800 / CA09-805 的“尤其火铃”保存为该句局部相对不利强调，不转成全局“火铃永远强于所有煞曜”。",
+      "CA09-885“吉煞均弱”和 CA09-887“煞重”进入 ordinal/severity backlog，不数值化。"
+    ]
+  },
+  "records": [
+    {
+      "source_rule_id": "CA07-692",
+      "blocker_code": "GROUP",
+      "source_condition_text": "前格",
+      "source_location": "事业宫printed_p150",
+      "time_layer": "NATAL",
+      "projection_domain": "effort",
+      "projection_target": "career_can_involve_wandering_and_hardship",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [],
+      "explicit_clause_markers": [],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "INHERITED_ANTECEDENT_GRAPH"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA07-693",
+      "blocker_code": "GROUP",
+      "source_condition_text": "辰戌巨门与火铃同度",
+      "source_location": "事业宫printed_p150",
+      "time_layer": "NATAL",
+      "projection_domain": "resource",
+      "projection_target": "unexpected_financial_gain_can_occur",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "token_assessments": [
+        {
+          "token": "火铃",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "火星",
+            "铃星"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CONTEXTUAL_ACTIVATION_SEMANTICS"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "新 schema 已能忠实保存当前已知 membership/composite/explicit-member semantics；未明示 activation 与 relation 继续分离处理。"
+    },
+    {
+      "source_rule_id": "CA07-694",
+      "blocker_code": "GROUP",
+      "source_condition_text": "前格",
+      "source_location": "事业宫printed_p150",
+      "time_layer": "NATAL",
+      "projection_domain": "strategy",
+      "projection_target": "low_profile_preservation_is_required_after_unexpected_gain",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [],
+      "explicit_clause_markers": [],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "INHERITED_ANTECEDENT_GRAPH"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA07-697",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "巳亥巨门见禄马",
+      "source_location": "事业宫printed_p150",
+      "time_layer": "NATAL",
+      "projection_domain": "mobility",
+      "projection_target": "career_can_be_rooted_in_foreign_or_cross_region_context",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "禄马",
+          "semantic_support": "GENERIC_SHORTHAND_NOT_EQ_NAMED_COMPOSITE",
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "BLOCKED_NO_COMPOSITE_INHERITANCE"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA07-699",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "巳亥巨门同会文昌文曲",
+      "source_location": "事业宫printed_p150",
+      "time_layer": "NATAL",
+      "projection_domain": "status",
+      "projection_target": "social_status_support_strengthened",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "token_assessments": [
+        {
+          "token": "文昌文曲",
+          "semantic_support": "EXPLICIT_MEMBER_LIST_BOTH_LOCAL",
+          "members": [
+            "文昌",
+            "文曲"
+          ],
+          "activation": "EXPLICIT_AND_LOCAL_CLAUSE",
+          "source_basis": "SOURCE_CONDITION_LITERAL",
+          "execution_effect": "LOCAL_ONLY"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "同会",
+          "type": "CO_OCCURRENCE_RELATION"
+        },
+        {
+          "surface": "会",
+          "type": "CO_OCCURRENCE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "新 schema 已能忠实保存当前已知 membership/composite/explicit-member semantics；未明示 activation 与 relation 继续分离处理。"
+    },
+    {
+      "source_rule_id": "CA07-700",
+      "blocker_code": "GROUP",
+      "source_condition_text": "巳亥巨门昌曲化忌",
+      "source_location": "事业宫printed_p150",
+      "time_layer": "NATAL",
+      "projection_domain": "status",
+      "projection_target": "social_status_ceiling_is_reduced",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "token_assessments": [
+        {
+          "token": "昌曲",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "文昌",
+            "文曲"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        }
+      ],
+      "explicit_clause_markers": [],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "CONTEXTUAL_ACTIVATION_SEMANTICS"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "新 schema 已能忠实保存当前已知 membership/composite/explicit-member semantics；未明示 activation 与 relation 继续分离处理。"
+    },
+    {
+      "source_rule_id": "CA08-701",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "巳亥巨门见煞忌尤其巳宫",
+      "source_location": "事业宫printed_p150",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "career_can_start_strong_but_end_without_durable_result",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "煞忌",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        },
+        {
+          "token": "见煞",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA08-702",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "巳亥巨门化禄化权又见魁钺",
+      "source_location": "事业宫printed_p150",
+      "time_layer": "NATAL",
+      "projection_domain": "support",
+      "projection_target": "outgroup_or_cross_region_promotion_support_strengthened",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "token_assessments": [
+        {
+          "token": "魁钺",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "天魁",
+            "天钺"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "又",
+          "type": "ADDITIVE"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CONTEXTUAL_ACTIVATION_SEMANTICS"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "新 schema 已能忠实保存当前已知 membership/composite/explicit-member semantics；未明示 activation 与 relation 继续分离处理。"
+    },
+    {
+      "source_rule_id": "CA08-703",
+      "blocker_code": "GROUP",
+      "source_condition_text": "巳亥巨门与火铃同度",
+      "source_location": "事业宫printed_p150",
+      "time_layer": "NATAL",
+      "projection_domain": "stability",
+      "projection_target": "sudden_rise_and_sudden_fall_tendency",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "token_assessments": [
+        {
+          "token": "火铃",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "火星",
+            "铃星"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CONTEXTUAL_ACTIVATION_SEMANTICS"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "新 schema 已能忠实保存当前已知 membership/composite/explicit-member semantics；未明示 activation 与 relation 继续分离处理。"
+    },
+    {
+      "source_rule_id": "CA08-704",
+      "blocker_code": "GROUP",
+      "source_condition_text": "前格",
+      "source_location": "事业宫printed_p150",
+      "time_layer": "NATAL",
+      "projection_domain": "strategy",
+      "projection_target": "timely_exit_and_preservation_are_preferred_after_gain",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [],
+      "explicit_clause_markers": [],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "INHERITED_ANTECEDENT_GRAPH"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA08-718",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "前格又见煞曜",
+      "source_location": "事业宫printed_p151",
+      "time_layer": "NATAL",
+      "projection_domain": "risk",
+      "projection_target": "misuse_of_authority_can_trigger_setbacks_or_collapse",
+      "source_span_ids": [
+        "ZZ003-P151"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "煞曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        },
+        {
+          "token": "见煞",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "又",
+          "type": "ADDITIVE"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "INHERITED_ANTECEDENT_GRAPH",
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA08-721",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "前格同时见辅佐吉曜",
+      "source_location": "事业宫printed_p151",
+      "time_layer": "NATAL",
+      "projection_domain": "support",
+      "projection_target": "support_can_make_nominal_status_substantive",
+      "source_span_ids": [
+        "ZZ003-P151"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "辅佐吉曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        },
+        {
+          "token": "吉曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "同时",
+          "type": "EXPLICIT_SIMULTANEITY"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [
+        {
+          "operator": "SIMULTANEOUS",
+          "scope": "SOURCE_CLAUSE_ONLY",
+          "status": "EXPLICIT"
+        }
+      ],
+      "remaining_blockers": [
+        "INHERITED_ANTECEDENT_GRAPH",
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA08-723",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "天相为刑忌来会且煞曜同度",
+      "source_location": "事业宫printed_p151",
+      "time_layer": "NATAL",
+      "projection_domain": "effort",
+      "projection_target": "career_pressure_and_heavy_labor_strengthened",
+      "source_span_ids": [
+        "ZZ003-P151"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "煞曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "且",
+          "type": "CONJUNCTION"
+        },
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        },
+        {
+          "surface": "会",
+          "type": "CO_OCCURRENCE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [
+        {
+          "operator": "AND",
+          "scope": "SOURCE_CLAUSE_ONLY",
+          "status": "EXPLICIT"
+        }
+      ],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA08-725",
+      "blocker_code": "GROUP",
+      "source_condition_text": "天相与空劫同度且有吉曜",
+      "source_location": "事业宫printed_p151",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "idea_driven_career_creation_is_possible_while_partnership_remains_viable",
+      "source_span_ids": [
+        "ZZ003-P151"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "空劫",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "地空",
+            "地劫"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        },
+        {
+          "token": "吉曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "且",
+          "type": "CONJUNCTION"
+        },
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [
+        {
+          "operator": "AND",
+          "scope": "SOURCE_CLAUSE_ONLY",
+          "status": "EXPLICIT"
+        }
+      ],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON",
+        "CONTEXTUAL_ACTIVATION_SEMANTICS"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "Response Semantics 能保存部分已知结构或 clause-local operator，但仍存在 open category / absence / inherited / dignity / severity 等 blocker。"
+    },
+    {
+      "source_rule_id": "CA08-726",
+      "blocker_code": "ABSENCE_AND_GROUP",
+      "source_condition_text": "天相与空劫同度无吉曜或见凶曜",
+      "source_location": "事业宫printed_p151",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "ambition_can_exceed_capacity_and_career_can_become_unsettled",
+      "source_span_ids": [
+        "ZZ003-P151"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_dependency_class": "NEGATED_GROUP_RELATION",
+      "compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "空劫",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "地空",
+            "地劫"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        },
+        {
+          "token": "吉曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        },
+        {
+          "token": "凶曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        },
+        {
+          "token": "见凶",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "或",
+          "type": "EXPLICIT_OR"
+        },
+        {
+          "surface": "无",
+          "type": "EXPLICIT_NEGATION"
+        },
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [
+        {
+          "operator": "OR",
+          "scope": "SOURCE_CLAUSE_ONLY",
+          "status": "EXPLICIT"
+        },
+        {
+          "operator": "NEGATION",
+          "scope": "SOURCE_CLAUSE_ONLY",
+          "status": "EXPLICIT"
+        }
+      ],
+      "remaining_blockers": [
+        "ABSENCE_SCOPE_OPEN_WORLD",
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON",
+        "CONTEXTUAL_ACTIVATION_SEMANTICS"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "Response Semantics 能保存部分已知结构或 clause-local operator，但仍存在 open category / absence / inherited / dignity / severity 等 blocker。"
+    },
+    {
+      "source_rule_id": "CA08-733",
+      "blocker_code": "GROUP",
+      "source_condition_text": "丑未天相有桃花",
+      "source_location": "事业宫printed_p151",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "pleasure_entertainment_or_sensual_service_scene",
+      "source_span_ids": [
+        "ZZ003-P151"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "桃花",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA08-734",
+      "blocker_code": "GROUP",
+      "source_condition_text": "丑未天相见昌曲",
+      "source_location": "事业宫printed_p151",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "artistic_scene",
+      "source_span_ids": [
+        "ZZ003-P151"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "token_assessments": [
+        {
+          "token": "昌曲",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "文昌",
+            "文曲"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CONTEXTUAL_ACTIVATION_SEMANTICS"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "新 schema 已能忠实保存当前已知 membership/composite/explicit-member semantics；未明示 activation 与 relation 继续分离处理。"
+    },
+    {
+      "source_rule_id": "CA08-771",
+      "blocker_code": "GROUP",
+      "source_condition_text": "午宫天梁见吉",
+      "source_location": "事业宫printed_p152",
+      "time_layer": "NATAL",
+      "projection_domain": "scale",
+      "projection_target": "career_scope_can_be_large",
+      "source_span_ids": [
+        "ZZ003-P152"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "见吉",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA08-772",
+      "blocker_code": "GROUP",
+      "source_condition_text": "午宫天梁见凶",
+      "source_location": "事业宫printed_p152",
+      "time_layer": "NATAL",
+      "projection_domain": "relation",
+      "projection_target": "career_can_become_a_public_target",
+      "source_span_ids": [
+        "ZZ003-P152"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "见凶",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA08-776",
+      "blocker_code": "GROUP",
+      "source_condition_text": "天梁与空劫同度",
+      "source_location": "事业宫printed_p152",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "innovation_or_fantasy_expression_depends_on_support_context",
+      "source_span_ids": [
+        "ZZ003-P152"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "token_assessments": [
+        {
+          "token": "空劫",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "地空",
+            "地劫"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CONTEXTUAL_ACTIVATION_SEMANTICS"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "新 schema 已能忠实保存当前已知 membership/composite/explicit-member semantics；未明示 activation 与 relation 继续分离处理。"
+    },
+    {
+      "source_rule_id": "CA08-784",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "丑未天梁会辅佐吉曜",
+      "source_location": "事业宫printed_p152",
+      "time_layer": "NATAL",
+      "projection_domain": "role",
+      "projection_target": "multiple_concurrent_roles_are_common",
+      "source_span_ids": [
+        "ZZ003-P152"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "辅佐吉曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        },
+        {
+          "token": "吉曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "会",
+          "type": "CO_OCCURRENCE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA08-799",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "七杀得辅弼魁钺三台八座朝拱同会",
+      "source_location": "事业宫printed_p153",
+      "time_layer": "NATAL",
+      "projection_domain": "support",
+      "projection_target": "supporting_structure_balances_management_style_and_scales_command_capacity",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "token_assessments": [
+        {
+          "token": "三台八座",
+          "semantic_support": "NAMED_COMPOSITE_PAIR_REQUIREMENT_KNOWN",
+          "members": [
+            "三台",
+            "八座"
+          ],
+          "activation": "PAIR_REQUIRED",
+          "source_relation": "成对会照",
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "RELATION_BINDING_STILL_REQUIRED"
+        },
+        {
+          "token": "辅弼",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "左辅",
+            "右弼"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        },
+        {
+          "token": "魁钺",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "天魁",
+            "天钺"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "同会",
+          "type": "CO_OCCURRENCE_RELATION"
+        },
+        {
+          "surface": "会",
+          "type": "CO_OCCURRENCE_RELATION"
+        },
+        {
+          "surface": "朝拱",
+          "type": "ASPECT_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CONTEXTUAL_ACTIVATION_SEMANTICS",
+        "COMPOSITE_RELATION_BINDING"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "新 schema 已能忠实保存当前已知 membership/composite/explicit-member semantics；未明示 activation 与 relation 继续分离处理。"
+    },
+    {
+      "source_rule_id": "CA08-800",
+      "blocker_code": "GROUP",
+      "source_condition_text": "七杀与煞曜同度尤其火铃",
+      "source_location": "事业宫printed_p153",
+      "time_layer": "NATAL",
+      "projection_domain": "stability",
+      "projection_target": "management_or_military_career_complications_accidents_and_turbulence_strengthen",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "火铃",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "火星",
+            "铃星"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        },
+        {
+          "token": "煞曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [
+        {
+          "operator": "LOCAL_RELATIVE_EMPHASIS",
+          "lhs": "火铃",
+          "relation": "MORE_ADVERSE_THAN_PARENT_CATEGORY_IN_THIS_CLAUSE",
+          "rhs": "煞曜",
+          "scope": "SOURCE_CLAUSE_ONLY",
+          "status": "EXPLICIT_LITERAL"
+        }
+      ],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON",
+        "CONTEXTUAL_ACTIVATION_SEMANTICS"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "Response Semantics 能保存部分已知结构或 clause-local operator，但仍存在 open category / absence / inherited / dignity / severity 等 blocker。"
+    },
+    {
+      "source_rule_id": "CA09-804",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "七杀得辅弼魁钺三台八座朝拱同会",
+      "source_location": "事业宫printed_p153",
+      "time_layer": "NATAL",
+      "projection_domain": "support",
+      "projection_target": "supporting_structure_balances_management_style_and_scales_command_capacity",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "token_assessments": [
+        {
+          "token": "三台八座",
+          "semantic_support": "NAMED_COMPOSITE_PAIR_REQUIREMENT_KNOWN",
+          "members": [
+            "三台",
+            "八座"
+          ],
+          "activation": "PAIR_REQUIRED",
+          "source_relation": "成对会照",
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "RELATION_BINDING_STILL_REQUIRED"
+        },
+        {
+          "token": "辅弼",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "左辅",
+            "右弼"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        },
+        {
+          "token": "魁钺",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "天魁",
+            "天钺"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "同会",
+          "type": "CO_OCCURRENCE_RELATION"
+        },
+        {
+          "surface": "会",
+          "type": "CO_OCCURRENCE_RELATION"
+        },
+        {
+          "surface": "朝拱",
+          "type": "ASPECT_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CONTEXTUAL_ACTIVATION_SEMANTICS",
+        "COMPOSITE_RELATION_BINDING"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "新 schema 已能忠实保存当前已知 membership/composite/explicit-member semantics；未明示 activation 与 relation 继续分离处理。"
+    },
+    {
+      "source_rule_id": "CA09-805",
+      "blocker_code": "GROUP",
+      "source_condition_text": "七杀与煞曜同度尤其火铃",
+      "source_location": "事业宫printed_p153",
+      "time_layer": "NATAL",
+      "projection_domain": "stability",
+      "projection_target": "management_or_military_career_complications_accidents_and_turbulence_strengthen",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "火铃",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "火星",
+            "铃星"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        },
+        {
+          "token": "煞曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [
+        {
+          "operator": "LOCAL_RELATIVE_EMPHASIS",
+          "lhs": "火铃",
+          "relation": "MORE_ADVERSE_THAN_PARENT_CATEGORY_IN_THIS_CLAUSE",
+          "rhs": "煞曜",
+          "scope": "SOURCE_CLAUSE_ONLY",
+          "status": "EXPLICIT_LITERAL"
+        }
+      ],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON",
+        "CONTEXTUAL_ACTIVATION_SEMANTICS"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "Response Semantics 能保存部分已知结构或 clause-local operator，但仍存在 open category / absence / inherited / dignity / severity 等 blocker。"
+    },
+    {
+      "source_rule_id": "CA09-806",
+      "blocker_code": "GROUP",
+      "source_condition_text": "七杀有煞曜同度",
+      "source_location": "事业宫printed_p153",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "specialized_skill_or_technical_path_is_preferred_over_management",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "煞曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        },
+        {
+          "token": "有煞",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA09-807",
+      "blocker_code": "ABSENCE_AND_GROUP",
+      "source_condition_text": "七杀本宫无煞",
+      "source_location": "事业宫printed_p153",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "military_police_or_disciplinary_management_scene",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "NEGATED_GROUP_RELATION",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "无煞",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "无",
+          "type": "EXPLICIT_NEGATION"
+        }
+      ],
+      "local_clause_semantics": [
+        {
+          "operator": "NEGATION",
+          "scope": "SOURCE_CLAUSE_ONLY",
+          "status": "EXPLICIT"
+        }
+      ],
+      "remaining_blockers": [
+        "ABSENCE_SCOPE_OPEN_WORLD",
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA09-811",
+      "blocker_code": "GROUP",
+      "source_condition_text": "七杀与昌曲同度",
+      "source_location": "事业宫printed_p153",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "design_work_scene",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "token_assessments": [
+        {
+          "token": "昌曲",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "文昌",
+            "文曲"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CONTEXTUAL_ACTIVATION_SEMANTICS"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "新 schema 已能忠实保存当前已知 membership/composite/explicit-member semantics；未明示 activation 与 relation 继续分离处理。"
+    },
+    {
+      "source_rule_id": "CA09-812",
+      "blocker_code": "GROUP",
+      "source_condition_text": "七杀与空劫同度",
+      "source_location": "事业宫printed_p153",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "ingenuity_or_fantasy_expression_depends_on_support_context",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "token_assessments": [
+        {
+          "token": "空劫",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "地空",
+            "地劫"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CONTEXTUAL_ACTIVATION_SEMANTICS"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "新 schema 已能忠实保存当前已知 membership/composite/explicit-member semantics；未明示 activation 与 relation 继续分离处理。"
+    },
+    {
+      "source_rule_id": "CA09-816",
+      "blocker_code": "ABSENCE_AND_GROUP",
+      "source_condition_text": "七杀有煞而无化忌会合",
+      "source_location": "事业宫printed_p153",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "sharp_tool_craft_hairdressing_carving_or_metal_engineering_scene",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "NEGATED_GROUP_RELATION",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "有煞",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "无",
+          "type": "EXPLICIT_NEGATION"
+        },
+        {
+          "surface": "会合",
+          "type": "CO_OCCURRENCE_RELATION"
+        },
+        {
+          "surface": "会",
+          "type": "CO_OCCURRENCE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [
+        {
+          "operator": "NEGATION",
+          "scope": "SOURCE_CLAUSE_ONLY",
+          "status": "EXPLICIT"
+        }
+      ],
+      "remaining_blockers": [
+        "ABSENCE_SCOPE_OPEN_WORLD",
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA09-817",
+      "blocker_code": "GROUP",
+      "source_condition_text": "七杀与火铃同度",
+      "source_location": "事业宫printed_p153",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "metal_fire_smelting_cooking_or_jewelry_scene",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "token_assessments": [
+        {
+          "token": "火铃",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "火星",
+            "铃星"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CONTEXTUAL_ACTIVATION_SEMANTICS"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "新 schema 已能忠实保存当前已知 membership/composite/explicit-member semantics；未明示 activation 与 relation 继续分离处理。"
+    },
+    {
+      "source_rule_id": "CA09-818",
+      "blocker_code": "GROUP",
+      "source_condition_text": "子午七杀与武曲天府相对且有煞",
+      "source_location": "事业宫printed_p153",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "craft_or_industrial_design_scene_with_distinctive_concepts",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "有煞",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "且",
+          "type": "CONJUNCTION"
+        },
+        {
+          "surface": "相对",
+          "type": "OPPOSITION_RELATION"
+        }
+      ],
+      "local_clause_semantics": [
+        {
+          "operator": "AND",
+          "scope": "SOURCE_CLAUSE_ONLY",
+          "status": "EXPLICIT"
+        }
+      ],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA09-819",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "子午七杀会辅佐诸曜",
+      "source_location": "事业宫printed_p153",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "enterprise_industrial_management_or_military_police_scene",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "辅佐诸曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "会",
+          "type": "CO_OCCURRENCE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA09-820",
+      "blocker_code": "GROUP",
+      "source_condition_text": "子午七杀得禄",
+      "source_location": "事业宫printed_p153",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "financial_institution_employment_scene",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "得禄",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA09-833",
+      "blocker_code": "GROUP",
+      "source_condition_text": "寅申七杀与煞曜同躔",
+      "source_location": "事业宫printed_p154",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "craft_or_technical_scene",
+      "source_span_ids": [
+        "ZZ003-P154"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "煞曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA09-839",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "前格有煞",
+      "source_location": "事业宫printed_p154",
+      "time_layer": "NATAL",
+      "projection_domain": "resource",
+      "projection_target": "wealth_potential_can_remain_despite_adverse_stars",
+      "source_span_ids": [
+        "ZZ003-P154"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "有煞",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "INHERITED_ANTECEDENT_GRAPH",
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA09-840",
+      "blocker_code": "ABSENCE_AND_GROUP",
+      "source_condition_text": "辰戌七杀无煞见辅佐吉曜",
+      "source_location": "事业宫printed_p154",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "a_period_of_stagnation_can_precede_later_major_achievement",
+      "source_span_ids": [
+        "ZZ003-P154"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "NEGATED_GROUP_RELATION",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "辅佐吉曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        },
+        {
+          "token": "吉曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        },
+        {
+          "token": "无煞",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "无",
+          "type": "EXPLICIT_NEGATION"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [
+        {
+          "operator": "NEGATION",
+          "scope": "SOURCE_CLAUSE_ONLY",
+          "status": "EXPLICIT"
+        }
+      ],
+      "remaining_blockers": [
+        "ABSENCE_SCOPE_OPEN_WORLD",
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA09-847",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "破军更见辅佐吉曜",
+      "source_location": "事业宫printed_p154",
+      "time_layer": "NATAL",
+      "projection_domain": "status",
+      "projection_target": "career_status_and_scale_are_strengthened",
+      "source_span_ids": [
+        "ZZ003-P154"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "辅佐吉曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        },
+        {
+          "token": "吉曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "更",
+          "type": "ADDITIVE"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA09-848",
+      "blocker_code": "GROUP",
+      "source_condition_text": "破军与煞曜同度",
+      "source_location": "事业宫printed_p154",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "engineering_or_technical_scene_is_preferred_and_commerce_carries_setback_pressure",
+      "source_span_ids": [
+        "ZZ003-P154"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "煞曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA09-849",
+      "blocker_code": "DIGNITY_AND_GROUP",
+      "source_condition_text": "破军入庙而吉煞交集",
+      "source_location": "事业宫printed_p154",
+      "time_layer": "NATAL",
+      "projection_domain": "decision",
+      "projection_target": "commerce_is_possible_but_success_failure_is_highly_timing_sensitive",
+      "source_span_ids": [
+        "ZZ003-P154"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_dependency_class": "DIGNITY_GROUP_COMPOSITION",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "吉煞",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "DIGNITY_CARRIER_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA09-859",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "破军会辅弼魁钺昌曲",
+      "source_location": "事业宫printed_p154",
+      "time_layer": "NATAL",
+      "projection_domain": "support",
+      "projection_target": "fubi_reduces_labor_kuiyue_adds_opportunity_and_changqu_does_not_by_itself_reverse_adversity",
+      "source_span_ids": [
+        "ZZ003-P154"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json",
+      "prior_dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "token_assessments": [
+        {
+          "token": "昌曲",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "文昌",
+            "文曲"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        },
+        {
+          "token": "辅弼",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "左辅",
+            "右弼"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        },
+        {
+          "token": "魁钺",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "天魁",
+            "天钺"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "会",
+          "type": "CO_OCCURRENCE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CONTEXTUAL_ACTIVATION_SEMANTICS"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "新 schema 已能忠实保存当前已知 membership/composite/explicit-member semantics；未明示 activation 与 relation 继续分离处理。"
+    },
+    {
+      "source_rule_id": "CA09-860",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "破军会昌曲化忌",
+      "source_location": "事业宫printed_p154",
+      "time_layer": "NATAL",
+      "projection_domain": "stability",
+      "projection_target": "career_unsettledness_and_inconsistent_development_strengthen",
+      "source_span_ids": [
+        "ZZ003-P154"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json",
+      "prior_dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "token_assessments": [
+        {
+          "token": "昌曲",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "文昌",
+            "文曲"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "会",
+          "type": "CO_OCCURRENCE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CONTEXTUAL_ACTIVATION_SEMANTICS"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "新 schema 已能忠实保存当前已知 membership/composite/explicit-member semantics；未明示 activation 与 relation 继续分离处理。"
+    },
+    {
+      "source_rule_id": "CA09-861",
+      "blocker_code": "RELATION_AND_GROUP",
+      "source_condition_text": "破军与桃花诸曜同度更见文曲化忌",
+      "source_location": "事业宫printed_p154",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "semi_marginal_or_crafty_commercial_scene",
+      "source_span_ids": [
+        "ZZ003-P154"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json",
+      "prior_dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "桃花诸曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        },
+        {
+          "token": "桃花",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "更",
+          "type": "ADDITIVE"
+        },
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA09-863",
+      "blocker_code": "GROUP",
+      "source_condition_text": "破军与火铃同度",
+      "source_location": "事业宫printed_p155",
+      "time_layer": "NATAL",
+      "projection_domain": "stability",
+      "projection_target": "career_turbulence_repeats",
+      "source_span_ids": [
+        "ZZ003-P155"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "token_assessments": [
+        {
+          "token": "火铃",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "火星",
+            "铃星"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CONTEXTUAL_ACTIVATION_SEMANTICS"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "新 schema 已能忠实保存当前已知 membership/composite/explicit-member semantics；未明示 activation 与 relation 继续分离处理。"
+    },
+    {
+      "source_rule_id": "CA09-864",
+      "blocker_code": "GROUP",
+      "source_condition_text": "破军与空劫同度且见吉辅",
+      "source_location": "事业宫printed_p155",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "innovation_capacity_is_strong_and_changqu_can_be_complementary",
+      "source_span_ids": [
+        "ZZ003-P155"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "空劫",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "地空",
+            "地劫"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        },
+        {
+          "token": "见吉",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        },
+        {
+          "token": "吉辅",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "且",
+          "type": "CONJUNCTION"
+        },
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [
+        {
+          "operator": "AND",
+          "scope": "SOURCE_CLAUSE_ONLY",
+          "status": "EXPLICIT"
+        }
+      ],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON",
+        "CONTEXTUAL_ACTIVATION_SEMANTICS"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "Response Semantics 能保存部分已知结构或 clause-local operator，但仍存在 open category / absence / inherited / dignity / severity 等 blocker。"
+    },
+    {
+      "source_rule_id": "CA09-865",
+      "blocker_code": "GROUP",
+      "source_condition_text": "子午破军见吉曜",
+      "source_location": "事业宫printed_p155",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "public_office_scene_is_possible",
+      "source_span_ids": [
+        "ZZ003-P155"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "吉曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        },
+        {
+          "token": "见吉",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA09-871",
+      "blocker_code": "ABSENCE_AND_GROUP",
+      "source_condition_text": "前格见辅弼或不见辅弼",
+      "source_location": "事业宫printed_p155",
+      "time_layer": "NATAL",
+      "projection_domain": "support",
+      "projection_target": "fubi_can_turn_maneuvering_into_advantage_while_its_absence_increases_backfire_risk",
+      "source_span_ids": [
+        "ZZ003-P155"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json",
+      "prior_dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "辅弼",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "左辅",
+            "右弼"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "或",
+          "type": "EXPLICIT_OR"
+        },
+        {
+          "surface": "不见",
+          "type": "EXPLICIT_NEGATION"
+        },
+        {
+          "surface": "见",
+          "type": "PRESENCE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [
+        {
+          "operator": "OR",
+          "scope": "SOURCE_CLAUSE_ONLY",
+          "status": "EXPLICIT"
+        },
+        {
+          "operator": "NEGATION",
+          "scope": "SOURCE_CLAUSE_ONLY",
+          "status": "EXPLICIT"
+        }
+      ],
+      "remaining_blockers": [
+        "INHERITED_ANTECEDENT_GRAPH",
+        "ABSENCE_SCOPE_OPEN_WORLD",
+        "RELATION_SCOPE_SEMANTICS",
+        "CONTEXTUAL_ACTIVATION_SEMANTICS"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "Response Semantics 能保存部分已知结构或 clause-local operator，但仍存在 open category / absence / inherited / dignity / severity 等 blocker。"
+    },
+    {
+      "source_rule_id": "CA09-879",
+      "blocker_code": "ABSENCE_AND_GROUP",
+      "source_condition_text": "寅申破军无禄无吉曜或空劫同度",
+      "source_location": "事业宫printed_p155",
+      "time_layer": "NATAL",
+      "projection_domain": "development",
+      "projection_target": "outward_scale_can_exceed_internal_substance_and_kongjie_strengthens_hollowness",
+      "source_span_ids": [
+        "ZZ003-P155"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json",
+      "prior_dependency_class": "NEGATED_GROUP_RELATION",
+      "compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "空劫",
+          "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
+          "members": [
+            "地空",
+            "地劫"
+          ],
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "NONE_AUTOMATIC"
+        },
+        {
+          "token": "吉曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "或",
+          "type": "EXPLICIT_OR"
+        },
+        {
+          "surface": "无",
+          "type": "EXPLICIT_NEGATION"
+        },
+        {
+          "surface": "同度",
+          "type": "SAME_PALACE_RELATION"
+        }
+      ],
+      "local_clause_semantics": [
+        {
+          "operator": "OR",
+          "scope": "SOURCE_CLAUSE_ONLY",
+          "status": "EXPLICIT"
+        },
+        {
+          "operator": "NEGATION",
+          "scope": "SOURCE_CLAUSE_ONLY",
+          "status": "EXPLICIT"
+        }
+      ],
+      "remaining_blockers": [
+        "ABSENCE_SCOPE_OPEN_WORLD",
+        "RELATION_SCOPE_SEMANTICS",
+        "CATEGORY_OR_COMPOSITE_LEXICON",
+        "CONTEXTUAL_ACTIVATION_SEMANTICS"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "Response Semantics 能保存部分已知结构或 clause-local operator，但仍存在 open category / absence / inherited / dignity / severity 等 blocker。"
+    },
+    {
+      "source_rule_id": "CA09-885",
+      "blocker_code": "ABSENCE_AND_GROUP",
+      "source_condition_text": "辰戌破军无吉无煞或吉煞均弱",
+      "source_location": "事业宫printed_p155",
+      "time_layer": "NATAL",
+      "projection_domain": "control",
+      "projection_target": "specialized_skill_is_required_before_career_development",
+      "source_span_ids": [
+        "ZZ003-P155"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json",
+      "prior_dependency_class": "NEGATED_GROUP_RELATION",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "无煞",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        },
+        {
+          "token": "吉煞",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [
+        {
+          "surface": "或",
+          "type": "EXPLICIT_OR"
+        },
+        {
+          "surface": "无",
+          "type": "EXPLICIT_NEGATION"
+        }
+      ],
+      "local_clause_semantics": [
+        {
+          "operator": "OR",
+          "scope": "SOURCE_CLAUSE_ONLY",
+          "status": "EXPLICIT"
+        },
+        {
+          "operator": "NEGATION",
+          "scope": "SOURCE_CLAUSE_ONLY",
+          "status": "EXPLICIT"
+        },
+        {
+          "operator": "LOCAL_ORDINAL_SEVERITY",
+          "subjects": "吉煞",
+          "level_literal": "均弱",
+          "scope": "SOURCE_CLAUSE_ONLY",
+          "status": "EXPLICIT_LITERAL_NO_NUMERICIZATION"
+        }
+      ],
+      "remaining_blockers": [
+        "ABSENCE_SCOPE_OPEN_WORLD",
+        "CATEGORY_OR_COMPOSITE_LEXICON",
+        "SEVERITY_ORDINAL_SEMANTICS"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA09-886",
+      "blocker_code": "GROUP",
+      "source_condition_text": "辰戌破军有吉化吉曜",
+      "source_location": "事业宫printed_p155",
+      "time_layer": "NATAL",
+      "projection_domain": "career",
+      "projection_target": "financial_institution_employment_scene",
+      "source_span_ids": [
+        "ZZ003-P155"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "吉化吉曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        },
+        {
+          "token": "吉曜",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        },
+        {
+          "token": "吉化",
+          "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+          "execution_effect": "BLOCKED"
+        }
+      ],
+      "explicit_clause_markers": [],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "CATEGORY_OR_COMPOSITE_LEXICON"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    },
+    {
+      "source_rule_id": "CA09-887",
+      "blocker_code": "GROUP",
+      "source_condition_text": "辰戌破军煞重",
+      "source_location": "事业宫printed_p155",
+      "time_layer": "NATAL",
+      "projection_domain": "strategy",
+      "projection_target": "technical_livelihood_is_preferred_and_independent_business_is_not",
+      "source_span_ids": [
+        "ZZ003-P155"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json",
+      "prior_dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "token_assessments": [
+        {
+          "token": "煞重",
+          "semantic_support": "SEVERITY_LITERAL_UNNUMERICIZED",
+          "source_basis": "CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1",
+          "execution_effect": "BLOCKED_NO_NUMERICIZATION"
+        }
+      ],
+      "explicit_clause_markers": [],
+      "local_clause_semantics": [],
+      "remaining_blockers": [
+        "SEVERITY_ORDINAL_SEMANTICS"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "classification_note": "本轮没有获得足够的新 source-supported group semantics；局部 operator/相对强弱文字可保留，但不改变原 blocker。"
+    }
+  ],
+  "guardrails": {
+    "historical_review_modified": false,
+    "new_source_meaning_invented": false,
+    "named_composite_semantics_transferred_to_generic_shorthand": false,
+    "explicit_clause_operator_globalized": false,
+    "global_any_default": false,
+    "global_all_default": false,
+    "severity_numericized": false,
+    "source_resolution_changed": false,
+    "product_runtime_modified": false,
+    "numeric_weights_added": false,
+    "probabilities_added": false
+  }
+}
