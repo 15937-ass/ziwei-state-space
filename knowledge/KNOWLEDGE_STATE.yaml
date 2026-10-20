@@ -4,14 +4,14 @@ authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  status: "ACTIVE_NO_ACTIVE_WORK"
+  status: "ACTIVE_VALIDATION_PENDING"
   program: "KB_WP07A"
-  active_issue: null
-  active_pr: null
+  active_issue: 369
+  active_pr: 371
   canonical_main_checkpoint: "CAREER_CA09_FINAL"
-  resume_entry: "Issue #367 completed: next100 Career rules reviewed with substantive synopsis;41 new complete condition mappings,1 methodology/context,58 blocked outcome mappings,0 production additions. Unique structured IDs152->252; canonical source-reviewed888 unchanged. PI reporting cadence100 per unit, internal50+50; no next unit selected."
-  resume_issue: 367
-  last_state_sync_issue: 367
+  resume_entry: "Issue #369 producer+critic review complete:100 rechecked,30 complete condition mappings,8 methodology/context,62 blocked,0 production additions. Unique structured IDs252->352; canonical source-reviewed888 unchanged. Source/canonical/scope deterministic checks PASS; mandatory shell pytest/governance validation still pending before merge."
+  resume_issue: 369
+  last_state_sync_issue: 369
 
 canonical_main_snapshot:
   domain: "事业宫"
@@ -88,6 +88,12 @@ completed_work_units:
     pr: 368
     status: "COMPLETE_PENDING_MERGE_100_REVIEWED_41_MAPPED_1_CONTEXT_58_BLOCKED"
 
+  - work_unit: "KB-WP07A-CAREER-100-REVIEW-03"
+    issue: 369
+    pr: 371
+    status: "REVIEW_COMPLETE_VALIDATION_PENDING_100_REVIEWED_30_MAPPED_8_CONTEXT_62_BLOCKED"
+
+
 archived_noncanonical_snapshots:
   wp05_all_twelve_palaces:
     pr: 272
@@ -109,7 +115,7 @@ resume_queue_reference:
   legacy_integration_issue: 278
   completed_career_closure_pr: 294
   completed_temporal_eligibility_pr: 301
-  note: "Legacy Issue #278 is historical and closed. PR #272 remains a non-canonical comparison snapshot and must be audited segment by segment. Recent merged Career Knowledge mappings are #305, #308, #315, #322, #328, #331 and #335; Issue #334 is completed; Issue #347 is completed by #349; Issue #352 completed by #355; Issue #357 completed by #360; Issue #362 completed by #366; Issue #367 is complete in PR #368 pending merge; next unit not selected; PI reporting batch100 rules with substantive content synopsis."
+  note: "Legacy Issue #278 is historical and closed. PR #272 remains a non-canonical comparison snapshot and must be audited segment by segment. Issue #369 is the active Knowledge unit: third100 Career review complete after critic pass; mandatory shell validation pending in PR #371. Do not start the fourth100 until #369 closes. PI reporting batch100 rules with substantive content synopsis."
 
 human_gate:
   pending_on_main: null
