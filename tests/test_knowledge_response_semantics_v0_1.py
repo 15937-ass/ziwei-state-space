@@ -99,3 +99,33 @@ def test_no_numeric_weights_or_probabilities_in_pilot():
     assert pilot["guardrails"]["numeric_weights_added"] is False
     assert pilot["guardrails"]["probabilities_added"] is False
     assert pilot["guardrails"]["product_runtime_modified"] is False
+
+
+def test_pilot_records_follow_schema_required_fields_and_enums():
+    schema = _load(SCHEMA_PATH)
+    pilot = _load(PILOT_PATH)
+    required = set(schema["required"])
+    role_enum = set(schema["properties"]["semantic_role"]["enum"])
+    activation_enum = set(
+        schema["properties"]["activation"]["properties"]["mode"]["enum"]
+    )
+    interaction_enum = set(
+        schema["properties"]["interaction"]["properties"]["type"]["enum"]
+    )
+    execution_enum = set(schema["properties"]["execution_status"]["enum"])
+
+    for record in pilot["records"]:
+        assert required <= set(record)
+        assert record["semantic_role"] in role_enum
+        assert record["activation"]["mode"] in activation_enum
+        assert record["interaction"]["type"] in interaction_enum
+        assert record["execution_status"] in execution_enum
+
+
+def test_unspecified_semantics_are_not_mislabelled_as_source_explicit():
+    pilot = _load(PILOT_PATH)
+    for record in pilot["records"]:
+        if record["activation"]["mode"] == "UNSPECIFIED":
+            assert record["activation"]["source_status"] != "EXPLICIT"
+        if record["interaction"]["type"] == "UNSPECIFIED":
+            assert record["interaction"]["source_status"] != "EXPLICIT"
