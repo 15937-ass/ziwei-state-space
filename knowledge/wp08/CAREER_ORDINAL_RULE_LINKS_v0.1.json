@@ -10,21 +10,22 @@
   },
   "coverage": {
     "constraints": 130,
-    "linked_atomic_rule_ids": 110,
+    "linked_atomic_rule_ids": 127,
     "linked_activation_rule_ids": 30
   },
   "disposition_counts": {
-    "DIRECT_ATOMIC_RULE": 84,
+    "DIRECT_ATOMIC_RULE": 111,
     "METHODOLOGY_OR_CONTEXT_ONLY": 1,
-    "MULTI_RULE_SHARED_SOURCE_SENTENCE": 12,
-    "AMBIGUOUS_RULE_LINK": 16,
-    "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP": 17
+    "MULTI_RULE_SHARED_SOURCE_SENTENCE": 15,
+    "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP": 3
   },
   "method": {
     "candidate_scope": "same printed source page only",
     "ranking": "source sentence vs atomic condition lexical overlap (Han-character recall + bigram Dice)",
     "canonical_link_policy": "only direct/multi dispositions create rule links; low-confidence candidates remain gap/ambiguous",
-    "adjacency_used": false
+    "adjacency_used": false,
+    "critic_pass": "SOURCE_CONTEXT + existing atomic target semantics; explicit overrides recorded per row",
+    "automatic_threshold_is_not_canonical_truth": true
   },
   "records": [
     {
@@ -193,9 +194,9 @@
       "source_span_id": "ZZ003-P134",
       "printed_page": 134,
       "source_sentence": "一一凡女命权星在事业宫者，皆须注意婚姻，紫微尤然耳。",
-      "disposition": "AMBIGUOUS_RULE_LINK",
+      "disposition": "DIRECT_ATOMIC_RULE",
       "linked_rule_ids": [
-        "CA01-070"
+        "CA01-071"
       ],
       "top_candidate": {
         "source_rule_id": "CA01-070",
@@ -211,7 +212,15 @@
         "projection_target": "career_advantage_can_coexist_with_marriage_tension",
         "lexical_score": 0.308
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "Source emphasis is specifically on marriage risk under career-palace power; CA01-071 captures the relationship-side projection.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA01-071",
+          "condition": "子午紫微化权",
+          "projection_target": "career_advantage_can_coexist_with_marriage_tension"
+        }
+      ]
     },
     {
       "constraint_id": "OC-008",
@@ -245,9 +254,9 @@
       "source_span_id": "ZZ003-P135",
       "printed_page": 135,
       "source_sentence": "[紫相]守事业宫，常居副贰，虽实际工作独当～面，而名义则不如实际。",
-      "disposition": "AMBIGUOUS_RULE_LINK",
+      "disposition": "DIRECT_ATOMIC_RULE",
       "linked_rule_ids": [
-        "CA02-131"
+        "CA02-132"
       ],
       "top_candidate": {
         "source_rule_id": "CA02-131",
@@ -263,7 +272,15 @@
         "projection_target": "career_cooperation_suited",
         "lexical_score": 0.391
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "Ordinal '名义不如实际' directly matches actual responsibility exceeding formal title.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA02-132",
+          "condition": "前格",
+          "projection_target": "actual_responsibility_can_exceed_formal_title"
+        }
+      ]
     },
     {
       "constraint_id": "OC-010",
@@ -350,8 +367,10 @@
       "source_span_id": "ZZ003-P135",
       "printed_page": 135,
       "source_sentence": "但亦必先发生一次改变，然后才能从事较为稳定的事业。",
-      "disposition": "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP",
-      "linked_rule_ids": [],
+      "disposition": "DIRECT_ATOMIC_RULE",
+      "linked_rule_ids": [
+        "CA02-158"
+      ],
       "top_candidate": {
         "source_rule_id": "CA02-149",
         "condition": "前格原文三度转业然后始安定",
@@ -366,7 +385,15 @@
         "projection_target": "large_scale_capital_operation_suited",
         "lexical_score": 0.193
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "Sentence is the source expansion of 天机化权 becoming stable only after one prior change.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA02-158",
+          "condition": "天机化权",
+          "projection_target": "career_becomes_more_stable_after_prior_change"
+        }
+      ]
     },
     {
       "constraint_id": "OC-014",
@@ -428,7 +455,7 @@
       "source_span_id": "ZZ003-P136",
       "printed_page": 136,
       "source_sentence": "见巨门化权，宜口舌生财，故最宜从事销售部门之监管计划工作：有时亦可从事自由职业，如传播、广告、计划、推广等。",
-      "disposition": "AMBIGUOUS_RULE_LINK",
+      "disposition": "DIRECT_ATOMIC_RULE",
       "linked_rule_ids": [
         "CA03-205"
       ],
@@ -446,7 +473,15 @@
         "projection_target": "career_becomes_more_stable_after_prior_change",
         "lexical_score": 0.295
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "Source explicitly prefers sales supervision/planning under 巨门化权; existing atomic target matches.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA03-205",
+          "condition": "丑未天机见巨门化权",
+          "projection_target": "sales_supervision_or_planning_scene"
+        }
+      ]
     },
     {
       "constraint_id": "OC-017",
@@ -505,7 +540,7 @@
       "source_span_id": "ZZ003-P138",
       "printed_page": 138,
       "source_sentence": "但小心此格有许多变格，例如文昌化忌，即其研究一生质便宜带有较低层次色彩。",
-      "disposition": "AMBIGUOUS_RULE_LINK",
+      "disposition": "DIRECT_ATOMIC_RULE",
       "linked_rule_ids": [
         "CA03-263"
       ],
@@ -523,7 +558,15 @@
         "projection_target": "highly_specialized_or_broad_scope_work_can_absorb_solar_mobility",
         "lexical_score": 0.21
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "文昌化忌 lowering the research expression maps directly to the existing 阳梁昌禄变格 row.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA03-263",
+          "condition": "阳梁昌禄而文昌化忌",
+          "projection_target": "research_expression_can_shift_to_more_commercial_or_applied_level"
+        }
+      ]
     },
     {
       "constraint_id": "OC-020",
@@ -845,8 +888,10 @@
       "source_span_id": "ZZ003-P140",
       "printed_page": 140,
       "source_sentence": "(以寅申二宫言，寅宫又重于申宫。",
-      "disposition": "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP",
-      "linked_rule_ids": [],
+      "disposition": "DIRECT_ATOMIC_RULE",
+      "linked_rule_ids": [
+        "CA04-320"
+      ],
       "top_candidate": {
         "source_rule_id": "CA04-318",
         "condition": "寅申太阳巨门",
@@ -861,7 +906,15 @@
         "projection_target": "career_loss_activation_in_decade_window",
         "lexical_score": 0.069
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "Palace-variant comparison is already represented by the methodology comparison row.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA04-320",
+          "condition": "太阳巨门宫位比较",
+          "projection_target": "external_orientation_varies_by_palace_location"
+        }
+      ]
     },
     {
       "constraint_id": "OC-033",
@@ -869,8 +922,10 @@
       "source_span_id": "ZZ003-P140",
       "printed_page": 140,
       "source_sentence": "此种性质，寅申宫重于巳亥宫。",
-      "disposition": "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP",
-      "linked_rule_ids": [],
+      "disposition": "DIRECT_ATOMIC_RULE",
+      "linked_rule_ids": [
+        "CA04-320"
+      ],
       "top_candidate": {
         "source_rule_id": "CA04-318",
         "condition": "寅申太阳巨门",
@@ -885,7 +940,15 @@
         "projection_target": "external_affairs_orientation_strengthened",
         "lexical_score": 0.21
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "寅申/巳亥 relative strength is a palace-location comparison already normalized in CA04-320.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA04-320",
+          "condition": "太阳巨门宫位比较",
+          "projection_target": "external_orientation_varies_by_palace_location"
+        }
+      ]
     },
     {
       "constraint_id": "OC-034",
@@ -1021,7 +1084,7 @@
       "source_span_id": "ZZ003-P142",
       "printed_page": 142,
       "source_sentence": "卯宫属木，得火星嫌火过旺，纳音属火者尤忌。",
-      "disposition": "AMBIGUOUS_RULE_LINK",
+      "disposition": "DIRECT_ATOMIC_RULE",
       "linked_rule_ids": [
         "CA04-381"
       ],
@@ -1039,7 +1102,15 @@
         "projection_target": "setbacks_can_precede_later_achievement",
         "lexical_score": 0.193
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "卯宫武曲七杀见火星 and source-local 尤忌 are the same atomic condition.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA04-381",
+          "condition": "卯宫武曲七杀见火星",
+          "projection_target": "heavy_effort_can_fail_to_produce_results"
+        }
+      ]
     },
     {
       "constraint_id": "OC-040",
@@ -1047,9 +1118,9 @@
       "source_span_id": "ZZ003-P142",
       "printed_page": 142,
       "source_sentence": "以见吉化吉曜为佳，煞重则须防挫折。",
-      "disposition": "AMBIGUOUS_RULE_LINK",
+      "disposition": "DIRECT_ATOMIC_RULE",
       "linked_rule_ids": [
-        "CA04-390"
+        "CA04-382"
       ],
       "top_candidate": {
         "source_rule_id": "CA04-390",
@@ -1065,7 +1136,15 @@
         "projection_target": "career_setbacks_become_repeated_and_heavy",
         "lexical_score": 0.22
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "吉化吉曜为佳/煞重防挫折 qualifies the 武曲七杀得禄 base row; no numeric threshold is introduced.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA04-382",
+          "condition": "武曲七杀得禄",
+          "projection_target": "finance_and_operations_work_scene"
+        }
+      ]
     },
     {
       "constraint_id": "OC-041",
@@ -1256,8 +1335,10 @@
       "source_span_id": "ZZ003-P143",
       "printed_page": 143,
       "source_sentence": "唯独当一面之机会则较小。",
-      "disposition": "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP",
-      "linked_rule_ids": [],
+      "disposition": "DIRECT_ATOMIC_RULE",
+      "linked_rule_ids": [
+        "CA05-431"
+      ],
       "top_candidate": {
         "source_rule_id": "CA05-415",
         "condition": "天同火铃同度或对拱从事音乐歌唱",
@@ -1272,7 +1353,15 @@
         "projection_target": "literary_or_artistic_work_scene",
         "lexical_score": 0
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "'独当一面机会较小' directly matches independent top-level responsibility being less common.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA05-431",
+          "condition": "前格",
+          "projection_target": "independent_top_level_responsibility_is_less_common"
+        }
+      ]
     },
     {
       "constraint_id": "OC-049",
@@ -1360,8 +1449,10 @@
       "source_span_id": "ZZ003-P143",
       "printed_page": 143,
       "source_sentence": "唯以整体成就而言，反而不及有忌星刺激者之佳。",
-      "disposition": "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP",
-      "linked_rule_ids": [],
+      "disposition": "DIRECT_ATOMIC_RULE",
+      "linked_rule_ids": [
+        "CA05-441"
+      ],
       "top_candidate": {
         "source_rule_id": "CA05-441",
         "condition": "前述化禄与煞忌刺激比较",
@@ -1376,7 +1467,15 @@
         "projection_target": "inherited_base_is_not_preserved",
         "lexical_score": 0.183
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "Existing methodology row explicitly represents the relative achievement comparison.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA05-441",
+          "condition": "前述化禄与煞忌刺激比较",
+          "projection_target": "ease_does_not_necessarily_imply_higher_overall_achievement"
+        }
+      ]
     },
     {
       "constraint_id": "OC-053",
@@ -1670,7 +1769,7 @@
       "source_span_id": "ZZ003-P145",
       "printed_page": 145,
       "source_sentence": "若本宫有煞，则不如从事工业。",
-      "disposition": "AMBIGUOUS_RULE_LINK",
+      "disposition": "DIRECT_ATOMIC_RULE",
       "linked_rule_ids": [
         "CA05-492"
       ],
@@ -1688,7 +1787,15 @@
         "projection_target": "political_compromise_or_puppet_role_risk",
         "lexical_score": 0.193
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "本宫有煞 -> industrial work preferred is already atomic.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA05-492",
+          "condition": "廉贞七杀本宫有煞",
+          "projection_target": "industrial_work_scene_preferred"
+        }
+      ]
     },
     {
       "constraint_id": "OC-065",
@@ -1696,7 +1803,7 @@
       "source_span_id": "ZZ003-P145",
       "printed_page": 145,
       "source_sentence": "故不如从事带血光之行业，如饮食业、化验所等，反可趋吉避凶。",
-      "disposition": "AMBIGUOUS_RULE_LINK",
+      "disposition": "DIRECT_ATOMIC_RULE",
       "linked_rule_ids": [
         "CA05-494"
       ],
@@ -1714,7 +1821,15 @@
         "projection_target": "political_compromise_or_puppet_role_risk",
         "lexical_score": 0.193
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "Risk-channeling toward blood/food/lab industry is already atomic.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA05-494",
+          "condition": "前格趋避",
+          "projection_target": "blood_food_or_laboratory_industry_scene_as_risk_channeling"
+        }
+      ]
     },
     {
       "constraint_id": "OC-066",
@@ -1748,7 +1863,7 @@
       "source_span_id": "ZZ003-P145",
       "printed_page": 145,
       "source_sentence": "卯西『廉破』，见煞轻者．亦带偏门或半偏门色彩，所从事行业，多外表浮华?或与酒色财气有关。",
-      "disposition": "AMBIGUOUS_RULE_LINK",
+      "disposition": "DIRECT_ATOMIC_RULE",
       "linked_rule_ids": [
         "CA06-506"
       ],
@@ -1766,7 +1881,15 @@
         "projection_target": "career_sponsorship_and_assistance_strengthened",
         "lexical_score": 0.275
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "廉破见煞轻 is exactly the atomic condition.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA06-506",
+          "condition": "卯酉廉贞破军见煞轻",
+          "projection_target": "marginal_or_pleasure_oriented_industry_scene"
+        }
+      ]
     },
     {
       "constraint_id": "OC-068",
@@ -1800,9 +1923,9 @@
       "source_span_id": "ZZ003-P146",
       "printed_page": 146,
       "source_sentence": "[廉贪]守事业宫者，亦多事业上的应酬，又由应酬而扩展事业，其性质与[廉破]略同，唯权力欲则稍逊。",
-      "disposition": "AMBIGUOUS_RULE_LINK",
+      "disposition": "DIRECT_ATOMIC_RULE",
       "linked_rule_ids": [
-        "CA06-524"
+        "CA06-531"
       ],
       "top_candidate": {
         "source_rule_id": "CA06-524",
@@ -1818,7 +1941,15 @@
         "projection_target": "career_socializing_can_expand_business",
         "lexical_score": 0.339
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "权力欲稍逊于廉破 is exactly the comparison target of CA06-531.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA06-531",
+          "condition": "前格与廉贞破军比较",
+          "projection_target": "power_desire_is_relatively_weaker_than_lianzhen_pojun"
+        }
+      ]
     },
     {
       "constraint_id": "OC-070",
@@ -1826,9 +1957,9 @@
       "source_span_id": "ZZ003-P146",
       "printed_page": 146,
       "source_sentence": "若煞曜同躔者尤甚。",
-      "disposition": "AMBIGUOUS_RULE_LINK",
+      "disposition": "DIRECT_ATOMIC_RULE",
       "linked_rule_ids": [
-        "CA06-519"
+        "CA06-536"
       ],
       "top_candidate": {
         "source_rule_id": "CA06-519",
@@ -1844,7 +1975,15 @@
         "projection_target": "overcaution_and_development_constraint_strengthened",
         "lexical_score": 0.385
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "Source-local '煞曜同躔尤甚' belongs to 天府落陷过谨慎/发展受限 context; link kept source-local.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA06-536",
+          "condition": "天府入庙",
+          "projection_target": "existing_career_platform_can_be_preserved"
+        }
+      ]
     },
     {
       "constraint_id": "OC-071",
@@ -1930,8 +2069,11 @@
       "source_span_id": "ZZ003-P147",
       "printed_page": 147,
       "source_sentence": "以任职公司机构为宜，更不宜从政。",
-      "disposition": "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP",
-      "linked_rule_ids": [],
+      "disposition": "MULTI_RULE_SHARED_SOURCE_SENTENCE",
+      "linked_rule_ids": [
+        "CA06-567",
+        "CA06-568"
+      ],
       "top_candidate": {
         "source_rule_id": "CA06-563",
         "condition": "丑未天府从政",
@@ -1946,7 +2088,20 @@
         "projection_target": "material_capacity_and_social_status_must_be_separated",
         "lexical_score": 0.11
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "Same source sentence carries both avoidance of speculation/finance/politics and preference for institutional employment.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA06-567",
+          "condition": "卯酉天府且所会天相为刑忌夹",
+          "projection_target": "speculation_finance_and_political_career_not_preferred"
+        },
+        {
+          "source_rule_id": "CA06-568",
+          "condition": "前格",
+          "projection_target": "institutional_employment_scene"
+        }
+      ]
     },
     {
       "constraint_id": "OC-075",
@@ -1980,9 +2135,9 @@
       "source_span_id": "ZZ003-P147",
       "printed_page": 147,
       "source_sentence": "有煞者更甚。",
-      "disposition": "AMBIGUOUS_RULE_LINK",
+      "disposition": "DIRECT_ATOMIC_RULE",
       "linked_rule_ids": [
-        "CA06-559"
+        "CA06-576"
       ],
       "top_candidate": {
         "source_rule_id": "CA06-559",
@@ -1998,7 +2153,15 @@
         "projection_target": "showiness_and_instability_strengthened",
         "lexical_score": 0.385
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "巳亥天府有煞更甚 directly strengthens showiness/instability.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA06-576",
+          "condition": "前格见煞",
+          "projection_target": "showiness_and_instability_strengthened"
+        }
+      ]
     },
     {
       "constraint_id": "OC-077",
@@ -2084,8 +2247,10 @@
       "source_span_id": "ZZ003-P148",
       "printed_page": 148,
       "source_sentence": "一般情形下酉优于卯，在酉事业广大，可以扩展至外国，或一生事业与外国有关，在卯者，以任职为宜。",
-      "disposition": "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP",
-      "linked_rule_ids": [],
+      "disposition": "DIRECT_ATOMIC_RULE",
+      "linked_rule_ids": [
+        "CA07-611"
+      ],
       "top_candidate": {
         "source_rule_id": "CA07-611",
         "condition": "卯酉太阴比较",
@@ -2100,7 +2265,15 @@
         "projection_target": "career_scope_can_expand_to_foreign_or_cross_region_contexts",
         "lexical_score": 0.204
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "酉优于卯 is explicitly the existing comparison row.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA07-611",
+          "condition": "卯酉太阴比较",
+          "projection_target": "you_palace_variant_is_generally_stronger_than_mao"
+        }
+      ]
     },
     {
       "constraint_id": "OC-081",
@@ -2212,8 +2385,9 @@
       "source_span_id": "ZZ003-P149",
       "printed_page": 149,
       "source_sentence": "有煞曜同度者更甚，空劫同度则主因竞争而遭挫折。",
-      "disposition": "AMBIGUOUS_RULE_LINK",
+      "disposition": "MULTI_RULE_SHARED_SOURCE_SENTENCE",
       "linked_rule_ids": [
+        "CA07-643",
         "CA07-644"
       ],
       "top_candidate": {
@@ -2230,7 +2404,20 @@
         "projection_target": "competition_pressure_strengthened",
         "lexical_score": 0.218
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "One sentence contains stronger competition pressure with malefics and setback with 空劫.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA07-643",
+          "condition": "贪狼化忌又见煞曜",
+          "projection_target": "competition_pressure_strengthened"
+        },
+        {
+          "source_rule_id": "CA07-644",
+          "condition": "贪狼化忌与空劫同度",
+          "projection_target": "competition_can_lead_to_setback"
+        }
+      ]
     },
     {
       "constraint_id": "OC-086",
@@ -2342,8 +2529,10 @@
       "source_span_id": "ZZ003-P150",
       "printed_page": 150,
       "source_sentence": "若带艺术气质者尤佳。",
-      "disposition": "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP",
-      "linked_rule_ids": [],
+      "disposition": "DIRECT_ATOMIC_RULE",
+      "linked_rule_ids": [
+        "CA07-695"
+      ],
       "top_candidate": {
         "source_rule_id": "CA08-707",
         "condition": "天相服务性质",
@@ -2358,7 +2547,15 @@
         "projection_target": "food_or_catering_scene",
         "lexical_score": 0.055
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "辰戌巨门自由职业/艺术气质 source sentence maps to the freelance-artistic scene row.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA07-695",
+          "condition": "辰戌巨门",
+          "projection_target": "freelance_or_artistic_independent_profession_scene"
+        }
+      ]
     },
     {
       "constraint_id": "OC-091",
@@ -2418,8 +2615,10 @@
       "source_span_id": "ZZ003-P151",
       "printed_page": 151,
       "source_sentence": "如此则所得利益便应较大。",
-      "disposition": "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP",
-      "linked_rule_ids": [],
+      "disposition": "DIRECT_ATOMIC_RULE",
+      "linked_rule_ids": [
+        "CA08-712"
+      ],
       "top_candidate": {
         "source_rule_id": "CA08-712",
         "condition": "前格会天府禄存或天相财荫夹",
@@ -2434,7 +2633,15 @@
         "projection_target": "product_representation_or_agency_scene",
         "lexical_score": 0
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "Greater benefit follows the support structure captured by CA08-712.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA08-712",
+          "condition": "前格会天府禄存或天相财荫夹",
+          "projection_target": "support_structure_allows_native_to_share_benefit_from_created_career"
+        }
+      ]
     },
     {
       "constraint_id": "OC-094",
@@ -2572,8 +2779,11 @@
       "source_span_id": "ZZ003-P151",
       "printed_page": 151,
       "source_sentence": "若从商，最宜为商品代理，若任职，则宜为跨国机构一地之首脑。",
-      "disposition": "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP",
-      "linked_rule_ids": [],
+      "disposition": "MULTI_RULE_SHARED_SOURCE_SENTENCE",
+      "linked_rule_ids": [
+        "CA08-738",
+        "CA08-739"
+      ],
       "top_candidate": {
         "source_rule_id": "CA08-738",
         "condition": "卯酉天相从商",
@@ -2588,7 +2798,20 @@
         "projection_target": "regional_head_of_multinational_or_large_organization_scene",
         "lexical_score": 0.215
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "Source sentence explicitly splits business-agency and employed-regional-head scenes.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA08-738",
+          "condition": "卯酉天相从商",
+          "projection_target": "product_agency_or_representation_scene"
+        },
+        {
+          "source_rule_id": "CA08-739",
+          "condition": "卯酉天相任职",
+          "projection_target": "regional_head_of_multinational_or_large_organization_scene"
+        }
+      ]
     },
     {
       "constraint_id": "OC-100",
@@ -3194,8 +3417,10 @@
       "source_span_id": "ZZ003-P155",
       "printed_page": 155,
       "source_sentence": "化禄、权时尤甚。",
-      "disposition": "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP",
-      "linked_rule_ids": [],
+      "disposition": "DIRECT_ATOMIC_RULE",
+      "linked_rule_ids": [
+        "CA09-868"
+      ],
       "top_candidate": {
         "source_rule_id": "CA09-874",
         "condition": "寅申破军会武曲化禄贪狼化权且不见文曲化忌",
@@ -3210,7 +3435,15 @@
         "projection_target": "financial_institution_employment_scene",
         "lexical_score": 0.079
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "化禄/权 strengthens the partnership/multiple-business-line expression already normalized in CA09-868.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA09-868",
+          "condition": "子午破军从工从商",
+          "projection_target": "partnership_startup_and_multiple_joint_business_lines_are_common_and_strengthen_with_hualu_huaquan"
+        }
+      ]
     },
     {
       "constraint_id": "OC-124",
@@ -3244,7 +3477,7 @@
       "source_span_id": "ZZ003-P155",
       "printed_page": 155,
       "source_sentence": "若武曲化忌，只利从工，亦有风波意外，唯风险毕竟较小。",
-      "disposition": "AMBIGUOUS_RULE_LINK",
+      "disposition": "DIRECT_ATOMIC_RULE",
       "linked_rule_ids": [
         "CA09-875"
       ],
@@ -3262,7 +3495,15 @@
         "projection_target": "capital_insufficiency_can_trigger_business_loss_or_setback",
         "lexical_score": 0.365
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "武曲化忌 only favors industrial/technical work with smaller risk; exact row.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA09-875",
+          "condition": "寅申破军会武曲化忌",
+          "projection_target": "industrial_or_technical_work_is_preferred_with_turbulence_or_accident_risk"
+        }
+      ]
     },
     {
       "constraint_id": "OC-126",
@@ -3270,8 +3511,10 @@
       "source_span_id": "ZZ003-P155",
       "printed_page": 155,
       "source_sentence": "最不宜从商，主财不足以济其用，往往因此损失，挫败。",
-      "disposition": "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP",
-      "linked_rule_ids": [],
+      "disposition": "DIRECT_ATOMIC_RULE",
+      "linked_rule_ids": [
+        "CA09-877"
+      ],
       "top_candidate": {
         "source_rule_id": "CA09-868",
         "condition": "子午破军从工从商",
@@ -3286,7 +3529,15 @@
         "projection_target": "fubi_can_turn_maneuvering_into_advantage_while_its_absence_increases_backfire_risk",
         "lexical_score": 0.183
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "最不宜从商 and capital insufficiency loss map directly to CA09-877.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA09-877",
+          "condition": "寅申破军武曲化忌从商",
+          "projection_target": "capital_insufficiency_can_trigger_business_loss_or_setback"
+        }
+      ]
     },
     {
       "constraint_id": "OC-127",
@@ -3294,9 +3545,9 @@
       "source_span_id": "ZZ003-P155",
       "printed_page": 155,
       "source_sentence": "空劫同度者更甚。",
-      "disposition": "AMBIGUOUS_RULE_LINK",
+      "disposition": "DIRECT_ATOMIC_RULE",
       "linked_rule_ids": [
-        "CA09-864"
+        "CA09-879"
       ],
       "top_candidate": {
         "source_rule_id": "CA09-864",
@@ -3312,7 +3563,15 @@
         "projection_target": "outward_scale_can_exceed_internal_substance_and_kongjie_strengthens_hollowness",
         "lexical_score": 0.264
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "空劫同度更甚 qualifies the outwardly-large-but-hollow 寅申破军 structure in CA09-879.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA09-879",
+          "condition": "寅申破军无禄无吉曜或空劫同度",
+          "projection_target": "outward_scale_can_exceed_internal_substance_and_kongjie_strengthens_hollowness"
+        }
+      ]
     },
     {
       "constraint_id": "OC-128",
@@ -3320,8 +3579,10 @@
       "source_span_id": "ZZ003-P155",
       "printed_page": 155,
       "source_sentence": "故最喜见魁铖。",
-      "disposition": "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP",
-      "linked_rule_ids": [],
+      "disposition": "DIRECT_ATOMIC_RULE",
+      "linked_rule_ids": [
+        "CA09-884"
+      ],
       "top_candidate": {
         "source_rule_id": "CA09-884",
         "condition": "辰戌破军为副贰且借别人财力势力兴家并喜魁钺",
@@ -3336,7 +3597,15 @@
         "projection_target": "political_or_organizational_maneuvering_tendency_is_structural",
         "lexical_score": 0.05
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "最喜魁钺 is already included in the support structure of CA09-884.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA09-884",
+          "condition": "辰戌破军为副贰且借别人财力势力兴家并喜魁钺",
+          "projection_target": "deputy_role_and_external_capital_or_influence_support_are_structural"
+        }
+      ]
     },
     {
       "constraint_id": "OC-129",
@@ -3344,7 +3613,7 @@
       "source_span_id": "ZZ003-P155",
       "printed_page": 155,
       "source_sentence": "若无吉曜，又无煞曜(或二者均见，但力量微薄者)则必须一技傍身始能生发。",
-      "disposition": "AMBIGUOUS_RULE_LINK",
+      "disposition": "DIRECT_ATOMIC_RULE",
       "linked_rule_ids": [
         "CA09-885"
       ],
@@ -3362,7 +3631,15 @@
         "projection_target": "public_office_scene_is_possible",
         "lexical_score": 0.209
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "吉煞均弱 is exactly the atomic condition.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA09-885",
+          "condition": "辰戌破军无吉无煞或吉煞均弱",
+          "projection_target": "specialized_skill_is_required_before_career_development"
+        }
+      ]
     },
     {
       "constraint_id": "OC-130",
@@ -3370,8 +3647,10 @@
       "source_span_id": "ZZ003-P155",
       "printed_page": 155,
       "source_sentence": "煞重者，宜技术谋生，不宜自行经营。",
-      "disposition": "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP",
-      "linked_rule_ids": [],
+      "disposition": "DIRECT_ATOMIC_RULE",
+      "linked_rule_ids": [
+        "CA09-887"
+      ],
       "top_candidate": {
         "source_rule_id": "CA09-887",
         "condition": "辰戌破军煞重",
@@ -3386,7 +3665,15 @@
         "projection_target": "fubi_can_turn_maneuvering_into_advantage_while_its_absence_increases_backfire_risk",
         "lexical_score": 0.183
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "煞重 -> technical livelihood / avoid independent operation is exact.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA09-887",
+          "condition": "辰戌破军煞重",
+          "projection_target": "technical_livelihood_is_preferred_and_independent_business_is_not"
+        }
+      ]
     }
   ],
   "guardrails": {
