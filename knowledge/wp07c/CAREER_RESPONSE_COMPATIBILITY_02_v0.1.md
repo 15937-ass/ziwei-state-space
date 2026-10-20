@@ -27,6 +27,7 @@ Issue: #423
 | SEVERITY_ORDINAL_SEMANTICS | 2 |
 | COMPOSITE_RELATION_BINDING | 1 |
 | STRUCTURED_PATTERN_INTEGRATION | 1 |
+| UNTOKENIZED_SEMANTIC_RECHECK | 10 |
 
 这些计数允许重叠：一条规则可能同时存在 relation、category 与 inherited blocker。
 
@@ -47,7 +48,11 @@ CA05-419 的“左辅右弼”、CA06-582 的“文昌文曲”、CA07-638 的�
 本批有 **69** 条需要 relation scope。
 这意味着下一阶段很可能必须处理“见 / 同度 / 同会 / 会照 / 相对”等关系到底如何绑定 group member、named composite 与宫位，而不能只继续扩充词典。
 
-### 3.4 强弱词仍保持非数值
+### 3.4 旧 review 的未 token 化语义需要单独复核
+
+有 **10 条**非“前格”记录在 GLEX2 中 `surface_group_tokens=[]`，但 review reason 仍认为存在群组/集合语义。它们不能因为 token 列表为空就被误判为“group 问题已消失”，因此新增 `UNTOKENIZED_SEMANTIC_RECHECK` 标签。这是 review representation 的清理任务，不是新增 source meaning。
+
+### 3.5 强弱词仍保持非数值
 
 “煞轻”等 source literal 被保留，但不会转换成 +1 / -1 / 0.3 等数字。它只能进入未来 severity / ordinal ontology。
 
