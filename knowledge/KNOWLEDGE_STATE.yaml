@@ -4,14 +4,14 @@ authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  status: "ACTIVE_NO_ACTIVE_WORK"
-  program: "KB_WP07C"
-  active_issue: null
-  active_pr: null
+  status: "ACTIVE"
+  program: "KB_WP07C_RESPONSE_SEMANTICS"
+  active_issue: 419
+  active_pr: 420
   canonical_main_checkpoint: "CAREER_CA09_FINAL"
-  resume_entry: "Issue #415 / PR #417 completes GROUP/quantifier source review at 251/251. No executable defaults or Product rules were added. Closure evidence supports source-grounded membership, Career-domain 科文诸曜 definition, and named term-specific composites; generic shorthand cardinality remains UNSPECIFIED. HG-KB-GROUP-QUANTIFIER-01 is READY_FOR_PI with recommended conservative option A."
-  resume_issue: 415
-  last_state_sync_issue: 415
+  resume_entry: "Issue #419 / PR #420 implements the PI-approved bounded Response Semantics v0.1 direction: GROUP is membership-only; activation, relation, interaction and ordinal constraints are separate; unspecified shorthand keeps no ANY/ALL default. Product runtime and empirical weights remain unchanged. Future dynamic/prior-posterior principles are recorded as guidance, not current runtime requirements."
+  resume_issue: 419
+  last_state_sync_issue: 419
 
 canonical_main_snapshot:
   domain: "事业宫"
@@ -164,13 +164,16 @@ resume_queue_reference:
   legacy_integration_issue: 278
   completed_career_closure_pr: 294
   completed_temporal_eligibility_pr: 301
-  note: "Career canonical source review and structured-ID disposition are closed at 888/888. GROUP/quantifier ontology source review is now complete at 251/251 across #410/#411, #412/#414, and #415/#417. No executable semantics changed. HG-KB-GROUP-QUANTIFIER-01 is READY_FOR_PI; recommended option A freezes only source-supported membership/domain definitions/named composites and keeps unexpressed cardinality UNSPECIFIED."
+  note: "Career canonical source review and structured-ID disposition are closed at 888/888. GROUP-related source review is complete at 251/251. The old A/B/C quantifier gate is superseded as the forward design path by PI-approved bounded Response Semantics v0.1 in #419/#420; historical unresolved shorthand findings remain unchanged and are not auto-unblocked."
 
 human_gate:
-  pending_on_main: "HG-KB-GROUP-QUANTIFIER-01"
+  pending_on_main: null
   future_branch_gate: "HG-WP06B-MANIFESTATION-ROOT-01"
-  career_group_quantifier_gate: "HG-KB-GROUP-QUANTIFIER-01_READY_FOR_PI"
-  career_group_quantifier_recommendation: "A_CONSERVATIVE_SOURCE_PRESERVING"
+  superseded_gate: "HG-KB-GROUP-QUANTIFIER-01"
+  response_semantics_gate: "HG-KB-RESPONSE-SEMANTICS-01_APPROVED_BOUNDED_SCHEMA_ONLY"
+  response_semantics_issue: 419
+  response_semantics_pr: 420
+  note: "旧 GROUP quantifier gate 的历史审查结论保留；仅其 A/B/C 全局默认决策路径被 Response Semantics 分层设计取代。未明示 activation/interaction 仍保持 UNSPECIFIED。"
 
 integrity:
   source_truth_not_modified_by_empirical_feedback: true
