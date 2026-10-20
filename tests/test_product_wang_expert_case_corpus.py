@@ -179,6 +179,26 @@ def test_method_patterns_are_source_explicit_and_not_executable():
     assert all("ZHONGZHOU" in item.school_scope for item in patterns)
 
 
+def test_loco_blind_policy_hides_inventory_prose_and_external_biography():
+    manifest = load_wang_loco_manifest()
+    excluded = set(manifest["blind_excluded_resources"])
+
+    assert {
+        "CASE_SOURCE_INVENTORY_v0.1.json",
+        "SOURCE_SUBJECT_LABEL_MAPPING",
+        "EXPERT_CASE_PROSE",
+        "EXPERT_REASONING_GRAPH",
+        "EXPERT_CONCLUSIONS",
+        "SOURCE_OUTCOMES",
+        "EXTERNAL_BIOGRAPHICAL_KNOWLEDGE",
+    }.issubset(excluded)
+    assert manifest["external_knowledge_policy"] == "DISALLOWED_FOR_V0_1"
+    assert (
+        manifest["subject_identity_policy"]
+        == "MASK_SOURCE_SUBJECT_LABEL_IN_BLIND_VIEW"
+    )
+
+
 def test_loco_has_24_deterministic_holdouts_and_23_training_cases_each():
     bundles = load_wang_case_bundles()
     manifest = load_wang_loco_manifest()
