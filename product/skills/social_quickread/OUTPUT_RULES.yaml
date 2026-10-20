@@ -79,3 +79,15 @@ conversation_continuation:
     - "新 claim 必须重新经过 canonical/temporal runtime。"
     - "chart_context 只用于导航和重新计算，不授权 GPT 自由推命。"
     - "对外评论保持短；GPT 会话内可保留完整上下文。"
+
+
+pre_send_audit:
+  required: true
+  blocking: true
+  rules:
+    - "每句话至少映射到一个 selected claim。"
+    - "selected claim 必须带 semantic_group。"
+    - "同一 semantic_group + target_period 默认只允许在一处表达。"
+    - "同义改写不构成信息增量；重复主体性/控制感/务实等近义判断必须合并。"
+    - "无法映射回 claim 的生活化补充视为 unsupported hallucination。"
+    - "审计失败时先删除或合并，再重新生成；不得带警告直接发送。"
