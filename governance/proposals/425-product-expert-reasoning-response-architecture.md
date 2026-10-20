@@ -1,6 +1,6 @@
 # Proposal #425 — Product v0.4：专家推理、反应动力学与分阶段验证架构
 
-Status: **APPROVED / IMPLEMENTING**  
+Status: **IMPLEMENTED BY PR #427**  
 Tracking Issue: #425  
 Risk: **R3 / Human Gate**  
 Lane: **GOVERNANCE_ONLY**
@@ -775,4 +775,4 @@ Natal Essence
 ## 23. Implementation history
 
 - 2026-10-20：Issue #425 建立；PI 指令记录为 R3 Human Gate approval。
-- 2026-10-20：开始 Product v0.4 governance/documentation implementation。
+- 2026-10-20：PR #427 实施 Product v0.4 roadmap、execution plan、state recovery、decision record 与 governance contract tests。
