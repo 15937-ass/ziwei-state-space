@@ -61,18 +61,17 @@ def test_no_numericization_or_product_change():
 def test_final_link_disposition_counts_and_zero_ambiguity():
     links=load(LINKS)
     assert links["disposition_counts"] == {
-        "DIRECT_ATOMIC_RULE": 112,
+        "DIRECT_ATOMIC_RULE": 114,
         "METHODOLOGY_OR_CONTEXT_ONLY": 1,
         "MULTI_RULE_SHARED_SOURCE_SENTENCE": 15,
-        "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP": 2,
     }
     assert not any(r["disposition"]=="AMBIGUOUS_RULE_LINK" for r in links["records"])
-    assert links["coverage"]["linked_atomic_rule_ids"] == 128
+    assert links["coverage"]["linked_atomic_rule_ids"] == 130
 
-def test_three_explicit_atomic_gaps_are_preserved():
+def test_no_source_explicit_atomic_gaps_remain():
     links=load(LINKS)
     gaps={r["constraint_id"] for r in links["records"] if r["disposition"]=="SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP"}
-    assert gaps == {"OC-038","OC-102"}
+    assert gaps == set()
 
 def test_oc070_source_context_link_uses_tianfu_luoxian_severity_row():
     links={r["constraint_id"]:r for r in load(LINKS)["records"]}
@@ -95,3 +94,12 @@ def test_oc018_is_recovered_to_existing_atomic_rule():
     assert row["disposition"]=="DIRECT_ATOMIC_RULE"
     assert row["linked_rule_ids"]==["CA03-223"]
     assert row["link_epistemic"]=="SOURCE_CONTEXT_CRITIC_OVERRIDE"
+
+def test_final_source_context_recoveries():
+    links={r["constraint_id"]:r for r in load(LINKS)["records"]}
+    assert links["OC-018"]["linked_rule_ids"]==["CA03-223"]
+    assert links["OC-038"]["linked_rule_ids"]==["CA04-372"]
+    assert links["OC-070"]["linked_rule_ids"]==["CA06-538"]
+    assert links["OC-102"]["linked_rule_ids"]==["CA08-770"]
+    for cid in ["OC-018","OC-038","OC-070","OC-102"]:
+        assert links[cid]["link_epistemic"]=="SOURCE_CONTEXT_CRITIC_OVERRIDE"
