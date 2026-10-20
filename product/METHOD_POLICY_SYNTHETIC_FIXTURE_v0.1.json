@@ -1,0 +1,43 @@
+{
+  "schema_version": "0.1",
+  "fixture_id": "METHOD_POLICY_SYNTHETIC_MATERIALIZED_001",
+  "noncanonical": true,
+  "purpose": "Exercise a non-abstaining procedural-policy path without claiming any real Ziwei case facts.",
+  "request": {
+    "case_id": "SYNTHETIC-METHOD-POLICY-001",
+    "target_domains": [
+      "GLOBAL_PROFILE"
+    ],
+    "evidence": [
+      {
+        "evidence_id": "SYN-EV-PARENTS",
+        "kind": "PARENTS_PALACE",
+        "status": "MATERIALIZED_FACT",
+        "refs": [
+          "MATERIALIZED_FACT:SYNTHETIC:PARENTS_PALACE"
+        ]
+      },
+      {
+        "evidence_id": "SYN-EV-PROPERTY",
+        "kind": "PROPERTY_PALACE",
+        "status": "MATERIALIZED_FACT",
+        "refs": [
+          "MATERIALIZED_FACT:SYNTHETIC:PROPERTY_PALACE"
+        ]
+      }
+    ],
+    "retrieved_cases": []
+  },
+  "expected": {
+    "selected_pattern_id": "WT-METHOD-001",
+    "final_status": "COMPLETED",
+    "actions": [
+      "INSPECT",
+      "CROSS_CHECK",
+      "CLASSIFY",
+      "STOP"
+    ],
+    "probability_claim": false,
+    "canonical_rule_claim": false
+  }
+}

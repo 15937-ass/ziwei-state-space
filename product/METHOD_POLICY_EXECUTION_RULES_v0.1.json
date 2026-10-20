@@ -1,0 +1,110 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "METHOD_POLICY_EXECUTION_RULES_V0_1",
+  "source_method_corpus": "product/expert_cases/wang_tingzhi/METHOD_PATTERNS_v0.1.json",
+  "purpose": "Derived Product procedural-execution dispositions for Method Policy π. Source MethodPattern allowed_use remains unchanged.",
+  "invariants": [
+    "SEMANTIC_ONLY_SOURCE_RECORDS_DO_NOT_DIRECTLY_EXECUTE",
+    "PROCEDURAL_ADAPTER_DOES_NOT_CREATE_ZIWEI_RULE_TRUTH",
+    "TARGET_SCOPE_MUST_MATCH_EXPLICITLY",
+    "REQUIRED_EVIDENCE_KINDS_MUST_BE_MATERIALIZED",
+    "BLOCKED_OR_DEFERRED_PATTERNS_PRODUCE_NO_POLICY_ACTION",
+    "NO_NUMERIC_WEIGHTS_OR_PROBABILITIES"
+  ],
+  "dispositions": [
+    {
+      "pattern_id": "WT-METHOD-001",
+      "disposition": "POLICY_EXECUTABLE_DERIVED",
+      "target_domains": [
+        "GLOBAL_PROFILE"
+      ],
+      "required_evidence_kinds": [
+        "PARENTS_PALACE",
+        "PROPERTY_PALACE"
+      ],
+      "allowed_actions": [
+        "INSPECT",
+        "CROSS_CHECK",
+        "CLASSIFY"
+      ],
+      "rationale": "Source-explicit bounded observation order; execution changes inspection order only."
+    },
+    {
+      "pattern_id": "WT-METHOD-002",
+      "disposition": "POLICY_EXECUTABLE_DERIVED",
+      "target_domains": [
+        "GLOBAL_PROFILE"
+      ],
+      "required_evidence_kinds": [
+        "LIFE_PALACE",
+        "FORTUNE_VIRTUE_PALACE"
+      ],
+      "allowed_actions": [
+        "INSPECT",
+        "CROSS_CHECK",
+        "CLASSIFY"
+      ],
+      "rationale": "Source-explicit bounded paired observation; execution changes inspection order only."
+    },
+    {
+      "pattern_id": "WT-METHOD-003",
+      "disposition": "BLOCKED_CONTEXT_BINDING",
+      "target_domains": [
+        "GLOBAL_PROFILE"
+      ],
+      "required_evidence_kinds": [
+        "TARGET_PALACE",
+        "RELATED_PALACE"
+      ],
+      "allowed_actions": [],
+      "blocker": "RELATED_PALACE_BINDING_REQUIRED",
+      "rationale": "Source says to pursue a related palace after clues arise, but the relation target must be explicitly bound before execution."
+    },
+    {
+      "pattern_id": "WT-METHOD-004",
+      "disposition": "POLICY_EXECUTABLE_DERIVED",
+      "target_domains": [
+        "TEMPORAL_INFERENCE"
+      ],
+      "required_evidence_kinds": [
+        "NATAL",
+        "DECADE",
+        "YEAR"
+      ],
+      "allowed_actions": [
+        "INSPECT",
+        "REFINE",
+        "REFINE",
+        "COMPARE"
+      ],
+      "rationale": "Source-explicit temporal refinement order; execution permitted only when all three levels are materialized."
+    },
+    {
+      "pattern_id": "WT-METHOD-005",
+      "disposition": "DEFER_TO_SYMBOLIC_ADAPTER",
+      "target_domains": [
+        "SYMBOLIC_INFERENCE"
+      ],
+      "required_evidence_kinds": [
+        "BORROWED_PALACE",
+        "OPPOSITE_PALACE",
+        "STAR_SYSTEM"
+      ],
+      "allowed_actions": [],
+      "rationale": "Borrowed-palace/star-system handling changes symbolic interpretation and belongs in a symbolic/canonical adapter, not π v0.1."
+    },
+    {
+      "pattern_id": "WT-METHOD-006",
+      "disposition": "DEFER_TO_SYMBOLIC_ADAPTER",
+      "target_domains": [
+        "SYMBOLIC_INFERENCE"
+      ],
+      "required_evidence_kinds": [
+        "PAIRED_STAR_IDENTITY",
+        "RELATIVE_POSITION"
+      ],
+      "allowed_actions": [],
+      "rationale": "Paired-star positional strength is symbolic interpretation, not a pure search-order policy."
+    }
+  ]
+}
