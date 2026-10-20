@@ -18,59 +18,59 @@
   },
   "summary": {
     "row_binding_disposition_counts": {
-      "RB2_MULTI_TARGET_EXPRESSION_BOUND": 24,
-      "RB1_SINGLE_TARGET_BOUND": 91,
+      "RB1_SINGLE_TARGET_BOUND": 101,
       "RB3_COMPOUND_CLAUSE_GRAPH_BOUND": 14,
+      "RB2_MULTI_TARGET_EXPRESSION_BOUND": 14,
       "RB5_TARGET_BOUND_SOURCE_RELATION_RECHECK": 1,
       "RB4_RELATION_BUNDLE_BOUND": 2
     },
     "binding_resolution_counts": {
-      "BOUND_AT_NODE_LEVEL": 122,
-      "BOUND_SOURCE_LITERAL_PENDING_SEMANTIC_NORMALIZATION": 17,
+      "BOUND_AT_NODE_LEVEL": 120,
+      "BOUND_SOURCE_LITERAL_PENDING_SEMANTIC_NORMALIZATION": 19,
       "TARGET_BOUND_SOURCE_RELATION_RECHECK": 1,
       "BOUND_RELATION_SURFACE_BUNDLE": 2
     },
     "target_node_type_counts": {
-      "GROUP_SYMBOL_NODE": 75,
-      "OPEN_CATEGORY_NODE": 65,
-      "SCOPED_GROUP_SYMBOL_NODE": 5,
+      "OPEN_CATEGORY_NODE": 60,
+      "GROUP_SYMBOL_NODE": 71,
+      "SCOPED_GROUP_SYMBOL_NODE": 2,
       "NAMED_COMPOSITE_NODE": 4,
-      "SOURCE_LITERAL_EXPRESSION_NODE": 17,
+      "SOURCE_LITERAL_EXPRESSION_NODE": 19,
       "EXPLICIT_MEMBER_SET": 4,
       "STRUCTURED_PATTERN_NODE": 1,
       "SEVERITY_MODIFIER_NODE": 1,
       "GENERIC_SHORTHAND_NODE": 1
     },
     "target_node_arity_counts": {
-      "1": 116,
-      "2": 21,
+      "1": 126,
+      "2": 11,
       "3": 5
     },
     "expansion_policy_counts": {
-      "NO_MEMBER_EXPANSION": 80,
-      "CATEGORY_EXPANSION_DEFERRED": 65,
+      "CATEGORY_EXPANSION_DEFERRED": 60,
+      "NO_MEMBER_EXPANSION": 73,
       "PRESERVE_COMPOSITE_INTEGRITY": 4,
-      "SEMANTIC_NORMALIZATION_DEFERRED": 17,
+      "SEMANTIC_NORMALIZATION_DEFERRED": 19,
       "EXPLICIT_MEMBERS_LOCAL_ONLY": 4,
       "NEVER_FLATTEN_TO_RELATION_MEMBERS": 1,
       "NO_RELATION_MEMBER_EXPANSION": 1,
       "NO_NAMED_COMPOSITE_INHERITANCE": 1
     },
-    "source_literal_claims_pending_semantic_normalization": 17,
+    "source_literal_claims_pending_semantic_normalization": 19,
     "claims_with_explicit_member_set": 4,
-    "activation_dependent_claims": 68,
+    "activation_dependent_claims": 65,
     "source_relation_recheck_claims": 1,
     "source_resolution_changes": 0,
     "conditions_compiled": 0,
     "execution_unlocked": 0,
     "findings": [
-      "Relation binding 与 member activation 已正式解耦：火铃/昌曲/辅弼等 shorthand 可以先作为 symbolic target node 接受宫位关系，而无需提前决定 ANY/ALL 或成员实现。",
-      "所有 132 条 relation residual 都获得 source-expression/node-level binding disposition；旧 GROUP token 缺失时使用 SOURCE_LITERAL_EXPRESSION_NODE，不再把“缺 token”误当成“关系无法绑定”。",
+      "Relation binding 与 member activation 已正式解耦：shorthand group 先作为 symbolic target node 接受关系，不决定 ANY/ALL 或成员实现。",
+      "132/132 条均获得 source-expression/node-level binding disposition；10 个旧 GROUP token 缺失的单关系规则及 compound clause 中的原子对象使用 SOURCE_LITERAL_EXPRESSION_NODE，不阻塞句法 binding，只把 semantic normalization 留给后续 ontology。",
+      "binding 采用 relation-local target selection，且/又/而/更/无/有/不 等边界后的附加条件不会被误绑定到前一 relation。",
       "显式文昌文曲/左辅右弼只在来源本句允许 EXPLICIT_MEMBERS_LOCAL_ONLY；generic 昌曲/辅弼仍 NO_MEMBER_EXPANSION。",
-      "三台八座/龙池凤阁等 named composite 保持 composite integrity；关系先绑定 composite node，内部 pair requirement 与 relation contract 另行校验。",
-      "开放类别节点只接受 symbolic relation binding，类别成员 expansion 继续交给 Category Lexicon workstream。",
-      "CA08-799/CA09-804 的“辅弼、魁钺、三台八座朝拱同会”绑定为 relation-surface bundle，不把朝拱/同会机械逐项分配给三个 target。",
-      "CA06-549 的火铃 target 已绑定，但“照射”的精确 relation semantics 仍需 source recheck；这说明 target binding 可与 relation-geometry uncertainty 独立存在。"
+      "named composite 保持 composite integrity；open category 只做 symbolic binding；structured pattern 不扁平化。",
+      "CA08-799/CA09-804 的“朝拱同会”保存为 relation-surface bundle，统一绑定辅弼、魁钺、三台八座三个目标节点，不机械逐项分配 surface。",
+      "CA06-549 target 火铃已绑定，但“照射” geometry 仍 source-recheck；target binding 与 relation geometry uncertainty 可独立存在。"
     ]
   },
   "records": [
@@ -83,7 +83,7 @@
       ],
       "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_01_v0.1.json",
       "relation_surface_audit_version": "0.2",
-      "row_binding_disposition": "RB2_MULTI_TARGET_EXPRESSION_BOUND",
+      "row_binding_disposition": "RB1_SINGLE_TARGET_BOUND",
       "relation_claims": [
         {
           "claim_id": "CA01-081-REL-01",
@@ -109,23 +109,9 @@
           ],
           "polarity": "AFFIRMATIVE",
           "logical_connector": null,
-          "target_expression_kind": "NODE_SET",
-          "target_source_expression": "昌曲 + 桃花",
+          "target_expression_kind": "SINGLE_NODE",
+          "target_source_expression": "桃花",
           "target_nodes": [
-            {
-              "source_token": "昌曲",
-              "target_surface": "昌曲",
-              "node_type": "GROUP_SYMBOL_NODE",
-              "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
-              "members": [
-                "文昌",
-                "文曲"
-              ],
-              "scope": null,
-              "activation": null,
-              "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
-            },
             {
               "source_token": "桃花",
               "target_surface": "桃花",
@@ -142,7 +128,7 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": false
         }
       ],
       "source_resolution_changed": false,
@@ -158,7 +144,7 @@
       ],
       "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_01_v0.1.json",
       "relation_surface_audit_version": "0.2",
-      "row_binding_disposition": "RB2_MULTI_TARGET_EXPRESSION_BOUND",
+      "row_binding_disposition": "RB1_SINGLE_TARGET_BOUND",
       "relation_claims": [
         {
           "claim_id": "CA01-082-REL-01",
@@ -184,23 +170,9 @@
           ],
           "polarity": "AFFIRMATIVE",
           "logical_connector": null,
-          "target_expression_kind": "NODE_SET",
-          "target_source_expression": "昌曲 + 桃花",
+          "target_expression_kind": "SINGLE_NODE",
+          "target_source_expression": "桃花",
           "target_nodes": [
-            {
-              "source_token": "昌曲",
-              "target_surface": "昌曲",
-              "node_type": "GROUP_SYMBOL_NODE",
-              "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
-              "members": [
-                "文昌",
-                "文曲"
-              ],
-              "scope": null,
-              "activation": null,
-              "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
-            },
             {
               "source_token": "桃花",
               "target_surface": "桃花",
@@ -217,7 +189,7 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": false
         }
       ],
       "source_resolution_changed": false,
@@ -4360,7 +4332,7 @@
       ],
       "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
       "relation_surface_audit_version": "0.2",
-      "row_binding_disposition": "RB2_MULTI_TARGET_EXPRESSION_BOUND",
+      "row_binding_disposition": "RB1_SINGLE_TARGET_BOUND",
       "relation_claims": [
         {
           "claim_id": "CA06-543-REL-01",
@@ -4384,20 +4356,9 @@
           ],
           "polarity": "AFFIRMATIVE",
           "logical_connector": null,
-          "target_expression_kind": "NODE_SET",
-          "target_source_expression": "吉曜 + 煞曜",
+          "target_expression_kind": "SINGLE_NODE",
+          "target_source_expression": "煞曜",
           "target_nodes": [
-            {
-              "source_token": "吉曜",
-              "target_surface": "吉曜",
-              "node_type": "OPEN_CATEGORY_NODE",
-              "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
-              "members": null,
-              "scope": null,
-              "activation": null,
-              "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
-            },
             {
               "source_token": "煞曜",
               "target_surface": "煞曜",
@@ -4999,7 +4960,7 @@
       ],
       "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
       "relation_surface_audit_version": "0.2",
-      "row_binding_disposition": "RB2_MULTI_TARGET_EXPRESSION_BOUND",
+      "row_binding_disposition": "RB1_SINGLE_TARGET_BOUND",
       "relation_claims": [
         {
           "claim_id": "CA06-584-REL-01",
@@ -5032,27 +4993,9 @@
           ],
           "polarity": "AFFIRMATIVE",
           "logical_connector": null,
-          "target_expression_kind": "NODE_SET",
-          "target_source_expression": "科文诸曜 + 桃花诸曜",
+          "target_expression_kind": "SINGLE_NODE",
+          "target_source_expression": "桃花诸曜",
           "target_nodes": [
-            {
-              "source_token": "科文诸曜",
-              "target_surface": "科文诸曜",
-              "node_type": "SCOPED_GROUP_SYMBOL_NODE",
-              "semantic_support": "SCOPED_MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
-              "members": [
-                "文昌",
-                "文曲",
-                "龙池",
-                "凤阁",
-                "天才",
-                "化科"
-              ],
-              "scope": "事业宫",
-              "activation": null,
-              "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
-            },
             {
               "source_token": "桃花诸曜",
               "target_surface": "桃花诸曜",
@@ -5069,7 +5012,7 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": false
         }
       ],
       "source_resolution_changed": false,
@@ -5161,7 +5104,7 @@
       ],
       "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
       "relation_surface_audit_version": "0.2",
-      "row_binding_disposition": "RB2_MULTI_TARGET_EXPRESSION_BOUND",
+      "row_binding_disposition": "RB1_SINGLE_TARGET_BOUND",
       "relation_claims": [
         {
           "claim_id": "CA06-593-REL-01",
@@ -5185,27 +5128,9 @@
           ],
           "polarity": "AFFIRMATIVE",
           "logical_connector": null,
-          "target_expression_kind": "NODE_SET",
-          "target_source_expression": "科文诸曜 + 空劫",
+          "target_expression_kind": "SINGLE_NODE",
+          "target_source_expression": "空劫",
           "target_nodes": [
-            {
-              "source_token": "科文诸曜",
-              "target_surface": "科文诸曜",
-              "node_type": "SCOPED_GROUP_SYMBOL_NODE",
-              "semantic_support": "SCOPED_MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
-              "members": [
-                "文昌",
-                "文曲",
-                "龙池",
-                "凤阁",
-                "天才",
-                "化科"
-              ],
-              "scope": "事业宫",
-              "activation": null,
-              "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
-            },
             {
               "source_token": "空劫",
               "target_surface": "空劫",
@@ -5241,7 +5166,7 @@
       ],
       "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
       "relation_surface_audit_version": "0.2",
-      "row_binding_disposition": "RB2_MULTI_TARGET_EXPRESSION_BOUND",
+      "row_binding_disposition": "RB1_SINGLE_TARGET_BOUND",
       "relation_claims": [
         {
           "claim_id": "CA06-594-REL-01",
@@ -5265,27 +5190,9 @@
           ],
           "polarity": "AFFIRMATIVE",
           "logical_connector": null,
-          "target_expression_kind": "NODE_SET",
-          "target_source_expression": "科文诸曜 + 空劫",
+          "target_expression_kind": "SINGLE_NODE",
+          "target_source_expression": "空劫",
           "target_nodes": [
-            {
-              "source_token": "科文诸曜",
-              "target_surface": "科文诸曜",
-              "node_type": "SCOPED_GROUP_SYMBOL_NODE",
-              "semantic_support": "SCOPED_MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
-              "members": [
-                "文昌",
-                "文曲",
-                "龙池",
-                "凤阁",
-                "天才",
-                "化科"
-              ],
-              "scope": "事业宫",
-              "activation": null,
-              "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
-            },
             {
               "source_token": "空劫",
               "target_surface": "空劫",
@@ -5718,7 +5625,7 @@
       ],
       "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
       "relation_surface_audit_version": "0.2",
-      "row_binding_disposition": "RB2_MULTI_TARGET_EXPRESSION_BOUND",
+      "row_binding_disposition": "RB1_SINGLE_TARGET_BOUND",
       "relation_claims": [
         {
           "claim_id": "CA07-628-REL-01",
@@ -5744,8 +5651,8 @@
           ],
           "polarity": "AFFIRMATIVE",
           "logical_connector": null,
-          "target_expression_kind": "NODE_SET",
-          "target_source_expression": "空劫 + 昌曲",
+          "target_expression_kind": "SINGLE_NODE",
+          "target_source_expression": "空劫",
           "target_nodes": [
             {
               "source_token": "空劫",
@@ -5755,20 +5662,6 @@
               "members": [
                 "地空",
                 "地劫"
-              ],
-              "scope": null,
-              "activation": null,
-              "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
-            },
-            {
-              "source_token": "昌曲",
-              "target_surface": "昌曲",
-              "node_type": "GROUP_SYMBOL_NODE",
-              "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
-              "members": [
-                "文昌",
-                "文曲"
               ],
               "scope": null,
               "activation": null,
@@ -5796,7 +5689,7 @@
       ],
       "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
       "relation_surface_audit_version": "0.2",
-      "row_binding_disposition": "RB2_MULTI_TARGET_EXPRESSION_BOUND",
+      "row_binding_disposition": "RB1_SINGLE_TARGET_BOUND",
       "relation_claims": [
         {
           "claim_id": "CA07-629-REL-01",
@@ -5822,8 +5715,8 @@
           ],
           "polarity": "AFFIRMATIVE",
           "logical_connector": null,
-          "target_expression_kind": "NODE_SET",
-          "target_source_expression": "空劫 + 昌曲",
+          "target_expression_kind": "SINGLE_NODE",
+          "target_source_expression": "空劫",
           "target_nodes": [
             {
               "source_token": "空劫",
@@ -5833,20 +5726,6 @@
               "members": [
                 "地空",
                 "地劫"
-              ],
-              "scope": null,
-              "activation": null,
-              "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
-            },
-            {
-              "source_token": "昌曲",
-              "target_surface": "昌曲",
-              "node_type": "GROUP_SYMBOL_NODE",
-              "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
-              "members": [
-                "文昌",
-                "文曲"
               ],
               "scope": null,
               "activation": null,
@@ -7513,7 +7392,7 @@
       ],
       "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
       "relation_surface_audit_version": "0.2",
-      "row_binding_disposition": "RB2_MULTI_TARGET_EXPRESSION_BOUND",
+      "row_binding_disposition": "RB1_SINGLE_TARGET_BOUND",
       "relation_claims": [
         {
           "claim_id": "CA08-725-REL-01",
@@ -7539,8 +7418,8 @@
           ],
           "polarity": "AFFIRMATIVE",
           "logical_connector": null,
-          "target_expression_kind": "NODE_SET",
-          "target_source_expression": "空劫 + 吉曜",
+          "target_expression_kind": "SINGLE_NODE",
+          "target_source_expression": "空劫",
           "target_nodes": [
             {
               "source_token": "空劫",
@@ -7554,17 +7433,6 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
-            },
-            {
-              "source_token": "吉曜",
-              "target_surface": "吉曜",
-              "node_type": "OPEN_CATEGORY_NODE",
-              "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
-              "members": null,
-              "scope": null,
-              "activation": null,
-              "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
               "binding_mode": "BIND_SYMBOLIC_NODE"
             }
           ],
@@ -8619,18 +8487,19 @@
           "target_source_expression": "化忌",
           "target_nodes": [
             {
-              "source_token": "有煞",
-              "target_surface": "煞",
-              "node_type": "OPEN_CATEGORY_NODE",
-              "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+              "source_token": null,
+              "target_surface": "化忌",
+              "node_type": "SOURCE_LITERAL_EXPRESSION_NODE",
+              "semantic_support": "NOT_IN_CURRENT_GROUP_TOKEN_REGISTRY",
               "members": null,
               "scope": null,
               "activation": null,
-              "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "expansion_policy": "SEMANTIC_NORMALIZATION_DEFERRED",
+              "binding_mode": "BIND_LITERAL_EXPRESSION",
+              "note": null
             }
           ],
-          "binding_resolution": "BOUND_AT_NODE_LEVEL",
+          "binding_resolution": "BOUND_SOURCE_LITERAL_PENDING_SEMANTIC_NORMALIZATION",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
@@ -8744,18 +8613,19 @@
           "target_source_expression": "武曲天府",
           "target_nodes": [
             {
-              "source_token": "有煞",
-              "target_surface": "煞",
-              "node_type": "OPEN_CATEGORY_NODE",
-              "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+              "source_token": null,
+              "target_surface": "武曲天府",
+              "node_type": "SOURCE_LITERAL_EXPRESSION_NODE",
+              "semantic_support": "NOT_IN_CURRENT_GROUP_TOKEN_REGISTRY",
               "members": null,
               "scope": null,
               "activation": null,
-              "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "expansion_policy": "SEMANTIC_NORMALIZATION_DEFERRED",
+              "binding_mode": "BIND_LITERAL_EXPRESSION",
+              "note": null
             }
           ],
-          "binding_resolution": "BOUND_AT_NODE_LEVEL",
+          "binding_resolution": "BOUND_SOURCE_LITERAL_PENDING_SEMANTIC_NORMALIZATION",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
@@ -8834,7 +8704,7 @@
       ],
       "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
       "relation_surface_audit_version": "0.2",
-      "row_binding_disposition": "RB2_MULTI_TARGET_EXPRESSION_BOUND",
+      "row_binding_disposition": "RB1_SINGLE_TARGET_BOUND",
       "relation_claims": [
         {
           "claim_id": "CA09-840-REL-01",
@@ -8867,23 +8737,12 @@
           ],
           "polarity": "AFFIRMATIVE",
           "logical_connector": null,
-          "target_expression_kind": "NODE_SET",
-          "target_source_expression": "辅佐吉曜 + 煞",
+          "target_expression_kind": "SINGLE_NODE",
+          "target_source_expression": "辅佐吉曜",
           "target_nodes": [
             {
               "source_token": "辅佐吉曜",
               "target_surface": "辅佐吉曜",
-              "node_type": "OPEN_CATEGORY_NODE",
-              "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
-              "members": null,
-              "scope": null,
-              "activation": null,
-              "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
-            },
-            {
-              "source_token": "无煞",
-              "target_surface": "煞",
               "node_type": "OPEN_CATEGORY_NODE",
               "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
               "members": null,
@@ -9621,8 +9480,8 @@
           "relation_semantics": [
             {
               "surface_relation": "见",
-              "source_start": 7,
-              "source_end": 8,
+              "source_start": 2,
+              "source_end": 3,
               "source_marker_type": "PRESENCE_RELATION",
               "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
               "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
