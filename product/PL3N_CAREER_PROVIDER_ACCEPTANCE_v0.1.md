@@ -304,6 +304,13 @@ is introduced. Source projections are not real income, career-event or leadershi
 forecasts. Production temporal registry remains empty and empirical validation
 is still absent.
 
+A content-facing review in
+`validation/product/issue_363_ziwei_zipo/CONTENT_CAPABILITY_REVIEW.md` distinguishes
+the responsibility, creation, workload, turbulence, resource and assistance
+meanings, including how they combine in one report and which real-world claims
+remain unsupported. It also records a read-only preview of the twenty complete
+Knowledge #366 mappings without selecting or activating them.
+
 
 Issue #363 is not accepted on main while Knowledge dependency #364 is open.
 After synchronization with Knowledge #366, the candidate full suite is826

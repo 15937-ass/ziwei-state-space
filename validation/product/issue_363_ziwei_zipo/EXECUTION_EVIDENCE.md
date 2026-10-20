@@ -77,7 +77,10 @@ git diff --exit-code origin/main -- knowledge .github
 - Fresh dual-engine comparison100 natal/400 temporal, zero differences.
 - Candidate readiness52 records:43 compiled,9 blocked,0 unselected. Historical
   #359 report retained; this candidate report does not mean main has43 rules.
-- Reports:native_inference_report.json,dual_engine_report.json,readiness_report.json.
+- Reports:native_inference_report.json,dual_engine_report.json,readiness_report.json,
+  CONTENT_CAPABILITY_REVIEW.md. The content review explains what the eight rules
+  add to user-facing Career interpretation and records a non-activating preview
+  of the twenty complete mappings merged by Knowledge #366.
 
 The previous temporary exports were absent after cleanup. JS dependency remained
 2.6.1; Rust package was absent, so the first Rust export failed to import.
