@@ -43,3 +43,39 @@ anti_ai_style:
   - "禁止同义反复，例如‘有主见、主体性强、很有自己的想法’连续堆三遍。"
   - "禁止为了显得全面而把性格、事业、财运、感情、健康、家庭全部写一遍。"
   - "禁止超过两句连续使用相同的‘可能/应该/大概率’。"
+
+
+focus_windows:
+  presets:
+    full: ["all"]
+    relationship: ["relationship"]
+    personality: ["personality"]
+    appearance: ["appearance"]
+    social: ["social"]
+    family: ["family"]
+    study_work: ["study_work"]
+    custom: ["user_selected"]
+  rules:
+    - "focus window 只过滤输出，不改变 canonical truth。"
+    - "specific_year / decade_trend 必须带 domain tag 才能进入非 full 的领域窗口。"
+    - "relationship 窗口允许感情模式、择偶偏好、当前感情环境、感情域年份判断。"
+    - "用户可同时限定 domain + topic + period。"
+    - "窗口内无足够 evidence 时允许短输出或拒绝，不从其他 domain 凑字数。"
+
+conversation_continuation:
+  keep_full_session_capsule: true
+  include:
+    - "subject_key"
+    - "knowledge_version"
+    - "chart_context"
+    - "natal_profile_ref"
+    - "temporal_profile_refs"
+    - "all_validated_claims"
+    - "evidence_refs"
+    - "last_rendered_text"
+    - "active_scope"
+  policy:
+    - "后续问题优先复用 validated claims。"
+    - "新 claim 必须重新经过 canonical/temporal runtime。"
+    - "chart_context 只用于导航和重新计算，不授权 GPT 自由推命。"
+    - "对外评论保持短；GPT 会话内可保留完整上下文。"
