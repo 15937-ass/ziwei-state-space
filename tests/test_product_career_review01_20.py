@@ -166,7 +166,7 @@ def test_inheritance_and_adjacent_temporal_boundaries():
 
 
 @pytest.mark.parametrize("mutation,error", [
-    ("source_status", "reviewed mapping status"),
+    ("source_status", "reviewed non-executable mapping"),
     ("context_flag", "invalid review-batch paragraph context scope"),
     ("context_drift", "drift in source context"),
     ("condition_drift", "condition atoms"),
