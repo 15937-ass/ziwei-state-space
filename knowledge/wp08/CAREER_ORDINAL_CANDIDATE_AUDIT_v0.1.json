@@ -24,15 +24,17 @@
   ],
   "summary": {
     "candidate_sentences": 131,
-    "accepted": 120,
-    "excluded": 11,
-    "normalized_constraints": 133,
+    "accepted": 118,
+    "excluded": 13,
+    "normalized_constraints": 130,
     "exclusion_reason_counts": {
       "BACKGROUND_HISTORICAL_COMPARISON_NOT_ZIWEI_CONSTRAINT": 1,
       "OCR_UNSAFE_COMPOUND_SENTENCE": 1,
       "VALUATION_WITHOUT_RELATIVE_ORDER": 5,
       "OUTCOME_TARGET_MAGNITUDE_NOT_RULE_STRENGTH": 1,
       "OCR_UNSAFE_DEGREE_WORDING": 1,
+      "OCR_UNSAFE_TARGET_ENTITY": 1,
+      "OCR_UNSAFE_CONDITION_SCOPE": 1,
       "VALUATION_WITHOUT_STABLE_COMPARATOR": 1,
       "LEXICAL_FALSE_POSITIVE_FIRST_SEAT": 1
     }
@@ -885,11 +887,9 @@
       "span_id": "ZZ003-P145",
       "sentence_index": 28,
       "source_sentence": "廉贞化安者尤为吉利，．可以白手成富。",
-      "disposition": "ACCEPTED",
-      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
-      "constraint_ids": [
-        "OC-067"
-      ]
+      "disposition": "EXCLUDED",
+      "reason": "OCR_UNSAFE_TARGET_ENTITY",
+      "constraint_ids": []
     },
     {
       "candidate_id": "ORD-CAND-067",
@@ -901,7 +901,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-068"
+        "OC-067"
       ]
     },
     {
@@ -914,7 +914,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-069"
+        "OC-068"
       ]
     },
     {
@@ -924,12 +924,9 @@
       "span_id": "ZZ003-P146",
       "sentence_index": 4,
       "source_sentence": "巳亥宫[廉贞贪狼l 同度，空劫又同瞍耆，最宜艺术，尤以表演行业为宜。",
-      "disposition": "ACCEPTED",
-      "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
-      "constraint_ids": [
-        "OC-070",
-        "OC-071"
-      ]
+      "disposition": "EXCLUDED",
+      "reason": "OCR_UNSAFE_CONDITION_SCOPE",
+      "constraint_ids": []
     },
     {
       "candidate_id": "ORD-CAND-070",
@@ -941,7 +938,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-072"
+        "OC-069"
       ]
     },
     {
@@ -954,7 +951,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-073"
+        "OC-070"
       ]
     },
     {
@@ -978,7 +975,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-074"
+        "OC-071"
       ]
     },
     {
@@ -991,7 +988,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-075"
+        "OC-072"
       ]
     },
     {
@@ -1004,7 +1001,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-076"
+        "OC-073"
       ]
     },
     {
@@ -1017,7 +1014,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-077"
+        "OC-074"
       ]
     },
     {
@@ -1030,7 +1027,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-078"
+        "OC-075"
       ]
     },
     {
@@ -1043,7 +1040,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-079"
+        "OC-076"
       ]
     },
     {
@@ -1056,7 +1053,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-080"
+        "OC-077"
       ]
     },
     {
@@ -1069,7 +1066,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-081"
+        "OC-078"
       ]
     },
     {
@@ -1082,7 +1079,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-082"
+        "OC-079"
       ]
     },
     {
@@ -1095,7 +1092,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-083"
+        "OC-080"
       ]
     },
     {
@@ -1108,7 +1105,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-084"
+        "OC-081"
       ]
     },
     {
@@ -1121,7 +1118,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-085"
+        "OC-082"
       ]
     },
     {
@@ -1134,7 +1131,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-086"
+        "OC-083"
       ]
     },
     {
@@ -1147,7 +1144,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-087"
+        "OC-084"
       ]
     },
     {
@@ -1160,7 +1157,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-088"
+        "OC-085"
       ]
     },
     {
@@ -1173,7 +1170,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-089"
+        "OC-086"
       ]
     },
     {
@@ -1186,7 +1183,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-090"
+        "OC-087"
       ]
     },
     {
@@ -1199,7 +1196,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-091"
+        "OC-088"
       ]
     },
     {
@@ -1212,7 +1209,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-092"
+        "OC-089"
       ]
     },
     {
@@ -1247,7 +1244,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-093"
+        "OC-090"
       ]
     },
     {
@@ -1260,7 +1257,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-094"
+        "OC-091"
       ]
     },
     {
@@ -1284,7 +1281,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-095"
+        "OC-092"
       ]
     },
     {
@@ -1297,7 +1294,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-096"
+        "OC-093"
       ]
     },
     {
@@ -1310,8 +1307,8 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-097",
-        "OC-098"
+        "OC-094",
+        "OC-095"
       ]
     },
     {
@@ -1324,7 +1321,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-099"
+        "OC-096"
       ]
     },
     {
@@ -1337,7 +1334,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-100"
+        "OC-097"
       ]
     },
     {
@@ -1350,7 +1347,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-101"
+        "OC-098"
       ]
     },
     {
@@ -1363,7 +1360,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-102"
+        "OC-099"
       ]
     },
     {
@@ -1376,7 +1373,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-103"
+        "OC-100"
       ]
     },
     {
@@ -1389,7 +1386,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-104"
+        "OC-101"
       ]
     },
     {
@@ -1402,7 +1399,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-105"
+        "OC-102"
       ]
     },
     {
@@ -1415,7 +1412,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-106"
+        "OC-103"
       ]
     },
     {
@@ -1428,7 +1425,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-107"
+        "OC-104"
       ]
     },
     {
@@ -1441,8 +1438,8 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-108",
-        "OC-109"
+        "OC-105",
+        "OC-106"
       ]
     },
     {
@@ -1455,7 +1452,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-110"
+        "OC-107"
       ]
     },
     {
@@ -1468,7 +1465,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-111"
+        "OC-108"
       ]
     },
     {
@@ -1492,8 +1489,8 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-112",
-        "OC-113"
+        "OC-109",
+        "OC-110"
       ]
     },
     {
@@ -1506,7 +1503,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-114"
+        "OC-111"
       ]
     },
     {
@@ -1519,8 +1516,8 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-115",
-        "OC-116"
+        "OC-112",
+        "OC-113"
       ]
     },
     {
@@ -1533,7 +1530,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-117"
+        "OC-114"
       ]
     },
     {
@@ -1546,7 +1543,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-118"
+        "OC-115"
       ]
     },
     {
@@ -1559,7 +1556,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-119"
+        "OC-116"
       ]
     },
     {
@@ -1572,7 +1569,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-120"
+        "OC-117"
       ]
     },
     {
@@ -1585,8 +1582,8 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-121",
-        "OC-122"
+        "OC-118",
+        "OC-119"
       ]
     },
     {
@@ -1599,7 +1596,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-123"
+        "OC-120"
       ]
     },
     {
@@ -1612,7 +1609,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-124"
+        "OC-121"
       ]
     },
     {
@@ -1625,7 +1622,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-125"
+        "OC-122"
       ]
     },
     {
@@ -1638,7 +1635,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-126"
+        "OC-123"
       ]
     },
     {
@@ -1651,7 +1648,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-127"
+        "OC-124"
       ]
     },
     {
@@ -1664,7 +1661,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-128"
+        "OC-125"
       ]
     },
     {
@@ -1677,7 +1674,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-129"
+        "OC-126"
       ]
     },
     {
@@ -1690,7 +1687,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-130"
+        "OC-127"
       ]
     },
     {
@@ -1703,7 +1700,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-131"
+        "OC-128"
       ]
     },
     {
@@ -1716,7 +1713,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-132"
+        "OC-129"
       ]
     },
     {
@@ -1729,7 +1726,7 @@
       "disposition": "ACCEPTED",
       "reason": "SOURCE_EXPLICIT_ORDINAL_OR_CONSTRAINT",
       "constraint_ids": [
-        "OC-133"
+        "OC-130"
       ]
     }
   ]
