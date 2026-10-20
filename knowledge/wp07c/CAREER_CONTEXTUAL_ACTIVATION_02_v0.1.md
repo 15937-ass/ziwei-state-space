@@ -30,12 +30,16 @@ Clause operators:
 - EXPLICIT_AND: 9
 
 Activation status:
-- BLOCKED_MEMBER_QUANTIFIER: 49
+- BLOCKED_MEMBER_QUANTIFIER: 46
 - MULTI_BLOCKER: 33
 - STRUCTURE_ONLY: 1
 - BLOCKED_ANTECEDENT: 16
-- PARTIAL_LOCAL_STRUCTURE: 1
+- PARTIAL_LOCAL_STRUCTURE: 4
 
 ## 边界
 
 本批没有把任何 generic shorthand 推成 ANY/ALL/N_OF；“必须”只保留 source-local necessity；“轻/重”只保留 ordinal label。source resolution changes=0，conditions compiled=0，execution unlocked=0。
+
+## Critic pass correction
+
+3 条来源显式列名成员的 relation-bound 规则（CA05-419、CA06-582、CA07-638）已从 generic literal blocker 中移除：它们属于 `EXPLICIT_MEMBER_SET_LOCAL`，可以保存局部成员结构，但仍不进入 Product condition compilation。
