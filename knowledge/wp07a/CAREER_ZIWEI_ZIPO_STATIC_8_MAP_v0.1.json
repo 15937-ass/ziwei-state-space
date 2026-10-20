@@ -1,0 +1,1224 @@
+{
+  "schema_version": "0.1",
+  "audit_id": "KB-WP07A-CAREER-ZIWEI-ZIPO-STATIC-8",
+  "work_unit": "KB-WP07A-CAREER-ZIWEI-ZIPO-STATIC-8",
+  "lane": "KNOWLEDGE_ONLY",
+  "status": "SOURCE_GROUNDED_MAPPING_COMPLETE_NOT_EXECUTABLE",
+  "source_id": "SRC-ZZ-003",
+  "source_title": "《中州派紫微斗数深造讲义（下）》",
+  "source_attachment_sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+  "canonical_corpus": "CAREER_CA09_FINAL",
+  "scope": {
+    "palace_id": "P09",
+    "nominated_source_rule_ids": [
+      "CA01-047",
+      "CA01-050",
+      "CA01-083",
+      "CA01-087",
+      "CA01-088",
+      "CA01-089",
+      "CA01-093",
+      "CA01-095"
+    ],
+    "source_batches": [
+      "CA01"
+    ]
+  },
+  "mappings": [
+    {
+      "source_rule_id": "CA01-047",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "紫微守事业宫",
+      "source_anchor_printed_page": 133,
+      "source_anchor_pdf_page": 67,
+      "source_anchor_phrase": "紫微在事业宫，主独当一面。",
+      "source_span_summary": "来源描述独当一面的责任性质；同段明确不等于可以自行经营，也不等于可以为领袖。",
+      "source_epistemic": "EXPLICIT",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "source_context": {
+        "palace": "P09",
+        "paragraph_scope": "紫微在事业宫的一般性质",
+        "inherited_source_rule_ids": [],
+        "required_branch_gate": [],
+        "modality_note": "来源性质／适宜性投影，不是现实结果必然断言。",
+        "source_scope_note": "两种工作场景为或，独当一面不蕴含自行经营或领袖身份。"
+      },
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "紫微"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "PALACE_HAS_STAR"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "紫微"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "仅使用既有绑定宫位的星曜、地支与指定星曜四化事实。"
+      },
+      "expected_projection": {
+        "projection_domain": "role",
+        "projection_target": "independent_responsibility",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA01-050",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "紫微守事业宫一般情形",
+      "source_anchor_printed_page": 133,
+      "source_anchor_pdf_page": 67,
+      "source_anchor_phrase": "一般情况下仅主独立工作，或负责部门工作。",
+      "source_span_summary": "一般情况下的独立工作或部门负责场景；两种场景为或关系，不断定现实职业或领导层级。",
+      "source_epistemic": "EXPLICIT",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "source_context": {
+        "palace": "P09",
+        "paragraph_scope": "紫微在事业宫的一般性质",
+        "inherited_source_rule_ids": [],
+        "required_branch_gate": [],
+        "modality_note": "来源性质／适宜性投影，不是现实结果必然断言。",
+        "source_scope_note": "两种工作场景为或，独当一面不蕴含自行经营或领袖身份。"
+      },
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "紫微"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "PALACE_HAS_STAR"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "紫微"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "仅使用既有绑定宫位的星曜、地支与指定星曜四化事实。"
+      },
+      "expected_projection": {
+        "projection_domain": "role",
+        "projection_target": "independent_work_or_department_responsibility",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA01-083",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p134",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "丑未紫微破军",
+      "source_anchor_printed_page": 134,
+      "source_anchor_pdf_page": 67,
+      "source_anchor_phrase": "丑未宫【紫微破军】在事业宫，以能发挥开创力者为佳。",
+      "source_span_summary": "丑未事业宫紫微破军的来源适宜性投影，偏重开创而不主守成；不保证创业成功。",
+      "source_epistemic": "EXPLICIT",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "source_context": {
+        "palace": "P09",
+        "paragraph_scope": "丑未宫紫微破军在事业宫",
+        "inherited_source_rule_ids": [],
+        "required_branch_gate": [
+          "丑",
+          "未"
+        ],
+        "modality_note": "来源性质／适宜性投影，不是现实结果必然断言。",
+        "source_scope_note": "后文子分支继承本段丑未紫微破军范围。"
+      },
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "丑"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "未"
+              }
+            }
+          ]
+        ]
+      },
+      "condition_atom_types": [
+        "BRANCH_PRESENT",
+        "PALACE_HAS_STAR"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "紫微"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "破军"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "丑"
+            }
+          }
+        ],
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "紫微"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "破军"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "未"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "仅使用既有绑定宫位的星曜、地支与指定星曜四化事实。"
+      },
+      "expected_projection": {
+        "projection_domain": "development",
+        "projection_target": "career_favors_creation_over_preservation",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA01-087",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p134",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "紫微破军且破军化禄",
+      "source_anchor_printed_page": 134,
+      "source_anchor_pdf_page": 67,
+      "source_anchor_phrase": "若破军化禄，则一生事业多变，且常负担额外工作。",
+      "source_span_summary": "继承丑未事业宫紫微破军范围，破军化禄对应事业多变的来源性质，不预测具体变动事件或次数。",
+      "source_epistemic": "EXPLICIT",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "source_context": {
+        "palace": "P09",
+        "paragraph_scope": "丑未宫紫微破军在事业宫",
+        "inherited_source_rule_ids": [
+          "CA01-083"
+        ],
+        "required_branch_gate": [
+          "丑",
+          "未"
+        ],
+        "modality_note": "来源性质／适宜性投影，不是现实结果必然断言。",
+        "source_scope_note": "后文子分支继承本段丑未紫微破军范围。"
+      },
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "破军",
+                "mutagen": "禄"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "丑"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "破军",
+                "mutagen": "禄"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "未"
+              }
+            }
+          ]
+        ]
+      },
+      "condition_atom_types": [
+        "BRANCH_PRESENT",
+        "PALACE_HAS_STAR",
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "紫微"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "破军"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "破军",
+              "mutagen": "禄"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "丑"
+            }
+          }
+        ],
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "紫微"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "破军"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "破军",
+              "mutagen": "禄"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "未"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "仅使用既有绑定宫位的星曜、地支与指定星曜四化事实。"
+      },
+      "expected_projection": {
+        "projection_domain": "stability",
+        "projection_target": "career_changes_frequent",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA01-088",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p134",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "前格",
+      "source_anchor_printed_page": 134,
+      "source_anchor_pdf_page": 67,
+      "source_anchor_phrase": "若破军化禄，则一生事业多变，且常负担额外工作。",
+      "source_span_summary": "与CA01-087同句承接破军化禄分支，保留常负担额外工作的独立目标；不省略破军化禄。",
+      "source_epistemic": "EXPLICIT",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "source_context": {
+        "palace": "P09",
+        "paragraph_scope": "丑未宫紫微破军在事业宫",
+        "inherited_source_rule_ids": [
+          "CA01-083",
+          "CA01-087"
+        ],
+        "required_branch_gate": [
+          "丑",
+          "未"
+        ],
+        "modality_note": "来源性质／适宜性投影，不是现实结果必然断言。",
+        "source_scope_note": "前格按同句明确衔接，星曜、宫位、四化主体均保留。"
+      },
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "破军",
+                "mutagen": "禄"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "丑"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "破军",
+                "mutagen": "禄"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "未"
+              }
+            }
+          ]
+        ]
+      },
+      "condition_atom_types": [
+        "BRANCH_PRESENT",
+        "PALACE_HAS_STAR",
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "紫微"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "破军"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "破军",
+              "mutagen": "禄"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "丑"
+            }
+          }
+        ],
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "紫微"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "破军"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "破军",
+              "mutagen": "禄"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "未"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "仅使用既有绑定宫位的星曜、地支与指定星曜四化事实。"
+      },
+      "expected_projection": {
+        "projection_domain": "role",
+        "projection_target": "extra_work_or_multiple_responsibilities_common",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA01-089",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p134",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "紫微破军且破军化权",
+      "source_anchor_printed_page": 134,
+      "source_anchor_pdf_page": 67,
+      "source_anchor_phrase": "破军化权，则事业多波折",
+      "source_span_summary": "继承丑未事业宫紫微破军范围，指定破军化权的波折性质；不与化禄分支混用或预测具体事件。",
+      "source_epistemic": "EXPLICIT",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "source_context": {
+        "palace": "P09",
+        "paragraph_scope": "丑未宫紫微破军在事业宫",
+        "inherited_source_rule_ids": [
+          "CA01-083"
+        ],
+        "required_branch_gate": [
+          "丑",
+          "未"
+        ],
+        "modality_note": "来源性质／适宜性投影，不是现实结果必然断言。",
+        "source_scope_note": "后文子分支继承本段丑未紫微破军范围。"
+      },
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "破军",
+                "mutagen": "权"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "丑"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "破军",
+                "mutagen": "权"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "未"
+              }
+            }
+          ]
+        ]
+      },
+      "condition_atom_types": [
+        "BRANCH_PRESENT",
+        "PALACE_HAS_STAR",
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "紫微"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "破军"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "破军",
+              "mutagen": "权"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "丑"
+            }
+          }
+        ],
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "紫微"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "破军"
+            }
+          },
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P09",
+              "star": "破军",
+              "mutagen": "权"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "未"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "仅使用既有绑定宫位的星曜、地支与指定星曜四化事实。"
+      },
+      "expected_projection": {
+        "projection_domain": "development",
+        "projection_target": "career_setbacks_or_turbulence",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA01-093",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p134",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "紫微破军一般",
+      "source_anchor_printed_page": 134,
+      "source_anchor_pdf_page": 67,
+      "source_anchor_phrase": "唯无论如何，均主手面阔绰，而实际收成不大。",
+      "source_span_summary": "来源在丑未事业宫紫微破军段以无论如何引出资源规模与实际收成的差异；保留段落范围，不额外继承前句化禄或不能开创的条件，不作真实收益预测。",
+      "source_epistemic": "EXPLICIT",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "source_context": {
+        "palace": "P09",
+        "paragraph_scope": "丑未宫紫微破军在事业宫",
+        "inherited_source_rule_ids": [
+          "CA01-083"
+        ],
+        "required_branch_gate": [
+          "丑",
+          "未"
+        ],
+        "modality_note": "来源性质／适宜性投影，不是现实结果必然断言。",
+        "source_scope_note": "本段无论如何承接紫微破军总范围，未跨入随后寅申紫微天府段；不额外继承前句化禄分支。"
+      },
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "丑"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "未"
+              }
+            }
+          ]
+        ]
+      },
+      "condition_atom_types": [
+        "BRANCH_PRESENT",
+        "PALACE_HAS_STAR"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "紫微"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "破军"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "丑"
+            }
+          }
+        ],
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "紫微"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "破军"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "未"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "仅使用既有绑定宫位的星曜、地支与指定星曜四化事实。"
+      },
+      "expected_projection": {
+        "projection_domain": "resource",
+        "projection_target": "broad_spending_or_scale_can_exceed_actual_return",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "CA01-095",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p134",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "source_condition_text": "紫微破军见左辅右弼",
+      "source_anchor_printed_page": 134,
+      "source_anchor_pdf_page": 67,
+      "source_anchor_phrase": "故喜左辅右弼同度，则自多助力。",
+      "source_span_summary": "丑未事业宫紫微破军喜左辅右弼同度的来源支持投影；要求两曜与本星系同在事业宫，不以任一辅曜替代二曜同度。",
+      "source_epistemic": "EXPLICIT",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "source_context": {
+        "palace": "P09",
+        "paragraph_scope": "丑未宫紫微破军在事业宫",
+        "inherited_source_rule_ids": [
+          "CA01-083"
+        ],
+        "required_branch_gate": [
+          "丑",
+          "未"
+        ],
+        "modality_note": "来源性质／适宜性投影，不是现实结果必然断言。",
+        "source_scope_note": "后文子分支继承本段丑未紫微破军范围。"
+      },
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "左辅"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "右弼"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "丑"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "左辅"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "右弼"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "未"
+              }
+            }
+          ]
+        ]
+      },
+      "condition_atom_types": [
+        "BRANCH_PRESENT",
+        "PALACE_HAS_STAR"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "紫微"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "破军"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "左辅"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "右弼"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "丑"
+            }
+          }
+        ],
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "紫微"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "破军"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "左辅"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "右弼"
+            }
+          },
+          {
+            "atom_type": "BRANCH_PRESENT",
+            "args": {
+              "palace": "P09",
+              "branch": "未"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "仅使用既有绑定宫位的星曜、地支与指定星曜四化事实。"
+      },
+      "expected_projection": {
+        "projection_domain": "support",
+        "projection_target": "career_creation_receives_more_assistance",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    }
+  ],
+  "progress_counts": {
+    "source_rules_rechecked_this_unit": 8,
+    "new_unique_condition_mappings": 8,
+    "blocked_rows_this_unit": 0,
+    "new_production_executable_rules": 0,
+    "career_source_reviewed_before": 888,
+    "career_source_reviewed_after": 888,
+    "structured_rule_records_before": 44,
+    "structured_rule_records_after": 52,
+    "structured_record_count_includes_blocked_audits": true,
+    "evidence_spans_not_counted_as_rules": true
+  },
+  "validation": {
+    "nominated_rows": 8,
+    "mapped_rows": 8,
+    "source_rows_modified": false,
+    "product_runtime_modified": false,
+    "production_registry_modified": false,
+    "new_atom_or_ontology_semantics_created": false,
+    "numeric_weights_or_probabilities_created": false
+  },
+  "guardrails": [
+    "独当一面不自动解释为自行创业或领导者。",
+    "紫微破军分支全部保留丑未范围；命盘结构可达性不由合成事实测试证明。",
+    "破军化禄和化权必须绑定破军及P09，不允许同宫其他星曜四化替代。",
+    "CA01-088继承CA01-087破军化禄；CA01-093无论如何仅解除前句子分支限制，不解除丑未紫微破军段落范围。",
+    "CA01-095要求左辅右弼同在事业宫；不向其他宫位借星补足。",
+    "全部仍为非生产知识候选，没有经验预测有效性或确定事件声明。"
+  ]
+}
