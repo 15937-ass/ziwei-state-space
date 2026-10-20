@@ -25,6 +25,7 @@ MAPPING_PATHS = tuple('knowledge/wp07a/' + name for name in (
     'CAREER_100_REVIEW_01_v0.1.json',
     'CAREER_100_REVIEW_02_v0.1.json',
     'CAREER_100_REVIEW_03_v0.1.json',
+    'CAREER_100_REVIEW_04_v0.1.json',
 ))
 SOURCE_PATHS = tuple(
     f'validation/wp05/CA{i:02d}_career_projection_review_{(i-1)*100+1:03d}_{i*100:03d}.csv'
