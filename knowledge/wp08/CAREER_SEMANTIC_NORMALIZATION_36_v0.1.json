@@ -24,8 +24,9 @@
     "added_precise_blocker_counts": {
       "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED": 6,
       "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED": 13,
+      "SOURCE_LIST_QUANTIFIER_UNSPECIFIED": 4,
       "CARDINALITY_THRESHOLD_UNSPECIFIED": 2,
-      "TRANSFORMATION_CARRIER_UNSPECIFIED": 1
+      "TRANSFORMATION_CARRIER_UNSPECIFIED": 2
     },
     "source_resolution_changes": 0,
     "conditions_compiled": 0,
@@ -242,11 +243,15 @@
       "blockers_before": [
         "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
       ],
-      "blockers_after": [],
+      "blockers_after": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
       "removed_blockers": [
         "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
       ],
-      "added_precise_blockers": [],
+      "added_precise_blockers": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false
@@ -439,11 +444,15 @@
       "blockers_before": [
         "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
       ],
-      "blockers_after": [],
+      "blockers_after": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
       "removed_blockers": [
         "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
       ],
-      "added_precise_blockers": [],
+      "added_precise_blockers": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false
@@ -478,11 +487,15 @@
       "blockers_before": [
         "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
       ],
-      "blockers_after": [],
+      "blockers_after": [
+        "TRANSFORMATION_CARRIER_UNSPECIFIED"
+      ],
       "removed_blockers": [
         "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
       ],
-      "added_precise_blockers": [],
+      "added_precise_blockers": [
+        "TRANSFORMATION_CARRIER_UNSPECIFIED"
+      ],
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false
@@ -496,11 +509,15 @@
       "blockers_before": [
         "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
       ],
-      "blockers_after": [],
+      "blockers_after": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
       "removed_blockers": [
         "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
       ],
-      "added_precise_blockers": [],
+      "added_precise_blockers": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false
@@ -537,11 +554,15 @@
       "blockers_before": [
         "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
       ],
-      "blockers_after": [],
+      "blockers_after": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
       "removed_blockers": [
         "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
       ],
-      "added_precise_blockers": [],
+      "added_precise_blockers": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false
@@ -826,6 +847,7 @@
     "transformation_carrier_invented": false,
     "numeric_weights_added": false,
     "probabilities_added": false,
-    "product_runtime_modified": false
+    "product_runtime_modified": false,
+    "explicit_list_quantifier_inferred": false
   }
 }
