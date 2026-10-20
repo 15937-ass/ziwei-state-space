@@ -23,6 +23,8 @@ apps/social_quickread_pilot
 
 ## 双输出原则
 
+**这是强制协议，不是可选 debug。** Manual Pilot 的每一次首次简批、窗口简批、盘主追问、年份追问，都必须在给 PI 的回复中同时展示 A+B。只输出 A 属于 contract violation。
+
 ### A. 用户可读版
 
 只出现自然语言结论，不展示 rule/source 技术信息。
@@ -69,14 +71,16 @@ llm_added_semantics: []
 
 ## Origin 分类
 
-- `RUNTIME_CANONICAL`：现有 canonical/runtime 自动推得；
-- `RUNTIME_TEMPORAL`：现有 temporal runtime 自动推得；
+- `RUNTIME_CANONICAL`：现有 canonical/runtime **实际执行**所得，必须附可追溯 `runtime_run_id`；
+- `RUNTIME_TEMPORAL`：现有 temporal runtime **实际执行**所得，必须附可追溯 `runtime_run_id`;
 - `SOURCE_BACKED_FALLBACK`：中州派原书有明确依据，但当前尚未进入 executable runtime；
 - `LLM_VERBALIZATION`：只负责说人话，不是独立事实来源；
 - `llm_added_semantics != []`：模型新增了 claim 没有支持的事实/解释，用户版直接阻断。
 
 `SOURCE_BACKED_FALLBACK` 特意单列。它不是“大模型瞎补”，但也不能伪装成 Git runtime
 已经自动算出来的结果。
+
+每个实际进入用户版的 claim 都必须显式提供 `ClaimTrace`。禁止根据 evidence namespace 自动猜测 origin；没有 `runtime_run_id` 就不能标成 `RUNTIME_*`。
 
 ## 盘主反馈
 
