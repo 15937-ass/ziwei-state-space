@@ -53,6 +53,9 @@ ACTIVATION_CLOSURE_PATH = (
     / "wp07c"
     / "CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.2.json"
 )
+CAREER_ORDINAL_CONSTRAINTS_PATH = (
+    ROOT / "knowledge" / "wp08" / "CAREER_ORDINAL_CONSTRAINTS_v0.1.json"
+)
 
 KNOWLEDGE_EXECUTION_STATUSES = frozenset(
     {"LEXICAL_ONLY", "STRUCTURAL_ONLY", "SAFE_SYMBOLIC", "BLOCKED"}
@@ -485,6 +488,41 @@ def load_career_compatibility_records(
     return tuple(records)
 
 
+def load_career_ordinal_constraints(
+    path: Path = CAREER_ORDINAL_CONSTRAINTS_PATH,
+) -> tuple[dict[str, Any], ...]:
+    payload = _read_json(path)
+    if payload.get("schema_version") != "0.1":
+        raise ValueError("Career ordinal registry schema_version must be 0.1")
+    raw = payload.get("constraints")
+    if not isinstance(raw, list):
+        raise ValueError("Career ordinal constraints must be an array")
+    constraints = tuple(_deep(item) for item in raw)
+    ids = [item.get("constraint_id") for item in constraints]
+    if len(constraints) != 130:
+        raise ValueError(
+            f"expected 130 Career ordinal constraints, got {len(constraints)}"
+        )
+    if len(set(ids)) != len(ids):
+        raise ValueError("Career ordinal constraint_id values must be unique")
+
+    for item in constraints:
+        if item.get("product_execution_unlocked") is not False:
+            raise ValueError(
+                f"{item.get('constraint_id')}: ordinal execution unlock drift"
+            )
+        if item.get("transitive_closure_allowed") is not False:
+            raise ValueError(
+                f"{item.get('constraint_id')}: transitive ordinal closure is not allowed"
+            )
+        for key in ("numeric_gain", "numeric_value", "probability", "numeric_threshold"):
+            if key in item and item.get(key) is not None:
+                raise ValueError(
+                    f"{item.get('constraint_id')}: {key} must remain null"
+                )
+    return constraints
+
+
 def load_activation_closure(
     path: Path = ACTIVATION_CLOSURE_PATH,
 ) -> Mapping[str, Any]:
@@ -664,6 +702,8 @@ def audit_response_semantics_adapter_readiness() -> dict[str, Any]:
 
     relation_payload = _read_json(RELATION_BINDING_PATH)
     category_payload = _read_json(CATEGORY_REVIEW_PATH)
+    ordinal_payload = _read_json(CAREER_ORDINAL_CONSTRAINTS_PATH)
+    ordinal_constraints = load_career_ordinal_constraints()
 
     pilot_status_counts = Counter(
         item.knowledge_execution_status for item in pilot
@@ -730,6 +770,9 @@ def audit_response_semantics_adapter_readiness() -> dict[str, Any]:
             "career_category_review": str(
                 CATEGORY_REVIEW_PATH.relative_to(ROOT)
             ),
+            "career_ordinal_constraints": str(
+                CAREER_ORDINAL_CONSTRAINTS_PATH.relative_to(ROOT)
+            ),
         },
         "response_pilot": {
             "total": len(pilot),
@@ -744,6 +787,36 @@ def audit_response_semantics_adapter_readiness() -> dict[str, Any]:
             ),
             "runtime_effects_authorized": sum(
                 1 for item in pilot if item.runtime_effect_allowed
+            ),
+        },
+        "career_ordinal_registry": {
+            "total_constraints": len(ordinal_constraints),
+            "relation_type_counts": _deep(
+                ordinal_payload.get("relation_type_counts", {})
+            ),
+            "runtime_effects_authorized": sum(
+                1
+                for item in ordinal_constraints
+                if item.get("product_execution_unlocked") is True
+            ),
+            "numericized_constraints": sum(
+                1
+                for item in ordinal_constraints
+                if any(
+                    item.get(key) is not None
+                    for key in (
+                        "numeric_gain",
+                        "numeric_value",
+                        "probability",
+                        "numeric_threshold",
+                    )
+                    if key in item
+                )
+            ),
+            "transitive_closure_authorized": sum(
+                1
+                for item in ordinal_constraints
+                if item.get("transitive_closure_allowed") is True
             ),
         },
         "career": {
