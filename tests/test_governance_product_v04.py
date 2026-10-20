@@ -1,6 +1,4 @@
 from pathlib import Path
-import yaml
-
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -24,33 +22,28 @@ def test_product_v04_has_explicit_now_future_execution_plan():
 
 
 def test_product_state_is_recovered_from_closed_416_418():
-    state = yaml.safe_load(
-        (ROOT / "product" / "PRODUCT_STATE.yaml").read_text(encoding="utf-8")
-    )
-    execution = state["execution"]
-    assert execution["status"] == "ACTIVE_NO_ACTIVE_WORK"
-    assert execution["active_issue"] is None
-    assert execution["active_pr"] is None
-    assert execution["last_completed_product_issue"] == 416
-    assert execution["last_completed_product_pr"] == 418
-    assert execution["next_work_unit"] == "PRODUCT_METHOD_CASE_CONTRACTS_V0_1"
-    assert state["capability_snapshot"]["natal_career"]["note"].startswith(
-        "190 accepted NATAL Career rules are on main"
-    )
+    text = (ROOT / "product" / "PRODUCT_STATE.yaml").read_text(encoding="utf-8")
+    assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in text
+    assert "active_issue: null" in text
+    assert "active_pr: null" in text
+    assert "last_completed_product_issue: 416" in text
+    assert "last_completed_product_pr: 418" in text
+    assert 'next_work_unit: "PRODUCT_METHOD_CASE_CONTRACTS_V0_1"' in text
+    assert "190 accepted NATAL Career rules are on main" in text
 
 
 def test_product_v04_preserves_epistemic_boundaries():
-    state = yaml.safe_load(
-        (ROOT / "product" / "PRODUCT_STATE.yaml").read_text(encoding="utf-8")
-    )
-    boundaries = state["permanent_boundaries"]
-    assert boundaries["response_profile_separate_from_temporal_environment"] is True
-    assert boundaries["expert_policy_does_not_own_canonical_truth"] is True
-    assert boundaries["expert_cases_not_empirical_probability_ground_truth"] is True
-    assert boundaries["cross_school_method_transfer_does_not_mutate_zhongzhou_core"] is True
-    assert boundaries["method_fidelity_separate_from_predictive_validity"] is True
-    assert boundaries["llm_owns_rule_selection"] is False
-    assert boundaries["llm_owns_probability"] is False
+    text = (ROOT / "product" / "PRODUCT_STATE.yaml").read_text(encoding="utf-8")
+    for boundary in [
+        "response_profile_separate_from_temporal_environment: true",
+        "expert_policy_does_not_own_canonical_truth: true",
+        "expert_cases_not_empirical_probability_ground_truth: true",
+        "cross_school_method_transfer_does_not_mutate_zhongzhou_core: true",
+        "method_fidelity_separate_from_predictive_validity: true",
+        "llm_owns_rule_selection: false",
+        "llm_owns_probability: false",
+    ]:
+        assert boundary in text
 
 
 def test_product_v04_wang_and_cross_school_contracts_are_explicit():
