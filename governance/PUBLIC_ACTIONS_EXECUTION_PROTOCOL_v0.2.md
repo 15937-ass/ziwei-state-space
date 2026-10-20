@@ -1,0 +1,127 @@
+# Public Actions Execution Protocol v0.2
+
+Status: **ACTIVE AFTER MERGE OF G8**  
+Tracking Issue: #372  
+Supersedes for routine execution: `governance/WORK_CODEX_EXECUTION_PROTOCOL_v0.1.md`
+
+## 1. Purpose
+
+This protocol lets the project continue when ChatGPT Work/Codex quota is unavailable by using GitHub Actions as the deterministic repository execution runtime.
+
+The repository is public. G8 authorizes only standard GitHub-hosted runners. Larger or otherwise billable runners are not authorized by this protocol.
+
+This changes **where computation happens**, not source truth, Ziwei interpretation, lane ownership, Human Gates, or product maturity claims.
+
+## 2. Authority split
+
+- **Current ChatGPT session**: orchestration, source review, critic/red-team pass, bounded GitHub edits, issue/PR management, and PI-facing synthesis.
+- **GitHub Actions standard public runners**: deterministic Python/Node/Go tests, audits, regression commands, and generated validation artifacts.
+- **ChatGPT Work / Codex**: optional additional execution runtime when quota is available; not required for routine progress under G8.
+- **GitHub**: canonical repository, Issues, PRs, commits, validation run history, and Human-Gate audit trail.
+
+GitHub Issues remain execution truth. Main remains accepted state.
+
+## 3. Trigger policy
+
+Allowed:
+- `pull_request` triggers targeting `main`;
+- `workflow_dispatch` manual fallback;
+- path filters on expensive Product regression workflows.
+
+Not allowed:
+- automatic `push` triggers;
+- larger/billable runners without a new explicit PI approval;
+- using workflow success as authority for canonical Ziwei meaning.
+
+The repository quality gate runs on every PR. Product P1 regression workflows may use Product-oriented path filters.
+
+## 4. Standard repository gate
+
+The canonical quality workflow is `.github/workflows/decontamination-ci.yml` and must execute at least:
+
+```bash
+python -m pip install --upgrade pytest
+PYTHONPATH="$PWD" python -m pytest -q
+if [ -f tools/iztro_export.mjs ]; then node --check tools/iztro_export.mjs; fi
+PYTHONPATH="$PWD" python src/audit_repository.py --fail-on-p0
+python tools/validate_governance.py \
+  --base-ref "origin/<base>" \
+  --head-branch "<head>"
+```
+
+For manual main validation, `--allow-main` may be used. PR lane validation must use the PR base/head contract.
+
+## 5. Product regression
+
+Existing Product workflows remain executable specifications and routine PR validators when their path filters match:
+
+- `.github/workflows/product-p1-dual-engine.yml`
+- `.github/workflows/product-p1-b02-calendar.yml`
+- `.github/workflows/product-p1-b02b-zi-day.yml`
+- `.github/workflows/product-p1-b02c-temporal.yml`
+
+They retain pinned independent engine/version contracts already encoded in the repository.
+
+A Product PR does not gain empirical validity merely because deterministic engine regression passes.
+
+## 6. Knowledge work
+
+At minimum before merge:
+- changed-unit deterministic tests;
+- full repository pytest via the repository quality gate unless an Issue explicitly approves a narrower scope;
+- P0 audit;
+- Knowledge lane governance validation;
+- any source/canonical checks required by the Issue.
+
+Knowledge mapping candidates remain non-production until a Product work unit separately selects and integrates them.
+
+## 7. Governance work
+
+At minimum:
+- repository quality gate;
+- governance lane validation;
+- inspection that Product/Knowledge semantics did not change unintentionally.
+
+A governance migration may bootstrap the first PR-triggered workflow. If the new trigger executes successfully on that migration PR, that run is valid G8 evidence.
+
+## 8. Validation evidence
+
+Every accepted PR must record, directly or by durable workflow reference:
+
+```text
+Execution runtime: GitHub Actions standard public runner / Work / Codex
+Base commit: <sha>
+Head commit: <sha>
+
+Validation:
+- repository quality gate: PASS/FAIL
+- pytest: <passed>/<failed>/<skipped>
+- P0 audit: PASS/FAIL
+- governance: PASS/FAIL
+- Product regressions: PASS/FAIL/NOT_REQUIRED
+- workflow run(s) or generated report(s): <references>
+
+Known limitations:
+- <none or explicit limitation>
+```
+
+Do not report an unexecuted command as passing.
+
+## 9. Failure policy
+
+- One ordinary technical repair/retry is allowed autonomously.
+- A genuine assertion failure must be fixed or escalated; do not weaken a gate merely to obtain green CI.
+- Infrastructure failure is recorded separately from semantic/test failure.
+- Repeated or conceptual failures escalate under the existing risk/Human-Gate rules.
+
+## 10. Cost and safety boundary
+
+G8 relies on the repository remaining public and workflows using standard GitHub-hosted runners. If repository visibility changes to private, or a workflow is moved to a larger/billable runner, routine automatic Actions must be suspended until cost/permission is reviewed.
+
+No workflow may receive write permissions unless a bounded Governance Issue explicitly requires them.
+
+## 11. Human Gate
+
+PI approved G8 in chat on 2026-10-20 with the instruction that Work quota was unavailable and permissions could be modified so execution could continue in the current mode.
+
+This approval is execution-infrastructure-only. It does **not** authorize changes to Zhongzhou source truth, school boundaries, temporal semantics, causal claims, empirical probabilities, or Product maturity.
