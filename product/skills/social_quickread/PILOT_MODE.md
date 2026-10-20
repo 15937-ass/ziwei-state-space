@@ -88,3 +88,24 @@ PI 提供命盘/出生资料
 - 不为了覆盖率补全尚未成熟的知识 topic。
 
 先用真实命盘测试“好不好用、准不准、像不像真人”，再决定是否继续产品化。
+
+
+## 7. 新命盘默认独立
+
+Manual Pilot 中每一张新上传的命盘默认建立新的 `subject_key`，不得继承上一张盘的出生资料、claims、年份判断、反馈或风格性事实。
+
+只有 PI 明确说明“还是上一张盘 / 同一个人 / 继续这个盘”时，才允许复用上一 session。
+
+因此默认行为是：
+
+```text
+new chart image => new independent subject session
+```
+
+而不是：
+
+```text
+new chart image => continue previous chart context
+```
+
+所有命理判断仍以 Git 中当前 Social QuickRead contract、canonical/runtime 与中州派 source priority 为准。
