@@ -115,23 +115,23 @@ def test_canonical_career_provider_is_opt_in_and_has_one_hundred_thirty_four_pin
 
 
 @pytest.mark.parametrize(
-    "star_name,mutagen,expected_rule",
+    "star_name,mutagen,expected_rules,transformation_rule",
     [
-        ("武曲", "科", "CA04-347"),
-        ("武曲", "忌", "CA04-349"),
-        ("破军", "禄", "CA09-852"),
+        ("武曲", "科", ["CA04-336", "CA04-338", "CA04-341", "CA04-347"], "CA04-347"),
+        ("武曲", "忌", ["CA04-336", "CA04-338", "CA04-341", "CA04-349"], "CA04-349"),
+        ("破军", "禄", ["CA09-852"], "CA09-852"),
     ],
 )
-def test_only_exact_star_bound_transformation_activates_its_mapped_rule(
-    provider, star_name, mutagen, expected_rule
+def test_exact_star_bound_transformation_coexists_with_applicable_general_rules(
+    provider, star_name, mutagen, expected_rules, transformation_rule
 ):
     evidence = provider.build_domain_evidence(
         _natal({"事业宫": [_star(star_name, mutagen)]}),
         question="事业原局结构",
     )
 
-    assert [rule.rule_id for rule in evidence.active_rules] == [expected_rule]
-    active = evidence.active_rules[0]
+    assert [rule.rule_id for rule in evidence.active_rules] == expected_rules
+    active = next(rule for rule in evidence.active_rules if rule.rule_id == transformation_rule)
     assert active.source_id == "SRC-ZZ-003"
     assert active.review_status == "SOURCE_SPAN_VERIFIED"
     assert active.source_location in {
@@ -141,7 +141,7 @@ def test_only_exact_star_bound_transformation_activates_its_mapped_rule(
     }
 
 
-def test_career_provider_fails_closed_when_transformation_is_missing_or_wrong(provider):
+def test_transformation_rules_fail_closed_while_general_wuqu_rules_still_apply(provider):
     missing = provider.build_domain_evidence(
         _natal({"事业宫": [_star("武曲")]}),
         question="事业原局结构",
@@ -155,7 +155,11 @@ def test_career_provider_fails_closed_when_transformation_is_missing_or_wrong(pr
         question="事业原局结构",
     )
 
-    assert missing.active_rules == ()
+    assert [rule.rule_id for rule in missing.active_rules] == [
+        "CA04-336", "CA04-338", "CA04-341"
+    ]
+    assert "CA04-347" not in {rule.rule_id for rule in missing.active_rules}
+    assert "CA04-349" not in {rule.rule_id for rule in missing.active_rules}
     assert wrong_star.active_rules == ()
     assert wrong_palace.active_rules == ()
 
@@ -212,13 +216,15 @@ def test_end_to_end_career_natal_trace_is_canonical_but_temporal_result_remains_
     assert result.selected_temporal_layers == ("DECADE", "YEAR")
     assert result.natal_profile.domains[0].domain_id == "career"
     assert [rule.rule_id for rule in result.natal_profile.domains[0].active_rules] == [
-        "CA04-347"
+        "CA04-336", "CA04-338", "CA04-341", "CA04-347"
     ]
     assert result.temporal_profile.active_layers == ("DECADE", "YEAR")
 
     conclusion = result.evidence_package.to_dict()["conclusion"]
     assert conclusion["status"] == "PARTIAL"
-    assert conclusion["canonical_rule_ids"] == ["CA04-347"]
+    assert conclusion["canonical_rule_ids"] == [
+        "CA04-336", "CA04-338", "CA04-341", "CA04-347"
+    ]
     assert conclusion["temporal_reaction_rule_ids"] == []
     assert "PRODUCTION_TEMPORAL_REACTION_REGISTRY_EMPTY" in conclusion["unknowns"]
     assert "NO_REAL_WORLD_EVENT_CLAIM" in conclusion["limitations"]
@@ -345,9 +351,11 @@ def test_career_inference_report_is_chinese_traceable_and_preserves_partial_stat
 
     assert report["status"] == "PARTIAL_TEMPORAL_REGISTRY_EMPTY"
     assert "正式时间反应规则库为空" in report["status_message_zh"]
-    assert report["natal"]["active_rule_count"] == 1
-    active = report["natal"]["active_rules"][0]
-    assert active["rule_id"] == "CA04-349"
+    assert report["natal"]["active_rule_count"] == 4
+    assert [item["rule_id"] for item in report["natal"]["active_rules"]] == [
+        "CA04-336", "CA04-338", "CA04-341", "CA04-349"
+    ]
+    active = next(item for item in report["natal"]["active_rules"] if item["rule_id"] == "CA04-349")
     assert active["condition"] == "武曲化忌"
     assert active["source"]["source_id"] == "SRC-ZZ-003"
     assert active["source"]["source_location"] == "事业宫printed_p141"
