@@ -1,8 +1,11 @@
 name: repository-quality-gate
 
-# G7: routine execution moved to ChatGPT Work + Codex.
-# GitHub Actions is retained only as an explicit manual emergency fallback.
+# G8: public-repository standard runners are the routine deterministic validation runtime.
+# Pull-request validation is automatic; workflow_dispatch remains a manual fallback.
 on:
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 concurrency:
