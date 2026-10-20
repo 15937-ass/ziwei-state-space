@@ -238,7 +238,7 @@ def test_school_compatibility_band_is_bounded():
     payload = _load()["school_compatibility"]
     payload["band"] = "SAME_ENOUGH"
 
-    with pytest.raises(ValueError, match="unsupported school compatibility band"):
+    with pytest.raises(ValueError, match="school_compatibility.band has unsupported value"):
         compile_school_compatibility(payload)
 
 
