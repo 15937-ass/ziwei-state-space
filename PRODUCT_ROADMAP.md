@@ -5,6 +5,8 @@
 替代：Product-First Program v0.3  
 批准：Proposal #425 / PI Human Gate
 
+说明：若 `product/PRODUCT_FUTURE_WORKPLAN_v0.1.md` 与本路线图或 `product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md` 冲突，以 v0.4 路线图与新执行计划为准；旧 workplan 保留作历史参考，后续由 PRODUCT_ONLY work unit 清理或替换。
+
 ## 0. v0.4 的核心调整
 
 v0.4 不推翻 PL1/PL2，也不否定 v0.3 的动态状态空间方向。它解决的是 v0.3 之后暴露出的三个关键缺口：
