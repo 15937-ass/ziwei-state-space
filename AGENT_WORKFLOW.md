@@ -1,6 +1,6 @@
 # AGENT_WORKFLOW.md
 
-Version: 1.0
+Version: 1.1
 Governance: GOVERNANCE.md
 
 ## 1. Core rule
@@ -103,6 +103,56 @@ Hard checkpoint: bounded work unit complete, source-review recoverable boundary,
 Default source-review reasoning sub-batch remains about 50 items; durable integration ceiling remains 100 source-review items unless explicitly approved.
 
 After timeout, inspect GitHub first. Never replay work blindly.
+
+### 10.1 In-work-unit synchronization fast path
+
+GitHub remains the durable source of truth. The fast path only reduces redundant reads; it never transfers authority to chat memory, a local workspace, or an execution cache.
+
+At work-unit bootstrap, recover authoritative state once and establish a temporary execution context containing at minimum:
+- lane;
+- active Issue;
+- active PR if present;
+- working branch and observed head SHA;
+- observed main/base SHA;
+- state-file/version references required by the Issue;
+- the current source-review/item range when applicable.
+
+While the same bounded work unit continues and no invalidation trigger occurs, do not repeatedly re-read PROJECT_STATE, lane state, Issue, PR or unchanged repository files merely to reconfirm values already observed. Product/Knowledge reasoning, critic passes and tests should run continuously inside that bounded context.
+
+Mandatory resynchronization occurs before continuing whenever any of the following happens:
+- timeout, new session or execution-environment restart;
+- lane, Issue, PR or working-branch change;
+- known or suspected external merge/push;
+- observed head/base SHA mismatch, rejected optimistic-concurrency write, merge conflict or stale blob SHA;
+- a GitHub write returns an ambiguous/unknown outcome;
+- hard checkpoint, pre-merge validation or final acceptance;
+- tool/runtime failure that could have changed repository state;
+- any evidence that the cached execution context may be stale.
+
+All GitHub writes use optimistic concurrency. Fetch the target blob/ref SHA when required, write against that observed version, and on mismatch stop and resynchronize. Never force-overwrite a newer repository state merely to preserve the fast path. If a write times out or its outcome is unknown, verify whether it actually landed before retrying, so duplicate commits/comments or accidental overwrites are not created.
+
+#### No-information-loss invariant
+
+Execution speed may never be purchased by losing recoverability. Before leaving a bounded work unit, crossing a hard checkpoint, switching lane, or allowing an unreconstructable sub-batch to grow beyond the approved boundary, durably preserve all material progress.
+
+A durable checkpoint must preserve enough information to restart without semantic loss, including as applicable:
+- base/main SHA and working head SHA;
+- lane, Issue, PR and branch;
+- changed/versioned artifact paths;
+- exact source-review or rule/item range completed;
+- accepted, blocked, conflicted and unresolved classifications;
+- source/evidence traceability needed to reproduce the conclusion;
+- material decisions and their rationale;
+- validation status, executed commands/workflows and known limitations;
+- discovered blockers/dependencies that remain outside the current work unit.
+
+Durable preservation means versioned repository artifacts and/or the authoritative Issue/PR record. A chat-only statement is not a durable checkpoint.
+
+Never discard local/uncommitted source-review output merely because a resync is required. First determine whether the output already exists durably; if not, preserve it or explicitly reconstruct/verify it before proceeding. Ambiguous partial writes are verified, not blindly replayed.
+
+For Knowledge source review, the existing batch discipline is unchanged: reasoning sub-batches remain about 50 items and durable integration remains capped at 100 items unless explicitly approved. The intended pattern is therefore one authoritative sync -> continuous bounded processing -> durable checkpoint/resync, not per-item or per-few-item Git polling.
+
+The execution context cache is disposable and non-authoritative. On any conflict, GitHub wins; the cache is invalidated and rebuilt from authoritative state.
 
 ## 11. Execution and validation policy
 
