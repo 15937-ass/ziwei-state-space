@@ -1,687 +1,810 @@
-# 产品化路线图 — Product-First Program v0.3
+# 产品化路线图 — Product-First Program v0.4
 
 状态：ACTIVE  
-生效日期：2026-10-05  
-替代：Product-First Program v0.2
+生效日期：2026-10-20  
+替代：Product-First Program v0.3  
+批准：Proposal #425 / PI Human Gate
 
-## 0. 本版本的核心调整
+## 0. v0.4 的核心调整
 
-## 0.1 并行状态治理
+v0.4 不推翻 PL1/PL2，也不否定 v0.3 的动态状态空间方向。它解决的是 v0.3 之后暴露出的三个关键缺口：
 
-从 v0.3 起，产品侧使用 \`product/PRODUCT_STATE.yaml\` 保存产品 work-unit 指针。
+1. Product 不能继续用“累计更多 NATAL rules”代替能力层推进；
+2. Temporal Environment 与“原局对时间环境的反应”必须拆开；
+3. 系统除了学习“知识是什么”，还必须正式建模“专家如何调用知识”。
 
-每个产品会话必须按顺序读取：
+因此 Product 由：
 
-\`\`\`text
-PROJECT_STATE.yaml
--> product/PRODUCT_STATE.yaml
-\`\`\`
-
-其中：
-- 顶层 \`PROJECT_STATE.yaml\` 继续拥有知识侧 corpus / gate / repository 总状态；
-- \`product/PRODUCT_STATE.yaml\` 拥有产品阶段、产品下一工作单元和产品边界；
-- 产品 feature PR 默认不再修改顶层 \`PROJECT_STATE.yaml\`，避免与持续推进的 WP05 source-review checkpoint 发生无意义合并冲突；
-- 只有需要跨轨冻结的重大状态变化，才单独执行 coordinated state-sync。
-
-
-v0.3 不推翻 PL1/PL2 已完成工作，而是重新冻结 PL3 之后的产品目标。
-
-旧路线较接近：
-
-\`\`\`text
+~~~text
 chart -> rules -> inference -> answer
-\`\`\`
+~~~
 
-新路线统一为：
+进一步升级为：
 
-\`\`\`text
-birth/chart facts
-    -> canonical natal prior
-    -> temporal environment
-    -> acquired personal state
-    -> manifestation routing
-    -> probabilistic calibration
-    -> feedback / posterior update
-    -> conditional scenario / decision support
-\`\`\`
+~~~text
+Source-grounded Canonical Knowledge
++ Dynamic Response
++ Expert Reasoning Policy
++ Case Memory
++ Empirical Calibration
++ Personal State
+~~~
 
-关键边界：
+核心链重新冻结为：
 
-1. **原局层**只输出由命盘与 canonical knowledge 决定的先天结构、性质与倾向，不依赖用户现实反馈；
-2. **大限/流年层**表示时变环境与激活条件，不直接等同现实事件；
-3. **现实反馈**更新 acquired state、个体 posterior 与经验参数，不得反写 canonical natal truth；
-4. **应象概率**属于 empirical calibration，不属于传统知识本体；
-5. **行动选择**是 control input，不是 noise；
-6. **外部不可控条件**属于 exogenous context / disturbance；
-7. **LLM**只负责结构化反馈解析、问答交互与表达，不拥有 canonical rule selection 或概率拍板权。
+~~~text
+Birth/Chart
+-> Canonical Signal Runtime
+-> Natal Essence N
+-> Temporal Environment E_t
+-> ResponseProfile τ_t
+-> Canonical Manifestation Candidates M0
+-> Personal/Contextual Routing M1
+-> Empirical Calibration
+-> EvidencePackage
+-> LLM/UI
+~~~
 
----
-
-## 1. 项目三层永久隔离
-
-### Layer A — Canonical Traditional Knowledge
-
-来源：
-- 中州派 approved source corpus；
-- reviewed atomic rules；
-- star cores / sixty-system modes；
-- modifier / transformation / palace / temporal operators；
-- source-backed named structures。
-
-性质：
-
-\`\`\`text
-immutable by empirical learning
-\`\`\`
-
-案例数据或用户反馈发现异常时，只能触发知识缺口回源复核，不能直接改写 Layer A。
-
-### Layer B — Empirical Calibration
-
-保存：
-- manifestation frequencies；
-- conditional risks / hazards；
-- interaction strengths；
-- cohort effects；
-- calibrated parameter intervals/posteriors；
-- model versions。
-
-性质：
-- 可训练；
-- 可版本化；
-- 可回滚；
-- 必须与 Layer A 物理和语义隔离。
-
-### Layer C — Personal Adaptation
-
-保存：
-- 当前现实状态；
-- 已发生事件；
-- 用户行为与计划；
-- exposure / opportunity；
-- 个体 posterior；
-- individual random effects / personalization state。
-
-性质：
-- 只影响当前个体；
-- 不自动升级为总体经验；
-- 更不能升级为 canonical traditional rule。
+其中 Expert Reasoning Policy π 横跨 N / E / τ / M0 的推理搜索过程，只决定“下一步看什么”，不拥有 canonical truth。
 
 ---
 
-## 2. 统一数学接口
+## 1. 五个永久隔离对象
 
-### 2.1 原局先验
+### Kc — Canonical declarative knowledge
 
-\`\`\`text
-N = K(B)
-\`\`\`
-
-- B：出生资料与确定性排盘；
-- K：canonical symbolic engine；
-- N：Natal Prior / 先天气核与结构状态。
-
-N 在同一知识版本下必须 deterministic。
-
-### 2.2 时间环境
-
-\`\`\`text
-E_t = T(B, t)
-\`\`\`
-
-E_t 由大限、流年、流月等时间层结构产生，是已知时变 context，不是现实结果。
-
-### 2.3 动态现实状态
-
-使用 augmented state，避免另立一个无法定义的 history 变量：
-
-\`\`\`text
-S_(t+1) ~ F_theta(S_t, N, E_t, A_t, C_t)
-\`\`\`
-
-- S_t：当前现实/获得性状态，包含对未来预测必要的历史摘要；
-- A_t：本人选择/行动；
-- C_t：外部环境、暴露机会、对手方/他人行为等上下文；
-- theta：待辨识参数。
-
-若未来发现 S_t 不能满足 Markov sufficiency，再显式升级 semi-Markov / history-dependent model，不在 v0.3 先行假定。
-
-### 2.4 应象路由
-
-\`\`\`text
-M_t ~ P_phi(M | N, E_t, S_t, A_t, C_t)
-\`\`\`
-
-M_t 表示 manifestation family / channel，不代表宿命唯一结果。
-
-### 2.5 观察与反馈
-
-\`\`\`text
-Y_t ~ O_psi(Y | S_t, M_t, C_t)
-\`\`\`
-
-现实观察用于更新：
-
-\`\`\`text
-P(S_t, theta_person, phi_person | Y_1:t, A_1:t-1, E_1:t)
-\`\`\`
-
-但不得更新或重写 N 的 canonical content。
-
----
-
-## 3. 五类准确性继续保留，并新增第六类
-
-原 v0.2 的五类准确性继续有效：
-
-1. 排盘准确性；
-2. 规则还原准确性；
-3. 推理一致性；
-4. 外部案例准确性；
-5. Calibration / Abstention。
-
-新增：
-
-### F. Incremental Predictive Value
-
-必须回答：
-
-> 加入命盘结构后，是否比只知道年龄、职业、婚恋状态等一般背景信息具有额外预测价值？
-
-至少比较：
-
-\`\`\`text
-Context-only baseline
-vs
-Context + Natal
-vs
-Context + Natal + Temporal
-vs
-Context + Natal + Temporal + Personal history
-\`\`\`
-
-可用指标：
-- Brier score / log loss 改善；
-- calibration error；
-- AUC / ranking（适用时）；
-- likelihood ratio / information gain；
-- coverage-at-confidence。
-
-禁止用“某象出现者中多少发生某事”替代增量价值评估。
-
----
-
-## 4. 产品阶段重新编排
-
-## PL1 — Chart Trust Layer
-
-状态：**COMPLETE / FROZEN**
-
-继续维持：
-- deterministic chart contract；
-- calendar / Zi-hour boundary；
-- multi-engine diff；
-- ambiguity registry；
-- Chart Trust Report。
-
-除新发现 bug 或 source/config conflict 外不重开。
-
----
-
-## PL2 — Executable Canonical Knowledge
-
-状态：**ACTIVE**
-
-目标：
-- source span -> reviewed rule -> condition/operator -> state/projection -> trace；
-- 继续 fail closed；
-- 不为覆盖率伪造权重、阈值或 universal valence。
-
-当前新增工作单元：
-
-### PL2Q — Human Gate Integration
-
-实现：
-- contextual valence/state contract；
-- pattern status / pattern scale / pattern integrity 分离；
-- BAIGUAN_SUPPORT_PROFILE；
-- uncertainty / insufficient-evidence contract；
-- regression tests；
-- W01 blocker refresh。
-
-注意：
-- Human Gate 批准不自动把 8 条 W01 升为 executable；
-- 百官 activation criterion 未冻结前不得人工计数判真。
-
----
-
-## PL3-N — Natal Prior Engine
-
-这是 PL2 后的第一主目标。
-
-输入：
-- NormalizedChartSnapshot；
-- canonical knowledge version；
-- school/config。
-
-输出：
-- NatalStateProfile；
-- active natal rules；
-- star cores；
-- system modes；
-- palace states；
+保存传统知识中“是什么”：
+- star/system identities；
+- palace structure；
+- transformations；
+- modifiers；
+- relations；
+- projection；
 - named structures；
-- cross-palace dependencies；
-- source-backed priors / tendencies；
-- conflict / ambiguity / confidence；
-- complete EvidencePackage。
+- explicit constraints。
 
-硬指标：
+经验数据不得改写 Kc。
+
+### Kr — Canonical response knowledge
+
+保存传统知识中“遇到某环境如何反应”：
+- activation；
+- strengthen；
+- weaken；
+- transform；
+- gate；
+- ordinal relation；
+- effect target；
+- scope；
+- exception。
+
+Kr 必须来自 source-reviewed evidence；Response Semantics compatibility 本身不等于 executable。
+
+### π — Inference policy / procedural knowledge
+
+回答：
+- 先看哪里；
+- 下一步看什么；
+- 哪些证据优先；
+- 何时跨宫；
+- 何时从大限进入流年；
+- 何时需要更细时间层；
+- 何时停止；
+- 何时 abstain。
+
+π 可由 source-explicit method、expert demonstrations、Case-Based Reasoning、process mining / ILP 等逐步形成。
+
+π 不拥有 rule truth。
+
+### θ — Empirical calibration parameters
+
+保存：
+- manifestation frequency；
+- conditional risk/hazard；
+- context effects；
+- interaction strength；
+- cohort effects；
+- calibrated uncertainty。
+
+θ 可训练、可版本化、可回滚，但与 Kc/Kr 物理和语义隔离。
+
+### b — Individual state belief
+
+保存系统对某个具体人的现实状态估计。
+
+~~~text
+X_t = real/acquired state
+b_t = system belief about X_t
+~~~
+
+X_t 与 b_t 不等价。
+
+---
+
+## 2. 三类知识 + 一类方法资产
+
+Product 消费的传统知识明确拆为：
+
+~~~text
+K_signal
+  静态结构 / 条件 / projection
+
+K_response
+  本质 × 环境 -> response
+
+K_manifest
+  response -> source-supported manifestation candidate
+
+K_method
+  专家如何组织和调用这些知识
+~~~
+
+K_signal / K_response / K_manifest 的 canonical truth 由 Knowledge lane 管理。
+
+K_method 中只有明确 source-explicit 的方法原则可视为 canonical procedural knowledge；其他案例归纳必须保留 epistemic status。
+
+---
+
+## 3. Epistemic / allowed-use contract
+
+方法与案例相关内容至少区分：
+
+~~~text
+SOURCE_EXPLICIT
+SOURCE_DEMONSTRATED
+RECONSTRUCTED
+INDUCED
+EMPIRICALLY_VALIDATED
+~~~
+
+Knowledge/Product artifact 的 allowed use 至少区分：
+
+~~~text
+EXECUTABLE
+SEMANTIC_ONLY
+RETRIEVAL_ONLY
+CASE_SUPPORT_ONLY
+BLOCKED
+~~~
+
+硬规则：
+- SEMANTIC_ONLY 不产生 runtime effect；
+- BLOCKED 不产生 runtime effect；
+- case demonstration 不自动升级为 canonical rule；
+- empirical mismatch 只能触发 KnowledgeGapReport，不能静默修改 source truth。
+
+---
+
+## 4. Product 六层架构
+
+### L0 — Source & Provenance Layer
+
+保存：
+- school；
+- author；
+- source artifact；
+- source span；
+- artifact type；
+- source/review status；
+- allowed use；
+- version。
+
+### L1 — Canonical Knowledge Layer
+
+承载：
+- K_signal；
+- K_response；
+- K_manifest。
+
+中州派保持 canonical core。
+
+### L2 — Deterministic Symbolic Layer
+
+~~~text
+Birth input
+-> deterministic chart
+-> canonical signal runtime
+-> Natal Essence Graph N
+-> Temporal Environment E_t
+~~~
+
+N 是原局本质，E_t 是 target-time environment。
+
+### L3 — Expert Reasoning Layer
+
+~~~text
+Expert Case Bank
++ Case Retriever
++ Procedural KB
++ Inference Policy π
++ Canonical Verifier
+~~~
+
+LLM 可以提议下一步，但不能自行验证自己提出的规则含义。
+
+### L4 — Dynamic Response Layer
+
+~~~text
+τ_t = R_K(N, E_t)
+~~~
+
+第一代 ResponseProfile 必须 sparse / symbolic / source-traceable。
+
+### L5 — Reality / Empirical Layer
+
+~~~text
+X_t
+b_t
+A_t
+C_t
+θ
+~~~
+
+负责现实状态、行动、外部环境与经验校准。
+
+### L6 — Product / Explanation Layer
+
+EvidencePackage 驱动：
+- ordinary mode；
+- advanced mode；
+- expert/debug mode；
+- contrastive explanation；
+- uncertainty；
+- abstention。
+
+---
+
+## 5. 统一数学接口
+
+### 5.1 Natal Essence
+
+~~~text
+N = Kc(B)
+~~~
+
+B 是出生资料和 deterministic chart。
+
+同一 knowledge version 下：
+- N deterministic；
 - feedback-free；
-- same input + same knowledge version -> same N；
-- 无 LLM 也能完整运行；
-- 每个关键状态可回溯 source/rule。
+- 不被现实历史重写。
 
-禁止：
-- 通过用户现实反馈“校正原局”；
-- 使用 empirical outcome frequency 改写 natal truth。
+### 5.2 Temporal Environment
 
----
+~~~text
+E_t = T(B, t)
+~~~
 
-## PL3-T — Temporal Environment Engine
+E_t 描述：
+- active decade/year/month/... facts；
+- transformations；
+- relation facts；
+- temporal context。
 
-输入：
+E_t 不等于现实事件。
 
-\`\`\`text
-NatalStateProfile + target time layer
-\`\`\`
+### 5.3 Response
 
-输出：
+~~~text
+τ_t = R_Kr(N, E_t)
+~~~
 
-\`\`\`text
-TemporalEnvironmentProfile
-\`\`\`
+τ_t 表示：
+- activated tendency；
+- strengthen/weaken；
+- transform；
+- gate；
+- conflict；
+- ordinal constraint；
+- effect target；
+- unknown。
 
-内容包括：
-- 大限/流年/流月等 active temporal facts；
-- temporal transformation / activation；
-- 对 natal states 的加强、削弱、转化、触发；
-- time-layer conflicts；
-- candidate manifestation families（仅 source-supported）。
+第一阶段不要求 numeric magnitude。
 
-PL3-T 输出的是**环境与激活状态**，不是“今年必发生 X”。
+### 5.4 Canonical Manifestation
 
----
+~~~text
+M0_t = G_K(τ_t)
+~~~
 
-## PL3-S — Personal State Observer
+M0 只表示 source-supported possibility。
 
-目的：把现实世界的用户状态与命盘状态分开建模。
+### 5.5 Acquired state and belief
 
-输入：
-- user-reported verified events；
-- imported structured records（未来可选）；
-- actions / intentions / exposures；
-- previous state estimate。
+未来：
 
-输出：
-- AcquiredState；
-- state confidence；
-- missingness；
-- contradictory reports；
-- observation provenance。
+~~~text
+X_(t+1) ~ F_theta(X_t, N, τ_t, A_t, C_t)
+~~~
 
-v0.1 优先：
-- deterministic state updater；
-- simple Bayesian belief update。
+系统实际维护：
 
-仅在数据形态证明有必要后，再升级：
-- Dynamic Bayesian Network；
-- particle filter / sequential Monte Carlo；
-- neural state-space model。
+~~~text
+b_t = P(X_t | observations up to t)
+~~~
 
----
+初期优先 deterministic updater，再考虑 simple Bayesian。
 
-## PL3-M — Manifestation Router MVP
+### 5.6 Contextual Manifestation
 
-输入：
+未来：
 
-\`\`\`text
-N + E_t + S_t + A_t + C_t
-\`\`\`
+~~~text
+M1_t ~ P(M | M0_t, X_t, b_t, A_t, C_t, θ)
+~~~
 
-输出：
+必须永久区分：
 
-\`\`\`text
-candidate manifestation channels
-+ source support
-+ empirical probability if calibrated
-+ uncertainty
-\`\`\`
-
-v0.1 必须区分：
-
-\`\`\`text
+~~~text
 SOURCE_SUPPORTED_POSSIBILITY
 EMPIRICALLY_CALIBRATED_PROBABILITY
 PERSONALIZED_POSTERIOR
-\`\`\`
-
-三者不得混写。
+~~~
 
 ---
 
-## PL4-A — Internal Fidelity Benchmark
+## 6. Expert Reasoning Program
 
-测“是否忠实实现中州派”，不测现实世界预测有效性。
+### 6.1 CaseBundle
 
-指标：
-- chart reconstruction；
-- canonical rule trace coverage；
-- author-reasoning reconstruction；
-- temporal-layer fidelity；
-- source trace completeness；
-- deterministic consistency；
-- conflict preservation。
+每个 expert case 拆为：
 
-教材案例主要属于此层。
+~~~text
+source/provenance
+ChartSnapshot
+target question/time
+information available before inference
+ExpertReasoningGraph
+expert conclusion
+known outcome if supplied
+~~~
+
+### 6.2 ExpertReasoningGraph
+
+存储可审计动作图，而非不可审计自由文本思维过程。
+
+核心动作可包括：
+- INSPECT；
+- CLASSIFY；
+- ACTIVATE；
+- COMPARE；
+- REFINE；
+- CROSS_CHECK；
+- REJECT；
+- CONFIRM；
+- ABSTAIN；
+- STOP。
+
+评估使用 DAG / partial-order compatibility，不要求逐字逐步复刻作者。
+
+### 6.3 Wang Tingzhi cases
+
+王亭之约 10 个高质量完整案例：
+- 全部最终进入 Expert Case Bank；
+- 不拿来估现实 event probability；
+- 不做普通 train/test 固定切分；
+- 使用 10-fold Leave-One-Case-Out Expert Replay。
+
+每一 fold：
+
+~~~text
+9 cases -> method induction / retrieval
+1 case  -> unseen blind expert replay
+~~~
+
+这样每例都能参与学习，同时每例至少一次真正未见测试。
+
+### 6.4 Other Sanhe cases
+
+其他三合派案例用于方法泛化与 cross-school robustness，先分类：
+
+~~~text
+IDENTICAL
+SEMANTIC_EQUIVALENT
+PROCEDURAL_COMPATIBLE
+SCHOOL_SPECIFIC
+CONFLICTING
+UNKNOWN
+~~~
+
+只有兼容的 procedural pattern 可 regularize π。
+
+SCHOOL_SPECIFIC / CONFLICTING 永久保留 school namespace，不反写中州 core。
 
 ---
 
-## PL4-B — Predictive Blind Benchmark
+## 7. Temporal hierarchy
 
-严格使用未见过现实答案的数据。
+第一阶段正式冻结：
 
-必须预注册：
-- forecast time；
-- prediction target；
-- model version；
-- available context；
-- forbidden leakage；
-- observation window。
+~~~text
+Natal
+-> Decade
+-> Year
+-> Month only when triggered
+-> Day/Hour later
+~~~
 
-至少比较：
-- population/context-only baseline；
-- pure LLM；
-- RAG；
-- flat rules；
-- symbolic natal；
-- symbolic natal + temporal；
-- calibrated manifestation model；
-- personalized model。
+理由：
+- first vertical slice 先建立最重要的长期/年度交涉；
+- 避免时间层组合爆炸；
+- 防止在没有上层候选信号时无目的细搜。
 
-Internal fidelity 与 predictive accuracy 永久分开报告。
+Product 即使已经能生成 month/day/hour facts，也不代表 inference policy 现在必须全部使用。
 
 ---
 
-## PL5 — Empirical Calibration Program
+## 8. PL stages v0.4
 
-### PL5-A Manifestation Frequency Baseline
+### PL1 — Chart Trust
+状态：**COMPLETE / FROZEN**
 
-学习：
+保持 deterministic chart、calendar boundary、multi-engine diff 和 ambiguity registry。
 
-\`\`\`text
-P(M | Q)
-\`\`\`
-
-只作为最简单 baseline。
-
-### PL5-B Context-Conditioned Manifestation
-
-学习：
-
-\`\`\`text
-P(M | Q, S, C)
-\`\`\`
-
-优先从可解释模型开始：
-- logistic / multinomial；
-- survival / event-history；
-- competing-risks（仅在事件定义满足其统计假设时使用）。
-
-“多个应象通道竞争”可以是产品概念，但只有满足 time-to-event / mutually exclusive risk 定义时才称正式 competing-risks model。
-
-### PL5-C Hierarchical Bayesian Calibration
-
-层级：
-
-\`\`\`text
-population
-  -> cohort/context
-     -> individual
-\`\`\`
-
-数据少时强 shrinkage 回总体；
-数据增加后才允许个体 posterior 偏离总体。
-
-### PL5-D Incremental Predictive Value
-
-验证：
-
-\`\`\`text
-P(Y | context + chart)
-vs
-P(Y | context)
-\`\`\`
-
-只有 chart features 带来稳定 out-of-sample improvement，才可声称其具有增量预测价值。
-
-### PL5-E Causal / Action Analysis
-
-仅在数据和因果假设成熟后启用。
+### PL2 — Executable Canonical Knowledge
+状态：**ACTIVE / PARTIAL CONTENT**
 
 目标：
-- 区分 chart association、selection、action、exposure、confounding；
-- 不把 observational correlation 冒充“做 X 会改善 Y”。
+- source span -> reviewed artifact -> executable/semantic status -> trace；
+- fail closed；
+- 不发明 numeric weight / threshold。
 
-在因果识别不足时只输出：
-- conditional scenario；
-- association；
-- uncertainty。
+### PL3-N — Natal Essence Engine
+状态：**PARTIAL / USABLE FOR FIRST VERTICAL SLICE**
 
-不得输出伪因果建议。
+从 flat rule collection 进一步升级为：
 
----
+~~~text
+Star/System Core
+-> Essence Mode
+-> Palace Essence
+-> Domain Projection
+~~~
 
-## PL6 — Product UX
+Career 190 NATAL rules 足够支持第一条动态 vertical slice。
+继续增加 Career 数量不再是当前 Product critical-path KPI。
 
-保留三层解释 UI：
+### PL3-T — Temporal Environment
+状态：**INFRASTRUCTURE READY**
 
-1. 普通用户；
-2. 高级用户；
-3. Expert/Debug。
+负责 E_t，不负责把 E_t 直接变成 event。
 
-新增三个运行模式：
+### PL3-METHOD — Expert Reasoning
+状态：**NEW / CURRENT CRITICAL PATH**
 
-### Mode A — Natal Mode
-只解释 N，不需要现实反馈。
+目标：
+- CaseBundle；
+- ExpertReasoningGraph；
+- InferenceTrace；
+- MethodPattern；
+- SchoolCompatibility；
+- Case-Based Retrieval；
+- π v0.1；
+- Wang LOCO benchmark。
 
-### Mode B — Blind Forecast Mode
-仅使用允许的 chart/time/context 信息，不读取目标期结果，用于研究与 benchmark。
+### PL3-R — Response Engine
+状态：**NEW / CURRENT CRITICAL PATH**
 
-### Mode C — Personalized Forecast Mode
-允许加入 S_t / A_t / C_t / past feedback，输出条件化结果。
+~~~text
+N + E_t + Kr -> τ_t
+~~~
 
-UI 必须明确标注当前模式，禁止把 Personalized Mode 的高准确度当成 Blind Forecast 能力宣传。
+第一版只做 decade + year。
 
----
+### PL3-M0 — Canonical Manifestation Candidates
+状态：**NEW / DEPENDS ON RESPONSE + MANIFEST KNOWLEDGE**
 
-## PL7 — Longitudinal Data Flywheel
+输出 SOURCE_SUPPORTED_POSSIBILITY，不输出经验概率。
 
-基础设施立即建设，训练延后到数据质量过关。
+### PL3-S — Personal State Observer
+状态：**FUTURE AFTER SOURCE-GROUNDED VERTICAL SLICE**
 
-数据单位从“单盘 + 一个事件”改为：
+实现 X_t / b_t、missingness、observation provenance。
 
-\`\`\`text
-Person x Time
-\`\`\`
+### PL3-M1 — Contextual Manifestation Router
+状态：**FUTURE**
 
-每个 observation window 至少支持：
-- state_before；
-- action；
-- exposure / opportunity；
-- external context；
-- outcome；
-- event time / interval；
-- severity/intensity；
-- EVENT_OCCURRED / EVENT_NOT_OCCURRED / UNKNOWN / CENSORED；
-- source/provenance；
-- observation confidence；
-- linked forecast version。
+结合 M0 + state + action + context + calibration。
 
-### 关键数据原则
+### PL4-A — Canonical Fidelity
+测 source implementation fidelity。
 
-1. 必须收 negative samples；
-2. 必须收“什么也没发生”的 observation window；
-3. 历史回顾与前瞻 observation 分开；
-4. memorable-event-only 数据不得用于无修正总体概率；
-5. outcome coding schema 在预测前冻结；
-6. missing-not-at-random 风险必须记录。
+### PL4-M — Expert Method Fidelity
+新增长期 benchmark：
+- evidence selection；
+- next action；
+- branch；
+- time depth；
+- stop/abstain；
+- reasoning graph compatibility。
 
----
+### PL4-B — Predictive Blind Benchmark
+严格 prospective/unseen，和 PL4-A/PL4-M 分开。
 
-## PL8 — Multi-school / Production
+### PL5 — Empirical Calibration
+顺序：
+- frequency baseline；
+- GLM / multinomial / ordinal；
+- survival/event history where valid；
+- hierarchical Bayesian；
+- state-space only if justified。
 
-中州派继续 canonical core。
+### PL6 — Product UX
+继续普通/高级/Expert 三层 UI，并显示 evidence type 和 uncertainty source。
 
-\`\`\`text
-Core Ontology
-  ├─ Zhongzhou Adapter
-  ├─ Qintian Adapter
-  ├─ Heluo Adapter
-  └─ future adapters
-\`\`\`
+### PL7 — Longitudinal Data Flywheel
+继续并行。
 
-跨流派一致可以形成 consensus evidence；
-冲突必须保留 school attribution。
+第一条 N -> E -> τ -> M0 可运行后，立即启动 Forecast Ledger。
 
-其他流派 empirical data 不得静默回写中州派 Layer A。
+### PL8 — Multi-school / Production
+中州派为 core；其他学校 adapter 化、source-attributed、conflict-preserving。
 
----
-
-## PL9 — Conditional Scenario & Decision Support
-
-只有在 PL4/PL5 校准达到门槛后进入。
-
-形式：
-
-\`\`\`text
-P(S_(t+H), Y_(t:t+H) | current belief, candidate action)
-\`\`\`
-
-支持：
-- 维持现状；
-- 行动 A；
-- 行动 B；
-- 不同行动约束下的多目标轨迹。
-
-若未来进入 MPC：
-
-\`\`\`text
-a* = argmax E[U(trajectory) | belief, constraints]
-\`\`\`
-
-但 U 必须由用户目标定义或显式多目标表示，不能把系统自己的“吉”当 universal reward。
-
-健康、法律、金融等高风险领域不得把本系统替代专业判断；这类输出最多作为非专业的情境解释，不提供高风险决策指令。
+### PL9 — Conditional Decision Support
+仅在 calibration / causal readiness 达标后进入。
 
 ---
 
-## 5. AI / 控制方法启用顺序
+## 9. NOW：当前真正要做的
 
-| 阶段 | 首选方法 | 暂不优先 |
-|---|---|---|
-| PL2–PL3-N | symbolic / rule engine | neural end-to-end |
-| PL3-T | hybrid symbolic state-space | black-box predictor |
-| PL3-S | deterministic updater + Bayesian belief | particle filter by default |
-| PL5-A/B | frequency / GLM / survival baseline | deep neural model |
-| PL5-C | hierarchical Bayesian | per-user independent model |
-| PL5-E | SCM / causal inference | RL without identification |
-| large-data stage | Mixture-of-Experts / graph models / neural SSM | untraceable monolith |
-| PL9 | scenario simulation / MPC | “命盘直接给行动命令” |
+当前 Product 主线：
 
-每引入更复杂模型，必须证明相对简单 baseline 的 out-of-sample 增益。
+~~~text
+NOW-0  v0.4 architecture/state freeze
+   ↓
+NOW-1  Expert Case / Trace / Method contracts
+   ↓
+NOW-2  Wang expert cases structured + LOCO harness
+   ↓
+NOW-3  CBR + heuristic/symbolic Method Policy π v0.1
+   ↓
+NOW-4  Response Semantics fail-closed Product adapter
+   ↓
+NOW-5  Source-backed response corpus dependency
+   ↓
+NOW-6  PL3-R Decade/Year Response Compiler -> τ_t
+   ↓
+NOW-7  PL3-M0 source-supported manifestation candidates
+   ↓
+NOW-8  Canonical + Expert Method fidelity benchmark
+   ↓
+NOW-9  Forecast Ledger activation
+~~~
+
+### 当前明确不把这些作为主线
+- 再把 Career NATAL 从 190 持续扩到 300/500；
+- neural fine-tuning；
+- GNN；
+- neural state-space；
+- particle filter；
+- RL；
+- MPC；
+- 现实概率声称。
 
 ---
 
-## 6. LLM 角色重新冻结
+## 10. FUTURE：以后再进入的架构
+
+当 source-grounded vertical slice 稳定后：
+
+~~~text
+FUTURE-1  X_t / b_t Personal State
+FUTURE-2  Contextual M1 Router
+FUTURE-3  Prospective Blind Benchmark
+FUTURE-4  Interpretable Empirical Calibration
+FUTURE-5  Hierarchical Bayesian
+FUTURE-6  Dynamic State-Space / Observer
+FUTURE-7  Multi-school Production
+FUTURE-8  Advanced ML
+FUTURE-9  Causal / MPC / Offline RL
+~~~
+
+每一层必须通过前一层的 stop/go gate。
+
+---
+
+## 11. Knowledge -> Product contract
+
+Knowledge 侧继续拥有 canonical source interpretation。
+
+Product 需要 Knowledge artifact 至少携带：
+- artifact id；
+- school；
+- source；
+- semantic type；
+- membership；
+- activation；
+- relation；
+- interaction；
+- ordinal；
+- effect target；
+- scope；
+- exceptions；
+- epistemic status；
+- allowed use。
+
+Product 可创建 KnowledgeGapReport，但不能跨 lane 自行“补全理论”。
+
+当前 Response Semantics 工作对 Product 的意义：
+- 提供更细的表达语言；
+- 重新分类 blocker；
+- 不是自动 execution unlock。
+
+---
+
+## 12. 四类 benchmark
+
+### A — Canonical Fidelity
+问题：有没有忠实实现中州派 source？
+
+### B — Expert Method Fidelity
+问题：有没有学会专家如何组织、筛选和调用知识？
+
+### C — Prospective Predictive Validity
+问题：有没有现实、可重复、out-of-sample 的增量预测价值？
+
+### D — Cross-School Robustness
+问题：π 学到的是可迁移 procedure，还是只记住 Wang / Zhongzhou 的局部习惯？
+
+硬边界：
+
+~~~text
+A/B/D success != C success
+~~~
+
+---
+
+## 13. Forecast Ledger
+
+第一条 source-only vertical slice 可运行后即启用。
+
+至少锁定：
+- forecast_id；
+- information cutoff；
+- chart version；
+- knowledge version；
+- method-policy version；
+- model version；
+- mode；
+- target；
+- window；
+- prediction；
+- abstention；
+- later observation；
+- evaluation。
+
+历史 prediction 不可事后改写。
+
+---
+
+## 14. AI / 学界方法启用顺序
+
+~~~text
+Symbolic deterministic
+-> Case-Based Reasoning
+-> heuristic/deterministic planner
+-> LLM planner + symbolic verifier
+-> process mining / ILP / rule induction
+-> interpretable statistical baseline
+-> hierarchical Bayesian
+-> dynamic Bayesian / state-space
+-> neural residual / graph / MoE if justified
+-> causal evaluation
+-> MPC / offline RL last
+~~~
+
+复杂模型进入条件：
+- enough data；
+- simpler baseline；
+- held-out gain；
+- calibration gain；
+- traceability audit。
+
+---
+
+## 15. LLM 角色
 
 LLM 可以：
-- 解析自然语言现实反馈为候选结构化事件；
-- 生成澄清问题；
-- verbalize EvidencePackage；
-- 做 contrastive explanation；
-- 展示 conditional scenarios；
-- 帮助人工 source review，但不能自动升级 source status。
+- case/source candidate extraction；
+- retrieval query；
+- next-action proposal；
+- clarification；
+- error attribution candidate；
+- EvidencePackage verbalization；
+- contrastive explanation。
 
 LLM 不可以：
 - 创造 canonical rule；
-- 创造未冻结数值权重；
-- 用语言感觉决定 manifestation probability；
-- 修改 Natal Prior；
-- 隐藏 conflict / uncertainty；
-- 把 correlation 改写成 causation。
+- 解除 blocker；
+- 自行把 GROUP 解释成 ANY/ALL；
+- 发明 numeric qi weights；
+- 发明 event probability；
+- 修改 N/Kr；
+- 用 expert case 自动覆盖 source meaning；
+- 隐藏 uncertainty/conflict。
 
 ---
 
-## 7. Human Gate 新触发条件
+## 16. Testing strategy
 
-除既有 G1–G6 / A0–A2 外，下列变化必须 PI Human Gate：
+除 conventional regression 外，引入 metamorphic tests：
 
+- same E_t + different N -> τ 可以/应当不同；
+- same N + different E_t -> τ 改变，但 N 不变；
+- 删除关键 evidence -> confidence 降低或 abstain；
+- semantic-only artifact 永不产生 executable effect；
+- other-school conflict 永不修改 Zhongzhou output；
+- personal feedback 永不修改 canonical Natal Essence。
+
+---
+
+## 17. Progress metrics
+
+当前阶段默认报告：
+- structured expert cases / total；
+- LOCO folds；
+- method action/evidence metrics；
+- response artifacts：executable / semantic-only / blocked；
+- validated N+E->τ fixtures；
+- validated τ->M0 mappings；
+- completed vertical slices；
+- unsupported inference rate；
+- abstention quality。
+
+不再用“Career rule 总数”单独代表 Product 进度。
+
+---
+
+## 18. Human Gate
+
+必须重新请求 PI 的情况包括：
 - 新增 primitive qi；
-- 改变 natal vs temporal 边界；
-- 允许反馈修改 canonical Natal Prior；
-- 把 empirical parameter 升级为 canonical rule；
-- 定义新的 universal manifestation family；
-- 新增跨宫长期记忆或默认 persistence / decay；
-- 对 source 未给出的效应指定固定数值；
-- 让黑盒 AI 替代 canonical symbolic layer；
-- 将关联模型升级为因果行动建议。
-
-普通参数重训、posterior 更新、案例增加、UI 变化，在不越过上述边界时不触发 Human Gate。
+- 改变 N / E / τ 边界；
+- 允许 empirical feedback 修改 canonical truth；
+- 将 induced procedure 宣称为 Zhongzhou source-explicit；
+- 其他流派规则进入 Zhongzhou core；
+- 新 universal manifestation family；
+- source 未给出的 fixed numeric effect；
+- 黑盒模型替代 canonical verifier；
+- correlation 升级为 causal action recommendation。
 
 ---
 
-## 8. 当前执行顺序
+## 19. 当前恢复点
 
-### 产品轨
+Product #416 / PR #418 已完成，Career canonical NATAL inventory 已到 190。
 
-\`\`\`text
-PL2Q Human Gate Integration
-  -> PL3-N Natal Prior Engine
-  -> PL3-T Temporal Environment Engine
-  -> PL3-S Personal State Observer
-  -> PL3-M Manifestation Router MVP
-  -> PL4-A fidelity benchmark
-  -> PL4-B predictive blind benchmark
-  -> PL5 calibration
-  -> PL9 decision support
-\`\`\`
+Product 不再把 #416/#418 当 active work。
 
-### 与数据轨并行
+Proposal #425 合并后，下一推荐 Product work unit：
 
-\`\`\`text
-Longitudinal schema
-  -> prospective collection
-  -> quality audit
-  -> calibration-ready corpus
-\`\`\`
+**PRODUCT_METHOD_CASE_CONTRACTS_V0_1**
 
-PL7 schema 可提前做，但不得在 quality gate 前把早期反馈当稳定概率真值。
+然后依次进入：
+- Wang case structuring + LOCO；
+- Method Policy v0.1；
+- Response Adapter；
+- Response Compiler；
+- M0 vertical slice。
+
+详细执行顺序见：
+
+product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md
 
 ---
 
-## 9. 产品最终定位
+## 20. 产品最终定位
 
-> 一个以中州派传统知识为固定先验，以原局气核—时变环境—行为—应象为动态机制，以纵向现实反馈进行概率校准，并支持个体化状态估计与条件轨迹分析的可解释智能紫微斗数系统。
+> 一个以中州派 source-grounded canonical knowledge 为固定知识核心，以本质—时间环境—反应为动态机制，以专家案例学习推理策略，以前瞻现实数据独立校准预测价值，并在后期支持个体状态估计与条件决策分析的可审计神经符号紫微斗数研究与产品系统。
 
 简化技术表达：
 
-\`\`\`text
-Symbolic Prior
-+ Dynamic State Space
-+ Bayesian Calibration
-+ Causal Evaluation
+~~~text
+Canonical Symbolic Knowledge
++ Expert Reasoning Policy
++ Dynamic Response Model
++ Case Memory
++ Prospective Calibration
++ Personal State Estimation
 + AI Interface
-+ Conditional Decision Support
-\`\`\`
-
+~~~
