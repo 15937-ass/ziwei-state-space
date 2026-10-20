@@ -136,8 +136,15 @@ def test_stars_palaces_mutagens_and_branch_gates_fail_closed(rule_id):
         if atom["atom_type"] == "TRANSFORMATION_PRESENT" and atom["args"].get("star"):
             palace = atom["args"]["palace"]
             star = atom["args"]["star"]
-            required = atom["args"]["mutagen"]
-            for replacement in [None, *[m for m in "禄权科忌" if m != required]]:
+            allowed_mutagens = {
+                other["args"]["mutagen"]
+                for alternative in groups(mapping)
+                for other in alternative
+                if other["atom_type"] == "TRANSFORMATION_PRESENT"
+                and other["args"].get("palace") == palace
+                and other["args"].get("star") == star
+            }
+            for replacement in [None, *[m for m in "禄权科忌" if m not in allowed_mutagens]]:
                 wrong = copy.deepcopy(stars)
                 wrong[palace] = [(s, replacement if s == star else m) for s, m in wrong[palace]]
                 assert rule_id not in active_ids(snapshot(branch, wrong))
