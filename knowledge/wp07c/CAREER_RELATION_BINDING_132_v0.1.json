@@ -18,59 +18,71 @@
   },
   "summary": {
     "row_binding_disposition_counts": {
-      "RB1_SINGLE_TARGET_BOUND": 101,
+      "RB1_SINGLE_TARGET_BOUND": 99,
       "RB3_COMPOUND_CLAUSE_GRAPH_BOUND": 14,
-      "RB2_MULTI_TARGET_EXPRESSION_BOUND": 14,
+      "RB2_MULTI_TARGET_EXPRESSION_BOUND": 16,
       "RB5_TARGET_BOUND_SOURCE_RELATION_RECHECK": 1,
       "RB4_RELATION_BUNDLE_BOUND": 2
     },
     "binding_resolution_counts": {
-      "BOUND_AT_NODE_LEVEL": 120,
-      "BOUND_SOURCE_LITERAL_PENDING_SEMANTIC_NORMALIZATION": 19,
+      "BOUND_AT_NODE_LEVEL": 114,
+      "BOUND_SOURCE_LITERAL_PENDING_SEMANTIC_NORMALIZATION": 25,
       "TARGET_BOUND_SOURCE_RELATION_RECHECK": 1,
       "BOUND_RELATION_SURFACE_BUNDLE": 2
     },
     "target_node_type_counts": {
-      "OPEN_CATEGORY_NODE": 60,
-      "GROUP_SYMBOL_NODE": 71,
+      "OPEN_CATEGORY_NODE": 59,
+      "GROUP_SYMBOL_NODE": 69,
       "SCOPED_GROUP_SYMBOL_NODE": 2,
+      "SOURCE_LITERAL_EXPRESSION_NODE": 25,
       "NAMED_COMPOSITE_NODE": 4,
-      "SOURCE_LITERAL_EXPRESSION_NODE": 19,
       "EXPLICIT_MEMBER_SET": 4,
       "STRUCTURED_PATTERN_NODE": 1,
       "SEVERITY_MODIFIER_NODE": 1,
       "GENERIC_SHORTHAND_NODE": 1
     },
     "target_node_arity_counts": {
-      "1": 126,
-      "2": 11,
-      "3": 5
+      "1": 124,
+      "2": 12,
+      "3": 6
     },
     "expansion_policy_counts": {
-      "CATEGORY_EXPANSION_DEFERRED": 60,
-      "NO_MEMBER_EXPANSION": 73,
+      "CATEGORY_EXPANSION_DEFERRED": 59,
+      "NO_MEMBER_EXPANSION": 71,
+      "SEMANTIC_NORMALIZATION_DEFERRED": 25,
       "PRESERVE_COMPOSITE_INTEGRITY": 4,
-      "SEMANTIC_NORMALIZATION_DEFERRED": 19,
       "EXPLICIT_MEMBERS_LOCAL_ONLY": 4,
       "NEVER_FLATTEN_TO_RELATION_MEMBERS": 1,
       "NO_RELATION_MEMBER_EXPANSION": 1,
       "NO_NAMED_COMPOSITE_INHERITANCE": 1
     },
-    "source_literal_claims_pending_semantic_normalization": 19,
+    "polarity_counts": {
+      "AFFIRMATIVE": 137,
+      "NEGATED": 5
+    },
+    "semantic_child_coverage_counts": {
+      "SEMANTIC_CHILDREN_RELATION_LOCAL": 100,
+      "COMPLETE": 16,
+      "MIXED_LITERAL_AND_SEMANTIC": 5,
+      "SOURCE_EXPRESSION_PRESERVED_CHILDREN_MAY_BE_PARTIAL": 10,
+      "SOURCE_LITERAL_ONLY": 10,
+      "PARTIAL_LITERAL_PREFIX_刑": 1
+    },
+    "claims_containing_source_literal_nodes": 25,
     "claims_with_explicit_member_set": 4,
-    "activation_dependent_claims": 65,
+    "activation_dependent_claims": 63,
     "source_relation_recheck_claims": 1,
     "source_resolution_changes": 0,
     "conditions_compiled": 0,
     "execution_unlocked": 0,
     "findings": [
-      "Relation binding 与 member activation 已正式解耦：shorthand group 先作为 symbolic target node 接受关系，不决定 ANY/ALL 或成员实现。",
-      "132/132 条均获得 source-expression/node-level binding disposition；10 个旧 GROUP token 缺失的单关系规则及 compound clause 中的原子对象使用 SOURCE_LITERAL_EXPRESSION_NODE，不阻塞句法 binding，只把 semantic normalization 留给后续 ontology。",
-      "binding 采用 relation-local target selection，且/又/而/更/无/有/不 等边界后的附加条件不会被误绑定到前一 relation。",
-      "显式文昌文曲/左辅右弼只在来源本句允许 EXPLICIT_MEMBERS_LOCAL_ONLY；generic 昌曲/辅弼仍 NO_MEMBER_EXPANSION。",
-      "named composite 保持 composite integrity；open category 只做 symbolic binding；structured pattern 不扁平化。",
-      "CA08-799/CA09-804 的“朝拱同会”保存为 relation-surface bundle，统一绑定辅弼、魁钺、三台八座三个目标节点，不机械逐项分配 surface。",
-      "CA06-549 target 火铃已绑定，但“照射” geometry 仍 source-recheck；target binding 与 relation geometry uncertainty 可独立存在。"
+      "Relation binding 与 member activation 正式解耦：关系先绑定 source-expression / semantic node，group shorthand 不默认向成员分发。",
+      "132/132 source rules、142 个 relation claims 均有 binding disposition；19 类 claim 含 source literal node，用于保存当前 GROUP token registry 未覆盖的原子星曜、化曜或字面类别，而不是把它们错误判为“关系未知”。",
+      "relation-local selection 防止把“且有昌曲 / 无昌曲 / 尤其火铃”等附加条件误绑定到前一 relation；source expression 始终保留，semantic child 可标 COMPLETE / PARTIAL / MIXED。",
+      "显式文昌文曲/左辅右弼只在本句允许 EXPLICIT_MEMBERS_LOCAL_ONLY；generic 昌曲/辅弼仍 NO_MEMBER_EXPANSION。",
+      "named composite 保持 composite integrity；open category 仅 symbolic binding；structured pattern 不扁平化。",
+      "compound clauses 已形成 clause graph：三方见煞被组合为 visibility within {0,4,8}；同度或相对保留 geometry alternative {0,6}；见辅弼或不见辅弼保留相反 polarity 分支。",
+      "CA08-799/CA09-804 的朝拱同会保存为 relation-surface bundle；CA06-549 target 火铃已绑定但照射 relation 仍 source-recheck。"
     ]
   },
   "records": [
@@ -121,14 +133,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -182,14 +196,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -246,14 +262,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -310,14 +328,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -385,7 +405,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "COMPLETE"
         },
         {
           "claim_id": "CA02-141-REL-02",
@@ -437,7 +458,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "COMPLETE"
         }
       ],
       "source_resolution_changed": false,
@@ -495,14 +517,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -554,14 +578,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -577,7 +603,7 @@
       ],
       "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_02_v0.1.json",
       "relation_surface_audit_version": "0.2",
-      "row_binding_disposition": "RB1_SINGLE_TARGET_BOUND",
+      "row_binding_disposition": "RB2_MULTI_TARGET_EXPRESSION_BOUND",
       "relation_claims": [
         {
           "claim_id": "CA02-180-REL-01",
@@ -603,8 +629,8 @@
           ],
           "polarity": "AFFIRMATIVE",
           "logical_connector": null,
-          "target_expression_kind": "SINGLE_NODE",
-          "target_source_expression": "昌曲",
+          "target_expression_kind": "NODE_SET",
+          "target_source_expression": "昌曲天才",
           "target_nodes": [
             {
               "source_token": "昌曲",
@@ -619,13 +645,26 @@
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
               "binding_mode": "BIND_SYMBOLIC_NODE"
+            },
+            {
+              "source_token": null,
+              "target_surface": "天才",
+              "node_type": "SOURCE_LITERAL_EXPRESSION_NODE",
+              "semantic_support": "NOT_IN_CURRENT_GROUP_TOKEN_REGISTRY",
+              "members": null,
+              "scope": null,
+              "activation": null,
+              "expansion_policy": "SEMANTIC_NORMALIZATION_DEFERRED",
+              "binding_mode": "BIND_LITERAL_EXPRESSION",
+              "note": null
             }
           ],
-          "binding_resolution": "BOUND_AT_NODE_LEVEL",
+          "binding_resolution": "BOUND_SOURCE_LITERAL_PENDING_SEMANTIC_NORMALIZATION",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "MIXED_LITERAL_AND_SEMANTIC"
         }
       ],
       "source_resolution_changed": false,
@@ -682,14 +721,16 @@
               "scope": null,
               "activation": "PAIR_REQUIRED",
               "expansion_policy": "PRESERVE_COMPOSITE_INTEGRITY",
-              "binding_mode": "BIND_COMPOSITE_NODE"
+              "binding_mode": "BIND_COMPOSITE_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -746,14 +787,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -810,14 +853,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -874,14 +919,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -938,7 +985,8 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             },
             {
               "source_token": "火铃",
@@ -952,14 +1000,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 2
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -1013,7 +1063,8 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             },
             {
               "source_token": "火铃",
@@ -1027,14 +1078,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 2
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -1089,14 +1142,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -1158,7 +1213,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SOURCE_EXPRESSION_PRESERVED_CHILDREN_MAY_BE_PARTIAL"
         },
         {
           "claim_id": "CA03-290-REL-02",
@@ -1204,7 +1260,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "COMPLETE"
         }
       ],
       "source_resolution_changed": false,
@@ -1266,7 +1323,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SOURCE_LITERAL_ONLY"
         }
       ],
       "source_resolution_changed": false,
@@ -1328,7 +1386,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SOURCE_LITERAL_ONLY"
         }
       ],
       "source_resolution_changed": false,
@@ -1385,14 +1444,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -1447,14 +1508,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -1518,7 +1581,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "COMPLETE"
         },
         {
           "claim_id": "CA04-345-REL-02",
@@ -1571,7 +1635,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SOURCE_EXPRESSION_PRESERVED_CHILDREN_MAY_BE_PARTIAL"
         }
       ],
       "source_resolution_changed": false,
@@ -1668,7 +1733,8 @@
             ]
           },
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SOURCE_EXPRESSION_PRESERVED_CHILDREN_MAY_BE_PARTIAL"
         }
       ],
       "source_resolution_changed": false,
@@ -1722,14 +1788,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -1781,14 +1849,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -1848,7 +1918,8 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 2
             },
             {
               "source_token": "空劫",
@@ -1862,14 +1933,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -1930,14 +2003,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -1994,14 +2069,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -2063,7 +2140,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SOURCE_LITERAL_ONLY"
         }
       ],
       "source_resolution_changed": false,
@@ -2127,7 +2205,8 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             },
             {
               "source_token": "辅弼",
@@ -2141,14 +2220,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 3
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -2205,14 +2286,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -2271,14 +2354,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -2339,14 +2424,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -2410,14 +2497,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -2433,7 +2522,7 @@
       ],
       "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
       "relation_surface_audit_version": "0.2",
-      "row_binding_disposition": "RB1_SINGLE_TARGET_BOUND",
+      "row_binding_disposition": "RB2_MULTI_TARGET_EXPRESSION_BOUND",
       "relation_claims": [
         {
           "claim_id": "CA05-416-REL-01",
@@ -2459,8 +2548,8 @@
           ],
           "polarity": "AFFIRMATIVE",
           "logical_connector": null,
-          "target_expression_kind": "SINGLE_NODE",
-          "target_source_expression": "昌曲",
+          "target_expression_kind": "NODE_SET",
+          "target_source_expression": "昌曲天才",
           "target_nodes": [
             {
               "source_token": "昌曲",
@@ -2475,13 +2564,26 @@
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
               "binding_mode": "BIND_SYMBOLIC_NODE"
+            },
+            {
+              "source_token": null,
+              "target_surface": "天才",
+              "node_type": "SOURCE_LITERAL_EXPRESSION_NODE",
+              "semantic_support": "NOT_IN_CURRENT_GROUP_TOKEN_REGISTRY",
+              "members": null,
+              "scope": null,
+              "activation": null,
+              "expansion_policy": "SEMANTIC_NORMALIZATION_DEFERRED",
+              "binding_mode": "BIND_LITERAL_EXPRESSION",
+              "note": null
             }
           ],
-          "binding_resolution": "BOUND_AT_NODE_LEVEL",
+          "binding_resolution": "BOUND_SOURCE_LITERAL_PENDING_SEMANTIC_NORMALIZATION",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "MIXED_LITERAL_AND_SEMANTIC"
         }
       ],
       "source_resolution_changed": false,
@@ -2538,14 +2640,16 @@
               "scope": null,
               "activation": "PAIR_REQUIRED",
               "expansion_policy": "PRESERVE_COMPOSITE_INTEGRITY",
-              "binding_mode": "BIND_COMPOSITE_NODE"
+              "binding_mode": "BIND_COMPOSITE_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -2609,14 +2713,16 @@
               "scope": null,
               "activation": "EXPLICIT_AND_LOCAL_CLAUSE",
               "expansion_policy": "EXPLICIT_MEMBERS_LOCAL_ONLY",
-              "binding_mode": "BIND_EXPLICIT_MEMBER_SET"
+              "binding_mode": "BIND_EXPLICIT_MEMBER_SET",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "EXPLICIT_MEMBERS_LOCAL_ONLY",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -2685,7 +2791,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SOURCE_LITERAL_ONLY"
         }
       ],
       "source_resolution_changed": false,
@@ -2749,14 +2856,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -2825,7 +2934,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SOURCE_LITERAL_ONLY"
         }
       ],
       "source_resolution_changed": false,
@@ -2886,14 +2996,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -2958,7 +3070,8 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 2
             },
             {
               "source_token": "吉化",
@@ -2969,14 +3082,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -3037,14 +3152,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -3084,7 +3201,7 @@
               "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
             }
           ],
-          "polarity": "AFFIRMATIVE",
+          "polarity": "NEGATED",
           "logical_connector": null,
           "target_expression_kind": "SINGLE_NODE",
           "target_source_expression": "煞忌",
@@ -3098,14 +3215,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -3166,14 +3285,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -3234,14 +3355,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -3296,14 +3419,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -3344,18 +3469,19 @@
           "polarity": "AFFIRMATIVE",
           "logical_connector": null,
           "target_expression_kind": "NODE_SET",
-          "target_source_expression": "百官朝拱 + 吉曜",
+          "target_source_expression": "紫微吉曜百官朝拱",
           "target_nodes": [
             {
-              "source_token": "百官朝拱",
-              "target_surface": "百官朝拱",
-              "node_type": "STRUCTURED_PATTERN_NODE",
-              "semantic_support": "STRUCTURED_PATTERN_NOT_FLAT_GROUP",
+              "source_token": null,
+              "target_surface": "紫微",
+              "node_type": "SOURCE_LITERAL_EXPRESSION_NODE",
+              "semantic_support": "NOT_IN_CURRENT_GROUP_TOKEN_REGISTRY",
               "members": null,
               "scope": null,
               "activation": null,
-              "expansion_policy": "NEVER_FLATTEN_TO_RELATION_MEMBERS",
-              "binding_mode": "BIND_STRUCTURED_PATTERN_NODE"
+              "expansion_policy": "SEMANTIC_NORMALIZATION_DEFERRED",
+              "binding_mode": "BIND_LITERAL_EXPRESSION",
+              "note": null
             },
             {
               "source_token": "吉曜",
@@ -3367,13 +3493,25 @@
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
               "binding_mode": "BIND_SYMBOLIC_NODE"
+            },
+            {
+              "source_token": "百官朝拱",
+              "target_surface": "百官朝拱",
+              "node_type": "STRUCTURED_PATTERN_NODE",
+              "semantic_support": "STRUCTURED_PATTERN_NOT_FLAT_GROUP",
+              "members": null,
+              "scope": null,
+              "activation": null,
+              "expansion_policy": "NEVER_FLATTEN_TO_RELATION_MEMBERS",
+              "binding_mode": "BIND_STRUCTURED_PATTERN_NODE"
             }
           ],
-          "binding_resolution": "BOUND_AT_NODE_LEVEL",
+          "binding_resolution": "BOUND_SOURCE_LITERAL_PENDING_SEMANTIC_NORMALIZATION",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "MIXED_LITERAL_AND_SEMANTIC"
         }
       ],
       "source_resolution_changed": false,
@@ -3434,14 +3572,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -3501,7 +3641,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SOURCE_LITERAL_ONLY"
         }
       ],
       "source_resolution_changed": false,
@@ -3592,7 +3733,8 @@
             ]
           },
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SOURCE_EXPRESSION_PRESERVED_CHILDREN_MAY_BE_PARTIAL"
         }
       ],
       "source_resolution_changed": false,
@@ -3682,7 +3824,8 @@
             ]
           },
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "PARTIAL_LITERAL_PREFIX_刑"
         }
       ],
       "source_resolution_changed": false,
@@ -3751,7 +3894,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SOURCE_LITERAL_ONLY"
         }
       ],
       "source_resolution_changed": false,
@@ -3812,14 +3956,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_RELATION_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -3880,14 +4026,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -3952,7 +4100,8 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 4
             },
             {
               "source_token": "辅弼",
@@ -3966,7 +4115,8 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 2
             },
             {
               "source_token": "昌曲",
@@ -3980,14 +4130,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -4048,14 +4200,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -4112,14 +4266,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -4173,14 +4329,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -4227,7 +4385,7 @@
               "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
             }
           ],
-          "polarity": "AFFIRMATIVE",
+          "polarity": "NEGATED",
           "logical_connector": null,
           "target_expression_kind": "SINGLE_NODE",
           "target_source_expression": "煞",
@@ -4241,14 +4399,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -4309,14 +4469,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -4368,14 +4530,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 1
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -4463,7 +4627,8 @@
             "palace_offset_constraint": null
           },
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "COMPLETE"
         }
       ],
       "source_resolution_changed": false,
@@ -4520,14 +4685,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -4579,14 +4746,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -4647,14 +4816,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -4718,14 +4889,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -4786,14 +4959,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -4878,7 +5053,8 @@
           "relation_composition": "VISIBILITY_PLUS_GENERIC_MEETING",
           "effective_constraint": null,
           "member_realization": "EXPLICIT_MEMBERS_LOCAL_ONLY",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "COMPLETE"
         }
       ],
       "source_resolution_changed": false,
@@ -4937,14 +5113,16 @@
               "scope": "事业宫",
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -5005,14 +5183,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -5067,7 +5247,8 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 3
             },
             {
               "source_token": "辅弼",
@@ -5081,14 +5262,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -5143,14 +5326,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -5205,14 +5390,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -5296,7 +5483,8 @@
             ]
           },
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SOURCE_EXPRESSION_PRESERVED_CHILDREN_MAY_BE_PARTIAL"
         },
         {
           "claim_id": "CA07-602-REL-02",
@@ -5348,7 +5536,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "COMPLETE"
         }
       ],
       "source_resolution_changed": false,
@@ -5409,14 +5598,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -5477,14 +5668,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -5541,14 +5734,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -5602,14 +5797,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -5666,14 +5863,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -5730,14 +5929,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -5798,14 +5999,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -5821,7 +6024,7 @@
       ],
       "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
       "relation_surface_audit_version": "0.2",
-      "row_binding_disposition": "RB1_SINGLE_TARGET_BOUND",
+      "row_binding_disposition": "RB2_MULTI_TARGET_EXPRESSION_BOUND",
       "relation_claims": [
         {
           "claim_id": "CA07-633-REL-01",
@@ -5845,8 +6048,8 @@
           ],
           "polarity": "AFFIRMATIVE",
           "logical_connector": null,
-          "target_expression_kind": "SINGLE_NODE",
-          "target_source_expression": "吉化吉曜",
+          "target_expression_kind": "NODE_SET",
+          "target_source_expression": "吉化吉曜及多辅曜",
           "target_nodes": [
             {
               "source_token": "吉化吉曜",
@@ -5858,13 +6061,26 @@
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
               "binding_mode": "BIND_SYMBOLIC_NODE"
+            },
+            {
+              "source_token": null,
+              "target_surface": "多辅曜",
+              "node_type": "SOURCE_LITERAL_EXPRESSION_NODE",
+              "semantic_support": "NOT_IN_CURRENT_GROUP_TOKEN_REGISTRY",
+              "members": null,
+              "scope": null,
+              "activation": null,
+              "expansion_policy": "SEMANTIC_NORMALIZATION_DEFERRED",
+              "binding_mode": "BIND_LITERAL_EXPRESSION",
+              "note": null
             }
           ],
-          "binding_resolution": "BOUND_AT_NODE_LEVEL",
+          "binding_resolution": "BOUND_SOURCE_LITERAL_PENDING_SEMANTIC_NORMALIZATION",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "MIXED_LITERAL_AND_SEMANTIC"
         }
       ],
       "source_resolution_changed": false,
@@ -5918,14 +6134,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -5982,14 +6200,16 @@
               "scope": null,
               "activation": "EXPLICIT_AND_LOCAL_CLAUSE",
               "expansion_policy": "EXPLICIT_MEMBERS_LOCAL_ONLY",
-              "binding_mode": "BIND_EXPLICIT_MEMBER_SET"
+              "binding_mode": "BIND_EXPLICIT_MEMBER_SET",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "EXPLICIT_MEMBERS_LOCAL_ONLY",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -6050,14 +6270,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -6114,14 +6336,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -6173,14 +6397,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -6244,7 +6470,8 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 2
             },
             {
               "source_token": "桃花",
@@ -6255,14 +6482,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -6323,14 +6552,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 4
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -6392,7 +6623,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SOURCE_EXPRESSION_PRESERVED_CHILDREN_MAY_BE_PARTIAL"
         },
         {
           "claim_id": "CA07-652-REL-02",
@@ -6445,7 +6677,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SOURCE_EXPRESSION_PRESERVED_CHILDREN_MAY_BE_PARTIAL"
         }
       ],
       "source_resolution_changed": false,
@@ -6507,7 +6740,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SOURCE_LITERAL_ONLY"
         }
       ],
       "source_resolution_changed": false,
@@ -6574,7 +6808,8 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             },
             {
               "source_token": "空劫",
@@ -6588,7 +6823,8 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 2
             },
             {
               "source_token": "刑耗",
@@ -6599,14 +6835,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 4
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -6663,14 +6901,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -6731,14 +6971,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -6795,14 +7037,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -6863,14 +7107,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_NAMED_COMPOSITE_INHERITANCE",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -6925,14 +7171,16 @@
               "scope": null,
               "activation": "EXPLICIT_AND_LOCAL_CLAUSE",
               "expansion_policy": "EXPLICIT_MEMBERS_LOCAL_ONLY",
-              "binding_mode": "BIND_EXPLICIT_MEMBER_SET"
+              "binding_mode": "BIND_EXPLICIT_MEMBER_SET",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "EXPLICIT_MEMBERS_LOCAL_ONLY",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -6993,14 +7241,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -7064,14 +7314,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -7128,14 +7380,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -7196,14 +7450,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -7264,14 +7520,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -7331,7 +7589,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SOURCE_EXPRESSION_PRESERVED_CHILDREN_MAY_BE_PARTIAL"
         },
         {
           "claim_id": "CA08-723-REL-02",
@@ -7376,7 +7635,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "COMPLETE"
         }
       ],
       "source_resolution_changed": false,
@@ -7433,14 +7693,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -7504,7 +7766,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "COMPLETE"
         },
         {
           "claim_id": "CA08-726-REL-02",
@@ -7556,7 +7819,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "COMPLETE"
         }
       ],
       "source_resolution_changed": false,
@@ -7620,14 +7884,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -7688,14 +7954,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -7756,14 +8024,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -7820,14 +8090,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -7879,14 +8151,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -7995,7 +8269,8 @@
             "palace_offset_constraint": null
           },
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "COMPLETE"
         }
       ],
       "source_resolution_changed": false,
@@ -8011,7 +8286,7 @@
       ],
       "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
       "relation_surface_audit_version": "0.2",
-      "row_binding_disposition": "RB2_MULTI_TARGET_EXPRESSION_BOUND",
+      "row_binding_disposition": "RB1_SINGLE_TARGET_BOUND",
       "relation_claims": [
         {
           "claim_id": "CA08-800-REL-01",
@@ -8037,23 +8312,9 @@
           ],
           "polarity": "AFFIRMATIVE",
           "logical_connector": null,
-          "target_expression_kind": "NODE_SET",
-          "target_source_expression": "火铃 + 煞曜",
+          "target_expression_kind": "SINGLE_NODE",
+          "target_source_expression": "煞曜",
           "target_nodes": [
-            {
-              "source_token": "火铃",
-              "target_surface": "火铃",
-              "node_type": "GROUP_SYMBOL_NODE",
-              "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
-              "members": [
-                "火星",
-                "铃星"
-              ],
-              "scope": null,
-              "activation": null,
-              "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
-            },
             {
               "source_token": "煞曜",
               "target_surface": "煞曜",
@@ -8063,14 +8324,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -8179,7 +8442,8 @@
             "palace_offset_constraint": null
           },
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "COMPLETE"
         }
       ],
       "source_resolution_changed": false,
@@ -8195,7 +8459,7 @@
       ],
       "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
       "relation_surface_audit_version": "0.2",
-      "row_binding_disposition": "RB2_MULTI_TARGET_EXPRESSION_BOUND",
+      "row_binding_disposition": "RB1_SINGLE_TARGET_BOUND",
       "relation_claims": [
         {
           "claim_id": "CA09-805-REL-01",
@@ -8221,23 +8485,9 @@
           ],
           "polarity": "AFFIRMATIVE",
           "logical_connector": null,
-          "target_expression_kind": "NODE_SET",
-          "target_source_expression": "火铃 + 煞曜",
+          "target_expression_kind": "SINGLE_NODE",
+          "target_source_expression": "煞曜",
           "target_nodes": [
-            {
-              "source_token": "火铃",
-              "target_surface": "火铃",
-              "node_type": "GROUP_SYMBOL_NODE",
-              "semantic_support": "MEMBERSHIP_KNOWN_ACTIVATION_UNSPECIFIED",
-              "members": [
-                "火星",
-                "铃星"
-              ],
-              "scope": null,
-              "activation": null,
-              "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
-            },
             {
               "source_token": "煞曜",
               "target_surface": "煞曜",
@@ -8247,14 +8497,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -8308,14 +8560,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -8372,14 +8626,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -8436,14 +8692,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -8481,7 +8739,7 @@
               "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
             }
           ],
-          "polarity": "AFFIRMATIVE",
+          "polarity": "NEGATED",
           "logical_connector": null,
           "target_expression_kind": "SINGLE_NODE",
           "target_source_expression": "化忌",
@@ -8503,7 +8761,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SOURCE_LITERAL_ONLY"
         }
       ],
       "source_resolution_changed": false,
@@ -8560,14 +8819,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -8629,7 +8890,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SOURCE_LITERAL_ONLY"
         }
       ],
       "source_resolution_changed": false,
@@ -8681,14 +8943,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -8735,7 +8999,7 @@
               "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
             }
           ],
-          "polarity": "AFFIRMATIVE",
+          "polarity": "NEGATED",
           "logical_connector": null,
           "target_expression_kind": "SINGLE_NODE",
           "target_source_expression": "辅佐吉曜",
@@ -8749,14 +9013,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -8817,14 +9083,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -8878,14 +9146,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -8940,7 +9210,8 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 4
             },
             {
               "source_token": "辅弼",
@@ -8954,7 +9225,8 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             },
             {
               "source_token": "魁钺",
@@ -8968,14 +9240,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 2
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -8991,7 +9265,7 @@
       ],
       "review_artifact": "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json",
       "relation_surface_audit_version": "0.2",
-      "row_binding_disposition": "RB1_SINGLE_TARGET_BOUND",
+      "row_binding_disposition": "RB2_MULTI_TARGET_EXPRESSION_BOUND",
       "relation_claims": [
         {
           "claim_id": "CA09-860-REL-01",
@@ -9015,8 +9289,8 @@
           ],
           "polarity": "AFFIRMATIVE",
           "logical_connector": null,
-          "target_expression_kind": "SINGLE_NODE",
-          "target_source_expression": "昌曲",
+          "target_expression_kind": "NODE_SET",
+          "target_source_expression": "昌曲化忌",
           "target_nodes": [
             {
               "source_token": "昌曲",
@@ -9031,13 +9305,26 @@
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
               "binding_mode": "BIND_SYMBOLIC_NODE"
+            },
+            {
+              "source_token": null,
+              "target_surface": "化忌",
+              "node_type": "SOURCE_LITERAL_EXPRESSION_NODE",
+              "semantic_support": "NOT_IN_CURRENT_GROUP_TOKEN_REGISTRY",
+              "members": null,
+              "scope": null,
+              "activation": null,
+              "expansion_policy": "SEMANTIC_NORMALIZATION_DEFERRED",
+              "binding_mode": "BIND_LITERAL_EXPRESSION",
+              "note": null
             }
           ],
-          "binding_resolution": "BOUND_AT_NODE_LEVEL",
+          "binding_resolution": "BOUND_SOURCE_LITERAL_PENDING_SEMANTIC_NORMALIZATION",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "MIXED_LITERAL_AND_SEMANTIC"
         }
       ],
       "source_resolution_changed": false,
@@ -9098,7 +9385,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "COMPLETE"
         },
         {
           "claim_id": "CA09-861-REL-02",
@@ -9151,7 +9439,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SOURCE_EXPRESSION_PRESERVED_CHILDREN_MAY_BE_PARTIAL"
         }
       ],
       "source_resolution_changed": false,
@@ -9208,14 +9497,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -9279,7 +9570,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "COMPLETE"
         },
         {
           "claim_id": "CA09-864-REL-02",
@@ -9316,22 +9608,24 @@
           "target_source_expression": "吉辅",
           "target_nodes": [
             {
-              "source_token": "吉辅",
+              "source_token": null,
               "target_surface": "吉辅",
-              "node_type": "OPEN_CATEGORY_NODE",
-              "semantic_support": "UNRESOLVED_CATEGORY_OR_COMPOSITE",
+              "node_type": "SOURCE_LITERAL_EXPRESSION_NODE",
+              "semantic_support": "NOT_IN_CURRENT_GROUP_TOKEN_REGISTRY",
               "members": null,
               "scope": null,
               "activation": null,
-              "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "expansion_policy": "SEMANTIC_NORMALIZATION_DEFERRED",
+              "binding_mode": "BIND_LITERAL_EXPRESSION",
+              "note": null
             }
           ],
-          "binding_resolution": "BOUND_AT_NODE_LEVEL",
+          "binding_resolution": "BOUND_SOURCE_LITERAL_PENDING_SEMANTIC_NORMALIZATION",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SOURCE_EXPRESSION_PRESERVED_CHILDREN_MAY_BE_PARTIAL"
         }
       ],
       "source_resolution_changed": false,
@@ -9392,14 +9686,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": false
+          "activation_dependency": false,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
@@ -9470,7 +9766,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "COMPLETE"
         },
         {
           "claim_id": "CA09-871-REL-02",
@@ -9480,8 +9777,8 @@
           "relation_semantics": [
             {
               "surface_relation": "见",
-              "source_start": 2,
-              "source_end": 3,
+              "source_start": 7,
+              "source_end": 8,
               "source_marker_type": "PRESENCE_RELATION",
               "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
               "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
@@ -9525,7 +9822,8 @@
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "COMPLETE"
         }
       ],
       "source_resolution_changed": false,
@@ -9582,7 +9880,8 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "NO_MEMBER_EXPANSION",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 0
             },
             {
               "source_token": "吉曜",
@@ -9593,14 +9892,16 @@
               "scope": null,
               "activation": null,
               "expansion_policy": "CATEGORY_EXPANSION_DEFERRED",
-              "binding_mode": "BIND_SYMBOLIC_NODE"
+              "binding_mode": "BIND_SYMBOLIC_NODE",
+              "distance": 3
             }
           ],
           "binding_resolution": "BOUND_AT_NODE_LEVEL",
           "relation_composition": null,
           "effective_constraint": null,
           "member_realization": "DEFERRED_UNLESS_SOURCE_EXPLICIT",
-          "activation_dependency": true
+          "activation_dependency": true,
+          "semantic_child_coverage": "SEMANTIC_CHILDREN_RELATION_LOCAL"
         }
       ],
       "source_resolution_changed": false,
