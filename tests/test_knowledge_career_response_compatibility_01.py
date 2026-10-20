@@ -81,3 +81,20 @@ def test_guardrails_hold():
     assert g["numeric_weights_added"] is False
     assert g["probabilities_added"] is False
     assert g["product_runtime_modified"] is False
+
+INPUT_REVIEW = ROOT / "knowledge" / "wp07c" / "CAREER_GROUP_LEXICON_REVIEW_01_v0.1.json"
+
+
+def test_compatibility_records_preserve_source_review_identity():
+    data = _load()
+    source = json.loads(INPUT_REVIEW.read_text(encoding="utf-8"))
+    source_by_id = {row["source_rule_id"]: row for row in source["records"]}
+    assert set(source_by_id) == {row["source_rule_id"] for row in data["records"]}
+
+    for row in data["records"]:
+        original = source_by_id[row["source_rule_id"]]
+        assert row["source_condition_text"] == original["source_condition_text"]
+        assert row["source_location"] == original["source_location"]
+        assert row["source_span_ids"] == original["source_span_ids"]
+        assert row["review_artifact"] == original["review_artifact"]
+        assert row["prior_dependency_class"] == original["surface_dependency_class"]
