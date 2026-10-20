@@ -16,7 +16,8 @@
         "会照定义为星曜见于三合宫。",
         "相夹定义为两星曜位于本宫两邻宫。",
         "见定义为星曜会合于三方四正的统称。",
-        "三方由本宫与合宫构成；四正为三方再加对宫。"
+        "三方由本宫与合宫构成；四正为三方再加对宫。",
+        "同一讲义进一步说明“对星”在不同宫位关系下力量不同：同宫最强，相对次之，三合/偏斜会合再依结构递减；因此 lexical alias 可压缩，但 canonical geometry 不能全部合成一个无差别 RELATION。"
       ]
     }
   ],
@@ -39,7 +40,9 @@
     {
       "id": "FLANKING",
       "meaning": "两个客体分别位于主体本宫两邻宫",
-      "exact": true
+      "exact": true,
+      "binding_shape": "SUBJECT_PLUS_TWO_NEIGHBORING_FLANKERS",
+      "pairwise_edge_equivalent": false
     },
     {
       "id": "UNSPECIFIED",
@@ -180,7 +183,8 @@
     "named_pattern_guard": true,
     "nested_marker_deduplication": "当同会/会合已捕获时，不重复把其内部单字“会”计为第二 relation atom。",
     "no_global_relation_equivalence_beyond_lexicon": true,
-    "no_execution_unlock_from_canonicalization": true
+    "no_execution_unlock_from_canonicalization": true,
+    "geometry_distinctions_must_survive_lexical_compression": true
   },
   "program_contract": {
     "source_surface_field": "surface_relation",
@@ -196,5 +200,21 @@
     "product_runtime_modified": false,
     "activation_semantics_changed": false,
     "weights_or_probabilities_added": false
-  }
+  },
+  "ordinal_relation_evidence": [
+    {
+      "evidence_scope": "PAIR_STAR_CONFIGURATION",
+      "source_id": "SRC-ZZ-001",
+      "status": "SOURCE_RELATIVE_ORDER_PRESERVED_NO_NUMERICIZATION",
+      "safe_formalized_edges": [
+        {
+          "stronger": "SAME_PALACE",
+          "weaker": "OPPOSITION"
+        }
+      ],
+      "source_literal_order_note": "讲义给出对星会合力量递减序列，以同宫最强、相对次之，并继续区分三合与偏斜式会合。",
+      "numeric_weight": null,
+      "global_transfer": "NOT_ALLOWED_OUTSIDE_PAIR_STAR_CONFIGURATION_WITHOUT_REVIEW"
+    }
+  ]
 }
