@@ -18,3 +18,7 @@ Issue: #454
 - source-local emphasis rows: **3**。
 
 所有“尤其/重/弱”均只保存定性来源信息，没有数值化。
+
+## Critic correction
+
+“尤其”现在作为 source-local qualitative emphasis 保存，但不再单独充当 activation blocker；它不影响基础条件是否成立，只禁止把强调程度数值化或外推为全局排序。
