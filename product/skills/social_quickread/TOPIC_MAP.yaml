@@ -1,0 +1,77 @@
+schema_version: "0.1"
+note: >-
+  retrieval_hints 只用于缩小检索范围，不构成 rule truth；最终每个 claim 仍必须由
+  reviewed evidence ref 支持。
+
+topics:
+  personality:
+    temporal_required: false
+    retrieval_hints: ["命宫", "福德宫", "迁移宫", "命宫三方四正"]
+    output_examples: ["主体性", "果决/犹疑", "内外表达", "创新/保守", "情绪模式"]
+
+  appearance:
+    temporal_required: false
+    retrieval_hints: ["命宫", "形性规则", "主星形性", "辅佐煞曜形性"]
+    output_examples: ["脸型", "五官气质", "眼神", "给人的第一印象"]
+
+  body_type:
+    temporal_required: false
+    retrieval_hints: ["命宫", "形性规则"]
+    output_examples: ["高矮倾向", "骨感/丰满", "体态"]
+
+  hobbies:
+    temporal_required: false
+    retrieval_hints: ["福德宫", "命宫", "贪狼/廉贞/昌曲/龙凤等明确兴趣规则"]
+    constraints:
+      - "只有 source 明确支持时才写具体兴趣。"
+      - "禁止从‘有艺术气质’自动扩成摄影、爵士、油画等具体项目。"
+
+  peers:
+    temporal_required: false
+    retrieval_hints: ["兄弟宫", "交友宫", "迁移宫社交性质"]
+    output_examples: ["同学关系", "平辈相处", "朋友多寡/亲疏"]
+
+  teachers_elders:
+    temporal_required: false
+    retrieval_hints: ["父母宫的长辈/上司映射", "交友宫整体人际", "事业场景"]
+    output_examples: ["老师/领导是否给力", "与强势长辈沟通", "被提携/被挑剔"]
+
+  parents:
+    temporal_required: false
+    retrieval_hints: ["父母宫", "田宅宫", "命宫与父母宫关系"]
+    output_examples: ["亲疏", "代沟", "强势/照顾", "父母支持"]
+
+  relationship_pattern:
+    temporal_required: false
+    retrieval_hints: ["夫妻宫", "福德宫", "命宫", "明确桃花结构"]
+    output_examples: ["进入关系方式", "争执模式", "感情稳定性"]
+
+  current_relationship:
+    temporal_required: true
+    retrieval_hints: ["当前大限", "当前流年", "夫妻/福德相关 temporal reaction"]
+    allowed_assertion_modes: ["TENDENCY", "CONDITIONAL"]
+    constraints:
+      - "不可仅凭 natal 断言现在已经有对象。"
+      - "symbolic evidence 只允许表达感情被带动、容易出现关系议题等倾向。"
+
+  partner_preference:
+    temporal_required: false
+    retrieval_hints: ["夫妻宫", "福德宫", "命宫"]
+    output_examples: ["果决型", "成熟型", "温柔型", "重能力/重气质"]
+    constraints:
+      - "必须是 source-backed relational tendency，不做心理学自由联想。"
+
+  study_work:
+    temporal_required: false
+    retrieval_hints: ["官禄宫", "命宫", "父母宫长辈/领导映射"]
+    output_examples: ["学生工作", "组织表现", "创新性", "不喜欢被约束"]
+
+  specific_year:
+    temporal_required: true
+    retrieval_hints: ["大限", "流年", "流年对 natal 的 source-backed reaction"]
+    output_examples: ["阻力", "状态", "学习/工作变动", "感情摩擦", "长辈支持"]
+
+  decade_trend:
+    temporal_required: true
+    retrieval_hints: ["大限", "大限对 natal 本质的反应"]
+    output_examples: ["十年主轴", "情绪/事业/关系长期环境"]
