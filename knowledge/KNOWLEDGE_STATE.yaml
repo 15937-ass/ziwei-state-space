@@ -9,9 +9,9 @@ execution:
   active_issue: null
   active_pr: null
   canonical_main_checkpoint: "CAREER_CA09_FINAL"
-  resume_entry: "Issue #412 / PR #414 completes GROUP/quantifier source-review batch 02: CA04-383 through CA07-691. Together with #410/#411, 200/251 GROUP-related Career blockers now have source-grounded lexical/quantifier evidence review; no executable defaults or Product rules added. Strong candidates now exist for six/four malefic membership and term-specific pair semantics (三台八座、龙池凤阁). Remaining GROUP batch: 51 records starting CA07-692; HG-KB-GROUP-QUANTIFIER-01 remains deferred until 251/251 source review."
-  resume_issue: 412
-  last_state_sync_issue: 412
+  resume_entry: "Issue #415 / PR #417 completes GROUP/quantifier source review at 251/251. No executable defaults or Product rules were added. Closure evidence supports source-grounded membership, Career-domain 科文诸曜 definition, and named term-specific composites; generic shorthand cardinality remains UNSPECIFIED. HG-KB-GROUP-QUANTIFIER-01 is READY_FOR_PI with recommended conservative option A."
+  resume_issue: 415
+  last_state_sync_issue: 415
 
 canonical_main_snapshot:
   domain: "事业宫"
@@ -138,6 +138,11 @@ completed_work_units:
     pr: 414
     status: "MERGED_CUMULATIVE_200_OF_251_SOURCE_REVIEW_NO_NEW_SEMANTICS"
 
+  - work_unit: "KB-WP07C-CAREER-GROUP-LEXICON-REVIEW-03-CLOSURE"
+    issue: 415
+    pr: 417
+    status: "MERGED_251_OF_251_SOURCE_REVIEW_HUMAN_GATE_READY"
+
 archived_noncanonical_snapshots:
   wp05_all_twelve_palaces:
     pr: 272
@@ -159,12 +164,13 @@ resume_queue_reference:
   legacy_integration_issue: 278
   completed_career_closure_pr: 294
   completed_temporal_eligibility_pr: 301
-  note: "Career canonical source review and structured-ID disposition are closed at 888/888. GROUP/quantifier ontology review has completed 200/251 source-grounded blocker records across #410/#411 and #412/#414 without changing executable semantics. Next recommended Knowledge work is the final 51-record GROUP/quantifier source-review batch starting CA07-692; executable group defaults remain gated until HG-KB-GROUP-QUANTIFIER-01."
+  note: "Career canonical source review and structured-ID disposition are closed at 888/888. GROUP/quantifier ontology source review is now complete at 251/251 across #410/#411, #412/#414, and #415/#417. No executable semantics changed. HG-KB-GROUP-QUANTIFIER-01 is READY_FOR_PI; recommended option A freezes only source-supported membership/domain definitions/named composites and keeps unexpressed cardinality UNSPECIFIED."
 
 human_gate:
-  pending_on_main: null
+  pending_on_main: "HG-KB-GROUP-QUANTIFIER-01"
   future_branch_gate: "HG-WP06B-MANIFESTATION-ROOT-01"
-  career_group_quantifier_gate: "HG-KB-GROUP-QUANTIFIER-01_DEFERRED_UNTIL_251_OF_251_SOURCE_REVIEW"
+  career_group_quantifier_gate: "HG-KB-GROUP-QUANTIFIER-01_READY_FOR_PI"
+  career_group_quantifier_recommendation: "A_CONSERVATIVE_SOURCE_PRESERVING"
 
 integrity:
   source_truth_not_modified_by_empirical_feedback: true
