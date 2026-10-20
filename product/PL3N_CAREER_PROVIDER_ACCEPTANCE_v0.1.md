@@ -317,3 +317,37 @@ After synchronization with Knowledge #366, the candidate full suite is826
 passed/1 failed: a Knowledge-owned historical
 assertion forbids these IDs in the Product registry. No test is skipped and
 no failing-gate merge is permitted. Main accepted count remains35.
+
+
+## Knowledge #366 review-batch expansion (Issue #378)
+
+The Career provider expands from 43 to 63 explicitly selected NATAL rules by
+integrating exactly twenty complete mappings from
+`knowledge/wp07a/CAREER_100_REVIEW_01_v0.1.json`:
+
+- CA01-067, 068, 072, 076, 077, 084;
+- CA02-102, 103, 104, 105, 109, 110, 111, 112, 114, 119, 120, 122, 124, 128.
+
+The Product handoff accepts the batch artifact only under the exact
+`HUNDRED_RULE_REVIEW_COMPLETE_NOT_PRODUCTION` status and pins a dedicated
+`REVIEW_BATCH_PARAGRAPH_SCOPE_V0_1` context contract. For every selected row,
+Product preserves the reviewed paragraph scope, supported chart-context subset,
+inherited source IDs, incomplete-antecedent marker, and the explicit prohibition
+against inventing additional semantics. Unknown status/schema values, context
+drift, blocked readiness, condition drift, and unselected rows fail closed.
+
+The new rules cover five bounded content groups: 子午紫微 responsibility and
+spouse/collaboration constraints; 丑未紫破 labor-intensive creation; 寅申紫微天府
+platform/resource/operational-realism differences; 卯酉紫微贪狼 market,
+cooperation, 空劫 and organization/team properties; and 辰戌紫微天相 rise/fall
+tendency. Exact source wording, conditions and projection targets remain in the
+registry/report.
+
+CA02-121 is intentionally not selected: its adjacent year-period condition is
+temporal and must not leak into CA02-119/120. Likewise, relationship, political,
+competition and industry projections remain source-scene properties, not real-world
+event certainty or unique occupation labels.
+
+The production temporal reaction registry remains empty. Passing deterministic
+Product tests and engine regressions establishes source/condition execution
+integrity only; it does not establish empirical predictive accuracy.

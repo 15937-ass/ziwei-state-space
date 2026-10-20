@@ -53,6 +53,7 @@ def _validate_mapping_handoff(
         "SOURCE_GROUNDED_MAPPING_COMPLETE_NOT_EXECUTABLE",
         "SOURCE_GROUNDED_STAR_PRESENCE_MAPPING_COMPLETE_NOT_EXECUTABLE",
         "SOURCE_GROUNDED_CROSS_PALACE_MAPPING_COMPLETE_NOT_EXECUTABLE",
+        "HUNDRED_RULE_REVIEW_COMPLETE_NOT_PRODUCTION",
     }:
         raise ValueError("Career provider mapping_status is not an approved reviewed mapping status")
     if str(mapping.get("schema_version", "")).strip() != str(
@@ -118,6 +119,8 @@ def _validate_mapping_handoff(
                 fields = ("source_scope_note", "branch_gate_reading", "normalized_reading", "relation_basis")
             elif schema == "PARAGRAPH_SCOPE_V0_1":
                 fields = ("source_scope_note", "paragraph_scope", "modality_note")
+            elif schema == "REVIEW_BATCH_PARAGRAPH_SCOPE_V0_1":
+                fields = ("paragraph_scope",)
             else:
                 raise ValueError(f"{rule_id}: unsupported source context schema")
             if not isinstance(context, Mapping) or any(
@@ -136,6 +139,17 @@ def _validate_mapping_handoff(
                     or any(not isinstance(i, str) or i not in "子丑寅卯辰巳午未申酉戌亥" or len(i) != 1 for i in branches)
                     or len(branches) != len(set(branches))):
                     raise ValueError(f"{rule_id}: invalid paragraph context scope")
+            if schema == "REVIEW_BATCH_PARAGRAPH_SCOPE_V0_1":
+                inherited = context.get("inherited_source_rule_ids")
+                supported = context.get("supported_chart_context_only")
+                if (not isinstance(inherited, list)
+                    or any(not isinstance(i, str) or not i for i in inherited)
+                    or len(inherited) != len(set(inherited))
+                    or not isinstance(supported, Mapping)
+                    or not supported
+                    or context.get("context_is_complete_antecedent") is not False
+                    or context.get("additional_semantics_must_not_be_invented") is not True):
+                    raise ValueError(f"{rule_id}: invalid review-batch paragraph context scope")
             if product_rule.get("expected_source_context") != context:
                 raise ValueError(f"{rule_id}: Product/source mapping drift in source context")
         provenance = source_map.get("source_provenance")
