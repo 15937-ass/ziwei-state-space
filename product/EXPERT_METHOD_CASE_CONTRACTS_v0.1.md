@@ -77,7 +77,7 @@ allowed use
 
 `person_group_id` 用于防止同一人物的不同问法或不同时段落入 train/test 两侧。
 
-`available_information_refs` 只记录推断开始时可见的信息。后续 outcome 不得偷偷混入 blind input。
+`available_information_refs` 只记录推断开始时可见的信息。它与 `expert_conclusion_refs` / `outcome_refs` 必须无交集；后验答案或结果一旦混入 blind input，contract 直接 fail closed。
 
 `outcome_refs` 可以为空。专家方法学习不依赖现实 outcome。
 
