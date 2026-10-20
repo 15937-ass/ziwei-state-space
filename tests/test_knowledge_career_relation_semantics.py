@@ -155,3 +155,35 @@ def test_flanking_is_not_flattened_to_pairwise_edge():
     flanking = next(g for g in data["canonical_geometry"] if g["id"] == "FLANKING")
     assert flanking["binding_shape"] == "SUBJECT_PLUS_TWO_NEIGHBORING_FLANKERS"
     assert flanking["pairwise_edge_equivalent"] is False
+
+
+def test_z12_coordinate_model_is_rotation_invariant_and_bounded():
+    data = load(ONTOLOGY)
+    model = data["coordinate_model"]
+    assert model["id"] == "PALACE_RELATION_Z12_OFFSET"
+    assert model["palace_index_domain"] == "Z_12"
+    constraints = model["constraints"]
+    assert constraints["SAME_PALACE"]["allowed_delta"] == [0]
+    assert constraints["OPPOSITION"]["allowed_delta"] == [6]
+    assert constraints["TRINE_ASPECT"]["allowed_delta"] == [4, 8]
+    assert constraints["FOUR_DIRECTIONS_VISIBILITY"]["allowed_delta"] == [0, 4, 6, 8]
+    assert constraints["THREE_DIRECTIONS_SCOPE"]["allowed_delta"] == [0, 4, 8]
+    assert constraints["FLANKING"]["required_delta_set"] == [1, 11]
+    assert model["invariant"] == "ROTATION_INVARIANT_RELATIVE_GEOMETRY"
+
+
+def test_relation_atoms_carry_z12_constraints_without_guessing_meeting():
+    data = load(MAP)
+    for row in data["records"]:
+        for atom in row["relation_atoms"]:
+            assert atom["coordinate_model"] == "PALACE_RELATION_Z12_OFFSET"
+            if atom["surface_relation"] == "同度":
+                assert atom["palace_offset_constraint"] == [0]
+            elif atom["surface_relation"] in {"相对", "朝拱"}:
+                assert atom["palace_offset_constraint"] == [6]
+            elif atom["surface_relation"] == "见":
+                assert atom["palace_offset_constraint"] == [0, 4, 6, 8]
+            elif atom["surface_relation"] == "三方":
+                assert atom["palace_offset_constraint"] == [0, 4, 8]
+            elif atom["surface_relation"] in {"会", "同会", "会合", "照射"}:
+                assert atom["palace_offset_constraint"] is None
