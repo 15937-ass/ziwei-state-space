@@ -2,15 +2,16 @@
 
 This module does not infer Zi Wei claims. It accepts only already-resolved,
 source-traceable Zhongzhou claims and prepares a narrow payload for an LLM
-verbalizer. The verbalizer never receives raw chart facts or source books as a
-license to invent additional claims.
+verbalizer. A separate conversation-context capsule can keep the full validated
+session available for follow-up questions without granting the LLM authority to
+invent new Zi Wei claims from raw chart facts.
 """
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from enum import Enum
-from typing import Any, Iterable
+from typing import Any, Iterable, Mapping
 
 
 class QuickReadTopic(str, Enum):
@@ -29,6 +30,28 @@ class QuickReadTopic(str, Enum):
     DECADE_TREND = "decade_trend"
 
 
+class QuickReadDomain(str, Enum):
+    PERSONALITY = "personality"
+    APPEARANCE = "appearance"
+    SOCIAL = "social"
+    FAMILY = "family"
+    RELATIONSHIP = "relationship"
+    STUDY_WORK = "study_work"
+    WEALTH = "wealth"
+    GENERAL = "general"
+
+
+class QuickReadScopePreset(str, Enum):
+    FULL = "full"
+    RELATIONSHIP = "relationship"
+    PERSONALITY = "personality"
+    APPEARANCE = "appearance"
+    SOCIAL = "social"
+    FAMILY = "family"
+    STUDY_WORK = "study_work"
+    CUSTOM = "custom"
+
+
 class AssertionMode(str, Enum):
     DIRECT_TENDENCY = "DIRECT_TENDENCY"
     TENDENCY = "TENDENCY"
@@ -44,6 +67,35 @@ TEMPORAL_TOPICS = {
     QuickReadTopic.CURRENT_RELATIONSHIP,
     QuickReadTopic.SPECIFIC_YEAR,
     QuickReadTopic.DECADE_TREND,
+}
+
+
+TOPIC_DEFAULT_DOMAINS: dict[QuickReadTopic, tuple[QuickReadDomain, ...]] = {
+    QuickReadTopic.PERSONALITY: (QuickReadDomain.PERSONALITY,),
+    QuickReadTopic.APPEARANCE: (QuickReadDomain.APPEARANCE,),
+    QuickReadTopic.BODY_TYPE: (QuickReadDomain.APPEARANCE,),
+    QuickReadTopic.HOBBIES: (QuickReadDomain.PERSONALITY,),
+    QuickReadTopic.PEERS: (QuickReadDomain.SOCIAL,),
+    QuickReadTopic.TEACHERS_ELDERS: (QuickReadDomain.SOCIAL,),
+    QuickReadTopic.PARENTS: (QuickReadDomain.FAMILY,),
+    QuickReadTopic.RELATIONSHIP_PATTERN: (QuickReadDomain.RELATIONSHIP,),
+    QuickReadTopic.CURRENT_RELATIONSHIP: (QuickReadDomain.RELATIONSHIP,),
+    QuickReadTopic.PARTNER_PREFERENCE: (QuickReadDomain.RELATIONSHIP,),
+    QuickReadTopic.STUDY_WORK: (QuickReadDomain.STUDY_WORK,),
+    QuickReadTopic.SPECIFIC_YEAR: (QuickReadDomain.GENERAL,),
+    QuickReadTopic.DECADE_TREND: (QuickReadDomain.GENERAL,),
+}
+
+
+PRESET_DOMAINS: dict[QuickReadScopePreset, tuple[QuickReadDomain, ...]] = {
+    QuickReadScopePreset.FULL: tuple(QuickReadDomain),
+    QuickReadScopePreset.RELATIONSHIP: (QuickReadDomain.RELATIONSHIP,),
+    QuickReadScopePreset.PERSONALITY: (QuickReadDomain.PERSONALITY,),
+    QuickReadScopePreset.APPEARANCE: (QuickReadDomain.APPEARANCE,),
+    QuickReadScopePreset.SOCIAL: (QuickReadDomain.SOCIAL,),
+    QuickReadScopePreset.FAMILY: (QuickReadDomain.FAMILY,),
+    QuickReadScopePreset.STUDY_WORK: (QuickReadDomain.STUDY_WORK,),
+    QuickReadScopePreset.CUSTOM: (),
 }
 
 
@@ -77,6 +129,10 @@ class QuickReadClaim:
     assertion_mode: AssertionMode
     evidence_refs: tuple[QuickReadEvidenceRef, ...]
     target_period: str = ""
+    domains: tuple[QuickReadDomain, ...] = ()
+
+    def resolved_domains(self) -> tuple[QuickReadDomain, ...]:
+        return self.domains or TOPIC_DEFAULT_DOMAINS[self.topic]
 
     def validate(self) -> None:
         if not self.claim_id.strip():
@@ -87,6 +143,9 @@ class QuickReadClaim:
             raise ValueError("QuickReadClaim requires at least one evidence ref")
         for item in self.evidence_refs:
             item.validate()
+
+        if len(set(self.resolved_domains())) != len(self.resolved_domains()):
+            raise ValueError("QuickReadClaim.domains must be unique")
 
         namespaces = {item.namespace for item in self.evidence_refs}
         if self.topic in TEMPORAL_TOPICS:
@@ -103,12 +162,64 @@ class QuickReadClaim:
 
 
 @dataclass(frozen=True)
+class QuickReadScope:
+    preset: QuickReadScopePreset = QuickReadScopePreset.FULL
+    include_domains: tuple[QuickReadDomain, ...] = ()
+    include_topics: tuple[QuickReadTopic, ...] = ()
+    period_labels: tuple[str, ...] = ()
+    max_claims: int = 6
+
+    def validate(self) -> None:
+        if self.max_claims < 1 or self.max_claims > 12:
+            raise ValueError("QuickReadScope.max_claims must be between 1 and 12")
+        if len(set(self.include_domains)) != len(self.include_domains):
+            raise ValueError("QuickReadScope.include_domains must be unique")
+        if len(set(self.include_topics)) != len(self.include_topics):
+            raise ValueError("QuickReadScope.include_topics must be unique")
+        if len(set(self.period_labels)) != len(self.period_labels):
+            raise ValueError("QuickReadScope.period_labels must be unique")
+        if (
+            self.preset is QuickReadScopePreset.CUSTOM
+            and not self.include_domains
+            and not self.include_topics
+        ):
+            raise ValueError("CUSTOM scope requires include_domains or include_topics")
+
+    def active_domains(self) -> tuple[QuickReadDomain, ...]:
+        preset_domains = PRESET_DOMAINS[self.preset]
+        if self.preset is QuickReadScopePreset.CUSTOM:
+            return self.include_domains
+        if not self.include_domains:
+            return preset_domains
+        return tuple(dict.fromkeys((*preset_domains, *self.include_domains)))
+
+    def allows(self, claim: QuickReadClaim) -> bool:
+        self.validate()
+        claim.validate()
+        active_domains = set(self.active_domains())
+        if active_domains and not active_domains.intersection(claim.resolved_domains()):
+            return False
+        if self.include_topics and claim.topic not in set(self.include_topics):
+            return False
+        if self.period_labels and claim.target_period:
+            if claim.target_period not in set(self.period_labels):
+                return False
+        return True
+
+
+@dataclass(frozen=True)
 class QuickReadPackage:
     claims: tuple[QuickReadClaim, ...]
     knowledge_version: str
+    scope: QuickReadScope = field(default_factory=QuickReadScope)
     language: str = "zh-CN"
     target_chars_min: int = 120
     target_chars_max: int = 220
+
+    def selected_claims(self) -> tuple[QuickReadClaim, ...]:
+        self.scope.validate()
+        selected = tuple(claim for claim in self.claims if self.scope.allows(claim))
+        return selected[: self.scope.max_claims]
 
     def validate(self) -> None:
         if not self.knowledge_version.strip():
@@ -122,8 +233,11 @@ class QuickReadPackage:
             raise ValueError("quick-read length bounds are outside the supported social range")
         if self.target_chars_min >= self.target_chars_max:
             raise ValueError("target_chars_min must be less than target_chars_max")
+        self.scope.validate()
         for item in self.claims:
             item.validate()
+        if not self.selected_claims():
+            raise ValueError("QuickReadPackage scope selects no supported claims")
 
     def verbalizer_payload(self) -> dict[str, Any]:
         """Return only approved semantic claims plus style constraints.
@@ -136,6 +250,12 @@ class QuickReadPackage:
         return {
             "mode": "social_quickread_v0.1",
             "language": self.language,
+            "scope": {
+                "preset": self.scope.preset.value,
+                "domains": [item.value for item in self.scope.active_domains()],
+                "topics": [item.value for item in self.scope.include_topics],
+                "period_labels": list(self.scope.period_labels),
+            },
             "length": {
                 "min_chars": self.target_chars_min,
                 "max_chars": self.target_chars_max,
@@ -144,11 +264,12 @@ class QuickReadPackage:
                 {
                     "claim_id": claim.claim_id,
                     "topic": claim.topic.value,
+                    "domains": [item.value for item in claim.resolved_domains()],
                     "proposition": claim.proposition,
                     "assertion_mode": claim.assertion_mode.value,
                     "target_period": claim.target_period or None,
                 }
-                for claim in self.claims
+                for claim in self.selected_claims()
             ],
             "style_contract": {
                 "single_paragraph": True,
@@ -161,6 +282,105 @@ class QuickReadPackage:
                 "hedges_only_when_needed": True,
             },
         }
+
+
+@dataclass(frozen=True)
+class QuickReadConversationContext:
+    """Full validated handoff kept with the GPT conversation for follow-up work.
+
+    Unlike verbalizer_payload(), this payload is intentionally rich: it keeps all
+    validated candidate claims, evidence refs and structured chart/profile context.
+    Raw source prose is still excluded. The context is not permission for free-form
+    Zi Wei inference; new claims must still pass the canonical/temporal runtime.
+    """
+
+    subject_key: str
+    knowledge_version: str
+    all_claims: tuple[QuickReadClaim, ...]
+    active_scope: QuickReadScope
+    rendered_text: str
+    chart_context: Mapping[str, Any] = field(default_factory=dict)
+    natal_profile_ref: str = ""
+    temporal_profile_refs: tuple[str, ...] = ()
+
+    def validate(self) -> None:
+        if not self.subject_key.strip():
+            raise ValueError("QuickReadConversationContext.subject_key is required")
+        if not self.knowledge_version.strip():
+            raise ValueError("QuickReadConversationContext.knowledge_version is required")
+        if not self.all_claims:
+            raise ValueError("QuickReadConversationContext requires all_claims")
+        self.active_scope.validate()
+        for claim in self.all_claims:
+            claim.validate()
+        if not str(self.rendered_text or "").strip():
+            raise ValueError("QuickReadConversationContext.rendered_text is required")
+
+    def continuation_payload(self) -> dict[str, Any]:
+        """Return the full reusable session capsule for the same GPT thread."""
+        self.validate()
+        selected_ids = {
+            item.claim_id
+            for item in QuickReadPackage(
+                claims=self.all_claims,
+                knowledge_version=self.knowledge_version,
+                scope=self.active_scope,
+            ).selected_claims()
+        }
+        return {
+            "mode": "social_quickread_continuation_v0.1",
+            "subject_key": self.subject_key,
+            "knowledge_version": self.knowledge_version,
+            "active_scope": {
+                "preset": self.active_scope.preset.value,
+                "domains": [item.value for item in self.active_scope.active_domains()],
+                "topics": [item.value for item in self.active_scope.include_topics],
+                "period_labels": list(self.active_scope.period_labels),
+            },
+            "rendered_text": self.rendered_text,
+            "chart_context": dict(self.chart_context),
+            "natal_profile_ref": self.natal_profile_ref or None,
+            "temporal_profile_refs": list(self.temporal_profile_refs),
+            "claims": [
+                {
+                    "claim_id": claim.claim_id,
+                    "selected_in_last_render": claim.claim_id in selected_ids,
+                    "topic": claim.topic.value,
+                    "domains": [item.value for item in claim.resolved_domains()],
+                    "proposition": claim.proposition,
+                    "assertion_mode": claim.assertion_mode.value,
+                    "target_period": claim.target_period or None,
+                    "evidence_refs": [
+                        {
+                            "namespace": ref.namespace.value,
+                            "rule_id": ref.rule_id,
+                            "source_id": ref.source_id,
+                            "source_location": ref.source_location,
+                            "review_status": ref.review_status,
+                            "school": ref.school,
+                        }
+                        for ref in claim.evidence_refs
+                    ],
+                }
+                for claim in self.all_claims
+            ],
+            "continuation_policy": {
+                "reuse_validated_claims_first": True,
+                "new_claim_requires_runtime_evidence": True,
+                "raw_chart_context_is_navigation_not_inference_authority": True,
+                "source_prose_not_embedded": True,
+            },
+        }
+
+    def package_for_scope(self, scope: QuickReadScope) -> QuickReadPackage:
+        """Reuse the same validated session for a new user-selected focus window."""
+        package = QuickReadPackage(
+            claims=self.all_claims,
+            knowledge_version=self.knowledge_version,
+            scope=scope,
+        )
+        package.validate()
+        return package
 
 
 FORBIDDEN_SURFACE_TOKENS = (
