@@ -24,8 +24,15 @@ completed:
   g7_work_codex_execution_migration:
     tracking_issue: 340
     merge_pr: 341
-    status: "MERGED"
+    status: "SUPERSEDED_FOR_ROUTINE_EXECUTION_BY_G8"
     protocol: "governance/WORK_CODEX_EXECUTION_PROTOCOL_v0.1.md"
+  g8_public_actions_execution_migration:
+    tracking_issue: 372
+    merge_pr: 373
+    status: "MERGED"
+    protocol: "governance/PUBLIC_ACTIONS_EXECUTION_PROTOCOL_v0.2.md"
+    runner_policy: "STANDARD_PUBLIC_GITHUB_HOSTED_ONLY"
+    automatic_triggers: "PULL_REQUEST_ONLY_NO_PUSH"
 
 deferred_admin:
   issue: 285
