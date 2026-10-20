@@ -1,0 +1,389 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-CATEGORY-OPEN-LEXICON-v0.1",
+  "lane": "KNOWLEDGE_ONLY",
+  "issue": 442,
+  "status": "SCOPED_LEXICON_NO_EXECUTION_UNLOCK",
+  "scope": "Career relation-bound OPEN_CATEGORY_NODE vocabulary only",
+  "principles": [
+    "CLOSE_MEMBERSHIP_ONLY_WHEN_SOURCE_OR_EXISTING_CANONICAL_EVIDENCE_IS_EXPLICIT",
+    "MEMBERSHIP_CLOSURE_NEVER_IMPLIES_ANY_ALL_OR_THRESHOLD_ACTIVATION",
+    "QUALIFIER_AND_COMPOUND_SURFACES_PRESERVE_SOURCE_COMPOSITION",
+    "OPEN_WORLD_CATEGORIES_REMAIN_OPEN",
+    "VALENCE_SHORTHAND_IS_NOT_AUTOMATICALLY_A_STAR_MEMBER_SET"
+  ],
+  "source_evidence_catalog": [
+    {
+      "evidence_id": "CAT-E01",
+      "source_id": "SRC-ZZ-002",
+      "source_title": "《中州派紫微斗数深造讲义（上）》",
+      "pdf_page": 83,
+      "printed_page": 165,
+      "category": "EXPLICIT_AUXILIARY_EIGHT_MEMBERSHIP",
+      "source_excerpt": "辅曜：天魁、天铖、左辅、右弼。佐曜：文昌、文曲、禄存、天马。",
+      "note": "沿用既有 GLEX-E01；附件解析把天钺识别为“天铖”。本层显式记录 OCR->canonical normalization，不把校字伪装成原文。",
+      "epistemic": "SOURCE_EXPLICIT_PLUS_EXISTING_CANONICAL_TOKEN_NORMALIZATION"
+    },
+    {
+      "evidence_id": "CAT-E02",
+      "source_id": "SRC-ZZ-002",
+      "source_title": "《中州派紫微斗数深造讲义（上）》",
+      "pdf_page": 86,
+      "printed_page": 171,
+      "category": "EXPLICIT_FOUR_AND_SIX_MALEFICS_MEMBERSHIP",
+      "source_excerpt": "擎羊、陀罗、火星、铃星，称为四煞；另外加上地空、地劫，则称为六煞。",
+      "note": "可闭合六煞基础成员；不因此决定“见煞”需要 ANY/ALL/数量阈值。",
+      "epistemic": "SOURCE_EXPLICIT"
+    },
+    {
+      "evidence_id": "CAT-E03",
+      "source_id": "SRC-ZZ-002",
+      "source_title": "《中州派紫微斗数深造讲义（上）》",
+      "pdf_page": 88,
+      "printed_page": 175,
+      "category": "EXPLICIT_FOUR_TRANSFORMATION_CLASS",
+      "source_excerpt": "化禄一般意义为财禄；化权一般意义为权势；化科意义为名誉；化忌一般意义为障碍。",
+      "note": "四化类别明确；吉化的 favorable 子类仍需结合来源用语判定。",
+      "epistemic": "SOURCE_EXPLICIT"
+    },
+    {
+      "evidence_id": "CAT-E04",
+      "source_id": "SRC-ZZ-002",
+      "source_title": "《中州派紫微斗数深造讲义（上）》",
+      "pdf_page": 37,
+      "printed_page": 73,
+      "category": "FAVORABLE_TRANSFORMATION_USAGE",
+      "source_excerpt": "见禄、权、科吉化。",
+      "note": "支持把“吉化”作为化禄、化权、化科的 favorable transformation class；不赋数值强度。",
+      "epistemic": "SOURCE_EXPLICIT_LOCAL_USAGE"
+    },
+    {
+      "evidence_id": "CAT-E05",
+      "source_id": "SRC-ZZ-002",
+      "source_title": "《中州派紫微斗数深造讲义（上）》",
+      "pdf_page": 87,
+      "printed_page": 172,
+      "category": "YANG_TUO_PAIR_USAGE",
+      "source_excerpt": "1 擎羊 陀罗；……羊陀永远夹禄存。",
+      "note": "来源章节把擎羊、陀罗成对论述，并直接使用“羊陀”简称；可建立 pair shorthand，仍不推断触发量词。",
+      "epistemic": "SOURCE_EXPLICIT"
+    }
+  ],
+  "entries": [
+    {
+      "surface": "煞曜",
+      "canonical_id": "CAT_SIX_MALEFICS",
+      "semantic_kind": "CLOSED_BASE_CATEGORY",
+      "membership_status": "SOURCE_EXPLICIT_CLOSED",
+      "members": [
+        "擎羊",
+        "陀罗",
+        "火星",
+        "铃星",
+        "地空",
+        "地劫"
+      ],
+      "evidence": [
+        "CAT-E02"
+      ],
+      "activation_quantifier": "UNSPECIFIED",
+      "notes": "成员闭合不等于 ANY/ALL 或数量阈值闭合。"
+    },
+    {
+      "surface": "煞",
+      "canonical_id": "ALIAS_MALEFIC_SCOPED",
+      "semantic_kind": "SCOPED_LEXICAL_ALIAS",
+      "membership_status": "SCOPED_ALIAS_TO_CAT_SIX_MALEFICS",
+      "members": null,
+      "base_category_ref": "CAT_SIX_MALEFICS",
+      "evidence": [
+        "CAT-E02"
+      ],
+      "activation_quantifier": "UNSPECIFIED",
+      "notes": "事业宫语境按 relation-bound 用法绑定到煞曜类的词汇别名；不升级为全局语言规则。"
+    },
+    {
+      "surface": "吉曜",
+      "canonical_id": "OPEN_FAVORABLE_STARS",
+      "semantic_kind": "OPEN_VALENCE_CATEGORY",
+      "membership_status": "OPEN_WORLD",
+      "members": null,
+      "evidence": [],
+      "activation_quantifier": "UNSPECIFIED",
+      "notes": "来源未在本工作单元给出全局封闭成员表。"
+    },
+    {
+      "surface": "辅佐吉曜",
+      "canonical_id": "QUALIFIED_AUXILIARY_EIGHT_FAVORABLE",
+      "semantic_kind": "QUALIFIED_BASE_CATEGORY",
+      "membership_status": "BASE_CLOSED_QUALIFIER_CONTEXTUAL",
+      "members": null,
+      "base_category_ref": "CAT_AUXILIARY_EIGHT",
+      "base_members": [
+        "天魁",
+        "天钺",
+        "左辅",
+        "右弼",
+        "文昌",
+        "文曲",
+        "禄存",
+        "天马"
+      ],
+      "qualifier": "FAVORABLE_MANIFESTATION",
+      "evidence": [
+        "CAT-E01"
+      ],
+      "activation_quantifier": "UNSPECIFIED",
+      "notes": "辅佐八曜成员可知，但“吉”是语境/表现限定，不把八曜静默等同为每句全部触发。"
+    },
+    {
+      "surface": "桃花",
+      "canonical_id": "OPEN_PEACH_BLOSSOM_CATEGORY",
+      "semantic_kind": "OPEN_FUNCTIONAL_CATEGORY",
+      "membership_status": "OPEN_WORLD",
+      "members": null,
+      "evidence": [],
+      "activation_quantifier": "UNSPECIFIED",
+      "notes": "保留功能类名，不建立全局桃花星封闭表。"
+    },
+    {
+      "surface": "煞忌",
+      "canonical_id": "COMPOUND_MALEFIC_HUAJI",
+      "semantic_kind": "SOURCE_COMPOUND_CATEGORY",
+      "membership_status": "COMPOSITION_PRESERVED",
+      "members": null,
+      "components": [
+        {
+          "ref": "CAT_SIX_MALEFICS"
+        },
+        {
+          "literal": "化忌"
+        }
+      ],
+      "composition_operator": "UNSPECIFIED_SOURCE_BUNDLE",
+      "evidence": [
+        "CAT-E02",
+        "CAT-E03"
+      ],
+      "activation_quantifier": "UNSPECIFIED",
+      "notes": "识别组成成分但不把隐含连接词改写成 AND/OR。"
+    },
+    {
+      "surface": "吉化吉曜",
+      "canonical_id": "COMPOUND_GOOD_TRANSFORM_GOOD_STARS",
+      "semantic_kind": "SOURCE_COMPOUND_CATEGORY",
+      "membership_status": "COMPOSITION_PRESERVED_WITH_OPEN_COMPONENT",
+      "members": null,
+      "components": [
+        {
+          "ref": "CAT_FAVORABLE_TRANSFORMATIONS"
+        },
+        {
+          "ref": "OPEN_FAVORABLE_STARS"
+        }
+      ],
+      "composition_operator": "UNSPECIFIED_SOURCE_BUNDLE",
+      "evidence": [
+        "CAT-E04"
+      ],
+      "activation_quantifier": "UNSPECIFIED",
+      "notes": "吉化成员可闭合，吉曜仍开放。"
+    },
+    {
+      "surface": "桃花诸曜",
+      "canonical_id": "OPEN_PEACH_BLOSSOM_STARS",
+      "semantic_kind": "OPEN_FUNCTIONAL_CATEGORY",
+      "membership_status": "OPEN_WORLD",
+      "members": null,
+      "base_surface": "桃花",
+      "evidence": [],
+      "activation_quantifier": "UNSPECIFIED",
+      "notes": "“诸曜”不构成全局成员闭合证据。"
+    },
+    {
+      "surface": "羊陀",
+      "canonical_id": "PAIR_QINGYANG_TUOLUO",
+      "semantic_kind": "CLOSED_PAIR_SHORTHAND",
+      "membership_status": "SOURCE_EXPLICIT_PAIR",
+      "members": [
+        "擎羊",
+        "陀罗"
+      ],
+      "evidence": [
+        "CAT-E05"
+      ],
+      "activation_quantifier": "UNSPECIFIED",
+      "notes": "pair membership resolved；是否一星、双星或特定几何触发仍由 source clause/response semantics 决定。"
+    },
+    {
+      "surface": "吉",
+      "canonical_id": "OPEN_FAVORABLE_VALENCE",
+      "semantic_kind": "OPEN_VALENCE_SHORTHAND",
+      "membership_status": "NON_MEMBER_VALENCE_OPEN",
+      "members": null,
+      "evidence": [],
+      "activation_quantifier": "NOT_APPLICABLE",
+      "notes": "不把“见吉”机械转成固定星曜成员集合。"
+    },
+    {
+      "surface": "凶",
+      "canonical_id": "OPEN_ADVERSE_VALENCE",
+      "semantic_kind": "OPEN_VALENCE_SHORTHAND",
+      "membership_status": "NON_MEMBER_VALENCE_OPEN",
+      "members": null,
+      "evidence": [],
+      "activation_quantifier": "NOT_APPLICABLE",
+      "notes": "不把“见凶”机械转成固定星曜成员集合。"
+    },
+    {
+      "surface": "凶曜",
+      "canonical_id": "OPEN_ADVERSE_STARS",
+      "semantic_kind": "OPEN_VALENCE_CATEGORY",
+      "membership_status": "OPEN_WORLD",
+      "members": null,
+      "evidence": [],
+      "activation_quantifier": "UNSPECIFIED",
+      "notes": "与六煞不可默认同义；保留更宽的凶曜表述。"
+    },
+    {
+      "surface": "刑耗",
+      "canonical_id": "COMPOUND_XING_HAO",
+      "semantic_kind": "SOURCE_COMPOUND_CATEGORY",
+      "membership_status": "OPEN_COMPOSITION",
+      "members": null,
+      "components": [
+        {
+          "literal": "刑"
+        },
+        {
+          "literal": "耗"
+        }
+      ],
+      "composition_operator": "UNSPECIFIED_SOURCE_BUNDLE",
+      "evidence": [],
+      "activation_quantifier": "UNSPECIFIED",
+      "notes": "“刑/耗”可能涉及不同曜类/杂曜，不在本层强行闭合。"
+    },
+    {
+      "surface": "吉化",
+      "canonical_id": "CAT_FAVORABLE_TRANSFORMATIONS",
+      "semantic_kind": "CLOSED_TRANSFORMATION_CATEGORY",
+      "membership_status": "SOURCE_SUPPORTED_CLOSED",
+      "members": [
+        "化禄",
+        "化权",
+        "化科"
+      ],
+      "evidence": [
+        "CAT-E03",
+        "CAT-E04"
+      ],
+      "activation_quantifier": "UNSPECIFIED",
+      "notes": "仅表示 favorable transformation 成员类；不表示强度或必然吉应。"
+    },
+    {
+      "surface": "煞刑诸曜",
+      "canonical_id": "COMPOUND_SHA_XING_STARS",
+      "semantic_kind": "SOURCE_COMPOUND_CATEGORY",
+      "membership_status": "OPEN_COMPOSITION",
+      "members": null,
+      "components": [
+        {
+          "ref": "CAT_SIX_MALEFICS"
+        },
+        {
+          "literal": "刑诸曜"
+        }
+      ],
+      "composition_operator": "UNSPECIFIED_SOURCE_BUNDLE",
+      "evidence": [
+        "CAT-E02"
+      ],
+      "activation_quantifier": "UNSPECIFIED",
+      "notes": "六煞基础类可识别，但“刑诸曜”不在本层闭合。"
+    },
+    {
+      "surface": "煞耗",
+      "canonical_id": "COMPOUND_SHA_HAO",
+      "semantic_kind": "SOURCE_COMPOUND_CATEGORY",
+      "membership_status": "OPEN_COMPOSITION",
+      "members": null,
+      "components": [
+        {
+          "ref": "CAT_SIX_MALEFICS"
+        },
+        {
+          "literal": "耗"
+        }
+      ],
+      "composition_operator": "UNSPECIFIED_SOURCE_BUNDLE",
+      "evidence": [
+        "CAT-E02"
+      ],
+      "activation_quantifier": "UNSPECIFIED",
+      "notes": "不把耗静默等同于单一大耗或其他固定曜。"
+    },
+    {
+      "surface": "煞耗诸曜",
+      "canonical_id": "COMPOUND_SHA_HAO_STARS",
+      "semantic_kind": "SOURCE_COMPOUND_CATEGORY",
+      "membership_status": "OPEN_COMPOSITION",
+      "members": null,
+      "components": [
+        {
+          "ref": "CAT_SIX_MALEFICS"
+        },
+        {
+          "literal": "耗诸曜"
+        }
+      ],
+      "composition_operator": "UNSPECIFIED_SOURCE_BUNDLE",
+      "evidence": [
+        "CAT-E02"
+      ],
+      "activation_quantifier": "UNSPECIFIED",
+      "notes": "保留复合来源结构。"
+    },
+    {
+      "surface": "辅佐诸曜",
+      "canonical_id": "CAT_AUXILIARY_EIGHT",
+      "semantic_kind": "CLOSED_BASE_CATEGORY",
+      "membership_status": "SOURCE_EXPLICIT_CLOSED",
+      "members": [
+        "天魁",
+        "天钺",
+        "左辅",
+        "右弼",
+        "文昌",
+        "文曲",
+        "禄存",
+        "天马"
+      ],
+      "source_surface_members": [
+        "天魁",
+        "天铖",
+        "左辅",
+        "右弼",
+        "文昌",
+        "文曲",
+        "禄存",
+        "天马"
+      ],
+      "canonical_normalization_note": "附件解析“天铖”按项目既有 canonical token 天钺记录；原始 surface 仍保存在证据中。",
+      "evidence": [
+        "CAT-E01"
+      ],
+      "activation_quantifier": "UNSPECIFIED",
+      "notes": "八曜成员闭合；单星/对星/全体触发不由成员表推断。"
+    }
+  ],
+  "guardrails": {
+    "global_category_membership_invented": false,
+    "activation_quantifier_inferred": false,
+    "relation_semantics_modified": false,
+    "source_truth_rewritten": false,
+    "product_runtime_modified": false,
+    "numeric_weights_added": false,
+    "probabilities_added": false
+  }
+}
