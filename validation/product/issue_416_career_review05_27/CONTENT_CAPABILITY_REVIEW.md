@@ -1,4 +1,4 @@
-# Issue #416：27条事业规则产品能力审查
+# Issue #416：Review-05 产品能力审查（25条接入，2条保持非执行）
 
 本工作单元只处理 Product 接入，不修改 Knowledge 文件或来源语义。
 
@@ -26,28 +26,23 @@ Product 只保留来源投影，不将其改写为人格定性或职业唯一性
 ## 三、廉贞组合
 
 - CA05-479：子午廉贞天相增加事业合作取向；
-- CA05-495：廉贞七杀的重大事业挫折候选；
 - CA05-498：寅申廉贞与贪狼相对时，保留商业优先于政治事业的场景倾向；
 - CA06-503 / 504 / 505：廉贞破军下分别处理廉贞化禄、破军化禄及其继承的“仍有挫折风险”；
 - CA06-513 / 514 / 515 / 518：廉贞天府下增加金融／金属行业、物质回报、事业声誉及廉贞化忌时不宜金融行业；
-- CA06-524 / 525 / 527 / 528 / 530：廉贞贪狼增加多业务线、合作取向、重大变化候选、边缘／餐饮行业场景与社交拓展业务；
+- CA06-524 / 525 / 528 / 530：廉贞贪狼增加多业务线、合作取向、边缘／餐饮行业场景与社交拓展业务；
 - CA06-534：天府守事业宫增加从既有平台发展更合适的结构。
 
-## 四、EVENT_CANDIDATE 边界
+## 四、EVENT_CANDIDATE 与 case-support-only 边界
 
-CA05-495 与 CA06-527 的 projection_mode 为 EVENT_CANDIDATE，但它们仍然是 NATAL 静态来源证据。
+CA05-495 与 CA06-527 虽然已经完成条件映射，但其 source_provenance.case_support_only=true，
+且 projection_mode=EVENT_CANDIDATE。现有 Product handoff 明确要求 case_support_only=false，
+因此本工作单元不把这两条接入可执行 registry。
 
-因此 Product 可以表达：
-- “来源中存在重大挫折候选”；
-- “来源中存在单次较大事业变化候选”。
+这不是重新解释来源，也不是退回 Knowledge；只是 Product 继续执行既有的来源资格门槛。
+两条在 readiness 中保留为“已映射但未选择”的静态候选。Product 不会据此输出现实中一定
+发生的挫折、变化、发生时间或数字概率。
 
-但不能表达：
-- 现实中一定发生；
-- 在某年、某月、某大限发生；
-- 数字概率或严重度；
-- 已经发生的事实。
-
-生产 temporal reaction registry 仍为空，报告必须继续明确 real_world_event_prediction_supported=false。
+生产 temporal reaction registry 仍为空。
 
 ## 五、接入原则
 
