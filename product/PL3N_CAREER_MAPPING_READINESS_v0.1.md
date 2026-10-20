@@ -1,7 +1,7 @@
-> **Current Product status after Issue #378:** 63 accepted NATAL Career rules. The 20
-> complete mappings from Knowledge #366 are explicitly selected and source-pinned in Product.
-> The readiness audit now covers 152 unique mapped IDs; blocked/context-only Review-01 rows
-> remain non-executable. Later Knowledge review batches are not automatically activated.
+> **Issue #389 candidate status:** 104 NATAL Career rules (63 accepted on main until merge).
+> Review-02 contributes 41 explicitly selected, source-pinned rules. The readiness audit now
+> covers 252 unique mapped IDs: 104 compiled Product rules and 148 blocked/context-only mappings.
+> Review-03 through Review-07 are present in Knowledge but remain unselected and cannot auto-activate.
 
 # 事业规则映射与产品接入核对 v0.1
 
