@@ -187,6 +187,18 @@ def test_verified_trace_step_requires_verifier_reference():
         compile_inference_trace(trace)
 
 
+def test_trace_step_requires_auditable_reference():
+    trace = _load()["inference_trace"]
+    step = trace["steps"][0]
+    step["verifier_status"] = "UNVERIFIED"
+    step["verifier_refs"] = []
+    step["evidence_refs"] = []
+    step["canonical_rule_refs"] = []
+
+    with pytest.raises(ValueError, match="auditable trace step"):
+        compile_inference_trace(trace)
+
+
 def test_method_pattern_preserves_order_and_repeated_actions():
     pattern = _load()["method_pattern"]
     pattern["action_sequence"] = [
