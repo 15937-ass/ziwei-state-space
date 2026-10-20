@@ -22,6 +22,7 @@ MAPPING_PATHS = tuple('knowledge/wp07a/' + name for name in (
     'CAREER_STAR_PRESENCE_MAP_CA01_026_044_v0.1.json',
     'CAREER_CONTEXT_MAP_CA01_035_043_045_v0.1.json',
     'CAREER_ZIWEI_ZIPO_STATIC_8_MAP_v0.1.json',
+    'CAREER_100_REVIEW_01_v0.1.json',
 ))
 SOURCE_PATHS = tuple(
     f'validation/wp05/CA{i:02d}_career_projection_review_{(i-1)*100+1:03d}_{i*100:03d}.csv'
@@ -98,7 +99,7 @@ def audit(root, *, mapping_paths=MAPPING_PATHS, registry_document=None):
                 status='COMPILED_IN_PRODUCT'
                 if readiness and readiness.startswith('BLOCKED_'):
                     raise ValueError(f'{rid}: blocked mapping selected')
-            elif readiness in NEXT_STEPS:
+            elif readiness in NEXT_STEPS or (isinstance(readiness,str) and readiness.startswith('BLOCKED_')):
                 status='BLOCKED'
             elif readiness in STATIC:
                 condition=item.get('condition')
@@ -115,7 +116,7 @@ def audit(root, *, mapping_paths=MAPPING_PATHS, registry_document=None):
                 'history_feedback_field_present_in_mapping':'history_feedback' in provenance,
                 'canonical_history_feedback':row['history_feedback'],
                 'condition_is_null':item.get('condition') is None,
-                'next_requirement_zh':NEXT_STEPS.get(readiness,''),
+                'next_requirement_zh':NEXT_STEPS.get(readiness,item.get('review_reason_zh','')),
                 'automatic_activation_allowed':False,
             }
     if not set(selected)<=set(mapped):raise ValueError('Product selections missing from mapping inventory')
@@ -128,7 +129,7 @@ def audit(root, *, mapping_paths=MAPPING_PATHS, registry_document=None):
                    else 'NATAL_WITHOUT_SCOPED_MAPPING' for r in unmapped)
     return {
         'audit_id':'PRODUCT_CAREER_MAPPING_READINESS_ISSUE_359',
-        'scope':'Nine explicitly listed merged mapping/context artifacts including #360; no unmerged branch discovery',
+        'scope':'Ten explicitly listed merged mapping/context artifacts through Knowledge #366; no unmerged branch discovery',
         'counts':{'canonical_source_rows':len(canonical),'scoped_mapping_artifacts':len(manifest),
                   'unique_mapping_ids':len(mapped),'compiled_product_rules':provider.executable_rule_count,
                   'blocked_mapping_ids':counts['BLOCKED'],
