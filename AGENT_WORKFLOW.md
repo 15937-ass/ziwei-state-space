@@ -109,8 +109,8 @@ After timeout, inspect GitHub first. Never replay work blindly.
 Routine deterministic validation may use GitHub Actions because this repository is public and G8 explicitly authorizes standard GitHub-hosted runners. Larger/billable runners are not authorized.
 
 Execution split:
-- the current ChatGPT session performs orchestration, research, review, GitHub edits and progress synthesis;
-- ChatGPT Work / Codex remain optional execution runtimes when quota is available;
+- the current ChatGPT conversation/session is a first-class repository operator and may use every GitHub operation actually exposed by the connected tools, including file create/update/delete, branch operations, Issue/PR/review/comment operations, draft/ready transitions, merge/auto-merge, workflow/run operations, and other connector-exposed repository management actions; it also performs orchestration, research, review and progress synthesis;
+- ChatGPT Work / Codex remain optional shell/coding execution runtimes when quota is available; they are not required merely to perform repository writes;
 - GitHub Actions standard public-repository runners may execute Python/Node/Go tests and regressions;
 - GitHub remains the canonical source for Issues, PRs, commits, validation evidence and Human Gates.
 
@@ -122,6 +122,10 @@ At each hard checkpoint, run the validation scope required by governance/PUBLIC_
 - relevant generated report or workflow-run references.
 
 Automatic pull_request triggers are allowed. Automatic push triggers remain prohibited.
+
+Repository capability does not override governance authority. Issue-first execution, lane/path ownership, PR discipline, validation gates, Human Gates, source integrity and maturity boundaries still apply. Normal work remains Issue -> branch -> PR -> validation -> merge; direct-to-main is not routine merely because a connected API could allow it.
+
+The connected tool surface is the technical ceiling. If an operation is not exposed by the current connector/tools, report that as a technical interface limitation rather than a governance prohibition.
 
 One autonomous repair/retry is allowed for ordinary technical failure; repeated or conceptual failures escalate.
 
