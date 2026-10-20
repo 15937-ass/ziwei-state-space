@@ -5,13 +5,13 @@ canonical_branch: "main"
 
 execution:
   status: "ACTIVE_NO_ACTIVE_WORK"
-  program: "KB_WP07C_CONTEXTUAL_ACTIVATION_CLOSURE"
+  program: "KB_WP07C_ANTECEDENT_SOURCE_RECHECK"
   active_issue: null
   active_pr: null
-  canonical_main_checkpoint: "CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_OF_251"
-  resume_entry: "Issue #454 completes Career Contextual Activation at 251/251 and adds cumulative inference-readiness audit. Final 51 rows (CA07-692 through CA09-887) preserve 7 explicit antecedent refs, 7 negations, source-local emphasis (尤其) without numeric gain, and non-numeric degree terms including 煞重/吉煞均弱. Across all 251 rows, 16 antecedent references remain source-unresolved and are queued for dedicated source-context recheck before any PI decision; 49 antecedent dependencies are explicitly bound. 184 rows contain source-underdetermined group/category/severity blockers that may legitimately remain UNKNOWN/NO_UNIVERSAL_RULE. 23 rows require closed-world runtime evidence. Semantic review is complete; execution is not claimed. Next recommended Knowledge work is targeted source recheck of the 16 unresolved 前格 references, then PI discussion only for genuinely non-recoverable cases or if a non-source heuristic policy is desired."
-  resume_issue: 454
-  last_state_sync_issue: 454
+  canonical_main_checkpoint: "CAREER_ANTECEDENT_SOURCE_RECHECK_16_OF_16"
+  resume_entry: "Issue #458 rechecks all 16 previously unresolved Career antecedent surfaces against SRC-ZZ-003 printed pp133-137. 14 resolve to existing antecedent rules, CA01-080 receives a source-backed dependency-scope correction to base CA01-078 rather than historical CA01-079, and CA01-098 receives a contradictory-antecedent repair so “无刑煞” is not conjoined with “见煞刑耗曜”. Post-recheck cumulative activation still covers 251/251, unresolved antecedent references fall from 16 to 0, explicit dependency rows rise to 64, and no Product execution is unlocked. Remaining blockers are source-underdetermined shorthand/category/severity semantics, closed-world evidence, or normalization/compiler work. No Human Gate was required."
+  resume_issue: 458
+  last_state_sync_issue: 458
 
 canonical_main_snapshot:
   domain: "事业宫"
@@ -191,7 +191,12 @@ completed_work_units:
   - work_unit: "KB-WP07C-CAREER-CONTEXTUAL-ACTIVATION-03-CLOSURE"
     issue: 454
     pr: 456
-    status: "READY_TO_MERGE_FINAL_51_CUMULATIVE_251_OF_251_INFERENCE_READINESS_AUDITED_NO_EXECUTION_UNLOCK"
+    status: "MERGED_FINAL_51_CUMULATIVE_251_OF_251_INFERENCE_READINESS_AUDITED_NO_EXECUTION_UNLOCK"
+
+  - work_unit: "KB-WP07C-CAREER-ANTECEDENT-SOURCE-RECHECK-16"
+    issue: 458
+    pr: 460
+    status: "READY_TO_MERGE_16_OF_16_ZERO_UNRESOLVED_ANTECEDENTS_ONE_SCOPE_CORRECTION_ONE_CONDITION_REPAIR_NO_EXECUTION_UNLOCK"
 
 archived_noncanonical_snapshots:
   wp05_all_twelve_palaces:
