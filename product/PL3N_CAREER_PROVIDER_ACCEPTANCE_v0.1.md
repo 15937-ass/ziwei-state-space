@@ -455,8 +455,8 @@ real-world event certainty or unique occupation claim is authorized.
 
 ## Review-05 expansion (Issue #416)
 
-Product selects exactly 27 complete Review-05 mappings and expands the Career NATAL
-provider from 165 to 192 rules. The batch reuses the explicit
+Product selects exactly 25 Review-05 mappings that satisfy the existing provenance gate and
+expands the Career NATAL provider from 165 to 190 rules. The batch reuses the explicit
 `REVIEW_COMPLETE_NON_PRODUCTION` / `REVIEW_COMPLETE_CONTEXT_V0_1` handoff contract.
 
 The selected rules preserve source provenance, reviewed condition atoms, projection targets,
@@ -468,9 +468,12 @@ planning/management, mobility, transportation/service, artistic and design scene
 career-partnership orientation, financial/metal scenes, material-return/reputation links,
 multiple-business-lines and social-network expansion.
 
-CA05-495 and CA06-527 carry `EVENT_CANDIDATE` projections as static NATAL source evidence
-only. Product does not convert them into dated event predictions, empirical probabilities or
-guaranteed setbacks/change events. The production temporal-reaction registry remains empty.
+CA05-495 and CA06-527 are deliberately **not** selected. Although their mapping rows are marked
+COMPLETE_CONDITION_MAPPING, their source provenance has `case_support_only=true` and their
+projection mode is `EVENT_CANDIDATE`. The Product handoff already rejects case-support-only
+provenance. Issue #416 preserves that boundary rather than weakening it. These two rows remain
+non-executable candidates and are not converted into dated event predictions, probabilities or
+guaranteed setbacks/change events.
 
 Historical batch/scenario tests remain additive: they validate their own handoff and required/
 forbidden evidence rather than freezing future global rule counts or complete active-rule sets.
