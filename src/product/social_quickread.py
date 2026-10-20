@@ -569,3 +569,66 @@ def build_pilot_package(
     )
     package.validate()
     return package
+
+
+def resolve_followup_scope(
+    text: str,
+    *,
+    current_scope: QuickReadScope,
+) -> QuickReadScope:
+    """Resolve a follow-up focus.
+
+    If the follow-up contains no explicit domain alias (e.g. "为什么这么说"),
+    keep the current scope instead of falling back to FULL.
+    """
+    value = str(text or "").strip()
+    for token, preset in PILOT_SCOPE_ALIASES.items():
+        if token in value:
+            return QuickReadScope(preset=preset, max_claims=8)
+    return QuickReadScope(
+        preset=current_scope.preset,
+        include_domains=current_scope.include_domains,
+        include_topics=current_scope.include_topics,
+        period_labels=current_scope.period_labels,
+        max_claims=8,
+    )
+
+
+def build_followup_payload(
+    *,
+    context: QuickReadConversationContext,
+    question: str,
+    target_chars_min: int = 80,
+    target_chars_max: int = 280,
+) -> dict[str, Any]:
+    """Build the second-stage payload used after a public quick read gets a reply.
+
+    Follow-up mode answers only the new question, reuses the same subject capsule,
+    and avoids repeating the original quick-read summary.
+    """
+    if not str(question or "").strip():
+        raise ValueError("follow-up question is required")
+    scope = resolve_followup_scope(question, current_scope=context.active_scope)
+    package = QuickReadPackage(
+        claims=context.all_claims,
+        knowledge_version=context.knowledge_version,
+        scope=scope,
+        target_chars_min=target_chars_min,
+        target_chars_max=target_chars_max,
+    )
+    package.validate()
+    payload = package.verbalizer_payload()
+    payload["mode"] = "social_quickread_followup_v0.1"
+    payload["question"] = question.strip()
+    payload["previous_rendered_text"] = context.rendered_text
+    payload["style_contract"].update(
+        {
+            "answer_question_first": True,
+            "no_overall_recap": True,
+            "do_not_repeat_previous_points_without_new_information": True,
+            "default_opening": None,
+            "allow_longer_explanation_than_public_quickread": True,
+            "explain_astrology_only_if_user_asks_why": True,
+        }
+    )
+    return payload
