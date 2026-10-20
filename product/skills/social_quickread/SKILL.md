@@ -33,8 +33,10 @@ Normalized chart / question
   -> QuickReadClaim envelope
   -> topic / temporal gate
   -> confidence + conflict filtering
+  -> semantic-group 去重
   -> verbalizer_payload()
-  -> LLM 只做中文表述
+  -> LLM 生成内部 draft + sentence->claim mapping
+  -> blocking pre-send audit
   -> deterministic style lint
   -> final 120–220 字评论
 ```
@@ -206,3 +208,27 @@ continuation_payload
 中文窗口别名已支持最常用说法：全盘/简批/整体、感情/恋爱/婚恋、性格、长相/外貌、人际/朋友、父母/家庭、事业/工作/学业。
 
 复杂的持久化、UI 上下文卡、多用户 session 等保留为未来能力；当前测试不以此为前置条件。
+
+
+## 12. 每次发送前必须审计
+
+Manual Pilot 也不能“先发再审计”。最终文字发送给 PI 之前必须经过 blocking audit：
+
+1. 每句话至少映射到一个已验证 claim；
+2. 每个 claim 必须有 evidence；
+3. 同一个 `semantic_group + target_period` 默认只允许表达一次；
+4. 同义改写不能算新增信息；
+5. 如果后一条只是把前一条换一种说法，直接删除后一条，不以“丰富表达”为理由保留；
+6. 任何无法映射回 claim 的修饰、外貌印象、心理补充、生活化发挥，均视为 unsupported hallucination；
+7. 审计不通过则不发送，先删改再重新审计。
+
+典型反例：
+
+```text
+内心很有主见。
+更在意自己有没有位置、能不能做主。
+```
+
+若两句都来自同一“主体性 / 控制感”证据轴，则第二句没有新增信息，属于 semantic repetition。即使每句话单独看都“说得通”，也不能同时进入简批。
+
+因此 claim 除 topic 外还必须标记 `semantic_group`；QuickReadPackage 在进入 verbalizer 前先做一次去重，render draft 再做一次句级审计。
