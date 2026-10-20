@@ -2,7 +2,7 @@
 
 Tracking Issue: #431  
 Lane: PRODUCT_ONLY  
-Status: **IMPLEMENTED / VALIDATION PENDING**
+Status: **IMPLEMENTED / FINAL CI PENDING**
 
 ## Scope completed
 
@@ -65,4 +65,4 @@ predictive validity = NOT_VALIDATED
 
 ## Validation
 
-Repository / Product CI evidence will be appended to PR #TBD before merge.
+Repository / Product CI evidence will be appended to PR #435 before merge.
