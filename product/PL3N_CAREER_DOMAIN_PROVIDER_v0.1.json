@@ -1711,6 +1711,2910 @@
         "modality_note": "来源性质／适宜性投影，不是现实结果必然断言。",
         "source_scope_note": "后文子分支继承本段丑未紫微破军范围。"
       }
+    },
+    "CA01-067": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p133-134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "前格",
+      "expected_projection_domain": "role",
+      "expected_projection_target": "native_should_hold_business_management_responsibility",
+      "expected_projection_mode": "CROSS_PALACE_CONSTRAINT",
+      "condition": {
+        "all_of": [],
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P05",
+                "star": "廉贞",
+                "mutagen": "禄"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P05",
+                "star": "廉贞",
+                "mutagen": "禄"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA01-067",
+      "expected_source_context": {
+        "paragraph_scope": "子午事业宫紫微",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "子"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "午"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": false,
+        "inherited_source_rule_ids": [
+          "CA01-066"
+        ],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA01-068": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "子午紫微辅弼或昌曲分居事业夫妻两宫",
+      "expected_projection_domain": "relationship",
+      "expected_projection_target": "spouses_can_mutually_support_each_other",
+      "expected_projection_mode": "CROSS_PALACE_CONSTRAINT",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "左辅"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P03",
+                "star": "右弼"
+              }
+            },
+            {
+              "atom_type": "PALACE_RELATION",
+              "args": {
+                "source": "P09",
+                "target": "P03",
+                "relation": "OPPOSITE"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "右弼"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P03",
+                "star": "左辅"
+              }
+            },
+            {
+              "atom_type": "PALACE_RELATION",
+              "args": {
+                "source": "P09",
+                "target": "P03",
+                "relation": "OPPOSITE"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "文昌"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P03",
+                "star": "文曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_RELATION",
+              "args": {
+                "source": "P09",
+                "target": "P03",
+                "relation": "OPPOSITE"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "文曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P03",
+                "star": "文昌"
+              }
+            },
+            {
+              "atom_type": "PALACE_RELATION",
+              "args": {
+                "source": "P09",
+                "target": "P03",
+                "relation": "OPPOSITE"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "左辅"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P03",
+                "star": "右弼"
+              }
+            },
+            {
+              "atom_type": "PALACE_RELATION",
+              "args": {
+                "source": "P09",
+                "target": "P03",
+                "relation": "OPPOSITE"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "右弼"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P03",
+                "star": "左辅"
+              }
+            },
+            {
+              "atom_type": "PALACE_RELATION",
+              "args": {
+                "source": "P09",
+                "target": "P03",
+                "relation": "OPPOSITE"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "文昌"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P03",
+                "star": "文曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_RELATION",
+              "args": {
+                "source": "P09",
+                "target": "P03",
+                "relation": "OPPOSITE"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "文曲"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P03",
+                "star": "文昌"
+              }
+            },
+            {
+              "atom_type": "PALACE_RELATION",
+              "args": {
+                "source": "P09",
+                "target": "P03",
+                "relation": "OPPOSITE"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA01-068",
+      "expected_source_context": {
+        "paragraph_scope": "子午事业宫紫微",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "子"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "午"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": false,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA01-072": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "前格",
+      "expected_projection_domain": "collaboration",
+      "expected_projection_target": "spousal_business_partnership_not_preferred",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "权"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "权"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA01-072",
+      "expected_source_context": {
+        "paragraph_scope": "子午事业宫紫微",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "子"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "午"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": false,
+        "inherited_source_rule_ids": [
+          "CA01-070",
+          "CA01-071"
+        ],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA01-076": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "子午紫微化科又见空劫",
+      "expected_projection_domain": "relation",
+      "expected_projection_target": "career_opposition_or_enemy_formation",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "科"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "地空"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "地劫"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "科"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "地空"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "地劫"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA01-076",
+      "expected_source_context": {
+        "paragraph_scope": "子午事业宫紫微",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "子"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "午"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": false,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA01-077": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "前格",
+      "expected_projection_domain": "strategy",
+      "expected_projection_target": "public_political_career_not_preferred",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "科"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "地空"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "地劫"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "子"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "科"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "地空"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "地劫"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "午"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA01-077",
+      "expected_source_context": {
+        "paragraph_scope": "子午事业宫紫微",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "子"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "午"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": false,
+        "inherited_source_rule_ids": [
+          "CA01-076"
+        ],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA01-084": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "前格从商从政皆主开创",
+      "expected_projection_domain": "effort",
+      "expected_projection_target": "career_creation_is_labor_intensive",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "丑"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "未"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA01-084",
+      "expected_source_context": {
+        "paragraph_scope": "丑未事业宫紫微破军",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "破军"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "丑"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "破军"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "未"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": false,
+        "inherited_source_rule_ids": [
+          "CA01-083"
+        ],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA02-102": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "紫微天府而紫微化科",
+      "expected_projection_domain": "development",
+      "expected_projection_target": "career_can_be_created_from_scratch",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天府"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "科"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "寅"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天府"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "科"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "申"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA02-102",
+      "expected_source_context": {
+        "paragraph_scope": "寅申事业宫紫微天府",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天府"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "寅"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天府"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "申"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": false,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA02-103": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "紫微天府而天府化科",
+      "expected_projection_domain": "development",
+      "expected_projection_target": "career_develops_from_existing_platform",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天府"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "天府",
+                "mutagen": "科"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "寅"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天府"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "天府",
+                "mutagen": "科"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "申"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA02-103",
+      "expected_source_context": {
+        "paragraph_scope": "寅申事业宫紫微天府",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天府"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "寅"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天府"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "申"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": false,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA02-104": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "紫微天府而紫微化权",
+      "expected_projection_domain": "decision",
+      "expected_projection_target": "career_ideals_can_exceed_practical_capacity",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天府"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "权"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "寅"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天府"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "权"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "申"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA02-104",
+      "expected_source_context": {
+        "paragraph_scope": "寅申事业宫紫微天府",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天府"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "寅"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天府"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "申"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": false,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA02-105": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "前格",
+      "expected_projection_domain": "resource",
+      "expected_projection_target": "financial_capacity_may_not_support_operational_ambition",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天府"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "权"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "寅"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天府"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "权"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "申"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA02-105",
+      "expected_source_context": {
+        "paragraph_scope": "寅申事业宫紫微天府",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天府"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "寅"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天府"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "申"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": false,
+        "inherited_source_rule_ids": [
+          "CA02-104"
+        ],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA02-109": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "现代紫微天府守事业宫",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "industrial_sector_scene_is_possible",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天府"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "寅"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天府"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "申"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA02-109",
+      "expected_source_context": {
+        "paragraph_scope": "寅申事业宫紫微天府",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天府"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "寅"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天府"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "申"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": false,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA02-110": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "紫微天府而紫微化权",
+      "expected_projection_domain": "strategy",
+      "expected_projection_target": "avoid_idealism_detached_from_operational_reality",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天府"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "权"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "寅"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天府"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "权"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "申"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA02-110",
+      "expected_source_context": {
+        "paragraph_scope": "寅申事业宫紫微天府",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天府"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "寅"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天府"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "申"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": false,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA02-111": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "紫微天府而紫微化科",
+      "expected_projection_domain": "competition",
+      "expected_projection_target": "career_competition_or_imitation_pressure",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天府"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "科"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "寅"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天府"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "科"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "申"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA02-111",
+      "expected_source_context": {
+        "paragraph_scope": "寅申事业宫紫微天府",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天府"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "寅"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天府"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "申"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": false,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA02-112": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "卯酉紫微贪狼",
+      "expected_projection_domain": "career",
+      "expected_projection_target": "consumer_or_pleasure_market_orientation",
+      "expected_projection_mode": "SCENE_TRANSLATION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "卯"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "酉"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA02-112",
+      "expected_source_context": {
+        "paragraph_scope": "卯酉事业宫紫微贪狼",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "贪狼"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "卯"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "贪狼"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "酉"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": false,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA02-114": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "紫微贪狼而贪狼化忌",
+      "expected_projection_domain": "collaboration",
+      "expected_projection_target": "career_cooperation_not_durable",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼",
+                "mutagen": "忌"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "卯"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼",
+                "mutagen": "忌"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "酉"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA02-114",
+      "expected_source_context": {
+        "paragraph_scope": "卯酉事业宫紫微贪狼",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "贪狼"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "卯"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "贪狼"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "酉"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": false,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA02-119": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p135",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "紫微贪狼与空劫同度",
+      "expected_projection_domain": "development",
+      "expected_projection_target": "career_substance_can_be_hollow_or_unsupported",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "地空"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "地劫"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "卯"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "地空"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "地劫"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "酉"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA02-119",
+      "expected_source_context": {
+        "paragraph_scope": "卯酉事业宫紫微贪狼",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "贪狼"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "卯"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "贪狼"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "酉"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": false,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA02-120": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p135",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "前格",
+      "expected_projection_domain": "stability",
+      "expected_projection_target": "career_setbacks_or_large_fluctuations",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "地空"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "地劫"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "卯"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "地空"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "地劫"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "酉"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA02-120",
+      "expected_source_context": {
+        "paragraph_scope": "卯酉事业宫紫微贪狼",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "贪狼"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "卯"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "贪狼"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "酉"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": false,
+        "inherited_source_rule_ids": [
+          "CA02-119"
+        ],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA02-122": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p135",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "紫微贪狼而紫微化科",
+      "expected_projection_domain": "capability",
+      "expected_projection_target": "mobilization_or_appeal_can_exceed_organizational_capacity",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "科"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "卯"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "紫微",
+                "mutagen": "科"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "酉"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA02-122",
+      "expected_source_context": {
+        "paragraph_scope": "卯酉事业宫紫微贪狼",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "贪狼"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "卯"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "贪狼"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "酉"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": false,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA02-124": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p135",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "紫微贪狼躔左辅或右弼且对宫为配对辅弼",
+      "expected_projection_domain": "support",
+      "expected_projection_target": "subordinate_or_team_base_expands",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "卯"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "左辅"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P03",
+                "star": "右弼"
+              }
+            },
+            {
+              "atom_type": "PALACE_RELATION",
+              "args": {
+                "source": "P09",
+                "target": "P03",
+                "relation": "OPPOSITE"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "卯"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "右弼"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P03",
+                "star": "左辅"
+              }
+            },
+            {
+              "atom_type": "PALACE_RELATION",
+              "args": {
+                "source": "P09",
+                "target": "P03",
+                "relation": "OPPOSITE"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "酉"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "左辅"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P03",
+                "star": "右弼"
+              }
+            },
+            {
+              "atom_type": "PALACE_RELATION",
+              "args": {
+                "source": "P09",
+                "target": "P03",
+                "relation": "OPPOSITE"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "贪狼"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "酉"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "右弼"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P03",
+                "star": "左辅"
+              }
+            },
+            {
+              "atom_type": "PALACE_RELATION",
+              "args": {
+                "source": "P09",
+                "target": "P03",
+                "relation": "OPPOSITE"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA02-124",
+      "expected_source_context": {
+        "paragraph_scope": "卯酉事业宫紫微贪狼",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "贪狼"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "卯"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "贪狼"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "酉"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": false,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
+    },
+    "CA02-128": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p135",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "辰戌紫微天相",
+      "expected_projection_domain": "stability",
+      "expected_projection_target": "career_has_rise_and_fall_tendency",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天相"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "辰"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "天相"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "戌"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA02-128",
+      "expected_source_context": {
+        "paragraph_scope": "辰戌事业宫紫微天相",
+        "supported_chart_context_only": {
+          "alternatives": [
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天相"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "辰"
+                }
+              }
+            ],
+            [
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "紫微"
+                }
+              },
+              {
+                "atom_type": "PALACE_HAS_STAR",
+                "args": {
+                  "palace": "P09",
+                  "star": "天相"
+                }
+              },
+              {
+                "atom_type": "BRANCH_PRESENT",
+                "args": {
+                  "palace": "P09",
+                  "branch": "戌"
+                }
+              }
+            ]
+          ]
+        },
+        "context_is_complete_antecedent": false,
+        "inherited_source_rule_ids": [],
+        "additional_semantics_must_not_be_invented": true
+      }
     }
   },
   "guardrails": {
@@ -1817,6 +4721,35 @@
       ],
       "required_execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
       "source_context_schema": "PARAGRAPH_SCOPE_V0_1"
+    },
+    {
+      "path": "knowledge/wp07a/CAREER_100_REVIEW_01_v0.1.json",
+      "audit_id": "KB-WP07A-CAREER-100-REVIEW-01",
+      "mapping_status": "HUNDRED_RULE_REVIEW_COMPLETE_NOT_PRODUCTION",
+      "schema_version": "0.1",
+      "selected_rule_ids": [
+        "CA01-067",
+        "CA01-068",
+        "CA01-072",
+        "CA01-076",
+        "CA01-077",
+        "CA01-084",
+        "CA02-102",
+        "CA02-103",
+        "CA02-104",
+        "CA02-105",
+        "CA02-109",
+        "CA02-110",
+        "CA02-111",
+        "CA02-112",
+        "CA02-114",
+        "CA02-119",
+        "CA02-120",
+        "CA02-122",
+        "CA02-124",
+        "CA02-128"
+      ],
+      "source_context_schema": "REVIEW_BATCH_PARAGRAPH_SCOPE_V0_1"
     }
   ]
 }
