@@ -43,12 +43,22 @@ completed:
     execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
     effect: "EXPERT_REASONING_AND_RESPONSE_VERTICAL_SLICE_BECOMES_PRODUCT_CRITICAL_PATH"
 
+  public_repository_hardening_v0_1:
+    tracking_issue: 446
+    status: "REPOSITORY_SIDE_CONTROLS_MERGED_OWNER_UI_PENDING"
+    baseline: "governance/PUBLIC_REPOSITORY_HARDENING_BASELINE_v0.1.md"
+    compatibility: "NO_CHANGE_TO_ISSUE_BRANCH_PR_VALIDATION_MERGE_WORKFLOW"
+
 deferred_admin:
-  issue: 285
-  status: "DEFERRED_UNTIL_ADMIN_ACCESS"
+  issue: 446
+  status: "OWNER_UI_PENDING"
   items:
-    - "Configure main ruleset/branch protection: PR required, required quality gate, force-push blocked, linear history if compatible."
-    - "Create/assign milestones if useful after resume."
+    - "Configure main ruleset per PUBLIC_REPOSITORY_HARDENING_BASELINE_v0.1.md: PR required with 0 approvals, force-push blocked, main deletion blocked."
+    - "Enable GitHub Secret Scanning and Push Protection where available."
+    - "Do not add mandatory platform status checks until the owner/connector path is verified non-blocking."
+  legacy_issue_285:
+    status: "CLOSED_NOT_PLANNED"
+    note: "Historical admin/milestone task; superseded for repository-protection settings by Issue #446."
 
 archived_work_references:
   product_pr_274: "PRESERVE_BRANCH_FOR_AUDIT; do not merge without reconstitution."
