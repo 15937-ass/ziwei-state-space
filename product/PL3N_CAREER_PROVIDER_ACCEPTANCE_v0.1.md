@@ -451,3 +451,26 @@ Product must not invent negative/exclusion conditions merely to force single-rul
 
 All rules remain static NATAL evidence. No temporal reaction, empirical probability,
 real-world event certainty or unique occupation claim is authorized.
+
+
+## Review-05 expansion (Issue #416)
+
+Product selects exactly 27 complete Review-05 mappings and expands the Career NATAL
+provider from 165 to 192 rules. The batch reuses the explicit
+`REVIEW_COMPLETE_NON_PRODUCTION` / `REVIEW_COMPLETE_CONTEXT_V0_1` handoff contract.
+
+The selected rules preserve source provenance, reviewed condition atoms, projection targets,
+paragraph context and inherited source IDs verbatim. Named transformations remain star-bound,
+and CA05-453 / CA05-454 / CA05-498 retain explicit P09->P03 OPPOSITE relations.
+
+This batch expands 天同天梁, 天同对太阴 and 廉贞-related Career structure, including
+planning/management, mobility, transportation/service, artistic and design scenes,
+career-partnership orientation, financial/metal scenes, material-return/reputation links,
+multiple-business-lines and social-network expansion.
+
+CA05-495 and CA06-527 carry `EVENT_CANDIDATE` projections as static NATAL source evidence
+only. Product does not convert them into dated event predictions, empirical probabilities or
+guaranteed setbacks/change events. The production temporal-reaction registry remains empty.
+
+Historical batch/scenario tests remain additive: they validate their own handoff and required/
+forbidden evidence rather than freezing future global rule counts or complete active-rule sets.
