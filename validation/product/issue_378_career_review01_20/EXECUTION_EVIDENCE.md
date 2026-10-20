@@ -1,58 +1,51 @@
 # Issue #378 Execution Evidence
 
-Status: **PRODUCT IMPLEMENTATION COMPLETE; BLOCKED ONLY BY KNOWLEDGE #382**
+Status: **FINAL ACCEPTANCE READY**
 
 Execution runtime: GitHub Actions standard public-repository runners.
 
-Candidate head: `e004232cacc747ed3d069318409baf38b05fccde`
+Final candidate head before this evidence/state sync: `6250bcd23d40413dea453eb990d6d321ebfad984`
+Validated base main included Knowledge #382 merge `0e470688568d082b845866bd296bf559cf688080`.
 
-## Product implementation
+## Product result
 
-- Product Career registry: 43 -> 63 candidate executable NATAL rules.
-- New selected source mappings: 20/20 from Knowledge #366.
-- Review-batch handoff status/context contract: implemented fail-closed.
-- Product readiness audit scope: 52 -> 152 unique mapped IDs; candidate compiled rules 63; 89 blocked mappings retained blocked.
-- Adjacent temporal CA02-121 remains unselected.
-- No Knowledge file is changed by Product #378.
+- Product Career registry: **43 -> 63** explicitly selected executable NATAL rules.
+- New selected source mappings: **20/20** from Knowledge #366.
+- Review-batch handoff status/context contract: fail-closed.
+- Product readiness audit scope: **52 -> 152** unique mapped IDs.
+- Blocked mappings remain blocked; adjacent temporal CA02-121 remains unselected.
+- No Knowledge source or mapping file is modified by Product #378.
 
-## G8 validation
+## Final G8 validation
 
-Latest repository quality gate: **run #1619 / 39361184624**
+Repository quality gate: **#1624 / 39361730628 — PASS**
 
-Results:
-- full pytest: **1064 passed / 1 failed**
-- sole failure: `tests/test_knowledge_career_100_review_01.py::test_unrepresented_behaviors_groups_timing_and_methods_cannot_become_empty_conditions`
-- cause: historical Knowledge assertion requires all 100 Review-01 IDs to remain permanently absent from the Product registry;
-- Product-owned failures from the first run were repaired; no Product test remains failing.
-- JS syntax / P0 / Product governance on the latest head: **not executed by the combined quality workflow because pytest stopped first**; must rerun after #382 lands.
+- full pytest: **1065 passed / 0 failed**
+- JS syntax: **PASS**
+- deterministic P0 audit: **PASS**
+- Product governance validation: **PASS**
 
-Product regressions on the latest head:
-- product-p1-dual-engine #436: **PASS**
-- product-p1-b02-calendar #58: **PASS**
-- product-p1-b02b-zi-day #33: **PASS**
-- product-p1-b02c-temporal #27: **PASS**
+Product regressions on the same candidate head:
+- product-p1-dual-engine #438: **PASS**
+- product-p1-b02-calendar #60: **PASS**
+- product-p1-b02b-zi-day #35: **PASS**
+- product-p1-b02c-temporal #29: **PASS**
 
-Initial run before Product-owned test/audit repair:
-- 1051 passed / 9 failed;
-- eight Product-owned stale-count/audit failures were corrected in this branch;
-- the remaining single failure is the Knowledge-owned cross-lane absence assertion.
+## Dependency history
 
-## Dependency
+The first Product run exposed stale Product-owned fixed-count assumptions and one
+Knowledge-owned permanent Product-absence assertion. Product-owned assumptions were
+updated to scope their historical invariants correctly. Knowledge Issue #382 then
+removed only the stale cross-lane absence rule while preserving non-production
+Knowledge status, source conditions, blocker semantics and
+`executable_registry_entry=false`.
 
-Knowledge Issue #382 is the bounded ownership correction. It must preserve all source,
-condition, branch, inheritance, blocker and `executable_registry_entry=false` invariants,
-while removing only the claim that reviewed Knowledge mappings can never be selected later
-by an explicit Product work unit.
-
-No merge is allowed until #382 lands and the full repository gate, P0 audit, Product governance
-validation and Product regressions are all green.
+Knowledge #382 independently passed **1018 tests**, P0 audit and Knowledge governance
+before merge.
 
 ## Limits
 
-Passing deterministic gates will establish source/condition execution integrity only. It will
-not establish empirical prediction accuracy, event certainty, temporal activation or numeric probability.
-
-
-## Dependency resolution and final rerun
-
-Knowledge #382 merged to main as commit `0e470688568d082b845866bd296bf559cf688080` after G8 validation (1018 passed, P0 PASS, Knowledge governance PASS). The stale permanent Product-absence assertion is now replaced by Knowledge-owned non-production invariants. This Product PR is being retriggered against the updated main; final acceptance requires the new repository-quality and all Product P1/B02 runs to pass.
+These gates establish deterministic source/condition/projection integrity and engine
+regression consistency only. They do not establish empirical predictive accuracy,
+event certainty, temporal activation, numeric probability, causal validity or real-world
+career outcome guarantees.
