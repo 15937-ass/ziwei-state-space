@@ -119,7 +119,7 @@
   "content_synopsis_zh": [
     "辰戌天机天梁继续讨论职位调动、外交公关、专业技能、太阳或太阴化禄、电子电脑、空劫突破与祖业／现成事业；凡借会、吉煞群组、现实态度或空劫量词未完整者保持阻塞。",
     "巳亥天机强调重大行业变动仍不离服务性质，并出现火铃空劫、天刑天月、保险与危险工作等分支；本批只把明确宫支母星系及天刑天月同度编成条件。",
-    "太阳总论把事业的声名、号召、流动、传播、公关、荣誉与专业信誉分开；太阳化科、化忌及明确同度条件可定位，但“昌曲”合称的量词、庙陷、空劫和模糊吉凶群组不近似。",
+    "太阳总论把事业的声名、号召、流动、传播、公关、荣誉与专业信誉分开；太阳化科、化忌等明确四化可定位，但“昌曲”量词、左辅右弼“会”的范围、庙陷、空劫和模糊吉凶群组不近似；教学／演唱等仅保留为口舌性质的例示。",
     "太阳天梁区分子午对拱与卯酉同度，但共同指向名重于利、专业／社会服务、监察管理和规则纪律；偏门、宗教等需要煞杂曜或空劫群组的条目保持阻塞。",
     "太阳太阴区分丑未同度与辰戌相对，核心转向内务、行政管理、财务计划和变动；太阴化忌可在两种几何结构中精确定位，庙陷和吉化群组仍未形式化。",
     "太阳巨门区分寅申同度与巳亥对宫，主轴是口舌、异族／异地与外务；巨门化禄、太阳禄权、两星化忌的明确分支可映射，格局高低、煞曜和吉曜群组不强行量化。",
@@ -3449,9 +3449,9 @@
         "projection_mode": "FUNCTIONAL_PROJECTION"
       },
       "review_sub_batch": 1,
-      "review_disposition": "COMPLETE_CONDITION_MAPPING",
-      "review_reason_zh": "原文条件“太阳喜左辅右弼”的母星系、宫支、明确同度／对宫或四化载体可由现有事实原子精确表示；仅保留来源投影，不把“career_running_about_is_reduced”扩写成已发生现实事件。",
-      "blocker_code": null,
+      "review_disposition": "BLOCKED_OUTCOME_MAPPING",
+      "review_reason_zh": "原文为“太阳喜左辅、右弼同会事业宫”，其中“会”并不等于左辅右弼都与太阳同坐事业宫；当前事实契约没有获批准的泛化会照范围，不能把会照缩成 P09 同宫。",
+      "blocker_code": "RELATION",
       "source_context": {
         "paragraph_scope": "太阳守事业宫总论",
         "supported_chart_context_only": {
@@ -3465,38 +3465,14 @@
             }
           ]
         },
-        "context_is_complete_antecedent": true,
+        "context_is_complete_antecedent": false,
         "inherited_source_rule_ids": [],
         "additional_semantics_must_not_be_invented": true
       },
-      "condition": {
-        "all_of": [
-          {
-            "atom_type": "PALACE_HAS_STAR",
-            "args": {
-              "palace": "P09",
-              "star": "太阳"
-            }
-          },
-          {
-            "atom_type": "PALACE_HAS_STAR",
-            "args": {
-              "palace": "P09",
-              "star": "左辅"
-            }
-          },
-          {
-            "atom_type": "PALACE_HAS_STAR",
-            "args": {
-              "palace": "P09",
-              "star": "右弼"
-            }
-          }
-        ]
-      },
-      "mapping_status": "MAPPED_EXISTING_ATOM",
-      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
-      "source_span_summary": "原文条件“太阳喜左辅右弼”的母星系、宫支、明确同度／对宫或四化载体可由现有事实原子精确表示；仅保留来源投影，不把“career_running_about_is_reduced”扩写成已发生现实事件。",
+      "condition": null,
+      "mapping_status": "AUDIT_ONLY_NOT_COMPILED",
+      "execution_readiness": "BLOCKED_RELATION",
+      "source_span_summary": null,
       "source_epistemic": "EXPLICIT",
       "normalization_epistemic": "SOURCE_PRESERVING_REVIEW",
       "executable_registry_entry": false
@@ -3809,9 +3785,9 @@
         "projection_mode": "SCENE_TRANSLATION"
       },
       "review_sub_batch": 1,
-      "review_disposition": "COMPLETE_CONDITION_MAPPING",
-      "review_reason_zh": "原文条件“前格教学演唱例”的母星系、宫支、明确同度／对宫或四化载体可由现有事实原子精确表示；仅保留来源投影，不把“teaching_or_vocal_performance_as_speech_income_scene”扩写成已发生现实事件。",
-      "blocker_code": null,
+      "review_disposition": "METHODOLOGY_OR_CONTEXT_ONLY",
+      "review_reason_zh": "本条承接太阳化忌，原文用教学、演唱说明“口舌”不必等同争讼，是对行业性质的例示而非太阳化忌即可直接推出具体职业；保留为语境示例。",
+      "blocker_code": "NOT_AN_EXECUTABLE_OUTCOME_CONDITION",
       "source_context": {
         "paragraph_scope": "太阳守事业宫总论",
         "supported_chart_context_only": {
@@ -3825,27 +3801,16 @@
             }
           ]
         },
-        "context_is_complete_antecedent": true,
+        "context_is_complete_antecedent": false,
         "inherited_source_rule_ids": [
           "CA03-285"
         ],
         "additional_semantics_must_not_be_invented": true
       },
-      "condition": {
-        "all_of": [
-          {
-            "atom_type": "TRANSFORMATION_PRESENT",
-            "args": {
-              "palace": "P09",
-              "star": "太阳",
-              "mutagen": "忌"
-            }
-          }
-        ]
-      },
-      "mapping_status": "MAPPED_EXISTING_ATOM",
-      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
-      "source_span_summary": "原文条件“前格教学演唱例”的母星系、宫支、明确同度／对宫或四化载体可由现有事实原子精确表示；仅保留来源投影，不把“teaching_or_vocal_performance_as_speech_income_scene”扩写成已发生现实事件。",
+      "condition": null,
+      "mapping_status": "AUDIT_ONLY_NOT_COMPILED",
+      "execution_readiness": "BLOCKED_NOT_AN_EXECUTABLE_OUTCOME_CONDITION",
+      "source_span_summary": null,
       "source_epistemic": "EXPLICIT",
       "normalization_epistemic": "SOURCE_PRESERVING_REVIEW",
       "executable_registry_entry": false
@@ -14019,9 +13984,9 @@
   ],
   "progress_counts": {
     "source_rules_rechecked": 100,
-    "first_time_complete_condition_mappings": 32,
-    "methodology_or_context_only": 7,
-    "blocked_outcome_mappings": 61,
+    "first_time_complete_condition_mappings": 30,
+    "methodology_or_context_only": 8,
+    "blocked_outcome_mappings": 62,
     "new_production_executable_rules": 0,
     "canonical_source_reviewed_before": 888,
     "canonical_source_reviewed_after": 888,
