@@ -48,16 +48,16 @@ One lane has at most one ACTIVE Issue.
 
 1. recover state;
 2. confirm lane and Issue;
-3. producer pass in ChatGPT Work / Codex;
+3. producer pass in the current ChatGPT session, ChatGPT Work, or Codex as available;
 4. critic/red-team pass;
 5. revision;
-6. deterministic validation in the OpenAI execution environment;
-7. record exact validation commands and results in the Issue/PR;
+6. deterministic validation in an approved execution runtime: GitHub Actions standard public-repository runners, or Work/Codex when available;
+7. record exact validation commands, runtime, workflow/run references when applicable, and results in the Issue/PR;
 8. create/update one PR for the Issue;
 9. report status;
 10. stop.
 
-GitHub Actions is not a routine execution dependency after G7.
+After G8, GitHub Actions on standard public-repository runners is an approved routine deterministic validation runtime.
 
 Do not automatically chain into the next Issue in the same turn.
 
@@ -71,8 +71,8 @@ An implementation Issue may not broaden an approved Proposal.
 ## 7. Autonomy and risk
 
 R0: mechanical bug/fixture/formatting — autonomous.
-R1: normal bounded work — GPT review + deterministic Work/Codex validation.
-R2: phase closure/cross-module integration/material ambiguity — independent review + full Work/Codex validation + PI-facing report.
+R1: normal bounded work — GPT review + deterministic validation in the approved available runtime.
+R2: phase closure/cross-module integration/material ambiguity — independent review + full approved-runtime validation + PI-facing report.
 R3: Human Gate/canonical meaning/architecture boundary/causal upgrade — explicit PI approval.
 
 All PI review/Human-Gate material is written in Chinese.
@@ -106,21 +106,22 @@ After timeout, inspect GitHub first. Never replay work blindly.
 
 ## 11. Execution and validation policy
 
-Routine execution must not consume GitHub Actions minutes.
+Routine deterministic validation may use GitHub Actions because this repository is public and G8 explicitly authorizes standard GitHub-hosted runners. Larger/billable runners are not authorized.
 
-Primary execution runtime:
-- ChatGPT Work for orchestration, research, review and multi-step coordination;
-- Codex/OpenAI coding runtime for repository edits, commands, tests and regressions;
-- GitHub for Issues, PRs, commits, version history and Human-Gate audit.
+Execution split:
+- the current ChatGPT session performs orchestration, research, review, GitHub edits and progress synthesis;
+- ChatGPT Work / Codex remain optional execution runtimes when quota is available;
+- GitHub Actions standard public-repository runners may execute Python/Node/Go tests and regressions;
+- GitHub remains the canonical source for Issues, PRs, commits, validation evidence and Human Gates.
 
-At each hard checkpoint, run the validation scope required by governance/WORK_CODEX_EXECUTION_PROTOCOL_v0.1.md and record:
-- exact command(s);
+At each hard checkpoint, run the validation scope required by governance/PUBLIC_ACTIONS_EXECUTION_PROTOCOL_v0.2.md and record:
+- exact command(s) or workflow;
 - environment/runtime used;
 - pass/fail counts;
 - any skipped checks and why;
-- relevant generated report paths.
+- relevant generated report or workflow-run references.
 
-GitHub Actions workflows are manual emergency fallbacks only. They must not have automatic push or pull_request triggers while G7 is active.
+Automatic pull_request triggers are allowed. Automatic push triggers remain prohibited.
 
 One autonomous repair/retry is allowed for ordinary technical failure; repeated or conceptual failures escalate.
 
