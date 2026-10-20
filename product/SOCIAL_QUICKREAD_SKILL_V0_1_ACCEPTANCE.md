@@ -4,7 +4,7 @@
 
 ## 1. 这一步解决什么
 
-建立一个位于 EvidencePackage / structured claims 之后、LLM verbalizer 之前的社交平台简批约束层。
+建立一个位于 EvidencePackage / structured claims 之后、LLM verbalizer 之前的社交平台简批约束层，并加入用户可控 focus window 与同一 GPT 对话可复用的 session capsule。
 
 它解决两个问题：
 
@@ -20,6 +20,13 @@ reviewed Zhongzhou evidence
  -> narrow verbalizer payload
  -> social style lint
  -> 120–220 字简批
+
+同时：
+
+```text
+all validated claims + chart/profile refs
+ -> QuickReadConversationContext
+ -> same GPT thread follow-up
 ```
 
 关键点：**LLM 不再拥有从命盘重新选规则的权限。**
@@ -64,7 +71,15 @@ TOPIC_MAP 中的宫位只是 retrieval hints；真正输出仍由 evidence ref �
 - 用户输出 lint 禁止 RULE/source/EvidencePackage 等 debug 词；
 - 对过度 hedge、Markdown 报告格式进行 deterministic warning。
 
-## 6. 当前成熟度
+## 6. Focus window 与持续对话
+
+用户可以选择 full / relationship / personality / appearance / social / family / study_work / custom。
+
+例如 relationship scope 只消费感情模式、择偶偏好、当前感情环境，以及明确标记为 relationship domain 的年份判断。用户还可以用 custom 进一步限定 topic 和 period。
+
+简批生成后，不丢弃其他已验证信息。系统建立 `QuickReadConversationContext`，把 all validated claims、evidence refs、chart/profile context、上一段简批和当前 scope 保留给同一 GPT 对话。后续可以从“只看感情”切到“再看事业/父母/某几年”，新 claim 仍必须重新经过 runtime。
+
+## 7. 当前成熟度
 
 - Specification：READY
 - Implementation：READY (contract + validator)
@@ -75,7 +90,7 @@ TOPIC_MAP 中的宫位只是 retrieval hints；真正输出仍由 evidence ref �
 
 这不是“简批已经能覆盖所有十二宫”的声明。某 topic 没有可执行证据时应少说，而不是补说。
 
-## 7. Targeted validation
+## 8. Targeted validation
 
 执行：
 
@@ -86,12 +101,12 @@ PYTHONPATH="$PWD" pytest -q tests/test_product_social_quickread.py
 结果：
 
 ```text
-7 passed
+11 passed
 ```
 
-覆盖：缺证据拒绝、流派拒绝、temporal gate、current relationship 事实门槛、verbalizer payload 隔离、audit trace、style linter。
+覆盖：缺证据拒绝、流派拒绝、temporal gate、current relationship 事实门槛、relationship/custom scope 过滤、年份 domain/period 过滤、verbalizer payload 隔离、session capsule 全量 claim/evidence 保留、同一 session 切换窗口、audit trace、style linter。
 
-## 8. 下一步
+## 9. 下一步
 
 下一版本不应先扩写话术，而应做：
 
