@@ -75,10 +75,10 @@ def provider():
     return load_default_career_natal_provider(ROOT)
 
 
-def test_canonical_career_provider_is_opt_in_and_has_one_hundred_sixty_five_pinned_rules(provider):
+def test_canonical_career_provider_is_opt_in_and_has_one_hundred_ninety_two_pinned_rules(provider):
     assert provider.domain_id == "career"
     assert provider.is_test_only is False
-    assert provider.executable_rule_count == 165
+    assert provider.executable_rule_count == 192
     assert {rule.rule_id for rule in provider._executable_rules} == {
         "CA04-347", "CA04-349", "CA09-852",
         "CA01-066", "CA02-188", "CA03-255", "CA01-023",
@@ -106,6 +106,10 @@ def test_canonical_career_provider_is_opt_in_and_has_one_hundred_sixty_five_pinn
         "CA04-399", "CA04-400", "CA05-401", "CA05-406", "CA05-407", "CA05-408", "CA05-421",
         "CA05-425", "CA05-426", "CA05-427", "CA05-428", "CA05-430", "CA05-431", "CA05-432",
         "CA05-434", "CA05-440", "CA05-444",
+        "CA05-446", "CA05-449", "CA05-452", "CA05-453", "CA05-454", "CA05-455", "CA05-461",
+        "CA05-463", "CA05-468", "CA05-476", "CA05-478", "CA05-479", "CA05-495", "CA05-498",
+        "CA06-503", "CA06-504", "CA06-505", "CA06-513", "CA06-514", "CA06-515", "CA06-518",
+        "CA06-524", "CA06-525", "CA06-527", "CA06-528", "CA06-530", "CA06-534",
     }
 
     default = load_default_natal_domain_registry(ROOT)
