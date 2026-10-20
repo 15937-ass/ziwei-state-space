@@ -76,6 +76,6 @@ def test_product_v04_proposal_is_recorded():
         / "425-product-expert-reasoning-response-architecture.md"
     ).read_text(encoding="utf-8")
     assert "Proposal #425" in proposal
-    assert "APPROVED / IMPLEMENTING" in proposal
+    assert "IMPLEMENTED BY PR #427" in proposal
     assert "Forecast Ledger" in proposal
     assert "Product runtime" in proposal
