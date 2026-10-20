@@ -742,6 +742,20 @@ def compile_case_bundle(payload: Mapping[str, Any]) -> CaseBundle:
         },
         path="case_bundle",
     )
+    expert_graph = compile_expert_reasoning_graph(
+        value.get("expert_reasoning_graph")
+    )
+    executable_case_nodes = [
+        node.node_id
+        for node in expert_graph.nodes
+        if node.allowed_use not in CASE_ALLOWED_USES
+    ]
+    if executable_case_nodes:
+        raise ValueError(
+            "expert case reasoning nodes cannot become canonical executable truth: "
+            + ", ".join(executable_case_nodes)
+        )
+
     return CaseBundle(
         schema_version=_required_text(
             value.get("schema_version"), "case_bundle.schema_version"
@@ -758,9 +772,7 @@ def compile_case_bundle(payload: Mapping[str, Any]) -> CaseBundle:
             value.get("available_information_refs"),
             "case_bundle.available_information_refs",
         ),
-        expert_reasoning_graph=compile_expert_reasoning_graph(
-            value.get("expert_reasoning_graph")
-        ),
+        expert_reasoning_graph=expert_graph,
         expert_conclusion_refs=_text_tuple(
             value.get("expert_conclusion_refs"),
             "case_bundle.expert_conclusion_refs",
