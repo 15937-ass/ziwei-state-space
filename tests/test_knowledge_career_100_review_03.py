@@ -26,9 +26,9 @@ def test_counts_and_scope():
     assert len(RECORDS) == 100
     assert RECORDS[0]["source_rule_id"] == "CA03-236"
     assert RECORDS[-1]["source_rule_id"] == "CA04-342"
-    assert counts["first_time_complete_condition_mappings"] == 33
+    assert counts["first_time_complete_condition_mappings"] == 32
     assert counts["methodology_or_context_only"] == 7
-    assert counts["blocked_outcome_mappings"] == 60
+    assert counts["blocked_outcome_mappings"] == 61
     assert counts["unique_structured_rule_records_before"] == 252
     assert counts["unique_structured_rule_records_after"] == 352
 
@@ -53,3 +53,19 @@ def test_guardrails():
     assert g["new_atoms_or_semantic_defaults"] is False
     assert g["null_condition_must_not_be_coerced_to_empty"] is True
     assert g["outcome_probability_or_empirical_validity_claimed"] is False
+
+
+def test_changqu_quantifier_and_preg_inheritance_are_conservative():
+    by_id = {item["source_rule_id"]: item for item in RECORDS}
+    assert by_id["CA03-277"]["condition"] is None
+    assert by_id["CA03-277"]["blocker_code"] == "GROUP"
+    expected = {
+        "CA03-250": ["CA03-249"],
+        "CA03-284": ["CA03-283"],
+        "CA03-286": ["CA03-285"],
+        "CA03-293": ["CA03-292"],
+        "CA04-308": ["CA04-307"],
+        "CA04-330": ["CA04-329"],
+    }
+    for rid, inherited in expected.items():
+        assert by_id[rid]["source_context"]["inherited_source_rule_ids"] == inherited
