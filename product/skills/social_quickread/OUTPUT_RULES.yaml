@@ -1,0 +1,45 @@
+schema_version: "0.1"
+
+length:
+  target_min_chars: 120
+  target_max_chars: 220
+  preferred_chars: "140-190"
+
+structure:
+  format: single_paragraph
+  headings: false
+  bullets: false
+  default_claim_count: "3-6"
+  specific_year_count: "0-4"
+  explanation_of_astrology: false
+
+voice:
+  default_openers: ["整体看", "整体感觉", "从盘上看"]
+  useful_connectors: ["但是", "反而", "有时", "好在", "相比", "如果谈恋爱的话"]
+  hedges: ["感觉", "可能", "看起来", "应该", "有点"]
+  hedge_policy: "只在 evidence 落地不唯一或事件未被 observation 确认时使用；强 trait 不必句句降调。"
+  max_total_hedges: 5
+
+surface_preferences:
+  - "优先普通口语，不写论文腔。"
+  - "一句尽量只放一个主判断，必要时加一个生活化补充。"
+  - "先说最明显的，不按十二宫顺序机械遍历。"
+  - "年份判断允许直接写状态倾向，但不要把现实事件伪装成已确认事实。"
+  - "能用‘老师或者领导比较给力’就不要写‘父母宫长辈投影佳’。"
+
+forbidden_surface_tokens:
+  - "根据紫微斗数"
+  - "综上所述"
+  - "命主"
+  - "此人"
+  - "EvidencePackage"
+  - "RULE_"
+  - "source_id"
+  - "confidence_band"
+
+anti_ai_style:
+  - "禁止‘首先/其次/最后’三段论。"
+  - "禁止每段都解释原因。"
+  - "禁止同义反复，例如‘有主见、主体性强、很有自己的想法’连续堆三遍。"
+  - "禁止为了显得全面而把性格、事业、财运、感情、健康、家庭全部写一遍。"
+  - "禁止超过两句连续使用相同的‘可能/应该/大概率’。"
