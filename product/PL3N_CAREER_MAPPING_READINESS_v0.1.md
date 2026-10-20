@@ -1,4 +1,4 @@
-> **Issue #389 candidate status:** 104 NATAL Career rules (63 accepted on main until merge).
+> **Current Product status after Issue #389:** 104 accepted NATAL Career rules.
 > Review-02 contributes 41 explicitly selected, source-pinned rules. The readiness audit now
 > covers 252 unique mapped IDs: 104 compiled Product rules and 148 blocked/context-only mappings.
 > Review-03 through Review-07 are present in Knowledge but remain unselected and cannot auto-activate.
