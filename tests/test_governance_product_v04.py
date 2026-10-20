@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -21,14 +22,31 @@ def test_product_v04_has_explicit_now_future_execution_plan():
     assert "Career NATAL 190 is sufficient for the first vertical slice" in text
 
 
-def test_product_state_is_recovered_from_closed_416_418():
+def test_product_state_preserves_v04_entry_checkpoint_and_can_advance():
     text = (ROOT / "product" / "PRODUCT_STATE.yaml").read_text(encoding="utf-8")
     assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in text
     assert "active_issue: null" in text
     assert "active_pr: null" in text
-    assert "last_completed_product_issue: 416" in text
-    assert "last_completed_product_pr: 418" in text
-    assert 'next_work_unit: "PRODUCT_METHOD_CASE_CONTRACTS_V0_1"' in text
+
+    # Proposal #425 entry checkpoint remains durable history, while the
+    # last-completed and next-work pointers are allowed to advance normally.
+    assert "v04_entry_checkpoint_issue: 416" in text
+    assert "v04_entry_checkpoint_pr: 418" in text
+
+    issue_match = re.search(r"last_completed_product_issue:\s*(\d+)", text)
+    pr_match = re.search(r"last_completed_product_pr:\s*(\d+)", text)
+    next_match = re.search(r'next_work_unit:\s*"([^"]+)"', text)
+    assert issue_match and int(issue_match.group(1)) >= 416
+    assert pr_match and int(pr_match.group(1)) >= 418
+    assert next_match
+
+    next_work_unit = next_match.group(1)
+    assert next_work_unit != "PRODUCT_METHOD_CASE_CONTRACTS_V0_1"
+
+    now_block = text.split("critical_path:\n  now:\n", 1)[1].split(
+        "  future:\n", 1
+    )[0]
+    assert f'- "{next_work_unit}"' in now_block
     assert "190 accepted NATAL Career rules are on main" in text
 
 
