@@ -8,12 +8,12 @@ execution:
   phase: "PL3_METHOD_RESPONSE_VERTICAL_SLICE"
   active_issue: null
   active_pr: null
-  next_work_unit: "METHOD_POLICY_V0_1_CBR_HEURISTIC_SYMBOLIC"
-  resume_entry: "Product #441 / PR #444 are complete on main. Wang Tingzhi 《安星法与推断实例》 now has a source-backed 24-case inventory covering 12 palace topics × 2, 24 CaseBundles, 6 SOURCE_EXPLICIT/SEMANTIC_ONLY method patterns, and a deterministic LOCO-24 manifest. The case graphs are deliberately minimal: 72 SOURCE_DEMONSTRATED nodes and 0 RECONSTRUCTED nodes. Blind identity/outcome/expert-answer/external-biography exclusions are enforced. Machine replay remains NOT_RUN; Method Policy π remains NOT_IMPLEMENTED; method fidelity and predictive validity remain NOT_VALIDATED. The next Product work unit is METHOD_POLICY_V0_1_CBR_HEURISTIC_SYMBOLIC."
+  next_work_unit: "RESPONSE_SEMANTICS_FAIL_CLOSED_ADAPTER"
+  resume_entry: "Product #453 / PR #455 are complete on main. Method Policy π v0.1 now provides deterministic same-domain CBR, a source-preserving procedural execution adapter, evidence-readiness classification, fail-closed heuristic/symbolic planning, and Product #431-compatible InferenceTrace generation. Wang LOCO-24 audit reports RETRIEVAL_READY 24/24, ACTION_SELECTION_READY 24/24, and FULL_EXPERT_REPLAY_READY 0/24 because current blind Wang inputs remain SOURCE_REFERENCE_ONLY rather than machine-readable chart facts. Method fidelity and predictive validity remain NOT_VALIDATED. WANG_BLIND_EVIDENCE_MATERIALIZATION_V0_1 is required before real Benchmark B expert replay but does not block the independent next main-path work RESPONSE_SEMANTICS_FAIL_CLOSED_ADAPTER."
   v04_entry_checkpoint_issue: 416
   v04_entry_checkpoint_pr: 418
-  last_completed_product_issue: 441
-  last_completed_product_pr: 444
+  last_completed_product_issue: 453
+  last_completed_product_pr: 455
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
   resume_issue: 290
@@ -75,12 +75,12 @@ capability_snapshot:
 
   expert_method:
     specification: "V0_4_ARCHITECTURE_APPROVED"
-    implementation: "CORPUS_STRUCTURED"
+    implementation: "CORPUS_PLUS_POLICY_BASELINE"
     canonical_content: "NOT_APPLICABLE"
-    internal_validation: "CONTRACT_AND_CORPUS"
+    internal_validation: "CONTRACT_CORPUS_AND_POLICY"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    note: "Product #431 / PR #435 define the expert-method contracts. Product #441 / PR #444 add the source-backed Wang 24-case corpus, 6 SOURCE_EXPLICIT/SEMANTIC_ONLY method patterns and LOCO-24 manifest. Case graphs remain minimal (72 SOURCE_DEMONSTRATED, 0 RECONSTRUCTED). Machine replay is NOT_RUN; Method Policy π is NOT_IMPLEMENTED; method fidelity and predictive validity are NOT_VALIDATED."
+    note: "Product #431 / PR #435 define expert-method contracts; Product #441 / PR #444 add the source-backed Wang 24-case corpus, 6 SOURCE_EXPLICIT/SEMANTIC_ONLY method patterns and LOCO-24 manifest; Product #453 / PR #455 add deterministic same-domain CBR, a derived procedural execution adapter, evidence readiness, fail-closed Method Policy π v0.1 and readiness audit. RETRIEVAL_READY=24/24 and ACTION_SELECTION_READY=24/24, while FULL_EXPERT_REPLAY_READY=0/24 because Wang blind evidence is still SOURCE_REFERENCE_ONLY. Real replay requires WANG_BLIND_EVIDENCE_MATERIALIZATION_V0_1. Method fidelity and predictive validity remain NOT_VALIDATED."
 
   response_semantics_adapter:
     specification: "V0_4_ARCHITECTURE_APPROVED"
@@ -145,11 +145,11 @@ capability_snapshot:
 
 critical_path:
   now:
-    - "METHOD_POLICY_V0_1_CBR_HEURISTIC_SYMBOLIC"
     - "RESPONSE_SEMANTICS_FAIL_CLOSED_ADAPTER"
     - "SOURCE_BACKED_RESPONSE_CORPUS_DEPENDENCY"
     - "PL3R_DECADE_YEAR_RESPONSE_COMPILER"
     - "PL3M0_CANONICAL_MANIFESTATION_CANDIDATES"
+    - "WANG_BLIND_EVIDENCE_MATERIALIZATION_V0_1"
     - "CANONICAL_AND_METHOD_FIDELITY_BENCHMARK"
     - "FORECAST_LEDGER_ACTIVATION"
   future:
