@@ -397,10 +397,11 @@ rules by integrating exactly thirty complete mappings from
 
 This batch uses the exact Knowledge status `REVIEW_COMPLETE_NON_PRODUCTION`.
 Product accepts that status explicitly rather than widening the handoff to arbitrary
-review documents. The existing `REVIEW_BATCH_PARAGRAPH_SCOPE_V0_1` source-context
-contract remains in force: paragraph scope, supported chart context, inherited
-source IDs, incomplete-antecedent marker and the prohibition on invented semantics
-are pinned verbatim.
+review documents. Review-03 uses a dedicated `REVIEW_COMPLETE_CONTEXT_V0_1`
+source-context contract because its reviewed rows mark the chart antecedent complete,
+unlike Review-01/02. Paragraph scope, optional supported-chart context, inherited
+source IDs, the complete-antecedent marker and the prohibition on invented semantics
+are pinned verbatim. Review-01/02 keep their stricter incomplete-antecedent contract.
 
 The thirty rules expand content around 天机天梁／巳亥天机, 太阳总论, 太阳天梁,
 太阳太阴, 太阳巨门 and 武曲. They add bounded projections for instability and
