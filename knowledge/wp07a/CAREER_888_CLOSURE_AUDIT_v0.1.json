@@ -1,0 +1,116 @@
+{
+  "schema_version": "0.1",
+  "audit_id": "KB-WP07A-CAREER-888-CLOSURE",
+  "lane": "KNOWLEDGE_ONLY",
+  "status": "SOURCE_AND_STRUCTURED_ID_CLOSURE_PENDING_DETERMINISTIC_GATE",
+  "canonical_source_rules": 888,
+  "structured_unique_ids_expected": 888,
+  "strict_review_disposition_rows": 836,
+  "pre_hundred_batch_specialized_structured_ids": 52,
+  "disposition_totals": {
+    "COMPLETE_CONDITION_MAPPING": 216,
+    "METHODOLOGY_OR_CONTEXT_ONLY": 107,
+    "BLOCKED_OUTCOME_MAPPING": 513
+  },
+  "blocker_totals": {
+    "VALENCE": 5,
+    "EXAMPLE": 3,
+    "ACTION": 6,
+    "RELATION": 74,
+    "COMPOSITE": 92,
+    "TEMPORAL": 17,
+    "GROUP": 171,
+    "ABSENCE": 6,
+    "CONTEXT_STATE": 43,
+    "DIGNITY_AND_GROUP": 5,
+    "RELATION_AND_GROUP": 59,
+    "DIGNITY": 13,
+    "UNMODELED_STATE": 2,
+    "ABSENCE_AND_GROUP": 16,
+    "DIGNITY_AND_RELATION": 1
+  },
+  "stage_breakdown": [
+    {
+      "artifact": "knowledge/wp07a/CAREER_100_REVIEW_01_v0.1.json",
+      "rows": 100,
+      "complete": 20,
+      "context": 30,
+      "blocked": 50
+    },
+    {
+      "artifact": "knowledge/wp07a/CAREER_100_REVIEW_02_v0.1.json",
+      "rows": 100,
+      "complete": 41,
+      "context": 1,
+      "blocked": 58
+    },
+    {
+      "artifact": "knowledge/wp07a/CAREER_100_REVIEW_03_v0.1.json",
+      "rows": 100,
+      "complete": 30,
+      "context": 8,
+      "blocked": 62
+    },
+    {
+      "artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "rows": 100,
+      "complete": 31,
+      "context": 11,
+      "blocked": 58
+    },
+    {
+      "artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "rows": 100,
+      "complete": 27,
+      "context": 17,
+      "blocked": 56
+    },
+    {
+      "artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "rows": 100,
+      "complete": 20,
+      "context": 10,
+      "blocked": 70
+    },
+    {
+      "artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "rows": 100,
+      "complete": 24,
+      "context": 11,
+      "blocked": 65
+    },
+    {
+      "artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "rows": 100,
+      "complete": 16,
+      "context": 17,
+      "blocked": 67
+    },
+    {
+      "artifact": "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json",
+      "rows": 36,
+      "complete": 7,
+      "context": 2,
+      "blocked": 27
+    }
+  ],
+  "closure_claims": {
+    "all_canonical_ids_have_structured_disposition": true,
+    "all_rules_executable": false,
+    "production_registry_expanded": false,
+    "empirical_probability_validated": false,
+    "natal_truth_rewritten_by_feedback": false,
+    "temporal_rules_flattened_to_natal": false
+  },
+  "ontology_backlog_from_blockers": [
+    "spatial meeting / borrowing / arching semantics",
+    "star-group membership and quantifier semantics",
+    "absence / closed-world semantics",
+    "dignity / brightness facts",
+    "composite named structures and flanking patterns",
+    "real-world context-state inputs",
+    "temporal windows and path-dependent targets",
+    "currently unmodeled facts such as sex/gender when explicitly required by source"
+  ],
+  "next_phase_recommendation": "After deterministic 888-ID closure passes, stop adding ad-hoc rule exceptions. Derive ontology work units from blocker census, then revisit blocked rules under separately approved semantics."
+}
