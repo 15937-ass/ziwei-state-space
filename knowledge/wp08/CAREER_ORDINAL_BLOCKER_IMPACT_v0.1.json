@@ -16,9 +16,9 @@
     "execution_unlocked": 0
   },
   "interpretation": {
-    "core_finding": "Ordinal evidence enriches ordering/emphasis but does not provide missing activation membership/cardinality, numeric severity threshold, dependency compiler behavior, or closed-world evidence.",
+    "core_finding": "All 130 ordinal constraints now have source-context dispositions against the atomic-rule universe. Ordinal evidence enriches ordering/emphasis but does not provide missing activation membership/cardinality, numeric severity threshold, dependency compiler behavior, or closed-world evidence.",
     "zero_resolution_is_valid_result": true,
-    "next_target": "Recover the two remaining source-explicit atomic gaps (OC-038, OC-102) as bounded source constraints; do not use ordinal evidence to inflate executability."
+    "next_target": "Move from ordinal extraction/linking to compiler-readiness normalization of residual symbolic/literal structures; do not use ordinal evidence to inflate executability."
   },
   "records": [
     {
@@ -544,7 +544,9 @@
     {
       "constraint_id": "OC-038",
       "relation_type": "DEGREE_LABEL_ONLY",
-      "linked_rule_ids": [],
+      "linked_rule_ids": [
+        "CA04-372"
+      ],
       "linked_activation_rule_ids": [],
       "linked_activation_blockers": [],
       "blocker_impact": "NO_BLOCKER_REDUCTION",
@@ -1476,7 +1478,9 @@
     {
       "constraint_id": "OC-102",
       "relation_type": "RANKED_AHEAD_OF",
-      "linked_rule_ids": [],
+      "linked_rule_ids": [
+        "CA08-770"
+      ],
       "linked_activation_rule_ids": [],
       "linked_activation_blockers": [],
       "blocker_impact": "NO_BLOCKER_REDUCTION",
