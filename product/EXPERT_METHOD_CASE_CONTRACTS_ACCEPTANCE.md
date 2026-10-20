@@ -25,6 +25,7 @@ Status: **IMPLEMENTED / FINAL CI PENDING**
 | CaseBundle separates source/input/target/expert graph/conclusion/outcome | PASS | `src/product/expert_method_contracts.py` |
 | person_group_id available for leakage grouping | PASS | CaseBundle |
 | outcome optional | PASS | fixture + test |
+| blind input excludes expert conclusion / outcome refs | PASS | CaseBundle leakage guard + tests |
 | expert graph uses bounded auditable actions | PASS | EXPERT_ACTIONS |
 | graph node IDs unique | PASS | deterministic validation |
 | edge endpoints exist | PASS | deterministic validation |
