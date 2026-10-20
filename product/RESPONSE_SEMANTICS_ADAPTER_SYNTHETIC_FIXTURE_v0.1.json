@@ -1,0 +1,97 @@
+{
+  "schema_version": "0.1",
+  "fixture_id": "RESPONSE_SEMANTICS_ADAPTER_SYNTHETIC_001",
+  "noncanonical": true,
+  "purpose": "Exercise positive authorization without granting any real Knowledge artifact execution.",
+  "record": {
+    "schema_version": "0.1",
+    "record_id": "RS-SYNTHETIC-SAFE-001",
+    "term": "SYNTHETIC_PAIR",
+    "semantic_role": "LOCAL_RESPONSE_PATTERN",
+    "members": [
+      {
+        "id": "SYNTHETIC_A",
+        "type": "OTHER_SOURCE_TERM"
+      },
+      {
+        "id": "SYNTHETIC_B",
+        "type": "OTHER_SOURCE_TERM"
+      }
+    ],
+    "scope": {
+      "domain": "SYNTHETIC_DOMAIN",
+      "time_layer": "YEAR",
+      "star_system": "SYNTHETIC_SYSTEM",
+      "palace": "SYNTHETIC_PALACE",
+      "notes": "Synthetic only."
+    },
+    "activation": {
+      "mode": "ALL_MEMBERS",
+      "n": null,
+      "source_status": "EXPLICIT",
+      "notes": "Synthetic explicit activation."
+    },
+    "relation_constraints": [
+      {
+        "relation": "SYNTHETIC_RELATION",
+        "source_status": "EXPLICIT",
+        "notes": "Synthetic only."
+      }
+    ],
+    "interaction": {
+      "type": "GATE",
+      "source_status": "EXPLICIT",
+      "notes": "Synthetic only."
+    },
+    "ordinal_constraints": [
+      {
+        "lhs": "SYNTHETIC_A",
+        "relation": "PREFERRED_OVER",
+        "rhs": "SYNTHETIC_B",
+        "source_status": "EXPLICIT",
+        "scope_note": "Synthetic only."
+      }
+    ],
+    "effect_targets": [
+      {
+        "target_id": "SYNTHETIC_EFFECT",
+        "operator": "TRANSFORM",
+        "source_status": "EXPLICIT",
+        "notes": "Synthetic only."
+      }
+    ],
+    "provenance": [
+      {
+        "artifact": "product/RESPONSE_SEMANTICS_ADAPTER_SYNTHETIC_FIXTURE_v0.1.json",
+        "locator": "record",
+        "source_ids": [
+          "SYNTHETIC_ONLY"
+        ]
+      }
+    ],
+    "epistemic_status": "EXPLICIT",
+    "execution_status": "SAFE_SYMBOLIC"
+  },
+  "requested_scope": {
+    "domain": "SYNTHETIC_DOMAIN",
+    "time_layer": "YEAR",
+    "star_system": "SYNTHETIC_SYSTEM",
+    "palace": "SYNTHETIC_PALACE"
+  },
+  "application_term": "SYNTHETIC_PAIR",
+  "authorization_ref": "SYNTHETIC_EXECUTION_AUTHORIZATION:RS-SYNTHETIC-SAFE-001",
+  "expected": {
+    "without_authorization": {
+      "allowed_use": "SEMANTIC_ONLY",
+      "runtime_effect_allowed": false,
+      "blockers": [
+        "EXPLICIT_EXECUTION_AUTHORIZATION_REQUIRED"
+      ]
+    },
+    "with_authorization": {
+      "allowed_use": "EXECUTABLE",
+      "runtime_effect_allowed": true,
+      "blockers": []
+    }
+  }
+}
