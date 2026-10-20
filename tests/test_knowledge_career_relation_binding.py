@@ -203,3 +203,12 @@ def test_no_execution_unlock_or_hidden_runtime_change():
     assert guard["product_runtime_modified"] is False
     assert guard["numeric_weights_added"] is False
     assert guard["probabilities_added"] is False
+
+
+def test_source_literal_node_is_part_of_binding_schema():
+    schema = load(SCHEMA)
+    node_types = {node["id"]: node for node in schema["target_node_types"]}
+    assert "SOURCE_LITERAL_EXPRESSION_NODE" in node_types
+    node = node_types["SOURCE_LITERAL_EXPRESSION_NODE"]
+    assert node["default_expansion_policy"] == "SEMANTIC_NORMALIZATION_DEFERRED"
+    assert "SEMANTIC_NORMALIZATION_DEFERRED" in schema["expansion_policies"]
