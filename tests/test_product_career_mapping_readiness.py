@@ -13,14 +13,14 @@ def test_current_inventory_counts_each_mapping_once_and_reconciles_corpus():
     report=audit.audit(ROOT)
     c=report['counts']
     assert c['canonical_source_rows']==888
-    assert c['unique_mapping_ids']==352
-    assert c['compiled_product_rules']==134
-    assert c['blocked_mapping_ids']==218
+    assert c['unique_mapping_ids']==452
+    assert c['compiled_product_rules']==165
+    assert c['blocked_mapping_ids']==287
     assert c['static_candidates_not_selected']==0
-    assert c['source_rows_without_scoped_mapping']==536
-    assert sum(c['unmapped_source_groups'].values())==536
-    assert c['unmapped_source_groups']=={'CASE_SUPPORT_ONLY':19,'NATAL_WITHOUT_SCOPED_MAPPING':509,'NON_NATAL_SOURCE_ONLY':8}
-    assert len({e['source_rule_id'] for e in report['entries']})==352
+    assert c['source_rows_without_scoped_mapping']==436
+    assert sum(c['unmapped_source_groups'].values())==436
+    assert c['unmapped_source_groups']=={'CASE_SUPPORT_ONLY':17,'NATAL_WITHOUT_SCOPED_MAPPING':413,'NON_NATAL_SOURCE_ONLY':6}
+    assert len({e['source_rule_id'] for e in report['entries']})==452
     assert c['unique_mapping_ids']+c['source_rows_without_scoped_mapping']==888
     assert report['new_executable_rules_this_audit']==0
     assert report['automatic_activation_allowed'] is False
@@ -31,7 +31,7 @@ def test_blocked_records_keep_null_conditions_and_precise_requirements():
     historical={'CA01-020','CA01-035','CA01-043','CA01-045','CA02-158','CA02-164','CA02-194','CA05-403','CA08-766'}
     blocked={rid for rid,e in entries.items() if e['classification']=='BLOCKED'}
     assert historical <= blocked
-    assert len(blocked)==218
+    assert len(blocked)==287
     assert all(entries[rid]['next_requirement_zh'] for rid in blocked)
     assert all(entries[rid]['condition_is_null'] for rid in ('CA01-035','CA01-043','CA01-045'))
     assert all(e['automatic_activation_allowed'] is False for e in entries.values())
@@ -44,7 +44,7 @@ def test_static_candidate_without_product_selection_is_reported_but_never_activa
     del registry['rules']['CA03-285']
     candidate=copy.deepcopy(registry)
     report=audit.audit(ROOT,registry_document=registry)
-    assert report['counts']['compiled_product_rules']==133
+    assert report['counts']['compiled_product_rules']==164
     assert report['counts']['static_candidates_not_selected']==1
     entry=next(e for e in report['entries'] if e['source_rule_id']=='CA03-285')
     assert entry['classification']=='STATIC_CANDIDATE_NOT_SELECTED'
