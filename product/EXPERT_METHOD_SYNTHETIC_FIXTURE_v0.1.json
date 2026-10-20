@@ -1,0 +1,320 @@
+{
+  "case_bundle": {
+    "schema_version": "0.1",
+    "case_id": "SYNTHETIC-METHOD-CASE-001",
+    "person_group_id": "SYNTHETIC-PERSON-001",
+    "source": {
+      "source_id": "SYNTHETIC-SOURCE-001",
+      "school": "SYNTHETIC_SANHE_A",
+      "author": "SYNTHETIC_EXPERT",
+      "artifact_ref": "synthetic://expert-method-case-001",
+      "artifact_type": "SYNTHETIC_CASE",
+      "source_span_refs": [
+        "SPAN:CASE-001:INPUT",
+        "SPAN:CASE-001:REASONING",
+        "SPAN:CASE-001:CONCLUSION"
+      ],
+      "review_status": "MODEL_SELF_REVIEWED"
+    },
+    "chart_snapshot_ref": "CHART:SYNTHETIC-001",
+    "input_refs": [
+      "INPUT:SYNTHETIC-001"
+    ],
+    "target": {
+      "question_ref": "QUESTION:SYNTHETIC-CAREER-001",
+      "domains": [
+        "CAREER"
+      ],
+      "target_time_label": "SYNTHETIC-YEAR"
+    },
+    "available_information_refs": [
+      "INPUT:SYNTHETIC-001",
+      "CHART:SYNTHETIC-001",
+      "TEMPORAL:SYNTHETIC-DECADE-001",
+      "TEMPORAL:SYNTHETIC-YEAR-001"
+    ],
+    "expert_reasoning_graph": {
+      "graph_id": "ERG:SYNTHETIC-001",
+      "nodes": [
+        {
+          "node_id": "N1",
+          "action": "INSPECT",
+          "evidence_refs": [
+            "CHART:SYNTHETIC-001"
+          ],
+          "canonical_rule_refs": [],
+          "temporal_layer": "NATAL",
+          "palace_targets": [
+            "CAREER"
+          ],
+          "domain_targets": [
+            "CAREER"
+          ],
+          "source_span_refs": [
+            "SPAN:CASE-001:REASONING:1"
+          ],
+          "epistemic_status": "SOURCE_DEMONSTRATED",
+          "allowed_use": "CASE_SUPPORT_ONLY"
+        },
+        {
+          "node_id": "N2",
+          "action": "COMPARE",
+          "evidence_refs": [
+            "TEMPORAL:SYNTHETIC-DECADE-001"
+          ],
+          "canonical_rule_refs": [
+            "DEMO-RULE-001"
+          ],
+          "temporal_layer": "DECADE",
+          "palace_targets": [
+            "CAREER"
+          ],
+          "domain_targets": [
+            "CAREER"
+          ],
+          "source_span_refs": [
+            "SPAN:CASE-001:REASONING:2"
+          ],
+          "epistemic_status": "SOURCE_DEMONSTRATED",
+          "allowed_use": "CASE_SUPPORT_ONLY"
+        },
+        {
+          "node_id": "N3",
+          "action": "REFINE",
+          "evidence_refs": [
+            "TEMPORAL:SYNTHETIC-YEAR-001"
+          ],
+          "canonical_rule_refs": [
+            "DEMO-RULE-002"
+          ],
+          "temporal_layer": "YEAR",
+          "palace_targets": [
+            "CAREER"
+          ],
+          "domain_targets": [
+            "CAREER"
+          ],
+          "source_span_refs": [
+            "SPAN:CASE-001:REASONING:3"
+          ],
+          "epistemic_status": "SOURCE_DEMONSTRATED",
+          "allowed_use": "CASE_SUPPORT_ONLY"
+        },
+        {
+          "node_id": "N4",
+          "action": "CONFIRM",
+          "evidence_refs": [
+            "EVIDENCE:SYNTHETIC-CANDIDATE-001"
+          ],
+          "canonical_rule_refs": [
+            "DEMO-RULE-002"
+          ],
+          "temporal_layer": "YEAR",
+          "palace_targets": [
+            "CAREER"
+          ],
+          "domain_targets": [
+            "CAREER"
+          ],
+          "source_span_refs": [
+            "SPAN:CASE-001:REASONING:4"
+          ],
+          "epistemic_status": "SOURCE_DEMONSTRATED",
+          "allowed_use": "CASE_SUPPORT_ONLY"
+        },
+        {
+          "node_id": "N5",
+          "action": "STOP",
+          "evidence_refs": [
+            "EVIDENCE:SYNTHETIC-CANDIDATE-001"
+          ],
+          "canonical_rule_refs": [],
+          "temporal_layer": "YEAR",
+          "palace_targets": [],
+          "domain_targets": [
+            "CAREER"
+          ],
+          "source_span_refs": [
+            "SPAN:CASE-001:CONCLUSION"
+          ],
+          "epistemic_status": "SOURCE_DEMONSTRATED",
+          "allowed_use": "CASE_SUPPORT_ONLY"
+        }
+      ],
+      "edges": [
+        {
+          "edge_id": "E1",
+          "source": "N1",
+          "target": "N2",
+          "relation": "NEXT"
+        },
+        {
+          "edge_id": "E2",
+          "source": "N2",
+          "target": "N3",
+          "relation": "REFINES"
+        },
+        {
+          "edge_id": "E3",
+          "source": "N3",
+          "target": "N4",
+          "relation": "CONFIRMS"
+        },
+        {
+          "edge_id": "E4",
+          "source": "N4",
+          "target": "N5",
+          "relation": "NEXT"
+        }
+      ]
+    },
+    "expert_conclusion_refs": [
+      "SPAN:CASE-001:CONCLUSION"
+    ],
+    "outcome_refs": [],
+    "epistemic_status": "SOURCE_DEMONSTRATED",
+    "allowed_use": "CASE_SUPPORT_ONLY"
+  },
+  "inference_trace": {
+    "schema_version": "0.1",
+    "trace_id": "TRACE:SYNTHETIC-001",
+    "case_id": "SYNTHETIC-METHOD-CASE-001",
+    "policy_version": "METHOD-POLICY-SYNTHETIC-0.1",
+    "mode": "EXPERT_REPLAY",
+    "steps": [
+      {
+        "step_id": "T1",
+        "ordinal": 1,
+        "action": "INSPECT",
+        "evidence_refs": [
+          "CHART:SYNTHETIC-001"
+        ],
+        "canonical_rule_refs": [],
+        "temporal_layer": "NATAL",
+        "palace_targets": [
+          "CAREER"
+        ],
+        "domain_targets": [
+          "CAREER"
+        ],
+        "verifier_status": "VERIFIED",
+        "verifier_refs": [
+          "VERIFY:SYNTHETIC-001"
+        ]
+      },
+      {
+        "step_id": "T2",
+        "ordinal": 2,
+        "action": "COMPARE",
+        "evidence_refs": [
+          "TEMPORAL:SYNTHETIC-DECADE-001"
+        ],
+        "canonical_rule_refs": [
+          "DEMO-RULE-001"
+        ],
+        "temporal_layer": "DECADE",
+        "palace_targets": [
+          "CAREER"
+        ],
+        "domain_targets": [
+          "CAREER"
+        ],
+        "verifier_status": "VERIFIED",
+        "verifier_refs": [
+          "VERIFY:SYNTHETIC-002"
+        ]
+      },
+      {
+        "step_id": "T3",
+        "ordinal": 3,
+        "action": "REFINE",
+        "evidence_refs": [
+          "TEMPORAL:SYNTHETIC-YEAR-001"
+        ],
+        "canonical_rule_refs": [
+          "DEMO-RULE-002"
+        ],
+        "temporal_layer": "YEAR",
+        "palace_targets": [
+          "CAREER"
+        ],
+        "domain_targets": [
+          "CAREER"
+        ],
+        "verifier_status": "VERIFIED",
+        "verifier_refs": [
+          "VERIFY:SYNTHETIC-003"
+        ]
+      },
+      {
+        "step_id": "T4",
+        "ordinal": 4,
+        "action": "STOP",
+        "evidence_refs": [
+          "EVIDENCE:SYNTHETIC-CANDIDATE-001"
+        ],
+        "canonical_rule_refs": [],
+        "temporal_layer": "YEAR",
+        "palace_targets": [],
+        "domain_targets": [
+          "CAREER"
+        ],
+        "verifier_status": "VERIFIED",
+        "verifier_refs": [
+          "VERIFY:SYNTHETIC-004"
+        ]
+      }
+    ],
+    "final_status": "COMPLETED",
+    "output_refs": [
+      "OUTPUT:SYNTHETIC-001"
+    ]
+  },
+  "method_pattern": {
+    "schema_version": "0.1",
+    "pattern_id": "METHOD:SYNTHETIC-NATAL-DECADE-YEAR",
+    "label": "synthetic natal-to-decade-to-year refinement",
+    "maturity": "SOURCE_DEMONSTRATED",
+    "allowed_use": "CASE_SUPPORT_ONLY",
+    "school_scope": [
+      "SYNTHETIC_SANHE_A"
+    ],
+    "source_case_refs": [
+      "SYNTHETIC-METHOD-CASE-001"
+    ],
+    "source_span_refs": [
+      "SPAN:CASE-001:REASONING"
+    ],
+    "action_sequence": [
+      "INSPECT",
+      "COMPARE",
+      "REFINE",
+      "CONFIRM",
+      "STOP"
+    ],
+    "required_evidence_kinds": [
+      "NATAL",
+      "DECADE",
+      "YEAR"
+    ],
+    "target_domains": [
+      "CAREER"
+    ],
+    "review_status": "MODEL_SELF_REVIEWED"
+  },
+  "school_compatibility": {
+    "schema_version": "0.1",
+    "compatibility_id": "SCOMP:SYNTHETIC-A-TO-ZHONGZHOU-001",
+    "source_school": "SYNTHETIC_SANHE_A",
+    "target_school": "ZHONGZHOU",
+    "band": "PROCEDURAL_COMPATIBLE",
+    "artifact_refs": [
+      "SYNTHETIC-METHOD-CASE-001"
+    ],
+    "source_span_refs": [
+      "SPAN:CASE-001:REASONING"
+    ],
+    "review_status": "MODEL_SELF_REVIEWED",
+    "canonical_merge_allowed": false
+  }
+}
