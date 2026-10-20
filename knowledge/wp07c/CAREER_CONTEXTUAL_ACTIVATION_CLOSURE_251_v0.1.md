@@ -9,24 +9,35 @@ Issue: #454
 
 ## 2. Cumulative readiness
 
-- MULTI_CLASS_BLOCKED: 63
-- RUNTIME_EVIDENCE_OR_DEPENDENCY_GATED: 38
-- SOURCE_UNDERDETERMINED: 123
+- MULTI_CLASS_BLOCKED: 60
+- ANTECEDENT_REFERENCE_UNRESOLVED: 11
+- SOURCE_UNDERDETERMINED: 126
 - NORMALIZATION_DEFERRED: 21
 - LOCAL_STRUCTURE_READY: 6
+- DEPENDENCY_COMPILER_GATED: 27
 
-Rows with no current activation blocker: **6**  
-Rows containing source-underdetermined blocker(s): **184**
+- no current activation blocker: **6**
+- rows containing source-underdetermined blockers: **184**
+- unresolved 前格 source reference: **16**
+- explicit 前格 dependency already known: **49**
+- closed-world evidence gated: **23**
 
-## 3. 合法 UNKNOWN
+## 3. 哪些属于“实在不可直接执行”
 
-以下残余不再视为“没做完”，而是 canonical knowledge 的合法结论：
+必须分三类，不能混在一起：
+
+1. **中州派原文没有给 universal quantity/threshold**：generic shorthand、开放类别、煞轻/煞重等。这类 canonical 允许最终为 UNKNOWN / NO_UNIVERSAL_RULE，不该为了执行率发明规则。
+2. **16 条前格 reference 还没有 source-explicit dependency edge**：这类不是理论上永久不可解，下一步应回原书上下文专项复核；在复核前禁止按“上一行”猜。
+3. **负条件 closed-world / 已知 dependency 的 compiler requirement**：这是 Product/推理实现问题，不是中州派理论缺口。
+
+## 4. 合法 UNKNOWN
+
 - generic shorthand 未明示 ANY/ALL/N_OF -> `NO_UNIVERSAL_RULE`
 - open category 缺少全局成员/量词 -> `INSUFFICIENT_SOURCE_OR_CONTEXT_SCOPED_ONLY`
 - 煞轻/煞重/均弱没有数值阈值 -> `NO_UNIVERSAL_THRESHOLD`
 
-这些 UNKNOWN 可以在产品侧通过显式 heuristic/empirical layer 另行处理，但不能反写成中州派原文真理。
+这些 UNKNOWN 可以在产品侧通过明确标注的 heuristic/empirical layer另行处理，但不能反写成中州派原文真理。
 
-## 4. 还不是执行层
+## 5. 下一步最值得做的知识工作
 
-前格 dependency、负条件 closed-world evidence、literal normalization、structured pattern compiler 都属于后续 inference/compiler readiness，而不是靠篡改 source semantics 解决。
+先专项回源复核 16 条 unresolved 前格；如果原书也无法给出唯一 antecedent，再把真正不可判定项提交 PI 讨论。
