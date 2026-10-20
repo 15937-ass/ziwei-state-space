@@ -54,7 +54,7 @@ Work/Codex 仍可承担 shell/coding runtime；G8 public Actions 仍可承担 de
 
 无 Product runtime 或 inference semantics 变化。
 
-## Risks / Failure Modes
+## Risks and Failure Modes
 
 - 把“完整仓库权限”误解为“可以绕过治理”。
 - 有 merge 能力后过早合并未验证 PR。
