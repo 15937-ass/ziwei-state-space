@@ -10,14 +10,14 @@
   },
   "coverage": {
     "constraints": 130,
-    "linked_atomic_rule_ids": 127,
+    "linked_atomic_rule_ids": 128,
     "linked_activation_rule_ids": 30
   },
   "disposition_counts": {
-    "DIRECT_ATOMIC_RULE": 111,
+    "DIRECT_ATOMIC_RULE": 112,
     "METHODOLOGY_OR_CONTEXT_ONLY": 1,
     "MULTI_RULE_SHARED_SOURCE_SENTENCE": 15,
-    "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP": 3
+    "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP": 2
   },
   "method": {
     "candidate_scope": "same printed source page only",
@@ -516,8 +516,10 @@
       "source_span_id": "ZZ003-P137",
       "printed_page": 137,
       "source_sentence": "尤忌投机。",
-      "disposition": "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP",
-      "linked_rule_ids": [],
+      "disposition": "DIRECT_ATOMIC_RULE",
+      "linked_rule_ids": [
+        "CA03-223"
+      ],
       "top_candidate": {
         "source_rule_id": "CA03-226",
         "condition": "天机巨门天机化忌",
@@ -532,7 +534,15 @@
         "projection_target": "speech_based_income_channel_suited",
         "lexical_score": 0.183
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "Career review audit explicitly states CA03-223 inherits 卯酉机巨天机化禄 and preserves 尤忌投机 as a scene constraint.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA03-223",
+          "condition": "前格尤忌投机",
+          "projection_target": "speculation_is_strongly_disfavored_under_tianji_hualu_variant"
+        }
+      ]
     },
     {
       "constraint_id": "OC-019",
