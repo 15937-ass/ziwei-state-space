@@ -1,6 +1,6 @@
 # Work + Codex Execution Protocol v0.1
 
-Status: **ACTIVE GOVERNANCE EXECUTION CONTRACT**  
+Status: **HISTORICAL — SUPERSEDED FOR ROUTINE EXECUTION BY G8; REPOSITORY-OPERATOR AUTHORITY AMENDED BY ISSUE #374 (G9)**  
 Tracking Issue: #340  
 Effective after merge of G7.
 
@@ -154,3 +154,12 @@ To revert G7:
 The PI approved the G7 migration in chat on 2026-10-19.
 
 The migration changes execution infrastructure only. It does **not** authorize changes to Zhongzhou theory, canonical source truth, probability claims, temporal semantics, or Product maturity claims.
+
+
+## 10. Later authority amendment (G9 / Issue #374)
+
+On 2026-10-20, the PI explicitly changed the repository-operator rule: ordinary ChatGPT conversation mode is authorized as a first-class repository operator and may use every GitHub operation actually exposed by the connected tools.
+
+This supersedes the old G7 assumption that repository edits must be handed to Codex merely because the current session is not Work/Codex. The effective authority split is maintained in `governance/PUBLIC_ACTIONS_EXECUTION_PROTOCOL_v0.2.md`.
+
+This amendment changes operational capability only. Issue-first execution, lane ownership, PR discipline, validation gates, Human Gates, Zhongzhou source integrity, and product maturity boundaries remain in force.
