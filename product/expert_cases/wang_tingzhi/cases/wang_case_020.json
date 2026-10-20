@@ -1,0 +1,120 @@
+{
+  "schema_version": "0.1",
+  "case_id": "WANG-CASE-020",
+  "person_group_id": "WANG-PERSON-020",
+  "source": {
+    "source_id": "WANG-ANXING-TUIDUAN-CASE-020",
+    "school": "ZHONGZHOU",
+    "author": "王亭之",
+    "artifact_ref": "PROJECT_SOURCE:王亭之-安星法与推断实例.pdf",
+    "artifact_type": "EXPERT_CASE",
+    "source_span_refs": [
+      "WANG-ANXING-TUIDUAN:P22:CASE-020:CHART",
+      "WANG-ANXING-TUIDUAN:P22:CASE-020:REASONING",
+      "WANG-ANXING-TUIDUAN:P22:CASE-020:CONCLUSION",
+      "WANG-ANXING-TUIDUAN:P22:CASE-020:OUTCOME"
+    ],
+    "review_status": "SOURCE_SPAN_VERIFIED"
+  },
+  "chart_snapshot_ref": "SOURCE_CHART:WANG-CASE-020",
+  "input_refs": [
+    "WANG-ANXING-TUIDUAN:P22:CASE-020:CHART"
+  ],
+  "target": {
+    "question_ref": "SOURCE_CASE_TARGET:WANG-CASE-020:CAREER",
+    "domains": [
+      "CAREER"
+    ],
+    "target_time_label": null
+  },
+  "available_information_refs": [
+    "WANG-ANXING-TUIDUAN:P22:CASE-020:CHART"
+  ],
+  "expert_reasoning_graph": {
+    "graph_id": "ERG:WANG-CASE-020",
+    "nodes": [
+      {
+        "node_id": "N1",
+        "action": "INSPECT",
+        "evidence_refs": [
+          "WANG-ANXING-TUIDUAN:P22:CASE-020:CHART"
+        ],
+        "canonical_rule_refs": [],
+        "temporal_layer": "NATAL",
+        "palace_targets": [
+          "官禄宫"
+        ],
+        "domain_targets": [
+          "CAREER"
+        ],
+        "source_span_refs": [
+          "WANG-ANXING-TUIDUAN:P22:CASE-020:CHART"
+        ],
+        "epistemic_status": "SOURCE_DEMONSTRATED",
+        "allowed_use": "CASE_SUPPORT_ONLY"
+      },
+      {
+        "node_id": "N2",
+        "action": "CLASSIFY",
+        "evidence_refs": [
+          "WANG-ANXING-TUIDUAN:P22:CASE-020:REASONING"
+        ],
+        "canonical_rule_refs": [],
+        "temporal_layer": "NATAL",
+        "palace_targets": [
+          "官禄宫"
+        ],
+        "domain_targets": [
+          "CAREER"
+        ],
+        "source_span_refs": [
+          "WANG-ANXING-TUIDUAN:P22:CASE-020:REASONING"
+        ],
+        "epistemic_status": "SOURCE_DEMONSTRATED",
+        "allowed_use": "CASE_SUPPORT_ONLY"
+      },
+      {
+        "node_id": "N3",
+        "action": "STOP",
+        "evidence_refs": [
+          "WANG-ANXING-TUIDUAN:P22:CASE-020:CONCLUSION"
+        ],
+        "canonical_rule_refs": [],
+        "temporal_layer": null,
+        "palace_targets": [
+          "官禄宫"
+        ],
+        "domain_targets": [
+          "CAREER"
+        ],
+        "source_span_refs": [
+          "WANG-ANXING-TUIDUAN:P22:CASE-020:CONCLUSION"
+        ],
+        "epistemic_status": "SOURCE_DEMONSTRATED",
+        "allowed_use": "CASE_SUPPORT_ONLY"
+      }
+    ],
+    "edges": [
+      {
+        "edge_id": "E1",
+        "source": "N1",
+        "target": "N2",
+        "relation": "NEXT"
+      },
+      {
+        "edge_id": "E2",
+        "source": "N2",
+        "target": "N3",
+        "relation": "NEXT"
+      }
+    ]
+  },
+  "expert_conclusion_refs": [
+    "WANG-ANXING-TUIDUAN:P22:CASE-020:CONCLUSION"
+  ],
+  "outcome_refs": [
+    "WANG-ANXING-TUIDUAN:P22:CASE-020:OUTCOME"
+  ],
+  "epistemic_status": "SOURCE_DEMONSTRATED",
+  "allowed_use": "CASE_SUPPORT_ONLY"
+}
