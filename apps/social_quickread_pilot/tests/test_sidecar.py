@@ -59,8 +59,8 @@ def test_dual_output_marks_runtime_semantics_and_llm_wording():
             RenderedSentenceTrace("26年外部机会会明显起来。", ("y1",)),
         ),
         claim_traces=(
-            ClaimTrace("p1", ClaimOrigin.RUNTIME_CANONICAL),
-            ClaimTrace("y1", ClaimOrigin.RUNTIME_TEMPORAL),
+            ClaimTrace("p1", ClaimOrigin.RUNTIME_CANONICAL, runtime_run_id="run-natal-001"),
+            ClaimTrace("y1", ClaimOrigin.RUNTIME_TEMPORAL, runtime_run_id="run-temporal-001"),
         ),
     )
     assert bundle["public"]["ready"] is True
@@ -90,6 +90,9 @@ def test_llm_added_semantics_blocks_public_output_but_remains_visible_to_pi():
                 ("p1",),
                 llm_added_semantics=("长得很高",),
             ),
+        ),
+        claim_traces=(
+            ClaimTrace("p1", ClaimOrigin.RUNTIME_CANONICAL, runtime_run_id="run-natal-002"),
         ),
     )
     assert bundle["public"]["ready"] is False
@@ -126,3 +129,29 @@ def test_source_fallback_gap_and_observation_are_separate():
     assert bundle["pi"]["summary"]["origin_counts"]["SOURCE_BACKED_FALLBACK"] == 1
     assert bundle["pi"]["summary"]["coverage_gap_count"] == 1
     assert bundle["pi"]["observations"][0]["role"] == "OBSERVATION_ONLY_NOT_CANONICAL_TRUTH"
+
+
+def test_missing_explicit_trace_is_rejected():
+    claim = _claim("p1", "做事果断")
+    prepared = prepare_pilot(
+        PilotRequest(
+            subject_key="QR-004",
+            request_text="性格简批",
+            knowledge_version="kb-test",
+            claims=(claim,),
+            target_chars_min=80,
+            target_chars_max=220,
+        )
+    )
+    import pytest
+    with pytest.raises(ValueError, match="explicit ClaimTrace"):
+        build_dual_output(
+            package=prepared.package,
+            sentences=(RenderedSentenceTrace("整体看人做事挺果断。", ("p1",)),),
+        )
+
+
+def test_runtime_origin_requires_runtime_run_id():
+    import pytest
+    with pytest.raises(ValueError, match="runtime_run_id"):
+        ClaimTrace("p1", ClaimOrigin.RUNTIME_CANONICAL).validate()
