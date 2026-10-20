@@ -10,14 +10,13 @@
   },
   "coverage": {
     "constraints": 130,
-    "linked_atomic_rule_ids": 128,
+    "linked_atomic_rule_ids": 130,
     "linked_activation_rule_ids": 30
   },
   "disposition_counts": {
-    "DIRECT_ATOMIC_RULE": 112,
+    "DIRECT_ATOMIC_RULE": 114,
     "METHODOLOGY_OR_CONTEXT_ONLY": 1,
-    "MULTI_RULE_SHARED_SOURCE_SENTENCE": 15,
-    "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP": 2
+    "MULTI_RULE_SHARED_SOURCE_SENTENCE": 15
   },
   "method": {
     "candidate_scope": "same printed source page only",
@@ -25,7 +24,8 @@
     "canonical_link_policy": "only direct/multi dispositions create rule links; low-confidence candidates remain gap/ambiguous",
     "adjacency_used": false,
     "critic_pass": "SOURCE_CONTEXT + existing atomic target semantics; explicit overrides recorded per row",
-    "automatic_threshold_is_not_canonical_truth": true
+    "automatic_threshold_is_not_canonical_truth": true,
+    "final_gap_policy": "Source-local continuations may link to an existing base atomic condition when grammar explicitly carries the constraint forward; this does not create a new outcome rule or execution threshold."
   },
   "records": [
     {
@@ -1070,8 +1070,10 @@
       "source_span_id": "ZZ003-P141",
       "printed_page": 141,
       "source_sentence": "倘煞曜重重，则主辛霜露酸，江湖流浪。",
-      "disposition": "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP",
-      "linked_rule_ids": [],
+      "disposition": "DIRECT_ATOMIC_RULE",
+      "linked_rule_ids": [
+        "CA04-372"
+      ],
       "top_candidate": {
         "source_rule_id": "CA04-360",
         "condition": "武曲天府与煞曜同度",
@@ -1086,7 +1088,15 @@
         "projection_target": "engineering_or_technical_development_scene",
         "lexical_score": 0.224
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "Source-local grammar is continuous: 武曲天相与桃花/文曲同躔且不见吉化吉曜为伶人; '倘煞曜重重' is an additional severity qualifier on that same configuration. Link the ordinal constraint to the existing base atomic condition without inventing a numeric threshold.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA04-372",
+          "condition": "武曲天相与桃花文曲同躔且不见吉化吉曜",
+          "projection_target": "performance_or_entertainment_scene"
+        }
+      ]
     },
     {
       "constraint_id": "OC-039",
@@ -2882,8 +2892,10 @@
       "source_span_id": "ZZ003-P152",
       "printed_page": 152,
       "source_sentence": "是则以同和大众为第一要务。",
-      "disposition": "SOURCE_EXPLICIT_BUT_ATOMIC_RULE_GAP",
-      "linked_rule_ids": [],
+      "disposition": "DIRECT_ATOMIC_RULE",
+      "linked_rule_ids": [
+        "CA08-770"
+      ],
       "top_candidate": {
         "source_rule_id": "CA08-762",
         "condition": "天梁化禄且从事财务稽核",
@@ -2898,7 +2910,15 @@
         "projection_target": "money_related_trouble_strengthened",
         "lexical_score": 0.061
       },
-      "link_epistemic": "CONSERVATIVE_NO_CANONICAL_LINK"
+      "link_epistemic": "SOURCE_CONTEXT_CRITIC_OVERRIDE",
+      "critic_note": "Source-local grammar: '尤以在巳宫者，从政则有特殊任务，从商亦别有目的手段。是则以同和大众为第一要务。' The priority constraint belongs to the existing 巳宫天梁 special-mission/special-method atomic context.",
+      "critic_link_details": [
+        {
+          "source_rule_id": "CA08-770",
+          "condition": "巳宫天梁",
+          "projection_target": "special_mission_or_special_method_scene"
+        }
+      ]
     },
     {
       "constraint_id": "OC-103",
