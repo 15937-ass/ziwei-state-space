@@ -373,30 +373,41 @@ def adapt_response_semantics_record(
         normalized_auth = None
 
     if normalized_auth is not None:
+        blockers = [
+            item
+            for item in blockers
+            if item != "EXPLICIT_EXECUTION_AUTHORIZATION_REQUIRED"
+        ]
         if execution_status != "SAFE_SYMBOLIC":
             blockers.append("AUTHORIZATION_CANNOT_OVERRIDE_KNOWLEDGE_STATUS")
         if activation.get("mode") == "UNSPECIFIED":
             blockers.append("AUTHORIZATION_CANNOT_INVENT_ACTIVATION")
+
+        local_scope_bound = any(
+            scope.get(key) is not None
+            for key in ("domain", "time_layer", "star_system", "palace")
+        )
+        if local_scope_bound and requested_scope is None:
+            blockers.append("LOCAL_SCOPE_BINDING_REQUIRED")
         if any(item.startswith("SCOPE_MISMATCH:") for item in blockers):
             blockers.append("AUTHORIZATION_CANNOT_OVERRIDE_SCOPE")
+
+        if semantic_role == "NAMED_COMPOSITE" and application_term is None:
+            blockers.append("NAMED_COMPOSITE_APPLICATION_TERM_REQUIRED")
         if "NAMED_COMPOSITE_NOT_GENERIC_SHORTHAND" in blockers:
             blockers.append("AUTHORIZATION_CANNOT_GLOBALIZE_COMPOSITE")
 
         fatal = {
             "AUTHORIZATION_CANNOT_OVERRIDE_KNOWLEDGE_STATUS",
             "AUTHORIZATION_CANNOT_INVENT_ACTIVATION",
+            "LOCAL_SCOPE_BINDING_REQUIRED",
             "AUTHORIZATION_CANNOT_OVERRIDE_SCOPE",
+            "NAMED_COMPOSITE_APPLICATION_TERM_REQUIRED",
             "AUTHORIZATION_CANNOT_GLOBALIZE_COMPOSITE",
         }
-        if not fatal.intersection(blockers):
-            blockers = [
-                item
-                for item in blockers
-                if item != "EXPLICIT_EXECUTION_AUTHORIZATION_REQUIRED"
-            ]
-            if not blockers:
-                allowed_use = "EXECUTABLE"
-                runtime_effect_allowed = True
+        if not fatal.intersection(blockers) and not blockers:
+            allowed_use = "EXECUTABLE"
+            runtime_effect_allowed = True
 
     return ResponseSemanticEnvelope(
         schema_version=_required_text(
