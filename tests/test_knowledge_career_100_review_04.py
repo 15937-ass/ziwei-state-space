@@ -212,3 +212,37 @@ def test_guardrails_keep_review_non_production():
     assert g["production_registry_modified"] is False
     assert g["new_atoms_or_semantic_defaults"] is False
     assert g["outcome_probability_or_empirical_validity_claimed"] is False
+
+
+def test_selection_is_next_100_after_exact_352_id_baseline():
+    baseline = set()
+    for rel in DOC["baseline_mapping_paths"]:
+        prior = json.loads((ROOT / rel).read_text())
+        baseline.update(
+            item["source_rule_id"]
+            for item in prior.get("mappings", [])
+            if item.get("source_rule_id")
+        )
+    assert len(baseline) == 352
+
+    canonical_paths = [
+        ROOT / "validation/wp05/CA01_career_projection_review_001_100.csv",
+        ROOT / "validation/wp05/CA02_career_projection_review_101_200.csv",
+        ROOT / "validation/wp05/CA03_career_projection_review_201_300.csv",
+        ROOT / "validation/wp05/CA04_career_projection_review_301_400.csv",
+        ROOT / "validation/wp05/CA05_career_projection_review_401_500.csv",
+        ROOT / "validation/wp05/CA06_career_projection_review_501_600.csv",
+        ROOT / "validation/wp05/CA07_career_projection_review_601_700.csv",
+        ROOT / "validation/wp05/CA08_career_projection_review_701_800.csv",
+        ROOT / "validation/wp05/CA09_career_projection_review_801_888.csv",
+    ]
+    canonical = []
+    for path in canonical_paths:
+        canonical.extend(_rows(path))
+    expected = [
+        row["projection_rule_id"]
+        for row in canonical
+        if row["projection_rule_id"] not in baseline
+    ][:100]
+    assert [item["source_rule_id"] for item in RECORDS] == expected
+    assert len(baseline | set(expected)) == 452
