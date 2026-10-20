@@ -91,3 +91,34 @@ pre_send_audit:
     - "同义改写不构成信息增量；重复主体性/控制感/务实等近义判断必须合并。"
     - "无法映射回 claim 的生活化补充视为 unsupported hallucination。"
     - "审计失败时先删除或合并，再重新生成；不得带警告直接发送。"
+
+
+pi_manual_pilot_output:
+  required: true
+  every_turn: true
+  applies_to: ["initial_quickread", "focus_window", "followup", "specific_year_followup"]
+  order: ["user_readable", "pi_audit"]
+  user_readable:
+    expose_rule_ids: false
+    expose_source_ids: false
+    expose_runtime_ids: false
+  pi_audit:
+    required_fields:
+      - "output_point"
+      - "semantic_origin"
+      - "claim_ids"
+      - "evidence_trace"
+      - "language_origin"
+      - "llm_added_semantics"
+      - "coverage_gaps"
+      - "observations_if_any"
+    origin_policy:
+      - "RUNTIME_CANONICAL 只能用于实际执行 canonical runtime 且存在可追溯 runtime_run_id 的 claim。"
+      - "RUNTIME_TEMPORAL 只能用于实际执行 temporal runtime 且存在可追溯 runtime_run_id 的 claim。"
+      - "没有 runtime_run_id 时，即使 evidence namespace 为 CANONICAL/TEMPORAL，也不得默认标成 runtime。"
+      - "批准中州派原书有直接依据但 runtime 未覆盖时，标 SOURCE_BACKED_FALLBACK。"
+      - "LLM_VERBALIZATION 仅可改写措辞，不可新增事实。"
+      - "llm_added_semantics 非空时用户版必须阻断。"
+  contract_violation:
+    - "Manual Pilot 只输出用户版、不输出 PI 审计版。"
+    - "把 source-backed fallback 冒充为 runtime 自动推演。"
