@@ -65,7 +65,9 @@ def test_exact_scope_source_and_progress_counts():
         assert m['source_anchor_pdf_page']==67
         assert m['executable_registry_entry'] is False
     before=set()
-    for f in (ROOT/'knowledge/wp07a').glob('*.json'):
+    # This is the historical predecessor snapshot, not a live count of future units.
+    for name in ['CAREER_CONTEXT_MAP_CA01_020_v0.1.json', 'CAREER_CONTEXT_MAP_CA01_035_043_045_v0.1.json', 'CAREER_CROSS_PALACE_MAP_CA01_066_CA02_188_CA03_255_v0.1.json', 'CAREER_DIRECT_TRANSFORM_MAP_CA04_CA09_v0.1.json', 'CAREER_NATAL_ATOMIZATION_MAP_v0.1.json', 'CAREER_NATAL_TRANSFORMATION_MAP_CA01_CA03_v0.1.json', 'CAREER_SPOUSE_KONGJIE_CA01_023_v0.1.json', 'CAREER_STAR_PRESENCE_MAP_CA01_026_044_v0.1.json']:
+        f = ROOT/'knowledge/wp07a'/name
         if f==PATH: continue
         before.update(x['source_rule_id'] for x in json.loads(f.read_text()).get('mappings',[]))
     assert not before.intersection(IDS)
