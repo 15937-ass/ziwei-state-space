@@ -8,7 +8,7 @@
   "time_layer": "NATAL",
   "topic_scope": "事业",
   "school": "中州派",
-  "knowledge_version": "CAREER_CA09_FINAL+WP07A_STATIC_STAR_CROSS_SPOUSE_v0.1",
+  "knowledge_version": "CAREER_CA09_FINAL+WP07A_STATIC_THROUGH_ZIWEI_ZIPO_v0.1",
   "source_mapping": {
     "path": "knowledge/wp07a/CAREER_NATAL_ATOMIZATION_MAP_v0.1.json",
     "audit_id": "KB-WP07A-CAREER-NATAL-ATOMIZATION",
@@ -1140,6 +1140,577 @@
         "normalized_reading": "事业宫与夫妻宫分别出现地空、地劫，且二宫为寅申相对宫支组合时，才保留此条事业受配偶影响的投影候选。",
         "relation_basis": "knowledge/wp05/palace_ontology_v0.1.csv：P09 事业宫与 P03 夫妻宫为 OPPOSITE。"
       }
+    },
+    "CA01-047": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p133",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "紫微守事业宫",
+      "expected_projection_domain": "role",
+      "expected_projection_target": "independent_responsibility",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "紫微"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA01-047",
+      "expected_source_context": {
+        "palace": "P09",
+        "paragraph_scope": "紫微在事业宫的一般性质",
+        "inherited_source_rule_ids": [],
+        "required_branch_gate": [],
+        "modality_note": "来源性质／适宜性投影，不是现实结果必然断言。",
+        "source_scope_note": "两种工作场景为或，独当一面不蕴含自行经营或领袖身份。"
+      }
+    },
+    "CA01-050": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p133",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "紫微守事业宫一般情形",
+      "expected_projection_domain": "role",
+      "expected_projection_target": "independent_work_or_department_responsibility",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P09",
+              "star": "紫微"
+            }
+          }
+        ]
+      },
+      "mapping_rule_id": "CA01-050",
+      "expected_source_context": {
+        "palace": "P09",
+        "paragraph_scope": "紫微在事业宫的一般性质",
+        "inherited_source_rule_ids": [],
+        "required_branch_gate": [],
+        "modality_note": "来源性质／适宜性投影，不是现实结果必然断言。",
+        "source_scope_note": "两种工作场景为或，独当一面不蕴含自行经营或领袖身份。"
+      }
+    },
+    "CA01-083": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "丑未紫微破军",
+      "expected_projection_domain": "development",
+      "expected_projection_target": "career_favors_creation_over_preservation",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "丑"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "未"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA01-083",
+      "expected_source_context": {
+        "palace": "P09",
+        "paragraph_scope": "丑未宫紫微破军在事业宫",
+        "inherited_source_rule_ids": [],
+        "required_branch_gate": [
+          "丑",
+          "未"
+        ],
+        "modality_note": "来源性质／适宜性投影，不是现实结果必然断言。",
+        "source_scope_note": "后文子分支继承本段丑未紫微破军范围。"
+      }
+    },
+    "CA01-087": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "紫微破军且破军化禄",
+      "expected_projection_domain": "stability",
+      "expected_projection_target": "career_changes_frequent",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "破军",
+                "mutagen": "禄"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "丑"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "破军",
+                "mutagen": "禄"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "未"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA01-087",
+      "expected_source_context": {
+        "palace": "P09",
+        "paragraph_scope": "丑未宫紫微破军在事业宫",
+        "inherited_source_rule_ids": [
+          "CA01-083"
+        ],
+        "required_branch_gate": [
+          "丑",
+          "未"
+        ],
+        "modality_note": "来源性质／适宜性投影，不是现实结果必然断言。",
+        "source_scope_note": "后文子分支继承本段丑未紫微破军范围。"
+      }
+    },
+    "CA01-088": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "前格",
+      "expected_projection_domain": "role",
+      "expected_projection_target": "extra_work_or_multiple_responsibilities_common",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "破军",
+                "mutagen": "禄"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "丑"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "破军",
+                "mutagen": "禄"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "未"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA01-088",
+      "expected_source_context": {
+        "palace": "P09",
+        "paragraph_scope": "丑未宫紫微破军在事业宫",
+        "inherited_source_rule_ids": [
+          "CA01-083",
+          "CA01-087"
+        ],
+        "required_branch_gate": [
+          "丑",
+          "未"
+        ],
+        "modality_note": "来源性质／适宜性投影，不是现实结果必然断言。",
+        "source_scope_note": "前格按同句明确衔接，星曜、宫位、四化主体均保留。"
+      }
+    },
+    "CA01-089": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "紫微破军且破军化权",
+      "expected_projection_domain": "development",
+      "expected_projection_target": "career_setbacks_or_turbulence",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "破军",
+                "mutagen": "权"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "丑"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "TRANSFORMATION_PRESENT",
+              "args": {
+                "palace": "P09",
+                "star": "破军",
+                "mutagen": "权"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "未"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA01-089",
+      "expected_source_context": {
+        "palace": "P09",
+        "paragraph_scope": "丑未宫紫微破军在事业宫",
+        "inherited_source_rule_ids": [
+          "CA01-083"
+        ],
+        "required_branch_gate": [
+          "丑",
+          "未"
+        ],
+        "modality_note": "来源性质／适宜性投影，不是现实结果必然断言。",
+        "source_scope_note": "后文子分支继承本段丑未紫微破军范围。"
+      }
+    },
+    "CA01-093": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "紫微破军一般",
+      "expected_projection_domain": "resource",
+      "expected_projection_target": "broad_spending_or_scale_can_exceed_actual_return",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "丑"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "未"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA01-093",
+      "expected_source_context": {
+        "palace": "P09",
+        "paragraph_scope": "丑未宫紫微破军在事业宫",
+        "inherited_source_rule_ids": [
+          "CA01-083"
+        ],
+        "required_branch_gate": [
+          "丑",
+          "未"
+        ],
+        "modality_note": "来源性质／适宜性投影，不是现实结果必然断言。",
+        "source_scope_note": "本段无论如何承接紫微破军总范围，未跨入随后寅申紫微天府段；不额外继承前句化禄分支。"
+      }
+    },
+    "CA01-095": {
+      "expected_source_id": "SRC-ZZ-003",
+      "expected_source_location": "事业宫printed_p134",
+      "expected_review_status": "SOURCE_SPAN_VERIFIED",
+      "expected_condition": "紫微破军见左辅右弼",
+      "expected_projection_domain": "support",
+      "expected_projection_target": "career_creation_receives_more_assistance",
+      "expected_projection_mode": "FUNCTIONAL_PROJECTION",
+      "condition": {
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "左辅"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "右弼"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "丑"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "紫微"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "破军"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "左辅"
+              }
+            },
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P09",
+                "star": "右弼"
+              }
+            },
+            {
+              "atom_type": "BRANCH_PRESENT",
+              "args": {
+                "palace": "P09",
+                "branch": "未"
+              }
+            }
+          ]
+        ]
+      },
+      "mapping_rule_id": "CA01-095",
+      "expected_source_context": {
+        "palace": "P09",
+        "paragraph_scope": "丑未宫紫微破军在事业宫",
+        "inherited_source_rule_ids": [
+          "CA01-083"
+        ],
+        "required_branch_gate": [
+          "丑",
+          "未"
+        ],
+        "modality_note": "来源性质／适宜性投影，不是现实结果必然断言。",
+        "source_scope_note": "后文子分支继承本段丑未紫微破军范围。"
+      }
     }
   },
   "guardrails": {
@@ -1228,6 +1799,24 @@
         "CA01-023"
       ],
       "required_execution_readiness": "STATIC_CROSS_PALACE_CANDIDATE_NOT_EXECUTABLE"
+    },
+    {
+      "path": "knowledge/wp07a/CAREER_ZIWEI_ZIPO_STATIC_8_MAP_v0.1.json",
+      "audit_id": "KB-WP07A-CAREER-ZIWEI-ZIPO-STATIC-8",
+      "mapping_status": "SOURCE_GROUNDED_MAPPING_COMPLETE_NOT_EXECUTABLE",
+      "schema_version": "0.1",
+      "selected_rule_ids": [
+        "CA01-047",
+        "CA01-050",
+        "CA01-083",
+        "CA01-087",
+        "CA01-088",
+        "CA01-089",
+        "CA01-093",
+        "CA01-095"
+      ],
+      "required_execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "source_context_schema": "PARAGRAPH_SCOPE_V0_1"
     }
   ]
 }

@@ -1,0 +1,1517 @@
+{
+  "audit_id": "PRODUCT_CAREER_MAPPING_READINESS_ISSUE_359",
+  "scope": "Nine explicitly listed merged mapping/context artifacts including #360; no unmerged branch discovery",
+  "counts": {
+    "canonical_source_rows": 888,
+    "scoped_mapping_artifacts": 9,
+    "unique_mapping_ids": 52,
+    "compiled_product_rules": 43,
+    "blocked_mapping_ids": 9,
+    "static_candidates_not_selected": 0,
+    "legacy_mapping_history_field_omissions": 3,
+    "source_rows_without_scoped_mapping": 836,
+    "unmapped_source_groups": {
+      "CASE_SUPPORT_ONLY": 19,
+      "NATAL_WITHOUT_SCOPED_MAPPING": 809,
+      "NON_NATAL_SOURCE_ONLY": 8
+    }
+  },
+  "new_executable_rules_this_audit": 0,
+  "automatic_activation_allowed": false,
+  "registry_document_sha256": "9c0426fbf07aba66d84dbc8f6a2197021b397a61c666e7241d8b4bc64f87c723",
+  "source_manifest": [
+    {
+      "path": "knowledge/wp07a/CAREER_NATAL_ATOMIZATION_MAP_v0.1.json",
+      "audit_id": "KB-WP07A-CAREER-NATAL-ATOMIZATION",
+      "sha256": "4f846a4d4a73213b162a5ac383fac5ffe3097737751ea43d66ebf3e04e37dc54"
+    },
+    {
+      "path": "knowledge/wp07a/CAREER_NATAL_TRANSFORMATION_MAP_CA01_CA03_v0.1.json",
+      "audit_id": "KB-WP07A-CAREER-NATAL-TRANSFORMATION-MAP-CA01-CA03",
+      "sha256": "cc5c1070e519d54f86e5d22490c9f34feb6b682862092cda8a6194e081afc978"
+    },
+    {
+      "path": "knowledge/wp07a/CAREER_DIRECT_TRANSFORM_MAP_CA04_CA09_v0.1.json",
+      "audit_id": "KB-WP07A-CAREER-DIRECT-TRANSFORM-MAP-CA04-CA09",
+      "sha256": "82858feec5005518293173d1fcf2d47ae79e9bcc8738fab58f7ee4096c6bf8b0"
+    },
+    {
+      "path": "knowledge/wp07a/CAREER_CROSS_PALACE_MAP_CA01_066_CA02_188_CA03_255_v0.1.json",
+      "audit_id": "KB-WP07A-CAREER-CROSS-PALACE-MAP-CA01-066_CA02-188_CA03-255",
+      "sha256": "953de1760dd8b53490a2c594abb3c5b0ae72aec7751e1b939d13635aabb7b3fb"
+    },
+    {
+      "path": "knowledge/wp07a/CAREER_CONTEXT_MAP_CA01_020_v0.1.json",
+      "audit_id": "KB-WP07A-CAREER-CONTEXT-RECOVERY-CA01-020",
+      "sha256": "0d752e8d0fc19fe282729d35e9106b13f46be13942d6bad7187d94aaf3b2b829"
+    },
+    {
+      "path": "knowledge/wp07a/CAREER_SPOUSE_KONGJIE_CA01_023_v0.1.json",
+      "audit_id": "KB-WP07A-CAREER-SPOUSE-KONGJIE-CA01-023",
+      "sha256": "000fe34c5e1b0ea2532cb5ddd6d389241f73beb1f68626057f64991c85cfc40b"
+    },
+    {
+      "path": "knowledge/wp07a/CAREER_STAR_PRESENCE_MAP_CA01_026_044_v0.1.json",
+      "audit_id": "KB-WP07A-CAREER-STAR-PRESENCE-CA01-026_027_031_034_042_044",
+      "sha256": "4ad2e52765b0fbfb35c8b8d7c9ddb5d73b905e89508fbe80865403c29191da2b"
+    },
+    {
+      "path": "knowledge/wp07a/CAREER_CONTEXT_MAP_CA01_035_043_045_v0.1.json",
+      "audit_id": "KB-WP07A-CAREER-CONTEXT-CA01-035_043_045",
+      "sha256": "19955d898e7669e10d7f84c3d28f1ee54bfea704f5873995fa0402efb955f7ee"
+    },
+    {
+      "path": "knowledge/wp07a/CAREER_ZIWEI_ZIPO_STATIC_8_MAP_v0.1.json",
+      "audit_id": "KB-WP07A-CAREER-ZIWEI-ZIPO-STATIC-8",
+      "sha256": "7ae3e788a5a820b2aeafa21de730a737e026d67378db9d27690f9f30fefac030"
+    }
+  ],
+  "canonical_source_manifest": [
+    {
+      "path": "validation/wp05/CA01_career_projection_review_001_100.csv",
+      "sha256": "434e8ef16c56807e1d2db69374ec617913e455fd21a7073882e22863c81b5267"
+    },
+    {
+      "path": "validation/wp05/CA02_career_projection_review_101_200.csv",
+      "sha256": "c73a159386b2370bd9f44f640bf39e181a05df8f20ec21e786536a76d47f354e"
+    },
+    {
+      "path": "validation/wp05/CA03_career_projection_review_201_300.csv",
+      "sha256": "d8d6440f737f15bb48b2dc1598964db56aaf247b6e345909d5510a8be7d9063d"
+    },
+    {
+      "path": "validation/wp05/CA04_career_projection_review_301_400.csv",
+      "sha256": "13b6d8bc5c9424e65f0d7b52edce890d0420fe40830c7d70778aee543bf5a811"
+    },
+    {
+      "path": "validation/wp05/CA05_career_projection_review_401_500.csv",
+      "sha256": "52aefa15857662f15df6512a25e2303a801f1c385fbafcf5fe63628f22511c90"
+    },
+    {
+      "path": "validation/wp05/CA06_career_projection_review_501_600.csv",
+      "sha256": "46c5a70e1a1f70ea13f63365bb3919be56eac8f87b8e8305ec1963c889e34695"
+    },
+    {
+      "path": "validation/wp05/CA07_career_projection_review_601_700.csv",
+      "sha256": "d654fe6b9159ac681af9ba3a28d54cabfab8f176aa18f9523a06fbf75964bcfb"
+    },
+    {
+      "path": "validation/wp05/CA08_career_projection_review_701_800.csv",
+      "sha256": "5030808b45a42d1d3d94a1f9f4a029d325b304e33dc5f4bf75eee63da5d27684"
+    },
+    {
+      "path": "validation/wp05/CA09_career_projection_review_801_888.csv",
+      "sha256": "d599411c1d9ddb9feba66fb63129e5e4d42c15106bb64d4350f8f610133c7291"
+    }
+  ],
+  "entries": [
+    {
+      "source_rule_id": "CA01-020",
+      "mapping_path": "knowledge/wp07a/CAREER_CONTEXT_MAP_CA01_020_v0.1.json",
+      "classification": "BLOCKED",
+      "execution_readiness": "BLOCKED_ILLUSTRATIVE_EXAMPLE_SCOPE_AND_CONTEXT_INHERITANCE_UNRESOLVED",
+      "mapping_status": "MAPPED_WITH_EXPLICIT_SOURCE_CONTEXT_NOT_GENERAL_RULE",
+      "source_condition_text": "命宫紫微化权且财帛武曲化忌示例",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p132",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "large_institution_or_public_employment_scene",
+        "projection_mode": "CROSS_PALACE_CONSTRAINT"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "补足示例适用范围与前文继承的来源依据；不得直接泛化。",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-023",
+      "mapping_path": "knowledge/wp07a/CAREER_SPOUSE_KONGJIE_CA01_023_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_CROSS_PALACE_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOMS",
+      "source_condition_text": "事业夫妻两宫一空一劫",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p132-133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "spouse_influence_can_impair_career",
+        "projection_mode": "CROSS_PALACE_CONSTRAINT"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-026",
+      "mapping_path": "knowledge/wp07a/CAREER_STAR_PRESENCE_MAP_CA01_026_044_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_STAR_PRESENCE_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "事业宫见地空地劫",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p132-133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "niche_or_nonmainstream_industry_suited",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-027",
+      "mapping_path": "knowledge/wp07a/CAREER_STAR_PRESENCE_MAP_CA01_026_044_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_STAR_PRESENCE_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "事业宫见地空地劫",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p132-133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "method",
+        "projection_target": "unconventional_operating_method_suited",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-031",
+      "mapping_path": "knowledge/wp07a/CAREER_STAR_PRESENCE_MAP_CA01_026_044_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_STAR_PRESENCE_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "事业宫见陀罗",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "development",
+        "projection_target": "career_development_slow",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-032",
+      "mapping_path": "knowledge/wp07a/CAREER_STAR_PRESENCE_MAP_CA01_026_044_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_STAR_PRESENCE_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "事业宫见陀罗",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "role",
+        "projection_target": "nominal_status_exceeds_real_authority",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-033",
+      "mapping_path": "knowledge/wp07a/CAREER_STAR_PRESENCE_MAP_CA01_026_044_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_STAR_PRESENCE_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "事业宫见陀罗",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "stability",
+        "projection_target": "career_reversals_or_instability",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-034",
+      "mapping_path": "knowledge/wp07a/CAREER_STAR_PRESENCE_MAP_CA01_026_044_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_STAR_PRESENCE_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "事业宫见擎羊古今转换",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "engineering_or_technical_scene",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-035",
+      "mapping_path": "knowledge/wp07a/CAREER_CONTEXT_MAP_CA01_035_043_045_v0.1.json",
+      "classification": "BLOCKED",
+      "execution_readiness": "BLOCKED_FIRE_BELL_AND_OR_UNRESOLVED",
+      "mapping_status": "BLOCKED_SHORTHAND_QUANTIFIER_UNRESOLVED",
+      "source_condition_text": "事业宫见火铃",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "development",
+        "projection_target": "career_setbacks_before_stabilization",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": true,
+      "next_requirement_zh": "取得适用于本句的量词证据；既有火铃证据审查尚未定解，不移植别段AND/OR。",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-042",
+      "mapping_path": "knowledge/wp07a/CAREER_STAR_PRESENCE_MAP_CA01_026_044_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_STAR_PRESENCE_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "事业宫与禄存同度",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "existing_business_or_salaried_role_preferred",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-043",
+      "mapping_path": "knowledge/wp07a/CAREER_CONTEXT_MAP_CA01_035_043_045_v0.1.json",
+      "classification": "BLOCKED",
+      "execution_readiness": "BLOCKED_METHODOLOGICAL_CONSTRAINT_NOT_OUTCOME_RULE",
+      "mapping_status": "CONTEXT_RECOVERED_METHODOLOGICAL_CONSTRAINT",
+      "source_condition_text": "前格",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "methodology",
+        "projection_target": "lucun_in_career_does_not_itself_imply_wealth",
+        "projection_mode": "STRUCTURAL_CONSTRAINT"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": true,
+      "next_requirement_zh": "保留为推断方法限制；不转成贫富结果或新增结果规则。",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-044",
+      "mapping_path": "knowledge/wp07a/CAREER_STAR_PRESENCE_MAP_CA01_026_044_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_STAR_PRESENCE_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "禄存再与空劫同度",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "decision",
+        "projection_target": "advance_retreat_indecision",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-045",
+      "mapping_path": "knowledge/wp07a/CAREER_CONTEXT_MAP_CA01_035_043_045_v0.1.json",
+      "classification": "BLOCKED",
+      "execution_readiness": "BLOCKED_NON_CHART_ACTION_PREREQUISITE",
+      "mapping_status": "CONTEXT_RECOVERED_ACTION_PREREQUISITE_UNREPRESENTED",
+      "source_condition_text": "前格勉强求变",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "development",
+        "projection_target": "forced_change_can_create_career_difficulty",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": true,
+      "next_requirement_zh": "需获准表达并核实“勉强求变”行为前提；仅凭星曜上下文不足。",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-047",
+      "mapping_path": "knowledge/wp07a/CAREER_ZIWEI_ZIPO_STATIC_8_MAP_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "紫微守事业宫",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "role",
+        "projection_target": "independent_responsibility",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-050",
+      "mapping_path": "knowledge/wp07a/CAREER_ZIWEI_ZIPO_STATIC_8_MAP_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "紫微守事业宫一般情形",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "role",
+        "projection_target": "independent_work_or_department_responsibility",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-052",
+      "mapping_path": "knowledge/wp07a/CAREER_NATAL_TRANSFORMATION_MAP_CA01_CA03_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "紫微化权",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "role",
+        "projection_target": "work_independence_strengthened",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-053",
+      "mapping_path": "knowledge/wp07a/CAREER_NATAL_TRANSFORMATION_MAP_CA01_CA03_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "紫微化权",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "methodology",
+        "projection_target": "authority_does_not_itself_imply_wealth_or_high_rank",
+        "projection_mode": "STRUCTURAL_CONSTRAINT"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-054",
+      "mapping_path": "knowledge/wp07a/CAREER_NATAL_TRANSFORMATION_MAP_CA01_CA03_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "紫微化科",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "reputation",
+        "projection_target": "reputation_exceeds_financial_return",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-055",
+      "mapping_path": "knowledge/wp07a/CAREER_NATAL_TRANSFORMATION_MAP_CA01_CA03_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "紫微化科",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "independent_professional_work_scene",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-066",
+      "mapping_path": "knowledge/wp07a/CAREER_CROSS_PALACE_MAP_CA01_066_CA02_188_CA03_255_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_CROSS_PALACE_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOMS",
+      "source_condition_text": "子午紫微且财帛廉贞化禄",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p133-134",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "collaboration",
+        "projection_target": "partnership_venture_suited",
+        "projection_mode": "CROSS_PALACE_CONSTRAINT"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-070",
+      "mapping_path": "knowledge/wp07a/CAREER_NATAL_TRANSFORMATION_MAP_CA01_CA03_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "子午紫微化权",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p134",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "development",
+        "projection_target": "career_advantage_strengthened",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-071",
+      "mapping_path": "knowledge/wp07a/CAREER_NATAL_TRANSFORMATION_MAP_CA01_CA03_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "子午紫微化权",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p134",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "relationship",
+        "projection_target": "career_advantage_can_coexist_with_marriage_tension",
+        "projection_mode": "CROSS_PALACE_CONSTRAINT"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-078",
+      "mapping_path": "knowledge/wp07a/CAREER_NATAL_TRANSFORMATION_MAP_CA01_CA03_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "子午紫微化科",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p134",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "reputation",
+        "projection_target": "reputation_exceeds_financial_return",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-083",
+      "mapping_path": "knowledge/wp07a/CAREER_ZIWEI_ZIPO_STATIC_8_MAP_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "丑未紫微破军",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p134",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "development",
+        "projection_target": "career_favors_creation_over_preservation",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-087",
+      "mapping_path": "knowledge/wp07a/CAREER_ZIWEI_ZIPO_STATIC_8_MAP_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "紫微破军且破军化禄",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p134",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "stability",
+        "projection_target": "career_changes_frequent",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-088",
+      "mapping_path": "knowledge/wp07a/CAREER_ZIWEI_ZIPO_STATIC_8_MAP_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "前格",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p134",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "role",
+        "projection_target": "extra_work_or_multiple_responsibilities_common",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-089",
+      "mapping_path": "knowledge/wp07a/CAREER_ZIWEI_ZIPO_STATIC_8_MAP_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "紫微破军且破军化权",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p134",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "development",
+        "projection_target": "career_setbacks_or_turbulence",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-093",
+      "mapping_path": "knowledge/wp07a/CAREER_ZIWEI_ZIPO_STATIC_8_MAP_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "紫微破军一般",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p134",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "resource",
+        "projection_target": "broad_spending_or_scale_can_exceed_actual_return",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-095",
+      "mapping_path": "knowledge/wp07a/CAREER_ZIWEI_ZIPO_STATIC_8_MAP_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "紫微破军见左辅右弼",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p134",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "support",
+        "projection_target": "career_creation_receives_more_assistance",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA02-155",
+      "mapping_path": "knowledge/wp07a/CAREER_NATAL_TRANSFORMATION_MAP_CA01_CA03_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "天机化禄",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p136",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "methodology",
+        "projection_target": "hualu_does_not_remove_tianji_instability",
+        "projection_mode": "STRUCTURAL_CONSTRAINT"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA02-158",
+      "mapping_path": "knowledge/wp07a/CAREER_NATAL_TRANSFORMATION_MAP_CA01_CA03_v0.1.json",
+      "classification": "BLOCKED",
+      "execution_readiness": "BLOCKED_PATH_DEPENDENT_TARGET",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "天机化权",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p136",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": "PATH_DEPENDENT_GATE"
+      },
+      "expected_projection": {
+        "projection_domain": "stability",
+        "projection_target": "career_becomes_more_stable_after_prior_change",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "PATH_DEPENDENT_GATE",
+      "condition_is_null": false,
+      "next_requirement_zh": "需明确历史次序、变化与定局的来源语义及运行契约；不得压成静态结果。",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA02-160",
+      "mapping_path": "knowledge/wp07a/CAREER_NATAL_TRANSFORMATION_MAP_CA01_CA03_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "天机化科",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p136",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "planning_management_or_design_work_suited",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA02-164",
+      "mapping_path": "knowledge/wp07a/CAREER_NATAL_TRANSFORMATION_MAP_CA01_CA03_v0.1.json",
+      "classification": "BLOCKED",
+      "execution_readiness": "BLOCKED_PATH_DEPENDENT_TARGET",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "天机化忌",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p136",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "stability",
+        "projection_target": "career_changes_recur_after_each_period_of_settlement",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "需明确历史次序、变化与定局的来源语义及运行契约；不得压成静态结果。",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA02-188",
+      "mapping_path": "knowledge/wp07a/CAREER_CROSS_PALACE_MAP_CA01_066_CA02_188_CA03_255_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_CROSS_PALACE_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOMS",
+      "source_condition_text": "午宫天机化禄且财帛宫太阴化忌",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p136",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "risk",
+        "projection_target": "career_speculation_tendency_strengthened_by_wealth_context",
+        "projection_mode": "CROSS_PALACE_CONSTRAINT"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA02-194",
+      "mapping_path": "knowledge/wp07a/CAREER_NATAL_TRANSFORMATION_MAP_CA01_CA03_v0.1.json",
+      "classification": "BLOCKED",
+      "execution_readiness": "BLOCKED_EVENT_LIKE_TARGET_REQUIRES_MANIFESTATION_REVIEW",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "子午天机化忌",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p136",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "relation",
+        "projection_target": "career_can_trigger_personal_attack",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "先完成显象语义审查；不由条件匹配直接推出人身攻击事件。",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA03-252",
+      "mapping_path": "knowledge/wp07a/CAREER_NATAL_TRANSFORMATION_MAP_CA01_CA03_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "巳亥天机化忌",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p137-138",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "insurance_scene_suited",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA03-254",
+      "mapping_path": "knowledge/wp07a/CAREER_NATAL_TRANSFORMATION_MAP_CA01_CA03_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "天机化科",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p138",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "stability",
+        "projection_target": "career_change_property_remains",
+        "projection_mode": "STRUCTURAL_CONSTRAINT"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA03-255",
+      "mapping_path": "knowledge/wp07a/CAREER_CROSS_PALACE_MAP_CA01_066_CA02_188_CA03_255_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_CROSS_PALACE_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOMS",
+      "source_condition_text": "天机化科且命宫天同巨门之巨门化忌",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p138",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "effort",
+        "projection_target": "mental_burden_and_extra_work_strengthened",
+        "projection_mode": "CROSS_PALACE_CONSTRAINT"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA03-279",
+      "mapping_path": "knowledge/wp07a/CAREER_NATAL_TRANSFORMATION_MAP_CA01_CA03_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "太阳化禄",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p138",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "reputation",
+        "projection_target": "career_reputation_or_brand_value_strengthened",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA03-283",
+      "mapping_path": "knowledge/wp07a/CAREER_NATAL_TRANSFORMATION_MAP_CA01_CA03_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "太阳化科",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p138-139",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "reputation_dependent_professional_scene",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA03-285",
+      "mapping_path": "knowledge/wp07a/CAREER_NATAL_TRANSFORMATION_MAP_CA01_CA03_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "太阳化忌",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p139",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "dispute_resolution_or_speech_based_work_scene",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA04-327",
+      "mapping_path": "knowledge/wp07a/CAREER_DIRECT_TRANSFORM_MAP_CA04_CA09_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "太阳化忌",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p140",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "conflict_resolution_or_problem_solving_work_required",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA04-347",
+      "mapping_path": "knowledge/wp07a/CAREER_NATAL_ATOMIZATION_MAP_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": null,
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "武曲化科",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p140",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false
+      },
+      "expected_projection": {
+        "projection_domain": "reputation",
+        "projection_target": "career_requires_reputation_building",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": false,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA04-349",
+      "mapping_path": "knowledge/wp07a/CAREER_NATAL_ATOMIZATION_MAP_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": null,
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "武曲化忌",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p141",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "technical_skill_work_scene_preferred",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "history_feedback_field_present_in_mapping": false,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA05-403",
+      "mapping_path": "knowledge/wp07a/CAREER_DIRECT_TRANSFORM_MAP_CA04_CA09_v0.1.json",
+      "classification": "BLOCKED",
+      "execution_readiness": "BLOCKED_TIMING_TRIGGER_REQUIRES_TEMPORAL_SPEC",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "天同化忌",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p142",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "timing",
+        "projection_target": "work_can_begin_early_while_career_establishment_occurs_relatively_early",
+        "projection_mode": "TIMING_TRIGGER"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "需来源忠实的时间触发契约；不由本命单条件推年龄或时间窗口。",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA05-469",
+      "mapping_path": "knowledge/wp07a/CAREER_DIRECT_TRANSFORM_MAP_CA04_CA09_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "廉贞化忌",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p144",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "blood_or_injury_symbolism_related_industry_scene",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA07-671",
+      "mapping_path": "knowledge/wp07a/CAREER_DIRECT_TRANSFORM_MAP_CA04_CA09_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "巨门化禄",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p150",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "development",
+        "projection_target": "speech_based_career_expression_strengthened",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA07-672",
+      "mapping_path": "knowledge/wp07a/CAREER_DIRECT_TRANSFORM_MAP_CA04_CA09_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "巨门化权",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p150",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "development",
+        "projection_target": "speech_based_career_expression_is_supported",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA07-673",
+      "mapping_path": "knowledge/wp07a/CAREER_DIRECT_TRANSFORM_MAP_CA04_CA09_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "巨门化忌",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p150",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "marginal_or_partly_political_scene",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA08-765",
+      "mapping_path": "knowledge/wp07a/CAREER_DIRECT_TRANSFORM_MAP_CA04_CA09_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": "STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "天梁化权",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p152",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": ""
+      },
+      "expected_projection": {
+        "projection_domain": "career",
+        "projection_target": "authority_based_legal_supervisory_or_secretarial_scene",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA08-766",
+      "mapping_path": "knowledge/wp07a/CAREER_DIRECT_TRANSFORM_MAP_CA04_CA09_v0.1.json",
+      "classification": "BLOCKED",
+      "execution_readiness": "BLOCKED_PATH_DEPENDENT_TARGET",
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "天梁化科",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p152",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": "PATH_DEPENDENT_GATE"
+      },
+      "expected_projection": {
+        "projection_domain": "development",
+        "projection_target": "social_status_should_precede_wealth",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": true,
+      "canonical_history_feedback": "PATH_DEPENDENT_GATE",
+      "condition_is_null": false,
+      "next_requirement_zh": "需明确历史次序、变化与定局的来源语义及运行契约；不得压成静态结果。",
+      "automatic_activation_allowed": false
+    },
+    {
+      "source_rule_id": "CA09-852",
+      "mapping_path": "knowledge/wp07a/CAREER_NATAL_ATOMIZATION_MAP_v0.1.json",
+      "classification": "COMPILED_IN_PRODUCT",
+      "execution_readiness": null,
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "source_condition_text": "破军化禄",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "事业宫printed_p154",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false
+      },
+      "expected_projection": {
+        "projection_domain": "role",
+        "projection_target": "multiple_jobs_side_roles_or_business_lines_are_common",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "history_feedback_field_present_in_mapping": false,
+      "canonical_history_feedback": "",
+      "condition_is_null": false,
+      "next_requirement_zh": "",
+      "automatic_activation_allowed": false
+    }
+  ],
+  "limits": [
+    "Source-review counts are not executable-rule counts.",
+    "Static candidate readiness is not automatic Product approval.",
+    "Exclusion mentions and evidence spans are not additional mapped rule IDs.",
+    "Unmapped rows have not received executable-readiness review by this audit.",
+    "No empirical validation or temporal registry activation is established."
+  ]
+}
