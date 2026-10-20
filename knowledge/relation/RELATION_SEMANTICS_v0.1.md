@@ -107,7 +107,42 @@ SAME_PALACE > OPPOSITION
 
 FLANKING 也不是普通二元 edge，而是“本宫 + 两侧邻宫”的三方绑定结构，后续 compiler 必须按多方关系处理。
 
-## 5. 为什么这比“一词一个关系”更合理
+## 5. 程序层进一步压缩：十二宫用 Z_12 相对位移表示
+
+对程序来说，甚至不必把 SAME_PALACE / OPPOSITION / TRINE_ASPECT 当成互不相关的枚举。
+
+将十二宫编号为循环群：
+
+```text
+p ∈ Z_12
+delta = (p_object - p_subject) mod 12
+```
+
+于是：
+
+| 传统关系 | delta 约束 |
+|---|---|
+| 同度 | {0} |
+| 相对 / 拱照 / 朝拱 | {6} |
+| 会照（三合） | {4, 8} |
+| 三方 | {0, 4, 8} |
+| 见（三方四正） | {0, 4, 6, 8} |
+| 相夹 / 夹 | 两个 object 的 delta 集合必须同时为 {1, 11} |
+
+这使宫位关系天然具有旋转不变性：无论本宫落在十二地支中的哪一宫，同一种几何关系使用完全相同的相对位移约束。
+
+因此未来 compiler 的核心不应是大量中文 relation enum，而应是：
+
+```text
+surface_relation
+    -> relation_operator
+    -> delta constraint on Z_12
+    -> object/group binding
+```
+
+“会 / 同会 / 会合”在来源未给出精确位置时，仍保持 delta = UNKNOWN；不能为了程序整齐而猜成 {4,8} 或 {0,4,6,8}。
+
+## 6. 为什么这比“一词一个关系”更合理
 
 如果把“会”“同会”“会合”“会照”“朝拱”等全部建成平级 primitive，程序会把古籍语言习惯误当成不同物理关系。
 
@@ -128,7 +163,7 @@ FLANKING 也不是普通二元 edge，而是“本宫 + 两侧邻宫”的三方
 
 以及原文是否只是用一个更宽的“见 / 会”来描述这些关系。
 
-## 6. Named pattern guard
+## 7. Named pattern guard
 
 “朝拱”作为普通关系词可以映射到 OPPOSITION，但：
 
@@ -142,7 +177,7 @@ FLANKING 也不是普通二元 edge，而是“本宫 + 两侧邻宫”的三方
 
 不能因为里面出现“朝拱 / 会”两个字，就把整个格局降维成一条普通 relation edge。
 
-## 7. 当前没有做的事情
+## 8. 当前没有做的事情
 
 本版本没有：
 - 修改 Product runtime；
