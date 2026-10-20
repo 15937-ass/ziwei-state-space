@@ -113,11 +113,29 @@ def _validate_mapping_handoff(
                 raise ValueError(f"{rule_id}: Product/source mapping drift in source modality note")
         if "source_context" in source_map or "expected_source_context" in product_rule:
             context = source_map.get("source_context")
+            schema = mapping_meta.get("source_context_schema", "BRANCH_GATE_V0_1")
+            if schema == "BRANCH_GATE_V0_1":
+                fields = ("source_scope_note", "branch_gate_reading", "normalized_reading", "relation_basis")
+            elif schema == "PARAGRAPH_SCOPE_V0_1":
+                fields = ("source_scope_note", "paragraph_scope", "modality_note")
+            else:
+                raise ValueError(f"{rule_id}: unsupported source context schema")
             if not isinstance(context, Mapping) or any(
                 not isinstance(context.get(field), str) or not context[field].strip()
-                for field in ("source_scope_note", "branch_gate_reading", "normalized_reading", "relation_basis")
+                for field in fields
             ):
                 raise ValueError(f"{rule_id}: complete source context is required")
+            if schema == "PARAGRAPH_SCOPE_V0_1":
+                inherited = context.get("inherited_source_rule_ids")
+                branches = context.get("required_branch_gate")
+                if (context.get("palace") != "P09"
+                    or not isinstance(inherited, list)
+                    or any(not isinstance(i, str) or not i for i in inherited)
+                    or len(inherited) != len(set(inherited))
+                    or not isinstance(branches, list)
+                    or any(not isinstance(i, str) or i not in "子丑寅卯辰巳午未申酉戌亥" or len(i) != 1 for i in branches)
+                    or len(branches) != len(set(branches))):
+                    raise ValueError(f"{rule_id}: invalid paragraph context scope")
             if product_rule.get("expected_source_context") != context:
                 raise ValueError(f"{rule_id}: Product/source mapping drift in source context")
         provenance = source_map.get("source_provenance")

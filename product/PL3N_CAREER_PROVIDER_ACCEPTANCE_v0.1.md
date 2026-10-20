@@ -276,3 +276,44 @@ source projection, not a finding that a real spouse harms an individual's career
 The report still declares real_world_event_prediction_supported=false, and the
 production temporal reaction registry remains empty. Deterministic testing proves
 logical prerequisites and source traces, not real-world causation or accuracy.
+
+
+## Ziwei / 丑未紫破 candidate batch (Issue #363; BLOCKED by #364)
+
+Candidate Career NATAL execution expands35 ->43 by adding all eight explicitly reviewed
+candidates from merged #360: CA01-047,050,083,087,088,089,093,095. Previous35 entries
+are unchanged.
+
+| Rules | Complete P09 condition | Preserved meaning |
+|---|---|---|
+| 047 / 050 | 紫微 | 独当一面的责任性质；独立工作或部门负责，不推为自行经营或领袖身份 |
+| 083 / 093 | 丑或未，紫微与破军同宫 | 开创适宜性／资源规模与收成差异；保留本段范围 |
+| 087 / 088 | 上述范围，加破军化禄 | 事业多变／额外工作两个独立投影；088完整继承同句四化 |
+| 089 | 上述范围，加破军化权 | 保留波折性质，不混用化禄分支 |
+| 095 | 上述范围，加左辅和右弼同度 | 四曜全在P09；不以任一辅曜或他宫会照代替 |
+
+The handoff explicitly declares PARAGRAPH_SCOPE_V0_1 for this mapping. All context
+is pinned exactly; palace, paragraph scope, inherited source IDs, branch gate,
+modality and source-scope notes are validated. The prior spouse mapping retains
+its BRANCH_GATE_V0_1 default and four mandatory context fields. Unknown context
+schemas, empty mandatory text, invalid scope and context drift fail closed.
+The actual report shows the original source summary and complete source context.
+
+093 uses the reviewed general paragraph scope. No extra化禄 or不能开创 condition
+is introduced. Source projections are not real income, career-event or leadership
+forecasts. Production temporal registry remains empty and empirical validation
+is still absent.
+
+A content-facing review in
+`validation/product/issue_363_ziwei_zipo/CONTENT_CAPABILITY_REVIEW.md` distinguishes
+the responsibility, creation, workload, turbulence, resource and assistance
+meanings, including how they combine in one report and which real-world claims
+remain unsupported. It also records a read-only preview of the twenty complete
+Knowledge #366 mappings without selecting or activating them.
+
+
+Issue #363 is not accepted on main while Knowledge dependency #364 is open.
+After synchronization with Knowledge #366, the candidate full suite is826
+passed/1 failed: a Knowledge-owned historical
+assertion forbids these IDs in the Product registry. No test is skipped and
+no failing-gate merge is permitted. Main accepted count remains35.
