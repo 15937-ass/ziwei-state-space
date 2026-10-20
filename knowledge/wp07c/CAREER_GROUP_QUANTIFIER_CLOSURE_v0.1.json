@@ -1,0 +1,252 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP07C-CAREER-GROUP-QUANTIFIER-CLOSURE-v0.1",
+  "lane": "KNOWLEDGE_ONLY",
+  "status": "251_OF_251_SOURCE_REVIEW_COMPLETE_HUMAN_GATE_READY",
+  "issue": 415,
+  "inputs": [
+    "knowledge/wp07c/CAREER_GROUP_LEXICON_REVIEW_01_v0.1.json",
+    "knowledge/wp07c/CAREER_GROUP_LEXICON_REVIEW_02_v0.1.json",
+    "knowledge/wp07c/CAREER_GROUP_LEXICON_REVIEW_03_v0.1.json",
+    "knowledge/wp07c/CAREER_BLOCKER_ONTOLOGY_BACKLOG_v0.1.json"
+  ],
+  "coverage": {
+    "total_group_related_blockers": 251,
+    "reviewed": 251,
+    "remaining": 0,
+    "batches": [
+      {
+        "batch": 1,
+        "count": 100,
+        "first": "CA01-057",
+        "last": "CA04-382",
+        "pr": 411
+      },
+      {
+        "batch": 2,
+        "count": 100,
+        "first": "CA04-383",
+        "last": "CA07-691",
+        "pr": 414
+      },
+      {
+        "batch": 3,
+        "count": 51,
+        "first": "CA07-692",
+        "last": "CA09-887",
+        "issue": 415
+      }
+    ],
+    "completeness_check": "EXACT_CONTIGUOUS_SORTED_GROUP_WORKSTREAM_SET"
+  },
+  "resolved_at_source_evidence_level": [
+    {
+      "key": "PAIR_LABEL_MEMBERSHIP",
+      "terms": {
+        "昌曲": [
+          "文昌",
+          "文曲"
+        ],
+        "辅弼": [
+          "左辅",
+          "右弼"
+        ],
+        "魁钺": [
+          "天魁",
+          "天钺"
+        ],
+        "火铃": [
+          "火星",
+          "铃星"
+        ],
+        "空劫": [
+          "地空",
+          "地劫"
+        ]
+      },
+      "proposal": "FREEZE_MEMBERSHIP_ONLY_KEEP_CARDINALITY_UNSPECIFIED"
+    },
+    {
+      "key": "MALEFIC_TAXONOMY",
+      "terms": {
+        "四煞": [
+          "擎羊",
+          "陀罗",
+          "火星",
+          "铃星"
+        ],
+        "六煞曜": [
+          "擎羊",
+          "陀罗",
+          "火星",
+          "铃星",
+          "地空",
+          "地劫"
+        ]
+      },
+      "proposal": "FREEZE_MEMBERSHIP_ONLY_KEEP_TRIGGER_CARDINALITY_UNSPECIFIED"
+    },
+    {
+      "key": "CAREER_KEWEN_DOMAIN_DEFINITION",
+      "domain": "事业宫",
+      "members": [
+        "文昌",
+        "文曲",
+        "龙池",
+        "凤阁",
+        "天才",
+        "化科"
+      ],
+      "member_types": [
+        "STAR",
+        "STAR",
+        "STAR",
+        "STAR",
+        "STAR",
+        "TRANSFORMATION_OPERATOR"
+      ],
+      "source_note": "事业宫章节明确：所谓科文诸曜，乃指昌曲、龙凤、天才、化科而言。",
+      "proposal": "FREEZE_AS_CAREER_DOMAIN_SCOPED_GROUP_NOT_GLOBAL"
+    },
+    {
+      "key": "TERM_SPECIFIC_PAIR_COMPOSITES",
+      "terms": {
+        "三台八座": {
+          "members": [
+            "三台",
+            "八座"
+          ],
+          "constraint": "PAIR_REQUIRED",
+          "source_relation": "成对会照"
+        },
+        "龙池凤阁": {
+          "members": [
+            "龙池",
+            "凤阁"
+          ],
+          "constraint": "PAIR_REQUIRED",
+          "source_relation": "成对会入"
+        },
+        "禄马交驰": {
+          "members": [
+            "禄存",
+            "天马"
+          ],
+          "constraint": "BOTH_REQUIRED",
+          "relation": "SAME_PALACE_OR_OPPOSITION"
+        }
+      },
+      "proposal": "ALLOW_NAMED_TERM_SPECIFIC_COMPOSITE_SEMANTICS_ONLY"
+    },
+    {
+      "key": "CLAUSE_OPERATORS",
+      "explicit_tokens": [
+        "或",
+        "同时",
+        "且",
+        "又",
+        "更",
+        "无",
+        "不见",
+        "同度",
+        "同会",
+        "会照",
+        "相对",
+        "夹"
+      ],
+      "proposal": "PRESERVE_AND_COMPILE_ONLY_WHERE_EXPLICITLY_WRITTEN"
+    }
+  ],
+  "remains_unresolved_after_251_review": [
+    {
+      "class": "GENERIC_PAIR_CARDINALITY",
+      "examples": [
+        "昌曲",
+        "辅弼",
+        "魁钺",
+        "火铃",
+        "空劫"
+      ],
+      "question": "简称出现而原句没有单星/同时/成对/或等量词时，触发是 ANY、ALL、AT_LEAST_N 还是 context-specific？",
+      "recommended_policy": "UNSPECIFIED_NO_DEFAULT"
+    },
+    {
+      "class": "VALENCE_OR_OPEN_CATEGORY",
+      "examples": [
+        "吉曜",
+        "煞曜",
+        "凶曜",
+        "辅佐吉曜",
+        "吉星祥曜",
+        "吉化吉曜",
+        "桃花诸曜",
+        "煞忌刑耗诸曜"
+      ],
+      "question": "这些开放类别在不同正曜/宫位/章节是否具有固定封闭成员集合？",
+      "recommended_policy": "DOMAIN_AND_CONTEXT_SCOPED_LEXICON_ONLY_NO_UNIVERSAL_CLOSED_SET"
+    },
+    {
+      "class": "SEVERITY_CARDINALITY",
+      "examples": [
+        "煞轻",
+        "煞重",
+        "吉煞交集",
+        "煞曜重而吉曜轻",
+        "重重"
+      ],
+      "question": "轻/重是否可转成数值阈值？",
+      "recommended_policy": "DO_NOT_NUMERICIZE_WITHOUT_EXPLICIT_SOURCE_OR_EMPIRICAL_PROTOCOL"
+    },
+    {
+      "class": "INHERITED_ANTECEDENT",
+      "examples": [
+        "前格"
+      ],
+      "question": "继承条件如何展开？",
+      "recommended_policy": "EXPLICIT_DEPENDENCY_GRAPH_TO_PREVIOUS_SOURCE_RULE_NOT_TEXTUAL_DEFAULT"
+    }
+  ],
+  "reconciliation": [
+    {
+      "topic": "科文诸曜",
+      "earlier_evidence": "GLEX2-E04",
+      "earlier_status": "跨章节成员候选：昌曲、魁钺、龙凤；未冻结。",
+      "new_evidence": "GLEX3-E01",
+      "new_status": "事业宫章节直接定义：昌曲、龙凤、天才、化科。",
+      "resolution": "对 Career/事业宫应优先使用域内直接定义；早期跨章节候选不作为 Career canonical membership。全局定义仍不推断。"
+    }
+  ],
+  "human_gate": {
+    "gate_id": "HG-KB-GROUP-QUANTIFIER-01",
+    "status": "READY_FOR_PI",
+    "decision_requested": "批准保守的分层群组语义：只冻结来源明确成员与命名复合词的局部关系；所有未明示 cardinality 保持 UNSPECIFIED，不设 ANY/ALL 全局默认。",
+    "recommended_option": "A_CONSERVATIVE_SOURCE_PRESERVING",
+    "options": [
+      {
+        "id": "A_CONSERVATIVE_SOURCE_PRESERVING",
+        "description": "批准 membership/域内定义/命名 composite/显式 clause operator；未明示量词一律 UNSPECIFIED。",
+        "risk": "LOWEST_SEMANTIC_INVENTION",
+        "unblock_effect": "允许下一工作单元建立 group ontology schema 与部分可编译条件，但大量 shorthand 条件仍会继续 BLOCKED。"
+      },
+      {
+        "id": "B_GLOBAL_ANY_DEFAULT",
+        "description": "所有未明示 group shorthand 默认 ANY member present。",
+        "risk": "HIGH_UNSUPPORTED_SEMANTIC_ASSUMPTION",
+        "recommendation": "REJECT"
+      },
+      {
+        "id": "C_GLOBAL_ALL_DEFAULT",
+        "description": "所有未明示 group shorthand 默认 ALL members present。",
+        "risk": "HIGH_UNSUPPORTED_SEMANTIC_ASSUMPTION",
+        "recommendation": "REJECT"
+      }
+    ],
+    "pi_can_approve_with_phrase": "批准 A / 批准保守方案"
+  },
+  "guardrails": {
+    "executable_semantics_changed": false,
+    "product_changed": false,
+    "empirical_weights_added": false,
+    "cross_school_sources_used": false
+  }
+}
