@@ -1,0 +1,348 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Zhongzhou Response Semantics Record v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "record_id",
+    "term",
+    "semantic_role",
+    "members",
+    "scope",
+    "activation",
+    "relation_constraints",
+    "interaction",
+    "ordinal_constraints",
+    "effect_targets",
+    "provenance",
+    "epistemic_status",
+    "execution_status"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "term": {
+      "type": "string",
+      "minLength": 1
+    },
+    "semantic_role": {
+      "enum": [
+        "LEXICAL_GROUP",
+        "NAMED_COMPOSITE",
+        "SCOPED_CATEGORY",
+        "LOCAL_RESPONSE_PATTERN"
+      ]
+    },
+    "members": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "enum": [
+              "STAR",
+              "TRANSFORMATION_OPERATOR",
+              "STRUCTURE",
+              "OTHER_SOURCE_TERM"
+            ]
+          }
+        }
+      }
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "domain",
+        "time_layer"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "domain": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "time_layer": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "star_system": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "palace": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "activation": {
+      "type": "object",
+      "required": [
+        "mode",
+        "source_status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "enum": [
+            "UNSPECIFIED",
+            "SINGLE_MEMBER_VALID",
+            "ANY_MEMBER",
+            "ALL_MEMBERS",
+            "PAIR_REQUIRED",
+            "N_OF",
+            "EXPLICIT_OR",
+            "EXPLICIT_AND"
+          ]
+        },
+        "n": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "source_status": {
+          "enum": [
+            "EXPLICIT",
+            "INFERRED",
+            "HYPOTHESIS",
+            "IMPLEMENTATION"
+          ]
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "relation_constraints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "relation",
+          "source_status"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "relation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_status": {
+            "enum": [
+              "EXPLICIT",
+              "INFERRED",
+              "HYPOTHESIS",
+              "IMPLEMENTATION"
+            ]
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "interaction": {
+      "type": "object",
+      "required": [
+        "type",
+        "source_status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "enum": [
+            "UNSPECIFIED",
+            "NONE_STATED",
+            "ADDITIVE",
+            "ENHANCE",
+            "WEAKEN",
+            "TRANSFORM",
+            "GATE"
+          ]
+        },
+        "source_status": {
+          "enum": [
+            "EXPLICIT",
+            "INFERRED",
+            "HYPOTHESIS",
+            "IMPLEMENTATION"
+          ]
+        },
+        "notes": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "ordinal_constraints": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "lhs",
+          "relation",
+          "rhs",
+          "source_status"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "lhs": {
+            "type": "string",
+            "minLength": 1
+          },
+          "relation": {
+            "enum": [
+              "STRONGER_THAN",
+              "WEAKER_THAN",
+              "PREFERRED_OVER",
+              "ESPECIALLY_AVOID"
+            ]
+          },
+          "rhs": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_status": {
+            "enum": [
+              "EXPLICIT",
+              "INFERRED",
+              "HYPOTHESIS",
+              "IMPLEMENTATION"
+            ]
+          },
+          "scope_note": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "effect_targets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "target_id",
+          "operator",
+          "source_status"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "target_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "operator": {
+            "enum": [
+              "INCREASE",
+              "DECREASE",
+              "TRANSFORM",
+              "GATE",
+              "UNSPECIFIED"
+            ]
+          },
+          "source_status": {
+            "enum": [
+              "EXPLICIT",
+              "INFERRED",
+              "HYPOTHESIS",
+              "IMPLEMENTATION"
+            ]
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "provenance": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "artifact",
+          "locator"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "artifact": {
+            "type": "string",
+            "minLength": 1
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "epistemic_status": {
+      "enum": [
+        "EXPLICIT",
+        "INFERRED",
+        "HYPOTHESIS",
+        "IMPLEMENTATION",
+        "MIXED"
+      ]
+    },
+    "execution_status": {
+      "enum": [
+        "LEXICAL_ONLY",
+        "STRUCTURAL_ONLY",
+        "SAFE_SYMBOLIC",
+        "BLOCKED"
+      ]
+    }
+  }
+}

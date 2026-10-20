@@ -1,0 +1,466 @@
+{
+  "schema_version": "0.1",
+  "registry_id": "KB-RESPONSE-SEMANTICS-PILOT-v0.1",
+  "status": "PILOT_SOURCE_GROUNDED_NO_PRODUCT_EXECUTION",
+  "issue": 419,
+  "records": [
+    {
+      "schema_version": "0.1",
+      "record_id": "RS-GROUP-FIRE-BELL",
+      "term": "火铃",
+      "semantic_role": "LEXICAL_GROUP",
+      "members": [
+        {
+          "id": "火星",
+          "type": "STAR"
+        },
+        {
+          "id": "铃星",
+          "type": "STAR"
+        }
+      ],
+      "scope": {
+        "domain": null,
+        "time_layer": null,
+        "star_system": null,
+        "palace": null,
+        "notes": "只冻结成员 identity；不冻结 generic shorthand cardinality。"
+      },
+      "activation": {
+        "mode": "UNSPECIFIED",
+        "n": null,
+        "source_status": "IMPLEMENTATION",
+        "notes": "来源存在局部 OR、局部 BOTH、夹结构和单星分别讨论，不能迁移成全局默认。"
+      },
+      "relation_constraints": [],
+      "interaction": {
+        "type": "UNSPECIFIED",
+        "source_status": "IMPLEMENTATION",
+        "notes": "membership 本身不蕴含 pair interaction。"
+      },
+      "ordinal_constraints": [],
+      "effect_targets": [],
+      "provenance": [
+        {
+          "artifact": "knowledge/wp07a/CAREER_FIRE_BELL_SOURCE_EVIDENCE_v0.1.json",
+          "locator": "FB02, FB03-FB08",
+          "source_ids": [
+            "SRC-ZZ-001",
+            "SRC-ZZ-002",
+            "SRC-ZZ-003"
+          ]
+        }
+      ],
+      "epistemic_status": "MIXED",
+      "execution_status": "LEXICAL_ONLY"
+    },
+    {
+      "schema_version": "0.1",
+      "record_id": "RS-LOCAL-FIRE-BELL-JIMEN-JUMEN",
+      "term": "火铃（天机巨门卯酉局部）",
+      "semantic_role": "LOCAL_RESPONSE_PATTERN",
+      "members": [
+        {
+          "id": "火星",
+          "type": "STAR"
+        },
+        {
+          "id": "铃星",
+          "type": "STAR"
+        }
+      ],
+      "scope": {
+        "domain": null,
+        "time_layer": null,
+        "star_system": "天机巨门卯酉",
+        "palace": null,
+        "notes": "局部证据，不迁移到事业宫“见火铃”目标句。"
+      },
+      "activation": {
+        "mode": "SINGLE_MEMBER_VALID",
+        "n": null,
+        "source_status": "INFERRED",
+        "notes": "原文在同一局部上下文分别给出铃星同度与火星同度次序。"
+      },
+      "relation_constraints": [
+        {
+          "relation": "同度",
+          "source_status": "EXPLICIT",
+          "notes": null
+        }
+      ],
+      "interaction": {
+        "type": "UNSPECIFIED",
+        "source_status": "IMPLEMENTATION",
+        "notes": "此证据不证明双星额外交互项。"
+      },
+      "ordinal_constraints": [
+        {
+          "lhs": "铃星同度",
+          "relation": "STRONGER_THAN",
+          "rhs": "火星同度",
+          "source_status": "EXPLICIT",
+          "scope_note": "仅限天机巨门卯酉局部不利程度。"
+        }
+      ],
+      "effect_targets": [],
+      "provenance": [
+        {
+          "artifact": "knowledge/wp07a/CAREER_FIRE_BELL_SOURCE_EVIDENCE_v0.1.json",
+          "locator": "FB05",
+          "source_ids": [
+            "SRC-ZZ-002"
+          ]
+        }
+      ],
+      "epistemic_status": "MIXED",
+      "execution_status": "STRUCTURAL_ONLY"
+    },
+    {
+      "schema_version": "0.1",
+      "record_id": "RS-GROUP-CHANG-QU",
+      "term": "昌曲",
+      "semantic_role": "LEXICAL_GROUP",
+      "members": [
+        {
+          "id": "文昌",
+          "type": "STAR"
+        },
+        {
+          "id": "文曲",
+          "type": "STAR"
+        }
+      ],
+      "scope": {
+        "domain": null,
+        "time_layer": null,
+        "star_system": null,
+        "palace": null,
+        "notes": "generic pair label membership only。"
+      },
+      "activation": {
+        "mode": "UNSPECIFIED",
+        "n": null,
+        "source_status": "IMPLEMENTATION",
+        "notes": "不预设单星/对星 cardinality。"
+      },
+      "relation_constraints": [],
+      "interaction": {
+        "type": "UNSPECIFIED",
+        "source_status": "IMPLEMENTATION",
+        "notes": null
+      },
+      "ordinal_constraints": [],
+      "effect_targets": [],
+      "provenance": [
+        {
+          "artifact": "knowledge/wp07c/CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1.json",
+          "locator": "resolved_at_source_evidence_level.PAIR_LABEL_MEMBERSHIP",
+          "source_ids": [
+            "SRC-ZZ-002",
+            "SRC-ZZ-003"
+          ]
+        }
+      ],
+      "epistemic_status": "EXPLICIT",
+      "execution_status": "LEXICAL_ONLY"
+    },
+    {
+      "schema_version": "0.1",
+      "record_id": "RS-GROUP-FU-BI",
+      "term": "辅弼",
+      "semantic_role": "LEXICAL_GROUP",
+      "members": [
+        {
+          "id": "左辅",
+          "type": "STAR"
+        },
+        {
+          "id": "右弼",
+          "type": "STAR"
+        }
+      ],
+      "scope": {
+        "domain": null,
+        "time_layer": null,
+        "star_system": null,
+        "palace": null,
+        "notes": "membership only。"
+      },
+      "activation": {
+        "mode": "UNSPECIFIED",
+        "n": null,
+        "source_status": "IMPLEMENTATION",
+        "notes": null
+      },
+      "relation_constraints": [],
+      "interaction": {
+        "type": "UNSPECIFIED",
+        "source_status": "IMPLEMENTATION",
+        "notes": null
+      },
+      "ordinal_constraints": [],
+      "effect_targets": [],
+      "provenance": [
+        {
+          "artifact": "knowledge/wp07c/CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1.json",
+          "locator": "resolved_at_source_evidence_level.PAIR_LABEL_MEMBERSHIP",
+          "source_ids": [
+            "SRC-ZZ-002",
+            "SRC-ZZ-003"
+          ]
+        }
+      ],
+      "epistemic_status": "EXPLICIT",
+      "execution_status": "LEXICAL_ONLY"
+    },
+    {
+      "schema_version": "0.1",
+      "record_id": "RS-COMPOSITE-SANTAI-BAZUO",
+      "term": "三台八座",
+      "semantic_role": "NAMED_COMPOSITE",
+      "members": [
+        {
+          "id": "三台",
+          "type": "STAR"
+        },
+        {
+          "id": "八座",
+          "type": "STAR"
+        }
+      ],
+      "scope": {
+        "domain": null,
+        "time_layer": null,
+        "star_system": null,
+        "palace": null,
+        "notes": "命名复合词的局部 pair semantics。"
+      },
+      "activation": {
+        "mode": "PAIR_REQUIRED",
+        "n": null,
+        "source_status": "EXPLICIT",
+        "notes": "来源：必须成对会照，然后才主增高地位。"
+      },
+      "relation_constraints": [
+        {
+          "relation": "成对会照",
+          "source_status": "EXPLICIT",
+          "notes": null
+        }
+      ],
+      "interaction": {
+        "type": "GATE",
+        "source_status": "INFERRED",
+        "notes": "把“必须成对…然后才”表示为 effect gate；不产生数值。"
+      },
+      "ordinal_constraints": [],
+      "effect_targets": [
+        {
+          "target_id": "SOURCE_LITERAL:增高地位",
+          "operator": "INCREASE",
+          "source_status": "EXPLICIT",
+          "notes": "保留 source-literal target，尚未提升为 primitive latent dimension。"
+        }
+      ],
+      "provenance": [
+        {
+          "artifact": "knowledge/wp07c/CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1.json",
+          "locator": "resolved_at_source_evidence_level.TERM_SPECIFIC_PAIR_COMPOSITES.三台八座",
+          "source_ids": [
+            "SRC-ZZ-002"
+          ]
+        }
+      ],
+      "epistemic_status": "MIXED",
+      "execution_status": "STRUCTURAL_ONLY"
+    },
+    {
+      "schema_version": "0.1",
+      "record_id": "RS-COMPOSITE-LONGCHI-FENGGE",
+      "term": "龙池凤阁",
+      "semantic_role": "NAMED_COMPOSITE",
+      "members": [
+        {
+          "id": "龙池",
+          "type": "STAR"
+        },
+        {
+          "id": "凤阁",
+          "type": "STAR"
+        }
+      ],
+      "scope": {
+        "domain": null,
+        "time_layer": null,
+        "star_system": null,
+        "palace": null,
+        "notes": "命名复合词的局部 pair semantics。"
+      },
+      "activation": {
+        "mode": "PAIR_REQUIRED",
+        "n": null,
+        "source_status": "EXPLICIT",
+        "notes": "来源：成对会入，主才艺。"
+      },
+      "relation_constraints": [
+        {
+          "relation": "成对会入",
+          "source_status": "EXPLICIT",
+          "notes": null
+        }
+      ],
+      "interaction": {
+        "type": "GATE",
+        "source_status": "INFERRED",
+        "notes": "仅表达 pair requirement 对该 source effect 的门控。"
+      },
+      "ordinal_constraints": [],
+      "effect_targets": [
+        {
+          "target_id": "SOURCE_LITERAL:才艺",
+          "operator": "INCREASE",
+          "source_status": "EXPLICIT",
+          "notes": "source-literal target。"
+        }
+      ],
+      "provenance": [
+        {
+          "artifact": "knowledge/wp07c/CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1.json",
+          "locator": "resolved_at_source_evidence_level.TERM_SPECIFIC_PAIR_COMPOSITES.龙池凤阁",
+          "source_ids": [
+            "SRC-ZZ-002"
+          ]
+        }
+      ],
+      "epistemic_status": "MIXED",
+      "execution_status": "STRUCTURAL_ONLY"
+    },
+    {
+      "schema_version": "0.1",
+      "record_id": "RS-COMPOSITE-LUMA-JIAOCHI",
+      "term": "禄马交驰",
+      "semantic_role": "NAMED_COMPOSITE",
+      "members": [
+        {
+          "id": "禄存",
+          "type": "STAR"
+        },
+        {
+          "id": "天马",
+          "type": "STAR"
+        }
+      ],
+      "scope": {
+        "domain": null,
+        "time_layer": null,
+        "star_system": null,
+        "palace": null,
+        "notes": "命名复合词；不得把本记录自动套到 generic shorthand“禄马”。"
+      },
+      "activation": {
+        "mode": "ALL_MEMBERS",
+        "n": null,
+        "source_status": "EXPLICIT",
+        "notes": "命名复合结构要求禄存、天马两者。"
+      },
+      "relation_constraints": [
+        {
+          "relation": "SAME_PALACE_OR_OPPOSITION",
+          "source_status": "EXPLICIT",
+          "notes": "来源解释为同度或相对。"
+        }
+      ],
+      "interaction": {
+        "type": "GATE",
+        "source_status": "INFERRED",
+        "notes": "仅对“禄马交驰”命名结构成立。"
+      },
+      "ordinal_constraints": [],
+      "effect_targets": [],
+      "provenance": [
+        {
+          "artifact": "knowledge/wp07c/CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1.json",
+          "locator": "resolved_at_source_evidence_level.TERM_SPECIFIC_PAIR_COMPOSITES.禄马交驰",
+          "source_ids": [
+            "SRC-ZZ-003"
+          ]
+        }
+      ],
+      "epistemic_status": "MIXED",
+      "execution_status": "STRUCTURAL_ONLY"
+    },
+    {
+      "schema_version": "0.1",
+      "record_id": "RS-SCOPED-CAREER-KEWEN",
+      "term": "科文诸曜",
+      "semantic_role": "SCOPED_CATEGORY",
+      "members": [
+        {
+          "id": "文昌",
+          "type": "STAR"
+        },
+        {
+          "id": "文曲",
+          "type": "STAR"
+        },
+        {
+          "id": "龙池",
+          "type": "STAR"
+        },
+        {
+          "id": "凤阁",
+          "type": "STAR"
+        },
+        {
+          "id": "天才",
+          "type": "STAR"
+        },
+        {
+          "id": "化科",
+          "type": "TRANSFORMATION_OPERATOR"
+        }
+      ],
+      "scope": {
+        "domain": "事业宫",
+        "time_layer": null,
+        "star_system": null,
+        "palace": "事业宫",
+        "notes": "事业宫章节直接定义；不推断为全局 definition。"
+      },
+      "activation": {
+        "mode": "UNSPECIFIED",
+        "n": null,
+        "source_status": "IMPLEMENTATION",
+        "notes": "成员定义不等于触发 cardinality。"
+      },
+      "relation_constraints": [],
+      "interaction": {
+        "type": "UNSPECIFIED",
+        "source_status": "IMPLEMENTATION",
+        "notes": null
+      },
+      "ordinal_constraints": [],
+      "effect_targets": [],
+      "provenance": [
+        {
+          "artifact": "knowledge/wp07c/CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1.json",
+          "locator": "resolved_at_source_evidence_level.CAREER_KEWEN_DOMAIN_DEFINITION",
+          "source_ids": [
+            "SRC-ZZ-003"
+          ]
+        }
+      ],
+      "epistemic_status": "EXPLICIT",
+      "execution_status": "LEXICAL_ONLY"
+    }
+  ],
+  "guardrails": {
+    "product_runtime_modified": false,
+    "numeric_weights_added": false,
+    "probabilities_added": false,
+    "global_any_default": false,
+    "global_all_default": false,
+    "historical_closure_rewritten": false
+  }
+}
