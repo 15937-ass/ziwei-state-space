@@ -117,3 +117,24 @@ def test_guardrails_hold():
     assert g["numeric_weights_added"] is False
     assert g["probabilities_added"] is False
     assert g["product_runtime_modified"] is False
+
+
+def test_un_tokenized_non_inherited_group_records_are_flagged_for_recheck():
+    data = _load()
+    source = _load(INPUT_REVIEW)
+    source_by_id = {row["source_rule_id"]: row for row in source["records"]}
+    expected = {
+        row["source_rule_id"]
+        for row in source["records"]
+        if not row.get("surface_group_tokens")
+        and row["dependency_class"] != "INHERITED_ANTECEDENT_DEPENDENCY"
+        and row["blocker_code"] in {"GROUP", "RELATION_AND_GROUP", "ABSENCE_AND_GROUP", "DIGNITY_AND_GROUP"}
+    }
+    actual = {
+        row["source_rule_id"]
+        for row in data["records"]
+        if "UNTOKENIZED_SEMANTIC_RECHECK" in row["remaining_blockers"]
+    }
+    assert len(expected) == 10
+    assert actual == expected
+    assert data["summary"]["remaining_blocker_counts"]["UNTOKENIZED_SEMANTIC_RECHECK"] == 10
