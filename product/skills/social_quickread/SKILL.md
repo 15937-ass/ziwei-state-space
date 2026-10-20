@@ -94,16 +94,38 @@ Normalized chart / question
 - claim 与现有 evidence 之间只能靠模型常识或网络记忆连接；
 - 两条高优先级证据冲突且 runtime 未给出可用 resolution。
 
-## 8. Debug 与用户输出分离
+## 8. 双输出：用户版与 PI 审计版
 
-后台允许保存：
+用户最终评论不得暴露技术字段；`verbalizer_payload()` 仍故意不发送 source refs，防止 LLM 顺着原文继续扩写新的命理判断。
+
+但 **Manual Pilot 面向 PI 的每一次运行都必须同时返回两段结果**，包括首次简批和所有 Follow-up：
+
+1. **用户可读版**：可直接复制到社交平台的自然语言；
+2. **PI 审计版**：说明每个输出点的语义来源、证据状态与模型参与方式。
+
+PI 审计至少保留：
 
 ```text
-claim_id -> rule_id -> source_id -> source_location -> review_status
+claim_id
+-> semantic_origin
+-> runtime_run_id（若宣称 RUNTIME_*）
+-> rule_id / source_id / source_location
+-> language_origin
+-> llm_added_semantics
+-> coverage_gap / observation（如有）
 ```
 
-用户最终评论不得暴露这些技术字段。`verbalizer_payload()` 故意不发送 source refs，防止 LLM 顺着原文继续扩写新的命理判断。
+允许的 `semantic_origin`：
 
+- `RUNTIME_CANONICAL`：本次或可追溯 session 中实际执行 canonical runtime 得到；
+- `RUNTIME_TEMPORAL`：本次或可追溯 session 中实际执行 temporal runtime 得到；
+- `SOURCE_BACKED_FALLBACK`：当前 runtime 未覆盖，但由批准的中州派 source 直接检索并人工组成 claim。
+
+**不得仅因 evidence namespace 是 CANONICAL/TEMPORAL，就默认声称 runtime 已经实际执行。** 若没有可追溯的 `runtime_run_id`，不得标成 `RUNTIME_CANONICAL` 或 `RUNTIME_TEMPORAL`。
+
+`LLM_VERBALIZATION` 只表示把已有 claim 改写成自然中文，不是独立事实来源。若出现新的事实/解释语义，必须进入 `llm_added_semantics`，并阻断用户版发送。
+
+因此，在 PI 当前试用阶段，**只给用户版而省略 PI 审计版属于 contract violation**。
 
 ## 9. 用户可限定的简批窗口
 
