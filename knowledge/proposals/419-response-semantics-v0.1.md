@@ -1,6 +1,6 @@
 # Proposal 419 — Response Semantics v0.1
 
-Status: **IMPLEMENTING — PI APPROVED BOUNDED SCOPE**  
+Status: **IMPLEMENTED — PI APPROVED BOUNDED SCOPE**  
 Tracking Issue: #419  
 Lane: KNOWLEDGE_ONLY
 
@@ -178,4 +178,4 @@ PI 已明确批准：
 ## Implementation History
 
 - 2026-10-20: PI 批准 bounded basic modification + future-guidance recording。
-- Issue #419: v0.1 schema / pilot / guidance / tests。
+- Issue #419 / PR #420: v0.1 schema / pilot / guidance / tests implemented；Product runtime unchanged。
