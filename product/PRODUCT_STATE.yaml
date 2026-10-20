@@ -1,17 +1,22 @@
-schema_version: 2
+schema_version: 3
 lane: "PRODUCT_ONLY"
 authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  status: "ACTIVE"
-  phase: "PL3_END_TO_END_INFERENCE_MVP"
-  active_issue: 416
-  active_pr: 418
-  resume_entry: "Issue #416 is active: 25 Review-05 Career mappings pass the existing Product provenance gate and are implemented on the candidate, targeting natal Career 165 -> 190. Two case-support-only EVENT_CANDIDATE rows remain explicitly non-executable. Product-only validation is pending."
+  status: "ACTIVE_NO_ACTIVE_WORK"
+  phase: "PL3_METHOD_RESPONSE_VERTICAL_SLICE"
+  active_issue: null
+  active_pr: null
+  next_work_unit: "PRODUCT_METHOD_CASE_CONTRACTS_V0_1"
+  resume_entry: "Product #416 / PR #418 are complete on main with 190 accepted Career NATAL rules. Product v0.4 (Proposal #425) changes the critical path from further Career-NATAL count expansion to expert-method contracts, Wang expert-case LOCO replay, fail-closed Response Semantics adapter, Decade/Year Response Compiler, M0 manifestation candidates, fidelity benchmarks, and early Forecast Ledger activation. No Product runtime work from Proposal #425 is implied complete by this state."
+  last_completed_product_issue: 416
+  last_completed_product_pr: 418
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
   resume_issue: 290
+  roadmap: "PRODUCT_ROADMAP.md#v0.4"
+  execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
 
 capability_snapshot:
   deterministic_chart:
@@ -21,6 +26,7 @@ capability_snapshot:
     internal_validation: "FIDELITY_PASS"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "LIMITED"
+
   rule_runtime:
     specification: "SPECIFIED"
     implementation: "IMPLEMENTED"
@@ -28,6 +34,7 @@ capability_snapshot:
     internal_validation: "CONTRACT"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "LIMITED"
+
   natal_wealth:
     specification: "SPECIFIED"
     implementation: "IMPLEMENTED"
@@ -36,49 +43,125 @@ capability_snapshot:
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
     note: "W01 59/100 executable"
+
   natal_career:
     specification: "SPECIFIED"
-    implementation: "PARTIAL"
+    implementation: "IMPLEMENTED"
     canonical_content: "PARTIAL"
     internal_validation: "CONTRACT"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    note: "190 NATAL rules on the Issue #416 candidate (165 accepted on main until merge); two Review-05 case-support-only event candidates remain non-executable; no empirical prediction validation."
-  temporal_reactions:
+    note: "190 accepted NATAL Career rules are on main after Product #416 / PR #418. This count is sufficient for the first dynamic vertical slice and is no longer the current Product critical-path KPI."
+
+  natal_essence_graph:
+    specification: "V0_4_ARCHITECTURE_APPROVED"
+    implementation: "PARTIAL_EXISTING_STATE_PROFILE"
+    canonical_content: "PARTIAL"
+    internal_validation: "NOT_YET_AS_GRAPH"
+    empirical_calibration: "NOT_APPLICABLE"
+    production_readiness: "NOT_READY"
+    note: "v0.4 treats essence/system mode/palace/domain projection as a structured Natal Essence target; implementation migration remains future Product work."
+
+  temporal_environment:
     specification: "SPECIFIED"
     implementation: "IMPLEMENTED"
-    canonical_content: "EMPTY"
+    canonical_content: "FACT_INFRASTRUCTURE_READY"
     internal_validation: "CONTRACT"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-  manifestation_ontology:
-    specification: "SPECIFIED"
-    implementation: "IMPLEMENTED"
-    canonical_content: "EMPTY"
-    internal_validation: "CONTRACT"
+    note: "Temporal facts/environment exist. v0.4 keeps E_t separate from response and event outcome."
+
+  expert_method:
+    specification: "V0_4_ARCHITECTURE_APPROVED"
+    implementation: "NOT_IMPLEMENTED"
+    canonical_content: "NOT_APPLICABLE"
+    internal_validation: "NONE"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-  manifestation_mapping:
-    specification: "SPECIFIED"
-    implementation: "IMPLEMENTED"
-    canonical_content: "EMPTY"
-    internal_validation: "CONTRACT"
+    note: "Next work unit defines CaseBundle, ExpertReasoningGraph, InferenceTrace, MethodPattern and SchoolCompatibility before Wang-case LOCO replay."
+
+  response_semantics_adapter:
+    specification: "V0_4_ARCHITECTURE_APPROVED"
+    implementation: "NOT_IMPLEMENTED"
+    canonical_content: "KNOWLEDGE_DEPENDENT"
+    internal_validation: "NONE"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
+    note: "Knowledge Response Semantics compatibility never implies execution unlock; Product adapter must fail closed."
+
+  response_profile:
+    specification: "V0_4_ARCHITECTURE_APPROVED"
+    implementation: "NOT_IMPLEMENTED"
+    canonical_content: "EMPTY"
+    internal_validation: "NONE"
+    empirical_calibration: "NOT_APPLICABLE"
+    production_readiness: "NOT_READY"
+    note: "Target: symbolic source-traceable tau_t from N + E_decade/year + canonical response knowledge."
+
+  manifestation_m0:
+    specification: "V0_4_ARCHITECTURE_APPROVED"
+    implementation: "NOT_IMPLEMENTED"
+    canonical_content: "EMPTY"
+    internal_validation: "NONE"
+    empirical_calibration: "NOT_APPLICABLE"
+    production_readiness: "NOT_READY"
+    note: "M0 is source-supported possibility only, not probability."
+
+  acquired_state_belief:
+    specification: "FUTURE_V0_4"
+    implementation: "DEFERRED"
+    canonical_content: "NOT_APPLICABLE"
+    internal_validation: "NONE"
+    empirical_calibration: "NONE"
+    production_readiness: "NOT_READY"
+    note: "Future layer keeps real/acquired state X_t separate from system belief b_t."
+
   population_probability:
-    specification: "SPECIFIED"
-    implementation: "IMPLEMENTED"
+    specification: "FUTURE_V0_4"
+    implementation: "INTERFACE_ONLY"
     canonical_content: "NOT_APPLICABLE"
     internal_validation: "CONTRACT"
     empirical_calibration: "NONE"
     production_readiness: "NOT_READY"
+
   personalized_posterior:
-    specification: "SPECIFIED"
+    specification: "FUTURE_V0_4"
     implementation: "ARCHIVED_BRANCH_ONLY"
     canonical_content: "NOT_APPLICABLE"
     internal_validation: "NONE_ON_MAIN"
     empirical_calibration: "NONE"
     production_readiness: "NOT_READY"
+
+  forecast_ledger:
+    specification: "V0_4_REQUIRED_EARLY"
+    implementation: "PARTIAL_PL7_PREREQUISITES"
+    canonical_content: "NOT_APPLICABLE"
+    internal_validation: "PARTIAL"
+    empirical_calibration: "NONE"
+    production_readiness: "NOT_READY"
+    note: "Activate as soon as the first N -> E -> tau -> M0 source-only vertical slice is executable."
+
+critical_path:
+  now:
+    - "PRODUCT_METHOD_CASE_CONTRACTS_V0_1"
+    - "WANG_EXPERT_CASE_STRUCTURING_AND_LOCO"
+    - "METHOD_POLICY_V0_1_CBR_HEURISTIC_SYMBOLIC"
+    - "RESPONSE_SEMANTICS_FAIL_CLOSED_ADAPTER"
+    - "SOURCE_BACKED_RESPONSE_CORPUS_DEPENDENCY"
+    - "PL3R_DECADE_YEAR_RESPONSE_COMPILER"
+    - "PL3M0_CANONICAL_MANIFESTATION_CANDIDATES"
+    - "CANONICAL_AND_METHOD_FIDELITY_BENCHMARK"
+    - "FORECAST_LEDGER_ACTIVATION"
+  future:
+    - "ACQUIRED_STATE_X_AND_BELIEF_B"
+    - "CONTEXTUAL_MANIFESTATION_M1"
+    - "PROSPECTIVE_BLIND_BENCHMARK"
+    - "INTERPRETABLE_EMPIRICAL_CALIBRATION"
+    - "HIERARCHICAL_BAYESIAN"
+    - "DYNAMIC_STATE_SPACE_IF_JUSTIFIED"
+    - "MULTI_SCHOOL_PRODUCTION"
+    - "ADVANCED_ML_IF_BASELINES_BEATEN"
+    - "CAUSAL_MPC_OFFLINE_RL_LAST"
 
 resume_queue_reference:
   legacy_pl3m_reconstitution_issue: 277
@@ -89,14 +172,22 @@ resume_queue_reference:
     - 282
     - 283
     - 284
-  note: "Legacy Issues are historical references, not current active work. Issues #291, #336, #342, #344, #346, #350, #353, #356, #359, #363, #378, #389, #400 and #407 are completed. Product #416 is the current bounded work unit; later reviewed Career mappings remain unselected Product candidate pools."
+  note: "Legacy Issues/PRs remain historical references only. Product #416/#418 are completed; Proposal #425 defines the new critical path. Old temporal/manifestation scaffolding is not considered capability completion while canonical content is empty."
 
 permanent_boundaries:
   canonical_natal_feedback_independent: true
   temporal_environment_not_outcome: true
+  response_profile_separate_from_temporal_environment: true
+  expert_policy_does_not_own_canonical_truth: true
+  expert_cases_not_empirical_probability_ground_truth: true
+  cross_school_method_transfer_does_not_mutate_zhongzhou_core: true
   empirical_probability_separate_from_source_possibility: true
   personalized_posterior_separate_from_population_calibration: true
+  real_state_separate_from_system_belief: true
   blind_and_personalized_evaluation_separate: true
+  source_fidelity_separate_from_method_fidelity: true
+  method_fidelity_separate_from_predictive_validity: true
   llm_owns_rule_selection: false
   llm_owns_probability: false
+  llm_may_propose_next_reasoning_action_only: true
   world_model_is_current_critical_path: false
