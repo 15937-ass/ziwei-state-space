@@ -185,7 +185,7 @@
     "findings": [
       "按 normalized source_condition_text 重新做 longest-match relation surface audit，补齐 compound clause 中遗漏的次级关系，并按原文位置排序。",
       "完整可独立 relation surface 共 150 个；另有 1 个“朝拱”位于 structured pattern“百官朝拱”内部，显式排除为普通 relation atom。",
-      "相较 v0.1 有 13 条 record 的 atom 序列变化，其中 6 条是真正补充漏项，其余为恢复 source surface 顺序。",
+      "相较 v0.1 有 13 条 record 的 atom 序列变化：5 条补齐 standalone 次级 relation surface，1 条把 structured pattern 内部“朝拱”显式排除为普通 relation，其余 7 条恢复 source surface 顺序。",
       "补入 CA03-290 的“会空劫”后，该 record 从 R1 转为 R2；因此 v0.2 为 R1=104、R2=27、R3=1。",
       "本修复只修改 derived relation representation，不改历史 source review、Response compatibility 或 source truth。"
     ]
