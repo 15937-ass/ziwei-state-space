@@ -54,6 +54,23 @@ def test_case_outcome_is_optional_for_method_training():
     assert case.allowed_use == "CASE_SUPPORT_ONLY"
 
 
+def test_blind_available_information_cannot_contain_expert_conclusion():
+    payload = _load()["case_bundle"]
+    payload["available_information_refs"].append("SPAN:CASE-001:CONCLUSION")
+
+    with pytest.raises(ValueError, match="cannot contain expert conclusions/outcomes"):
+        compile_case_bundle(payload)
+
+
+def test_blind_available_information_cannot_contain_outcome():
+    payload = _load()["case_bundle"]
+    payload["outcome_refs"] = ["OUTCOME:SYNTHETIC-001"]
+    payload["available_information_refs"].append("OUTCOME:SYNTHETIC-001")
+
+    with pytest.raises(ValueError, match="cannot contain expert conclusions/outcomes"):
+        compile_case_bundle(payload)
+
+
 def test_case_bundle_cannot_be_marked_executable():
     payload = _load()["case_bundle"]
     payload["allowed_use"] = "EXECUTABLE"
@@ -252,6 +269,14 @@ def test_contract_serialization_contains_no_hidden_reasoning_field():
         "analysis_trace",
     ):
         assert forbidden not in serialized
+
+
+def test_combined_fixture_requires_trace_case_binding():
+    payload = _load()
+    payload["inference_trace"]["case_id"] = "OTHER-CASE"
+
+    with pytest.raises(ValueError, match="must match case_bundle.case_id"):
+        compile_contract_fixture(payload)
 
 
 def test_fixture_is_not_mutated_by_compilers():
