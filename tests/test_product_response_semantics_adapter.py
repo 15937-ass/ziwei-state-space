@@ -8,6 +8,7 @@ import pytest
 from src.product.response_semantics_adapter import (
     ACTIVATION_CLOSURE_PATH,
     CATEGORY_REVIEW_PATH,
+    CAREER_ORDINAL_CONSTRAINTS_PATH,
     RESPONSE_PILOT_PATH,
     CareerResponseDecision,
     ResponseSemanticEnvelope,
@@ -18,6 +19,7 @@ from src.product.response_semantics_adapter import (
     build_career_response_decisions,
     load_activation_closure,
     load_career_compatibility_records,
+    load_career_ordinal_constraints,
     load_response_pilot_records,
     validate_real_adapter_zero_unlock,
 )
@@ -335,6 +337,36 @@ def test_open_category_review_remains_non_executable():
     assert decision.runtime_effect_allowed is False
 
 
+def test_career_ordinal_registry_is_semantic_only_and_non_numeric():
+    constraints = load_career_ordinal_constraints()
+
+    assert len(constraints) == 130
+    assert all(item["product_execution_unlocked"] is False for item in constraints)
+    assert all(item["transitive_closure_allowed"] is False for item in constraints)
+
+    for item in constraints:
+        for key in ("numeric_gain", "numeric_value", "probability", "numeric_threshold"):
+            if key in item:
+                assert item[key] is None
+
+
+def test_ordinal_relation_types_are_preserved_without_numeric_gain():
+    payload = _load(CAREER_ORDINAL_CONSTRAINTS_PATH)
+    constraints = load_career_ordinal_constraints()
+
+    assert Counter(item["relation_type"] for item in constraints) == Counter(
+        payload["relation_type_counts"]
+    )
+    assert any(
+        item["relation_type"] == "MORE_IMPORTANT_THAN"
+        for item in constraints
+    )
+    assert any(
+        item["relation_type"] == "SOURCE_LOCAL_EMPHASIS"
+        for item in constraints
+    )
+
+
 def test_readiness_audit_matches_versioned_artifact():
     generated = audit_response_semantics_adapter_readiness()
     stored = _load(READINESS)
@@ -347,6 +379,12 @@ def test_readiness_summary_records_zero_unauthorized_unlocks():
 
     assert payload["response_pilot"]["total"] == 8
     assert payload["response_pilot"]["runtime_effects_authorized"] == 0
+
+    ordinal = payload["career_ordinal_registry"]
+    assert ordinal["total_constraints"] == 130
+    assert ordinal["runtime_effects_authorized"] == 0
+    assert ordinal["numericized_constraints"] == 0
+    assert ordinal["transitive_closure_authorized"] == 0
 
     career = payload["career"]
     assert career["total_rows"] == 251
@@ -395,3 +433,4 @@ def test_source_knowledge_files_are_read_only_inputs():
     assert RESPONSE_PILOT_PATH.exists()
     assert ACTIVATION_CLOSURE_PATH.exists()
     assert CATEGORY_REVIEW_PATH.exists()
+    assert CAREER_ORDINAL_CONSTRAINTS_PATH.exists()
