@@ -311,6 +311,8 @@ def test_real_export_age_shape_reaches_service_without_changing_natal_or_tempora
         ROOT, snapshot, target_id="T-DEMO", question="真实小限输入兼容验收",
     )
     assert run.status == "PARTIAL_TEMPORAL_REGISTRY_EMPTY"
-    assert [rule.rule_id for rule in run.natal_profile.domains[0].active_rules] == ["CA04-347"]
+    assert [rule.rule_id for rule in run.natal_profile.domains[0].active_rules] == [
+        "CA04-336", "CA04-338", "CA04-341", "CA04-347"
+    ]
     assert run.reaction_report.matched == ()
     assert snapshot == before

@@ -387,3 +387,45 @@ Important source boundaries are preserved:
 The production temporal reaction registry remains empty. Deterministic tests prove
 condition/provenance/report integrity and engine consistency, not empirical
 predictive validity, causal truth or event certainty.
+
+
+## Knowledge Review-03 expansion (Issue #400)
+
+The Career provider candidate expands from 104 to 134 explicitly selected NATAL
+rules by integrating exactly thirty complete mappings from
+`knowledge/wp07a/CAREER_100_REVIEW_03_v0.1.json`.
+
+This batch uses the exact Knowledge status `REVIEW_COMPLETE_NON_PRODUCTION`.
+Product accepts that status explicitly rather than widening the handoff to arbitrary
+review documents. Review-03 uses a dedicated `REVIEW_COMPLETE_CONTEXT_V0_1`
+source-context contract because its reviewed rows mark the chart antecedent complete,
+unlike Review-01/02. Paragraph scope, optional supported-chart context, inherited
+source IDs, the complete-antecedent marker and the prohibition on invented semantics
+are pinned verbatim. Review-01/02 keep their stricter incomplete-antecedent contract.
+
+The thirty rules expand content around 天机天梁／巳亥天机, 太阳总论, 太阳天梁,
+太阳太阴, 太阳巨门 and 武曲. They add bounded projections for instability and
+mobility, reputation versus material return, public trust, internal operations,
+administration/finance/planning scenes, external-affairs and language-based work,
+cross-region resources, and finance/engineering/technical-craft orientations.
+
+Important boundaries remain explicit:
+- CA03-250 inherits only CA03-249;
+- CA03-284 inherits the already reviewed solar-化科 condition from CA03-283;
+- CA03-293 inherits CA03-292;
+- CA04-308 inherits CA04-307;
+- CA04-330 inherits CA04-329;
+- CA04-315 keeps 太阴化忌 bound to 太阴;
+- CA04-329 permits only 太阳化禄 or 太阳化权 in the reviewed alternatives;
+- P09/P03 OPPOSITE relations remain explicit where reviewed;
+- Review-03 rows with null conditions or blocked/context-only dispositions remain
+  non-executable and are not approximated into simpler conditions.
+
+Scene translations such as electronics/computing, medical/insurance/service,
+administration, finance, advertising/external affairs, speech/language/singing,
+metal/engineering and technical craft are source-bounded scene properties rather
+than unique occupation predictions.
+
+The production temporal reaction registry remains empty. Deterministic validation
+establishes source/condition/projection execution integrity only, not empirical
+predictive validity, event certainty, causal truth or numeric probability.

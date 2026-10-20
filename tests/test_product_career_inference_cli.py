@@ -73,7 +73,9 @@ def test_cli_writes_utf8_report_to_output_file(tmp_path):
     assert result == 0
     assert report["status"] == "PARTIAL_TEMPORAL_REGISTRY_EMPTY"
     assert report["selected_temporal_layers"] == ["DECADE", "YEAR"]
-    assert report["natal"]["active_rules"][0]["rule_id"] == "CA04-347"
+    assert [item["rule_id"] for item in report["natal"]["active_rules"]] == [
+        "CA04-336", "CA04-338", "CA04-341", "CA04-347"
+    ]
     assert report["temporal"]["matched_reaction_rule_ids"] == []
     assert report["real_world_event_prediction_supported"] is False
 

@@ -24,6 +24,7 @@ MAPPING_PATHS = tuple('knowledge/wp07a/' + name for name in (
     'CAREER_ZIWEI_ZIPO_STATIC_8_MAP_v0.1.json',
     'CAREER_100_REVIEW_01_v0.1.json',
     'CAREER_100_REVIEW_02_v0.1.json',
+    'CAREER_100_REVIEW_03_v0.1.json',
 ))
 SOURCE_PATHS = tuple(
     f'validation/wp05/CA{i:02d}_career_projection_review_{(i-1)*100+1:03d}_{i*100:03d}.csv'
@@ -130,7 +131,7 @@ def audit(root, *, mapping_paths=MAPPING_PATHS, registry_document=None):
                    else 'NATAL_WITHOUT_SCOPED_MAPPING' for r in unmapped)
     return {
         'audit_id':'PRODUCT_CAREER_MAPPING_READINESS_ISSUE_359',
-        'scope':'Eleven explicitly listed merged mapping/context artifacts through Knowledge #368; no unmerged branch discovery',
+        'scope':'Twelve explicitly listed merged mapping/context artifacts through Knowledge Review-03; no unmerged branch discovery',
         'counts':{'canonical_source_rows':len(canonical),'scoped_mapping_artifacts':len(manifest),
                   'unique_mapping_ids':len(mapped),'compiled_product_rules':provider.executable_rule_count,
                   'blocked_mapping_ids':counts['BLOCKED'],
