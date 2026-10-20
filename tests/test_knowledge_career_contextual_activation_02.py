@@ -81,3 +81,13 @@ def test_no_global_quantifier_defaults_or_execution_unlock():
     assert b2["summary"]["execution_unlocked"] == 0
     assert all(r["source_quantifier_resolution"] == "UNRESOLVED_NO_DEFAULT" for r in b2["records"])
     assert all(not r["condition_compiled"] and not r["execution_unlocked"] for r in b2["records"])
+
+def test_explicit_member_sets_drop_generic_literal_blocker():
+    b2 = load(BATCH2)
+    by_id = {r["source_rule_id"]: r for r in b2["records"]}
+    for rule_id in ["CA05-419", "CA06-582", "CA07-638"]:
+        row = by_id[rule_id]
+        assert "EXPLICIT_MEMBER_SET_LOCAL" in row["member_realization_modes"]
+        assert "MIXED_OR_SOURCE_LITERAL" not in row["member_realization_modes"]
+        assert "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED" not in row["unresolved_blockers"]
+        assert row["activation_status"] == "PARTIAL_LOCAL_STRUCTURE"
