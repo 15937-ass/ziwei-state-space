@@ -11,8 +11,10 @@ from src.product.social_quickread import (
     QuickReadScope,
     QuickReadScopePreset,
     QuickReadTopic,
+    build_pilot_package,
     evidence_rule_ids,
     lint_rendered_text,
+    resolve_pilot_scope,
 )
 
 
@@ -259,3 +261,29 @@ def test_style_linter_flags_report_like_output_and_overhedging():
     assert "FORBIDDEN_TOKEN:根据紫微斗数" in warnings
     assert "FORBIDDEN_TOKEN:命主" in warnings
     assert "OVER_HEDGED" in warnings
+
+
+def test_pilot_scope_resolver_understands_common_chinese_requests():
+    assert resolve_pilot_scope("只看感情，150字").preset is QuickReadScopePreset.RELATIONSHIP
+    assert resolve_pilot_scope("事业简批").preset is QuickReadScopePreset.STUDY_WORK
+    assert resolve_pilot_scope("看一下父母关系").preset is QuickReadScopePreset.FAMILY
+    assert resolve_pilot_scope("随便简批一下").preset is QuickReadScopePreset.FULL
+
+
+def test_build_pilot_package_filters_claims_for_manual_chatgpt_trial():
+    claims = (
+        _claim("p1", QuickReadTopic.PERSONALITY, "主体性强"),
+        _claim("r1", QuickReadTopic.PARTNER_PREFERENCE, "喜欢果决的类型"),
+        _claim("w1", QuickReadTopic.STUDY_WORK, "工作更喜欢有自主空间"),
+    )
+    package = build_pilot_package(
+        claims=claims,
+        knowledge_version="kb-test",
+        request_text="只要感情简批",
+        target_chars_min=100,
+        target_chars_max=180,
+    )
+    assert package.scope.preset is QuickReadScopePreset.RELATIONSHIP
+    assert [item.claim_id for item in package.selected_claims()] == ["r1"]
+    assert package.target_chars_min == 100
+    assert package.target_chars_max == 180
