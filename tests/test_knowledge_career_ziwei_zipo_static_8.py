@@ -123,6 +123,7 @@ def test_inherited_and_unconditional_within_paragraph_scopes_are_distinct():
     assert not matches('CA01-093','申')
     for rid in IDS[:2]:
         assert '不' in mapping(rid)['source_span_summary']
+    # Knowledge owns mapping readiness; Product integration is validated in Product-owned tests.
     mappings=document()['mappings']
     assert {m['source_rule_id'] for m in mappings}==set(IDS)
     assert all(m['executable_registry_entry'] is False for m in mappings)
