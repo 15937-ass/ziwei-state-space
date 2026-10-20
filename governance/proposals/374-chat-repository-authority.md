@@ -1,6 +1,6 @@
 # Proposal #374 — Conversation repository authority
 
-Status: **APPROVED / IMPLEMENTING**  
+Status: **IMPLEMENTED BY PR #377**  
 Tracking Issue: #374  
 Risk: R3 / Human Gate
 
@@ -108,3 +108,4 @@ PI 已在当前对话明确批准：对话模式可以完全使用仓库的所�
 
 - 2026-10-20：Issue #374 建立；PI 指令构成 R3 Human Gate 批准。
 - 2026-10-20：实施分支更新 G7、G8、AGENT_WORKFLOW、GOVERNANCE_STATE 和 governance tests。
+- 2026-10-20：PR #377 通过 repository quality gate 后作为本 Proposal 的实施 PR 合并。
