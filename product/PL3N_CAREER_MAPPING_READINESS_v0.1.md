@@ -1,6 +1,7 @@
-> **Issue #416 candidate status:** 192 NATAL Career rules (165 accepted on main until merge).
-> Review-05 contributes 27 explicitly selected, source-pinned rules. The readiness audit now
-> covers 552 unique mapped IDs: 192 compiled Product rules and 360 blocked/context-only mappings.
+> **Issue #416 candidate status:** 190 NATAL Career rules (165 accepted on main until merge).
+> Review-05 contributes 25 explicitly selected, source-pinned rules. The readiness audit now
+> covers 552 unique mapped IDs: 190 compiled Product rules, 360 blocked/context-only mappings,
+> and 2 unselected static candidates whose provenance is case-support-only.
 > Historical batch/scenario tests are expansion-safe and later reviewed mappings remain unselected.
 
 > **Current Product status after Issue #407:** 165 accepted NATAL Career rules.
