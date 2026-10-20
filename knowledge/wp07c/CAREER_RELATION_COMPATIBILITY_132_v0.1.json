@@ -1,0 +1,4451 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP07C-CAREER-RELATION-COMPATIBILITY-132-v0.1",
+  "lane": "KNOWLEDGE_ONLY",
+  "issue": 430,
+  "status": "132_OF_132_RELATION_RESIDUAL_CANONICALIZED_NO_EXECUTION_UNLOCK",
+  "inputs": [
+    "knowledge/relation/RELATION_SEMANTICS_v0.1.json",
+    "knowledge/wp07c/CAREER_RESPONSE_COMPATIBILITY_01_v0.1.json",
+    "knowledge/wp07c/CAREER_RESPONSE_COMPATIBILITY_02_v0.1.json",
+    "knowledge/wp07c/CAREER_RESPONSE_COMPATIBILITY_03_v0.1.json"
+  ],
+  "coverage": {
+    "relation_residual_total": 132,
+    "records": 132,
+    "unique_source_rule_ids": 132
+  },
+  "summary": {
+    "classification_counts": {
+      "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED": 105,
+      "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED": 26,
+      "R3_SOURCE_RECHECK_REQUIRED": 1
+    },
+    "raw_relation_marker_count": 157,
+    "deduped_relation_atom_count": 145,
+    "observed_surface_vocabulary_count": 9,
+    "observed_surface_counts": {
+      "同度": 58,
+      "同会": 14,
+      "三方": 1,
+      "见": 54,
+      "会": 10,
+      "照射": 1,
+      "相对": 3,
+      "会合": 2,
+      "朝拱": 2
+    },
+    "canonical_operator_counts": {
+      "EXACT_GEOMETRY": 63,
+      "MEETING_GENERIC": 26,
+      "THREE_DIRECTIONS_SCOPE": 1,
+      "FOUR_DIRECTIONS_VISIBILITY": 54,
+      "ASPECT_GENERIC": 1
+    },
+    "canonical_geometry_counts": {
+      "SAME_PALACE": 58,
+      "UNSPECIFIED": 27,
+      "UNSPECIFIED_WITHIN_SCOPE": 55,
+      "OPPOSITION": 5
+    },
+    "source_resolution_changes": 0,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0,
+    "findings": [
+      "105/132 条只依赖来源已定义的精确 geometry 或 scope operator，可直接进入 canonical relation representation。",
+      "26/132 条含会/同会/会合；三者压缩为 MEETING_GENERIC，不再各建独立 geometry，但具体宫位几何仍保持 UNSPECIFIED。",
+      "1/132 条含“照射”（CA06-549），现有 canonical source evidence 不足以冻结其 geometry，单独路由 source recheck。",
+      "原 157 个 relation marker 中有 12 个属于“同会/会合”记录里的嵌套单字“会”重复捕获；去重后为 145 个 relation atom。",
+      "当前 9 个 observed surface 词被压缩到 5 个主要 operator family + bounded geometry vocabulary；surface 原文全部保留。",
+      "“见”不是一个新的几何位置，而是三方四正范围上的 umbrella operator；“朝拱”普通关系词归入 OPPOSITION，但命名 pattern 不因此扁平化。",
+      "程序层进一步压缩为 Z_12 相对位移：同度={0}、相对/朝拱={6}、三方={0,4,8}、见={0,4,6,8}；会/同会/会合不在无来源时猜测位移。"
+    ],
+    "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+  },
+  "records": [
+    {
+      "source_rule_id": "CA01-081",
+      "source_condition_text": "子午紫微与桃花同度且有昌曲",
+      "source_location": "事业宫printed_p134",
+      "source_span_ids": [
+        "ZZ003-P134"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_01_v0.1.json",
+      "prior_compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA01-082",
+      "source_condition_text": "子午紫微与桃花同度无昌曲",
+      "source_location": "事业宫printed_p134",
+      "source_span_ids": [
+        "ZZ003-P134"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_01_v0.1.json",
+      "prior_compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA01-097",
+      "source_condition_text": "紫微破军与空劫同度而无刑煞",
+      "source_location": "事业宫printed_p134",
+      "source_span_ids": [
+        "ZZ003-P134"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_01_v0.1.json",
+      "prior_compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-116",
+      "source_condition_text": "紫微贪狼与火铃同度",
+      "source_location": "事业宫printed_p134",
+      "source_span_ids": [
+        "ZZ003-P134"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_01_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-141",
+      "source_condition_text": "紫微天相与科文诸曜同度又见煞耗",
+      "source_location": "事业宫printed_p135",
+      "source_span_ids": [
+        "ZZ003-P135"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_02_v0.1.json",
+      "prior_compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-154",
+      "source_condition_text": "天机与火铃同度",
+      "source_location": "事业宫printed_p135-136",
+      "source_span_ids": [
+        "ZZ003-P135",
+        "ZZ003-P136"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_02_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-169",
+      "source_condition_text": "天机化忌与吉曜同会",
+      "source_location": "事业宫printed_p136",
+      "source_span_ids": [
+        "ZZ003-P136"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_02_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同会",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-180",
+      "source_condition_text": "天机与昌曲天才同度",
+      "source_location": "事业宫printed_p136",
+      "source_span_ids": [
+        "ZZ003-P136"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_02_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-181",
+      "source_condition_text": "天机与龙池凤阁同度",
+      "source_location": "事业宫printed_p136",
+      "source_span_ids": [
+        "ZZ003-P136"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_02_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-182",
+      "source_condition_text": "天机与火铃同度",
+      "source_location": "事业宫printed_p136",
+      "source_span_ids": [
+        "ZZ003-P136"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_02_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-228",
+      "source_condition_text": "天机巨门与火铃同度",
+      "source_location": "事业宫printed_p137",
+      "source_span_ids": [
+        "ZZ003-P137"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_02_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-242",
+      "source_condition_text": "天机天梁与空劫同度",
+      "source_location": "事业宫printed_p137",
+      "source_span_ids": [
+        "ZZ003-P137"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_03_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-251",
+      "source_condition_text": "巳亥天机与火铃空劫同度",
+      "source_location": "事业宫printed_p137",
+      "source_span_ids": [
+        "ZZ003-P137"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_03_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-268",
+      "source_condition_text": "太阳与火铃羊陀同度",
+      "source_location": "事业宫printed_p138",
+      "source_span_ids": [
+        "ZZ003-P138"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_03_v0.1.json",
+      "prior_compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-275",
+      "source_condition_text": "太阳与魁钺同会",
+      "source_location": "事业宫printed_p138",
+      "source_span_ids": [
+        "ZZ003-P138"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_03_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同会",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-290",
+      "source_condition_text": "太阳与华盖同度又会空劫",
+      "source_location": "事业宫printed_p139",
+      "source_span_ids": [
+        "ZZ003-P139"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_03_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-304",
+      "source_condition_text": "丑未太阴太阳同度吉",
+      "source_location": "事业宫printed_p139",
+      "source_span_ids": [
+        "ZZ003-P139"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_03_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-305",
+      "source_condition_text": "丑未太阴太阳同度凶",
+      "source_location": "事业宫printed_p139",
+      "source_span_ids": [
+        "ZZ003-P139"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_03_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-313",
+      "source_condition_text": "太阳太阴与空劫同度",
+      "source_location": "事业宫printed_p139",
+      "source_span_ids": [
+        "ZZ003-P139"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_03_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-343",
+      "source_condition_text": "武曲与昌曲同会",
+      "source_location": "事业宫printed_p140",
+      "source_span_ids": [
+        "ZZ003-P140"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同会",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-345",
+      "source_condition_text": "武曲与火铃同度且在巳午或多见火曜",
+      "source_location": "事业宫printed_p140",
+      "source_span_ids": [
+        "ZZ003-P140"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-358",
+      "source_condition_text": "武曲天府三方见煞",
+      "source_location": "事业宫printed_p141",
+      "source_span_ids": [
+        "ZZ003-P141"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "三方",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "THREE_DIRECTIONS_SCOPE",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-360",
+      "source_condition_text": "武曲天府与煞曜同度",
+      "source_location": "事业宫printed_p141",
+      "source_span_ids": [
+        "ZZ003-P141"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-376",
+      "source_condition_text": "武曲天相与煞曜同会",
+      "source_location": "事业宫printed_p141",
+      "source_span_ids": [
+        "ZZ003-P141"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同会",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-379",
+      "source_condition_text": "武曲七杀与四煞空劫同度",
+      "source_location": "事业宫printed_p141-142",
+      "source_span_ids": [
+        "ZZ003-P141",
+        "ZZ003-P142"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "RELATION_MARKER",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-383",
+      "source_condition_text": "武曲七杀见煞刑诸曜",
+      "source_location": "事业宫printed_p142",
+      "source_span_ids": [
+        "ZZ003-P142"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-386",
+      "source_condition_text": "辰戌武曲与空劫同度",
+      "source_location": "事业宫printed_p142",
+      "source_span_ids": [
+        "ZZ003-P142"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-391",
+      "source_condition_text": "武曲破军与铃星陀罗阴煞华盖天刑同度",
+      "source_location": "事业宫printed_p142",
+      "source_span_ids": [
+        "ZZ003-P142"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-397",
+      "source_condition_text": "武曲破军见魁钺或辅弼",
+      "source_location": "事业宫printed_p142",
+      "source_span_ids": [
+        "ZZ003-P142"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-409",
+      "source_condition_text": "天同与火铃同度",
+      "source_location": "事业宫printed_p142",
+      "source_span_ids": [
+        "ZZ003-P142"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-411",
+      "source_condition_text": "天同化忌又与四煞同度",
+      "source_location": "事业宫printed_p142",
+      "source_span_ids": [
+        "ZZ003-P142"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-413",
+      "source_condition_text": "天同见桃花诸曜",
+      "source_location": "事业宫printed_p142",
+      "source_span_ids": [
+        "ZZ003-P142"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-414",
+      "source_condition_text": "天同天梁星系见火铃",
+      "source_location": "事业宫printed_p142",
+      "source_span_ids": [
+        "ZZ003-P142"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-416",
+      "source_condition_text": "天同与昌曲天才同度",
+      "source_location": "事业宫printed_p143",
+      "source_span_ids": [
+        "ZZ003-P143"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-417",
+      "source_condition_text": "天同与龙池凤阁同度",
+      "source_location": "事业宫printed_p143",
+      "source_span_ids": [
+        "ZZ003-P143"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-419",
+      "source_condition_text": "天同化忌又见左辅右弼",
+      "source_location": "事业宫printed_p143",
+      "source_span_ids": [
+        "ZZ003-P143"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-423",
+      "source_condition_text": "子午天同太阴见禄存或化禄",
+      "source_location": "事业宫printed_p143",
+      "source_span_ids": [
+        "ZZ003-P143"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-429",
+      "source_condition_text": "前格同时见火铃",
+      "source_location": "事业宫printed_p143",
+      "source_span_ids": [
+        "ZZ003-P143"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "prior_compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-433",
+      "source_condition_text": "天同巨门见天厨火星",
+      "source_location": "事业宫printed_p143",
+      "source_span_ids": [
+        "ZZ003-P143"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-437",
+      "source_condition_text": "天同巨门见煞忌",
+      "source_location": "事业宫printed_p143",
+      "source_span_ids": [
+        "ZZ003-P143"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_04_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-447",
+      "source_condition_text": "天同天梁见吉化昌曲",
+      "source_location": "事业宫printed_p143-144",
+      "source_span_ids": [
+        "ZZ003-P143",
+        "ZZ003-P144"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "prior_compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-456",
+      "source_condition_text": "巳亥天同见煞忌",
+      "source_location": "事业宫printed_p144",
+      "source_span_ids": [
+        "ZZ003-P144"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-459",
+      "source_condition_text": "廉贞入庙不与煞忌同度",
+      "source_location": "事业宫printed_p144",
+      "source_span_ids": [
+        "ZZ003-P144"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-460",
+      "source_condition_text": "廉贞见煞",
+      "source_location": "事业宫printed_p144",
+      "source_span_ids": [
+        "ZZ003-P144"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-464",
+      "source_condition_text": "前格见煞",
+      "source_location": "事业宫printed_p144",
+      "source_span_ids": [
+        "ZZ003-P144"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-465",
+      "source_condition_text": "廉贞与空劫同会",
+      "source_location": "事业宫printed_p144",
+      "source_span_ids": [
+        "ZZ003-P144"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同会",
+          "source_marker_type": "CO_OCCURRENCE_RELATION",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-471",
+      "source_condition_text": "廉贞会紫微吉曜百官朝拱",
+      "source_location": "事业宫printed_p144",
+      "source_span_ids": [
+        "ZZ003-P144"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "prior_compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "会",
+          "source_marker_type": "CO_OCCURRENCE_RELATION",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-483",
+      "source_condition_text": "廉贞天相见煞",
+      "source_location": "事业宫printed_p145",
+      "source_span_ids": [
+        "ZZ003-P145"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-484",
+      "source_condition_text": "廉贞天相会武曲化禄禄存或天府化科",
+      "source_location": "事业宫printed_p145",
+      "source_span_ids": [
+        "ZZ003-P145"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "会",
+          "source_marker_type": "CO_OCCURRENCE_RELATION",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-493",
+      "source_condition_text": "廉贞七杀廉贞化忌更见煞同度",
+      "source_location": "事业宫printed_p145",
+      "source_span_ids": [
+        "ZZ003-P145"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        },
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-501",
+      "source_condition_text": "寅申廉贞见刑煞曜同会",
+      "source_location": "事业宫printed_p145",
+      "source_span_ids": [
+        "ZZ003-P145"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同会",
+          "source_marker_type": "CO_OCCURRENCE_RELATION",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        },
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-502",
+      "source_condition_text": "卯酉廉贞破军必须见禄",
+      "source_location": "事业宫printed_p145",
+      "source_span_ids": [
+        "ZZ003-P145"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-506",
+      "source_condition_text": "卯酉廉贞破军见煞轻",
+      "source_location": "事业宫printed_p145",
+      "source_span_ids": [
+        "ZZ003-P145"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-508",
+      "source_condition_text": "廉贞破军见吉",
+      "source_location": "事业宫printed_p145",
+      "source_span_ids": [
+        "ZZ003-P145"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-516",
+      "source_condition_text": "廉贞天府见昌曲辅弼魁钺",
+      "source_location": "事业宫printed_p145-146",
+      "source_span_ids": [
+        "ZZ003-P145",
+        "ZZ003-P146"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-519",
+      "source_condition_text": "前格更见煞",
+      "source_location": "事业宫printed_p146",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-520",
+      "source_condition_text": "巳亥廉贞贪狼与空劫同度",
+      "source_location": "事业宫printed_p146",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-526",
+      "source_condition_text": "廉贞贪狼与煞曜同度",
+      "source_location": "事业宫printed_p146",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-533",
+      "source_condition_text": "廉贞贪狼无禄见煞",
+      "source_location": "事业宫printed_p146",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-538",
+      "source_condition_text": "前格见煞",
+      "source_location": "事业宫printed_p146",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-543",
+      "source_condition_text": "天府无吉曜而有煞曜凑会",
+      "source_location": "事业宫printed_p146",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_05_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "会",
+          "source_marker_type": "CO_OCCURRENCE_RELATION",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-549",
+      "source_condition_text": "天府见火铃照射",
+      "source_location": "事业宫printed_p146",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R3_SOURCE_RECHECK_REQUIRED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        },
+        {
+          "surface_relation": "照射",
+          "source_marker_type": "ASPECT_RELATION",
+          "relation_operator": "ASPECT_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "SOURCE_RECHECK_REQUIRED",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-551",
+      "source_condition_text": "天府与空劫同度",
+      "source_location": "事业宫printed_p146",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-554",
+      "source_condition_text": "天府会羊陀",
+      "source_location": "事业宫printed_p146",
+      "source_span_ids": [
+        "ZZ003-P146"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "会",
+          "source_marker_type": "CO_OCCURRENCE_RELATION",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-559",
+      "source_condition_text": "前格见煞",
+      "source_location": "事业宫printed_p147",
+      "source_span_ids": [
+        "ZZ003-P147"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-573",
+      "source_condition_text": "前格见辅弼",
+      "source_location": "事业宫printed_p147",
+      "source_span_ids": [
+        "ZZ003-P147"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-576",
+      "source_condition_text": "前格见煞",
+      "source_location": "事业宫printed_p147",
+      "source_span_ids": [
+        "ZZ003-P147"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-582",
+      "source_condition_text": "太阴见文昌文曲同会",
+      "source_location": "事业宫printed_p147",
+      "source_span_ids": [
+        "ZZ003-P147"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同会",
+          "source_marker_type": "CO_OCCURRENCE_RELATION",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        },
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-583",
+      "source_condition_text": "太阴会科文诸曜",
+      "source_location": "事业宫printed_p147",
+      "source_span_ids": [
+        "ZZ003-P147"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "会",
+          "source_marker_type": "CO_OCCURRENCE_RELATION",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-584",
+      "source_condition_text": "太阴科文诸曜又见桃花诸曜",
+      "source_location": "事业宫printed_p147",
+      "source_span_ids": [
+        "ZZ003-P147"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-585",
+      "source_condition_text": "太阴与魁钺或辅弼同会",
+      "source_location": "事业宫printed_p147",
+      "source_span_ids": [
+        "ZZ003-P147"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同会",
+          "source_marker_type": "CO_OCCURRENCE_RELATION",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-593",
+      "source_condition_text": "太阴与空劫同会且有科文诸曜",
+      "source_location": "事业宫printed_p148",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同会",
+          "source_marker_type": "CO_OCCURRENCE_RELATION",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-594",
+      "source_condition_text": "太阴与空劫同会且无科文诸曜",
+      "source_location": "事业宫printed_p148",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同会",
+          "source_marker_type": "CO_OCCURRENCE_RELATION",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-602",
+      "source_condition_text": "太阴与天机同度或相对且见吉化吉曜",
+      "source_location": "事业宫printed_p148",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        },
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        },
+        {
+          "surface_relation": "相对",
+          "source_marker_type": "OPPOSITION_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "OPPOSITION",
+          "evidence_status": "SOURCE_STRUCTURAL_EQUIVALENCE",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            6
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-620",
+      "source_condition_text": "亥宫太阴见吉化吉曜",
+      "source_location": "事业宫printed_p148",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-621",
+      "source_condition_text": "巳亥太阴见煞",
+      "source_location": "事业宫printed_p148",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-625",
+      "source_condition_text": "贪狼与昌曲同度",
+      "source_location": "事业宫printed_p148",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-626",
+      "source_condition_text": "贪狼与桃花同度",
+      "source_location": "事业宫printed_p148",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-628",
+      "source_condition_text": "贪狼与空劫同度且有昌曲",
+      "source_location": "事业宫printed_p148",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-629",
+      "source_condition_text": "贪狼与空劫同度且无昌曲",
+      "source_location": "事业宫printed_p148",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-632",
+      "source_condition_text": "贪狼化权见煞不多",
+      "source_location": "事业宫printed_p148",
+      "source_span_ids": [
+        "ZZ003-P148"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-633",
+      "source_condition_text": "贪狼与吉化吉曜及多辅曜会合",
+      "source_location": "事业宫printed_p149",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "会合",
+          "source_marker_type": "CO_OCCURRENCE_RELATION",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-636",
+      "source_condition_text": "贪狼与羊陀同度",
+      "source_location": "事业宫printed_p149",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-638",
+      "source_condition_text": "贪狼与左辅右弼同度",
+      "source_location": "事业宫printed_p149",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-643",
+      "source_condition_text": "贪狼化忌又见煞曜",
+      "source_location": "事业宫printed_p149",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-644",
+      "source_condition_text": "贪狼化忌与空劫同度",
+      "source_location": "事业宫printed_p149",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-645",
+      "source_condition_text": "贪狼化忌有吉曜同会",
+      "source_location": "事业宫printed_p149",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同会",
+          "source_marker_type": "CO_OCCURRENCE_RELATION",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-648",
+      "source_condition_text": "子午贪狼见桃花昌曲",
+      "source_location": "事业宫printed_p149",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-649",
+      "source_condition_text": "子午贪狼见禄权科及辅佐吉曜",
+      "source_location": "事业宫printed_p149",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-652",
+      "source_condition_text": "寅申贪狼与廉贞相对且见陀罗或煞",
+      "source_location": "事业宫printed_p149",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        },
+        {
+          "surface_relation": "相对",
+          "source_marker_type": "OPPOSITION_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "OPPOSITION",
+          "evidence_status": "SOURCE_STRUCTURAL_EQUIVALENCE",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            6
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-659",
+      "source_condition_text": "辰戌贪狼有煞同度",
+      "source_location": "事业宫printed_p149",
+      "source_span_ids": [
+        "ZZ003-P149"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-668",
+      "source_condition_text": "巨门化忌见四煞空劫刑耗",
+      "source_location": "事业宫printed_p149-150",
+      "source_span_ids": [
+        "ZZ003-P149",
+        "ZZ003-P150"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-678",
+      "source_condition_text": "巨门与火铃同度",
+      "source_location": "事业宫printed_p150",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-691",
+      "source_condition_text": "辰戌巨门化忌又见煞耗诸曜",
+      "source_location": "事业宫printed_p150",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-693",
+      "source_condition_text": "辰戌巨门与火铃同度",
+      "source_location": "事业宫printed_p150",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-697",
+      "source_condition_text": "巳亥巨门见禄马",
+      "source_location": "事业宫printed_p150",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-699",
+      "source_condition_text": "巳亥巨门同会文昌文曲",
+      "source_location": "事业宫printed_p150",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同会",
+          "source_marker_type": "CO_OCCURRENCE_RELATION",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-701",
+      "source_condition_text": "巳亥巨门见煞忌尤其巳宫",
+      "source_location": "事业宫printed_p150",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-702",
+      "source_condition_text": "巳亥巨门化禄化权又见魁钺",
+      "source_location": "事业宫printed_p150",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-703",
+      "source_condition_text": "巳亥巨门与火铃同度",
+      "source_location": "事业宫printed_p150",
+      "source_span_ids": [
+        "ZZ003-P150"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-718",
+      "source_condition_text": "前格又见煞曜",
+      "source_location": "事业宫printed_p151",
+      "source_span_ids": [
+        "ZZ003-P151"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-721",
+      "source_condition_text": "前格同时见辅佐吉曜",
+      "source_location": "事业宫printed_p151",
+      "source_span_ids": [
+        "ZZ003-P151"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-723",
+      "source_condition_text": "天相为刑忌来会且煞曜同度",
+      "source_location": "事业宫printed_p151",
+      "source_span_ids": [
+        "ZZ003-P151"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        },
+        {
+          "surface_relation": "会",
+          "source_marker_type": "CO_OCCURRENCE_RELATION",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-725",
+      "source_condition_text": "天相与空劫同度且有吉曜",
+      "source_location": "事业宫printed_p151",
+      "source_span_ids": [
+        "ZZ003-P151"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-726",
+      "source_condition_text": "天相与空劫同度无吉曜或见凶曜",
+      "source_location": "事业宫printed_p151",
+      "source_span_ids": [
+        "ZZ003-P151"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        },
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-734",
+      "source_condition_text": "丑未天相见昌曲",
+      "source_location": "事业宫printed_p151",
+      "source_span_ids": [
+        "ZZ003-P151"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-771",
+      "source_condition_text": "午宫天梁见吉",
+      "source_location": "事业宫printed_p152",
+      "source_span_ids": [
+        "ZZ003-P152"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-772",
+      "source_condition_text": "午宫天梁见凶",
+      "source_location": "事业宫printed_p152",
+      "source_span_ids": [
+        "ZZ003-P152"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-776",
+      "source_condition_text": "天梁与空劫同度",
+      "source_location": "事业宫printed_p152",
+      "source_span_ids": [
+        "ZZ003-P152"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-784",
+      "source_condition_text": "丑未天梁会辅佐吉曜",
+      "source_location": "事业宫printed_p152",
+      "source_span_ids": [
+        "ZZ003-P152"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "会",
+          "source_marker_type": "CO_OCCURRENCE_RELATION",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-799",
+      "source_condition_text": "七杀得辅弼魁钺三台八座朝拱同会",
+      "source_location": "事业宫printed_p153",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同会",
+          "source_marker_type": "CO_OCCURRENCE_RELATION",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        },
+        {
+          "surface_relation": "朝拱",
+          "source_marker_type": "ASPECT_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "OPPOSITION",
+          "evidence_status": "DIRECT_SOURCE_ALIAS",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            6
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-800",
+      "source_condition_text": "七杀与煞曜同度尤其火铃",
+      "source_location": "事业宫printed_p153",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-804",
+      "source_condition_text": "七杀得辅弼魁钺三台八座朝拱同会",
+      "source_location": "事业宫printed_p153",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同会",
+          "source_marker_type": "CO_OCCURRENCE_RELATION",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        },
+        {
+          "surface_relation": "朝拱",
+          "source_marker_type": "ASPECT_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "OPPOSITION",
+          "evidence_status": "DIRECT_SOURCE_ALIAS",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            6
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-805",
+      "source_condition_text": "七杀与煞曜同度尤其火铃",
+      "source_location": "事业宫printed_p153",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-806",
+      "source_condition_text": "七杀有煞曜同度",
+      "source_location": "事业宫printed_p153",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-811",
+      "source_condition_text": "七杀与昌曲同度",
+      "source_location": "事业宫printed_p153",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-812",
+      "source_condition_text": "七杀与空劫同度",
+      "source_location": "事业宫printed_p153",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-816",
+      "source_condition_text": "七杀有煞而无化忌会合",
+      "source_location": "事业宫printed_p153",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "会合",
+          "source_marker_type": "CO_OCCURRENCE_RELATION",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-817",
+      "source_condition_text": "七杀与火铃同度",
+      "source_location": "事业宫printed_p153",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-818",
+      "source_condition_text": "子午七杀与武曲天府相对且有煞",
+      "source_location": "事业宫printed_p153",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "相对",
+          "source_marker_type": "OPPOSITION_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "OPPOSITION",
+          "evidence_status": "SOURCE_STRUCTURAL_EQUIVALENCE",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            6
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-819",
+      "source_condition_text": "子午七杀会辅佐诸曜",
+      "source_location": "事业宫printed_p153",
+      "source_span_ids": [
+        "ZZ003-P153"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "会",
+          "source_marker_type": "CO_OCCURRENCE_RELATION",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-840",
+      "source_condition_text": "辰戌七杀无煞见辅佐吉曜",
+      "source_location": "事业宫printed_p154",
+      "source_span_ids": [
+        "ZZ003-P154"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-847",
+      "source_condition_text": "破军更见辅佐吉曜",
+      "source_location": "事业宫printed_p154",
+      "source_span_ids": [
+        "ZZ003-P154"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-848",
+      "source_condition_text": "破军与煞曜同度",
+      "source_location": "事业宫printed_p154",
+      "source_span_ids": [
+        "ZZ003-P154"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_100_REVIEW_08_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-859",
+      "source_condition_text": "破军会辅弼魁钺昌曲",
+      "source_location": "事业宫printed_p154",
+      "source_span_ids": [
+        "ZZ003-P154"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "会",
+          "source_marker_type": "CO_OCCURRENCE_RELATION",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-860",
+      "source_condition_text": "破军会昌曲化忌",
+      "source_location": "事业宫printed_p154",
+      "source_span_ids": [
+        "ZZ003-P154"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R2_COMPRESSED_GENERIC_MEETING_GEOMETRY_UNSPECIFIED",
+      "relation_atoms": [
+        {
+          "surface_relation": "会",
+          "source_marker_type": "CO_OCCURRENCE_RELATION",
+          "relation_operator": "MEETING_GENERIC",
+          "canonical_geometry": "UNSPECIFIED",
+          "evidence_status": "COMPRESSED_LEXICAL_FAMILY",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": null,
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-861",
+      "source_condition_text": "破军与桃花诸曜同度更见文曲化忌",
+      "source_location": "事业宫printed_p154",
+      "source_span_ids": [
+        "ZZ003-P154"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        },
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-863",
+      "source_condition_text": "破军与火铃同度",
+      "source_location": "事业宫printed_p155",
+      "source_span_ids": [
+        "ZZ003-P155"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json",
+      "prior_compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-864",
+      "source_condition_text": "破军与空劫同度且见吉辅",
+      "source_location": "事业宫printed_p155",
+      "source_span_ids": [
+        "ZZ003-P155"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json",
+      "prior_compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        },
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-865",
+      "source_condition_text": "子午破军见吉曜",
+      "source_location": "事业宫printed_p155",
+      "source_span_ids": [
+        "ZZ003-P155"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json",
+      "prior_compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-871",
+      "source_condition_text": "前格见辅弼或不见辅弼",
+      "source_location": "事业宫printed_p155",
+      "source_span_ids": [
+        "ZZ003-P155"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json",
+      "prior_compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "见",
+          "source_marker_type": "PRESENCE_RELATION",
+          "relation_operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "canonical_geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "allowed_geometry": [
+            "SAME_PALACE",
+            "TRINE_ASPECT",
+            "OPPOSITION"
+          ],
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0,
+            4,
+            6,
+            8
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-879",
+      "source_condition_text": "寅申破军无禄无吉曜或空劫同度",
+      "source_location": "事业宫printed_p155",
+      "source_span_ids": [
+        "ZZ003-P155"
+      ],
+      "review_artifact": "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json",
+      "prior_compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
+      "relation_classification": "R1_CANONICAL_RELATION_OR_SCOPE_DEFINED",
+      "relation_atoms": [
+        {
+          "surface_relation": "同度",
+          "source_marker_type": "SAME_PALACE_RELATION",
+          "relation_operator": "EXACT_GEOMETRY",
+          "canonical_geometry": "SAME_PALACE",
+          "evidence_status": "DIRECT_SOURCE_DEFINITION",
+          "relation_binding": "UNRESOLVED",
+          "palace_offset_constraint": [
+            0
+          ],
+          "coordinate_model": "PALACE_RELATION_Z12_OFFSET"
+        }
+      ],
+      "relation_semantics_canonicalized": true,
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    }
+  ],
+  "guardrails": {
+    "source_surface_preserved": true,
+    "named_pattern_flattened": false,
+    "meeting_generic_geometry_invented": false,
+    "source_resolution_changed": false,
+    "condition_compiled": false,
+    "execution_unlocked": false,
+    "product_runtime_modified": false,
+    "numeric_weights_added": false,
+    "probabilities_added": false
+  }
+}
