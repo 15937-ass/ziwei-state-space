@@ -177,6 +177,16 @@ def _text_tuple(value: Any, path: str) -> tuple[str, ...]:
     return tuple(out)
 
 
+def _ordered_text_tuple(value: Any, path: str) -> tuple[str, ...]:
+    if value is None:
+        return ()
+    raw = _array(value, path)
+    return tuple(
+        _required_text(item, f"{path}[{index}]")
+        for index, item in enumerate(raw)
+    )
+
+
 def _enum(value: Any, allowed: frozenset[str], path: str) -> str:
     text = _required_text(value, path)
     if text not in allowed:
@@ -885,7 +895,9 @@ def compile_method_pattern(payload: Mapping[str, Any]) -> MethodPattern:
         },
         path="method_pattern",
     )
-    actions = _text_tuple(value.get("action_sequence"), "method_pattern.action_sequence")
+    actions = _ordered_text_tuple(
+        value.get("action_sequence"), "method_pattern.action_sequence"
+    )
     return MethodPattern(
         schema_version=_required_text(
             value.get("schema_version"), "method_pattern.schema_version"
