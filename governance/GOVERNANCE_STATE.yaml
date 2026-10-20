@@ -4,10 +4,10 @@ authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  status: "ACTIVE_G9_IMPLEMENTING"
-  active_issue: 374
-  active_branch: "governance/374-full-repo"
-  active_pr: 377
+  status: "ACTIVE_NO_ACTIVE_WORK"
+  active_issue: null
+  active_branch: null
+  active_pr: null
   governance_version: "1.0"
   archive_checkpoint: "governance/archive/2026-10-06-project-checkpoint.md"
   resumed_at: "2026-10-18"
@@ -29,15 +29,15 @@ completed:
   g8_public_actions_execution_migration:
     tracking_issue: 372
     merge_pr: 373
-    status: "MERGED_AUTHORITY_SPLIT_PENDING_G9_AMENDMENT"
+    status: "MERGED_AUTHORITY_SPLIT_AMENDED_BY_G9"
     protocol: "governance/PUBLIC_ACTIONS_EXECUTION_PROTOCOL_v0.2.md"
     runner_policy: "STANDARD_PUBLIC_GITHUB_HOSTED_ONLY"
     automatic_triggers: "PULL_REQUEST_ONLY_NO_PUSH"
 
-active_change:
   g9_conversation_full_repository_authority:
     tracking_issue: 374
-    status: "APPROVED_IMPLEMENTING"
+    merge_pr: 377
+    status: "MERGED"
     proposal: "governance/proposals/374-chat-repository-authority.md"
     effect: "CURRENT_CHATGPT_CONVERSATION_FIRST_CLASS_REPOSITORY_OPERATOR"
     connector_scope_is_technical_ceiling: true
