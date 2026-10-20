@@ -27,7 +27,25 @@ Issue: #430
 
 底层几何只使用 bounded vocabulary：SAME_PALACE、OPPOSITION、TRINE_ASPECT、FLANKING、UNSPECIFIED、UNSPECIFIED_WITHIN_SCOPE。
 
-## 3. 最关键的压缩
+## 3. 程序表示已经进一步压成 Z_12 位移
+
+十二宫关系可写成相对宫位偏移：
+
+```text
+delta = (p_object - p_subject) mod 12
+```
+
+因此本批 132 条的 canonical atom 可以直接携带 offset constraint：
+
+- 同度 → {0}
+- 相对 / 朝拱 → {6}
+- 三方 → {0,4,8}
+- 见 → {0,4,6,8}
+- 会 / 同会 / 会合 → UNKNOWN（来源未指定时不猜）
+
+这样 relation 层不必继续膨胀成大量中文枚举，后面真正复杂的部分只剩 group/member binding 和上下文 activation。
+
+## 4. 最关键的压缩
 
 ### 见
 
@@ -41,7 +59,7 @@ Issue: #430
 
 普通 relation surface：朝拱 → OPPOSITION，因为初级讲义明确说明拱照有时又称朝拱。但命名结构如“百官朝拱”不会因此被扁平化为一个普通 opposition edge。
 
-## 4. R1 的 105 条意味着什么
+## 5. R1 的 105 条意味着什么
 
 这 105 条不是“规则已可执行”。它们只是说明：这条规则不再需要为关系词本身发明新 ontology primitive。
 
@@ -49,7 +67,7 @@ Issue: #430
 
 所以本轮仍然 source_resolution_change=0、condition_compiled=0、execution_unlocked=0。
 
-## 5. 下一步关系层真正要处理什么
+## 6. 下一步关系层真正要处理什么
 
 经过这次压缩，Relation workstream 后续不再需要围绕十几个中文关系词扩 ontology。真正剩下的是 binding：relation(subject, object/member/group, canonical_geometry_or_scope)。
 
@@ -57,7 +75,7 @@ Issue: #430
 
 这比继续细分中文词汇更接近未来 compiler 所需的数据结构。
 
-## 6. 边界
+## 7. 边界
 
 - source surface 全部保留；
 - source truth 不重写；
