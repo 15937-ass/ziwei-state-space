@@ -2,7 +2,7 @@
 
 Tracking Issue: #431  
 Lane: PRODUCT_ONLY  
-Status: **IMPLEMENTED / FINAL CI PENDING**
+Status: **IMPLEMENTED — VALIDATION EVIDENCE RECORDED IN PR #435**
 
 ## Scope completed
 
@@ -66,4 +66,4 @@ predictive validity = NOT_VALIDATED
 
 ## Validation
 
-Repository / Product CI evidence will be appended to PR #435 before merge.
+Final deterministic validation evidence is recorded in PR #435. This acceptance file intentionally does not duplicate mutable workflow-run counts; the PR conversation is the execution-evidence record.
