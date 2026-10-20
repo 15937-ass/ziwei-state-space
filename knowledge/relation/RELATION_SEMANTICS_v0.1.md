@@ -80,7 +80,34 @@ OR OPPOSITION
 
 “会 / 同会 / 会合”则先压成同一 lexical family；如果目标句没有进一步说明到底是三合、对宫还是其他具体位置，就不制造 geometry。
 
-## 4. 为什么这比“一词一个关系”更合理
+## 4. 压缩不等于把几何关系抹平
+
+同一本初级讲义后面在“见星寻偶”里进一步强调：对星同宫时力量最强，相对次之，三合与偏斜式会合继续依结构递减。
+
+因此这里的压缩对象是“中文 surface 词汇”，不是星盘几何本身。
+
+也就是说：
+
+```text
+surface synonym compression
+≠
+geometry collapse
+```
+
+例如“拱照 / 朝拱”可以共用 OPPOSITION，但 SAME_PALACE、OPPOSITION、TRINE_ASPECT 仍必须分开，因为来源明确指出不同配置的作用强弱并不相同。
+
+当前只保存 source-supported ordinal edge：
+
+```text
+PAIR_STAR context:
+SAME_PALACE > OPPOSITION
+```
+
+不赋数值，也不把这条排序无条件推广到所有星曜组合。
+
+FLANKING 也不是普通二元 edge，而是“本宫 + 两侧邻宫”的三方绑定结构，后续 compiler 必须按多方关系处理。
+
+## 5. 为什么这比“一词一个关系”更合理
 
 如果把“会”“同会”“会合”“会照”“朝拱”等全部建成平级 primitive，程序会把古籍语言习惯误当成不同物理关系。
 
@@ -101,7 +128,7 @@ OR OPPOSITION
 
 以及原文是否只是用一个更宽的“见 / 会”来描述这些关系。
 
-## 5. Named pattern guard
+## 6. Named pattern guard
 
 “朝拱”作为普通关系词可以映射到 OPPOSITION，但：
 
@@ -115,7 +142,7 @@ OR OPPOSITION
 
 不能因为里面出现“朝拱 / 会”两个字，就把整个格局降维成一条普通 relation edge。
 
-## 6. 当前没有做的事情
+## 7. 当前没有做的事情
 
 本版本没有：
 - 修改 Product runtime；
