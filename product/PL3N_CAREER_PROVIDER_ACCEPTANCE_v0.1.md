@@ -351,3 +351,39 @@ event certainty or unique occupation labels.
 The production temporal reaction registry remains empty. Passing deterministic
 Product tests and engine regressions establishes source/condition execution
 integrity only; it does not establish empirical predictive accuracy.
+
+
+## Knowledge Review-02 expansion (Issue #389)
+
+The Career provider candidate expands from 63 to 104 explicitly selected NATAL
+rules by integrating exactly 41 complete mappings from
+`knowledge/wp07a/CAREER_100_REVIEW_02_v0.1.json`.
+
+The Review-02 handoff reuses the strict review-batch contract introduced for
+Issue #378. Product accepts the exact non-production batch status, explicit
+selected IDs, complete source/projection provenance and verbatim source_context.
+All selected rows remain `executable_registry_entry=false` in Knowledge; the
+executable form exists only in Product. Blocked or context-only Review-02 rows
+remain unselected and cannot be made executable by registry insertion without
+failing readiness validation.
+
+This batch substantially expands Career content around 辰戌紫微天相, 巳亥紫微七杀,
+天机总论, 子午天机, 丑未天机天梁, 寅申天机太阴, 卯酉天机巨门 and 辰戌天机天梁.
+Named transformations remain bound to named stars, branch gates remain exact,
+and P09/P03 OPPOSITE relations remain explicit condition atoms.
+
+Important source boundaries are preserved:
+- CA02-174 includes 天机化禄/化权/化忌, not 化科;
+- CA03-207 requires both 天机化禄 and 太阴化忌;
+- CA03-220 represents a structural requirement that development needs 化禄 or
+  禄存; matching the mother star-system condition does not mean the requirement
+  has already been satisfied;
+- CA02-165 may inherit reviewed condition context from CA02-164 without activating
+  the blocked path-dependent target CA02-164 itself;
+- scene translations such as personnel management, retail, advertising, finance,
+  service industries and speech-based income remain examples/fit properties,
+  not unique occupation or real-income predictions.
+
+The production temporal reaction registry remains empty. Deterministic tests prove
+condition/provenance/report integrity and engine consistency, not empirical
+predictive validity, causal truth or event certainty.

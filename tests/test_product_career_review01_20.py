@@ -87,8 +87,8 @@ def test_exact_batch_selection_and_total_count():
     assert meta["source_context_schema"] == "REVIEW_BATCH_PARAGRAPH_SCOPE_V0_1"
     assert meta["selected_rule_ids"] == SELECTED
     assert set(BY_ID) == set(SELECTED)
-    assert len(REGISTRY["rules"]) == 63
-    assert len(load_career_source_mappings(ROOT, REGISTRY)) == 63
+    assert set(SELECTED) <= set(REGISTRY["rules"])
+    assert len(load_career_source_mappings(ROOT, REGISTRY)) == len(REGISTRY["rules"])
     assert "CA02-121" not in REGISTRY["rules"]  # adjacent temporal rule stays out
 
 
