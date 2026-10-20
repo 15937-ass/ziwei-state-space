@@ -61,9 +61,9 @@
       "default_expansion_policy": "NO_RELATION_MEMBER_EXPANSION"
     },
     {
-      "id": "UNTOKENIZED_LITERAL_NODE",
-      "meaning": "关系目标在来源条件中可见，但旧 GROUP tokenization 未形成 semantic token。",
-      "default_expansion_policy": "TOKENIZATION_RECHECK"
+      "id": "SOURCE_LITERAL_EXPRESSION_NODE",
+      "meaning": "来源关系目标字面可定位，但当前 GROUP token registry 未覆盖或尚未正规化为 canonical semantic node；保留完整 source expression 后再做语义正规化。",
+      "default_expansion_policy": "SEMANTIC_NORMALIZATION_DEFERRED"
     }
   ],
   "binding_modes": [
@@ -99,12 +99,13 @@
     "PRESERVE_COMPOSITE_INTEGRITY": "Named composite stays one semantic object with its own internal activation/relation contract.",
     "NEVER_FLATTEN_TO_RELATION_MEMBERS": "Structured pattern remains graph/pattern node.",
     "NO_NAMED_COMPOSITE_INHERITANCE": "Generic shorthand cannot borrow semantics from a named composite.",
-    "TOKENIZATION_RECHECK": "Re-tokenize source phrase before executable binding."
+    "SEMANTIC_NORMALIZATION_DEFERRED": "Preserve the source target expression and defer semantic normalization; binding success does not imply ontology completion."
   },
   "clause_model": {
     "relation_claim_form": "RELATION_CLAIM(subject_anchor, target_node, relation_operator, geometry_or_scope, polarity, source_surface)",
     "member_realization_form": "REALIZE_TARGET_MEMBERS(target_node, activation_context) -> deferred",
-    "invariant": "RELATION_CLAIM_NEVER_IMPLIES_MEMBER_REALIZATION_UNLESS_SOURCE_EXPLICIT_SET"
+    "invariant": "RELATION_CLAIM_NEVER_IMPLIES_MEMBER_REALIZATION_UNLESS_SOURCE_EXPLICIT_SET",
+    "source_literal_policy": "SOURCE_LITERAL_EXPRESSION_NODE may satisfy relation-target binding while semantic normalization remains explicitly deferred."
   },
   "compound_clause_rules": [
     "且/又/而/更/有/无/不 等可产生新的 clause segment；source surface 全部保留。",
