@@ -436,6 +436,14 @@ class TraceStep:
             raise ValueError(f"unsupported verifier_status: {self.verifier_status}")
         if self.verifier_status == "VERIFIED" and not self.verifier_refs:
             raise ValueError("VERIFIED trace step requires verifier_refs")
+        if not (
+            self.evidence_refs
+            or self.canonical_rule_refs
+            or self.verifier_refs
+        ):
+            raise ValueError(
+                f"{self.step_id}: auditable trace step requires evidence/rule/verifier refs"
+            )
 
 
 @dataclass(frozen=True)
