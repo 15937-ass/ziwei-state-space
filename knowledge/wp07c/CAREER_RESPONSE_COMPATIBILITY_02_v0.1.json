@@ -52,7 +52,8 @@
       "COMPOSITE_RELATION_BINDING": 1,
       "ABSENCE_SCOPE_OPEN_WORLD": 10,
       "DIGNITY_CARRIER_SEMANTICS": 3,
-      "STRUCTURED_PATTERN_INTEGRATION": 1
+      "STRUCTURED_PATTERN_INTEGRATION": 1,
+      "UNTOKENIZED_SEMANTIC_RECHECK": 10
     },
     "source_resolution_changes": 0,
     "conditions_compiled": 0,
@@ -63,7 +64,8 @@
       "CA05-429“前格同时见火铃”可保存 source-clause-only simultaneity，并记录本句局部 ALL-members hint；该信息不升级为 generic 火铃默认 ALL，且因前格继承与 relation scope 仍不可执行。",
       "CA05-419 / CA06-582 / CA07-638 中原文直接写出左辅右弼或文昌文曲，因此可保存 explicit member list BOTH 的局部语义；该结论不迁移到 generic 辅弼/昌曲 shorthand。",
       "“煞轻”仅保留 source-literal severity，未转为数值等级；仍需 severity/ordinal ontology。",
-      "明确的 OR / 必须 / 同时 / 否定等 clause operator 可以被保留，但只作用于原句，不形成 group 内部默认量词。"
+      "明确的 OR / 必须 / 同时 / 否定等 clause operator 可以被保留，但只作用于原句，不形成 group 内部默认量词。",
+      "10 条非“前格”记录在旧 GLEX2 中没有 surface_group_tokens，但 review_reason 仍认为存在群组/集合语义；本轮把它们显式标记为 UNTOKENIZED_SEMANTIC_RECHECK，避免误判为“只剩 relation”。"
     ]
   },
   "records": [
@@ -206,7 +208,8 @@
       ],
       "local_clause_semantics": [],
       "remaining_blockers": [
-        "RELATION_SCOPE_SEMANTICS"
+        "RELATION_SCOPE_SEMANTICS",
+        "UNTOKENIZED_SEMANTIC_RECHECK"
       ],
       "source_resolution_changed": false,
       "condition_compiled": false,
@@ -696,7 +699,8 @@
         }
       ],
       "remaining_blockers": [
-        "RELATION_SCOPE_SEMANTICS"
+        "RELATION_SCOPE_SEMANTICS",
+        "UNTOKENIZED_SEMANTIC_RECHECK"
       ],
       "source_resolution_changed": false,
       "condition_compiled": false,
@@ -810,7 +814,8 @@
       ],
       "local_clause_semantics": [],
       "remaining_blockers": [
-        "RELATION_SCOPE_SEMANTICS"
+        "RELATION_SCOPE_SEMANTICS",
+        "UNTOKENIZED_SEMANTIC_RECHECK"
       ],
       "source_resolution_changed": false,
       "condition_compiled": false,
@@ -1319,7 +1324,8 @@
         }
       ],
       "remaining_blockers": [
-        "RELATION_SCOPE_SEMANTICS"
+        "RELATION_SCOPE_SEMANTICS",
+        "UNTOKENIZED_SEMANTIC_RECHECK"
       ],
       "source_resolution_changed": false,
       "condition_compiled": false,
@@ -1343,7 +1349,9 @@
       "token_assessments": [],
       "explicit_clause_markers": [],
       "local_clause_semantics": [],
-      "remaining_blockers": [],
+      "remaining_blockers": [
+        "UNTOKENIZED_SEMANTIC_RECHECK"
+      ],
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
@@ -1472,7 +1480,8 @@
         }
       ],
       "remaining_blockers": [
-        "RELATION_SCOPE_SEMANTICS"
+        "RELATION_SCOPE_SEMANTICS",
+        "UNTOKENIZED_SEMANTIC_RECHECK"
       ],
       "source_resolution_changed": false,
       "condition_compiled": false,
@@ -2978,7 +2987,9 @@
           "status": "EXPLICIT"
         }
       ],
-      "remaining_blockers": [],
+      "remaining_blockers": [
+        "UNTOKENIZED_SEMANTIC_RECHECK"
+      ],
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
@@ -3013,7 +3024,8 @@
         }
       ],
       "remaining_blockers": [
-        "ABSENCE_SCOPE_OPEN_WORLD"
+        "ABSENCE_SCOPE_OPEN_WORLD",
+        "UNTOKENIZED_SEMANTIC_RECHECK"
       ],
       "source_resolution_changed": false,
       "condition_compiled": false,
@@ -3834,7 +3846,8 @@
         }
       ],
       "remaining_blockers": [
-        "RELATION_SCOPE_SEMANTICS"
+        "RELATION_SCOPE_SEMANTICS",
+        "UNTOKENIZED_SEMANTIC_RECHECK"
       ],
       "source_resolution_changed": false,
       "condition_compiled": false,
@@ -3912,7 +3925,8 @@
       ],
       "local_clause_semantics": [],
       "remaining_blockers": [
-        "RELATION_SCOPE_SEMANTICS"
+        "RELATION_SCOPE_SEMANTICS",
+        "UNTOKENIZED_SEMANTIC_RECHECK"
       ],
       "source_resolution_changed": false,
       "condition_compiled": false,
