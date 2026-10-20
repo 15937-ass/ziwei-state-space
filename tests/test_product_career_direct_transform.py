@@ -29,7 +29,7 @@ def test_handoff_activates_exact_six_static_candidates_and_keeps_prior_seventeen
     assert prior_seventeen <= set(REGISTRY['rules'])
     assert SELECTED_IDS <= set(REGISTRY['rules'])
     assert all(m['execution_readiness'] == 'STATIC_PROJECTION_CANDIDATE_NOT_EXECUTABLE' for m in SELECTED)
-    assert len(load_career_source_mappings(ROOT, REGISTRY)) == 63
+    assert len(load_career_source_mappings(ROOT, REGISTRY)) == len(REGISTRY['rules'])
 
 
 @pytest.mark.parametrize('mapping', SELECTED, ids=lambda m: m['source_rule_id'])
