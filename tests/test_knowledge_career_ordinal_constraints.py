@@ -13,9 +13,9 @@ def test_source_scan_and_candidate_counts():
     r,a=load(REG),load(AUDIT)
     assert r["coverage"]["source_spans_scanned"] == 24
     assert r["coverage"]["candidate_sentences"] == 131
-    assert r["coverage"]["accepted_candidate_sentences"] == 120
-    assert r["coverage"]["excluded_candidate_sentences"] == 11
-    assert r["coverage"]["normalized_constraints"] == 133
+    assert r["coverage"]["accepted_candidate_sentences"] == 118
+    assert r["coverage"]["excluded_candidate_sentences"] == 13
+    assert r["coverage"]["normalized_constraints"] == 130
     assert a["summary"]["candidate_sentences"] == 131
 
 def test_all_constraints_have_exact_source_provenance():
@@ -83,3 +83,9 @@ def test_no_product_execution_unlock():
     r=load(REG)
     assert r["guardrails"]["product_runtime_modified"] is False
     assert r["guardrails"]["execution_unlocked"] is False
+
+def test_critical_ocr_scope_candidates_are_excluded():
+    a=load(AUDIT)
+    excluded={(r["printed_page"],r["sentence_index"]):r["reason"] for r in a["records"] if r["disposition"]=="EXCLUDED"}
+    assert excluded[(145,28)]=="OCR_UNSAFE_TARGET_ENTITY"
+    assert excluded[(146,4)]=="OCR_UNSAFE_CONDITION_SCOPE"
