@@ -99,6 +99,26 @@ PRESET_DOMAINS: dict[QuickReadScopePreset, tuple[QuickReadDomain, ...]] = {
 }
 
 
+PILOT_SCOPE_ALIASES: dict[str, QuickReadScopePreset] = {
+    "全盘": QuickReadScopePreset.FULL,
+    "简批": QuickReadScopePreset.FULL,
+    "整体": QuickReadScopePreset.FULL,
+    "感情": QuickReadScopePreset.RELATIONSHIP,
+    "恋爱": QuickReadScopePreset.RELATIONSHIP,
+    "婚恋": QuickReadScopePreset.RELATIONSHIP,
+    "性格": QuickReadScopePreset.PERSONALITY,
+    "长相": QuickReadScopePreset.APPEARANCE,
+    "外貌": QuickReadScopePreset.APPEARANCE,
+    "人际": QuickReadScopePreset.SOCIAL,
+    "朋友": QuickReadScopePreset.SOCIAL,
+    "父母": QuickReadScopePreset.FAMILY,
+    "家庭": QuickReadScopePreset.FAMILY,
+    "事业": QuickReadScopePreset.STUDY_WORK,
+    "工作": QuickReadScopePreset.STUDY_WORK,
+    "学业": QuickReadScopePreset.STUDY_WORK,
+}
+
+
 @dataclass(frozen=True)
 class QuickReadEvidenceRef:
     namespace: EvidenceNamespace
@@ -437,3 +457,37 @@ def evidence_rule_ids(claims: Iterable[QuickReadClaim]) -> tuple[str, ...]:
             }
         )
     )
+
+
+def resolve_pilot_scope(text: str) -> QuickReadScope:
+    """Resolve a minimal Chinese pilot request such as '只看感情' or '事业简批'.
+
+    The pilot intentionally stays simple: one recognized focus preset, otherwise
+    FULL. Fine-grained custom topic/year filtering remains available through the
+    explicit QuickReadScope API.
+    """
+    value = str(text or "").strip()
+    for token, preset in PILOT_SCOPE_ALIASES.items():
+        if token in value:
+            return QuickReadScope(preset=preset)
+    return QuickReadScope(preset=QuickReadScopePreset.FULL)
+
+
+def build_pilot_package(
+    *,
+    claims: tuple[QuickReadClaim, ...],
+    knowledge_version: str,
+    request_text: str,
+    target_chars_min: int = 120,
+    target_chars_max: int = 220,
+) -> QuickReadPackage:
+    """Convenience entry point for the manual ChatGPT-assisted pilot."""
+    package = QuickReadPackage(
+        claims=claims,
+        knowledge_version=knowledge_version,
+        scope=resolve_pilot_scope(request_text),
+        target_chars_min=target_chars_min,
+        target_chars_max=target_chars_max,
+    )
+    package.validate()
+    return package
