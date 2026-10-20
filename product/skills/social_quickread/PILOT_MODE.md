@@ -109,3 +109,47 @@ new chart image => continue previous chart context
 ```
 
 所有命理判断仍以 Git 中当前 Social QuickRead contract、canonical/runtime 与中州派 source priority 为准。
+
+
+## 8. 盘主追问：进入 Follow-up Mode
+
+公开评论用 QuickRead；盘主一旦回复追问，立即切换到 `social_quickread_followup_v0.1`。
+
+Follow-up 不是再生成一遍“整体简批”，而是：
+
+```text
+同一 subject capsule
+ -> 识别盘主当前问题
+ -> 保持原窗口，或显式切换到新窗口
+ -> 只取与该问题有关的 validated claims
+ -> 必要时补跑新的 canonical / temporal evidence
+ -> 直接回答问题
+```
+
+### 典型交互
+
+第一次评论：
+
+> 整体看人挺果断……26年感情和合作容易折腾。
+
+盘主追问：
+
+> 为什么说我感情磨合多？
+
+此时保持 relationship scope，不重复“你性格果断、事业上心”等总评，直接回答感情依据和现实表现。
+
+盘主再问：
+
+> 那事业呢？
+
+此时在同一个 subject session 中切换到 study_work scope，不重新排盘，不带其他盘主信息。
+
+### Follow-up 输出风格
+
+- 默认 80–280 字，问题简单可以更短；
+- 第一口就回答问题，不再用“整体看”开头；
+- 不复述第一次评论，除非必须引用其中一句解释；
+- 每次只展开当前问题，允许比公开简批多一层原因或现实表现；
+- 用户问“为什么”时可以适量解释星系/宫位；没问原因就继续说人话；
+- 用户提供现实反馈时记录为 observation：可用于确认、否定或选择歧义分支，但不能反向制造盘面规则；
+- 若当前 capsule 没有足够 claim，先补检索/推演，再回答；不要拿第一次那几句话硬扩写。
