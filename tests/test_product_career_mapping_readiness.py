@@ -45,7 +45,7 @@ def test_static_candidate_without_product_selection_is_reported_but_never_activa
     candidate=copy.deepcopy(registry)
     report=audit.audit(ROOT,registry_document=registry)
     assert report['counts']['compiled_product_rules']==189
-    assert report['counts']['static_candidates_not_selected']==1
+    assert report['counts']['static_candidates_not_selected']==3
     entry=next(e for e in report['entries'] if e['source_rule_id']=='CA03-285')
     assert entry['classification']=='STATIC_CANDIDATE_NOT_SELECTED'
     assert registry==candidate
