@@ -13,9 +13,11 @@ from src.product.social_quickread import (
     QuickReadSentenceAudit,
     QuickReadScopePreset,
     QuickReadTopic,
+    build_followup_payload,
     build_pilot_package,
     evidence_rule_ids,
     lint_rendered_text,
+    resolve_followup_scope,
     resolve_pilot_scope,
 )
 
@@ -389,3 +391,47 @@ def test_render_audit_blocks_sentence_without_claim():
     )
     with pytest.raises(ValueError, match="at least one claim"):
         audit.validate()
+
+
+def test_followup_without_new_domain_keeps_current_scope():
+    current = QuickReadScope(preset=QuickReadScopePreset.RELATIONSHIP)
+    scope = resolve_followup_scope("为什么这么说？", current_scope=current)
+    assert scope.preset is QuickReadScopePreset.RELATIONSHIP
+    assert scope.max_claims == 8
+
+
+def test_followup_can_switch_domain_without_restarting_subject():
+    claims = (
+        _claim("r1", QuickReadTopic.PARTNER_PREFERENCE, "喜欢果决的类型"),
+        _claim("w1", QuickReadTopic.STUDY_WORK, "适合变化快的工作"),
+    )
+    context = QuickReadConversationContext(
+        subject_key="subject-001",
+        knowledge_version="kb-test",
+        all_claims=claims,
+        active_scope=QuickReadScope(preset=QuickReadScopePreset.RELATIONSHIP),
+        rendered_text="感情里双方都比较有主见。",
+    )
+    payload = build_followup_payload(
+        context=context,
+        question="那事业呢？",
+    )
+    assert payload["mode"] == "social_quickread_followup_v0.1"
+    assert payload["scope"]["preset"] == "study_work"
+    assert [item["claim_id"] for item in payload["claims"]] == ["w1"]
+    assert payload["previous_rendered_text"] == "感情里双方都比较有主见。"
+    assert payload["style_contract"]["no_overall_recap"] is True
+
+
+def test_followup_rejects_empty_question():
+    context = QuickReadConversationContext(
+        subject_key="subject-001",
+        knowledge_version="kb-test",
+        all_claims=(
+            _claim("p1", QuickReadTopic.PERSONALITY, "主体性强"),
+        ),
+        active_scope=QuickReadScope(preset=QuickReadScopePreset.PERSONALITY),
+        rendered_text="整体看人很有主见。",
+    )
+    with pytest.raises(ValueError, match="follow-up question"):
+        build_followup_payload(context=context, question="   ")
