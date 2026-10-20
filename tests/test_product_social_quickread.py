@@ -8,7 +8,9 @@ from src.product.social_quickread import (
     QuickReadDomain,
     QuickReadEvidenceRef,
     QuickReadPackage,
+    QuickReadRenderAudit,
     QuickReadScope,
+    QuickReadSentenceAudit,
     QuickReadScopePreset,
     QuickReadTopic,
     build_pilot_package,
@@ -42,6 +44,7 @@ def _claim(
     namespace=EvidenceNamespace.CANONICAL,
     target_period="",
     domains=(),
+    semantic_group=None,
     mode=AssertionMode.DIRECT_TENDENCY,
 ):
     return QuickReadClaim(
@@ -52,6 +55,7 @@ def _claim(
         evidence_refs=(_ref(namespace, rid=f"ZZ-{claim_id}"),),
         target_period=target_period,
         domains=domains,
+        semantic_group=semantic_group or claim_id,
     )
 
 
@@ -287,3 +291,96 @@ def test_build_pilot_package_filters_claims_for_manual_chatgpt_trial():
     assert [item.claim_id for item in package.selected_claims()] == ["r1"]
     assert package.target_chars_min == 100
     assert package.target_chars_max == 180
+
+
+def test_package_rejects_duplicate_semantic_groups_before_verbalizer():
+    claims = (
+        _claim(
+            "p1",
+            QuickReadTopic.PERSONALITY,
+            "内心很有主见",
+            semantic_group="agency_control",
+        ),
+        _claim(
+            "p2",
+            QuickReadTopic.PERSONALITY,
+            "更在意自己能不能做主",
+            semantic_group="agency_control",
+        ),
+    )
+    package = QuickReadPackage(claims=claims, knowledge_version="kb-test")
+    with pytest.raises(ValueError, match="redundant semantic claims"):
+        package.validate()
+
+
+def test_same_semantic_group_can_appear_in_different_years():
+    claims = (
+        _claim(
+            "y24",
+            QuickReadTopic.SPECIFIC_YEAR,
+            "2024年感情摩擦偏多",
+            namespace=EvidenceNamespace.TEMPORAL,
+            target_period="2024",
+            domains=(QuickReadDomain.RELATIONSHIP,),
+            semantic_group="relationship_friction",
+            mode=AssertionMode.TENDENCY,
+        ),
+        _claim(
+            "y25",
+            QuickReadTopic.SPECIFIC_YEAR,
+            "2025年感情摩擦偏多",
+            namespace=EvidenceNamespace.TEMPORAL,
+            target_period="2025",
+            domains=(QuickReadDomain.RELATIONSHIP,),
+            semantic_group="relationship_friction",
+            mode=AssertionMode.TENDENCY,
+        ),
+    )
+    QuickReadPackage(claims=claims, knowledge_version="kb-test").validate()
+
+
+def test_render_audit_blocks_rephrasing_same_point_twice():
+    claims = (
+        _claim(
+            "p1",
+            QuickReadTopic.PERSONALITY,
+            "主体性强",
+            semantic_group="agency_control",
+        ),
+        _claim(
+            "w1",
+            QuickReadTopic.STUDY_WORK,
+            "工作里重视自主空间",
+            semantic_group="work_autonomy",
+        ),
+    )
+    package = QuickReadPackage(claims=claims, knowledge_version="kb-test")
+    audit = QuickReadRenderAudit(
+        package=package,
+        sentences=(
+            QuickReadSentenceAudit("整体看人很有主见。", ("p1",)),
+            QuickReadSentenceAudit("不太喜欢别人替自己做决定。", ("p1",)),
+        ),
+    )
+    with pytest.raises(ValueError, match="repeats semantic group"):
+        audit.validate()
+
+
+def test_render_audit_blocks_sentence_without_claim():
+    package = QuickReadPackage(
+        claims=(
+            _claim(
+                "p1",
+                QuickReadTopic.PERSONALITY,
+                "主体性强",
+                semantic_group="agency_control",
+            ),
+        ),
+        knowledge_version="kb-test",
+    )
+    audit = QuickReadRenderAudit(
+        package=package,
+        sentences=(QuickReadSentenceAudit("外表看着很靠谱。", ()),),
+    )
+    with pytest.raises(ValueError, match="at least one claim"):
+        audit.validate()
