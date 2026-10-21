@@ -31,8 +31,23 @@ Mapped:
 - TP03-273 remains a multi-layer CASE_SUPPORT_ONLY event candidate.
 - TP02-148's literal `中晚年以后` source life-stage wording is not converted to an age threshold.
 
-## Validation policy
+## Deterministic OpenAI/Codex validation
 
-This is a data-only P10 mapping work unit under Issue #565. Follow the OpenAI/Codex execution preference recorded in the Issue; automatic GitHub Actions are intentionally skipped. The mapping/test/evidence artifacts do not claim that full repository pytest ran in a repository-mounted container. Exact artifact assertions, test syntax compilation, changed-path allowlist, P0-audit impact, governance-equivalent shard checks, and exact base/head verification must be recorded before merge.
+Validation policy: Issue-defined data-only scope; automatic GitHub Actions intentionally skipped.
 
-No canonical source row, Product runtime, production registry, shared Core semantics, probability, numeric weight, or threshold is modified.
+- Exact branch artifact JSON parse and nominated-ID census: **PASS** (3/3 IDs).
+- Canonical CSV ↔ source-readjudication ↔ time-scope comparison: **PASS** (3/3 source conditions, projections, NATAL layers, source verification, and non-case status).
+- Explicit exclusion ledger vs canonical rows: **PASS** (5/5, including the TP02-149 exception and three CASE_SUPPORT_ONLY event candidates).
+- Literal life-stage preservation for TP02-148: **PASS**; `中晚年以后` remains source metadata, not a numeric age threshold.
+- Existing atom allowlist and condition shape: **PASS** (all three use only `TRANSFORMATION_PRESENT(palace=P10, star, mutagen)`).
+- Python syntax compilation of `tests/test_knowledge_p10_direct_transform_remainder.py`: **PASS** in the OpenAI Python runtime.
+- Runtime emitter source inspection: **PASS**. The current resolver emits the exact palace/star/mutagen `TRANSFORMATION_PRESENT` fact when a star object carries a mutagen. The new resolver test is committed for the repository test environment; it was not executed against a mounted repository in this session.
+- P10 branch identity and changed-path allowlist: **PASS** (5/5 paths permitted by `KNOWLEDGE_SHARDS.json`).
+- P0-auditor impact inspection: **PASS**; none of the changed paths are explicit inputs to `src/audit_repository.py`, and no new artifact path is referenced by that auditor.
+- Product/Node/Go regression: **NOT_REQUIRED**; no executable implementation or shared schema changed.
+- Full repository pytest: **NOT_RUN**. The current OpenAI container cannot network-mount the GitHub repository; this is a bounded data-only exception, not a claim that full pytest passed.
+- Exact base/head equality must be rechecked immediately before merge and recorded on Issue/PR.
+
+## Boundary
+
+No canonical source row, Product runtime, production registry, shared Core semantics, probability, numeric weight, or threshold is modified. Mapping proves representability only; it does not authorize production execution.
