@@ -30,6 +30,8 @@ When artifacts disagree, higher levels win:
 
 No lower layer may silently change a higher layer.
 
+**Important:** this hierarchy governs semantic/design authority, not “which work unit is active right now.” Daily execution status follows `governance/RECOVERY_PRECEDENCE_v1.md`: live lane GitHub Issue = execution truth, linked PR = implementation truth, and lane State YAML = recovery cache. A Roadmap can constrain an Issue but cannot make its own historical “current/next” paragraph the active task.
+
 ## 3. Governance layers
 
 - Constitution: non-negotiable epistemic and research boundaries.
