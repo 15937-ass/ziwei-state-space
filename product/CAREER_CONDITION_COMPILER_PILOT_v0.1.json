@@ -1,0 +1,793 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "CAREER_CONDITION_COMPILER_PILOT_V0_1",
+  "compiler_version": "PL3R_CAREER_CONDITION_COMPILER_V0_1",
+  "knowledge_inputs": {
+    "compiler_readiness_census": "knowledge/wp08/CAREER_COMPILER_READINESS_CENSUS_26_v0.1.json",
+    "direct_condition_ir": "knowledge/wp08/CAREER_DIRECT_CONDITION_IR_9_v0.1.json",
+    "dependency_condition_ir": "knowledge/wp08/CAREER_DEPENDENCY_IR_3_v0.1.json"
+  },
+  "summary": {
+    "knowledge_condition_ir_ready": 12,
+    "compiled_conditions": 12,
+    "compiled_direct": 9,
+    "compiled_dependency_reference": 3,
+    "local_ready_not_compiler_input": 14,
+    "condition_evaluated": 0,
+    "response_effect_bound": 0,
+    "runtime_effects_authorized": 0
+  },
+  "compiled_conditions": [
+    {
+      "condition_id": "PRODUCT_CONDITION:CA02-181",
+      "source_rule_id": "CA02-181",
+      "compiler_version": "PL3R_CAREER_CONDITION_COMPILER_V0_1",
+      "source_ir_kind": "DIRECT_CONDITION_IR",
+      "source_ir_artifact": "knowledge/wp08/CAREER_DIRECT_CONDITION_IR_9_v0.1.json",
+      "subject_terms": [
+        {
+          "term_type": "STAR",
+          "args": [
+            "天机"
+          ]
+        }
+      ],
+      "relation": {
+        "operator": "EXACT_GEOMETRY",
+        "geometry": "SAME_PALACE",
+        "palace_offsets": [
+          0
+        ]
+      },
+      "target": {
+        "node_type": "NAMED_COMPOSITE",
+        "member_requirement": "PAIR_REQUIRED",
+        "members": [
+          {
+            "term_type": "SYMBOL",
+            "args": [
+              "龙池"
+            ]
+          },
+          {
+            "term_type": "SYMBOL",
+            "args": [
+              "凤阁"
+            ]
+          }
+        ]
+      },
+      "source_expression_ref": "SAME_PALACE(STAR(天机), PAIR_CO_PRESENT(龙池,凤阁))",
+      "parent_condition_id": null,
+      "inheritance_mode": "NONE",
+      "prohibited_inheritance": [],
+      "compiler_status": "COMPILED_DIRECT_SEMANTIC_ONLY",
+      "product_condition_compiled": true,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false,
+      "semantic_basis_refs": [
+        "CAREER_RELATION_BINDING_132_v0.1:CA02-181",
+        "CAREER_RESPONSE_COMPATIBILITY_01_v0.1:CA02-181"
+      ]
+    },
+    {
+      "condition_id": "PRODUCT_CONDITION:CA03-228",
+      "source_rule_id": "CA03-228",
+      "compiler_version": "PL3R_CAREER_CONDITION_COMPILER_V0_1",
+      "source_ir_kind": "DIRECT_CONDITION_IR",
+      "source_ir_artifact": "knowledge/wp08/CAREER_DIRECT_CONDITION_IR_9_v0.1.json",
+      "subject_terms": [
+        {
+          "term_type": "STAR_SYSTEM",
+          "args": [
+            "天机巨门"
+          ]
+        }
+      ],
+      "relation": {
+        "operator": "EXACT_GEOMETRY",
+        "geometry": "SAME_PALACE",
+        "palace_offsets": [
+          0
+        ]
+      },
+      "target": {
+        "node_type": "LOCAL_ANY_OF",
+        "member_requirement": "ANY_SOURCE_LOCAL",
+        "members": [
+          {
+            "term_type": "SYMBOL",
+            "args": [
+              "火星"
+            ]
+          },
+          {
+            "term_type": "SYMBOL",
+            "args": [
+              "铃星"
+            ]
+          }
+        ]
+      },
+      "source_expression_ref": "SAME_PALACE(LOCAL_ANY_OF[火星,铃星])",
+      "parent_condition_id": null,
+      "inheritance_mode": "NONE",
+      "prohibited_inheritance": [],
+      "compiler_status": "COMPILED_DIRECT_SEMANTIC_ONLY",
+      "product_condition_compiled": true,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false,
+      "semantic_basis_refs": [
+        "CAREER_THIRD_LAYER_PRIORITY_100_v0.1:CA03-228",
+        "CAREER_RELATION_BINDING_132_v0.1:CA03-228"
+      ]
+    },
+    {
+      "condition_id": "PRODUCT_CONDITION:CA05-411",
+      "source_rule_id": "CA05-411",
+      "compiler_version": "PL3R_CAREER_CONDITION_COMPILER_V0_1",
+      "source_ir_kind": "DIRECT_CONDITION_IR",
+      "source_ir_artifact": "knowledge/wp08/CAREER_DIRECT_CONDITION_IR_9_v0.1.json",
+      "subject_terms": [
+        {
+          "term_type": "TRANSFORM",
+          "args": [
+            "天同",
+            "化忌"
+          ]
+        }
+      ],
+      "relation": {
+        "operator": "EXACT_GEOMETRY",
+        "geometry": "SAME_PALACE",
+        "palace_offsets": [
+          0
+        ]
+      },
+      "target": {
+        "node_type": "LOCAL_ANY_OF",
+        "member_requirement": "ANY_SOURCE_LOCAL",
+        "members": [
+          {
+            "term_type": "SYMBOL",
+            "args": [
+              "擎羊"
+            ]
+          },
+          {
+            "term_type": "SYMBOL",
+            "args": [
+              "陀罗"
+            ]
+          },
+          {
+            "term_type": "SYMBOL",
+            "args": [
+              "火星"
+            ]
+          },
+          {
+            "term_type": "SYMBOL",
+            "args": [
+              "铃星"
+            ]
+          }
+        ]
+      },
+      "source_expression_ref": "SAME_PALACE(天同化忌, LOCAL_ANY_OF[擎羊,陀罗,火星,铃星])",
+      "parent_condition_id": null,
+      "inheritance_mode": "NONE",
+      "prohibited_inheritance": [],
+      "compiler_status": "COMPILED_DIRECT_SEMANTIC_ONLY",
+      "product_condition_compiled": true,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false,
+      "semantic_basis_refs": [
+        "CAREER_RESIDUAL_CLOSURE_37_v0.1:CA05-411",
+        "CAREER_RELATION_BINDING_132_v0.1:CA05-411"
+      ]
+    },
+    {
+      "condition_id": "PRODUCT_CONDITION:CA05-417",
+      "source_rule_id": "CA05-417",
+      "compiler_version": "PL3R_CAREER_CONDITION_COMPILER_V0_1",
+      "source_ir_kind": "DIRECT_CONDITION_IR",
+      "source_ir_artifact": "knowledge/wp08/CAREER_DIRECT_CONDITION_IR_9_v0.1.json",
+      "subject_terms": [
+        {
+          "term_type": "STAR",
+          "args": [
+            "天同"
+          ]
+        }
+      ],
+      "relation": {
+        "operator": "EXACT_GEOMETRY",
+        "geometry": "SAME_PALACE",
+        "palace_offsets": [
+          0
+        ]
+      },
+      "target": {
+        "node_type": "NAMED_COMPOSITE",
+        "member_requirement": "PAIR_REQUIRED",
+        "members": [
+          {
+            "term_type": "SYMBOL",
+            "args": [
+              "龙池"
+            ]
+          },
+          {
+            "term_type": "SYMBOL",
+            "args": [
+              "凤阁"
+            ]
+          }
+        ]
+      },
+      "source_expression_ref": "SAME_PALACE(STAR(天同), PAIR_CO_PRESENT(龙池,凤阁))",
+      "parent_condition_id": null,
+      "inheritance_mode": "NONE",
+      "prohibited_inheritance": [],
+      "compiler_status": "COMPILED_DIRECT_SEMANTIC_ONLY",
+      "product_condition_compiled": true,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false,
+      "semantic_basis_refs": [
+        "CAREER_RELATION_BINDING_132_v0.1:CA05-417",
+        "CAREER_RESPONSE_COMPATIBILITY_02_v0.1:CA05-417"
+      ]
+    },
+    {
+      "condition_id": "PRODUCT_CONDITION:CA05-419",
+      "source_rule_id": "CA05-419",
+      "compiler_version": "PL3R_CAREER_CONDITION_COMPILER_V0_1",
+      "source_ir_kind": "DIRECT_CONDITION_IR",
+      "source_ir_artifact": "knowledge/wp08/CAREER_DIRECT_CONDITION_IR_9_v0.1.json",
+      "subject_terms": [
+        {
+          "term_type": "TRANSFORM",
+          "args": [
+            "天同",
+            "化忌"
+          ]
+        }
+      ],
+      "relation": {
+        "operator": "FOUR_DIRECTIONS_VISIBILITY",
+        "geometry": "UNSPECIFIED_WITHIN_SCOPE",
+        "palace_offsets": [
+          0,
+          4,
+          6,
+          8
+        ]
+      },
+      "target": {
+        "node_type": "EXPLICIT_MEMBER_SET",
+        "member_requirement": "BOTH_SOURCE_LITERAL",
+        "members": [
+          {
+            "term_type": "SYMBOL",
+            "args": [
+              "左辅"
+            ]
+          },
+          {
+            "term_type": "SYMBOL",
+            "args": [
+              "右弼"
+            ]
+          }
+        ]
+      },
+      "source_expression_ref": "AND[TRANSFORM(天同,化忌), FOUR_DIRECTIONS_VISIBILITY(BOTH[左辅,右弼])]",
+      "parent_condition_id": null,
+      "inheritance_mode": "NONE",
+      "prohibited_inheritance": [],
+      "compiler_status": "COMPILED_DIRECT_SEMANTIC_ONLY",
+      "product_condition_compiled": true,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false,
+      "semantic_basis_refs": [
+        "CAREER_RELATION_BINDING_132_v0.1:CA05-419",
+        "CAREER_RESPONSE_COMPATIBILITY_02_v0.1:CA05-419"
+      ]
+    },
+    {
+      "condition_id": "PRODUCT_CONDITION:CA05-420",
+      "source_rule_id": "CA05-420",
+      "compiler_version": "PL3R_CAREER_CONDITION_COMPILER_V0_1",
+      "source_ir_kind": "DEPENDENCY_CONDITION_IR",
+      "source_ir_artifact": "knowledge/wp08/CAREER_DEPENDENCY_IR_3_v0.1.json",
+      "subject_terms": [],
+      "relation": null,
+      "target": null,
+      "source_expression_ref": "RULE_CONDITION(CA05-419)",
+      "parent_condition_id": "PRODUCT_CONDITION:CA05-419",
+      "inheritance_mode": "EXACT_PARENT_CONDITION_REFERENCE",
+      "prohibited_inheritance": [
+        "PARENT_PROJECTION",
+        "PARENT_OUTCOME",
+        "PARENT_TARGET",
+        "PARENT_VALENCE",
+        "TEXT_ADJACENCY"
+      ],
+      "compiler_status": "COMPILED_DEPENDENCY_REFERENCE_SEMANTIC_ONLY",
+      "product_condition_compiled": true,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false,
+      "semantic_basis_refs": [
+        "KNOWLEDGE_DEPENDENCY_IR:CA05-420",
+        "PRODUCT_CONDITION:CA05-419"
+      ]
+    },
+    {
+      "condition_id": "PRODUCT_CONDITION:CA05-433",
+      "source_rule_id": "CA05-433",
+      "compiler_version": "PL3R_CAREER_CONDITION_COMPILER_V0_1",
+      "source_ir_kind": "DIRECT_CONDITION_IR",
+      "source_ir_artifact": "knowledge/wp08/CAREER_DIRECT_CONDITION_IR_9_v0.1.json",
+      "subject_terms": [
+        {
+          "term_type": "STAR_SYSTEM",
+          "args": [
+            "天同巨门"
+          ]
+        }
+      ],
+      "relation": {
+        "operator": "EXACT_GEOMETRY",
+        "geometry": "SAME_PALACE",
+        "palace_offsets": [
+          0
+        ]
+      },
+      "target": {
+        "node_type": "SOURCE_LOCAL_PAIR",
+        "member_requirement": "BOTH_SOURCE_LOCAL",
+        "members": [
+          {
+            "term_type": "SYMBOL",
+            "args": [
+              "天厨"
+            ]
+          },
+          {
+            "term_type": "SYMBOL",
+            "args": [
+              "火星"
+            ]
+          }
+        ]
+      },
+      "source_expression_ref": "SAME_PALACE(PAIR_CO_PRESENT(天厨,火星))",
+      "parent_condition_id": null,
+      "inheritance_mode": "NONE",
+      "prohibited_inheritance": [],
+      "compiler_status": "COMPILED_DIRECT_SEMANTIC_ONLY",
+      "product_condition_compiled": true,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false,
+      "semantic_basis_refs": [
+        "CAREER_SOURCE_LEXICAL_RECHECK_10_v0.2:CA05-433"
+      ]
+    },
+    {
+      "condition_id": "PRODUCT_CONDITION:CA07-638",
+      "source_rule_id": "CA07-638",
+      "compiler_version": "PL3R_CAREER_CONDITION_COMPILER_V0_1",
+      "source_ir_kind": "DIRECT_CONDITION_IR",
+      "source_ir_artifact": "knowledge/wp08/CAREER_DIRECT_CONDITION_IR_9_v0.1.json",
+      "subject_terms": [
+        {
+          "term_type": "STAR",
+          "args": [
+            "贪狼"
+          ]
+        }
+      ],
+      "relation": {
+        "operator": "EXACT_GEOMETRY",
+        "geometry": "SAME_PALACE",
+        "palace_offsets": [
+          0
+        ]
+      },
+      "target": {
+        "node_type": "EXPLICIT_MEMBER_SET",
+        "member_requirement": "BOTH_SOURCE_LITERAL",
+        "members": [
+          {
+            "term_type": "SYMBOL",
+            "args": [
+              "左辅"
+            ]
+          },
+          {
+            "term_type": "SYMBOL",
+            "args": [
+              "右弼"
+            ]
+          }
+        ]
+      },
+      "source_expression_ref": "SAME_PALACE(STAR(贪狼), BOTH[左辅,右弼])",
+      "parent_condition_id": null,
+      "inheritance_mode": "NONE",
+      "prohibited_inheritance": [],
+      "compiler_status": "COMPILED_DIRECT_SEMANTIC_ONLY",
+      "product_condition_compiled": true,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false,
+      "semantic_basis_refs": [
+        "CAREER_RELATION_BINDING_132_v0.1:CA07-638",
+        "CAREER_RESPONSE_COMPATIBILITY_02_v0.1:CA07-638"
+      ]
+    },
+    {
+      "condition_id": "PRODUCT_CONDITION:CA07-639",
+      "source_rule_id": "CA07-639",
+      "compiler_version": "PL3R_CAREER_CONDITION_COMPILER_V0_1",
+      "source_ir_kind": "DEPENDENCY_CONDITION_IR",
+      "source_ir_artifact": "knowledge/wp08/CAREER_DEPENDENCY_IR_3_v0.1.json",
+      "subject_terms": [],
+      "relation": null,
+      "target": null,
+      "source_expression_ref": "RULE_CONDITION(CA07-638)",
+      "parent_condition_id": "PRODUCT_CONDITION:CA07-638",
+      "inheritance_mode": "EXACT_PARENT_CONDITION_REFERENCE",
+      "prohibited_inheritance": [
+        "PARENT_PROJECTION",
+        "PARENT_OUTCOME",
+        "PARENT_TARGET",
+        "PARENT_VALENCE",
+        "TEXT_ADJACENCY"
+      ],
+      "compiler_status": "COMPILED_DEPENDENCY_REFERENCE_SEMANTIC_ONLY",
+      "product_condition_compiled": true,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false,
+      "semantic_basis_refs": [
+        "KNOWLEDGE_DEPENDENCY_IR:CA07-639",
+        "PRODUCT_CONDITION:CA07-638"
+      ]
+    },
+    {
+      "condition_id": "PRODUCT_CONDITION:CA07-681",
+      "source_rule_id": "CA07-681",
+      "compiler_version": "PL3R_CAREER_CONDITION_COMPILER_V0_1",
+      "source_ir_kind": "DIRECT_CONDITION_IR",
+      "source_ir_artifact": "knowledge/wp08/CAREER_DIRECT_CONDITION_IR_9_v0.1.json",
+      "subject_terms": [
+        {
+          "term_type": "PALACE_BRANCH",
+          "args": [
+            "子午"
+          ]
+        },
+        {
+          "term_type": "STAR",
+          "args": [
+            "巨门"
+          ]
+        }
+      ],
+      "relation": null,
+      "target": {
+        "node_type": "LOCAL_OR",
+        "member_requirement": "ANY_SOURCE_LOCAL",
+        "members": [
+          {
+            "term_type": "TRANSFORM",
+            "args": [
+              "巨门",
+              "化禄"
+            ]
+          },
+          {
+            "term_type": "ATOM",
+            "args": [
+              "禄存"
+            ]
+          }
+        ]
+      },
+      "source_expression_ref": "LOCAL_OR[TRANSFORM(巨门,化禄), ATOM(禄存)]",
+      "parent_condition_id": null,
+      "inheritance_mode": "NONE",
+      "prohibited_inheritance": [],
+      "compiler_status": "COMPILED_DIRECT_SEMANTIC_ONLY",
+      "product_condition_compiled": true,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false,
+      "semantic_basis_refs": [
+        "CAREER_RESIDUAL_CLOSURE_37_v0.1:CA07-681"
+      ]
+    },
+    {
+      "condition_id": "PRODUCT_CONDITION:CA07-682",
+      "source_rule_id": "CA07-682",
+      "compiler_version": "PL3R_CAREER_CONDITION_COMPILER_V0_1",
+      "source_ir_kind": "DEPENDENCY_CONDITION_IR",
+      "source_ir_artifact": "knowledge/wp08/CAREER_DEPENDENCY_IR_3_v0.1.json",
+      "subject_terms": [],
+      "relation": null,
+      "target": null,
+      "source_expression_ref": "RULE_CONDITION(CA07-681)",
+      "parent_condition_id": "PRODUCT_CONDITION:CA07-681",
+      "inheritance_mode": "EXACT_PARENT_CONDITION_REFERENCE",
+      "prohibited_inheritance": [
+        "PARENT_PROJECTION",
+        "PARENT_OUTCOME",
+        "PARENT_TARGET",
+        "PARENT_VALENCE",
+        "TEXT_ADJACENCY"
+      ],
+      "compiler_status": "COMPILED_DEPENDENCY_REFERENCE_SEMANTIC_ONLY",
+      "product_condition_compiled": true,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false,
+      "semantic_basis_refs": [
+        "KNOWLEDGE_DEPENDENCY_IR:CA07-682",
+        "PRODUCT_CONDITION:CA07-681"
+      ]
+    },
+    {
+      "condition_id": "PRODUCT_CONDITION:CA09-820",
+      "source_rule_id": "CA09-820",
+      "compiler_version": "PL3R_CAREER_CONDITION_COMPILER_V0_1",
+      "source_ir_kind": "DIRECT_CONDITION_IR",
+      "source_ir_artifact": "knowledge/wp08/CAREER_DIRECT_CONDITION_IR_9_v0.1.json",
+      "subject_terms": [
+        {
+          "term_type": "PALACE_BRANCH",
+          "args": [
+            "子午"
+          ]
+        },
+        {
+          "term_type": "STAR",
+          "args": [
+            "七杀"
+          ]
+        }
+      ],
+      "relation": null,
+      "target": {
+        "node_type": "LOCAL_OR",
+        "member_requirement": "ANY_SOURCE_LOCAL",
+        "members": [
+          {
+            "term_type": "TRANSFORM",
+            "args": [
+              "武曲",
+              "化禄"
+            ]
+          },
+          {
+            "term_type": "TRANSFORM",
+            "args": [
+              "贪狼",
+              "化禄"
+            ]
+          },
+          {
+            "term_type": "TRANSFORM",
+            "args": [
+              "破军",
+              "化禄"
+            ]
+          },
+          {
+            "term_type": "ATOM",
+            "args": [
+              "禄存"
+            ]
+          }
+        ]
+      },
+      "source_expression_ref": "LOCAL_OR[TRANSFORM(武曲,化禄), TRANSFORM(贪狼,化禄), TRANSFORM(破军,化禄), ATOM(禄存)]",
+      "parent_condition_id": null,
+      "inheritance_mode": "NONE",
+      "prohibited_inheritance": [],
+      "compiler_status": "COMPILED_DIRECT_SEMANTIC_ONLY",
+      "product_condition_compiled": true,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false,
+      "semantic_basis_refs": [
+        "CAREER_RESIDUAL_CLOSURE_37_v0.1:CA09-820"
+      ]
+    }
+  ],
+  "rejected_local_ready_rows": [
+    {
+      "source_rule_id": "CA01-058",
+      "compiler_readiness_band": "DEPENDENCY_EFFECTIVE_UNDERDETERMINED",
+      "compiler_status": "NOT_COMPILER_INPUT",
+      "blockers": [
+        "KNOWLEDGE_CONDITION_IR_NOT_READY:DEPENDENCY_EFFECTIVE_UNDERDETERMINED"
+      ],
+      "product_condition_compiled": false,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false
+    },
+    {
+      "source_rule_id": "CA01-060",
+      "compiler_readiness_band": "DEPENDENCY_EFFECTIVE_UNDERDETERMINED",
+      "compiler_status": "NOT_COMPILER_INPUT",
+      "blockers": [
+        "KNOWLEDGE_CONDITION_IR_NOT_READY:DEPENDENCY_EFFECTIVE_UNDERDETERMINED"
+      ],
+      "product_condition_compiled": false,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false
+    },
+    {
+      "source_rule_id": "CA02-108",
+      "compiler_readiness_band": "DEPENDENCY_EFFECTIVE_UNDERDETERMINED",
+      "compiler_status": "NOT_COMPILER_INPUT",
+      "blockers": [
+        "KNOWLEDGE_CONDITION_IR_NOT_READY:DEPENDENCY_EFFECTIVE_UNDERDETERMINED"
+      ],
+      "product_condition_compiled": false,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false
+    },
+    {
+      "source_rule_id": "CA02-134",
+      "compiler_readiness_band": "DEPENDENCY_EFFECTIVE_UNDERDETERMINED",
+      "compiler_status": "NOT_COMPILER_INPUT",
+      "blockers": [
+        "KNOWLEDGE_CONDITION_IR_NOT_READY:DEPENDENCY_EFFECTIVE_UNDERDETERMINED"
+      ],
+      "product_condition_compiled": false,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false
+    },
+    {
+      "source_rule_id": "CA02-157",
+      "compiler_readiness_band": "DEPENDENCY_EFFECTIVE_UNDERDETERMINED",
+      "compiler_status": "NOT_COMPILER_INPUT",
+      "blockers": [
+        "KNOWLEDGE_CONDITION_IR_NOT_READY:DEPENDENCY_EFFECTIVE_UNDERDETERMINED"
+      ],
+      "product_condition_compiled": false,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false
+    },
+    {
+      "source_rule_id": "CA02-167",
+      "compiler_readiness_band": "DEPENDENCY_EFFECTIVE_UNDERDETERMINED",
+      "compiler_status": "NOT_COMPILER_INPUT",
+      "blockers": [
+        "KNOWLEDGE_CONDITION_IR_NOT_READY:DEPENDENCY_EFFECTIVE_UNDERDETERMINED"
+      ],
+      "product_condition_compiled": false,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false
+    },
+    {
+      "source_rule_id": "CA02-168",
+      "compiler_readiness_band": "DEPENDENCY_EFFECTIVE_UNDERDETERMINED",
+      "compiler_status": "NOT_COMPILER_INPUT",
+      "blockers": [
+        "KNOWLEDGE_CONDITION_IR_NOT_READY:DEPENDENCY_EFFECTIVE_UNDERDETERMINED"
+      ],
+      "product_condition_compiled": false,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false
+    },
+    {
+      "source_rule_id": "CA02-170",
+      "compiler_readiness_band": "DEPENDENCY_EFFECTIVE_UNDERDETERMINED",
+      "compiler_status": "NOT_COMPILER_INPUT",
+      "blockers": [
+        "KNOWLEDGE_CONDITION_IR_NOT_READY:DEPENDENCY_EFFECTIVE_UNDERDETERMINED"
+      ],
+      "product_condition_compiled": false,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false
+    },
+    {
+      "source_rule_id": "CA02-171",
+      "compiler_readiness_band": "DEPENDENCY_EFFECTIVE_UNDERDETERMINED",
+      "compiler_status": "NOT_COMPILER_INPUT",
+      "blockers": [
+        "KNOWLEDGE_CONDITION_IR_NOT_READY:DEPENDENCY_EFFECTIVE_UNDERDETERMINED"
+      ],
+      "product_condition_compiled": false,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false
+    },
+    {
+      "source_rule_id": "CA02-199",
+      "compiler_readiness_band": "DEPENDENCY_EFFECTIVE_UNDERDETERMINED",
+      "compiler_status": "NOT_COMPILER_INPUT",
+      "blockers": [
+        "KNOWLEDGE_CONDITION_IR_NOT_READY:DEPENDENCY_EFFECTIVE_UNDERDETERMINED"
+      ],
+      "product_condition_compiled": false,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false
+    },
+    {
+      "source_rule_id": "CA03-235",
+      "compiler_readiness_band": "DEPENDENCY_EFFECTIVE_UNDERDETERMINED",
+      "compiler_status": "NOT_COMPILER_INPUT",
+      "blockers": [
+        "KNOWLEDGE_CONDITION_IR_NOT_READY:DEPENDENCY_EFFECTIVE_UNDERDETERMINED"
+      ],
+      "product_condition_compiled": false,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false
+    },
+    {
+      "source_rule_id": "CA05-484",
+      "compiler_readiness_band": "DIRECT_RELATION_OR_COMPOSITION_DEFERRED",
+      "compiler_status": "NOT_COMPILER_INPUT",
+      "blockers": [
+        "KNOWLEDGE_CONDITION_IR_NOT_READY:DIRECT_RELATION_OR_COMPOSITION_DEFERRED"
+      ],
+      "product_condition_compiled": false,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false
+    },
+    {
+      "source_rule_id": "CA06-582",
+      "compiler_readiness_band": "DIRECT_RELATION_OR_COMPOSITION_DEFERRED",
+      "compiler_status": "NOT_COMPILER_INPUT",
+      "blockers": [
+        "KNOWLEDGE_CONDITION_IR_NOT_READY:DIRECT_RELATION_OR_COMPOSITION_DEFERRED"
+      ],
+      "product_condition_compiled": false,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false
+    },
+    {
+      "source_rule_id": "CA07-699",
+      "compiler_readiness_band": "DIRECT_RELATION_OR_COMPOSITION_DEFERRED",
+      "compiler_status": "NOT_COMPILER_INPUT",
+      "blockers": [
+        "KNOWLEDGE_CONDITION_IR_NOT_READY:DIRECT_RELATION_OR_COMPOSITION_DEFERRED"
+      ],
+      "product_condition_compiled": false,
+      "condition_evaluated": false,
+      "response_effect_bound": false,
+      "runtime_effect_allowed": false
+    }
+  ],
+  "maturity": {
+    "condition_ir_compiler": "PILOT_IMPLEMENTED_V0_1",
+    "condition_evaluator": "NOT_IMPLEMENTED",
+    "response_effect_binding": "NOT_IMPLEMENTED",
+    "response_profile_tau": "NOT_IMPLEMENTED",
+    "predictive_validity": "NOT_VALIDATED"
+  }
+}
