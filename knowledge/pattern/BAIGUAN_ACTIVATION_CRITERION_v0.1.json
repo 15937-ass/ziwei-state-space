@@ -1,0 +1,63 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-BAIGUAN-ACTIVATION-CRITERION-v0.1",
+  "lane": "KNOWLEDGE_ONLY",
+  "issue": 469,
+  "status": "NO_UNIVERSAL_THRESHOLD",
+  "structure_id": "BAIGUAN_SUPPORT_PROFILE",
+  "anchor_scope": [
+    "紫微"
+  ],
+  "conclusion": "NO_UNIVERSAL_THRESHOLD",
+  "reviewed_evidence": {
+    "advanced_upper_exact_surface_occurrences": 12,
+    "advanced_lower_exact_surface_occurrences": 36,
+    "source_pattern": "Sources repeatedly name 百官朝拱 and describe component families/relations/quality, but do not state one transferable minimum N-star or N-pair condition for full-pattern truth."
+  },
+  "supported_claims": [
+    "Component families are source-backed.",
+    "Component-specific relation evidence is source-backed.",
+    "天府/天相 quality guards are source-backed.",
+    "Three auspicious transformations are explicitly excluded from being 朝拱 components.",
+    "Source can describe partial/supportive configurations without yielding one global activation threshold."
+  ],
+  "unsupported_claims": [
+    "Any one component pair is sufficient for full 百官朝拱.",
+    "天府+天相 alone is sufficient for universal full 百官朝拱.",
+    "N components or N pairs define the pattern across contexts.",
+    "More components monotonically imply a stronger globally comparable 百官 score.",
+    "百官朝拱 universally means GOOD."
+  ],
+  "runtime_contract": {
+    "generic_full_pattern_predicate": "UNAVAILABLE",
+    "allowed_output_states": [
+      "PARTIAL_SUPPORT",
+      "CONFLICTED",
+      "ABSENT",
+      "UNKNOWN"
+    ],
+    "explicit_template_match": "ONLY_SOURCE_SPECIFIC_FROZEN_TEMPLATE",
+    "aggregate_threshold": null,
+    "member_count_rule": null,
+    "pair_count_rule": null
+  },
+  "template_policy": {
+    "source_labelled_instance_may_be_recorded_as_evidence": true,
+    "reverse_inference_from_component_count_to_full_pattern": false,
+    "other_anchor_template_reuse": false
+  },
+  "human_gate_alignment": {
+    "gate_id": "HG_PL2L_BAIGUAN_STRUCTURE",
+    "gate_decision": "APPROVE_STRUCTURE_DEFER_ACTIVATION_THRESHOLD",
+    "conclusion_consistent_with_gate": true,
+    "new_human_gate_required": false
+  },
+  "guardrails": {
+    "source_truth_rewritten": false,
+    "source_tension_erased": false,
+    "threshold_invented": false,
+    "product_runtime_modified": false,
+    "numeric_weights_added": false,
+    "probabilities_added": false
+  }
+}
