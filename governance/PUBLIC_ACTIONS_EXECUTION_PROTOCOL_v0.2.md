@@ -1,8 +1,9 @@
 # Public Actions Execution Protocol v0.2
 
-Status: **ACTIVE AFTER MERGE OF G8**  
-Tracking Issue: #372  
-Supersedes for routine execution: `governance/WORK_CODEX_EXECUTION_PROTOCOL_v0.1.md`
+Status: **ACTIVE — G8 EXECUTION POLICY, G9 REPOSITORY-AUTHORITY AMENDMENT**  
+Tracking Issues: #372 (G8), #374 (G9)  
+Supersedes for routine execution: `governance/WORK_CODEX_EXECUTION_PROTOCOL_v0.1.md`  
+Recovery precedence: `governance/RECOVERY_PRECEDENCE_v1.md`
 
 ## 1. Purpose
 
@@ -14,12 +15,24 @@ This changes **where computation happens**, not source truth, Ziwei interpretati
 
 ## 2. Authority split
 
-- **Current ChatGPT session**: orchestration, source review, critic/red-team pass, bounded GitHub edits, issue/PR management, and PI-facing synthesis.
+- **Current ChatGPT conversation/session**: first-class repository operator. It may use **every GitHub repository operation actually exposed by the connected tools**, including file create/update/delete, branch operations, Issue operations, PR/review/comment operations, draft/ready transitions, merge/auto-merge, workflow/run operations, and other connector-exposed repository management actions. It also performs orchestration, source review, critic/red-team passes, and PI-facing synthesis.
 - **GitHub Actions standard public runners**: deterministic Python/Node/Go tests, audits, regression commands, and generated validation artifacts.
-- **ChatGPT Work / Codex**: optional additional execution runtime when quota is available; not required for routine progress under G8.
+- **ChatGPT Work / Codex**: optional additional shell/coding execution runtime when quota is available. It is not required merely to perform GitHub repository writes.
 - **GitHub**: canonical repository, Issues, PRs, commits, validation run history, and Human-Gate audit trail.
 
 GitHub Issues remain execution truth. Main remains accepted state.
+
+### Conversation-mode repository authority
+
+Repository write authority is not reserved to Work/Codex. The current ChatGPT conversation may directly perform all connector-exposed GitHub operations needed by an authorized work unit. This is an operational-capability grant, not a semantic-governance bypass: lane ownership, Issue-first execution, PR discipline, validation requirements, Human Gates, Zhongzhou source integrity, and Product maturity boundaries remain in force.
+
+Normal work remains `Issue -> branch -> PR -> validation -> merge`. Direct-to-main is not made routine merely because a connected API could permit it.
+
+The connected tool surface is the technical ceiling. If a GitHub operation is not exposed by the current connector/tools, this protocol does not claim that operation is technically available.
+
+### Recovery policy
+
+For session/task recovery, follow `PROJECT_STATE.yaml` and `governance/RECOVERY_PRECEDENCE_v1.md`. Do not use historical files that still contain `ACTIVE`, `CURRENT`, `NEXT`, or `READY_FOR_PI` as task selectors unless the active Issue explicitly references them.
 
 ## 3. Trigger policy
 
@@ -124,4 +137,6 @@ No workflow may receive write permissions unless a bounded Governance Issue expl
 
 PI approved G8 in chat on 2026-10-20 with the instruction that Work quota was unavailable and permissions could be modified so execution could continue in the current mode.
 
-This approval is execution-infrastructure-only. It does **not** authorize changes to Zhongzhou source truth, school boundaries, temporal semantics, causal claims, empirical probabilities, or Product maturity.
+PI later approved G9 / Issue #374: ordinary ChatGPT conversation mode is a first-class repository operator and may use all repository operations actually exposed by connected tools. The same approval also authorizes recovery decontamination so superseded/historical status words do not override current pointers.
+
+These approvals are execution/governance-infrastructure only. They do **not** authorize changes to Zhongzhou source truth, school boundaries, temporal semantics, causal claims, empirical probabilities, or Product maturity.

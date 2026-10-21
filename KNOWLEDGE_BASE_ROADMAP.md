@@ -1,5 +1,7 @@
 # Phase II：中州派完整知识库工程路线图
 
+> **Recovery note — not an execution queue.** 本文件定义长期知识工程方向，不承担当前任务恢复。文中“状态：ACTIVE”“当前继续”“当前执行顺序”等均是其写入时的路线图上下文，不能覆盖 live GitHub Issue/PR。新对话必须按 `PROJECT_STATE.yaml -> governance/RECOVERY_PRECEDENCE_v1.md -> KNOWLEDGE_STATE -> live Knowledge Issue/PR` 恢复。旧 `READY_FOR_PI` 仅在当前 lane state / live Issue 仍标 pending 时才是现行 Human Gate。
+
 版本：0.2  
 状态：ACTIVE  
 生效日期：2026-10-05  

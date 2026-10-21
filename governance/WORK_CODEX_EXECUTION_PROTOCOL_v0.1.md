@@ -1,8 +1,13 @@
 # Work + Codex Execution Protocol v0.1
 
-Status: **ACTIVE GOVERNANCE EXECUTION CONTRACT**  
+> **HISTORICAL / SUPERSEDED — DO NOT USE FOR CURRENT RECOVERY OR ACTIONS POLICY.**  
+> G8 (`governance/PUBLIC_ACTIONS_EXECUTION_PROTOCOL_v0.2.md`) supersedes this file for routine execution.  
+> G9 / Issue #374 further makes the current ChatGPT conversation a first-class repository operator.  
+> Any statement below saying Actions are manual-only or that Work/Codex must own repository writes is historical evidence only.
+
+Status: **HISTORICAL — SUPERSEDED FOR ROUTINE EXECUTION BY G8/G9**  
 Tracking Issue: #340  
-Effective after merge of G7.
+Effective period: G7 until superseded by G8.
 
 ## 1. Purpose
 
@@ -15,7 +20,7 @@ The migration changes **where computation happens**, not the research or source-
 - **ChatGPT Work**: orchestration, research planning, source review, multi-step coordination, critic/red-team passes, progress synthesis.
 - **Codex / OpenAI coding runtime**: edit repository files, run shell commands, execute Python/Node/Go validation, debug failures, produce deterministic reports.
 - **GitHub**: canonical repository, Issues, PRs, commits, durable audit trail, Human Gates.
-- **GitHub Actions**: manual emergency fallback only; no automatic push or pull_request execution.
+- **GitHub Actions — HISTORICAL G7 RULE, SUPERSEDED**: G7 used manual emergency fallback only. **Current G8 policy allows automatic `pull_request` validation and still prohibits automatic `push` triggers.**
 
 GitHub Issues remain the authoritative execution ledger. Main remains accepted state.
 
@@ -125,11 +130,13 @@ A statement such as "tests should pass" is not evidence.
 - A real test failure must be fixed or explicitly escalated; never suppress it by deleting assertions or weakening gates without an approved Issue.
 - Infrastructure/runtime failure must be separated from test failure.
 - If an OpenAI execution environment cannot run a required external dependency, record the blocker and do not claim validation.
-- Do not spend GitHub Actions minutes merely to reproduce validation already completed in Codex.
+- **Historical G7 cost rule (superseded):** G7 avoided routine Actions after Codex validation. Current G8 uses standard public GitHub-hosted PR Actions as a routine deterministic validation runtime.
 
-## 7. GitHub Actions policy
+## 7. Historical GitHub Actions policy — DO NOT APPLY
 
-All workflows under `.github/workflows/` are manual-only after G7.
+The following was the G7 policy during its effective period. It is retained for audit history only.
+
+All workflows under `.github/workflows/` were manual-only under G7.
 
 Allowed use:
 - explicit emergency/manual reproduction;
@@ -154,3 +161,10 @@ To revert G7:
 The PI approved the G7 migration in chat on 2026-10-19.
 
 The migration changes execution infrastructure only. It does **not** authorize changes to Zhongzhou theory, canonical source truth, probability claims, temporal semantics, or Product maturity claims.
+
+
+## 10. Supersession pointer
+
+Current execution policy is defined only by `PROJECT_STATE.yaml -> authority.current_execution_protocol`, currently `governance/PUBLIC_ACTIONS_EXECUTION_PROTOCOL_v0.2.md`.
+
+For session recovery, follow `governance/RECOVERY_PRECEDENCE_v1.md`. Do not infer current policy from this historical file even if a search result surfaces Sections 2, 6, 7, or 8.

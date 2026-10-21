@@ -1,5 +1,7 @@
 # Product vNext Execution Plan v0.1
 
+> **RECOVERY WARNING:** This is a versioned execution decomposition, not the live task ledger. Earlier sections intentionally preserve the baseline from which the plan was written; later sections may contain newer checkpoints. Do not choose work from the first `Current` or `NOW` label found in this file. Recover through `PROJECT_STATE.yaml -> governance/RECOVERY_PRECEDENCE_v1.md -> product/PRODUCT_STATE.yaml -> live Product Issue/PR`.
+
 Status: **APPROVED EXECUTION DECOMPOSITION**  
 Derived from: PRODUCT_ROADMAP.md v0.4 and Proposal #425  
 Purpose: separate **NOW** from **FUTURE**, prevent framework drift, and define the first vertical-slice critical path.

@@ -1,5 +1,7 @@
 # 产品化路线图 — Product-First Program v0.4
 
+> **Recovery note — roadmap status is not execution truth.** 本文件的 `CURRENT CRITICAL PATH`、`NOW`、`FUTURE` 用于表达架构顺序和阶段关系；实际正在做什么由 live Product GitHub Issue/PR 决定。新对话按 `PROJECT_STATE.yaml -> governance/RECOVERY_PRECEDENCE_v1.md -> PRODUCT_STATE -> live Product Issue/PR` 恢复，不从路线图中间段落自行选择下一任务。
+
 状态：ACTIVE  
 生效日期：2026-10-20  
 替代：Product-First Program v0.3  
