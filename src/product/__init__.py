@@ -274,6 +274,15 @@ from .rule_runtime import (
     compile_rule_row,
     compile_rule_rows,
 )
+from .response_profile import (
+    ALLOWED_RESPONSE_LAYERS,
+    CAREER_DOMAIN_ALIASES,
+    RESPONSE_COMPILER_VERSION,
+    RESPONSE_PROFILE_SCHEMA_VERSION,
+    CareerResponseEntry,
+    CareerResponseProfile,
+    build_career_response_profile,
+)
 from .temporal_asset_adapter import (
     REQUIRED_SCOPE_KEYS,
     SCOPE_TO_LAYER,
@@ -467,6 +476,13 @@ __all__ = [
     "TEST_ONLY_REACTION_REGISTRY_STATUS",
     "SymbolicInferenceRun",
     "run_symbolic_inference",
+    "ALLOWED_RESPONSE_LAYERS",
+    "CAREER_DOMAIN_ALIASES",
+    "RESPONSE_COMPILER_VERSION",
+    "RESPONSE_PROFILE_SCHEMA_VERSION",
+    "CareerResponseEntry",
+    "CareerResponseProfile",
+    "build_career_response_profile",
     "REQUIRED_SCOPE_KEYS",
     "SCOPE_TO_LAYER",
     "TemporalAssetBundle",
