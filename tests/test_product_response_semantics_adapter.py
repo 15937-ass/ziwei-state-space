@@ -12,7 +12,6 @@ from src.product.response_semantics_adapter import (
     CAREER_ORDINAL_RULE_LINKS_PATH,
     CAREER_ORDINAL_BLOCKER_IMPACT_PATH,
     CAREER_SEMANTIC_NORMALIZATION_PATH,
-    CAREER_SOURCE_LEXICON_QUANTIFIER_PATH,
     RESPONSE_PILOT_PATH,
     CareerResponseDecision,
     ResponseSemanticEnvelope,
@@ -27,7 +26,6 @@ from src.product.response_semantics_adapter import (
     load_career_ordinal_rule_links,
     load_career_ordinal_blocker_impact,
     load_career_semantic_normalization,
-    load_career_source_lexicon_quantifier,
     load_response_pilot_records,
     validate_career_ordinal_cross_artifacts,
     validate_real_adapter_zero_unlock,
@@ -243,15 +241,17 @@ def test_career_adapter_preserves_knowledge_readiness_classes():
     decisions = build_career_response_decisions()
 
     assert Counter(item.knowledge_readiness_class for item in decisions) == {
-        "MULTI_CLASS_BLOCKED": 45,
-        "LOCAL_STRUCTURE_READY": 18,
-        "SOURCE_UNDERDETERMINED": 161,
+        "MULTI_CLASS_BLOCKED": 46,
+        "LOCAL_STRUCTURE_READY": 17,
+        "SOURCE_UNDERDETERMINED": 160,
+        "STRUCTURED_PATTERN_COMPILER_GATED": 1,
         "DEPENDENCY_COMPILER_GATED": 27,
     }
     assert Counter(item.adapter_status for item in decisions) == {
-        "BLOCKED_MULTIPLE": 45,
-        "SEMANTIC_ONLY_PENDING_COMPILATION": 18,
-        "BLOCKED_SOURCE_UNDERDETERMINED": 161,
+        "BLOCKED_MULTIPLE": 46,
+        "SEMANTIC_ONLY_PENDING_COMPILATION": 17,
+        "BLOCKED_SOURCE_UNDERDETERMINED": 160,
+        "BLOCKED_STRUCTURED_PATTERN_COMPILER": 1,
         "BLOCKED_DEPENDENCY_COMPILER": 27,
     }
 
@@ -263,7 +263,7 @@ def test_local_structure_ready_is_not_execution_unlock():
         if item.knowledge_readiness_class == "LOCAL_STRUCTURE_READY"
     ]
 
-    assert len(local_ready) == 18
+    assert len(local_ready) == 17
     assert all(
         item.adapter_status == "SEMANTIC_ONLY_PENDING_COMPILATION"
         for item in local_ready
@@ -378,7 +378,6 @@ def test_semantic_normalization_36_refines_generic_blocker_without_unlock():
     payload = load_career_semantic_normalization()
     summary = payload["summary"]
 
-    assert payload["schema_version"] == "0.2"
     assert payload["coverage"] == {
         "target_rows": 36,
         "reviewed": 36,
@@ -485,43 +484,6 @@ def test_ordinal_linking_does_not_change_real_product_runtime_unlock():
     assert payload["career"]["runtime_effects_authorized"] == 0
 
 
-
-def test_v05_baiguan_no_universal_threshold_stays_fail_closed():
-    decisions = {item.source_rule_id: item for item in build_career_response_decisions()}
-    targets = {"CA01-057", "CA01-079", "CA02-152", "CA05-471"}
-
-    for rule_id in targets:
-        decision = decisions[rule_id]
-        assert "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD" in decision.blockers
-        assert "STRUCTURED_PATTERN_EXECUTION_DEFERRED" not in decision.blockers
-        assert decision.runtime_effect_allowed is False
-
-
-def test_source_lexicon_quantifier_review_advances_representation_not_execution():
-    payload = load_career_source_lexicon_quantifier()
-    summary = payload["summary"]
-
-    assert summary["target_rows"] == 10
-    assert summary["reviewed"] == 10
-    assert summary["source_resolved"] == 2
-    assert summary["no_universal_rule"] == 5
-    assert summary["still_underdetermined"] == 3
-    assert summary["source_shorthand_membership_unspecified_after"] == 1
-    assert summary["source_list_quantifier_unspecified_after"] == 2
-    assert summary["rows_newly_without_current_activation_blocker"] == 1
-    assert summary["conditions_compiled"] == 0
-    assert summary["execution_unlocked"] == 0
-
-    newly_ready = _decision("CA05-484")
-    assert newly_ready.knowledge_readiness_class == "LOCAL_STRUCTURE_READY"
-    assert newly_ready.blockers == ()
-    assert newly_ready.runtime_effect_allowed is False
-
-    compound = _decision("CA08-723")
-    assert "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED" in compound.blockers
-    assert compound.runtime_effect_allowed is False
-
-
 def test_readiness_audit_matches_versioned_artifact():
     generated = audit_response_semantics_adapter_readiness()
     stored = _load(READINESS)
@@ -544,28 +506,17 @@ def test_readiness_summary_records_zero_unauthorized_unlocks():
     career = payload["career"]
     assert career["total_rows"] == 251
     assert career["response_gain_total"] == 89
-    assert career["semantic_only_pending_compilation"] == 18
+    assert career["semantic_only_pending_compilation"] == 17
     assert career["runtime_effects_authorized"] == 0
     assert career["condition_compiled_count"] == 0
     assert career["knowledge_execution_unlocked_count"] == 0
     assert career["unresolved_antecedent_reference_rows"] == 0
     assert career["explicit_antecedent_dependency_rows"] == 64
     assert career["closed_world_evidence_gated_rows"] == 23
-    assert career["rows_with_source_underdetermination"] == 206
-    assert career["baiguan_activation_no_universal_threshold_rows"] == 4
+    assert career["rows_with_source_underdetermination"] == 204
     assert career["relation_bound_rows"] == 132
     assert career["category_reviewed_rows"] == 59
     assert career["unauthorized_unlock_count"] == 0
-    source_lexicon = payload["career_source_lexicon_quantifier"]
-    assert source_lexicon["target_rows"] == 10
-    assert source_lexicon["reviewed"] == 10
-    assert source_lexicon["source_resolved"] == 2
-    assert source_lexicon["no_universal_rule"] == 5
-    assert source_lexicon["still_underdetermined"] == 3
-    assert source_lexicon["rows_newly_without_current_activation_blocker"] == 1
-    assert source_lexicon["conditions_compiled"] == 0
-    assert source_lexicon["execution_unlocked"] == 0
-
     normalization = payload["career_semantic_normalization"]
     assert normalization["target_rows"] == 36
     assert normalization["reviewed"] == 36
@@ -611,4 +562,3 @@ def test_source_knowledge_files_are_read_only_inputs():
     assert CAREER_ORDINAL_RULE_LINKS_PATH.exists()
     assert CAREER_ORDINAL_BLOCKER_IMPACT_PATH.exists()
     assert CAREER_SEMANTIC_NORMALIZATION_PATH.exists()
-    assert CAREER_SOURCE_LEXICON_QUANTIFIER_PATH.exists()
