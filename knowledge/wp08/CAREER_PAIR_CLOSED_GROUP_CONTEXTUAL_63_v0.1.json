@@ -1,0 +1,1801 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-CAREER-PAIR-CLOSED-GROUP-CONTEXTUAL-63-v0.1",
+  "lane": "KNOWLEDGE_ONLY",
+  "issue": 477,
+  "status": "63_OF_63_CONTEXTUAL_ACTIVATION_REFINED_NO_EXECUTION_UNLOCK",
+  "purpose": "Replace generic member/open-category ambiguity with source-backed contextual group activation semantics for the 63 pair/closed-group Career residuals, without inventing a universal activation quantifier.",
+  "principles": [
+    "MEMBERSHIP_CLOSURE_IS_NOT_ACTIVATION_QUANTIFIER_CLOSURE",
+    "PAIR_SHORTHAND_DOES_NOT_IMPLY_GLOBAL_ANY_OR_ALL",
+    "SOURCE_LOCAL_SINGLE_PAIR_OR_RELATION_MARKERS_OVERRIDE_GENERIC_SHORTHAND_ONLY_IN_THEIR_OWN_CLAUSE",
+    "OUTER_CLAUSE_OR_DOES_NOT_DEFINE_INTERNAL_PAIR_QUANTIFIER",
+    "RELATION_BINDING_AND_INTERNAL_MEMBER_REALIZATION_REMAIN_SEPARATE"
+  ],
+  "family_contracts": [
+    {
+      "family_id": "PAIR_KONG_JIE",
+      "surface": "空劫",
+      "kind": "CLOSED_PAIR_SHORTHAND",
+      "members": [
+        "地空",
+        "地劫"
+      ],
+      "target_count": 21,
+      "membership_status": "SOURCE_EXPLICIT_PAIR_IDENTITY",
+      "activation_default": "CONTEXTUAL_UNRESOLVED",
+      "source_evidence": [
+        {
+          "source": "SRC-ZZ-002",
+          "location": "深造讲义（上） 地空地劫节",
+          "excerpt": "地空属阴火、地劫属阳火。",
+          "finding": "两颗星身份分开定义；成员可闭合。"
+        },
+        {
+          "source": "SRC-ZZ-002",
+          "location": "深造讲义（上） 武曲破军结构",
+          "excerpt": "尤忌空劫二星同度并入命宫",
+          "finding": "局部明确“二星同度”可表示 BOTH，但不能转移为所有“空劫”句的默认量词。"
+        }
+      ],
+      "explicit_local_modes": [
+        "BOTH_WHEN_SOURCE_SAYS_二星同度",
+        "SEPARATE_MEMBER_SEMANTICS"
+      ],
+      "universal_any_supported": false,
+      "universal_all_supported": false
+    },
+    {
+      "family_id": "PAIR_CHANG_QU",
+      "surface": "昌曲",
+      "kind": "CLOSED_PAIR_SHORTHAND",
+      "members": [
+        "文昌",
+        "文曲"
+      ],
+      "target_count": 18,
+      "membership_status": "SOURCE_EXPLICIT_PAIR_IDENTITY",
+      "activation_default": "CONTEXTUAL_UNRESOLVED",
+      "source_evidence": [
+        {
+          "source": "SRC-ZZ-002",
+          "location": "深造讲义（上）",
+          "excerpt": "文昌文曲同时聚于垣内",
+          "finding": "局部明示同时出现时可判 BOTH。"
+        },
+        {
+          "source": "SRC-ZZ-003",
+          "location": "夫妻宫 printed p42",
+          "excerpt": "见昌曲对星，又见桃花诸曜",
+          "finding": "作者会在需要时明确标记“对星”，反证普通“昌曲”不可自动 ALL。"
+        }
+      ],
+      "explicit_local_modes": [
+        "BOTH_WHEN_SOURCE_SAYS_同时",
+        "BOTH_WHEN_SOURCE_SAYS_对星",
+        "SINGLE_MEMBER_WHEN_NAMED_EXPLICITLY"
+      ],
+      "universal_any_supported": false,
+      "universal_all_supported": false
+    },
+    {
+      "family_id": "PAIR_HUO_LING",
+      "surface": "火铃",
+      "kind": "CLOSED_PAIR_SHORTHAND",
+      "members": [
+        "火星",
+        "铃星"
+      ],
+      "target_count": 17,
+      "membership_status": "SOURCE_EXPLICIT_PAIR_IDENTITY",
+      "activation_default": "CONTEXTUAL_UNRESOLVED",
+      "source_evidence": [
+        {
+          "source_artifact": "knowledge/wp07a/CAREER_FIRE_BELL_SOURCE_EVIDENCE_v0.1.json",
+          "evidence_ids": [
+            "FB03",
+            "FB04",
+            "FB06",
+            "FB07"
+          ],
+          "finding": "既有审查同时找到 explicit OR 与 BOTH/空间结构；目标事业宫简称不支持全局 ANY/ALL。"
+        },
+        {
+          "source": "SRC-ZZ-003",
+          "location": "事业宫 printed p140",
+          "excerpt": "武曲与火铃同度",
+          "finding": "事业宫继续使用 pair shorthand，但未说明内部是单星或双星。"
+        }
+      ],
+      "explicit_local_modes": [
+        "OR_WHEN_SOURCE_SAYS_火星或铃星",
+        "BOTH_FOR_EXPLICIT_FLANKING_OR_SIMULTANEOUS_STRUCTURE"
+      ],
+      "universal_any_supported": false,
+      "universal_all_supported": false
+    },
+    {
+      "family_id": "PAIR_FU_BI",
+      "surface": "辅弼",
+      "kind": "CLOSED_PAIR_SHORTHAND",
+      "members": [
+        "左辅",
+        "右弼"
+      ],
+      "target_count": 7,
+      "membership_status": "SOURCE_EXPLICIT_PAIR_IDENTITY",
+      "activation_default": "CONTEXTUAL_UNRESOLVED",
+      "source_evidence": [
+        {
+          "source": "SRC-ZZ-002",
+          "location": "深造讲义（上） 左辅右弼节",
+          "excerpt": "辅弼亦喜以『对星』形式会入一个宫垣……倘为『单星』",
+          "finding": "来源明确区分对星与单星，故 generic 辅弼不能静默变成 ALL。"
+        },
+        {
+          "source": "SRC-ZZ-003",
+          "location": "夫妻宫 printed p42",
+          "excerpt": "见辅佐『单星』主再婚",
+          "finding": "单星是可被明确编码的局部状态。"
+        }
+      ],
+      "explicit_local_modes": [
+        "PAIR_WHEN_SOURCE_SAYS_对星",
+        "SINGLE_WHEN_SOURCE_SAYS_单星"
+      ],
+      "universal_any_supported": false,
+      "universal_all_supported": false
+    },
+    {
+      "family_id": "PAIR_KUI_YUE",
+      "surface": "魁钺",
+      "kind": "CLOSED_PAIR_SHORTHAND",
+      "members": [
+        "天魁",
+        "天钺"
+      ],
+      "target_count": 9,
+      "membership_status": "SOURCE_EXPLICIT_PAIR_IDENTITY",
+      "activation_default": "CONTEXTUAL_UNRESOLVED",
+      "source_evidence": [
+        {
+          "source": "SRC-ZZ-002",
+          "location": "深造讲义（上） 天魁天钺节",
+          "excerpt": "天魁天钺必须成对在三方四正会合，然后始发生作用。倘……仅以『单星』形式同度或会照，则需注意『阴阳调和』",
+          "finding": "同一节同时给出 pair requirement 与 single-star branch；不能把简称简化成无条件 ALL。"
+        }
+      ],
+      "explicit_local_modes": [
+        "PAIR_COMPLETE_FOR_STATED_MAIN_EFFECT",
+        "SINGLE_STAR_CONTEXT_HAS_SEPARATE_RULE"
+      ],
+      "universal_any_supported": false,
+      "universal_all_supported": false
+    },
+    {
+      "family_id": "PAIR_YANG_TUO",
+      "surface": "羊陀",
+      "kind": "CLOSED_PAIR_SHORTHAND",
+      "members": [
+        "擎羊",
+        "陀罗"
+      ],
+      "target_count": 1,
+      "membership_status": "SOURCE_EXPLICIT_PAIR",
+      "activation_default": "CONTEXTUAL_UNRESOLVED",
+      "source_evidence": [
+        {
+          "source_artifact": "knowledge/category/CATEGORY_OPEN_LEXICON_v0.1.json",
+          "evidence_id": "CAT-E05",
+          "finding": "成员闭合为擎羊、陀罗；activation quantifier 仍 UNSPECIFIED。"
+        }
+      ],
+      "explicit_local_modes": [
+        "RELATION_SPECIFIC_WHEN_SOURCE_SAYS_夹_OR_同度"
+      ],
+      "universal_any_supported": false,
+      "universal_all_supported": false
+    },
+    {
+      "family_id": "PAIR_SAN_TAI_BA_ZUO",
+      "surface": "三台八座",
+      "kind": "CLOSED_PAIR_SHORTHAND",
+      "members": [
+        "三台",
+        "八座"
+      ],
+      "target_count": 2,
+      "membership_status": "SOURCE_EXPLICIT_PAIR",
+      "activation_default": "CONTEXTUAL_UNRESOLVED_OUTSIDE_STATED_STATUS_EFFECT",
+      "source_evidence": [
+        {
+          "source": "SRC-ZZ-002",
+          "location": "深造讲义（上） 三台八座节",
+          "excerpt": "三台属阳土，八座属阴土，均为仪仗之星，必须成对会照，然后才主增高地位。",
+          "finding": "对“增高地位”这一明确效果，BOTH+会照有直接来源；不自动覆盖所有复合句。"
+        },
+        {
+          "source_artifact": "knowledge/wp07c/CAREER_GROUP_LEXICON_REVIEW_03_v0.1.json",
+          "evidence_id": "GLEX3-E02",
+          "finding": "事业宫七杀句把辅弼、魁钺、三台八座复合使用，内部量词仍不能统一转移。"
+        }
+      ],
+      "explicit_local_modes": [
+        "BOTH_WITH_ASPECT_FOR_STATED_STATUS_GAIN_EFFECT"
+      ],
+      "universal_any_supported": false,
+      "universal_all_supported": false
+    },
+    {
+      "family_id": "CAT_FOUR_MALEFICS",
+      "surface": "四煞",
+      "kind": "CLOSED_BASE_CATEGORY",
+      "members": [
+        "擎羊",
+        "陀罗",
+        "火星",
+        "铃星"
+      ],
+      "target_count": 2,
+      "membership_status": "SOURCE_EXPLICIT_CLOSED",
+      "activation_default": "CONTEXTUAL_UNRESOLVED",
+      "source_evidence": [
+        {
+          "source": "SRC-ZZ-002",
+          "location": "深造讲义（上） printed p171",
+          "excerpt": "擎羊、陀罗、火星、铃星，称为四煞；另外加上地空、地劫，则称为六煞。",
+          "finding": "四煞成员可闭合；出现几颗才触发仍未给全局阈值。"
+        }
+      ],
+      "universal_any_supported": false,
+      "universal_all_supported": false
+    },
+    {
+      "family_id": "CAT_SIX_MALEFICS",
+      "surface": "煞曜/煞",
+      "kind": "CLOSED_BASE_CATEGORY_OR_SCOPED_ALIAS",
+      "members": [
+        "擎羊",
+        "陀罗",
+        "火星",
+        "铃星",
+        "地空",
+        "地劫"
+      ],
+      "target_count": 4,
+      "membership_status": "SOURCE_EXPLICIT_CLOSED_OR_SCOPED_ALIAS",
+      "activation_default": "CONTEXTUAL_UNRESOLVED",
+      "source_evidence": [
+        {
+          "source_artifact": "knowledge/category/CATEGORY_OPEN_LEXICON_v0.1.json",
+          "evidence_id": "CAT-E02",
+          "finding": "煞曜六成员闭合；事业宫 relation-bound『煞』按 scoped alias 绑定六煞，activation quantifier 未指定。"
+        },
+        {
+          "source_artifact": "knowledge/wp07c/CAREER_GROUP_LEXICON_REVIEW_03_v0.1.json",
+          "evidence_id": "GLEX3-E04",
+          "finding": "七杀事业宫同段分别写煞曜、火铃及不同关系，证明类别与 pair/relation 必须分层。"
+        }
+      ],
+      "universal_any_supported": false,
+      "universal_all_supported": false
+    },
+    {
+      "family_id": "CAT_FAVORABLE_TRANSFORMATIONS",
+      "surface": "吉化",
+      "kind": "CLOSED_TRANSFORMATION_CATEGORY",
+      "members": [
+        "化禄",
+        "化权",
+        "化科"
+      ],
+      "target_count": 2,
+      "membership_status": "SOURCE_SUPPORTED_CLOSED",
+      "activation_default": "CONTEXTUAL_UNRESOLVED",
+      "source_evidence": [
+        {
+          "source_artifact": "knowledge/category/CATEGORY_OPEN_LEXICON_v0.1.json",
+          "evidence_ids": [
+            "CAT-E03",
+            "CAT-E04"
+          ],
+          "finding": "吉化成员闭合为禄权科；不意味着任一/全体的全局触发默认。"
+        }
+      ],
+      "universal_any_supported": false,
+      "universal_all_supported": false
+    }
+  ],
+  "summary": {
+    "target_rules": 63,
+    "reviewed": 63,
+    "generic_member_quantifier_refined": 60,
+    "false_open_category_refined": 3,
+    "blockers_cleared": 0,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0,
+    "universal_any_defaults_added": 0,
+    "universal_all_defaults_added": 0,
+    "universal_n_of_defaults_added": 0
+  },
+  "records": [
+    {
+      "source_rule_id": "CA01-081",
+      "source_condition_text": "子午紫微与桃花同度且有昌曲",
+      "source_location": "事业宫printed_p134",
+      "source_group_tokens": [
+        "昌曲",
+        "桃花"
+      ],
+      "contract_ids": [
+        "PAIR_CHANG_QU"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA01-086",
+      "source_condition_text": "紫微破军与昌曲同宫",
+      "source_location": "事业宫printed_p134",
+      "source_group_tokens": [
+        "昌曲"
+      ],
+      "contract_ids": [
+        "PAIR_CHANG_QU"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-113",
+      "source_condition_text": "紫微贪狼见桃花昌曲",
+      "source_location": "事业宫printed_p134",
+      "source_group_tokens": [
+        "昌曲",
+        "桃花"
+      ],
+      "contract_ids": [
+        "PAIR_CHANG_QU"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-116",
+      "source_condition_text": "紫微贪狼与火铃同度",
+      "source_location": "事业宫printed_p134",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "contract_ids": [
+        "PAIR_HUO_LING"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-154",
+      "source_condition_text": "天机与火铃同度",
+      "source_location": "事业宫printed_p135-136",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "contract_ids": [
+        "PAIR_HUO_LING"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-166",
+      "source_condition_text": "天机化忌见空劫煞耗",
+      "source_location": "事业宫printed_p136",
+      "source_group_tokens": [
+        "空劫",
+        "煞耗"
+      ],
+      "contract_ids": [
+        "PAIR_KONG_JIE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-175",
+      "source_condition_text": "天机化忌见煞刑虚耗空劫",
+      "source_location": "事业宫printed_p136",
+      "source_group_tokens": [
+        "空劫",
+        "煞刑"
+      ],
+      "contract_ids": [
+        "PAIR_KONG_JIE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-180",
+      "source_condition_text": "天机与昌曲天才同度",
+      "source_location": "事业宫printed_p136",
+      "source_group_tokens": [
+        "昌曲"
+      ],
+      "contract_ids": [
+        "PAIR_CHANG_QU"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-182",
+      "source_condition_text": "天机与火铃同度",
+      "source_location": "事业宫printed_p136",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "contract_ids": [
+        "PAIR_HUO_LING"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-215",
+      "source_condition_text": "天机太阴有煞忌空劫",
+      "source_location": "事业宫printed_p137",
+      "source_group_tokens": [
+        "空劫",
+        "煞忌"
+      ],
+      "contract_ids": [
+        "PAIR_KONG_JIE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-228",
+      "source_condition_text": "天机巨门与火铃同度",
+      "source_location": "事业宫printed_p137",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "contract_ids": [
+        "PAIR_HUO_LING"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-242",
+      "source_condition_text": "天机天梁与空劫同度",
+      "source_location": "事业宫printed_p137",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "contract_ids": [
+        "PAIR_KONG_JIE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-251",
+      "source_condition_text": "巳亥天机与火铃空劫同度",
+      "source_location": "事业宫printed_p137",
+      "source_group_tokens": [
+        "空劫",
+        "火铃"
+      ],
+      "contract_ids": [
+        "PAIR_KONG_JIE",
+        "PAIR_HUO_LING"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-259",
+      "source_condition_text": "太阳入庙又见魁钺辅弼昌曲",
+      "source_location": "事业宫printed_p138",
+      "source_group_tokens": [
+        "昌曲",
+        "辅弼",
+        "魁钺"
+      ],
+      "contract_ids": [
+        "PAIR_CHANG_QU",
+        "PAIR_FU_BI",
+        "PAIR_KUI_YUE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-268",
+      "source_condition_text": "太阳与火铃羊陀同度",
+      "source_location": "事业宫printed_p138",
+      "source_group_tokens": [
+        "羊陀",
+        "火铃"
+      ],
+      "contract_ids": [
+        "PAIR_HUO_LING",
+        "PAIR_YANG_TUO"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-273",
+      "source_condition_text": "太阳加空劫",
+      "source_location": "事业宫printed_p138",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "contract_ids": [
+        "PAIR_KONG_JIE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-275",
+      "source_condition_text": "太阳与魁钺同会",
+      "source_location": "事业宫printed_p138",
+      "source_group_tokens": [
+        "魁钺"
+      ],
+      "contract_ids": [
+        "PAIR_KUI_YUE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-277",
+      "source_condition_text": "昌曲入事业宫且太阳昌曲同躔",
+      "source_location": "事业宫printed_p138",
+      "source_group_tokens": [
+        "昌曲"
+      ],
+      "contract_ids": [
+        "PAIR_CHANG_QU"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-290",
+      "source_condition_text": "太阳与华盖同度又会空劫",
+      "source_location": "事业宫printed_p139",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "contract_ids": [
+        "PAIR_KONG_JIE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-303",
+      "source_condition_text": "太阳天梁见华盖空劫",
+      "source_location": "事业宫printed_p139",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "contract_ids": [
+        "PAIR_KONG_JIE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-313",
+      "source_condition_text": "太阳太阴与空劫同度",
+      "source_location": "事业宫printed_p139",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "contract_ids": [
+        "PAIR_KONG_JIE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-343",
+      "source_condition_text": "武曲与昌曲同会",
+      "source_location": "事业宫printed_p140",
+      "source_group_tokens": [
+        "昌曲"
+      ],
+      "contract_ids": [
+        "PAIR_CHANG_QU"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-345",
+      "source_condition_text": "武曲与火铃同度且在巳午或多见火曜",
+      "source_location": "事业宫printed_p140",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "contract_ids": [
+        "PAIR_HUO_LING"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "CARDINALITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "CARDINALITY_THRESHOLD_UNSPECIFIED",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-379",
+      "source_condition_text": "武曲七杀与四煞空劫同度",
+      "source_location": "事业宫printed_p141-142",
+      "source_group_tokens": [
+        "四煞",
+        "空劫"
+      ],
+      "contract_ids": [
+        "PAIR_KONG_JIE",
+        "CAT_FOUR_MALEFICS"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-386",
+      "source_condition_text": "辰戌武曲与空劫同度",
+      "source_location": "事业宫printed_p142",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "contract_ids": [
+        "PAIR_KONG_JIE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-397",
+      "source_condition_text": "武曲破军见魁钺或辅弼",
+      "source_location": "事业宫printed_p142",
+      "source_group_tokens": [
+        "魁钺",
+        "辅弼"
+      ],
+      "contract_ids": [
+        "PAIR_FU_BI",
+        "PAIR_KUI_YUE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-409",
+      "source_condition_text": "天同与火铃同度",
+      "source_location": "事业宫printed_p142",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "contract_ids": [
+        "PAIR_HUO_LING"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-414",
+      "source_condition_text": "天同天梁星系见火铃",
+      "source_location": "事业宫printed_p142",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "contract_ids": [
+        "PAIR_HUO_LING"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-416",
+      "source_condition_text": "天同与昌曲天才同度",
+      "source_location": "事业宫printed_p143",
+      "source_group_tokens": [
+        "昌曲"
+      ],
+      "contract_ids": [
+        "PAIR_CHANG_QU"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-447",
+      "source_condition_text": "天同天梁见吉化昌曲",
+      "source_location": "事业宫printed_p143-144",
+      "source_group_tokens": [
+        "昌曲",
+        "吉化",
+        "见吉"
+      ],
+      "contract_ids": [
+        "PAIR_CHANG_QU",
+        "CAT_FAVORABLE_TRANSFORMATIONS"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-465",
+      "source_condition_text": "廉贞与空劫同会",
+      "source_location": "事业宫printed_p144",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "contract_ids": [
+        "PAIR_KONG_JIE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-516",
+      "source_condition_text": "廉贞天府见昌曲辅弼魁钺",
+      "source_location": "事业宫printed_p145-146",
+      "source_group_tokens": [
+        "魁钺",
+        "辅弼",
+        "昌曲"
+      ],
+      "contract_ids": [
+        "PAIR_CHANG_QU",
+        "PAIR_FU_BI",
+        "PAIR_KUI_YUE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-520",
+      "source_condition_text": "巳亥廉贞贪狼与空劫同度",
+      "source_location": "事业宫printed_p146",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "contract_ids": [
+        "PAIR_KONG_JIE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-549",
+      "source_condition_text": "天府见火铃照射",
+      "source_location": "事业宫printed_p146",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "contract_ids": [
+        "PAIR_HUO_LING"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-551",
+      "source_condition_text": "天府与空劫同度",
+      "source_location": "事业宫printed_p146",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "contract_ids": [
+        "PAIR_KONG_JIE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-585",
+      "source_condition_text": "太阴与魁钺或辅弼同会",
+      "source_location": "事业宫printed_p147",
+      "source_group_tokens": [
+        "魁钺",
+        "辅弼"
+      ],
+      "contract_ids": [
+        "PAIR_FU_BI",
+        "PAIR_KUI_YUE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [
+        "OUTER_OR_BETWEEN_KUI_YUE_AND_FU_BI_EXPLICIT; INTERNAL_PAIR_REALIZATION_REMAINS_CONTEXTUAL"
+      ],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-593",
+      "source_condition_text": "太阴与空劫同会且有科文诸曜",
+      "source_location": "事业宫printed_p148",
+      "source_group_tokens": [
+        "科文诸曜",
+        "空劫"
+      ],
+      "contract_ids": [
+        "PAIR_KONG_JIE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-625",
+      "source_condition_text": "贪狼与昌曲同度",
+      "source_location": "事业宫printed_p148",
+      "source_group_tokens": [
+        "昌曲"
+      ],
+      "contract_ids": [
+        "PAIR_CHANG_QU"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-628",
+      "source_condition_text": "贪狼与空劫同度且有昌曲",
+      "source_location": "事业宫printed_p148",
+      "source_group_tokens": [
+        "空劫",
+        "昌曲"
+      ],
+      "contract_ids": [
+        "PAIR_KONG_JIE",
+        "PAIR_CHANG_QU"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-644",
+      "source_condition_text": "贪狼化忌与空劫同度",
+      "source_location": "事业宫printed_p149",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "contract_ids": [
+        "PAIR_KONG_JIE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-648",
+      "source_condition_text": "子午贪狼见桃花昌曲",
+      "source_location": "事业宫printed_p149",
+      "source_group_tokens": [
+        "昌曲",
+        "桃花"
+      ],
+      "contract_ids": [
+        "PAIR_CHANG_QU"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-668",
+      "source_condition_text": "巨门化忌见四煞空劫刑耗",
+      "source_location": "事业宫printed_p149-150",
+      "source_group_tokens": [
+        "四煞",
+        "空劫",
+        "刑耗"
+      ],
+      "contract_ids": [
+        "PAIR_KONG_JIE",
+        "CAT_FOUR_MALEFICS"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-678",
+      "source_condition_text": "巨门与火铃同度",
+      "source_location": "事业宫printed_p150",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "contract_ids": [
+        "PAIR_HUO_LING"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-693",
+      "source_condition_text": "辰戌巨门与火铃同度",
+      "source_location": "事业宫printed_p150",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "contract_ids": [
+        "PAIR_HUO_LING"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-700",
+      "source_condition_text": "巳亥巨门昌曲化忌",
+      "source_location": "事业宫printed_p150",
+      "source_group_tokens": [
+        "昌曲"
+      ],
+      "contract_ids": [
+        "PAIR_CHANG_QU"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-702",
+      "source_condition_text": "巳亥巨门化禄化权又见魁钺",
+      "source_location": "事业宫printed_p150",
+      "source_group_tokens": [
+        "魁钺"
+      ],
+      "contract_ids": [
+        "PAIR_KUI_YUE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-703",
+      "source_condition_text": "巳亥巨门与火铃同度",
+      "source_location": "事业宫printed_p150",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "contract_ids": [
+        "PAIR_HUO_LING"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-725",
+      "source_condition_text": "天相与空劫同度且有吉曜",
+      "source_location": "事业宫printed_p151",
+      "source_group_tokens": [
+        "空劫",
+        "吉曜"
+      ],
+      "contract_ids": [
+        "PAIR_KONG_JIE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-734",
+      "source_condition_text": "丑未天相见昌曲",
+      "source_location": "事业宫printed_p151",
+      "source_group_tokens": [
+        "昌曲"
+      ],
+      "contract_ids": [
+        "PAIR_CHANG_QU"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-776",
+      "source_condition_text": "天梁与空劫同度",
+      "source_location": "事业宫printed_p152",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "contract_ids": [
+        "PAIR_KONG_JIE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-799",
+      "source_condition_text": "七杀得辅弼魁钺三台八座朝拱同会",
+      "source_location": "事业宫printed_p153",
+      "source_group_tokens": [
+        "三台八座",
+        "辅弼",
+        "魁钺"
+      ],
+      "contract_ids": [
+        "PAIR_FU_BI",
+        "PAIR_KUI_YUE",
+        "PAIR_SAN_TAI_BA_ZUO"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [
+        "SAN_TAI_BA_ZUO_STATUS_EFFECT_HAS_EXPLICIT_BOTH_ASPECT_EVIDENCE",
+        "COMPOSITE_LIST_PRESERVED; NO_SHARED_INTERNAL_QUANTIFIER_INFERRED"
+      ],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-800",
+      "source_condition_text": "七杀与煞曜同度尤其火铃",
+      "source_location": "事业宫printed_p153",
+      "source_group_tokens": [
+        "火铃",
+        "煞曜"
+      ],
+      "contract_ids": [
+        "PAIR_HUO_LING",
+        "CAT_SIX_MALEFICS"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-804",
+      "source_condition_text": "七杀得辅弼魁钺三台八座朝拱同会",
+      "source_location": "事业宫printed_p153",
+      "source_group_tokens": [
+        "三台八座",
+        "辅弼",
+        "魁钺"
+      ],
+      "contract_ids": [
+        "PAIR_FU_BI",
+        "PAIR_KUI_YUE",
+        "PAIR_SAN_TAI_BA_ZUO"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [
+        "SAN_TAI_BA_ZUO_STATUS_EFFECT_HAS_EXPLICIT_BOTH_ASPECT_EVIDENCE",
+        "COMPOSITE_LIST_PRESERVED; NO_SHARED_INTERNAL_QUANTIFIER_INFERRED"
+      ],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-805",
+      "source_condition_text": "七杀与煞曜同度尤其火铃",
+      "source_location": "事业宫printed_p153",
+      "source_group_tokens": [
+        "火铃",
+        "煞曜"
+      ],
+      "contract_ids": [
+        "PAIR_HUO_LING",
+        "CAT_SIX_MALEFICS"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-811",
+      "source_condition_text": "七杀与昌曲同度",
+      "source_location": "事业宫printed_p153",
+      "source_group_tokens": [
+        "昌曲"
+      ],
+      "contract_ids": [
+        "PAIR_CHANG_QU"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-812",
+      "source_condition_text": "七杀与空劫同度",
+      "source_location": "事业宫printed_p153",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "contract_ids": [
+        "PAIR_KONG_JIE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-817",
+      "source_condition_text": "七杀与火铃同度",
+      "source_location": "事业宫printed_p153",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "contract_ids": [
+        "PAIR_HUO_LING"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-859",
+      "source_condition_text": "破军会辅弼魁钺昌曲",
+      "source_location": "事业宫printed_p154",
+      "source_group_tokens": [
+        "昌曲",
+        "辅弼",
+        "魁钺"
+      ],
+      "contract_ids": [
+        "PAIR_CHANG_QU",
+        "PAIR_FU_BI",
+        "PAIR_KUI_YUE"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-860",
+      "source_condition_text": "破军会昌曲化忌",
+      "source_location": "事业宫printed_p154",
+      "source_group_tokens": [
+        "昌曲"
+      ],
+      "contract_ids": [
+        "PAIR_CHANG_QU"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "TRANSFORMATION_CARRIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "TRANSFORMATION_CARRIER_UNSPECIFIED",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-863",
+      "source_condition_text": "破军与火铃同度",
+      "source_location": "事业宫printed_p155",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "contract_ids": [
+        "PAIR_HUO_LING"
+      ],
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "GENERIC_MEMBER_QUANTIFIER_TO_CONTEXTUAL_GROUP_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA01-085",
+      "source_condition_text": "紫微破军与煞曜同宫",
+      "source_location": "事业宫printed_p134",
+      "source_group_tokens": [
+        "煞曜"
+      ],
+      "contract_ids": [
+        "CAT_SIX_MALEFICS"
+      ],
+      "blockers_before": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "FALSE_OPEN_CATEGORY_TO_CLOSED_CATEGORY_CONTEXTUAL_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-133",
+      "source_condition_text": "紫微天相见吉化",
+      "source_location": "事业宫printed_p135",
+      "source_group_tokens": [
+        "吉化"
+      ],
+      "contract_ids": [
+        "CAT_FAVORABLE_TRANSFORMATIONS"
+      ],
+      "blockers_before": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "FALSE_OPEN_CATEGORY_TO_CLOSED_CATEGORY_CONTEXTUAL_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-147",
+      "source_condition_text": "紫微七杀见煞",
+      "source_location": "事业宫printed_p135",
+      "source_group_tokens": [],
+      "contract_ids": [
+        "CAT_SIX_MALEFICS"
+      ],
+      "blockers_before": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "refinement": "FALSE_OPEN_CATEGORY_TO_CLOSED_CATEGORY_CONTEXTUAL_ACTIVATION",
+      "local_findings": [],
+      "blocker_cleared": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    }
+  ],
+  "guardrails": {
+    "product_runtime_modified": false,
+    "numeric_weights_added": false,
+    "probabilities_added": false,
+    "github_actions_used": false
+  }
+}

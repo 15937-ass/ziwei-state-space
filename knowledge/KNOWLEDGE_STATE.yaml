@@ -5,13 +5,13 @@ canonical_branch: "main"
 
 execution:
   status: "ACTIVE_NO_ACTIVE_WORK"
-  program: "KB_WP08_RESIDUAL_CLASSIFICATION"
+  program: "KB_WP08_CONTEXTUAL_GROUP_ACTIVATION"
   active_issue: null
   active_pr: null
-  canonical_main_checkpoint: "CAREER_RESIDUAL_CLASSIFICATION_100_OF_100"
-  resume_entry: "Issue #475 classifies a new 100-rule Career residual batch: all 93 MEMBER_QUANTIFIER_UNSPECIFIED rows plus the earliest 7 OPEN_CATEGORY-only rows. Dispositions: 11 CLOSED_WORLD_NEGATION_GATED, 14 SOURCE_LOCAL_QUANTIFIER_CANDIDATE, 60 NAMED_GROUP_RELATION_REVIEW, 7 COMPOUND_OR_DEPENDENCY_GATED, 4 OPEN_CATEGORY_NO_UNIVERSAL_RULE_CANDIDATE, 4 SOURCE_RECHECK_REQUIRED. 78/100 are routed to concrete source-local/named-group/source-recheck work; 18 are structural-gate rows; 4 are current open/no-universal-rule candidates. Canonical Category Open Lexicon reuse shows 煞曜/煞/吉化 are already membership-closed and should not be re-opened. Source reconnaissance confirms explicit 对星/单星 distinctions, so no global pair ANY/ALL default is allowed. No blockers cleared, source resolution changes=0, conditions compiled=0, execution unlocked=0. Next Knowledge unit should attack PAIR_OR_CLOSED_GROUP_CONTEXT first, beginning with 空劫/昌曲/火铃/辅弼/魁钺 source-local member-realization corpus review."
-  resume_issue: 475
-  last_state_sync_issue: 475
+  canonical_main_checkpoint: "CAREER_PAIR_CLOSED_GROUP_CONTEXTUAL_63_OF_63"
+  resume_entry: "Issue #477 deepens all 63 PAIR_OR_CLOSED_GROUP_CONTEXT rules from #475. 60 generic MEMBER_QUANTIFIER_UNSPECIFIED rows are refined to PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED; 3 false-open rows (煞曜/吉化/见煞) are refined to CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED. Canonical pair/category membership is separated from activation quantifier. Source evidence across 空劫/昌曲/火铃/辅弼/魁钺/羊陀/三台八座/四煞/煞曜/吉化 confirms explicit local single-star, pair, OR, simultaneous, same-palace and flanking structures, so no universal pair ANY/ALL/N_OF default is introduced. Closure v0.6: MEMBER_QUANTIFIER_UNSPECIFIED 93->33; OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED 132->129; 60 new pair/closed-group contextual blockers + 3 closed-category contextual blockers; blockers cleared=0; conditions compiled=0; execution unlocked=0. Next Knowledge work should complete the remaining 37 rows from the #475 hundred-rule batch: 8 LU_SHORTHAND_CONTEXT, 4 AUXILIARY_SUPPORT_CONTEXT, 5 OPEN_CATEGORY_CONTEXT, 7 ANTECEDENT_COMPOSITION, 11 NEGATION_CLOSED_WORLD, and 2 SOURCE_LITERAL_RECHECK."
+  resume_issue: 477
+  last_state_sync_issue: 477
 
 canonical_main_snapshot:
   domain: "事业宫"
@@ -227,6 +227,11 @@ completed_work_units:
     issue: 475
     pr: 476
     status: "MERGED_100_OF_100_CLASSIFIED_78_SOURCE_RESEARCHABLE_18_STRUCTURAL_GATED_4_OPEN_CANDIDATES_NO_EXECUTION_UNLOCK"
+
+  - work_unit: "KB-WP08-CAREER-PAIR-CLOSED-GROUP-CONTEXTUAL-63"
+    issue: 477
+    pr: 478
+    status: "MERGED_63_OF_63_CONTEXTUAL_REFINED_MEMBER_93_TO_33_OPEN_132_TO_129_NO_EXECUTION_UNLOCK"
 
 archived_noncanonical_snapshots:
   wp05_all_twelve_palaces:
