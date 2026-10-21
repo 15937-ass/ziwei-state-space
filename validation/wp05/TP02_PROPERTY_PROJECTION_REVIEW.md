@@ -29,4 +29,4 @@ Literal life-stage phrases such as `中年后` and `中晚年以后` remain sour
 
 ## Source gap
 
-The p162 clause `空劫夹亦主破败` is explicit but has no separate ID in TP02-101..200. It is preserved as TP02-GAP-001 and must not be folded into TP02-200's relocation/sale target.
+The p162 clause `空劫夹亦主破败` is explicit but has no separate ID in TP02-101..200. It is preserved as TP02-GAP-001 and must not be folded into TP02-200's relocation/sale target. The archived noncanonical next batch contains TP03-205 for this clause; that candidate is linked for future review but is **not** auto-promoted here.
