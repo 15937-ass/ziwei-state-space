@@ -4,7 +4,7 @@
   "issue": 500,
   "active_bundle_id": "KIB-PRODUCT-20261021-V0_1",
   "candidate_bundle_id": "KIB-CANDIDATE-ISSUE-500-V0_1",
-  "purpose": "Demonstrate that an unrelated main/source-commit advance with identical governed Product Knowledge semantics does not invalidate Product runtime.",
+  "purpose": "Demonstrate that main advanced through Knowledge #498 while the 58 governed Product Knowledge artifacts remained semantically identical, so Product does not invalidate or rebuild unrelated runtime.",
   "candidate_verification": {
     "status": "PASS",
     "verified_artifact_count": 58,
@@ -16,7 +16,7 @@
     "active_bundle_id": "KIB-PRODUCT-20261021-V0_1",
     "candidate_bundle_id": "KIB-CANDIDATE-ISSUE-500-V0_1",
     "active_source_commit": "dabc492895721b0ccc310b32329f4585c6d599bf",
-    "candidate_source_commit": "d376abbd1ae7befe588746c37f2434367f8827e7",
+    "candidate_source_commit": "cd20b0a5a1f77005bb24eca343d985a44e43562a",
     "source_commit_changed": true,
     "overall_impact": "NO_RUNTIME_EFFECT",
     "component_impacts": [
@@ -79,7 +79,7 @@
   },
   "conclusion": {
     "current_candidate_should_replace_active_lock": false,
-    "reason": "No governed Product Knowledge semantics changed; promotion would only churn provenance. Keep the active lock stable.",
+    "reason": "Knowledge #498 added newer source-review artifacts outside the active KIB inventory; the governed Product semantics are unchanged, so promotion would only churn provenance.",
     "architecture_result": "UNRELATED_KNOWLEDGE_OR_MAIN_ADVANCE_DOES_NOT_FORCE_PRODUCT_REBUILD"
   }
 }
