@@ -213,6 +213,20 @@
         "CA03-228"
       ],
       "finding": "Contrast control: the already-resolved CA03-228 explicitly states `火铃二曜，均足以...`, showing the level of local evidence required before the project accepts clause-local ANY. No comparable explicit member-sufficiency statement was found for the selected unresolved pair rows."
+    },
+    {
+      "evidence_id": "FD100-E13",
+      "source_artifacts": [
+        "knowledge/wp07a/CAREER_100_REVIEW_06_v0.1.json",
+        "knowledge/wp07a/CAREER_100_REVIEW_07_v0.1.json"
+      ],
+      "source_rule_ids": [
+        "CA07-609",
+        "CA08-701",
+        "CA08-702",
+        "CA08-703"
+      ],
+      "finding": "Four selected rows carry historical `paragraph_scope` metadata that crossed a section boundary: CA07-609 is a 天同 rule mislabeled 太阴; CA08-701/702/703 are 巨门 rules mislabeled 天相. The new artifact records source-scope overrides without rewriting historical audit files."
     }
   ],
   "summary": {
@@ -251,7 +265,11 @@
     "source_local_resolved": 0,
     "newly_no_blocker_rows": 0,
     "conditions_compiled": 0,
-    "execution_unlocked": 0
+    "execution_unlocked": 0,
+    "source_scope_metadata_repairs": 4,
+    "out_of_scope_adjacent_scope_defects_observed": [
+      "CA08-704"
+    ]
   },
   "records": [
     {
@@ -1201,7 +1219,12 @@
       "source_repair_or_refinement": "Source literal `巨门化禄、化权，又见魁钺` is a two-alternative transformation list. Existing Career precedent CA07-624/CA02-174 treats same-star `化禄、化权` lists as alternative branches, not simultaneous transformations.",
       "normalized_expression": "AND[LOCAL_OR[TRANSFORM(巨门,化禄),TRANSFORM(巨门,化权)], MEET(魁钺_INTERNAL_REALIZATION_UNRESOLVED)]",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "source_scope_metadata_repair": {
+        "historical_scope": "天相守事业宫总论",
+        "corrected_scope": "巳亥事业宫巨门、对宫太阳",
+        "note": "Historical review07 paragraph_scope crossed the 巨门→天相 section boundary."
+      }
     },
     {
       "source_rule_id": "CA08-703",
@@ -1227,7 +1250,12 @@
       "source_repair_or_refinement": null,
       "normalized_expression": null,
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "source_scope_metadata_repair": {
+        "historical_scope": "天相守事业宫总论",
+        "corrected_scope": "巳亥事业宫巨门、对宫太阳",
+        "note": "Historical review07 paragraph_scope crossed the 巨门→天相 section boundary."
+      }
     },
     {
       "source_rule_id": "CA08-734",
@@ -1945,7 +1973,12 @@
       "source_repair_or_refinement": null,
       "normalized_expression": null,
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "source_scope_metadata_repair": {
+        "historical_scope": "太阴守事业宫总论",
+        "corrected_scope": "天同事业宫／天同化忌后段",
+        "note": "Historical review06 paragraph_scope crossed the 天同→太阴 section boundary; the rule itself is 天同化忌且有煞."
+      }
     },
     {
       "source_rule_id": "CA07-621",
@@ -2475,7 +2508,12 @@
       "source_repair_or_refinement": null,
       "normalized_expression": null,
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "source_scope_metadata_repair": {
+        "historical_scope": "天相守事业宫总论",
+        "corrected_scope": "巳亥事业宫巨门、对宫太阳",
+        "note": "Historical review07 paragraph_scope crossed the 巨门→天相 section boundary."
+      }
     },
     {
       "source_rule_id": "CA03-256",
@@ -2870,6 +2908,7 @@
     "open_functional_membership_closed": false,
     "open_valence_membership_closed": false,
     "product_runtime_modified": false,
-    "github_actions_used": false
+    "github_actions_used": false,
+    "historical_audit_artifacts_rewritten": false
   }
 }
