@@ -59,24 +59,26 @@ def test_promoted_response_inventory_is_bounded():
     }
 
 
-def test_new_active_lock_verifies_and_points_to_v02():
+def test_current_active_lock_verifies_and_preserves_v02_rollback():
     report = verify_active_lock(ROOT)
     lock = load_lock(ROOT / "product" / "PRODUCT_KNOWLEDGE.lock.json")
     assert report["status"] == "PASS"
-    assert report["bundle_id"] == "KIB-PRODUCT-20261021-V0_2"
-    assert report["verified_artifact_count"] == 58
-    assert lock["previous_bundle_id"] == "KIB-PRODUCT-20261021-V0_1"
+    assert report["bundle_id"] == "KIB-PRODUCT-20261021-V0_3"
+    assert report["verified_artifact_count"] == 61
+    assert lock["previous_bundle_id"] == "KIB-PRODUCT-20261021-V0_2"
 
 
 def test_readiness_improves_without_runtime_unlock():
     report = audit_response_semantics_adapter_readiness()
     career = report["career"]
     assert career["adapter_status_counts"] == {
-        "BLOCKED_DEPENDENCY_COMPILER": 27,
+        "BLOCKED_DEPENDENCY_COMPILER": 24,
         "BLOCKED_MULTIPLE": 44,
         "BLOCKED_SOURCE_UNDERDETERMINED": 157,
-        "SEMANTIC_ONLY_PENDING_COMPILATION": 23,
+        "KNOWLEDGE_CONDITION_IR_READY_PENDING_PRODUCT_COMPILATION": 12,
+        "LOCAL_STRUCTURE_NOT_CONDITION_IR_READY": 14,
     }
+    assert career["knowledge_condition_ir_ready_total"] == 12
     assert career["runtime_effects_authorized"] == 0
     assert career["condition_compiled_count"] == 0
     assert career["knowledge_execution_unlocked_count"] == 0
