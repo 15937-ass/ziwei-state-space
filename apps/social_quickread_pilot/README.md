@@ -144,3 +144,44 @@ result = finalize_pilot(
 - 为了凑 120 字补无证据内容。
 
 它的生命周期可以独立于主产品：验证失败可直接删除，不影响主项目。
+
+
+## Pilot Case Loop
+
+真实小红书试用现在允许进入一个独立的去标识化案例闭环：
+
+```text
+QuickRead 双输出
+ -> PI 人工发布
+ -> 盘主真实反馈
+ -> FeedbackRecord
+ -> PIReview
+ -> CaseRecord
+ -> 可选 PreferredExample（style-only）
+ -> summarize_cases()
+```
+
+实现位于：
+
+- `apps/social_quickread_pilot/case_loop.py`
+- `apps/social_quickread_pilot/CASE_LOOP.md`
+- `apps/social_quickread_pilot/examples/preferred_style_seeds_v0.1.json`
+
+### 核心约束
+
+- CaseRecord 只存去标识化内容；
+- 盘主反馈只做 observation / eval，不自动改 Knowledge；
+- PreferredExample 只教语言，不提供另一个命盘的事实；
+- 只有 PI 明确批准、factual/style 均 >= 4 且 hallucination=0 的案例，才可晋升为 PreferredExample；
+- 被 `LLM_ADDED_UNSUPPORTED_SEMANTICS` 阻断的输出不能进入案例库；
+- 当前阶段先积累 20~50 个小样本，再看 question routing、coverage gap 和 verbalizer 的实际效果。
+
+### PI 使用时的默认记录习惯
+
+盘主出现明确反馈后，PI 审计末尾额外给出一行：
+
+```text
+CASE_CAPTURE: candidate / skip / preferred_candidate
+```
+
+并说明命中、反例、新事实或语言反馈。这样不要求每个路过盘都入库，只保留有训练价值的案例。
