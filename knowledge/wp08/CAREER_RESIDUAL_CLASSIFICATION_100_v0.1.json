@@ -5,6 +5,13 @@
   "issue": 475,
   "status": "100_OF_100_CLASSIFIED_NO_BLOCKER_CLEAR_NO_EXECUTION_UNLOCK",
   "purpose": "Classify the first bounded 100 Career residuals after Issue #471 into source-researchable, structurally gated, or legitimate open-category paths without inventing global activation defaults.",
+  "inputs": [
+    "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.5.json",
+    "knowledge/category/CATEGORY_OPEN_LEXICON_v0.1.json",
+    "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_01_v0.2.json",
+    "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_02_v0.1.json",
+    "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_03_v0.1.json"
+  ],
   "selection": {
     "baseline": "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.5.json",
     "member_quantifier_rows_selected": 93,
@@ -12,29 +19,37 @@
     "ordering": "preserve canonical closure record order; take all current MEMBER_QUANTIFIER_UNSPECIFIED rows, then earliest 7 rows having OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED without MEMBER_QUANTIFIER_UNSPECIFIED",
     "total": 100
   },
+  "canonical_closed_category_surfaces_used": [
+    "吉化",
+    "煞",
+    "煞曜",
+    "羊陀",
+    "辅佐吉曜",
+    "辅佐诸曜"
+  ],
   "summary": {
     "target_rows": 100,
     "reviewed": 100,
     "disposition_counts": {
       "CLOSED_WORLD_NEGATION_GATED": 11,
       "SOURCE_LOCAL_QUANTIFIER_CANDIDATE": 14,
-      "NAMED_GROUP_RELATION_REVIEW": 57,
+      "NAMED_GROUP_RELATION_REVIEW": 60,
       "COMPOUND_OR_DEPENDENCY_GATED": 7,
-      "OPEN_CATEGORY_NO_UNIVERSAL_RULE_CANDIDATE": 7,
+      "OPEN_CATEGORY_NO_UNIVERSAL_RULE_CANDIDATE": 4,
       "SOURCE_RECHECK_REQUIRED": 4
     },
     "next_research_cluster_counts": {
       "NEGATION_CLOSED_WORLD": 11,
       "LU_SHORTHAND_CONTEXT": 8,
-      "PAIR_SHORTHAND_CONTEXT": 60,
+      "PAIR_OR_CLOSED_GROUP_CONTEXT": 63,
       "ANTECEDENT_COMPOSITION": 7,
-      "OPEN_CATEGORY_CONTEXT": 8,
+      "OPEN_CATEGORY_CONTEXT": 5,
       "AUXILIARY_SUPPORT_CONTEXT": 4,
       "SOURCE_LITERAL_RECHECK": 2
     },
-    "source_researchable_rows": 75,
+    "source_researchable_rows": 78,
     "structural_gate_rows": 18,
-    "open_no_universal_rule_candidate_rows": 7,
+    "open_no_universal_rule_candidate_rows": 4,
     "blockers_cleared": 0,
     "source_resolution_changes": 0,
     "conditions_compiled": 0,
@@ -169,7 +184,7 @@
       "source_title": "《中州派紫微斗数深造讲义（下）》",
       "pdf_page": 91,
       "source_excerpt": "天同与左辅右弼，或天魁天钺同会，以见齐对星始吉，见单星者，主父母两次婚姻。",
-      "implication": "The source can explicitly distinguish complete pair vs single-star realization. Pair completeness is therefore context-sensitive and cannot be supplied as a global default."
+      "implication": "The source explicitly distinguishes complete pair vs single-star realization. Pair completeness is context-sensitive and cannot be supplied as a global default."
     },
     {
       "evidence_id": "RC100-E02",
@@ -177,7 +192,7 @@
       "source_title": "《中州派紫微斗数深造讲义（下）》",
       "pdf_page": 17,
       "source_excerpt": "寅申宫紫府，必须见辅佐对星者，然后主白头偕老。",
-      "implication": "When a pair-complete requirement is intended, the source is capable of stating 对星/必须 explicitly. Generic 辅佐/辅弼 surfaces must not inherit this threshold automatically."
+      "implication": "When pair-complete support is intended, the source can state 对星/必须 explicitly. Generic 辅佐 or pair shorthands must not inherit that threshold automatically."
     },
     {
       "evidence_id": "RC100-E03",
@@ -185,16 +200,16 @@
       "source_title": "《中州派紫微斗数深造讲义（下）》",
       "pdf_page": 21,
       "source_excerpt": "卯酉廉破，见辅佐单星主再婚。见昌曲对星，又见桃花诸曜，则主移情别恋。",
-      "implication": "The same corpus distinguishes 单星 and 对星 for auxiliary/pair groups, supporting a source-local contextual-quantifier research program rather than one universal group quantifier."
+      "implication": "The corpus distinguishes 单星 and 对星 for auxiliary/pair groups, supporting source-local contextual quantifier review rather than one universal group quantifier."
     }
   ],
   "research_policy": {
     "source_local_quantifier_candidate": "Explicit local OR/AND/simultaneous/necessity exists; re-read the exact source span before any blocker removal.",
-    "named_group_relation_review": "Named pair/group shorthand dominates; corpus-review 对星/单星/同度/会照 usage before deciding member realization.",
-    "open_category_no_universal_rule_candidate": "Open/valence/functional category likely has no global closed membership or quantifier; seek explicit local exceptions only.",
+    "named_group_relation_review": "Known pair/group or canonically closed category dominates; review source-local 对星/单星/同度/会照 semantics before member realization.",
+    "open_category_no_universal_rule_candidate": "Remaining blocker is tied to an open/compound/functional surface not closed by the current canonical lexicon; seek explicit local exceptions only.",
     "closed_world_negation_gated": "Even if group membership is known, absence claims require a closed-world evidence contract.",
     "compound_or_dependency_gated": "Resolve antecedent/composition first; do not infer group activation from inherited wording.",
-    "source_recheck_required": "Compression or lexical shorthand is not safely classified by current semantics; return to source before any formalization."
+    "source_recheck_required": "Compression or lexical shorthand is not safely classified by current semantics; return to source before formalization."
   },
   "guardrails": {
     "global_any_default": false,
@@ -341,7 +356,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 9,
@@ -402,7 +417,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 12,
@@ -463,7 +478,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 18,
@@ -490,7 +505,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 19,
@@ -584,7 +599,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 28,
@@ -614,7 +629,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 34,
@@ -644,7 +659,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 35,
@@ -671,7 +686,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 37,
@@ -698,7 +713,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 39,
@@ -722,7 +737,8 @@
       "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
       "secondary_flags": [
         "HAS_MEMBER_QUANTIFIER_BLOCKER",
-        "HAS_OPEN_CATEGORY_BLOCKER"
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_CANONICALLY_CLOSED_CATEGORY_OR_ALIAS"
       ],
       "blockers_cleared": [],
       "source_resolution_changed": false,
@@ -758,7 +774,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 45,
@@ -785,7 +801,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 48,
@@ -809,7 +825,8 @@
       "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
       "secondary_flags": [
         "HAS_MEMBER_QUANTIFIER_BLOCKER",
-        "HAS_OPEN_CATEGORY_BLOCKER"
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_CANONICALLY_CLOSED_CATEGORY_OR_ALIAS"
       ],
       "blockers_cleared": [],
       "source_resolution_changed": false,
@@ -842,7 +859,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 58,
@@ -870,7 +887,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 62,
@@ -901,7 +918,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 64,
@@ -925,13 +942,14 @@
       "secondary_flags": [
         "HAS_MEMBER_QUANTIFIER_BLOCKER",
         "HAS_OPEN_CATEGORY_BLOCKER",
-        "HAS_PAIR_OR_DUAL_SHORTHAND"
+        "HAS_PAIR_OR_DUAL_SHORTHAND",
+        "HAS_CANONICALLY_CLOSED_CATEGORY_OR_ALIAS"
       ],
       "blockers_cleared": [],
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 66,
@@ -958,7 +976,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 67,
@@ -985,7 +1003,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 69,
@@ -1015,7 +1033,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 71,
@@ -1044,7 +1062,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 73,
@@ -1071,7 +1089,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 78,
@@ -1098,7 +1116,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 83,
@@ -1162,7 +1180,8 @@
       "secondary_flags": [
         "HAS_MEMBER_QUANTIFIER_BLOCKER",
         "HAS_OPEN_CATEGORY_BLOCKER",
-        "HAS_EXPLICIT_LOCAL_OPERATOR"
+        "HAS_EXPLICIT_LOCAL_OPERATOR",
+        "HAS_CANONICALLY_CLOSED_CATEGORY_OR_ALIAS"
       ],
       "blockers_cleared": [],
       "source_resolution_changed": false,
@@ -1195,7 +1214,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 88,
@@ -1229,7 +1248,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 90,
@@ -1256,7 +1275,8 @@
       "secondary_flags": [
         "HAS_MEMBER_QUANTIFIER_BLOCKER",
         "HAS_OPEN_CATEGORY_BLOCKER",
-        "HAS_ANTECEDENT_DEPENDENCY"
+        "HAS_ANTECEDENT_DEPENDENCY",
+        "HAS_CANONICALLY_CLOSED_CATEGORY_OR_ALIAS"
       ],
       "blockers_cleared": [],
       "source_resolution_changed": false,
@@ -1292,7 +1312,8 @@
         "HAS_MEMBER_QUANTIFIER_BLOCKER",
         "HAS_OPEN_CATEGORY_BLOCKER",
         "HAS_ANTECEDENT_DEPENDENCY",
-        "HAS_EXPLICIT_LOCAL_OPERATOR"
+        "HAS_EXPLICIT_LOCAL_OPERATOR",
+        "HAS_CANONICALLY_CLOSED_CATEGORY_OR_ALIAS"
       ],
       "blockers_cleared": [],
       "source_resolution_changed": false,
@@ -1325,7 +1346,8 @@
       "secondary_flags": [
         "HAS_MEMBER_QUANTIFIER_BLOCKER",
         "HAS_OPEN_CATEGORY_BLOCKER",
-        "HAS_ANTECEDENT_DEPENDENCY"
+        "HAS_ANTECEDENT_DEPENDENCY",
+        "HAS_CANONICALLY_CLOSED_CATEGORY_OR_ALIAS"
       ],
       "blockers_cleared": [],
       "source_resolution_changed": false,
@@ -1359,7 +1381,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 100,
@@ -1412,7 +1434,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 106,
@@ -1443,7 +1465,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 107,
@@ -1470,7 +1492,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 109,
@@ -1525,7 +1547,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 112,
@@ -1552,7 +1574,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 118,
@@ -1611,13 +1633,14 @@
       "secondary_flags": [
         "HAS_MEMBER_QUANTIFIER_BLOCKER",
         "HAS_OPEN_CATEGORY_BLOCKER",
-        "HAS_PAIR_OR_DUAL_SHORTHAND"
+        "HAS_PAIR_OR_DUAL_SHORTHAND",
+        "HAS_CANONICALLY_CLOSED_CATEGORY_OR_ALIAS"
       ],
       "blockers_cleared": [],
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 127,
@@ -1644,7 +1667,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 139,
@@ -1673,7 +1696,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 141,
@@ -1700,7 +1723,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 143,
@@ -1785,7 +1808,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 151,
@@ -1812,7 +1835,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 157,
@@ -1967,7 +1990,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 164,
@@ -1998,7 +2021,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 165,
@@ -2059,7 +2082,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 175,
@@ -2090,7 +2113,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 176,
@@ -2151,7 +2174,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 187,
@@ -2181,7 +2204,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 188,
@@ -2205,7 +2228,8 @@
       "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
       "secondary_flags": [
         "HAS_MEMBER_QUANTIFIER_BLOCKER",
-        "HAS_OPEN_CATEGORY_BLOCKER"
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_CANONICALLY_CLOSED_CATEGORY_OR_ALIAS"
       ],
       "blockers_cleared": [],
       "source_resolution_changed": false,
@@ -2242,7 +2266,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 194,
@@ -2269,7 +2293,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 196,
@@ -2322,7 +2346,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 204,
@@ -2375,7 +2399,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 208,
@@ -2404,7 +2428,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 209,
@@ -2431,7 +2455,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 214,
@@ -2464,7 +2488,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 215,
@@ -2529,7 +2553,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 220,
@@ -2556,7 +2580,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 222,
@@ -2585,7 +2609,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 223,
@@ -2609,13 +2633,14 @@
       "secondary_flags": [
         "HAS_MEMBER_QUANTIFIER_BLOCKER",
         "HAS_OPEN_CATEGORY_BLOCKER",
-        "HAS_PAIR_OR_DUAL_SHORTHAND"
+        "HAS_PAIR_OR_DUAL_SHORTHAND",
+        "HAS_CANONICALLY_CLOSED_CATEGORY_OR_ALIAS"
       ],
       "blockers_cleared": [],
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 224,
@@ -2644,7 +2669,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 225,
@@ -2668,13 +2693,14 @@
       "secondary_flags": [
         "HAS_MEMBER_QUANTIFIER_BLOCKER",
         "HAS_OPEN_CATEGORY_BLOCKER",
-        "HAS_PAIR_OR_DUAL_SHORTHAND"
+        "HAS_PAIR_OR_DUAL_SHORTHAND",
+        "HAS_CANONICALLY_CLOSED_CATEGORY_OR_ALIAS"
       ],
       "blockers_cleared": [],
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 228,
@@ -2701,7 +2727,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 229,
@@ -2728,7 +2754,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 231,
@@ -2755,7 +2781,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 234,
@@ -2810,7 +2836,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 242,
@@ -2838,7 +2864,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 244,
@@ -2865,7 +2891,7 @@
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 245,
@@ -2990,15 +3016,16 @@
       "current_blockers": [
         "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
-      "primary_disposition": "OPEN_CATEGORY_NO_UNIVERSAL_RULE_CANDIDATE",
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
       "secondary_flags": [
-        "HAS_OPEN_CATEGORY_BLOCKER"
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_CANONICALLY_CLOSED_CATEGORY_OR_ALIAS"
       ],
       "blockers_cleared": [],
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "OPEN_CATEGORY_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 13,
@@ -3099,15 +3126,16 @@
       "current_blockers": [
         "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
-      "primary_disposition": "OPEN_CATEGORY_NO_UNIVERSAL_RULE_CANDIDATE",
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
       "secondary_flags": [
-        "HAS_OPEN_CATEGORY_BLOCKER"
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_CANONICALLY_CLOSED_CATEGORY_OR_ALIAS"
       ],
       "blockers_cleared": [],
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "OPEN_CATEGORY_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 23,
@@ -3123,15 +3151,16 @@
       "current_blockers": [
         "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
-      "primary_disposition": "OPEN_CATEGORY_NO_UNIVERSAL_RULE_CANDIDATE",
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
       "secondary_flags": [
-        "HAS_OPEN_CATEGORY_BLOCKER"
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_CANONICALLY_CLOSED_CATEGORY_OR_ALIAS"
       ],
       "blockers_cleared": [],
       "source_resolution_changed": false,
       "condition_compiled": false,
       "execution_unlocked": false,
-      "next_research_cluster": "OPEN_CATEGORY_CONTEXT"
+      "next_research_cluster": "PAIR_OR_CLOSED_GROUP_CONTEXT"
     },
     {
       "sequence": 26,
