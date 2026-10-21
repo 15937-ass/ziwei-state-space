@@ -63,6 +63,15 @@ LOCAL_OR:
 
 Unknown star-system identifiers or unsupported relation geometry fail closed.
 
+For the two relation-less `LOCAL_OR` plans, no generic default is introduced. Their runtime evaluation scope is bound only to the exact active K_response semantic basis:
+
+```text
+CA07-681 -> RC37-E06 -> 巨门化禄 OR 禄存同度 -> SAME_PALACE(P09)
+CA09-820 -> RC37-E08 -> 七杀会/见四路得禄 -> FOUR_DIRECTIONS_VISIBILITY(P09)
+```
+
+This preserves the source-local distinction: CA07-681 cannot be activated by 禄存 elsewhere, while CA09-820 may recognize the explicitly enumerated 得禄 realizations only inside P09's self/triad/opposite scope.
+
 The two STAR_SYSTEM identifiers are decomposed only as Product transport facts:
 
 ```text
