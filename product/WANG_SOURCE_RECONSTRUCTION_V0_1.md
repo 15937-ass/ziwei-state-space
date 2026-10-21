@@ -124,3 +124,26 @@ It does not broaden the six accepted MethodPattern target scopes. Even after
 full-chart reconstruction, method replay may remain blocked when the source
 method corpus does not explicitly authorize a procedural rule for the held-out
 case target domain.
+
+
+## Observed result
+
+The first pinned probe resolved the 24 cases into four evidence states:
+
+- 11 unique target-anchor matches;
+- 6 multiple target-anchor matches;
+- 5 no-anchor matches;
+- 2 source-incomplete blockers;
+- 0 engine-unsupported cases.
+
+This is a useful result because it separates three problems that were previously
+collapsed into one `FULL_CHART_NOT_MATERIALIZED` flag.
+
+The 11 unique rows can now be reconstructed as bounded full-chart artifacts in
+the next work unit. The 6 multiple rows need a stronger independent source
+anchor before any candidate can be selected. The 5 no-match rows require
+source re-review and/or engine-semantic cross-checking. The 2 blocked rows stay
+blocked unless the source itself yields more information.
+
+The Product therefore gained a measurable full-chart reconstruction frontier
+without manufacturing certainty.
