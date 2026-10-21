@@ -33,6 +33,13 @@ BLIND_EVIDENCE_PATH = (
     / "wang_tingzhi"
     / "BLIND_EVIDENCE_V0_1.json"
 )
+READINESS_PATH = (
+    ROOT
+    / "product"
+    / "expert_cases"
+    / "wang_tingzhi"
+    / "FULL_CHART_RECONSTRUCTION_READINESS_V0_1.json"
+)
 
 SOURCE_STATUSES = frozenset(
     {
@@ -370,3 +377,169 @@ def wang_source_candidate_census(
         ),
         "bounded_candidate_inputs": candidate_count,
     }
+
+
+READINESS_STATUSES = frozenset(
+    {
+        "UNIQUE_ANCHOR_MATCH",
+        "MULTIPLE_ANCHOR_MATCH",
+        "NO_ANCHOR_MATCH",
+        "BLOCKED_SOURCE_INCOMPLETE",
+        "ENGINE_UNSUPPORTED",
+    }
+)
+
+
+def validate_wang_reconstruction_readiness(payload: Mapping[str, Any]) -> None:
+    if payload.get("schema_version") != "0.1":
+        raise ValueError("Wang reconstruction readiness schema_version must be 0.1")
+    if (
+        payload.get("artifact_id")
+        != "WANG_FULL_CHART_RECONSTRUCTION_READINESS_V0_1"
+    ):
+        raise ValueError("unexpected Wang reconstruction readiness artifact_id")
+    if payload.get("source_input_artifact_id") != "WANG_SOURCE_BIRTH_SIGNATURES_V0_1":
+        raise ValueError("unexpected Wang reconstruction source-input artifact")
+    if payload.get("anchor_artifact_id") != "WANG_BLIND_EVIDENCE_V0_1":
+        raise ValueError("unexpected Wang reconstruction anchor artifact")
+
+    probe = payload.get("probe")
+    if not isinstance(probe, Mapping):
+        raise ValueError("Wang reconstruction probe metadata must be an object")
+    expected_probe = {
+        "engine": "iztro-js",
+        "engine_version": "2.6.1",
+        "algorithm": "zhongzhou",
+        "input_calendar": "lunar",
+        "astro_type": "heaven",
+        "fix_leap": True,
+        "day_divide": "forward",
+        "year_divide": "normal",
+        "horoscope_divide": "normal",
+    }
+    for key, expected in expected_probe.items():
+        if probe.get(key) != expected:
+            raise ValueError(f"Wang reconstruction probe.{key} drift")
+
+    source = load_wang_source_birth_signatures()
+    source_by_id = {str(row["case_id"]): row for row in source["cases"]}
+
+    rows = payload.get("cases")
+    if not isinstance(rows, list) or len(rows) != 24:
+        raise ValueError("Wang reconstruction readiness must contain 24 cases")
+    expected_ids = [f"WANG-CASE-{index:03d}" for index in range(1, 25)]
+    if [str(row.get("case_id") or "") for row in rows] != expected_ids:
+        raise ValueError("Wang reconstruction readiness case IDs/order mismatch")
+
+    census = {
+        "UNIQUE_ANCHOR_MATCH": 0,
+        "MULTIPLE_ANCHOR_MATCH": 0,
+        "NO_ANCHOR_MATCH": 0,
+        "BLOCKED_SOURCE_INCOMPLETE": 0,
+        "ENGINE_UNSUPPORTED": 0,
+    }
+    source_candidate_inputs = 0
+    evaluated_candidate_inputs = 0
+    ready = 0
+
+    for row in rows:
+        case_id = str(row["case_id"])
+        source_row = source_by_id[case_id]
+        status = str(row.get("status") or "")
+        if status not in READINESS_STATUSES:
+            raise ValueError(f"{case_id}: unsupported readiness status {status}")
+        if row.get("source_status") != source_row.get("source_status"):
+            raise ValueError(f"{case_id}: source status disagrees with census")
+
+        expected_candidates = len(wang_source_candidates(source_row))
+        source_count = row.get("source_candidate_count")
+        evaluated_count = row.get("evaluated_candidate_count")
+        match_count = row.get("anchor_match_count")
+        if source_count != expected_candidates:
+            raise ValueError(f"{case_id}: source candidate count drift")
+        for value, field in (
+            (evaluated_count, "evaluated_candidate_count"),
+            (match_count, "anchor_match_count"),
+        ):
+            if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+                raise ValueError(f"{case_id}: invalid {field}")
+        if evaluated_count > source_count or match_count > evaluated_count:
+            raise ValueError(f"{case_id}: impossible candidate/match counts")
+
+        matched_ids = row.get("matched_candidate_ids")
+        if not isinstance(matched_ids, list) or len(matched_ids) != match_count:
+            raise ValueError(f"{case_id}: matched_candidate_ids count mismatch")
+        if len(matched_ids) != len(set(matched_ids)):
+            raise ValueError(f"{case_id}: duplicate matched candidate id")
+        prefix = f"{case_id}:"
+        if not all(str(item).startswith(prefix) for item in matched_ids):
+            raise ValueError(f"{case_id}: matched candidate namespace mismatch")
+
+        is_ready = row.get("full_chart_materialization_ready")
+        if is_ready is not (status == "UNIQUE_ANCHOR_MATCH"):
+            raise ValueError(f"{case_id}: full-chart readiness/status mismatch")
+        if status == "UNIQUE_ANCHOR_MATCH" and match_count != 1:
+            raise ValueError(f"{case_id}: UNIQUE_ANCHOR_MATCH requires exactly one match")
+        if status == "MULTIPLE_ANCHOR_MATCH" and match_count < 2:
+            raise ValueError(f"{case_id}: MULTIPLE_ANCHOR_MATCH requires >=2 matches")
+        if status == "NO_ANCHOR_MATCH" and (
+            match_count != 0 or evaluated_count == 0
+        ):
+            raise ValueError(f"{case_id}: NO_ANCHOR_MATCH count mismatch")
+        if status == "BLOCKED_SOURCE_INCOMPLETE" and (
+            source_count != 0 or evaluated_count != 0 or match_count != 0
+        ):
+            raise ValueError(f"{case_id}: blocked source row must stay unevaluated")
+        if status == "ENGINE_UNSUPPORTED" and evaluated_count != 0:
+            raise ValueError(f"{case_id}: engine-unsupported row cannot be evaluated")
+
+        census[status] += 1
+        source_candidate_inputs += source_count
+        evaluated_candidate_inputs += evaluated_count
+        ready += int(bool(is_ready))
+
+    summary = payload.get("summary")
+    if not isinstance(summary, Mapping):
+        raise ValueError("Wang reconstruction summary must be an object")
+    expected_summary = {
+        "cases_total": 24,
+        "source_candidate_inputs": source_candidate_inputs,
+        "evaluated_candidate_inputs": evaluated_candidate_inputs,
+        "unique_anchor_match": census["UNIQUE_ANCHOR_MATCH"],
+        "multiple_anchor_match": census["MULTIPLE_ANCHOR_MATCH"],
+        "no_anchor_match": census["NO_ANCHOR_MATCH"],
+        "blocked_source_incomplete": census["BLOCKED_SOURCE_INCOMPLETE"],
+        "engine_unsupported": census["ENGINE_UNSUPPORTED"],
+        "full_chart_materialization_ready": ready,
+    }
+    if dict(summary) != expected_summary:
+        raise ValueError("Wang reconstruction readiness summary drift")
+
+    boundaries = payload.get("boundaries")
+    if not isinstance(boundaries, Mapping):
+        raise ValueError("Wang reconstruction boundaries must be an object")
+    for key in (
+        "unique_match_is_only_eligibility_not_full_source_chart_equivalence",
+        "multiple_matches_are_not_collapsed",
+        "no_match_is_not_corrected_from_biography",
+        "blocked_source_input_is_not_backfilled",
+        "target_anchor_is_major_star_system_only",
+    ):
+        if boundaries.get(key) is not True:
+            raise ValueError(f"Wang reconstruction boundary must stay true: {key}")
+    if boundaries.get("method_scope_broadened") is not False:
+        raise ValueError("Wang reconstruction must not broaden MethodPattern scope")
+    if boundaries.get("empirical_probability_used") is not False:
+        raise ValueError("Wang reconstruction must not use empirical probability")
+    if boundaries.get("predictive_validity") != "NOT_VALIDATED":
+        raise ValueError("Wang reconstruction cannot claim predictive validity")
+
+
+def load_wang_reconstruction_readiness(
+    path: Path = READINESS_PATH,
+) -> dict[str, Any]:
+    payload = _read_json(path)
+    if not isinstance(payload, dict):
+        raise ValueError("Wang reconstruction readiness must be a JSON object")
+    validate_wang_reconstruction_readiness(payload)
+    return payload
