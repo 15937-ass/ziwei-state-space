@@ -3,7 +3,7 @@
   "artifact_id": "KB-CAREER-CONTEXTUAL-ACTIVATION-CLOSURE-251-v0.7",
   "lane": "KNOWLEDGE_ONLY",
   "issue": 481,
-  "status": "RESIDUAL_SECOND_LAYER_100_OF_100_REVIEWED_22_LOCAL_STRUCTURE_READY_NO_EXECUTION_UNLOCK",
+  "status": "RESIDUAL_SECOND_LAYER_100_OF_100_REVIEWED_21_LOCAL_STRUCTURE_READY_NO_EXECUTION_UNLOCK",
   "supersedes": "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.6.json",
   "inputs": [
     "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_01_v0.2.json",
@@ -23,8 +23,8 @@
   "summary": {
     "activation_status_counts": {
       "MULTI_BLOCKER": 73,
-      "PARTIAL_LOCAL_STRUCTURE": 22,
-      "BLOCKED_SOURCE_LOCAL_SEMANTICS": 12,
+      "PARTIAL_LOCAL_STRUCTURE": 21,
+      "BLOCKED_SOURCE_LOCAL_SEMANTICS": 13,
       "STRUCTURE_ONLY": 4,
       "BLOCKED_CONTEXTUAL_GROUP_ACTIVATION": 46,
       "BLOCKED_MEMBER_QUANTIFIER": 67,
@@ -49,20 +49,20 @@
       "ANTECEDENT_DEPENDENCY": 49,
       "SOURCE_LIST_QUANTIFIER_UNSPECIFIED": 4,
       "CARDINALITY_THRESHOLD_UNSPECIFIED": 2,
+      "TRANSFORMATION_CARRIER_UNSPECIFIED": 3,
       "SEVERITY_THRESHOLD_UNSPECIFIED": 6,
-      "TRANSFORMATION_CARRIER_UNSPECIFIED": 2,
       "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED": 1,
       "LUMA_SHORTHAND_CONTEXTUAL_UNRESOLVED": 1,
       "QUALIFIED_SUPPORT_MEMBERSHIP_OR_ACTIVATION_OPEN": 1
     },
     "readiness_class_counts": {
       "MULTI_CLASS_BLOCKED": 44,
-      "LOCAL_STRUCTURE_READY": 22,
-      "SOURCE_UNDERDETERMINED": 158,
+      "LOCAL_STRUCTURE_READY": 21,
+      "SOURCE_UNDERDETERMINED": 159,
       "DEPENDENCY_COMPILER_GATED": 27
     },
-    "rows_with_no_current_activation_blocker": 22,
-    "rows_with_source_underdetermination": 202,
+    "rows_with_no_current_activation_blocker": 21,
+    "rows_with_source_underdetermination": 203,
     "unresolved_antecedent_reference_rows": 0,
     "explicit_antecedent_dependency_rows": 64,
     "closed_world_evidence_gated_rows": 23,
@@ -97,7 +97,7 @@
     "pair_or_closed_group_activation_contextual_unresolved": 60,
     "closed_category_activation_contextual_unresolved": 3,
     "residual_37_target_rows": 37,
-    "residual_37_source_local_resolved": 4,
+    "residual_37_source_local_resolved": 3,
     "residual_37_source_repairs": 1,
     "residual_37_source_resolution_changes": 5,
     "residual_37_blocker_refinement_only_rows": 32,
@@ -105,7 +105,9 @@
     "member_quantifier_unspecified_before_issue481": 33,
     "member_quantifier_unspecified_after_issue481": 0,
     "open_category_member_or_quantifier_unspecified_before_issue481": 129,
-    "open_category_member_or_quantifier_unspecified_after_issue481": 110
+    "open_category_member_or_quantifier_unspecified_after_issue481": 110,
+    "residual_37_source_local_partial_resolution": 1,
+    "rows_newly_without_current_activation_blocker": 3
   },
   "source_recheck_outcome": {
     "human_gate_required": false,
@@ -1550,15 +1552,17 @@
     },
     {
       "source_rule_id": "CA04-382",
-      "activation_status": "PARTIAL_LOCAL_STRUCTURE",
+      "activation_status": "BLOCKED_SOURCE_LOCAL_SEMANTICS",
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
-      "readiness_class": "LOCAL_STRUCTURE_READY",
-      "blockers": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "TRANSFORMATION_CARRIER_UNSPECIFIED"
+      ],
       "source_resolution_changed": true,
-      "canonical_source_disposition": "SOURCE_LOCAL_SEMANTICS_RESOLVED_NO_PRODUCT_EXECUTION_CLAIM",
+      "canonical_source_disposition": "SOURCE_REFINED_FAIL_CLOSED_NO_PRODUCT_EXECUTION_CLAIM",
       "residual_closure_issue": 481,
-      "residual_closure_disposition": "SOURCE_LOCAL_RESOLVED",
+      "residual_closure_disposition": "SOURCE_LOCAL_PARTIAL_RESOLUTION",
       "residual_closure_source_resolution_changed": true
     },
     {
