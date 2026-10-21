@@ -71,7 +71,8 @@
         "天相"
       ],
       "source_semantics": "正曜朝拱须天府天相始为合格",
-      "activation_role": "BRANCH_EVIDENCE_NOT_UNIVERSAL_FULL_PATTERN_THRESHOLD"
+      "activation_role": "BRANCH_EVIDENCE_NOT_UNIVERSAL_FULL_PATTERN_THRESHOLD",
+      "required_together": true
     },
     "ASSISTANT_SUPPORT": {
       "members": [
@@ -210,13 +211,15 @@
       "favorable_or_preserving": [
         "见禄"
       ],
-      "degrading_or_invalidating": [
+      "invalidating_for_normal_treasury_support": [
         "与地空同度",
-        "与天空同度",
+        "与天空同度"
+      ],
+      "degrading": [
         "见截空正空",
         "见旬空正空"
       ],
-      "source_effect": "空库时虽会合紫微亦不起正常财库作用",
+      "source_effect": "地空/天空同度成空库，虽会合紫微亦不起正常财库作用；截空/旬空正空亦属不喜。",
       "magnitude": "UNIDENTIFIED"
     },
     {
@@ -224,19 +227,13 @@
       "favorable_or_preserving": [
         "财荫夹印"
       ],
-      "degrading_or_invalidating": [
+      "degrading_or_transforming": [
         "刑忌夹印",
         "羊陀夹"
       ],
-      "source_effect": "component quality changes; presence alone is insufficient",
+      "source_effect": "天相性质受夹宫改变；不将不良 quality 简化为 component 不存在。",
       "magnitude": "UNIDENTIFIED"
     }
-  ],
-  "profile_states": [
-    "PARTIAL_SUPPORT",
-    "CONFLICTED",
-    "ABSENT",
-    "UNKNOWN"
   ],
   "full_pattern_truth": {
     "generic_runtime_emission_allowed": false,
@@ -250,5 +247,18 @@
     "weighted_score": false,
     "global_good_bad_projection": false,
     "other_anchor_generalization": false
-  }
+  },
+  "ontology_activation_states": [
+    "EXPLICIT_TEMPLATE_MATCH",
+    "PARTIAL_SUPPORT",
+    "CONFLICTED",
+    "ABSENT",
+    "UNKNOWN"
+  ],
+  "runtime_v0_1_emittable_states": [
+    "PARTIAL_SUPPORT",
+    "CONFLICTED",
+    "ABSENT",
+    "UNKNOWN"
+  ]
 }
