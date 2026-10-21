@@ -100,7 +100,7 @@ capability_snapshot:
     internal_validation: "DETERMINISTIC_CONTRACT"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    note: "Product #521/#523 compiles exactly 12 governed Career condition IR records into typed Product plans: 9 direct + 3 dependency references. Fourteen local-ready/non-IR-ready rows are explicit NOT_COMPILER_INPUT. Compiled plans are structural only: condition_evaluated=0, response_effect_bound=0, runtime_effect_allowed=0. ResponseProfile tau is still not implemented."
+    note: "Product #521/#523 compiles exactly 12 governed Career condition IR records into typed Product plans: 9 direct + 3 dependency references. Fourteen local-ready/non-IR-ready rows are explicit NOT_COMPILER_INPUT. This layer remains structural only: condition_evaluated=0, response_effect_bound=0, runtime_effect_allowed=0. Downstream Product #526 evaluates them and Product #534 builds the separate ResponseProfile tau contract."
 
   response_condition_evaluator:
     specification: "PL3R_V0_1_PILOT"
@@ -174,7 +174,6 @@ capability_snapshot:
 
 critical_path:
   now:
-    - "PL3R_DECADE_YEAR_RESPONSE_COMPILER"
     - "PL3M0_CANONICAL_MANIFESTATION_CANDIDATES"
     - "WANG_METHOD_SCOPE_AND_FULL_CHART_REVIEW"
     - "CANONICAL_AND_METHOD_FIDELITY_BENCHMARK"
