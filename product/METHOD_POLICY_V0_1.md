@@ -1,6 +1,6 @@
 # Method Policy π v0.1 — CBR + Heuristic/Symbolic Planner
 
-Status: **IMPLEMENTED IN PRODUCT #453 — VALIDATION PENDING**  
+Status: **IMPLEMENTED IN PRODUCT #453 — BLIND EVIDENCE UPDATED BY PRODUCT #512**  
 Policy version: METHOD_POLICY_V0_1_CBR_HEURISTIC_SYMBOLIC
 
 ## 1. Purpose
@@ -80,18 +80,16 @@ SOURCE_CHART:WANG-CASE-001
 
 因此 source/page/chart reference 不得直接被 planner 当成命盘事实。
 
-当前 Wang 24-case CaseBundle 的 blind evidence 全部仍属于：
+Product #512 之后，Wang 24-case 的 blind evidence 被拆成两个不同成熟度：
 
 ~~~text
-SOURCE_REFERENCE_ONLY
+TARGET_PALACE = MATERIALIZED_FACT   24 / 24
+TARGET_CHART  = BLOCKED             24 / 24
 ~~~
 
-结果是：
+v0.1 只物化目标宫位及十四主星系统；六个目标宫无正曜的案例保留来源中明确的对宫借星。辅曜、煞曜、四化、宫干支、年龄区间及全盘其他宫位均未自动补齐。
 
-~~~text
-24 / 24 folds = reference-only
-0 / 24 folds  = FULL_EXPERT_REPLAY_READY
-~~~
+因此 SOURCE_REFERENCE_ONLY 不再是目标宫位层的 blocker，但也不能把“目标宫位已物化”误称为“全盘已物化”。
 
 ## 5. SEMANTIC_ONLY cannot directly execute
 
@@ -149,12 +147,14 @@ INSPECT
 
 ## 8. Real Wang cases: expected fail-closed behavior
 
-当前真实 Wang case 的 blind chart evidence 只是 SOURCE_REFERENCE_ONLY，所以 π v0.1 的正确行为是：
+Product #512 后，真实 Wang case 已经能读取 source-grounded 的 TARGET_PALACE materialized fact，但完整 TARGET_CHART 仍然 BLOCKED。
+
+同时，现有 6 条 source-explicit MethodPattern 的 target scope 是 GLOBAL_PROFILE、TEMPORAL_INFERENCE 或 SYMBOLIC_INFERENCE，而 24 个 held-out case 的 target 是十二个具体宫位 domain。于是 π v0.1 的正确行为仍然是：
 
 ~~~text
-INSPECT
+INSPECT materialized target-palace evidence
    ↓
-发现输入只是 source reference
+发现 full chart 未物化 + 无 MethodPattern 直接绑定当前 case target scope
    ↓
 ABSTAIN
 ~~~
@@ -184,7 +184,7 @@ v0.1 verifier 只验证 target scope、evidence readiness、derived policy rule�
 版本化审计：
 
 ~~~text
-product/WANG_METHOD_POLICY_READINESS_v0.1.json
+product/WANG_METHOD_POLICY_READINESS_v0.2.json
 ~~~
 
 逐 fold 记录 held-out case、target domain、exact-domain retrieval、blind evidence status、source-method applicability、blockers 和三层 readiness。
@@ -192,11 +192,16 @@ product/WANG_METHOD_POLICY_READINESS_v0.1.json
 当前结论：
 
 ~~~text
-recommended dependency:
-WANG_BLIND_EVIDENCE_MATERIALIZATION_V0_1
+TARGET_PALACE MATERIALIZED = 24 / 24
+TARGET_CHART BLOCKED       = 24 / 24
+FULL_EXPERT_REPLAY_READY   = 0 / 24
+
+remaining review:
+- full-chart materialization boundary
+- individual case-domain -> source MethodPattern scope binding
 ~~~
 
-它是未来真正运行 Wang expert replay 前的工程依赖，不是 Product 架构变更。
+后续不得为了让 benchmark 变成 24/24 而擅自扩大 MethodPattern 的 target scope；若要建立这种绑定，必须从来源方法证据中另行论证。
 
 ## 11. Synthetic fixture
 
@@ -231,15 +236,9 @@ probability calibration           = available
 
 ## 13. Dependency discovered
 
-在真正进行 Benchmark B 之前，需要：
+Product #512 已完成第一层 Wang blind evidence materialization：24/24 目标宫位及十四主星系统成为 machine-readable facts，且不泄漏人物身份、专家解释或结果。
 
-~~~text
-WANG_BLIND_EVIDENCE_MATERIALIZATION_V0_1
-~~~
-
-目标是把合法 blind input 从 SOURCE_CHART 引用转换成 machine-readable chart facts，同时保证只来自推断前可见资料、不泄漏人物身份、不泄漏专家解释/结果，并与 deterministic chart engine 对齐。
-
-在这项依赖完成前，0/24 FULL_EXPERT_REPLAY_READY 是正确状态，不是缺陷。
+它同时暴露了两个此前被 SOURCE_REFERENCE_ONLY 遮住的下一层问题：完整命盘仍未物化；现有 MethodPattern 没有直接覆盖十二个 case target domain。因此 0/24 FULL_EXPERT_REPLAY_READY 仍然是正确状态，不是缺陷，也不能通过扩大方法规则适用范围来“刷通过率”。
 
 ## 14. Next architecture step
 
