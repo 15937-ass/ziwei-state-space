@@ -315,9 +315,16 @@ def load_active_temporal_kr_gate(root: Path = ROOT) -> TemporalKrGate:
 
 def _extract_natal_semantic_evidence(
     natal_evaluation: Mapping[str, Any],
+    *,
+    root: Path,
 ) -> tuple[NatalResponseSemanticEvidence, ...]:
     if str(natal_evaluation.get("schema_version", "")).strip() != "0.1":
         raise ValueError("Career natal evaluation schema_version must be 0.1")
+    if (
+        str(natal_evaluation.get("evaluator_version", "")).strip()
+        != "PL3R_CAREER_CONDITION_EVALUATOR_V0_1"
+    ):
+        raise ValueError("Career natal evaluation must come from the governed v0.1 evaluator")
     scope = natal_evaluation.get("scope")
     if not isinstance(scope, Mapping):
         raise ValueError("Career natal evaluation scope is required")
@@ -342,6 +349,31 @@ def _extract_natal_semantic_evidence(
     if not isinstance(evaluations, list) or len(evaluations) != 12:
         raise ValueError("Response compiler requires exactly 12 condition evaluations")
 
+    condition_registry = _read_json(
+        root / "product" / "CAREER_CONDITION_COMPILER_PILOT_v0.1.json"
+    )
+    compiled = condition_registry.get("compiled_conditions")
+    if not isinstance(compiled, list) or len(compiled) != 12:
+        raise ValueError("governed Career condition registry is invalid")
+    governed_ids = {
+        str(item.get("source_rule_id", "")).strip()
+        for item in compiled
+        if isinstance(item, Mapping)
+    }
+    effect_registry = _read_json(
+        root / "product" / "CAREER_CONDITION_EFFECT_BINDING_PILOT_v0.1.json"
+    )
+    canonical_bindings_raw = effect_registry.get("bindings")
+    if not isinstance(canonical_bindings_raw, list) or len(canonical_bindings_raw) != 12:
+        raise ValueError("governed Career effect-binding registry is invalid")
+    canonical_bindings = {
+        str(item.get("source_rule_id", "")).strip(): item
+        for item in canonical_bindings_raw
+        if isinstance(item, Mapping)
+    }
+    if set(canonical_bindings) != governed_ids or len(governed_ids) != 12:
+        raise ValueError("governed Career condition/effect registry IDs differ")
+
     out: list[NatalResponseSemanticEvidence] = []
     seen: set[str] = set()
     for row in evaluations:
@@ -363,6 +395,9 @@ def _extract_natal_semantic_evidence(
             raise ValueError(f"{rule_id}: matched condition requires semantic effect binding")
         if bool(binding.get("runtime_effect_allowed", False)):
             raise ValueError(f"{rule_id}: effect binding attempted runtime authorization")
+        canonical_binding = canonical_bindings.get(rule_id)
+        if canonical_binding is None or dict(binding) != dict(canonical_binding):
+            raise ValueError(f"{rule_id}: effect binding differs from governed registry")
         if str(binding.get("time_layer", "")).strip() != "NATAL":
             raise ValueError(f"{rule_id}: effect binding must remain NATAL")
         if (
@@ -383,6 +418,8 @@ def _extract_natal_semantic_evidence(
                 compatibility_band=str(binding.get("compatibility_band", "")).strip(),
             )
         )
+    if seen != governed_ids:
+        raise ValueError("Career condition evaluation IDs differ from governed registry")
     return tuple(sorted(out, key=lambda item: item.source_rule_id))
 
 
@@ -425,7 +462,10 @@ def compile_decade_year_response_profile(
             "TemporalEnvironmentProfile.reactions must be empty"
         )
 
-    natal_semantics = _extract_natal_semantic_evidence(natal_evaluation)
+    natal_semantics = _extract_natal_semantic_evidence(
+        natal_evaluation,
+        root=Path(repository_root),
+    )
     temporal_evidence = tuple(
         sorted(
             (
