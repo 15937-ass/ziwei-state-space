@@ -491,7 +491,7 @@ Do not proceed to causal action recommendation until:
 ## 13. Current recovery / immediate next Product issue
 
 Accepted Product progress now includes:
-- expert-method contracts;
+- **PRODUCT_METHOD_CASE_CONTRACTS_V0_1** / expert-method contracts (completed);
 - Wang 24-case structured corpus and LOCO manifest;
 - deterministic CBR + Method Policy π v0.1;
 - fail-closed Response Semantics adapter;
