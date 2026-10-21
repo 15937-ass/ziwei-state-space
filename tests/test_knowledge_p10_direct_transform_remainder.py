@@ -97,7 +97,7 @@ def test_three_direct_rows_match_canonical_source_and_sidecars():
         assert row["source_span_verified"] == "true" and prov["source_span_verified"] is True
         atom = item["condition"]["all_of"][0]
         assert atom == item["expected_runtime_fact"]
-        assert atom["atom_type"] in ALLOWED_ATOM_TYPES == True
+        assert atom["atom_type"] in ALLOWED_ATOM_TYPES
         assert atom["atom_type"] == "TRANSFORMATION_PRESENT"
         assert atom["args"] == {"palace": "P10", "star": star, "mutagen": mutagen}
         assert item["condition_atom_types"] == ["TRANSFORMATION_PRESENT"]
