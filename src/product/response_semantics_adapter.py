@@ -51,7 +51,7 @@ ACTIVATION_CLOSURE_PATH = (
     ROOT
     / "knowledge"
     / "wp07c"
-    / "CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.3.json"
+    / "CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.5.json"
 )
 CAREER_ORDINAL_CONSTRAINTS_PATH = (
     ROOT / "knowledge" / "wp08" / "CAREER_ORDINAL_CONSTRAINTS_v0.1.json"
@@ -63,7 +63,10 @@ CAREER_ORDINAL_BLOCKER_IMPACT_PATH = (
     ROOT / "knowledge" / "wp08" / "CAREER_ORDINAL_BLOCKER_IMPACT_v0.1.json"
 )
 CAREER_SEMANTIC_NORMALIZATION_PATH = (
-    ROOT / "knowledge" / "wp08" / "CAREER_SEMANTIC_NORMALIZATION_36_v0.1.json"
+    ROOT / "knowledge" / "wp08" / "CAREER_SEMANTIC_NORMALIZATION_36_v0.2.json"
+)
+CAREER_SOURCE_LEXICON_QUANTIFIER_PATH = (
+    ROOT / "knowledge" / "wp08" / "CAREER_SOURCE_LEXICON_QUANTIFIER_10_v0.1.json"
 )
 
 KNOWLEDGE_EXECUTION_STATUSES = frozenset(
@@ -76,7 +79,6 @@ CAREER_ADAPTER_STATUS_BY_READINESS = {
     "SOURCE_UNDERDETERMINED": "BLOCKED_SOURCE_UNDERDETERMINED",
     "DEPENDENCY_COMPILER_GATED": "BLOCKED_DEPENDENCY_COMPILER",
     "NORMALIZATION_DEFERRED": "BLOCKED_NORMALIZATION",
-    "STRUCTURED_PATTERN_COMPILER_GATED": "BLOCKED_STRUCTURED_PATTERN_COMPILER",
     "MULTI_CLASS_BLOCKED": "BLOCKED_MULTIPLE",
 }
 
@@ -649,8 +651,8 @@ def load_career_semantic_normalization(
     path: Path = CAREER_SEMANTIC_NORMALIZATION_PATH,
 ) -> Mapping[str, Any]:
     payload = _read_json(path)
-    if payload.get("schema_version") != "0.1":
-        raise ValueError("Career semantic-normalization schema_version must be 0.1")
+    if payload.get("schema_version") != "0.2":
+        raise ValueError("Career semantic-normalization schema_version must be 0.2")
     raw = payload.get("records")
     if not isinstance(raw, list) or len(raw) != 36:
         raise ValueError("Career semantic-normalization artifact must contain 36 records")
@@ -689,6 +691,49 @@ def load_career_semantic_normalization(
     if int(summary.get("execution_unlocked", -1)) != 0:
         raise ValueError("semantic normalization unexpectedly unlocked execution")
 
+    return payload
+
+
+
+def load_career_source_lexicon_quantifier(
+    path: Path = CAREER_SOURCE_LEXICON_QUANTIFIER_PATH,
+) -> Mapping[str, Any]:
+    payload = _read_json(path)
+    if payload.get("schema_version") != "0.1":
+        raise ValueError("Career source-lexicon/quantifier schema_version must be 0.1")
+    raw = payload.get("records")
+    if not isinstance(raw, list) or len(raw) != 10:
+        raise ValueError("Career source-lexicon/quantifier artifact must contain 10 records")
+    ids = [item.get("source_rule_id") for item in raw]
+    if len(set(ids)) != 10:
+        raise ValueError(
+            "Career source-lexicon/quantifier source_rule_id values must be unique"
+        )
+
+    summary = payload.get("summary")
+    if not isinstance(summary, dict):
+        raise ValueError("Career source-lexicon/quantifier summary must be an object")
+    if int(summary.get("target_rows", -1)) != 10:
+        raise ValueError("source-lexicon/quantifier target-count drift")
+    if int(summary.get("reviewed", -1)) != 10:
+        raise ValueError("source-lexicon/quantifier review-count drift")
+    if int(summary.get("conditions_compiled", -1)) != 0:
+        raise ValueError("source-lexicon/quantifier unexpectedly compiled conditions")
+    if int(summary.get("execution_unlocked", -1)) != 0:
+        raise ValueError("source-lexicon/quantifier unexpectedly unlocked execution")
+
+    allowed = {"SOURCE_RESOLVED", "NO_UNIVERSAL_RULE", "STILL_UNDERDETERMINED"}
+    for item in raw:
+        rule_id = _required_text(
+            item.get("source_rule_id"), "source_lexicon_quantifier.source_rule_id"
+        )
+        disposition = _required_text(
+            item.get("disposition"), f"{rule_id}.disposition"
+        )
+        if disposition not in allowed:
+            raise ValueError(
+                f"{rule_id}: unsupported source-lexicon/quantifier disposition"
+            )
     return payload
 
 
@@ -876,6 +921,7 @@ def audit_response_semantics_adapter_readiness() -> dict[str, Any]:
     ordinal_links = load_career_ordinal_rule_links()
     ordinal_impact = load_career_ordinal_blocker_impact()
     semantic_normalization = load_career_semantic_normalization()
+    source_lexicon_quantifier = load_career_source_lexicon_quantifier()
     validate_career_ordinal_cross_artifacts()
 
     pilot_status_counts = Counter(
@@ -954,6 +1000,9 @@ def audit_response_semantics_adapter_readiness() -> dict[str, Any]:
             ),
             "career_semantic_normalization": str(
                 CAREER_SEMANTIC_NORMALIZATION_PATH.relative_to(ROOT)
+            ),
+            "career_source_lexicon_quantifier": str(
+                CAREER_SOURCE_LEXICON_QUANTIFIER_PATH.relative_to(ROOT)
             ),
         },
         "response_pilot": {
@@ -1078,6 +1127,56 @@ def audit_response_semantics_adapter_readiness() -> dict[str, Any]:
                 )
             ),
         },
+        "career_source_lexicon_quantifier": {
+            "target_rows": int(
+                source_lexicon_quantifier.get("summary", {}).get("target_rows", -1)
+            ),
+            "reviewed": int(
+                source_lexicon_quantifier.get("summary", {}).get("reviewed", -1)
+            ),
+            "source_resolved": int(
+                source_lexicon_quantifier.get("summary", {}).get("source_resolved", -1)
+            ),
+            "no_universal_rule": int(
+                source_lexicon_quantifier.get("summary", {}).get("no_universal_rule", -1)
+            ),
+            "still_underdetermined": int(
+                source_lexicon_quantifier.get("summary", {}).get("still_underdetermined", -1)
+            ),
+            "source_shorthand_membership_unspecified_after": int(
+                source_lexicon_quantifier.get("summary", {}).get(
+                    "source_shorthand_membership_unspecified_after", -1
+                )
+            ),
+            "source_list_quantifier_unspecified_after": int(
+                source_lexicon_quantifier.get("summary", {}).get(
+                    "source_list_quantifier_unspecified_after", -1
+                )
+            ),
+            "rows_newly_without_current_activation_blocker": int(
+                source_lexicon_quantifier.get("summary", {}).get(
+                    "rows_newly_without_current_activation_blocker", -1
+                )
+            ),
+            "source_repairs": int(
+                source_lexicon_quantifier.get("summary", {}).get("source_repairs", -1)
+            ),
+            "source_resolution_changes": int(
+                source_lexicon_quantifier.get("summary", {}).get(
+                    "source_resolution_changes", -1
+                )
+            ),
+            "conditions_compiled": int(
+                source_lexicon_quantifier.get("summary", {}).get(
+                    "conditions_compiled", -1
+                )
+            ),
+            "execution_unlocked": int(
+                source_lexicon_quantifier.get("summary", {}).get(
+                    "execution_unlocked", -1
+                )
+            ),
+        },
         "career": {
             "total_rows": len(decisions),
             "compatibility_band_counts": dict(
@@ -1098,6 +1197,9 @@ def audit_response_semantics_adapter_readiness() -> dict[str, Any]:
             ),
             "rows_with_source_underdetermination": int(
                 activation_summary.get("rows_with_source_underdetermination", -1)
+            ),
+            "baiguan_activation_no_universal_threshold_rows": int(
+                activation_summary.get("baiguan_activation_no_universal_threshold", -1)
             ),
             "relation_bound_rows": relation_count,
             "category_reviewed_rows": category_count,
