@@ -60,6 +60,7 @@
       "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED": 1,
       "SOURCE_BRANCH_SCOPE_RECHECK_REQUIRED": 1,
       "LUMA_SHORTHAND_CONTEXTUAL_UNRESOLVED": 1,
+      "ANTECEDENT_SOURCE_CONDITION_RECHECK_REQUIRED": 1,
       "QUALIFIED_SUPPORT_MEMBERSHIP_OR_ACTIVATION_OPEN": 1
     },
     "readiness_class_counts": {
@@ -4037,14 +4038,15 @@
       "readiness_class": "MULTI_CLASS_BLOCKED",
       "blockers": [
         "ANTECEDENT_DEPENDENCY",
-        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "ANTECEDENT_SOURCE_CONDITION_RECHECK_REQUIRED"
       ],
       "source_resolution_changed": true,
       "canonical_source_disposition": "SOURCE_REFINED_FAIL_CLOSED_NO_PRODUCT_EXECUTION_CLAIM",
       "third_layer_issue": 487,
-      "third_layer_subtype": "INHERITED_CONTEXT_PLUS_QUALIFIED_AUXILIARY",
+      "third_layer_subtype": "INHERITED_CONTEXT_PLUS_QUALIFIED_AUXILIARY_ANTECEDENT_RECHECK",
       "third_layer_disposition": "SOURCE_DEPENDENCY_REPAIRED_FAIL_CLOSED",
-      "third_layer_source_repair": "Restore the source-local `更见` dependency on CA09-846: the auxiliary-support clause inherits the preceding Pojun condition rather than standing alone."
+      "third_layer_source_repair": "Restore the source-local `更见` dependency on CA09-846, but keep the inherited condition fail-closed because CA09-846 itself compresses source `化禄、化权尤佳` into a non-literal conjunction-like summary. The edge is recorded; executable inheritance is not authorized."
     },
     {
       "source_rule_id": "CA09-848",
