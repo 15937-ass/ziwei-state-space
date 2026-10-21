@@ -169,3 +169,55 @@ Follow-up 不是再生成一遍“整体简批”，而是：
 - 用户问“为什么”时可以适量解释星系/宫位；没问原因就继续说人话；
 - 用户提供现实反馈时记录为 observation：可用于确认、否定或选择歧义分支，但不能反向制造盘面规则；
 - 若当前 capsule 没有足够 claim，先补检索/推演，再回答；不要拿第一次那几句话硬扩写。
+
+
+## 9. 小规模案例积累
+
+当前 Manual Pilot 同时承担小规模真实样本积累，但案例数据只能进入
+`apps/social_quickread_pilot` 的 EXTRA sidecar，不能直接回写 Knowledge/Product。
+
+当盘主出现明确现实反馈时：
+
+```text
+当前 subject session
+ -> Observation / FeedbackRecord
+ -> PIReview
+ -> de-identified CaseRecord
+```
+
+反馈标签固定为：
+
+- `HIT`
+- `PARTIAL`
+- `CONTRADICT`
+- `NEW_FACT`
+- `STYLE_ONLY`
+- `UNCLEAR`
+
+### 每次 Follow-up 的 PI 侧附加状态
+
+若盘主已给出验证信息，在 PI 审计末尾补：
+
+```text
+CASE_CAPTURE: candidate | skip | preferred_candidate
+```
+
+- `candidate`：有明确可验证反馈，值得入案例集；
+- `preferred_candidate`：同时语言质量高，可待 PI 批准为 style-only few-shot；
+- `skip`：没有新增验证信息、只是礼貌回复或信息太弱。
+
+### PreferredExample
+
+只有满足以下全部条件才进入语言范例集：
+
+```text
+PI explicit approval
+factual_score >= 4
+style_score >= 4
+hallucination_count == 0
+```
+
+范例仅允许影响“怎么说”，严禁提供“说什么”。当前命盘的事实仍必须来自本盘
+validated claims / approved source fallback。
+
+Git 中禁止保存小红书用户名、帖子 URL、头像、原始盘图和精确出生时间。
