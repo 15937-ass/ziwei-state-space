@@ -258,7 +258,7 @@ def test_source_local_pair_is_not_rewritten_to_any():
     assert _by_id(missing)["CA05-433"]["matched"] is False
 
 
-def test_branch_gate_and_local_or_for_jumen_delu():
+def test_branch_gate_and_local_or_for_jumen_delu_is_same_palace_only():
     lucun = _evaluate(
         _snapshot(
             p09_branch="子",
@@ -269,6 +269,10 @@ def test_branch_gate_and_local_or_for_jumen_delu():
     assert rows["CA07-681"]["matched"] is True
     assert rows["CA07-682"]["matched"] is True
     assert rows["CA07-682"]["effect_binding"]["projection_target"] == "avoid_showing_off"
+    assert any(
+        "CAREER_RESIDUAL_CLOSURE_37_v0.1:RC37-E06" in item
+        for item in rows["CA07-681"]["matched_evidence"]
+    )
 
     transformed = _evaluate(
         _snapshot(
@@ -277,6 +281,16 @@ def test_branch_gate_and_local_or_for_jumen_delu():
         )
     )
     assert _by_id(transformed)["CA07-681"]["matched"] is True
+
+    ontology = load_palace_ontology(ONTOLOGY_PATH)
+    triad = ontology.entry("P09").triad_palace_ids[0]
+    wrong_location = _evaluate(
+        _snapshot(
+            p09_branch="子",
+            stars_by_palace={"P09": ["巨门"], triad: ["禄存"]},
+        )
+    )
+    assert _by_id(wrong_location)["CA07-681"]["matched"] is False
 
     wrong_branch = _evaluate(
         _snapshot(
@@ -287,18 +301,48 @@ def test_branch_gate_and_local_or_for_jumen_delu():
     assert _by_id(wrong_branch)["CA07-681"]["matched"] is False
 
 
-def test_qisha_local_or_accepts_only_explicit_promoted_alternatives():
-    result = _evaluate(
+def test_qisha_local_or_uses_exact_source_backed_four_directions_scope():
+    ontology = load_palace_ontology(ONTOLOGY_PATH)
+    visible = {
+        "P09",
+        *ontology.entry("P09").triad_palace_ids,
+        ontology.entry("P09").opposite_palace_id,
+    }
+    triad = ontology.entry("P09").triad_palace_ids[0]
+    opposite = ontology.entry("P09").opposite_palace_id
+    outside = next(pid for pid, _ in CANONICAL if pid not in visible)
+
+    transformed = _evaluate(
         _snapshot(
             p09_branch="午",
-            stars_by_palace={"P09": ["七杀", "禄存"]},
+            stars_by_palace={"P09": ["七杀"], triad: [("武曲", "禄")]},
         )
     )
-    row = _by_id(result)["CA09-820"]
+    row = _by_id(transformed)["CA09-820"]
     assert row["matched"] is True
+    assert any(
+        "CAREER_RESIDUAL_CLOSURE_37_v0.1:RC37-E08" in item
+        for item in row["matched_evidence"]
+    )
     assert row["effect_binding"]["projection_target"] == (
         "financial_institution_employment_scene"
     )
+
+    lucun = _evaluate(
+        _snapshot(
+            p09_branch="子",
+            stars_by_palace={"P09": ["七杀"], opposite: ["禄存"]},
+        )
+    )
+    assert _by_id(lucun)["CA09-820"]["matched"] is True
+
+    outside_scope = _evaluate(
+        _snapshot(
+            p09_branch="午",
+            stars_by_palace={"P09": ["七杀"], outside: ["禄存"]},
+        )
+    )
+    assert _by_id(outside_scope)["CA09-820"]["matched"] is False
 
     no_delu = _evaluate(
         _snapshot(
