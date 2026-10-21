@@ -3,7 +3,7 @@
 Execution runtime: **OpenAI / ChatGPT code-mode GitHub-content assertions + local container checkout attempt**
 Base commit: `7865dfa8e02506cbff92454a4e00dbda2efede9f`
 Validated artifact/test content head before evidence/state sync: `cbccf56e806b7817854e7a8ac1e1638185baa24c`
-State sync commit (Knowledge lane checkpoint): `749a192ecd41bb4c70ff37cc13dbb79f4af14fde`
+State sync commits (Knowledge lane checkpoint and superseded-PR status): `749a192ecd41bb4c70ff37cc13dbb79f4af14fde`, `edf6c887092629061ac974cc3304817fa663d168`
 
 ## Validation actually executed
 
@@ -49,5 +49,7 @@ Product regression: **NOT REQUIRED** (Knowledge-only paths).
 
 ## Merge gate
 The 31 content assertions are not represented as pytest or as a substitute for the mandatory full repository gate. **Keep the PR unmerged** until the full approved OpenAI/Codex shell gate is run, or a narrower validation scope is explicitly approved by the PI. The failure is infrastructure/network DNS, not a test failure.
+
+PR #474 was closed unmerged as superseded because its base is stale/dirty and its target IDs duplicate Issue #469; clean-main draft PR #493 now carries this re-adjudication.
 
 Known limitations: no shell checkout, no pytest/P0/governance execution evidence yet.
