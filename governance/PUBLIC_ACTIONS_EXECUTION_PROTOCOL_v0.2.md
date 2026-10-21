@@ -1,8 +1,9 @@
 # Public Actions Execution Protocol v0.2
 
-Status: **ACTIVE AFTER MERGE OF G8**  
-Tracking Issue: #372  
-Supersedes for routine execution: `governance/WORK_CODEX_EXECUTION_PROTOCOL_v0.1.md`
+Status: **ACTIVE — G8 EXECUTION POLICY, G9 REPOSITORY-AUTHORITY AMENDMENT**  
+Tracking Issues: #372 (G8), #374 (G9)  
+Supersedes for routine execution: `governance/WORK_CODEX_EXECUTION_PROTOCOL_v0.1.md`  
+Recovery precedence: `governance/RECOVERY_PRECEDENCE_v1.md`
 
 ## 1. Purpose
 
@@ -124,4 +125,6 @@ No workflow may receive write permissions unless a bounded Governance Issue expl
 
 PI approved G8 in chat on 2026-10-20 with the instruction that Work quota was unavailable and permissions could be modified so execution could continue in the current mode.
 
-This approval is execution-infrastructure-only. It does **not** authorize changes to Zhongzhou source truth, school boundaries, temporal semantics, causal claims, empirical probabilities, or Product maturity.
+PI later approved G9 / Issue #374: ordinary ChatGPT conversation mode is a first-class repository operator and may use all repository operations actually exposed by connected tools. The same approval also authorizes recovery decontamination so superseded/historical status words do not override current pointers.
+
+These approvals are execution/governance-infrastructure only. They do **not** authorize changes to Zhongzhou source truth, school boundaries, temporal semantics, causal claims, empirical probabilities, or Product maturity.
