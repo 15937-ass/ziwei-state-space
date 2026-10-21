@@ -8,17 +8,17 @@ execution:
   phase: "PL3_METHOD_RESPONSE_VERTICAL_SLICE"
   active_issue: null
   active_pr: null
-  next_work_unit: "PL3M0_CANONICAL_MANIFESTATION_CANDIDATES"
-  resume_entry: "Product #534 / PR #535 adds the first sparse deterministic Career ResponseProfile tau compiler. It combines the exact 12-row NATAL evaluator with TemporalEnvironmentProfile and consumes only explicit source-backed DECADE/YEAR TemporalReactionEvidence linked through matched_natal_rule_ids. Raw temporal facts, target-name similarity and domain membership never create response semantics. Test-only source-backed reactions prove ACTIVATE/STRENGTHEN/WEAKEN/TRANSFORM compilation, while the production temporal reaction registry remains intentionally empty, so production tau is PARTIAL_UNKNOWN with zero dynamic entries rather than a false negative event claim. Runtime effects, M0, probability and predictive validity remain unavailable. Immediate next Product work is PL3M0_CANONICAL_MANIFESTATION_CANDIDATES."
-  state_cache_as_of_main_commit: "7b1abba449e9ee40206a5b303028d6c985cc6368"
-  state_cache_as_of_product_merge: "7b1abba449e9ee40206a5b303028d6c985cc6368"
+  next_work_unit: "WANG_METHOD_SCOPE_AND_FULL_CHART_REVIEW"
+  resume_entry: "Product #539 adds the first tau -> M0 integration contract on top of Product #534. M0 consumes only natal_rule_id/temporal_rule_id carried by actual CareerResponseProfile entries and reuses the existing manifestation ontology/mapping router; it does not infer events from projection prose or synthesize activation IDs from reaction effect names. TEST_ONLY explicit mappings prove one source-supported possibility can be routed with full tau + mapping + ontology trace, while HYPOTHESIS remains held. Production remains fail-closed because tau dynamic content, manifestation ontology, and manifestation mappings are not yet canonical-ready; zero M0 candidates is represented as readiness/unknown, not a negative prediction. The N -> E -> tau -> M0 runtime contract path now exists without probability. Immediate next Product work returns to WANG_METHOD_SCOPE_AND_FULL_CHART_REVIEW, then fidelity benchmark and Forecast Ledger activation."
+  state_cache_as_of_main_commit: "e236066167b36750c896cef7167d14b2f992b700"
+  state_cache_as_of_product_merge: "e236066167b36750c896cef7167d14b2f992b700"
   v04_entry_checkpoint_issue: 416
   v04_entry_checkpoint_pr: 418
-  last_completed_product_issue: 534
-  last_completed_product_pr: 535
+  last_completed_product_issue: 539
+  last_completed_product_pr: 540
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
-  resume_issue: 534
+  resume_issue: 539
   roadmap: "PRODUCT_ROADMAP.md#v0.4"
   execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
 
@@ -124,19 +124,19 @@ capability_snapshot:
     specification: "V0_4_ARCHITECTURE_APPROVED"
     implementation: "IMPLEMENTED_V0_1"
     canonical_content: "PRODUCTION_DYNAMIC_CONTENT_EMPTY"
-    internal_validation: "DETERMINISTIC_CONTRACT_PENDING_FINAL_GATE"
+    internal_validation: "DETERMINISTIC_CONTRACT"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    note: "Product #534 / PR #535 implements sparse source-traceable Career tau_t from NATAL evaluation + E_decade/year. A dynamic entry requires explicit TemporalReactionEvidence.matched_natal_rule_ids linkage to an actually matched NATAL rule. Production temporal reaction registry is still empty, therefore production tau is PARTIAL_UNKNOWN with zero entries and explicit blockers; this is not negative event evidence. No numeric magnitude, probability, M0 or predictive-validity claim is introduced."
+    note: "Product #534 / PR #535 implements sparse source-traceable Career tau_t from NATAL evaluation + E_decade/year. A dynamic entry requires explicit TemporalReactionEvidence.matched_natal_rule_ids linkage to an actually matched NATAL rule. Production temporal reaction registry is still empty, therefore production tau is PARTIAL_UNKNOWN with zero entries and explicit blockers; this is not negative event evidence. Product #539 consumes tau only through the separate source-supported M0 adapter."
 
   manifestation_m0:
     specification: "V0_4_ARCHITECTURE_APPROVED"
-    implementation: "NOT_IMPLEMENTED"
-    canonical_content: "EMPTY"
-    internal_validation: "NONE"
+    implementation: "IMPLEMENTED_V0_1"
+    canonical_content: "PRODUCTION_ONTOLOGY_MAPPING_AND_UPSTREAM_DYNAMIC_CONTENT_EMPTY"
+    internal_validation: "DETERMINISTIC_CONTRACT_PENDING_FINAL_GATE"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    note: "M0 is source-supported possibility only, not probability."
+    note: "Product #539 implements tau -> M0 source-supported possibility routing. Only rule IDs carried by actual tau entries enter the router; projection text and reaction effect names cannot create manifestation semantics or activation IDs. TEST_ONLY explicit mappings route with tau+mapping+ontology provenance while HYPOTHESIS/CASE_SUPPORT remain held. Production M0 remains empty/fail-closed because canonical temporal response content and WP06B/WP06C ontology/mapping content are not ready. probability_status remains UNKNOWN and predictive validity is NOT_VALIDATED."
 
   acquired_state_belief:
     specification: "FUTURE_V0_4"
@@ -174,7 +174,6 @@ capability_snapshot:
 
 critical_path:
   now:
-    - "PL3M0_CANONICAL_MANIFESTATION_CANDIDATES"
     - "WANG_METHOD_SCOPE_AND_FULL_CHART_REVIEW"
     - "CANONICAL_AND_METHOD_FIDELITY_BENCHMARK"
     - "FORECAST_LEDGER_ACTIVATION"
