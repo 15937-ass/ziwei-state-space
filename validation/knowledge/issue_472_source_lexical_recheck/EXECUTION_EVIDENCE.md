@@ -3,6 +3,7 @@
 Execution runtime: **OpenAI / ChatGPT code-mode GitHub-content assertions + local container checkout attempt**
 Base commit: `7865dfa8e02506cbff92454a4e00dbda2efede9f`
 Validated artifact/test content head before evidence/state sync: `cbccf56e806b7817854e7a8ac1e1638185baa24c`
+State sync commit (Knowledge lane checkpoint): `749a192ecd41bb4c70ff37cc13dbb79f4af14fde`
 
 ## Validation actually executed
 
