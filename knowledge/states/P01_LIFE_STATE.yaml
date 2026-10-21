@@ -8,19 +8,21 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "ACTIVE_NO_ACTIVE_WORK"
-  active_issue: null
-  active_branch: null
-  active_pr: null
-  canonical_checkpoint: "P01_001_100_CANONICAL_ON_MAIN"
-  note: "Issue #548 / PR #560 merged the first 100 P01 source-readjudicated records to main. Archived pre-G12 material remains noncanonical acceleration evidence only."
+  status: "ACTIVE_PR_MERGE_READY_NARROW_SCOPE"
+  active_issue: 568
+  active_branch: "knowledge/p01-568-life-canonical-101-200"
+  active_pr: 571
+  canonical_checkpoint: "P01_101_200_SOURCE_READJUDICATED_PR_571_MERGE_READY"
+  note: "P02-101..200 historical candidates re-adjudicated against SRC-ZZ-003 printed pp6-9. Issue-defined data-only OpenAI validation passed; PR #571 is merge-ready subject to final exact-head/base check. Automatic GitHub Actions intentionally skipped."
 
 progress:
-  canonical_source_records_ready: 100
-  reusable_projection_rules: 79
-  case_support_only: 21
-  next_source_anchor: "printed p5-p6 omissions first, then 辰戌机梁后续 -> 巳亥天机 -> 太阳"
-  source_coverage_gaps_recorded: 3
+  canonical_source_records_on_main: 100
+  canonical_source_records_ready_on_branch: 100
+  cumulative_after_merge: 200
+  cumulative_reusable_projection_rules_after_merge: 149
+  cumulative_case_support_only_after_merge: 51
+  source_coverage_gaps_recorded_in_current_batch: 18
+  next_source_anchor: "first repair recorded pp5-9 source gaps, then 天同总论 / 子午同阴"
 
 integrity:
   source_first: true
