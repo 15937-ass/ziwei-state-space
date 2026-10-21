@@ -9,7 +9,7 @@ GAPS = ROOT / "knowledge/palaces/P05_wealth/w02/WEALTH_W02_SOURCE_GAPS_v0.1.json
 EXPECTED_IDS = {f"W02-{i:03d}" for i in range(101, 201)}
 EXPECTED_NON_NATAL = {"W02-114", "W02-115", "W02-160"}
 EXPECTED_PATH = {"W02-114", "W02-115", "W02-119", "W02-143"}
-EXPECTED_UNCERTAIN = {"W02-135", "W02-138", "W02-139", "W02-192", "W02-194"}
+EXPECTED_UNCERTAIN = {"W02-138", "W02-139"}
 ALLOWED_DISPOSITIONS = {
     "DIRECT_SOURCE_RECHECK_CONFIRMED",
     "DIRECT_SOURCE_RECHECK_REVISED",
@@ -66,8 +66,8 @@ def test_w02_critical_source_repairs_are_frozen():
     assert records["W02-159"]["canonical_target"] == "financial_state_is_variable"
     assert records["W02-166"]["canonical_target"].startswith("source_attributes_")
     assert "relatively_better" in records["W02-172"]["canonical_target"]
-    assert "入斋" in records["W02-192"]["canonical_condition"]
-    assert records["W02-194"]["canonical_target"] == "avoid_excessive_scheming_as_remedial_guidance"
+    assert "太阴入庙" in records["W02-192"]["canonical_condition"]
+    assert records["W02-194"]["canonical_target"] == "open_mindedness_and_avoidance_of_scheming_as_remedial_guidance"
 
 def test_w02_does_not_create_flank_semantics_from_ocr_surface():
     records = {r["projection_rule_id"]: r for r in load(READJ)["records"]}
