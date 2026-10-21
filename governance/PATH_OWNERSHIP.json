@@ -30,11 +30,12 @@
       "PROJECT_STATE.yaml",
       "product/PRODUCT_STATE.yaml",
       "knowledge/KNOWLEDGE_STATE.yaml",
+      "knowledge/states/**",
       "product/phases/**",
       "tools/validate_governance.py",
       "tests/test_governance_*.py",
       "tests/test_a1_invariants.py"
     ]
   },
-  "note": "Read access is broad. Routine writes follow lane ownership. The exact shared invariant test is governance-writable because Governance v1 moves historical closure truth out of PROJECT_STATE into its canonical closure report."
+  "note": "Read access is broad. Routine writes follow lane ownership. Knowledge palace branches receive an additional shard write-set restriction from governance/KNOWLEDGE_SHARDS.json; Governance may create/migrate shard state files."
 }
