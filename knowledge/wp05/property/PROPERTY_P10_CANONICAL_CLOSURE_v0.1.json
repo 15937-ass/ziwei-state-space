@@ -1,0 +1,88 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P10-PROPERTY-CANONICAL-CLOSURE-v0.1",
+  "issue": 537,
+  "lane": "KNOWLEDGE_ONLY",
+  "palace_id": "P10",
+  "palace_name": "田宅宫",
+  "status": "CANONICAL_SOURCE_REVIEW_CLOSED_358_OF_358",
+  "source_basis": {
+    "source_id": "SRC-ZZ-003",
+    "work": "中州派紫微斗数深造讲义（下册）",
+    "chapter": "田宅宫",
+    "printed_span": "153-165",
+    "terminal_rule_id": "TP04-358",
+    "terminal_printed_page": 165,
+    "next_printed_heading": "福德宫",
+    "archived_snapshot_status": "NONCANONICAL_HISTORY_ONLY"
+  },
+  "canonical_units": [
+    {
+      "batch": "TP01",
+      "range": "001-100",
+      "issue": 515,
+      "pr": 519,
+      "reviewed": 100,
+      "reusable": 91,
+      "case_support_only": 9,
+      "history_feedback": 4,
+      "status": "MERGED"
+    },
+    {
+      "batch": "TP02",
+      "range": "101-200",
+      "issue": 522,
+      "pr": 524,
+      "reviewed": 100,
+      "reusable": 85,
+      "case_support_only": 15,
+      "history_feedback": 5,
+      "status": "MERGED"
+    },
+    {
+      "batch": "TP03",
+      "range": "201-300",
+      "issue": 525,
+      "pr": 532,
+      "reviewed": 100,
+      "reusable": 82,
+      "case_support_only": 18,
+      "history_feedback": 2,
+      "status": "MERGED"
+    },
+    {
+      "batch": "TP04",
+      "range": "301-358",
+      "issue": 537,
+      "pr": null,
+      "reviewed": 58,
+      "reusable": 50,
+      "case_support_only": 8,
+      "history_feedback": 3,
+      "status": "SOURCE_RECHECK_COMPLETE_PENDING_PR"
+    }
+  ],
+  "totals": {
+    "reviewed": 358,
+    "reusable_projection_rules": 308,
+    "case_support_only": 50,
+    "history_feedback": 14,
+    "canonical_id_first": "TP01-001",
+    "canonical_id_last": "TP04-358",
+    "source_span_complete": true,
+    "cross_boundary_imports": 0,
+    "new_primitive_qi": 0,
+    "new_memory_type": 0,
+    "new_independent_time_scale": 0,
+    "numeric_weight": 0,
+    "probability": 0,
+    "decay": 0
+  },
+  "closure_assertions": [
+    "All 358 P10 candidate IDs are covered by direct canonical source review.",
+    "The next printed heading after TP04-358 is 福德宫; no P11 source statement is included in P10.",
+    "Archived twelve-palace artifacts remain noncanonical and cannot override the four canonical TP batches.",
+    "CASE_SUPPORT_ONLY and PATH_DEPENDENT_GATE records remain bounded; no empirical probability or numeric causal strength is inferred."
+  ],
+  "human_gate_required": false
+}
