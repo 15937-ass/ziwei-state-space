@@ -22,14 +22,14 @@ def test_disposition_counts_are_frozen():
     assert a["summary"]["disposition_counts"]=={
         "CLOSED_WORLD_NEGATION_GATED":11,
         "SOURCE_LOCAL_QUANTIFIER_CANDIDATE":14,
-        "NAMED_GROUP_RELATION_REVIEW":57,
+        "NAMED_GROUP_RELATION_REVIEW":60,
         "COMPOUND_OR_DEPENDENCY_GATED":7,
-        "OPEN_CATEGORY_NO_UNIVERSAL_RULE_CANDIDATE":7,
+        "OPEN_CATEGORY_NO_UNIVERSAL_RULE_CANDIDATE":4,
         "SOURCE_RECHECK_REQUIRED":4,
     }
-    assert a["summary"]["source_researchable_rows"]==75
+    assert a["summary"]["source_researchable_rows"]==78
     assert a["summary"]["structural_gate_rows"]==18
-    assert a["summary"]["open_no_universal_rule_candidate_rows"]==7
+    assert a["summary"]["open_no_universal_rule_candidate_rows"]==4
 
 def test_selected_rows_match_canonical_v05_strategy():
     a,c=load(ART),load(C5)
@@ -75,3 +75,12 @@ def test_guardrails_keep_product_and_actions_out():
     assert g["github_actions_used"] is False
     assert g["numeric_weights_added"] is False
     assert g["probabilities_added"] is False
+
+def test_canonical_category_lexicon_prevents_false_open_classification():
+    a=load(ART)
+    rows={r["source_rule_id"]:r for r in a["records"]}
+    assert rows["CA01-085"]["primary_disposition"]=="NAMED_GROUP_RELATION_REVIEW"  # 煞曜 closed membership
+    assert rows["CA02-133"]["primary_disposition"]=="NAMED_GROUP_RELATION_REVIEW"  # 吉化 closed membership
+    assert rows["CA02-147"]["primary_disposition"]=="NAMED_GROUP_RELATION_REVIEW"  # 见煞 scoped alias
+    assert rows["CA01-098"]["primary_disposition"]=="OPEN_CATEGORY_NO_UNIVERSAL_RULE_CANDIDATE"
+    assert rows["CA02-107"]["primary_disposition"]=="OPEN_CATEGORY_NO_UNIVERSAL_RULE_CANDIDATE"
