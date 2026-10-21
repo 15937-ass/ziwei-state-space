@@ -369,8 +369,14 @@ def inventory_career_temporal_eligibility() -> SourceFamilyInventory:
         raise ValueError("Career temporal disposition counts do not cover candidates")
 
     if eligible > 0:
-        readiness = "COMPILER_READY_KR"
-        blockers: tuple[str, ...] = ()
+        # "Eligible for current compiler" is a Knowledge-owned eligibility
+        # finding, not proof that a canonical Kr contract exists.  Product may
+        # surface it as candidate material but may not promote it to Kr.
+        readiness = "SOURCE_TEMPORAL_CANDIDATE_AWAITING_KR_NORMALIZATION"
+        blockers: tuple[str, ...] = (
+            "CANONICAL_KR_CONTRACT_REQUIRED_AFTER_ELIGIBILITY",
+            "NO_PRODUCT_PROMOTION_OF_ELIGIBILITY_TO_KR",
+        )
     else:
         readiness = "KNOWLEDGE_EXPLICITLY_BLOCKED"
         blockers = (
@@ -436,15 +442,15 @@ def inventory_response_semantics_pilot() -> SourceFamilyInventory:
     executable = sum(
         1 for row in records if row.get("execution_status") == "SAFE_SYMBOLIC"
     )
-    if executable:
-        readiness = "COMPILER_READY_KR"
-        blockers: tuple[str, ...] = ()
-    else:
-        readiness = "SEMANTIC_VOCABULARY_ONLY"
-        blockers = (
-            "NO_TEMPORAL_SCOPE_BINDING",
-            "NO_COMPILER_EXECUTION_STATUS",
-        )
+    # ResponseSemanticsRecord is vocabulary/structure for the Product adapter;
+    # SAFE_SYMBOLIC, if it appears in a future pilot revision, still does not
+    # turn this artifact into a temporal Kr corpus.
+    readiness = "SEMANTIC_VOCABULARY_ONLY"
+    blockers_list = ["NO_CANONICAL_KR_RECORD_CONTRACT"]
+    if all(value == "(unset)" for value in time_layers):
+        blockers_list.append("NO_TEMPORAL_SCOPE_BINDING")
+    blockers_list.append("RESPONSE_SEMANTICS_EXECUTION_STATUS_IS_NOT_KR_AUTHORIZATION")
+    blockers = tuple(blockers_list)
 
     return SourceFamilyInventory(
         family_id="RESPONSE_SEMANTICS_PILOT",
