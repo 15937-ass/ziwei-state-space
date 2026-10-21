@@ -236,6 +236,23 @@ def test_k_response_change_rebuilds_readiness_and_response_downstream_only():
     assert "METHOD_POLICY_PI" not in nodes
 
 
+def test_multi_component_change_preserves_all_invalidation_triggers():
+    active = _synthetic_bundle("A")
+    candidate = _semantic_mutation(active, "K_signal")
+    candidate = _semantic_mutation(candidate, "K_response")
+
+    impact = compare_bundles(active, candidate)
+    m0 = next(
+        item
+        for item in impact["downstream_invalidations"]
+        if item["artifact"] == "MANIFESTATION_M0"
+        and item["action"] == "MANIFESTATION_REBUILD"
+    )
+
+    assert m0["applicability"] == "IF_PRESENT"
+    assert m0["trigger_components"] == ["K_response", "K_signal"]
+
+
 def test_k_method_change_does_not_invalidate_natal_or_tau():
     active = _synthetic_bundle("A")
     candidate = _semantic_mutation(active, "K_method")
