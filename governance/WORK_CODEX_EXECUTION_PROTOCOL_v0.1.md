@@ -1,8 +1,13 @@
 # Work + Codex Execution Protocol v0.1
 
-Status: **ACTIVE GOVERNANCE EXECUTION CONTRACT**  
+> **HISTORICAL / SUPERSEDED — DO NOT USE FOR CURRENT RECOVERY OR ACTIONS POLICY.**  
+> G8 (`governance/PUBLIC_ACTIONS_EXECUTION_PROTOCOL_v0.2.md`) supersedes this file for routine execution.  
+> G9 / Issue #374 further makes the current ChatGPT conversation a first-class repository operator.  
+> Any statement below saying Actions are manual-only or that Work/Codex must own repository writes is historical evidence only.
+
+Status: **HISTORICAL — SUPERSEDED FOR ROUTINE EXECUTION BY G8/G9**  
 Tracking Issue: #340  
-Effective after merge of G7.
+Effective period: G7 until superseded by G8.
 
 ## 1. Purpose
 
@@ -127,9 +132,11 @@ A statement such as "tests should pass" is not evidence.
 - If an OpenAI execution environment cannot run a required external dependency, record the blocker and do not claim validation.
 - Do not spend GitHub Actions minutes merely to reproduce validation already completed in Codex.
 
-## 7. GitHub Actions policy
+## 7. Historical GitHub Actions policy — DO NOT APPLY
 
-All workflows under `.github/workflows/` are manual-only after G7.
+The following was the G7 policy during its effective period. It is retained for audit history only.
+
+All workflows under `.github/workflows/` were manual-only under G7.
 
 Allowed use:
 - explicit emergency/manual reproduction;
@@ -154,3 +161,10 @@ To revert G7:
 The PI approved the G7 migration in chat on 2026-10-19.
 
 The migration changes execution infrastructure only. It does **not** authorize changes to Zhongzhou theory, canonical source truth, probability claims, temporal semantics, or Product maturity claims.
+
+
+## 10. Supersession pointer
+
+Current execution policy is defined only by `PROJECT_STATE.yaml -> authority.current_execution_protocol`, currently `governance/PUBLIC_ACTIONS_EXECUTION_PROTOCOL_v0.2.md`.
+
+For session recovery, follow `governance/RECOVERY_PRECEDENCE_v1.md`. Do not infer current policy from this historical file even if a search result surfaces Sections 2, 6, 7, or 8.
