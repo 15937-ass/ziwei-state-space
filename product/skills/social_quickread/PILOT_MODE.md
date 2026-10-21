@@ -221,3 +221,48 @@ hallucination_count == 0
 validated claims / approved source fallback。
 
 Git 中禁止保存小红书用户名、帖子 URL、头像、原始盘图和精确出生时间。
+
+
+## 10. Temporal-4H Mini Mode
+
+当 PI 问“近两年 / 某一年 / 哪年出去 / 哪年感情动 / 哪年工作变”时，
+Manual Pilot 可以额外启用 `Temporal-4H Mini Kernel v0.1`。
+
+输入优先级：
+
+1. 已验证 P1 temporal snapshot；
+2. 命盘截图中人工读取的当前大限宫干 + 目标流年天干；
+3. 信息不足则不运行，不让 LLM 猜宫干。
+
+流程：
+
+```text
+原局基础判断
+ -> 当前大限宫星
+ -> 大限四化
+ -> 流年落宫
+ -> 流年四化
+ -> 同星/同宫跨层交互
+ -> 必要时检查生年四化同星再激活
+ -> 回原书/现有 reviewed rule 做语义解释
+ -> QuickRead
+```
+
+### Provenance
+
+- P1 runtime 直接提供四化且有 run id：
+  `RUNTIME_TEMPORAL`
+- PI/GPT 从截图读取天干，再由 sidecar 固定表计算：
+  `DETERMINISTIC_TEMPORAL_SIDECAR`
+- 对“这意味着事业推进 / 感情消耗 / 财务压力”等语义解释：
+  必须另有 reviewed/source-backed evidence；否则不得输出。
+
+`DETERMINISTIC_TEMPORAL_SIDECAR` 只证明：
+“某层某星化某曜并落某宫”这个结构事实，
+不自动证明事件层结论。
+
+### 当前限制
+
+v0.1 的 `NATAL_STAR_REACTIVATED` 只检测**同一颗生年化曜星**
+在大限/流年再次发生四化；尚不把三方四正冲会自动称为“冲起”。
+关系图版本留给后续增量。
