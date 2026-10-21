@@ -65,9 +65,10 @@ The probe uses the same Product chart family:
 
 ```text
 engine           iztro-js 2.6.1
+entrypoint       astro.byLunar
 calendar input   lunar
-algorithm        zhongzhou
-astro type       heaven
+algorithm        zhongzhou (explicit astro.config defaults)
+astro type       heaven (byLunar default)
 fix_leap         true
 day_divide       forward
 year_divide      normal
@@ -79,10 +80,12 @@ Every source-bounded input candidate is reconstructed independently.
 The output chart is then checked against the already source-reviewed blind
 anchor:
 
-1. target palace identity/domain;
+1. target palace identity, using the source-reviewed palace label and explicit Product alias set;
 2. direct fourteen-major-star system;
 3. for an empty-main-star target, the opposite-palace major-star system that
-   the source explicitly borrows.
+   the source explicitly borrows;
+4. any candidate-level engine failure blocks uniqueness for the entire case and
+   is retained in the case's `engine_errors` list.
 
 The probe does not compare expert conclusions or outcomes.
 
@@ -128,7 +131,7 @@ case target domain.
 
 ## Observed result
 
-The first pinned probe resolved the 24 cases into four evidence states:
+The first pinned probe resolved the 24 cases across five readiness classes (with zero engine-unsupported cases):
 
 - 11 unique target-anchor matches;
 - 6 multiple target-anchor matches;

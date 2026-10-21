@@ -417,6 +417,7 @@ def validate_wang_reconstruction_readiness(payload: Mapping[str, Any]) -> None:
     expected_probe = {
         "engine": "iztro-js",
         "engine_version": "2.6.1",
+        "entrypoint": "astro.byLunar",
         "algorithm": "zhongzhou",
         "input_calendar": "lunar",
         "astro_type": "heaven",
@@ -486,20 +487,47 @@ def validate_wang_reconstruction_readiness(payload: Mapping[str, Any]) -> None:
         is_ready = row.get("full_chart_materialization_ready")
         if is_ready is not (status == "UNIQUE_ANCHOR_MATCH"):
             raise ValueError(f"{case_id}: full-chart readiness/status mismatch")
-        if status == "UNIQUE_ANCHOR_MATCH" and match_count != 1:
-            raise ValueError(f"{case_id}: UNIQUE_ANCHOR_MATCH requires exactly one match")
-        if status == "MULTIPLE_ANCHOR_MATCH" and match_count < 2:
-            raise ValueError(f"{case_id}: MULTIPLE_ANCHOR_MATCH requires >=2 matches")
+        engine_errors = row.get("engine_errors")
+        if not isinstance(engine_errors, list):
+            raise ValueError(f"{case_id}: engine_errors must be an array")
+        if len(engine_errors) != source_count - evaluated_count:
+            raise ValueError(f"{case_id}: engine error count must account for every unevaluated candidate")
+        error_ids = []
+        for error in engine_errors:
+            if not isinstance(error, Mapping):
+                raise ValueError(f"{case_id}: engine error entry must be an object")
+            candidate_id = str(error.get("candidate_id") or "")
+            message = str(error.get("error") or "")
+            if not candidate_id.startswith(prefix) or not message:
+                raise ValueError(f"{case_id}: malformed candidate engine error")
+            error_ids.append(candidate_id)
+        if len(error_ids) != len(set(error_ids)):
+            raise ValueError(f"{case_id}: duplicate engine error candidate id")
+        if status == "ENGINE_UNSUPPORTED":
+            if not engine_errors or evaluated_count >= source_count:
+                raise ValueError(f"{case_id}: ENGINE_UNSUPPORTED requires preserved candidate errors")
+        elif engine_errors:
+            raise ValueError(f"{case_id}: candidate engine errors must block the case status")
+        if status == "UNIQUE_ANCHOR_MATCH" and (
+            match_count != 1 or evaluated_count != source_count
+        ):
+            raise ValueError(
+                f"{case_id}: UNIQUE_ANCHOR_MATCH requires exactly one match and all candidates evaluated"
+            )
+        if status == "MULTIPLE_ANCHOR_MATCH" and (
+            match_count < 2 or evaluated_count != source_count
+        ):
+            raise ValueError(
+                f"{case_id}: MULTIPLE_ANCHOR_MATCH requires >=2 matches and all candidates evaluated"
+            )
         if status == "NO_ANCHOR_MATCH" and (
-            match_count != 0 or evaluated_count == 0
+            match_count != 0 or evaluated_count == 0 or evaluated_count != source_count
         ):
             raise ValueError(f"{case_id}: NO_ANCHOR_MATCH count mismatch")
         if status == "BLOCKED_SOURCE_INCOMPLETE" and (
-            source_count != 0 or evaluated_count != 0 or match_count != 0
+            source_count != 0 or evaluated_count != 0 or match_count != 0 or engine_errors
         ):
             raise ValueError(f"{case_id}: blocked source row must stay unevaluated")
-        if status == "ENGINE_UNSUPPORTED" and evaluated_count != 0:
-            raise ValueError(f"{case_id}: engine-unsupported row cannot be evaluated")
 
         census[status] += 1
         source_candidate_inputs += source_count
@@ -532,6 +560,8 @@ def validate_wang_reconstruction_readiness(payload: Mapping[str, Any]) -> None:
         "no_match_is_not_corrected_from_biography",
         "blocked_source_input_is_not_backfilled",
         "target_anchor_is_major_star_system_only",
+        "target_palace_identity_checked",
+        "partial_engine_failure_blocks_promotion",
     ):
         if boundaries.get(key) is not True:
             raise ValueError(f"Wang reconstruction boundary must stay true: {key}")

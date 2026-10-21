@@ -19,14 +19,15 @@ Tracking: Product #545
 
 The probe must:
 
-1. use lunar input directly;
-2. use the pinned Zhongzhou Product configuration;
+1. use `astro.byLunar` with the pinned `iztro-js 2.6.1` package;
+2. set the Zhongzhou and time-boundary defaults explicitly before chart creation;
 3. enumerate only source-bounded day/time candidates;
-4. compare only against `BLIND_EVIDENCE_V0_1` target-palace anchors;
+4. compare source-reviewed target-palace identity as well as its major-star anchor;
 5. support direct and explicit opposite-borrowed major-star anchors;
-6. preserve engine errors rather than dropping them;
-7. distinguish unique/multiple/no match;
-8. never promote blocked or ambiguous source input to a full-chart claim.
+6. preserve every candidate-level engine error in the per-case `engine_errors` list;
+7. if any candidate errors, classify the entire case as `ENGINE_UNSUPPORTED`, even if another candidate matches;
+8. distinguish unique/multiple/no match;
+9. never promote blocked, ambiguous, partially evaluated, or engine-unsupported input to a full-chart claim.
 
 ## Full-chart promotion rule
 

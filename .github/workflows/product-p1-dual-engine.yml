@@ -60,7 +60,7 @@ jobs:
 
       - name: Probe Wang source-bounded lunar reconstruction
         run: |
-          node tools/wang_lunar_reconstruction_probe.mjs \
+          node product/tools/wang_lunar_reconstruction_probe.mjs \
             product/expert_cases/wang_tingzhi/SOURCE_BIRTH_SIGNATURES_V0_1.json \
             product/expert_cases/wang_tingzhi/BLIND_EVIDENCE_V0_1.json \
             /tmp/wang_reconstruction_readiness.json

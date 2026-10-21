@@ -4,7 +4,7 @@
  *
  * Usage:
  *   npm install --no-save iztro@2.6.1
- *   node tools/wang_lunar_reconstruction_probe.mjs \
+ *   node product/tools/wang_lunar_reconstruction_probe.mjs \
  *     product/expert_cases/wang_tingzhi/SOURCE_BIRTH_SIGNATURES_V0_1.json \
  *     product/expert_cases/wang_tingzhi/BLIND_EVIDENCE_V0_1.json \
  *     /tmp/wang_reconstruction_readiness.json
@@ -19,7 +19,7 @@ import { astro } from "iztro";
 const [signaturePath, blindEvidencePath, outputPath] = process.argv.slice(2);
 if (!signaturePath || !blindEvidencePath || !outputPath) {
   throw new Error(
-    "Usage: node tools/wang_lunar_reconstruction_probe.mjs " +
+    "Usage: node product/tools/wang_lunar_reconstruction_probe.mjs " +
       "SOURCE_BIRTH_SIGNATURES.json BLIND_EVIDENCE.json OUTPUT.json"
   );
 }
@@ -54,7 +54,7 @@ const DOMAIN_PALACE_ALIASES = {
   WEALTH: ["财帛"],
   HEALTH: ["疾厄"],
   TRAVEL: ["迁移"],
-  FRIENDS: ["仆役", "交友"],
+  FRIENDS: ["奴仆", "仆役", "交友"],
   CAREER: ["官禄", "事业"],
   PROPERTY: ["田宅"],
   FORTUNE_VIRTUE: ["福德"],
@@ -74,6 +74,16 @@ const OPPOSITE_BRANCH = {
   戌: "辰",
   亥: "巳",
 };
+
+// astro.byLunar reads the pinned chart configuration from the global defaults.
+// Set it once before any chart is constructed so every candidate uses the same
+// Zhongzhou/time-boundary contract.
+astro.config({
+  algorithm: "zhongzhou",
+  dayDivide: "forward",
+  yearDivide: "normal",
+  horoscopeDivide: "normal",
+});
 
 function normalizePalaceName(value) {
   return String(value ?? "").trim().replace(/宫$/u, "");
@@ -143,24 +153,22 @@ function candidateInputs(row) {
 
 function renderCandidate(row, anchor, candidate) {
   try {
-    const chart = astro.withOptions({
-      type: "lunar",
-      dateStr: candidate.lunar_date,
-      timeIndex: Number(candidate.time_index),
-      gender: candidate.gender,
-      isLeapMonth: candidate.is_leap_month,
-      fixLeap: true,
-      language: "zh-CN",
-      astroType: "heaven",
-      config: {
-        algorithm: "zhongzhou",
-        dayDivide: "forward",
-        yearDivide: "normal",
-        horoscopeDivide: "normal",
-      },
-    });
+    const chart = astro.byLunar(
+      candidate.lunar_date,
+      Number(candidate.time_index),
+      candidate.gender,
+      candidate.is_leap_month,
+      true,
+      "zh-CN"
+    );
     const raw = typeof chart.toJSON === "function" ? chart.toJSON() : chart;
     const target = findTargetPalace(raw, anchor.target_domain);
+    const targetPalaceAliases = DOMAIN_PALACE_ALIASES[anchor.target_domain] ?? [];
+    const expectedTargetPalaceName = normalizePalaceName(anchor.target_palace);
+    const observedTargetPalaceName = normalizePalaceName(target.name);
+    const targetPalaceIdentityMatch =
+      targetPalaceAliases.includes(expectedTargetPalaceName) &&
+      targetPalaceAliases.includes(observedTargetPalaceName);
     const observedDirect = stableMajorNames(target.majorStars);
     let observedBorrowed = [];
     if (anchor.target_palace_empty_main_star) {
@@ -192,12 +200,15 @@ function renderCandidate(row, anchor, candidate) {
         : null,
       target_palace_name: target.name ?? null,
       target_palace_branch: target.earthlyBranch ?? null,
+      expected_target_palace_name: anchor.target_palace ?? null,
+      target_palace_identity_match: targetPalaceIdentityMatch,
       observed_target_main_stars: observedDirect,
       observed_borrowed_opposite_main_stars: observedBorrowed,
       expected_target_main_stars: anchor.target_palace_main_stars ?? [],
       expected_borrowed_opposite_main_stars:
         anchor.borrowed_from_opposite_main_stars ?? [],
-      anchor_match: directMatch && borrowedMatch && emptyMatch,
+      anchor_match:
+        targetPalaceIdentityMatch && directMatch && borrowedMatch && emptyMatch,
       engine_error: null,
     };
   } catch (error) {
@@ -229,6 +240,7 @@ function probeCase(row) {
       status: "BLOCKED_SOURCE_INCOMPLETE",
       matched_candidate_ids: [],
       candidates: [],
+      engine_errors: [],
       full_chart_materialization_ready: false,
     };
   }
@@ -239,9 +251,19 @@ function probeCase(row) {
   );
   const evaluated = candidates.filter((item) => !item.engine_error);
   const matched = evaluated.filter((item) => item.anchor_match);
+  const engineErrors = candidates
+    .filter((item) => item.engine_error)
+    .map((item) => ({
+      candidate_id: item.candidate_id,
+      error: item.engine_error,
+    }));
 
   let status;
-  if (!evaluated.length) status = "ENGINE_UNSUPPORTED";
+  // A case is unique only when every source-bounded candidate was evaluated.
+  // Any candidate-level engine/probe failure keeps the whole case unsupported.
+  if (engineErrors.length > 0 || evaluated.length !== inputs.length) {
+    status = "ENGINE_UNSUPPORTED";
+  } else if (!evaluated.length) status = "ENGINE_UNSUPPORTED";
   else if (matched.length === 1) status = "UNIQUE_ANCHOR_MATCH";
   else if (matched.length > 1) status = "MULTIPLE_ANCHOR_MATCH";
   else status = "NO_ANCHOR_MATCH";
@@ -255,6 +277,7 @@ function probeCase(row) {
     anchor_match_count: matched.length,
     status,
     matched_candidate_ids: matched.map((item) => item.candidate_id),
+    engine_errors: engineErrors,
     candidates,
     full_chart_materialization_ready: status === "UNIQUE_ANCHOR_MATCH",
   };
@@ -273,6 +296,7 @@ const output = {
   engine: {
     name: "iztro-js",
     version: signatures.reconstruction_policy.engine_version,
+    entrypoint: "astro.byLunar",
     algorithm: "zhongzhou",
     astro_type: "heaven",
     input_calendar: "lunar",
@@ -311,6 +335,8 @@ const output = {
     method_scope_broadened: false,
     empirical_probability_used: false,
     full_chart_claim_requires_unique_anchor_match: true,
+    target_palace_identity_checked: true,
+    partial_engine_failure_blocks_promotion: true,
   },
 };
 

@@ -1,5 +1,6 @@
 import copy
 import json
+from pathlib import Path
 
 import pytest
 
@@ -8,6 +9,7 @@ from src.product.wang_source_reconstruction import (
     load_wang_reconstruction_readiness,
     load_wang_source_birth_signatures,
     validate_wang_source_birth_signatures,
+    validate_wang_reconstruction_readiness,
     wang_source_candidate_census,
     wang_source_candidates,
 )
@@ -131,6 +133,9 @@ def test_stored_reconstruction_readiness_matches_probe_result():
         "full_chart_materialization_ready": 11,
     }
     rows = {row["case_id"]: row for row in report["cases"]}
+    assert all(row["engine_errors"] == [] for row in rows.values())
+    assert report["boundaries"]["target_palace_identity_checked"] is True
+    assert report["boundaries"]["partial_engine_failure_blocks_promotion"] is True
     assert {
         case_id
         for case_id, row in rows.items()
@@ -181,3 +186,60 @@ def test_ambiguous_and_no_match_cases_remain_fail_closed():
         for row in rows.values()
         if row["status"] != "UNIQUE_ANCHOR_MATCH"
     )
+
+
+def test_probe_uses_explicit_by_lunar_entrypoint_and_target_identity_gate():
+    probe_path = (
+        Path(__file__).resolve().parents[1]
+        / "product"
+        / "tools"
+        / "wang_lunar_reconstruction_probe.mjs"
+    )
+    probe = probe_path.read_text(encoding="utf-8")
+    assert "astro.byLunar(" in probe
+    assert "astro.withOptions(" not in probe
+    assert 'entrypoint: "astro.byLunar"' in probe
+    assert 'algorithm: "zhongzhou"' in probe
+    assert "targetPalaceIdentityMatch" in probe
+    assert 'FRIENDS: ["奴仆", "仆役", "交友"]' in probe
+    assert "engineErrors.length > 0 || evaluated.length !== inputs.length" in probe
+
+
+def test_partial_engine_failure_cannot_be_promoted_as_unique():
+    report = copy.deepcopy(load_wang_reconstruction_readiness())
+    row = next(item for item in report["cases"] if item["case_id"] == "WANG-CASE-002")
+    row["status"] = "UNIQUE_ANCHOR_MATCH"
+    row["evaluated_candidate_count"] = 1
+    row["anchor_match_count"] = 1
+    row["matched_candidate_ids"] = ["WANG-CASE-002:D10:T09"]
+    row["engine_errors"] = [
+        {
+            "candidate_id": "WANG-CASE-002:D11:T09",
+            "error": "synthetic engine failure",
+        }
+    ]
+    row["full_chart_materialization_ready"] = True
+    with pytest.raises(ValueError, match="candidate engine errors must block the case status"):
+        validate_wang_reconstruction_readiness(report)
+
+
+def test_partial_engine_failure_is_preserved_and_remains_unsupported():
+    report = copy.deepcopy(load_wang_reconstruction_readiness())
+    row = next(item for item in report["cases"] if item["case_id"] == "WANG-CASE-002")
+    row["status"] = "ENGINE_UNSUPPORTED"
+    row["evaluated_candidate_count"] = 1
+    row["anchor_match_count"] = 1
+    row["matched_candidate_ids"] = ["WANG-CASE-002:D10:T09"]
+    row["engine_errors"] = [
+        {
+            "candidate_id": "WANG-CASE-002:D11:T09",
+            "error": "synthetic engine failure",
+        }
+    ]
+    row["full_chart_materialization_ready"] = False
+    report["summary"]["evaluated_candidate_inputs"] = 36
+    report["summary"]["multiple_anchor_match"] = 5
+    report["summary"]["engine_unsupported"] = 1
+    validate_wang_reconstruction_readiness(report)
+    assert row["status"] == "ENGINE_UNSUPPORTED"
+    assert row["full_chart_materialization_ready"] is False
