@@ -53,7 +53,7 @@ ACTIVATION_CLOSURE_PATH = (
     ROOT
     / "knowledge"
     / "wp07c"
-    / "CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.3.json"
+    / "CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.13.json"
 )
 CAREER_ORDINAL_CONSTRAINTS_PATH = (
     ROOT / "knowledge" / "wp08" / "CAREER_ORDINAL_CONSTRAINTS_v0.1.json"
@@ -65,7 +65,7 @@ CAREER_ORDINAL_BLOCKER_IMPACT_PATH = (
     ROOT / "knowledge" / "wp08" / "CAREER_ORDINAL_BLOCKER_IMPACT_v0.1.json"
 )
 CAREER_SEMANTIC_NORMALIZATION_PATH = (
-    ROOT / "knowledge" / "wp08" / "CAREER_SEMANTIC_NORMALIZATION_36_v0.1.json"
+    ROOT / "knowledge" / "wp08" / "CAREER_SEMANTIC_NORMALIZATION_36_v0.2.json"
 )
 
 KNOWLEDGE_EXECUTION_STATUSES = frozenset(
@@ -652,8 +652,8 @@ def load_career_semantic_normalization(
     path: Path = CAREER_SEMANTIC_NORMALIZATION_PATH,
 ) -> Mapping[str, Any]:
     payload = _read_json(path)
-    if payload.get("schema_version") != "0.1":
-        raise ValueError("Career semantic-normalization schema_version must be 0.1")
+    if payload.get("schema_version") != "0.2":
+        raise ValueError("Career semantic-normalization schema_version must be 0.2")
     raw = payload.get("records")
     if not isinstance(raw, list) or len(raw) != 36:
         raise ValueError("Career semantic-normalization artifact must contain 36 records")
@@ -929,7 +929,7 @@ def audit_response_semantics_adapter_readiness() -> dict[str, Any]:
 
     return {
         "schema_version": "0.1",
-        "artifact_id": "RESPONSE_SEMANTICS_ADAPTER_READINESS_V0_1",
+        "artifact_id": "RESPONSE_SEMANTICS_ADAPTER_READINESS_V0_2",
         "knowledge_inputs": {
             "response_pilot": str(
                 RESPONSE_PILOT_PATH.relative_to(ROOT)

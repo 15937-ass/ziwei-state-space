@@ -1,0 +1,183 @@
+{
+  "schema_version": "0.1",
+  "report_id": "PRODUCT_KNOWLEDGE_PROMOTION_CAREER_RESPONSE_V0_13",
+  "issue": 504,
+  "active_bundle_before": "KIB-PRODUCT-20261021-V0_1",
+  "candidate_bundle_id": "KIB-CANDIDATE-CAREER-RESPONSE-V0_13",
+  "promoted_bundle_id": "KIB-PRODUCT-20261021-V0_2",
+  "promotion_scope": "K_response only",
+  "knowledge_source_commit": "c84b639421c52a5a9a5719bfbed1973c8ba74cd3",
+  "candidate_verification": {
+    "status": "PASS",
+    "verified_artifact_count": 58,
+    "findings": []
+  },
+  "impact": {
+    "schema_version": "0.1",
+    "status": "READY_FOR_VALIDATION",
+    "active_bundle_id": "KIB-PRODUCT-20261021-V0_1",
+    "candidate_bundle_id": "KIB-CANDIDATE-CAREER-RESPONSE-V0_13",
+    "active_source_commit": "dabc492895721b0ccc310b32329f4585c6d599bf",
+    "candidate_source_commit": "c84b639421c52a5a9a5719bfbed1973c8ba74cd3",
+    "source_commit_changed": true,
+    "overall_impact": "READINESS_REBUILD",
+    "component_impacts": [
+      {
+        "component_id": "K_manifest",
+        "primary_action": "NO_RUNTIME_EFFECT",
+        "contract_changed": false,
+        "coverage_changed": false,
+        "artifact_set_changed": false,
+        "exact_changed": false,
+        "semantic_changed": false,
+        "artifact_deltas": []
+      },
+      {
+        "component_id": "K_method",
+        "primary_action": "NO_RUNTIME_EFFECT",
+        "contract_changed": false,
+        "coverage_changed": false,
+        "artifact_set_changed": false,
+        "exact_changed": false,
+        "semantic_changed": false,
+        "artifact_deltas": []
+      },
+      {
+        "component_id": "K_response",
+        "primary_action": "READINESS_REBUILD",
+        "contract_changed": false,
+        "coverage_changed": true,
+        "artifact_set_changed": true,
+        "exact_changed": true,
+        "semantic_changed": true,
+        "artifact_deltas": [
+          {
+            "path": "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.13.json",
+            "change_type": "ADDED",
+            "artifact_digest_before": null,
+            "artifact_digest_after": "git-sha1:0e58e9fc3698c22b81c57e59ddaee0381bb182fe",
+            "semantic_digest_before": null,
+            "semantic_digest_after": "git-sha1:0e58e9fc3698c22b81c57e59ddaee0381bb182fe"
+          },
+          {
+            "path": "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.3.json",
+            "change_type": "REMOVED",
+            "artifact_digest_before": "git-sha1:16aba337ee733650b21d3f54b66380cfb7b3d177",
+            "artifact_digest_after": null,
+            "semantic_digest_before": "git-sha1:16aba337ee733650b21d3f54b66380cfb7b3d177",
+            "semantic_digest_after": null
+          },
+          {
+            "path": "knowledge/wp08/CAREER_SEMANTIC_NORMALIZATION_36_v0.1.json",
+            "change_type": "REMOVED",
+            "artifact_digest_before": "git-sha1:57ffbe05cfc021be4f4517bbe33c9d7a4e3c90e2",
+            "artifact_digest_after": null,
+            "semantic_digest_before": "git-sha1:57ffbe05cfc021be4f4517bbe33c9d7a4e3c90e2",
+            "semantic_digest_after": null
+          },
+          {
+            "path": "knowledge/wp08/CAREER_SEMANTIC_NORMALIZATION_36_v0.2.json",
+            "change_type": "ADDED",
+            "artifact_digest_before": null,
+            "artifact_digest_after": "git-sha1:3f2e87009e7cf38cf8ffe1dde520114cb46f3ed3",
+            "semantic_digest_before": null,
+            "semantic_digest_after": "git-sha1:3f2e87009e7cf38cf8ffe1dde520114cb46f3ed3"
+          }
+        ]
+      },
+      {
+        "component_id": "K_signal",
+        "primary_action": "NO_RUNTIME_EFFECT",
+        "contract_changed": false,
+        "coverage_changed": false,
+        "artifact_set_changed": false,
+        "exact_changed": false,
+        "semantic_changed": false,
+        "artifact_deltas": []
+      }
+    ],
+    "direct_actions": [
+      "NO_RUNTIME_EFFECT",
+      "READINESS_REBUILD"
+    ],
+    "downstream_invalidations": [
+      {
+        "artifact": "CALIBRATED_MODEL",
+        "action": "RETRAIN_OR_RECALIBRATE",
+        "applicability": "IF_PRESENT",
+        "trigger_components": [
+          "K_response"
+        ]
+      },
+      {
+        "artifact": "EMPIRICAL_DATASET",
+        "action": "DATASET_REMATERIALIZE",
+        "applicability": "IF_PRESENT",
+        "trigger_components": [
+          "K_response"
+        ]
+      },
+      {
+        "artifact": "MANIFESTATION_M0",
+        "action": "MANIFESTATION_REBUILD",
+        "applicability": "IF_PRESENT",
+        "trigger_components": [
+          "K_response"
+        ]
+      },
+      {
+        "artifact": "RESPONSE_PROFILE_TAU",
+        "action": "SYMBOLIC_RECOMPILE",
+        "applicability": "IF_PRESENT",
+        "trigger_components": [
+          "K_response"
+        ]
+      },
+      {
+        "artifact": "RESPONSE_READINESS",
+        "action": "READINESS_REBUILD",
+        "applicability": "DIRECT",
+        "trigger_components": [
+          "K_response"
+        ]
+      }
+    ],
+    "blockers": []
+  },
+  "rebuild_result": {
+    "artifact": "product/RESPONSE_SEMANTICS_ADAPTER_READINESS_v0.1.json",
+    "expected_adapter_status_counts": {
+      "BLOCKED_DEPENDENCY_COMPILER": 27,
+      "BLOCKED_MULTIPLE": 44,
+      "BLOCKED_SOURCE_UNDERDETERMINED": 157,
+      "SEMANTIC_ONLY_PENDING_COMPILATION": 23
+    },
+    "runtime_effects_authorized": 0,
+    "condition_compiled_count": 0,
+    "knowledge_execution_unlocked_count": 0,
+    "validation_status": "PASS_SUBJECT_TO_FINAL_PR_CI"
+  },
+  "promotion_gate": {
+    "schema_version": "0.1",
+    "status": "PROMOTABLE",
+    "recommendation": "EXPLICIT_LOCK_PROMOTION_ALLOWED",
+    "candidate_bundle_id": "KIB-CANDIDATE-CAREER-RESPONSE-V0_13",
+    "required_validations": [
+      "READINESS_REGRESSION"
+    ],
+    "supplied_validation_results": {
+      "READINESS_REGRESSION": "PASS"
+    },
+    "blockers": [],
+    "active_lock_mutated": false
+  },
+  "promotion": {
+    "active_lock_target": "product/PRODUCT_KNOWLEDGE.lock.json",
+    "promoted_bundle_path": "product/PRODUCT_KNOWLEDGE_BUNDLE_V0_2.json",
+    "previous_bundle_path": "product/PRODUCT_KNOWLEDGE_BUNDLE_V0_1.json",
+    "merge_required_before_active": true,
+    "runtime_execution_unlock": false,
+    "response_compiler_ready": false,
+    "rollback_preserved": true
+  }
+}

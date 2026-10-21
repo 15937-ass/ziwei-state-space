@@ -37,7 +37,7 @@ SYNTHETIC = (
     ROOT / "product" / "RESPONSE_SEMANTICS_ADAPTER_SYNTHETIC_FIXTURE_v0.1.json"
 )
 READINESS = (
-    ROOT / "product" / "RESPONSE_SEMANTICS_ADAPTER_READINESS_v0.1.json"
+    ROOT / "product" / "RESPONSE_SEMANTICS_ADAPTER_READINESS_v0.2.json"
 )
 
 
@@ -221,6 +221,21 @@ def test_named_composite_authorization_requires_exact_application_term():
     assert "NAMED_COMPOSITE_NOT_GENERIC_SHORTHAND" in wrong_term.blockers
 
 
+def test_promoted_career_response_inputs_are_explicit_superseding_versions():
+    assert ACTIVATION_CLOSURE_PATH.name == (
+        "CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.13.json"
+    )
+    assert CAREER_SEMANTIC_NORMALIZATION_PATH.name == (
+        "CAREER_SEMANTIC_NORMALIZATION_36_v0.2.json"
+    )
+    activation = load_activation_closure()
+    normalization = load_career_semantic_normalization()
+    assert activation["schema_version"] == "0.13"
+    assert activation["summary"]["conditions_compiled"] == 0
+    assert activation["summary"]["execution_unlocked"] == 0
+    assert normalization["schema_version"] == "0.2"
+
+
 def test_career_response_and_activation_join_is_exact_251():
     compatibility = load_career_compatibility_records()
     activation = load_activation_closure()
@@ -241,17 +256,15 @@ def test_career_adapter_preserves_knowledge_readiness_classes():
     decisions = build_career_response_decisions()
 
     assert Counter(item.knowledge_readiness_class for item in decisions) == {
-        "MULTI_CLASS_BLOCKED": 46,
-        "LOCAL_STRUCTURE_READY": 17,
-        "SOURCE_UNDERDETERMINED": 160,
-        "STRUCTURED_PATTERN_COMPILER_GATED": 1,
+        "MULTI_CLASS_BLOCKED": 44,
+        "LOCAL_STRUCTURE_READY": 23,
+        "SOURCE_UNDERDETERMINED": 157,
         "DEPENDENCY_COMPILER_GATED": 27,
     }
     assert Counter(item.adapter_status for item in decisions) == {
-        "BLOCKED_MULTIPLE": 46,
-        "SEMANTIC_ONLY_PENDING_COMPILATION": 17,
-        "BLOCKED_SOURCE_UNDERDETERMINED": 160,
-        "BLOCKED_STRUCTURED_PATTERN_COMPILER": 1,
+        "BLOCKED_MULTIPLE": 44,
+        "SEMANTIC_ONLY_PENDING_COMPILATION": 23,
+        "BLOCKED_SOURCE_UNDERDETERMINED": 157,
         "BLOCKED_DEPENDENCY_COMPILER": 27,
     }
 
@@ -263,7 +276,7 @@ def test_local_structure_ready_is_not_execution_unlock():
         if item.knowledge_readiness_class == "LOCAL_STRUCTURE_READY"
     ]
 
-    assert len(local_ready) == 17
+    assert len(local_ready) == 23
     assert all(
         item.adapter_status == "SEMANTIC_ONLY_PENDING_COMPILATION"
         for item in local_ready
@@ -289,10 +302,10 @@ def test_antecedent_source_recheck_is_consumed_without_unresolved_refs():
     decisions = build_career_response_decisions()
 
     assert activation["summary"]["unresolved_antecedent_reference_rows"] == 0
-    assert activation["summary"]["explicit_antecedent_dependency_rows"] == 64
+    assert activation["summary"]["explicit_antecedent_dependency_rows"] == 65
     assert sum(
         1 for item in decisions if item.antecedent_mode == "EXPLICIT_RULE_REFERENCE"
-    ) == 64
+    ) == 65
 
 
 def test_ca01_080_uses_corrected_base_antecedent():
@@ -506,14 +519,14 @@ def test_readiness_summary_records_zero_unauthorized_unlocks():
     career = payload["career"]
     assert career["total_rows"] == 251
     assert career["response_gain_total"] == 89
-    assert career["semantic_only_pending_compilation"] == 17
+    assert career["semantic_only_pending_compilation"] == 23
     assert career["runtime_effects_authorized"] == 0
     assert career["condition_compiled_count"] == 0
     assert career["knowledge_execution_unlocked_count"] == 0
     assert career["unresolved_antecedent_reference_rows"] == 0
-    assert career["explicit_antecedent_dependency_rows"] == 64
+    assert career["explicit_antecedent_dependency_rows"] == 65
     assert career["closed_world_evidence_gated_rows"] == 23
-    assert career["rows_with_source_underdetermination"] == 204
+    assert career["rows_with_source_underdetermination"] == 201
     assert career["relation_bound_rows"] == 132
     assert career["category_reviewed_rows"] == 59
     assert career["unauthorized_unlock_count"] == 0
