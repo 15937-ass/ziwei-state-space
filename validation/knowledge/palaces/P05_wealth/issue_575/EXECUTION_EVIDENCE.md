@@ -8,7 +8,7 @@ Shard: P05 财帛宫
 - Direct source basis: SRC-ZZ-003《中州派紫微斗数深造讲义（下册）》财帛宫 printed pp76–79 (PDF pages 38–40).
 - Candidate input: historical/noncanonical W04-301…W04-400.
 - Direct source recheck: 100/100.
-- Source-resolution changes: 67 rows.
+- Source-resolution changes: 68 rows (including W04-367’s explicit “火星或铃星任一同度” antecedent).
 - Direct PDF page-image resolutions: 12 rows (W04-338, W04-340, W04-353, W04-354, W04-355, W04-358, W04-359, W04-360, W04-389, W04-397, W04-398, W04-400).
 - Unresolved source uncertainty: 0.
 - Non-NATAL rows: 7 (3 DECADE, 4 YEAR).
