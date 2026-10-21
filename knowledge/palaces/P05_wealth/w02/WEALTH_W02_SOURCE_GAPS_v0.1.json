@@ -1,0 +1,56 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P05-WEALTH-W02-SOURCE-GAPS-v0.1",
+  "issue": 569,
+  "shard": "P05",
+  "source_id": "SRC-ZZ-003",
+  "gap_count": 5,
+  "core_gap_count": 0,
+  "gaps": [
+    {
+      "projection_rule_id": "W02-135",
+      "gap_type": "SOURCE_TEXT_OR_OCR_UNCERTAINTY",
+      "source_location": "财帛宫printed_p72",
+      "uncertainty": "原文提取作“若火铃同踞，暴发暴改尤速”；第二个结果词字形受损，不能静默改成“暴败”。",
+      "handling": "FAIL_CLOSED_AT_DAMAGED_SURFACE_KEEP_ONLY_SAFE_HIGH_LEVEL_DIRECTION",
+      "blocks_w02_canonical_promotion": false,
+      "requires_core_semantics": false
+    },
+    {
+      "projection_rule_id": "W02-138",
+      "gap_type": "SOURCE_TEXT_OR_OCR_UNCERTAINTY",
+      "source_location": "财帛宫printed_p72",
+      "uncertainty": "原文提取作“夹贪狼化禄”；连接字疑损，不能直接编码为夹宫/夹星关系。",
+      "handling": "FAIL_CLOSED_AT_DAMAGED_SURFACE_KEEP_ONLY_SAFE_HIGH_LEVEL_DIRECTION",
+      "blocks_w02_canonical_promotion": false,
+      "requires_core_semantics": false
+    },
+    {
+      "projection_rule_id": "W02-139",
+      "gap_type": "SOURCE_TEXT_OR_OCR_UNCERTAINTY",
+      "source_location": "财帛宫printed_p72",
+      "uncertainty": "原文提取作“尤喜夹紫微化科”；连接字疑损，不能直接编码为夹宫/夹星关系。",
+      "handling": "FAIL_CLOSED_AT_DAMAGED_SURFACE_KEEP_ONLY_SAFE_HIGH_LEVEL_DIRECTION",
+      "blocks_w02_canonical_promotion": false,
+      "requires_core_semantics": false
+    },
+    {
+      "projection_rule_id": "W02-192",
+      "gap_type": "SOURCE_TEXT_OR_OCR_UNCERTAINTY",
+      "source_location": "财帛宫printed_p74",
+      "uncertainty": "原文提取作“午宫天机，命宫太阴入斋”；“入斋”疑为受损字形，但不静默修订。",
+      "handling": "FAIL_CLOSED_AT_DAMAGED_SURFACE_KEEP_ONLY_SAFE_HIGH_LEVEL_DIRECTION",
+      "blocks_w02_canonical_promotion": false,
+      "requires_core_semantics": false
+    },
+    {
+      "projection_rule_id": "W02-194",
+      "gap_type": "SOURCE_TEXT_OR_OCR_UNCERTAINTY",
+      "source_location": "财帛宫printed_p74",
+      "uncertainty": "原文提取在“须小情歼朗以应付横逆”处明显受损；只采用后续可安全识别的“不用机开心计”等方向。",
+      "handling": "FAIL_CLOSED_AT_DAMAGED_SURFACE_KEEP_ONLY_SAFE_HIGH_LEVEL_DIRECTION",
+      "blocks_w02_canonical_promotion": false,
+      "requires_core_semantics": false
+    }
+  ]
+}
