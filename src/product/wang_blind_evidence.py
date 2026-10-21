@@ -19,6 +19,7 @@ EVIDENCE_PATH = (
     ROOT / "product" / "expert_cases" / "wang_tingzhi" / "BLIND_EVIDENCE_V0_1.json"
 )
 LOCK_PATH = ROOT / "product" / "PRODUCT_KNOWLEDGE.lock.json"
+INVENTORY_PATH = ROOT / "product" / "expert_cases" / "wang_tingzhi" / "CASE_SOURCE_INVENTORY_v0.1.json"
 
 MAJOR_STARS = frozenset(
     {
@@ -146,8 +147,30 @@ def validate_wang_blind_evidence(payload: Mapping[str, Any]) -> None:
     if actual_ids != expected_ids:
         raise ValueError("Wang blind evidence case IDs/order mismatch")
 
+    inventory = _read_json(INVENTORY_PATH)
+    inventory_rows = {
+        str(item["case_id"]): item for item in inventory.get("cases", [])
+    }
+    if list(inventory_rows) != expected_ids:
+        raise ValueError("Wang source inventory case IDs/order mismatch")
+
     for row in cases:
         case_id = str(row["case_id"])
+        source_row = inventory_rows[case_id]
+        if row.get("target_domain") != source_row.get("domain"):
+            raise ValueError(f"{case_id}: target domain disagrees with source inventory")
+        if row.get("target_palace") != source_row.get("palace"):
+            raise ValueError(f"{case_id}: target palace disagrees with source inventory")
+        if row.get("source_chart_span_ref") != source_row.get("chart_span_ref"):
+            raise ValueError(f"{case_id}: chart span disagrees with source inventory")
+        expected_pages = (
+            [source_row["source_page_start"]]
+            if source_row["source_page_start"] == source_row["source_page_end"]
+            else [source_row["source_page_start"], source_row["source_page_end"]]
+        )
+        if row.get("source_pages") != expected_pages:
+            raise ValueError(f"{case_id}: source page range disagrees with inventory")
+
         direct = row.get("target_palace_main_stars")
         borrowed = row.get("borrowed_from_opposite_main_stars")
         if not isinstance(direct, list) or not isinstance(borrowed, list):
