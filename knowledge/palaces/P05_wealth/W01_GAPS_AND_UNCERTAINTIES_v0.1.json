@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "P05",
+  "issue": 547,
+  "local_gaps": [
+    {
+      "gap_id": "W01-GAP-001",
+      "source_location": "财帛宫printed_p70",
+      "source_statement": "陀罗坐财帛宫，主拖延。",
+      "reason": "历史 W01-063 只保留“大运财帛宫吉，有陀罗，后五年始顺遂”的时间子句，遗漏 base natal tendency。",
+      "action": "KEEP_LOCAL_GAP_NO_RENUMBER",
+      "human_gate": false
+    }
+  ],
+  "lexical_uncertainties": [
+    {
+      "id": "W01-056",
+      "surface": "三台宫",
+      "historical_normalization": "三方宫",
+      "policy": "FAIL_CLOSED_NO_SILENT_REPAIR"
+    },
+    {
+      "id": "W01-069",
+      "surface": "主空有兼行兼业兼职兼差的机会",
+      "policy": "PRESERVE_SAFE_MULTI_JOB_DIRECTION_ONLY"
+    },
+    {
+      "id": "W01-071",
+      "surface": "空幼",
+      "historical_normalization": "空曜",
+      "policy": "DO_NOT_BROADEN_TO_GENERIC_EMPTY_STAR_SET"
+    },
+    {
+      "id": "W01-073",
+      "surface": "贪狼化总 / 太阴化总",
+      "policy": "DO_NOT_SILENTLY_NORMALIZE_GLYPHS"
+    },
+    {
+      "id": "W01-074",
+      "surface": "同度?冲会忌星",
+      "policy": "LOGICAL_CONNECTOR_UNRESOLVED"
+    },
+    {
+      "id": "W01-075",
+      "surface": "空幼与武曲化忌同度",
+      "historical_normalization": "空劫",
+      "policy": "DO_NOT_SILENTLY_NORMALIZE"
+    },
+    {
+      "id": "W01-077",
+      "surface": "恩光、天贵、天官、天稿等",
+      "policy": "OPEN_LIST_AND_GLYPH_UNCERTAINTY_FAIL_CLOSED"
+    }
+  ],
+  "semantic_notes": [
+    {
+      "id": "W01-076",
+      "note": "天同为 base；孤辰只加强。"
+    },
+    {
+      "id": "W01-094",
+      "note": "持利器行业是特定紫微化权见煞结构下的情境例外，不是普遍职业规则。"
+    },
+    {
+      "id": "W01-100",
+      "note": "化科/化权紫微在禄存或化禄同度/对拱时为加强，不量化。"
+    }
+  ],
+  "core_gap_required": false,
+  "human_gate": "NONE"
+}
