@@ -2,8 +2,10 @@
 
 Execution runtime: **OpenAI / ChatGPT code-mode GitHub-content assertions + local container checkout attempt**
 Base commit: `7865dfa8e02506cbff92454a4e00dbda2efede9f`
-Validated artifact/test content head before evidence/state sync: `cbccf56e806b7817854e7a8ac1e1638185baa24c`
+Initial artifact/test content head: `cbccf56e806b7817854e7a8ac1e1638185baa24c`
+Post-state validation head checked with 44 assertions: `60818a48eb46cfe9a7274aefcfd2f656768aa7e5`
 State sync commits (Knowledge lane checkpoint and superseded-PR status): `749a192ecd41bb4c70ff37cc13dbb79f4af14fde`, `edf6c887092629061ac974cc3304817fa663d168`
+Final network-diagnostic evidence update: `e71ff341fd54d7bff30601a138b0620865c06696`
 
 ## Validation actually executed
 
@@ -17,7 +19,7 @@ Result: **PASS — 10/10 source dispositions.**
 ### 2. Deterministic OpenAI code-mode assertions
 Fetched the current main baseline, prior Issue #469 artifact, new recheck artifact, and closure v0.10/v0.11 directly from GitHub and validated the actual content.
 
-Result: **PASS — 31 assertions / 0 errors.**
+Result: **PASS — 44 assertions / 0 errors** on the post-state validation head listed above.
 
 Assertions cover:
 - exact 10-rule target set and duplicate overlap disclosure;
