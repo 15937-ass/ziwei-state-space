@@ -17,8 +17,6 @@
     "explicit_edges": 66,
     "compiler_gated_reference_nodes": 50,
     "already_reference_resolved_nodes": 15,
-    "already_reference_resolved_rule_ready": 11,
-    "already_reference_resolved_other_blockers": 4,
     "dependency_only_rows": 27,
     "dependency_plus_local_blockers_rows": 23,
     "dependency_only_parent_ready": 3,
@@ -44,7 +42,16 @@
     "cycles": 0,
     "unresolved_parent_ids": 0,
     "conditions_compiled": 0,
-    "execution_unlocked": 0
+    "execution_unlocked": 0,
+    "already_reference_resolved_no_local_blocker": 11,
+    "already_reference_resolved_local_blockers": 4,
+    "already_reference_resolved_inherited_source_underdetermination": 11,
+    "already_reference_resolved_effective_condition_ready": 0,
+    "already_reference_resolved_parent_scope_not_assessed": 0,
+    "dependency_only_parent_scope_not_assessed": 0,
+    "rows_with_transitive_inherited_blockers": 38,
+    "parent_edges_outside_contextual_activation_closure": 25,
+    "unique_parent_ids_outside_contextual_activation_closure": 23
   },
   "special_cases": {
     "CA05_473": {
@@ -94,10 +101,20 @@
         "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD",
         "CLOSED_WORLD_ABSENCE_EVIDENCE"
       ],
-      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
+      "dependency_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE"
+      ]
     },
     {
       "source_rule_id": "CA01-060",
@@ -132,10 +149,22 @@
         "CLOSED_WORLD_ABSENCE_EVIDENCE",
         "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
       ],
-      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
+      "dependency_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ]
     },
     {
       "source_rule_id": "CA01-080",
@@ -166,10 +195,20 @@
         "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
       ],
       "inherited_parent_blockers": [],
-      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_OTHER_BLOCKERS",
+      "dependency_readiness": "REFERENCE_EDGE_RESOLVED_LOCAL_BLOCKERS_REMAIN",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA01-078"
+      ],
+      "effective_dependency_blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ]
     },
     {
       "source_rule_id": "CA02-108",
@@ -200,10 +239,18 @@
       "inherited_parent_blockers": [
         "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED"
       ],
-      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
+      "dependency_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA02-117",
@@ -237,10 +284,19 @@
       "inherited_parent_blockers": [
         "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
       ],
-      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_OTHER_BLOCKERS",
+      "dependency_readiness": "REFERENCE_EDGE_RESOLVED_LOCAL_BLOCKERS_REMAIN",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ]
     },
     {
       "source_rule_id": "CA02-134",
@@ -271,10 +327,18 @@
       "inherited_parent_blockers": [
         "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
       ],
-      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
+      "dependency_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA02-152",
@@ -303,10 +367,18 @@
         "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD"
       ],
       "inherited_parent_blockers": [],
-      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_OTHER_BLOCKERS",
+      "dependency_readiness": "REFERENCE_EDGE_RESOLVED_LOCAL_BLOCKERS_REMAIN",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA02-151"
+      ],
+      "effective_dependency_blockers": [
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD"
+      ]
     },
     {
       "source_rule_id": "CA02-157",
@@ -337,10 +409,18 @@
       "inherited_parent_blockers": [
         "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
       ],
-      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
+      "dependency_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA02-167",
@@ -373,10 +453,20 @@
         "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
         "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
       ],
-      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
+      "dependency_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ]
     },
     {
       "source_rule_id": "CA02-168",
@@ -409,10 +499,20 @@
         "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
         "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
       ],
-      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
+      "dependency_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ]
     },
     {
       "source_rule_id": "CA02-170",
@@ -443,10 +543,18 @@
       "inherited_parent_blockers": [
         "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
       ],
-      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
+      "dependency_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA02-171",
@@ -472,11 +580,19 @@
         }
       ],
       "local_non_dependency_blockers": [],
-      "inherited_parent_blockers": [],
-      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
+      "inherited_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA02-184",
@@ -505,10 +621,18 @@
         "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
       ],
       "inherited_parent_blockers": [],
-      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_OTHER_BLOCKERS",
+      "dependency_readiness": "REFERENCE_EDGE_RESOLVED_LOCAL_BLOCKERS_REMAIN",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA02-183"
+      ],
+      "effective_dependency_blockers": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ]
     },
     {
       "source_rule_id": "CA02-199",
@@ -539,10 +663,18 @@
       "inherited_parent_blockers": [
         "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
       ],
-      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
+      "dependency_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ]
     },
     {
       "source_rule_id": "CA03-235",
@@ -573,10 +705,18 @@
       "inherited_parent_blockers": [
         "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
       ],
-      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
+      "dependency_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA03-236",
@@ -610,7 +750,15 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA03-243",
@@ -644,7 +792,15 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA03-247",
@@ -678,7 +834,15 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "MIXED_VALENCE_COMPOSITION_UNSPECIFIED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "MIXED_VALENCE_COMPOSITION_UNSPECIFIED"
+      ]
     },
     {
       "source_rule_id": "CA03-261",
@@ -712,7 +876,15 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA03-269",
@@ -746,7 +918,15 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA03-276",
@@ -780,7 +960,15 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA04-314",
@@ -814,7 +1002,15 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA04-317",
@@ -848,7 +1044,15 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ]
     },
     {
       "source_rule_id": "CA04-323",
@@ -881,7 +1085,16 @@
       "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA04-322"
+      ],
+      "effective_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ]
     },
     {
       "source_rule_id": "CA04-353",
@@ -913,7 +1126,15 @@
       "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA04-352"
+      ],
+      "effective_dependency_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA04-357",
@@ -945,7 +1166,15 @@
       "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA04-356"
+      ],
+      "effective_dependency_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA04-359",
@@ -981,7 +1210,16 @@
       "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA04-363",
@@ -1013,7 +1251,15 @@
       "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA04-362"
+      ],
+      "effective_dependency_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA04-366",
@@ -1046,7 +1292,16 @@
       "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA04-365"
+      ],
+      "effective_dependency_blockers": [
+        "SEVERITY_THRESHOLD_UNSPECIFIED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ]
     },
     {
       "source_rule_id": "CA04-390",
@@ -1079,7 +1334,16 @@
       "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA04-389"
+      ],
+      "effective_dependency_blockers": [
+        "SEVERITY_THRESHOLD_UNSPECIFIED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ]
     },
     {
       "source_rule_id": "CA05-410",
@@ -1113,7 +1377,15 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA05-420",
@@ -1143,7 +1415,11 @@
       "dependency_readiness": "DEPENDENCY_ONLY_PARENT_READY",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": []
     },
     {
       "source_rule_id": "CA05-424",
@@ -1177,7 +1453,15 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "TRANSFORMATION_CARRIER_UNSPECIFIED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "TRANSFORMATION_CARRIER_UNSPECIFIED"
+      ]
     },
     {
       "source_rule_id": "CA05-429",
@@ -1209,7 +1493,15 @@
       "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA05-428"
+      ],
+      "effective_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA05-464",
@@ -1241,7 +1533,15 @@
       "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA05-463"
+      ],
+      "effective_dependency_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA05-473",
@@ -1293,7 +1593,19 @@
         "finding": "The source presents a civil branch (紫微有吉曜；百官朝拱之类) and a martial branch (会紫微七杀／武曲七杀／廉贞七杀), followed by 亦以煞曜不居本宫为贵. The final qualifier is shared over the preceding alternative public-office branches, not a requirement that both parent branches hold simultaneously.",
         "normalized_dependency_expression": "AND[ANY_PARENT_BRANCH(CA05-471,CA05-472), LOCAL_DELTA(煞曜不居本宫)]",
         "prohibited_interpretation": "AND_PARENT_BRANCHES"
-      }
+      },
+      "immediate_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA05-472"
+      ],
+      "effective_dependency_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA06-509",
@@ -1327,7 +1639,15 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "VALENCE_STATE_CRITERION_UNSPECIFIED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "VALENCE_STATE_CRITERION_UNSPECIFIED"
+      ]
     },
     {
       "source_rule_id": "CA06-519",
@@ -1359,7 +1679,15 @@
       "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA06-518"
+      ],
+      "effective_dependency_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA06-538",
@@ -1391,7 +1719,15 @@
       "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA06-537"
+      ],
+      "effective_dependency_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA06-550",
@@ -1425,7 +1761,15 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA06-552",
@@ -1459,7 +1803,15 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA06-553",
@@ -1493,7 +1845,15 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA06-555",
@@ -1527,7 +1887,15 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA06-559",
@@ -1559,7 +1927,15 @@
       "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA06-558"
+      ],
+      "effective_dependency_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA06-573",
@@ -1591,7 +1967,15 @@
       "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA06-572"
+      ],
+      "effective_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA06-574",
@@ -1624,7 +2008,16 @@
       "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA06-572"
+      ],
+      "effective_dependency_blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA06-576",
@@ -1656,7 +2049,15 @@
       "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA06-575"
+      ],
+      "effective_dependency_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA07-603",
@@ -1692,7 +2093,17 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ]
     },
     {
       "source_rule_id": "CA07-604",
@@ -1728,7 +2139,17 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ]
     },
     {
       "source_rule_id": "CA07-634",
@@ -1768,7 +2189,21 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED",
+        "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED",
+        "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED"
+      ]
     },
     {
       "source_rule_id": "CA07-637",
@@ -1802,7 +2237,15 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA07-639",
@@ -1832,7 +2275,11 @@
       "dependency_readiness": "DEPENDENCY_ONLY_PARENT_READY",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": []
     },
     {
       "source_rule_id": "CA07-660",
@@ -1866,7 +2313,15 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA07-679",
@@ -1900,7 +2355,15 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA07-682",
@@ -1930,7 +2393,11 @@
       "dependency_readiness": "DEPENDENCY_ONLY_PARENT_READY",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": []
     },
     {
       "source_rule_id": "CA07-686",
@@ -1962,7 +2429,15 @@
       "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA07-684"
+      ],
+      "effective_dependency_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA07-687",
@@ -1994,7 +2469,15 @@
       "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA07-684"
+      ],
+      "effective_dependency_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA07-692",
@@ -2028,7 +2511,15 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ]
     },
     {
       "source_rule_id": "CA07-694",
@@ -2062,7 +2553,15 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA08-704",
@@ -2096,7 +2595,15 @@
       "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "parent_ids_outside_contextual_closure": [],
+      "effective_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA08-718",
@@ -2128,7 +2635,15 @@
       "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA08-717"
+      ],
+      "effective_dependency_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA08-721",
@@ -2160,7 +2675,15 @@
       "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA08-719"
+      ],
+      "effective_dependency_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA09-839",
@@ -2192,7 +2715,15 @@
       "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA09-838"
+      ],
+      "effective_dependency_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA09-847",
@@ -2229,7 +2760,15 @@
         "source_scope": "破军事业宫 printed_p154",
         "finding": "`更见辅佐吉曜同会` is an explicit additive continuation of CA09-846, not a generic parsing rule for the token 更见.",
         "normalized_dependency_expression": "AND[ANTECEDENT(CA09-846), LOCAL_DELTA(更见辅佐吉曜同会)]"
-      }
+      },
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA09-846"
+      ],
+      "effective_dependency_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     },
     {
       "source_rule_id": "CA09-871",
@@ -2262,7 +2801,21 @@
       "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
       "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
       "condition_compiled": false,
-      "execution_unlocked": false
+      "execution_unlocked": false,
+      "immediate_parent_blockers": [],
+      "parent_assessment_complete": false,
+      "parent_ids_outside_contextual_closure": [
+        "CA09-870"
+      ],
+      "effective_dependency_blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ]
     }
-  ]
+  ],
+  "critic_correction": {
+    "issue": "Initial draft labeled 11 already-reference-resolved rows as RULE_READY based only on row-local blockers. That label ignored inherited parent uncertainty and was semantically unsafe.",
+    "correction": "Readiness is now split into row-local closure readiness versus effective dependency readiness. Parent blocker propagation is transitive across explicit-reference chains. CA02-171 therefore inherits OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED through CA02-170 -> CA02-169.",
+    "invariant": "No explicit-reference row is called condition-ready merely because its own row-local blocker list is empty."
+  }
 }
