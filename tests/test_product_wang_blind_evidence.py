@@ -87,17 +87,41 @@ def test_source_reference_alone_is_not_used_as_materialized_fact_identity():
         assert row["source_chart_span_ref"] not in row["fact_refs"]
 
 
-def test_lineage_is_bound_to_active_product_k_method_without_auto_refresh():
+def test_historical_lineage_survives_unrelated_k_response_promotion():
     payload = load_wang_blind_evidence()
     lock = json.loads(
         (ROOT / "product" / "PRODUCT_KNOWLEDGE.lock.json").read_text(
             encoding="utf-8"
         )
     )
-    assert payload["lineage"]["product_knowledge_lock_id"] == lock["lock_id"]
+    historical = json.loads(
+        (ROOT / "product" / "PRODUCT_KNOWLEDGE_BUNDLE_V0_2.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    active = json.loads(
+        (ROOT / lock["active_bundle_path"]).read_text(encoding="utf-8")
+    )
+
+    assert payload["lineage"]["product_knowledge_lock_id"] == (
+        "PRODUCT_KNOWLEDGE_LOCK_V0_2"
+    )
+    assert payload["lineage"]["active_product_knowledge_bundle_id"] == (
+        historical["bundle_id"]
+    )
+    assert active["bundle_id"] == "KIB-PRODUCT-20261021-V0_3"
+    historical_k_method = next(
+        item for item in historical["components"]
+        if item["component_id"] == "K_method"
+    )
+    active_k_method = next(
+        item for item in active["components"]
+        if item["component_id"] == "K_method"
+    )
     assert (
-        payload["lineage"]["active_product_knowledge_bundle_id"]
-        == lock["active_bundle_id"]
+        payload["lineage"]["k_method_component_semantic_digest"]
+        == historical_k_method["component_semantic_digest"]
+        == active_k_method["component_semantic_digest"]
     )
     assert lock["auto_refresh"] is False
 
