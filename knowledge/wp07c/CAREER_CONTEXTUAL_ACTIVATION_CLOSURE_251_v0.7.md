@@ -4,9 +4,10 @@ Supersedes v0.6 after Issue #481.
 
 - #475 residual second-layer review: **100/100 complete**
 - Issue #481 target: **37/37 complete**
-- source-local resolved this pass: **4**
+- source-local resolved this pass: **3**
+- source-local partial resolution this pass: **1**
 - source repairs this pass: **1**
-- no-current-blocker rows: **22**
+- no-current-blocker rows: **21**
 - MEMBER_QUANTIFIER_UNSPECIFIED: **0**
 - OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED: **110**
 - conditions compiled: **0**
