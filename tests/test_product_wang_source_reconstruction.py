@@ -5,6 +5,7 @@ import pytest
 
 from src.product.wang_source_reconstruction import (
     SIGNATURES_PATH,
+    load_wang_reconstruction_readiness,
     load_wang_source_birth_signatures,
     validate_wang_source_birth_signatures,
     wang_source_candidate_census,
@@ -114,3 +115,69 @@ def test_incomplete_page_break_row_cannot_be_reverse_backfilled():
     row["time_index_candidates"] = [6]
     with pytest.raises(ValueError, match="must not be backfilled"):
         validate_wang_source_birth_signatures(mutated)
+
+
+def test_stored_reconstruction_readiness_matches_probe_result():
+    report = load_wang_reconstruction_readiness()
+    assert report["summary"] == {
+        "cases_total": 24,
+        "source_candidate_inputs": 37,
+        "evaluated_candidate_inputs": 37,
+        "unique_anchor_match": 11,
+        "multiple_anchor_match": 6,
+        "no_anchor_match": 5,
+        "blocked_source_incomplete": 2,
+        "engine_unsupported": 0,
+        "full_chart_materialization_ready": 11,
+    }
+    rows = {row["case_id"]: row for row in report["cases"]}
+    assert {
+        case_id
+        for case_id, row in rows.items()
+        if row["status"] == "UNIQUE_ANCHOR_MATCH"
+    } == {
+        "WANG-CASE-001",
+        "WANG-CASE-003",
+        "WANG-CASE-006",
+        "WANG-CASE-009",
+        "WANG-CASE-010",
+        "WANG-CASE-012",
+        "WANG-CASE-013",
+        "WANG-CASE-015",
+        "WANG-CASE-019",
+        "WANG-CASE-021",
+        "WANG-CASE-023",
+    }
+
+
+def test_ambiguous_and_no_match_cases_remain_fail_closed():
+    report = load_wang_reconstruction_readiness()
+    rows = {row["case_id"]: row for row in report["cases"]}
+    assert {
+        case_id
+        for case_id, row in rows.items()
+        if row["status"] == "MULTIPLE_ANCHOR_MATCH"
+    } == {
+        "WANG-CASE-002",
+        "WANG-CASE-008",
+        "WANG-CASE-014",
+        "WANG-CASE-018",
+        "WANG-CASE-020",
+        "WANG-CASE-022",
+    }
+    assert {
+        case_id
+        for case_id, row in rows.items()
+        if row["status"] == "NO_ANCHOR_MATCH"
+    } == {
+        "WANG-CASE-005",
+        "WANG-CASE-007",
+        "WANG-CASE-011",
+        "WANG-CASE-017",
+        "WANG-CASE-024",
+    }
+    assert all(
+        not row["full_chart_materialization_ready"]
+        for row in rows.values()
+        if row["status"] != "UNIQUE_ANCHOR_MATCH"
+    )
