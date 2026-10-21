@@ -401,7 +401,7 @@ Paper 1 最终只允许主张：
 
 # 8. “准确”必须拆成至少五件不同的事
 
-状态：**APPROVED_RATIONALE / PRODUCT DOCTRINE**。
+状态：**APPROVED_RATIONALE**。
 
 聊天中形成的五层准确性定义应长期保留：
 
@@ -469,7 +469,7 @@ same input
 
 # 9. 双引擎与外部项目策略——把壁垒花在最值得花的地方
 
-状态：**APPROVED_RATIONALE / IMPLEMENTED IN PART**。
+状态：**APPROVED_RATIONALE**。
 
 项目形成了“拆着借，不整套抄”的策略：
 
@@ -612,7 +612,7 @@ M_t ~ P(M | N, E_t, S_t, A_t, C_t)
 
 # 12. N / E / S / A / C 五类对象为什么必须分开
 
-状态：**APPROVED_RATIONALE / PRODUCT ARCHITECTURE**。
+状态：**APPROVED_RATIONALE**。
 
 ## N — Natal Prior
 
@@ -670,7 +670,7 @@ M_t ~ P(M | N, E_t, S_t, A_t, C_t)
 
 # 13. “传统可能性 / 群体概率 / 个人后验”必须永久分层
 
-状态：**CANONICAL_PRODUCT_BOUNDARY**，已进入 Product 规划。
+状态：**CANONICAL_ALREADY_RECORDED / APPROVED_RATIONALE**，已进入 Product 规划。
 
 最终专家系统应拆成三层：
 
@@ -743,7 +743,7 @@ Person history
 
 # 15. 内部忠实度与现实预测必须分成两条 benchmark
 
-状态：**CANONICAL_PRODUCT_BOUNDARY**。
+状态：**CANONICAL_ALREADY_RECORDED / APPROVED_RATIONALE**。
 
 ## PL4-A Internal Fidelity
 
@@ -797,7 +797,7 @@ vs + Personal history
 
 # 16. 数据飞轮必须记录负样本、未知和删失，而不是只收“算准的大事”
 
-状态：**APPROVED_RATIONALE / PARTLY IMPLEMENTED**。
+状态：**APPROVED_RATIONALE**。
 
 如果用户只在“发生大事”时回来反馈，系统会得到严重 selection bias。
 
@@ -940,7 +940,7 @@ Expert 输出应能看出：
 
 # 20. 多流派长期路线：Adapter，不混库
 
-状态：**CANONICAL_ALREADY_RECORDED / PRODUCT FUTURE**。
+状态：**CANONICAL_ALREADY_RECORDED**。
 
 第一阶段继续坚持：
 
