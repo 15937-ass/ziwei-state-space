@@ -1,7 +1,7 @@
 # Career OPEN_CATEGORY Refinement 100 v0.1
 
 Issue: #485  
-Status: **100/100 generic OPEN_CATEGORY blockers refined; no execution unlock**
+Status: **100/100 generic OPEN_CATEGORY blockers refined; 4 source-condition repairs; no execution unlock**
 
 ## What changed
 - Selected the first 100 of 110 remaining `OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED` rows in canonical closure order.
@@ -25,9 +25,15 @@ Status: **100/100 generic OPEN_CATEGORY blockers refined; no execution unlock**
 - generic OPEN_CATEGORY: 110 -> **10**
 - blockers cleared to zero: **0**
 - no-current-blocker rows remain: **21**
-- source text changes: **0**
-- source-resolution changes: **0**
+- source-condition repairs: **4**
+- source-resolution changes: **4**
 - execution unlocked: **0**
+
+## Critic/source-recheck corrections
+- **CA03-298**: restored omitted `等杂曜` open tail.
+- **CA07-633**: removed projection-derived `多辅曜` cardinality; source is an example list ending in `等吉曜`.
+- **CA07-652**: removed invented `陀罗 OR 煞`; source contains two sequential clauses, so branch scope remains gated.
+- **CA08-725**: restored positive condition `吉则`; it is not equivalent to `有吉曜`.
 
 ## Remaining 10 generic rows
 CA09-833, CA09-839, CA09-840, CA09-847, CA09-848, CA09-849, CA09-861, CA09-865, CA09-885, CA09-886
