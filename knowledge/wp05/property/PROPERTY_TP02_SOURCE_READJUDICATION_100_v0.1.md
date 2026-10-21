@@ -8,6 +8,6 @@ The review deliberately preserves damaged/nonstandard printed text rather than s
 
 CASE_SUPPORT_ONLY remains **15** and PATH_DEPENDENT_GATE remains **5**. The temporal sidecar preserves source-only `小限` wording without introducing a runtime time mechanism.
 
-TP02-GAP-001 preserves the explicit but unassigned `空劫夹亦主破败` branch separately from TP02-200.
+TP02-GAP-001 preserves the explicit but unassigned-within-TP02 `空劫夹亦主破败` branch separately from TP02-200. The archived noncanonical TP03 batch already contains candidate TP03-205 for this clause; it is linked but not promoted until TP03 source review.
 
 No numerical semantics or new ontology primitive is introduced.
