@@ -12,6 +12,8 @@ Status: **10/10 source-reviewed; no Product execution unlock**
 - SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED: **6 → 1**
 - SOURCE_LIST_QUANTIFIER_UNSPECIFIED: **4 → 2**
 - 新增无当前 activation blocker 的规则：**1**（CA05-484）
+- source-representation repairs: **4**
+- source-resolution changes this pass: **7**
 - conditions compiled: **0**
 - execution unlocked: **0**
 
