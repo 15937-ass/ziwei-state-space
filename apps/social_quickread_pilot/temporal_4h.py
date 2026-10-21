@@ -41,6 +41,9 @@ class TemporalInputSource(str, Enum):
     VALIDATED_P1_RUNTIME = "VALIDATED_P1_RUNTIME"
 
 
+HEAVENLY_STEMS = tuple("甲乙丙丁戊己庚辛壬癸")
+
+
 # Zhongzhou ten-stem transformation table.
 # Order is always 禄 / 权 / 科 / 忌.
 TEN_STEM_TRANSFORMATIONS: dict[str, tuple[str, str, str, str]] = {
@@ -143,6 +146,20 @@ class Temporal4HSnapshot:
             for row in data["interactions"]
         ]
         return data
+
+
+def stem_for_gregorian_year(year: int) -> str:
+    """Return the heavenly stem for a Gregorian calendar year.
+
+    This is calendar arithmetic only; it does not decide the Zi Wei year-boundary
+    convention for a birth/event timestamp.  The caller must already have chosen
+    the target civil year under the project's temporal convention.
+    """
+
+    value = int(year)
+    if value < 1:
+        raise ValueError("Gregorian year must be >= 1")
+    return HEAVENLY_STEMS[(value - 4) % 10]
 
 
 def transformations_for_stem(
@@ -409,3 +426,45 @@ def quickread_temporal_payload(snapshot: Temporal4HSnapshot) -> dict:
             "natal_reactivation_is_same_star_only_in_v0_1": True,
         },
     }
+
+
+
+def build_temporal_4h_series(
+    *,
+    decade_stem: str,
+    years: Iterable[int],
+    star_to_palace: Mapping[str, str],
+    natal_transformations: Mapping[str, str] | Iterable[tuple[str, str]] | None = None,
+    input_source: TemporalInputSource = TemporalInputSource.MANUAL_SCREENSHOT,
+    runtime_run_ids: Mapping[int, str] | None = None,
+) -> tuple[tuple[int, Temporal4HSnapshot], ...]:
+    """Build several year snapshots under one already-resolved decade stem.
+
+    If the requested years cross a decade boundary, the caller must split the
+    request and supply the correct decade stem for each segment.
+    """
+
+    ids = runtime_run_ids or {}
+    rows: list[tuple[int, Temporal4HSnapshot]] = []
+    seen: set[int] = set()
+    for raw_year in years:
+        year = int(raw_year)
+        if year in seen:
+            continue
+        seen.add(year)
+        rows.append(
+            (
+                year,
+                build_temporal_4h_snapshot(
+                    decade_stem=decade_stem,
+                    year_stem=stem_for_gregorian_year(year),
+                    star_to_palace=star_to_palace,
+                    natal_transformations=natal_transformations,
+                    input_source=input_source,
+                    runtime_run_id=str(ids.get(year, "") or ""),
+                ),
+            )
+        )
+    if not rows:
+        raise ValueError("build_temporal_4h_series requires at least one year")
+    return tuple(rows)
