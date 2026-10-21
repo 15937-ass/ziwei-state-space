@@ -3,7 +3,7 @@
   "artifact_id": "KB-CAREER-CONTEXTUAL-ACTIVATION-CLOSURE-251-v0.8",
   "lane": "KNOWLEDGE_ONLY",
   "issue": 485,
-  "status": "OPEN_CATEGORY_GENERIC_100_OF_110_REFINED_10_REMAIN_NO_EXECUTION_UNLOCK",
+  "status": "OPEN_CATEGORY_GENERIC_100_OF_110_REFINED_4_SOURCE_REPAIRS_10_REMAIN_NO_EXECUTION_UNLOCK",
   "supersedes": "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.7.json",
   "inputs": [
     "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_01_v0.2.json",
@@ -23,9 +23,9 @@
   },
   "summary": {
     "activation_status_counts": {
-      "MULTI_BLOCKER": 76,
+      "MULTI_BLOCKER": 77,
       "PARTIAL_LOCAL_STRUCTURE": 21,
-      "BLOCKED_SOURCE_LOCAL_SEMANTICS": 67,
+      "BLOCKED_SOURCE_LOCAL_SEMANTICS": 66,
       "STRUCTURE_ONLY": 4,
       "BLOCKED_CONTEXTUAL_GROUP_ACTIVATION": 46,
       "BLOCKED_ANTECEDENT": 27,
@@ -44,18 +44,19 @@
       "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED": 32,
       "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED": 9,
       "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED": 47,
-      "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED": 20,
+      "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED": 19,
       "CAREER_KEWEN_ACTIVATION_CONTEXTUAL_UNRESOLVED": 4,
       "ANTECEDENT_DEPENDENCY": 49,
       "MIXED_VALENCE_COMPOSITION_UNSPECIFIED": 1,
-      "VALENCE_STATE_CRITERION_UNSPECIFIED": 8,
-      "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED": 2,
-      "SOURCE_LIST_QUANTIFIER_UNSPECIFIED": 6,
-      "CARDINALITY_THRESHOLD_UNSPECIFIED": 3,
+      "VALENCE_STATE_CRITERION_UNSPECIFIED": 9,
+      "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED": 3,
+      "SOURCE_LIST_QUANTIFIER_UNSPECIFIED": 7,
+      "CARDINALITY_THRESHOLD_UNSPECIFIED": 2,
       "ELEMENTAL_CATEGORY_MEMBERSHIP_UNSPECIFIED": 1,
       "SEVERITY_THRESHOLD_UNSPECIFIED": 7,
       "TRANSFORMATION_CARRIER_UNSPECIFIED": 3,
       "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED": 1,
+      "SOURCE_BRANCH_SCOPE_RECHECK_REQUIRED": 1,
       "LUMA_SHORTHAND_CONTEXTUAL_UNRESOLVED": 1,
       "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED": 10,
       "QUALIFIED_SUPPORT_MEMBERSHIP_OR_ACTIVATION_OPEN": 1
@@ -71,8 +72,8 @@
     "unresolved_antecedent_reference_rows": 0,
     "explicit_antecedent_dependency_rows": 64,
     "closed_world_evidence_gated_rows": 23,
-    "source_resolution_changes": 28,
-    "source_condition_repairs": 1,
+    "source_resolution_changes": 32,
+    "source_condition_repairs": 5,
     "dependency_scope_corrections": 1,
     "conditions_compiled": 0,
     "execution_unlocked": 0,
@@ -129,7 +130,8 @@
       "CA09-886"
     ],
     "open_category_refinement_blockers_cleared_to_zero": 0,
-    "open_category_refinement_source_resolution_changes": 0
+    "open_category_refinement_source_resolution_changes": 4,
+    "open_category_refinement_source_condition_repairs": 4
   },
   "source_recheck_outcome": {
     "human_gate_required": false,
@@ -1230,10 +1232,11 @@
         "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED",
         "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
       ],
-      "source_resolution_changed": false,
-      "canonical_source_disposition": "OPEN_CATEGORY_GENERIC_REFINED_FAIL_CLOSED_NO_PRODUCT_EXECUTION_CLAIM",
+      "source_resolution_changed": true,
+      "canonical_source_disposition": "SOURCE_REPAIRED_FAIL_CLOSED_NO_PRODUCT_EXECUTION_CLAIM",
       "open_category_refinement_issue": 485,
-      "open_category_refinement_disposition": "SOURCE_OPEN_TAIL_REFINED"
+      "open_category_refinement_disposition": "SOURCE_OPEN_TAIL_REFINED",
+      "open_category_source_repair": "Restore source open-tail marker: `见煞、天姚、天刑、大耗、劫煞等杂曜`; projection omitted `等杂曜`."
     },
     {
       "source_rule_id": "CA04-303",
@@ -2826,14 +2829,16 @@
       "antecedent_rule_ids": [],
       "readiness_class": "SOURCE_UNDERDETERMINED",
       "blockers": [
-        "CARDINALITY_THRESHOLD_UNSPECIFIED",
         "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
-        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED",
+        "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
       ],
-      "source_resolution_changed": false,
-      "canonical_source_disposition": "OPEN_CATEGORY_GENERIC_REFINED_FAIL_CLOSED_NO_PRODUCT_EXECUTION_CLAIM",
+      "source_resolution_changed": true,
+      "canonical_source_disposition": "SOURCE_REPAIRED_FAIL_CLOSED_NO_PRODUCT_EXECUTION_CLAIM",
       "open_category_refinement_issue": 485,
-      "open_category_refinement_disposition": "SOURCE_COMPOUND_REFINED"
+      "open_category_refinement_disposition": "SOURCE_OPEN_TAIL_REFINED",
+      "open_category_source_repair": "Replace projection shorthand `多辅曜会合` with source-literal examples `三台八座、台辅封诰、天官天福、恩光天贵等吉曜`; remove projection-derived cardinality blocker."
     },
     {
       "source_rule_id": "CA07-634",
@@ -2981,17 +2986,19 @@
     },
     {
       "source_rule_id": "CA07-652",
-      "activation_status": "BLOCKED_SOURCE_LOCAL_SEMANTICS",
+      "activation_status": "MULTI_BLOCKER",
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
       "readiness_class": "SOURCE_UNDERDETERMINED",
       "blockers": [
-        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_BRANCH_SCOPE_RECHECK_REQUIRED"
       ],
-      "source_resolution_changed": false,
-      "canonical_source_disposition": "OPEN_CATEGORY_GENERIC_REFINED_FAIL_CLOSED_NO_PRODUCT_EXECUTION_CLAIM",
+      "source_resolution_changed": true,
+      "canonical_source_disposition": "SOURCE_REPAIRED_FAIL_CLOSED_NO_PRODUCT_EXECUTION_CLAIM",
       "open_category_refinement_issue": 485,
-      "open_category_refinement_disposition": "CLOSED_CATEGORY_FALSE_OPEN_REFINED"
+      "open_category_refinement_disposition": "SOURCE_BRANCH_SCOPE_RECHECK",
+      "open_category_source_repair": "Source has two sequential clauses: `最不宜陀罗同度。见煞(火铃亦然)...`; projection `见陀罗或煞` inserts an OR not present in the source. Preserve both clauses and keep branch scope unresolved."
     },
     {
       "source_rule_id": "CA07-658",
@@ -3364,16 +3371,17 @@
       "readiness_class": "SOURCE_UNDERDETERMINED",
       "blockers": [
         "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
-        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+        "VALENCE_STATE_CRITERION_UNSPECIFIED"
       ],
-      "source_resolution_changed": false,
-      "canonical_source_disposition": "OPEN_CATEGORY_GENERIC_REFINED_FAIL_CLOSED_NO_PRODUCT_EXECUTION_CLAIM",
+      "source_resolution_changed": true,
+      "canonical_source_disposition": "SOURCE_REPAIRED_FAIL_CLOSED_NO_PRODUCT_EXECUTION_CLAIM",
       "contextual_group_refinement_issue": 477,
       "contextual_group_contract_ids": [
         "PAIR_KONG_JIE"
       ],
       "open_category_refinement_issue": 485,
-      "open_category_refinement_disposition": "OPEN_VALENCE_CATEGORY_REFINED"
+      "open_category_refinement_disposition": "VALENCE_STATE_REFINED",
+      "open_category_source_repair": "Restore positive source branch as `天相与空劫同度，吉则...`; do not equate `吉` with `有吉曜`. The following negative clause `若无吉曜，或且见凶星恶曜` is not a biconditional definition."
     },
     {
       "source_rule_id": "CA08-726",
