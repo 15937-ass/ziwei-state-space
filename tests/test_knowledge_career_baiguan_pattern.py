@@ -23,10 +23,11 @@ def test_baiguan_profile_matches_approved_source_backed_families():
 def test_quality_guards_are_preserved():
     p=load(PROFILE)
     guards={g["component"]:g for g in p["quality_guards"]}
-    assert "与地空同度" in guards["天府"]["degrading_or_invalidating"]
-    assert "与天空同度" in guards["天府"]["degrading_or_invalidating"]
-    assert "刑忌夹印" in guards["天相"]["degrading_or_invalidating"]
-    assert "羊陀夹" in guards["天相"]["degrading_or_invalidating"]
+    assert "与地空同度" in guards["天府"]["invalidating_for_normal_treasury_support"]
+    assert "与天空同度" in guards["天府"]["invalidating_for_normal_treasury_support"]
+    assert "见截空正空" in guards["天府"]["degrading"]
+    assert "刑忌夹印" in guards["天相"]["degrading_or_transforming"]
+    assert "羊陀夹" in guards["天相"]["degrading_or_transforming"]
 
 def test_source_tension_is_not_erased():
     p=load(PROFILE)
@@ -80,3 +81,13 @@ def test_no_execution_or_numericization():
     assert p["guardrails"]["component_count_threshold"] is None
     assert p["guardrails"]["pair_count_threshold"] is None
     assert p["guardrails"]["weighted_score"] is False
+
+def test_activation_state_ontology_matches_human_gate_boundary():
+    p=load(PROFILE)
+    assert p["ontology_activation_states"]==[
+        "EXPLICIT_TEMPLATE_MATCH","PARTIAL_SUPPORT","CONFLICTED","ABSENT","UNKNOWN"
+    ]
+    assert p["runtime_v0_1_emittable_states"]==[
+        "PARTIAL_SUPPORT","CONFLICTED","ABSENT","UNKNOWN"
+    ]
+    assert p["full_pattern_truth"]["generic_runtime_emission_allowed"] is False
