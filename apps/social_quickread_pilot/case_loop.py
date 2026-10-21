@@ -85,6 +85,7 @@ class CaseRecord:
     used_claim_ids: tuple[str, ...]
     origin_counts: tuple[tuple[str, int], ...] = ()
     coverage_gaps: tuple[str, ...] = ()
+    temporal_features: Mapping[str, Any] | None = None
     feedback: tuple[FeedbackRecord, ...] = ()
     pi_review: PIReview | None = None
     source_platform: str = "xiaohongshu"
@@ -101,6 +102,10 @@ class CaseRecord:
             raise ValueError("CaseRecord.question_summary is required")
         if not self.public_text.strip():
             raise ValueError("CaseRecord.public_text is required")
+        if self.temporal_features is not None:
+            mode = str(self.temporal_features.get("mode", ""))
+            if mode and mode != "social_quickread_temporal_4h_v0.1":
+                raise ValueError("CaseRecord.temporal_features has unsupported mode")
         if self.privacy_level != "DEIDENTIFIED":
             raise ValueError("CaseRecord must stay DEIDENTIFIED")
         if len(set(self.used_claim_ids)) != len(self.used_claim_ids):
@@ -163,6 +168,7 @@ def build_case_record(
     question_summary: str,
     feedback: Iterable[FeedbackRecord] = (),
     pi_review: PIReview | None = None,
+    temporal_features: Mapping[str, Any] | None = None,
 ) -> CaseRecord:
     """Build a case from one finalized dual-output bundle.
 
@@ -205,6 +211,7 @@ def build_case_record(
         used_claim_ids=used_claim_ids,
         origin_counts=origin_counts,
         coverage_gaps=coverage_gaps,
+        temporal_features=temporal_features,
         feedback=tuple(feedback),
         pi_review=pi_review,
     )
