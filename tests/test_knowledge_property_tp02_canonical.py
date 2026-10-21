@@ -75,6 +75,8 @@ def test_tp02_200_gap_is_separate_branch():
     assert x["source_surface"]=="空劫夹亦主破败"
     assert x["related_candidate_rule_id"]=="TP02-200"
     assert x["relation_to_candidate"]=="SEPARATE_BRANCH_NOT_RELOCATION_TRIGGER"
+    assert x["archived_next_batch_candidate_id"]=="TP03-205"
+    assert "NOT_YET_CANONICAL" in x["epistemic_status"]
     assert d["summary"]["canonical_rules_created_from_gaps"]==0
 
 def test_no_new_quantitative_or_time_primitive():
