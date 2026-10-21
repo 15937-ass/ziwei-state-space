@@ -23,6 +23,21 @@ from .provenance import (
     build_dual_output,
 )
 from .sidecar import PilotRequest, PreparedPilot, prepare_pilot, finalize_pilot
+from .temporal_4h import (
+    InteractionType,
+    Mutagen,
+    Temporal4HSnapshot,
+    TemporalInputSource,
+    TemporalInteraction,
+    TemporalLayer,
+    TransformationMark,
+    TEN_STEM_TRANSFORMATIONS,
+    build_temporal_4h_snapshot,
+    detect_interactions,
+    normalize_natal_marks,
+    quickread_temporal_payload,
+    transformations_for_stem,
+)
 
 __all__ = [
     "CaseRecord",
@@ -43,4 +58,17 @@ __all__ = [
     "PreparedPilot",
     "prepare_pilot",
     "finalize_pilot",
+    "InteractionType",
+    "Mutagen",
+    "Temporal4HSnapshot",
+    "TemporalInputSource",
+    "TemporalInteraction",
+    "TemporalLayer",
+    "TransformationMark",
+    "TEN_STEM_TRANSFORMATIONS",
+    "build_temporal_4h_snapshot",
+    "detect_interactions",
+    "normalize_natal_marks",
+    "quickread_temporal_payload",
+    "transformations_for_stem",
 ]
