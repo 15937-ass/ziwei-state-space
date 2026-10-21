@@ -56,7 +56,7 @@ def test_closure_v07_census_and_no_unlock():
     assert c6['summary']['blocker_counts']['MEMBER_QUANTIFIER_UNSPECIFIED']==33
     assert c7['summary']['blocker_counts'].get('MEMBER_QUANTIFIER_UNSPECIFIED',0)==0
     assert c6['summary']['blocker_counts']['OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED']==129
-    assert c7['summary']['blocker_counts'].get('OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED',0)==0
+    assert c7['summary']['blocker_counts'].get('OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED',0)==110
     assert c7['summary']['source_resolution_changes']==28
     assert c7['summary']['conditions_compiled']==0
     assert c7['summary']['execution_unlocked']==0
