@@ -133,6 +133,15 @@ from .manifestation_context import (
     RoutingStateAssertion,
     build_manifestation_routing_context,
 )
+from .manifestation_m0 import (
+    M0_COMPILER_VERSION,
+    M0_DISPOSITIONS,
+    M0_SCHEMA_VERSION,
+    CareerManifestationCandidate,
+    CareerManifestationCandidatesM0,
+    M0ResponseSupport,
+    build_career_manifestation_candidates_m0,
+)
 from .manifestation_ontology import (
     EVENT_SPECIFICITIES,
     PROBABILITY_STATUSES,
@@ -401,6 +410,13 @@ __all__ = [
     "SymbolicActivationContext",
     "compile_manifestation_mapping_registry",
     "route_source_supported_possibilities",
+    "M0_COMPILER_VERSION",
+    "M0_DISPOSITIONS",
+    "M0_SCHEMA_VERSION",
+    "CareerManifestationCandidate",
+    "CareerManifestationCandidatesM0",
+    "M0ResponseSupport",
+    "build_career_manifestation_candidates_m0",
     "EVENT_SPECIFICITIES",
     "PROBABILITY_STATUSES",
     "REGISTRY_STATUSES",
