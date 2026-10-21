@@ -5,13 +5,13 @@ canonical_branch: "main"
 
 execution:
   status: "ACTIVE_NO_ACTIVE_WORK"
-  program: "KB_WP08_ORDINAL_CONSTRAINT_REGISTRY"
+  program: "KB_WP08_ORDINAL_RULE_LINKING"
   active_issue: null
   active_pr: null
-  canonical_main_checkpoint: "CAREER_ORDINAL_CONSTRAINT_REGISTRY_V0_1_130"
-  resume_entry: "Issue #461 scans all 24 Career source spans in SRC-ZZ-003 printed pp132-155 for source-explicit ordinal/constraint language. 131 candidate sentences were audited; 118 are accepted and normalized into 130 nonnumeric constraints, while 13 are excluded for background comparison, OCR-unsafe target/condition, unstable comparator, non-relative valuation, or lexical false positive. Registry preserves explicit importance, stronger/weaker, configuration preference, ranking, extreme preference/avoidance, qualitative degree, and source-local emphasis without numeric weights, probabilities, or transitive closure. Prior 16/16 antecedent source recheck (#458/#460) is merged. Next recommended Knowledge work is a rule-linking / coverage pass mapping ordinal constraints back to Career atomic rules and identifying which source-underdetermined activation blockers are genuinely reduced by explicit ordinal evidence; no execution unlock is implied."
-  resume_issue: 461
-  last_state_sync_issue: 461
+  canonical_main_checkpoint: "CAREER_ORDINAL_RULE_LINKING_V0_1_130_OF_130"
+  resume_entry: "Issue #465 dispositions all 130 Career ordinal constraints against the 888 canonical atomic-rule universe. Final critic-reviewed links: 114 direct atomic, 15 multi-rule shared-source, 1 methodology/context-only, 0 source-explicit atomic-rule gaps, 0 ambiguous links; 130 unique atomic rule IDs linked. Ordinal evidence touches 33 activation-scope rules but resolves 0 activation blockers: it adds qualitative ordering/emphasis without supplying missing ANY/ALL/N_OF, open-category membership, numeric severity thresholds, dependency compilation, or closed-world evidence. Source-context critic review recovered all low-confidence gaps: OC-018 -> CA03-223, OC-038 -> CA04-372, OC-102 -> CA08-770; OC-070 was corrected to CA06-538. No ordinal atomic-rule gaps remain. Next recommended Knowledge work is residual semantic-normalization/compiler-readiness over the 36 SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED and 4 STRUCTURED_PATTERN_EXECUTION_DEFERRED blocker occurrences, without changing source truth. No Human Gate currently required."
+  resume_issue: 465
+  last_state_sync_issue: 465
 
 canonical_main_snapshot:
   domain: "事业宫"
@@ -201,7 +201,12 @@ completed_work_units:
   - work_unit: "KB-WP08-CAREER-ORDINAL-CONSTRAINT-REGISTRY-V0-1"
     issue: 461
     pr: 463
-    status: "READY_TO_MERGE_24_SPANS_131_CANDIDATES_118_ACCEPTED_130_CONSTRAINTS_13_EXCLUDED_NO_NUMERICIZATION"
+    status: "MERGED_24_SPANS_131_CANDIDATES_118_ACCEPTED_130_CONSTRAINTS_13_EXCLUDED_NO_NUMERICIZATION"
+
+  - work_unit: "KB-WP08-CAREER-ORDINAL-RULE-LINKING-V0-1"
+    issue: 465
+    pr: 466
+    status: "READY_TO_MERGE_130_OF_130_114_DIRECT_15_MULTI_1_CONTEXT_ZERO_GAPS_ZERO_BLOCKERS_RESOLVED"
 
 archived_noncanonical_snapshots:
   wp05_all_twelve_palaces:
