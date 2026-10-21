@@ -52,6 +52,24 @@ _EXACT_BRANCH_SETS: Mapping[str, frozenset[str]] = {
     "子午": frozenset({"子", "午"}),
 }
 
+# Two relation-less LOCAL_OR plans retain source-local spatial semantics in the
+# active K_response semantic basis.  They are deliberately enumerated here
+# rather than generalized:
+# - RC37-E06 says 巨门化禄 OR 禄存同度 -> same P09 palace.
+# - RC37-E08 says 子午七杀会/见 the listed 禄 realizations -> the existing
+#   FOUR_DIRECTIONS visibility scope (self + triads + opposite).
+# No other relation-less LOCAL_OR receives a default.
+_SOURCE_LOCAL_OR_SCOPE_BY_RULE: Mapping[str, tuple[str, str]] = {
+    "CA07-681": (
+        "SAME_PALACE",
+        "CAREER_RESIDUAL_CLOSURE_37_v0.1:RC37-E06",
+    ),
+    "CA09-820": (
+        "FOUR_DIRECTIONS_VISIBILITY",
+        "CAREER_RESIDUAL_CLOSURE_37_v0.1:RC37-E08",
+    ),
+}
+
 _STAR_FIELDS = ("major_stars", "minor_stars", "adjective_stars")
 _ALL_MEMBER_REQUIREMENTS = frozenset(
     {"PAIR_REQUIRED", "BOTH_SOURCE_LITERAL", "BOTH_SOURCE_LOCAL"}
@@ -442,6 +460,10 @@ def _evaluate_direct_plan(
     structure: ResolvedPalaceStructure,
     plan: Mapping[str, Any],
 ) -> tuple[bool, tuple[str, ...]]:
+    rule_id = str(plan.get("source_rule_id", "")).strip()
+    if not rule_id:
+        raise ValueError("direct condition plan requires source_rule_id")
+
     subjects = plan.get("subject_terms")
     if not isinstance(subjects, list) or not subjects:
         raise ValueError("direct condition plan requires subject_terms")
@@ -463,11 +485,30 @@ def _evaluate_direct_plan(
     if relation is None:
         if str(target.get("node_type", "")).strip() != "LOCAL_OR":
             raise ValueError("relation-less v0.1 plan must be LOCAL_OR")
+        source_local_scope = _SOURCE_LOCAL_OR_SCOPE_BY_RULE.get(rule_id)
+        if source_local_scope is None:
+            raise ValueError(
+                f"{rule_id}: relation-less LOCAL_OR has no explicit "
+                "source-backed evaluation scope"
+            )
+        scope_kind, scope_ref = source_local_scope
+        if scope_kind == "SAME_PALACE":
+            target_palaces = (CAREER_PALACE_ID,)
+        elif scope_kind == "FOUR_DIRECTIONS_VISIBILITY":
+            target_palaces = structure.sanfang_sizheng_of(CAREER_PALACE_ID)
+        else:
+            raise ValueError(
+                f"{rule_id}: unsupported source-local evaluation scope {scope_kind}"
+            )
         target_match, refs = _target_match(
             structure,
-            (CAREER_PALACE_ID,),
+            target_palaces,
             target,
         )
+        if target_match:
+            evidence.append(
+                f"SOURCE_LOCAL_SCOPE:{rule_id}:{scope_kind}:{scope_ref}"
+            )
     else:
         if not isinstance(relation, Mapping):
             raise ValueError("relation must be an object or null")
