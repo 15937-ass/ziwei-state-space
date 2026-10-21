@@ -22,6 +22,8 @@ import json
 from pathlib import Path
 from typing import Any, Callable, Iterable, Mapping, Sequence
 
+from .knowledge_bundle import require_artifact_locked
+
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -112,11 +114,13 @@ MISSING_CANONICAL_KR_CONTRACT = (
 
 
 def _read_csv(path: Path) -> tuple[dict[str, str], ...]:
+    require_artifact_locked(ROOT, path, "K_response")
     with path.open("r", encoding="utf-8-sig", newline="") as handle:
         return tuple(dict(row) for row in csv.DictReader(handle))
 
 
 def _read_json(path: Path) -> Any:
+    require_artifact_locked(ROOT, path, "K_response")
     return json.loads(path.read_text(encoding="utf-8"))
 
 
