@@ -172,8 +172,8 @@ def test_repository_active_lock_verifies_exact_inputs():
     report = verify_active_lock(ROOT)
 
     assert report["status"] == "PASS"
-    assert report["lock_id"] == "PRODUCT_KNOWLEDGE_LOCK_V0_2"
-    assert report["verified_artifact_count"] == 58
+    assert report["lock_id"] == "PRODUCT_KNOWLEDGE_LOCK_V0_3"
+    assert report["verified_artifact_count"] == 61
     assert report["findings"] == []
 
 
