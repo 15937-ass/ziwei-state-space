@@ -4,13 +4,14 @@
   "knowledge_inputs": {
     "response_pilot": "knowledge/response/RESPONSE_SEMANTICS_PILOT_v0.1.json",
     "career_response_compatibility_closure": "knowledge/wp07c/CAREER_RESPONSE_COMPATIBILITY_CLOSURE_v0.1.json",
-    "career_contextual_activation_closure": "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.3.json",
+    "career_contextual_activation_closure": "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.5.json",
     "career_relation_binding": "knowledge/wp07c/CAREER_RELATION_BINDING_132_v0.1.json",
     "career_category_review": "knowledge/wp07c/CAREER_CATEGORY_OPEN_59_v0.1.json",
     "career_ordinal_constraints": "knowledge/wp08/CAREER_ORDINAL_CONSTRAINTS_v0.1.json",
     "career_ordinal_rule_links": "knowledge/wp08/CAREER_ORDINAL_RULE_LINKS_v0.1.json",
     "career_ordinal_blocker_impact": "knowledge/wp08/CAREER_ORDINAL_BLOCKER_IMPACT_v0.1.json",
-    "career_semantic_normalization": "knowledge/wp08/CAREER_SEMANTIC_NORMALIZATION_36_v0.1.json"
+    "career_semantic_normalization": "knowledge/wp08/CAREER_SEMANTIC_NORMALIZATION_36_v0.2.json",
+    "career_source_lexicon_quantifier": "knowledge/wp08/CAREER_SOURCE_LEXICON_QUANTIFIER_10_v0.1.json"
   },
   "response_pilot": {
     "total": 8,
@@ -92,23 +93,23 @@
     },
     "response_gain_total": 89,
     "adapter_status_counts": {
-      "BLOCKED_DEPENDENCY_COMPILER": 27,
-      "BLOCKED_MULTIPLE": 46,
-      "BLOCKED_SOURCE_UNDERDETERMINED": 160,
-      "BLOCKED_STRUCTURED_PATTERN_COMPILER": 1,
-      "SEMANTIC_ONLY_PENDING_COMPILATION": 17
+      "BLOCKED_MULTIPLE": 45,
+      "SEMANTIC_ONLY_PENDING_COMPILATION": 18,
+      "BLOCKED_SOURCE_UNDERDETERMINED": 161,
+      "BLOCKED_DEPENDENCY_COMPILER": 27
     },
-    "semantic_only_pending_compilation": 17,
+    "semantic_only_pending_compilation": 18,
     "runtime_effects_authorized": 0,
     "condition_compiled_count": 0,
     "knowledge_execution_unlocked_count": 0,
     "unresolved_antecedent_reference_rows": 0,
     "explicit_antecedent_dependency_rows": 64,
     "closed_world_evidence_gated_rows": 23,
-    "rows_with_source_underdetermination": 204,
+    "rows_with_source_underdetermination": 206,
     "relation_bound_rows": 132,
     "category_reviewed_rows": 59,
-    "unauthorized_unlock_count": 0
+    "unauthorized_unlock_count": 0,
+    "baiguan_activation_no_universal_threshold_rows": 4
   },
   "maturity": {
     "response_semantics_adapter": "IMPLEMENTED_V0_1",
@@ -127,7 +128,7 @@
       "adapter_status": "BLOCKED_MULTIPLE",
       "blockers": [
         "CLOSED_WORLD_ABSENCE_EVIDENCE",
-        "STRUCTURED_PATTERN_EXECUTION_DEFERRED"
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -170,8 +171,7 @@
       "adapter_status": "BLOCKED_MULTIPLE",
       "blockers": [
         "CLOSED_WORLD_ABSENCE_EVIDENCE",
-        "MEMBER_QUANTIFIER_UNSPECIFIED",
-        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -230,11 +230,11 @@
     {
       "source_rule_id": "CA01-079",
       "compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
-      "knowledge_readiness_class": "STRUCTURED_PATTERN_COMPILER_GATED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "STRUCTURE_ONLY",
-      "adapter_status": "BLOCKED_STRUCTURED_PATTERN_COMPILER",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "STRUCTURED_PATTERN_EXECUTION_DEFERRED"
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -447,7 +447,7 @@
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
       "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -650,7 +650,7 @@
       "activation_status": "STRUCTURE_ONLY",
       "adapter_status": "BLOCKED_MULTIPLE",
       "blockers": [
-        "STRUCTURED_PATTERN_EXECUTION_DEFERRED"
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD"
       ],
       "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
       "antecedent_rule_ids": [
@@ -1672,7 +1672,7 @@
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
       "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -2074,7 +2074,7 @@
       "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
         "MEMBER_QUANTIFIER_UNSPECIFIED",
-        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
         "CARDINALITY_THRESHOLD_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
@@ -3052,12 +3052,12 @@
     {
       "source_rule_id": "CA05-471",
       "compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
-      "knowledge_readiness_class": "MULTI_CLASS_BLOCKED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "MULTI_BLOCKER",
-      "adapter_status": "BLOCKED_MULTIPLE",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
         "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
-        "STRUCTURED_PATTERN_EXECUTION_DEFERRED"
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -3133,12 +3133,10 @@
     {
       "source_rule_id": "CA05-484",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
-      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
-      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
-      "blockers": [
-        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
-      ],
+      "knowledge_readiness_class": "LOCAL_STRUCTURE_READY",
+      "activation_status": "PARTIAL_LOCAL_STRUCTURE",
+      "adapter_status": "SEMANTIC_ONLY_PENDING_COMPILATION",
+      "blockers": [],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
       "relation_binding_dispositions": [
@@ -5173,7 +5171,7 @@
       "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
         "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
-        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -5975,8 +5973,7 @@
       "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
         "MEMBER_QUANTIFIER_UNSPECIFIED",
-        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
-        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -6142,5 +6139,19 @@
         "KNOWLEDGE:CAREER_CONTEXTUAL_ACTIVATION:CA09-887"
       ]
     }
-  ]
+  ],
+  "career_source_lexicon_quantifier": {
+    "target_rows": 10,
+    "reviewed": 10,
+    "source_resolved": 2,
+    "no_universal_rule": 5,
+    "still_underdetermined": 3,
+    "source_shorthand_membership_unspecified_after": 1,
+    "source_list_quantifier_unspecified_after": 2,
+    "rows_newly_without_current_activation_blocker": 1,
+    "source_repairs": 4,
+    "source_resolution_changes": 7,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0
+  }
 }
