@@ -3,6 +3,7 @@ from pathlib import Path
 
 import pytest
 
+from src.product.career_inference_service import run_career_response_profile
 from src.product.natal_prior import NatalStateProfile
 from src.product.response_profile import (
     RESPONSE_COMPILER_VERSION,
@@ -312,3 +313,62 @@ def test_tau_contract_contains_no_probability_weight_or_posterior_output():
     assert "posterior" not in payload
     assert "weight" not in payload
     assert payload["maturity"]["predictive_validity"] == "NOT_VALIDATED"
+
+
+
+def _full_service_snapshot():
+    snapshot = json.loads(
+        (ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.1.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    branches = {
+        "命宫": "酉",
+        "兄弟宫": "戌",
+        "夫妻宫": "未",
+        "子女宫": "申",
+        "财帛宫": "巳",
+        "疾厄宫": "午",
+        "迁移宫": "卯",
+        "交友宫": "辰",
+        "事业宫": "丑",
+        "田宅宫": "寅",
+        "福德宫": "亥",
+        "父母宫": "子",
+    }
+    palaces = {}
+    for palace_name, branch in branches.items():
+        palaces[branch] = {
+            "name": palace_name[:-1],
+            "stem": "甲",
+            "branch": branch,
+            "is_body_palace": False,
+            "major_stars": [],
+            "minor_stars": [],
+            "adjective_stars": [],
+        }
+    snapshot["natal"] = {"palaces": palaces}
+    return snapshot
+
+
+def test_high_level_service_runs_first_n_e_tau_vertical_slice():
+    run = run_career_response_profile(
+        ROOT,
+        _full_service_snapshot(),
+        target_id="T-DEMO",
+        question="事业大限流年 ResponseProfile 验收",
+    )
+
+    assert run.schema_version == "0.1"
+    assert run.response_profile.natal_profile_id == run.symbolic_run.natal_profile.profile_id
+    assert (
+        run.response_profile.temporal_profile_id
+        == run.symbolic_run.temporal_profile.profile_id
+    )
+    assert run.response_profile.consumed_layers == ("DECADE", "YEAR")
+    assert (
+        run.response_profile.response_status
+        == UNKNOWN_NO_CANONICAL_TEMPORAL_RESPONSE_RULE
+    )
+    assert run.response_profile.dynamic_effects == ()
+    assert run.symbolic_run.status == "PARTIAL_TEMPORAL_REGISTRY_EMPTY"
