@@ -13,10 +13,11 @@ For a new session, timeout recovery, hard checkpoint, or possible external merge
 1. read `PROJECT_STATE.yaml`;
 2. read `governance/RECOVERY_PRECEDENCE_v1.md`;
 3. read the selected lane state as a recovery cache;
-4. query live GitHub Issues for the selected lane;
-5. if a bounded active/open Issue exists, treat it as execution truth even if the lane-state cache is stale;
-6. open the Issue-linked PR if present and treat it as implementation truth;
-7. read only Issue-required artifacts.
+4. for KNOWLEDGE_ONLY, select CORE or one palace shard and read the shard state referenced by `knowledge/KNOWLEDGE_STATE.yaml`;
+5. query live GitHub Issues for the selected lane/shard;
+6. if a bounded active/open Issue exists, treat it as execution truth even if the state cache is stale;
+7. open the Issue-linked PR if present and treat it as implementation truth;
+8. read only Issue-required artifacts.
 
 Do not infer current work from old chat, stale branch names, legacy PRs, README “Current phase” text, `tasks/*.yaml`, historical validation “next work” sections, old proposal files, or superseded protocols.
 
@@ -46,7 +47,7 @@ Normal execution requires an Issue satisfying Definition of Ready:
 - risk
 - Human Gate classification
 
-One lane has at most one ACTIVE Issue.
+Product and Governance retain one ACTIVE work unit each. Knowledge follows `governance/KNOWLEDGE_SHARD_EXECUTION_v1.md`: Core WIP <= 1, total palace WIP <= 4, and per-palace WIP <= 1.
 
 ## 5. Work-unit cycle
 
@@ -138,8 +139,11 @@ One autonomous repair/retry is allowed for ordinary technical failure; repeated 
 A PR implements one primary Issue.
 Use short-lived branches:
 - product/<issue>-...
-- knowledge/<issue>-...
+- knowledge/core-<issue>-...
+- knowledge/pXX-<issue>-...
 - governance/<issue>-...
+
+Knowledge palace branches are write-isolated by `governance/KNOWLEDGE_SHARDS.json`. The temporary #525 legacy Property exemption expired when PR #532 merged; no legacy-form Knowledge branch remains authorized.
 
 Scope creep becomes a new Issue/Proposal.
 Stacked PRs are exceptional and limited to two levels.

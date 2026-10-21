@@ -4,11 +4,11 @@ authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  status: "ACTIVE"
-  active_issue: 528
-  active_branch: "governance/528-knowledge-palace-shards-proposal"
-  active_pr: 529
-  governance_version: "1.0"
+  status: "ACTIVE_NO_ACTIVE_WORK"
+  active_issue: null
+  active_branch: null
+  active_pr: null
+  governance_version: "1.1"
   archive_checkpoint: "governance/archive/2026-10-06-project-checkpoint.md"
   resumed_at: "2026-10-18"
   last_resume_issue: 290
@@ -63,6 +63,20 @@ completed:
       - "PRODUCT_KNOWLEDGE_LOCK_V0_1"
       - "PRODUCT_KNOWLEDGE_IMPACT_V0_1"
     pre_pl5_gate: "DATASET_MODEL_LINEAGE_V0_1"
+
+  g12_knowledge_palace_shards:
+    tracking_issue: 530
+    proposal_issue: 528
+    merge_pr: 541
+    status: "MERGED"
+    contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
+    registry: "governance/KNOWLEDGE_SHARDS.json"
+    effect:
+      - "KNOWLEDGE_CORE_WIP_1"
+      - "PALACE_WORKERS_MAX_4"
+      - "PER_PALACE_WIP_1"
+      - "SHARED_SEMANTICS_CORE_ONLY"
+      - "SERIAL_EXACT_HEAD_CANONICAL_MERGE"
 
 deferred_admin:
   issue: 285
