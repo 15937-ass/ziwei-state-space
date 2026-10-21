@@ -190,9 +190,12 @@ from .career_natal_domain_provider import (
     load_default_career_natal_provider,
 )
 from .career_inference_service import (
+    DEFAULT_CAREER_PALACE_ONTOLOGY_PATH,
     DEFAULT_CAREER_TEMPORAL_LAYERS,
     DEFAULT_TEMPORAL_REACTION_REGISTRY_PATH,
+    CareerResponseRun,
     run_career_inference,
+    run_career_response_profile,
 )
 from .full_chart_snapshot_contract import (
     FULL_CHART_SCHEMA_VERSION,
@@ -378,6 +381,12 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "DEFAULT_CAREER_PALACE_ONTOLOGY_PATH",
+    "DEFAULT_CAREER_TEMPORAL_LAYERS",
+    "DEFAULT_TEMPORAL_REACTION_REGISTRY_PATH",
+    "CareerResponseRun",
+    "run_career_inference",
+    "run_career_response_profile",
     "EMPIRICAL_PARAMETER_LAYERS",
     "PROBABILITY_MODEL_STATUSES",
     "PROBABILITY_REGISTRY_STATUSES",
