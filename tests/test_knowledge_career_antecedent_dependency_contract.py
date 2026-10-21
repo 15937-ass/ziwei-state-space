@@ -64,10 +64,30 @@ def test_dependency_gate_readiness_partition():
     assert g["dependency_only_parent_underdetermined"]==24
     assert g["immediate_dependency_compiler_candidate_ids"]==["CA05-420","CA07-639","CA07-682"]
 
-def test_already_resolved_reference_partition():
+def test_already_resolved_reference_partition_is_not_mislabeled_ready():
     g=load(GRAPH)["summary"]
-    assert g["already_reference_resolved_rule_ready"]==11
-    assert g["already_reference_resolved_other_blockers"]==4
+    assert g["already_reference_resolved_no_local_blocker"]==11
+    assert g["already_reference_resolved_local_blockers"]==4
+    assert g["already_reference_resolved_inherited_source_underdetermination"]==11
+    assert g["already_reference_resolved_effective_condition_ready"]==0
+    assert "already_reference_resolved_rule_ready" not in g
+
+def test_transitive_parent_uncertainty_propagates():
+    g=load(GRAPH); m={r["source_rule_id"]:r for r in g["records"]}
+    x=m["CA02-171"]
+    assert x["antecedent_rule_ids"]==["CA02-170"]
+    assert x["immediate_parent_blockers"]==[]
+    assert "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED" in x["inherited_parent_blockers"]
+    assert x["dependency_readiness"]=="REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION"
+
+def test_outside_closure_parent_is_not_silently_ready():
+    g=load(GRAPH)
+    rows=[r for r in g["records"] if r["parent_ids_outside_contextual_closure"]]
+    assert g["summary"]["parent_edges_outside_contextual_activation_closure"]==25
+    assert g["summary"]["unique_parent_ids_outside_contextual_activation_closure"]==23
+    assert rows
+    c=load(CONTRACT)
+    assert "not assessed" in c["semantics"]["row_local_vs_effective_readiness"]["outside_closure_rule"].lower()
 
 def test_closure_metadata_only_except_ca05473_scope_resolution():
     a,b=load(C13),load(C14)
@@ -81,6 +101,7 @@ def test_closure_metadata_only_except_ca05473_scope_resolution():
 
 def test_contract_never_claims_product_compilation():
     c=load(CONTRACT)
+    assert c["canonical_counts"]["already_reference_resolved_effective_condition_ready"]==0
     assert c["compiler_boundary"]["knowledge_representation_complete"] is True
     assert c["compiler_boundary"]["product_compiler_implemented"] is False
     assert c["compiler_boundary"]["conditions_compiled"]==0
