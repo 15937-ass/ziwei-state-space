@@ -6,8 +6,10 @@ from apps.social_quickread_pilot.temporal_4h import (
     TemporalInputSource,
     TemporalLayer,
     TEN_STEM_TRANSFORMATIONS,
+    build_temporal_4h_series,
     build_temporal_4h_snapshot,
     quickread_temporal_payload,
+    stem_for_gregorian_year,
     transformations_for_stem,
 )
 
@@ -144,3 +146,27 @@ def test_invalid_stem_fails_closed():
             layer=TemporalLayer.YEAR,
             star_to_palace={},
         )
+
+
+def test_gregorian_year_stem_and_multi_year_series():
+    assert stem_for_gregorian_year(2024) == "甲"
+    assert stem_for_gregorian_year(2025) == "乙"
+    assert stem_for_gregorian_year(2026) == "丙"
+    assert stem_for_gregorian_year(2027) == "丁"
+
+    rows = build_temporal_4h_series(
+        decade_stem="丁",
+        years=(2025, 2026, 2027),
+        star_to_palace={
+            "太阴": "财帛",
+            "天同": "迁移",
+            "天机": "官禄",
+            "巨门": "夫妻",
+            "天梁": "父母",
+            "紫微": "命宫",
+            "文昌": "福德",
+            "廉贞": "交友",
+        },
+    )
+    assert [year for year, _ in rows] == [2025, 2026, 2027]
+    assert [snapshot.year_stem for _, snapshot in rows] == ["乙", "丙", "丁"]
