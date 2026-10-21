@@ -51,7 +51,7 @@ ACTIVATION_CLOSURE_PATH = (
     ROOT
     / "knowledge"
     / "wp07c"
-    / "CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.2.json"
+    / "CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.3.json"
 )
 CAREER_ORDINAL_CONSTRAINTS_PATH = (
     ROOT / "knowledge" / "wp08" / "CAREER_ORDINAL_CONSTRAINTS_v0.1.json"
@@ -61,6 +61,9 @@ CAREER_ORDINAL_RULE_LINKS_PATH = (
 )
 CAREER_ORDINAL_BLOCKER_IMPACT_PATH = (
     ROOT / "knowledge" / "wp08" / "CAREER_ORDINAL_BLOCKER_IMPACT_v0.1.json"
+)
+CAREER_SEMANTIC_NORMALIZATION_PATH = (
+    ROOT / "knowledge" / "wp08" / "CAREER_SEMANTIC_NORMALIZATION_36_v0.1.json"
 )
 
 KNOWLEDGE_EXECUTION_STATUSES = frozenset(
@@ -73,6 +76,7 @@ CAREER_ADAPTER_STATUS_BY_READINESS = {
     "SOURCE_UNDERDETERMINED": "BLOCKED_SOURCE_UNDERDETERMINED",
     "DEPENDENCY_COMPILER_GATED": "BLOCKED_DEPENDENCY_COMPILER",
     "NORMALIZATION_DEFERRED": "BLOCKED_NORMALIZATION",
+    "STRUCTURED_PATTERN_COMPILER_GATED": "BLOCKED_STRUCTURED_PATTERN_COMPILER",
     "MULTI_CLASS_BLOCKED": "BLOCKED_MULTIPLE",
 }
 
@@ -641,6 +645,53 @@ def validate_career_ordinal_cross_artifacts() -> None:
         )
 
 
+def load_career_semantic_normalization(
+    path: Path = CAREER_SEMANTIC_NORMALIZATION_PATH,
+) -> Mapping[str, Any]:
+    payload = _read_json(path)
+    if payload.get("schema_version") != "0.1":
+        raise ValueError("Career semantic-normalization schema_version must be 0.1")
+    raw = payload.get("records")
+    if not isinstance(raw, list) or len(raw) != 36:
+        raise ValueError("Career semantic-normalization artifact must contain 36 records")
+    ids = [item.get("source_rule_id") for item in raw]
+    if len(set(ids)) != 36:
+        raise ValueError(
+            "Career semantic-normalization source_rule_id values must be unique"
+        )
+
+    for item in raw:
+        rule_id = _required_text(
+            item.get("source_rule_id"),
+            "semantic_normalization.source_rule_id",
+        )
+        if item.get("condition_compiled") is not False:
+            raise ValueError(f"{rule_id}: normalization may not compile conditions")
+        if item.get("execution_unlocked") is not False:
+            raise ValueError(f"{rule_id}: normalization may not unlock execution")
+        after = item.get("blockers_after")
+        if not isinstance(after, list):
+            raise ValueError(f"{rule_id}: blockers_after must be an array")
+        if "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED" in after:
+            raise ValueError(
+                f"{rule_id}: generic normalization blocker should be refined"
+            )
+
+    summary = payload.get("summary")
+    if not isinstance(summary, dict):
+        raise ValueError("Career semantic-normalization summary must be an object")
+    if int(summary.get("semantic_normalization_blockers_before", -1)) != 36:
+        raise ValueError("semantic-normalization before-count drift")
+    if int(summary.get("semantic_normalization_blockers_after", -1)) != 0:
+        raise ValueError("generic semantic-normalization blocker remains")
+    if int(summary.get("conditions_compiled", -1)) != 0:
+        raise ValueError("semantic normalization unexpectedly compiled conditions")
+    if int(summary.get("execution_unlocked", -1)) != 0:
+        raise ValueError("semantic normalization unexpectedly unlocked execution")
+
+    return payload
+
+
 def load_activation_closure(
     path: Path = ACTIVATION_CLOSURE_PATH,
 ) -> Mapping[str, Any]:
@@ -824,6 +875,7 @@ def audit_response_semantics_adapter_readiness() -> dict[str, Any]:
     ordinal_constraints = load_career_ordinal_constraints()
     ordinal_links = load_career_ordinal_rule_links()
     ordinal_impact = load_career_ordinal_blocker_impact()
+    semantic_normalization = load_career_semantic_normalization()
     validate_career_ordinal_cross_artifacts()
 
     pilot_status_counts = Counter(
@@ -900,6 +952,9 @@ def audit_response_semantics_adapter_readiness() -> dict[str, Any]:
             "career_ordinal_blocker_impact": str(
                 CAREER_ORDINAL_BLOCKER_IMPACT_PATH.relative_to(ROOT)
             ),
+            "career_semantic_normalization": str(
+                CAREER_SEMANTIC_NORMALIZATION_PATH.relative_to(ROOT)
+            ),
         },
         "response_pilot": {
             "total": len(pilot),
@@ -973,6 +1028,52 @@ def audit_response_semantics_adapter_readiness() -> dict[str, Any]:
             ),
             "execution_unlocked": int(
                 ordinal_impact.get("summary", {}).get(
+                    "execution_unlocked", -1
+                )
+            ),
+        },
+        "career_semantic_normalization": {
+            "target_rows": int(
+                semantic_normalization.get("coverage", {}).get("target_rows", -1)
+            ),
+            "reviewed": int(
+                semantic_normalization.get("coverage", {}).get("reviewed", -1)
+            ),
+            "remaining": int(
+                semantic_normalization.get("coverage", {}).get("remaining", -1)
+            ),
+            "disposition_counts": _deep(
+                semantic_normalization.get("summary", {}).get(
+                    "disposition_counts", {}
+                )
+            ),
+            "generic_blocker_before": int(
+                semantic_normalization.get("summary", {}).get(
+                    "semantic_normalization_blockers_before", -1
+                )
+            ),
+            "generic_blocker_after": int(
+                semantic_normalization.get("summary", {}).get(
+                    "semantic_normalization_blockers_after", -1
+                )
+            ),
+            "added_precise_blocker_counts": _deep(
+                semantic_normalization.get("summary", {}).get(
+                    "added_precise_blocker_counts", {}
+                )
+            ),
+            "source_resolution_changes": int(
+                semantic_normalization.get("summary", {}).get(
+                    "source_resolution_changes", -1
+                )
+            ),
+            "conditions_compiled": int(
+                semantic_normalization.get("summary", {}).get(
+                    "conditions_compiled", -1
+                )
+            ),
+            "execution_unlocked": int(
+                semantic_normalization.get("summary", {}).get(
                     "execution_unlocked", -1
                 )
             ),
