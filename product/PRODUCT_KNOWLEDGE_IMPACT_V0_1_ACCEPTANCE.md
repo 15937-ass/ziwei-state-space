@@ -126,7 +126,9 @@ K_method
 -> EXPERT_METHOD_REPLAY
 ~~~
 
-Only reachable artifacts are invalidated.
+Only reachable artifacts are invalidated. If multiple Knowledge components
+invalidate the same downstream artifact, the report preserves every triggering
+component instead of silently overwriting one dependency edge.
 
 Future artifacts that do not yet exist are reported as:
 
