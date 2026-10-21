@@ -4,10 +4,10 @@ authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  status: "ACTIVE_WORK"
-  active_issue: 374
-  active_branch: "governance/374-recovery-precedence-cleanup"
-  active_pr: 496
+  status: "ACTIVE_NO_ACTIVE_WORK"
+  active_issue: null
+  active_branch: null
+  active_pr: null
   governance_version: "1.0"
   archive_checkpoint: "governance/archive/2026-10-06-project-checkpoint.md"
   resumed_at: "2026-10-18"
@@ -29,22 +29,10 @@ completed:
   g8_public_actions_execution_migration:
     tracking_issue: 372
     merge_pr: 373
-    status: "MERGED_G9_AUTHORITY_AMENDMENT_IN_PROGRESS"
+    status: "MERGED_AUTHORITY_SPLIT_AMENDED_BY_G9"
     protocol: "governance/PUBLIC_ACTIONS_EXECUTION_PROTOCOL_v0.2.md"
     runner_policy: "STANDARD_PUBLIC_GITHUB_HOSTED_ONLY"
     automatic_triggers: "PULL_REQUEST_ONLY_NO_PUSH"
-
-in_progress:
-  g9_conversation_authority_and_recovery_decontamination:
-    tracking_issue: 374
-    current_pr: 496
-    superseded_pr: 377
-    status: "VALIDATING"
-    proposal: "governance/proposals/374-chat-repository-authority.md"
-    recovery_contract: "governance/RECOVERY_PRECEDENCE_v1.md"
-    effect:
-      - "CURRENT_CHATGPT_CONVERSATION_FIRST_CLASS_REPOSITORY_OPERATOR"
-      - "RECOVERY_POINTERS_OVERRIDE_STALE_STATUS_WORDS"
 
   g10_product_v04_architecture:
     tracking_issue: 425
@@ -54,6 +42,17 @@ in_progress:
     roadmap: "PRODUCT_ROADMAP.md"
     execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
     effect: "EXPERT_REASONING_AND_RESPONSE_VERTICAL_SLICE_BECOMES_PRODUCT_CRITICAL_PATH"
+
+  g9_conversation_authority_and_recovery_decontamination:
+    tracking_issue: 374
+    merge_pr: 496
+    superseded_pr: 377
+    status: "MERGED"
+    proposal: "governance/proposals/374-chat-repository-authority.md"
+    recovery_contract: "governance/RECOVERY_PRECEDENCE_v1.md"
+    effect:
+      - "CURRENT_CHATGPT_CONVERSATION_FIRST_CLASS_REPOSITORY_OPERATOR"
+      - "RECOVERY_POINTERS_OVERRIDE_STALE_STATUS_WORDS"
 
   product_knowledge_dependency_governance:
     tracking_issue: 491
