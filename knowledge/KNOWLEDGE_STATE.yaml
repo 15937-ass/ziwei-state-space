@@ -5,13 +5,13 @@ canonical_branch: "main"
 
 execution:
   status: "ACTIVE_NO_ACTIVE_WORK"
-  program: "KB_WP08_OPEN_CATEGORY_REFINEMENT"
+  program: "KB_WP08_THIRD_LAYER_PRIORITY_REVIEW"
   active_issue: null
   active_pr: null
-  canonical_main_checkpoint: "CAREER_OPEN_CATEGORY_REFINEMENT_100_OF_110"
-  resume_entry: "Issue #485 refines the first 100 of 110 remaining Career OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED rows in canonical order. Generic OPEN_CATEGORY falls 110->10 with zero new blocker-free rows and zero execution unlocks. The broad bucket is split into closed-category contextual activation, open valence, open functional categories, source compounds, qualified auxiliary support, valence-state criteria, mixed-valence composition, source open tails, elemental membership, and threshold blockers. Four source-condition projection repairs were also made: CA03-298 restores 等杂曜; CA07-633 replaces projection-derived 多辅曜 with source examples ending in 等吉曜 and removes the invented cardinality threshold; CA07-652 removes an invented 陀罗 OR 煞 and preserves two sequential source clauses with SOURCE_BRANCH_SCOPE_RECHECK_REQUIRED; CA08-725 restores source-positive 吉则 and does not equate it with 有吉曜. Cumulative source_resolution_changed 28->32; source_condition_repairs 1->5; no-current-blocker rows remain 21; conditions compiled=0; execution unlocked=0. Next Knowledge unit should finish the remaining 10 generic OPEN_CATEGORY rows (CA09-833, CA09-839, CA09-840, CA09-847, CA09-848, CA09-849, CA09-861, CA09-865, CA09-885, CA09-886), then re-rank the precise blocker families for the next 100-rule batch."
-  resume_issue: 485
-  last_state_sync_issue: 485
+  canonical_main_checkpoint: "CAREER_THIRD_LAYER_PRIORITY_100_OF_100"
+  resume_entry: "Issue #487 completes a 100-rule third-layer priority batch: final 10 generic OPEN_CATEGORY rows plus 90 highest-leverage single-blocker rows (49 pair/closed-group, 26 closed-category, 12 source-compound, 3 valence-state). OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED is retired 10->0. CA03-228 gains one source-local resolution: in the 天机巨门 clause, the source explicitly says 火铃二曜均足以增加天机浮荡、巨门是非, so this clause alone normalizes to SAME_PALACE(LOCAL_ANY_OF[火星,铃星]); no global 火铃 default is introduced. Three source branch flattenings are repaired fail-closed: CA03-277, CA04-397, CA09-859. CA09-847 restores the `更见` dependency toward CA09-846 but retains ANTECEDENT_SOURCE_CONDITION_RECHECK_REQUIRED because CA09-846 itself uses a non-literal compressed condition; inheritance is not executable. CA09-804 is recorded as a duplicate source-rule alias of CA08-799 without deleting either ID. Closure v0.9: generic OPEN_CATEGORY 10->0; no-current-blocker rows 21->22; rows_with_source_underdetermination 203->202; cumulative source_resolution_changed 32->37; source_condition_repairs 5->8; dependency_scope_corrections 1->2; explicit antecedent-reference rows 64->65; conditions compiled=0; execution unlocked=0. Next Knowledge work should re-rank the remaining precise blockers, prioritizing single-blocker pair/group rows with source-local evidence candidates, closed-category activation rows, and branch/dependency repair backlog rather than reopening generic buckets."
+  resume_issue: 487
+  last_state_sync_issue: 487
 
 canonical_main_snapshot:
   domain: "事业宫"
@@ -247,6 +247,11 @@ completed_work_units:
     issue: 485
     pr: 486
     status: "MERGED_100_OF_100_GENERIC_OPEN_REFINED_110_TO_10_4_SOURCE_REPAIRS_NO_EXECUTION_UNLOCK"
+
+  - work_unit: "KB-WP08-CAREER-THIRD-LAYER-PRIORITY-100"
+    issue: 487
+    pr: 488
+    status: "MERGED_100_OF_100_GENERIC_OPEN_ZERO_1_SOURCE_LOCAL_RESOLVED_4_REPAIRS_NO_EXECUTION_UNLOCK"
 
 archived_noncanonical_snapshots:
   wp05_all_twelve_palaces:
