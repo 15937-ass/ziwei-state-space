@@ -6,12 +6,12 @@ canonical_branch: "main"
 execution:
   status: "ACTIVE_NO_ACTIVE_WORK"
   program: "KB_WP05_PROPERTY_CANONICALIZATION"
-  active_issue: null
+  active_issue: 522
   active_pr: null
-  canonical_main_checkpoint: "PROPERTY_TP01_CANONICAL_100_OF_100"
-  resume_entry: "Issue #515 resumes canonical WP05 P10 田宅宫 coverage from the archived twelve-palace branch, which remains noncanonical candidate material. TP01-001..100 were directly rechecked against SRC-ZZ-003 printed pp156-158: 100/100 promoted, 91 reusable, 9 CASE_SUPPORT_ONLY, 4 PATH_DEPENDENT_GATE. Three source-preserving repairs are canonicalized: TP01-036 restores the 紫贪 exception / 贪狼化忌 re-entry in the fire-risk clause; TP01-048 restores interaction with 大限流煞 plus explicit Parents/Life/Property 昌曲 alternatives; TP01-084 restores distinct 火星同度 + 铃星会 + 煞耗 + 流煞冲会 relations. TP01-017 and TP01-037 preserve source/OCR uncertainty rather than silent correction. A source-time-scope sidecar preserves explicit 大限流年 scope for TP01-044/045 and year-with-decade-context for TP01-048 while retaining legacy single-value time_layer compatibility. PR #516 was closed unmerged as stale after main advanced; its validated artifacts were reconstituted byte-for-byte on current main and merged through replacement PR #519 after a fresh exact-head G8 gate. No new primitive qi, memory type, independent time scale, numeric weight, probability or decay. After merge, continue P10 with TP02 101-200 under the same source-first re-adjudication discipline."
-  resume_issue: 515
-  last_state_sync_issue: 515
+  canonical_main_checkpoint: "PROPERTY_TP02_CANONICAL_200_OF_200"
+  resume_entry: "Issue #522 continues canonical WP05 P10 田宅宫 coverage with TP02-101..200 from SRC-ZZ-003 printed pp159-162. All 100 archived candidate rows were source-first rechecked: 85 reusable, 15 CASE_SUPPORT_ONLY, 5 PATH_DEPENDENT_GATE, 10 legacy YEAR rows. Nine condition/scope repairs are staged: TP02-103 restores the Sun-Moon base plus fallen/化忌 and 流煞同会或冲会; TP02-107 preserves printed 魁然 rather than silently normalizing to 魁钺; TP02-116 preserves printed 为刑为夹 rather than assuming 刑忌夹; TP02-135 restores 火星同躔 + 虚耗刑忌 + 流煞冲会; TP02-136 retains only the readable 武曲化忌/贪狼化忌 fire-risk tail and quarantines damaged preceding text; TP02-150 restores 更见煞忌重重 for litigation; TP02-177 preserves printed shorthand 破; TP02-191 restores distinct 火铃同度 / 羊陀交会 / 流煞冲破 / 大耗天虚 relation surfaces while preserving branch-scope ambiguity; TP02-200 separates the relocation branch from source-explicit 空劫夹亦主破败, which is retained as TP02-GAP-001 instead of being folded into relocation. Source-time sidecar preserves 流年及小限 for TP02-175/176 without creating a 小限 runtime primitive, and preserves literal 中年后/中晚年以后 labels without numericization. No Product files or quantitative semantics change. Next after merge: continue Property TP03 201-300 under the same source-first discipline."
+  resume_issue: 522
+  last_state_sync_issue: 522
 
 canonical_main_snapshot:
   domain: "事业宫"
@@ -294,6 +294,11 @@ completed_work_units:
     pr: 519
     superseded_prs: [516]
     status: "MERGED_100_OF_100_91_REUSABLE_9_CASE_SUPPORT_4_HISTORY_3_SOURCE_REPAIRS"
+
+  - work_unit: "KB-WP05-P10-PROPERTY-TP02-CANONICAL-101-200"
+    issue: 522
+    pr: null
+    status: "ACTIVE_100_OF_100_SOURCE_RECHECKED_85_REUSABLE_15_CASE_SUPPORT_5_HISTORY_9_SOURCE_REPAIRS_PENDING_VALIDATION_AND_MERGE"
 
 archived_noncanonical_snapshots:
   wp05_all_twelve_palaces:
