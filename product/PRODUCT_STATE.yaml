@@ -8,12 +8,14 @@ execution:
   phase: "PL3_METHOD_RESPONSE_VERTICAL_SLICE"
   active_issue: null
   active_pr: null
-  next_work_unit: "SOURCE_BACKED_RESPONSE_CORPUS_DEPENDENCY"
-  resume_entry: "Product #462 / PR #464 are complete on main. Response Semantics adapter v0.1 now preserves Knowledge-owned response semantics behind an explicit fail-closed execution boundary: Career 251/251 are audited on the frozen v0.3 Product acceptance baseline, SEMANTIC_ONLY_PENDING_COMPILATION=17, and real runtime effects authorized=0. Semantic compatibility does not imply condition compilation or execution authorization. Response Compiler and ResponseProfile tau remain NOT_IMPLEMENTED; predictive validity remains NOT_VALIDATED. Next Product main-path work is SOURCE_BACKED_RESPONSE_CORPUS_DEPENDENCY: define ingestion/readiness for source-backed Natal Essence x temporal-structure response records without inventing missing semantics. WANG_BLIND_EVIDENCE_MATERIALIZATION_V0_1 remains required before real Benchmark B expert replay."
+  next_work_unit: "PRODUCT_KNOWLEDGE_LOCK_V0_1"
+  resume_entry: "Product #482 / PR #484 are complete on main: NOW-5 Product-side Response Corpus ingestion/readiness found 1039 source temporal candidate rows but 0 compiler-ready canonical Kr on its frozen acceptance baseline, so NOW-6 remains fail-closed. Proposal #491 adds the Product Knowledge dependency/promotion contract: Knowledge main must not silently mutate active Product; Product must first implement a machine-verifiable KIB/active lock, then semantic impact + selective rebuild/promotion. Immediate next Product work is PRODUCT_KNOWLEDGE_LOCK_V0_1, followed by PRODUCT_KNOWLEDGE_IMPACT_V0_1. WANG_BLIND_EVIDENCE_MATERIALIZATION_V0_1 remains an independent Benchmark-B dependency. Response Compiler and ResponseProfile tau remain NOT_IMPLEMENTED; predictive validity remains NOT_VALIDATED."
+  state_cache_as_of_main_commit: "7865dfa8e02506cbff92454a4e00dbda2efede9f"
+  state_cache_as_of_product_merge: "b9a2a25d3874370959bc6fd93433fade02daf96a"
   v04_entry_checkpoint_issue: 416
   v04_entry_checkpoint_pr: 418
-  last_completed_product_issue: 462
-  last_completed_product_pr: 464
+  last_completed_product_issue: 482
+  last_completed_product_pr: 484
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
   resume_issue: 290
@@ -91,6 +93,15 @@ capability_snapshot:
     production_readiness: "NOT_READY"
     note: "Product #462 / PR #464 preserve 251/251 Career response semantics behind a fail-closed adapter. SEMANTIC_ONLY_PENDING_COMPILATION=17 and real runtime effects authorized=0. Compatibility/readiness never implies condition compilation or execution authorization; Response Compiler remains separate and not implemented."
 
+  knowledge_dependency_control:
+    specification: "PROPOSAL_491_APPROVED"
+    implementation: "NOT_IMPLEMENTED"
+    canonical_content: "NOT_APPLICABLE"
+    internal_validation: "NONE"
+    empirical_calibration: "NOT_APPLICABLE"
+    production_readiness: "NOT_READY"
+    note: "Required before NOW-6 promotion of newer Knowledge inputs: componentized Knowledge Input Bundle, machine-verifiable active lock, semantic impact classification, selective downstream invalidation and candidate->validation->promotion. Existing frozen-baseline records remain historical evidence and are not retroactively upgraded."
+
   response_profile:
     specification: "V0_4_ARCHITECTURE_APPROVED"
     implementation: "NOT_IMPLEMENTED"
@@ -145,7 +156,8 @@ capability_snapshot:
 
 critical_path:
   now:
-    - "SOURCE_BACKED_RESPONSE_CORPUS_DEPENDENCY"
+    - "PRODUCT_KNOWLEDGE_LOCK_V0_1"
+    - "PRODUCT_KNOWLEDGE_IMPACT_V0_1"
     - "PL3R_DECADE_YEAR_RESPONSE_COMPILER"
     - "PL3M0_CANONICAL_MANIFESTATION_CANDIDATES"
     - "WANG_BLIND_EVIDENCE_MATERIALIZATION_V0_1"
@@ -190,3 +202,7 @@ permanent_boundaries:
   llm_owns_probability: false
   llm_may_propose_next_reasoning_action_only: true
   world_model_is_current_critical_path: false
+  knowledge_main_is_implicit_active_product_dependency: false
+  knowledge_update_requires_impact_before_product_promotion: true
+  historical_product_lineage_is_immutable: true
+  incompatible_knowledge_training_mix_requires_explicit_migration: true
