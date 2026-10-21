@@ -1,338 +1,63 @@
-schema_version: 1
+schema_version: 2
 lane: "KNOWLEDGE_ONLY"
 authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  status: "ACTIVE_NO_ACTIVE_WORK"
-  program: "KB_WP05_PROPERTY_CANONICALIZATION"
-  active_issue: null
-  active_pr: null
-  canonical_main_checkpoint: "PROPERTY_TP02_CANONICAL_200_OF_200"
-  resume_entry: "Issue #522 continues canonical WP05 P10 田宅宫 coverage with TP02-101..200 from SRC-ZZ-003 printed pp159-162. All 100 archived candidate rows were source-first rechecked: 85 reusable, 15 CASE_SUPPORT_ONLY, 5 PATH_DEPENDENT_GATE, 10 legacy YEAR rows. Nine condition/scope repairs are staged: TP02-103 restores the Sun-Moon base plus fallen/化忌 and 流煞同会或冲会; TP02-107 preserves printed 魁然 rather than silently normalizing to 魁钺; TP02-116 preserves printed 为刑为夹 rather than assuming 刑忌夹; TP02-135 restores 火星同躔 + 虚耗刑忌 + 流煞冲会; TP02-136 retains only the readable 武曲化忌/贪狼化忌 fire-risk tail and quarantines damaged preceding text; TP02-150 restores 更见煞忌重重 for litigation; TP02-177 preserves printed shorthand 破; TP02-191 restores distinct 火铃同度 / 羊陀交会 / 流煞冲破 / 大耗天虚 relation surfaces while preserving branch-scope ambiguity; TP02-200 separates the relocation branch from source-explicit 空劫夹亦主破败, which is retained as TP02-GAP-001 instead of being folded into relocation; the archived noncanonical TP03-205 candidate for that branch is linked for future source review but not auto-promoted. Source-time sidecar preserves 流年及小限 for TP02-175/176 without creating a 小限 runtime primitive, and preserves literal 中年后/中晚年以后 labels without numericization. No Product files or quantitative semantics change. Next after merge: continue Property TP03 201-300 under the same source-first discipline."
-  resume_issue: 522
-  last_state_sync_issue: 522
+  mode: "PALACE_SHARDED_V1"
+  coordinator_role: "RECOVERY_INDEX_NOT_WORKSPACE"
+  contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
+  registry: "governance/KNOWLEDGE_SHARDS.json"
+  core_wip_limit: 1
+  max_active_palace_workers: 4
+  per_palace_wip_limit: 1
+  canonical_merge_policy: "SERIAL_EXACT_HEAD"
+  legacy_grandfather_branch: "knowledge/525-property-tp03-canonical"
 
-canonical_main_snapshot:
-  domain: "事业宫"
-  reviewed_items: 888
-  reusable_projection_rules: 869
-  case_support_only: 19
-  history_feedback: 37
-  status: "CA09_FINAL_MERGED"
-  source_schema_repair: "CA04_CA08_COLUMN_ORDER_REPAIRED"
-  canonical_source_pr: 294
+states:
+  core: "knowledge/states/CORE_STATE.yaml"
+  P01: "knowledge/states/P01_LIFE_STATE.yaml"
+  P02: "knowledge/states/P02_SIBLINGS_STATE.yaml"
+  P03: "knowledge/states/P03_SPOUSE_STATE.yaml"
+  P04: "knowledge/states/P04_CHILDREN_STATE.yaml"
+  P05: "knowledge/states/P05_WEALTH_STATE.yaml"
+  P06: "knowledge/states/P06_HEALTH_STATE.yaml"
+  P07: "knowledge/states/P07_MIGRATION_STATE.yaml"
+  P08: "knowledge/states/P08_FRIENDS_STATE.yaml"
+  P09: "knowledge/states/P09_CAREER_STATE.yaml"
+  P10: "knowledge/states/P10_PROPERTY_STATE.yaml"
+  P11: "knowledge/states/P11_FORTUNE_STATE.yaml"
+  P12: "knowledge/states/P12_PARENTS_STATE.yaml"
 
-completed_work_units:
-  - work_unit: "KB_WP05-CAREER-CA09-CLOSURE"
-    issue: 292
-    pr: 294
-    status: "MERGED"
-  - work_unit: "KB_WP07B-CAREER-TEMPORAL-PILOT"
-    issue: 296
-    pr: 301
-    status: "MERGED_NO_ELIGIBLE_TEMPORAL_RULES"
-    finding: "Nine non-NATAL rows audited; zero eligible for executable normalization under the current PL3-T contract. Production temporal reaction registry remains empty."
-  - work_unit: "KB-WP07A-CAREER-NATAL-ATOMIZATION-PILOT"
-    issue: 302
-    pr: 305
-    status: "MERGED_NOT_EXECUTABLE"
-  - work_unit: "KB-WP07A-CAREER-NATAL-TRANSFORMATION-MAP-CA01-CA03"
-    issue: 307
-    pr: 308
-    status: "MERGED_NOT_EXECUTABLE"
-  - work_unit: "KB-WP07A-CAREER-DIRECT-TRANSFORM-MAP-CA04-CA09"
-    issue: 313
-    pr: 315
-    status: "MERGED_NOT_EXECUTABLE"
-  - work_unit: "KB-WP07A-CAREER-CROSS-PALACE-MAP-CA01-066_CA02-188_CA03-255"
-    issue: 319
-    pr: 322
-    status: "MERGED_NOT_EXECUTABLE"
-  - work_unit: "KB-WP07A-CAREER-CONTEXT-RECOVERY-CA01-020"
-    issue: 326
-    pr: 328
-    status: "MERGED_CONTEXT_BOUND_NOT_EXECUTABLE"
-  - work_unit: "KB-WP07A-CAREER-SPOUSE-KONGJIE-CA01-023"
-    issue: 330
-    pr: 331
-    status: "MERGED_NOT_EXECUTABLE"
+recovery:
+  - "Read PROJECT_STATE.yaml and governance/RECOVERY_PRECEDENCE_v1.md."
+  - "Select CORE or exactly one palace shard for this conversation."
+  - "Read the corresponding state file above as a cache."
+  - "Query live GitHub Issues for KNOWLEDGE_ONLY and the selected shard."
+  - "Live Issue/linked PR overrides stale state."
+  - "Do not infer another palace's work from chat history."
+  - "Do not use archived twelve-palace candidate material as canonical truth."
 
-  - work_unit: "KB-WP07A-CAREER-STAR-PRESENCE-CA01-026_027_031_034_042_044"
-    issue: 334
-    pr: 335
-    status: "MERGED_NOT_EXECUTABLE"
-
-  - work_unit: "KB-WP07A-CAREER-CONTEXT-CA01-035_043_045"
-    issue: 347
-    pr: 349
-    status: "MERGED_CONTEXT_AUDIT_NO_EXECUTABLE_OUTCOME_RULES"
-
-  - work_unit: "KB-WP07A-CAREER-FIRE-BELL-SOURCE-EVIDENCE"
-    issue: 352
-    pr: 355
-    status: "MERGED_BOUNDED_EVIDENCE_TARGET_QUANTIFIER_UNRESOLVED"
-
-  - work_unit: "KB-WP07A-CAREER-ZIWEI-ZIPO-STATIC-8"
-    issue: 357
-    pr: 360
-    status: "MERGED_8_NON_EXECUTABLE_CONDITION_MAPPINGS"
-
-  - work_unit: "KB-WP07A-CAREER-100-REVIEW-01"
-    issue: 362
-    pr: 366
-    status: "MERGED_100_REVIEWED_20_MAPPED_30_CONTEXT_50_BLOCKED"
-
-  - work_unit: "KB-WP07A-CAREER-100-REVIEW-02"
-    issue: 367
-    pr: 368
-    status: "MERGED_100_REVIEWED_41_MAPPED_1_CONTEXT_58_BLOCKED"
-
-  - work_unit: "KB-WP07A-CAREER-100-REVIEW-03"
-    issue: 369
-    pr: 379
-    status: "MERGED_100_REVIEWED_30_MAPPED_8_CONTEXT_62_BLOCKED"
-
-  - work_unit: "KB-WP07A-CAREER-100-REVIEW-04"
-    issue: 381
-    pr: 385
-    status: "MERGED_100_REVIEWED_31_MAPPED_11_CONTEXT_58_BLOCKED"
-
-  - work_unit: "KB-WP07A-CAREER-100-REVIEW-05"
-    issue: 386
-    pr: 390
-    status: "MERGED_100_REVIEWED_27_MAPPED_17_CONTEXT_56_BLOCKED"
-
-  - work_unit: "KB-WP07A-CAREER-100-REVIEW-06"
-    issue: 392
-    pr: 393
-    status: "MERGED_100_REVIEWED_20_MAPPED_10_CONTEXT_70_BLOCKED"
-
-  - work_unit: "KB-WP07A-CAREER-100-REVIEW-07"
-    issue: 394
-    pr: 395
-    status: "MERGED_100_REVIEWED_24_MAPPED_11_CONTEXT_65_BLOCKED"
-
-  - work_unit: "KB-WP07A-CAREER-100-REVIEW-08"
-    issue: 396
-    pr: 401
-    status: "MERGED_100_REVIEWED_16_MAPPED_17_CONTEXT_67_BLOCKED"
-
-  - work_unit: "KB-WP07A-CAREER-888-CLOSURE"
-    issue: 403
-    pr: 404
-    status: "MERGED_FINAL36_7_MAPPED_2_CONTEXT_27_BLOCKED_888_ID_CLOSURE"
-
-  - work_unit: "KB-WP07C-CAREER-BLOCKER-ONTOLOGY-BACKLOG"
-    issue: 406
-    pr: 408
-    status: "MERGED_513_BLOCKERS_CENSUSED_NO_NEW_SEMANTICS"
-
-  - work_unit: "KB-WP07C-CAREER-GROUP-LEXICON-REVIEW-01"
-    issue: 410
-    pr: 411
-    status: "MERGED_100_OF_251_SOURCE_REVIEW_NO_NEW_SEMANTICS"
-
-  - work_unit: "KB-WP07C-CAREER-GROUP-LEXICON-REVIEW-02"
-    issue: 412
-    pr: 414
-    status: "MERGED_CUMULATIVE_200_OF_251_SOURCE_REVIEW_NO_NEW_SEMANTICS"
-
-  - work_unit: "KB-WP07C-CAREER-GROUP-LEXICON-REVIEW-03-CLOSURE"
-    issue: 415
-    pr: 417
-    status: "MERGED_251_OF_251_SOURCE_REVIEW_HUMAN_GATE_READY"
-
-  - work_unit: "KB-WP07C-RESPONSE-SEMANTICS-V0-1"
-    issue: 419
-    pr: 420
-    status: "MERGED_BOUNDED_SCHEMA_PILOT_GUIDANCE_NO_PRODUCT_EXECUTION"
-
-  - work_unit: "KB-WP07C-RESPONSE-COMPATIBILITY-01"
-    issue: 421
-    pr: 422
-    status: "MERGED_FIRST_100_CLASSIFIED_RS1_18_RS2_17_RS0_65_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP07C-RESPONSE-COMPATIBILITY-02"
-    issue: 423
-    pr: 424
-    status: "MERGED_SECOND_100_CLASSIFIED_RS1_22_RS2_10_RS0_68_CUMULATIVE_200_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP07C-RESPONSE-COMPATIBILITY-03-CLOSURE"
-    issue: 426
-    pr: 428
-    status: "MERGED_FINAL51_RS1_15_RS2_7_RS0_29_CLOSURE_251_RS1_55_RS2_34_RS0_162_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP07C-RELATION-SEMANTICS-V0-1"
-    issue: 430
-    pr: 433
-    status: "MERGED_132_OF_132_R1_105_R2_26_R3_1_Z12_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP07C-RELATION-BINDING-V0-1"
-    issue: 436
-    pr: 439
-    status: "MERGED_132_RULES_142_CLAIMS_RB1_99_RB2_16_RB3_14_RB4_2_RB5_1_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP07C-CAREER-CATEGORY-OPEN-LEXICON-V0-1"
-    issue: 442
-    pr: 443
-    status: "MERGED_59_OF_59_18_SURFACES_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP07C-CAREER-CONTEXTUAL-ACTIVATION-01"
-    issue: 445
-    pr: 448
-    status: "MERGED_FIRST_100_OF_251_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP07C-CAREER-CONTEXTUAL-ACTIVATION-02"
-    issue: 451
-    pr: 452
-    status: "MERGED_SECOND_100_CUMULATIVE_200_OF_251_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP07C-CAREER-CONTEXTUAL-ACTIVATION-03-CLOSURE"
-    issue: 454
-    pr: 456
-    status: "MERGED_FINAL_51_CUMULATIVE_251_OF_251_INFERENCE_READINESS_AUDITED_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP07C-CAREER-ANTECEDENT-SOURCE-RECHECK-16"
-    issue: 458
-    pr: 460
-    status: "MERGED_16_OF_16_ZERO_UNRESOLVED_ANTECEDENTS_ONE_SCOPE_CORRECTION_ONE_CONDITION_REPAIR_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP08-CAREER-ORDINAL-CONSTRAINT-REGISTRY-V0-1"
-    issue: 461
-    pr: 463
-    status: "MERGED_24_SPANS_131_CANDIDATES_118_ACCEPTED_130_CONSTRAINTS_13_EXCLUDED_NO_NUMERICIZATION"
-
-  - work_unit: "KB-WP08-CAREER-ORDINAL-RULE-LINKING-V0-1"
-    issue: 465
-    pr: 466
-    status: "MERGED_130_OF_130_114_DIRECT_15_MULTI_1_CONTEXT_ZERO_GAPS_ZERO_BLOCKERS_RESOLVED"
-
-  - work_unit: "KB-WP08-CAREER-SEMANTIC-NORMALIZATION-36-V0-1"
-    issue: 467
-    pr: 468
-    status: "MERGED_36_OF_36_GENERIC_NORMALIZATION_36_TO_0_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP08-CAREER-BAIGUAN-STRUCTURED-PATTERN-V0-1"
-    issue: 469
-    pr: 470
-    status: "MERGED_4_OF_4_STRUCTURED_PATTERN_4_TO_0_NO_UNIVERSAL_THRESHOLD_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP08-CAREER-SOURCE-LEXICON-QUANTIFIER-10"
-    issue: 471
-    pr: 473
-    status: "MERGED_10_OF_10_2_SOURCE_RESOLVED_5_NO_UNIVERSAL_RULE_3_UNDERDETERMINED_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP08-CAREER-RESIDUAL-CLASSIFICATION-100"
-    issue: 475
-    pr: 476
-    status: "MERGED_100_OF_100_CLASSIFIED_78_SOURCE_RESEARCHABLE_18_STRUCTURAL_GATED_4_OPEN_CANDIDATES_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP08-CAREER-PAIR-CLOSED-GROUP-CONTEXTUAL-63"
-    issue: 477
-    pr: 478
-    status: "MERGED_63_OF_63_CONTEXTUAL_REFINED_MEMBER_93_TO_33_OPEN_132_TO_129_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP08-CAREER-RESIDUAL-CLOSURE-37"
-    issue: 481
-    pr: 483
-    status: "MERGED_37_OF_37_SECOND_LAYER_3_SOURCE_LOCAL_RESOLVED_1_PARTIAL_MEMBER_GENERIC_TO_ZERO_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP08-CAREER-RESIDUAL-SECOND-LAYER-100"
-    issues: [475, 477, 481]
-    prs: [476, 478, 483]
-    status: "MERGED_100_OF_100_SECOND_LAYER_REVIEW_COMPLETE_21_LOCAL_STRUCTURE_READY_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP08-CAREER-OPEN-CATEGORY-REFINEMENT-100"
-    issue: 485
-    pr: 486
-    status: "MERGED_100_OF_100_GENERIC_OPEN_REFINED_110_TO_10_4_SOURCE_REPAIRS_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP08-CAREER-THIRD-LAYER-PRIORITY-100"
-    issue: 487
-    pr: 488
-    status: "MERGED_100_OF_100_GENERIC_OPEN_ZERO_1_SOURCE_LOCAL_RESOLVED_4_REPAIRS_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP08-CAREER-SOURCE-DEEPEN-100"
-    issue: 489
-    pr: 490
-    status: "MERGED_100_OF_100_3_SEMANTIC_CHANGES_4_SCOPE_METADATA_REPAIRS_0_NEW_READY_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP08-CAREER-SOURCE-LEXICAL-READJUDICATION-10"
-    issue: 472
-    pr: 497
-    superseded_prs: [474, 493]
-    status: "MERGED_10_OF_10_1_NEW_SOURCE_LOCAL_READY_1_BLOCKER_RESTORED_1_RECLASSIFIED_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP08-CAREER-SOURCE-DEEPEN-100B"
-    issue: 498
-    pr: 499
-    status: "MERGED_100_OF_100_2_SOURCE_CONDITION_REPAIRS_1_SCOPE_REPAIR_1_DUPLICATE_ALIAS_0_NEW_READY_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP08-CAREER-RESIDUAL-28-FINAL-SOURCE-PASS"
-    issue: 501
-    pr: 503
-    status: "MERGED_28_OF_28_2_SOURCE_REPAIRS_0_NEW_READY_ALL_228_BLOCKED_ROWS_DEEP_REVIEWED_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP08-CAREER-ANTECEDENT-DEPENDENCY-CONTRACT-65"
-    issue: 505
-    pr: 507
-    status: "MERGED_65_OF_65_GRAPH_REPRESENTED_TRANSITIVE_FAIL_CLOSED_READINESS_NO_EXECUTION_UNLOCK"
-
-  - work_unit: "KB-WP08-CAREER-DEPENDENCY-IR-PILOT-3"
-    issue: 508
-    pr: 509
-    status: "MERGED_3_OF_3_DEPENDENCY_IR_READY_3_STRUCTURAL_GATES_CLEARED_NO_PRODUCT_COMPILATION"
-
-  - work_unit: "KB-WP08-CAREER-COMPILER-READINESS-CENSUS-26"
-    issue: 510
-    pr: 511
-    status: "MERGED_26_OF_26_CENSUS_12_KNOWLEDGE_CONDITION_IR_READY_14_FAIL_CLOSED_NO_PRODUCT_COMPILATION"
-
-  - work_unit: "KB-WP05-P10-PROPERTY-TP01-CANONICAL-001-100"
-    issue: 515
-    pr: 519
-    superseded_prs: [516]
-    status: "MERGED_100_OF_100_91_REUSABLE_9_CASE_SUPPORT_4_HISTORY_3_SOURCE_REPAIRS"
-
-  - work_unit: "KB-WP05-P10-PROPERTY-TP02-CANONICAL-101-200"
-    issue: 522
-    pr: 524
-    status: "MERGED_100_OF_100_85_REUSABLE_15_CASE_SUPPORT_5_HISTORY_9_SOURCE_REPAIRS_1_LINKED_GAP"
-
-archived_noncanonical_snapshots:
-  wp05_all_twelve_palaces:
-    pr: 272
-    branch: "knowledge/wp05-twelve-palace-final-closure"
-    head: "6be1fb79875d3caf56893792eec42d3171110ebc"
-    reported_reviewed_items: 7713
-    reported_reusable_projection_rules: 6289
-    reported_case_support_only: 1424
-    reported_history_feedback: 192
-    status: "BRANCH_PROGRESS_NOT_CANONICAL_MAIN"
-  wp06b_manifestation_ontology_prep:
-    pr: 273
-    branch: "knowledge/wp06b-manifestation-ontology-prep"
-    head: "d453d0b56a6d6c36b0002dc69d7d8b525f760e30"
-    status: "BRANCH_PREPARATION_NOT_CANONICAL_MAIN"
-    pending_future_human_gate: "HG-WP06B-MANIFESTATION-ROOT-01"
-
-resume_queue_reference:
-  legacy_integration_issue: 278
-  completed_career_closure_pr: 294
-  completed_temporal_eligibility_pr: 301
-  note: "Career canonical source review and structured-ID disposition are closed at 888/888. GROUP-related source review is complete at 251/251. The old A/B/C quantifier gate is superseded as the forward design path by PI-approved bounded Response Semantics v0.1 in #419/#420; historical unresolved shorthand findings remain unchanged and are not auto-unblocked."
+current_known_live_work:
+  P10:
+    issue: 525
+    branch: "knowledge/525-property-tp03-canonical"
+    note: "Grandfathered pre-G12 Property work unit; live GitHub state remains authoritative."
 
 human_gate:
   pending_on_main: null
   future_branch_gate: "HG-WP06B-MANIFESTATION-ROOT-01"
-  superseded_gate: "HG-KB-GROUP-QUANTIFIER-01"
   response_semantics_gate: "HG-KB-RESPONSE-SEMANTICS-01_APPROVED_BOUNDED_SCHEMA_ONLY"
-  response_semantics_issue: 419
-  response_semantics_pr: 420
-  note: "旧 GROUP quantifier gate 的历史审查结论保留；仅其 A/B/C 全局默认决策路径被 Response Semantics 分层设计取代。未明示 activation/interaction 仍保持 UNSPECIFIED。"
+  note: "Historical/future gates are not current PI requests unless a live shard Issue names them."
 
 integrity:
   source_truth_not_modified_by_empirical_feedback: true
   unresolved_conflicts_preserved: true
   no_invented_numeric_weights: true
+  shared_semantics_core_only: true
+  cross_palace_unmerged_branch_dependency_forbidden: true
+
+migration:
+  from_monolithic_state: true
+  migrated_by_issue: 530
+  completed_history_source: "Git history / Issues / PRs; intentionally not duplicated here."
