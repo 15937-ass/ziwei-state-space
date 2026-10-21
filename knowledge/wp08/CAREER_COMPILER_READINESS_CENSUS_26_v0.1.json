@@ -1,0 +1,481 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP08-CAREER-COMPILER-READINESS-CENSUS-26-v0.1",
+  "issue": 510,
+  "lane": "KNOWLEDGE_ONLY",
+  "baseline": "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.15.json",
+  "semantic_inputs": [
+    "knowledge/wp08/CAREER_ANTECEDENT_DEPENDENCY_GRAPH_65_v0.1.json",
+    "knowledge/wp08/CAREER_DEPENDENCY_IR_3_v0.1.json",
+    "knowledge/wp07c/CAREER_RELATION_BINDING_132_v0.1.json",
+    "knowledge/wp07c/CAREER_RESPONSE_COMPATIBILITY_01_v0.1.json",
+    "knowledge/wp07c/CAREER_RESPONSE_COMPATIBILITY_02_v0.1.json",
+    "knowledge/wp07c/CAREER_RESPONSE_COMPATIBILITY_03_v0.1.json",
+    "knowledge/wp08/CAREER_RESIDUAL_CLOSURE_37_v0.1.json",
+    "knowledge/wp08/CAREER_SOURCE_LEXICAL_RECHECK_10_v0.2.json",
+    "knowledge/wp08/CAREER_THIRD_LAYER_PRIORITY_100_v0.1.json"
+  ],
+  "summary": {
+    "audited_local_structure_ready_rows": 26,
+    "band_counts": {
+      "DEPENDENCY_EFFECTIVE_UNDERDETERMINED": 11,
+      "DIRECT_CONDITION_IR_READY": 9,
+      "DEPENDENCY_CONDITION_IR_READY": 3,
+      "DIRECT_RELATION_OR_COMPOSITION_DEFERRED": 3
+    },
+    "dependency_condition_ir_ready": 3,
+    "direct_condition_ir_ready": 9,
+    "total_knowledge_condition_ir_ready": 12,
+    "not_condition_ir_ready_despite_local_structure_ready": 14,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0
+  },
+  "key_finding": "LOCAL_STRUCTURE_READY is a row-local closure label, not a condition-IR-ready label. Only 12/26 are currently Knowledge condition-IR-ready; 14/26 remain fail-closed for inherited dependency uncertainty or unresolved relation/composition.",
+  "records": [
+    {
+      "source_rule_id": "CA01-058",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA01-057"
+      ],
+      "compiler_readiness_band": "DEPENDENCY_EFFECTIVE_UNDERDETERMINED",
+      "knowledge_condition_ir_ready": false,
+      "condition_ir_artifact": null,
+      "effective_parent_blockers": [
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE"
+      ],
+      "parent_assessment_complete": true,
+      "canonical_blockers": [],
+      "reason": "Row-local blockers are empty, but explicit parent/ancestor uncertainty propagates fail-closed.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA01-060",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA01-059"
+      ],
+      "compiler_readiness_band": "DEPENDENCY_EFFECTIVE_UNDERDETERMINED",
+      "knowledge_condition_ir_ready": false,
+      "condition_ir_artifact": null,
+      "effective_parent_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "parent_assessment_complete": true,
+      "canonical_blockers": [],
+      "reason": "Row-local blockers are empty, but explicit parent/ancestor uncertainty propagates fail-closed.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA02-108",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA02-107"
+      ],
+      "compiler_readiness_band": "DEPENDENCY_EFFECTIVE_UNDERDETERMINED",
+      "knowledge_condition_ir_ready": false,
+      "condition_ir_artifact": null,
+      "effective_parent_blockers": [
+        "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "canonical_blockers": [],
+      "reason": "Row-local blockers are empty, but explicit parent/ancestor uncertainty propagates fail-closed.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA02-134",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA02-133"
+      ],
+      "compiler_readiness_band": "DEPENDENCY_EFFECTIVE_UNDERDETERMINED",
+      "knowledge_condition_ir_ready": false,
+      "condition_ir_artifact": null,
+      "effective_parent_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "canonical_blockers": [],
+      "reason": "Row-local blockers are empty, but explicit parent/ancestor uncertainty propagates fail-closed.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA02-157",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA02-156"
+      ],
+      "compiler_readiness_band": "DEPENDENCY_EFFECTIVE_UNDERDETERMINED",
+      "knowledge_condition_ir_ready": false,
+      "condition_ir_artifact": null,
+      "effective_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "canonical_blockers": [],
+      "reason": "Row-local blockers are empty, but explicit parent/ancestor uncertainty propagates fail-closed.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA02-167",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA02-166"
+      ],
+      "compiler_readiness_band": "DEPENDENCY_EFFECTIVE_UNDERDETERMINED",
+      "knowledge_condition_ir_ready": false,
+      "condition_ir_artifact": null,
+      "effective_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "parent_assessment_complete": true,
+      "canonical_blockers": [],
+      "reason": "Row-local blockers are empty, but explicit parent/ancestor uncertainty propagates fail-closed.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA02-168",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA02-166"
+      ],
+      "compiler_readiness_band": "DEPENDENCY_EFFECTIVE_UNDERDETERMINED",
+      "knowledge_condition_ir_ready": false,
+      "condition_ir_artifact": null,
+      "effective_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "parent_assessment_complete": true,
+      "canonical_blockers": [],
+      "reason": "Row-local blockers are empty, but explicit parent/ancestor uncertainty propagates fail-closed.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA02-170",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA02-169"
+      ],
+      "compiler_readiness_band": "DEPENDENCY_EFFECTIVE_UNDERDETERMINED",
+      "knowledge_condition_ir_ready": false,
+      "condition_ir_artifact": null,
+      "effective_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "canonical_blockers": [],
+      "reason": "Row-local blockers are empty, but explicit parent/ancestor uncertainty propagates fail-closed.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA02-171",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA02-170"
+      ],
+      "compiler_readiness_band": "DEPENDENCY_EFFECTIVE_UNDERDETERMINED",
+      "knowledge_condition_ir_ready": false,
+      "condition_ir_artifact": null,
+      "effective_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "canonical_blockers": [],
+      "reason": "Row-local blockers are empty, but explicit parent/ancestor uncertainty propagates fail-closed.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA02-181",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "compiler_readiness_band": "DIRECT_CONDITION_IR_READY",
+      "knowledge_condition_ir_ready": true,
+      "condition_ir_artifact": "knowledge/wp08/CAREER_DIRECT_CONDITION_IR_9_v0.1.json",
+      "effective_parent_blockers": [],
+      "parent_assessment_complete": null,
+      "canonical_blockers": [],
+      "reason": "Existing canonical relation/binding and source-local normalization artifacts are sufficient to serialize the condition without inventing new semantics.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA02-199",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA02-198"
+      ],
+      "compiler_readiness_band": "DEPENDENCY_EFFECTIVE_UNDERDETERMINED",
+      "knowledge_condition_ir_ready": false,
+      "condition_ir_artifact": null,
+      "effective_parent_blockers": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "parent_assessment_complete": true,
+      "canonical_blockers": [],
+      "reason": "Row-local blockers are empty, but explicit parent/ancestor uncertainty propagates fail-closed.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA03-228",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "compiler_readiness_band": "DIRECT_CONDITION_IR_READY",
+      "knowledge_condition_ir_ready": true,
+      "condition_ir_artifact": "knowledge/wp08/CAREER_DIRECT_CONDITION_IR_9_v0.1.json",
+      "effective_parent_blockers": [],
+      "parent_assessment_complete": null,
+      "canonical_blockers": [],
+      "reason": "Existing canonical relation/binding and source-local normalization artifacts are sufficient to serialize the condition without inventing new semantics.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA03-235",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA03-234"
+      ],
+      "compiler_readiness_band": "DEPENDENCY_EFFECTIVE_UNDERDETERMINED",
+      "knowledge_condition_ir_ready": false,
+      "condition_ir_artifact": null,
+      "effective_parent_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "parent_assessment_complete": true,
+      "canonical_blockers": [],
+      "reason": "Row-local blockers are empty, but explicit parent/ancestor uncertainty propagates fail-closed.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA05-411",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "compiler_readiness_band": "DIRECT_CONDITION_IR_READY",
+      "knowledge_condition_ir_ready": true,
+      "condition_ir_artifact": "knowledge/wp08/CAREER_DIRECT_CONDITION_IR_9_v0.1.json",
+      "effective_parent_blockers": [],
+      "parent_assessment_complete": null,
+      "canonical_blockers": [],
+      "reason": "Existing canonical relation/binding and source-local normalization artifacts are sufficient to serialize the condition without inventing new semantics.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA05-417",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "compiler_readiness_band": "DIRECT_CONDITION_IR_READY",
+      "knowledge_condition_ir_ready": true,
+      "condition_ir_artifact": "knowledge/wp08/CAREER_DIRECT_CONDITION_IR_9_v0.1.json",
+      "effective_parent_blockers": [],
+      "parent_assessment_complete": null,
+      "canonical_blockers": [],
+      "reason": "Existing canonical relation/binding and source-local normalization artifacts are sufficient to serialize the condition without inventing new semantics.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA05-419",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "compiler_readiness_band": "DIRECT_CONDITION_IR_READY",
+      "knowledge_condition_ir_ready": true,
+      "condition_ir_artifact": "knowledge/wp08/CAREER_DIRECT_CONDITION_IR_9_v0.1.json",
+      "effective_parent_blockers": [],
+      "parent_assessment_complete": null,
+      "canonical_blockers": [],
+      "reason": "Existing canonical relation/binding and source-local normalization artifacts are sufficient to serialize the condition without inventing new semantics.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA05-420",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA05-419"
+      ],
+      "compiler_readiness_band": "DEPENDENCY_CONDITION_IR_READY",
+      "knowledge_condition_ir_ready": true,
+      "condition_ir_artifact": "knowledge/wp08/CAREER_DEPENDENCY_IR_3_v0.1.json",
+      "effective_parent_blockers": [],
+      "parent_assessment_complete": true,
+      "canonical_blockers": [],
+      "reason": "Issue #508 materialized exact-parent condition-reference IR with fully assessed blocker-free parent.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA05-433",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "compiler_readiness_band": "DIRECT_CONDITION_IR_READY",
+      "knowledge_condition_ir_ready": true,
+      "condition_ir_artifact": "knowledge/wp08/CAREER_DIRECT_CONDITION_IR_9_v0.1.json",
+      "effective_parent_blockers": [],
+      "parent_assessment_complete": null,
+      "canonical_blockers": [],
+      "reason": "Existing canonical relation/binding and source-local normalization artifacts are sufficient to serialize the condition without inventing new semantics.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA05-484",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "compiler_readiness_band": "DIRECT_RELATION_OR_COMPOSITION_DEFERRED",
+      "knowledge_condition_ir_ready": false,
+      "condition_ir_artifact": null,
+      "effective_parent_blockers": [],
+      "parent_assessment_complete": null,
+      "canonical_blockers": [],
+      "reason": "Row-local blocker closure is empty, but generic meeting geometry or compound relation composition is still insufficient for deterministic condition IR.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA06-582",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "compiler_readiness_band": "DIRECT_RELATION_OR_COMPOSITION_DEFERRED",
+      "knowledge_condition_ir_ready": false,
+      "condition_ir_artifact": null,
+      "effective_parent_blockers": [],
+      "parent_assessment_complete": null,
+      "canonical_blockers": [],
+      "reason": "Row-local blocker closure is empty, but generic meeting geometry or compound relation composition is still insufficient for deterministic condition IR.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA07-638",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "compiler_readiness_band": "DIRECT_CONDITION_IR_READY",
+      "knowledge_condition_ir_ready": true,
+      "condition_ir_artifact": "knowledge/wp08/CAREER_DIRECT_CONDITION_IR_9_v0.1.json",
+      "effective_parent_blockers": [],
+      "parent_assessment_complete": null,
+      "canonical_blockers": [],
+      "reason": "Existing canonical relation/binding and source-local normalization artifacts are sufficient to serialize the condition without inventing new semantics.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA07-639",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA07-638"
+      ],
+      "compiler_readiness_band": "DEPENDENCY_CONDITION_IR_READY",
+      "knowledge_condition_ir_ready": true,
+      "condition_ir_artifact": "knowledge/wp08/CAREER_DEPENDENCY_IR_3_v0.1.json",
+      "effective_parent_blockers": [],
+      "parent_assessment_complete": true,
+      "canonical_blockers": [],
+      "reason": "Issue #508 materialized exact-parent condition-reference IR with fully assessed blocker-free parent.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA07-681",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "compiler_readiness_band": "DIRECT_CONDITION_IR_READY",
+      "knowledge_condition_ir_ready": true,
+      "condition_ir_artifact": "knowledge/wp08/CAREER_DIRECT_CONDITION_IR_9_v0.1.json",
+      "effective_parent_blockers": [],
+      "parent_assessment_complete": null,
+      "canonical_blockers": [],
+      "reason": "Existing canonical relation/binding and source-local normalization artifacts are sufficient to serialize the condition without inventing new semantics.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA07-682",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA07-681"
+      ],
+      "compiler_readiness_band": "DEPENDENCY_CONDITION_IR_READY",
+      "knowledge_condition_ir_ready": true,
+      "condition_ir_artifact": "knowledge/wp08/CAREER_DEPENDENCY_IR_3_v0.1.json",
+      "effective_parent_blockers": [],
+      "parent_assessment_complete": true,
+      "canonical_blockers": [],
+      "reason": "Issue #508 materialized exact-parent condition-reference IR with fully assessed blocker-free parent.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA07-699",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "compiler_readiness_band": "DIRECT_RELATION_OR_COMPOSITION_DEFERRED",
+      "knowledge_condition_ir_ready": false,
+      "condition_ir_artifact": null,
+      "effective_parent_blockers": [],
+      "parent_assessment_complete": null,
+      "canonical_blockers": [],
+      "reason": "Row-local blocker closure is empty, but generic meeting geometry or compound relation composition is still insufficient for deterministic condition IR.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA09-820",
+      "row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "compiler_readiness_band": "DIRECT_CONDITION_IR_READY",
+      "knowledge_condition_ir_ready": true,
+      "condition_ir_artifact": "knowledge/wp08/CAREER_DIRECT_CONDITION_IR_9_v0.1.json",
+      "effective_parent_blockers": [],
+      "parent_assessment_complete": null,
+      "canonical_blockers": [],
+      "reason": "Existing canonical relation/binding and source-local normalization artifacts are sufficient to serialize the condition without inventing new semantics.",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    }
+  ]
+}
