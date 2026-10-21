@@ -22,7 +22,7 @@ Direct page review confirmed the nine canonical condition repairs and the preser
 - TP02-150 includes 更见煞忌重重 for litigation.
 - TP02-175/176 preserve 流年及小限 in the source-time sidecar; no runtime 小限 primitive is created.
 - TP02-191 relation surfaces remain distinct.
-- TP02-200 no longer treats 空劫夹 as a relocation trigger; the separate 破败 branch is preserved as TP02-GAP-001.
+- TP02-200 no longer treats 空劫夹 as a relocation trigger; the separate 破败 branch is preserved as TP02-GAP-001. The archived noncanonical TP03-205 candidate is linked as the likely next-batch representation but is not auto-promoted.
 
 ## Validation
 
