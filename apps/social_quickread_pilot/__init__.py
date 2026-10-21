@@ -24,6 +24,7 @@ from .provenance import (
 )
 from .sidecar import PilotRequest, PreparedPilot, prepare_pilot, finalize_pilot
 from .temporal_4h import (
+    HEAVENLY_STEMS,
     InteractionType,
     Mutagen,
     Temporal4HSnapshot,
@@ -32,10 +33,12 @@ from .temporal_4h import (
     TemporalLayer,
     TransformationMark,
     TEN_STEM_TRANSFORMATIONS,
+    build_temporal_4h_series,
     build_temporal_4h_snapshot,
     detect_interactions,
     normalize_natal_marks,
     quickread_temporal_payload,
+    stem_for_gregorian_year,
     transformations_for_stem,
 )
 
@@ -58,6 +61,7 @@ __all__ = [
     "PreparedPilot",
     "prepare_pilot",
     "finalize_pilot",
+    "HEAVENLY_STEMS",
     "InteractionType",
     "Mutagen",
     "Temporal4HSnapshot",
@@ -66,9 +70,11 @@ __all__ = [
     "TemporalLayer",
     "TransformationMark",
     "TEN_STEM_TRANSFORMATIONS",
+    "build_temporal_4h_series",
     "build_temporal_4h_snapshot",
     "detect_interactions",
     "normalize_natal_marks",
     "quickread_temporal_payload",
+    "stem_for_gregorian_year",
     "transformations_for_stem",
 ]
