@@ -7,7 +7,7 @@ Supersedes closure v0.10 after Issue #472 source lexical re-adjudication.
 - cumulative source-resolution changes: 40 -> 41
 - source-condition repairs: 9 -> 9
 - SOURCE_LIST_QUANTIFIER_UNSPECIFIED: 7 -> 8
-- SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED: 1 -> undefined
+- SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED: 1 -> 0
 - LU_SHORTHAND_CONTEXTUAL_UNRESOLVED: 4 -> 5
 - newly blocker-free rows: 0
 - conditions compiled: 0
