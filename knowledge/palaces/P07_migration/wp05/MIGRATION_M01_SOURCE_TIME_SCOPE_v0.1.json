@@ -1,0 +1,257 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P07-MIGRATION-M01-SOURCE-TIME-SCOPE-v0.1",
+  "issue": 551,
+  "source_id": "SRC-ZZ-003",
+  "chapter": "迁移宫",
+  "chapter_scope": {
+    "source_statement": "本篇所论大致可通用于星盘、大运、流年以及流月；星盘迁移宫为本质，大运流年等迁移宫为本质的反应。",
+    "source_layers": [
+      "NATAL",
+      "DECADE",
+      "YEAR",
+      "MONTH"
+    ],
+    "semantic_roles": {
+      "NATAL": "BASELINE_NATURE",
+      "DECADE": "TEMPORAL_REACTION",
+      "YEAR": "TEMPORAL_REACTION",
+      "MONTH": "TEMPORAL_REACTION_OR_TRAVEL_CONTEXT"
+    },
+    "runtime_note": "Source scope does not itself grant executable temporal-rule eligibility; later atomization/compiler work must satisfy the current temporal contract."
+  },
+  "event_relative_overlay": {
+    "rule_id": "M01-004",
+    "overlay_id": "MIGRATION_FIRST_THREE_YEARS",
+    "human_gate": "HG-P07-TEMPORAL-01-A",
+    "trigger": "confirmed distant relocation/settlement",
+    "active_year_index": [
+      1,
+      2,
+      3
+    ],
+    "migration_role": "PRIMARY for relocation trend only",
+    "preserved_role": "ordinary annual Life-Palace rotation for other palace domains",
+    "seventh_calendar_layer": false,
+    "generic_event_timer": false
+  },
+  "special_records": [
+    {
+      "projection_rule_id": "M01-001",
+      "source_time_layers": [
+        "DECADE"
+      ],
+      "scope_status": "EXPLICIT_LONG_PERIOD_LAYER"
+    },
+    {
+      "projection_rule_id": "M01-002",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "EXPLICIT_LONG_PERIOD_LAYER"
+    },
+    {
+      "projection_rule_id": "M01-003",
+      "source_time_layers": [
+        "MONTH"
+      ],
+      "scope_status": "EXPLICIT_TRAVEL_LAYER"
+    },
+    {
+      "projection_rule_id": "M01-004",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "event_relative_overlay": "MIGRATION_FIRST_THREE_YEARS",
+      "scope_status": "APPROVED_EVENT_RELATIVE_OVERLAY_NOT_NEW_LAYER"
+    },
+    {
+      "projection_rule_id": "M01-005",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "event_relative_overlay": "MIGRATION_FIRST_THREE_YEARS",
+      "scope_status": "OTHER_DOMAIN_ANNUAL_ROTATION_PRESERVED"
+    },
+    {
+      "projection_rule_id": "M01-007",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "EXPLICIT_SERVICE_INSTITUTION_YEAR_CONTEXT"
+    },
+    {
+      "projection_rule_id": "M01-008",
+      "source_time_layers": [
+        "NATAL",
+        "DECADE",
+        "YEAR",
+        "MONTH"
+      ],
+      "scope_status": "CHAPTER_GENERIC_MULTI_LAYER_RULE_LEGACY_PRIMARY_YEAR"
+    },
+    {
+      "projection_rule_id": "M01-009",
+      "source_time_layers": [
+        "NATAL",
+        "DECADE",
+        "YEAR",
+        "MONTH"
+      ],
+      "scope_status": "CHAPTER_GENERIC_MULTI_LAYER_RULE_LEGACY_PRIMARY_YEAR"
+    },
+    {
+      "projection_rule_id": "M01-010",
+      "source_time_layers": [
+        "NATAL",
+        "DECADE",
+        "YEAR",
+        "MONTH"
+      ],
+      "scope_status": "EXPLICIT_CHAPTER_MULTI_LAYER_APPLICABILITY"
+    },
+    {
+      "projection_rule_id": "M01-011",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "EXPLICIT_BASELINE_NATURE"
+    },
+    {
+      "projection_rule_id": "M01-012",
+      "source_time_layers": [
+        "DECADE"
+      ],
+      "scope_status": "EXPLICIT_REACTION_LAYER"
+    },
+    {
+      "projection_rule_id": "M01-013",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "EXPLICIT_REACTION_LAYER"
+    },
+    {
+      "projection_rule_id": "M01-014",
+      "source_time_layers": [
+        "NATAL",
+        "DECADE",
+        "YEAR",
+        "MONTH"
+      ],
+      "scope_status": "GENERIC_MOVEMENT_SIGNAL_REQUIREMENT"
+    },
+    {
+      "projection_rule_id": "M01-015",
+      "source_time_layers": [
+        "NATAL",
+        "DECADE",
+        "YEAR"
+      ],
+      "scope_status": "EXPLICIT_CROSS_LAYER_STACKED_HORSE_EXAMPLES"
+    },
+    {
+      "projection_rule_id": "M01-016",
+      "source_time_layers": [
+        "NATAL",
+        "DECADE",
+        "YEAR",
+        "MONTH"
+      ],
+      "scope_status": "GENERIC_LU_HORSE_MOVEMENT_SIGNAL_LEGACY_PRIMARY_YEAR"
+    },
+    {
+      "projection_rule_id": "M01-017",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "EXPLICIT_YEAR_LIFE_PALACE_FIRE_BELL_SIGNAL"
+    },
+    {
+      "projection_rule_id": "M01-018",
+      "source_time_layers": [
+        "NATAL",
+        "DECADE",
+        "YEAR",
+        "MONTH"
+      ],
+      "scope_status": "GENERIC_INVOLUNTARY_MOVE_GATE_LEGACY_PRIMARY_YEAR"
+    },
+    {
+      "projection_rule_id": "M01-019",
+      "source_time_layers": [
+        "NATAL",
+        "DECADE",
+        "YEAR",
+        "MONTH"
+      ],
+      "scope_status": "RELATED_PROPERTY_PALACE_MOVEMENT_TRIGGER"
+    },
+    {
+      "projection_rule_id": "M01-020",
+      "source_time_layers": [
+        "NATAL",
+        "DECADE",
+        "YEAR",
+        "MONTH"
+      ],
+      "scope_status": "RELATED_SPOUSE_PALACE_MOVEMENT_TRIGGER"
+    },
+    {
+      "projection_rule_id": "M01-021",
+      "source_time_layers": [
+        "NATAL",
+        "DECADE",
+        "YEAR",
+        "MONTH"
+      ],
+      "scope_status": "POST_MOVE_OUTCOME_RETURNS_TO_MIGRATION_PALACE"
+    },
+    {
+      "projection_rule_id": "M01-022",
+      "source_time_layers": [
+        "NATAL",
+        "DECADE",
+        "YEAR",
+        "MONTH"
+      ],
+      "scope_status": "MOVEMENT_CAN_ACTIVATE_ADVERSE_CONTEXT"
+    },
+    {
+      "projection_rule_id": "M01-023",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "EXPLICIT_YEAR_MOVEMENT_SIGNAL_NOT_WEALTH"
+    },
+    {
+      "projection_rule_id": "M01-024",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "EXPLICIT_YEAR_ADVERSE_REVERSAL"
+    },
+    {
+      "projection_rule_id": "M01-025",
+      "source_time_layers": [
+        "NATAL",
+        "DECADE",
+        "YEAR",
+        "MONTH"
+      ],
+      "scope_status": "GENERIC_METHOD_SEQUENCE"
+    }
+  ],
+  "default_star_system_records": {
+    "ids": "M01-026..M01-100",
+    "primary_storage_layer": "NATAL",
+    "source_scope_relation": "NATAL defines baseline nature; moved-period palace configurations are reactions under the chapter-level multi-layer rule.",
+    "runtime_eligibility_granted": false
+  },
+  "quantitative_semantics": {
+    "new_time_scale": 0,
+    "weight": 0,
+    "probability": 0,
+    "decay": 0
+  }
+}
