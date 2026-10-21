@@ -1,8 +1,9 @@
 # Repository Governance v1.0
 
-Status: APPROVED FOR MIGRATION
-Tracking: #275
-Effective after the Governance v1.0 migration PR is merged to main.
+Status: **ACTIVE**  
+Tracking: #275  
+Migration implementation: PR #276 merged.  
+Recovery routing: `governance/RECOVERY_PRECEDENCE_v1.md`.
 
 ## 1. Purpose
 
@@ -171,13 +172,20 @@ Empirical mismatch may create a Knowledge Gap Report but may not silently rewrit
 ## 15. Chat and recovery
 
 After timeout/new session:
-1. read PROJECT_STATE.yaml;
-2. read the active lane state;
-3. read the active GitHub Issue;
-4. read the linked PR if any;
-5. read only Issue-required artifacts.
+1. read `PROJECT_STATE.yaml`;
+2. read `governance/RECOVERY_PRECEDENCE_v1.md`;
+3. read the selected lane state as a cache;
+4. query live GitHub Issues for that lane;
+5. use the bounded active/open Issue as execution truth and its linked PR as implementation truth;
+6. read only Issue-required artifacts.
 
-Do not reconstruct authoritative project state from old chat text.
+If a lane-state cache disagrees with live GitHub Issue/PR state, GitHub wins and the cache is repaired.
+
+README phase text, legacy `tasks/*.yaml`, historical validation reports, completed acceptance records, archived checkpoints, old proposal files, superseded protocols, and historical `READY_FOR_PI` markers are not execution truth merely because they contain `ACTIVE`, `CURRENT`, `NEXT`, or `PENDING`.
+
+Roadmaps are long-horizon architecture/direction, not daily task queues. Historical Human Gates do not become current again unless the active lane state and/or live Issue names them as pending.
+
+Do not reconstruct authoritative project state from old chat text or from isolated status words in historical artifacts.
 
 ## 16. Administrative controls
 
