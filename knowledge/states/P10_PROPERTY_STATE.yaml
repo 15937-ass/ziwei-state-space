@@ -1,0 +1,22 @@
+schema_version: 1
+lane: "KNOWLEDGE_ONLY"
+shard: "P10"
+palace: "田宅宫"
+slug: "property"
+authoritative_execution: "GITHUB_ISSUE"
+canonical_branch: "main"
+contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
+
+execution:
+  status: "ACTIVE_NO_ACTIVE_WORK"
+  active_issue: null
+  active_branch: null
+  active_pr: null
+  canonical_checkpoint: "PROPERTY_TP03_CANONICAL_300_OF_300_ON_MAIN"
+  note: "Issue #525 / PR #532 merged TP03 201-300 before G12 final integration. No active Property work unit is currently registered."
+
+integrity:
+  source_first: true
+  shared_semantics_must_escalate_to_core: true
+  may_write_other_palace: false
+  empirical_feedback_may_rewrite_source_truth: false

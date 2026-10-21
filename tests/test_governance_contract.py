@@ -10,6 +10,8 @@ def test_governance_artifacts_exist():
         "governance/PROPOSAL_PROCESS.md",
         "governance/PROPOSAL_TEMPLATE.md",
         "governance/PATH_OWNERSHIP.json",
+        "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md",
+        "governance/KNOWLEDGE_SHARDS.json",
         "PROJECT_STATE.yaml",
         "product/PRODUCT_STATE.yaml",
         "knowledge/KNOWLEDGE_STATE.yaml",
@@ -84,3 +86,15 @@ def test_g9_proposal_exists_and_preserves_normal_pr_discipline():
     assert "IMPLEMENTED BY PR #496" in proposal
     assert "Issue -> branch -> PR -> validation -> merge" in proposal
     assert "no Zhongzhou canonical semantic changes" in proposal
+
+
+def test_knowledge_shard_contract_is_active():
+    registry = json.loads(
+        (ROOT / "governance/KNOWLEDGE_SHARDS.json").read_text(encoding="utf-8")
+    )
+    coordinator = (ROOT / "knowledge/KNOWLEDGE_STATE.yaml").read_text(encoding="utf-8")
+    assert registry["limits"]["core_wip"] == 1
+    assert registry["limits"]["total_palace_wip"] == 4
+    assert registry["limits"]["per_palace_wip"] == 1
+    assert set(registry["palaces"]) == {f"P{i:02d}" for i in range(1, 13)}
+    assert 'mode: "PALACE_SHARDED_V1"' in coordinator
