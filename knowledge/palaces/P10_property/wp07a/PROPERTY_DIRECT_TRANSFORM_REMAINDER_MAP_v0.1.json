@@ -1,0 +1,276 @@
+{
+  "schema_version": "0.1",
+  "audit_id": "KB-WP07A-PROPERTY-DIRECT-TRANSFORM-MAP-REMAINDER",
+  "work_unit": "KB-WP07A-PROPERTY-DIRECT-TRANSFORM-MAP-REMAINDER",
+  "issue": 565,
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "P10",
+  "status": "MAPPING_COMPLETE_3_OF_3_NOT_PRODUCTION",
+  "source_id": "SRC-ZZ-003",
+  "source_title": "中州派紫微斗数深造讲义（下册）",
+  "canonical_corpus": "PROPERTY_P10_CANONICAL_358_OF_358",
+  "scope": {
+    "nominated_source_rule_ids": [
+      "TP01-095",
+      "TP02-148",
+      "TP03-270"
+    ],
+    "selection": "Three direct, canonical, non-case NATAL transformation conditions selected for the Property WP07A direct-transform remainder after the three-row pilot.",
+    "mapping_boundary": "Existing TRANSFORMATION_PRESENT atom only; representability does not authorize execution, and source-adjacent compound clauses remain separately bounded."
+  },
+  "mappings": [
+    {
+      "source_rule_id": "TP01-095",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "田宅宫printed_p158",
+        "source_readjudication_ref": "knowledge/wp05/property/PROPERTY_TP01_SOURCE_READJUDICATION_100_v0.1.json#TP01-095",
+        "source_time_scope_ref": "knowledge/wp05/property/PROPERTY_TP01_SOURCE_TIME_SCOPE_v0.1.json#TP01-095",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false
+      },
+      "source_condition_text": "太阳化忌在田宅宫",
+      "source_span_summary": "原文明确区分父亲受损与田宅宫太阳化忌：此处不直接断为不利父亲，而指向祖业倾败或平生事业难有根基。",
+      "source_anchor_phrase": "太阳化忌在田宅，不主不利父亲，主祖业倾败，或平生事业难有根基。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P10",
+              "star": "太阳",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact": {
+        "atom_type": "TRANSFORMATION_PRESENT",
+        "args": {
+          "palace": "P10",
+          "star": "太阳",
+          "mutagen": "忌"
+        }
+      },
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "当 P10 田宅宫的太阳星对象自身带 mutagen=忌 时，现有原局运行事实会发出同构的 palace/star/mutagen 三元事实。"
+      },
+      "source_time_scope": {
+        "legacy_primary_time_layer": "NATAL",
+        "source_time_layers": [
+          "NATAL"
+        ],
+        "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+        "dependencies": []
+      },
+      "expected_projection": {
+        "projection_domain": "methodology",
+        "projection_target": "taiyang_huaji_here_targets_ancestral_or_career_foundation_not_directly_father_harm",
+        "projection_mode": "STRUCTURAL_CONSTRAINT"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "TP02-148",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "田宅宫printed_p160",
+        "source_readjudication_ref": "knowledge/wp05/property/PROPERTY_TP02_SOURCE_READJUDICATION_100_v0.1.json#TP02-148",
+        "source_time_scope_ref": "knowledge/wp05/property/PROPERTY_TP02_SOURCE_TIME_SCOPE_v0.1.json#TP02-148",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false
+      },
+      "source_condition_text": "天同化禄",
+      "source_span_summary": "原文称天同化禄主中晚年以后置产业甚丰、位于上流地区；随后单独限定化禄同时见煞时，产业数量不必减少，但地点不在高尚地区。该例外由 TP02-149 单独保留，不并入单一化禄条件。",
+      "source_anchor_phrase": "天同化禄，主中晚年以后置产业甚丰，而且在上流地区。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P10",
+              "star": "天同",
+              "mutagen": "禄"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact": {
+        "atom_type": "TRANSFORMATION_PRESENT",
+        "args": {
+          "palace": "P10",
+          "star": "天同",
+          "mutagen": "禄"
+        }
+      },
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "当 P10 田宅宫的天同星对象自身带 mutagen=禄 时，现有原局运行事实会发出同构的 palace/star/mutagen 三元事实。"
+      },
+      "source_time_scope": {
+        "legacy_primary_time_layer": "NATAL",
+        "source_time_layers": [
+          "NATAL"
+        ],
+        "scope_status": "NATAL_RULE_WITH_LITERAL_LIFE_STAGE",
+        "dependencies": [],
+        "unmapped_source_time_labels": [],
+        "literal_life_stage_labels": [
+          "中晚年以后置产业甚丰"
+        ]
+      },
+      "expected_projection": {
+        "projection_domain": "property_scale",
+        "projection_target": "property_holdings_can_become_abundant_in_mid_or_later_life_and_higher_status_areas",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "TP03-270",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "田宅宫printed_p163",
+        "source_readjudication_ref": "knowledge/wp05/property/PROPERTY_TP03_SOURCE_READJUDICATION_100_v0.1.json#TP03-270",
+        "source_time_scope_ref": "knowledge/wp05/property/PROPERTY_TP03_SOURCE_TIME_SCOPE_v0.1.json#TP03-270",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false
+      },
+      "source_condition_text": "巨门化忌于田宅",
+      "source_span_summary": "原文直接将巨门化忌于田宅指向家宅不安或自身远离家室；因产业兴讼及因卖产业受骗分别属于相邻的高特异性事件候选，继续留在 TP03-271/272，不并入该直接条件。",
+      "source_anchor_phrase": "巨门化忌于田宅，主家宅不安，或主自身远离家室。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P10",
+              "star": "巨门",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact": {
+        "atom_type": "TRANSFORMATION_PRESENT",
+        "args": {
+          "palace": "P10",
+          "star": "巨门",
+          "mutagen": "忌"
+        }
+      },
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "当 P10 田宅宫的巨门星对象自身带 mutagen=忌 时，现有原局运行事实会发出同构的 palace/star/mutagen 三元事实。"
+      },
+      "source_time_scope": {
+        "legacy_primary_time_layer": "NATAL",
+        "source_time_layers": [
+          "NATAL"
+        ],
+        "dependencies": [],
+        "source_time_labels": [],
+        "unmapped_source_time_labels": [],
+        "literal_life_stage_labels": [],
+        "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER"
+      },
+      "expected_projection": {
+        "projection_domain": "household",
+        "projection_target": "home_unrest_or_separation_from_household_strengthens",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "executable_registry_entry": false
+    }
+  ],
+  "exclusions": [
+    {
+      "source_rule_id": "TP01-096",
+      "source_location": "田宅宫printed_p158",
+      "source_condition_text": "太阳化忌更见煞刑虚耗",
+      "time_layer": "NATAL",
+      "case_support_only": false,
+      "reason_code": "COMPOUND_ADVERSE_GROUP_EXTENSION",
+      "reason": "原文在直接太阳化忌断语之后另加煞刑虚耗条件，作为独立复合条件保留；不得压入 TP01-095 的单一四化原子。"
+    },
+    {
+      "source_rule_id": "TP02-149",
+      "source_location": "田宅宫printed_p160",
+      "source_condition_text": "天同化禄同时见煞",
+      "time_layer": "NATAL",
+      "case_support_only": false,
+      "reason_code": "COMPOUND_MALEFIC_EXCEPTION",
+      "reason": "这是对 TP02-148 地段质量的明确例外：产业数量仍可丰厚，但不在高尚地区。不得把该条件泛化成天同化禄的普遍结果，也不得删除此例外。"
+    },
+    {
+      "source_rule_id": "TP03-271",
+      "source_location": "田宅宫printed_p163",
+      "source_condition_text": "巨门化忌见羊陀空劫刑耗",
+      "time_layer": "NATAL",
+      "case_support_only": true,
+      "reason_code": "CASE_SUPPORT_ONLY_EVENT_CANDIDATE",
+      "reason": "因产业而兴讼是原典支持的高特异性事件候选，保留为 CASE_SUPPORT_ONLY，不并入一般家宅不安条件。"
+    },
+    {
+      "source_rule_id": "TP03-272",
+      "source_location": "田宅宫printed_p163",
+      "source_condition_text": "巨门化忌见文曲化忌",
+      "time_layer": "NATAL",
+      "case_support_only": true,
+      "reason_code": "CASE_SUPPORT_ONLY_EVENT_CANDIDATE",
+      "reason": "因卖产业而受骗是原典支持的高特异性事件候选，保留为 CASE_SUPPORT_ONLY，不并入一般家宅不安条件。"
+    },
+    {
+      "source_rule_id": "TP03-273",
+      "source_location": "田宅宫printed_p163",
+      "source_condition_text": "原局巨门吉化而大运流年却化为忌星又有煞",
+      "time_layer": "DECADE",
+      "case_support_only": true,
+      "reason_code": "CASE_SUPPORT_ONLY_MULTI_LAYER_TEMPORAL_EVENT_CANDIDATE",
+      "reason": "该条同时涉及原局、大运、流年及煞曜，且已被标记为 CASE_SUPPORT_ONLY；不简化为本命巨门化忌原子。"
+    }
+  ],
+  "validation": {
+    "nominated_rows": 3,
+    "mapped_rows": 3,
+    "blocked_nominated_rows": 0,
+    "all_rows_source_span_verified": true,
+    "all_rows_natal": true,
+    "all_rows_non_case_support_only": true,
+    "all_conditions_use_only_existing_transformation_present_atom": true,
+    "executable_rule_created": false,
+    "production_registry_modified": false,
+    "product_runtime_modified": false,
+    "canonical_source_rows_modified": false,
+    "shared_semantics_modified": false,
+    "new_atom_created": false,
+    "new_probability_created": false,
+    "new_numeric_weight_created": false,
+    "new_threshold_created": false,
+    "exact_head_validation_required_before_merge": true
+  }
+}
