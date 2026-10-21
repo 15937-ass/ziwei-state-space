@@ -76,6 +76,9 @@ def test_closure_v09_census_and_no_runtime_unlock():
     assert c9['summary']['source_resolution_changes']==37
     assert c9['summary']['source_condition_repairs']==8
     assert c9['summary']['dependency_scope_corrections']==2
+    assert c9['summary']['antecedent_mode_counts']=={'NONE':186,'EXPLICIT_RULE_REFERENCE':65}
+    assert c9['summary']['explicit_antecedent_dependency_rows']==65
+    assert c9['summary']['open_category_refinement_remaining_rule_ids']==[]
     assert c9['summary']['third_layer_source_local_resolved']==1
     assert c9['summary']['third_layer_source_branch_repairs']==3
     assert c9['summary']['third_layer_dependency_repairs']==1
