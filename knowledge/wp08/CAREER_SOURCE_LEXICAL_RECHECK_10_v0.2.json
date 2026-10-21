@@ -34,21 +34,23 @@
     "OPEN_TAIL_MEMBERSHIP_REMAINS_OPEN",
     "NO_GLOBAL_ANY_ALL_N_OF_DEFAULT",
     "NO_NUMERIC_CARDINALITY_THRESHOLD",
-    "NO_EXECUTION_UNLOCK_FROM_LEXICAL_RECHECK"
+    "NO_EXECUTION_UNLOCK_FROM_LEXICAL_RECHECK",
+    "REPEATED_SAME_SOURCE_PAIR_SYNTAX_MAY_RESOLVE_PAIR_INTERNAL_CO_PRESENCE_WITHOUT_GLOBALIZING"
   ],
   "summary": {
     "reviewed": 10,
     "target_overlap_with_issue_469": 10,
     "blocker_restorations": 1,
     "blocker_reclassifications": 1,
-    "pair_internal_semantics_confirmed": 2,
+    "pair_internal_semantics_confirmed": 3,
     "outer_list_quantifiers_resolved": 0,
-    "newly_blocker_free_rows": 0,
+    "newly_blocker_free_rows": 1,
     "conditions_compiled": 0,
     "execution_unlocked": 0,
     "human_gate_required": false,
     "changed_source_rule_ids": [
       "CA01-059",
+      "CA05-433",
       "CA06-502"
     ],
     "confirmed_but_not_reopened": [
@@ -56,7 +58,6 @@
       "CA03-289",
       "CA04-345",
       "CA04-391",
-      "CA05-433",
       "CA05-484",
       "CA08-723",
       "CA09-864"
@@ -134,6 +135,24 @@
       "pdf_page": 72,
       "excerpt": "天同巨门可从事饮食业，见天厨、火星同度者尤然。",
       "finding": "Two named stars are listed, but the sentence does not define a transferable list quantifier."
+    },
+    {
+      "evidence_id": "LR2-E06A",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "printed_page": 180,
+      "pdf_page": 90,
+      "excerpt": "唯武曲化忌，天厨、火星同度者，往往又主父母所业者带煞气，如饮食业之类。不见天厨，亦为操利器行业。",
+      "finding": "The same source reuses 天厨、火星同度 as a conjunction tied to the food-industry manifestation and explicitly contrasts absence of 天厨, supporting pair-internal co-presence rather than an open list."
+    },
+    {
+      "evidence_id": "LR2-E06B",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "printed_page": 170,
+      "pdf_page": 85,
+      "excerpt": "武曲与天厨、火星同躔福德宫，其人擅长品评饮食。",
+      "finding": "A further same-source occurrence uses the same two-star surface under 同躔, reinforcing local pair-internal BOTH semantics without establishing a global category rule."
     },
     {
       "evidence_id": "LR2-E07",
@@ -351,20 +370,20 @@
       "main_closure_v0_10_blockers": [
         "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
       ],
-      "recheck_disposition": "INSUFFICIENT_SOURCE_RECONFIRMED",
+      "recheck_disposition": "SOURCE_LOCAL_PAIR_CO_PRESENCE_RESOLVED",
       "source_evidence_ids": [
-        "LR2-E06"
+        "LR2-E06",
+        "LR2-E06A",
+        "LR2-E06B"
       ],
       "blockers_before": [
         "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
       ],
-      "blockers_after": [
-        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
-      ],
+      "blockers_after": [],
       "source_resolution_changed_before": false,
-      "source_resolution_changed_after": false,
-      "normalized_expression": "SAME_PALACE_OR_CO_PRESENT_LIST(天厨,火星; quantifier=UNSPECIFIED)",
-      "decision_zh": "“见天厨、火星同度者尤然”仍不足以从列表标点推出 BOTH、ANY 或固定 pair。",
+      "source_resolution_changed_after": true,
+      "normalized_expression": "SAME_PALACE(PAIR_CO_PRESENT(天厨,火星))",
+      "decision_zh": "本句单看标点仍可能有歧义，但同一来源在父母宫明确再次使用“天厨、火星同度”对应饮食业，并以“不见天厨”转向操利器行业；福德宫又见“天厨、火星同躔”对应饮食鉴赏。三处同源用法共同支持本句的 pair-internal BOTH。仅对这一本句结构作 source-local 解析，不建立任何全局“天厨火星”规则。",
       "condition_compiled": false,
       "execution_unlocked": false
     },
