@@ -397,6 +397,42 @@ Paper 1 最终只允许主张：
 
 这也是后来研究 sidecar 的意义：**论文记忆旁路记录产品成熟过程中自然出现的研究贡献，而不让论文重新阻塞产品主线。**
 
+### 7.1 Research Memory Sidecar：研究记忆不再依赖聊天或单篇 manuscript
+
+状态：**APPROVED_RATIONALE / OPEN IMPLEMENTATION**。  
+当前治理记录：Issue #513 / PR #514；PI 已在聊天中批准概念，但截至本归档时尚未 merge，因此**不能当作 canonical main 已实施事实**。
+
+Sidecar 的目的不是增加第四条执行主线，而是建立一个**非权威、非阻塞、可重建的研究记忆旁路**：
+
+```text
+accepted Product / Knowledge / Governance evidence
+        |
+        v
+Research Event Ledger
++ Claim Registry
++ Theory Evolution Ledger
++ Paper / Research Question Map
++ Evidence Pack
+```
+
+长期约束：
+
+- Product / Knowledge 不等待 Research capture；
+- Research 失败不阻塞 Product / Knowledge PR；
+- Research 无权修改 canonical knowledge 或 Product runtime；
+- 默认只读取 accepted main / merged evidence；
+- 重大聊天理论讨论若尚无仓库载体，可作为 Concept Event 追加记录；
+- 历史研究记录 append-only，修正采用 supersede，不静默重写；
+- Research state 是 derived / non-authoritative，可以通过 repository evidence + Concept Events 重建；
+- 只对 R2/R3/R4 级研究意义事件做即时捕获，避免把每个小 PR 变成论文流水账；
+- 未来实证阶段再扩展 preregistration、experiment registry、Dataset Cards、Model Cards 与 RO-Crate 式研究对象打包。
+
+这套设计解决的正是本次聊天清理暴露的问题：
+
+> **正式执行状态已经能从 GitHub 恢复，但研究思想、claim 成熟度与理论演化也需要独立于聊天长期保存。**
+
+因此本次归档是 Sidecar 思想的一次人工 bootstrap；它不赋予 #513/#514 已落地的权威。
+
 ---
 
 # 8. “准确”必须拆成至少五件不同的事
@@ -1222,6 +1258,7 @@ DECISION_LOG
 | N/E/S/M、盲测、数据飞轮、MPC 路线 | `product/PRODUCT_FUTURE_WORKPLAN_v0.1.md` |
 | Chat 权威降级与恢复 | Proposal #374, `RECOVERY_PRECEDENCE_v1.md` |
 | Product knowledge promotion | Proposal #491 |
+| Research Memory Sidecar | Issue #513 / PR #514（PI 已批准概念；截至本归档仍 OPEN，尚未 canonical merge） |
 
 ---
 
