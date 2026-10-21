@@ -2,7 +2,7 @@
 
 Status: **KNOWLEDGE REPRESENTATION CONTRACT — NO PRODUCT EXECUTION**
 
-This contract defines how already source-adjudicated Career antecedent references may be represented. It is not a general Chinese-language parser and not a global Zhongzhou inheritance rule.
+This contract defines how already source-adjudicated Career antecedent references may be represented. **The explicit-reference graph is complete for the current 65 nodes; effective condition semantics are not complete.** It is not a general Chinese-language parser and not a global Zhongzhou inheritance rule.
 
 ## Hard rules
 
