@@ -4,21 +4,19 @@ Issue: #475
 Status: **100/100 classified — no blocker clear, no execution unlock**
 
 ## 本轮范围
-从 Career closure v0.5 中取出全部 **93 条 `MEMBER_QUANTIFIER_UNSPECIFIED`**，再按原顺序补入 **7 条仅含 `OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED` 的规则**，组成新的 100 条研究批次。
-
-这一步不是为了把 100 条强行解释成 ANY / ALL / N_OF，而是把“下一步究竟该查什么”正规化。
+从 Career closure v0.5 中取出全部 **93 条 `MEMBER_QUANTIFIER_UNSPECIFIED`**，再按原顺序补入 **7 条仅含 `OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED` 的规则**，组成新的 100 条研究批次。分类时同时读取现有 Category Open Lexicon，避免把已经闭合的 `煞曜/煞/吉化/辅佐诸曜/辅佐吉曜/羊陀` 再误判为开放类别。
 
 ## 分类结果
 - CLOSED_WORLD_NEGATION_GATED: **11**
 - SOURCE_LOCAL_QUANTIFIER_CANDIDATE: **14**
-- NAMED_GROUP_RELATION_REVIEW: **57**
+- NAMED_GROUP_RELATION_REVIEW: **60**
 - COMPOUND_OR_DEPENDENCY_GATED: **7**
-- OPEN_CATEGORY_NO_UNIVERSAL_RULE_CANDIDATE: **7**
+- OPEN_CATEGORY_NO_UNIVERSAL_RULE_CANDIDATE: **4**
 - SOURCE_RECHECK_REQUIRED: **4**
 
-可直接进入后续 source-local / named-group corpus 研究的规则：**75**。
+可进入 source-local / named-group / direct source recheck 的规则：**78**。
 主要受 negation / antecedent 结构门控的规则：**18**。
-初步属于开放类别、倾向 NO_UNIVERSAL_RULE 的规则：**7**。
+当前真正倾向 open / NO_UNIVERSAL_RULE 的规则：**4**。
 
 ## 高频语义面
 - 空劫: 29
@@ -37,13 +35,15 @@ Status: **100/100 classified — no blocker clear, no execution unlock**
 - 四煞: 3
 - 煞曜: 3
 
-最明显的集中簇是空劫、昌曲、火铃、辅弼、魁钺等 pair/group shorthand。它们并不能用一个统一量词解决。来源中已经明确存在“对星/单星”的区别：同一部讲义会明确写“见齐对星始吉，见单星者……”；也会直接写“必须见辅佐对星”，以及“见辅佐单星”“见昌曲对星”。因此下一步应做 **source-local contextual quantifier**，而不是创造一个全局 pair=ALL 或 pair=ANY 规则。
+最明显的集中簇仍是空劫、昌曲、火铃、辅弼、魁钺等 pair/group shorthand。来源中明确存在“对星/单星”的区别：同一部讲义会写“见齐对星始吉，见单星者……”，也会直接写“必须见辅佐对星”，以及“见辅佐单星”“见昌曲对星”。因此这些 100 条不能靠一个全局 pair=ALL 或 pair=ANY 解决。
+
+同时，本轮发现一个很重要的知识工程现象：closure 中的 `OPEN_CATEGORY...` blocker 并不总意味着成员真的开放。例如 `煞曜`、`煞`、`吉化` 已在现有 canonical lexicon 中闭合；这些规则应进入 named-group/contextual activation 研究，而不是重新打开成员表。
 
 ## 下一研究顺序
-1. `PAIR_SHORTHAND_CONTEXT`：空劫、昌曲、火铃、辅弼、魁钺等，系统收集对星/单星/同度/会照语句。
-2. `LU_SHORTHAND_CONTEXT`：得禄、禄马及早期压缩出的禄类简称，恢复 source-local carrier/alternative。
+1. `PAIR_OR_CLOSED_GROUP_CONTEXT`：空劫、昌曲、火铃、辅弼、魁钺，以及已闭合的煞曜/吉化等，研究 source-local member realization。
+2. `LU_SHORTHAND_CONTEXT`：得禄、禄马及禄类简称，恢复 source-local carrier/alternative。
 3. `AUXILIARY_SUPPORT_CONTEXT`：辅佐、辅佐诸曜、辅佐吉曜，区分成员集合、成对要求与吉性限定。
-4. `OPEN_CATEGORY_CONTEXT`：吉曜、桃花、科文诸曜、刑耗等，只找局部明示，不追求全局封闭。
+4. `OPEN_CATEGORY_CONTEXT`：科文诸曜、刑曜、煞刑耗等真正开放/复合表述，只找局部明示，不追求全局封闭。
 5. negation / antecedent 继续保持结构门控，待 closed-world 与 dependency compiler 层单独处理。
 
 ## 不变边界
