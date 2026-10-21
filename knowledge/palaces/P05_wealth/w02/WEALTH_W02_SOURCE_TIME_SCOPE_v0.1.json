@@ -1,0 +1,87 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P05-WEALTH-W02-SOURCE-TIME-SCOPE-v0.1",
+  "issue": 569,
+  "source_id": "SRC-ZZ-003",
+  "scope": "W02-101..W02-200 / printed pp72-74",
+  "counts": {
+    "non_natal_rows": 3,
+    "year": 3,
+    "decade": 0,
+    "path_dependent_gate_rows": 4
+  },
+  "exact_non_natal_ids": [
+    "W02-114",
+    "W02-115",
+    "W02-160"
+  ],
+  "path_dependent_gate_ids": [
+    "W02-114",
+    "W02-115",
+    "W02-119",
+    "W02-143"
+  ],
+  "policy": [
+    "W02-114/115保持‘先得财→特定流年破耗→破耗后状态比较’的来源序列，不压回静态NATAL。",
+    "W02-119和W02-143保留路径依赖，但来源没有给出固定持续时间或概率。",
+    "W02-160只规定自营事业时应以流年吉凶作为进退参考，不生成独立数值时序模型。",
+    "本批不从‘较难持久’‘甚速’‘一次波折’推导频率、概率、衰减或持续期参数。"
+  ],
+  "records": [
+    {
+      "projection_rule_id": "W02-114",
+      "source_location": "财帛宫printed_p72",
+      "archived_time_layer": "YEAR",
+      "canonical_time_layer": "YEAR",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "丑未紫破得意外财后流年经行丑未宫",
+      "canonical_target": "windfall_then_major_loss_window",
+      "source_scope_note": "候选条件与投影方向均不超出直接复核到的原文语义；本次不增加概率、权重、频率参数或新的共享语义。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W02-115",
+      "source_location": "财帛宫printed_p72",
+      "archived_time_layer": "NATAL",
+      "canonical_time_layer": "YEAR",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "丑未紫微破军先得意外财，后于流年经行丑或未宫发生破耗，且空劫同度",
+      "canonical_target": "post_loss_state_can_be_worse_than_pre_gain",
+      "source_scope_note": "旧候选把该条放在NATAL层，但原文明确承接前一条流年破耗序列；改为YEAR并保留“得财→破耗→破耗后更贫”的路径门控。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W02-119",
+      "source_location": "财帛宫printed_p72",
+      "archived_time_layer": "NATAL",
+      "canonical_time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "丑未紫破破军化权",
+      "canonical_target": "setbacks_then_wealth",
+      "source_scope_note": "候选条件与投影方向均不超出直接复核到的原文语义；本次不增加概率、权重、频率参数或新的共享语义。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W02-143",
+      "source_location": "财帛宫printed_p72-73",
+      "archived_time_layer": "NATAL",
+      "canonical_time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "辰戌紫微天相即使吉化吉曜汇集仍有一次波折或胶着",
+      "canonical_target": "stagnation_then_opening",
+      "source_scope_note": "候选条件与投影方向均不超出直接复核到的原文语义；本次不增加概率、权重、频率参数或新的共享语义。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W02-160",
+      "source_location": "财帛宫printed_p73",
+      "archived_time_layer": "YEAR",
+      "canonical_time_layer": "YEAR",
+      "history_feedback": null,
+      "canonical_condition": "紫杀自己经营事业须详视流年吉凶",
+      "canonical_target": "business_financial_decision_window",
+      "source_scope_note": "候选条件与投影方向均不超出直接复核到的原文语义；本次不增加概率、权重、频率参数或新的共享语义。",
+      "no_numeric_generalization": true
+    }
+  ]
+}

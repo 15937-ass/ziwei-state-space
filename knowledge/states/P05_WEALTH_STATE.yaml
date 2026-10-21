@@ -9,14 +9,16 @@ contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
   status: "SOURCE_REVIEW_COMPLETE_VALIDATION_PENDING"
-  active_issue: 549
-  active_branch: "knowledge/p05-549-wealth-w01-canonical"
-  active_pr: 555
-  canonical_checkpoint: "W01_001_100_DIRECT_SOURCE_RECHECKED"
-  reviewed_rule_count: 100
-  source_resolution_change_count: 8
-  source_uncertainty_count: 6
-  note: "All W01-001..100 rows were re-adjudicated source-first against SRC-ZZ-003 printed pp69-72. Exact-head PR validation is still required before canonical merge."
+  active_issue: 569
+  active_branch: "knowledge/p05-569-wealth-w02-canonical"
+  active_pr: 570
+  canonical_checkpoint: "W01_001_100_MERGED__W02_101_200_DIRECT_SOURCE_RECHECKED"
+  merged_rule_count: 100
+  reviewed_rule_count: 200
+  current_batch_rule_count: 100
+  source_resolution_change_count_current_batch: 18
+  source_uncertainty_count_current_batch: 2
+  note: "W02-101..200 directly source-rechecked against SRC-ZZ-003 printed pp72-74. PDF page-image inspection resolved three extraction ambiguities; two literal-source semantic ambiguities remain. Exact-head PR validation remains before canonical merge."
 
 integrity:
   source_first: true
