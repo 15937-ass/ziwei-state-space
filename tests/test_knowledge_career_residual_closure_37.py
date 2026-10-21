@@ -20,9 +20,11 @@ def test_exact_37_and_cluster_partition():
 def test_four_source_local_resolutions():
     r=load(R37); rows={x['source_rule_id']:x for x in r['records']}
     solved={rid for rid,x in rows.items() if x['disposition']=='SOURCE_LOCAL_RESOLVED'}
-    assert solved=={'CA04-382','CA05-411','CA07-681','CA09-820'}
+    assert solved=={'CA05-411','CA07-681','CA09-820'}
     assert all(rows[rid]['blockers_after']==[] for rid in solved)
-    assert 'TRANSFORM(武曲,化禄)' in rows['CA04-382']['normalized_expression']
+    assert rows['CA04-382']['disposition']=='SOURCE_LOCAL_PARTIAL_RESOLUTION'
+    assert rows['CA04-382']['blockers_after']==['TRANSFORMATION_CARRIER_UNSPECIFIED']
+    assert 'SOURCE_CONTEXT_UNSPECIFIED' in rows['CA04-382']['normalized_expression']
     assert 'TRANSFORM(巨门,化禄)' in rows['CA07-681']['normalized_expression']
     assert 'TRANSFORM(破军,化禄)' in rows['CA09-820']['normalized_expression']
     assert 'LOCAL_ANY_OF' in rows['CA05-411']['normalized_expression']
@@ -52,7 +54,7 @@ def test_closure_v07_census_and_no_unlock():
     c6,c7=load(C6),load(C7)
     assert len(c6['records'])==251==len(c7['records'])
     assert c6['summary']['rows_with_no_current_activation_blocker']==18
-    assert c7['summary']['rows_with_no_current_activation_blocker']==22
+    assert c7['summary']['rows_with_no_current_activation_blocker']==21
     assert c6['summary']['blocker_counts']['MEMBER_QUANTIFIER_UNSPECIFIED']==33
     assert c7['summary']['blocker_counts'].get('MEMBER_QUANTIFIER_UNSPECIFIED',0)==0
     assert c6['summary']['blocker_counts']['OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED']==129
