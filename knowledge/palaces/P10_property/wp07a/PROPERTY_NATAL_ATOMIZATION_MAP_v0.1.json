@@ -1,0 +1,242 @@
+{
+  "schema_version": "0.1",
+  "audit_id": "KB-WP07A-PROPERTY-NATAL-ATOMIZATION-PILOT",
+  "work_unit": "KB-WP07A-PROPERTY-NATAL-ATOMIZATION-PILOT",
+  "issue": 559,
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "P10",
+  "status": "PILOT_COMPLETE_3_MAPPED_NOT_PRODUCTION",
+  "source_id": "SRC-ZZ-003",
+  "source_title": "中州派紫微斗数深造讲义（下册）",
+  "canonical_corpus": "PROPERTY_P10_CANONICAL_358_OF_358",
+  "scope": {
+    "nominated_source_rule_ids": [
+      "TP02-141",
+      "TP03-262",
+      "TP04-314"
+    ],
+    "selection": "Three direct, canonical, non-case NATAL transformation rows chosen to mirror Career's first WP07A atomization pilot.",
+    "mapping_boundary": "Existing TRANSFORMATION_PRESENT atom only; no compound relation/group/context expansion."
+  },
+  "mappings": [
+    {
+      "source_rule_id": "TP02-141",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "田宅宫printed_p160",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false
+      },
+      "source_condition_text": "天同化忌",
+      "source_span_summary": "原文指出天同化忌虽仍可自置产业，但容易因产业持续烦恼、耗费精神；本映射只保留这一已审核投影。",
+      "source_anchor_phrase": "虽能自置产业，却为产业招致烦恼",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P10",
+              "star": "天同",
+              "mutagen": "忌"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact": {
+        "atom_type": "TRANSFORMATION_PRESENT",
+        "args": {
+          "palace": "P10",
+          "star": "天同",
+          "mutagen": "忌"
+        }
+      },
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "当 P10 田宅宫的天同星对象自身带 mutagen=忌 时，现有原局运行事实会发出同构的 palace/star/mutagen 三元事实。"
+      },
+      "expected_projection": {
+        "projection_domain": "effort",
+        "projection_target": "self_acquired_property_can_coexist_with_persistent_property_related_worry_and_effort",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "TP03-262",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "田宅宫printed_p163",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false
+      },
+      "source_condition_text": "巨门化禄",
+      "source_span_summary": "原文先述巨门田宅仅能于中年后自置，并说尤以巨门化禄者为然；条件只原子化巨门化禄，‘中年后’仍保留在投影语义中，不转成数值年龄。",
+      "source_anchor_phrase": "尤以巨门化禄者为然",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P10",
+              "star": "巨门",
+              "mutagen": "禄"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact": {
+        "atom_type": "TRANSFORMATION_PRESENT",
+        "args": {
+          "palace": "P10",
+          "star": "巨门",
+          "mutagen": "禄"
+        }
+      },
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "当 P10 田宅宫的巨门星对象自身带 mutagen=禄 时，现有原局运行事实会发出同构的 palace/star/mutagen 三元事实。"
+      },
+      "expected_projection": {
+        "projection_domain": "property_acquisition",
+        "projection_target": "midlife_or_later_self_acquisition_tendency_strengthens",
+        "projection_mode": "STRUCTURAL_CONSTRAINT"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "TP04-314",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "田宅宫printed_p164",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false
+      },
+      "source_condition_text": "天梁在田宅宫化禄",
+      "source_span_summary": "原文直接写天梁在田宅宫化禄易致人缘不佳；本映射不并入随后太阳陷、见煞或太阳化忌等邻近条件。",
+      "source_anchor_phrase": "天梁在田宅宫化禄，易致人缘不佳",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "TRANSFORMATION_PRESENT",
+            "args": {
+              "palace": "P10",
+              "star": "天梁",
+              "mutagen": "禄"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "TRANSFORMATION_PRESENT"
+      ],
+      "expected_runtime_fact": {
+        "atom_type": "TRANSFORMATION_PRESENT",
+        "args": {
+          "palace": "P10",
+          "star": "天梁",
+          "mutagen": "禄"
+        }
+      },
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "当 P10 田宅宫的天梁星对象自身带 mutagen=禄 时，现有原局运行事实会发出同构的 palace/star/mutagen 三元事实。"
+      },
+      "expected_projection": {
+        "projection_domain": "relation",
+        "projection_target": "social_or_interpersonal_friction_can_strengthen",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "executable_registry_entry": false
+    }
+  ],
+  "exclusions": [
+    {
+      "source_rule_id": "TP02-142",
+      "source_location": "田宅宫printed_p160",
+      "reason_code": "GENERIC_MALEFIC_GROUP_REQUIRED",
+      "reason": "天同化忌之外还要求见煞；煞曜群组成员与闭集语义不能由本宫 worker 自行定义，故不在直接四化试点中推广。"
+    },
+    {
+      "source_rule_id": "TP02-143",
+      "source_location": "田宅宫printed_p160",
+      "reason_code": "COMPOUND_STAR_RELATION_REQUIRED",
+      "reason": "条件要求天同化忌并与火铃同度，超出单一四化原子；后续 relation/compound mapping 再审。"
+    },
+    {
+      "source_rule_id": "TP02-144",
+      "source_location": "田宅宫printed_p160",
+      "reason_code": "PATH_DEPENDENT_PARENT_REQUIRED",
+      "reason": "前格更见空劫，且为 PATH_DEPENDENT_GATE；不得把父条件折叠成单一四化原子。"
+    },
+    {
+      "source_rule_id": "TP03-261",
+      "source_location": "田宅宫printed_p163",
+      "reason_code": "BASE_STAR_NOT_TRANSFORMATION_PILOT",
+      "reason": "巨门守田宅为基础星曜条件，且投影含中年后时序语言；留待 star-presence/structured review，不与巨门化禄试点混为一条。"
+    },
+    {
+      "source_rule_id": "TP03-263",
+      "source_location": "田宅宫printed_p163",
+      "reason_code": "CASE_SUPPORT_ONLY_EVENT_CANDIDATE",
+      "reason": "女命天同巨门化禄的配偶卖宅条目为 CASE_SUPPORT_ONLY + EVENT_CANDIDATE，不进入可复用原子化试点。"
+    },
+    {
+      "source_rule_id": "TP04-315",
+      "source_location": "田宅宫printed_p164",
+      "reason_code": "COMPOUND_OPPOSITE_BRIGHTNESS_MALEFIC_CONTEXT",
+      "reason": "除天梁化禄外还要求对拱太阳‘藩陷’且见煞；含对宫、损字/庙陷与煞曜群组，不能降为单一四化原子。"
+    },
+    {
+      "source_rule_id": "TP04-316",
+      "source_location": "田宅宫printed_p164",
+      "reason_code": "PARENT_ANTECEDENT_REQUIRED",
+      "reason": "‘前格太阳化忌’承接 TP04-315；必须保留父条件，不能只凭太阳化忌独立触发。"
+    },
+    {
+      "source_rule_id": "TP04-317",
+      "source_location": "田宅宫printed_p164",
+      "reason_code": "GENERIC_FOUR_MALEFICS_GROUP_REQUIRED",
+      "reason": "天梁见四煞依赖共享群组语义，不属于本次直接四化试点。"
+    }
+  ],
+  "validation": {
+    "nominated_rows": 3,
+    "mapped_rows": 3,
+    "blocked_nominated_rows": 0,
+    "source_rows_modified": false,
+    "executable_rule_created": false,
+    "product_runtime_modified": false,
+    "production_registry_modified": false,
+    "new_atom_type": false,
+    "new_shared_semantics": false,
+    "numeric_age_threshold_created": false,
+    "probability_or_weight_created": false
+  },
+  "guardrails": [
+    "Source-preserving mapping only.",
+    "Do not merge neighboring compound conditions into the direct transformation rule.",
+    "TP03-262 preserves 中年后 as literal projection language; no numeric age threshold.",
+    "Mappings demonstrate condition representability, not predictive validation or production authorization."
+  ]
+}
