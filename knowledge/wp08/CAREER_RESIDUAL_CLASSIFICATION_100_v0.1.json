@@ -1,0 +1,3166 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-CAREER-RESIDUAL-CLASSIFICATION-100-v0.1",
+  "lane": "KNOWLEDGE_ONLY",
+  "issue": 475,
+  "status": "100_OF_100_CLASSIFIED_NO_BLOCKER_CLEAR_NO_EXECUTION_UNLOCK",
+  "purpose": "Classify the first bounded 100 Career residuals after Issue #471 into source-researchable, structurally gated, or legitimate open-category paths without inventing global activation defaults.",
+  "selection": {
+    "baseline": "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.5.json",
+    "member_quantifier_rows_selected": 93,
+    "open_category_supplement_rows_selected": 7,
+    "ordering": "preserve canonical closure record order; take all current MEMBER_QUANTIFIER_UNSPECIFIED rows, then earliest 7 rows having OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED without MEMBER_QUANTIFIER_UNSPECIFIED",
+    "total": 100
+  },
+  "summary": {
+    "target_rows": 100,
+    "reviewed": 100,
+    "disposition_counts": {
+      "CLOSED_WORLD_NEGATION_GATED": 11,
+      "SOURCE_LOCAL_QUANTIFIER_CANDIDATE": 14,
+      "NAMED_GROUP_RELATION_REVIEW": 57,
+      "COMPOUND_OR_DEPENDENCY_GATED": 7,
+      "OPEN_CATEGORY_NO_UNIVERSAL_RULE_CANDIDATE": 7,
+      "SOURCE_RECHECK_REQUIRED": 4
+    },
+    "next_research_cluster_counts": {
+      "NEGATION_CLOSED_WORLD": 11,
+      "LU_SHORTHAND_CONTEXT": 8,
+      "PAIR_SHORTHAND_CONTEXT": 60,
+      "ANTECEDENT_COMPOSITION": 7,
+      "OPEN_CATEGORY_CONTEXT": 8,
+      "AUXILIARY_SUPPORT_CONTEXT": 4,
+      "SOURCE_LITERAL_RECHECK": 2
+    },
+    "source_researchable_rows": 75,
+    "structural_gate_rows": 18,
+    "open_no_universal_rule_candidate_rows": 7,
+    "blockers_cleared": 0,
+    "source_resolution_changes": 0,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0
+  },
+  "top_source_group_surfaces": [
+    {
+      "surface": "空劫",
+      "count": 29
+    },
+    {
+      "surface": "昌曲",
+      "count": 21
+    },
+    {
+      "surface": "火铃",
+      "count": 18
+    },
+    {
+      "surface": "辅弼",
+      "count": 11
+    },
+    {
+      "surface": "吉曜",
+      "count": 9
+    },
+    {
+      "surface": "魁钺",
+      "count": 9
+    },
+    {
+      "surface": "辅佐",
+      "count": 8
+    },
+    {
+      "surface": "得禄",
+      "count": 7
+    },
+    {
+      "surface": "桃花",
+      "count": 5
+    },
+    {
+      "surface": "科文诸曜",
+      "count": 5
+    },
+    {
+      "surface": "刑耗",
+      "count": 4
+    },
+    {
+      "surface": "辅佐吉曜",
+      "count": 4
+    },
+    {
+      "surface": "三台八座",
+      "count": 3
+    },
+    {
+      "surface": "四煞",
+      "count": 3
+    },
+    {
+      "surface": "煞曜",
+      "count": 3
+    },
+    {
+      "surface": "辅佐诸曜",
+      "count": 3
+    },
+    {
+      "surface": "吉化",
+      "count": 2
+    },
+    {
+      "surface": "煞刑",
+      "count": 2
+    },
+    {
+      "surface": "煞耗",
+      "count": 2
+    },
+    {
+      "surface": "禄马",
+      "count": 2
+    },
+    {
+      "surface": "见吉",
+      "count": 2
+    },
+    {
+      "surface": "凶曜",
+      "count": 1
+    },
+    {
+      "surface": "刑曜",
+      "count": 1
+    },
+    {
+      "surface": "吉辅",
+      "count": 1
+    },
+    {
+      "surface": "恩光天贵",
+      "count": 1
+    },
+    {
+      "surface": "桃花诸曜",
+      "count": 1
+    },
+    {
+      "surface": "煞忌",
+      "count": 1
+    },
+    {
+      "surface": "羊陀",
+      "count": 1
+    },
+    {
+      "surface": "见凶",
+      "count": 1
+    },
+    {
+      "surface": "财星化禄",
+      "count": 1
+    }
+  ],
+  "source_reconnaissance": [
+    {
+      "evidence_id": "RC100-E01",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "pdf_page": 91,
+      "source_excerpt": "天同与左辅右弼，或天魁天钺同会，以见齐对星始吉，见单星者，主父母两次婚姻。",
+      "implication": "The source can explicitly distinguish complete pair vs single-star realization. Pair completeness is therefore context-sensitive and cannot be supplied as a global default."
+    },
+    {
+      "evidence_id": "RC100-E02",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "pdf_page": 17,
+      "source_excerpt": "寅申宫紫府，必须见辅佐对星者，然后主白头偕老。",
+      "implication": "When a pair-complete requirement is intended, the source is capable of stating 对星/必须 explicitly. Generic 辅佐/辅弼 surfaces must not inherit this threshold automatically."
+    },
+    {
+      "evidence_id": "RC100-E03",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "pdf_page": 21,
+      "source_excerpt": "卯酉廉破，见辅佐单星主再婚。见昌曲对星，又见桃花诸曜，则主移情别恋。",
+      "implication": "The same corpus distinguishes 单星 and 对星 for auxiliary/pair groups, supporting a source-local contextual-quantifier research program rather than one universal group quantifier."
+    }
+  ],
+  "research_policy": {
+    "source_local_quantifier_candidate": "Explicit local OR/AND/simultaneous/necessity exists; re-read the exact source span before any blocker removal.",
+    "named_group_relation_review": "Named pair/group shorthand dominates; corpus-review 对星/单星/同度/会照 usage before deciding member realization.",
+    "open_category_no_universal_rule_candidate": "Open/valence/functional category likely has no global closed membership or quantifier; seek explicit local exceptions only.",
+    "closed_world_negation_gated": "Even if group membership is known, absence claims require a closed-world evidence contract.",
+    "compound_or_dependency_gated": "Resolve antecedent/composition first; do not infer group activation from inherited wording.",
+    "source_recheck_required": "Compression or lexical shorthand is not safely classified by current semantics; return to source before any formalization."
+  },
+  "guardrails": {
+    "global_any_default": false,
+    "global_all_default": false,
+    "global_n_of_default": false,
+    "blocker_clearing_without_source_review": false,
+    "source_truth_rewritten": false,
+    "numeric_weights_added": false,
+    "probabilities_added": false,
+    "product_runtime_modified": false,
+    "github_actions_used": false
+  },
+  "records": [
+    {
+      "sequence": 3,
+      "source_rule_id": "CA01-059",
+      "source_condition_text": "紫微无煞有辅佐且见禄马或财星化禄",
+      "source_location": "事业宫printed_p133",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "财星化禄",
+        "禄马",
+        "辅佐"
+      ],
+      "clause_operators": [
+        "EXPLICIT_OR",
+        "EXPLICIT_AND",
+        "NEGATION"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "SOURCE_NEGATION_REQUIRES_CLOSED_WORLD_EVIDENCE",
+      "current_blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "CLOSED_WORLD_NEGATION_GATED",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_CLOSED_WORLD_ABSENCE_BLOCKER",
+        "HAS_EXPLICIT_LOCAL_OPERATOR"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "NEGATION_CLOSED_WORLD"
+    },
+    {
+      "sequence": 5,
+      "source_rule_id": "CA01-064",
+      "source_condition_text": "子午紫微且命宫或财帛宫得禄",
+      "source_location": "事业宫printed_p133-134",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "得禄"
+      ],
+      "clause_operators": [
+        "EXPLICIT_OR",
+        "EXPLICIT_AND"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "SOURCE_LOCAL_QUANTIFIER_CANDIDATE",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_EXPLICIT_LOCAL_OPERATOR"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "LU_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 7,
+      "source_rule_id": "CA01-080",
+      "source_condition_text": "前格不见刑耗空劫",
+      "source_location": "事业宫printed_p134",
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "source_group_tokens": [
+        "空劫",
+        "刑耗"
+      ],
+      "clause_operators": [
+        "NEGATION"
+      ],
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA01-078"
+      ],
+      "absence_evaluation": "SOURCE_NEGATION_REQUIRES_CLOSED_WORLD_EVIDENCE",
+      "current_blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "CLOSED_WORLD_NEGATION_GATED",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_CLOSED_WORLD_ABSENCE_BLOCKER",
+        "HAS_ANTECEDENT_DEPENDENCY",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "NEGATION_CLOSED_WORLD"
+    },
+    {
+      "sequence": 8,
+      "source_rule_id": "CA01-081",
+      "source_condition_text": "子午紫微与桃花同度且有昌曲",
+      "source_location": "事业宫printed_p134",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "昌曲",
+        "桃花"
+      ],
+      "clause_operators": [
+        "EXPLICIT_AND"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "SOURCE_LOCAL_QUANTIFIER_CANDIDATE",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_EXPLICIT_LOCAL_OPERATOR",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 9,
+      "source_rule_id": "CA01-082",
+      "source_condition_text": "子午紫微与桃花同度无昌曲",
+      "source_location": "事业宫printed_p134",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "昌曲",
+        "桃花"
+      ],
+      "clause_operators": [
+        "NEGATION"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "SOURCE_NEGATION_REQUIRES_CLOSED_WORLD_EVIDENCE",
+      "current_blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "CLOSED_WORLD_NEGATION_GATED",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_CLOSED_WORLD_ABSENCE_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "NEGATION_CLOSED_WORLD"
+    },
+    {
+      "sequence": 11,
+      "source_rule_id": "CA01-086",
+      "source_condition_text": "紫微破军与昌曲同宫",
+      "source_location": "事业宫printed_p134",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "昌曲"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 12,
+      "source_rule_id": "CA01-097",
+      "source_condition_text": "紫微破军与空劫同度而无刑煞",
+      "source_location": "事业宫printed_p134",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "clause_operators": [
+        "NEGATION"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "SOURCE_NEGATION_REQUIRES_CLOSED_WORLD_EVIDENCE",
+      "current_blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "CLOSED_WORLD_NEGATION_GATED",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_CLOSED_WORLD_ABSENCE_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "NEGATION_CLOSED_WORLD"
+    },
+    {
+      "sequence": 17,
+      "source_rule_id": "CA02-113",
+      "source_condition_text": "紫微贪狼见桃花昌曲",
+      "source_location": "事业宫printed_p134",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "昌曲",
+        "桃花"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 18,
+      "source_rule_id": "CA02-116",
+      "source_condition_text": "紫微贪狼与火铃同度",
+      "source_location": "事业宫printed_p134",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 19,
+      "source_rule_id": "CA02-117",
+      "source_condition_text": "前格同时见空劫刑耗",
+      "source_location": "事业宫printed_p134-135",
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "source_group_tokens": [
+        "空劫",
+        "刑耗"
+      ],
+      "clause_operators": [
+        "SIMULTANEOUS"
+      ],
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA02-116"
+      ],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "COMPOUND_OR_DEPENDENCY_GATED",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_ANTECEDENT_DEPENDENCY",
+        "HAS_EXPLICIT_LOCAL_OPERATOR",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "ANTECEDENT_COMPOSITION"
+    },
+    {
+      "sequence": 22,
+      "source_rule_id": "CA02-141",
+      "source_condition_text": "紫微天相与科文诸曜同度又见煞耗",
+      "source_location": "事业宫printed_p135",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "科文诸曜",
+        "煞耗"
+      ],
+      "clause_operators": [
+        "ADDITIVE"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "OPEN_CATEGORY_NO_UNIVERSAL_RULE_CANDIDATE",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "OPEN_CATEGORY_CONTEXT"
+    },
+    {
+      "sequence": 25,
+      "source_rule_id": "CA02-154",
+      "source_condition_text": "天机与火铃同度",
+      "source_location": "事业宫printed_p135-136",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 28,
+      "source_rule_id": "CA02-166",
+      "source_condition_text": "天机化忌见空劫煞耗",
+      "source_location": "事业宫printed_p136",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "空劫",
+        "煞耗"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 34,
+      "source_rule_id": "CA02-175",
+      "source_condition_text": "天机化忌见煞刑虚耗空劫",
+      "source_location": "事业宫printed_p136",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "空劫",
+        "煞刑"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 35,
+      "source_rule_id": "CA02-180",
+      "source_condition_text": "天机与昌曲天才同度",
+      "source_location": "事业宫printed_p136",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "昌曲"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 37,
+      "source_rule_id": "CA02-182",
+      "source_condition_text": "天机与火铃同度",
+      "source_location": "事业宫printed_p136",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 39,
+      "source_rule_id": "CA02-197",
+      "source_condition_text": "丑未天机见辅佐吉曜",
+      "source_location": "事业宫printed_p136",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "辅佐吉曜",
+        "吉曜",
+        "辅佐"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "AUXILIARY_SUPPORT_CONTEXT"
+    },
+    {
+      "sequence": 43,
+      "source_rule_id": "CA03-215",
+      "source_condition_text": "天机太阴有煞忌空劫",
+      "source_location": "事业宫printed_p137",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "空劫",
+        "煞忌"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 45,
+      "source_rule_id": "CA03-228",
+      "source_condition_text": "天机巨门与火铃同度",
+      "source_location": "事业宫printed_p137",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 48,
+      "source_rule_id": "CA03-234",
+      "source_condition_text": "天机天梁见禄权科及辅佐吉曜",
+      "source_location": "事业宫printed_p137",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "辅佐吉曜",
+        "吉曜",
+        "辅佐"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "AUXILIARY_SUPPORT_CONTEXT"
+    },
+    {
+      "sequence": 52,
+      "source_rule_id": "CA03-242",
+      "source_condition_text": "天机天梁与空劫同度",
+      "source_location": "事业宫printed_p137",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 58,
+      "source_rule_id": "CA03-251",
+      "source_condition_text": "巳亥天机与火铃空劫同度",
+      "source_location": "事业宫printed_p137",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "空劫",
+        "火铃"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 62,
+      "source_rule_id": "CA03-259",
+      "source_condition_text": "太阳入庙又见魁钺辅弼昌曲",
+      "source_location": "事业宫printed_p138",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "昌曲",
+        "辅弼",
+        "魁钺"
+      ],
+      "clause_operators": [
+        "ADDITIVE"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 64,
+      "source_rule_id": "CA03-268",
+      "source_condition_text": "太阳与火铃羊陀同度",
+      "source_location": "事业宫printed_p138",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "羊陀",
+        "火铃"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 66,
+      "source_rule_id": "CA03-273",
+      "source_condition_text": "太阳加空劫",
+      "source_location": "事业宫printed_p138",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 67,
+      "source_rule_id": "CA03-275",
+      "source_condition_text": "太阳与魁钺同会",
+      "source_location": "事业宫printed_p138",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "魁钺"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 69,
+      "source_rule_id": "CA03-277",
+      "source_condition_text": "昌曲入事业宫且太阳昌曲同躔",
+      "source_location": "事业宫printed_p138",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "昌曲"
+      ],
+      "clause_operators": [
+        "EXPLICIT_AND"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "SOURCE_LOCAL_QUANTIFIER_CANDIDATE",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_EXPLICIT_LOCAL_OPERATOR",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 71,
+      "source_rule_id": "CA03-290",
+      "source_condition_text": "太阳与华盖同度又会空劫",
+      "source_location": "事业宫printed_p139",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "clause_operators": [
+        "ADDITIVE"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 73,
+      "source_rule_id": "CA04-303",
+      "source_condition_text": "太阳天梁见华盖空劫",
+      "source_location": "事业宫printed_p139",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 78,
+      "source_rule_id": "CA04-313",
+      "source_condition_text": "太阳太阴与空劫同度",
+      "source_location": "事业宫printed_p139",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 83,
+      "source_rule_id": "CA04-323",
+      "source_condition_text": "前格又见辅弼昌曲三台八座恩光天贵",
+      "source_location": "事业宫printed_p140",
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "source_group_tokens": [
+        "三台八座",
+        "恩光天贵",
+        "昌曲",
+        "辅弼"
+      ],
+      "clause_operators": [
+        "ADDITIVE"
+      ],
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA04-322"
+      ],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "COMPOUND_OR_DEPENDENCY_GATED",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_ANTECEDENT_DEPENDENCY",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "ANTECEDENT_COMPOSITION"
+    },
+    {
+      "sequence": 85,
+      "source_rule_id": "CA04-337",
+      "source_condition_text": "武曲得禄权科且见辅佐吉曜",
+      "source_location": "事业宫printed_p140",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "辅佐吉曜",
+        "吉曜",
+        "辅佐",
+        "得禄"
+      ],
+      "clause_operators": [
+        "EXPLICIT_AND"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "SOURCE_LOCAL_QUANTIFIER_CANDIDATE",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_EXPLICIT_LOCAL_OPERATOR"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "LU_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 86,
+      "source_rule_id": "CA04-343",
+      "source_condition_text": "武曲与昌曲同会",
+      "source_location": "事业宫printed_p140",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "昌曲"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 88,
+      "source_rule_id": "CA04-345",
+      "source_condition_text": "武曲与火铃同度且在巳午或多见火曜",
+      "source_location": "事业宫printed_p140",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "clause_operators": [
+        "EXPLICIT_OR",
+        "EXPLICIT_AND"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "CARDINALITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "primary_disposition": "SOURCE_LOCAL_QUANTIFIER_CANDIDATE",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_EXPLICIT_LOCAL_OPERATOR",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 90,
+      "source_rule_id": "CA04-357",
+      "source_condition_text": "前格更见辅佐诸曜",
+      "source_location": "事业宫printed_p141",
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "source_group_tokens": [
+        "辅佐诸曜",
+        "辅佐"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA04-356"
+      ],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "COMPOUND_OR_DEPENDENCY_GATED",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "ANTECEDENT_COMPOSITION"
+    },
+    {
+      "sequence": 92,
+      "source_rule_id": "CA04-359",
+      "source_condition_text": "前格同时见辅佐诸曜",
+      "source_location": "事业宫printed_p141",
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "source_group_tokens": [
+        "辅佐诸曜",
+        "辅佐"
+      ],
+      "clause_operators": [
+        "SIMULTANEOUS"
+      ],
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA04-358"
+      ],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "COMPOUND_OR_DEPENDENCY_GATED",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_ANTECEDENT_DEPENDENCY",
+        "HAS_EXPLICIT_LOCAL_OPERATOR"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "ANTECEDENT_COMPOSITION"
+    },
+    {
+      "sequence": 94,
+      "source_rule_id": "CA04-363",
+      "source_condition_text": "前格见辅佐诸曜同拱",
+      "source_location": "事业宫printed_p141",
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "source_group_tokens": [
+        "辅佐诸曜",
+        "辅佐"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA04-362"
+      ],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "COMPOUND_OR_DEPENDENCY_GATED",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "ANTECEDENT_COMPOSITION"
+    },
+    {
+      "sequence": 99,
+      "source_rule_id": "CA04-379",
+      "source_condition_text": "武曲七杀与四煞空劫同度",
+      "source_location": "事业宫printed_p141-142",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "四煞",
+        "空劫"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 100,
+      "source_rule_id": "CA04-382",
+      "source_condition_text": "武曲七杀得禄",
+      "source_location": "事业宫printed_p142",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "得禄"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "SOURCE_RECHECK_REQUIRED",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "LU_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 102,
+      "source_rule_id": "CA04-386",
+      "source_condition_text": "辰戌武曲与空劫同度",
+      "source_location": "事业宫printed_p142",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 106,
+      "source_rule_id": "CA04-397",
+      "source_condition_text": "武曲破军见魁钺或辅弼",
+      "source_location": "事业宫printed_p142",
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "source_group_tokens": [
+        "魁钺",
+        "辅弼"
+      ],
+      "clause_operators": [
+        "EXPLICIT_OR"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "SOURCE_LOCAL_QUANTIFIER_CANDIDATE",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_EXPLICIT_LOCAL_OPERATOR",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 107,
+      "source_rule_id": "CA05-409",
+      "source_condition_text": "天同与火铃同度",
+      "source_location": "事业宫printed_p142",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 109,
+      "source_rule_id": "CA05-411",
+      "source_condition_text": "天同化忌又与四煞同度",
+      "source_location": "事业宫printed_p142",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "四煞"
+      ],
+      "clause_operators": [
+        "ADDITIVE"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "SOURCE_LITERAL_RECHECK"
+    },
+    {
+      "sequence": 111,
+      "source_rule_id": "CA05-414",
+      "source_condition_text": "天同天梁星系见火铃",
+      "source_location": "事业宫printed_p142",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 112,
+      "source_rule_id": "CA05-416",
+      "source_condition_text": "天同与昌曲天才同度",
+      "source_location": "事业宫printed_p143",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "昌曲"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 118,
+      "source_rule_id": "CA05-429",
+      "source_condition_text": "前格同时见火铃",
+      "source_location": "事业宫printed_p143",
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "clause_operators": [
+        "SIMULTANEOUS"
+      ],
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA05-428"
+      ],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "COMPOUND_OR_DEPENDENCY_GATED",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_ANTECEDENT_DEPENDENCY",
+        "HAS_EXPLICIT_LOCAL_OPERATOR",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "ANTECEDENT_COMPOSITION"
+    },
+    {
+      "sequence": 122,
+      "source_rule_id": "CA05-447",
+      "source_condition_text": "天同天梁见吉化昌曲",
+      "source_location": "事业宫printed_p143-144",
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "source_group_tokens": [
+        "昌曲",
+        "吉化",
+        "见吉"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 127,
+      "source_rule_id": "CA05-465",
+      "source_condition_text": "廉贞与空劫同会",
+      "source_location": "事业宫printed_p144",
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 139,
+      "source_rule_id": "CA06-516",
+      "source_condition_text": "廉贞天府见昌曲辅弼魁钺",
+      "source_location": "事业宫printed_p145-146",
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "source_group_tokens": [
+        "魁钺",
+        "辅弼",
+        "昌曲"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 141,
+      "source_rule_id": "CA06-520",
+      "source_condition_text": "巳亥廉贞贪狼与空劫同度",
+      "source_location": "事业宫printed_p146",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 143,
+      "source_rule_id": "CA06-532",
+      "source_condition_text": "廉贞贪狼必须得禄",
+      "source_location": "事业宫printed_p146",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "得禄"
+      ],
+      "clause_operators": [
+        "EXPLICIT_NECESSITY"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "SOURCE_LOCAL_QUANTIFIER_CANDIDATE",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_EXPLICIT_LOCAL_OPERATOR"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "LU_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 146,
+      "source_rule_id": "CA06-539",
+      "source_condition_text": "主星在午宫守事业且天府得禄",
+      "source_location": "事业宫printed_p146",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "得禄"
+      ],
+      "clause_operators": [
+        "EXPLICIT_AND"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "SOURCE_LOCAL_QUANTIFIER_CANDIDATE",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_EXPLICIT_LOCAL_OPERATOR"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "LU_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 149,
+      "source_rule_id": "CA06-549",
+      "source_condition_text": "天府见火铃照射",
+      "source_location": "事业宫printed_p146",
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 151,
+      "source_rule_id": "CA06-551",
+      "source_condition_text": "天府与空劫同度",
+      "source_location": "事业宫printed_p146",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 157,
+      "source_rule_id": "CA06-573",
+      "source_condition_text": "前格见辅弼",
+      "source_location": "事业宫printed_p147",
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "source_group_tokens": [
+        "辅弼"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA06-572"
+      ],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "COMPOUND_OR_DEPENDENCY_GATED",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_ANTECEDENT_DEPENDENCY",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "ANTECEDENT_COMPOSITION"
+    },
+    {
+      "sequence": 158,
+      "source_rule_id": "CA06-574",
+      "source_condition_text": "前格无辅弼",
+      "source_location": "事业宫printed_p147",
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "source_group_tokens": [
+        "辅弼"
+      ],
+      "clause_operators": [
+        "NEGATION"
+      ],
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA06-572"
+      ],
+      "absence_evaluation": "SOURCE_NEGATION_REQUIRES_CLOSED_WORLD_EVIDENCE",
+      "current_blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "CLOSED_WORLD_NEGATION_GATED",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_CLOSED_WORLD_ABSENCE_BLOCKER",
+        "HAS_ANTECEDENT_DEPENDENCY",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "NEGATION_CLOSED_WORLD"
+    },
+    {
+      "sequence": 161,
+      "source_rule_id": "CA06-583",
+      "source_condition_text": "太阴会科文诸曜",
+      "source_location": "事业宫printed_p147",
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "source_group_tokens": [
+        "科文诸曜"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "SOURCE_RECHECK_REQUIRED",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "SOURCE_LITERAL_RECHECK"
+    },
+    {
+      "sequence": 162,
+      "source_rule_id": "CA06-584",
+      "source_condition_text": "太阴科文诸曜又见桃花诸曜",
+      "source_location": "事业宫printed_p147",
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "source_group_tokens": [
+        "科文诸曜",
+        "桃花诸曜",
+        "桃花"
+      ],
+      "clause_operators": [
+        "ADDITIVE"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "OPEN_CATEGORY_NO_UNIVERSAL_RULE_CANDIDATE",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "OPEN_CATEGORY_CONTEXT"
+    },
+    {
+      "sequence": 163,
+      "source_rule_id": "CA06-585",
+      "source_condition_text": "太阴与魁钺或辅弼同会",
+      "source_location": "事业宫printed_p147",
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "source_group_tokens": [
+        "魁钺",
+        "辅弼"
+      ],
+      "clause_operators": [
+        "EXPLICIT_OR"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "SOURCE_LOCAL_QUANTIFIER_CANDIDATE",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_EXPLICIT_LOCAL_OPERATOR",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 164,
+      "source_rule_id": "CA06-593",
+      "source_condition_text": "太阴与空劫同会且有科文诸曜",
+      "source_location": "事业宫printed_p148",
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "source_group_tokens": [
+        "科文诸曜",
+        "空劫"
+      ],
+      "clause_operators": [
+        "EXPLICIT_AND"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "SOURCE_LOCAL_QUANTIFIER_CANDIDATE",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_EXPLICIT_LOCAL_OPERATOR",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 165,
+      "source_rule_id": "CA06-594",
+      "source_condition_text": "太阴与空劫同会且无科文诸曜",
+      "source_location": "事业宫printed_p148",
+      "dependency_class": "NEGATED_GROUP_RELATION",
+      "source_group_tokens": [
+        "科文诸曜",
+        "空劫"
+      ],
+      "clause_operators": [
+        "NEGATION",
+        "EXPLICIT_AND"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "SOURCE_NEGATION_REQUIRES_CLOSED_WORLD_EVIDENCE",
+      "current_blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "CLOSED_WORLD_NEGATION_GATED",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_CLOSED_WORLD_ABSENCE_BLOCKER",
+        "HAS_EXPLICIT_LOCAL_OPERATOR",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "NEGATION_CLOSED_WORLD"
+    },
+    {
+      "sequence": 173,
+      "source_rule_id": "CA07-625",
+      "source_condition_text": "贪狼与昌曲同度",
+      "source_location": "事业宫printed_p148",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "昌曲"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 175,
+      "source_rule_id": "CA07-628",
+      "source_condition_text": "贪狼与空劫同度且有昌曲",
+      "source_location": "事业宫printed_p148",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "空劫",
+        "昌曲"
+      ],
+      "clause_operators": [
+        "EXPLICIT_AND"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "SOURCE_LOCAL_QUANTIFIER_CANDIDATE",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_EXPLICIT_LOCAL_OPERATOR",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 176,
+      "source_rule_id": "CA07-629",
+      "source_condition_text": "贪狼与空劫同度且无昌曲",
+      "source_location": "事业宫printed_p148",
+      "dependency_class": "NEGATED_GROUP_RELATION",
+      "source_group_tokens": [
+        "空劫",
+        "昌曲"
+      ],
+      "clause_operators": [
+        "NEGATION",
+        "EXPLICIT_AND"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "SOURCE_NEGATION_REQUIRES_CLOSED_WORLD_EVIDENCE",
+      "current_blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "CLOSED_WORLD_NEGATION_GATED",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_CLOSED_WORLD_ABSENCE_BLOCKER",
+        "HAS_EXPLICIT_LOCAL_OPERATOR",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "NEGATION_CLOSED_WORLD"
+    },
+    {
+      "sequence": 185,
+      "source_rule_id": "CA07-644",
+      "source_condition_text": "贪狼化忌与空劫同度",
+      "source_location": "事业宫printed_p149",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 187,
+      "source_rule_id": "CA07-648",
+      "source_condition_text": "子午贪狼见桃花昌曲",
+      "source_location": "事业宫printed_p149",
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "source_group_tokens": [
+        "昌曲",
+        "桃花"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 188,
+      "source_rule_id": "CA07-649",
+      "source_condition_text": "子午贪狼见禄权科及辅佐吉曜",
+      "source_location": "事业宫printed_p149",
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "source_group_tokens": [
+        "辅佐吉曜",
+        "吉曜",
+        "辅佐"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "AUXILIARY_SUPPORT_CONTEXT"
+    },
+    {
+      "sequence": 193,
+      "source_rule_id": "CA07-668",
+      "source_condition_text": "巨门化忌见四煞空劫刑耗",
+      "source_location": "事业宫printed_p149-150",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "四煞",
+        "空劫",
+        "刑耗"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 194,
+      "source_rule_id": "CA07-678",
+      "source_condition_text": "巨门与火铃同度",
+      "source_location": "事业宫printed_p150",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 196,
+      "source_rule_id": "CA07-681",
+      "source_condition_text": "子午巨门得禄",
+      "source_location": "事业宫printed_p150",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "得禄"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "SOURCE_RECHECK_REQUIRED",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "LU_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 202,
+      "source_rule_id": "CA07-693",
+      "source_condition_text": "辰戌巨门与火铃同度",
+      "source_location": "事业宫printed_p150",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 204,
+      "source_rule_id": "CA07-697",
+      "source_condition_text": "巳亥巨门见禄马",
+      "source_location": "事业宫printed_p150",
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "source_group_tokens": [
+        "禄马"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "LU_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 206,
+      "source_rule_id": "CA07-700",
+      "source_condition_text": "巳亥巨门昌曲化忌",
+      "source_location": "事业宫printed_p150",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "昌曲"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 208,
+      "source_rule_id": "CA08-702",
+      "source_condition_text": "巳亥巨门化禄化权又见魁钺",
+      "source_location": "事业宫printed_p150",
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "source_group_tokens": [
+        "魁钺"
+      ],
+      "clause_operators": [
+        "ADDITIVE"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 209,
+      "source_rule_id": "CA08-703",
+      "source_condition_text": "巳亥巨门与火铃同度",
+      "source_location": "事业宫printed_p150",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 214,
+      "source_rule_id": "CA08-725",
+      "source_condition_text": "天相与空劫同度且有吉曜",
+      "source_location": "事业宫printed_p151",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "空劫",
+        "吉曜"
+      ],
+      "clause_operators": [
+        "EXPLICIT_AND"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "SOURCE_LOCAL_QUANTIFIER_CANDIDATE",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_EXPLICIT_LOCAL_OPERATOR",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 215,
+      "source_rule_id": "CA08-726",
+      "source_condition_text": "天相与空劫同度无吉曜或见凶曜",
+      "source_location": "事业宫printed_p151",
+      "dependency_class": "NEGATED_GROUP_RELATION",
+      "source_group_tokens": [
+        "空劫",
+        "吉曜",
+        "凶曜",
+        "见凶"
+      ],
+      "clause_operators": [
+        "EXPLICIT_OR",
+        "NEGATION"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "SOURCE_NEGATION_REQUIRES_CLOSED_WORLD_EVIDENCE",
+      "current_blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "CLOSED_WORLD_NEGATION_GATED",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_CLOSED_WORLD_ABSENCE_BLOCKER",
+        "HAS_EXPLICIT_LOCAL_OPERATOR",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "NEGATION_CLOSED_WORLD"
+    },
+    {
+      "sequence": 217,
+      "source_rule_id": "CA08-734",
+      "source_condition_text": "丑未天相见昌曲",
+      "source_location": "事业宫printed_p151",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "昌曲"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 220,
+      "source_rule_id": "CA08-776",
+      "source_condition_text": "天梁与空劫同度",
+      "source_location": "事业宫printed_p152",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 222,
+      "source_rule_id": "CA08-799",
+      "source_condition_text": "七杀得辅弼魁钺三台八座朝拱同会",
+      "source_location": "事业宫printed_p153",
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "source_group_tokens": [
+        "三台八座",
+        "辅弼",
+        "魁钺"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 223,
+      "source_rule_id": "CA08-800",
+      "source_condition_text": "七杀与煞曜同度尤其火铃",
+      "source_location": "事业宫printed_p153",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "火铃",
+        "煞曜"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 224,
+      "source_rule_id": "CA09-804",
+      "source_condition_text": "七杀得辅弼魁钺三台八座朝拱同会",
+      "source_location": "事业宫printed_p153",
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "source_group_tokens": [
+        "三台八座",
+        "辅弼",
+        "魁钺"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 225,
+      "source_rule_id": "CA09-805",
+      "source_condition_text": "七杀与煞曜同度尤其火铃",
+      "source_location": "事业宫printed_p153",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "火铃",
+        "煞曜"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 228,
+      "source_rule_id": "CA09-811",
+      "source_condition_text": "七杀与昌曲同度",
+      "source_location": "事业宫printed_p153",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "昌曲"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 229,
+      "source_rule_id": "CA09-812",
+      "source_condition_text": "七杀与空劫同度",
+      "source_location": "事业宫printed_p153",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "空劫"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 231,
+      "source_rule_id": "CA09-817",
+      "source_condition_text": "七杀与火铃同度",
+      "source_location": "事业宫printed_p153",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 234,
+      "source_rule_id": "CA09-820",
+      "source_condition_text": "子午七杀得禄",
+      "source_location": "事业宫printed_p153",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "得禄"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "SOURCE_RECHECK_REQUIRED",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "LU_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 241,
+      "source_rule_id": "CA09-859",
+      "source_condition_text": "破军会辅弼魁钺昌曲",
+      "source_location": "事业宫printed_p154",
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "source_group_tokens": [
+        "昌曲",
+        "辅弼",
+        "魁钺"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 242,
+      "source_rule_id": "CA09-860",
+      "source_condition_text": "破军会昌曲化忌",
+      "source_location": "事业宫printed_p154",
+      "dependency_class": "RELATIONAL_GROUP_COMPOSITION",
+      "source_group_tokens": [
+        "昌曲"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "TRANSFORMATION_CARRIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 244,
+      "source_rule_id": "CA09-863",
+      "source_condition_text": "破军与火铃同度",
+      "source_location": "事业宫printed_p155",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "火铃"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "NAMED_GROUP_RELATION_REVIEW",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "PAIR_SHORTHAND_CONTEXT"
+    },
+    {
+      "sequence": 245,
+      "source_rule_id": "CA09-864",
+      "source_condition_text": "破军与空劫同度且见吉辅",
+      "source_location": "事业宫printed_p155",
+      "dependency_class": "GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "空劫",
+        "见吉",
+        "吉辅"
+      ],
+      "clause_operators": [
+        "EXPLICIT_AND"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "SOURCE_LOCAL_QUANTIFIER_CANDIDATE",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_EXPLICIT_LOCAL_OPERATOR",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "AUXILIARY_SUPPORT_CONTEXT"
+    },
+    {
+      "sequence": 247,
+      "source_rule_id": "CA09-871",
+      "source_condition_text": "前格见辅弼或不见辅弼",
+      "source_location": "事业宫printed_p155",
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "source_group_tokens": [
+        "辅弼"
+      ],
+      "clause_operators": [
+        "EXPLICIT_OR",
+        "NEGATION"
+      ],
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA09-870"
+      ],
+      "absence_evaluation": "SOURCE_NEGATION_REQUIRES_CLOSED_WORLD_EVIDENCE",
+      "current_blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "CLOSED_WORLD_NEGATION_GATED",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_CLOSED_WORLD_ABSENCE_BLOCKER",
+        "HAS_ANTECEDENT_DEPENDENCY",
+        "HAS_EXPLICIT_LOCAL_OPERATOR",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "NEGATION_CLOSED_WORLD"
+    },
+    {
+      "sequence": 248,
+      "source_rule_id": "CA09-879",
+      "source_condition_text": "寅申破军无禄无吉曜或空劫同度",
+      "source_location": "事业宫printed_p155",
+      "dependency_class": "NEGATED_GROUP_RELATION",
+      "source_group_tokens": [
+        "空劫",
+        "吉曜"
+      ],
+      "clause_operators": [
+        "EXPLICIT_OR",
+        "NEGATION"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "SOURCE_NEGATION_REQUIRES_CLOSED_WORLD_EVIDENCE",
+      "current_blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "CLOSED_WORLD_NEGATION_GATED",
+      "secondary_flags": [
+        "HAS_MEMBER_QUANTIFIER_BLOCKER",
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_CLOSED_WORLD_ABSENCE_BLOCKER",
+        "HAS_EXPLICIT_LOCAL_OPERATOR",
+        "HAS_PAIR_OR_DUAL_SHORTHAND"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "NEGATION_CLOSED_WORLD"
+    },
+    {
+      "sequence": 10,
+      "source_rule_id": "CA01-085",
+      "source_condition_text": "紫微破军与煞曜同宫",
+      "source_location": "事业宫printed_p134",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "煞曜"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "OPEN_CATEGORY_NO_UNIVERSAL_RULE_CANDIDATE",
+      "secondary_flags": [
+        "HAS_OPEN_CATEGORY_BLOCKER"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "OPEN_CATEGORY_CONTEXT"
+    },
+    {
+      "sequence": 13,
+      "source_rule_id": "CA01-098",
+      "source_condition_text": "紫微破军与空劫同度且见煞刑耗曜",
+      "source_location": "事业宫printed_p134",
+      "dependency_class": "INHERITED_ANTECEDENT_DEPENDENCY",
+      "source_group_tokens": [
+        "刑耗",
+        "煞刑"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "OPEN_CATEGORY_NO_UNIVERSAL_RULE_CANDIDATE",
+      "secondary_flags": [
+        "HAS_OPEN_CATEGORY_BLOCKER"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "OPEN_CATEGORY_CONTEXT"
+    },
+    {
+      "sequence": 14,
+      "source_rule_id": "CA01-100",
+      "source_condition_text": "寅申紫微天府无吉曜",
+      "source_location": "事业宫printed_p134-135",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "吉曜"
+      ],
+      "clause_operators": [
+        "NEGATION"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "SOURCE_NEGATION_REQUIRES_CLOSED_WORLD_EVIDENCE",
+      "current_blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "CLOSED_WORLD_NEGATION_GATED",
+      "secondary_flags": [
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_CLOSED_WORLD_ABSENCE_BLOCKER"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "NEGATION_CLOSED_WORLD"
+    },
+    {
+      "sequence": 15,
+      "source_rule_id": "CA02-107",
+      "source_condition_text": "紫微天府见刑曜",
+      "source_location": "事业宫printed_p134",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "刑曜"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "OPEN_CATEGORY_NO_UNIVERSAL_RULE_CANDIDATE",
+      "secondary_flags": [
+        "HAS_OPEN_CATEGORY_BLOCKER"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "OPEN_CATEGORY_CONTEXT"
+    },
+    {
+      "sequence": 20,
+      "source_rule_id": "CA02-133",
+      "source_condition_text": "紫微天相见吉化",
+      "source_location": "事业宫printed_p135",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "吉化"
+      ],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "OPEN_CATEGORY_NO_UNIVERSAL_RULE_CANDIDATE",
+      "secondary_flags": [
+        "HAS_OPEN_CATEGORY_BLOCKER"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "OPEN_CATEGORY_CONTEXT"
+    },
+    {
+      "sequence": 23,
+      "source_rule_id": "CA02-147",
+      "source_condition_text": "紫微七杀见煞",
+      "source_location": "事业宫printed_p135",
+      "dependency_class": "VALENCE_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [],
+      "clause_operators": [],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "OPEN_CATEGORY_NO_UNIVERSAL_RULE_CANDIDATE",
+      "secondary_flags": [
+        "HAS_OPEN_CATEGORY_BLOCKER"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "OPEN_CATEGORY_CONTEXT"
+    },
+    {
+      "sequence": 26,
+      "source_rule_id": "CA02-156",
+      "source_condition_text": "天机化禄且吉曜会合",
+      "source_location": "事业宫printed_p136",
+      "dependency_class": "NAMED_GROUP_OR_CATEGORY_SHORTHAND",
+      "source_group_tokens": [
+        "吉曜"
+      ],
+      "clause_operators": [
+        "EXPLICIT_AND"
+      ],
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "absence_evaluation": "NOT_REQUIRED",
+      "current_blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "primary_disposition": "SOURCE_LOCAL_QUANTIFIER_CANDIDATE",
+      "secondary_flags": [
+        "HAS_OPEN_CATEGORY_BLOCKER",
+        "HAS_EXPLICIT_LOCAL_OPERATOR"
+      ],
+      "blockers_cleared": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "next_research_cluster": "OPEN_CATEGORY_CONTEXT"
+    }
+  ]
+}
