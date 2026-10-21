@@ -43,6 +43,16 @@ completed:
     execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
     effect: "EXPERT_REASONING_AND_RESPONSE_VERTICAL_SLICE_BECOMES_PRODUCT_CRITICAL_PATH"
 
+  product_knowledge_dependency_governance:
+    tracking_issue: 491
+    status: "APPROVED_GOVERNANCE_CONTRACT_PRODUCT_IMPLEMENTATION_PENDING"
+    proposal: "governance/proposals/491-product-knowledge-dependency-promotion.md"
+    effect: "ACTIVE_PRODUCT_KNOWLEDGE_MUST_BE_LOCKED_AND_PROMOTED_AFTER_IMPACT_VALIDATION"
+    next_product_work_units:
+      - "PRODUCT_KNOWLEDGE_LOCK_V0_1"
+      - "PRODUCT_KNOWLEDGE_IMPACT_V0_1"
+    pre_pl5_gate: "DATASET_MODEL_LINEAGE_V0_1"
+
 deferred_admin:
   issue: 285
   status: "DEFERRED_UNTIL_ADMIN_ACCESS"
