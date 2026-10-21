@@ -212,6 +212,24 @@ numericized constraints = 0
 transitive closure authorized = 0
 ~~~
 
+随后 Knowledge #465 / PR #466 又完成了这 130 条 constraint 到 atomic Career rules 的来源约束回链。Product 在最终合并前同步最新 main，并将这两个新 artifact 作为只读审计输入：
+
+~~~text
+ordinal constraints dispositioned = 130 / 130
+linked atomic rule IDs             = 130
+DIRECT_ATOMIC_RULE                 = 114
+MULTI_RULE_SHARED_SOURCE_SENTENCE  = 15
+METHODOLOGY_OR_CONTEXT_ONLY        = 1
+
+activation rules touched           = 33
+NO_BLOCKER_REDUCTION               = 94
+QUALITATIVE_REFINEMENT_ONLY        = 36
+blockers resolved                  = 0
+execution unlocked                 = 0
+~~~
+
+这说明 ordinal 信息已经能回到具体 atomic rule 上，但它仍然只补充定性顺序/强调，不能自动补出 activation quantifier、closed-world absence、numeric threshold 或 compiler dependency。
+
 Knowledge 已保存的：
 
 - 尤其；
@@ -251,9 +269,12 @@ Unresolved antecedent refs           0
 Relation-bound rows                132
 Category-reviewed rows              59
 Career ordinal constraints          130
-Ordinal runtime unlock                0
-Ordinal numericized constraints       0
-Real runtime effects authorized       0
+Ordinal atomic links                 130
+Ordinal-linked activation rules       33
+Ordinal blocker resolutions            0
+Ordinal runtime unlock                 0
+Ordinal numericized constraints        0
+Real runtime effects authorized        0
 Unauthorized unlock                  0
 ~~~
 
