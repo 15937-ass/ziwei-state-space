@@ -147,6 +147,23 @@ After PL3 interface construction, a new adapter/registry/interface is not create
 
 Empty production registries are BLOCKED/UNCOVERED, never fidelity PASS.
 
+## 13A. Product Knowledge dependency and promotion
+
+Product artifacts that claim a frozen Knowledge baseline must be able to verify the exact Knowledge inputs they consumed. A human-readable `knowledge_version` or baseline commit string alone is not sufficient when the runtime reads mutable current-checkout files.
+
+For reproducibility-critical Product paths:
+- active Product Knowledge is pinned through an immutable/content-addressed Product lock or equivalent approved manifest;
+- Knowledge `main` is research truth, not an implicit mutable production dependency;
+- Knowledge updates become Product candidates and require impact analysis before adoption;
+- unrelated Knowledge edits must not force full Product rebuilds;
+- semantic changes propagate through explicit dependencies and require the corresponding rebuild/recompile/replay/rematerialize/retrain action;
+- promotion requires the validation scope appropriate to the affected Product capability;
+- failed candidates do not alter the active Product lock;
+- historical forecasts, datasets, models and evidence artifacts preserve their original Knowledge lineage;
+- incompatible Knowledge-derived training labels/features may not be silently mixed without an explicit migration.
+
+The controlling Product architecture is Proposal #491 and the active Product Roadmap.
+
 ## 14. Knowledge integrity
 
 Empirical mismatch may create a Knowledge Gap Report but may not silently rewrite canonical knowledge. User feedback never changes source truth. School attribution, conflicts and UNKNOWN states are preserved.
