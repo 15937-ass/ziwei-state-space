@@ -1,5 +1,11 @@
 # DECISION_LOG.md
 
+## Recovery / task-routing note
+
+This file is a decision registry, **not an execution queue**. For current work recovery use `PROJECT_STATE.yaml -> governance/RECOVERY_PRECEDENCE_v1.md -> live lane Issue/PR`.
+
+An entry does not become a current task merely because it appears under an older `Pending decisions` heading. Entries explicitly marked `Resolved`, `FROZEN`, approved, implemented, or superseded are closed/historical for task-routing purposes. A Human Gate is current only when the active lane state and/or live Issue names it as pending.
+
 All important conceptual decisions are recorded here.
 
 ## Frozen decisions
@@ -66,7 +72,9 @@ All important conceptual decisions are recorded here.
 **Rationale:** 六十星系原文明确指出，若逐一枚举星系×十二宫×辅佐煞化等组合将爆炸式增长，因此完整知识库必须采用“原子规则 + 条件算子 + 生成式组合 + provenance”的架构。  
 **Approved after:** G6
 
-## Pending decisions
+## Pending decisions / historical candidate registry
+
+> **Task-routing warning:** this section accumulated candidates over multiple gates. Some entries below are already explicitly resolved. Treat only genuinely unresolved entries as design questions, and never use this heading itself to create a new work unit.
 
 ### P-001 — Candidate qi ontology dimensionality
 The 100-rule pilot is complete. Next step is to propose Qi Ontology v0.1 for G2.
