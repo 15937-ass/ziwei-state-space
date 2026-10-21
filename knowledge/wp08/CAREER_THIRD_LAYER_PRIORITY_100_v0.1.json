@@ -219,7 +219,6 @@
       "CLOSED_MALEFIC_SAME_PALACE": 2,
       "ANTECEDENT_PLUS_CLOSED_MALEFIC_PRESENCE": 1,
       "CLOSED_WORLD_MALEFIC_ABSENCE_PLUS_QUALIFIED_AUXILIARY": 1,
-      "INHERITED_CONTEXT_PLUS_QUALIFIED_AUXILIARY": 1,
       "MIXED_BENEFIC_MALEFIC_VALENCE": 1,
       "OPEN_FUNCTIONAL_PEACH_BLOSSOM_CATEGORY": 1,
       "OPEN_FAVORABLE_VALENCE_CATEGORY": 1,
@@ -250,7 +249,8 @@
       "SOURCE_COMPOUND_煞刑诸曜_LOGIC_UNRESOLVED": 2,
       "SOURCE_COMPOUND_刑煞曜_LOGIC_UNRESOLVED": 1,
       "SOURCE_COMPOUND_煞耗诸曜_LOGIC_UNRESOLVED": 1,
-      "WHOLE_CONFIGURATION_VALENCE_BRANCH_UNRESOLVED": 3
+      "WHOLE_CONFIGURATION_VALENCE_BRANCH_UNRESOLVED": 3,
+      "INHERITED_CONTEXT_PLUS_QUALIFIED_AUXILIARY_ANTECEDENT_RECHECK": 1
     },
     "disposition_counts": {
       "GENERIC_OPEN_RETIRED_PRECISE_BLOCKERS": 9,
@@ -369,17 +369,18 @@
         "吉曜"
       ],
       "selection_family": "GENERIC_OPEN_RETIREMENT",
-      "third_layer_subtype": "INHERITED_CONTEXT_PLUS_QUALIFIED_AUXILIARY",
+      "third_layer_subtype": "INHERITED_CONTEXT_PLUS_QUALIFIED_AUXILIARY_ANTECEDENT_RECHECK",
       "disposition": "SOURCE_DEPENDENCY_REPAIRED_FAIL_CLOSED",
       "blockers_before": [
         "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "blockers_after": [
         "ANTECEDENT_DEPENDENCY",
-        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "ANTECEDENT_SOURCE_CONDITION_RECHECK_REQUIRED"
       ],
       "source_resolution_changed": true,
-      "source_condition_or_dependency_repair": "Restore the source-local `更见` dependency on CA09-846: the auxiliary-support clause inherits the preceding Pojun condition rather than standing alone.",
+      "source_condition_or_dependency_repair": "Restore the source-local `更见` dependency on CA09-846, but keep the inherited condition fail-closed because CA09-846 itself compresses source `化禄、化权尤佳` into a non-literal conjunction-like summary. The edge is recorded; executable inheritance is not authorized.",
       "normalized_expression": null,
       "antecedent_rule_ids_before": [],
       "antecedent_rule_ids_after": [
