@@ -157,3 +157,34 @@ pilot_case_loop:
     - "盘主反馈只能作为 observation/eval data，不能自动写回 Knowledge canonical。"
     - "PreferredExample 只影响措辞，不得向另一张盘提供事实。"
     - "单个 HIT/CONTRADICT 均不得直接创建、修改或删除 canonical rule。"
+
+
+temporal_4h_mini:
+  enabled: true
+  implementation: "apps/social_quickread_pilot/temporal_4h.py"
+  status: "EXTRA_SIDE_CAR_ONLY"
+  allowed_inputs:
+    - "validated P1 temporal snapshot with runtime_run_id"
+    - "manually read decade stem + year stem + current chart star-to-palace map"
+  provenance:
+    runtime: "RUNTIME_TEMPORAL"
+    manual_deterministic: "DETERMINISTIC_TEMPORAL_SIDECAR"
+  deterministic_outputs:
+    - "decade four transformations"
+    - "year four transformations"
+    - "transformed star natal-palace locations"
+    - "same-star same-mutagen cross-layer overlap"
+    - "same-star cross-mutagen overlap"
+    - "same-star natal reactivation"
+    - "same-palace multi-layer overlap"
+  hard_limits:
+    - "不得把禄权科忌机械转成统一吉凶分数。"
+    - "不得仅凭四化结构直接生成具体事件。"
+    - "v0.1 不自动推三方四正、对冲、夹宫。"
+    - "v0.1 不引入钦天自化、向心、离心、转忌体系。"
+    - "截图读取不到大限天干时 fail closed，不让 LLM 猜。"
+    - "DETERMINISTIC_TEMPORAL_SIDECAR 不得冒充主项目 RUNTIME_TEMPORAL。"
+  interpretation:
+    - "四化结构只作为 source-backed semantic rule 的触发条件。"
+    - "具体年份文案必须同时满足 temporal structure + 对应 reviewed/source-backed interpretation。"
+    - "生年四化为原局本质，大限/流年四化为时期环境；跨层激活按已审查中州派规则处理。"
