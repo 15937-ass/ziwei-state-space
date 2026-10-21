@@ -27,33 +27,42 @@ Scan review directly resolved M02-150's Wuqu-Tianfu / 廉贞化忌 outcome wordi
 - source_span_verified: 100/100
 - CASE_SUPPORT_ONLY: 11
 - PATH_DEPENDENT_GATE/history-feedback: 4 (M02-172, M02-184, M02-192, M02-195)
+- bounded condition/target repairs: M02-127, M02-146, M02-181, M02-185, M02-192, M02-200
+- source synthesis: M02-174
+- overlapping source passage: M02-146 / M02-171 / M02-172; M02-171 is explicitly not an independent signal
 
-## Source-first re-adjudication
-- canonical promotion ready: 100/100
-- reusable projection rules: 89
-- bounded source/normalization repairs: 6
-  - M02-127
-  - M02-146
-  - M02-181
-  - M02-185
-  - M02-192
-  - M02-200
-- transparent source synthesis: M02-174
-- scan-resolved row: M02-150
-- source lexical uncertainty preserved: M02-181, M02-185
-- no new qi primitive / memory type / time scale / shared group semantics / probability / weight / decay: 0
+## First full repository gate — passed
+Execution runtime: GitHub Actions standard public runner  
+Workflow: https://github.com/15937-ass/ziwei-state-space/actions/runs/39695859329  
+Base commit: a853bdfe0f609cc4cdcafe5477d1edaa3b479325  
+Head commit tested: 82cfae26afcf680a0934b75af972f415f7ba6653
 
-## Key semantic checks
+Commands executed by the repository quality gate:
+1. python -m pip install --upgrade pytest
+2. PYTHONPATH="$PWD" python -m pytest -q
+3. if [ -f tools/iztro_export.mjs ]; then node --check tools/iztro_export.mjs; fi
+4. PYTHONPATH="$PWD" python src/audit_repository.py --fail-on-p0
+5. python tools/validate_governance.py --base-ref "origin/main" --head-branch "knowledge/p07-576-migration-m02-canonical"
+
+Results:
+- pytest: **2370 passed** in 321.66 seconds
+- Product JS adapter check: **PASS**
+- deterministic P0 repository gate: **PASS** (command exit code 0; existing P1 review candidates are not P0 failures)
+- Knowledge shard governance: **PASS**
+- PR write-set: **PASS** — all changed paths are P07-owned
+- source census / unique record IDs / CASE_SUPPORT_ONLY and PATH_DEPENDENT_GATE sets: **PASS**
+- temporal overlay / no-new-semantics boundary: **PASS**
+
+## Exact-head rule
+The run above passed on head 82cfae26afcf680a0934b75af972f415f7ba6653. This evidence update changes the PR head; **do not merge until the repository quality workflow passes on the new exact PR head as well**. The latest exact-head workflow result is authoritative.
+
+## Semantic boundaries
 1. Ji-Yin gain and busyness remain separate, with adverse reversal retained.
 2. Solar study/status/visibility is not collapsed into wealth; Solar Hua Lu alone does not imply external wealth.
 3. Wuqu systems stay separate; Fire/Bell direction remains conditional on actual system location.
-4. M02-146 retains the loss/setback base outcome, M02-171 is marked as an overlapping restatement rather than independent evidence, and M02-172 alone carries the ordered prolonged-stay relation.
+4. M02-146 retains the loss/setback base outcome, M02-171 is an overlapping restatement rather than independent evidence, and M02-172 carries the ordered prolonged-stay relation.
 5. Tiantong Hua Lu remains 纳福/stability/help, not automatic wealth; Lu Cun overlay is required for the wealth reading.
 6. M02-192 alternatives and M02-200 base-vs-intensifier are preserved.
 7. HG-P07-TEMPORAL-01-A remains unchanged; no generic timer or seventh layer is added.
 
-## Validation status
-- connector-side source census / record uniqueness / write-set review: completed during artifact preparation
-- targeted pytest: pending local execution
-- full repository pytest / P0 audit / governance validation: pending; must be recorded with exact runtime and results before merge
-- GitHub Actions: not invoked by this execution script
+No Product / Core / Governance / other-palace semantics are changed. No new qi primitive, memory type, time scale, shared group semantics, probability, numeric weight, threshold, decay, or causal claim is introduced.
