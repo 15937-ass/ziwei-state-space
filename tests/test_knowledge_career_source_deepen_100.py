@@ -45,6 +45,17 @@ def test_ca08702_same_star_transform_list_is_or_not_and():
     assert 'LOCAL_OR[TRANSFORM(巨门,化禄),TRANSFORM(巨门,化权)]' in x['normalized_expression']
     assert x['blockers_after']==['PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED']
 
+def test_historical_source_scope_drift_is_overridden_not_rewritten():
+    r,c10=load(R),load(C10); rows={x['source_rule_id']:x for x in r['records']}; c={x['source_rule_id']:x for x in c10['records']}
+    assert rows['CA07-609']['source_scope_metadata_repair']['historical_scope']=='太阴守事业宫总论'
+    for rid in ['CA08-701','CA08-702','CA08-703']:
+        assert rows[rid]['source_scope_metadata_repair']['historical_scope']=='天相守事业宫总论'
+        assert c[rid]['fourth_layer_source_scope_override']=='巳亥事业宫巨门、对宫太阳'
+    assert r['summary']['source_scope_metadata_repairs']==4
+    assert r['summary']['out_of_scope_adjacent_scope_defects_observed']==['CA08-704']
+    assert r['guardrails']['historical_audit_artifacts_rewritten'] is False
+
+
 def test_negative_evidence_is_preserved_fail_closed():
     r=load(R)
     changed={'CA06-593','CA07-700','CA08-702'}
@@ -76,6 +87,8 @@ def test_closure_v010_census():
     assert c10['summary']['dependency_scope_corrections']==2
     assert c10['summary']['fourth_layer_source_semantic_changes']==3
     assert c10['summary']['fourth_layer_source_local_resolved']==0
+    assert c10['summary']['fourth_layer_source_scope_metadata_repairs']==4
+    assert c10['summary']['fourth_layer_out_of_scope_adjacent_scope_defects_observed']==['CA08-704']
     assert c10['summary']['conditions_compiled']==0
     assert c10['summary']['execution_unlocked']==0
     assert c10['summary']['blocker_counts']['CAREER_KEWEN_ACTIVATION_CONTEXTUAL_UNRESOLVED']==5
