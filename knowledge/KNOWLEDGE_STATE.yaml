@@ -9,7 +9,7 @@ execution:
   active_issue: null
   active_pr: null
   canonical_main_checkpoint: "CAREER_RESIDUAL_SECOND_LAYER_100_OF_100"
-  resume_entry: "Issue #481 completes the remaining 37 rules from the #475 hundred-rule residual batch after #477 handled 63 pair/closed-group rows. The full residual second layer is now 100/100 reviewed. Four rows gain source-local semantic closure: CA04-382 武曲七杀得禄 = 化禄 OR 禄存; CA05-411 天同化忌与四煞同度 = source-local ANY member of 四煞 in SAME_PALACE; CA07-681 子午巨门得禄 = 巨门化禄 OR 禄存; CA09-820 子午七杀得禄 = 武曲化禄 OR 贪狼化禄 OR 破军化禄 OR 禄存. CA04-337 projection compression is repaired to source-literal 得化禄、化权、化科 while list quantifier remains unspecified. Closure v0.7: no-current-blocker Career rows 18->22; MEMBER_QUANTIFIER_UNSPECIFIED 33->0; OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED 129->110; source_resolution_changed 23->28; conditions compiled=0; execution unlocked=0. Generic blocker reductions mainly represent precise fail-closed refinement, not runtime readiness. Next Knowledge work should attack the remaining 110 generic OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED rows in a new bounded 100-rule batch, reusing the canonical category lexicon and source-compound distinctions rather than inventing closed lists."
+  resume_entry: "Issue #481 completes the remaining 37 rules from the #475 hundred-rule residual batch after #477 handled 63 pair/closed-group rows. The full residual second layer is now 100/100 reviewed. Three rows gain source-local semantic closure: CA05-411 天同化忌与四煞同度 = source-local ANY member of 四煞 in SAME_PALACE; CA07-681 子午巨门得禄 = 巨门化禄 OR 禄存; CA09-820 子午七杀得禄 = 武曲化禄 OR 贪狼化禄 OR 破军化禄 OR 禄存. CA04-382 武曲七杀得禄 is only partially resolved to 化禄 OR 禄存 because the source does not specify the transformation carrier, so TRANSFORMATION_CARRIER_UNSPECIFIED remains. CA04-337 projection compression is repaired to source-literal 得化禄、化权、化科 while list quantifier remains unspecified. Closure v0.7: no-current-blocker Career rows 18->21; MEMBER_QUANTIFIER_UNSPECIFIED 33->0; OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED 129->110; source_resolution_changed 23->28; conditions compiled=0; execution unlocked=0. Generic blocker reductions mainly represent precise fail-closed refinement, not runtime readiness. Next Knowledge work should attack the remaining 110 generic OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED rows in a new bounded 100-rule batch, reusing the canonical category lexicon and source-compound distinctions rather than inventing closed lists."
   resume_issue: 481
   last_state_sync_issue: 481
 
@@ -236,12 +236,12 @@ completed_work_units:
   - work_unit: "KB-WP08-CAREER-RESIDUAL-CLOSURE-37"
     issue: 481
     pr: 483
-    status: "MERGED_37_OF_37_SECOND_LAYER_4_SOURCE_LOCAL_RESOLVED_MEMBER_GENERIC_TO_ZERO_NO_EXECUTION_UNLOCK"
+    status: "MERGED_37_OF_37_SECOND_LAYER_3_SOURCE_LOCAL_RESOLVED_1_PARTIAL_MEMBER_GENERIC_TO_ZERO_NO_EXECUTION_UNLOCK"
 
   - work_unit: "KB-WP08-CAREER-RESIDUAL-SECOND-LAYER-100"
     issues: [475, 477, 481]
     prs: [476, 478, 483]
-    status: "MERGED_100_OF_100_SECOND_LAYER_REVIEW_COMPLETE_22_LOCAL_STRUCTURE_READY_NO_EXECUTION_UNLOCK"
+    status: "MERGED_100_OF_100_SECOND_LAYER_REVIEW_COMPLETE_21_LOCAL_STRUCTURE_READY_NO_EXECUTION_UNLOCK"
 
 archived_noncanonical_snapshots:
   wp05_all_twelve_palaces:
