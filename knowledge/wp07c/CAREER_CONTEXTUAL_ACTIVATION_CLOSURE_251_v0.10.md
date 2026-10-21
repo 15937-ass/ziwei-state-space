@@ -6,6 +6,7 @@ Supersedes v0.9 after Issue #489.
 - source semantic changes this pass: **3**
 - source-condition repairs this pass: **1**
 - blocker repairs/refinements this pass: **2**
+- source-scope metadata repairs recorded: **4**
 - no-current-blocker rows: **22 -> 22**
 - rows with source underdetermination: **202 -> 202**
 - cumulative source-resolution changes: **37 -> 40**
