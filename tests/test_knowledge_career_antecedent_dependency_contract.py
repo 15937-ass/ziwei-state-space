@@ -23,7 +23,7 @@ def test_surface_classes_exact():
     s=load(GRAPH)["summary"]["surface_class_counts"]
     assert s=={
       "EXACT_FOREGOING_REFERENCE":28,
-      "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION":36,
+      "FOREGOING_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION":36,
       "EXPLICIT_SOURCE_LOCAL_ADDITIVE_CONTINUATION":1,
     }
 
