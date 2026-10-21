@@ -12,6 +12,8 @@ authority:
   execution_truth: "GITHUB_ISSUES"
   implementation_truth: "GITHUB_PULL_REQUESTS"
   validation_truth: "CI_AND_VERSIONED_AUDITS"
+  current_execution_protocol: "governance/PUBLIC_ACTIONS_EXECUTION_PROTOCOL_v0.2.md"
+  recovery_precedence: "governance/RECOVERY_PRECEDENCE_v1.md"
   chat_is_authoritative: false
 
 state_files:
@@ -31,7 +33,10 @@ archive:
 
 recovery_order:
   - "Read PROJECT_STATE.yaml."
+  - "Read governance/RECOVERY_PRECEDENCE_v1.md before interpreting any ACTIVE/CURRENT/NEXT/READY_FOR_PI marker elsewhere."
   - "If project_status is ARCHIVED, read the archive checkpoint and do not execute work unless the PI explicitly requests resume."
-  - "After explicit resume, read the selected lane state."
-  - "Create/reopen one bounded GitHub Issue before execution."
-  - "When ACTIVE, use the active lane Issue as execution truth; do not reconstruct state from old chat."
+  - "Read the selected lane state as a recovery cache, then query live GitHub Issues for that lane."
+  - "When ACTIVE, the live bounded GitHub Issue is execution truth and its linked PR is implementation truth; they override a stale lane-state cache."
+  - "Read only Issue-required artifacts after the Issue/PR is identified."
+  - "Do not use README current-phase text, legacy tasks/*.yaml, historical validation next-work sections, archived files, superseded protocols, or old proposal status words as current task selectors."
+  - "Use authority.current_execution_protocol for routine execution policy; do not choose a protocol by searching for the word ACTIVE."
