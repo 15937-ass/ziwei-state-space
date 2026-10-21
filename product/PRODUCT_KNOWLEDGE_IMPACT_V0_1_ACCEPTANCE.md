@@ -187,8 +187,10 @@ KIB-CANDIDATE-ISSUE-500-V0_1
 ~~~
 
 It advances the candidate source snapshot from the original active-bundle source
-commit to the Product #494 merged main commit while retaining the same 58
-governed artifact identities and semantics.
+commit through the current main that includes Knowledge #498 while retaining the
+same 58 governed artifact identities and semantics. Knowledge #498 added newer
+source-review/closure artifacts outside the active KIB inventory; it did not mutate
+the 58 governed inputs.
 
 Expected result:
 
