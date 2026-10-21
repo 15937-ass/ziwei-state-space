@@ -74,6 +74,7 @@ llm_added_semantics: []
 - `RUNTIME_CANONICAL`：现有 canonical/runtime **实际执行**所得，必须附可追溯 `runtime_run_id`；
 - `RUNTIME_TEMPORAL`：现有 temporal runtime **实际执行**所得，必须附可追溯 `runtime_run_id`;
 - `SOURCE_BACKED_FALLBACK`：中州派原书有明确依据，但当前尚未进入 executable runtime；
+- `DETERMINISTIC_TEMPORAL_SIDECAR`：人工从盘图读取必要时间输入，再由固定四化表/结构代码确定性计算；不是主 runtime；
 - `LLM_VERBALIZATION`：只负责说人话，不是独立事实来源；
 - `llm_added_semantics != []`：模型新增了 claim 没有支持的事实/解释，用户版直接阻断。
 
