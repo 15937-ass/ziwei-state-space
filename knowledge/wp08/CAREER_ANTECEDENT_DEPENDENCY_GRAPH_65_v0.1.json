@@ -1,0 +1,2268 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP08-CAREER-ANTECEDENT-DEPENDENCY-GRAPH-65-v0.1",
+  "issue": 505,
+  "lane": "KNOWLEDGE_ONLY",
+  "canonical_input": "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.13.json",
+  "scope": {
+    "domain": "事业宫",
+    "explicit_reference_nodes": 65,
+    "explicit_edges": 66,
+    "source_rule_registry_size": 888,
+    "source": "SRC-ZZ-003",
+    "interpretation_scope": "Only explicit source-adjudicated Career rule references; no adjacency inference."
+  },
+  "summary": {
+    "explicit_reference_nodes": 65,
+    "explicit_edges": 66,
+    "compiler_gated_reference_nodes": 50,
+    "already_reference_resolved_nodes": 15,
+    "already_reference_resolved_rule_ready": 11,
+    "already_reference_resolved_other_blockers": 4,
+    "dependency_only_rows": 27,
+    "dependency_plus_local_blockers_rows": 23,
+    "dependency_only_parent_ready": 3,
+    "dependency_only_parent_underdetermined": 24,
+    "immediate_dependency_compiler_candidate_ids": [
+      "CA05-420",
+      "CA07-639",
+      "CA07-682"
+    ],
+    "surface_class_counts": {
+      "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION": 36,
+      "EXACT_FOREGOING_REFERENCE": 28,
+      "EXPLICIT_SOURCE_LOCAL_ADDITIVE_CONTINUATION": 1
+    },
+    "single_parent_nodes": 64,
+    "multi_parent_nodes": 1,
+    "internal_reference_edges": 1,
+    "max_explicit_reference_depth": 2,
+    "depth_counts": {
+      "1": 64,
+      "2": 1
+    },
+    "cycles": 0,
+    "unresolved_parent_ids": 0,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0
+  },
+  "special_cases": {
+    "CA05_473": {
+      "parent_composition": "SOURCE_BRANCH_UNION_SHARED_QUALIFIER",
+      "normalized_dependency_expression": "AND[ANY_PARENT_BRANCH(CA05-471,CA05-472), LOCAL_DELTA(煞曜不居本宫)]",
+      "source_reason": "Civil and martial public-office branches are alternatives; `亦以煞曜不居本宫为贵` is a shared qualifier. Two parent IDs must not be interpreted as conjunction."
+    },
+    "CA02_171": {
+      "chain": "CA02-171 -> CA02-170 -> CA02-169",
+      "significance": "The only explicit-reference-to-explicit-reference edge. This makes the current graph maximum depth 2 rather than 1."
+    },
+    "CA09_847": {
+      "parent_composition": "SINGLE_PARENT",
+      "normalized_dependency_expression": "AND[ANTECEDENT(CA09-846), LOCAL_DELTA(更见辅佐吉曜同会)]",
+      "significance": "The only non-前格 explicit reference surface."
+    }
+  },
+  "records": [
+    {
+      "source_rule_id": "CA01-058",
+      "source_location": "事业宫printed_p133",
+      "source_condition_text": "前格且命宫吉",
+      "projection": "leadership_scope_strengthened_by_life_palace",
+      "reference_status": "REFERENCE_GATE_ALREADY_RESOLVED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "且命宫吉",
+      "antecedent_rule_ids": [
+        "CA01-057"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA01-057",
+          "source_condition_text": "紫微得百官朝拱又无煞",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "CLOSED_WORLD_ABSENCE_EVIDENCE",
+            "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD"
+          ],
+          "current_readiness_class": "MULTI_CLASS_BLOCKED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE"
+      ],
+      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA01-060",
+      "source_location": "事业宫printed_p133",
+      "source_condition_text": "前格从政古称财赋税之官",
+      "projection": "fiscal_or_financial_administration_scene",
+      "reference_status": "REFERENCE_GATE_ALREADY_RESOLVED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "从政古称财赋税之官",
+      "antecedent_rule_ids": [
+        "CA01-059"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA01-059",
+          "source_condition_text": "紫微无煞有辅佐且见禄马或财星化禄",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "CLOSED_WORLD_ABSENCE_EVIDENCE",
+            "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+            "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+          ],
+          "current_readiness_class": "MULTI_CLASS_BLOCKED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA01-080",
+      "source_location": "事业宫printed_p134",
+      "source_condition_text": "前格不见刑耗空劫",
+      "projection": "administrative_public_role_scene",
+      "reference_status": "REFERENCE_GATE_ALREADY_RESOLVED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "不见刑耗空劫",
+      "antecedent_rule_ids": [
+        "CA01-078"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA01-078",
+          "source_condition_text": "子午紫微化科",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_OTHER_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-108",
+      "source_location": "事业宫printed_p134",
+      "source_condition_text": "前格",
+      "projection": "career_role_can_carry_heavy_authority",
+      "reference_status": "REFERENCE_GATE_ALREADY_RESOLVED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA02-107"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA02-107",
+          "source_condition_text": "紫微天府见刑曜",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED"
+      ],
+      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-117",
+      "source_location": "事业宫printed_p134-135",
+      "source_condition_text": "前格同时见空劫刑耗",
+      "projection": "breakthrough_can_reverse_into_abrupt_failure",
+      "reference_status": "REFERENCE_GATE_ALREADY_RESOLVED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "同时见空劫刑耗",
+      "antecedent_rule_ids": [
+        "CA02-116"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA02-116",
+          "source_condition_text": "紫微贪狼与火铃同度",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "inherited_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_OTHER_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-134",
+      "source_location": "事业宫printed_p135",
+      "source_condition_text": "前格从商",
+      "projection": "large_scale_capital_operation_suited",
+      "reference_status": "REFERENCE_GATE_ALREADY_RESOLVED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "从商",
+      "antecedent_rule_ids": [
+        "CA02-133"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA02-133",
+          "source_condition_text": "紫微天相见吉化",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-152",
+      "source_location": "事业宫printed_p135",
+      "source_condition_text": "前格更得百官朝拱",
+      "projection": "public_leadership_or_industry_leader_scene",
+      "reference_status": "REFERENCE_GATE_ALREADY_RESOLVED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "更得百官朝拱",
+      "antecedent_rule_ids": [
+        "CA02-151"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA02-151",
+          "source_condition_text": "紫微七杀最喜紫微化科",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_OTHER_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-157",
+      "source_location": "事业宫printed_p136",
+      "source_condition_text": "前格",
+      "projection": "multiple_jobs_or_parallel_careers_possible",
+      "reference_status": "REFERENCE_GATE_ALREADY_RESOLVED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA02-156"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA02-156",
+          "source_condition_text": "天机化禄且吉曜会合",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-167",
+      "source_location": "事业宫printed_p136",
+      "source_condition_text": "前格趋吉避凶",
+      "projection": "conservative_career_strategy_preferred",
+      "reference_status": "REFERENCE_GATE_ALREADY_RESOLVED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "趋吉避凶",
+      "antecedent_rule_ids": [
+        "CA02-166"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA02-166",
+          "source_condition_text": "天机化忌见空劫煞耗",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+            "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-168",
+      "source_location": "事业宫printed_p136",
+      "source_condition_text": "前格",
+      "projection": "avoid_apparently_profitable_but_misleading_opportunities",
+      "reference_status": "REFERENCE_GATE_ALREADY_RESOLVED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA02-166"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA02-166",
+          "source_condition_text": "天机化忌见空劫煞耗",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+            "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-170",
+      "source_location": "事业宫printed_p136",
+      "source_condition_text": "前格且命宫太阳化科",
+      "projection": "reputable_brand_agency_scene",
+      "reference_status": "REFERENCE_GATE_ALREADY_RESOLVED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "且命宫太阳化科",
+      "antecedent_rule_ids": [
+        "CA02-169"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA02-169",
+          "source_condition_text": "天机化忌与吉曜同会",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-171",
+      "source_location": "事业宫printed_p136",
+      "source_condition_text": "前格",
+      "projection": "career_faces_competition_and_opponent_slander",
+      "reference_status": "REFERENCE_GATE_ALREADY_RESOLVED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA02-170"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 2,
+      "parent_records": [
+        {
+          "source_rule_id": "CA02-170",
+          "source_condition_text": "前格且命宫太阳化科",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": true,
+          "current_blockers": [],
+          "current_readiness_class": "LOCAL_STRUCTURE_READY"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-184",
+      "source_location": "事业宫printed_p136",
+      "source_condition_text": "前格有煞忌刑耗",
+      "projection": "external_conditions_increase_career_burden_and_running_about",
+      "reference_status": "REFERENCE_GATE_ALREADY_RESOLVED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "有煞忌刑耗",
+      "antecedent_rule_ids": [
+        "CA02-183"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA02-183",
+          "source_condition_text": "子午天机独坐对宫巨门",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_OTHER_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-199",
+      "source_location": "事业宫printed_p136",
+      "source_condition_text": "前格",
+      "projection": "career_or_service_platform_remains_small",
+      "reference_status": "REFERENCE_GATE_ALREADY_RESOLVED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA02-198"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA02-198",
+          "source_condition_text": "丑未天机见煞忌刑耗",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-235",
+      "source_location": "事业宫printed_p137",
+      "source_condition_text": "前格",
+      "projection": "independent_top_responsibility_is_limited",
+      "reference_status": "REFERENCE_GATE_ALREADY_RESOLVED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA03-234"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA03-234",
+          "source_condition_text": "天机天梁见禄权科及辅佐吉曜",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-236",
+      "source_location": "事业宫printed_p137",
+      "source_condition_text": "前格",
+      "projection": "position_transfers_are_frequent",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA03-234"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA03-234",
+          "source_condition_text": "天机天梁见禄权科及辅佐吉曜",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-243",
+      "source_location": "事业宫printed_p137",
+      "source_condition_text": "前格有所建树",
+      "projection": "unconventional_method_can_support_career_achievement",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "有所建树",
+      "antecedent_rule_ids": [
+        "CA03-242"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA03-242",
+          "source_condition_text": "天机天梁与空劫同度",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-247",
+      "source_location": "事业宫printed_p137",
+      "source_condition_text": "前格另一表现",
+      "projection": "leaving_existing_base_after_setback_can_lead_to_new_career",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "另一表现",
+      "antecedent_rule_ids": [
+        "CA03-246"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA03-246",
+          "source_condition_text": "天机天梁吉煞交集",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "MIXED_VALENCE_COMPOSITION_UNSPECIFIED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "MIXED_VALENCE_COMPOSITION_UNSPECIFIED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-261",
+      "source_location": "事业宫printed_p138",
+      "source_condition_text": "前格稍见煞",
+      "projection": "nominal_reputation_can_lack_substance",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "稍见煞",
+      "antecedent_rule_ids": [
+        "CA03-259"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA03-259",
+          "source_condition_text": "太阳入庙又见魁钺辅弼昌曲",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-269",
+      "source_location": "事业宫printed_p138",
+      "source_condition_text": "前格",
+      "projection": "mobile_or_high_contact_work_scene",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA03-268"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA03-268",
+          "source_condition_text": "太阳与火铃羊陀同度",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-276",
+      "source_location": "事业宫printed_p138",
+      "source_condition_text": "前格现代化",
+      "projection": "government_semi_public_or_large_enterprise_scene",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "现代化",
+      "antecedent_rule_ids": [
+        "CA03-275"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA03-275",
+          "source_condition_text": "太阳与魁钺同会",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-314",
+      "source_location": "事业宫printed_p139",
+      "source_condition_text": "前格",
+      "projection": "changing_ideas_can_create_advance_retreat_indecision",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA04-313"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA04-313",
+          "source_condition_text": "太阳太阴与空劫同度",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-317",
+      "source_location": "事业宫printed_p139-140",
+      "source_condition_text": "前格同时见忌星",
+      "projection": "avoid_joining_compromising_peer_behavior_to_prevent_entanglement",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "同时见忌星",
+      "antecedent_rule_ids": [
+        "CA04-316"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA04-316",
+          "source_condition_text": "太阳太阴见煞刑诸曜",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-323",
+      "source_location": "事业宫printed_p140",
+      "source_condition_text": "前格又见辅弼昌曲三台八座恩光天贵",
+      "projection": "public_service_or_diplomatic_scene",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "又见辅弼昌曲三台八座恩光天贵",
+      "antecedent_rule_ids": [
+        "CA04-322"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA04-322",
+          "source_condition_text": "太阳巨门而巨门化禄",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-353",
+      "source_location": "事业宫printed_p141",
+      "source_condition_text": "前格又见吉曜",
+      "projection": "hazard_aligned_career_can_still_develop",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "又见吉曜",
+      "antecedent_rule_ids": [
+        "CA04-352"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA04-352",
+          "source_condition_text": "武曲化忌或陀罗同度",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-357",
+      "source_location": "事业宫printed_p141",
+      "source_condition_text": "前格更见辅佐诸曜",
+      "projection": "organizational_status_strengthened",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "更见辅佐诸曜",
+      "antecedent_rule_ids": [
+        "CA04-356"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA04-356",
+          "source_condition_text": "子午武曲天府无煞忌刑而有禄",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-359",
+      "source_location": "事业宫printed_p141",
+      "source_condition_text": "前格同时见辅佐诸曜",
+      "projection": "achievement_through_military_or_operational_merit",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "同时见辅佐诸曜",
+      "antecedent_rule_ids": [
+        "CA04-358"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA04-358",
+          "source_condition_text": "武曲天府三方见煞",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "inherited_parent_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-363",
+      "source_location": "事业宫printed_p141",
+      "source_condition_text": "前格见辅佐诸曜同拱",
+      "projection": "military_or_disciplined_service_scene_strengthened",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "见辅佐诸曜同拱",
+      "antecedent_rule_ids": [
+        "CA04-362"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA04-362",
+          "source_condition_text": "武曲天府子宫与午宫比较",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-366",
+      "source_location": "事业宫printed_p141",
+      "source_condition_text": "前格稍有煞刑",
+      "projection": "large_gain_can_reverse_into_abrupt_loss",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "稍有煞刑",
+      "antecedent_rule_ids": [
+        "CA04-365"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA04-365",
+          "source_condition_text": "武曲贪狼而贪狼化禄无煞有辅佐",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED",
+        "SEVERITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-390",
+      "source_location": "事业宫printed_p142",
+      "source_condition_text": "前格煞忌重重",
+      "projection": "hazard_and_career_danger_strengthened",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "煞忌重重",
+      "antecedent_rule_ids": [
+        "CA04-389"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA04-389",
+          "source_condition_text": "武曲破军与天刑同度",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "SEVERITY_THRESHOLD_UNSPECIFIED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-410",
+      "source_location": "事业宫printed_p142",
+      "source_condition_text": "前格",
+      "projection": "intensive_effort_can_precede_later_achievement",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA05-409"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA05-409",
+          "source_condition_text": "天同与火铃同度",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-420",
+      "source_location": "事业宫printed_p143",
+      "source_condition_text": "前格",
+      "projection": "self_reliance_and_personal_execution_remain_required",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA05-419"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA05-419",
+          "source_condition_text": "天同化忌又见左辅右弼",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "LOCAL_STRUCTURE_READY"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_ONLY_PARENT_READY",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-424",
+      "source_location": "事业宫printed_p143",
+      "source_condition_text": "前格",
+      "projection": "preservation_preferred_over_innovation",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA05-423"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA05-423",
+          "source_condition_text": "子午天同太阴见禄存或化禄",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "TRANSFORMATION_CARRIER_UNSPECIFIED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "TRANSFORMATION_CARRIER_UNSPECIFIED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-429",
+      "source_location": "事业宫printed_p143",
+      "source_condition_text": "前格同时见火铃",
+      "projection": "mobility_and_turbulence_strengthened",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "同时见火铃",
+      "antecedent_rule_ids": [
+        "CA05-428"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA05-428",
+          "source_condition_text": "天同太阴而天同化忌",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-464",
+      "source_location": "事业宫printed_p144",
+      "source_condition_text": "前格见煞",
+      "projection": "appearance_over_substance_tendency_strengthened",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "见煞",
+      "antecedent_rule_ids": [
+        "CA05-463"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA05-463",
+          "source_condition_text": "廉贞守事业宫",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-473",
+      "source_location": "事业宫printed_p144",
+      "source_condition_text": "前格煞曜不居本宫",
+      "projection": "malefic_location_modifies_suitability_of_military_expression",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "煞曜不居本宫",
+      "antecedent_rule_ids": [
+        "CA05-471",
+        "CA05-472"
+      ],
+      "parent_composition": "SOURCE_BRANCH_UNION_SHARED_QUALIFIER",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA05-471",
+          "source_condition_text": "廉贞会紫微吉曜百官朝拱",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        },
+        {
+          "source_rule_id": "CA05-472",
+          "source_condition_text": "廉贞会紫微七杀武曲七杀或廉贞七杀",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "inherited_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "source_composition_adjudication": {
+        "source_scope": "廉贞事业宫从政文武分支，printed_p144",
+        "finding": "The source presents a civil branch (紫微有吉曜；百官朝拱之类) and a martial branch (会紫微七杀／武曲七杀／廉贞七杀), followed by 亦以煞曜不居本宫为贵. The final qualifier is shared over the preceding alternative public-office branches, not a requirement that both parent branches hold simultaneously.",
+        "normalized_dependency_expression": "AND[ANY_PARENT_BRANCH(CA05-471,CA05-472), LOCAL_DELTA(煞曜不居本宫)]",
+        "prohibited_interpretation": "AND_PARENT_BRANCHES"
+      }
+    },
+    {
+      "source_rule_id": "CA06-509",
+      "source_location": "事业宫printed_p145",
+      "source_condition_text": "前格",
+      "projection": "career_operations_often_span_multiple_business_lines",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA06-508"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA06-508",
+          "source_condition_text": "廉贞破军见吉",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "VALENCE_STATE_CRITERION_UNSPECIFIED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "VALENCE_STATE_CRITERION_UNSPECIFIED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-519",
+      "source_location": "事业宫printed_p146",
+      "source_condition_text": "前格更见煞",
+      "projection": "career_litigation_risk_strengthened",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "更见煞",
+      "antecedent_rule_ids": [
+        "CA06-518"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA06-518",
+          "source_condition_text": "廉贞天府而廉贞化忌",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-538",
+      "source_location": "事业宫printed_p146",
+      "source_condition_text": "前格见煞",
+      "projection": "overcaution_and_development_constraint_strengthened",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "见煞",
+      "antecedent_rule_ids": [
+        "CA06-537"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA06-537",
+          "source_condition_text": "天府落陷",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-550",
+      "source_location": "事业宫printed_p146",
+      "source_condition_text": "前格",
+      "projection": "industrial_or_engineering_scene_preferred",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA06-549"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA06-549",
+          "source_condition_text": "天府见火铃照射",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-552",
+      "source_location": "事业宫printed_p146",
+      "source_condition_text": "前格",
+      "projection": "advance_retreat_indecision_can_hinder_career_development",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA06-551"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA06-551",
+          "source_condition_text": "天府与空劫同度",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-553",
+      "source_location": "事业宫printed_p146",
+      "source_condition_text": "前格",
+      "projection": "real_economy_or_concrete_industry_preferred_over_speculation",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA06-551"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA06-551",
+          "source_condition_text": "天府与空劫同度",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-555",
+      "source_location": "事业宫printed_p146",
+      "source_condition_text": "前格",
+      "projection": "industrial_or_engineering_scene_preferred",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA06-554"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA06-554",
+          "source_condition_text": "天府会羊陀",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-559",
+      "source_location": "事业宫printed_p147",
+      "source_condition_text": "前格见煞",
+      "projection": "engineering_or_industrial_scene_overrides_credit_scene",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "见煞",
+      "antecedent_rule_ids": [
+        "CA06-558"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA06-558",
+          "source_condition_text": "天府入庙化科",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-573",
+      "source_location": "事业宫printed_p147",
+      "source_condition_text": "前格见辅弼",
+      "projection": "support_can_moderate_authority_isolation",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "见辅弼",
+      "antecedent_rule_ids": [
+        "CA06-572"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA06-572",
+          "source_condition_text": "天府对拱紫微化权",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-574",
+      "source_location": "事业宫printed_p147",
+      "source_condition_text": "前格无辅弼",
+      "projection": "career_isolation_risk_strengthened",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "无辅弼",
+      "antecedent_rule_ids": [
+        "CA06-572"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA06-572",
+          "source_condition_text": "天府对拱紫微化权",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-576",
+      "source_location": "事业宫printed_p147",
+      "source_condition_text": "前格见煞",
+      "projection": "showiness_and_instability_strengthened",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "见煞",
+      "antecedent_rule_ids": [
+        "CA06-575"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA06-575",
+          "source_condition_text": "巳亥天府",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-603",
+      "source_location": "事业宫printed_p148",
+      "source_condition_text": "前格",
+      "projection": "speculation_not_preferred",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA07-602"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA07-602",
+          "source_condition_text": "太阴与天机同度或相对且见吉化吉曜",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+            "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-604",
+      "source_location": "事业宫printed_p148",
+      "source_condition_text": "前格",
+      "projection": "mobile_engineering_transport_or_aerospace_scene",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA07-602"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA07-602",
+          "source_condition_text": "太阴与天机同度或相对且见吉化吉曜",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+            "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-634",
+      "source_location": "事业宫printed_p149",
+      "source_condition_text": "前格",
+      "projection": "compromise_mediation_or_faction_buffer_role",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA07-633"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA07-633",
+          "source_condition_text": "贪狼与吉化吉曜及多辅曜会合",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+            "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED",
+            "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED",
+            "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED",
+        "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-637",
+      "source_location": "事业宫printed_p149",
+      "source_condition_text": "前格",
+      "projection": "consumer_decoration_entertainment_or_consumer_goods_scene",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA07-636"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA07-636",
+          "source_condition_text": "贪狼与羊陀同度",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-639",
+      "source_location": "事业宫printed_p149",
+      "source_condition_text": "前格",
+      "projection": "career_operation_tends_to_have_visible_scale_or_presence",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA07-638"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA07-638",
+          "source_condition_text": "贪狼与左辅右弼同度",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "LOCAL_STRUCTURE_READY"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_ONLY_PARENT_READY",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-660",
+      "source_location": "事业宫printed_p149",
+      "source_condition_text": "前格",
+      "projection": "multiple_business_directions_are_common",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA07-659"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA07-659",
+          "source_condition_text": "辰戌贪狼有煞同度",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-679",
+      "source_location": "事业宫printed_p150",
+      "source_condition_text": "前格",
+      "projection": "restraint_and_timing_are_important_for_preservation",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA07-678"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA07-678",
+          "source_condition_text": "巨门与火铃同度",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-682",
+      "source_location": "事业宫printed_p150",
+      "source_condition_text": "前格",
+      "projection": "avoid_showing_off",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA07-681"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA07-681",
+          "source_condition_text": "子午巨门得禄",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "LOCAL_STRUCTURE_READY"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_ONLY_PARENT_READY",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-686",
+      "source_location": "事业宫printed_p150",
+      "source_condition_text": "前格有吉星祥曜",
+      "projection": "secondary_business_lines_can_also_develop",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "有吉星祥曜",
+      "antecedent_rule_ids": [
+        "CA07-684"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA07-684",
+          "source_condition_text": "子午巨门",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-687",
+      "source_location": "事业宫printed_p150",
+      "source_condition_text": "前格有煞曜",
+      "projection": "career_changes_become_more_frequent",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "有煞曜",
+      "antecedent_rule_ids": [
+        "CA07-684"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA07-684",
+          "source_condition_text": "子午巨门",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-692",
+      "source_location": "事业宫printed_p150",
+      "source_condition_text": "前格",
+      "projection": "career_can_involve_wandering_and_hardship",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA07-691"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA07-691",
+          "source_condition_text": "辰戌巨门化忌又见煞耗诸曜",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-694",
+      "source_location": "事业宫printed_p150",
+      "source_condition_text": "前格",
+      "projection": "low_profile_preservation_is_required_after_unexpected_gain",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA07-693"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA07-693",
+          "source_condition_text": "辰戌巨门与火铃同度",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-704",
+      "source_location": "事业宫printed_p150",
+      "source_condition_text": "前格",
+      "projection": "timely_exit_and_preservation_are_preferred_after_gain",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_continuation": null,
+      "antecedent_rule_ids": [
+        "CA08-703"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA08-703",
+          "source_condition_text": "巳亥巨门与火铃同度",
+          "in_contextual_activation_closure": true,
+          "explicit_reference_node": false,
+          "current_blockers": [
+            "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+          ],
+          "current_readiness_class": "SOURCE_UNDERDETERMINED"
+        }
+      ],
+      "local_non_dependency_blockers": [],
+      "inherited_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-718",
+      "source_location": "事业宫printed_p151",
+      "source_condition_text": "前格又见煞曜",
+      "projection": "misuse_of_authority_can_trigger_setbacks_or_collapse",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "又见煞曜",
+      "antecedent_rule_ids": [
+        "CA08-717"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA08-717",
+          "source_condition_text": "天相与紫微化权相会",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-721",
+      "source_location": "事业宫printed_p151",
+      "source_condition_text": "前格同时见辅佐吉曜",
+      "projection": "support_can_make_nominal_status_substantive",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "同时见辅佐吉曜",
+      "antecedent_rule_ids": [
+        "CA08-719"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA08-719",
+          "source_condition_text": "天相与紫微化科相会",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-839",
+      "source_location": "事业宫printed_p154",
+      "source_condition_text": "前格有煞",
+      "projection": "wealth_potential_can_remain_despite_adverse_stars",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "有煞",
+      "antecedent_rule_ids": [
+        "CA09-838"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA09-838",
+          "source_condition_text": "辰戌七杀见廉贞化禄破军化权",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-847",
+      "source_location": "事业宫printed_p154",
+      "source_condition_text": "破军更见辅佐吉曜",
+      "projection": "career_status_and_scale_are_strengthened",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "EXPLICIT_SOURCE_LOCAL_ADDITIVE_CONTINUATION",
+      "local_continuation": "更见辅佐吉曜",
+      "antecedent_rule_ids": [
+        "CA09-846"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA09-846",
+          "source_condition_text": "破军本宫无煞且三方煞轻并见禄权",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "source_composition_adjudication": {
+        "source_scope": "破军事业宫 printed_p154",
+        "finding": "`更见辅佐吉曜同会` is an explicit additive continuation of CA09-846, not a generic parsing rule for the token 更见.",
+        "normalized_dependency_expression": "AND[ANTECEDENT(CA09-846), LOCAL_DELTA(更见辅佐吉曜同会)]"
+      }
+    },
+    {
+      "source_rule_id": "CA09-871",
+      "source_location": "事业宫printed_p155",
+      "source_condition_text": "前格见辅弼或不见辅弼",
+      "projection": "fubi_can_turn_maneuvering_into_advantage_while_its_absence_increases_backfire_risk",
+      "reference_status": "COMPILER_GATED",
+      "surface_class": "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
+      "local_continuation": "见辅弼或不见辅弼",
+      "antecedent_rule_ids": [
+        "CA09-870"
+      ],
+      "parent_composition": "SINGLE_PARENT",
+      "graph_depth": 1,
+      "parent_records": [
+        {
+          "source_rule_id": "CA09-870",
+          "source_condition_text": "子午破军无论行业喜政治手腕",
+          "in_contextual_activation_closure": false,
+          "explicit_reference_node": false,
+          "current_blockers": [],
+          "current_readiness_class": "NOT_IN_CONTEXTUAL_ACTIVATION_CLOSURE"
+        }
+      ],
+      "local_non_dependency_blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "inherited_parent_blockers": [],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "representation_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    }
+  ]
+}
