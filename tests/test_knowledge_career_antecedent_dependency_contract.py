@@ -102,7 +102,8 @@ def test_closure_metadata_only_except_ca05473_scope_resolution():
 def test_contract_never_claims_product_compilation():
     c=load(CONTRACT)
     assert c["canonical_counts"]["already_reference_resolved_effective_condition_ready"]==0
-    assert c["compiler_boundary"]["explicit_reference_graph_complete"] is True\n    assert c["compiler_boundary"]["effective_condition_semantics_complete"] is False
+    assert c["compiler_boundary"]["explicit_reference_graph_complete"] is True
+    assert c["compiler_boundary"]["effective_condition_semantics_complete"] is False
     assert c["compiler_boundary"]["product_compiler_implemented"] is False
     assert c["compiler_boundary"]["conditions_compiled"]==0
     assert c["compiler_boundary"]["execution_unlocked"]==0
