@@ -172,7 +172,7 @@ def test_repository_active_lock_verifies_exact_inputs():
     report = verify_active_lock(ROOT)
 
     assert report["status"] == "PASS"
-    assert report["lock_id"] == "PRODUCT_KNOWLEDGE_LOCK_V0_1"
+    assert report["lock_id"] == "PRODUCT_KNOWLEDGE_LOCK_V0_2"
     assert report["verified_artifact_count"] == 58
     assert report["findings"] == []
 
@@ -205,7 +205,7 @@ def test_bundle_has_four_separated_knowledge_components():
 
 def test_active_lock_never_auto_refreshes():
     lock = load_lock(LOCK)
-    bundle = load_bundle(BUNDLE)
+    bundle = load_bundle(ROOT / lock["active_bundle_path"])
 
     assert lock["auto_refresh"] is False
     assert bundle["auto_refresh"] is False
