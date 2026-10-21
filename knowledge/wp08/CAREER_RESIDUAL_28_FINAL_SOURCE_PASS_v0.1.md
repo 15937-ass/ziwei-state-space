@@ -22,7 +22,7 @@ Status: **28 / 28 COMPLETE — ALL 228 BLOCKED CAREER ROWS NOW DEEP-SOURCE-REVIE
 ## v0.13
 - blocked rows deep-source-reviewed: **228 / 228**
 - source-condition repairs: **11 -> 13**
-- cumulative source-resolution-changed rows: **43 -> 45**
+- cumulative source-resolution-changed rows: **43 -> 44**
 - new blocker-free rows: **0**
 - no-current-blocker rows: **23**
 - source-underdetermined rows: **201**
