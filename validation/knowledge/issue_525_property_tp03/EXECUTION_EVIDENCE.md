@@ -13,9 +13,9 @@
 - Legacy time layers remain 9 YEAR and 1 DECADE.
 
 ## Material source corrections
-Nine rows are repaired or narrowed: TP03-206, TP03-208, TP03-252, TP03-266, TP03-273, TP03-278, TP03-287, TP03-290, TP03-292.
+Ten rows are repaired or narrowed: TP03-206, TP03-208, TP03-252, TP03-257, TP03-266, TP03-273, TP03-278, TP03-287, TP03-291, TP03-292.
 
-Eight damaged/nonstandard source surfaces are explicitly preserved as uncertainty: TP03-252, TP03-256, TP03-257, TP03-266, TP03-278, TP03-287, TP03-290, TP03-292.
+Eight damaged/nonstandard source surfaces are explicitly preserved as uncertainty: TP03-252, TP03-256, TP03-257, TP03-266, TP03-278, TP03-287, TP03-291, TP03-292.
 
 ## Gap lineage
 TP02-GAP-001 is closed only after direct source review of TP03-205. The branch `空劫夹亦主破败` remains separate from the preceding relocation/sale trigger.
@@ -35,3 +35,6 @@ The generation pass executed deterministic assertions before repository writes:
 - no new quantitative/time primitive flags
 
 Final repository-wide acceptance gate is pending the PR exact head.
+
+## Independent source critic correction
+A second pass against printed p164 found a staging row-mapping error: TP03-290 is the source-explicit positive `武曲化禄 -> 产业丰厚` rule; the damaged `武曲化忌则主倾效` clause belongs to TP03-291. The branch now preserves that separation. TP03-257 is also narrowed so the damaged `兵灾火独` glyph sequence is not silently normalized into a precise fire claim.
