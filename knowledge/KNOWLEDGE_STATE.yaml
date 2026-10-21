@@ -6,12 +6,12 @@ canonical_branch: "main"
 execution:
   status: "ACTIVE_NO_ACTIVE_WORK"
   program: "KB_WP08_SOURCE_DEEPEN_REVIEW"
-  active_issue: null
-  active_pr: null
-  canonical_main_checkpoint: "CAREER_BLOCKED_ROWS_DEEP_SOURCE_REVIEW_228_OF_228"
-  resume_entry: "Issue #501 / PR #503 completes the final 28-row residual source pass after #489 and #498. All 228 currently blocked Career contextual-activation rows are now deep-source-reviewed in a non-overlapping 100+100+28 partition. Two source repairs are made: CA04-337 resolves the same-star 武曲化禄/化权/化科 list as source-local alternatives while auxiliary support remains contextual; CA05-471 removes 百官朝拱 as a mandatory threshold condition because the source presents it as an example under 紫微有吉曜. Closure v0.13 remains 23 no-current-blocker / 201 source-underdetermined, cumulative unique source_resolution_changed 43->44, source_condition_repairs 11->13, blocked_rows_without_deep_source_review=0, newly blocker-free=0, conditions_compiled=0, execution_unlocked=0. Next Knowledge work should stop repetitive source re-review and specify a bounded dependency/compiler representation for already source-resolved dependency/branch/relation structures without weakening true source-underdetermination."
-  resume_issue: 501
-  last_state_sync_issue: 501
+  active_issue: 505
+  active_pr: 507
+  canonical_main_checkpoint: "CAREER_ANTECEDENT_DEPENDENCY_CONTRACT_65_OF_65"
+  resume_entry: "Issue #505 / PR #507 formalizes all 65 explicit Career antecedent references, correcting the initial 50-row scope that counted only rows still carrying ANTECEDENT_DEPENDENCY. The graph has 65 nodes / 66 edges, 64 single-parent nodes, one multi-parent node, 28 exact 前格 surfaces, 36 前格+continuation surfaces, and one non-前格 additive surface (CA09-847). It is acyclic with maximum explicit-reference depth 2; the only internal reference chain is CA02-171 -> CA02-170 -> CA02-169. CA05-473 is source-adjudicated as ANY_PARENT_BRANCH(CA05-471,CA05-472) with shared local qualifier 煞曜不居本宫, never parent conjunction. Of 50 compiler-gated rows, 27 are dependency-only and 23 also have local blockers; only CA05-420, CA07-639, CA07-682 have blocker-free parents, while 24 dependency-only rows inherit source-underdetermination. Candidate closure v0.14 keeps blocker counts unchanged, source_resolution_changes 44->45, dependency_scope_corrections 2->3, conditions_compiled=0, execution_unlocked=0. Next Knowledge step after merge should define the compiler-facing IR/schema for the three dependency-only parent-ready candidates plus blocker-propagation behavior, without implementing Product runtime."
+  resume_issue: 505
+  last_state_sync_issue: 505
 
 canonical_main_snapshot:
   domain: "事业宫"
@@ -273,6 +273,11 @@ completed_work_units:
     issue: 501
     pr: 503
     status: "MERGED_28_OF_28_2_SOURCE_REPAIRS_0_NEW_READY_ALL_228_BLOCKED_ROWS_DEEP_REVIEWED_NO_EXECUTION_UNLOCK"
+
+  - work_unit: "KB-WP08-CAREER-ANTECEDENT-DEPENDENCY-CONTRACT-65"
+    issue: 505
+    pr: 507
+    status: "ACTIVE_65_OF_65_GRAPH_REPRESENTED_PENDING_VALIDATION_AND_MERGE"
 
 archived_noncanonical_snapshots:
   wp05_all_twelve_palaces:
