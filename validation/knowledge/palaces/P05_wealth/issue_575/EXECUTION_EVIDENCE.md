@@ -45,13 +45,15 @@ Direct page-image inspection was performed on PDF pages 38–40 (printed pp75–
 - W04-398: PDF printed p79 page-image confirms“辰戌武曲化忌，必生破败；见煞曜刑耗，亦主困乏”.
 - W04-400: PDF printed p79 page-image confirms“得禄权科会…至少有一次困境，但克服困难之后，仍能致富”.
 
-## Deterministic validation
-Status: PENDING PR exact-head validation.
+## Preliminary exact-head validation — source-review head
 
-Required:
-- full repository pytest;
-- Product JS adapter syntax check;
-- deterministic P0 audit;
-- Knowledge/G12 governance validation.
+The source-review head `43b925655bc6342092014ccd69b89afba367885e` passed the standard public PR quality gate after being synchronized with current main (`11f9eedd6bfcb05e5d0fcb2f17327bc3c288de86`).
 
-Exact-head workflow evidence will be recorded in the PR before merge.
+- repository quality gate: PASS
+- pytest: 2369 passed / 0 failed / 0 skipped
+- Product JS adapter syntax checks: PASS
+- deterministic P0 audit: PASS
+- Knowledge/G12 governance validation: PASS
+- workflow: https://github.com/15937-ass/ziwei-state-space/actions/runs/39696034090
+
+This evidence record is a documentation-only follow-up to that validated source-review head. The PR's exact-head gate will be rerun on the evidence-bearing commit before merge; the final exact-head result will be recorded in the PR body without further source or state edits.
