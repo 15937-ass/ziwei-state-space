@@ -81,6 +81,6 @@ def test_governance_and_plans_do_not_masquerade_as_live_task_queue():
 
 def test_g9_proposal_exists_and_preserves_normal_pr_discipline():
     proposal = (ROOT / "governance/proposals/374-chat-repository-authority.md").read_text(encoding="utf-8")
-    assert "APPROVED / IMPLEMENTING" in proposal
+    assert "IMPLEMENTED BY PR #496" in proposal
     assert "Issue -> branch -> PR -> validation -> merge" in proposal
     assert "no Zhongzhou canonical semantic changes" in proposal
