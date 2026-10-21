@@ -20,7 +20,7 @@ The migration changes **where computation happens**, not the research or source-
 - **ChatGPT Work**: orchestration, research planning, source review, multi-step coordination, critic/red-team passes, progress synthesis.
 - **Codex / OpenAI coding runtime**: edit repository files, run shell commands, execute Python/Node/Go validation, debug failures, produce deterministic reports.
 - **GitHub**: canonical repository, Issues, PRs, commits, durable audit trail, Human Gates.
-- **GitHub Actions**: manual emergency fallback only; no automatic push or pull_request execution.
+- **GitHub Actions — HISTORICAL G7 RULE, SUPERSEDED**: G7 used manual emergency fallback only. **Current G8 policy allows automatic `pull_request` validation and still prohibits automatic `push` triggers.**
 
 GitHub Issues remain the authoritative execution ledger. Main remains accepted state.
 
@@ -130,7 +130,7 @@ A statement such as "tests should pass" is not evidence.
 - A real test failure must be fixed or explicitly escalated; never suppress it by deleting assertions or weakening gates without an approved Issue.
 - Infrastructure/runtime failure must be separated from test failure.
 - If an OpenAI execution environment cannot run a required external dependency, record the blocker and do not claim validation.
-- Do not spend GitHub Actions minutes merely to reproduce validation already completed in Codex.
+- **Historical G7 cost rule (superseded):** G7 avoided routine Actions after Codex validation. Current G8 uses standard public GitHub-hosted PR Actions as a routine deterministic validation runtime.
 
 ## 7. Historical GitHub Actions policy — DO NOT APPLY
 
