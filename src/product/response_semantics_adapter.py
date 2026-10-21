@@ -21,6 +21,8 @@ import json
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
+from .knowledge_bundle import require_artifact_locked
+
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -96,6 +98,7 @@ FORBIDDEN_NUMERIC_FIELDS = frozenset(
 
 
 def _read_json(path: Path) -> Any:
+    require_artifact_locked(ROOT, path, "K_response")
     return json.loads(path.read_text(encoding="utf-8"))
 
 
