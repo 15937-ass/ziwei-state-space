@@ -154,3 +154,11 @@ Paper 2 需要处理 star-core / Delta / modifier / projection 参数混淆。
 **Approved at:** Proposal #425 / Product v0.4
 **Approved by:** PI
 **Approved date:** 2026-10-20
+
+
+### D-020 — Palace-sharded parallel Knowledge execution v1
+**Decision:** 批准将 Knowledge 执行从“全局 WIP=1”升级为“Knowledge Core WIP≤1 + 最多4个不同宫位并行 worker + 每宫 WIP≤1”。不同聊天可分别推进不同宫位，但共享 ontology / semantics / schema 只能由 Knowledge Core 串行修改；宫位 worker 遇到跨宫公共语义问题必须 fail-closed 并提交 KNOWLEDGE_CORE_GAP，不得自行定义全局规则。研究/PR 准备可并行，进入 main 必须逐个串行，并在最新 main 上重新通过 exact-head gate。新 Knowledge 分支采用 knowledge/pXX-<issue>-<slug> 或 knowledge/core-<issue>-<slug>；当前 #525 Property legacy branch 仅作一次性 grandfather。
+**Status:** APPROVED（待 Governance implementation merge 后生效）
+**Approved at:** Proposal #528
+**Approved by:** PI
+**Approved date:** 2026-10-21
