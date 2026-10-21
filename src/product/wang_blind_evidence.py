@@ -71,23 +71,8 @@ def _walk_keys(value: Any) -> set[str]:
     return keys
 
 
-def _validate_lineage(payload: Mapping[str, Any]) -> None:
-    lock = _read_json(LOCK_PATH)
-    lineage = payload.get("lineage")
-    if not isinstance(lineage, dict):
-        raise ValueError("blind evidence lineage must be an object")
-
-    if lineage.get("product_knowledge_lock_id") != lock.get("lock_id"):
-        raise ValueError("blind evidence Product Knowledge lock mismatch")
-    if (
-        lineage.get("active_product_knowledge_bundle_id")
-        != lock.get("active_bundle_id")
-    ):
-        raise ValueError("blind evidence active Product Knowledge bundle mismatch")
-
-    bundle_path = ROOT / str(lock.get("active_bundle_path") or "")
-    bundle = _read_json(bundle_path)
-    k_method = next(
+def _k_method_component(bundle: Mapping[str, Any]) -> Mapping[str, Any]:
+    component = next(
         (
             item
             for item in bundle.get("components", [])
@@ -95,13 +80,73 @@ def _validate_lineage(payload: Mapping[str, Any]) -> None:
         ),
         None,
     )
-    if not isinstance(k_method, dict):
-        raise ValueError("active Product Knowledge bundle lacks K_method")
+    if not isinstance(component, dict):
+        raise ValueError("Product Knowledge bundle lacks K_method")
+    return component
+
+
+def _find_historical_bundle(bundle_id: str) -> Mapping[str, Any]:
+    matches: list[Mapping[str, Any]] = []
+    for path in sorted((ROOT / "product").glob("PRODUCT_KNOWLEDGE_BUNDLE_V*.json")):
+        payload = _read_json(path)
+        if isinstance(payload, dict) and payload.get("bundle_id") == bundle_id:
+            matches.append(payload)
+    if len(matches) != 1:
+        raise ValueError(
+            "blind evidence historical Product Knowledge bundle is missing or ambiguous"
+        )
+    return matches[0]
+
+
+def _validate_lineage(payload: Mapping[str, Any]) -> None:
+    """Validate creation-time lineage without invalidating unrelated promotions.
+
+    Blind evidence is historically bound to the Product Knowledge bundle that
+    existed when it was materialized.  Later K_response-only promotions must
+    not rewrite that history or invalidate K_method-derived evidence.  Runtime
+    reuse is permitted only while the active K_method semantic digest remains
+    identical to the creation-time K_method digest.
+    """
+
+    lock = _read_json(LOCK_PATH)
+    lineage = payload.get("lineage")
+    if not isinstance(lineage, dict):
+        raise ValueError("blind evidence lineage must be an object")
+
+    lineage_lock_id = str(lineage.get("product_knowledge_lock_id") or "").strip()
+    lineage_bundle_id = str(
+        lineage.get("active_product_knowledge_bundle_id") or ""
+    ).strip()
+    lineage_k_method_digest = str(
+        lineage.get("k_method_component_semantic_digest") or ""
+    ).strip()
+    if not lineage_lock_id or not lineage_bundle_id or not lineage_k_method_digest:
+        raise ValueError("blind evidence lineage fields are required")
+    if lock.get("auto_refresh") is not False:
+        raise ValueError("active Product Knowledge lock must not auto-refresh")
+
+    historical_bundle = _find_historical_bundle(lineage_bundle_id)
+    historical_k_method = _k_method_component(historical_bundle)
     if (
-        lineage.get("k_method_component_semantic_digest")
-        != k_method.get("component_semantic_digest")
+        historical_k_method.get("component_semantic_digest")
+        != lineage_k_method_digest
     ):
-        raise ValueError("blind evidence K_method semantic digest mismatch")
+        raise ValueError(
+            "blind evidence creation-time K_method semantic digest mismatch"
+        )
+
+    active_bundle_path = ROOT / str(lock.get("active_bundle_path") or "")
+    active_bundle = _read_json(active_bundle_path)
+    if active_bundle.get("bundle_id") != lock.get("active_bundle_id"):
+        raise ValueError("active Product Knowledge lock/bundle id mismatch")
+    active_k_method = _k_method_component(active_bundle)
+    if (
+        active_k_method.get("component_semantic_digest")
+        != lineage_k_method_digest
+    ):
+        raise ValueError(
+            "blind evidence K_method lineage is incompatible with active K_method"
+        )
 
 
 def validate_wang_blind_evidence(payload: Mapping[str, Any]) -> None:

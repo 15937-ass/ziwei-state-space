@@ -53,7 +53,7 @@ ACTIVATION_CLOSURE_PATH = (
     ROOT
     / "knowledge"
     / "wp07c"
-    / "CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.13.json"
+    / "CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.16.json"
 )
 CAREER_ORDINAL_CONSTRAINTS_PATH = (
     ROOT / "knowledge" / "wp08" / "CAREER_ORDINAL_CONSTRAINTS_v0.1.json"
@@ -67,6 +67,15 @@ CAREER_ORDINAL_BLOCKER_IMPACT_PATH = (
 CAREER_SEMANTIC_NORMALIZATION_PATH = (
     ROOT / "knowledge" / "wp08" / "CAREER_SEMANTIC_NORMALIZATION_36_v0.2.json"
 )
+CAREER_COMPILER_READINESS_CENSUS_PATH = (
+    ROOT / "knowledge" / "wp08" / "CAREER_COMPILER_READINESS_CENSUS_26_v0.1.json"
+)
+CAREER_DEPENDENCY_IR_PATH = (
+    ROOT / "knowledge" / "wp08" / "CAREER_DEPENDENCY_IR_3_v0.1.json"
+)
+CAREER_DIRECT_CONDITION_IR_PATH = (
+    ROOT / "knowledge" / "wp08" / "CAREER_DIRECT_CONDITION_IR_9_v0.1.json"
+)
 
 KNOWLEDGE_EXECUTION_STATUSES = frozenset(
     {"LEXICAL_ONLY", "STRUCTURAL_ONLY", "SAFE_SYMBOLIC", "BLOCKED"}
@@ -74,7 +83,6 @@ KNOWLEDGE_EXECUTION_STATUSES = frozenset(
 PRODUCT_ALLOWED_USES = frozenset({"SEMANTIC_ONLY", "EXECUTABLE", "BLOCKED"})
 
 CAREER_ADAPTER_STATUS_BY_READINESS = {
-    "LOCAL_STRUCTURE_READY": "SEMANTIC_ONLY_PENDING_COMPILATION",
     "SOURCE_UNDERDETERMINED": "BLOCKED_SOURCE_UNDERDETERMINED",
     "DEPENDENCY_COMPILER_GATED": "BLOCKED_DEPENDENCY_COMPILER",
     "NORMALIZATION_DEFERRED": "BLOCKED_NORMALIZATION",
@@ -82,7 +90,27 @@ CAREER_ADAPTER_STATUS_BY_READINESS = {
     "MULTI_CLASS_BLOCKED": "BLOCKED_MULTIPLE",
 }
 
-CAREER_ADAPTER_STATUSES = frozenset(CAREER_ADAPTER_STATUS_BY_READINESS.values())
+CAREER_LOCAL_READY_STATUS_BY_COMPILER_BAND = {
+    "DEPENDENCY_CONDITION_IR_READY": (
+        "KNOWLEDGE_CONDITION_IR_READY_PENDING_PRODUCT_COMPILATION"
+    ),
+    "DIRECT_CONDITION_IR_READY": (
+        "KNOWLEDGE_CONDITION_IR_READY_PENDING_PRODUCT_COMPILATION"
+    ),
+    "DEPENDENCY_EFFECTIVE_UNDERDETERMINED": (
+        "LOCAL_STRUCTURE_NOT_CONDITION_IR_READY"
+    ),
+    "DIRECT_RELATION_OR_COMPOSITION_DEFERRED": (
+        "LOCAL_STRUCTURE_NOT_CONDITION_IR_READY"
+    ),
+}
+
+CAREER_ADAPTER_STATUSES = frozenset(
+    {
+        *CAREER_ADAPTER_STATUS_BY_READINESS.values(),
+        *CAREER_LOCAL_READY_STATUS_BY_COMPILER_BAND.values(),
+    }
+)
 
 FORBIDDEN_NUMERIC_FIELDS = frozenset(
     {
@@ -228,6 +256,10 @@ class CareerResponseDecision:
     source_rule_id: str
     compatibility_band: str
     knowledge_readiness_class: str
+    compiler_readiness_band: str | None
+    knowledge_condition_ir_ready: bool
+    condition_ir_artifact: str | None
+    compiler_readiness_blockers: tuple[str, ...]
     activation_status: str
     adapter_status: str
     blockers: tuple[str, ...]
@@ -259,6 +291,12 @@ class CareerResponseDecision:
             "source_rule_id": self.source_rule_id,
             "compatibility_band": self.compatibility_band,
             "knowledge_readiness_class": self.knowledge_readiness_class,
+            "compiler_readiness_band": self.compiler_readiness_band,
+            "knowledge_condition_ir_ready": self.knowledge_condition_ir_ready,
+            "condition_ir_artifact": self.condition_ir_artifact,
+            "compiler_readiness_blockers": list(
+                self.compiler_readiness_blockers
+            ),
             "activation_status": self.activation_status,
             "adapter_status": self.adapter_status,
             "blockers": list(self.blockers),
@@ -708,6 +746,104 @@ def load_activation_closure(
     return payload
 
 
+def load_career_compiler_readiness_census(
+    path: Path = CAREER_COMPILER_READINESS_CENSUS_PATH,
+) -> Mapping[str, Any]:
+    payload = _read_json(path)
+    if payload.get("schema_version") != "0.1":
+        raise ValueError("Career compiler-readiness census schema_version must be 0.1")
+    raw = payload.get("records")
+    if not isinstance(raw, list) or len(raw) != 26:
+        raise ValueError("Career compiler-readiness census must contain 26 records")
+    ids = [item.get("source_rule_id") for item in raw]
+    if len(set(ids)) != 26:
+        raise ValueError("Career compiler-readiness source_rule_id values must be unique")
+    summary = payload.get("summary")
+    if not isinstance(summary, dict):
+        raise ValueError("Career compiler-readiness summary must be an object")
+    expected_bands = {
+        "DEPENDENCY_EFFECTIVE_UNDERDETERMINED": 11,
+        "DEPENDENCY_CONDITION_IR_READY": 3,
+        "DIRECT_CONDITION_IR_READY": 9,
+        "DIRECT_RELATION_OR_COMPOSITION_DEFERRED": 3,
+    }
+    if summary.get("band_counts") != expected_bands:
+        raise ValueError("Career compiler-readiness band census drift")
+    if int(summary.get("total_knowledge_condition_ir_ready", -1)) != 12:
+        raise ValueError("Career condition-IR-ready count drift")
+    if int(summary.get("not_condition_ir_ready_despite_local_structure_ready", -1)) != 14:
+        raise ValueError("Career local-ready/non-condition-IR count drift")
+    if int(summary.get("conditions_compiled", -1)) != 0:
+        raise ValueError("Career census unexpectedly reports Product compilation")
+    if int(summary.get("execution_unlocked", -1)) != 0:
+        raise ValueError("Career census unexpectedly reports execution unlock")
+    return payload
+
+
+def load_career_dependency_ir(
+    path: Path = CAREER_DEPENDENCY_IR_PATH,
+) -> Mapping[str, Any]:
+    payload = _read_json(path)
+    raw = payload.get("records")
+    if payload.get("schema_version") != "0.1" or not isinstance(raw, list):
+        raise ValueError("Career dependency IR artifact is malformed")
+    if len(raw) != 3:
+        raise ValueError("Career dependency IR must contain exactly 3 records")
+    if any(item.get("product_condition_compiled") is not False for item in raw):
+        raise ValueError("Career dependency IR unexpectedly compiled a Product condition")
+    if any(item.get("runtime_authorized") is not False for item in raw):
+        raise ValueError("Career dependency IR unexpectedly authorizes runtime")
+    return payload
+
+
+def load_career_direct_condition_ir(
+    path: Path = CAREER_DIRECT_CONDITION_IR_PATH,
+) -> Mapping[str, Any]:
+    payload = _read_json(path)
+    raw = payload.get("records")
+    if payload.get("schema_version") != "0.1" or not isinstance(raw, list):
+        raise ValueError("Career direct condition IR artifact is malformed")
+    if len(raw) != 9:
+        raise ValueError("Career direct condition IR must contain exactly 9 records")
+    if any(item.get("product_condition_compiled") is not False for item in raw):
+        raise ValueError("Career direct condition IR unexpectedly compiled a Product condition")
+    if any(item.get("runtime_authorized") is not False for item in raw):
+        raise ValueError("Career direct condition IR unexpectedly authorizes runtime")
+    return payload
+
+
+def validate_career_compiler_readiness_cross_artifacts() -> None:
+    census = load_career_compiler_readiness_census()
+    dependency = load_career_dependency_ir()
+    direct = load_career_direct_condition_ir()
+
+    census_ready = {
+        item["source_rule_id"]
+        for item in census["records"]
+        if item["knowledge_condition_ir_ready"] is True
+    }
+    dependency_ids = {item["child_rule_id"] for item in dependency["records"]}
+    direct_ids = {item["source_rule_id"] for item in direct["records"]}
+    if census_ready != dependency_ids | direct_ids:
+        raise ValueError("Career census/condition-IR ready sets do not match")
+    if dependency_ids & direct_ids:
+        raise ValueError("Career dependency/direct condition-IR sets overlap")
+
+    direct_by_id = {
+        item["source_rule_id"]: item for item in direct["records"]
+    }
+    for item in dependency["records"]:
+        parent_id = item["parent_rule_id"]
+        if parent_id not in direct_by_id:
+            raise ValueError(
+                f"{item['child_rule_id']}: dependency parent lacks direct condition IR"
+            )
+        if item.get("condition_reference") != f"RULE_CONDITION({parent_id})":
+            raise ValueError(
+                f"{item['child_rule_id']}: dependency condition-reference drift"
+            )
+
+
 def _index_records(
     records: Sequence[Mapping[str, Any]],
     *,
@@ -724,6 +860,9 @@ def build_career_response_decisions() -> tuple[CareerResponseDecision, ...]:
     compatibility = load_career_compatibility_records()
     activation_payload = load_activation_closure()
     activation_records = activation_payload["records"]
+    compiler_payload = load_career_compiler_readiness_census()
+    compiler_records = compiler_payload["records"]
+    validate_career_compiler_readiness_cross_artifacts()
 
     relation_payload = _read_json(RELATION_BINDING_PATH)
     category_payload = _read_json(CATEGORY_REVIEW_PATH)
@@ -736,6 +875,9 @@ def build_career_response_decisions() -> tuple[CareerResponseDecision, ...]:
 
     activation_by_id = {
         item["source_rule_id"]: item for item in activation_records
+    }
+    compiler_by_id = {
+        item["source_rule_id"]: item for item in compiler_records
     }
     relation_by_id = _index_records(relation_records)
     category_by_id = _index_records(category_records)
@@ -759,10 +901,69 @@ def build_career_response_decisions() -> tuple[CareerResponseDecision, ...]:
             activation.get("readiness_class"),
             f"{rule_id}.readiness_class",
         )
-        if readiness_class not in CAREER_ADAPTER_STATUS_BY_READINESS:
+        if (
+            readiness_class != "LOCAL_STRUCTURE_READY"
+            and readiness_class not in CAREER_ADAPTER_STATUS_BY_READINESS
+        ):
             raise ValueError(
                 f"{rule_id}: unsupported Knowledge readiness class {readiness_class}"
             )
+
+        compiler_row = compiler_by_id.get(rule_id)
+        if readiness_class == "LOCAL_STRUCTURE_READY":
+            if compiler_row is None:
+                raise ValueError(
+                    f"{rule_id}: LOCAL_STRUCTURE_READY lacks compiler-readiness census row"
+                )
+            compiler_band = _required_text(
+                compiler_row.get("compiler_readiness_band"),
+                f"{rule_id}.compiler_readiness_band",
+            )
+            if compiler_band not in CAREER_LOCAL_READY_STATUS_BY_COMPILER_BAND:
+                raise ValueError(
+                    f"{rule_id}: unsupported compiler-readiness band {compiler_band}"
+                )
+            condition_ir_ready = bool(
+                compiler_row.get("knowledge_condition_ir_ready", False)
+            )
+            condition_ir_artifact = compiler_row.get("condition_ir_artifact")
+            if condition_ir_ready != (
+                compiler_band
+                in {
+                    "DEPENDENCY_CONDITION_IR_READY",
+                    "DIRECT_CONDITION_IR_READY",
+                }
+            ):
+                raise ValueError(
+                    f"{rule_id}: compiler band/condition-IR readiness mismatch"
+                )
+            if condition_ir_ready and not str(condition_ir_artifact or "").strip():
+                raise ValueError(
+                    f"{rule_id}: condition-IR-ready row lacks artifact reference"
+                )
+            compiler_blockers = [
+                f"EFFECTIVE_PARENT_BLOCKER:{value}"
+                for value in compiler_row.get("effective_parent_blockers", [])
+            ]
+            if not condition_ir_ready:
+                compiler_blockers.append(
+                    f"CONDITION_IR_NOT_READY:{compiler_band}"
+                )
+            adapter_status = CAREER_LOCAL_READY_STATUS_BY_COMPILER_BAND[
+                compiler_band
+            ]
+        else:
+            if compiler_row is not None:
+                raise ValueError(
+                    f"{rule_id}: compiler census must contain only LOCAL_STRUCTURE_READY rows"
+                )
+            compiler_band = None
+            condition_ir_ready = False
+            condition_ir_artifact = None
+            compiler_blockers = []
+            adapter_status = CAREER_ADAPTER_STATUS_BY_READINESS[
+                readiness_class
+            ]
 
         condition_compiled = bool(compat.get("condition_compiled", False))
         execution_unlocked = bool(compat.get("execution_unlocked", False))
@@ -802,6 +1003,19 @@ def build_career_response_decisions() -> tuple[CareerResponseDecision, ...]:
             semantic_refs.append(f"KNOWLEDGE:CAREER_RELATION_BINDING:{rule_id}")
         if category_statuses:
             semantic_refs.append(f"KNOWLEDGE:CAREER_CATEGORY_REVIEW:{rule_id}")
+        if compiler_row is not None:
+            semantic_refs.append(
+                f"KNOWLEDGE:CAREER_COMPILER_READINESS:{rule_id}"
+            )
+        if condition_ir_ready:
+            if compiler_band == "DEPENDENCY_CONDITION_IR_READY":
+                semantic_refs.append(
+                    f"KNOWLEDGE:CAREER_DEPENDENCY_IR:{rule_id}"
+                )
+            else:
+                semantic_refs.append(
+                    f"KNOWLEDGE:CAREER_DIRECT_CONDITION_IR:{rule_id}"
+                )
 
         decisions.append(
             CareerResponseDecision(
@@ -811,13 +1025,19 @@ def build_career_response_decisions() -> tuple[CareerResponseDecision, ...]:
                     f"{rule_id}.compatibility_band",
                 ),
                 knowledge_readiness_class=readiness_class,
+                compiler_readiness_band=compiler_band,
+                knowledge_condition_ir_ready=condition_ir_ready,
+                condition_ir_artifact=(
+                    str(condition_ir_artifact)
+                    if condition_ir_artifact is not None
+                    else None
+                ),
+                compiler_readiness_blockers=tuple(compiler_blockers),
                 activation_status=_required_text(
                     activation.get("activation_status"),
                     f"{rule_id}.activation_status",
                 ),
-                adapter_status=CAREER_ADAPTER_STATUS_BY_READINESS[
-                    readiness_class
-                ],
+                adapter_status=adapter_status,
                 blockers=tuple(
                     _required_text(value, f"{rule_id}.blockers")
                     for value in activation.get("blockers", [])
@@ -879,7 +1099,11 @@ def audit_response_semantics_adapter_readiness() -> dict[str, Any]:
     ordinal_links = load_career_ordinal_rule_links()
     ordinal_impact = load_career_ordinal_blocker_impact()
     semantic_normalization = load_career_semantic_normalization()
+    compiler_readiness = load_career_compiler_readiness_census()
+    dependency_ir = load_career_dependency_ir()
+    direct_condition_ir = load_career_direct_condition_ir()
     validate_career_ordinal_cross_artifacts()
+    validate_career_compiler_readiness_cross_artifacts()
 
     pilot_status_counts = Counter(
         item.knowledge_execution_status for item in pilot
@@ -929,7 +1153,7 @@ def audit_response_semantics_adapter_readiness() -> dict[str, Any]:
 
     return {
         "schema_version": "0.1",
-        "artifact_id": "RESPONSE_SEMANTICS_ADAPTER_READINESS_V0_2",
+        "artifact_id": "RESPONSE_SEMANTICS_ADAPTER_READINESS_V0_3",
         "knowledge_inputs": {
             "response_pilot": str(
                 RESPONSE_PILOT_PATH.relative_to(ROOT)
@@ -957,6 +1181,15 @@ def audit_response_semantics_adapter_readiness() -> dict[str, Any]:
             ),
             "career_semantic_normalization": str(
                 CAREER_SEMANTIC_NORMALIZATION_PATH.relative_to(ROOT)
+            ),
+            "career_compiler_readiness_census": str(
+                CAREER_COMPILER_READINESS_CENSUS_PATH.relative_to(ROOT)
+            ),
+            "career_dependency_ir": str(
+                CAREER_DEPENDENCY_IR_PATH.relative_to(ROOT)
+            ),
+            "career_direct_condition_ir": str(
+                CAREER_DIRECT_CONDITION_IR_PATH.relative_to(ROOT)
             ),
         },
         "response_pilot": {
@@ -1088,9 +1321,28 @@ def audit_response_semantics_adapter_readiness() -> dict[str, Any]:
             ),
             "response_gain_total": response_gain_total,
             "adapter_status_counts": dict(sorted(adapter_status_counts.items())),
-            "semantic_only_pending_compilation": adapter_status_counts[
-                "SEMANTIC_ONLY_PENDING_COMPILATION"
+            "knowledge_condition_ir_ready_pending_product_compilation": (
+                adapter_status_counts[
+                    "KNOWLEDGE_CONDITION_IR_READY_PENDING_PRODUCT_COMPILATION"
+                ]
+            ),
+            "local_structure_not_condition_ir_ready": adapter_status_counts[
+                "LOCAL_STRUCTURE_NOT_CONDITION_IR_READY"
             ],
+            "compiler_readiness_band_counts": _deep(
+                compiler_readiness.get("summary", {}).get("band_counts", {})
+            ),
+            "knowledge_condition_ir_ready_total": int(
+                compiler_readiness.get("summary", {}).get(
+                    "total_knowledge_condition_ir_ready", -1
+                )
+            ),
+            "dependency_condition_ir_records": len(
+                dependency_ir.get("records", [])
+            ),
+            "direct_condition_ir_records": len(
+                direct_condition_ir.get("records", [])
+            ),
             "runtime_effects_authorized": runtime_authorized,
             "condition_compiled_count": condition_compiled_count,
             "knowledge_execution_unlocked_count": execution_unlocked_count,
@@ -1107,7 +1359,7 @@ def audit_response_semantics_adapter_readiness() -> dict[str, Any]:
             "unauthorized_unlock_count": 0,
         },
         "maturity": {
-            "response_semantics_adapter": "IMPLEMENTED_V0_1",
+            "response_semantics_adapter": "IMPLEMENTED_V0_3_CONDITION_IR_AWARE",
             "semantic_preservation": "INTERNALLY_VALIDATABLE",
             "career_execution": "ZERO_UNLOCK_EXPECTED",
             "response_compiler": "NOT_IMPLEMENTED",

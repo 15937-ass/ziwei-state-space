@@ -12,6 +12,9 @@ from src.product.response_semantics_adapter import (
     CAREER_ORDINAL_RULE_LINKS_PATH,
     CAREER_ORDINAL_BLOCKER_IMPACT_PATH,
     CAREER_SEMANTIC_NORMALIZATION_PATH,
+    CAREER_COMPILER_READINESS_CENSUS_PATH,
+    CAREER_DEPENDENCY_IR_PATH,
+    CAREER_DIRECT_CONDITION_IR_PATH,
     RESPONSE_PILOT_PATH,
     CareerResponseDecision,
     ResponseSemanticEnvelope,
@@ -26,8 +29,12 @@ from src.product.response_semantics_adapter import (
     load_career_ordinal_rule_links,
     load_career_ordinal_blocker_impact,
     load_career_semantic_normalization,
+    load_career_compiler_readiness_census,
+    load_career_dependency_ir,
+    load_career_direct_condition_ir,
     load_response_pilot_records,
     validate_career_ordinal_cross_artifacts,
+    validate_career_compiler_readiness_cross_artifacts,
     validate_real_adapter_zero_unlock,
 )
 
@@ -37,7 +44,7 @@ SYNTHETIC = (
     ROOT / "product" / "RESPONSE_SEMANTICS_ADAPTER_SYNTHETIC_FIXTURE_v0.1.json"
 )
 READINESS = (
-    ROOT / "product" / "RESPONSE_SEMANTICS_ADAPTER_READINESS_v0.2.json"
+    ROOT / "product" / "RESPONSE_SEMANTICS_ADAPTER_READINESS_v0.3.json"
 )
 
 
@@ -223,14 +230,14 @@ def test_named_composite_authorization_requires_exact_application_term():
 
 def test_promoted_career_response_inputs_are_explicit_superseding_versions():
     assert ACTIVATION_CLOSURE_PATH.name == (
-        "CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.13.json"
+        "CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.16.json"
     )
     assert CAREER_SEMANTIC_NORMALIZATION_PATH.name == (
         "CAREER_SEMANTIC_NORMALIZATION_36_v0.2.json"
     )
     activation = load_activation_closure()
     normalization = load_career_semantic_normalization()
-    assert activation["schema_version"] == "0.13"
+    assert activation["schema_version"] == "0.16"
     assert activation["summary"]["conditions_compiled"] == 0
     assert activation["summary"]["execution_unlocked"] == 0
     assert normalization["schema_version"] == "0.2"
@@ -252,38 +259,108 @@ def test_career_response_and_activation_join_is_exact_251():
     assert len(decision_ids) == 251
 
 
-def test_career_adapter_preserves_knowledge_readiness_classes():
+def test_career_adapter_preserves_knowledge_readiness_and_compiler_bands():
     decisions = build_career_response_decisions()
 
     assert Counter(item.knowledge_readiness_class for item in decisions) == {
         "MULTI_CLASS_BLOCKED": 44,
-        "LOCAL_STRUCTURE_READY": 23,
+        "LOCAL_STRUCTURE_READY": 26,
         "SOURCE_UNDERDETERMINED": 157,
-        "DEPENDENCY_COMPILER_GATED": 27,
+        "DEPENDENCY_COMPILER_GATED": 24,
     }
     assert Counter(item.adapter_status for item in decisions) == {
         "BLOCKED_MULTIPLE": 44,
-        "SEMANTIC_ONLY_PENDING_COMPILATION": 23,
+        "KNOWLEDGE_CONDITION_IR_READY_PENDING_PRODUCT_COMPILATION": 12,
+        "LOCAL_STRUCTURE_NOT_CONDITION_IR_READY": 14,
         "BLOCKED_SOURCE_UNDERDETERMINED": 157,
-        "BLOCKED_DEPENDENCY_COMPILER": 27,
+        "BLOCKED_DEPENDENCY_COMPILER": 24,
+    }
+
+    local_ready = [
+        item
+        for item in decisions
+        if item.knowledge_readiness_class == "LOCAL_STRUCTURE_READY"
+    ]
+    assert Counter(item.compiler_readiness_band for item in local_ready) == {
+        "DEPENDENCY_EFFECTIVE_UNDERDETERMINED": 11,
+        "DEPENDENCY_CONDITION_IR_READY": 3,
+        "DIRECT_CONDITION_IR_READY": 9,
+        "DIRECT_RELATION_OR_COMPOSITION_DEFERRED": 3,
     }
 
 
-def test_local_structure_ready_is_not_execution_unlock():
+def test_local_structure_ready_is_split_by_condition_ir_readiness_without_unlock():
     local_ready = [
         item
         for item in build_career_response_decisions()
         if item.knowledge_readiness_class == "LOCAL_STRUCTURE_READY"
     ]
+    ready = [item for item in local_ready if item.knowledge_condition_ir_ready]
+    not_ready = [item for item in local_ready if not item.knowledge_condition_ir_ready]
 
-    assert len(local_ready) == 23
+    assert len(local_ready) == 26
+    assert len(ready) == 12
+    assert len(not_ready) == 14
     assert all(
-        item.adapter_status == "SEMANTIC_ONLY_PENDING_COMPILATION"
-        for item in local_ready
+        item.adapter_status
+        == "KNOWLEDGE_CONDITION_IR_READY_PENDING_PRODUCT_COMPILATION"
+        for item in ready
     )
+    assert all(item.condition_ir_artifact for item in ready)
+    assert all(
+        item.adapter_status == "LOCAL_STRUCTURE_NOT_CONDITION_IR_READY"
+        for item in not_ready
+    )
+    assert all(item.condition_ir_artifact is None for item in not_ready)
     assert all(item.condition_compiled is False for item in local_ready)
     assert all(item.knowledge_execution_unlocked is False for item in local_ready)
     assert all(item.runtime_effect_allowed is False for item in local_ready)
+
+
+def test_condition_ir_artifacts_cross_validate_and_ready_ids_are_exact():
+    census = load_career_compiler_readiness_census()
+    dependency = load_career_dependency_ir()
+    direct = load_career_direct_condition_ir()
+    validate_career_compiler_readiness_cross_artifacts()
+
+    ready_ids = {
+        row["source_rule_id"]
+        for row in census["records"]
+        if row["knowledge_condition_ir_ready"] is True
+    }
+    assert ready_ids == {
+        "CA02-181",
+        "CA03-228",
+        "CA05-411",
+        "CA05-417",
+        "CA05-419",
+        "CA05-420",
+        "CA05-433",
+        "CA07-638",
+        "CA07-639",
+        "CA07-681",
+        "CA07-682",
+        "CA09-820",
+    }
+    assert {row["child_rule_id"] for row in dependency["records"]} == {
+        "CA05-420",
+        "CA07-639",
+        "CA07-682",
+    }
+    assert len(direct["records"]) == 9
+
+
+def test_condition_ir_ready_rows_are_semantic_only_not_product_compiled():
+    ready = [
+        item
+        for item in build_career_response_decisions()
+        if item.knowledge_condition_ir_ready
+    ]
+    assert len(ready) == 12
+    assert all(item.condition_compiled is False for item in ready)
+    assert all(item.knowledge_execution_unlocked is False for item in ready)
+    assert all(item.runtime_effect_allowed is False for item in ready)
+    assert all(not item.compiler_readiness_blockers for item in ready)
 
 
 def test_real_career_adapter_authorizes_zero_runtime_effects():
@@ -330,7 +407,10 @@ def test_relation_binding_does_not_imply_member_realization_or_execution():
     assert decision.relation_binding_dispositions == ("RB1_SINGLE_TARGET_BOUND",)
     assert "OPEN_WORLD" in decision.category_membership_statuses
     assert decision.runtime_effect_allowed is False
-    assert decision.adapter_status != "SEMANTIC_ONLY_PENDING_COMPILATION"
+    assert (
+        decision.adapter_status
+        != "KNOWLEDGE_CONDITION_IR_READY_PENDING_PRODUCT_COMPILATION"
+    )
 
 
 def test_closed_world_absence_requires_explicit_evidence_token():
@@ -519,7 +599,17 @@ def test_readiness_summary_records_zero_unauthorized_unlocks():
     career = payload["career"]
     assert career["total_rows"] == 251
     assert career["response_gain_total"] == 89
-    assert career["semantic_only_pending_compilation"] == 23
+    assert career["knowledge_condition_ir_ready_pending_product_compilation"] == 12
+    assert career["local_structure_not_condition_ir_ready"] == 14
+    assert career["compiler_readiness_band_counts"] == {
+        "DEPENDENCY_EFFECTIVE_UNDERDETERMINED": 11,
+        "DEPENDENCY_CONDITION_IR_READY": 3,
+        "DIRECT_CONDITION_IR_READY": 9,
+        "DIRECT_RELATION_OR_COMPOSITION_DEFERRED": 3,
+    }
+    assert career["knowledge_condition_ir_ready_total"] == 12
+    assert career["dependency_condition_ir_records"] == 3
+    assert career["direct_condition_ir_records"] == 9
     assert career["runtime_effects_authorized"] == 0
     assert career["condition_compiled_count"] == 0
     assert career["knowledge_execution_unlocked_count"] == 0
@@ -575,3 +665,6 @@ def test_source_knowledge_files_are_read_only_inputs():
     assert CAREER_ORDINAL_RULE_LINKS_PATH.exists()
     assert CAREER_ORDINAL_BLOCKER_IMPACT_PATH.exists()
     assert CAREER_SEMANTIC_NORMALIZATION_PATH.exists()
+    assert CAREER_COMPILER_READINESS_CENSUS_PATH.exists()
+    assert CAREER_DEPENDENCY_IR_PATH.exists()
+    assert CAREER_DIRECT_CONDITION_IR_PATH.exists()
