@@ -1,0 +1,177 @@
+# Response Semantics Product Adapter v0.1 — Acceptance
+
+Tracking Issue: #462  
+Lane: PRODUCT_ONLY  
+Status: **IMPLEMENTED — FINAL VALIDATION REQUIRED ON MERGE HEAD**
+
+## Scope completed
+
+本 work unit 实现 Product v0.4 NOW-4：
+
+- Knowledge ResponseSemanticsRecord -> Product ResponseSemanticEnvelope；
+- explicit execution authorization boundary；
+- local scope / named composite / activation fail-closed gates；
+- Career 251-row Response Compatibility + Activation readiness join；
+- Relation Binding / Category review audit refs；
+- closed-world absence evidence gate；
+- versioned readiness audit；
+- synthetic positive authorization fixture。
+
+## Acceptance matrix
+
+| Requirement | Status | Evidence |
+|---|---|---|
+| 8 pilot records preserve semantic payload | PASS | adapter + tests |
+| LEXICAL_ONLY no runtime effect | PASS | mapping |
+| STRUCTURAL_ONLY no runtime effect | PASS | mapping |
+| SAFE_SYMBOLIC alone no runtime effect | PASS | explicit authorization gate |
+| synthetic SAFE_SYMBOLIC + explicit authorization can pass | PASS | synthetic fixture |
+| activation UNSPECIFIED never invents ANY/ALL | PASS | authorization guard |
+| local semantic scope cannot auto-globalize | PASS | scope binding/mismatch guards |
+| named composite cannot become generic shorthand | PASS | application-term guard |
+| 251 Response Compatibility rows joined exactly once | PASS | deterministic join |
+| 251 latest Activation v0.3 rows joined exactly once | PASS | deterministic join |
+| LOCAL_STRUCTURE_READY remains semantic-only | PASS | 17 rows pending compilation |
+| real Career runtime effects authorized | **0** | readiness audit |
+| condition_compiled | **0** | Knowledge input preserved |
+| Knowledge execution_unlocked | **0** | Knowledge input preserved |
+| unresolved antecedent refs | **0** | latest #458 closure |
+| explicit antecedent dependencies | **64** | latest #458 closure |
+| relation-bound source rows | **132** | Relation Binding input |
+| category-reviewed occurrences | **59** | Category input |
+| Career ordinal constraints consumed | **130** | Knowledge #461 / PR #463 |
+| ordinal constraints linked/dispositioned | **130/130** | latest Knowledge #465 / PR #466 |
+| linked atomic rule IDs | **130** | ordinal rule-link audit |
+| activation rules touched by ordinal evidence | **33** | blocker-impact audit |
+| blockers resolved by ordinal evidence | **0** | qualitative-only result |
+| ordinal runtime unlock | **0** | source registry preserved |
+| ordinal numericized constraints | **0** | non-numeric boundary |
+| ordinal transitive closure authorized | **0** | source-local boundary |
+| source-literal residual normalization | **36/36** | Knowledge #467 / PR #468 |
+| generic semantic-normalization blocker remaining | **0** | v0.3 closure |
+| normalization-triggered condition compilation | **0** | fail-closed boundary |
+| normalization-triggered execution unlock | **0** | fail-closed boundary |
+| closed-world absence gates preserved | PASS | 23 rows + evidence precondition |
+| relation binding != member realization | PASS | no execution inference |
+| open category != closed membership | PASS | category statuses preserved |
+| numeric gain / probability / learned weight added | NO | strict tests |
+| Knowledge files modified | NO | lane validation |
+| Response Compiler implemented | NO — out of scope | next phase |
+| ResponseProfile τ produced | NO — out of scope | next phase |
+
+## Readiness result
+
+~~~text
+Career total                          251
+SEMANTIC_ONLY_PENDING_COMPILATION        17
+BLOCKED_SOURCE_UNDERDETERMINED          160
+BLOCKED_DEPENDENCY_COMPILER              27
+BLOCKED_STRUCTURED_PATTERN_COMPILER        1
+BLOCKED_MULTIPLE                         46
+runtime authorized                        0
+~~~
+
+Compatibility remains informative but not executable:
+
+~~~text
+RS0_NO_DIRECT_RESPONSE_GAIN                 162
+RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS 55
+RS2_PARTIAL_RESPONSE_GAIN                    34
+response_gain_total                          89
+~~~
+
+## Critical invariant
+
+The adapter intentionally preserves:
+
+~~~text
+semantic review complete
+!=
+condition compiled
+!=
+runtime evidence satisfied
+!=
+execution authorized
+~~~
+
+No downstream Product component may use the adapter to infer an authorization that is absent from Knowledge.
+
+## Semantic-normalization refinement consumed
+
+Knowledge #467 / PR #468 completed source-preserving normalization of all **36/36** prior `SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED` residuals and superseded the Product input from Activation closure v0.2 to v0.3.
+
+Product consumes the new closure and normalization artifact read-only:
+
+- generic normalization blocker: **36 -> 0**;
+- no-current-blocker / LOCAL_STRUCTURE_READY rows: **17 -> 17**;
+- source-literal rows are replaced by precise open-category, shorthand, source-list, cardinality, or transformation-carrier blockers where needed;
+- condition compilation: **0**;
+- execution unlock: **0**;
+- Product runtime authorization: **0**.
+
+This is treated as representation-precision gain, not executability gain.
+
+## Source corrections consumed
+
+Latest Knowledge #458 / PR #460 state is used:
+
+- CA01-080 antecedent -> CA01-078；
+- CA01-098 contradictory inherited condition removed；
+- unresolved antecedent references -> 0；
+- explicit antecedent dependency rows -> 64。
+
+Product does not reinterpret these source corrections; it only consumes the latest closure.
+
+## Concurrent ordinal registry + rule-link audit consumed
+
+Knowledge #461 / PR #463 merged while this Product work unit was validating, so Product first synchronized and consumed `CAREER_ORDINAL_CONSTRAINTS_v0.1.json` read-only.
+
+Knowledge #465 / PR #466 then completed source-constrained linking of all 130 ordinal constraints back to atomic Career rules. Product synchronized main again before final merge and now also consumes, read-only:
+
+- `CAREER_ORDINAL_RULE_LINKS_v0.1.json`
+- `CAREER_ORDINAL_BLOCKER_IMPACT_v0.1.json`
+
+Final Product audit preserves:
+- 130/130 constraints dispositioned;
+- 130 linked atomic rule IDs;
+- 114 direct atomic links;
+- 15 shared-source multi-rule links;
+- 1 methodology/context-only row;
+- 33 activation-scope rules touched;
+- 94 NO_BLOCKER_REDUCTION;
+- 36 QUALITATIVE_REFINEMENT_ONLY;
+- **0** blockers resolved;
+- **0** execution unlock.
+
+The 130 normalized constraints still remain source/scoped qualitative constraints with `product_execution_unlocked=false`, `transitive_closure_allowed=false`, and numeric fields null.
+
+No ordinal link is converted into a Product weight, global ordering, probability, threshold, activation quantifier, or runtime effect.
+
+## Maturity claim
+
+After merge, only the following claims are permitted:
+
+~~~text
+Response Semantics Product adapter = IMPLEMENTED_V0_1
+semantic preservation              = INTERNALLY_VALIDATED
+Career readiness audit             = COMPLETE
+real Career runtime unlock         = ZERO
+Response Compiler                  = NOT_IMPLEMENTED
+ResponseProfile tau                = NOT_IMPLEMENTED
+source-backed dynamic response     = NOT_YET_EXECUTABLE
+predictive validity                = NOT_VALIDATED
+~~~
+
+## Next Product main path
+
+~~~text
+SOURCE_BACKED_RESPONSE_CORPUS_DEPENDENCY
+-> PL3R_DECADE_YEAR_RESPONSE_COMPILER
+~~~
+
+The next compiler must consume this adapter contract and must keep UNKNOWN /
+BLOCKED legal.
+
+## Validation
+
+Repository/Product validation evidence is recorded in PR #464 on the final merge head. The PR conversation is the execution-evidence record; this file keeps capability/maturity claims stable rather than duplicating mutable workflow identifiers.
