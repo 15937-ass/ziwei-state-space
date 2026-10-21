@@ -38,7 +38,11 @@ The need is concrete: G7 remained labeled as an active execution contract and it
 - no larger/billable GitHub runners;
 - no automatic push-triggered Actions.
 
-## Recovery Design
+## Proposed Design
+
+The design has two coordinated parts: a pointer-driven recovery contract and a G9 repository-authority amendment. Historical evidence remains preserved, while current task selection is resolved only through the canonical recovery chain below.
+
+### Recovery Design
 
 The authoritative bootstrap becomes:
 
@@ -65,7 +69,7 @@ The following are explicitly non-authoritative for task selection unless the act
 - superseded protocols;
 - historical Human-Gate `READY_FOR_PI` markers.
 
-## G9 Repository Authority
+### G9 Repository Authority
 
 The current ChatGPT conversation/session may use every GitHub repository action actually exposed by connected tools, including file, branch, Issue, PR, review/comment, draft/ready, merge/auto-merge, workflow/run, and other connector-exposed repository management operations.
 
@@ -84,6 +88,13 @@ Historical evidence is preserved. It is not rewritten merely because its old “
 Where a historical governance artifact itself is dangerously ambiguous, add a prominent `HISTORICAL / SUPERSEDED / DO NOT USE FOR RECOVERY` banner and a pointer to the current contract.
 
 For artifacts outside the active Governance lane's path ownership, the recovery contract prevents their local status words from becoming global execution commands.
+
+## Risks and Failure Modes
+
+- **Historical status-word leakage:** code search may surface an old `ACTIVE` or `READY_FOR_PI` fragment without context. Mitigation: recovery precedence makes such local status words non-authoritative and G7 excerpts are explicitly self-disqualifying.
+- **Capability/governance confusion:** “full repository authority” could be misread as permission to bypass Human Gates or validation. Mitigation: G8 and AGENT_WORKFLOW explicitly preserve Issue-first, lane, PR, source-integrity, and validation boundaries.
+- **State-cache drift:** lane YAML can lag a live Issue/PR. Mitigation: live GitHub Issue/PR wins for execution status and stale caches are repaired later.
+- **Over-cleaning history:** rewriting old validation records could destroy audit provenance. Mitigation: historical evidence is preserved; only current governance pointers and visible supersession banners are changed.
 
 ## Compatibility
 
@@ -119,6 +130,22 @@ Full repository quality gate and governance validator must pass on the exact PR 
 7. add non-execution-queue warnings to Roadmaps/Decision Log/execution plan;
 8. pass G8 quality gate;
 9. merge and close #374.
+
+## Rollback Plan
+
+Revert PR #496. This removes `RECOVERY_PRECEDENCE_v1.md`, restores pre-G9 authority wording, and returns the repository to the prior recovery behavior. Historical evidence is not deleted by either forward migration or rollback.
+
+If only the recovery contract proves problematic, a follow-up Governance Issue may replace the pointer in `PROJECT_STATE.yaml` without altering Product or Knowledge semantics.
+
+## Graduation Criteria
+
+- `PROJECT_STATE.yaml` names one current execution protocol and one recovery-precedence contract;
+- G7 is unmistakably historical/superseded;
+- G8 explicitly grants conversation mode all connector-exposed repository operations while preserving governance boundaries;
+- Roadmaps/Decision Log/plans cannot be mistaken for live task ledgers under the recovery contract;
+- legacy Human-Gate markers do not become current unless the current lane state/live Issue says so;
+- full pytest, P0 audit, JS checks, and Governance lane validation pass on the exact PR head;
+- PR #496 is merged and Issue #374 is closed.
 
 ## Human Gate
 
