@@ -30,8 +30,8 @@ Status: **IMPLEMENTED — FINAL VALIDATION REQUIRED ON MERGE HEAD**
 | local semantic scope cannot auto-globalize | PASS | scope binding/mismatch guards |
 | named composite cannot become generic shorthand | PASS | application-term guard |
 | 251 Response Compatibility rows joined exactly once | PASS | deterministic join |
-| 251 latest Activation v0.5 rows joined exactly once | PASS | deterministic join |
-| LOCAL_STRUCTURE_READY remains semantic-only | PASS | 18 rows pending compilation |
+| 251 latest Activation v0.3 rows joined exactly once | PASS | deterministic join |
+| LOCAL_STRUCTURE_READY remains semantic-only | PASS | 17 rows pending compilation |
 | real Career runtime effects authorized | **0** | readiness audit |
 | condition_compiled | **0** | Knowledge input preserved |
 | Knowledge execution_unlocked | **0** | Knowledge input preserved |
@@ -48,12 +48,6 @@ Status: **IMPLEMENTED — FINAL VALIDATION REQUIRED ON MERGE HEAD**
 | ordinal numericized constraints | **0** | non-numeric boundary |
 | ordinal transitive closure authorized | **0** | source-local boundary |
 | source-literal residual normalization | **36/36** | Knowledge #467 / PR #468 |
-| Baiguan structured-pattern residuals refined | **4/4** | #469 / PR #470; no universal threshold |
-| Baiguan runtime unlock | **0** | fail-closed |
-| source-lexicon / quantifier residuals reviewed | **10/10** | #471 / PR #473 |
-| source-resolved / no-universal / still-underdetermined | **2 / 5 / 3** | source review |
-| newly local-structure-ready | **1** | CA05-484; still semantic-only |
-| source-lexicon triggered execution unlock | **0** | fail-closed |
 | generic semantic-normalization blocker remaining | **0** | v0.3 closure |
 | normalization-triggered condition compilation | **0** | fail-closed boundary |
 | normalization-triggered execution unlock | **0** | fail-closed boundary |
@@ -69,10 +63,11 @@ Status: **IMPLEMENTED — FINAL VALIDATION REQUIRED ON MERGE HEAD**
 
 ~~~text
 Career total                          251
-SEMANTIC_ONLY_PENDING_COMPILATION        18
-BLOCKED_SOURCE_UNDERDETERMINED          161
+SEMANTIC_ONLY_PENDING_COMPILATION        17
+BLOCKED_SOURCE_UNDERDETERMINED          160
 BLOCKED_DEPENDENCY_COMPILER              27
-BLOCKED_MULTIPLE                         45
+BLOCKED_STRUCTURED_PATTERN_COMPILER        1
+BLOCKED_MULTIPLE                         46
 runtime authorized                        0
 ~~~
 
@@ -151,25 +146,6 @@ Final Product audit preserves:
 The 130 normalized constraints still remain source/scoped qualitative constraints with `product_execution_unlocked=false`, `transitive_closure_allowed=false`, and numeric fields null.
 
 No ordinal link is converted into a Product weight, global ordering, probability, threshold, activation quantifier, or runtime effect.
-
-
-## Latest v0.5 refinements consumed
-
-Knowledge #469/#470 replaces the four generic structured-pattern blockers with the more precise BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD. This is a taxonomy/source-model improvement, not an execution gain.
-
-Knowledge #471/#473 then reviews 10 source shorthand/list residuals. Two are source-resolved, five are frozen as no-universal-rule, and three remain underdetermined. One rule (CA05-484) moves into LOCAL_STRUCTURE_READY, raising the semantic-only pending-compilation count **17 -> 18**. Conditions compiled and execution unlocked both remain **0**.
-
-The Product adapter therefore preserves the important distinction:
-
-~~~text
-source resolved
-!=
-condition compiled
-!=
-runtime evidence satisfied
-!=
-execution authorized
-~~~
 
 ## Maturity claim
 
