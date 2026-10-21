@@ -21,11 +21,12 @@ For every new ChatGPT conversation, timeout recovery, model/session change, or s
    - `product/PRODUCT_STATE.yaml`
    - `knowledge/KNOWLEDGE_STATE.yaml`
    - `governance/GOVERNANCE_STATE.yaml`
-4. Query live GitHub Issues for the selected lane.
-5. If an active/open bounded Issue exists, **the Issue is execution truth even when the lane-state cache is stale**.
-6. Read the Issue-linked PR, if any. The PR is implementation truth.
-7. Read only artifacts required by that Issue/PR.
-8. Use the execution protocol explicitly named by `PROJECT_STATE.yaml`; do not select a protocol by filename age or by searching for the word `ACTIVE`.
+4. If the selected lane is Knowledge, select exactly one shard (`CORE` or `P01..P12`) and read the shard state referenced by the Knowledge coordinator.
+5. Query live GitHub Issues for the selected lane/shard.
+6. If an active/open bounded Issue exists, **the Issue is execution truth even when the state cache is stale**.
+7. Read the Issue-linked PR, if any. The PR is implementation truth.
+8. Read only artifacts required by that Issue/PR.
+9. Use the execution protocol explicitly named by `PROJECT_STATE.yaml`; do not select a protocol by filename age or by searching for the word `ACTIVE`.
 
 If GitHub live state and a state YAML disagree, **GitHub Issue/PR wins and the cache must be repaired**.
 
@@ -91,7 +92,9 @@ PROJECT_STATE authority pointers
 -> chat text
 ```
 
-For daily execution status specifically, the live GitHub Issue/PR outranks a stale lane-state cache.
+For daily execution status specifically, the live GitHub Issue/PR outranks a stale lane/shard-state cache.
+
+For Knowledge, multiple live Issues may legitimately exist only when they belong to distinct palace shards under the G12 limits. Recovery must not treat an Issue from another palace as the current chat's work unit.
 
 ## 7. Legacy-artifact handling
 
