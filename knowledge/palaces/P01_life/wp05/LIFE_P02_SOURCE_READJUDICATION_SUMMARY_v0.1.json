@@ -1,0 +1,181 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P01-LIFE-P02-SOURCE-READJUDICATION-SUMMARY-v0.1",
+  "issue": 568,
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "P01",
+  "palace": "命宫",
+  "status": "100_OF_100_DIRECT_SOURCE_RECHECKED_CANONICAL_PROMOTION_READY",
+  "source_basis": {
+    "source_id": "SRC-ZZ-003",
+    "work": "中州派紫微斗数深造讲义（下册）",
+    "chapter": "宫垣论·命宫",
+    "printed_pages": "6-9",
+    "archived_candidate_commit": "14fe294c81ba12a6745e82fdc7497a30d69fb5d7",
+    "archived_candidate_status": "NONCANONICAL_ACCELERATION_INPUT_ONLY"
+  },
+  "summary": {
+    "reviewed": 100,
+    "canonical_promoted": 100,
+    "reusable_projection_rules": 70,
+    "case_support_only": 30,
+    "source_resolution_changed_rows": [
+      "P02-112",
+      "P02-125",
+      "P02-130",
+      "P02-138",
+      "P02-139",
+      "P02-147",
+      "P02-148",
+      "P02-149",
+      "P02-164",
+      "P02-168",
+      "P02-169",
+      "P02-170",
+      "P02-177",
+      "P02-178",
+      "P02-182",
+      "P02-190",
+      "P02-199",
+      "P02-200"
+    ],
+    "source_resolution_change_count": 18,
+    "source_text_uncertainty_preserved": [
+      "P02-112",
+      "P02-164",
+      "P02-182"
+    ],
+    "history_dependency_rows": [
+      "P02-170"
+    ],
+    "cumulative_canonical_records_after_merge": 200,
+    "cumulative_reusable_projection_rules_after_merge": 149,
+    "cumulative_case_support_only_after_merge": 51,
+    "new_primitive_qi": 0,
+    "new_memory_type": 0,
+    "new_independent_time_scale": 0,
+    "numeric_weight": 0,
+    "probability": 0,
+    "decay": 0
+  },
+  "major_findings": [
+    "太阳与武曲两段再次确认：命宫判断必须同时保留庙陷/昼夜、对宫或他宫状态、辅煞条件、运限枢纽与场景投影，不能压成单一吉凶值。",
+    "“人生枢纽”与“运限”不等同于一个预先指定的 DECADE 枚举。P02-148/149、168/169、177/178 的旧单层时间标签均以 sidecar 保留源文真实范围。",
+    "太阳段的后续示例不能反向污染一般规则：P02-125 与 P02-130 删除了由例子误推出来的固定事业宫/迁移宫依赖。",
+    "武贪火铃展示强烈上下文依赖：在特定武贪结构中火铃可成激发条件，但化忌叠加时又按见煞论；因此火铃不能进入统一正负标量。",
+    "P02-199 明确显示命宫武破的合作判断必须回看兄弟宫，跨宫门控是命宫模型的组成部分而不是例外。",
+    "具体疾病、水险、死别、婚姻等继续停留在有源依据的事件候选/CASE_SUPPORT_ONLY 层，不转化为概率性现实断言。"
+  ],
+  "source_coverage_gaps_next_checkpoint": [
+    {
+      "gap_id": "P01-SRC-GAP-004",
+      "source_location": "命宫·天机·printed p6",
+      "source_claim": "辰戌机梁有空煞同躔时，源文另有“女命多伶仃”句。",
+      "reason": "P02-104只承接宗教职业场景，未独立保存该性别化关系/生活断语。"
+    },
+    {
+      "gap_id": "P01-SRC-GAP-005",
+      "source_location": "命宫·天机·printed p6",
+      "source_claim": "巳亥天机以天同巨门、廉贞天府两宫垣为流年枢纽，以杀破狼为大限枢纽。",
+      "reason": "历史101–200无对应独立记录。"
+    },
+    {
+      "gap_id": "P01-SRC-GAP-006",
+      "source_location": "命宫·太阳·printed p6",
+      "source_claim": "子午太阳的大运枢纽还包括巨门；流年枢纽还包括天同、天相，且有时须用机月对宫。",
+      "reason": "P02-140–143仅覆盖部分枢纽。"
+    },
+    {
+      "gap_id": "P01-SRC-GAP-007",
+      "source_location": "命宫·太阳·printed p7",
+      "source_claim": "丑未太阳以紫微天相、破军、天机巨门为流年大运枢纽。",
+      "reason": "历史候选遗漏整组枢纽。"
+    },
+    {
+      "gap_id": "P01-SRC-GAP-008",
+      "source_location": "命宫·太阳·printed p7",
+      "source_claim": "寅申太阳以紫微七杀、天相、天同太阴为枢纽，尤喜天同化禄、太阴化权、紫微化科。",
+      "reason": "历史候选遗漏。"
+    },
+    {
+      "gap_id": "P01-SRC-GAP-009",
+      "source_location": "命宫·太阳天梁·printed p7",
+      "source_claim": "酉宫阳梁夜生不利婚姻，日生初恋多失败。",
+      "reason": "历史候选遗漏具体条件。"
+    },
+    {
+      "gap_id": "P01-SRC-GAP-010",
+      "source_location": "命宫·太阳天梁·printed p7",
+      "source_claim": "卯宫阳梁以太阴所在宫垣为主宰命运枢纽；酉宫以天机所在宫垣为重要枢纽。",
+      "reason": "历史候选遗漏。"
+    },
+    {
+      "gap_id": "P01-SRC-GAP-011",
+      "source_location": "命宫·太阳·printed p7",
+      "source_claim": "辰戌太阳的日月全璧/日月失辉、太阴守身、财赋/大机构财权及大限流年枢纽整段。",
+      "reason": "历史100条边界从阳梁直接跳到武曲，整段未抽取。"
+    },
+    {
+      "gap_id": "P01-SRC-GAP-012",
+      "source_location": "命宫·太阳·printed p7",
+      "source_claim": "巳亥太阳的巳优于亥、异族助力/口舌困扰、福德天机门控、夫妻昌曲、神经/目疾及运限枢纽整段。",
+      "reason": "历史候选遗漏整段。"
+    },
+    {
+      "gap_id": "P01-SRC-GAP-013",
+      "source_location": "命宫·武曲·printed p8",
+      "source_claim": "辰/戌年武曲辰戌、丑/未年武贪丑未的古诀军功起家条件。",
+      "reason": "历史候选未抽取；后续需以传统场景边界保存。"
+    },
+    {
+      "gap_id": "P01-SRC-GAP-014",
+      "source_location": "命宫·武曲天府·printed p8",
+      "source_claim": "天同、太阳太阴人生枢纽遇吉则少年享受/中晚年福厚，遇煞忌刑则少年与中晚年均受影响。",
+      "reason": "P02-168/169仅保存枢纽名，未保存条件性后果。"
+    },
+    {
+      "gap_id": "P01-SRC-GAP-015",
+      "source_location": "命宫·武曲天府·printed p8",
+      "source_claim": "武府以贪狼、紫微天相、七杀、破军为流年枢纽。",
+      "reason": "历史候选遗漏。"
+    },
+    {
+      "gap_id": "P01-SRC-GAP-016",
+      "source_location": "命宫·武曲贪狼·printed p8",
+      "source_claim": "武贪火铃在财帛/田宅亦吉；无煞与有煞分别对应横发及横发横破。",
+      "reason": "历史候选只保留部分武贪火铃条件。"
+    },
+    {
+      "gap_id": "P01-SRC-GAP-017",
+      "source_location": "命宫·武曲贪狼·printed p8",
+      "source_claim": "武贪以天府、廉贞破军、天机天梁为流年枢纽。",
+      "reason": "历史候选遗漏。"
+    },
+    {
+      "gap_id": "P01-SRC-GAP-018",
+      "source_location": "命宫·武曲天相·printed p8-9",
+      "source_claim": "武相以太阳天梁、天机、太阴为大运枢纽；七杀、破军、贪狼、紫微为流年枢纽。",
+      "reason": "历史候选遗漏。"
+    },
+    {
+      "gap_id": "P01-SRC-GAP-019",
+      "source_location": "命宫·武曲七杀·printed p9",
+      "source_claim": "卯宫见煞忌主意外、酉宫为争财动武等分支，以及同梁/太阳/太阴大运枢纽和廉贪/紫破/本宫流年枢纽。",
+      "reason": "P02-191只压缩保存危险性总括，细分源义未完整抽取。"
+    },
+    {
+      "gap_id": "P01-SRC-GAP-020",
+      "source_location": "命宫·辰戌武曲·printed p9",
+      "source_claim": "辰戌武曲必与贪狼相对，性质与丑未武贪同意，大运流年枢纽亦同。",
+      "reason": "历史候选遗漏继承关系。"
+    },
+    {
+      "gap_id": "P01-SRC-GAP-021",
+      "source_location": "命宫·亥宫武曲破军·printed p9",
+      "source_claim": "亥宫武破“多是非动荡”的基础描述。",
+      "reason": "P02-200原候选只保存了父母宫支持不足与壬年例外，本批先恢复进该行；后续可决定是否拆成独立基础规则。"
+    }
+  ],
+  "shared_semantic_gaps": [],
+  "human_gate_required": false
+}
