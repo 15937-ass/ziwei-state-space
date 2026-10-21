@@ -58,14 +58,6 @@ jobs:
           npm install --no-save iztro@2.6.1
           python -m pip install --upgrade "x-iztro==0.6.1"
 
-      - name: Probe Wang source-bounded lunar reconstruction
-        run: |
-          node product/tools/wang_lunar_reconstruction_probe.mjs \
-            product/expert_cases/wang_tingzhi/SOURCE_BIRTH_SIGNATURES_V0_1.json \
-            product/expert_cases/wang_tingzhi/BLIND_EVIDENCE_V0_1.json \
-            /tmp/wang_reconstruction_readiness.json
-          cat /tmp/wang_reconstruction_readiness.json | head -220
-
       - name: Export iztro JS full snapshots
         env:
           IZTRO_VERSION: "2.6.1"

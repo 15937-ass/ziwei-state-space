@@ -58,8 +58,14 @@ probe passes on the PR head.
 
 ## Observed pinned-engine result
 
-The PR-head probe completed successfully under `product-p1-dual-engine`
-(run 603; probe step conclusion = success).
+The pinned-engine probe completed successfully on implementation commit
+`096f82b13a635a19543105d88446b2dded44939d` under `product-p1-dual-engine`
+([run 612](https://github.com/15937-ass/ziwei-state-space/actions/runs/39695779056);
+probe step conclusion = success).
+
+The final governance-cleanup commit restores the workflow file to the current
+main version and updates this evidence pointer only; it does not change the
+tested probe, source inputs, blind anchor, or reconstruction implementation.
 
 Observed census:
 
