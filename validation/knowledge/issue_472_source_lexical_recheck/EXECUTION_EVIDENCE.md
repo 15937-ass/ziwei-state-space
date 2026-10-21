@@ -36,7 +36,7 @@ Attempted the required checkout in the available OpenAI container:
 git clone --depth 1 https://github.com/15937-ass/ziwei-state-space.git /tmp/ziwei-state-space
 ```
 
-Result: **INFRASTRUCTURE BLOCKER** — `fatal: unable to access 'https://github.com/15937-ass/ziwei-state-space.git/': Could not resolve host: github.com`.
+Result: **INFRASTRUCTURE BLOCKER** — `fatal: unable to access 'https://github.com/15937-ass/ziwei-state-space.git/': Could not resolve host: github.com`. A follow-up `curl --resolve` attempt against four GitHub HTTPS IPs also failed immediately with `Could not connect to server`; outbound repository access is unavailable, not merely a missing local DNS cache.
 
 Because no repository checkout is available in this runtime, the following were **NOT RUN**:
 - targeted pytest;
