@@ -7,7 +7,7 @@ execution:
   status: "ACTIVE_NO_ACTIVE_WORK"
   program: "KB_WP08_DEPENDENCY_COMPILER_PREP"
   active_issue: 510
-  active_pr: null
+  active_pr: 511
   canonical_main_checkpoint: "CAREER_COMPILER_READINESS_CENSUS_26_OF_26"
   resume_entry: "Issue #510 audits all 26 Career rows currently marked LOCAL_STRUCTURE_READY and separates row-local readiness from true Knowledge condition-IR readiness. The 26 partition exactly into 11 DEPENDENCY_EFFECTIVE_UNDERDETERMINED, 3 DEPENDENCY_CONDITION_IR_READY, 9 DIRECT_CONDITION_IR_READY, and 3 DIRECT_RELATION_OR_COMPOSITION_DEFERRED. Thus only 12/26 are currently Knowledge condition-IR-ready; 14/26 remain fail-closed despite an empty row-local blocker list. The 9 direct IR rows are CA02-181, CA03-228, CA05-411, CA05-417, CA05-419, CA05-433, CA07-638, CA07-681, and CA09-820. CA05-484 / CA06-582 / CA07-699 remain deferred because generic 会/同会 geometry or compound relation composition is not deterministic. Closure v0.16 changes no canonical blocker/readiness counts: LOCAL_STRUCTURE_READY=26, no-current-blocker=26, source-underdetermined=201, source_resolution_changes=45, conditions_compiled=0, execution_unlocked=0. Next Knowledge work should decide whether to close WP08 Career compiler-prep as a mature bounded package and migrate the validated method to the next palace/domain rather than overfitting Career."
   resume_issue: 510
@@ -286,7 +286,7 @@ completed_work_units:
 
   - work_unit: "KB-WP08-CAREER-COMPILER-READINESS-CENSUS-26"
     issue: 510
-    pr: null
+    pr: 511
     status: "ACTIVE_26_OF_26_CENSUS_9_DIRECT_IR_MATERIALIZED_PENDING_VALIDATION_AND_MERGE"
 
 archived_noncanonical_snapshots:
