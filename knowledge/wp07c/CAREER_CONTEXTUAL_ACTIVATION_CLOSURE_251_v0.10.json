@@ -139,7 +139,11 @@
     "fourth_layer_source_condition_repairs": 1,
     "fourth_layer_blocker_repairs_or_refinements": 2,
     "fourth_layer_source_local_resolved": 0,
-    "fourth_layer_newly_no_blocker_rows": 0
+    "fourth_layer_newly_no_blocker_rows": 0,
+    "fourth_layer_source_scope_metadata_repairs": 4,
+    "fourth_layer_out_of_scope_adjacent_scope_defects_observed": [
+      "CA08-704"
+    ]
   },
   "source_recheck_outcome": {
     "human_gate_required": false,
@@ -166,7 +170,8 @@
     "Issue #481 completes second-layer review of the remaining 37 rules from Issue #475. Four rules gain source-local semantic closure, while the rest move from generic member/open blockers to precise shorthand, qualified-support, source-compound, open-category, antecedent, or closed-world blockers. No universal default is introduced.",
     "Issue #485 removes the generic OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED label from the first 100 of 110 remaining rows and replaces it with precise closed-category activation, open-valence, open-functional, source-compound, qualified-auxiliary, valence-state, source-open-tail, elemental-category, and threshold blockers. This is semantic refinement, not increased execution permission.",
     "Issue #487 retires the final generic OPEN_CATEGORY blocker and deepens 90 single-blocker rows into local relation/composition subtypes. Only CA03-228 gains blocker-free source-local structure; branch/dependency repairs remain fail-closed. No universal activation default is introduced.",
-    "Issue #489 rechecks 100 precise single-blocker rows against source-local evidence. Most remain blocked because the source does not specify internal member realization, source-compound boolean algebra, or operational valence criteria. Three semantic defects are corrected without execution unlock: CA06-593 restores a missing 科文 activation blocker; CA07-700 adds transformation-carrier ambiguity; CA08-702 repairs a same-star transformation list to alternative branches."
+    "Issue #489 rechecks 100 precise single-blocker rows against source-local evidence. Most remain blocked because the source does not specify internal member realization, source-compound boolean algebra, or operational valence criteria. Three semantic defects are corrected without execution unlock: CA06-593 restores a missing 科文 activation blocker; CA07-700 adds transformation-carrier ambiguity; CA08-702 repairs a same-star transformation list to alternative branches.",
+    "Four selected rows receive source-scope metadata overrides for historical section-boundary drift (CA07-609; CA08-701/702/703). Historical audit artifacts remain immutable; CA08-704 is an observed adjacent out-of-scope defect for a later bounded repair."
   ],
   "records": [
     {
@@ -3111,7 +3116,9 @@
       "third_layer_disposition": "THIRD_LAYER_FAIL_CLOSED",
       "fourth_layer_issue": 489,
       "fourth_layer_evidence_status": "CLOSED_MALEFIC_MEMBERSHIP_ACTIVATION_STILL_CONTEXTUAL",
-      "fourth_layer_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED"
+      "fourth_layer_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "fourth_layer_source_scope_override": "天同事业宫／天同化忌后段",
+      "fourth_layer_source_scope_historical_value": "太阴守事业宫总论"
     },
     {
       "source_rule_id": "CA07-610",
@@ -3757,7 +3764,9 @@
       "third_layer_disposition": "THIRD_LAYER_FAIL_CLOSED",
       "fourth_layer_issue": 489,
       "fourth_layer_evidence_status": "NO_SOURCE_BOOLEAN_COMPOSITION_EVIDENCE",
-      "fourth_layer_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED"
+      "fourth_layer_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "fourth_layer_source_scope_override": "巳亥事业宫巨门、对宫太阳",
+      "fourth_layer_source_scope_historical_value": "天相守事业宫总论"
     },
     {
       "source_rule_id": "CA08-702",
@@ -3781,7 +3790,9 @@
       "fourth_layer_evidence_status": "TRANSFORMATION_LIST_OUTER_OR_REPAIRED",
       "fourth_layer_disposition": "SOURCE_CONDITION_REPAIRED_STILL_BLOCKED",
       "fourth_layer_source_repair": "Source literal `巨门化禄、化权，又见魁钺` is a two-alternative transformation list. Existing Career precedent CA07-624/CA02-174 treats same-star `化禄、化权` lists as alternative branches, not simultaneous transformations.",
-      "fourth_layer_normalized_expression": "AND[LOCAL_OR[TRANSFORM(巨门,化禄),TRANSFORM(巨门,化权)], MEET(魁钺_INTERNAL_REALIZATION_UNRESOLVED)]"
+      "fourth_layer_normalized_expression": "AND[LOCAL_OR[TRANSFORM(巨门,化禄),TRANSFORM(巨门,化权)], MEET(魁钺_INTERNAL_REALIZATION_UNRESOLVED)]",
+      "fourth_layer_source_scope_override": "巳亥事业宫巨门、对宫太阳",
+      "fourth_layer_source_scope_historical_value": "天相守事业宫总论"
     },
     {
       "source_rule_id": "CA08-703",
@@ -3803,7 +3814,9 @@
       "third_layer_disposition": "THIRD_LAYER_FAIL_CLOSED",
       "fourth_layer_issue": 489,
       "fourth_layer_evidence_status": "NO_SOURCE_LOCAL_MEMBER_REALIZATION_EVIDENCE",
-      "fourth_layer_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED"
+      "fourth_layer_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "fourth_layer_source_scope_override": "巳亥事业宫巨门、对宫太阳",
+      "fourth_layer_source_scope_historical_value": "天相守事业宫总论"
     },
     {
       "source_rule_id": "CA08-704",
