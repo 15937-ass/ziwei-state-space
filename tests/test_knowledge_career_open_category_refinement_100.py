@@ -50,6 +50,20 @@ def test_open_tail_elemental_and_thresholds():
     assert 'CARDINALITY_THRESHOLD_UNSPECIFIED' in rows['CA04-345']['blockers_after']
     assert 'SEVERITY_THRESHOLD_UNSPECIFIED' in rows['CA04-366']['blockers_after']
     assert 'CARDINALITY_THRESHOLD_UNSPECIFIED' in rows['CA07-632']['blockers_after']
+    assert 'CARDINALITY_THRESHOLD_UNSPECIFIED' not in rows['CA07-633']['blockers_after']
+    assert 'SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED' in rows['CA07-633']['blockers_after']
+    assert 'SOURCE_LIST_QUANTIFIER_UNSPECIFIED' in rows['CA07-633']['blockers_after']
+
+def test_source_recheck_repairs():
+    r=load(R); rows={x['source_rule_id']:x for x in r['records']}
+    assert rows['CA03-298']['source_text_changed'] is True
+    assert '等杂曜' in rows['CA03-298']['source_repair']
+    assert 'SOURCE_BRANCH_SCOPE_RECHECK_REQUIRED' in rows['CA07-652']['blockers_after']
+    assert 'VALENCE_STATE_CRITERION_UNSPECIFIED' in rows['CA08-725']['blockers_after']
+    assert 'OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED' not in rows['CA08-725']['blockers_after']
+    assert r['summary']['source_resolution_changes']==4
+    assert r['summary']['source_text_changes']==4
+
 
 def test_closure_v08_census():
     c7,c8=load(C7),load(C8)
@@ -59,6 +73,9 @@ def test_closure_v08_census():
     assert c8['summary']['rows_with_no_current_activation_blocker']==21
     assert c8['summary']['open_category_refinement_target_rows']==100
     assert c8['summary']['open_category_refinement_blockers_cleared_to_zero']==0
+    assert c8['summary']['open_category_refinement_source_resolution_changes']==4
+    assert c8['summary']['open_category_refinement_source_condition_repairs']==4
+    assert c8['summary']['source_resolution_changes']==32
     assert c8['summary']['conditions_compiled']==0
     assert c8['summary']['execution_unlocked']==0
 
