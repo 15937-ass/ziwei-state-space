@@ -1,0 +1,45 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P05-WEALTH-W03-SOURCE-TIME-SCOPE-v0.1",
+  "issue": 572,
+  "source_id": "SRC-ZZ-003",
+  "scope": "W03-201..W03-300 / printed pp74-76",
+  "counts": {
+    "non_natal_rows": 0,
+    "year": 0,
+    "decade": 0,
+    "path_dependent_gate_rows": 2
+  },
+  "exact_non_natal_ids": [],
+  "path_dependent_gate_ids": [
+    "W03-207",
+    "W03-278"
+  ],
+  "policy": [
+    "W03-207保留‘失时/失败→作为经验→有助日后开运’的来源顺序，但不编码为必然恢复、固定时长或转移概率。",
+    "W03-278保留丑未太阳太阴‘先散后聚’的来源顺序；不从‘先/后’推出年龄阈值、持续期或衰减参数。",
+    "本批没有来源明确的DECADE或YEAR投影，所有规则保持NATAL作用域；路径依赖不等于新增时间尺度。"
+  ],
+  "records": [
+    {
+      "projection_rule_id": "W03-207",
+      "source_location": "财帛宫printed_p74",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "天机化忌失时",
+      "canonical_target": "accepting_failure_as_experience_can_support_later_opening",
+      "source_scope_note": "原文是失时后的处置建议：坦然承受一些失败并作为经验，以助日后开运；不是保证失败之后必然开运。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W03-278",
+      "source_location": "财帛宫printed_p76",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "丑未日月",
+      "canonical_target": "disperse_then_accumulate",
+      "source_scope_note": "候选条件、作用域与投影方向均不超出直接复核到的原文；本批不增加概率、权重、频率、阈值或持续期参数。",
+      "no_numeric_generalization": true
+    }
+  ]
+}
