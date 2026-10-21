@@ -123,3 +123,37 @@ pi_manual_pilot_output:
   contract_violation:
     - "Manual Pilot 只输出用户版、不输出 PI 审计版。"
     - "把 source-backed fallback 冒充为 runtime 自动推演。"
+
+
+pilot_case_loop:
+  enabled: true
+  storage_scope: "apps/social_quickread_pilot only"
+  capture_trigger:
+    - "盘主明确确认或否定某个判断。"
+    - "盘主提供新的可验证前后事。"
+    - "PI 认为话术特别自然，值得保留。"
+    - "案例暴露出高频 coverage gap / hallucination / 串盘 / 错读宫。"
+  feedback_labels: ["HIT", "PARTIAL", "CONTRADICT", "NEW_FACT", "STYLE_ONLY", "UNCLEAR"]
+  pi_audit_suffix:
+    required_when_feedback_present: true
+    field: "CASE_CAPTURE"
+    values: ["candidate", "skip", "preferred_candidate"]
+  preferred_example_gate:
+    pi_explicit_approval: true
+    min_factual_score: 4
+    min_style_score: 4
+    max_hallucination_count: 0
+    style_only: true
+  privacy:
+    deidentified_only: true
+    forbidden_git_fields:
+      - "xiaohongshu_username"
+      - "profile_url"
+      - "post_url"
+      - "avatar"
+      - "raw_chart_image"
+      - "exact_birth_timestamp"
+  governance:
+    - "盘主反馈只能作为 observation/eval data，不能自动写回 Knowledge canonical。"
+    - "PreferredExample 只影响措辞，不得向另一张盘提供事实。"
+    - "单个 HIT/CONTRADICT 均不得直接创建、修改或删除 canonical rule。"
