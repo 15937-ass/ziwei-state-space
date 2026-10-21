@@ -1,0 +1,973 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P07-MIGRATION-M01-SOURCE-TIME-SCOPE-v0.1",
+  "issue": 550,
+  "source_id": "SRC-ZZ-003",
+  "chapter": "迁移宫",
+  "summary": {
+    "records": 100,
+    "special_scope_records": 24,
+    "approved_event_relative_overlays": [
+      "MIGRATION_FIRST_THREE_YEARS"
+    ],
+    "new_independent_time_scale": 0,
+    "generalized_event_timer": false,
+    "decay": false,
+    "probability": false
+  },
+  "records": [
+    {
+      "projection_rule_id": "M01-001",
+      "legacy_primary_time_layer": "DECADE",
+      "source_time_layers": [
+        "DECADE"
+      ],
+      "scope_status": "SOURCE_LITERAL_LONG_MOVE_DECADE",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-002",
+      "legacy_primary_time_layer": "YEAR",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "SOURCE_LITERAL_LONG_MOVE_YEAR",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-003",
+      "legacy_primary_time_layer": "MONTH",
+      "source_time_layers": [
+        "MONTH"
+      ],
+      "scope_status": "SOURCE_LITERAL_TRAVEL_MONTH",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-004",
+      "legacy_primary_time_layer": "YEAR",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "APPROVED_EVENT_RELATIVE_OVERLAY_HG_P07_TEMPORAL_01_A",
+      "dependencies": [
+        "CONFIRMED_DISTANT_SETTLEMENT",
+        "YEARS_SINCE_DISTANT_RELOCATION_IN_[1,3]"
+      ],
+      "event_relative_overlay": "MIGRATION_FIRST_THREE_YEARS",
+      "overlay_human_gate": "HG-P07-TEMPORAL-01-A",
+      "preserved_contexts": [
+        "annual_life_palace_rotation",
+        "other_palace_rotation"
+      ],
+      "no_new_calendar_layer": true
+    },
+    {
+      "projection_rule_id": "M01-005",
+      "legacy_primary_time_layer": "YEAR",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "EVENT_RELATIVE_OVERLAY_PRESERVES_ANNUAL_ROTATION",
+      "dependencies": [
+        "M01-004"
+      ]
+    },
+    {
+      "projection_rule_id": "M01-006",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-007",
+      "legacy_primary_time_layer": "YEAR",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-008",
+      "legacy_primary_time_layer": "YEAR",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-009",
+      "legacy_primary_time_layer": "YEAR",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-010",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL",
+        "DECADE",
+        "YEAR",
+        "MONTH"
+      ],
+      "scope_status": "SOURCE_EXPLICIT_MULTI_LAYER_METHOD",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-011",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "NATAL_BASELINE_NATURE",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-012",
+      "legacy_primary_time_layer": "DECADE",
+      "source_time_layers": [
+        "DECADE"
+      ],
+      "scope_status": "DECADE_REACTION_TO_NATAL_BASELINE",
+      "dependencies": [
+        "M01-011"
+      ]
+    },
+    {
+      "projection_rule_id": "M01-013",
+      "legacy_primary_time_layer": "YEAR",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "YEAR_REACTION_TO_NATAL_BASELINE",
+      "dependencies": [
+        "M01-011"
+      ]
+    },
+    {
+      "projection_rule_id": "M01-014",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "MOVEMENT_REQUIRES_SIGNAL",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-015",
+      "legacy_primary_time_layer": "YEAR",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "YEAR_MOVEMENT_SIGNAL",
+      "dependencies": [
+        "M01-014"
+      ]
+    },
+    {
+      "projection_rule_id": "M01-016",
+      "legacy_primary_time_layer": "YEAR",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "YEAR_MOVEMENT_SIGNAL",
+      "dependencies": [
+        "M01-014"
+      ]
+    },
+    {
+      "projection_rule_id": "M01-017",
+      "legacy_primary_time_layer": "YEAR",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "YEAR_MOVEMENT_SIGNAL",
+      "dependencies": [
+        "M01-014"
+      ]
+    },
+    {
+      "projection_rule_id": "M01-018",
+      "legacy_primary_time_layer": "YEAR",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "INVOLUNTARY_MOVE_CROSS_PALACE_TRIGGER",
+      "dependencies": [
+        "M01-014"
+      ]
+    },
+    {
+      "projection_rule_id": "M01-019",
+      "legacy_primary_time_layer": "YEAR",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "PROPERTY_PALACE_INVOLUNTARY_MOVE_TRIGGER",
+      "dependencies": [
+        "M01-018"
+      ]
+    },
+    {
+      "projection_rule_id": "M01-020",
+      "legacy_primary_time_layer": "YEAR",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "SPOUSE_PALACE_INVOLUNTARY_MOVE_TRIGGER",
+      "dependencies": [
+        "M01-018"
+      ]
+    },
+    {
+      "projection_rule_id": "M01-021",
+      "legacy_primary_time_layer": "YEAR",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "POST_MOVE_OUTCOME_RETURNS_TO_MIGRATION",
+      "dependencies": [
+        "M01-018"
+      ]
+    },
+    {
+      "projection_rule_id": "M01-022",
+      "legacy_primary_time_layer": "YEAR",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "MOVEMENT_CAN_ACTIVATE_ADVERSE_CONTEXT",
+      "dependencies": [
+        "M01-014"
+      ]
+    },
+    {
+      "projection_rule_id": "M01-023",
+      "legacy_primary_time_layer": "YEAR",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "MOVEMENT_SIGNAL_NOT_AUTOMATIC_WEALTH",
+      "dependencies": [
+        "M01-015",
+        "M01-016"
+      ]
+    },
+    {
+      "projection_rule_id": "M01-024",
+      "legacy_primary_time_layer": "YEAR",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "YEAR_MOVEMENT_WITH_ADVERSE_OVERRIDE",
+      "dependencies": [
+        "M01-016"
+      ]
+    },
+    {
+      "projection_rule_id": "M01-025",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-026",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-027",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-028",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-029",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-030",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-031",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-032",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-033",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-034",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-035",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-036",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-037",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-038",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-039",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-040",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-041",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-042",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-043",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-044",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "PATH_DEPENDENT_SOURCE_SEQUENCE",
+      "dependencies": [
+        "MH-001"
+      ]
+    },
+    {
+      "projection_rule_id": "M01-045",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-046",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-047",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-048",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-049",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-050",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-051",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-052",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-053",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-054",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "PATH_DEPENDENT_CASE_SEQUENCE",
+      "dependencies": [
+        "M01-053",
+        "MH-002"
+      ]
+    },
+    {
+      "projection_rule_id": "M01-055",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-056",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-057",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-058",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-059",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-060",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-061",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-062",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-063",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-064",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-065",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-066",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-067",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-068",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-069",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-070",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-071",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-072",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-073",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-074",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-075",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-076",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-077",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-078",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-079",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-080",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-081",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-082",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-083",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-084",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-085",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-086",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-087",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-088",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "PATH_DEPENDENT_SOURCE_SEQUENCE",
+      "dependencies": [
+        "M01-087",
+        "MH-003"
+      ]
+    },
+    {
+      "projection_rule_id": "M01-089",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-090",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-091",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-092",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-093",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-094",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-095",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-096",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-097",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-098",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-099",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+      "dependencies": []
+    },
+    {
+      "projection_rule_id": "M01-100",
+      "legacy_primary_time_layer": "NATAL",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "PATH_DEPENDENT_SOURCE_SEQUENCE",
+      "dependencies": [
+        "M01-097",
+        "M01-098",
+        "M01-099",
+        "MH-004"
+      ]
+    }
+  ]
+}
