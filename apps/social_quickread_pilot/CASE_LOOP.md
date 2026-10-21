@@ -184,3 +184,34 @@ knowledge research candidate
 ```
 
 之后必须重新查原书、实例和治理流程，才能进入 Knowledge 工作流。
+
+
+## 9. Temporal-4H 特征
+
+年份类案例若启用了 `Temporal-4H Mini Kernel`，可把
+`quickread_temporal_payload(snapshot)` 的去标识化结果写入
+`CaseRecord.temporal_features`。
+
+这样后续评估可以区分：
+
+```text
+baseline:
+原局 + 大限宫星 + 流年落宫
+
+temporal_4h:
+baseline
++ 大限四化
++ 流年四化
++ 同星/同宫跨层结构
++ 生年同星再激活
+```
+
+目标是在 20~50 个有效年份案例后比较两种模式的：
+
+- factual_score；
+- HIT / PARTIAL / CONTRADICT；
+- hallucination_count；
+- coverage gap；
+- PI 主观“信息增量是否明显”。
+
+当前只记录结构特征，不把盘主反馈反向训练成四化规则。
