@@ -8,14 +8,14 @@ execution:
   phase: "PL3_METHOD_RESPONSE_VERTICAL_SLICE"
   active_issue: null
   active_pr: null
-  next_work_unit: "PRODUCT_KNOWLEDGE_LOCK_V0_1"
-  resume_entry: "Product #482 / PR #484 are complete on main: NOW-5 Product-side Response Corpus ingestion/readiness found 1039 source temporal candidate rows but 0 compiler-ready canonical Kr on its frozen acceptance baseline, so NOW-6 remains fail-closed. Proposal #491 adds the Product Knowledge dependency/promotion contract: Knowledge main must not silently mutate active Product; Product must first implement a machine-verifiable KIB/active lock, then semantic impact + selective rebuild/promotion. Immediate next Product work is PRODUCT_KNOWLEDGE_LOCK_V0_1, followed by PRODUCT_KNOWLEDGE_IMPACT_V0_1. WANG_BLIND_EVIDENCE_MATERIALIZATION_V0_1 remains an independent Benchmark-B dependency. Response Compiler and ResponseProfile tau remain NOT_IMPLEMENTED; predictive validity remains NOT_VALIDATED."
-  state_cache_as_of_main_commit: "7865dfa8e02506cbff92454a4e00dbda2efede9f"
-  state_cache_as_of_product_merge: "b9a2a25d3874370959bc6fd93433fade02daf96a"
+  next_work_unit: "PRODUCT_KNOWLEDGE_PROMOTION_CAREER_RESPONSE_V0_16"
+  resume_entry: "Product #494/#495 implemented the componentized KIB + active lock; Product #500 implemented semantic impact / selective promotion gating; Product #504/#506 executed the first real controlled K_response promotion to Career closure v0.13 and semantic normalization v0.2 with zero runtime authorization. Product #512 / PR #517 then materializes source-reviewed target-palace major-star blind evidence for all 24 Wang cases: TARGET_PALACE MATERIALIZED_FACT=24/24, full chart remains NOT_MATERIALIZED, FULL_EXPERT_REPLAY_READY remains 0/24 because the accepted six MethodPatterns do not directly target the twelve case domains. Current Knowledge main #510 now provides closure v0.16 with 12/26 Career LOCAL_STRUCTURE_READY rows represented as Knowledge condition IR (3 dependency IR + 9 direct IR), still conditions_compiled=0 and execution_unlocked=0. Immediate next Product work is an explicit v0.16 K_response impact/promotion review; only after controlled promotion may PL3-R Response Compiler consume a bounded condition-IR pilot. ResponseProfile tau and M0 remain NOT_IMPLEMENTED; method fidelity and predictive validity remain NOT_VALIDATED."
+  state_cache_as_of_main_commit: "eaa33deeb77a4f982bc13121c06cad657975177b"
+  state_cache_as_of_product_merge: "c1eab6d87a8d890c2324608355439da0c86e1df5"
   v04_entry_checkpoint_issue: 416
   v04_entry_checkpoint_pr: 418
-  last_completed_product_issue: 482
-  last_completed_product_pr: 484
+  last_completed_product_issue: 512
+  last_completed_product_pr: 517
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
   resume_issue: 290
@@ -82,25 +82,25 @@ capability_snapshot:
     internal_validation: "CONTRACT_CORPUS_AND_POLICY"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    note: "Product #431 / PR #435 define expert-method contracts; Product #441 / PR #444 add the source-backed Wang 24-case corpus, 6 SOURCE_EXPLICIT/SEMANTIC_ONLY method patterns and LOCO-24 manifest; Product #453 / PR #455 add deterministic same-domain CBR, a derived procedural execution adapter, evidence readiness, fail-closed Method Policy π v0.1 and readiness audit. RETRIEVAL_READY=24/24 and ACTION_SELECTION_READY=24/24, while FULL_EXPERT_REPLAY_READY=0/24 because Wang blind evidence is still SOURCE_REFERENCE_ONLY. Real replay requires WANG_BLIND_EVIDENCE_MATERIALIZATION_V0_1. Method fidelity and predictive validity remain NOT_VALIDATED."
+    note: "Product #431/#435 define expert-method contracts; #441/#444 add the source-backed Wang 24-case corpus, 6 SOURCE_EXPLICIT/SEMANTIC_ONLY method patterns and LOCO-24; #453/#455 add deterministic same-domain CBR and fail-closed Method Policy π v0.1. Product #512/#517 source-reviews all 24 case charts and materializes only target-palace identity + fourteen-major-star systems: 24/24 TARGET_PALACE=MATERIALIZED_FACT, six empty-main-star palaces preserve explicit opposite borrowing, full chart remains NOT_MATERIALIZED. RETRIEVAL_READY=24/24, ACTION_SELECTION_READY=24/24, FULL_EXPERT_REPLAY_READY=0/24 because accepted MethodPatterns target GLOBAL_PROFILE/TEMPORAL_INFERENCE/SYMBOLIC_INFERENCE rather than the twelve individual held-out domains. Method fidelity and predictive validity remain NOT_VALIDATED."
 
   response_semantics_adapter:
     specification: "V0_4_ARCHITECTURE_APPROVED"
-    implementation: "IMPLEMENTED_V0_1"
-    canonical_content: "KNOWLEDGE_DEPENDENT_FROZEN_V0_3_ACCEPTANCE_BASELINE"
+    implementation: "IMPLEMENTED_V0_2"
+    canonical_content: "KNOWLEDGE_DEPENDENT_ACTIVE_K_RESPONSE_V0_13"
     internal_validation: "INTERNALLY_VALIDATED"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    note: "Product #462 / PR #464 preserve 251/251 Career response semantics behind a fail-closed adapter. SEMANTIC_ONLY_PENDING_COMPILATION=17 and real runtime effects authorized=0. Compatibility/readiness never implies condition compilation or execution authorization; Response Compiler remains separate and not implemented."
+    note: "Product #462/#464 established the fail-closed Response Semantics adapter. Product #504/#506 performed the first controlled K_response promotion to Career closure v0.13 + semantic normalization v0.2: SEMANTIC_ONLY_PENDING_COMPILATION=23, BLOCKED_SOURCE_UNDERDETERMINED=157, BLOCKED_DEPENDENCY_COMPILER=27, BLOCKED_MULTIPLE=44; runtime effects authorized=0, condition_compiled=0, Knowledge execution_unlocked=0. Newer Knowledge v0.16 is not active Product input until a new explicit promotion passes."
 
   knowledge_dependency_control:
     specification: "PROPOSAL_491_APPROVED"
-    implementation: "NOT_IMPLEMENTED"
+    implementation: "IMPLEMENTED_V0_1"
     canonical_content: "NOT_APPLICABLE"
-    internal_validation: "NONE"
+    internal_validation: "INTERNALLY_VALIDATED"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    note: "Required before NOW-6 promotion of newer Knowledge inputs: componentized Knowledge Input Bundle, machine-verifiable active lock, semantic impact classification, selective downstream invalidation and candidate->validation->promotion. Existing frozen-baseline records remain historical evidence and are not retroactively upgraded."
+    note: "Implemented by Product #494 and #500, with first real promotion exercised by #504. Knowledge main does not silently mutate active Product: K_signal/K_response/K_manifest/K_method are locked, impact is classified before rebuild, and candidate->validation->promotion is explicit and rollbackable. Existing historical baselines remain immutable."
 
   response_profile:
     specification: "V0_4_ARCHITECTURE_APPROVED"
@@ -156,11 +156,10 @@ capability_snapshot:
 
 critical_path:
   now:
-    - "PRODUCT_KNOWLEDGE_LOCK_V0_1"
-    - "PRODUCT_KNOWLEDGE_IMPACT_V0_1"
+    - "PRODUCT_KNOWLEDGE_PROMOTION_CAREER_RESPONSE_V0_16"
     - "PL3R_DECADE_YEAR_RESPONSE_COMPILER"
     - "PL3M0_CANONICAL_MANIFESTATION_CANDIDATES"
-    - "WANG_BLIND_EVIDENCE_MATERIALIZATION_V0_1"
+    - "WANG_METHOD_SCOPE_AND_FULL_CHART_REVIEW"
     - "CANONICAL_AND_METHOD_FIDELITY_BENCHMARK"
     - "FORECAST_LEDGER_ACTIVATION"
   future:

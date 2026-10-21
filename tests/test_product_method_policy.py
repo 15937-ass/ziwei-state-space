@@ -16,6 +16,7 @@ from src.product.method_policy import (
     POLICY_VERSION,
     assess_patterns,
     audit_wang_method_policy_readiness,
+    build_materialized_wang_evidence,
     build_reference_only_evidence,
     classify_source_ref_status,
     load_execution_rules,
@@ -30,7 +31,7 @@ from src.product.method_policy import (
 
 ROOT = Path(__file__).resolve().parents[1]
 SYNTHETIC = ROOT / "product" / "METHOD_POLICY_SYNTHETIC_FIXTURE_v0.1.json"
-READINESS = ROOT / "product" / "WANG_METHOD_POLICY_READINESS_v0.1.json"
+READINESS = ROOT / "product" / "WANG_METHOD_POLICY_READINESS_v0.2.json"
 EXECUTION_RULES = ROOT / "product" / "METHOD_POLICY_EXECUTION_RULES_v0.1.json"
 
 
@@ -170,25 +171,36 @@ def test_cbr_rejects_person_group_leakage():
         retrieve_same_domain_cases(held, fold, tuple(bundles))
 
 
-def test_real_wang_fold_fails_closed_instead_of_inventing_chart_facts():
+def test_real_wang_fold_uses_partial_materialized_evidence_but_still_fails_closed():
+    case = _case("WANG-CASE-001")
+    evidence = build_materialized_wang_evidence(case)
+    assert {item.kind for item in evidence} == {"TARGET_PALACE", "TARGET_CHART"}
+    by_kind = {item.kind: item for item in evidence}
+    assert by_kind["TARGET_PALACE"].status == "MATERIALIZED_FACT"
+    assert by_kind["TARGET_CHART"].status == "BLOCKED"
+
     run = run_wang_fold("WANG-CASE-001")
 
     assert run.trace.policy_version == POLICY_VERSION
     assert run.trace.final_status == "ABSTAINED"
     assert [step.action for step in run.trace.steps] == ["INSPECT", "ABSTAIN"]
-    assert "MATERIALIZED_BLIND_EVIDENCE_REQUIRED" in run.blockers
+    assert "MATERIALIZED_BLIND_EVIDENCE_REQUIRED" not in run.blockers
+    assert "BLOCKED_EVIDENCE_PRESENT" in run.blockers
+    assert "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE" in run.blockers
     assert run.selected_pattern_id is None
 
     # Machine trace remains Product #431 contract-valid.
     compile_inference_trace(run.trace.to_dict())
 
 
-def test_all_real_wang_folds_fail_closed_until_evidence_is_materialized():
+def test_all_real_wang_folds_remain_fail_closed_after_partial_materialization():
     for index in range(1, 25):
         run = run_wang_fold(f"WANG-CASE-{index:03d}")
         assert run.trace.final_status == "ABSTAINED"
         assert run.trace.steps[-1].action == "ABSTAIN"
-        assert "MATERIALIZED_BLIND_EVIDENCE_REQUIRED" in run.blockers
+        assert "MATERIALIZED_BLIND_EVIDENCE_REQUIRED" not in run.blockers
+        assert "BLOCKED_EVIDENCE_PRESENT" in run.blockers
+        assert "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE" in run.blockers
 
 
 def test_synthetic_materialized_fixture_produces_non_abstaining_path():
@@ -330,10 +342,16 @@ def test_wang_readiness_audit_matches_versioned_artifact():
         == stored_summary["full_expert_replay_ready"]
         == 0
     )
-    assert summary["reference_only_fold_count"] == 24
+    assert summary["reference_only_fold_count"] == 0
+    assert summary["materialized_target_palace_fold_count"] == 24
+    assert summary["full_chart_blocked_fold_count"] == 24
+    assert summary["remaining_blocker_classes"] == [
+        "FULL_CHART_NOT_MATERIALIZED",
+        "NO_EXECUTABLE_PATTERN_FOR_CASE_TARGET_SCOPE",
+    ]
     assert (
         summary["recommended_next_dependency"]
-        == "WANG_BLIND_EVIDENCE_MATERIALIZATION_V0_1"
+        == "REVIEW_FULL_CHART_MATERIALIZATION_AND_CASE_TARGET_METHOD_BINDING"
     )
 
 
@@ -348,7 +366,12 @@ def test_readiness_artifact_has_one_same_domain_hit_per_fold_and_zero_full_repla
         assert row["action_selection_ready"] is True
         assert row["full_expert_replay_ready"] is False
         assert row["trace_expected"] == ["INSPECT", "ABSTAIN"]
-        assert "MATERIALIZED_BLIND_EVIDENCE_REQUIRED" in row["blockers"]
+        assert "MATERIALIZED_BLIND_EVIDENCE_REQUIRED" not in row["blockers"]
+        assert "BLOCKED_EVIDENCE_PRESENT" in row["blockers"]
+        assert "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE" in row["blockers"]
+        evidence = {item["kind"]: item for item in row["evidence_statuses"]}
+        assert evidence["TARGET_PALACE"]["status"] == "MATERIALIZED_FACT"
+        assert evidence["TARGET_CHART"]["status"] == "BLOCKED"
 
 
 def test_policy_outputs_contain_no_probability_or_hidden_reasoning_fields():
