@@ -3,7 +3,7 @@
   "artifact_id": "KB-CAREER-OPEN-CATEGORY-REFINEMENT-100-v0.1",
   "lane": "KNOWLEDGE_ONLY",
   "issue": 485,
-  "status": "100_OF_100_GENERIC_OPEN_REFINED_NO_EXECUTION_UNLOCK",
+  "status": "100_OF_100_GENERIC_OPEN_REFINED_4_SOURCE_REPAIRS_NO_EXECUTION_UNLOCK",
   "purpose": "Replace the first 100 remaining generic Career OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED blockers with precise source/canonical semantic blockers without manufacturing category membership or activation defaults.",
   "selection": {
     "source_artifact": "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.7.json",
@@ -108,41 +108,71 @@
       "location": "事业宫 printed p145/p149",
       "excerpt": "卯酉廉破，见煞轻者……；贪狼化权，见煞曜而不多者……",
       "finding": "轻 and 不多 are source-explicit qualitative severity/cardinality constraints; no numeric threshold is supplied."
+    },
+    {
+      "evidence_id": "OC100-E13",
+      "source": "SRC-ZZ-003",
+      "location": "事业宫 printed p139",
+      "excerpt": "但若见煞、天姚、天刑、大耗、劫煞等杂曜，则易由偏门或半偏行业起家。",
+      "finding": "CA03-298 projection omitted the source open-tail marker 等杂曜; restore it and keep membership/list activation open."
+    },
+    {
+      "evidence_id": "OC100-E14",
+      "source": "SRC-ZZ-003",
+      "location": "事业宫 printed p149",
+      "excerpt": "贪狼与吉化、吉曜会合者，又见三台八座、台辅封诰、天官天福、恩光天贵等吉曜者，亦可从政。",
+      "finding": "CA07-633 source gives named examples plus 等吉曜; projection `多辅曜` creates a cardinality concept not stated by the source."
+    },
+    {
+      "evidence_id": "OC100-E15",
+      "source": "SRC-ZZ-003",
+      "location": "事业宫 printed p149",
+      "excerpt": "寅申宫贪狼与廉贞相对，最不宜陀罗同度。见煞(火铃亦然)，主为政贪墨……",
+      "finding": "CA07-652 source contains sequential clauses, not `陀罗 OR 煞`; branch scope must be rechecked rather than normalized by invented OR."
+    },
+    {
+      "evidence_id": "OC100-E16",
+      "source": "SRC-ZZ-003",
+      "location": "事业宫 printed p151",
+      "excerpt": "天相与空劫同度，吉则可以凭意念打出天下……若无吉曜，或且见凶星恶曜者……",
+      "finding": "CA08-725 positive condition is the valence predicate 吉; the later negative clause does not license `吉 == 有吉曜`."
     }
   ],
   "summary": {
     "reviewed": 100,
     "generic_open_removed": 100,
     "generic_open_remaining_global": 10,
-    "source_text_changes": 0,
-    "source_resolution_changes": 0,
+    "source_text_changes": 4,
+    "source_resolution_changes": 4,
     "blockers_cleared_to_zero": 0,
     "execution_unlocked": 0,
     "primary_disposition_counts": {
       "OPEN_FUNCTIONAL_CATEGORY_REFINED": 6,
-      "SOURCE_COMPOUND_REFINED": 26,
-      "OPEN_VALENCE_CATEGORY_REFINED": 9,
-      "CLOSED_CATEGORY_FALSE_OPEN_REFINED": 42,
+      "SOURCE_COMPOUND_REFINED": 25,
+      "OPEN_VALENCE_CATEGORY_REFINED": 8,
+      "CLOSED_CATEGORY_FALSE_OPEN_REFINED": 41,
       "MIXED_VALENCE_REFINED": 1,
-      "VALENCE_STATE_REFINED": 8,
+      "VALENCE_STATE_REFINED": 9,
       "PAIR_FALSE_OPEN_REFINED": 3,
-      "SOURCE_OPEN_TAIL_REFINED": 2,
+      "SOURCE_OPEN_TAIL_REFINED": 3,
       "ELEMENTAL_OPEN_CATEGORY_REFINED": 1,
+      "SOURCE_BRANCH_SCOPE_RECHECK": 1,
       "QUALIFIED_AUXILIARY_REFINED": 2
     },
     "replacement_blocker_counts": {
       "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED": 6,
       "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED": 26,
-      "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED": 16,
+      "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED": 15,
       "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED": 44,
       "MIXED_VALENCE_COMPOSITION_UNSPECIFIED": 1,
-      "VALENCE_STATE_CRITERION_UNSPECIFIED": 8,
-      "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED": 2,
-      "SOURCE_LIST_QUANTIFIER_UNSPECIFIED": 2,
+      "VALENCE_STATE_CRITERION_UNSPECIFIED": 9,
+      "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED": 3,
+      "SOURCE_LIST_QUANTIFIER_UNSPECIFIED": 3,
       "ELEMENTAL_CATEGORY_MEMBERSHIP_UNSPECIFIED": 1,
       "SEVERITY_THRESHOLD_UNSPECIFIED": 1,
       "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED": 2,
       "CARDINALITY_THRESHOLD_UNSPECIFIED": 1,
+      "SOURCE_BRANCH_SCOPE_RECHECK_REQUIRED": 1,
       "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED": 2
     }
   },
@@ -647,9 +677,10 @@
         "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
       ],
       "generic_open_removed": true,
-      "source_text_changed": false,
-      "source_resolution_changed": false,
-      "execution_unlocked": false
+      "source_text_changed": true,
+      "source_resolution_changed": true,
+      "execution_unlocked": false,
+      "source_repair": "Restore source open-tail marker: `见煞、天姚、天刑、大耗、劫煞等杂曜`; projection omitted `等杂曜`."
     },
     {
       "source_rule_id": "CA04-304",
@@ -1818,24 +1849,28 @@
         "吉化",
         "吉曜"
       ],
-      "primary_disposition": "SOURCE_COMPOUND_REFINED",
+      "primary_disposition": "SOURCE_OPEN_TAIL_REFINED",
       "replacement_blockers": [
         "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
-        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED",
+        "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
       ],
       "blockers_before": [
         "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
         "CARDINALITY_THRESHOLD_UNSPECIFIED"
       ],
       "blockers_after": [
-        "CARDINALITY_THRESHOLD_UNSPECIFIED",
         "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
-        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED",
+        "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
       ],
       "generic_open_removed": true,
-      "source_text_changed": false,
-      "source_resolution_changed": false,
-      "execution_unlocked": false
+      "source_text_changed": true,
+      "source_resolution_changed": true,
+      "execution_unlocked": false,
+      "source_repair": "Replace projection shorthand `多辅曜会合` with source-literal examples `三台八座、台辅封诰、天官天福、恩光天贵等吉曜`; remove projection-derived cardinality blocker."
     },
     {
       "source_rule_id": "CA07-636",
@@ -1934,20 +1969,23 @@
       "source_location": "事业宫printed_p149",
       "source_condition_text": "寅申贪狼与廉贞相对且见陀罗或煞",
       "source_group_tokens": [],
-      "primary_disposition": "CLOSED_CATEGORY_FALSE_OPEN_REFINED",
+      "primary_disposition": "SOURCE_BRANCH_SCOPE_RECHECK",
       "replacement_blockers": [
-        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_BRANCH_SCOPE_RECHECK_REQUIRED"
       ],
       "blockers_before": [
         "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "blockers_after": [
-        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_BRANCH_SCOPE_RECHECK_REQUIRED"
       ],
       "generic_open_removed": true,
-      "source_text_changed": false,
-      "source_resolution_changed": false,
-      "execution_unlocked": false
+      "source_text_changed": true,
+      "source_resolution_changed": true,
+      "execution_unlocked": false,
+      "source_repair": "Source has two sequential clauses: `最不宜陀罗同度。见煞(火铃亦然)...`; projection `见陀罗或煞` inserts an OR not present in the source. Preserve both clauses and keep branch scope unresolved."
     },
     {
       "source_rule_id": "CA07-658",
@@ -2198,9 +2236,9 @@
         "空劫",
         "吉曜"
       ],
-      "primary_disposition": "OPEN_VALENCE_CATEGORY_REFINED",
+      "primary_disposition": "VALENCE_STATE_REFINED",
       "replacement_blockers": [
-        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+        "VALENCE_STATE_CRITERION_UNSPECIFIED"
       ],
       "blockers_before": [
         "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
@@ -2208,12 +2246,13 @@
       ],
       "blockers_after": [
         "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
-        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+        "VALENCE_STATE_CRITERION_UNSPECIFIED"
       ],
       "generic_open_removed": true,
-      "source_text_changed": false,
-      "source_resolution_changed": false,
-      "execution_unlocked": false
+      "source_text_changed": true,
+      "source_resolution_changed": true,
+      "execution_unlocked": false,
+      "source_repair": "Restore positive source branch as `天相与空劫同度，吉则...`; do not equate `吉` with `有吉曜`. The following negative clause `若无吉曜，或且见凶星恶曜` is not a biconditional definition."
     },
     {
       "source_rule_id": "CA08-733",
