@@ -51,7 +51,9 @@ V1 SHALL NOT:
 - record every trivial commit;
 - promote empirical or causal claims because they are theoretically attractive.
 
-## Core architecture
+## Proposed Design
+
+### Core architecture
 
 Preferred topology:
 
@@ -405,7 +407,7 @@ Knowledge:
 Governance:
 - current three-lane model remains intact.
 
-## Risks / Failure Modes
+## Risks and Failure Modes
 
 Research-log spam:
 - mitigated by R0-R4 significance policy.
@@ -461,7 +463,8 @@ Implementation must demonstrate:
 ## Migration Plan
 
 Phase RSM-0 — this proposal:
-- freeze design and non-interference boundaries.
+- freeze design and non-interference boundaries;
+- capture a one-time pre-deletion chat-archaeology migration seed under `governance/archive/2026-10-21-pre-delete-chat-archaeology.md`; this file is historical/non-authoritative evidence for later sidecar import, not an ongoing Research substitute inside the main repository.
 
 Phase RSM-1 — sidecar bootstrap:
 - create sidecar repository;
