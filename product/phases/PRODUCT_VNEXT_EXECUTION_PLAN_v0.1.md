@@ -172,6 +172,59 @@ Product target:
 Important:
 - Career WP05 time-layer rows are not the only source of response knowledge.
 
+### NOW-5A — Product Knowledge Dependency Control v0.1
+**Lane:** PRODUCT_ONLY after Proposal #491 governance merge  
+**Priority:** P0 / reliability gate before NOW-6
+
+Purpose:
+- make the frozen Knowledge baseline machine-verifiable;
+- prevent mutable Knowledge `main` from silently changing Product behavior;
+- absorb later Knowledge improvements through candidate -> impact -> validation -> promotion.
+
+Bounded implementation order:
+
+~~~text
+PRODUCT_KNOWLEDGE_LOCK_V0_1
+-> PRODUCT_KNOWLEDGE_IMPACT_V0_1
+~~~
+
+`PRODUCT_KNOWLEDGE_LOCK_V0_1` must provide:
+- componentized KIB over K_signal / K_response / K_manifest / K_method;
+- source commit + artifact digest + semantic digest;
+- active Product Knowledge Lock;
+- fail-closed mismatch detection;
+- migration of #462/#482 governed inputs without rewriting their historical acceptance claims.
+
+`PRODUCT_KNOWLEDGE_IMPACT_V0_1` must provide:
+- active-vs-candidate semantic diff;
+- dependency propagation;
+- deterministic impact classes;
+- candidate/active promotion gate;
+- unchanged Knowledge components do not invalidate unrelated Product artifacts.
+
+Impact classes at minimum:
+
+~~~text
+NO_RUNTIME_EFFECT
+PROVENANCE_REVALIDATION
+READINESS_REBUILD
+SYMBOLIC_RECOMPILE
+METHOD_REPLAY
+MANIFESTATION_REBUILD
+DATASET_REMATERIALIZE
+RETRAIN_OR_RECALIBRATE
+MIGRATION_REQUIRED
+~~~
+
+Exit:
+- a Product build can prove exactly which Knowledge bytes/semantics it consumed;
+- a newer Knowledge main does not mutate active Product until promotion;
+- Product can determine whether a Knowledge update requires rebuild, recompile, replay, rematerialization, retraining, or no action.
+
+Hard boundary:
+- this layer does not reinterpret Zhongzhou semantics;
+- Product may not promote source candidates into canonical Kr merely to satisfy NOW-6.
+
 ### NOW-6 — PL3-R Response Compiler v0.1
 **Lane:** PRODUCT_ONLY  
 **Priority:** P0 / core capability
@@ -435,20 +488,25 @@ Do not proceed to causal action recommendation until:
 - offline evaluation is meaningful;
 - high-risk domain boundaries are preserved.
 
-## 13. Immediate next Product issue after Proposal #425
+## 13. Current recovery / immediate next Product issue
 
-Recommended first bounded Product work unit:
+Accepted Product progress now includes:
+- **PRODUCT_METHOD_CASE_CONTRACTS_V0_1** / expert-method contracts (completed);
+- Wang 24-case structured corpus and LOCO manifest;
+- deterministic CBR + Method Policy π v0.1;
+- fail-closed Response Semantics adapter;
+- Product #482 / PR #484 Response Corpus ingestion/readiness.
 
-**PRODUCT_METHOD_CASE_CONTRACTS_V0_1**
+#482 measured abundant source temporal material but **0 compiler-ready canonical Kr records on its frozen acceptance baseline**. NOW-6 therefore remains fail-closed on its canonical Knowledge dependency.
 
-Deliver:
-- CaseBundle;
-- ExpertReasoningGraph;
-- InferenceTrace;
-- MethodPattern;
-- SchoolCompatibility;
-- deterministic schema tests.
+After Proposal #491, the immediate next Product work unit is:
 
-After that, the next bounded Product work unit is the Wang expert-case structuring/LOCO pilot.
+**PRODUCT_KNOWLEDGE_LOCK_V0_1**
 
-This ordering intentionally creates the method-learning substrate before implementing a large Response Compiler.
+Then:
+
+**PRODUCT_KNOWLEDGE_IMPACT_V0_1**
+
+These are reliability prerequisites for safely consuming future Knowledge updates. They do not block the independent Wang blind-evidence materialization dependency from being prepared, but any promoted governed artifact must ultimately bind to the Product Knowledge Lock.
+
+Before PL5, `DATASET_MODEL_LINEAGE_V0_1` becomes a mandatory stop/go gate: no incompatible Knowledge-derived feature/label sets may be silently combined.
