@@ -7,7 +7,7 @@ Supersedes v0.8 after Issue #487.
 - no-current-blocker rows: **21 -> 22**
 - source-local resolutions this pass: **1**
 - source branch repairs this pass: **3**
-- dependency repairs this pass: **1**
+- dependency repairs this pass: **1** (fail-closed; antecedent source condition recheck still required)
 - duplicate source-rule aliases recorded: **1**
 - cumulative source-resolution changes: **32 -> 37**
 - cumulative source-condition repairs: **5 -> 8**
