@@ -8,15 +8,14 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "SOURCE_REVIEW_COMPLETE_VALIDATION_PENDING"
-  active_issue: 549
-  active_branch: "knowledge/p05-549-wealth-w01-canonical"
-  active_pr: 555
-  canonical_checkpoint: "W01_001_100_DIRECT_SOURCE_RECHECKED"
-  reviewed_rule_count: 100
-  source_resolution_change_count: 8
-  source_uncertainty_count: 6
-  note: "All W01-001..100 rows were re-adjudicated source-first against SRC-ZZ-003 printed pp69-72. Exact-head PR validation is still required before canonical merge."
+  status: "ACTIVE_WORK"
+  active_issue: 569
+  active_branch: "knowledge/p05-569-wealth-w02-canonical"
+  active_pr: null
+  canonical_checkpoint: "W01_001_100_MERGED__W02_101_200_SOURCE_READJUDICATION_IN_PROGRESS"
+  merged_rule_count: 100
+  current_batch_rule_count: 100
+  note: "W01 is canonical on main via PR #555. W02-101..200 are now being re-adjudicated source-first against SRC-ZZ-003 printed pp72-74."
 
 integrity:
   source_first: true
