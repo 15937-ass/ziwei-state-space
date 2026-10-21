@@ -1,6 +1,6 @@
 # Proposal #374 — Conversation Repository Authority and Recovery Decontamination
 
-Status: **APPROVED / IMPLEMENTING**  
+Status: **IMPLEMENTED BY PR #496**  
 Tracking Issue: #374  
 Risk: R3 / Human Gate  
 Lane: GOVERNANCE_ONLY
@@ -128,4 +128,11 @@ Approved by PI in chat:
 
 ## Decision
 
-**APPROVED.** Historical evidence remains preserved, but current recovery must be unambiguous and pointer-driven.
+**APPROVED AND IMPLEMENTED BY PR #496.** Historical evidence remains preserved, but current recovery is pointer-driven and superseded status words cannot select work.
+
+## Implementation record
+
+- stale/conflicted PR #377 closed unmerged as superseded;
+- clean current-main reconstitution: PR #496;
+- recovery contract: `governance/RECOVERY_PRECEDENCE_v1.md`;
+- exact-head merge requires the G8 repository quality gate to pass.
