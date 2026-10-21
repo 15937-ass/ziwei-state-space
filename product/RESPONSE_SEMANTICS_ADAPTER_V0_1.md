@@ -24,10 +24,8 @@ Status: **IMPLEMENTED IN PRODUCT #462 — VALIDATION PENDING**
 - Career Response Compatibility 251/251；
 - Relation Binding 132/132；
 - Open Category review 59 occurrences；
-- Contextual Activation closure v0.5 251/251；
+- Contextual Activation closure v0.3 251/251；
 - Career Ordinal/Constraint registry v0.1（130 normalized constraints）；
-- Career Semantic Normalization v0.2；
-- Source Lexicon / Quantifier 10/10 review（#471 / PR #473）；
 - #458 source recheck 后的 antecedent closure：
   - unresolved antecedent refs = 0；
   - explicit antecedent dependency rows = 64。
@@ -129,10 +127,11 @@ MULTI_CLASS_BLOCKED
 当前实际统计：
 
 ~~~text
-SEMANTIC_ONLY_PENDING_COMPILATION      18
-BLOCKED_SOURCE_UNDERDETERMINED        161
+SEMANTIC_ONLY_PENDING_COMPILATION      17
+BLOCKED_SOURCE_UNDERDETERMINED        160
 BLOCKED_DEPENDENCY_COMPILER            27
-BLOCKED_MULTIPLE                       45
+BLOCKED_STRUCTURED_PATTERN_COMPILER      1
+BLOCKED_MULTIPLE                       46
 -----------------------------------------
 TOTAL                                 251
 ~~~
@@ -262,8 +261,8 @@ product/RESPONSE_SEMANTICS_ADAPTER_READINESS_v0.1.json
 Response pilot total                 8
 Career rows                        251
 Response gain rows                  89
-Semantic-only pending compilation   18
-Source-underdetermined             206
+Semantic-only pending compilation   17
+Source-underdetermined             204
 Closed-world evidence gated         23
 Explicit antecedent dependencies    64
 Unresolved antecedent refs           0
@@ -275,11 +274,6 @@ Ordinal-linked activation rules          33
 Ordinal blocker resolutions               0
 Semantic-normalization residuals reviewed 36
 Generic normalization blocker after       0
-Source-lexicon / quantifier reviewed      10
-Source-resolved                            2
-No-universal-rule                          5
-Still-underdetermined                      3
-Baiguan no-universal-threshold rows        4
 Ordinal runtime unlock                    0
 Ordinal numericized constraints           0
 Real runtime effects authorized           0
@@ -329,33 +323,7 @@ Product runtime authorized          0
 
 所以 Product 将 v0.3 视为“语义精度提高”，不是“执行成熟度提高”。
 
-
-## 13. Latest source refinement consumed (v0.5)
-
-Knowledge #469/#470 与 #471/#473 在本 Product work unit 验证期间继续精化 source semantics。Product 只读同步这些结果，不把“语义更清楚”误报为“已经能执行”。
-
-百官朝拱四条 residual：
-
-~~~text
-STRUCTURED_PATTERN_EXECUTION_DEFERRED       4 -> 0
-BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD  0 -> 4
-~~~
-
-这表示百官的结构本体已经更清楚，但经典来源没有提供可迁移的统一成立阈值，因此仍 fail-closed。
-
-随后 10 条 source lexicon / quantifier residual 完成复核：
-
-~~~text
-SOURCE_RESOLVED          2
-NO_UNIVERSAL_RULE        5
-STILL_UNDERDETERMINED    3
-LOCAL_STRUCTURE_READY   17 -> 18
-execution unlocked       0
-~~~
-
-新增的 CA05-484 虽然恢复了原文局部 OR 结构并进入 LOCAL_STRUCTURE_READY，仍然只是 SEMANTIC_ONLY_PENDING_COMPILATION；它没有 condition compiler，也没有 execution authorization。
-
-## 14. Architectural meaning
+## 13. Architectural meaning
 
 Product 现在第一次可以安全地回答：
 
@@ -371,7 +339,7 @@ Product 现在第一次可以安全地回答：
 
 这一步是 PL3-R Response Compiler 的直接前置层。
 
-## 15. Next step
+## 14. Next step
 
 本 adapter 完成后，主线进入：
 
