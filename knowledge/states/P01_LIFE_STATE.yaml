@@ -8,15 +8,29 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "ACTIVE_NO_ACTIVE_WORK"
-  active_issue: null
-  active_branch: null
-  active_pr: null
-  canonical_checkpoint: "CANONICAL_REVALIDATION_NOT_STARTED"
-  note: "Archived/noncanonical candidate material, if any, is not promoted by this state initialization."
+  status: "ACTIVE_PR_VALIDATION_PENDING"
+  active_issue: 548
+  active_branch: "knowledge/p01-548-life-canonical-001-100"
+  active_pr: 560
+  canonical_checkpoint: "P01_001_100_SOURCE_READJUDICATED_PR_PENDING"
+  note: "P01-001..100 directly re-adjudicated against SRC-ZZ-003 printed pp3-6; archived candidate corpus remains noncanonical acceleration input."
+
+progress:
+  canonical_source_records_ready: 100
+  reusable_projection_rules: 79
+  case_support_only: 21
+  next_source_anchor: "printed p5-p6 omissions first, then 辰戌机梁后续 -> 巳亥天机 -> 太阳"
+  source_coverage_gaps_recorded: 3
 
 integrity:
   source_first: true
   shared_semantics_must_escalate_to_core: true
   may_write_other_palace: false
   empirical_feedback_may_rewrite_source_truth: false
+  new_primitive_qi: 0
+  new_memory_type: 0
+  numeric_weight: 0
+  probability: 0
+
+human_gate:
+  pending: null
