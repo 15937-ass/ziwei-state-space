@@ -1,6 +1,6 @@
 # 528 — Palace-Sharded Parallel Knowledge Execution v1
 
-Status: APPROVED
+Status: IMPLEMENTED BY PR #533
 Tracking Issue: #528
 Owner Lane: GOVERNANCE_ONLY
 Risk: R3
@@ -244,4 +244,5 @@ APPROVED for implementation. This is a governance/execution architecture decisio
 ## Implementation History
 
 - 2026-10-21: Proposal Issue #528 opened after PI approval.
-- Implementation work unit: pending separate Governance Issue.
+- Implementation work unit: Issue #530 / PR #533.
+- 2026-10-21: G12 implementation staged with shard registry, per-palace states, write isolation and serial merge policy.
