@@ -157,7 +157,15 @@ def validate_wang_source_birth_signatures(payload: Mapping[str, Any]) -> None:
     if payload.get("corpus_id") != "WANG_TINGZHI_ANXING_TUIDUAN_24_V0_1":
         raise ValueError("unexpected Wang corpus_id")
 
-    leaked = sorted(FORBIDDEN_SOURCE_INPUT_KEYS.intersection(_walk_keys(payload)))
+    # Leakage guard applies to executable/source-input case payloads.  The
+    # top-level leakage_policy intentionally names forbidden concepts with
+    # boolean false values, so scanning the whole document would reject the
+    # guardrail metadata itself.
+    leaked = sorted(
+        FORBIDDEN_SOURCE_INPUT_KEYS.intersection(
+            _walk_keys(payload.get("cases", []))
+        )
+    )
     if leaked:
         raise ValueError(
             "Wang source-input census contains forbidden leakage keys: "
