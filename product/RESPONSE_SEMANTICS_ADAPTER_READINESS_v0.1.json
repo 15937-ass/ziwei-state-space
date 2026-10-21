@@ -4,12 +4,13 @@
   "knowledge_inputs": {
     "response_pilot": "knowledge/response/RESPONSE_SEMANTICS_PILOT_v0.1.json",
     "career_response_compatibility_closure": "knowledge/wp07c/CAREER_RESPONSE_COMPATIBILITY_CLOSURE_v0.1.json",
-    "career_contextual_activation_closure": "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.2.json",
+    "career_contextual_activation_closure": "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.3.json",
     "career_relation_binding": "knowledge/wp07c/CAREER_RELATION_BINDING_132_v0.1.json",
     "career_category_review": "knowledge/wp07c/CAREER_CATEGORY_OPEN_59_v0.1.json",
     "career_ordinal_constraints": "knowledge/wp08/CAREER_ORDINAL_CONSTRAINTS_v0.1.json",
     "career_ordinal_rule_links": "knowledge/wp08/CAREER_ORDINAL_RULE_LINKS_v0.1.json",
-    "career_ordinal_blocker_impact": "knowledge/wp08/CAREER_ORDINAL_BLOCKER_IMPACT_v0.1.json"
+    "career_ordinal_blocker_impact": "knowledge/wp08/CAREER_ORDINAL_BLOCKER_IMPACT_v0.1.json",
+    "career_semantic_normalization": "knowledge/wp08/CAREER_SEMANTIC_NORMALIZATION_36_v0.1.json"
   },
   "response_pilot": {
     "total": 8,
@@ -57,6 +58,31 @@
     "blockers_resolved_by_ordinal_evidence": 0,
     "execution_unlocked": 0
   },
+  "career_semantic_normalization": {
+    "target_rows": 36,
+    "reviewed": 36,
+    "remaining": 0,
+    "disposition_counts": {
+      "NORMALIZED_COMPOSITE_EXPRESSION": 10,
+      "SOURCE_SHORTHAND_REMAINS_UNRESOLVED": 4,
+      "NORMALIZED_TO_OPEN_CATEGORY_OR_VALENCE": 8,
+      "NORMALIZED_KNOWN_GROUP_PLUS_LITERAL": 4,
+      "NORMALIZED_EXPLICIT_ATOM_OR_SET": 6,
+      "NORMALIZED_EXPLICIT_LOGICAL_EXPRESSION": 4
+    },
+    "generic_blocker_before": 36,
+    "generic_blocker_after": 0,
+    "added_precise_blocker_counts": {
+      "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED": 6,
+      "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED": 13,
+      "SOURCE_LIST_QUANTIFIER_UNSPECIFIED": 4,
+      "CARDINALITY_THRESHOLD_UNSPECIFIED": 2,
+      "TRANSFORMATION_CARRIER_UNSPECIFIED": 2
+    },
+    "source_resolution_changes": 0,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0
+  },
   "career": {
     "total_rows": 251,
     "compatibility_band_counts": {
@@ -67,9 +93,9 @@
     "response_gain_total": 89,
     "adapter_status_counts": {
       "BLOCKED_DEPENDENCY_COMPILER": 27,
-      "BLOCKED_MULTIPLE": 59,
-      "BLOCKED_NORMALIZATION": 21,
-      "BLOCKED_SOURCE_UNDERDETERMINED": 127,
+      "BLOCKED_MULTIPLE": 46,
+      "BLOCKED_SOURCE_UNDERDETERMINED": 160,
+      "BLOCKED_STRUCTURED_PATTERN_COMPILER": 1,
       "SEMANTIC_ONLY_PENDING_COMPILATION": 17
     },
     "semantic_only_pending_compilation": 17,
@@ -79,7 +105,7 @@
     "unresolved_antecedent_reference_rows": 0,
     "explicit_antecedent_dependency_rows": 64,
     "closed_world_evidence_gated_rows": 23,
-    "rows_with_source_underdetermination": 184,
+    "rows_with_source_underdetermination": 204,
     "relation_bound_rows": 132,
     "category_reviewed_rows": 59,
     "unauthorized_unlock_count": 0
@@ -145,7 +171,7 @@
       "blockers": [
         "CLOSED_WORLD_ABSENCE_EVIDENCE",
         "MEMBER_QUANTIFIER_UNSPECIFIED",
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -204,9 +230,9 @@
     {
       "source_rule_id": "CA01-079",
       "compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
-      "knowledge_readiness_class": "NORMALIZATION_DEFERRED",
+      "knowledge_readiness_class": "STRUCTURED_PATTERN_COMPILER_GATED",
       "activation_status": "STRUCTURE_ONLY",
-      "adapter_status": "BLOCKED_NORMALIZATION",
+      "adapter_status": "BLOCKED_STRUCTURED_PATTERN_COMPILER",
       "blockers": [
         "STRUCTURED_PATTERN_EXECUTION_DEFERRED"
       ],
@@ -417,11 +443,11 @@
     {
       "source_rule_id": "CA02-107",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "NORMALIZATION_DEFERRED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
-      "adapter_status": "BLOCKED_NORMALIZATION",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -599,11 +625,11 @@
     {
       "source_rule_id": "CA02-147",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "NORMALIZATION_DEFERRED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
-      "adapter_status": "BLOCKED_NORMALIZATION",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -864,12 +890,11 @@
     {
       "source_rule_id": "CA02-180",
       "compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
-      "knowledge_readiness_class": "MULTI_CLASS_BLOCKED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "MULTI_BLOCKER",
-      "adapter_status": "BLOCKED_MULTIPLE",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "MEMBER_QUANTIFIER_UNSPECIFIED",
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -1218,11 +1243,11 @@
     {
       "source_rule_id": "CA03-238",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "NORMALIZATION_DEFERRED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
-      "adapter_status": "BLOCKED_NORMALIZATION",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -1307,11 +1332,11 @@
     {
       "source_rule_id": "CA03-246",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "NORMALIZATION_DEFERRED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
-      "adapter_status": "BLOCKED_NORMALIZATION",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -1396,11 +1421,11 @@
     {
       "source_rule_id": "CA03-256",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "NORMALIZATION_DEFERRED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
-      "adapter_status": "BLOCKED_NORMALIZATION",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -1417,11 +1442,11 @@
     {
       "source_rule_id": "CA03-257",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "NORMALIZATION_DEFERRED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
-      "adapter_status": "BLOCKED_NORMALIZATION",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -1438,11 +1463,11 @@
     {
       "source_rule_id": "CA03-258",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "NORMALIZATION_DEFERRED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
-      "adapter_status": "BLOCKED_NORMALIZATION",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -1643,11 +1668,11 @@
     {
       "source_rule_id": "CA03-289",
       "compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
-      "knowledge_readiness_class": "NORMALIZATION_DEFERRED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
-      "adapter_status": "BLOCKED_NORMALIZATION",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -1664,12 +1689,11 @@
     {
       "source_rule_id": "CA03-290",
       "compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
-      "knowledge_readiness_class": "MULTI_CLASS_BLOCKED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "MULTI_BLOCKER",
-      "adapter_status": "BLOCKED_MULTIPLE",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "MEMBER_QUANTIFIER_UNSPECIFIED",
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -1689,11 +1713,11 @@
     {
       "source_rule_id": "CA03-298",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "NORMALIZATION_DEFERRED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
-      "adapter_status": "BLOCKED_NORMALIZATION",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -1731,11 +1755,11 @@
     {
       "source_rule_id": "CA04-304",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "NORMALIZATION_DEFERRED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
-      "adapter_status": "BLOCKED_NORMALIZATION",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -1755,11 +1779,11 @@
     {
       "source_rule_id": "CA04-305",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "NORMALIZATION_DEFERRED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
-      "adapter_status": "BLOCKED_NORMALIZATION",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -1957,11 +1981,11 @@
     {
       "source_rule_id": "CA04-326",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "NORMALIZATION_DEFERRED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
-      "adapter_status": "BLOCKED_NORMALIZATION",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -2045,12 +2069,13 @@
     {
       "source_rule_id": "CA04-345",
       "compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
-      "knowledge_readiness_class": "MULTI_CLASS_BLOCKED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "MULTI_BLOCKER",
-      "adapter_status": "BLOCKED_MULTIPLE",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
         "MEMBER_QUANTIFIER_UNSPECIFIED",
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED",
+        "CARDINALITY_THRESHOLD_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -2119,11 +2144,11 @@
     {
       "source_rule_id": "CA04-358",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "NORMALIZATION_DEFERRED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
-      "adapter_status": "BLOCKED_NORMALIZATION",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -2292,11 +2317,11 @@
     {
       "source_rule_id": "CA04-378",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "NORMALIZATION_DEFERRED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
-      "adapter_status": "BLOCKED_NORMALIZATION",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -2434,11 +2459,11 @@
     {
       "source_rule_id": "CA04-391",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "NORMALIZATION_DEFERRED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
-      "adapter_status": "BLOCKED_NORMALIZATION",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -2625,12 +2650,11 @@
     {
       "source_rule_id": "CA05-416",
       "compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
-      "knowledge_readiness_class": "MULTI_CLASS_BLOCKED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "MULTI_BLOCKER",
-      "adapter_status": "BLOCKED_MULTIPLE",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "MEMBER_QUANTIFIER_UNSPECIFIED",
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -2717,11 +2741,11 @@
     {
       "source_rule_id": "CA05-423",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "NORMALIZATION_DEFERRED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
-      "adapter_status": "BLOCKED_NORMALIZATION",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "TRANSFORMATION_CARRIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -2791,11 +2815,11 @@
     {
       "source_rule_id": "CA05-433",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "NORMALIZATION_DEFERRED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
-      "adapter_status": "BLOCKED_NORMALIZATION",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -3033,7 +3057,6 @@
       "adapter_status": "BLOCKED_MULTIPLE",
       "blockers": [
         "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED",
         "STRUCTURED_PATTERN_EXECUTION_DEFERRED"
       ],
       "antecedent_mode": "NONE",
@@ -3110,11 +3133,11 @@
     {
       "source_rule_id": "CA05-484",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "NORMALIZATION_DEFERRED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
-      "adapter_status": "BLOCKED_NORMALIZATION",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -3155,12 +3178,11 @@
     {
       "source_rule_id": "CA05-493",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "MULTI_CLASS_BLOCKED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "MULTI_BLOCKER",
-      "adapter_status": "BLOCKED_MULTIPLE",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -3207,11 +3229,11 @@
     {
       "source_rule_id": "CA06-502",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "NORMALIZATION_DEFERRED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
-      "adapter_status": "BLOCKED_NORMALIZATION",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -3987,12 +4009,11 @@
     {
       "source_rule_id": "CA07-602",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "MULTI_CLASS_BLOCKED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "MULTI_BLOCKER",
-      "adapter_status": "BLOCKED_MULTIPLE",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -4285,12 +4306,12 @@
     {
       "source_rule_id": "CA07-633",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "MULTI_CLASS_BLOCKED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "MULTI_BLOCKER",
-      "adapter_status": "BLOCKED_MULTIPLE",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
         "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "CARDINALITY_THRESHOLD_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -4565,11 +4586,11 @@
     {
       "source_rule_id": "CA07-652",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "NORMALIZATION_DEFERRED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
-      "adapter_status": "BLOCKED_NORMALIZATION",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -4611,12 +4632,11 @@
     {
       "source_rule_id": "CA07-659",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "MULTI_CLASS_BLOCKED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "MULTI_BLOCKER",
-      "adapter_status": "BLOCKED_MULTIPLE",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -5148,12 +5168,12 @@
     {
       "source_rule_id": "CA08-723",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "MULTI_CLASS_BLOCKED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "MULTI_BLOCKER",
-      "adapter_status": "BLOCKED_MULTIPLE",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
         "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -5586,8 +5606,7 @@
       "adapter_status": "BLOCKED_MULTIPLE",
       "blockers": [
         "CLOSED_WORLD_ABSENCE_EVIDENCE",
-        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -5631,12 +5650,11 @@
     {
       "source_rule_id": "CA09-818",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "MULTI_CLASS_BLOCKED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "MULTI_BLOCKER",
-      "adapter_status": "BLOCKED_MULTIPLE",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -5876,12 +5894,12 @@
     {
       "source_rule_id": "CA09-860",
       "compatibility_band": "RS1_RESPONSE_LAYER_COVERS_KNOWN_GROUP_SEMANTICS",
-      "knowledge_readiness_class": "MULTI_CLASS_BLOCKED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "MULTI_BLOCKER",
-      "adapter_status": "BLOCKED_MULTIPLE",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
         "MEMBER_QUANTIFIER_UNSPECIFIED",
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "TRANSFORMATION_CARRIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -5901,12 +5919,11 @@
     {
       "source_rule_id": "CA09-861",
       "compatibility_band": "RS0_NO_DIRECT_RESPONSE_GAIN",
-      "knowledge_readiness_class": "MULTI_CLASS_BLOCKED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "MULTI_BLOCKER",
-      "adapter_status": "BLOCKED_MULTIPLE",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
-        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
@@ -5953,13 +5970,13 @@
     {
       "source_rule_id": "CA09-864",
       "compatibility_band": "RS2_PARTIAL_RESPONSE_GAIN",
-      "knowledge_readiness_class": "MULTI_CLASS_BLOCKED",
+      "knowledge_readiness_class": "SOURCE_UNDERDETERMINED",
       "activation_status": "MULTI_BLOCKER",
-      "adapter_status": "BLOCKED_MULTIPLE",
+      "adapter_status": "BLOCKED_SOURCE_UNDERDETERMINED",
       "blockers": [
         "MEMBER_QUANTIFIER_UNSPECIFIED",
         "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
-        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
       ],
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
