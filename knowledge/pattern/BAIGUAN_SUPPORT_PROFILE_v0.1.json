@@ -1,0 +1,254 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-BAIGUAN-SUPPORT-PROFILE-v0.1",
+  "lane": "KNOWLEDGE_ONLY",
+  "issue": 469,
+  "status": "SOURCE_BACKED_PROFILE_FROZEN_ACTIVATION_THRESHOLD_DEFERRED",
+  "human_gate": {
+    "gate_id": "HG_PL2L_BAIGUAN_STRUCTURE",
+    "decision": "APPROVE_STRUCTURE_DEFER_ACTIVATION_THRESHOLD",
+    "human_status": "HUMAN_APPROVED",
+    "approved_at": "2026-10-05",
+    "scope_note": "v0.1 canonical profile is limited to 紫微 anchor; other anchors require independent source review."
+  },
+  "structure_id": "BAIGUAN_SUPPORT_PROFILE",
+  "anchor_star": "紫微",
+  "source_basis": {
+    "primary": [
+      {
+        "source_work": "《中州派紫微斗数深造讲义（上）》",
+        "location": "十四正曜·紫微·印刷页5-6",
+        "canonical_rule_ids": [
+          "ZZ-FULL-ZW-005",
+          "ZZ-FULL-ZW-006",
+          "ZZ-FULL-ZW-007",
+          "ZZ-FULL-ZW-008",
+          "ZZ-FULL-ZW-009",
+          "ZZ-FULL-ZW-011",
+          "ZZ-FULL-ZW-012",
+          "ZZ-FULL-ZW-013",
+          "ZZ-FULL-ZW-014",
+          "ZZ-FULL-ZW-015",
+          "ZZ-FULL-ZW-016",
+          "ZZ-FULL-ZW-017",
+          "ZZ-FULL-ZW-018",
+          "ZZ-FULL-ZW-019",
+          "ZZ-FULL-ZW-020",
+          "ZZ-FULL-ZW-021",
+          "ZZ-FULL-ZW-022",
+          "ZZ-FULL-ZW-023",
+          "ZZ-FULL-ZW-025",
+          "ZZ-FULL-ZW-026",
+          "ZZ-FULL-ZW-027",
+          "ZZ-FULL-ZW-028",
+          "ZZ-FULL-ZW-029",
+          "ZZ-FULL-ZW-030",
+          "ZZ-FULL-ZW-031"
+        ]
+      }
+    ],
+    "corpus_surface_census": {
+      "advanced_upper_exact_baiguan_occurrences": 12,
+      "advanced_lower_exact_baiguan_occurrences": 36,
+      "note": "Exact-surface review shows repeated named-pattern usage but no cross-context N-star/N-pair activation threshold."
+    },
+    "corroborating_source": {
+      "source_work": "王亭之《中州派紫微斗数初级讲义》",
+      "finding": "Lists a narrower ‘百官及群臣’ star set and discusses 府相朝垣 separately; this wording tension is preserved rather than silently collapsed."
+    }
+  },
+  "source_tension": {
+    "status": "PRESERVED",
+    "advanced_treatise": "百官 taxonomy explicitly contains an orthodox-star branch plus 辅/佐/杂曜 branch; orthodox branch requires 天府与天相 to qualify.",
+    "introductory_lecture": "‘百官及群臣’ is described using assistant/auxiliary/minor stars while 府相朝垣 is discussed separately.",
+    "canonical_v0_1_resolution": "Follow the already Human-Gate-approved advanced-treatise profile for ontology, while preserving the introductory-lecture contrast as evidence against a simplistic flat membership interpretation.",
+    "does_not_imply": "天府天相 alone = universal full 百官朝拱 truth"
+  },
+  "component_families": {
+    "ORTHODOX_SUPPORT": {
+      "members": [
+        "天府",
+        "天相"
+      ],
+      "source_semantics": "正曜朝拱须天府天相始为合格",
+      "activation_role": "BRANCH_EVIDENCE_NOT_UNIVERSAL_FULL_PATTERN_THRESHOLD"
+    },
+    "ASSISTANT_SUPPORT": {
+      "members": [
+        "左辅",
+        "右弼",
+        "天魁",
+        "天钺"
+      ],
+      "grouping": [
+        [
+          "左辅",
+          "右弼"
+        ],
+        [
+          "天魁",
+          "天钺"
+        ]
+      ],
+      "activation_role": "COMPONENT_EVIDENCE"
+    },
+    "AUXILIARY_SUPPORT": {
+      "members": [
+        "文昌",
+        "文曲",
+        "禄存",
+        "天马"
+      ],
+      "grouping": [
+        [
+          "文昌",
+          "文曲"
+        ],
+        [
+          "禄存",
+          "天马"
+        ]
+      ],
+      "activation_role": "COMPONENT_EVIDENCE"
+    },
+    "MINOR_ATTENDANTS": {
+      "members": [
+        "三台",
+        "八座",
+        "恩光",
+        "天贵",
+        "台辅",
+        "封诰",
+        "龙池",
+        "凤阁",
+        "天福",
+        "天寿"
+      ],
+      "grouping": [
+        [
+          "三台",
+          "八座"
+        ],
+        [
+          "恩光",
+          "天贵"
+        ],
+        [
+          "台辅",
+          "封诰"
+        ],
+        [
+          "龙池",
+          "凤阁"
+        ],
+        [
+          "天福",
+          "天寿"
+        ]
+      ],
+      "activation_role": "COMPONENT_EVIDENCE"
+    }
+  },
+  "explicit_exclusions": [
+    "化禄",
+    "化权",
+    "化科"
+  ],
+  "relation_evidence": [
+    {
+      "component": [
+        "左辅",
+        "右弼"
+      ],
+      "allowed_source_relations": [
+        "夹",
+        "三方会合"
+      ],
+      "note": "夹仅在 source-specified configurations (e.g. 丑未紫破) 使用；不得泛化成任意 anchor."
+    },
+    {
+      "component": [
+        "天魁",
+        "天钺"
+      ],
+      "allowed_source_relations": [
+        "三方四正会合"
+      ],
+      "note": "保留 source scope；不替换成 generic proximity."
+    },
+    {
+      "component": [
+        "文昌",
+        "文曲"
+      ],
+      "allowed_source_relations": [
+        "会合/朝拱 evidence"
+      ],
+      "note": "No global palace-offset template is frozen here."
+    },
+    {
+      "component": [
+        "禄存",
+        "天马"
+      ],
+      "allowed_source_relations": [
+        "会合/朝拱 evidence"
+      ],
+      "note": "No global palace-offset template is frozen here."
+    },
+    {
+      "component_family": "MINOR_ATTENDANTS",
+      "allowed_source_relations": [
+        "source-labelled 朝拱/会合 evidence"
+      ],
+      "note": "Named pairs remain pair identities; no global count rule."
+    }
+  ],
+  "quality_guards": [
+    {
+      "component": "天府",
+      "favorable_or_preserving": [
+        "见禄"
+      ],
+      "degrading_or_invalidating": [
+        "与地空同度",
+        "与天空同度",
+        "见截空正空",
+        "见旬空正空"
+      ],
+      "source_effect": "空库时虽会合紫微亦不起正常财库作用",
+      "magnitude": "UNIDENTIFIED"
+    },
+    {
+      "component": "天相",
+      "favorable_or_preserving": [
+        "财荫夹印"
+      ],
+      "degrading_or_invalidating": [
+        "刑忌夹印",
+        "羊陀夹"
+      ],
+      "source_effect": "component quality changes; presence alone is insufficient",
+      "magnitude": "UNIDENTIFIED"
+    }
+  ],
+  "profile_states": [
+    "PARTIAL_SUPPORT",
+    "CONFLICTED",
+    "ABSENT",
+    "UNKNOWN"
+  ],
+  "full_pattern_truth": {
+    "generic_runtime_emission_allowed": false,
+    "explicit_template_match_allowed_only_after_source_specific_template_freeze": true,
+    "structure_present_fact_from_member_count": false
+  },
+  "guardrails": {
+    "flat_star_bag": false,
+    "component_count_threshold": null,
+    "pair_count_threshold": null,
+    "weighted_score": false,
+    "global_good_bad_projection": false,
+    "other_anchor_generalization": false
+  }
+}
