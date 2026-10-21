@@ -4,10 +4,10 @@ authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  status: "ACTIVE_NO_ACTIVE_WORK"
-  active_issue: null
-  active_branch: null
-  active_pr: null
+  status: "ACTIVE_WORK"
+  active_issue: 374
+  active_branch: "governance/374-recovery-precedence-cleanup"
+  active_pr: 496
   governance_version: "1.0"
   archive_checkpoint: "governance/archive/2026-10-06-project-checkpoint.md"
   resumed_at: "2026-10-18"
@@ -29,10 +29,22 @@ completed:
   g8_public_actions_execution_migration:
     tracking_issue: 372
     merge_pr: 373
-    status: "MERGED"
+    status: "MERGED_G9_AUTHORITY_AMENDMENT_IN_PROGRESS"
     protocol: "governance/PUBLIC_ACTIONS_EXECUTION_PROTOCOL_v0.2.md"
     runner_policy: "STANDARD_PUBLIC_GITHUB_HOSTED_ONLY"
     automatic_triggers: "PULL_REQUEST_ONLY_NO_PUSH"
+
+in_progress:
+  g9_conversation_authority_and_recovery_decontamination:
+    tracking_issue: 374
+    current_pr: 496
+    superseded_pr: 377
+    status: "VALIDATING"
+    proposal: "governance/proposals/374-chat-repository-authority.md"
+    recovery_contract: "governance/RECOVERY_PRECEDENCE_v1.md"
+    effect:
+      - "CURRENT_CHATGPT_CONVERSATION_FIRST_CLASS_REPOSITORY_OPERATOR"
+      - "RECOVERY_POINTERS_OVERRIDE_STALE_STATUS_WORDS"
 
   g10_product_v04_architecture:
     tracking_issue: 425
@@ -63,5 +75,5 @@ deferred_admin:
 archived_work_references:
   product_pr_274: "PRESERVE_BRANCH_FOR_AUDIT; do not merge without reconstitution."
   knowledge_top_wp05_pr_272: "PRESERVE_BRANCH_FOR_SEGMENTED_AUDIT; do not merge directly."
-  knowledge_wp06b_prep_pr_273: "PRESERVE_BRANCH_FOR_AUDIT; Human Gate remains unresolved."
+  knowledge_wp06b_prep_pr_273: "ARCHIVED_ONLY; preserve for audit. Its unresolved Human Gate is not pending_on_main unless reconstituted by a live Knowledge Issue."
   archive_issue: 286
