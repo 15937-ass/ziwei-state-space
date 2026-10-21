@@ -34,6 +34,7 @@ from src.product.expert_method_contracts import (
     compile_inference_trace,
 )
 from src.product.knowledge_bundle import require_active_component_lock
+from src.product.wang_blind_evidence import wang_blind_evidence_for_case
 
 
 SCHEMA_VERSION = "0.1"
@@ -388,6 +389,39 @@ def build_reference_only_evidence(case: CaseBundle) -> tuple[EvidenceItem, ...]:
             kind="TARGET_CHART",
             status=status,
             refs=unique_refs,
+        ),
+    )
+
+
+def build_materialized_wang_evidence(
+    case: CaseBundle,
+) -> tuple[EvidenceItem, ...]:
+    """Build the bounded v0.1 machine-readable evidence view for a Wang case.
+
+    v0.1 deliberately materializes only target-palace identity and its visible
+    fourteen-major-star system.  The whole chart remains blocked rather than
+    being inferred from the source pointer or reconstructed from expert prose.
+    """
+
+    row = wang_blind_evidence_for_case(case.case_id)
+    if tuple(case.target.domains) != (str(row["target_domain"]),):
+        raise ValueError(f"{case.case_id}: blind evidence target-domain mismatch")
+
+    span_ref = str(row["source_chart_span_ref"])
+    fact_refs = tuple(str(item) for item in row["fact_refs"])
+
+    return (
+        EvidenceItem(
+            evidence_id=f"EVIDENCE:{case.case_id}:TARGET_PALACE",
+            kind="TARGET_PALACE",
+            status="MATERIALIZED_FACT",
+            refs=tuple(dict.fromkeys((*fact_refs, span_ref))),
+        ),
+        EvidenceItem(
+            evidence_id=f"EVIDENCE:{case.case_id}:TARGET_CHART",
+            kind="TARGET_CHART",
+            status="BLOCKED",
+            refs=(span_ref,),
         ),
     )
 
@@ -792,7 +826,7 @@ def run_wang_fold(
     manifest = load_wang_loco_manifest()
     fold = _fold_for_case(manifest, held_out_case_id)
     hits = retrieve_same_domain_cases(case, fold, bundles)
-    evidence = build_reference_only_evidence(case)
+    evidence = build_materialized_wang_evidence(case)
     patterns = load_wang_method_patterns()
     rules = load_execution_rules()
 
@@ -824,7 +858,7 @@ def audit_wang_method_policy_readiness() -> dict[str, Any]:
         case_id = fold["held_out_case_id"]
         case = by_id[case_id]
         blind = build_blind_case_view(case)
-        evidence = build_reference_only_evidence(case)
+        evidence = build_materialized_wang_evidence(case)
         hits = retrieve_same_domain_cases(case, fold, bundles)
         run = run_method_policy(
             case_id=case.case_id,
@@ -873,7 +907,7 @@ def audit_wang_method_policy_readiness() -> dict[str, Any]:
 
     return {
         "schema_version": "0.1",
-        "artifact_id": "WANG_METHOD_POLICY_READINESS_V0_1",
+        "artifact_id": "WANG_METHOD_POLICY_READINESS_V0_2",
         "policy_version": POLICY_VERSION,
         "corpus_id": manifest["corpus_id"],
         "fold_count": len(fold_rows),
@@ -889,8 +923,34 @@ def audit_wang_method_policy_readiness() -> dict[str, Any]:
                     for item in row["evidence_statuses"]
                 )
             ),
+            "materialized_target_palace_fold_count": sum(
+                1
+                for row in fold_rows
+                if any(
+                    item["kind"] == "TARGET_PALACE"
+                    and item["status"] == "MATERIALIZED_FACT"
+                    for item in row["evidence_statuses"]
+                )
+            ),
+            "full_chart_blocked_fold_count": sum(
+                1
+                for row in fold_rows
+                if any(
+                    item["kind"] == "TARGET_CHART"
+                    and item["status"] == "BLOCKED"
+                    for item in row["evidence_statuses"]
+                )
+            ),
+            "remaining_blocker_classes": (
+                [
+                    "FULL_CHART_NOT_MATERIALIZED",
+                    "NO_EXECUTABLE_PATTERN_FOR_CASE_TARGET_SCOPE",
+                ]
+                if full_replay_ready_count < len(fold_rows)
+                else []
+            ),
             "recommended_next_dependency": (
-                "WANG_BLIND_EVIDENCE_MATERIALIZATION_V0_1"
+                "REVIEW_FULL_CHART_MATERIALIZATION_AND_CASE_TARGET_METHOD_BINDING"
                 if full_replay_ready_count < len(fold_rows)
                 else None
             ),
@@ -905,6 +965,8 @@ def audit_wang_method_policy_readiness() -> dict[str, Any]:
                 if full_replay_ready_count == len(fold_rows)
                 else "NOT_READY"
             ),
+            "wang_blind_target_palace_evidence": "MATERIALIZED_24_OF_24",
+            "wang_full_chart_evidence": "NOT_MATERIALIZED",
             "method_fidelity": "NOT_VALIDATED",
             "predictive_validity": "NOT_VALIDATED",
         },
