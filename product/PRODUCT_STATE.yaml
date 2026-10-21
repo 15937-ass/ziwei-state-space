@@ -8,17 +8,17 @@ execution:
   phase: "PL3_METHOD_RESPONSE_VERTICAL_SLICE"
   active_issue: null
   active_pr: null
-  next_work_unit: "PRODUCT_KNOWLEDGE_PROMOTION_CAREER_RESPONSE_V0_16"
-  resume_entry: "Product #494/#495 implemented the componentized KIB + active lock; Product #500 implemented semantic impact / selective promotion gating; Product #504/#506 executed the first real controlled K_response promotion to Career closure v0.13 and semantic normalization v0.2 with zero runtime authorization. Product #512 / PR #517 then materializes source-reviewed target-palace major-star blind evidence for all 24 Wang cases: TARGET_PALACE MATERIALIZED_FACT=24/24, full chart remains NOT_MATERIALIZED, FULL_EXPERT_REPLAY_READY remains 0/24 because the accepted six MethodPatterns do not directly target the twelve case domains. Current Knowledge main #510 now provides closure v0.16 with 12/26 Career LOCAL_STRUCTURE_READY rows represented as Knowledge condition IR (3 dependency IR + 9 direct IR), still conditions_compiled=0 and execution_unlocked=0. Immediate next Product work is an explicit v0.16 K_response impact/promotion review; only after controlled promotion may PL3-R Response Compiler consume a bounded condition-IR pilot. ResponseProfile tau and M0 remain NOT_IMPLEMENTED; method fidelity and predictive validity remain NOT_VALIDATED."
-  state_cache_as_of_main_commit: "eaa33deeb77a4f982bc13121c06cad657975177b"
-  state_cache_as_of_product_merge: "c1eab6d87a8d890c2324608355439da0c86e1df5"
+  next_work_unit: "PL3R_CAREER_CONDITION_IR_COMPILER_PILOT_V0_1"
+  resume_entry: "Product #518 / PR #520 promotes the active K_response baseline to Career closure v0.16 and locks the compiler-readiness census plus 3 dependency IR + 9 direct condition IR records. LOCAL_STRUCTURE_READY is now split correctly: 12/26 rows are KNOWLEDGE_CONDITION_IR_READY_PENDING_PRODUCT_COMPILATION and 14/26 remain LOCAL_STRUCTURE_NOT_CONDITION_IR_READY; the full 251-row surface is 12 condition-IR-ready, 14 local-but-not-IR-ready, 157 source-underdetermined, 24 dependency-compiler-gated, and 44 multi-blocked. Active Product Knowledge is KIB v0.3 with K_response-only semantic change; K_signal/K_manifest/K_method remain unchanged and v0.2 is the rollback baseline. Product conditions_compiled=0, Knowledge execution_unlocked=0, runtime effects authorized=0. Immediate next Product work is PL3R_CAREER_CONDITION_IR_COMPILER_PILOT_V0_1 over exactly the 12 promoted IR rows. Wang target-palace evidence remains materialized 24/24 but FULL_EXPERT_REPLAY_READY=0/24; ResponseProfile tau and M0 remain NOT_IMPLEMENTED; predictive validity remains NOT_VALIDATED."
+  state_cache_as_of_main_commit: "bc6bff681d44fce870b24909c5683d1d2857a9f6"
+  state_cache_as_of_product_merge: "9c7e3a6c494863810fe33030b093eca492c3646d"
   v04_entry_checkpoint_issue: 416
   v04_entry_checkpoint_pr: 418
-  last_completed_product_issue: 512
-  last_completed_product_pr: 517
+  last_completed_product_issue: 518
+  last_completed_product_pr: 520
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
-  resume_issue: 290
+  resume_issue: 518
   roadmap: "PRODUCT_ROADMAP.md#v0.4"
   execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
 
@@ -86,12 +86,12 @@ capability_snapshot:
 
   response_semantics_adapter:
     specification: "V0_4_ARCHITECTURE_APPROVED"
-    implementation: "IMPLEMENTED_V0_2"
-    canonical_content: "KNOWLEDGE_DEPENDENT_ACTIVE_K_RESPONSE_V0_13"
+    implementation: "IMPLEMENTED_V0_3_CONDITION_IR_AWARE"
+    canonical_content: "KNOWLEDGE_DEPENDENT_ACTIVE_K_RESPONSE_V0_16_CONDITION_IR_12"
     internal_validation: "INTERNALLY_VALIDATED"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    note: "Product #462/#464 established the fail-closed Response Semantics adapter. Product #504/#506 performed the first controlled K_response promotion to Career closure v0.13 + semantic normalization v0.2: SEMANTIC_ONLY_PENDING_COMPILATION=23, BLOCKED_SOURCE_UNDERDETERMINED=157, BLOCKED_DEPENDENCY_COMPILER=27, BLOCKED_MULTIPLE=44; runtime effects authorized=0, condition_compiled=0, Knowledge execution_unlocked=0. Newer Knowledge v0.16 is not active Product input until a new explicit promotion passes."
+    note: "Product #462/#464 established the fail-closed Response Semantics adapter; #504/#506 promoted Career v0.13. Product #518/#520 promotes K_response to closure v0.16 and makes the adapter condition-IR aware. Of 26 LOCAL_STRUCTURE_READY rows, only 12 are Knowledge condition-IR-ready (3 dependency + 9 direct); 14 remain fail-closed. Current 251-row Product dispositions: KNOWLEDGE_CONDITION_IR_READY_PENDING_PRODUCT_COMPILATION=12, LOCAL_STRUCTURE_NOT_CONDITION_IR_READY=14, BLOCKED_SOURCE_UNDERDETERMINED=157, BLOCKED_DEPENDENCY_COMPILER=24, BLOCKED_MULTIPLE=44. runtime effects authorized=0, Product condition_compiled=0, Knowledge execution_unlocked=0."
 
   knowledge_dependency_control:
     specification: "PROPOSAL_491_APPROVED"
@@ -100,7 +100,7 @@ capability_snapshot:
     internal_validation: "INTERNALLY_VALIDATED"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    note: "Implemented by Product #494 and #500, with first real promotion exercised by #504. Knowledge main does not silently mutate active Product: K_signal/K_response/K_manifest/K_method are locked, impact is classified before rebuild, and candidate->validation->promotion is explicit and rollbackable. Existing historical baselines remain immutable."
+    note: "Implemented by Product #494 and #500; controlled promotions exercised by #504 and #518. Active lock is PRODUCT_KNOWLEDGE_LOCK_V0_3 / KIB-PRODUCT-20261021-V0_3. Knowledge main does not silently mutate active Product: components are locked, impact is classified before rebuild, candidate->validation->promotion is explicit, and v0.2 remains immutable rollback history."
 
   response_profile:
     specification: "V0_4_ARCHITECTURE_APPROVED"
@@ -156,7 +156,7 @@ capability_snapshot:
 
 critical_path:
   now:
-    - "PRODUCT_KNOWLEDGE_PROMOTION_CAREER_RESPONSE_V0_16"
+    - "PL3R_CAREER_CONDITION_IR_COMPILER_PILOT_V0_1"
     - "PL3R_DECADE_YEAR_RESPONSE_COMPILER"
     - "PL3M0_CANONICAL_MANIFESTATION_CANDIDATES"
     - "WANG_METHOD_SCOPE_AND_FULL_CHART_REVIEW"
