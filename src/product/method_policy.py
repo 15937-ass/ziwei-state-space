@@ -33,6 +33,7 @@ from src.product.expert_method_contracts import (
     MethodPattern,
     compile_inference_trace,
 )
+from src.product.knowledge_bundle import require_active_component_lock
 
 
 SCHEMA_VERSION = "0.1"
@@ -781,6 +782,7 @@ def run_method_policy(
 def run_wang_fold(
     held_out_case_id: str,
 ) -> MethodPolicyRun:
+    require_active_component_lock(ROOT, "K_method")
     bundles = load_wang_case_bundles()
     by_id = {item.case_id: item for item in bundles}
     if held_out_case_id not in by_id:
@@ -805,6 +807,7 @@ def run_wang_fold(
 
 
 def audit_wang_method_policy_readiness() -> dict[str, Any]:
+    require_active_component_lock(ROOT, "K_method")
     bundles = load_wang_case_bundles()
     by_id = {item.case_id: item for item in bundles}
     manifest = load_wang_loco_manifest()
