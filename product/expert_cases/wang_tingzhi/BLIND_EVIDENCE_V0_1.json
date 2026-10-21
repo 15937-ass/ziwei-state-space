@@ -1,0 +1,615 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "WANG_BLIND_EVIDENCE_V0_1",
+  "issue": 512,
+  "corpus_id": "WANG_TINGZHI_ANXING_TUIDUAN_24_V0_1",
+  "source": {
+    "artifact_ref": "PROJECT_SOURCE:王亭之-安星法与推断实例.pdf",
+    "title": "安星法与推断实例",
+    "author": "王亭之",
+    "case_section_span_ref": "WANG-ANXING-TUIDUAN:P7-P25:CASES"
+  },
+  "lineage": {
+    "product_knowledge_lock_id": "PRODUCT_KNOWLEDGE_LOCK_V0_2",
+    "active_product_knowledge_bundle_id": "KIB-PRODUCT-20261021-V0_2",
+    "k_method_component_semantic_digest": "sha256:d3d982797cba3b4c0c470c8089054b57198e93f0c138144b5a0cdeb189baa3e0",
+    "binding_mode": "DERIVED_PRODUCT_OUTPUT_BOUND_TO_ACTIVE_K_METHOD_INPUT_LINEAGE"
+  },
+  "scope": {
+    "case_count": 24,
+    "materialized_case_count": 24,
+    "materialization_level": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+    "full_chart_materialized": false,
+    "source_review_mode": "VISUAL_SOURCE_CHART_AND_EXPLICIT_CASE_TEXT_REVIEW"
+  },
+  "leakage_policy": {
+    "source_subject_label_in_blind_artifact": false,
+    "expert_reasoning_in_blind_artifact": false,
+    "expert_conclusion_in_blind_artifact": false,
+    "source_outcome_in_blind_artifact": false,
+    "external_biography_in_blind_artifact": false,
+    "canonical_rule_promotion": false,
+    "empirical_probability_from_cases": false
+  },
+  "guardrails": {
+    "unreadable_fields_are_guessed": false,
+    "auxiliary_stars_materialized": false,
+    "transformations_materialized": false,
+    "palace_stem_branch_materialized": false,
+    "age_ranges_materialized": false,
+    "full_chart_claimed": false
+  },
+  "allowed_major_stars": [
+    "紫微",
+    "天机",
+    "太阳",
+    "武曲",
+    "天同",
+    "廉贞",
+    "天府",
+    "太阴",
+    "贪狼",
+    "巨门",
+    "天相",
+    "天梁",
+    "七杀",
+    "破军"
+  ],
+  "cases": [
+    {
+      "case_id": "WANG-CASE-001",
+      "blind_alias": "WANG-BLIND-001",
+      "target_domain": "PARENTS",
+      "target_palace": "父母宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P7:CASE-001:CHART",
+      "source_pages": [
+        7
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": false,
+      "target_palace_main_stars": [
+        "天相"
+      ],
+      "borrowed_from_opposite_main_stars": [],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-001:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-001:TARGET_PALACE:MAIN_STAR_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-002",
+      "blind_alias": "WANG-BLIND-002",
+      "target_domain": "PARENTS",
+      "target_palace": "父母宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P7-P8:CASE-002:CHART",
+      "source_pages": [
+        7,
+        8
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": true,
+      "target_palace_main_stars": [],
+      "borrowed_from_opposite_main_stars": [
+        "太阳",
+        "天梁"
+      ],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-002:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-002:TARGET_PALACE:EMPTY_MAIN_STAR_AND_BORROWED_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-003",
+      "blind_alias": "WANG-BLIND-003",
+      "target_domain": "LIFE",
+      "target_palace": "命宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P8-P9:CASE-003:CHART",
+      "source_pages": [
+        8,
+        9
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": false,
+      "target_palace_main_stars": [
+        "天同"
+      ],
+      "borrowed_from_opposite_main_stars": [],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-003:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-003:TARGET_PALACE:MAIN_STAR_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-004",
+      "blind_alias": "WANG-BLIND-004",
+      "target_domain": "LIFE",
+      "target_palace": "命宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P9-P10:CASE-004:CHART",
+      "source_pages": [
+        9,
+        10
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": false,
+      "target_palace_main_stars": [
+        "天机",
+        "太阴"
+      ],
+      "borrowed_from_opposite_main_stars": [],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-004:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-004:TARGET_PALACE:MAIN_STAR_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-005",
+      "blind_alias": "WANG-BLIND-005",
+      "target_domain": "SIBLINGS",
+      "target_palace": "兄弟宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P10-P11:CASE-005:CHART",
+      "source_pages": [
+        10,
+        11
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": false,
+      "target_palace_main_stars": [
+        "太阳",
+        "太阴"
+      ],
+      "borrowed_from_opposite_main_stars": [],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-005:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-005:TARGET_PALACE:MAIN_STAR_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-006",
+      "blind_alias": "WANG-BLIND-006",
+      "target_domain": "SIBLINGS",
+      "target_palace": "兄弟宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P11:CASE-006:CHART",
+      "source_pages": [
+        11
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": false,
+      "target_palace_main_stars": [
+        "廉贞",
+        "天府"
+      ],
+      "borrowed_from_opposite_main_stars": [],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-006:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-006:TARGET_PALACE:MAIN_STAR_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-007",
+      "blind_alias": "WANG-BLIND-007",
+      "target_domain": "SPOUSE",
+      "target_palace": "夫妻宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P11-P12:CASE-007:CHART",
+      "source_pages": [
+        11,
+        12
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": false,
+      "target_palace_main_stars": [
+        "天同",
+        "天梁"
+      ],
+      "borrowed_from_opposite_main_stars": [],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-007:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-007:TARGET_PALACE:MAIN_STAR_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-008",
+      "blind_alias": "WANG-BLIND-008",
+      "target_domain": "SPOUSE",
+      "target_palace": "夫妻宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P12-P13:CASE-008:CHART",
+      "source_pages": [
+        12,
+        13
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": false,
+      "target_palace_main_stars": [
+        "天府"
+      ],
+      "borrowed_from_opposite_main_stars": [],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-008:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-008:TARGET_PALACE:MAIN_STAR_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-009",
+      "blind_alias": "WANG-BLIND-009",
+      "target_domain": "CHILDREN",
+      "target_palace": "子女宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P13-P14:CASE-009:CHART",
+      "source_pages": [
+        13,
+        14
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": false,
+      "target_palace_main_stars": [
+        "紫微",
+        "破军"
+      ],
+      "borrowed_from_opposite_main_stars": [],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-009:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-009:TARGET_PALACE:MAIN_STAR_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-010",
+      "blind_alias": "WANG-BLIND-010",
+      "target_domain": "CHILDREN",
+      "target_palace": "子女宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P14:CASE-010:CHART",
+      "source_pages": [
+        14
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": true,
+      "target_palace_main_stars": [],
+      "borrowed_from_opposite_main_stars": [
+        "天机",
+        "巨门"
+      ],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-010:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-010:TARGET_PALACE:EMPTY_MAIN_STAR_AND_BORROWED_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-011",
+      "blind_alias": "WANG-BLIND-011",
+      "target_domain": "WEALTH",
+      "target_palace": "财帛宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P14-P15:CASE-011:CHART",
+      "source_pages": [
+        14,
+        15
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": false,
+      "target_palace_main_stars": [
+        "太阴"
+      ],
+      "borrowed_from_opposite_main_stars": [],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-011:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-011:TARGET_PALACE:MAIN_STAR_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-012",
+      "blind_alias": "WANG-BLIND-012",
+      "target_domain": "WEALTH",
+      "target_palace": "财帛宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P15-P16:CASE-012:CHART",
+      "source_pages": [
+        15,
+        16
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": false,
+      "target_palace_main_stars": [
+        "天梁"
+      ],
+      "borrowed_from_opposite_main_stars": [],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-012:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-012:TARGET_PALACE:MAIN_STAR_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-013",
+      "blind_alias": "WANG-BLIND-013",
+      "target_domain": "HEALTH",
+      "target_palace": "疾厄宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P16-P17:CASE-013:CHART",
+      "source_pages": [
+        16,
+        17
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": false,
+      "target_palace_main_stars": [
+        "破军"
+      ],
+      "borrowed_from_opposite_main_stars": [],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-013:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-013:TARGET_PALACE:MAIN_STAR_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-014",
+      "blind_alias": "WANG-BLIND-014",
+      "target_domain": "HEALTH",
+      "target_palace": "疾厄宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P17-P18:CASE-014:CHART",
+      "source_pages": [
+        17,
+        18
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": false,
+      "target_palace_main_stars": [
+        "太阴"
+      ],
+      "borrowed_from_opposite_main_stars": [],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-014:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-014:TARGET_PALACE:MAIN_STAR_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-015",
+      "blind_alias": "WANG-BLIND-015",
+      "target_domain": "TRAVEL",
+      "target_palace": "迁移宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P18:CASE-015:CHART",
+      "source_pages": [
+        18
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": true,
+      "target_palace_main_stars": [],
+      "borrowed_from_opposite_main_stars": [
+        "天同",
+        "巨门"
+      ],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-015:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-015:TARGET_PALACE:EMPTY_MAIN_STAR_AND_BORROWED_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-016",
+      "blind_alias": "WANG-BLIND-016",
+      "target_domain": "TRAVEL",
+      "target_palace": "迁移宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P18-P19:CASE-016:CHART",
+      "source_pages": [
+        18,
+        19
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": true,
+      "target_palace_main_stars": [],
+      "borrowed_from_opposite_main_stars": [
+        "天机",
+        "天梁"
+      ],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-016:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-016:TARGET_PALACE:EMPTY_MAIN_STAR_AND_BORROWED_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-017",
+      "blind_alias": "WANG-BLIND-017",
+      "target_domain": "FRIENDS",
+      "target_palace": "奴仆宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P19-P20:CASE-017:CHART",
+      "source_pages": [
+        19,
+        20
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": true,
+      "target_palace_main_stars": [],
+      "borrowed_from_opposite_main_stars": [
+        "天同",
+        "太阴"
+      ],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-017:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-017:TARGET_PALACE:EMPTY_MAIN_STAR_AND_BORROWED_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-018",
+      "blind_alias": "WANG-BLIND-018",
+      "target_domain": "FRIENDS",
+      "target_palace": "奴仆宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P20-P21:CASE-018:CHART",
+      "source_pages": [
+        20,
+        21
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": false,
+      "target_palace_main_stars": [
+        "破军"
+      ],
+      "borrowed_from_opposite_main_stars": [],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-018:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-018:TARGET_PALACE:MAIN_STAR_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-019",
+      "blind_alias": "WANG-BLIND-019",
+      "target_domain": "CAREER",
+      "target_palace": "官禄宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P21:CASE-019:CHART",
+      "source_pages": [
+        21
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": false,
+      "target_palace_main_stars": [
+        "贪狼"
+      ],
+      "borrowed_from_opposite_main_stars": [],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-019:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-019:TARGET_PALACE:MAIN_STAR_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-020",
+      "blind_alias": "WANG-BLIND-020",
+      "target_domain": "CAREER",
+      "target_palace": "官禄宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P22:CASE-020:CHART",
+      "source_pages": [
+        22
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": false,
+      "target_palace_main_stars": [
+        "贪狼"
+      ],
+      "borrowed_from_opposite_main_stars": [],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-020:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-020:TARGET_PALACE:MAIN_STAR_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-021",
+      "blind_alias": "WANG-BLIND-021",
+      "target_domain": "PROPERTY",
+      "target_palace": "田宅宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P22-P23:CASE-021:CHART",
+      "source_pages": [
+        22,
+        23
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": false,
+      "target_palace_main_stars": [
+        "廉贞",
+        "破军"
+      ],
+      "borrowed_from_opposite_main_stars": [],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-021:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-021:TARGET_PALACE:MAIN_STAR_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-022",
+      "blind_alias": "WANG-BLIND-022",
+      "target_domain": "PROPERTY",
+      "target_palace": "田宅宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P23-P24:CASE-022:CHART",
+      "source_pages": [
+        23,
+        24
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": false,
+      "target_palace_main_stars": [
+        "破军"
+      ],
+      "borrowed_from_opposite_main_stars": [],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-022:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-022:TARGET_PALACE:MAIN_STAR_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-023",
+      "blind_alias": "WANG-BLIND-023",
+      "target_domain": "FORTUNE_VIRTUE",
+      "target_palace": "福德宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P24:CASE-023:CHART",
+      "source_pages": [
+        24
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": false,
+      "target_palace_main_stars": [
+        "天府"
+      ],
+      "borrowed_from_opposite_main_stars": [],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-023:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-023:TARGET_PALACE:MAIN_STAR_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    },
+    {
+      "case_id": "WANG-CASE-024",
+      "blind_alias": "WANG-BLIND-024",
+      "target_domain": "FORTUNE_VIRTUE",
+      "target_palace": "福德宫",
+      "source_chart_span_ref": "WANG-ANXING-TUIDUAN:P25:CASE-024:CHART",
+      "source_pages": [
+        25
+      ],
+      "materialization_status": "PARTIAL_TARGET_PALACE_MATERIALIZED",
+      "materialization_scope": "TARGET_PALACE_MAJOR_STAR_SYSTEM_ONLY",
+      "target_palace_empty_main_star": true,
+      "target_palace_main_stars": [],
+      "borrowed_from_opposite_main_stars": [
+        "天梁"
+      ],
+      "fact_refs": [
+        "MATERIALIZED_FACT:WANG-CASE-024:TARGET_PALACE:PALACE_IDENTITY",
+        "MATERIALIZED_FACT:WANG-CASE-024:TARGET_PALACE:EMPTY_MAIN_STAR_AND_BORROWED_SYSTEM"
+      ],
+      "full_chart_status": "NOT_MATERIALIZED"
+    }
+  ]
+}
