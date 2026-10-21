@@ -8,17 +8,17 @@ execution:
   phase: "PL3_METHOD_RESPONSE_VERTICAL_SLICE"
   active_issue: null
   active_pr: null
-  next_work_unit: "PL3R_DECADE_YEAR_RESPONSE_COMPILER"
-  resume_entry: "Product #526 / PR #527 implements deterministic NATAL evaluation for the exact 12 Career condition plans from #521 and binds all 12 to source-reviewed Career projection descriptors from active K_response. The evaluator is bounded to canonical P09 and preserves SAME_PALACE, FOUR_DIRECTIONS_VISIBILITY, pair/both/any, 子午 branch gates, local TRANSFORM/ATOM OR, and exact-parent dependency truth. This is a real condition-evaluation milestone but still semantic-only: runtime_effect_allowed=0, E_decade/E_year is not consumed, ResponseProfile tau is not generated, M0 is not generated, and predictive validity remains NOT_VALIDATED. Immediate next Product work is PL3R_DECADE_YEAR_RESPONSE_COMPILER."
+  next_work_unit: "PL3M0_CANONICAL_MANIFESTATION_CANDIDATES"
+  resume_entry: "Product #534 / PR #535 adds the first sparse deterministic Career ResponseProfile tau compiler. It combines the exact 12-row NATAL evaluator with TemporalEnvironmentProfile and consumes only explicit source-backed DECADE/YEAR TemporalReactionEvidence linked through matched_natal_rule_ids. Raw temporal facts, target-name similarity and domain membership never create response semantics. Test-only source-backed reactions prove ACTIVATE/STRENGTHEN/WEAKEN/TRANSFORM compilation, while the production temporal reaction registry remains intentionally empty, so production tau is PARTIAL_UNKNOWN with zero dynamic entries rather than a false negative event claim. Runtime effects, M0, probability and predictive validity remain unavailable. Immediate next Product work is PL3M0_CANONICAL_MANIFESTATION_CANDIDATES."
   state_cache_as_of_main_commit: "7b1abba449e9ee40206a5b303028d6c985cc6368"
   state_cache_as_of_product_merge: "7b1abba449e9ee40206a5b303028d6c985cc6368"
   v04_entry_checkpoint_issue: 416
   v04_entry_checkpoint_pr: 418
-  last_completed_product_issue: 526
-  last_completed_product_pr: 527
+  last_completed_product_issue: 534
+  last_completed_product_pr: 535
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
-  resume_issue: 526
+  resume_issue: 534
   roadmap: "PRODUCT_ROADMAP.md#v0.4"
   execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
 
@@ -100,16 +100,16 @@ capability_snapshot:
     internal_validation: "DETERMINISTIC_CONTRACT"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    note: "Product #521/#523 compiles exactly 12 governed Career condition IR records into typed Product plans: 9 direct + 3 dependency references. Fourteen local-ready/non-IR-ready rows are explicit NOT_COMPILER_INPUT. Compiled plans are structural only: condition_evaluated=0, response_effect_bound=0, runtime_effect_allowed=0. ResponseProfile tau is still not implemented."
+    note: "Product #521/#523 compiles exactly 12 governed Career condition IR records into typed Product plans: 9 direct + 3 dependency references. Fourteen local-ready/non-IR-ready rows are explicit NOT_COMPILER_INPUT. This layer remains structural only: condition_evaluated=0, response_effect_bound=0, runtime_effect_allowed=0. Downstream Product #526 evaluates them and Product #534 builds the separate ResponseProfile tau contract."
 
   response_condition_evaluator:
     specification: "PL3R_V0_1_PILOT"
     implementation: "IMPLEMENTED_V0_1"
     canonical_content: "ACTIVE_K_RESPONSE_V0_16_CONDITION_IR_12_EFFECT_BINDINGS_12"
-    internal_validation: "DETERMINISTIC_CONTRACT_PENDING_FINAL_GATE"
+    internal_validation: "DETERMINISTIC_CONTRACT"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    note: "Product #526 / PR #527 evaluates exactly 12 Career NATAL conditions against canonical P09 chart structure and binds 12 source-reviewed projection descriptors. Direct conditions=9 and exact-parent dependency conditions=3. Evaluation supports only governed term/relation forms; unsupported system/relation forms fail closed. This remains semantic-only: E_decade/E_year not consumed, runtime_effect_allowed=0, ResponseProfile tau=NOT_IMPLEMENTED, predictive validity=NOT_VALIDATED."
+    note: "Product #526 / PR #527 evaluates exactly 12 Career NATAL conditions against canonical P09 chart structure and binds 12 source-reviewed projection descriptors. Direct conditions=9 and exact-parent dependency conditions=3. Evaluation supports only governed term/relation forms; unsupported system/relation forms fail closed. Runtime effects remain unauthorized; Product #534 consumes this evaluator only through the separate ResponseProfile compiler."
 
   knowledge_dependency_control:
     specification: "PROPOSAL_491_APPROVED"
@@ -122,12 +122,12 @@ capability_snapshot:
 
   response_profile:
     specification: "V0_4_ARCHITECTURE_APPROVED"
-    implementation: "NOT_IMPLEMENTED"
-    canonical_content: "EMPTY"
-    internal_validation: "NONE"
+    implementation: "IMPLEMENTED_V0_1"
+    canonical_content: "PRODUCTION_DYNAMIC_CONTENT_EMPTY"
+    internal_validation: "DETERMINISTIC_CONTRACT_PENDING_FINAL_GATE"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    note: "Target: symbolic source-traceable tau_t from N + E_decade/year + canonical response knowledge."
+    note: "Product #534 / PR #535 implements sparse source-traceable Career tau_t from NATAL evaluation + E_decade/year. A dynamic entry requires explicit TemporalReactionEvidence.matched_natal_rule_ids linkage to an actually matched NATAL rule. Production temporal reaction registry is still empty, therefore production tau is PARTIAL_UNKNOWN with zero entries and explicit blockers; this is not negative event evidence. No numeric magnitude, probability, M0 or predictive-validity claim is introduced."
 
   manifestation_m0:
     specification: "V0_4_ARCHITECTURE_APPROVED"
@@ -174,7 +174,6 @@ capability_snapshot:
 
 critical_path:
   now:
-    - "PL3R_DECADE_YEAR_RESPONSE_COMPILER"
     - "PL3M0_CANONICAL_MANIFESTATION_CANDIDATES"
     - "WANG_METHOD_SCOPE_AND_FULL_CHART_REVIEW"
     - "CANONICAL_AND_METHOD_FIDELITY_BENCHMARK"
