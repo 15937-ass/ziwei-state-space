@@ -253,7 +253,9 @@ def build_dual_output(
             "interpretation": {
                 "semantic_truth": (
                     "Facts come from mapped validated claims. "
-                    "SOURCE_BACKED_FALLBACK is source-traceable but not runtime-executable."
+                    "SOURCE_BACKED_FALLBACK is source-traceable but not runtime-executable. "
+                    "DETERMINISTIC_TEMPORAL_SIDECAR means structural temporal facts were "
+                    "computed by the pilot helper from explicit inputs and are not main-runtime claims."
                 ),
                 "llm_role": (
                     "LLM_VERBALIZATION may change wording only. "
