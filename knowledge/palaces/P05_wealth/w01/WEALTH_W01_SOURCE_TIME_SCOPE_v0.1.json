@@ -1,0 +1,164 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P05-WEALTH-W01-SOURCE-TIME-SCOPE-v0.1",
+  "issue": 549,
+  "source_id": "SRC-ZZ-003",
+  "scope": "W01-001..W01-100 / printed pp69-72",
+  "counts": {
+    "non_natal_rows": 13,
+    "natal_temporal_guard_rows": 1,
+    "decade": 8,
+    "year": 5
+  },
+  "exact_non_natal_ids": [
+    "W01-011",
+    "W01-012",
+    "W01-051",
+    "W01-052",
+    "W01-053",
+    "W01-054",
+    "W01-055",
+    "W01-063",
+    "W01-084",
+    "W01-085",
+    "W01-086",
+    "W01-087",
+    "W01-088"
+  ],
+  "temporal_guard_ids": [
+    "W01-089"
+  ],
+  "policy": [
+    "保持来源时间层，不将DECADE/YEAR扁平化为NATAL。",
+    "来源中的轻重、后五年、吉处藏凶等语义保持定性，不生成概率、权重、衰减或连续时间参数。",
+    "W01-089只规定原局基态先于运限解释，不新增时间primitive。"
+  ],
+  "records": [
+    {
+      "projection_rule_id": "W01-011",
+      "source_location": "财帛宫printed_p69",
+      "candidate_time_layer": "DECADE",
+      "canonical_time_layer": "DECADE",
+      "role": "TEMPORAL_SOURCE_RULE",
+      "source_scope_note": "前述紫微破军/福德天相结构下，原文要求留意各大运进退；只记录DECADE观察窗口，不制造独立事件。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W01-012",
+      "source_location": "财帛宫printed_p69",
+      "candidate_time_layer": "YEAR",
+      "canonical_time_layer": "YEAR",
+      "role": "TEMPORAL_SOURCE_RULE",
+      "source_scope_note": "同一结构下原文要求留意特别重要的流年；只记录YEAR观察窗口。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W01-051",
+      "source_location": "财帛宫printed_p70",
+      "candidate_time_layer": "DECADE",
+      "canonical_time_layer": "DECADE",
+      "role": "TEMPORAL_SOURCE_RULE",
+      "source_scope_note": "原局化禄或禄存与大运化禄或禄存同度/相对构成叠禄。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W01-052",
+      "source_location": "财帛宫printed_p70",
+      "candidate_time_layer": "YEAR",
+      "canonical_time_layer": "YEAR",
+      "role": "TEMPORAL_SOURCE_RULE",
+      "source_scope_note": "大运与流年也可构成叠禄。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W01-053",
+      "source_location": "财帛宫printed_p70",
+      "candidate_time_layer": "YEAR",
+      "canonical_time_layer": "YEAR",
+      "role": "TEMPORAL_SOURCE_RULE",
+      "source_scope_note": "流年与原局构成叠禄时，原文称力量较轻；不量化轻重。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W01-054",
+      "source_location": "财帛宫printed_p70",
+      "candidate_time_layer": "DECADE",
+      "canonical_time_layer": "DECADE",
+      "role": "TEMPORAL_SOURCE_RULE",
+      "source_scope_note": "重重叠禄是否成‘禄重’取决于原局命宫/财帛是否主富；保留前提依赖。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W01-055",
+      "source_location": "财帛宫printed_p70",
+      "candidate_time_layer": "YEAR",
+      "canonical_time_layer": "YEAR",
+      "role": "TEMPORAL_SOURCE_RULE",
+      "source_scope_note": "原局禄叠大运禄再叠流年禄，原文将该年财气旺与‘禄重’区分。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W01-063",
+      "source_location": "财帛宫printed_p70",
+      "candidate_time_layer": "DECADE",
+      "canonical_time_layer": "DECADE",
+      "role": "TEMPORAL_SOURCE_RULE",
+      "source_scope_note": "大运财帛宫吉且见陀罗，原文限定‘后五年始得财顺遂’；保留字面范围，不抽象为通用延迟模型。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W01-084",
+      "source_location": "财帛宫printed_p71",
+      "candidate_time_layer": "DECADE",
+      "canonical_time_layer": "DECADE",
+      "role": "TEMPORAL_SOURCE_RULE",
+      "source_scope_note": "原局财星已有四化，大运再化时必须结合具体会合判别。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W01-085",
+      "source_location": "财帛宫printed_p71",
+      "candidate_time_layer": "DECADE",
+      "canonical_time_layer": "DECADE",
+      "role": "TEMPORAL_SOURCE_RULE",
+      "source_scope_note": "原局武曲化禄、大运再化忌的条件化反应。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W01-086",
+      "source_location": "财帛宫printed_p71",
+      "candidate_time_layer": "DECADE",
+      "canonical_time_layer": "DECADE",
+      "role": "TEMPORAL_SOURCE_RULE",
+      "source_scope_note": "原局武曲化忌、大运再化禄仅表示可能出现解困机会。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W01-087",
+      "source_location": "财帛宫printed_p71",
+      "candidate_time_layer": "DECADE",
+      "canonical_time_layer": "DECADE",
+      "role": "TEMPORAL_SOURCE_RULE",
+      "source_scope_note": "忌星再化禄若仍受大运忌星冲会，不可直接作吉。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W01-088",
+      "source_location": "财帛宫printed_p71",
+      "candidate_time_layer": "YEAR",
+      "canonical_time_layer": "YEAR",
+      "role": "TEMPORAL_SOURCE_RULE",
+      "source_scope_note": "流年财帛宫忌星、禄忌交冲与‘凶事’行业语境的条件性反应。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W01-089",
+      "source_location": "财帛宫printed_p71",
+      "candidate_time_layer": "NATAL",
+      "canonical_time_layer": "NATAL",
+      "role": "NATAL_BASELINE_GUARD",
+      "source_scope_note": "NATAL基线门控：推大运/流年财帛必须先详原局基本性质。",
+      "no_numeric_generalization": true
+    }
+  ]
+}
