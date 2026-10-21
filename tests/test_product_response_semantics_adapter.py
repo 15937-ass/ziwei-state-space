@@ -9,6 +9,8 @@ from src.product.response_semantics_adapter import (
     ACTIVATION_CLOSURE_PATH,
     CATEGORY_REVIEW_PATH,
     CAREER_ORDINAL_CONSTRAINTS_PATH,
+    CAREER_ORDINAL_RULE_LINKS_PATH,
+    CAREER_ORDINAL_BLOCKER_IMPACT_PATH,
     RESPONSE_PILOT_PATH,
     CareerResponseDecision,
     ResponseSemanticEnvelope,
@@ -20,7 +22,10 @@ from src.product.response_semantics_adapter import (
     load_activation_closure,
     load_career_compatibility_records,
     load_career_ordinal_constraints,
+    load_career_ordinal_rule_links,
+    load_career_ordinal_blocker_impact,
     load_response_pilot_records,
+    validate_career_ordinal_cross_artifacts,
     validate_real_adapter_zero_unlock,
 )
 
@@ -367,6 +372,77 @@ def test_ordinal_relation_types_are_preserved_without_numeric_gain():
     )
 
 
+def test_ordinal_rule_links_cover_all_130_constraints_without_gap():
+    links = load_career_ordinal_rule_links()
+    records = links["records"]
+
+    assert len(records) == 130
+    assert links["coverage"]["constraints"] == 130
+    assert links["coverage"]["linked_atomic_rule_ids"] == 130
+    assert links["disposition_counts"] == {
+        "DIRECT_ATOMIC_RULE": 114,
+        "METHODOLOGY_OR_CONTEXT_ONLY": 1,
+        "MULTI_RULE_SHARED_SOURCE_SENTENCE": 15,
+    }
+    assert all(item["linked_rule_ids"] for item in records)
+
+
+def test_ordinal_blocker_impact_is_qualitative_only_and_unlocks_nothing():
+    impact = load_career_ordinal_blocker_impact()
+    summary = impact["summary"]
+
+    assert len(impact["records"]) == 130
+    assert summary["constraints_audited"] == 130
+    assert summary["impact_counts"] == {
+        "NO_BLOCKER_REDUCTION": 94,
+        "QUALITATIVE_REFINEMENT_ONLY": 36,
+    }
+    assert summary["unique_activation_rules_touched"] == 33
+    assert summary["blockers_resolved_by_ordinal_evidence"] == 0
+    assert summary["execution_unlocked"] == 0
+    assert all(item["execution_unlocked"] is False for item in impact["records"])
+    assert all(item["resolved_blockers"] == [] for item in impact["records"])
+
+
+def test_ordinal_constraint_link_and_impact_artifacts_are_one_to_one():
+    validate_career_ordinal_cross_artifacts()
+
+    constraint_ids = {
+        item["constraint_id"] for item in load_career_ordinal_constraints()
+    }
+    link_ids = {
+        item["constraint_id"]
+        for item in load_career_ordinal_rule_links()["records"]
+    }
+    impact_ids = {
+        item["constraint_id"]
+        for item in load_career_ordinal_blocker_impact()["records"]
+    }
+
+    assert constraint_ids == link_ids == impact_ids
+
+
+def test_ordinal_linking_does_not_change_real_product_runtime_unlock():
+    payload = audit_response_semantics_adapter_readiness()
+    linking = payload["career_ordinal_rule_linking"]
+
+    assert linking["constraints_dispositioned"] == 130
+    assert linking["linked_atomic_rule_ids"] == 130
+    assert linking["link_disposition_counts"] == {
+        "DIRECT_ATOMIC_RULE": 114,
+        "METHODOLOGY_OR_CONTEXT_ONLY": 1,
+        "MULTI_RULE_SHARED_SOURCE_SENTENCE": 15,
+    }
+    assert linking["blocker_impact_counts"] == {
+        "NO_BLOCKER_REDUCTION": 94,
+        "QUALITATIVE_REFINEMENT_ONLY": 36,
+    }
+    assert linking["unique_activation_rules_touched"] == 33
+    assert linking["blockers_resolved_by_ordinal_evidence"] == 0
+    assert linking["execution_unlocked"] == 0
+    assert payload["career"]["runtime_effects_authorized"] == 0
+
+
 def test_readiness_audit_matches_versioned_artifact():
     generated = audit_response_semantics_adapter_readiness()
     stored = _load(READINESS)
@@ -434,3 +510,5 @@ def test_source_knowledge_files_are_read_only_inputs():
     assert ACTIVATION_CLOSURE_PATH.exists()
     assert CATEGORY_REVIEW_PATH.exists()
     assert CAREER_ORDINAL_CONSTRAINTS_PATH.exists()
+    assert CAREER_ORDINAL_RULE_LINKS_PATH.exists()
+    assert CAREER_ORDINAL_BLOCKER_IMPACT_PATH.exists()
