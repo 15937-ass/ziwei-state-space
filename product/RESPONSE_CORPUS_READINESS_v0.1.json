@@ -1,0 +1,315 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "PRODUCT_RESPONSE_CORPUS_READINESS_V0_1",
+  "issue": 482,
+  "frozen_baseline": "16bb9b30f491afa27368e88767e5662dbdc54983",
+  "mode": "FAIL_CLOSED_SOURCE_INVENTORY_NO_SEMANTIC_INFERENCE",
+  "source_families": [
+    {
+      "family_id": "MAJOR_STAR_TEMPORAL_RESPONSE",
+      "artifact_paths": [
+        "knowledge/rules/stars/major_stars_canonical_v0.1.csv"
+      ],
+      "selection_criterion": "rule_family == temporal_response",
+      "total_rows": 430,
+      "selected_rows": 24,
+      "readiness_class": "SOURCE_TEMPORAL_CANDIDATE_AWAITING_KR_NORMALIZATION",
+      "scope_counts": {
+        "decade_or_year": 22,
+        "natal_or_temporal": 2
+      },
+      "operator_counts": {
+        "activate": 3,
+        "condition": 3,
+        "enhance": 10,
+        "gate": 1,
+        "project": 5,
+        "transform": 2
+      },
+      "review_status_counts": {
+        "MODEL_SELF_REVIEWED": 24
+      },
+      "source_epistemic_counts": {
+        "EXPLICIT": 24
+      },
+      "source_span_verified_counts": {
+        "false": 24
+      },
+      "normalization_epistemic_counts": {
+        "UNRESOLVED": 24
+      },
+      "normalization_verified_counts": {
+        "false": 24
+      },
+      "missing_required_source_fields": {
+        "rule_id": 0,
+        "subject": 0,
+        "condition": 0,
+        "target_type": 0,
+        "target_literal": 0,
+        "operator": 0,
+        "evidence_text": 0,
+        "source_location": 0
+      },
+      "blockers": [
+        "NO_CANONICAL_KR_RECORD_CONTRACT",
+        "SOURCE_SPAN_NOT_VERIFIED_FOR_SELECTED_ROWS",
+        "NORMALIZATION_NOT_VERIFIED_FOR_SELECTED_ROWS"
+      ],
+      "details": {
+        "candidate_ids_sample": [
+          "ZZ-ZW-X06",
+          "ZZ-ZW-X11",
+          "ZZ-ZW-X12",
+          "ZZ-TJ-018",
+          "ZZ-TJ-019",
+          "ZZ-TJ-020",
+          "ZZ-TJ-021",
+          "ZZ-TJ-022",
+          "ZZ-TJ-X04",
+          "ZZ-TJ-Y02"
+        ],
+        "candidate_ids_total": 24,
+        "product_semantic_promotion": false
+      }
+    },
+    {
+      "family_id": "SIXTY_SYSTEM_TEMPORAL_REACTION",
+      "artifact_paths": [
+        "knowledge/rules/systems/sixty_systems_canonical_v0.1.csv",
+        "knowledge/review/sixty_systems_review_v0.3.csv",
+        "knowledge/migrations/a0_sixty_systems_schema_overrides_v0.1.csv"
+      ],
+      "selection_criterion": "interaction_role == temporal_reaction",
+      "total_rows": 2193,
+      "selected_rows": 1015,
+      "readiness_class": "SOURCE_TEMPORAL_CANDIDATE_AWAITING_KR_NORMALIZATION",
+      "scope_counts": {
+        "decade": 28,
+        "decade_or_year": 840,
+        "generic": 2,
+        "temporal": 106,
+        "year": 39
+      },
+      "operator_counts": {
+        "activate": 2,
+        "assert": 13,
+        "compare": 2,
+        "condition": 80,
+        "define": 6,
+        "enhance": 605,
+        "gate": 25,
+        "project": 34,
+        "transform": 242,
+        "weaken": 6
+      },
+      "review_status_counts": {
+        "MODEL_SELF_REVIEWED": 1015
+      },
+      "source_epistemic_counts": {
+        "EXPLICIT": 1015
+      },
+      "source_span_verified_counts": {
+        "false": 1015
+      },
+      "normalization_epistemic_counts": {
+        "IMPLEMENTATION": 35,
+        "UNRESOLVED": 980
+      },
+      "normalization_verified_counts": {
+        "false": 1015
+      },
+      "missing_required_source_fields": {
+        "rule_id": 0,
+        "system_name": 0,
+        "condition": 0,
+        "target_type": 0,
+        "target_literal": 0,
+        "operator": 0,
+        "evidence_text": 0,
+        "source_location": 0
+      },
+      "blockers": [
+        "NO_CANONICAL_KR_RECORD_CONTRACT",
+        "SOURCE_SPAN_NOT_VERIFIED_FOR_SELECTED_ROWS",
+        "NORMALIZATION_NOT_VERIFIED_FOR_SELECTED_ROWS",
+        "NORMALIZATION_EPISTEMIC_UNRESOLVED_PRESENT"
+      ],
+      "details": {
+        "candidate_ids_sample": [
+          "ZZ-SYS-01-011",
+          "ZZ-SYS-01-012",
+          "ZZ-SYS-01-013",
+          "ZZ-SYS-01-014",
+          "ZZ-SYS-02-021",
+          "ZZ-SYS-02-022",
+          "ZZ-SYS-02-023",
+          "ZZ-SYS-02-024",
+          "ZZ-SYS-02-025",
+          "ZZ-SYS-02-026"
+        ],
+        "candidate_ids_total": 1015,
+        "selected_rows_with_schema_override": 35,
+        "product_semantic_promotion": false
+      }
+    },
+    {
+      "family_id": "CAREER_TEMPORAL_ELIGIBILITY",
+      "artifact_paths": [
+        "knowledge/wp07b/CAREER_TEMPORAL_REACTION_ELIGIBILITY_v0.1.csv",
+        "knowledge/wp07b/CAREER_TEMPORAL_REACTION_ELIGIBILITY_SUMMARY_v0.1.json"
+      ],
+      "selection_criterion": "all rows in explicit Knowledge temporal eligibility audit",
+      "total_rows": 9,
+      "selected_rows": 9,
+      "readiness_class": "KNOWLEDGE_EXPLICITLY_BLOCKED",
+      "scope_counts": {
+        "DECADE": 7,
+        "YEAR": 2
+      },
+      "operator_counts": {},
+      "review_status_counts": {},
+      "source_epistemic_counts": {},
+      "source_span_verified_counts": {},
+      "normalization_epistemic_counts": {},
+      "normalization_verified_counts": {},
+      "missing_required_source_fields": {
+        "candidate_id": 0,
+        "source_id": 0,
+        "source_location": 0,
+        "declared_time_layer": 0,
+        "source_time_scope": 0,
+        "eligibility_status": 0,
+        "blocking_reasons": 0,
+        "source_claim_summary": 0,
+        "decision": 0
+      },
+      "blockers": [
+        "KNOWLEDGE_ELIGIBLE_FOR_CURRENT_COMPILER_ZERO",
+        "NO_PRODUCT_PROMOTION_OF_BLOCKED_OR_CASE_SUPPORT_ROWS"
+      ],
+      "details": {
+        "eligibility_status_counts": {
+          "BLOCKED_ANTECEDENT_AND_TEMPORAL_SCOPE": 1,
+          "BLOCKED_CASE_SUPPORT_ANTECEDENT": 1,
+          "BLOCKED_COMPOUND_TEMPORAL_CONDITION": 1,
+          "BLOCKED_MULTIYEAR_SEQUENCE": 1,
+          "BLOCKED_TEMPORAL_FACT_BINDING_AND_SCOPE": 1,
+          "BLOCKED_UNDEFINED_FAVORABLE_PERIOD": 1,
+          "BLOCKED_UNDEFINED_UNFAVORABLE_PERIOD": 1,
+          "BLOCKED_UNSPECIFIED_TEMPORAL_SUPPORT": 1,
+          "EXCLUDED_CASE_SUPPORT_ONLY": 1
+        },
+        "eligible_for_current_compiler": 0,
+        "blocked": 8,
+        "case_support_only_excluded": 1,
+        "executable_pilot_emitted": false,
+        "production_registry_should_remain_empty": true,
+        "product_semantic_promotion": false
+      }
+    },
+    {
+      "family_id": "RESPONSE_SEMANTICS_PILOT",
+      "artifact_paths": [
+        "knowledge/response/RESPONSE_SEMANTICS_PILOT_v0.1.json"
+      ],
+      "selection_criterion": "all explicit ResponseSemanticsRecord pilot rows",
+      "total_rows": 8,
+      "selected_rows": 8,
+      "readiness_class": "SEMANTIC_VOCABULARY_ONLY",
+      "scope_counts": {
+        "(unset)": 8
+      },
+      "operator_counts": {},
+      "review_status_counts": {},
+      "source_epistemic_counts": {},
+      "source_span_verified_counts": {},
+      "normalization_epistemic_counts": {},
+      "normalization_verified_counts": {},
+      "missing_required_source_fields": {},
+      "blockers": [
+        "NO_CANONICAL_KR_RECORD_CONTRACT",
+        "NO_TEMPORAL_SCOPE_BINDING",
+        "RESPONSE_SEMANTICS_EXECUTION_STATUS_IS_NOT_KR_AUTHORIZATION"
+      ],
+      "details": {
+        "semantic_role_counts": {
+          "LEXICAL_GROUP": 3,
+          "LOCAL_RESPONSE_PATTERN": 1,
+          "NAMED_COMPOSITE": 3,
+          "SCOPED_CATEGORY": 1
+        },
+        "execution_status_counts": {
+          "LEXICAL_ONLY": 4,
+          "STRUCTURAL_ONLY": 4
+        },
+        "temporal_scope_bound_records": 0,
+        "safe_symbolic_records": 0,
+        "product_semantic_promotion": false
+      }
+    }
+  ],
+  "summary": {
+    "source_temporal_candidate_rows": 1039,
+    "major_star_temporal_response_rows": 24,
+    "sixty_system_temporal_reaction_rows": 1015,
+    "career_temporal_audit_rows": 9,
+    "response_semantics_pilot_rows": 8,
+    "source_span_verified_temporal_candidate_rows": 0,
+    "normalization_verified_temporal_candidate_rows": 0,
+    "missing_required_source_field_occurrences": 0,
+    "knowledge_explicit_compiler_eligible_rows": 0,
+    "compiler_ready_kr_records": 0,
+    "candidate_scope_counts": {
+      "decade": 28,
+      "decade_or_year": 862,
+      "generic": 2,
+      "natal_or_temporal": 2,
+      "temporal": 106,
+      "year": 39
+    },
+    "candidate_operator_counts": {
+      "activate": 5,
+      "assert": 13,
+      "compare": 2,
+      "condition": 83,
+      "define": 6,
+      "enhance": 615,
+      "gate": 26,
+      "project": 39,
+      "transform": 244,
+      "weaken": 6
+    }
+  },
+  "kr_contract_gap": {
+    "missing_canonical_contract_dimensions": [
+      "CANONICAL_KR_RECORD_ID",
+      "NATAL_ESSENCE_BINDING",
+      "ENCOUNTERED_TEMPORAL_STRUCTURE_BINDING",
+      "RESPONSE_OPERATOR_CONTRACT",
+      "RESPONSE_EFFECT_TARGET_CONTRACT",
+      "TEMPORAL_SCOPE_EXECUTION_CONTRACT",
+      "KR_EXECUTION_STATUS_CONTRACT"
+    ],
+    "knowledge_owned_normalization_required": true,
+    "product_may_infer_missing_semantics": false,
+    "product_may_split_decade_or_year": false,
+    "product_may_promote_case_support": false,
+    "product_may_numericize_valence": false
+  },
+  "now6_gate": {
+    "NOW6_RESPONSE_COMPILER_INPUT_READY": false,
+    "reason": "No Knowledge-owned compiler-ready Kr records are present in the audited source families; source temporal candidates remain candidate material awaiting canonical Kr normalization.",
+    "response_compiler_implemented": false,
+    "response_profile_tau_implemented": false,
+    "predictive_validity": "NOT_VALIDATED"
+  },
+  "boundaries": {
+    "source_explicit_implies_compiler_ready": false,
+    "reviewed_implies_executable": false,
+    "normalized_source_row_implies_kr_record": false,
+    "favorable_unfavorable_implies_numeric_gain": false,
+    "temporal_scope_implies_layer_split": false,
+    "case_support_implies_reusable_rule": false
+  }
+}
