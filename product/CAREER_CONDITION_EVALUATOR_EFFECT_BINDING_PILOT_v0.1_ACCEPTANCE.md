@@ -26,6 +26,9 @@ Deliverables:
 | FOUR_DIRECTIONS_VISIBILITY 0/4/6/8 preserved | IMPLEMENTED |
 | PAIR / BOTH / ANY source-local semantics preserved | IMPLEMENTED |
 | PALACE_BRANCH 子午 bounded gate preserved | IMPLEMENTED |
+| CA07-681 LOCAL_OR scope bound only to RC37-E06 SAME_PALACE evidence | IMPLEMENTED; TEST ADDED |
+| CA09-820 LOCAL_OR scope bound only to RC37-E08 FOUR_DIRECTIONS evidence | IMPLEMENTED; TEST ADDED |
+| no generic relation-less LOCAL_OR default introduced | PASS by construction |
 | LOCAL_OR TRANSFORM/ATOM preserved | IMPLEMENTED |
 | unsupported star-system identifier fails closed | TEST ADDED |
 | exact 12 source projection descriptors bound | IMPLEMENTED |
