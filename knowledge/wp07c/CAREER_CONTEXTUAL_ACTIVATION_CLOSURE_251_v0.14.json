@@ -198,7 +198,12 @@
     "antecedent_dependency_only_parent_underdetermined": 24,
     "antecedent_dependency_graph_max_depth": 2,
     "antecedent_dependency_graph_cycles": 0,
-    "antecedent_dependency_ca05_473_branch_union_repair": 1
+    "antecedent_dependency_ca05_473_branch_union_repair": 1,
+    "antecedent_reference_resolved_no_local_blocker": 11,
+    "antecedent_reference_resolved_inherited_source_underdetermination": 11,
+    "antecedent_reference_resolved_effective_condition_ready": 0,
+    "antecedent_dependency_only_parent_scope_not_assessed": 0,
+    "antecedent_rows_with_transitive_inherited_blockers": 38
   },
   "source_recheck_outcome": {
     "human_gate_required": false,
@@ -242,7 +247,8 @@
     "Issue #505 formalizes all 65 explicit Career antecedent references (66 edges) as an ID-bound dependency graph. The graph is acyclic; only CA02-171 points to another explicit-reference node, producing maximum reference depth 2.",
     "The corpus has 28 exact 前格 surfaces, 36 前格+continuation surfaces, and one non-前格 additive continuation (CA09-847). These are descriptive source-surface classes only and do not create a universal natural-language inheritance rule.",
     "CA05-473 is dependency-scope repaired: CA05-471 and CA05-472 are alternative civil/martial public-office branches, and 煞曜不居本宫 is a shared qualifier over that branch union, not an AND of both parent rules.",
-    "Among 50 compiler-gated rows, 27 have no blocker besides ANTECEDENT_DEPENDENCY. Only CA05-420, CA07-639 and CA07-682 have locally blocker-free antecedents; the other 24 inherit source-underdetermination. No Product condition is compiled here."
+    "Among 50 compiler-gated rows, 27 have no blocker besides ANTECEDENT_DEPENDENCY. Only CA05-420, CA07-639 and CA07-682 have locally blocker-free antecedents; the other 24 inherit source-underdetermination. No Product condition is compiled here.",
+    "Critic correction: row-local closure readiness is not recursively expanded dependency readiness. The initial draft's `REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY` label was removed because 11 such rows inherit parent uncertainty; CA02-171 specifically inherits the open-valence blocker through CA02-170 -> CA02-169. Current effective-condition-ready count among already-reference-resolved rows is zero."
   ],
   "records": [
     {
@@ -276,8 +282,14 @@
       "dependency_contract_surface_class": "FOREGOING_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
-      "dependency_contract_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA01-059",
@@ -322,8 +334,15 @@
       "dependency_contract_surface_class": "FOREGOING_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
-      "dependency_contract_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA01-064",
@@ -383,8 +402,13 @@
       "dependency_contract_surface_class": "FOREGOING_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
-      "dependency_contract_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_OTHER_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_readiness": "REFERENCE_EDGE_RESOLVED_LOCAL_BLOCKERS_REMAIN",
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA01-078"
+      ]
     },
     {
       "source_rule_id": "CA01-081",
@@ -572,8 +596,13 @@
       "dependency_contract_surface_class": "EXACT_FOREGOING_REFERENCE",
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
-      "dependency_contract_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA02-113",
@@ -643,8 +672,13 @@
       "dependency_contract_surface_class": "FOREGOING_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
-      "dependency_contract_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_OTHER_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_readiness": "REFERENCE_EDGE_RESOLVED_LOCAL_BLOCKERS_REMAIN",
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA02-133",
@@ -683,8 +717,13 @@
       "dependency_contract_surface_class": "FOREGOING_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
-      "dependency_contract_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA02-141",
@@ -747,8 +786,13 @@
       "dependency_contract_surface_class": "FOREGOING_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
-      "dependency_contract_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_OTHER_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_readiness": "REFERENCE_EDGE_RESOLVED_LOCAL_BLOCKERS_REMAIN",
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA02-151"
+      ]
     },
     {
       "source_rule_id": "CA02-154",
@@ -805,8 +849,13 @@
       "dependency_contract_surface_class": "EXACT_FOREGOING_REFERENCE",
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
-      "dependency_contract_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA02-166",
@@ -845,8 +894,14 @@
       "dependency_contract_surface_class": "FOREGOING_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
-      "dependency_contract_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA02-168",
@@ -863,8 +918,14 @@
       "dependency_contract_surface_class": "EXACT_FOREGOING_REFERENCE",
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
-      "dependency_contract_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA02-169",
@@ -898,8 +959,13 @@
       "dependency_contract_surface_class": "FOREGOING_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
-      "dependency_contract_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA02-171",
@@ -916,8 +982,13 @@
       "dependency_contract_surface_class": "EXACT_FOREGOING_REFERENCE",
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 2,
-      "dependency_contract_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA02-175",
@@ -1020,8 +1091,13 @@
       "dependency_contract_surface_class": "FOREGOING_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION",
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
-      "dependency_contract_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_OTHER_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_readiness": "REFERENCE_EDGE_RESOLVED_LOCAL_BLOCKERS_REMAIN",
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA02-183"
+      ]
     },
     {
       "source_rule_id": "CA02-197",
@@ -1076,8 +1152,13 @@
       "dependency_contract_surface_class": "EXACT_FOREGOING_REFERENCE",
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
-      "dependency_contract_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA03-204",
@@ -1227,8 +1308,13 @@
       "dependency_contract_surface_class": "EXACT_FOREGOING_REFERENCE",
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
-      "dependency_contract_readiness": "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA03-236",
@@ -1251,7 +1337,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA03-238",
@@ -1316,7 +1407,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA03-245",
@@ -1374,7 +1470,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "MIXED_VALENCE_COMPOSITION_UNSPECIFIED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA03-248",
@@ -1522,7 +1623,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA03-268",
@@ -1570,7 +1676,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA03-273",
@@ -1637,7 +1748,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA03-277",
@@ -1871,7 +1987,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA04-316",
@@ -1914,7 +2035,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA04-321",
@@ -1962,7 +2088,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA04-322"
+      ]
     },
     {
       "source_rule_id": "CA04-326",
@@ -2100,7 +2231,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA04-352"
+      ]
     },
     {
       "source_rule_id": "CA04-357",
@@ -2127,7 +2263,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA04-356"
+      ]
     },
     {
       "source_rule_id": "CA04-358",
@@ -2174,7 +2315,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA04-360",
@@ -2221,7 +2367,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA04-362"
+      ]
     },
     {
       "source_rule_id": "CA04-366",
@@ -2248,7 +2399,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA04-365"
+      ]
     },
     {
       "source_rule_id": "CA04-375",
@@ -2418,7 +2574,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA04-389"
+      ]
     },
     {
       "source_rule_id": "CA04-391",
@@ -2526,7 +2687,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA05-411",
@@ -2643,7 +2809,10 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_PARENT_READY",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA05-423",
@@ -2681,7 +2850,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "TRANSFORMATION_CARRIER_UNSPECIFIED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA05-429",
@@ -2708,7 +2882,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA05-428"
+      ]
     },
     {
       "source_rule_id": "CA05-433",
@@ -2872,7 +3051,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA05-463"
+      ]
     },
     {
       "source_rule_id": "CA05-465",
@@ -2943,7 +3127,14 @@
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
       "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
       "dependency_contract_source_scope_correction": "Two explicit parent IDs are alternative public-office branches with a shared no-malefic-in-main-palace qualifier; they are not conjunctive parents.",
-      "dependency_contract_normalized_expression": "AND[ANY_PARENT_BRANCH(CA05-471,CA05-472), LOCAL_DELTA(煞曜不居本宫)]"
+      "dependency_contract_normalized_expression": "AND[ANY_PARENT_BRANCH(CA05-471,CA05-472), LOCAL_DELTA(煞曜不居本宫)]",
+      "dependency_contract_effective_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA05-472"
+      ]
     },
     {
       "source_rule_id": "CA05-483",
@@ -3124,7 +3315,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "VALENCE_STATE_CRITERION_UNSPECIFIED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA06-516",
@@ -3174,7 +3370,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA06-518"
+      ]
     },
     {
       "source_rule_id": "CA06-520",
@@ -3278,7 +3479,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA06-537"
+      ]
     },
     {
       "source_rule_id": "CA06-539",
@@ -3379,7 +3585,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA06-551",
@@ -3424,7 +3635,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA06-553",
@@ -3447,7 +3663,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA06-554",
@@ -3490,7 +3711,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA06-559",
@@ -3516,7 +3742,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA06-558"
+      ]
     },
     {
       "source_rule_id": "CA06-573",
@@ -3543,7 +3774,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA06-572"
+      ]
     },
     {
       "source_rule_id": "CA06-574",
@@ -3571,7 +3807,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA06-572"
+      ]
     },
     {
       "source_rule_id": "CA06-576",
@@ -3597,7 +3838,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA06-575"
+      ]
     },
     {
       "source_rule_id": "CA06-582",
@@ -3752,7 +3998,13 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA07-604",
@@ -3775,7 +4027,13 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA07-609",
@@ -3996,7 +4254,15 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED",
+        "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA07-636",
@@ -4039,7 +4305,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA07-638",
@@ -4072,7 +4343,10 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_PARENT_READY",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA07-643",
@@ -4251,7 +4525,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA07-668",
@@ -4320,7 +4599,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA07-681",
@@ -4356,7 +4640,10 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_PARENT_READY",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA07-686",
@@ -4382,7 +4669,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA07-684"
+      ]
     },
     {
       "source_rule_id": "CA07-687",
@@ -4408,7 +4700,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA07-684"
+      ]
     },
     {
       "source_rule_id": "CA07-691",
@@ -4451,7 +4748,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA07-693",
@@ -4496,7 +4798,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA07-697",
@@ -4647,7 +4954,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "dependency_contract_parent_assessment_complete": true,
+      "dependency_contract_parent_ids_outside_contextual_closure": []
     },
     {
       "source_rule_id": "CA08-718",
@@ -4673,7 +4985,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA08-717"
+      ]
     },
     {
       "source_rule_id": "CA08-721",
@@ -4699,7 +5016,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA08-719"
+      ]
     },
     {
       "source_rule_id": "CA08-723",
@@ -5200,7 +5522,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA09-838"
+      ]
     },
     {
       "source_rule_id": "CA09-840",
@@ -5258,7 +5585,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA09-846"
+      ]
     },
     {
       "source_rule_id": "CA09-848",
@@ -5452,7 +5784,12 @@
       "dependency_contract_parent_composition": "SINGLE_PARENT",
       "dependency_contract_graph_depth": 1,
       "dependency_contract_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
-      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED"
+      "dependency_contract_status": "EXPLICIT_REFERENCE_GRAPH_RESOLVED_PRODUCT_COMPILER_NOT_IMPLEMENTED",
+      "dependency_contract_effective_parent_blockers": [],
+      "dependency_contract_parent_assessment_complete": false,
+      "dependency_contract_parent_ids_outside_contextual_closure": [
+        "CA09-870"
+      ]
     },
     {
       "source_rule_id": "CA09-879",
