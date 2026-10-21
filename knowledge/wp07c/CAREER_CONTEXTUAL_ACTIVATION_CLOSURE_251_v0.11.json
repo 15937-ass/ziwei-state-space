@@ -27,12 +27,12 @@
   "summary": {
     "activation_status_counts": {
       "MULTI_BLOCKER": 80,
-      "PARTIAL_LOCAL_STRUCTURE": 22,
+      "PARTIAL_LOCAL_STRUCTURE": 23,
       "BLOCKED_SOURCE_LOCAL_SEMANTICS": 72,
       "STRUCTURE_ONLY": 4,
       "BLOCKED_CONTEXTUAL_GROUP_ACTIVATION": 43,
       "BLOCKED_ANTECEDENT": 27,
-      "BLOCKED_MEMBER_QUANTIFIER": 3
+      "BLOCKED_MEMBER_QUANTIFIER": 2
     },
     "antecedent_mode_counts": {
       "NONE": 186,
@@ -42,7 +42,7 @@
       "CLOSED_WORLD_ABSENCE_EVIDENCE": 23,
       "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD": 4,
       "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED": 12,
-      "SOURCE_LIST_QUANTIFIER_UNSPECIFIED": 8,
+      "SOURCE_LIST_QUANTIFIER_UNSPECIFIED": 7,
       "LU_SHORTHAND_CONTEXTUAL_UNRESOLVED": 5,
       "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED": 74,
       "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED": 33,
@@ -67,16 +67,16 @@
     },
     "readiness_class_counts": {
       "MULTI_CLASS_BLOCKED": 44,
-      "LOCAL_STRUCTURE_READY": 22,
-      "SOURCE_UNDERDETERMINED": 158,
+      "LOCAL_STRUCTURE_READY": 23,
+      "SOURCE_UNDERDETERMINED": 157,
       "DEPENDENCY_COMPILER_GATED": 27
     },
-    "rows_with_no_current_activation_blocker": 22,
-    "rows_with_source_underdetermination": 202,
+    "rows_with_no_current_activation_blocker": 23,
+    "rows_with_source_underdetermination": 201,
     "unresolved_antecedent_reference_rows": 0,
     "explicit_antecedent_dependency_rows": 65,
     "closed_world_evidence_gated_rows": 23,
-    "source_resolution_changes": 41,
+    "source_resolution_changes": 42,
     "source_condition_repairs": 9,
     "dependency_scope_corrections": 2,
     "conditions_compiled": 0,
@@ -149,9 +149,9 @@
     "lexical_recheck_target_overlap_with_issue_469": 10,
     "lexical_recheck_blocker_restorations": 1,
     "lexical_recheck_blocker_reclassifications": 1,
-    "lexical_recheck_pair_internal_semantics_confirmed": 2,
+    "lexical_recheck_pair_internal_semantics_confirmed": 3,
     "lexical_recheck_outer_list_quantifiers_resolved": 0,
-    "lexical_recheck_newly_blocker_free_rows": 0,
+    "lexical_recheck_newly_blocker_free_rows": 1,
     "lexical_recheck_conditions_compiled": 0,
     "lexical_recheck_execution_unlocked": 0
   },
@@ -2292,22 +2292,22 @@
     },
     {
       "source_rule_id": "CA05-433",
-      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "activation_status": "PARTIAL_LOCAL_STRUCTURE",
       "antecedent_mode": "NONE",
       "antecedent_rule_ids": [],
-      "readiness_class": "SOURCE_UNDERDETERMINED",
-      "blockers": [
-        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
-      ],
-      "source_resolution_changed": false,
-      "canonical_source_disposition": "KEEP_UNKNOWN_UNTIL_SOURCE_EXPLICIT",
+      "readiness_class": "LOCAL_STRUCTURE_READY",
+      "blockers": [],
+      "source_resolution_changed": true,
+      "canonical_source_disposition": "SOURCE_LOCAL_RESOLVED_NO_PRODUCT_EXECUTION_CLAIM",
       "lexical_recheck_issue": 472,
-      "lexical_recheck_disposition": "INSUFFICIENT_SOURCE_RECONFIRMED",
+      "lexical_recheck_disposition": "SOURCE_LOCAL_PAIR_CO_PRESENCE_RESOLVED",
       "lexical_recheck_evidence_ids": [
-        "LR2-E06"
+        "LR2-E06",
+        "LR2-E06A",
+        "LR2-E06B"
       ],
-      "lexical_recheck_decision_zh": "“见天厨、火星同度者尤然”仍不足以从列表标点推出 BOTH、ANY 或固定 pair。",
-      "lexical_recheck_normalized_expression": "SAME_PALACE_OR_CO_PRESENT_LIST(天厨,火星; quantifier=UNSPECIFIED)"
+      "lexical_recheck_decision_zh": "同一中州来源三处“天厨、火星同度/同躔”用法及“不见天厨”的对照，足以支持本句 pair-internal BOTH；仅作 source-local 解析。",
+      "lexical_recheck_normalized_expression": "SAME_PALACE(PAIR_CO_PRESENT(天厨,火星))"
     },
     {
       "source_rule_id": "CA05-437",
