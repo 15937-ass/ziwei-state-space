@@ -14,7 +14,7 @@ Status: **100/100 reviewed; generic OPEN_CATEGORY retired; 1 source-local resolu
 - `OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED`: **10 -> 0**
 - CA03-228: source-local Fire/Bell ANY resolved from the same clause (`火铃二曜，均足以...`)
 - source branch repairs: **3** (CA03-277, CA04-397, CA09-859)
-- dependency repair: **1** (CA09-847 -> CA09-846)
+- dependency repair: **1** (CA09-847 -> CA09-846), with `ANTECEDENT_SOURCE_CONDITION_RECHECK_REQUIRED` retained because the antecedent projection itself is non-literal
 - duplicate source-rule alias recorded: **CA09-804 -> CA08-799**
 - newly blocker-free: **1**
 - execution unlocked: **0**
