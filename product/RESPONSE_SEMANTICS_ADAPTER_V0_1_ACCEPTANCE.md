@@ -39,7 +39,11 @@ Status: **IMPLEMENTED — VALIDATION EVIDENCE RECORDED IN PR #464**
 | explicit antecedent dependencies | **64** | latest #458 closure |
 | relation-bound source rows | **132** | Relation Binding input |
 | category-reviewed occurrences | **59** | Category input |
-| Career ordinal constraints consumed | **130** | latest Knowledge #461 / PR #463 |
+| Career ordinal constraints consumed | **130** | Knowledge #461 / PR #463 |
+| ordinal constraints linked/dispositioned | **130/130** | latest Knowledge #465 / PR #466 |
+| linked atomic rule IDs | **130** | ordinal rule-link audit |
+| activation rules touched by ordinal evidence | **33** | blocker-impact audit |
+| blockers resolved by ordinal evidence | **0** | qualitative-only result |
 | ordinal runtime unlock | **0** | source registry preserved |
 | ordinal numericized constraints | **0** | non-numeric boundary |
 | ordinal transitive closure authorized | **0** | source-local boundary |
@@ -99,17 +103,30 @@ Latest Knowledge #458 / PR #460 state is used:
 
 Product does not reinterpret these source corrections; it only consumes the latest closure.
 
-## Concurrent ordinal registry consumed
+## Concurrent ordinal registry + rule-link audit consumed
 
-Knowledge #461 / PR #463 merged while this Product work unit was validating. The final branch therefore synchronizes latest main and consumes `CAREER_ORDINAL_CONSTRAINTS_v0.1.json` read-only.
+Knowledge #461 / PR #463 merged while this Product work unit was validating, so Product first synchronized and consumed `CAREER_ORDINAL_CONSTRAINTS_v0.1.json` read-only.
 
-The 130 normalized constraints remain:
-- source/scoped qualitative constraints;
-- product_execution_unlocked=false;
-- transitive_closure_allowed=false;
-- numeric fields null.
+Knowledge #465 / PR #466 then completed source-constrained linking of all 130 ordinal constraints back to atomic Career rules. Product synchronized main again before final merge and now also consumes, read-only:
 
-No ordinal constraint is converted into a Product weight, global ordering, probability, or runtime effect.
+- `CAREER_ORDINAL_RULE_LINKS_v0.1.json`
+- `CAREER_ORDINAL_BLOCKER_IMPACT_v0.1.json`
+
+Final Product audit preserves:
+- 130/130 constraints dispositioned;
+- 130 linked atomic rule IDs;
+- 114 direct atomic links;
+- 15 shared-source multi-rule links;
+- 1 methodology/context-only row;
+- 33 activation-scope rules touched;
+- 94 NO_BLOCKER_REDUCTION;
+- 36 QUALITATIVE_REFINEMENT_ONLY;
+- **0** blockers resolved;
+- **0** execution unlock.
+
+The 130 normalized constraints still remain source/scoped qualitative constraints with `product_execution_unlocked=false`, `transitive_closure_allowed=false`, and numeric fields null.
+
+No ordinal link is converted into a Product weight, global ordering, probability, threshold, activation quantifier, or runtime effect.
 
 ## Maturity claim
 
