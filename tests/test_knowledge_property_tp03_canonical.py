@@ -41,7 +41,10 @@ def test_known_source_repairs_and_uncertainty():
     assert "大运流年" in m["TP03-273"]["condition"]
     assert "天相与须见禄" in m["TP03-278"]["condition"]
     assert "魁铖" in m["TP03-287"]["condition"] and "魁钺" not in m["TP03-287"]["condition"]
-    assert m["TP03-290"]["projection_target"]=="property_decline_or_loss_pressure_strengthens"
+    assert m["TP03-290"]["projection_target"]=="property_holdings_can_be_abundant"
+    assert "主倾效" in m["TP03-291"]["condition"]
+    assert m["TP03-291"]["projection_target"]=="property_decline_or_loss_pressure_strengthens"
+    assert m["TP03-257"]["projection_target"]=="institution_collapse_home_disaster_or_robbery_candidate"
     assert m["TP03-292"]["projection_target"]=="property_acquisition_or_household_celebration_is_supported"
 
 def test_readjudication_census():
@@ -51,9 +54,9 @@ def test_readjudication_census():
     assert d["summary"]["reusable_projection_rules"]==82
     assert d["summary"]["case_support_only"]==18
     assert d["summary"]["history_feedback"]==2
-    assert d["summary"]["source_resolution_change_count"]==9
-    assert d["summary"]["source_resolution_changed_rows"]==["TP03-206","TP03-208","TP03-252","TP03-266","TP03-273","TP03-278","TP03-287","TP03-290","TP03-292"]
-    assert d["summary"]["source_text_uncertainty_preserved"]==["TP03-252","TP03-256","TP03-257","TP03-266","TP03-278","TP03-287","TP03-290","TP03-292"]
+    assert d["summary"]["source_resolution_change_count"]==10
+    assert d["summary"]["source_resolution_changed_rows"]==["TP03-206","TP03-208","TP03-252","TP03-257","TP03-266","TP03-273","TP03-278","TP03-287","TP03-291","TP03-292"]
+    assert d["summary"]["source_text_uncertainty_preserved"]==["TP03-252","TP03-256","TP03-257","TP03-266","TP03-278","TP03-287","TP03-291","TP03-292"]
     assert d["source_basis"]["archived_candidate_status"]=="NONCANONICAL_ACCELERATION_INPUT_ONLY"
 
 def test_time_scope_and_literal_life_stage():
