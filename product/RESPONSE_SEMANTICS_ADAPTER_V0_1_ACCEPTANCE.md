@@ -30,7 +30,7 @@ Status: **IMPLEMENTED — FINAL VALIDATION REQUIRED ON MERGE HEAD**
 | local semantic scope cannot auto-globalize | PASS | scope binding/mismatch guards |
 | named composite cannot become generic shorthand | PASS | application-term guard |
 | 251 Response Compatibility rows joined exactly once | PASS | deterministic join |
-| 251 latest Activation rows joined exactly once | PASS | deterministic join |
+| 251 latest Activation v0.3 rows joined exactly once | PASS | deterministic join |
 | LOCAL_STRUCTURE_READY remains semantic-only | PASS | 17 rows pending compilation |
 | real Career runtime effects authorized | **0** | readiness audit |
 | condition_compiled | **0** | Knowledge input preserved |
@@ -47,6 +47,10 @@ Status: **IMPLEMENTED — FINAL VALIDATION REQUIRED ON MERGE HEAD**
 | ordinal runtime unlock | **0** | source registry preserved |
 | ordinal numericized constraints | **0** | non-numeric boundary |
 | ordinal transitive closure authorized | **0** | source-local boundary |
+| source-literal residual normalization | **36/36** | Knowledge #467 / PR #468 |
+| generic semantic-normalization blocker remaining | **0** | v0.3 closure |
+| normalization-triggered condition compilation | **0** | fail-closed boundary |
+| normalization-triggered execution unlock | **0** | fail-closed boundary |
 | closed-world absence gates preserved | PASS | 23 rows + evidence precondition |
 | relation binding != member realization | PASS | no execution inference |
 | open category != closed membership | PASS | category statuses preserved |
@@ -59,12 +63,12 @@ Status: **IMPLEMENTED — FINAL VALIDATION REQUIRED ON MERGE HEAD**
 
 ~~~text
 Career total                          251
-SEMANTIC_ONLY_PENDING_COMPILATION      17
-BLOCKED_SOURCE_UNDERDETERMINED        127
-BLOCKED_DEPENDENCY_COMPILER            27
-BLOCKED_NORMALIZATION                  21
-BLOCKED_MULTIPLE                       59
-runtime authorized                      0
+SEMANTIC_ONLY_PENDING_COMPILATION        17
+BLOCKED_SOURCE_UNDERDETERMINED          160
+BLOCKED_DEPENDENCY_COMPILER              27
+BLOCKED_STRUCTURED_PATTERN_COMPILER        1
+BLOCKED_MULTIPLE                         46
+runtime authorized                        0
 ~~~
 
 Compatibility remains informative but not executable:
@@ -91,6 +95,21 @@ execution authorized
 ~~~
 
 No downstream Product component may use the adapter to infer an authorization that is absent from Knowledge.
+
+## Semantic-normalization refinement consumed
+
+Knowledge #467 / PR #468 completed source-preserving normalization of all **36/36** prior `SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED` residuals and superseded the Product input from Activation closure v0.2 to v0.3.
+
+Product consumes the new closure and normalization artifact read-only:
+
+- generic normalization blocker: **36 -> 0**;
+- no-current-blocker / LOCAL_STRUCTURE_READY rows: **17 -> 17**;
+- source-literal rows are replaced by precise open-category, shorthand, source-list, cardinality, or transformation-carrier blockers where needed;
+- condition compilation: **0**;
+- execution unlock: **0**;
+- Product runtime authorization: **0**.
+
+This is treated as representation-precision gain, not executability gain.
 
 ## Source corrections consumed
 
