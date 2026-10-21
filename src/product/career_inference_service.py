@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable, Mapping, Any
 
@@ -14,6 +15,9 @@ from .event_relative_window import (
 )
 from .full_chart_snapshot_contract import validate_normalized_full_chart_snapshot
 from .natal_domain_registry import load_default_natal_domain_registry
+from .palace_structure import load_palace_ontology
+from .response_condition_evaluator import evaluate_career_conditions
+from .response_profile import ResponseProfile, compile_decade_year_response_profile
 from .symbolic_inference_pipeline import SymbolicInferenceRun, run_symbolic_inference
 from .temporal_environment import EventRelativeContextEvidence
 
@@ -22,6 +26,25 @@ DEFAULT_TEMPORAL_REACTION_REGISTRY_PATH = (
     "product/PL3T_TEMPORAL_REACTION_REGISTRY_v0.1.json"
 )
 DEFAULT_CAREER_TEMPORAL_LAYERS = ("DECADE", "YEAR")
+DEFAULT_CAREER_PALACE_ONTOLOGY_PATH = "knowledge/wp05/palace_ontology_v0.1.csv"
+
+
+@dataclass(frozen=True)
+class CareerResponseRun:
+    """One deterministic Career N -> E -> tau execution bundle."""
+
+    schema_version: str
+    symbolic_run: SymbolicInferenceRun
+    natal_condition_evaluation: Mapping[str, Any]
+    response_profile: ResponseProfile
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "schema_version": self.schema_version,
+            "symbolic_run": self.symbolic_run.to_dict(),
+            "natal_condition_evaluation": dict(self.natal_condition_evaluation),
+            "response_profile": self.response_profile.to_dict(),
+        }
 
 
 def run_career_inference(
@@ -84,4 +107,56 @@ def run_career_inference(
         selected_temporal_layers=selected_temporal_layers,
         temporal_conflicts=temporal_conflicts,
         event_relative_context=tuple(relative_context_items),
+    )
+
+
+
+def run_career_response_profile(
+    repository_root: str | Path,
+    normalized_snapshot: Mapping[str, Any],
+    *,
+    target_id: str,
+    question: str,
+    selected_temporal_layers: Iterable[str] = DEFAULT_CAREER_TEMPORAL_LAYERS,
+    temporal_conflicts: Iterable[str] = (),
+    event_relative_context: Iterable[EventRelativeContextEvidence] = (),
+    migration_window: MigrationFirstThreeYearsInput | None = None,
+) -> CareerResponseRun:
+    """Run the first production-shaped Career N -> E -> tau vertical slice.
+
+    The underlying symbolic service remains the source for N and E_t. The
+    governed 12-condition evaluator supplies NATAL response semantics, and the
+    v0.1 ResponseProfile compiler then combines those with DECADE + YEAR E_t.
+
+    With the current active temporal Kr gate, tau is intentionally UNKNOWN
+    rather than populated with an invented dynamic response.
+    """
+
+    root = Path(repository_root)
+    symbolic = run_career_inference(
+        root,
+        normalized_snapshot,
+        target_id=target_id,
+        question=question,
+        selected_temporal_layers=selected_temporal_layers,
+        temporal_conflicts=temporal_conflicts,
+        event_relative_context=event_relative_context,
+        migration_window=migration_window,
+    )
+    ontology = load_palace_ontology(root / DEFAULT_CAREER_PALACE_ONTOLOGY_PATH)
+    natal_evaluation = evaluate_career_conditions(
+        normalized_snapshot,
+        ontology,
+    )
+    response_profile = compile_decade_year_response_profile(
+        symbolic.natal_profile,
+        natal_evaluation,
+        symbolic.temporal_profile,
+        repository_root=root,
+    )
+    return CareerResponseRun(
+        schema_version="0.1",
+        symbolic_run=symbolic,
+        natal_condition_evaluation=natal_evaluation,
+        response_profile=response_profile,
     )
