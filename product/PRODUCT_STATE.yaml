@@ -8,17 +8,17 @@ execution:
   phase: "PL3_METHOD_RESPONSE_VERTICAL_SLICE"
   active_issue: null
   active_pr: null
-  next_work_unit: "PL3R_CAREER_CONDITION_IR_COMPILER_PILOT_V0_1"
-  resume_entry: "Product #518 / PR #520 promotes the active K_response baseline to Career closure v0.16 and locks the compiler-readiness census plus 3 dependency IR + 9 direct condition IR records. LOCAL_STRUCTURE_READY is now split correctly: 12/26 rows are KNOWLEDGE_CONDITION_IR_READY_PENDING_PRODUCT_COMPILATION and 14/26 remain LOCAL_STRUCTURE_NOT_CONDITION_IR_READY; the full 251-row surface is 12 condition-IR-ready, 14 local-but-not-IR-ready, 157 source-underdetermined, 24 dependency-compiler-gated, and 44 multi-blocked. Active Product Knowledge is KIB v0.3 with K_response-only semantic change; K_signal/K_manifest/K_method remain unchanged and v0.2 is the rollback baseline. Product conditions_compiled=0, Knowledge execution_unlocked=0, runtime effects authorized=0. Immediate next Product work is PL3R_CAREER_CONDITION_IR_COMPILER_PILOT_V0_1 over exactly the 12 promoted IR rows. Wang target-palace evidence remains materialized 24/24 but FULL_EXPERT_REPLAY_READY=0/24; ResponseProfile tau and M0 remain NOT_IMPLEMENTED; predictive validity remains NOT_VALIDATED."
-  state_cache_as_of_main_commit: "bc6bff681d44fce870b24909c5683d1d2857a9f6"
-  state_cache_as_of_product_merge: "9c7e3a6c494863810fe33030b093eca492c3646d"
+  next_work_unit: "PL3R_CAREER_CONDITION_EVALUATOR_AND_EFFECT_BINDING_PILOT"
+  resume_entry: "Product #521 / PR #523 implements the first bounded PL3-R condition compiler over the active K_response v0.16 condition-IR package. Exactly 12 Product typed condition plans are compiled: 9 direct plans plus 3 exact parent-condition references; the other 14 LOCAL_STRUCTURE_READY rows remain explicit NOT_COMPILER_INPUT rejections. Compilation preserves source-local member requirements and explicit relation geometry, ignores free-form source prose for semantics, and copies no prohibited parent projection/outcome/target/valence. Product condition plans compiled=12, but condition_evaluated=0, response_effect_bound=0 and runtime_effect_allowed=0. Immediate next Product work is PL3R_CAREER_CONDITION_EVALUATOR_AND_EFFECT_BINDING_PILOT, which must separately bind N/E evidence and source-backed response effects before any sparse symbolic tau can exist. Wang FULL_EXPERT_REPLAY_READY remains 0/24; M0 and predictive validity remain NOT_VALIDATED."
+  state_cache_as_of_main_commit: "e689bb0afb554df660fecc3e16c31d881a2e254b"
+  state_cache_as_of_product_merge: "b75f4b138b21644178aff8fe63fbda123b661173"
   v04_entry_checkpoint_issue: 416
   v04_entry_checkpoint_pr: 418
-  last_completed_product_issue: 518
-  last_completed_product_pr: 520
+  last_completed_product_issue: 521
+  last_completed_product_pr: 523
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
-  resume_issue: 518
+  resume_issue: 521
   roadmap: "PRODUCT_ROADMAP.md#v0.4"
   execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
 
@@ -93,6 +93,15 @@ capability_snapshot:
     production_readiness: "NOT_READY"
     note: "Product #462/#464 established the fail-closed Response Semantics adapter; #504/#506 promoted Career v0.13. Product #518/#520 promotes K_response to closure v0.16 and makes the adapter condition-IR aware. Of 26 LOCAL_STRUCTURE_READY rows, only 12 are Knowledge condition-IR-ready (3 dependency + 9 direct); 14 remain fail-closed. Current 251-row Product dispositions: KNOWLEDGE_CONDITION_IR_READY_PENDING_PRODUCT_COMPILATION=12, LOCAL_STRUCTURE_NOT_CONDITION_IR_READY=14, BLOCKED_SOURCE_UNDERDETERMINED=157, BLOCKED_DEPENDENCY_COMPILER=24, BLOCKED_MULTIPLE=44. runtime effects authorized=0, Product condition_compiled=0, Knowledge execution_unlocked=0."
 
+  response_condition_compiler:
+    specification: "PL3R_V0_1_PILOT"
+    implementation: "IMPLEMENTED_V0_1"
+    canonical_content: "ACTIVE_K_RESPONSE_V0_16_CONDITION_IR_12"
+    internal_validation: "DETERMINISTIC_CONTRACT"
+    empirical_calibration: "NOT_APPLICABLE"
+    production_readiness: "NOT_READY"
+    note: "Product #521/#523 compiles exactly 12 governed Career condition IR records into typed Product plans: 9 direct + 3 dependency references. Fourteen local-ready/non-IR-ready rows are explicit NOT_COMPILER_INPUT. Compiled plans are structural only: condition_evaluated=0, response_effect_bound=0, runtime_effect_allowed=0. ResponseProfile tau is still not implemented."
+
   knowledge_dependency_control:
     specification: "PROPOSAL_491_APPROVED"
     implementation: "IMPLEMENTED_V0_1"
@@ -156,7 +165,7 @@ capability_snapshot:
 
 critical_path:
   now:
-    - "PL3R_CAREER_CONDITION_IR_COMPILER_PILOT_V0_1"
+    - "PL3R_CAREER_CONDITION_EVALUATOR_AND_EFFECT_BINDING_PILOT"
     - "PL3R_DECADE_YEAR_RESPONSE_COMPILER"
     - "PL3M0_CANONICAL_MANIFESTATION_CANDIDATES"
     - "WANG_METHOD_SCOPE_AND_FULL_CHART_REVIEW"
