@@ -2,7 +2,7 @@
 
 Tracking Issue: #462  
 Lane: PRODUCT_ONLY  
-Status: **IMPLEMENTED — VALIDATION EVIDENCE RECORDED IN PR #464**
+Status: **IMPLEMENTED — FINAL VALIDATION REQUIRED ON MERGE HEAD**
 
 ## Scope completed
 
@@ -155,4 +155,4 @@ BLOCKED legal.
 
 ## Validation
 
-Final repository/Product validation evidence is recorded in PR #464. The PR conversation is the execution-evidence record; this file keeps capability/maturity claims stable rather than duplicating mutable workflow identifiers.
+Repository/Product validation evidence is recorded in PR #464 on the final merge head. The PR conversation is the execution-evidence record; this file keeps capability/maturity claims stable rather than duplicating mutable workflow identifiers.
