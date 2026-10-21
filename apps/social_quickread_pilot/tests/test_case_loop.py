@@ -168,3 +168,32 @@ def test_summary_counts_feedback_gaps_origins_and_scores():
     assert summary["preferred_example_cases"] == 1
     assert summary["mean_factual_score"] == 4
     assert summary["mean_style_score"] == 4.5
+
+
+def test_case_record_can_store_temporal_4h_features():
+    temporal = {
+        "mode": "social_quickread_temporal_4h_v0.1",
+        "schema_version": "0.1",
+        "decade_stem": "丁",
+        "year_stem": "丙",
+        "interactions": [
+            {
+                "type": "SAME_STAR_CROSS_MUTAGEN",
+                "star": "天机",
+                "palace": "官禄",
+                "layers": ["DECADE", "YEAR"],
+                "mutagens": ["科", "权"],
+            }
+        ],
+    }
+    case = build_case_record(
+        bundle=_bundle(),
+        case_id="XHS-007",
+        subject_key="QR-007",
+        scope="specific_year",
+        question_summary="26年怎么样",
+        temporal_features=temporal,
+    )
+    row = case.to_dict()
+    assert row["temporal_features"]["decade_stem"] == "丁"
+    assert row["temporal_features"]["year_stem"] == "丙"
