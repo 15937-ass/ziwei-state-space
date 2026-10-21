@@ -4,6 +4,16 @@ This package consumes validated QuickReadClaim objects and never mutates
 Knowledge/Product canonical assets.
 """
 
+from .case_loop import (
+    CaseRecord,
+    FeedbackLabel,
+    FeedbackRecord,
+    PIReview,
+    PreferredExample,
+    build_case_record,
+    promote_preferred_example,
+    summarize_cases,
+)
 from .provenance import (
     ClaimOrigin,
     ClaimTrace,
@@ -15,6 +25,14 @@ from .provenance import (
 from .sidecar import PilotRequest, PreparedPilot, prepare_pilot, finalize_pilot
 
 __all__ = [
+    "CaseRecord",
+    "FeedbackLabel",
+    "FeedbackRecord",
+    "PIReview",
+    "PreferredExample",
+    "build_case_record",
+    "promote_preferred_example",
+    "summarize_cases",
     "ClaimOrigin",
     "ClaimTrace",
     "CoverageGap",
