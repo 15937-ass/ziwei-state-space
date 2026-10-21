@@ -1,0 +1,83 @@
+{
+  "schema_version": "0.1",
+  "contract_id": "CAREER-DEPENDENCY-CONTRACT-v0.1",
+  "issue": 505,
+  "lane": "KNOWLEDGE_ONLY",
+  "scope": {
+    "domain": "事业宫",
+    "source_rule_family": "CA01-CA09",
+    "applicable_only_when": "antecedent_mode == EXPLICIT_RULE_REFERENCE and antecedent_rule_ids were source-adjudicated",
+    "universal_natural_language_parser": false,
+    "cross_domain_transfer": false
+  },
+  "semantics": {
+    "reference_identity": "Rule IDs are authoritative. Text adjacency MUST NOT create an antecedent edge.",
+    "surface_classes": {
+      "EXACT_FOREGOING_REFERENCE": "The target clause is an explicit `前格` continuation. Preserve the source-adjudicated parent ID; do not infer a parent from nearest text.",
+      "FOREGROUND_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION": "The target begins with `前格` and retains additional source text as a local continuation/delta. The delta is not automatically compiled merely because the parent is known.",
+      "EXPLICIT_SOURCE_LOCAL_ADDITIVE_CONTINUATION": "The source explicitly adds a condition to a source-adjudicated parent without using `前格`; currently represented only by CA09-847."
+    },
+    "parent_compositions": {
+      "SINGLE_PARENT": "Inherit from exactly one explicit antecedent rule ID.",
+      "SOURCE_BRANCH_UNION_SHARED_QUALIFIER": "Apply a local qualifier over alternative source branches. Parent IDs are OR/branch-union context, never implicit AND. Currently required by CA05-473."
+    },
+    "blocker_propagation": {
+      "rule": "A dependency target cannot become condition-ready by reference resolution alone if any required parent branch or local continuation remains source-underdetermined.",
+      "single_parent": "Propagate parent unresolved blocker metadata to the target dependency analysis; do not delete or rewrite the parent's blocker.",
+      "branch_union": "Track readiness per parent branch. A shared qualifier does not convert alternative branches into conjunction. Any executable branch would separately require a source-resolved parent and source-resolved local qualifier.",
+      "local_blockers": "All target blockers other than ANTECEDENT_DEPENDENCY remain independently binding."
+    },
+    "graph_constraints": {
+      "parent_id_must_resolve": true,
+      "cycles_allowed": false,
+      "implicit_parent_inference_allowed": false,
+      "multi_parent_requires_explicit_composition": true,
+      "current_max_reference_depth": 2,
+      "current_only_internal_chain": "CA02-171 -> CA02-170 -> CA02-169"
+    },
+    "readiness_bands": {
+      "REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY": "Reference semantics are already source-resolved and the target has no current activation blocker.",
+      "REFERENCE_GATE_ALREADY_RESOLVED_OTHER_BLOCKERS": "Reference semantics are source-resolved but unrelated target blockers remain.",
+      "DEPENDENCY_ONLY_PARENT_READY": "The only current target blocker is ANTECEDENT_DEPENDENCY and its parent condition is locally blocker-free. This is a Knowledge-side compiler candidate, not an execution unlock.",
+      "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION": "The only target blocker is ANTECEDENT_DEPENDENCY, but its parent remains source-underdetermined; compiler support must propagate that uncertainty.",
+      "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS": "The target has ANTECEDENT_DEPENDENCY plus independent local blockers and remains blocked even if graph traversal is implemented."
+    }
+  },
+  "canonical_counts": {
+    "explicit_reference_nodes": 65,
+    "explicit_edges": 66,
+    "compiler_gated_reference_nodes": 50,
+    "already_reference_resolved_nodes": 15,
+    "exact_qiange": 28,
+    "qiange_with_continuation": 36,
+    "explicit_additive": 1,
+    "dependency_only_rows": 27,
+    "dependency_plus_local_blockers_rows": 23,
+    "dependency_only_parent_ready": 3,
+    "dependency_only_parent_underdetermined": 24,
+    "immediate_dependency_compiler_candidate_ids": [
+      "CA05-420",
+      "CA07-639",
+      "CA07-682"
+    ],
+    "cycles": 0,
+    "max_explicit_reference_depth": 2
+  },
+  "compiler_boundary": {
+    "knowledge_representation_complete": true,
+    "product_compiler_implemented": false,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0,
+    "required_product_behavior_if_implemented_later": [
+      "Consume explicit rule IDs, not text adjacency.",
+      "Respect parent composition metadata.",
+      "Propagate unresolved parent/local blockers fail-closed.",
+      "Do not create global semantics from 前格, 更见, 又见, 同时见 or other surface tokens.",
+      "Keep branch-local provenance in outputs and tests."
+    ]
+  },
+  "human_gate": {
+    "required_for_this_contract": false,
+    "required_if_future_change_infers_implicit_parents_or_global_inheritance": true
+  }
+}
