@@ -155,3 +155,11 @@ def test_runtime_origin_requires_runtime_run_id():
     import pytest
     with pytest.raises(ValueError, match="runtime_run_id"):
         ClaimTrace("p1", ClaimOrigin.RUNTIME_CANONICAL).validate()
+
+
+def test_deterministic_temporal_sidecar_origin_does_not_require_runtime_id():
+    ClaimTrace(
+        "y1",
+        ClaimOrigin.DETERMINISTIC_TEMPORAL_SIDECAR,
+        note="decade/year stems manually read from chart; transformations computed deterministically",
+    ).validate()
