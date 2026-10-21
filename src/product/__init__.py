@@ -283,6 +283,18 @@ from .rule_runtime import (
     compile_rule_row,
     compile_rule_rows,
 )
+from .wang_source_reconstruction import (
+    BLIND_EVIDENCE_PATH as WANG_RECONSTRUCTION_BLIND_EVIDENCE_PATH,
+    FORBIDDEN_SOURCE_INPUT_KEYS,
+    SIGNATURES_PATH as WANG_SOURCE_SIGNATURES_PATH,
+    SOURCE_STATUSES as WANG_SOURCE_STATUSES,
+    TIME_LABEL_TO_INDEX as WANG_TIME_LABEL_TO_INDEX,
+    WangSourceCandidate,
+    load_wang_source_birth_signatures,
+    validate_wang_source_birth_signatures,
+    wang_source_candidate_census,
+    wang_source_candidates,
+)
 from .response_profile import (
     ALLOWED_RESPONSE_LAYERS,
     CAREER_DOMAIN_ALIASES,
@@ -382,6 +394,16 @@ from .wealth_semantics import (
 )
 
 __all__ = [
+    "WANG_RECONSTRUCTION_BLIND_EVIDENCE_PATH",
+    "FORBIDDEN_SOURCE_INPUT_KEYS",
+    "WANG_SOURCE_SIGNATURES_PATH",
+    "WANG_SOURCE_STATUSES",
+    "WANG_TIME_LABEL_TO_INDEX",
+    "WangSourceCandidate",
+    "load_wang_source_birth_signatures",
+    "validate_wang_source_birth_signatures",
+    "wang_source_candidate_census",
+    "wang_source_candidates",
     "EMPIRICAL_PARAMETER_LAYERS",
     "PROBABILITY_MODEL_STATUSES",
     "PROBABILITY_REGISTRY_STATUSES",
