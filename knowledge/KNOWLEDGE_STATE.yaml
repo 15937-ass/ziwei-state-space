@@ -8,10 +8,10 @@ execution:
   program: "KB_WP08_DEPENDENCY_COMPILER_PREP"
   active_issue: null
   active_pr: null
-  canonical_main_checkpoint: "CAREER_ANTECEDENT_DEPENDENCY_CONTRACT_65_OF_65"
-  resume_entry: "Issue #505 / PR #507 formalizes all 65 explicit Career antecedent references as a source-adjudicated dependency graph: 65 nodes / 66 edges, 64 single-parent nodes, one source-adjudicated multi-parent branch union (CA05-473), 28 exact 前格 surfaces, 36 前格+continuation surfaces, and one non-前格 additive surface (CA09-847). The graph is acyclic with maximum explicit-reference depth 2. Critic correction: row-local closure readiness is not effective dependency readiness. Eleven already-reference-resolved rows have no local blocker, but all eleven inherit parent/ancestor source uncertainty; effective-condition-ready count is therefore 0. CA02-171 is the regression case: its immediate parent CA02-170 is row-locally blocker-free but inherits OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED from CA02-169, so uncertainty must propagate transitively. Among the 50 rows still carrying ANTECEDENT_DEPENDENCY, 27 are dependency-only and 23 have additional local blockers; only CA05-420, CA07-639, and CA07-682 have fully assessed blocker-free parents and qualify as Knowledge-side compiler candidates. Candidate closure v0.14 keeps canonical blocker counts unchanged, source_resolution_changes 44->45 from the CA05-473 branch-union scope repair, dependency_scope_corrections 2->3, conditions_compiled=0, execution_unlocked=0. Next Knowledge work should define a compiler-facing IR/schema and blocker-propagation contract around the three parent-ready candidates, without Product execution or implicit adjacency inference."
-  resume_issue: 505
-  last_state_sync_issue: 505
+  canonical_main_checkpoint: "CAREER_DEPENDENCY_IR_3_OF_3"
+  resume_entry: "Issue #508 materializes compiler-facing Knowledge dependency IR for exactly CA05-420->CA05-419, CA07-639->CA07-638, and CA07-682->CA07-681. All three are exact 前格 references with SINGLE_PARENT composition, no local delta, fully assessed blocker-free parents, and no transitive inherited blocker. The IR inherits only RULE_CONDITION(parent_id); parent projection/outcome/target/valence are explicitly prohibited from inheritance, and no text adjacency parser is introduced. Closure v0.15 removes only these three ANTECEDENT_DEPENDENCY structural blockers: ANTECEDENT_DEPENDENCY 50->47, DEPENDENCY_COMPILER_GATED 27->24, LOCAL_STRUCTURE_READY 23->26, no-current-blocker 23->26. source-underdetermined remains 201, source_resolution_changes remains 45, source_condition_repairs remains 13, conditions_compiled=0, execution_unlocked=0. Negative controls CA02-171, CA03-236 and CA04-323 remain unpromoted. Next Knowledge work should not force the remaining 24 dependency-only rows; their parent source uncertainty is real. Continue with another bounded representation family or a compiler-readiness census while preserving fail-closed inherited uncertainty."
+  resume_issue: 508
+  last_state_sync_issue: 508
 
 canonical_main_snapshot:
   domain: "事业宫"
@@ -278,6 +278,11 @@ completed_work_units:
     issue: 505
     pr: 507
     status: "MERGED_65_OF_65_GRAPH_REPRESENTED_TRANSITIVE_FAIL_CLOSED_READINESS_NO_EXECUTION_UNLOCK"
+
+  - work_unit: "KB-WP08-CAREER-DEPENDENCY-IR-PILOT-3"
+    issue: 508
+    pr: null
+    status: "ACTIVE_3_OF_3_IR_MATERIALIZED_PENDING_VALIDATION_AND_MERGE"
 
 archived_noncanonical_snapshots:
   wp05_all_twelve_palaces:
