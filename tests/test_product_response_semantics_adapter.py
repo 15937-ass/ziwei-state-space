@@ -11,6 +11,7 @@ from src.product.response_semantics_adapter import (
     CAREER_ORDINAL_CONSTRAINTS_PATH,
     CAREER_ORDINAL_RULE_LINKS_PATH,
     CAREER_ORDINAL_BLOCKER_IMPACT_PATH,
+    CAREER_SEMANTIC_NORMALIZATION_PATH,
     RESPONSE_PILOT_PATH,
     CareerResponseDecision,
     ResponseSemanticEnvelope,
@@ -24,6 +25,7 @@ from src.product.response_semantics_adapter import (
     load_career_ordinal_constraints,
     load_career_ordinal_rule_links,
     load_career_ordinal_blocker_impact,
+    load_career_semantic_normalization,
     load_response_pilot_records,
     validate_career_ordinal_cross_artifacts,
     validate_real_adapter_zero_unlock,
@@ -239,17 +241,17 @@ def test_career_adapter_preserves_knowledge_readiness_classes():
     decisions = build_career_response_decisions()
 
     assert Counter(item.knowledge_readiness_class for item in decisions) == {
-        "MULTI_CLASS_BLOCKED": 59,
+        "MULTI_CLASS_BLOCKED": 46,
         "LOCAL_STRUCTURE_READY": 17,
-        "SOURCE_UNDERDETERMINED": 127,
-        "NORMALIZATION_DEFERRED": 21,
+        "SOURCE_UNDERDETERMINED": 160,
+        "STRUCTURED_PATTERN_COMPILER_GATED": 1,
         "DEPENDENCY_COMPILER_GATED": 27,
     }
     assert Counter(item.adapter_status for item in decisions) == {
-        "BLOCKED_MULTIPLE": 59,
+        "BLOCKED_MULTIPLE": 46,
         "SEMANTIC_ONLY_PENDING_COMPILATION": 17,
-        "BLOCKED_SOURCE_UNDERDETERMINED": 127,
-        "BLOCKED_NORMALIZATION": 21,
+        "BLOCKED_SOURCE_UNDERDETERMINED": 160,
+        "BLOCKED_STRUCTURED_PATTERN_COMPILER": 1,
         "BLOCKED_DEPENDENCY_COMPILER": 27,
     }
 
@@ -372,6 +374,45 @@ def test_ordinal_relation_types_are_preserved_without_numeric_gain():
     )
 
 
+def test_semantic_normalization_36_refines_generic_blocker_without_unlock():
+    payload = load_career_semantic_normalization()
+    summary = payload["summary"]
+
+    assert payload["coverage"] == {
+        "target_rows": 36,
+        "reviewed": 36,
+        "remaining": 0,
+    }
+    assert summary["semantic_normalization_blockers_before"] == 36
+    assert summary["semantic_normalization_blockers_after"] == 0
+    assert summary["disposition_counts"] == {
+        "NORMALIZED_COMPOSITE_EXPRESSION": 10,
+        "SOURCE_SHORTHAND_REMAINS_UNRESOLVED": 4,
+        "NORMALIZED_TO_OPEN_CATEGORY_OR_VALENCE": 8,
+        "NORMALIZED_KNOWN_GROUP_PLUS_LITERAL": 4,
+        "NORMALIZED_EXPLICIT_ATOM_OR_SET": 6,
+        "NORMALIZED_EXPLICIT_LOGICAL_EXPRESSION": 4,
+    }
+    assert summary["added_precise_blocker_counts"] == {
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED": 6,
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED": 13,
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED": 4,
+        "CARDINALITY_THRESHOLD_UNSPECIFIED": 2,
+        "TRANSFORMATION_CARRIER_UNSPECIFIED": 2,
+    }
+    assert summary["source_resolution_changes"] == 0
+    assert summary["conditions_compiled"] == 0
+    assert summary["execution_unlocked"] == 0
+
+    for row in payload["records"]:
+        assert (
+            "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+            not in row["blockers_after"]
+        )
+        assert row["condition_compiled"] is False
+        assert row["execution_unlocked"] is False
+
+
 def test_ordinal_rule_links_cover_all_130_constraints_without_gap():
     links = load_career_ordinal_rule_links()
     records = links["records"]
@@ -472,10 +513,18 @@ def test_readiness_summary_records_zero_unauthorized_unlocks():
     assert career["unresolved_antecedent_reference_rows"] == 0
     assert career["explicit_antecedent_dependency_rows"] == 64
     assert career["closed_world_evidence_gated_rows"] == 23
-    assert career["rows_with_source_underdetermination"] == 184
+    assert career["rows_with_source_underdetermination"] == 204
     assert career["relation_bound_rows"] == 132
     assert career["category_reviewed_rows"] == 59
     assert career["unauthorized_unlock_count"] == 0
+    normalization = payload["career_semantic_normalization"]
+    assert normalization["target_rows"] == 36
+    assert normalization["reviewed"] == 36
+    assert normalization["remaining"] == 0
+    assert normalization["generic_blocker_before"] == 36
+    assert normalization["generic_blocker_after"] == 0
+    assert normalization["conditions_compiled"] == 0
+    assert normalization["execution_unlocked"] == 0
 
 
 def test_adapter_output_contains_no_probability_or_numeric_gain_fields():
@@ -512,3 +561,4 @@ def test_source_knowledge_files_are_read_only_inputs():
     assert CAREER_ORDINAL_CONSTRAINTS_PATH.exists()
     assert CAREER_ORDINAL_RULE_LINKS_PATH.exists()
     assert CAREER_ORDINAL_BLOCKER_IMPACT_PATH.exists()
+    assert CAREER_SEMANTIC_NORMALIZATION_PATH.exists()
