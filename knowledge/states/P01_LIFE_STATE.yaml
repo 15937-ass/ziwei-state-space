@@ -8,21 +8,24 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "ACTIVE_PR_MERGE_READY_NARROW_SCOPE"
-  active_issue: 568
-  active_branch: "knowledge/p01-568-life-canonical-101-200"
-  active_pr: 571
-  canonical_checkpoint: "P01_101_200_SOURCE_READJUDICATED_PR_571_MERGE_READY"
-  note: "P02-101..200 historical candidates re-adjudicated against SRC-ZZ-003 printed pp6-9. Issue-defined data-only OpenAI validation passed; PR #571 is merge-ready subject to final exact-head/base check. Automatic GitHub Actions intentionally skipped."
+  status: "ACTIVE_PR_VALIDATION"
+  active_issue: 574
+  active_branch: "knowledge/p01-574-life-source-gap-closure"
+  active_pr: 577
+  canonical_checkpoint: "P01_SOURCE_GAP_SUPPLEMENT_PP5_9"
+  note: "PR #577 adds the source-gap supplement after PR #571. The pre-rebase full quality gate passed on head 9472bbd031756c74fd0e0eeb85257175c80c3559; the branch is being rebased onto current main and must pass a final gate before merge. GitHub Issue/PR state overrides this cache."
 
 progress:
-  canonical_source_records_on_main: 100
-  canonical_source_records_ready_on_branch: 100
-  cumulative_after_merge: 200
-  cumulative_reusable_projection_rules_after_merge: 149
-  cumulative_case_support_only_after_merge: 51
-  source_coverage_gaps_recorded_in_current_batch: 18
-  next_source_anchor: "first repair recorded pp5-9 source gaps, then 天同总论 / 子午同阴"
+  canonical_source_records_on_main: 200
+  canonical_source_records_ready_on_branch: 277
+  cumulative_after_merge: 277
+  cumulative_reusable_projection_rules_after_merge: 213
+  cumulative_case_support_only_after_merge: 64
+  prior_gap_ids_reviewed: 21
+  prior_gap_ids_closed_by_new_rules: 20
+  prior_gap_ids_already_covered: 1
+  unresolved_prior_gap_ids: 0
+  next_source_anchor: "after gap supplement, source-first audit historical candidates 201-300; do not trust old candidate IDs without source review"
 
 integrity:
   source_first: true
