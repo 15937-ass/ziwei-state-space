@@ -89,3 +89,14 @@ def test_no_any_all_nof_or_product_unlock():
     assert g["product_runtime_modified"] is False
     assert r["summary"]["conditions_compiled"]==0
     assert r["summary"]["execution_unlocked"]==0
+
+def test_source_resolution_change_bookkeeping_is_pass_local():
+    n={x["source_rule_id"]:x for x in load(N2)["records"]}
+    changed={"CA01-059","CA02-107","CA03-289","CA04-345","CA05-484","CA08-723","CA09-864"}
+    unchanged={"CA04-391","CA05-433","CA06-502"}
+    assert all(n[rid]["source_resolution_changed"] is True for rid in changed)
+    assert all(n[rid]["source_resolution_changed"] is False for rid in unchanged)
+    assert load(REVIEW)["summary"]["source_repairs"]==4
+    assert load(REVIEW)["summary"]["source_resolution_changes"]==7
+    assert load(C5)["summary"]["source_lexicon_quantifier_source_repairs"]==4
+    assert load(C5)["summary"]["source_lexicon_quantifier_source_resolution_changes"]==7
