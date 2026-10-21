@@ -1,0 +1,187 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP08-CAREER-DEPENDENCY-IR-3-v0.1",
+  "issue": 508,
+  "lane": "KNOWLEDGE_ONLY",
+  "canonical_inputs": [
+    "knowledge/wp08/CAREER_ANTECEDENT_DEPENDENCY_GRAPH_65_v0.1.json",
+    "knowledge/wp08/CAREER_DEPENDENCY_CONTRACT_v0.1.json",
+    "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.14.json"
+  ],
+  "scope": {
+    "domain": "事业宫",
+    "target_count": 3,
+    "target_ids": [
+      "CA05-420",
+      "CA07-639",
+      "CA07-682"
+    ],
+    "selection_rule": "DEPENDENCY_ONLY_PARENT_READY from Issue #505, exact explicit parent IDs only"
+  },
+  "semantics": {
+    "inheritance_mode": "EXACT_PARENT_CONDITION_REFERENCE",
+    "meaning": "The child reuses the canonical condition scope of its source-adjudicated single parent. No parent outcome/projection is inherited and no Chinese text is re-parsed.",
+    "local_delta_policy": "MUST_BE_NULL_FOR_THIS_PILOT",
+    "parent_composition_policy": "SINGLE_PARENT_ONLY",
+    "adjacency_inference_allowed": false,
+    "recursive_uncertainty_must_propagate": true,
+    "product_compilation_claimed": false
+  },
+  "summary": {
+    "ir_records": 3,
+    "blocker_removals": 3,
+    "newly_row_local_structure_ready": 3,
+    "negative_controls": 3,
+    "source_resolution_changes": 0,
+    "source_condition_repairs": 0,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0
+  },
+  "records": [
+    {
+      "child_rule_id": "CA05-420",
+      "parent_rule_id": "CA05-419",
+      "source_location": "事业宫printed_p143",
+      "source_condition_text": "前格",
+      "source_evidence_summary": "天同与左辅右弼同会，须天同不化忌星始主得助力；否则仍须亲力亲为。",
+      "child_projection": "self_reliance_and_personal_execution_remain_required",
+      "parent_source_condition_text": "天同化忌又见左辅右弼",
+      "parent_composition": "SINGLE_PARENT",
+      "inheritance_mode": "EXACT_PARENT_CONDITION_REFERENCE",
+      "source_surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_delta": null,
+      "inherited_component": "PARENT_CONDITION_SCOPE_ONLY",
+      "prohibited_inheritance": [
+        "PARENT_PROJECTION",
+        "PARENT_OUTCOME",
+        "PARENT_TARGET",
+        "PARENT_VALENCE",
+        "TEXT_ADJACENCY"
+      ],
+      "condition_reference": "RULE_CONDITION(CA05-419)",
+      "parent_row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "parent_row_local_blockers": [],
+      "parent_effective_blockers": [],
+      "parent_assessment_complete": true,
+      "knowledge_ir_status": "DEPENDENCY_IR_READY_SEMANTIC_ONLY",
+      "blocker_removed": "ANTECEDENT_DEPENDENCY",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "child_rule_id": "CA07-639",
+      "parent_rule_id": "CA07-638",
+      "source_location": "事业宫printed_p149",
+      "source_condition_text": "前格",
+      "source_evidence_summary": "贪狼与左辅右弼同度，则主下属众多，故所经营事业有相当气派。",
+      "child_projection": "career_operation_tends_to_have_visible_scale_or_presence",
+      "parent_source_condition_text": "贪狼与左辅右弼同度",
+      "parent_composition": "SINGLE_PARENT",
+      "inheritance_mode": "EXACT_PARENT_CONDITION_REFERENCE",
+      "source_surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_delta": null,
+      "inherited_component": "PARENT_CONDITION_SCOPE_ONLY",
+      "prohibited_inheritance": [
+        "PARENT_PROJECTION",
+        "PARENT_OUTCOME",
+        "PARENT_TARGET",
+        "PARENT_VALENCE",
+        "TEXT_ADJACENCY"
+      ],
+      "condition_reference": "RULE_CONDITION(CA07-638)",
+      "parent_row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "parent_row_local_blockers": [],
+      "parent_effective_blockers": [],
+      "parent_assessment_complete": true,
+      "knowledge_ir_status": "DEPENDENCY_IR_READY_SEMANTIC_ONLY",
+      "blocker_removed": "ANTECEDENT_DEPENDENCY",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "child_rule_id": "CA07-682",
+      "parent_rule_id": "CA07-681",
+      "source_location": "事业宫printed_p150",
+      "source_condition_text": "前格",
+      "source_evidence_summary": "子午巨门得禄，事业猛进；但仍不宜出锋头。",
+      "child_projection": "avoid_showing_off",
+      "parent_source_condition_text": "子午巨门得禄",
+      "parent_composition": "SINGLE_PARENT",
+      "inheritance_mode": "EXACT_PARENT_CONDITION_REFERENCE",
+      "source_surface_class": "EXACT_FOREGOING_REFERENCE",
+      "local_delta": null,
+      "inherited_component": "PARENT_CONDITION_SCOPE_ONLY",
+      "prohibited_inheritance": [
+        "PARENT_PROJECTION",
+        "PARENT_OUTCOME",
+        "PARENT_TARGET",
+        "PARENT_VALENCE",
+        "TEXT_ADJACENCY"
+      ],
+      "condition_reference": "RULE_CONDITION(CA07-681)",
+      "parent_row_local_readiness": "LOCAL_STRUCTURE_READY",
+      "parent_row_local_blockers": [],
+      "parent_effective_blockers": [],
+      "parent_assessment_complete": true,
+      "knowledge_ir_status": "DEPENDENCY_IR_READY_SEMANTIC_ONLY",
+      "blocker_removed": "ANTECEDENT_DEPENDENCY",
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    }
+  ],
+  "negative_controls": [
+    {
+      "source_rule_id": "CA02-171",
+      "reason": "TRANSITIVE_PARENT_UNCERTAINTY",
+      "current_blockers": [],
+      "dependency_readiness": "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION",
+      "effective_parent_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "local_non_dependency_blockers": [],
+      "parent_assessment_complete": true,
+      "must_not_promote": true
+    },
+    {
+      "source_rule_id": "CA03-236",
+      "reason": "PARENT_SOURCE_UNDERDETERMINED",
+      "current_blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "dependency_readiness": "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION",
+      "effective_parent_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "local_non_dependency_blockers": [],
+      "parent_assessment_complete": true,
+      "must_not_promote": true
+    },
+    {
+      "source_rule_id": "CA04-323",
+      "reason": "LOCAL_BLOCKERS_AND_PARENT_SCOPE_NOT_ASSESSED",
+      "current_blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "dependency_readiness": "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS",
+      "effective_parent_blockers": [],
+      "local_non_dependency_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "parent_assessment_complete": false,
+      "must_not_promote": true
+    }
+  ],
+  "guardrails": {
+    "implicit_parent_inference": false,
+    "free_text_parser_used": false,
+    "parent_projection_inherited": false,
+    "parent_outcome_inherited": false,
+    "branch_union_generalized": false,
+    "product_runtime_modified": false,
+    "condition_compilation_claimed": false,
+    "execution_unlock_claimed": false
+  }
+}
