@@ -53,6 +53,14 @@ Because no repository checkout is available in this runtime, the following were 
 - `python src/audit_repository.py --fail-on-p0`;
 - `python tools/validate_governance.py --base-ref origin/main --head-branch knowledge/472-lexical-recheck-v02`.
 
+Post-revision shell retry from the available OpenAI container against branch head `e392a184138895d0d949323f1475cc52b731b49b`:
+
+```bash
+git clone --depth 1 --branch knowledge/472-lexical-recheck-v02 https://github.com/15937-ass/ziwei-state-space.git /tmp/ziwei-state-space
+```
+
+Result: **INFRASTRUCTURE BLOCKER again** — `Could not resolve host: github.com`. No test command was falsely counted as executed.
+
 GitHub Actions: **NOT USED**.
 Product regression: **NOT REQUIRED** (Knowledge-only paths).
 
