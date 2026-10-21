@@ -56,6 +56,12 @@ ACTIVATION_CLOSURE_PATH = (
 CAREER_ORDINAL_CONSTRAINTS_PATH = (
     ROOT / "knowledge" / "wp08" / "CAREER_ORDINAL_CONSTRAINTS_v0.1.json"
 )
+CAREER_ORDINAL_RULE_LINKS_PATH = (
+    ROOT / "knowledge" / "wp08" / "CAREER_ORDINAL_RULE_LINKS_v0.1.json"
+)
+CAREER_ORDINAL_BLOCKER_IMPACT_PATH = (
+    ROOT / "knowledge" / "wp08" / "CAREER_ORDINAL_BLOCKER_IMPACT_v0.1.json"
+)
 
 KNOWLEDGE_EXECUTION_STATUSES = frozenset(
     {"LEXICAL_ONLY", "STRUCTURAL_ONLY", "SAFE_SYMBOLIC", "BLOCKED"}
@@ -523,6 +529,118 @@ def load_career_ordinal_constraints(
     return constraints
 
 
+def load_career_ordinal_rule_links(
+    path: Path = CAREER_ORDINAL_RULE_LINKS_PATH,
+) -> Mapping[str, Any]:
+    payload = _read_json(path)
+    if payload.get("schema_version") != "0.1":
+        raise ValueError("Career ordinal rule-link schema_version must be 0.1")
+    raw = payload.get("records")
+    if not isinstance(raw, list):
+        raise ValueError("Career ordinal rule-link records must be an array")
+    if len(raw) != 130:
+        raise ValueError(
+            f"expected 130 Career ordinal rule links, got {len(raw)}"
+        )
+    ids = [item.get("constraint_id") for item in raw]
+    if len(set(ids)) != len(ids):
+        raise ValueError("Career ordinal rule-link constraint_id values must be unique")
+
+    allowed_dispositions = {
+        "DIRECT_ATOMIC_RULE",
+        "MULTI_RULE_SHARED_SOURCE_SENTENCE",
+        "METHODOLOGY_OR_CONTEXT_ONLY",
+    }
+    for item in raw:
+        constraint_id = _required_text(
+            item.get("constraint_id"), "ordinal_rule_link.constraint_id"
+        )
+        disposition = _required_text(
+            item.get("disposition"), f"{constraint_id}.disposition"
+        )
+        if disposition not in allowed_dispositions:
+            raise ValueError(
+                f"{constraint_id}: unsupported ordinal rule-link disposition"
+            )
+        linked_rule_ids = item.get("linked_rule_ids")
+        if not isinstance(linked_rule_ids, list) or not linked_rule_ids:
+            raise ValueError(
+                f"{constraint_id}: ordinal rule link requires linked_rule_ids"
+            )
+
+    return payload
+
+
+def load_career_ordinal_blocker_impact(
+    path: Path = CAREER_ORDINAL_BLOCKER_IMPACT_PATH,
+) -> Mapping[str, Any]:
+    payload = _read_json(path)
+    if payload.get("schema_version") != "0.1":
+        raise ValueError("Career ordinal blocker-impact schema_version must be 0.1")
+    raw = payload.get("records")
+    if not isinstance(raw, list):
+        raise ValueError("Career ordinal blocker-impact records must be an array")
+    if len(raw) != 130:
+        raise ValueError(
+            f"expected 130 Career ordinal blocker-impact rows, got {len(raw)}"
+        )
+    ids = [item.get("constraint_id") for item in raw]
+    if len(set(ids)) != len(ids):
+        raise ValueError(
+            "Career ordinal blocker-impact constraint_id values must be unique"
+        )
+
+    allowed_impacts = {
+        "NO_BLOCKER_REDUCTION",
+        "QUALITATIVE_REFINEMENT_ONLY",
+    }
+    for item in raw:
+        constraint_id = _required_text(
+            item.get("constraint_id"), "ordinal_blocker_impact.constraint_id"
+        )
+        impact = _required_text(
+            item.get("blocker_impact"), f"{constraint_id}.blocker_impact"
+        )
+        if impact not in allowed_impacts:
+            raise ValueError(
+                f"{constraint_id}: ordinal evidence unexpectedly resolves a blocker"
+            )
+        if item.get("execution_unlocked") is not False:
+            raise ValueError(
+                f"{constraint_id}: ordinal blocker impact unlock drift"
+            )
+        resolved = item.get("resolved_blockers")
+        if not isinstance(resolved, list) or resolved:
+            raise ValueError(
+                f"{constraint_id}: ordinal evidence may not resolve blockers in v0.1"
+            )
+
+    summary = payload.get("summary")
+    if not isinstance(summary, dict):
+        raise ValueError("Career ordinal blocker-impact summary must be an object")
+    if int(summary.get("blockers_resolved_by_ordinal_evidence", -1)) != 0:
+        raise ValueError("ordinal blocker-impact summary reports blocker resolution")
+    if int(summary.get("execution_unlocked", -1)) != 0:
+        raise ValueError("ordinal blocker-impact summary reports execution unlock")
+
+    return payload
+
+
+def validate_career_ordinal_cross_artifacts() -> None:
+    constraints = load_career_ordinal_constraints()
+    links = load_career_ordinal_rule_links()
+    impact = load_career_ordinal_blocker_impact()
+
+    constraint_ids = {item["constraint_id"] for item in constraints}
+    link_ids = {item["constraint_id"] for item in links["records"]}
+    impact_ids = {item["constraint_id"] for item in impact["records"]}
+
+    if constraint_ids != link_ids or constraint_ids != impact_ids:
+        raise ValueError(
+            "Career ordinal constraint/link/impact artifacts are not one-to-one"
+        )
+
+
 def load_activation_closure(
     path: Path = ACTIVATION_CLOSURE_PATH,
 ) -> Mapping[str, Any]:
@@ -704,6 +822,9 @@ def audit_response_semantics_adapter_readiness() -> dict[str, Any]:
     category_payload = _read_json(CATEGORY_REVIEW_PATH)
     ordinal_payload = _read_json(CAREER_ORDINAL_CONSTRAINTS_PATH)
     ordinal_constraints = load_career_ordinal_constraints()
+    ordinal_links = load_career_ordinal_rule_links()
+    ordinal_impact = load_career_ordinal_blocker_impact()
+    validate_career_ordinal_cross_artifacts()
 
     pilot_status_counts = Counter(
         item.knowledge_execution_status for item in pilot
@@ -773,6 +894,12 @@ def audit_response_semantics_adapter_readiness() -> dict[str, Any]:
             "career_ordinal_constraints": str(
                 CAREER_ORDINAL_CONSTRAINTS_PATH.relative_to(ROOT)
             ),
+            "career_ordinal_rule_links": str(
+                CAREER_ORDINAL_RULE_LINKS_PATH.relative_to(ROOT)
+            ),
+            "career_ordinal_blocker_impact": str(
+                CAREER_ORDINAL_BLOCKER_IMPACT_PATH.relative_to(ROOT)
+            ),
         },
         "response_pilot": {
             "total": len(pilot),
@@ -817,6 +944,37 @@ def audit_response_semantics_adapter_readiness() -> dict[str, Any]:
                 1
                 for item in ordinal_constraints
                 if item.get("transitive_closure_allowed") is True
+            ),
+        },
+        "career_ordinal_rule_linking": {
+            "constraints_dispositioned": int(
+                ordinal_links.get("coverage", {}).get("constraints", -1)
+            ),
+            "linked_atomic_rule_ids": int(
+                ordinal_links.get("coverage", {}).get(
+                    "linked_atomic_rule_ids", -1
+                )
+            ),
+            "link_disposition_counts": _deep(
+                ordinal_links.get("disposition_counts", {})
+            ),
+            "blocker_impact_counts": _deep(
+                ordinal_impact.get("summary", {}).get("impact_counts", {})
+            ),
+            "unique_activation_rules_touched": int(
+                ordinal_impact.get("summary", {}).get(
+                    "unique_activation_rules_touched", -1
+                )
+            ),
+            "blockers_resolved_by_ordinal_evidence": int(
+                ordinal_impact.get("summary", {}).get(
+                    "blockers_resolved_by_ordinal_evidence", -1
+                )
+            ),
+            "execution_unlocked": int(
+                ordinal_impact.get("summary", {}).get(
+                    "execution_unlocked", -1
+                )
             ),
         },
         "career": {
