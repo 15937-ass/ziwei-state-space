@@ -1,0 +1,22 @@
+schema_version: 1
+lane: "KNOWLEDGE_ONLY"
+shard: "P10"
+palace: "田宅宫"
+slug: "property"
+authoritative_execution: "GITHUB_ISSUE"
+canonical_branch: "main"
+contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
+
+execution:
+  status: "ACTIVE"
+  active_issue: 525
+  active_branch: "knowledge/525-property-tp03-canonical"
+  active_pr: null
+  canonical_checkpoint: "PROPERTY_TP02_CANONICAL_200_OF_200_ON_MAIN"
+  note: "Live Issue #525 is execution truth for TP03 201-300; branch progress is not canonical until its PR merges. The legacy branch is grandfathered by G12."
+
+integrity:
+  source_first: true
+  shared_semantics_must_escalate_to_core: true
+  may_write_other_palace: false
+  empirical_feedback_may_rewrite_source_truth: false
