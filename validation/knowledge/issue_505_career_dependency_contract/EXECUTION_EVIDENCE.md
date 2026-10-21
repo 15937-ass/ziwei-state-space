@@ -29,5 +29,17 @@ Among 50 compiler-gated rows:
 
 No condition is compiled and no execution is unlocked.
 
+## Critic correction
+
+A pre-merge critic pass found that the first graph draft used the label `REFERENCE_GATE_ALREADY_RESOLVED_RULE_READY` for 11 rows based only on their **row-local** blocker list. That was unsafe because all 11 inherit parent/ancestor source uncertainty.
+
+The corrected graph:
+- removes the ambiguous RULE_READY label;
+- propagates parent blockers transitively;
+- records CA02-171 inheriting `OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED` through CA02-170 -> CA02-169;
+- records already-reference-resolved/no-local-blocker = 11 but effective-condition-ready = 0;
+- marks parent IDs outside the contextual-activation closure as unassessed rather than blocker-free;
+- preserves the same three compiler candidates: CA05-420, CA07-639, CA07-682.
+
 ## Final deterministic gate
 Exact-head G8 repository-quality-gate is required before merge: full pytest, JS syntax check where present, P0 audit, and Knowledge governance validation.
