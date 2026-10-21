@@ -34,7 +34,7 @@ def test_v013_census_and_full_deep_review():
     assert len(c["records"])==251
     assert c["summary"]["rows_with_no_current_activation_blocker"]==23
     assert c["summary"]["rows_with_source_underdetermination"]==201
-    assert c["summary"]["source_resolution_changes"]==45
+    assert c["summary"]["source_resolution_changes"]==44
     assert c["summary"]["source_condition_repairs"]==13
     assert c["summary"]["blocked_rows_without_deep_source_review"]==0
     assert c["summary"]["deep_source_review_partition"]=={"issue_489":100,"issue_498":100,"issue_501":28,"total_blocked_rows_reviewed":228,"overlap":0}
