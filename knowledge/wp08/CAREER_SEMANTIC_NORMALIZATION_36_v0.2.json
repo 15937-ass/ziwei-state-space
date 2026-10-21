@@ -1,0 +1,894 @@
+{
+  "schema_version": "0.2",
+  "artifact_id": "KB-CAREER-SEMANTIC-NORMALIZATION-36-v0.2",
+  "lane": "KNOWLEDGE_ONLY",
+  "issue": 471,
+  "status": "36_OF_36_REVIEWED_SOURCE_LEXICON_QUANTIFIER_REFINED_NO_EXECUTION_UNLOCK",
+  "source_artifact": "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.2.json",
+  "coverage": {
+    "target_rows": 36,
+    "reviewed": 36,
+    "remaining": 0
+  },
+  "summary": {
+    "disposition_counts": {
+      "NORMALIZED_COMPOSITE_EXPRESSION": 10,
+      "SOURCE_SHORTHAND_REMAINS_UNRESOLVED": 4,
+      "NORMALIZED_TO_OPEN_CATEGORY_OR_VALENCE": 8,
+      "NORMALIZED_KNOWN_GROUP_PLUS_LITERAL": 4,
+      "NORMALIZED_EXPLICIT_ATOM_OR_SET": 6,
+      "NORMALIZED_EXPLICIT_LOGICAL_EXPRESSION": 4
+    },
+    "semantic_normalization_blockers_before": 36,
+    "semantic_normalization_blockers_after": 0,
+    "added_precise_blocker_counts": {
+      "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED": 6,
+      "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED": 13,
+      "SOURCE_LIST_QUANTIFIER_UNSPECIFIED": 4,
+      "CARDINALITY_THRESHOLD_UNSPECIFIED": 2,
+      "TRANSFORMATION_CARRIER_UNSPECIFIED": 2
+    },
+    "source_resolution_changes": 0,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0
+  },
+  "records": [
+    {
+      "source_rule_id": "CA01-059",
+      "source_condition_text": "紫微无煞有辅佐且见禄马或财星化禄",
+      "source_location": "事业宫printed_p133",
+      "disposition": "SOURCE_RECHECK_RESOLVED",
+      "normalized_expression": "NEGATED_OPEN_CATEGORY(煞) AND GROUP(辅佐) AND [GROUP(禄马) OR TRANSFORM(廉贞,化禄) OR TRANSFORM(贪狼,化禄) OR TRANSFORM(武曲,化禄)]",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
+      ],
+      "source_resolution_changed": true,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "source_recheck_issue": 471,
+      "source_recheck_disposition": "SOURCE_RESOLVED",
+      "source_repair": "Replace compressed 财星化禄 with source-explicit alternatives 廉贞化禄 / 贪狼化禄 / 武曲化禄."
+    },
+    {
+      "source_rule_id": "CA02-107",
+      "source_condition_text": "紫微天府见刑曜",
+      "source_location": "事业宫printed_p134",
+      "disposition": "SOURCE_RECHECK_NO_UNIVERSAL_RULE",
+      "normalized_expression": "OPEN_FUNCTIONAL_CATEGORY(刑曜)",
+      "blockers_before": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
+      ],
+      "source_resolution_changed": true,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "source_recheck_issue": 471,
+      "source_recheck_disposition": "NO_UNIVERSAL_RULE"
+    },
+    {
+      "source_rule_id": "CA02-147",
+      "source_condition_text": "紫微七杀见煞",
+      "source_location": "事业宫printed_p135",
+      "disposition": "NORMALIZED_TO_OPEN_CATEGORY_OR_VALENCE",
+      "normalized_expression": "OPEN_CATEGORY_ALIAS(煞)",
+      "blockers_before": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-180",
+      "source_condition_text": "天机与昌曲天才同度",
+      "source_location": "事业宫printed_p136",
+      "disposition": "NORMALIZED_KNOWN_GROUP_PLUS_LITERAL",
+      "normalized_expression": "SAME_PALACE[BUNDLE(GROUP(昌曲),ATOM(天才))]",
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-238",
+      "source_condition_text": "天机天梁见煞",
+      "source_location": "事业宫printed_p137",
+      "disposition": "NORMALIZED_TO_OPEN_CATEGORY_OR_VALENCE",
+      "normalized_expression": "OPEN_CATEGORY_ALIAS(煞)",
+      "blockers_before": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-246",
+      "source_condition_text": "天机天梁吉煞交集",
+      "source_location": "事业宫printed_p137",
+      "disposition": "NORMALIZED_COMPOSITE_EXPRESSION",
+      "normalized_expression": "INTERSECTION(OPEN_VALENCE(吉),OPEN_CATEGORY_ALIAS(煞))",
+      "blockers_before": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-256",
+      "source_condition_text": "太阳守事业宫吉",
+      "source_location": "事业宫printed_p138",
+      "disposition": "NORMALIZED_TO_OPEN_CATEGORY_OR_VALENCE",
+      "normalized_expression": "OPEN_VALENCE(吉)",
+      "blockers_before": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-257",
+      "source_condition_text": "太阳守事业宫凶",
+      "source_location": "事业宫printed_p138",
+      "disposition": "NORMALIZED_TO_OPEN_CATEGORY_OR_VALENCE",
+      "normalized_expression": "OPEN_VALENCE(凶)",
+      "blockers_before": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-258",
+      "source_condition_text": "太阳守事业宫纵凶",
+      "source_location": "事业宫printed_p138",
+      "disposition": "NORMALIZED_TO_OPEN_CATEGORY_OR_VALENCE",
+      "normalized_expression": "CONCESSIVE(纵,OPEN_VALENCE(凶))",
+      "blockers_before": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-289",
+      "source_condition_text": "太阳见三台八座恩光天贵",
+      "source_location": "事业宫printed_p139",
+      "disposition": "SOURCE_RECHECK_NO_UNIVERSAL_RULE",
+      "normalized_expression": "RELATION(朝拱,SOURCE_EXAMPLE_CATEGORY[NAMED_PAIR(三台,八座),NAMED_PAIR(恩光,天贵),OPEN_TAIL(等杂曜)])",
+      "blockers_before": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": true,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "source_recheck_issue": 471,
+      "source_recheck_disposition": "NO_UNIVERSAL_RULE",
+      "source_repair": "Preserve source relation 朝拱 and open-tail marker 等杂曜; do not flatten into a closed four-star list."
+    },
+    {
+      "source_rule_id": "CA03-290",
+      "source_condition_text": "太阳与华盖同度又会空劫",
+      "source_location": "事业宫printed_p139",
+      "disposition": "NORMALIZED_KNOWN_GROUP_PLUS_LITERAL",
+      "normalized_expression": "SAME_PALACE(ATOM(华盖)) + CO_OCCURRENCE(GROUP(空劫))",
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-298",
+      "source_condition_text": "太阳天梁见煞天姚天刑大耗劫煞",
+      "source_location": "事业宫printed_p139",
+      "disposition": "NORMALIZED_COMPOSITE_EXPRESSION",
+      "normalized_expression": "PRESENCE[OPEN_CATEGORY_ALIAS(煞),ATOM(天姚),ATOM(天刑),ATOM(大耗),ATOM(劫煞)]",
+      "blockers_before": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-304",
+      "source_condition_text": "丑未太阴太阳同度吉",
+      "source_location": "事业宫printed_p139",
+      "disposition": "NORMALIZED_EXPLICIT_ATOM_OR_SET",
+      "normalized_expression": "SAME_PALACE[ATOM(太阴),ATOM(太阳)] + OPEN_VALENCE(吉)",
+      "blockers_before": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-305",
+      "source_condition_text": "丑未太阴太阳同度凶",
+      "source_location": "事业宫printed_p139",
+      "disposition": "NORMALIZED_EXPLICIT_ATOM_OR_SET",
+      "normalized_expression": "SAME_PALACE[ATOM(太阴),ATOM(太阳)] + OPEN_VALENCE(凶)",
+      "blockers_before": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-326",
+      "source_condition_text": "太阳巨门巨门化忌更见煞",
+      "source_location": "事业宫printed_p140",
+      "disposition": "NORMALIZED_COMPOSITE_EXPRESSION",
+      "normalized_expression": "PAIR(太阳,巨门) + TRANSFORM(巨门,化忌) + OPEN_CATEGORY_ALIAS(煞)",
+      "blockers_before": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-345",
+      "source_condition_text": "武曲与火铃同度且在巳午或多见火曜",
+      "source_location": "事业宫printed_p140",
+      "disposition": "SOURCE_RECHECK_NO_UNIVERSAL_RULE",
+      "normalized_expression": "SAME_PALACE(GROUP(火铃)) AND [LOCATION(巳|午) OR CARDINAL_OPEN_CATEGORY(多见属火的星曜)]",
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "CARDINALITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED",
+        "CARDINALITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "source_resolution_changed": true,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "source_recheck_issue": 471,
+      "source_recheck_disposition": "NO_UNIVERSAL_RULE",
+      "source_repair": "Use the literal source surface 多见属火的星曜 rather than compressed 多见火曜."
+    },
+    {
+      "source_rule_id": "CA04-358",
+      "source_condition_text": "武曲天府三方见煞",
+      "source_location": "事业宫printed_p141",
+      "disposition": "NORMALIZED_TO_OPEN_CATEGORY_OR_VALENCE",
+      "normalized_expression": "TRINE_SCOPE(OPEN_CATEGORY_ALIAS(煞))",
+      "blockers_before": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-378",
+      "source_condition_text": "武曲七杀煞在本宫",
+      "source_location": "事业宫printed_p141-142",
+      "disposition": "NORMALIZED_TO_OPEN_CATEGORY_OR_VALENCE",
+      "normalized_expression": "SCOPE(本宫,OPEN_CATEGORY_ALIAS(煞))",
+      "blockers_before": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-391",
+      "source_condition_text": "武曲破军与铃星陀罗阴煞华盖天刑同度",
+      "source_location": "事业宫printed_p142",
+      "disposition": "SOURCE_RECHECK_STILL_UNDERDETERMINED",
+      "normalized_expression": "SAME_PALACE_SOURCE_LIST[铃星,陀罗,阴煞,华盖,天刑]",
+      "blockers_before": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": true,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "source_recheck_issue": 471,
+      "source_recheck_disposition": "STILL_UNDERDETERMINED"
+    },
+    {
+      "source_rule_id": "CA05-416",
+      "source_condition_text": "天同与昌曲天才同度",
+      "source_location": "事业宫printed_p143",
+      "disposition": "NORMALIZED_KNOWN_GROUP_PLUS_LITERAL",
+      "normalized_expression": "SAME_PALACE[BUNDLE(GROUP(昌曲),ATOM(天才))]",
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-423",
+      "source_condition_text": "子午天同太阴见禄存或化禄",
+      "source_location": "事业宫printed_p143",
+      "disposition": "NORMALIZED_EXPLICIT_LOGICAL_EXPRESSION",
+      "normalized_expression": "PRESENCE[ATOM(禄存) OR TRANSFORMATION(化禄)]",
+      "blockers_before": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "TRANSFORMATION_CARRIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "TRANSFORMATION_CARRIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-433",
+      "source_condition_text": "天同巨门见天厨火星",
+      "source_location": "事业宫printed_p143",
+      "disposition": "SOURCE_RECHECK_STILL_UNDERDETERMINED",
+      "normalized_expression": "SAME_PALACE_SOURCE_LIST[天厨,火星]",
+      "blockers_before": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": true,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "source_recheck_issue": 471,
+      "source_recheck_disposition": "STILL_UNDERDETERMINED"
+    },
+    {
+      "source_rule_id": "CA05-471",
+      "source_condition_text": "廉贞会紫微吉曜百官朝拱",
+      "source_location": "事业宫printed_p144",
+      "disposition": "NORMALIZED_COMPOSITE_EXPRESSION",
+      "normalized_expression": "CO_OCCURRENCE[ATOM(紫微),OPEN_CATEGORY(吉曜),PATTERN(百官朝拱)]",
+      "blockers_before": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED",
+        "STRUCTURED_PATTERN_EXECUTION_DEFERRED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "STRUCTURED_PATTERN_EXECUTION_DEFERRED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-484",
+      "source_condition_text": "廉贞天相会武曲化禄禄存或天府化科",
+      "source_location": "事业宫printed_p145",
+      "disposition": "SOURCE_RECHECK_RESOLVED",
+      "normalized_expression": "CO_OCCURRENCE[(TRANSFORM(武曲,化禄) OR ATOM(禄存)) OR TRANSFORM(天府,化科)]",
+      "blockers_before": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": true,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "source_recheck_issue": 471,
+      "source_recheck_disposition": "SOURCE_RESOLVED",
+      "source_repair": "Restore parenthetical logic: 会禄 = 武曲化禄为上 / 禄存次之; source explicitly adds 或会天府化科.",
+      "ordinal_preference": [
+        "TRANSFORM(武曲,化禄)",
+        "ATOM(禄存)"
+      ]
+    },
+    {
+      "source_rule_id": "CA05-493",
+      "source_condition_text": "廉贞七杀廉贞化忌更见煞同度",
+      "source_location": "事业宫printed_p145",
+      "disposition": "NORMALIZED_COMPOSITE_EXPRESSION",
+      "normalized_expression": "PAIR(廉贞,七杀)+TRANSFORM(廉贞,化忌)+SAME_PALACE(OPEN_CATEGORY_ALIAS(煞))",
+      "blockers_before": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-502",
+      "source_condition_text": "卯酉廉贞破军必须见禄",
+      "source_location": "事业宫printed_p145",
+      "disposition": "SOURCE_RECHECK_STILL_UNDERDETERMINED",
+      "normalized_expression": "EXPLICIT_NECESSITY(PRESENCE(SOURCE_SHORTHAND(禄)))",
+      "blockers_before": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
+      ],
+      "source_resolution_changed": true,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "source_recheck_issue": 471,
+      "source_recheck_disposition": "STILL_UNDERDETERMINED"
+    },
+    {
+      "source_rule_id": "CA07-602",
+      "source_condition_text": "太阴与天机同度或相对且见吉化吉曜",
+      "source_location": "事业宫printed_p148",
+      "disposition": "NORMALIZED_COMPOSITE_EXPRESSION",
+      "normalized_expression": "RELATION(太阴,天机,SAME_PALACE OR OPPOSITION)+PRESENCE(OPEN_CATEGORY(吉化吉曜))",
+      "blockers_before": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-633",
+      "source_condition_text": "贪狼与吉化吉曜及多辅曜会合",
+      "source_location": "事业宫printed_p149",
+      "disposition": "NORMALIZED_COMPOSITE_EXPRESSION",
+      "normalized_expression": "CO_OCCURRENCE[OPEN_CATEGORY(吉化吉曜),CARDINAL_GROUP(多辅曜)]",
+      "blockers_before": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "CARDINALITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "CARDINALITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-652",
+      "source_condition_text": "寅申贪狼与廉贞相对且见陀罗或煞",
+      "source_location": "事业宫printed_p149",
+      "disposition": "NORMALIZED_EXPLICIT_LOGICAL_EXPRESSION",
+      "normalized_expression": "OPPOSITION(贪狼,ATOM(廉贞)) AND PRESENCE[ATOM(陀罗) OR OPEN_CATEGORY_ALIAS(煞)]",
+      "blockers_before": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-659",
+      "source_condition_text": "辰戌贪狼有煞同度",
+      "source_location": "事业宫printed_p149",
+      "disposition": "NORMALIZED_TO_OPEN_CATEGORY_OR_VALENCE",
+      "normalized_expression": "SAME_PALACE(OPEN_CATEGORY_ALIAS(煞))",
+      "blockers_before": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-723",
+      "source_condition_text": "天相为刑忌来会且煞曜同度",
+      "source_location": "事业宫printed_p151",
+      "disposition": "SOURCE_RECHECK_NO_UNIVERSAL_RULE",
+      "normalized_expression": "CO_OCCURRENCE(SOURCE_COMPOUND(刑忌)) AND SAME_PALACE(OPEN_CATEGORY(煞曜))",
+      "blockers_before": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
+      ],
+      "source_resolution_changed": true,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "source_recheck_issue": 471,
+      "source_recheck_disposition": "NO_UNIVERSAL_RULE"
+    },
+    {
+      "source_rule_id": "CA09-816",
+      "source_condition_text": "七杀有煞而无化忌会合",
+      "source_location": "事业宫printed_p153",
+      "disposition": "NORMALIZED_COMPOSITE_EXPRESSION",
+      "normalized_expression": "PRESENCE(OPEN_CATEGORY_ALIAS(煞)) AND NEGATED_CO_OCCURRENCE(TRANSFORMATION(化忌))",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-818",
+      "source_condition_text": "子午七杀与武曲天府相对且有煞",
+      "source_location": "事业宫printed_p153",
+      "disposition": "NORMALIZED_EXPLICIT_ATOM_OR_SET",
+      "normalized_expression": "OPPOSITION[ATOM(武曲),ATOM(天府)] AND PRESENCE(OPEN_CATEGORY_ALIAS(煞))",
+      "blockers_before": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-860",
+      "source_condition_text": "破军会昌曲化忌",
+      "source_location": "事业宫printed_p154",
+      "disposition": "NORMALIZED_KNOWN_GROUP_PLUS_LITERAL",
+      "normalized_expression": "CO_OCCURRENCE[GROUP(昌曲),TRANSFORMATION(化忌,CARRIER_UNSPECIFIED)]",
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "TRANSFORMATION_CARRIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "TRANSFORMATION_CARRIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-861",
+      "source_condition_text": "破军与桃花诸曜同度更见文曲化忌",
+      "source_location": "事业宫printed_p154",
+      "disposition": "NORMALIZED_COMPOSITE_EXPRESSION",
+      "normalized_expression": "SAME_PALACE(OPEN_CATEGORY(桃花诸曜))+PRESENCE(TRANSFORM(文曲,化忌))",
+      "blockers_before": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [],
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-864",
+      "source_condition_text": "破军与空劫同度且见吉辅",
+      "source_location": "事业宫printed_p155",
+      "disposition": "SOURCE_RECHECK_NO_UNIVERSAL_RULE",
+      "normalized_expression": "SAME_PALACE(GROUP(空劫)) AND PRESENCE(OPEN_QUALIFIED_SUPPORT_CATEGORY(吉辅))",
+      "blockers_before": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "removed_blockers": [
+        "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "added_precise_blockers": [
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
+      ],
+      "source_resolution_changed": true,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "source_recheck_issue": 471,
+      "source_recheck_disposition": "NO_UNIVERSAL_RULE"
+    }
+  ],
+  "guardrails": {
+    "global_any_default": false,
+    "global_all_default": false,
+    "global_n_of_default": false,
+    "open_category_silently_closed": false,
+    "source_shorthand_silently_closed": false,
+    "transformation_carrier_invented": false,
+    "numeric_weights_added": false,
+    "probabilities_added": false,
+    "product_runtime_modified": false,
+    "explicit_list_quantifier_inferred": false,
+    "source_truth_rewritten_without_evidence": false
+  },
+  "supersedes": "knowledge/wp08/CAREER_SEMANTIC_NORMALIZATION_36_v0.1.json",
+  "inputs": [
+    "knowledge/wp08/CAREER_SOURCE_LEXICON_QUANTIFIER_10_v0.1.json"
+  ],
+  "source_recheck_summary": {
+    "target_rows": 10,
+    "source_resolved": 2,
+    "no_universal_rule": 5,
+    "still_underdetermined": 3,
+    "source_shorthand_membership_unspecified_before": 6,
+    "source_shorthand_membership_unspecified_after": 1,
+    "source_list_quantifier_unspecified_before": 4,
+    "source_list_quantifier_unspecified_after": 2,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0
+  }
+}
