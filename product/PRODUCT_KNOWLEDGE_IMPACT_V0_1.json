@@ -1,0 +1,85 @@
+{
+  "schema_version": "0.1",
+  "report_id": "PRODUCT_KNOWLEDGE_IMPACT_V0_1_BOOTSTRAP",
+  "issue": 500,
+  "active_bundle_id": "KIB-PRODUCT-20261021-V0_1",
+  "candidate_bundle_id": "KIB-CANDIDATE-ISSUE-500-V0_1",
+  "purpose": "Demonstrate that an unrelated main/source-commit advance with identical governed Product Knowledge semantics does not invalidate Product runtime.",
+  "candidate_verification": {
+    "status": "PASS",
+    "verified_artifact_count": 58,
+    "findings": []
+  },
+  "impact": {
+    "schema_version": "0.1",
+    "status": "READY_FOR_VALIDATION",
+    "active_bundle_id": "KIB-PRODUCT-20261021-V0_1",
+    "candidate_bundle_id": "KIB-CANDIDATE-ISSUE-500-V0_1",
+    "active_source_commit": "dabc492895721b0ccc310b32329f4585c6d599bf",
+    "candidate_source_commit": "d376abbd1ae7befe588746c37f2434367f8827e7",
+    "source_commit_changed": true,
+    "overall_impact": "NO_RUNTIME_EFFECT",
+    "component_impacts": [
+      {
+        "component_id": "K_manifest",
+        "primary_action": "NO_RUNTIME_EFFECT",
+        "contract_changed": false,
+        "coverage_changed": false,
+        "artifact_set_changed": false,
+        "exact_changed": false,
+        "semantic_changed": false,
+        "artifact_deltas": []
+      },
+      {
+        "component_id": "K_method",
+        "primary_action": "NO_RUNTIME_EFFECT",
+        "contract_changed": false,
+        "coverage_changed": false,
+        "artifact_set_changed": false,
+        "exact_changed": false,
+        "semantic_changed": false,
+        "artifact_deltas": []
+      },
+      {
+        "component_id": "K_response",
+        "primary_action": "NO_RUNTIME_EFFECT",
+        "contract_changed": false,
+        "coverage_changed": false,
+        "artifact_set_changed": false,
+        "exact_changed": false,
+        "semantic_changed": false,
+        "artifact_deltas": []
+      },
+      {
+        "component_id": "K_signal",
+        "primary_action": "NO_RUNTIME_EFFECT",
+        "contract_changed": false,
+        "coverage_changed": false,
+        "artifact_set_changed": false,
+        "exact_changed": false,
+        "semantic_changed": false,
+        "artifact_deltas": []
+      }
+    ],
+    "direct_actions": [
+      "NO_RUNTIME_EFFECT"
+    ],
+    "downstream_invalidations": [],
+    "blockers": []
+  },
+  "promotion_gate": {
+    "schema_version": "0.1",
+    "status": "PROMOTABLE",
+    "recommendation": "SKIP_NO_RUNTIME_EFFECT",
+    "candidate_bundle_id": "KIB-CANDIDATE-ISSUE-500-V0_1",
+    "required_validations": [],
+    "supplied_validation_results": {},
+    "blockers": [],
+    "active_lock_mutated": false
+  },
+  "conclusion": {
+    "current_candidate_should_replace_active_lock": false,
+    "reason": "No governed Product Knowledge semantics changed; promotion would only churn provenance. Keep the active lock stable.",
+    "architecture_result": "UNRELATED_KNOWLEDGE_OR_MAIN_ADVANCE_DOES_NOT_FORCE_PRODUCT_REBUILD"
+  }
+}
