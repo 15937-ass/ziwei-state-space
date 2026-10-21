@@ -1,0 +1,766 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP08-CAREER-RESIDUAL-28-FINAL-SOURCE-PASS-v0.1",
+  "lane": "KNOWLEDGE_ONLY",
+  "issue": 501,
+  "source_basis": {
+    "approved_source": "SRC-ZZ-003 / 中州派紫微斗数深造讲义（下册）",
+    "domain": "事业宫",
+    "printed_pages": "133-155",
+    "baseline_closure": "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.12.json"
+  },
+  "selection": {
+    "target_count": 28,
+    "target_ids": [
+      "CA01-057",
+      "CA01-059",
+      "CA01-079",
+      "CA01-100",
+      "CA02-141",
+      "CA02-152",
+      "CA03-233",
+      "CA03-245",
+      "CA03-248",
+      "CA03-289",
+      "CA03-298",
+      "CA04-337",
+      "CA04-391",
+      "CA05-442",
+      "CA05-459",
+      "CA05-471",
+      "CA06-502",
+      "CA06-542",
+      "CA06-584",
+      "CA07-602",
+      "CA07-620",
+      "CA07-633",
+      "CA07-658",
+      "CA09-840",
+      "CA09-864",
+      "CA09-885",
+      "CA09-886",
+      "CA09-887"
+    ],
+    "coverage_note": "Exactly the blocked Career contextual-activation rows not covered by Issue #489 or Issue #498."
+  },
+  "summary": {
+    "reviewed": 28,
+    "source_condition_repairs_this_pass": 2,
+    "blocker_removals_this_pass": 2,
+    "newly_blocker_free_rows": 0,
+    "source_resolution_changed_rows_this_pass": [
+      "CA04-337",
+      "CA05-471"
+    ],
+    "all_blocked_career_rows_deep_source_reviewed_after_this_pass": 228,
+    "issue489_partition": 100,
+    "issue498_partition": 100,
+    "issue501_partition": 28,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0
+  },
+  "blocker_family_counts_before": {
+    "CLOSED_WORLD_ABSENCE_EVIDENCE": 8,
+    "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD": 4,
+    "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED": 3,
+    "SOURCE_LIST_QUANTIFIER_UNSPECIFIED": 6,
+    "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED": 12,
+    "CAREER_KEWEN_ACTIVATION_CONTEXTUAL_UNRESOLVED": 2,
+    "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED": 11,
+    "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED": 3,
+    "SEVERITY_THRESHOLD_UNSPECIFIED": 3,
+    "LU_SHORTHAND_CONTEXTUAL_UNRESOLVED": 1,
+    "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED": 1,
+    "QUALIFIED_SUPPORT_MEMBERSHIP_OR_ACTIVATION_OPEN": 1,
+    "MIXED_VALENCE_COMPOSITION_UNSPECIFIED": 1
+  },
+  "major_findings": [
+    "All 228 currently blocked Career contextual-activation rows now have a deep source-review pass partitioned without overlap: #489=100, #498=100, #501=28.",
+    "CA04-337 resolves the 武曲 化禄/化权/化科 list as source-local alternatives; auxiliary-support activation remains unresolved.",
+    "CA05-471 repairs an over-conjoined condition: 百官朝拱 is an example of favorable support around 紫微, not an additional mandatory threshold condition.",
+    "Remaining unresolved rows are now explicit source-underdetermination or compiler/ontology gates, not an unreviewed source backlog."
+  ],
+  "guardrails": {
+    "global_any_default_created": false,
+    "global_all_default_created": false,
+    "global_n_of_default_created": false,
+    "baiguan_numeric_threshold_created": false,
+    "severity_numeric_threshold_created": false,
+    "cross_school_rule_used": false,
+    "product_runtime_changed": false,
+    "condition_compilation_claimed": false,
+    "execution_unlock_claimed": false
+  },
+  "records": [
+    {
+      "source_rule_id": "CA01-057",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p133",
+      "source_condition_text": "紫微得百官朝拱又无煞",
+      "projection": "administrative_leadership_capacity",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Direct source recheck confirms the current precise blocker set; no broader source-local operator is licensed.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA01-059",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p133",
+      "source_condition_text": "紫微无煞有辅佐且见禄马或财星化禄",
+      "projection": "financial_authority_or_control",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Reconfirms #472: outer 禄马交驰 OR enumerated transform list is explicit, but the three-item transform list has no source-supported inner ANY/ALL/N_OF default; auxiliary support and closed-world absence also remain contextual.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA01-079",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p134",
+      "source_condition_text": "子午紫微化科见百官朝拱",
+      "projection": "industry_standing_strengthened",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD"
+      ],
+      "blockers_after": [
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Direct source recheck confirms the current precise blocker set; no broader source-local operator is licensed.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA01-100",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p134-135",
+      "source_condition_text": "寅申紫微天府无吉曜",
+      "projection": "career_indecision_or_ambition_beyond_capacity",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Direct source recheck confirms the current precise blocker set; no broader source-local operator is licensed.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-141",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p135",
+      "source_condition_text": "紫微天相与科文诸曜同度又见煞耗",
+      "projection": "arts_or_freelance_professional_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "CAREER_KEWEN_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "CAREER_KEWEN_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Direct source recheck confirms the current precise blocker set; no broader source-local operator is licensed.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-152",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p135",
+      "source_condition_text": "前格更得百官朝拱",
+      "projection": "public_leadership_or_industry_leader_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD"
+      ],
+      "blockers_after": [
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Direct source recheck confirms the current precise blocker set; no broader source-local operator is licensed.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-233",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p137",
+      "source_condition_text": "天机天梁见吉化吉曜",
+      "projection": "consulting_scene_suited",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Direct source recheck confirms the current precise blocker set; no broader source-local operator is licensed.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-245",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p137",
+      "source_condition_text": "天机天梁见吉化吉曜及天巫",
+      "projection": "inherited_or_existing_career_base_available",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Direct source recheck confirms the current precise blocker set; no broader source-local operator is licensed.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-248",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p137",
+      "source_condition_text": "巳亥天机见吉化吉曜",
+      "projection": "inheritance_or_existing_platform_support",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Direct source recheck confirms the current precise blocker set; no broader source-local operator is licensed.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-289",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p139",
+      "source_condition_text": "太阳见三台八座恩光天贵",
+      "projection": "career_support_and_recognition_strengthened",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Reconfirms #472: 三台/八座 and 恩光/天贵 have pair-internal co-presence support, while outer quantifier and 等杂曜 open tail remain unresolved.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-298",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p139",
+      "source_condition_text": "太阳天梁见煞天姚天刑大耗劫煞",
+      "projection": "marginal_or_nonmainstream_service_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Reconfirms repaired source open tail 见煞、天姚、天刑、大耗、劫煞等杂曜; list quantifier and tail membership remain source-underdetermined.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-337",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p140",
+      "source_condition_text": "武曲得禄权科且见辅佐吉曜",
+      "projection": "financial_career_expression_strengthened",
+      "projection_kind": "STRUCTURAL_CONSTRAINT",
+      "blockers_before": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED",
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "review_disposition": "SAME_STAR_TRANSFORMATION_LIST_RESOLVED_AS_LOCAL_ALTERNATIVES",
+      "source_finding": "Source says 武曲 is favorable when obtaining 化禄、化权、化科, followed separately by 且宜见辅佐吉曜. For one star in one natal configuration, 化禄/化权/化科 are mutually exclusive transformation states, so this source-local list is alternative rather than simultaneous.",
+      "source_condition_repair": "Replace compressed condition 武曲得禄权科且见辅佐吉曜 with a source-local alternative transformation list plus a separately required auxiliary-support clause.",
+      "normalized_expression": "AND[LOCAL_ANY_OF[TRANSFORM(武曲,化禄),TRANSFORM(武曲,化权),TRANSFORM(武曲,化科)], PRESENCE(AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED)]",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": true,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-391",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p142",
+      "source_condition_text": "武曲破军与铃星陀罗阴煞华盖天刑同度",
+      "projection": "marginal_or_nonmainstream_industry_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Five named same-palace items remain a source list without a licensed ANY/ALL/N_OF realization; do not infer a universal member quantifier.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-442",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p143",
+      "source_condition_text": "天同巨门煞忌刑耗重重",
+      "projection": "career_can_remain_unaccomplished_without_matching_effort_structure",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "SEVERITY_THRESHOLD_UNSPECIFIED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "SEVERITY_THRESHOLD_UNSPECIFIED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Direct source recheck confirms the current precise blocker set; no broader source-local operator is licensed.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-459",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p144",
+      "source_condition_text": "廉贞入庙不与煞忌同度",
+      "projection": "military_or_disciplined_role_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Direct source recheck confirms the current precise blocker set; no broader source-local operator is licensed.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-471",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p144",
+      "source_condition_text": "廉贞会紫微吉曜百官朝拱",
+      "projection": "civil_administrative_role_with_independent_responsibility",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD",
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "review_disposition": "BAIGUAN_RECLASSIFIED_AS_SOURCE_EXAMPLE_NOT_REQUIRED_CONDITION",
+      "source_finding": "Source says 廉贞所会的紫微有吉曜，若百官朝拱之类，则宜文职. 百官朝拱之类 functions as an example or qualified realization of favorable support, not an additional mandatory threshold-bearing condition.",
+      "source_condition_repair": "Remove mandatory 百官朝拱 from the normalized condition. Preserve OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED because the favorable-support category remains open.",
+      "normalized_expression": "MEET(廉贞,紫微_WITH_OPEN_FAVORABLE_SUPPORT[百官朝拱_as_example])",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": true,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-502",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p145",
+      "source_condition_text": "卯酉廉贞破军必须见禄",
+      "projection": "career_establishment_requires_lu_support",
+      "projection_kind": "STRUCTURAL_CONSTRAINT",
+      "blockers_before": [
+        "LU_SHORTHAND_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "LU_SHORTHAND_CONTEXTUAL_UNRESOLVED"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Reconfirms #472 local necessity 必须见禄; nearby 廉贞化禄/破军化禄 are attested realizations but not an exhaustive global 禄 membership table.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-542",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p146",
+      "source_condition_text": "天府无禄无煞忌刑且有吉曜",
+      "projection": "conservative_preservation_remains_possible",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Direct source recheck confirms the current precise blocker set; no broader source-local operator is licensed.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-584",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p147",
+      "source_condition_text": "太阴科文诸曜又见桃花诸曜",
+      "projection": "performing_art_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "CAREER_KEWEN_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "CAREER_KEWEN_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Direct source recheck confirms the current precise blocker set; no broader source-local operator is licensed.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-602",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p148",
+      "source_condition_text": "太阴与天机同度或相对且见吉化吉曜",
+      "projection": "engineering_or_craft_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Direct source recheck confirms the current precise blocker set; no broader source-local operator is licensed.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-620",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p148",
+      "source_condition_text": "亥宫太阴见吉化吉曜",
+      "projection": "material_success_potential_strengthened",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Direct source recheck confirms the current precise blocker set; no broader source-local operator is licensed.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-633",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p149",
+      "source_condition_text": "贪狼与吉化吉曜及多辅曜会合",
+      "projection": "political_or_public_affairs_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED",
+        "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED",
+        "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Direct source recheck confirms the current precise blocker set; no broader source-local operator is licensed.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-658",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p149",
+      "source_condition_text": "辰戌贪狼无吉化但有吉曜",
+      "projection": "public_fiscal_or_taxation_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Direct source recheck confirms the current precise blocker set; no broader source-local operator is licensed.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-840",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p154",
+      "source_condition_text": "辰戌七杀无煞见辅佐吉曜",
+      "projection": "a_period_of_stagnation_can_precede_later_major_achievement",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Direct source recheck confirms the current precise blocker set; no broader source-local operator is licensed.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-864",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p155",
+      "source_condition_text": "破军与空劫同度且见吉辅",
+      "projection": "innovation_capacity_is_strong_and_changqu_can_be_complementary",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "QUALIFIED_SUPPORT_MEMBERSHIP_OR_ACTIVATION_OPEN"
+      ],
+      "blockers_after": [
+        "QUALIFIED_SUPPORT_MEMBERSHIP_OR_ACTIVATION_OPEN"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "吉辅 remains a source-local qualified-support alias candidate. Nearby prose distinguishes 辅弼、魁钺、昌曲 functions, but does not define 吉辅 as an exhaustive closed set or activation threshold.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-885",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p155",
+      "source_condition_text": "辰戌破军无吉无煞或吉煞均弱",
+      "projection": "specialized_skill_is_required_before_career_development",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "SEVERITY_THRESHOLD_UNSPECIFIED",
+        "MIXED_VALENCE_COMPOSITION_UNSPECIFIED",
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "SEVERITY_THRESHOLD_UNSPECIFIED",
+        "MIXED_VALENCE_COMPOSITION_UNSPECIFIED",
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Source explicitly gives two branches: (no 吉曜 AND no 煞曜) OR (both present but weak). 微薄 is qualitative; no numeric weak/strong threshold is licensed.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-886",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p155",
+      "source_condition_text": "辰戌破军有吉化吉曜",
+      "projection": "financial_institution_employment_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED",
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED",
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Direct source recheck confirms the current precise blocker set; no broader source-local operator is licensed.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-887",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p155",
+      "source_condition_text": "辰戌破军煞重",
+      "projection": "technical_livelihood_is_preferred_and_independent_business_is_not",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "SEVERITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "SEVERITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "review_disposition": "DIRECT_SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "source_finding": "Source only says 煞重者; it supplies direction but no numeric or categorical threshold for 重, so the severity blocker remains.",
+      "source_condition_repair": null,
+      "normalized_expression": null,
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    }
+  ]
+}
