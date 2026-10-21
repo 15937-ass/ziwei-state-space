@@ -8,10 +8,10 @@ execution:
   program: "KB_WP05_PROPERTY_CANONICALIZATION"
   active_issue: null
   active_pr: null
-  canonical_main_checkpoint: "PROPERTY_TP02_CANONICAL_200_OF_200"
-  resume_entry: "Issue #522 continues canonical WP05 P10 田宅宫 coverage with TP02-101..200 from SRC-ZZ-003 printed pp159-162. All 100 archived candidate rows were source-first rechecked: 85 reusable, 15 CASE_SUPPORT_ONLY, 5 PATH_DEPENDENT_GATE, 10 legacy YEAR rows. Nine condition/scope repairs are staged: TP02-103 restores the Sun-Moon base plus fallen/化忌 and 流煞同会或冲会; TP02-107 preserves printed 魁然 rather than silently normalizing to 魁钺; TP02-116 preserves printed 为刑为夹 rather than assuming 刑忌夹; TP02-135 restores 火星同躔 + 虚耗刑忌 + 流煞冲会; TP02-136 retains only the readable 武曲化忌/贪狼化忌 fire-risk tail and quarantines damaged preceding text; TP02-150 restores 更见煞忌重重 for litigation; TP02-177 preserves printed shorthand 破; TP02-191 restores distinct 火铃同度 / 羊陀交会 / 流煞冲破 / 大耗天虚 relation surfaces while preserving branch-scope ambiguity; TP02-200 separates the relocation branch from source-explicit 空劫夹亦主破败, which is retained as TP02-GAP-001 instead of being folded into relocation; the archived noncanonical TP03-205 candidate for that branch is linked for future source review but not auto-promoted. Source-time sidecar preserves 流年及小限 for TP02-175/176 without creating a 小限 runtime primitive, and preserves literal 中年后/中晚年以后 labels without numericization. No Product files or quantitative semantics change. Next after merge: continue Property TP03 201-300 under the same source-first discipline."
-  resume_issue: 522
-  last_state_sync_issue: 522
+  canonical_main_checkpoint: "PROPERTY_TP03_CANONICAL_300_OF_300"
+  resume_entry: "Issue #525 continues canonical WP05 P10 田宅宫 coverage with TP03-201..300 from SRC-ZZ-003 printed pp162-164. All 100 archived candidate rows were source-first rechecked: 82 reusable, 18 CASE_SUPPORT_ONLY, 2 PATH_DEPENDENT_GATE, 9 legacy YEAR rows and 1 legacy DECADE row. Ten source condition/target/scope repairs or narrowings are canonicalized: TP03-206, TP03-208, TP03-252, TP03-257, TP03-266, TP03-273, TP03-278, TP03-287, TP03-291 and TP03-292. TP03-205 directly closes TP02-GAP-001 after source recheck; TP03-273 preserves 大运+流年 scope; TP03-261/262 preserve 中年后 literally. An independent critic pass corrected an internal staging row-map error: TP03-290 remains 武曲化禄->产业丰厚, while the damaged 武曲化忌“主倾效” clause belongs to TP03-291 and is kept bounded. No new primitive qi, memory type, probability, numeric weight, decay or runtime time mechanism. After merge continue Property TP04 301-400 under the same source-first discipline."
+  resume_issue: 525
+  last_state_sync_issue: 525
 
 canonical_main_snapshot:
   domain: "事业宫"
@@ -299,6 +299,11 @@ completed_work_units:
     issue: 522
     pr: 524
     status: "MERGED_100_OF_100_85_REUSABLE_15_CASE_SUPPORT_5_HISTORY_9_SOURCE_REPAIRS_1_LINKED_GAP"
+
+  - work_unit: "KB-WP05-P10-PROPERTY-TP03-CANONICAL-201-300"
+    issue: 525
+    pr: 531
+    status: "MERGED_100_OF_100_82_REUSABLE_18_CASE_SUPPORT_2_HISTORY_10_SOURCE_REPAIRS_1_PRIOR_GAP_CLOSED"
 
 archived_noncanonical_snapshots:
   wp05_all_twelve_palaces:
