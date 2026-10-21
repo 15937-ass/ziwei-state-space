@@ -10,13 +10,17 @@ Chat is not project state. GitHub Issues define active work; PRs define implemen
 ## 2. Session bootstrap
 
 For a new session, timeout recovery, hard checkpoint, or possible external merge:
-1. read PROJECT_STATE.yaml;
-2. read the active lane state;
-3. open the active GitHub Issue;
-4. open its linked PR if present;
-5. read only Issue-required artifacts.
+1. read `PROJECT_STATE.yaml`;
+2. read `governance/RECOVERY_PRECEDENCE_v1.md`;
+3. read the selected lane state as a recovery cache;
+4. query live GitHub Issues for the selected lane;
+5. if a bounded active/open Issue exists, treat it as execution truth even if the lane-state cache is stale;
+6. open the Issue-linked PR if present and treat it as implementation truth;
+7. read only Issue-required artifacts.
 
-Do not infer current work from old chat, stale branch names or legacy PRs.
+Do not infer current work from old chat, stale branch names, legacy PRs, README “Current phase” text, `tasks/*.yaml`, historical validation “next work” sections, old proposal files, or superseded protocols.
+
+Words such as `ACTIVE`, `CURRENT`, `NEXT`, `PENDING`, and `READY_FOR_PI` are local metadata unless the current authority chain names that artifact. Historical Human-Gate markers do not create a current PI request by themselves.
 
 ## 3. Lanes
 
@@ -109,8 +113,8 @@ After timeout, inspect GitHub first. Never replay work blindly.
 Routine deterministic validation may use GitHub Actions because this repository is public and G8 explicitly authorizes standard GitHub-hosted runners. Larger/billable runners are not authorized.
 
 Execution split:
-- the current ChatGPT session performs orchestration, research, review, GitHub edits and progress synthesis;
-- ChatGPT Work / Codex remain optional execution runtimes when quota is available;
+- the current ChatGPT conversation/session is a first-class repository operator and may use every GitHub operation actually exposed by the connected tools, including file create/update/delete, branch operations, Issue/PR/review/comment operations, draft/ready transitions, merge/auto-merge, workflow/run operations, and other connector-exposed repository management actions; it also performs orchestration, research, review and progress synthesis;
+- ChatGPT Work / Codex remain optional shell/coding execution runtimes when quota is available; they are not required merely to perform repository writes;
 - GitHub Actions standard public-repository runners may execute Python/Node/Go tests and regressions;
 - GitHub remains the canonical source for Issues, PRs, commits, validation evidence and Human Gates.
 
@@ -122,6 +126,10 @@ At each hard checkpoint, run the validation scope required by governance/PUBLIC_
 - relevant generated report or workflow-run references.
 
 Automatic pull_request triggers are allowed. Automatic push triggers remain prohibited.
+
+Repository capability does not override governance authority. Issue-first execution, lane/path ownership, PR discipline, validation gates, Human Gates, source integrity and maturity boundaries still apply. Normal work remains Issue -> branch -> PR -> validation -> merge; direct-to-main is not routine merely because a connected API could allow it.
+
+The connected tool surface is the technical ceiling. If an operation is not exposed by the current connector/tools, report that as a technical interface limitation rather than a governance prohibition.
 
 One autonomous repair/retry is allowed for ordinary technical failure; repeated or conceptual failures escalate.
 
