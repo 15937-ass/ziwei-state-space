@@ -4,10 +4,7 @@ from pathlib import Path
 from src.product.manifestation_m0 import build_career_manifestation_candidates_m0
 from src.product.manifestation_ontology import compile_manifestation_ontology_registry
 from src.product.manifestation_router import compile_manifestation_mapping_registry
-from src.product.response_profile import (
-    CareerManifestationCandidate if False else CareerResponseEntry,
-)
-from src.product.response_profile import CareerResponseProfile
+from src.product.response_profile import CareerResponseEntry, CareerResponseProfile
 
 
 ROOT = Path(__file__).resolve().parents[1]
