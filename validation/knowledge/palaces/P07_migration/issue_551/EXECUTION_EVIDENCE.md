@@ -61,3 +61,20 @@ One printed p109 surface remains nonstandard/damaged:
 A deterministic P07 test module is added for the 100-row census, case/history counts, six bounded repairs, temporal overlay boundary, and zero-new-quantitative-semantics checks.
 
 Full repository exact-head quality-gate execution is required before canonical merge; GitHub Actions are not used.
+
+## Exact-head gate
+OpenAI-side deterministic exact-head validation completed after rebasing to current main:
+- validation base: `9114300e306abc908ab1fe1724faa7957ad728b9`
+- PR: #564
+- branch behind main: 0
+- changed paths: 6
+- all changed paths inside P07 shard write-set: PASS
+- re-adjudication records: 100 unique / 100 promoted: PASS
+- CASE_SUPPORT_ONLY count: 8: PASS
+- PATH_DEPENDENT_GATE set: M01-044, M01-054, M01-088, M01-100: PASS
+- bounded repair set: M01-030, M01-047, M01-051, M01-052, M01-060, M01-068: PASS
+- HG-P07-TEMPORAL-01-A overlay remains non-generic / no seventh layer: PASS
+- new probability / weight / decay / shared primitive: 0: PASS
+- GitHub PR mergeability at validated head: clean
+
+If main changes after this evidence commit, this gate must be repeated before merge.
