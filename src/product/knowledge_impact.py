@@ -456,12 +456,21 @@ def compare_bundles(
             for artifact, action, applicability in DEPENDENCY_PROPAGATION[
                 component_id
             ]:
-                downstream[(artifact, action)] = {
-                    "artifact": artifact,
-                    "action": action,
-                    "applicability": applicability,
-                    "trigger_component": component_id,
-                }
+                key = (artifact, action)
+                existing = downstream.get(key)
+                if existing is None:
+                    downstream[key] = {
+                        "artifact": artifact,
+                        "action": action,
+                        "applicability": applicability,
+                        "trigger_components": [component_id],
+                    }
+                else:
+                    triggers = set(existing["trigger_components"])
+                    triggers.add(component_id)
+                    existing["trigger_components"] = sorted(triggers)
+                    if applicability == "DIRECT":
+                        existing["applicability"] = "DIRECT"
 
         component_impacts.append(
             {
