@@ -15,6 +15,7 @@ This pass did not ask whether a blocker could merely be renamed. It asked whethe
 - open-valence single blockers reviewed: **2**
 - source-local closures: **0**
 - semantic/source repairs: **3**
+- historical source-scope metadata repairs recorded: **4**
 
 ## Three corrections
 1. **CA06-593** — `太阴与空劫同会且有科文诸曜`: closure v0.9 retained only the 空劫 pair blocker. The source explicitly includes 科文诸曜; Career membership is known but activation remains contextual, so `CAREER_KEWEN_ACTIVATION_CONTEXTUAL_UNRESOLVED` is restored.
@@ -25,3 +26,6 @@ This pass did not ask whether a blocker could merely be renamed. It asked whethe
 The Career general discussion does contain broad `见煞` language and named-member examples, but this unit does **not** convert that into a domain-wide ANY default. Likewise, unresolved pair rows lack the kind of explicit same-clause evidence seen in CA03-228 (`火铃二曜，均足以...`).
 
 Therefore this pass improves epistemic precision rather than readiness: no selected row becomes blocker-free.
+
+## Source-scope metadata audit
+The source-deepening pass also caught section-boundary drift in old review metadata: CA07-609 was tagged under 太阴 although it is a 天同 rule; CA08-701/702/703 were tagged under 天相 although they remain in the 巳亥巨门 paragraph. These are recorded as overrides rather than rewriting historical audit artifacts. CA08-704 shows the same adjacent defect but is outside this 100-rule selection and is left for a later bounded repair.
