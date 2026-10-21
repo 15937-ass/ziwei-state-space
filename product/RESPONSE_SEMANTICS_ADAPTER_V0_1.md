@@ -24,7 +24,7 @@ Status: **IMPLEMENTED IN PRODUCT #462 — VALIDATION PENDING**
 - Career Response Compatibility 251/251；
 - Relation Binding 132/132；
 - Open Category review 59 occurrences；
-- Contextual Activation closure 251/251；
+- Contextual Activation closure v0.3 251/251；
 - Career Ordinal/Constraint registry v0.1（130 normalized constraints）；
 - #458 source recheck 后的 antecedent closure：
   - unresolved antecedent refs = 0；
@@ -127,13 +127,13 @@ MULTI_CLASS_BLOCKED
 当前实际统计：
 
 ~~~text
-SEMANTIC_ONLY_PENDING_COMPILATION   17
-BLOCKED_SOURCE_UNDERDETERMINED     127
-BLOCKED_DEPENDENCY_COMPILER         27
-BLOCKED_NORMALIZATION               21
-BLOCKED_MULTIPLE                    59
---------------------------------------
-TOTAL                              251
+SEMANTIC_ONLY_PENDING_COMPILATION      17
+BLOCKED_SOURCE_UNDERDETERMINED        160
+BLOCKED_DEPENDENCY_COMPILER            27
+BLOCKED_STRUCTURED_PATTERN_COMPILER      1
+BLOCKED_MULTIPLE                       46
+-----------------------------------------
+TOTAL                                 251
 ~~~
 
 ## 7. Why 17 ready rows still do not execute
@@ -262,23 +262,68 @@ Response pilot total                 8
 Career rows                        251
 Response gain rows                  89
 Semantic-only pending compilation   17
-Source-underdetermined             184
+Source-underdetermined             204
 Closed-world evidence gated         23
 Explicit antecedent dependencies    64
 Unresolved antecedent refs           0
 Relation-bound rows                132
 Category-reviewed rows              59
-Career ordinal constraints          130
-Ordinal atomic links                 130
-Ordinal-linked activation rules       33
-Ordinal blocker resolutions            0
-Ordinal runtime unlock                 0
-Ordinal numericized constraints        0
-Real runtime effects authorized        0
+Career ordinal constraints             130
+Ordinal atomic links                    130
+Ordinal-linked activation rules          33
+Ordinal blocker resolutions               0
+Semantic-normalization residuals reviewed 36
+Generic normalization blocker after       0
+Ordinal runtime unlock                    0
+Ordinal numericized constraints           0
+Real runtime effects authorized           0
 Unauthorized unlock                  0
 ~~~
 
-## 12. Architectural meaning
+## 12. Source-literal normalization refinement
+
+Knowledge #467 / PR #468 在本 Product work unit 最终合并前完成了 36 条 source-literal residual 的正规化，并生成 Contextual Activation closure v0.3。Product 再次同步 latest main，只读消费这一变化。
+
+结果不是“又多了 36 条可执行规则”，而是把一个过于笼统的 blocker：
+
+~~~text
+SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED
+36 -> 0
+~~~
+
+拆成更精确、可审计的来源约束：
+
+~~~text
+SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED          +6
+OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED +13
+SOURCE_LIST_QUANTIFIER_UNSPECIFIED               +4
+CARDINALITY_THRESHOLD_UNSPECIFIED                +2
+TRANSFORMATION_CARRIER_UNSPECIFIED               +2
+~~~
+
+36 条的 disposition：
+
+~~~text
+NORMALIZED_COMPOSITE_EXPRESSION             10
+NORMALIZED_TO_OPEN_CATEGORY_OR_VALENCE       8
+NORMALIZED_EXPLICIT_ATOM_OR_SET              6
+NORMALIZED_KNOWN_GROUP_PLUS_LITERAL          4
+NORMALIZED_EXPLICIT_LOGICAL_EXPRESSION       4
+SOURCE_SHORTHAND_REMAINS_UNRESOLVED          4
+~~~
+
+关键负结果继续成立：
+
+~~~text
+LOCAL_STRUCTURE_READY              17 -> 17
+condition compiled                  0
+execution unlocked                  0
+Product runtime authorized          0
+~~~
+
+所以 Product 将 v0.3 视为“语义精度提高”，不是“执行成熟度提高”。
+
+## 13. Architectural meaning
 
 Product 现在第一次可以安全地回答：
 
@@ -294,7 +339,7 @@ Product 现在第一次可以安全地回答：
 
 这一步是 PL3-R Response Compiler 的直接前置层。
 
-## 13. Next step
+## 14. Next step
 
 本 adapter 完成后，主线进入：
 
