@@ -48,6 +48,7 @@ def test_ca09847_dependency_repaired():
     r,c9=load(R),load(C9); rows={x['source_rule_id']:x for x in r['records']}; c={x['source_rule_id']:x for x in c9['records']}
     assert rows['CA09-847']['antecedent_rule_ids_after']==['CA09-846']
     assert 'ANTECEDENT_DEPENDENCY' in rows['CA09-847']['blockers_after']
+    assert 'ANTECEDENT_SOURCE_CONDITION_RECHECK_REQUIRED' in rows['CA09-847']['blockers_after']
     assert c['CA09-847']['antecedent_mode']=='EXPLICIT_RULE_REFERENCE'
     assert c['CA09-847']['antecedent_rule_ids']==['CA09-846']
 
