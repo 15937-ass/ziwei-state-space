@@ -11,7 +11,7 @@ Lane: KNOWLEDGE_ONLY / shard P01
 
 ## Producer / critic result
 - 100/100 rows re-adjudicated against source
-- concrete event claims remain bounded CASE_SUPPORT_ONLY
+- 79 reusable records; 21 CASE_SUPPORT_ONLY
 - source time-scope narrowing repaired/annotated
 - OCR uncertainty preserved on damaged surfaces
 - unsupported P01-054/055 cross-palace dependency removed
@@ -20,19 +20,21 @@ Lane: KNOWLEDGE_ONLY / shard P01
 - no new shared semantic primitive and no Human Gate
 
 ## Deterministic validation
-Status: PENDING_PR_QUALITY_GATE
 
 Execution runtime: GitHub Actions standard public runner
 
-Validation:
-- changed-unit deterministic test: PENDING
-- repository quality gate: PENDING
-- pytest: PENDING
-- P0 audit: PENDING
-- governance: PENDING
+Validated head before evidence refresh:
+- Base commit: f6b48b8c63e5f1eb8639a87a55668d3ba151dd32
+- Head commit: 74921617466b68fffdd77328a3ca8acb9c809388
+- repository-quality-gate run: 39609680164 / run #1981
+- changed-unit deterministic test: PASS (included in full pytest)
+- full pytest: PASS — 2317 passed in 226.87s
+- Product JS adapter syntax check: PASS
+- P0 audit: PASS
+- governance validation: PASS for knowledge/p01-548-life-canonical-001-100
 - Product regressions: NOT_REQUIRED
 
-Workflow references: PENDING
+Final exact-head revalidation after this evidence/state refresh: REQUIRED before merge and will be recorded durably on PR #560 without another content mutation.
 
 Known limitations:
 - This checkpoint establishes canonical traditional-knowledge fidelity only. It is not empirical validation of real-world predictive accuracy.
