@@ -288,7 +288,7 @@ The Product critical path gains a bounded reliability gate before NOW-6:
 Before PL5:
 3. `DATASET_MODEL_LINEAGE_V0_1` is mandatory.
 
-## Risks / Failure Modes
+## Risks and Failure Modes
 
 ### False semantic stability
 If semantic canonicalization omits a behavior-relevant field, a changed rule could retain the same semantic digest.
