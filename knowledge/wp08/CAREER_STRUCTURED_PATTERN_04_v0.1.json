@@ -1,0 +1,118 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-CAREER-STRUCTURED-PATTERN-04-v0.1",
+  "lane": "KNOWLEDGE_ONLY",
+  "issue": 469,
+  "status": "4_OF_4_BAIGUAN_PATTERN_ROWS_DISPOSITIONED_NO_EXECUTION_UNLOCK",
+  "source_closure": "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.3.json",
+  "coverage": {
+    "target_rows": 4,
+    "reviewed": 4,
+    "remaining": 0,
+    "source_rule_ids": [
+      "CA01-057",
+      "CA01-079",
+      "CA02-152",
+      "CA05-471"
+    ]
+  },
+  "pattern_count": {
+    "百官朝拱": 4
+  },
+  "summary": {
+    "structured_pattern_execution_deferred_before": 4,
+    "structured_pattern_execution_deferred_after": 0,
+    "precise_baiguan_blocker_after": 4,
+    "source_resolution_changes": 0,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0
+  },
+  "records": [
+    {
+      "source_rule_id": "CA01-057",
+      "pattern_surface": "百官朝拱",
+      "structured_pattern_node": "BAIGUAN_SUPPORT_PROFILE",
+      "anchor_star": "紫微",
+      "anchor_evidence": "source condition explicitly contains 紫微",
+      "disposition": "PROFILE_AVAILABLE_FULL_PATTERN_ACTIVATION_NO_UNIVERSAL_THRESHOLD",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "STRUCTURED_PATTERN_EXECUTION_DEFERRED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD"
+      ],
+      "profile_status_required_for_runtime": "FULL_PATTERN_TRUTH_NOT_GENERALLY_EMITTABLE",
+      "note_zh": "无煞仍要求 closed-world evidence；百官 structure profile 可表示，但 full-pattern truth 无 universal detector.",
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA01-079",
+      "pattern_surface": "百官朝拱",
+      "structured_pattern_node": "BAIGUAN_SUPPORT_PROFILE",
+      "anchor_star": "紫微",
+      "anchor_evidence": "source condition explicitly contains 紫微",
+      "disposition": "PROFILE_AVAILABLE_FULL_PATTERN_ACTIVATION_NO_UNIVERSAL_THRESHOLD",
+      "blockers_before": [
+        "STRUCTURED_PATTERN_EXECUTION_DEFERRED"
+      ],
+      "blockers_after": [
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD"
+      ],
+      "profile_status_required_for_runtime": "FULL_PATTERN_TRUTH_NOT_GENERALLY_EMITTABLE",
+      "note_zh": "紫微化科可观察，但不能仅凭 partial Baiguan components 宣告百官朝拱成立.",
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-152",
+      "pattern_surface": "百官朝拱",
+      "structured_pattern_node": "BAIGUAN_SUPPORT_PROFILE",
+      "anchor_star": "紫微",
+      "anchor_evidence": "explicit antecedent CA02-151 = 紫微七杀最喜紫微化科",
+      "disposition": "PROFILE_AVAILABLE_FULL_PATTERN_ACTIVATION_NO_UNIVERSAL_THRESHOLD",
+      "blockers_before": [
+        "STRUCTURED_PATTERN_EXECUTION_DEFERRED"
+      ],
+      "blockers_after": [
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD"
+      ],
+      "profile_status_required_for_runtime": "FULL_PATTERN_TRUTH_NOT_GENERALLY_EMITTABLE",
+      "note_zh": "前格 dependency 已明确；剩余问题是百官 full-pattern truth criterion.",
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-471",
+      "pattern_surface": "百官朝拱",
+      "structured_pattern_node": "BAIGUAN_SUPPORT_PROFILE",
+      "anchor_star": "紫微",
+      "anchor_evidence": "source condition explicitly contains 紫微",
+      "disposition": "PROFILE_AVAILABLE_FULL_PATTERN_ACTIVATION_NO_UNIVERSAL_THRESHOLD",
+      "blockers_before": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "STRUCTURED_PATTERN_EXECUTION_DEFERRED"
+      ],
+      "blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD"
+      ],
+      "profile_status_required_for_runtime": "FULL_PATTERN_TRUTH_NOT_GENERALLY_EMITTABLE",
+      "note_zh": "吉曜 open-category blocker 独立保留；百官 blocker 精确化.",
+      "source_resolution_changed": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    }
+  ],
+  "guardrails": {
+    "profile_is_not_full_pattern_truth": true,
+    "partial_support_is_not_full_match": true,
+    "universal_threshold": false,
+    "other_anchor_generalization": false
+  }
+}
