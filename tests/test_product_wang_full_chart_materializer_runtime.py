@@ -70,6 +70,9 @@ export const astro = {
   config() {},
   byLunar(lunarDate, timeIndex) {
     const row = mock[String(lunarDate) + "|" + String(timeIndex)];
+    if (process.env.WANG_MOCK_FAIL_INPUT === String(lunarDate) + "|" + String(timeIndex)) {
+      throw new Error("intentional mock engine failure");
+    }
     if (!row) throw new Error("mock engine input not found");
     const names = [row.target_palace, ...standardNames.filter((name) => normalise(name) !== normalise(row.target_palace))].slice(0, 12);
     const palaces = branches.map((branch, index) => {
@@ -145,3 +148,54 @@ export const astro = {
     validate_wang_full_chart_evidence(
         generated, signatures, blind, readiness, source_hashes=source_hashes
     )
+
+    # A runtime engine error must not leave a partial production artifact.
+    failing_output = tmp_path / "engine_failure_output.json"
+    failing_env = dict(env)
+    failing_env["WANG_MOCK_FAIL_INPUT"] = next(iter(mock_charts))
+    failing = subprocess.run(
+        [
+            node,
+            str(temp_script),
+            str(signatures_path),
+            str(blind_path),
+            str(readiness_path),
+            str(failing_output),
+        ],
+        cwd=tmp_path,
+        env=failing_env,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert failing.returncode != 0
+    assert "intentional mock engine failure" in failing.stderr
+    assert not failing_output.exists()
+
+    # A changed readiness set must stop before any candidate is materialized.
+    changed_readiness = json.loads(json.dumps(readiness))
+    changed_readiness["summary"]["unique_anchor_match"] = 10
+    changed_readiness["summary"]["full_chart_materialization_ready"] = 10
+    changed_readiness_path = tmp_path / "changed_readiness.json"
+    changed_readiness_path.write_text(
+        json.dumps(changed_readiness, ensure_ascii=False), encoding="utf-8"
+    )
+    blocked_output = tmp_path / "changed_readiness_output.json"
+    blocked = subprocess.run(
+        [
+            node,
+            str(temp_script),
+            str(signatures_path),
+            str(blind_path),
+            str(changed_readiness_path),
+            str(blocked_output),
+        ],
+        cwd=tmp_path,
+        env=env,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert blocked.returncode != 0
+    assert "readiness summary changed" in blocked.stderr
+    assert not blocked_output.exists()
