@@ -179,7 +179,7 @@ def main():
     # This does not modify the workflow or its triggers; it is reverted after artifact capture.
     if (
         os.environ.get("GITHUB_WORKFLOW") == "product-p1-dual-engine"
-        and os.environ.get("GITHUB_REF_NAME") == "product/586-wang-full-chart-materialization-v01b"
+        and os.environ.get("GITHUB_HEAD_REF") == "product/586-wang-full-chart-materialization-v01b"
     ):
         materialized_path = Path("/tmp/FULL_CHART_MATERIALIZATION_V0_1B.json")
         subprocess.run(
