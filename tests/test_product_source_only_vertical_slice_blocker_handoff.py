@@ -140,3 +140,17 @@ def test_forecast_ledger_and_predictive_claims_remain_gated():
     assert boundary["full_expert_replay_ready"] == "0/24"
     assert boundary["full_source_chart_equivalence_verified"] is False
     assert boundary["predictive_validity"] == "NOT_EVALUATED"
+
+
+def test_knowledge_coordinator_and_relevant_shard_caches_have_no_active_work():
+    coordinator = (ROOT / "knowledge/KNOWLEDGE_STATE.yaml").read_text(encoding="utf-8")
+    assert "current_known_live_work: {}" in coordinator
+    for relative_path in (
+        "knowledge/states/CORE_STATE.yaml",
+        "knowledge/states/P09_CAREER_STATE.yaml",
+        "knowledge/states/P10_PROPERTY_STATE.yaml",
+    ):
+        state = (ROOT / relative_path).read_text(encoding="utf-8")
+        assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
+        assert "active_issue: null" in state
+        assert "active_pr: null" in state
