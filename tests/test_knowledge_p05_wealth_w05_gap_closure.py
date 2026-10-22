@@ -36,7 +36,7 @@ def test_supplement_ids_provenance_and_canonical_scope():
     assert all(r["source_epistemic"] == "EXPLICIT" for r in data)
     assert {r["projection_domain"] for r in data} <= {"spending", "risk", "retention", "volatility"}
     assert {r["projection_target"] for r in data} <= {
-        "financial_harm", "litigation_or_dispute_loss", "wealth_hard_to_accumulate", "financial_source_fluctuation"
+        "financial_harm", "dispute_risk", "wealth_hard_to_accumulate", "financial_source_fluctuation"
     }
     assert all(r["projection_mode"] == "FUNCTIONAL_PROJECTION" for r in data)
     assert {r["direction_or_state"] for r in data} <= {"adverse", "conditional", "source_bounded"}
