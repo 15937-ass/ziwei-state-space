@@ -8,17 +8,17 @@ execution:
   phase: "PL3_METHOD_RESPONSE_VERTICAL_SLICE"
   active_issue: null
   active_pr: null
-  next_work_unit: "PRODUCT_SOURCE_ONLY_VERTICAL_SLICE_BLOCKER_HANDOFF"
-  resume_entry: "Product #643 / PR #643 established the versioned canonical and expert-method fidelity benchmark baseline v0.1. Canonical fidelity remains a partial/blocked baseline, not a score: 11/24 source-case charts have target-anchor verification only, 13/24 remain unmaterialized, and full-source-chart equivalence is not verified. Production temporal-response, manifestation ontology, and manifestation mapping registries remain empty and blocked on source-backed Knowledge dependencies. Wang method review covers 24 cases x six MethodPatterns (144 assessments), with zero justified bindings; FULL_EXPERT_REPLAY_READY remains 0/24. No canonical fidelity score, expert-method fidelity score, or predictive-validity claim is made. Next work is PRODUCT_SOURCE_ONLY_VERTICAL_SLICE_BLOCKER_HANDOFF; Forecast Ledger remains gated on an executable source-only N -> E -> tau -> M0 vertical slice."
-  state_cache_as_of_main_commit: "83077d1d35d92561b0440f91fda645f41ff43496"
-  state_cache_as_of_product_merge: "83077d1d35d92561b0440f91fda645f41ff43496"
+  next_work_unit: "PRODUCT_KIB_UPDATE_AFTER_SOURCE_KNOWLEDGE_ACCEPTANCE"
+  resume_entry: "Product #655 / PR #655 completed the source-only vertical-slice dependency handoff. Active KIB-PRODUCT-20261021-V0_3 remains locked with auto_refresh=false; K_response contains eligibility evidence but no compiler-ready temporal-reaction specification, while K_manifest remains EMPTY_NOT_READY. Production temporal-response, manifestation ontology, and manifestation mapping registries are empty. No active Knowledge producer Issue/PR was verified for KB-WP07B, KB-WP06B, or KB-WP06C. Career temporal eligibility is 0/9 and the closed Property audit is 0/35 eligible; these are not executable source rules. Wang method review remains 24 cases x six MethodPatterns (144 assessments), zero justified bindings, FULL_EXPERT_REPLAY_READY=0/24. No canonical fidelity, expert-method fidelity, full-source-chart equivalence, or predictive-validity claim is made. Next Product action is PRODUCT_KIB_UPDATE_AFTER_SOURCE_KNOWLEDGE_ACCEPTANCE, blocked until a source-owned Knowledge artifact is accepted on main; Forecast Ledger remains gated on an executable source-only N -> E -> tau -> M0 vertical slice."
+  state_cache_as_of_main_commit: "ec61c8872ec1e407bf8372e2f2ef67bd225c3661"
+  state_cache_as_of_product_merge: "e05123609fc4912f794e41f500217511a6ddd5e6"
   v04_entry_checkpoint_issue: 416
   v04_entry_checkpoint_pr: 418
-  last_completed_product_issue: 643
-  last_completed_product_pr: 643
+  last_completed_product_issue: 655
+  last_completed_product_pr: 655
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
-  resume_issue: 643
+  resume_issue: 655
   roadmap: "PRODUCT_ROADMAP.md#v0.4"
   execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
 
@@ -82,7 +82,7 @@ capability_snapshot:
     internal_validation: "CONTRACT_CORPUS_AND_POLICY"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    note: "Product #431/#435 define expert-method contracts; #441/#444 add the source-backed Wang 24-case corpus, six SOURCE_EXPLICIT/SEMANTIC_ONLY patterns and LOCO-24; #453/#455 add deterministic same-domain CBR and fail-closed Method Policy pi v0.1. Product #512/#517 reviewed all 24 case target palaces. Product #545 evaluated 37 source-bounded lunar candidates; Product #588 / PR #611 materialized 11 pinned-engine chart snapshots with target-anchor verification only; Product #615 / PR #633 reviewed all 24 case targets against six MethodPatterns (144 assessments), with zero justified bindings. Product #643 / PR #643 established canonical + expert-method fidelity benchmark baseline v0.1: 11 target-anchor-only chart artifacts, 13 unmaterialized cases, three empty production response/manifestation registries, no canonical or method score, and FULL_EXPERT_REPLAY_READY=0/24. All MethodPatterns remain SEMANTIC_ONLY; full-source-chart equivalence and predictive validity remain unclaimed. Next work is PRODUCT_SOURCE_ONLY_VERTICAL_SLICE_BLOCKER_HANDOFF; Forecast Ledger remains gated on an executable source-only N -> E -> tau -> M0 vertical slice."
+    note: "Product #431/#435 define expert-method contracts; #441/#444 add the source-backed Wang 24-case corpus, six SOURCE_EXPLICIT/SEMANTIC_ONLY patterns and LOCO-24; #453/#455 add deterministic same-domain CBR and fail-closed Method Policy pi v0.1. Product #512/#517 reviewed all 24 case target palaces. Product #545 evaluated 37 source-bounded lunar candidates; Product #588 / PR #611 materialized 11 pinned-engine chart snapshots with target-anchor verification only; Product #615 / PR #633 reviewed all 24 case targets against six MethodPatterns (144 assessments), with zero justified bindings. Product #643 / PR #643 established canonical + expert-method fidelity benchmark baseline v0.1: 11 target-anchor-only chart artifacts, 13 unmaterialized cases, no canonical or method score, and FULL_EXPERT_REPLAY_READY=0/24. Product #655 / PR #655 confirmed active KIB v0.3 remains locked, K_response contains temporal-eligibility evidence only, K_manifest is empty, and no active Knowledge producer Issue/PR was verified for KB-WP07B/WP06B/WP06C. Career temporal eligibility is 0/9 and the closed Property audit is 0/35 eligible. Next Product action PRODUCT_KIB_UPDATE_AFTER_SOURCE_KNOWLEDGE_ACCEPTANCE is blocked until a source-owned Knowledge artifact is accepted on main; Forecast Ledger remains gated until N -> E -> tau -> M0 is executable. No source semantics, full-source-chart equivalence, or predictive validity is inferred."
 
 
   response_semantics_adapter:
@@ -175,7 +175,7 @@ capability_snapshot:
 
 critical_path:
   now:
-    - "PRODUCT_SOURCE_ONLY_VERTICAL_SLICE_BLOCKER_HANDOFF"
+    - "PRODUCT_KIB_UPDATE_AFTER_SOURCE_KNOWLEDGE_ACCEPTANCE"
     - "FORECAST_LEDGER_ACTIVATION"
   future:
     - "ACQUIRED_STATE_X_AND_BELIEF_B"

@@ -9,6 +9,8 @@ Snapshot date: 2026-10-22
 
 This handoff records the source-owned Knowledge inputs that remain absent from the active Product dependency set. It separates the current active Product KIB from candidate/other Knowledge files on main and from historical impact reports.
 
+All immutable source artifacts are pinned by Git blob SHA in the JSON. Product and Knowledge recovery-state files are captured as dated checkpoint metadata, not as pinned inputs. Their observed status is recorded in the snapshot, while immutable source artifacts remain pinned by Git blob SHA.
+
 ## Verified Product baseline
 
 - Active lock: PRODUCT_KNOWLEDGE_LOCK_V0_3.

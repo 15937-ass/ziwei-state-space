@@ -8,11 +8,6 @@
   "purpose": "Identify the source-owned Knowledge deliverables required before the Product source-only N -> E -> tau -> M0 vertical slice can become executable. This report records dependencies and downstream Product gates; it does not supply missing semantics.",
   "source_artifacts": [
     {
-      "role": "product_recovery_state",
-      "path": "product/PRODUCT_STATE.yaml",
-      "git_blob_sha": "17cc955417070ce0fa495eb74daa2d6960f0f0c7"
-    },
-    {
       "role": "canonical_and_method_fidelity_baseline",
       "path": "product/benchmarks/CANONICAL_AND_METHOD_FIDELITY_BENCHMARK_V0_1.json",
       "git_blob_sha": "598f90aeff740d2f6688cefa93febaa606ae2be4"
@@ -51,26 +46,6 @@
       "role": "production_manifestation_mapping_registry",
       "path": "product/PL3M_MANIFESTATION_MAPPING_REGISTRY_v0.1.json",
       "git_blob_sha": "367bc603b33d24bda7c66023c7e386f8cd0528eb"
-    },
-    {
-      "role": "knowledge_coordinator",
-      "path": "knowledge/KNOWLEDGE_STATE.yaml",
-      "git_blob_sha": "c3ababfe3ca7fc7eaccc99dd24531a00fc48acf0"
-    },
-    {
-      "role": "knowledge_core_state",
-      "path": "knowledge/states/CORE_STATE.yaml",
-      "git_blob_sha": "b9dc0974429fb26dd71b593e47641f88bf065c40"
-    },
-    {
-      "role": "knowledge_p09_state",
-      "path": "knowledge/states/P09_CAREER_STATE.yaml",
-      "git_blob_sha": "ef157853c08bef0ba676bbd76b52e78b714ddc01"
-    },
-    {
-      "role": "knowledge_p10_state",
-      "path": "knowledge/states/P10_PROPERTY_STATE.yaml",
-      "git_blob_sha": "8510b26f03a127f442a9d015555f2056962edc29"
     },
     {
       "role": "knowledge_roadmap",
@@ -184,7 +159,16 @@
       "status": "FUTURE_GATE_NOT_CURRENT_REQUEST",
       "reason": "The Knowledge coordinator says historical/future gates are not current PI requests unless a live shard Issue names them."
     },
-    "conclusion": "No active Knowledge producer Issue/PR for these three work packages was verified in this snapshot. Do not invent issue numbers or treat closed eligibility audits as accepted production specifications."
+    "conclusion": "No active Knowledge producer Issue/PR for these three work packages was verified in this snapshot. Do not invent issue numbers or treat closed eligibility audits as accepted production specifications.",
+    "recovery_state_paths": {
+      "coordinator": "knowledge/KNOWLEDGE_STATE.yaml",
+      "shards": {
+        "CORE": "knowledge/states/CORE_STATE.yaml",
+        "P09": "knowledge/states/P09_CAREER_STATE.yaml",
+        "P10": "knowledge/states/P10_PROPERTY_STATE.yaml"
+      }
+    },
+    "recovery_state_note": "The coordinator and shard files listed in recovery_state_paths are mutable recovery pointers. Their observed checkpoints are preserved in this dated snapshot, not pinned as immutable source artifacts."
   },
   "dependencies": [
     {
@@ -373,5 +357,14 @@
     "full_source_chart_equivalence_verified": false,
     "predictive_validity": "NOT_EVALUATED",
     "statement": "This is a dependency/status handoff, not canonical fidelity, expert-method fidelity, or predictive-validity evidence."
+  },
+  "product_recovery_state_snapshot": {
+    "path": "product/PRODUCT_STATE.yaml",
+    "snapshot_date": "2026-10-22",
+    "state_cache_as_of_product_merge": "83077d1d35d92561b0440f91fda645f41ff43496",
+    "next_work_unit_at_snapshot": "PRODUCT_SOURCE_ONLY_VERTICAL_SLICE_BLOCKER_HANDOFF",
+    "active_issue_at_snapshot": null,
+    "active_pr_at_snapshot": null,
+    "note": "This is immutable snapshot metadata from the handoff date. PRODUCT_STATE.yaml is a mutable recovery pointer and is intentionally not included in source_artifacts digests, because later accepted Product work must advance the state cache without invalidating this completed handoff."
   }
 }

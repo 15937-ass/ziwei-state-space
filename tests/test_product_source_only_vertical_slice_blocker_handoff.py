@@ -154,3 +154,54 @@ def test_knowledge_coordinator_and_relevant_shard_caches_have_no_active_work():
         assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
         assert "active_issue: null" in state
         assert "active_pr: null" in state
+
+def test_product_recovery_state_is_snapshot_metadata_not_a_mutable_pinned_input():
+    report = _report()
+    snapshot = report["product_recovery_state_snapshot"]
+
+    assert snapshot["path"] == "product/PRODUCT_STATE.yaml"
+    assert snapshot["snapshot_date"] == "2026-10-22"
+    assert snapshot["next_work_unit_at_snapshot"] == "PRODUCT_SOURCE_ONLY_VERTICAL_SLICE_BLOCKER_HANDOFF"
+    assert snapshot["state_cache_as_of_product_merge"] == "83077d1d35d92561b0440f91fda645f41ff43496"
+    assert snapshot["active_issue_at_snapshot"] is None
+    assert snapshot["active_pr_at_snapshot"] is None
+    assert "git_blob_sha" not in snapshot
+    assert all(source.get("git_blob_sha") for source in report["source_artifacts"])
+    assert not any(
+        source["path"] == "product/PRODUCT_STATE.yaml"
+        for source in report["source_artifacts"]
+    )
+
+
+def test_product_recovery_state_cache_tracks_main_freshness_and_product_checkpoint():
+    state = (ROOT / "product" / "PRODUCT_STATE.yaml").read_text(encoding="utf-8")
+
+    assert 'state_cache_as_of_main_commit: "ec61c8872ec1e407bf8372e2f2ef67bd225c3661"' in state
+    assert 'state_cache_as_of_product_merge: "e05123609fc4912f794e41f500217511a6ddd5e6"' in state
+    assert 'next_work_unit: "PRODUCT_KIB_UPDATE_AFTER_SOURCE_KNOWLEDGE_ACCEPTANCE"' in state
+    assert "last_completed_product_issue: 655" in state
+    assert "last_completed_product_pr: 655" in state
+
+def test_all_recovery_state_caches_are_snapshotted_not_pinned_as_sources():
+    report = _report()
+    mutable_paths = {
+        "product/PRODUCT_STATE.yaml",
+        "knowledge/KNOWLEDGE_STATE.yaml",
+        "knowledge/states/CORE_STATE.yaml",
+        "knowledge/states/P09_CAREER_STATE.yaml",
+        "knowledge/states/P10_PROPERTY_STATE.yaml",
+    }
+    source_paths = {item["path"] for item in report["source_artifacts"]}
+    assert not mutable_paths.intersection(source_paths)
+
+    snapshot = report["live_knowledge_work_snapshot"]
+    assert snapshot["as_of_date"] == "2026-10-22"
+    assert snapshot["recovery_state_paths"] == {
+        "coordinator": "knowledge/KNOWLEDGE_STATE.yaml",
+        "shards": {
+            "CORE": "knowledge/states/CORE_STATE.yaml",
+            "P09": "knowledge/states/P09_CAREER_STATE.yaml",
+            "P10": "knowledge/states/P10_PROPERTY_STATE.yaml",
+        },
+    }
+    assert "mutable recovery pointers" in snapshot["recovery_state_note"]
