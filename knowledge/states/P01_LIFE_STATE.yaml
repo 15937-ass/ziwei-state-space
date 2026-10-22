@@ -8,15 +8,15 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "ACTIVE_PR_VALIDATION"
-  active_issue: 603
-  active_branch: "knowledge/p01-603-life-canonical-301-400-r2"
-  active_pr: 620
-  canonical_checkpoint: "P01_P04_301_400_SOURCE_FIRST_P12_P14"
-  note: "P04 source-first review is on PR #620. 100 candidate rows and 28 omitted atoms cover printed pp12–14; gaps 023 and 024 are closed. Expected P01 total after merge: 550 (451 reusable, 99 CASE_SUPPORT_ONLY). Gap 025 remains open for printed p15 onward. Branch resynced to current main after P07/P10 recovery merges at 1aa5bc6a20c6055bd90bcb28f03e00d3cccbd8e5. Pull-request Actions are allowed; automatic push workflows remain prohibited."
+  status: "ACTIVE_NO_ACTIVE_WORK"
+  active_issue: null
+  active_branch: null
+  active_pr: null
+  canonical_checkpoint: "P01_P04_301_400_SOURCE_FIRST_P12_P14_MERGED"
+  note: "Recovery synchronized to accepted P01 Issue #603 / PR #620, merged at main commit 6472bdbf273ffbce4e9948f86969a4b84178b36b. P04-301…400 source-first review: 100/100 candidates promoted; 28 omitted source atoms are separately recorded. Cumulative P01 checkpoint is 550 canonical records: 451 reusable projection rules and 99 CASE_SUPPORT_ONLY. P01-SRC-GAP-023 and P01-SRC-GAP-024 are closed; P01-SRC-GAP-025 remains open for printed p15 onward (remaining 太阴 material and the 贪狼 opening). The next source anchor is preserved from the accepted gap ledger; this recovery does not start the next batch. No Product/runtime authorization is implied."
 
 progress:
-  canonical_source_records_on_main: 422
+  canonical_source_records_on_main: 550
   canonical_source_records_ready_on_branch: 550
   cumulative_after_merge: 550
   cumulative_reusable_projection_rules_after_merge: 451
