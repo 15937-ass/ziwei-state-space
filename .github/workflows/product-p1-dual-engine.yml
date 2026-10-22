@@ -58,6 +58,14 @@ jobs:
           npm install --no-save iztro@2.6.1
           python -m pip install --upgrade "x-iztro==0.6.1"
 
+      - name: Temporary Product execution hook — Wang full-chart materialization
+        run: |
+          node product/tools/materialize_wang_full_charts.mjs \
+            product/expert_cases/wang_tingzhi/SOURCE_BIRTH_SIGNATURES_V0_1.json \
+            product/expert_cases/wang_tingzhi/FULL_CHART_RECONSTRUCTION_READINESS_V0_1.json \
+            product/expert_cases/wang_tingzhi/BLIND_EVIDENCE_V0_1.json \
+            /tmp/wang_full_chart_materialization_v0_1b.json
+
       - name: Export iztro JS full snapshots
         env:
           IZTRO_VERSION: "2.6.1"
