@@ -217,5 +217,5 @@ export const astro = {
         text=True,
     )
     assert blocked.returncode != 0
-    assert "readiness summary changed" in blocked.stderr
+    assert "reconstruction_readiness artifact version changed" in blocked.stderr
     assert not blocked_output.exists()
