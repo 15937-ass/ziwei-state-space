@@ -24,10 +24,9 @@ def test_product_v04_has_explicit_now_future_execution_plan():
 
 def test_product_state_preserves_v04_entry_checkpoint_and_can_advance():
     text = (ROOT / "product" / "PRODUCT_STATE.yaml").read_text(encoding="utf-8")
-    assert 'status: "ACTIVE"' in text
-    assert "active_issue: 586" in text
-    assert "active_pr: 586" in text
-    assert 'next_work_unit: "WANG_FULL_CHART_MATERIALIZATION_V0_1B"' in text
+    assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in text
+    assert "active_issue: null" in text
+    assert "active_pr: null" in text
 
     # Proposal #425 entry checkpoint remains durable history, while the
     # last-completed and next-work pointers are allowed to advance normally.
