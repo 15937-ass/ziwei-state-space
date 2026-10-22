@@ -19,7 +19,7 @@
 
 ## Gap-by-gap adjudication
 
-1. **W05-SG-001 — CLOSED.** Printed p81 states that 子午『廉贞天相』 under 刑忌夹印 or 廉贞化忌 may lose money through unnecessary social obligations. The further 煞曜/空劫 phrase is kept as a modifier to this local condition and represented separately. Neither row is generalized into a free-standing rule about networking or litigation.
+1. **W05-SG-001 — CLOSED.** Printed p81 states that 子午『廉贞天相』 under 刑忌夹印 or 廉贞化忌 may lose money through unnecessary social obligations. The separate sentence about 煞曜/空劫 is represented as an additional condition within the same inherited 子午廉贞天相 context; it is not forced to depend on the preceding 刑忌夹印/廉贞化忌 modifier. Neither row is generalized into a free-standing rule outside that source context.
 2. **W05-SG-002 — PARTIALLY RESOLVED.** The unambiguous clause “『廉贞天相』与空劫同度，则难以积财” is represented by P05-SG-003. The page image visibly prints “有是非词不达意讼”. This sequence is semantically anomalous, so it is preserved literally; this source alone does not justify emending it to “有是非词讼” or another phrase. The alternative “或虽表面风光，其实内在空虚，寅吃卯粮” is also left unpromoted because its exact condition scope relative to 刑煞 is unresolved. No meaning is silently repaired from OCR or context.
 3. **W05-SG-003 — CLOSED.** “『廉贞天相』亦可横发横破，但性质较为和缓” is recorded as one bounded source claim. The qualifier “性质较为和缓” is preserved without converting it into a numeric severity, probability, or guarantee. The preceding 子午『廉贞天相』 context is retained.
 
