@@ -416,7 +416,7 @@ def load_wang_full_chart_evidence(root: Path = ROOT) -> Mapping[str, Any]:
     }
     for key, path in source_paths.items():
         raw = path.read_bytes()
-        git_blob_sha = hashlib.sha1(b"blob " + str(len(raw)).encode("ascii") + b"\\0" + raw).hexdigest()
+        git_blob_sha = hashlib.sha1(b"blob " + str(len(raw)).encode("ascii") + b"\0" + raw).hexdigest()
         if git_blob_sha != EXPECTED_SOURCE_GIT_BLOB_SHAS[key]:
             raise ValueError(f"source artifact Git blob version changed: {key}")
     source_hashes = {key: _sha256(path) for key, path in source_paths.items()}
