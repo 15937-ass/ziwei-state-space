@@ -104,11 +104,14 @@ def _normalise_palace_name(value: Any) -> str:
 
 
 def _stable_major_names(stars: Any) -> list[str]:
-    names = {
-        str(star.get("name") or "").strip()
-        for star in (stars or [])
-        if isinstance(star, Mapping) and str(star.get("name") or "").strip()
-    }
+    names: set[str] = set()
+    for star in (stars or []):
+        if isinstance(star, Mapping):
+            name = str(star.get("name") or "").strip()
+        else:
+            name = str(star or "").strip()
+        if name:
+            names.add(name)
     rank = {name: index for index, name in enumerate(MAJOR_ORDER)}
     return sorted(names, key=lambda name: (rank.get(name, 999), name))
 
