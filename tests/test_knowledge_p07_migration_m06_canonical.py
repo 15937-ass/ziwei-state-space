@@ -66,6 +66,9 @@ def test_case_only_counts_and_cumulative_reconciliation():
     d = load(READJ)
     s = d["summary"]
     assert s["reusable_projection_rules"] == 76
+    assert s["source_condition_shorthand_expanded_count"] == 24
+    assert s["source_text_ambiguity_count"] == 1
+    assert s["unresolved_source_text_uncertainty_count"] == 1
     assert s["case_support_only"] == 13
     assert set(s["case_support_only_ids"]) == {
         "M06-521", "M06-522", "M06-523", "M06-529", "M06-530", "M06-531",
@@ -117,6 +120,8 @@ def test_alternatives_cross_palace_constraints_and_source_gaps():
     assert "空劫" in r["M06-515"]["canonical_condition"]
     assert "廉贞化忌、武曲化忌来会" in r["M06-542"]["canonical_condition"]
     assert "或" not in r["M06-542"]["canonical_condition"]
+    assert "迁移宫的驻突发" in r["M06-503"]["source_literal_claim"]
+    assert "具体措辞存疑" in r["M06-503"]["source_note"]
     assert "命宫天府" in r["M06-517"]["canonical_condition"]
     assert "禄存与破军对拱" in r["M06-547"]["canonical_condition"]
     d = load(READJ)
@@ -138,6 +143,6 @@ def test_no_new_semantics_and_state_points_to_issue():
     state = STATE.read_text(encoding="utf-8")
     assert "active_issue: 645" in state
     assert "knowledge/p07-645-migration-m06-canonical" in state
-    assert 'status: "SOURCE_REVIEW_IN_PROGRESS"' in state
+    assert 'status: "ACTIVE"' in state
     assert "HG-P07-TEMPORAL-01-A" in state
     assert "No Product runtime authorization is implied" in state
