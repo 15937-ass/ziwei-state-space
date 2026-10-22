@@ -445,6 +445,7 @@
       }
     ],
     "source_coverage_gaps": [
+      "P07-M03-GAP-012",
       "P07-M03-GAP-001",
       "P07-M03-GAP-002",
       "P07-M03-GAP-003",
@@ -457,7 +458,7 @@
       "P07-M03-GAP-010",
       "P07-M03-GAP-011"
     ],
-    "source_coverage_gap_count": 11,
+    "source_coverage_gap_count": 12,
     "new_primitive_qi": 0,
     "new_memory_type": 0,
     "new_independent_time_scale": 0,
@@ -571,6 +572,7 @@
   "major_findings": [
     "M03-201 starts at the next unreviewed p113 passage after M02; the shared page number does not authorize duplicate promotion.",
     "Every historical “前格” shorthand has been replaced by an explicit source condition or a bounded source-context statement; no canonical condition retains “前格”.",
+    "M03-233 captures only the adverse 刑忌夹/setback branch; the favorable 财荫夹 clause is separately recorded as an uncovered source gap.",
     "M03-233 preserves the scan's anomalous “贞归三” sequence without inventing a confident correction.",
     "M03-265 does not silently require both 陀罗 and 天月; the source presents the Tian Yue return-while-ill clause separately.",
     "M03-270/271 preserve the source's listed alternatives for Tianxiang clamps rather than requiring every clamp simultaneously.",
@@ -581,6 +583,14 @@
     "Concrete illness, death-away, traffic-accident, fraud/theft, injury/disability, romance-trouble and bad-debt outcomes remain CASE_SUPPORT_ONLY; no empirical probabilities or runtime permissions are introduced."
   ],
   "source_coverage_gaps": [
+    {
+      "gap_id": "P07-M03-GAP-012",
+      "source_location": "SRC-ZZ-003 printed p114",
+      "source_literal_claim": "廉贞在迁移宫见财荫夹者。",
+      "status": "SOURCE_COVERAGE_GAP",
+      "reason": "M03-233 maps only the adverse 刑忌夹 branch; the favorable 财荫夹 clause is not separately represented by a faithful candidate row.",
+      "handling": "Keep this favorable Lian Zhen Migration clause as an explicit source gap. Do not overload M03-233 or infer it from the distinct 廉贞天府/Tianxiang branch."
+    },
     {
       "gap_id": "P07-M03-GAP-001",
       "source_location": "SRC-ZZ-003 printed p115",
@@ -1323,12 +1333,12 @@
       "archived_projection_domain": "development",
       "canonical_projection_domain": "development",
       "archived_projection_target": "external_setbacks_and_unsmooth_progress",
-      "canonical_projection_target": "external_setbacks_and_unsmooth_progress_with_lexical_uncertainty",
+      "canonical_projection_target": "external_setbacks_and_unsmooth_progress",
       "projection_mode": "FUNCTIONAL_PROJECTION",
       "case_support_only": false,
       "history_feedback": null,
       "disposition": "SOURCE_TEXT_UNCERTAINTY_PRESERVED",
-      "source_note": "The printed p114 scan visibly preserves the anomalous wording around “见刑忌夹者贞归三挫折不顺”. The unclear characters are not reconstructed; only the legible relation between 刑忌夹 and setbacks is retained.",
+      "source_note": "Printed p114 scan visibly preserves the anomalous wording “见刑忌夹者贞归三挫折不顺”. The unclear characters are not reconstructed; only the legible relation between 刑忌夹 and setbacks is retained. The uncertainty remains in source_text_uncertainty, not in the semantic projection target.",
       "source_resolution_changed": true,
       "canonical_promotion": true,
       "source_text_uncertainty": "Printed p114 visibly contains the anomalous sequence “见刑忌夹者贞归三挫折不顺”; preserve the unclear glyph sequence without confident reconstruction.",
