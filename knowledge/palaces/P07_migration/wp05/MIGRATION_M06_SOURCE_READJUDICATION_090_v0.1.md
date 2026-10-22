@@ -11,7 +11,7 @@
 - Candidate census: **90/90**
 - Canonical records: **90**
 - Source conditions normalized/expanded: **90**
-- Source/semantic adjudications changed: **30**
+- Source/semantic adjudications changed: **31**
 - Printed source locations corrected: **33**
 - Reusable projection/method records: **77**
 - `CASE_SUPPORT_ONLY`: **13**, each with row-level rationale
@@ -33,11 +33,11 @@ The page map was checked against the rendered scan: scan p60 contains printed pp
 
 ## Major source adjudications
 
-- **M06-501…518 — 七杀 completion:** retained the source's separate 羊陀、火星、铃星、空劫 and 禄存 contexts, plus the Life-Palace 天府 cross-palace constraint. 工艺/工业 is a source-attributed modern scene, not a guaranteed occupation.
+- **M06-501…518 — 七杀 completion:** retained the source's separate 羊陀、火星、铃星、空劫 and 禄存 contexts, plus the Life-Palace 天府 cross-palace constraint. M06-506 is a source-prescriptive profit-preservation recommendation, so its existing mode is FUNCTIONAL_PROJECTION rather than SCENE_TRANSLATION. 工艺/工业 is a source-attributed modern scene, not a guaranteed occupation.
 - **M06-514/515:** the source lists 火铃、空劫 together and then adds “或主飘荡无依”. The canonical conditions do not assert that the latter outcome is caused by 空劫 alone.
 - **M06-519…539 — Qisha cross-palace structures:** preserved 武曲/廉贞/紫微 opposition or co-presence, the distinct Chou/Wei 廉杀 structure, and the relative (not absolute) 酉优于卯 comparison.
 - **M06-540…542 — flowing-year Qisha:** only these three rows use `YEAR`. The source's listed 廉贞化忌、武曲化忌来会 wording is preserved without inventing an OR branch.
-- **M06-543…578 — 破军 general structure:** retained the baseline unfavorable migration statement, the Tianxiang clamp exceptions, specialized-skill requirement, differentiated 四煞 branches, and the distinct 子午 / 丑未 structures.
+- **M06-543…578 — 破军 general structure:** retained the baseline unfavorable migration statement, the Tianxiang clamp exceptions, specialized-skill requirement, and distinct 子午 / 丑未 structures. M06-557 keeps the 火铃→流离 branch separate from M06-558's 羊陀→破败 branch.
 - **M06-551:** the sentence “破军、文曲同度，化忌” is kept at combination level; no new transformation-attribution rule is invented.
 - **M06-579/580:** the source's awkward punctuation/line sequence concerning a major disaster or death away is a result sequence under the fully stated 寅申破军 + 武曲化忌冲拱 + adverse-star condition. It is **not** an observed prior-user-history activation gate. Both severe outcomes remain `CASE_SUPPORT_ONLY`.
 - **M06-587…589:** explicitly separates unfavorable rooted settlement away without 化禄 from source-described mobility between places to earn a living.
