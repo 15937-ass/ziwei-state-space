@@ -8,13 +8,12 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "ACTIVE"
-  active_issue: 601
-  active_branch: "knowledge/p07-601-migration-m04-canonical"
-  active_pr: 605
-  canonical_checkpoint: "M04_SOURCE_REVIEW_COMPLETE_PENDING_EXACT_HEAD_VALIDATION"
-  note: "M03-201..300 merged via PR #598 after 2412 tests and all repository gates passed. Current work unit #601 / PR #605 source-reviews M04-301..400 against SRC-ZZ-003 printed pp115–117: 100/100 reviewed, 91 reusable, 9 CASE_SUPPORT_ONLY, 40 substantive source-resolution changes, 29 corrected source spans, 3 new source gaps, 10 M03 gaps covered and 2 carried forward. Historical PATH_DEPENDENT_GATE flags on M04-328/349 were re-adjudicated as source sequences. Exact-head validation pending."
-
+  status: "ACTIVE_NO_ACTIVE_WORK"
+  active_issue: null
+  active_branch: null
+  active_pr: null
+  canonical_checkpoint: "M01_001_100_MERGED__M02_101_200_MERGED__M03_201_300_MERGED__M04_301_400_MERGED__M05_401_500_SOURCE_FIRST_MERGED"
+  note: "Recovery synchronized to accepted P07 Issue #619 / PR #622, merged at main commit d3eacc75fa745cef12a01ed29f899984ea10591a. The M05 source-first checkpoint has 500 cumulative candidates reviewed: 443 reusable projection rules and 57 CASE_SUPPORT_ONLY; the current 100-row batch contains 90 reusable, 10 CASE_SUPPORT_ONLY, and 41 corrected source spans. Three M04 source gaps are closed by exact source mapping. Four printed-p118 Tianxiang gaps remain explicit, and M03 gaps P07-M03-GAP-001 and P07-M03-GAP-012 remain carried forward. M05-455 and M05-487 are source-internal sequences, not current-batch personal-history gates. No active P07 Knowledge work unit remains after this bounded recovery issue closes. Next source anchor: M06-501…590 against printed pp119–122 (Qisha completion, the full Pojun section, and the chapter boundary); carry the four M05 and two M03 gaps explicitly. Do not proceed to P08 until source-first closure is complete or residual gaps are explicitly accepted. No Product runtime authorization is implied."
 integrity:
   source_first: true
   shared_semantics_must_escalate_to_core: true
