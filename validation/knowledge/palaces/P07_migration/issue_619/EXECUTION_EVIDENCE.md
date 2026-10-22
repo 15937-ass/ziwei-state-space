@@ -1,6 +1,7 @@
 # Execution Evidence — Knowledge Issue #619 / P07 Migration M05
 
 ## Scope
+- Replacement PR: #622
 - Lane: KNOWLEDGE_ONLY; shard P07 / 迁移宫
 - Work unit: KB-WP05-P07-MIGRATION-M05-CANONICAL-401-500
 - Branch: knowledge/p07-619-migration-m05-canonical
