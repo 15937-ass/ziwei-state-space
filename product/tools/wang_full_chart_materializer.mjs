@@ -280,6 +280,7 @@ if (signatures.reconstruction_policy?.engine !== ENGINE.name ||
     readiness.probe?.engine !== ENGINE.name ||
     readiness.probe?.engine_version !== ENGINE.version ||
     readiness.probe?.entrypoint !== ENGINE.entrypoint ||
+    readiness.probe?.input_calendar !== ENGINE.input_calendar ||
     readiness.probe?.algorithm !== ENGINE.algorithm ||
     readiness.probe?.astro_type !== ENGINE.astro_type ||
     readiness.probe?.fix_leap !== ENGINE.fix_leap ||
