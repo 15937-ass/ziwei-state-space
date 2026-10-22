@@ -26,6 +26,11 @@ def test_m06_census_and_unique_ids():
     assert data["summary"]["source_condition_normalization_count"] == 90
     assert all(r["source_condition_normalized"] for r in data["records"])
     assert all("前格" not in r["canonical_condition"] for r in data["records"])
+    rows = {r["projection_rule_id"]: r for r in data["records"]}
+    assert rows["M06-557"]["canonical_condition"].endswith("不与羊陀分支混并。")
+    assert rows["M06-506"]["archived_projection_mode"] == "SCENE_TRANSLATION"
+    assert rows["M06-506"]["projection_mode"] == "FUNCTIONAL_PROJECTION"
+    assert data["summary"]["source_resolution_change_count"] == 31
 
 
 def test_m06_source_pages_are_reconciled():
