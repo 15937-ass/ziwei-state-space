@@ -22,7 +22,7 @@ Lane: KNOWLEDGE_ONLY / shard P10
 - TP03-253 maps the direct NATAL condition 贪狼守田宅 to high fengshui sensitivity; its printed source anchor is preserved verbatim as “贪狼大田宅，受风水影响甚大”. Annual Tanlang Hua Lu/Hua Ji clauses remain separate temporal projections.
 - TP04-320 remains a distinct Tianliang + Yinsha + Huoling compound clause; it is not collapsed into a single-star presence atom.
 - TP01-018 remains excluded because `独坐` requires exclusivity/absence, not simple presence.
-- TP02-139 remains reserved for opposite-palace relation mapping.
+- TP02-139 is not mapped in this exact five-row work unit because it is outside the nominated set; its canonical condition is a direct `天同守田宅宫` condition and is not blocked by the existing presence atom. The separate opposition-comparison rule is TP02-163 (`天同与天梁对拱相对同度比较`) and is the later relation-mapping candidate.
 - TP02-170 preserves unresolved source-glyph uncertainty.
 - TP03-261 preserves literal `中年后`; no numeric age.
 - TP03-275 retains its Huaji modifier; TP03-288 retains its Tianfu cross-palace requirement.
@@ -35,7 +35,7 @@ Execution-policy update (2026-10-22): the PI explicitly authorized GitHub Action
 - Mapping JSON parse and exact five-ID census: **PASS**.
 - Canonical CSV ↔ source-readjudication reconciliation: **PASS** (5/5 selected rows).
 - Source condition / projection domain / target / mode / source location / NATAL layer / CASE_SUPPORT_ONLY / source-span status checks: **PASS** (5/5).
-- Explicit exclusion ledger vs canonical rows: **PASS** (8/8, including the TP04-320 exception and TP04-321 exclusivity/branch gate).
+- Explicit non-mapped-row ledger vs canonical rows: **PASS** (8/8, including one scope-only deferral TP02-139, the TP04-320 compound exception, and TP04-321 exclusivity/branch gate).
 - Existing atom allowlist and condition shape: **PASS** (all five use only `PALACE_HAS_STAR(palace=P10, star=<source star>)`).
 - Runtime emitter source inspection: **PASS**. The current resolver emits `PALACE_HAS_STAR(palace=palace_id, star=name)` for each named star in the resolved palace.
 - Python syntax compilation of `tests/test_knowledge_p10_direct_star_presence_map_01.py`: **PASS** in the OpenAI Python runtime.
@@ -44,7 +44,7 @@ Execution-policy update (2026-10-22): the PI explicitly authorized GitHub Action
 - Full repository pytest: **NOT RUN**. The current OpenAI container cannot network-mount the GitHub repository; no full-suite pass is claimed.
 - Product/Node/Go regression: **NOT REQUIRED**; no executable implementation or shared schema changed.
 
-Revision r2 corrects the candidate substitution: TP03-253 is mapped and TP04-319 is not part of this work unit. The corrected branch is based on current `main`; recheck current main/base and exact branch head immediately before PR/merge.
+Source-review correction: TP02-139's canonical condition is direct `天同守田宅宫`; its non-mapping is due only to this work unit's exact five-ID scope, not a Tianliang-opposition dependency. TP02-163 is the separate relation-comparison rule. Revision r2 also corrects the candidate substitution: TP03-253 is mapped and TP04-319 is not part of this work unit. The corrected branch is based on current `main`; recheck current main/base and exact branch head immediately before PR/merge.
 
 ## Boundary
 
