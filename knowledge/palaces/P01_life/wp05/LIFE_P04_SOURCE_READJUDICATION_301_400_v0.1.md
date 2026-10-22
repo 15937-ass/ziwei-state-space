@@ -1,48 +1,54 @@
-# P04-301…P04-400 — source-first readjudication
+# WP05 P04 — 命宫 source-first readjudication 301–400
 
-**Issue:** #603  
-**PR:** #604  
-**Shard:** P01 — 命宫  
-**Source:** SRC-ZZ-003《中州派紫微斗数深造讲义（下册）》·下篇·宫垣论·命宫  
-**Reviewed span:** printed pp12–15, using scanned page images; historical P04 candidate IDs are thematic, not necessarily source-ordered.
+Status: **SOURCE_RECHECK_COMPLETE_PENDING_EXACT_HEAD_QUALITY_GATE**
 
-## Result
+## Source and method
 
-- Historical candidates reviewed: **100/100**.
-- Canonical promotions from candidate rows: **100**.
-- Source-gap supplement for the omitted printed-p12 巳亥廉贪 section: **11** additional rules, P01-SG-125…135.
-- Total new canonical records: **111**.
-- New reusable rules: **96**; CASE_SUPPORT_ONLY: **15**.
-- Cumulative P01 after merge: **533** records = **438 reusable + 95 CASE_SUPPORT_ONLY**.
-- P01-SRC-GAP-023 closed with P04-301…335 plus P01-SG-125…135. P01-SRC-GAP-024 remains open.
+- Source: `SRC-ZZ-003`, 《中州派紫微斗数深造讲义（下册）》, 下篇·宫垣论·命宫.
+- Directly reviewed printed span: **p12–p14**.
+- Historical candidate input: `validation/wp05/P04_life_palace_projection_review_v0.1.csv` (100 rows), used only as a noncanonical acceleration/audit input.
+- Image verification: PDF physical page 6 contains printed pp11–12; physical page 7 contains printed pp13–14; physical page 8 begins printed p15. Printed page numbers are read from the scan, not inherited from historical rendered-line labels.
 
-## Source-boundary decisions
+## Candidate adjudication
 
-P03-300 captures only the opening 寅申廉贞 clause. P04-301 captures the following condition cluster and is not a duplicate merely because historical rendered-line spans touch.
+- Candidate rows reviewed: **100 / 100**, IDs P04-301…P04-400.
+- Canonical promotions: **100**.
+- Reusable rules from candidates: **88**.
+- CASE_SUPPORT_ONLY from candidates: **12**.
+- Scope-only duplicate rows: **0**.
+- Opposite-palace relations are separated from explicitly named palace dependencies; no fixed 迁移宫 is inferred from “对宫”.
+- “年限”“宫限”“限”“年运” remain generic where the source does not specify a narrower layer.
 
-The historical P04 candidate file has no rows for the printed-p12 巳亥廉贪 section between 辰戌廉府 and 天府. The source-gap supplement therefore preserves:
-- 煞忌 → 飘流四海/弃祖离家;
-- 辅佐诸曜（不宜只见昌曲）→ 气质优雅、儒将风流;
-- the source's military/political career manifestation;
-- 火铃同度 → severe 暴发暴败, including the original “发后见机、收篷” advice;
-- 陀罗同度 → emotional/material conflict and indecision;
-- marriage adversity with an explicit 夫妻宫 dependency;
-- 巨门、天相、紫破、同梁 as 年运 hubs;
-- 巳宫廉贪 “一生多灾难，唯必能转危为安” wording, without creating a new lifetime time scale.
+## Image-verified page corrections
 
-## Repairs made after image verification
+- P04-301…335 → printed p12.
+- P04-336…371 → printed p13.
+- P04-372…400 → printed p14.
+- In particular, **P04-376…400 are all on printed p14**. Historical labels p14–15/p15 are not authoritative.
 
-1. **Page labels:** P04-376…390 and P04-398…400 map to printed p14, not p15. P04-391…397 remain on printed p15. Candidate IDs are not a reliable proxy for source order.
-2. **Opposite-palace semantics:** P04-304/305/306 use opposite-palace 贪狼; P04-349/350/354 use opposite-palace 七杀; P04-375 uses opposite-palace 紫杀. These are not hard-coded as 迁移宫.
-3. **No invented palace:** P04-306’s “得妻财/妻子匡助” is an outcome, not proof of a fixed 夫妻宫 dependency. P04-340/345/346/356/357 refer to 天相 properties/conditions but do not explicitly name 事业宫; the fixed 事业宫 dependency was removed.
-4. **Explicit dependencies preserved:** P04-301 迁移宫文曲, P04-321 疾厄宫, P04-338 福德宫/事业宫/夫妻宫, P04-372 事业宫, P04-380 迁移宫, P04-384 财帛宫, and P04-389/390 福德宫 remain source-grounded.
-5. **P04-384 repaired:** source says “凡主物质享受，均由财帛宫而定”; the canonical row now encodes 财帛宫 as an explicit cross-palace dependency.
-6. **Temporal scope:** P04-307…315 preserve explicit 流年 and 大运 hubs. P04-327…329 preserve generic 年限; P04-341…344 preserve generic 宫限; P04-374 preserves generic 之限. These are not automatically narrowed to DECADE.
+## Source coverage beyond the historical candidate table
 
-## Epistemic boundary
+The source-coverage review found **28 omitted atoms** and added P01-SG-125…152:
 
-The rules encode what the source text asserts, not verified real-world probabilities. Concrete theft/decline, surgery/accident, eye-disease, marital/family, and mental-diagnosis claims remain CASE_SUPPORT_ONLY where appropriate. No empirical prediction claim, numerical weight, probability, new shared primitive, new time scale, memory type, or decay was introduced.
+- P01-SG-125…136: printed p12 — 廉府枢纽 and the omitted 巳亥廉贪 section.
+- P01-SG-137…143: printed pp13–14 — omitted 天府 hub/support conditions, including explicit opposite-palace 七杀/紫杀 relationships.
+- P01-SG-144…152: printed p14 — 日月会照与夹宫、反背术语辨误、反背条件、羊陀忌及空曜条件.
 
-## Next source checkpoint
+The additions include 21 reusable rules and 7 CASE_SUPPORT_ONLY records. Concrete life-course, family, marital, medical, criminal, and investment outcomes remain case-support-only; historical “自闭症/弱智” wording is not presented as a modern diagnosis.
 
-P01-SRC-GAP-024: source-first coverage of remaining Taiyin classical patterns on printed pp14–15 (日巳月酉、日月会照、明珠出海/反背、羊陀空劫等), followed by the Tanlang opening on printed p15–16. P04-400 is not the end of source coverage; a new candidate set must be built from the scans.
+## Counts
+
+- New canonical records: **128** (100 candidates + 28 source-gap atoms).
+- New reusable rules: **109** (88 + 21).
+- New CASE_SUPPORT_ONLY: **19** (12 + 7).
+- Expected cumulative P01 after merge: **550** (451 reusable; 99 CASE_SUPPORT_ONLY).
+
+## Gap ledger
+
+- `P01-SRC-GAP-023`: closed by P04-301…335 and P01-SG-125…136.
+- `P01-SRC-GAP-024`: closed by P04-336…400 and P01-SG-137…152.
+- `P01-SRC-GAP-025`: remains open for printed p15 onward, beginning with remaining 太阴 material and then 贪狼. P04-301…400 must not be described as complete coverage of p15.
+
+## Permanent boundaries
+
+No new shared semantic primitive, history-memory type, independent time scale, numeric weight, probability, or decay. No writes to another palace’s canonical knowledge. Human Gate: **NONE**.
