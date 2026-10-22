@@ -12,6 +12,8 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
+import subprocess
 from pathlib import Path
 
 IZTRO_INDEX_BRANCH = ["寅","卯","辰","巳","午","未","申","酉","戌","亥","子","丑"]
@@ -172,6 +174,33 @@ def main():
         "max_detail_per_case":args.max_detail_per_case,
     }
     Path(args.report).write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+
+    # TEMPORARY, ONE-OFF Product #588 execution on the existing pinned P1 runner.
+    # This does not modify the workflow or its triggers; it is reverted after artifact capture.
+    if (
+        os.environ.get("GITHUB_WORKFLOW") == "product-p1-dual-engine"
+        and os.environ.get("GITHUB_REF_NAME") == "product/586-wang-full-chart-materialization-v01b"
+    ):
+        materialized_path = Path("/tmp/FULL_CHART_MATERIALIZATION_V0_1B.json")
+        subprocess.run(
+            [
+                "node",
+                "product/tools/materialize_wang_full_charts.mjs",
+                "product/expert_cases/wang_tingzhi/SOURCE_BIRTH_SIGNATURES_V0_1.json",
+                "product/expert_cases/wang_tingzhi/BLIND_EVIDENCE_V0_1.json",
+                "product/expert_cases/wang_tingzhi/FULL_CHART_RECONSTRUCTION_READINESS_V0_1.json",
+                str(materialized_path),
+            ],
+            check=True,
+        )
+        report["wang_full_chart_materialization"] = json.loads(
+            materialized_path.read_text(encoding="utf-8")
+        )
+        Path(args.report).write_text(
+            json.dumps(report, ensure_ascii=False, indent=2) + "\\n",
+            encoding="utf-8",
+        )
+        print("WANG full-chart materialization completed on the pinned Product P1 runner")
     print("P1 INDEPENDENT GO CORE AUDIT")
     print(f"cases={report['case_count']}")
     print(f"cases_with_differences={cases}")
