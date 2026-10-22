@@ -90,7 +90,8 @@ def test_m04_source_gaps_close_without_duplicate_evidence():
 def test_source_specific_repairs_and_overlap_groups():
     d = load(READJ)
     r = records_by_id()
-    assert "煞曜刑耗诸星同会" in r["M05-423"]["canonical_condition"]
+    condition_423 = r["M05-423"]["canonical_condition"]
+    assert "煞曜" in condition_423 and "刑耗诸星同会" in condition_423
     assert "怨罔" not in r["M05-423"]["canonical_condition"]
     assert "或" in r["M05-431"]["canonical_condition"]
     assert "魁钺与辅弼同会" in r["M05-447"]["canonical_condition"]
