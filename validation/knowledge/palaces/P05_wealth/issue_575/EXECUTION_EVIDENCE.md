@@ -8,7 +8,7 @@ Shard: P05 财帛宫
 - Direct source basis: SRC-ZZ-003《中州派紫微斗数深造讲义（下册）》财帛宫 printed pp76–79 (PDF pages 38–40).
 - Candidate input: historical/noncanonical W04-301…W04-400.
 - Direct source recheck: 100/100.
-- Source-resolution changes: 68 rows (including W04-367’s explicit “火星或铃星任一同度” antecedent).
+- Source-resolution changes: 70 rows (including W04-367’s explicit “火星或铃星任一同度” antecedent).
 - Direct PDF page-image resolutions: 12 rows (W04-338, W04-340, W04-353, W04-354, W04-355, W04-358, W04-359, W04-360, W04-389, W04-397, W04-398, W04-400).
 - Unresolved source uncertainty: 0.
 - Non-NATAL rows: 7 (3 DECADE, 4 YEAR).
@@ -24,6 +24,9 @@ Specifically checked for:
 - losing career-palace Lu Cun / Lian Zhen stacked Lu dependencies in 子午武府;
 - narrowing the 武曲化忌 malefic list to only 空劫/耗曜;
 - removing the 龙池凤阁 → 天月 medical-work antecedent or the 天刑 with/without malefics split;
+- dropping the requirement that 禄存 be co-located with 武曲 in the W04-335/W04-337 wealth rule;
+- detaching W04-362’s 天府化科 credit-only clause from the 子午武曲天府 + 武曲化忌/府库空露 antecedent;
+- omitting the source statement that both 擎羊 and 陀罗 require an industry change in W04-387;
 - generalizing 铃昌陀武 without natal location and 流煞冲起 prerequisites;
 - treating 丑未武贪 偏财 as necessarily speculative income;
 - losing 武相's exact 化科/廉贞化禄/破军化权/no 煞忌空劫 dependency;
@@ -56,4 +59,4 @@ The source-review head `43b925655bc6342092014ccd69b89afba367885e` passed the sta
 - Knowledge/G12 governance validation: PASS
 - workflow: https://github.com/15937-ass/ziwei-state-space/actions/runs/39696034090
 
-This evidence record is a documentation-only follow-up to that validated source-review head. The PR's exact-head gate will be rerun on the evidence-bearing commit before merge; the final exact-head result will be recorded in the PR body without further source or state edits.
+The prior result above is historical evidence for an earlier head and does not validate the additional source-critic corrections in this commit. The corrected head must pass the exact-head PR gate before merge. The final exact-head result will be recorded in the PR body after the gate completes; no source/state edits should follow that gate.

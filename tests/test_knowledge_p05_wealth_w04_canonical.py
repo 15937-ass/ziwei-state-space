@@ -90,3 +90,21 @@ def test_w04_no_numeric_model_parameters_introduced():
             for value in obj:
                 walk(value)
     walk(data["records"])
+
+
+def test_w04_final_critic_preserves_exact_antecedents_and_qualifiers():
+    r = {x["projection_rule_id"]: x for x in load(READJ)["records"]}
+    assert "太阳同时化权" in r["W04-302"]["canonical_condition"]
+    assert "借会巨门化禄" in r["W04-302"]["canonical_condition"]
+    assert "与禄存同度" in r["W04-335"]["canonical_condition"]
+    assert "武曲与禄存同度" in r["W04-337"]["canonical_condition"]
+    assert "多寡而定" in r["W04-343"]["source_note"]
+    assert "财帛宫见铃昌陀武" in r["W04-353"]["canonical_condition"]
+    assert "遇火铃" in r["W04-356"]["canonical_condition"]
+    assert "子午宫武曲天府" in r["W04-362"]["canonical_condition"]
+    assert "府库空露" in r["W04-362"]["canonical_condition"]
+    assert "终日应酬" in r["W04-375"]["source_note"]
+    assert "二者均须改变行业" in r["W04-387"]["source_note"]
+    assert "物质享受亦由名誉而来" in r["W04-312"]["source_note"]
+    assert r["W04-335"]["source_resolution_changed"] is True
+    assert r["W04-362"]["source_resolution_changed"] is True
