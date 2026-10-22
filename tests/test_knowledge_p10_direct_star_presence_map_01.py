@@ -34,6 +34,7 @@ EXPECTED = {
     "TP04-358": ("破军", "破军守田宅", "fengshui_sensitivity", "fengshui_sensitivity_is_relatively_low", "FUNCTIONAL_PROJECTION", "田宅宫printed_p165"),
 }
 EXCLUDED = {"TP01-018", "TP02-139", "TP02-170", "TP03-261", "TP03-275", "TP03-288", "TP04-320", "TP04-321"}
+RELATED = {"TP02-163"}
 PALACES = [
     ("P01", "命宫"), ("P02", "兄弟宫"), ("P03", "夫妻宫"), ("P04", "子女宫"),
     ("P05", "财帛宫"), ("P06", "疾厄宫"), ("P07", "迁移宫"), ("P08", "交友宫"),
@@ -50,7 +51,7 @@ def csv_rows():
         with path.open(encoding="utf-8-sig", newline="") as f:
             for row in csv.DictReader(f):
                 rid = row["projection_rule_id"]
-                if rid in EXPECTED or rid in EXCLUDED:
+                if rid in EXPECTED or rid in EXCLUDED or rid in RELATED:
                     out[rid] = row
     return out
 
@@ -115,8 +116,19 @@ def test_contextual_and_compound_rows_remain_excluded():
         assert excluded[rid]["source_location"] == source[rid]["source_location"]
         assert excluded[rid]["case_support_only"] == (source[rid]["case_support_only"] == "true")
     assert excluded["TP01-018"]["reason_code"] == "EXCLUSIVITY_NOT_CAPTURED_BY_PRESENCE_ATOM"
+    assert excluded["TP02-139"]["reason_code"] == "OUTSIDE_NOMINATED_SET"
     assert excluded["TP04-320"]["reason_code"] == "COMPOUND_EXCEPTION_NOT_COLLAPSED"
     assert excluded["TP04-321"]["reason_code"] == "EXCLUSIVITY_AND_BRANCH_SCOPE"
+
+def test_tiantong_direct_rule_is_not_misclassified_as_relation_dependent():
+    doc, source = load(MAP), csv_rows()
+    excluded = {x["source_rule_id"]: x for x in doc["exclusions"]}
+    assert source["TP02-139"]["condition"] == "天同守田宅宫"
+    assert source["TP02-139"]["projection_target"] == "self_made_property_acquisition_is_supported"
+    assert excluded["TP02-139"]["reason_code"] == "OUTSIDE_NOMINATED_SET"
+    assert source["TP02-163"]["condition"] == "天同与天梁对拱相对同度比较"
+    assert source["TP02-163"]["projection_mode"] == "STRUCTURAL_CONSTRAINT"
+
 
 def test_no_new_semantics_or_production_entry():
     doc = load(MAP)
