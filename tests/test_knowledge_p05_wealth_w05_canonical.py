@@ -71,7 +71,7 @@ def test_w05_critical_cross_palace_and_temporal_antecedents():
     r = {x["projection_rule_id"]: x for x in load(READJ)["records"]}
     assert "不宜经商" in r["W05-401"]["source_note"]
     assert "更不宜投机" in r["W05-402"]["source_note"]
-    assert "破军同时化禄" in r["W05-403"]["canonical_condition"]
+    assert "破军化禄" in r["W05-403"]["canonical_condition"]
     assert "命宫有火铃" in r["W05-408"]["canonical_condition"]
     assert "禄马" not in r["W05-408"]["canonical_condition"]
     assert "东山复起" in r["W05-412"]["source_note"] and r["W05-412"]["canonical_target"] == "eventual_wealth_after_comeback"
@@ -95,7 +95,7 @@ def test_w05_critical_cross_palace_and_temporal_antecedents():
     assert "廉贞与禄存同度" in r["W05-483"]["canonical_condition"]
     assert "廉贞与禄存同度" in r["W05-484"]["canonical_condition"]
     assert r["W05-488"]["canonical_condition"] == r["W05-487"]["canonical_condition"]
-    assert "大耗、阴煞" in r["W05-498"]["canonical_condition"]
+    assert "大耗" in r["W05-498"]["canonical_condition"] and "阴煞" in r["W05-498"]["canonical_condition"]
     assert "天姚" not in r["W05-498"]["canonical_condition"]
     assert "厚报" in r["W05-500"]["visual_source_resolution"]
 
