@@ -7,14 +7,16 @@ Lane: KNOWLEDGE_ONLY / shard P01
 - SRC-ZZ-003 《中州派紫微斗数深造讲义（下册）》
 - 下篇·宫垣论·命宫, printed pp9–12
 - Historical candidates P03-201…300 used only as acceleration input
-- Historical source-span discontinuity lines 358–385 was directly re-read and supplemented
+- Historical source-span discontinuity lines 358–385 was directly re-read against printed pp10–11 and fully supplemented after independent source-coverage review
 
 ## Producer / critic
 - 100/100 historical candidates re-adjudicated
 - 98 canonical promotions; 2 scope-only duplicate rows deduplicated
-- 16 new Tian Tong gap supplement records
-- 114 new canonical records total
-- 101 reusable; 13 CASE_SUPPORT_ONLY
+- 47 Tian Tong gap supplement records (31 p10 atoms added after independent critic found the first 16-row supplement only covered p11)
+- 145 new canonical records total
+- 129 reusable; 16 CASE_SUPPORT_ONLY
+- New source-gap rules cover the previously omitted 同巨 time hinges, 陀罗/风波—奋发 sequence, 寅申同梁 branches, and 卯酉天同 branches
+- Printed-page review confirms the 卯宫 branch says “对宫太阴化忌”; “太阳太梁” and “谨清贵” are preserved with explicit textual uncertainty
 - P03-222 and P03-287 reuse existing A2-R1/history semantics
 - Independent source-schema review preserves P03-231's local 丁年同阴 context without inventing a fixed spouse-palace dependency; P01-SG-087 records “天同与天梁相对” as an opposite-palace dependency, not a generic cross-palace link
 - no new shared semantic primitive, memory type, independent time scale, weight, probability, or decay

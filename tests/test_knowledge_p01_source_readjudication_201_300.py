@@ -59,18 +59,40 @@ def test_p03_time_scope_keeps_source_words():
     assert rows["P03-229"]["scope_status"] == "DEDUPLICATED_SCOPE_METADATA_TO_P03-228"
 
 
-def test_tian_tong_source_gap_closed():
+def test_tian_tong_source_gap_closed_across_printed_pages_10_11():
     rows = _read_csv("LIFE_TIAN_TONG_SOURCE_GAP_SUPPLEMENT_LINES_358_385_v0.1.csv")
-    assert len(rows) == 16
-    assert [r["projection_rule_id"] for r in rows] == [f"P01-SG-{i:03d}" for i in range(78, 94)]
+    assert len(rows) == 47
+    assert [r["projection_rule_id"] for r in rows] == [f"P01-SG-{i:03d}" for i in range(78, 125)]
     assert set(r["source_gap_id"] for r in rows) == {"P01-SRC-GAP-022"}
-    assert sum(r["case_support_only"] == "true" for r in rows) == 2
+    assert sum(r["case_support_only"] == "true" for r in rows) == 5
     by_id = {r["projection_rule_id"]: r for r in rows}
     assert by_id["P01-SG-087"]["opposite_palace_dependency"] == "天梁"
     assert by_id["P01-SG-087"]["cross_palace_dependency"] == ""
+    assert any("运限的枢纽" in r["source_literal_claim"] for r in rows)
+    assert any("凡[同巨]与陀罗同度者，主烦恼" in r["source_literal_claim"] for r in rows)
+    assert any("寅申宫[天同天梁]同度，成[机月同梁]格" in r["source_literal_claim"] for r in rows)
+    assert any("卯酉宫天同独坐，与太阴相对" in r["source_literal_claim"] for r in rows)
     assert any("年运枢纽" in r["source_literal_claim"] for r in rows)
     assert any("年限枢纽" in r["source_literal_claim"] for r in rows)
+    assert {r["projection_rule_id"] for r in rows if r["case_support_only"] == "true"} == {"P01-SG-086", "P01-SG-089", "P01-SG-109", "P01-SG-116", "P01-SG-120"}
 
+
+def test_tian_tong_source_gap_time_scope_is_not_narrowed():
+    data = json.loads((BASE / "LIFE_TIAN_TONG_SOURCE_GAP_TIME_SCOPE_LINES_358_385_v0.1.json").read_text(encoding="utf-8"))
+    rows = {r["projection_rule_id"]: r for r in data["records"]}
+    assert len(rows) == 47
+    assert rows["P01-SG-094"]["source_time_expression"] == "运限"
+    assert rows["P01-SG-094"]["source_time_layers"] == []
+    assert rows["P01-SG-094"]["scope_status"] == "SOURCE_GENERIC_PERIOD_NOT_NARROWED"
+    assert rows["P01-SG-095"]["source_time_expression"] == "年限"
+    assert rows["P01-SG-095"]["source_time_layers"] == []
+    assert rows["P01-SG-110"]["source_time_expression"] == "流年大运"
+    assert rows["P01-SG-110"]["source_time_layers"] == ["DECADE", "YEAR"]
+    assert rows["P01-SG-110"]["scope_status"] == "SOURCE_EXPLICIT_DECADE_AND_YEAR"
+    assert rows["P01-SG-116"]["source_time_expression"] == "否则（对照分支）"
+    assert rows["P01-SG-116"]["source_time_layers"] == []
+    assert rows["P01-SG-121"]["source_time_expression"] == "年限"
+    assert rows["P01-SG-121"]["source_time_layers"] == []
 
 def test_gap_ledger_and_summary_cumulative_counts():
     ledger = json.loads((BASE / "LIFE_P03_SOURCE_GAP_LEDGER_v0.1.json").read_text(encoding="utf-8"))
@@ -83,7 +105,7 @@ def test_gap_ledger_and_summary_cumulative_counts():
     assert "卯酉廉破" in next_gaps[0]["source_claim"]
     assert "寅申廉贞后续" in ledger["next_source_anchor"]
     assert ledger["entries"][0]["gap_id"] == "P01-SRC-GAP-022"
-    assert len(ledger["entries"][0]["rule_ids"]) == 16
+    assert len(ledger["entries"][0]["rule_ids"]) == 47
     summary = json.loads((BASE / "LIFE_P03_SOURCE_READJUDICATION_SUMMARY_v0.1.json").read_text(encoding="utf-8"))
     next_summary_gaps = summary["source_coverage_gaps_next_checkpoint"]
     assert next_summary_gaps[0]["gap_id"] == "P01-SRC-GAP-023"
@@ -91,11 +113,14 @@ def test_gap_ledger_and_summary_cumulative_counts():
     s = summary["summary"]
     assert s["historical_candidates_reviewed"] == 100
     assert s["canonical_promoted"] == 98
-    assert s["new_tian_tong_gap_records"] == 16
-    assert s["new_canonical_records"] == 114
-    assert s["cumulative_canonical_records_after_merge"] == 391
-    assert s["cumulative_reusable_projection_rules_after_merge"] == 314
-    assert s["cumulative_case_support_only_after_merge"] == 77
+    assert s["new_tian_tong_gap_records"] == 47
+    assert s["new_canonical_records"] == 145
+    assert s["reusable_projection_rules"] == 129
+    assert s["case_support_only"] == 16
+    assert s["gap_supplement_case_support_only"] == 5
+    assert s["cumulative_canonical_records_after_merge"] == 422
+    assert s["cumulative_reusable_projection_rules_after_merge"] == 342
+    assert s["cumulative_case_support_only_after_merge"] == 80
     assert s["new_primitive_qi"] == 0
     assert s["new_memory_type"] == 0
     assert s["new_independent_time_scale"] == 0
