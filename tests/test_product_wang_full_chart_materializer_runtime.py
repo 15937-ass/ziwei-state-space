@@ -149,6 +149,26 @@ export const astro = {
         generated, signatures, blind, readiness, source_hashes=source_hashes
     )
 
+    # Stable input + stable engine output must yield byte-identical JSON.
+    repeated_output = tmp_path / "full_chart_test_output_repeat.json"
+    repeated = subprocess.run(
+        [
+            node,
+            str(temp_script),
+            str(signatures_path),
+            str(blind_path),
+            str(readiness_path),
+            str(repeated_output),
+        ],
+        cwd=tmp_path,
+        env=env,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert repeated.returncode == 0, repeated.stderr
+    assert output_path.read_bytes() == repeated_output.read_bytes()
+
     # A runtime engine error must not leave a partial production artifact.
     failing_output = tmp_path / "engine_failure_output.json"
     failing_env = dict(env)
