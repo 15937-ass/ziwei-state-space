@@ -8,12 +8,12 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "SOURCE_REVIEW_COMPLETE_VALIDATION_PENDING"
-  active_issue: 591
-  active_branch: "knowledge/p05-591-wealth-w05-canonical-main-r3"
-  active_pr: 634
-  canonical_checkpoint: "W01_001_100_MERGED__W02_101_200_MERGED__W03_201_300_MERGED__W04_301_400_MERGED__W05_401_500_DIRECT_SOURCE_RECHECKED"
-  merged_rule_count: 400
+  status: "ACTIVE_NO_ACTIVE_WORK"
+  active_issue: null
+  active_branch: null
+  active_pr: null
+  canonical_checkpoint: "W01_001_100_MERGED__W02_101_200_MERGED__W03_201_300_MERGED__W04_301_400_MERGED__W05_401_500_SOURCE_FIRST_MERGED"
+  merged_rule_count: 500
   reviewed_rule_count: 500
   current_batch_rule_count: 100
   source_resolution_change_count_current_batch: 15
@@ -22,7 +22,7 @@ execution:
   non_natal_source_count_current_batch: 0
   path_dependent_gate_count_current_batch: 7
   source_coverage_gap_count_current_batch: 3
-  note: "W05-401..500 directly source-rechecked against SRC-ZZ-003 printed pp79-81. All rules remain NATAL; 7 PATH_DEPENDENT_GATE sequences are preserved. 12 extraction surfaces were resolved by direct PDF page-image inspection. Three source-clear local P05 coverage gaps (廉贞天相刑忌夹印/无谓应酬破财; 廉贞天相空劫与刑煞的储财/词讼/表面风光条款; 廉贞天相横发横破但性质和缓) remain explicitly recorded for a later bounded closure; no source-text uncertainty or Core gap remains."
+  note: "Recovery synchronized to accepted P05 Issue #591 / PR #634, merged at PR #634 merged at main commit 7bf664fc87db20bfe02ef0020785b91dd62cbbdf; this state-recovery replacement is based on current main commit 2cc1e71dea2cd28959133ca18a02a18ef3e5f984. W01–W05 are canonical on main, with 500 reviewed candidates across checkpoints. W05-401..500: 100/100 candidates promoted and reusable; 15 source-resolution revisions, 12 page-image extraction repairs, zero unresolved source-text uncertainty, zero DECADE/YEAR rows, and seven PATH_DEPENDENT_GATE sequences. W05-SG-001…003 remain explicit open local P05 source-coverage gaps; Core gap count is 0. This recovery does not start the gap-closure work unit. No Product/runtime authorization is implied."
   
 integrity:
   source_first: true
