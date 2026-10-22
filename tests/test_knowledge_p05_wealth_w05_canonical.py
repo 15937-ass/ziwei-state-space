@@ -72,7 +72,7 @@ def test_w05_critical_antecedents_are_frozen():
     assert "不主商业贸迁" in r["W05-454"]["source_note"]
     assert "事业宫巨门必同时化忌" in r["W05-460"]["canonical_condition"]
     assert "无桃花" in r["W05-463"]["canonical_condition"]
-    assert "只宜服务他人" in r["W05-470"]["canonical_condition"]
+    assert "只宜服务他人" in r["W05-470"]["source_note"]
     assert "自行经营" in r["W05-471"]["canonical_condition"]
     assert "名大于利" in r["W05-474"]["source_note"]
     assert "文曲化忌" in r["W05-475"]["canonical_condition"]
