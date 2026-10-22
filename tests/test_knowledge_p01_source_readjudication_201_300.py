@@ -102,11 +102,12 @@ def test_gap_ledger_and_summary_cumulative_counts():
     assert ledger["unresolved_gap_ids"] == []
     next_gaps = ledger["next_checkpoint_gaps"]
     assert len(next_gaps) == 1
-    assert next_gaps[0]["gap_id"] == "P01-SRC-GAP-023"
+    assert next_gaps[0]["gap_id"] == "P01-SRC-GAP-025"
     assert next_gaps[0]["status"] == "OPEN_FOR_NEXT_SOURCE_CHECKPOINT"
-    assert "寅申廉贞" in next_gaps[0]["source_claim"]
-    assert "卯酉廉破" in next_gaps[0]["source_claim"]
-    assert "寅申廉贞后续" in ledger["next_source_anchor"]
+    assert "printed p15" in next_gaps[0]["source_location"]
+    assert "太阴" in next_gaps[0]["source_claim"]
+    assert "贪狼" in next_gaps[0]["source_claim"]
+    assert "P05-401" in ledger["next_source_anchor"]
     assert ledger["entries"][0]["gap_id"] == "P01-SRC-GAP-022"
     assert len(ledger["entries"][0]["rule_ids"]) == 47
     summary = json.loads((BASE / "LIFE_P03_SOURCE_READJUDICATION_SUMMARY_v0.1.json").read_text(encoding="utf-8"))
