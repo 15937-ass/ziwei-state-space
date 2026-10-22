@@ -7,7 +7,7 @@ from pathlib import Path
 
 import pytest
 
-from src.product.wang_full_chart_evidence import (
+from src.product.wang_full_chart_materialization import (
     BRANCH_ORDER,
     EXPECTED_CASE_IDS,
     ENGINE_EXPECTED,
@@ -100,6 +100,19 @@ def _synthetic_payload():
                 "readiness_artifact_id": readiness["artifact_id"],
                 "readiness_status": ready["status"],
             },
+            "source_candidate_set": {
+                "source_day_notation": source.get("source_day_notation"),
+                "lunar_day_candidates": source.get("lunar_day_candidates"),
+                "source_time_label": source.get("source_time_label"),
+                "time_index_candidates": source.get("time_index_candidates"),
+                "source_candidate_count": ready.get("source_candidate_count"),
+                "evaluated_candidate_count": ready.get("evaluated_candidate_count"),
+                "anchor_match_count": ready.get("anchor_match_count"),
+                "matched_candidate_ids": ready.get("matched_candidate_ids"),
+                "source_time_ambiguity_preserved": source.get("source_status") == "SOURCE_EXACT_ZI_TIME_AMBIGUITY",
+                "selection_basis": "EXACTLY_ONE_READINESS_ANCHOR_MATCH",
+                "source_time_ambiguity_note": "The source gives unqualified 子时 only; both candidate time indices 0 and 12 remain preserved. The pinned readiness evaluation examined both candidates and found exactly one target-anchor match, T00. This does not erase or resolve the source's original time ambiguity." if case_id == "WANG-CASE-021" else None,
+            },
             "input": {
                 "calendar": "LUNAR",
                 "lunar_year": source["lunar_year"],
@@ -156,8 +169,8 @@ def _synthetic_payload():
     }
     payload = {
         "schema_version": "0.1B",
-        "artifact_id": "WANG_FULL_CHART_BLIND_EVIDENCE_V0_1B",
-        "issue": 586,
+        "artifact_id": "WANG_FULL_CHART_MATERIALIZATION_V0_1B",
+        "issue": 588,
         "corpus_id": signatures["corpus_id"],
         "materialization_level": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
         "engine": ENGINE_EXPECTED,
@@ -215,7 +228,32 @@ def test_full_chart_validator_accepts_only_synthetic_validator_fixture():
     payload, signatures, blind, readiness, source_hashes = _synthetic_payload()
     _validate(payload, signatures, blind, readiness, source_hashes)
     assert tuple(row["case_id"] for row in payload["cases"]) == EXPECTED_CASE_IDS
+    assert payload["issue"] == 588
     assert all(len(row["chart"]["palaces"]) == 12 for row in payload["cases"])
+
+
+def test_full_chart_validator_preserves_case_021_unqualified_zi_time_ambiguity():
+    payload, _, _, _, _ = _synthetic_payload()
+    row = next(case for case in payload["cases"] if case["case_id"] == "WANG-CASE-021")
+    candidate_set = row["source_candidate_set"]
+    assert candidate_set["source_time_label"] == "子"
+    assert candidate_set["time_index_candidates"] == [0, 12]
+    assert candidate_set["source_candidate_count"] == 2
+    assert candidate_set["evaluated_candidate_count"] == 2
+    assert candidate_set["anchor_match_count"] == 1
+    assert candidate_set["matched_candidate_ids"] == ["WANG-CASE-021:D01:T00"]
+    assert candidate_set["source_time_ambiguity_preserved"] is True
+    assert "unqualified 子时" in candidate_set["source_time_ambiguity_note"]
+    assert "T00" in candidate_set["source_time_ambiguity_note"]
+
+
+def test_full_chart_validator_rejects_candidate_set_erasure():
+    payload, signatures, blind, readiness, source_hashes = _synthetic_payload()
+    mutated = copy.deepcopy(payload)
+    row = next(case for case in mutated["cases"] if case["case_id"] == "WANG-CASE-021")
+    row["source_candidate_set"]["time_index_candidates"] = [0]
+    with pytest.raises(ValueError, match="source candidate-set provenance mismatch"):
+        _validate(mutated, signatures, blind, readiness, source_hashes)
 
 
 def test_full_chart_validator_rejects_any_leakage_key():
@@ -270,7 +308,7 @@ def test_materializer_javascript_syntax_when_node_is_available():
     node = shutil.which("node")
     if node is None:
         pytest.skip("Node.js is not available in this test runtime")
-    script = ROOT / "product" / "tools" / "wang_full_chart_materializer.mjs"
+    script = ROOT / "product" / "tools" / "materialize_wang_full_charts.mjs"
     result = subprocess.run(
         [node, "--check", str(script)],
         check=False,

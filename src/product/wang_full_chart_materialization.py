@@ -13,7 +13,7 @@ from typing import Any, Mapping
 
 ROOT = Path(__file__).resolve().parents[2]
 CASE_ROOT = ROOT / "product" / "expert_cases" / "wang_tingzhi"
-FULL_CHART_PATH = CASE_ROOT / "FULL_CHART_BLIND_EVIDENCE_V0_1B.json"
+FULL_CHART_PATH = CASE_ROOT / "FULL_CHART_MATERIALIZATION_V0_1B.json"
 SIGNATURES_PATH = CASE_ROOT / "SOURCE_BIRTH_SIGNATURES_V0_1.json"
 BLIND_PATH = CASE_ROOT / "BLIND_EVIDENCE_V0_1.json"
 READINESS_PATH = CASE_ROOT / "FULL_CHART_RECONSTRUCTION_READINESS_V0_1.json"
@@ -183,10 +183,10 @@ def validate_wang_full_chart_evidence(
     """Validate the full-chart artifact against its three immutable source inputs."""
     if payload.get("schema_version") != "0.1B":
         raise ValueError("full-chart evidence schema_version must be 0.1B")
-    if payload.get("artifact_id") != "WANG_FULL_CHART_BLIND_EVIDENCE_V0_1B":
+    if payload.get("artifact_id") != "WANG_FULL_CHART_MATERIALIZATION_V0_1B":
         raise ValueError("unexpected full-chart evidence artifact_id")
-    if payload.get("issue") != 586:
-        raise ValueError("full-chart evidence must be tracked by Product Issue #586")
+    if payload.get("issue") != 588:
+        raise ValueError("full-chart materialization must be tracked by Product Issue #588")
     if payload.get("corpus_id") != signatures.get("corpus_id"):
         raise ValueError("full-chart corpus_id mismatch")
     if payload.get("materialization_level") != "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED":
@@ -322,8 +322,37 @@ def validate_wang_full_chart_evidence(
             raise ValueError(f"{case_id}: source-input artifact lineage mismatch")
         if source_provenance.get("readiness_artifact_id") != readiness.get("artifact_id"):
             raise ValueError(f"{case_id}: readiness artifact lineage mismatch")
+        if source_provenance.get("readiness_status") != ready.get("status"):
+            raise ValueError(f"{case_id}: readiness status lineage mismatch")
         if source_provenance.get("source_input_candidate_id") != candidate_id:
             raise ValueError(f"{case_id}: candidate ID does not match readiness report")
+
+        source_candidate_set = row.get("source_candidate_set")
+        expected_candidate_set = {
+            "source_day_notation": source_row.get("source_day_notation"),
+            "lunar_day_candidates": source_row.get("lunar_day_candidates"),
+            "source_time_label": source_row.get("source_time_label"),
+            "time_index_candidates": source_row.get("time_index_candidates"),
+            "source_candidate_count": ready.get("source_candidate_count"),
+            "evaluated_candidate_count": ready.get("evaluated_candidate_count"),
+            "anchor_match_count": ready.get("anchor_match_count"),
+            "matched_candidate_ids": ready.get("matched_candidate_ids"),
+            "source_time_ambiguity_preserved": source_row.get("source_status") == "SOURCE_EXACT_ZI_TIME_AMBIGUITY",
+            "selection_basis": "EXACTLY_ONE_READINESS_ANCHOR_MATCH",
+            "source_time_ambiguity_note": "The source gives unqualified 子时 only; both candidate time indices 0 and 12 remain preserved. The pinned readiness evaluation examined both candidates and found exactly one target-anchor match, T00. This does not erase or resolve the source's original time ambiguity." if case_id == "WANG-CASE-021" else None,
+        }
+        if source_candidate_set != expected_candidate_set:
+            raise ValueError(f"{case_id}: source candidate-set provenance mismatch")
+        if case_id == "WANG-CASE-021" and (
+            source_row.get("source_time_label") != "子"
+            or source_row.get("time_index_candidates") != [0, 12]
+            or ready.get("source_candidate_count") != 2
+            or ready.get("evaluated_candidate_count") != 2
+            or ready.get("anchor_match_count") != 1
+            or ready.get("matched_candidate_ids") != ["WANG-CASE-021:D01:T00"]
+            or source_candidate_set.get("source_time_ambiguity_preserved") is not True
+        ):
+            raise ValueError(f"{case_id}: unqualified 子时 ambiguity must remain explicit")
 
         match = re.fullmatch(r"WANG-CASE-(\d{3}):D(\d{2}):T(\d{2})", str(candidate_id or ""))
         if not match or "WANG-CASE-" + match.group(1) != case_id:
@@ -394,6 +423,10 @@ def validate_wang_full_chart_evidence(
             verification.get("status") != "UNIQUE_ANCHOR_MATCH_RECONFIRMED"
             or verification.get("matched") is not True
             or verification.get("target_palace_identity_match") is not target_identity_match
+            or verification.get("expected_target_palace") != anchor.get("target_palace")
+            or verification.get("expected_target_main_stars") != anchor.get("target_palace_main_stars", [])
+            or verification.get("expected_borrowed_opposite_main_stars") != anchor.get("borrowed_from_opposite_main_stars", [])
+            or verification.get("target_palace_empty_main_star") is not empty
             or verification.get("observed_target_palace") != target.get("name")
             or verification.get("observed_target_branch") != target.get("branch")
             or verification.get("observed_target_main_stars") != direct_names
@@ -405,7 +438,7 @@ def validate_wang_full_chart_evidence(
 def load_wang_full_chart_evidence(root: Path = ROOT) -> Mapping[str, Any]:
     """Load and validate the committed artifact and its immutable inputs."""
     case_root = root / "product" / "expert_cases" / "wang_tingzhi"
-    payload = _read_json(case_root / "FULL_CHART_BLIND_EVIDENCE_V0_1B.json")
+    payload = _read_json(case_root / "FULL_CHART_MATERIALIZATION_V0_1B.json")
     signatures = _read_json(case_root / "SOURCE_BIRTH_SIGNATURES_V0_1.json")
     blind = _read_json(case_root / "BLIND_EVIDENCE_V0_1.json")
     readiness = _read_json(case_root / "FULL_CHART_RECONSTRUCTION_READINESS_V0_1.json")

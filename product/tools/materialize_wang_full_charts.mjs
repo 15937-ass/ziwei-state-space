@@ -4,11 +4,11 @@
  *
  * Usage:
  *   npm install --no-save iztro@2.6.1
- *   node product/tools/wang_full_chart_materializer.mjs \
+ *   node product/tools/materialize_wang_full_charts.mjs \
  *     product/expert_cases/wang_tingzhi/SOURCE_BIRTH_SIGNATURES_V0_1.json \
  *     product/expert_cases/wang_tingzhi/BLIND_EVIDENCE_V0_1.json \
  *     product/expert_cases/wang_tingzhi/FULL_CHART_RECONSTRUCTION_READINESS_V0_1.json \
- *     product/expert_cases/wang_tingzhi/FULL_CHART_BLIND_EVIDENCE_V0_1B.json
+ *     product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json
  *
  * This tool only materializes source-bounded lunar inputs whose already-versioned
  * readiness record has exactly one target-anchor match. It does not use biography,
@@ -16,12 +16,14 @@
  */
 import fs from "node:fs";
 import { createHash } from "node:crypto";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { astro } from "iztro";
 
 const [signaturePath, blindPath, readinessPath, outputPath] = process.argv.slice(2);
 if (!signaturePath || !blindPath || !readinessPath || !outputPath) {
   throw new Error(
-    "Usage: node product/tools/wang_full_chart_materializer.mjs " +
+    "Usage: node product/tools/materialize_wang_full_charts.mjs " +
       "SOURCE_BIRTH_SIGNATURES.json BLIND_EVIDENCE.json " +
       "FULL_CHART_RECONSTRUCTION_READINESS.json OUTPUT.json"
   );
@@ -74,6 +76,15 @@ const EXPECTED_INPUT_GIT_BLOBS = {
   blind_anchor: "c5744b4c5278394859e563cbf6a2537c7315546f",
   reconstruction_readiness: "a0ec93c5a17859a64d02eb029837c787c7b12bdf",
 };
+const resolvedEngineEntry = fileURLToPath(import.meta.resolve("iztro"));
+const installedEngineVersion = findPackageVersion(resolvedEngineEntry, "iztro");
+if (installedEngineVersion !== ENGINE.version) {
+  throw new Error(
+    "pinned engine version mismatch: expected iztro " + ENGINE.version +
+    ", observed " + String(installedEngineVersion ?? "unknown")
+  );
+}
+
 const FORBIDDEN_KEYS = new Set([
   "source_subject_label", "source_subject_name", "person_name", "person_group_id",
   "expert_reasoning_graph", "expert_conclusion_refs", "outcome_refs",
@@ -83,6 +94,23 @@ const FORBIDDEN_KEYS = new Set([
 
 function readJson(path) {
   return JSON.parse(fs.readFileSync(path, "utf8"));
+}
+function findPackageVersion(entryPath, packageName) {
+  let current = dirname(entryPath);
+  while (true) {
+    const packagePath = join(current, "package.json");
+    if (fs.existsSync(packagePath)) {
+      try {
+        const metadata = JSON.parse(fs.readFileSync(packagePath, "utf8"));
+        if (metadata.name === packageName) return String(metadata.version ?? "");
+      } catch {
+        // Keep walking upward; only the package whose name matches is authoritative.
+      }
+    }
+    const parent = dirname(current);
+    if (parent === current) return null;
+    current = parent;
+  }
 }
 function sha256(path) {
   return createHash("sha256").update(fs.readFileSync(path)).digest("hex");
@@ -378,6 +406,21 @@ for (const caseId of EXPECTED_CASE_IDS) {
       readiness_artifact_id: readiness.artifact_id,
       readiness_status: readinessRow.status,
     },
+    source_candidate_set: {
+      source_day_notation: sourceRow.source_day_notation ?? null,
+      lunar_day_candidates: sourceRow.lunar_day_candidates,
+      source_time_label: sourceRow.source_time_label ?? null,
+      time_index_candidates: sourceRow.time_index_candidates,
+      source_candidate_count: readinessRow.source_candidate_count,
+      evaluated_candidate_count: readinessRow.evaluated_candidate_count,
+      anchor_match_count: readinessRow.anchor_match_count,
+      matched_candidate_ids: readinessRow.matched_candidate_ids,
+      source_time_ambiguity_preserved: sourceRow.source_status === "SOURCE_EXACT_ZI_TIME_AMBIGUITY",
+      selection_basis: "EXACTLY_ONE_READINESS_ANCHOR_MATCH",
+      source_time_ambiguity_note: caseId === "WANG-CASE-021"
+        ? "The source gives unqualified 子时 only; both candidate time indices 0 and 12 remain preserved. The pinned readiness evaluation examined both candidates and found exactly one target-anchor match, T00. This does not erase or resolve the source's original time ambiguity."
+        : null,
+    },
     input: {
       calendar: "LUNAR",
       lunar_year: candidate.lunar_year,
@@ -406,8 +449,8 @@ for (const caseId of EXPECTED_CASE_IDS) {
 
 const payload = {
   schema_version: "0.1B",
-  artifact_id: "WANG_FULL_CHART_BLIND_EVIDENCE_V0_1B",
-  issue: 586,
+  artifact_id: "WANG_FULL_CHART_MATERIALIZATION_V0_1B",
+  issue: 588,
   corpus_id: signatures.corpus_id,
   materialization_level: "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
   engine: ENGINE,

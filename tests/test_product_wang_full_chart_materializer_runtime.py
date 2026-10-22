@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from src.product.wang_full_chart_evidence import (
+from src.product.wang_full_chart_materialization import (
     EXPECTED_CASE_IDS,
     validate_wang_full_chart_evidence,
 )
@@ -48,9 +48,9 @@ def test_materializer_end_to_end_with_explicit_mock_engine_only(tmp_path):
             "borrowed_from_opposite_main_stars": anchor["borrowed_from_opposite_main_stars"],
         }
 
-    temp_script = tmp_path / "product" / "tools" / "wang_full_chart_materializer.mjs"
+    temp_script = tmp_path / "product" / "tools" / "materialize_wang_full_charts.mjs"
     temp_script.parent.mkdir(parents=True)
-    source_script = ROOT / "product" / "tools" / "wang_full_chart_materializer.mjs"
+    source_script = ROOT / "product" / "tools" / "materialize_wang_full_charts.mjs"
     temp_script.write_text(source_script.read_text(encoding="utf-8"), encoding="utf-8")
 
     module_dir = tmp_path / "node_modules" / "iztro"
@@ -168,6 +168,33 @@ export const astro = {
     )
     assert repeated.returncode == 0, repeated.stderr
     assert output_path.read_bytes() == repeated_output.read_bytes()
+
+    # A version label is not sufficient: the installed package must actually be 2.6.1.
+    package_json_path = module_dir / "package.json"
+    package_metadata = json.loads(package_json_path.read_text(encoding="utf-8"))
+    package_metadata["version"] = "2.6.0"
+    package_json_path.write_text(json.dumps(package_metadata), encoding="utf-8")
+    wrong_version_output = tmp_path / "wrong_engine_version_output.json"
+    wrong_version = subprocess.run(
+        [
+            node,
+            str(temp_script),
+            str(signatures_path),
+            str(blind_path),
+            str(readiness_path),
+            str(wrong_version_output),
+        ],
+        cwd=tmp_path,
+        env=env,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    assert wrong_version.returncode != 0
+    assert "pinned engine version mismatch" in wrong_version.stderr
+    assert not wrong_version_output.exists()
+    package_metadata["version"] = "2.6.1"
+    package_json_path.write_text(json.dumps(package_metadata), encoding="utf-8")
 
     # A runtime engine error must not leave a partial production artifact.
     failing_output = tmp_path / "engine_failure_output.json"

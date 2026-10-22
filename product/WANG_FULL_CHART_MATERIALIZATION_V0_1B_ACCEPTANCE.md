@@ -1,6 +1,6 @@
 # Wang Full-Chart Materialization v0.1B — Acceptance Record
 
-Tracking Issue: #586  
+Tracking Issue: #588  
 Lane: PRODUCT_ONLY  
 Status: **IMPLEMENTATION IN PROGRESS — PINNED-ENGINE ARTIFACT NOT YET GENERATED**
 
@@ -59,7 +59,7 @@ The generated artifact retains engine/source revision, adapter version, input ca
 Intended output:
 
 ```text
-product/expert_cases/wang_tingzhi/FULL_CHART_BLIND_EVIDENCE_V0_1B.json
+product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json
 ```
 
 Each record contains all 12 normalized natal palaces, each with name, stem, branch, body-palace flag, major/minor/adjective stars, and decadal metadata. It also preserves chart-level date/time metadata, soul/body markers, five-elements class, and soul/body palace branches.
