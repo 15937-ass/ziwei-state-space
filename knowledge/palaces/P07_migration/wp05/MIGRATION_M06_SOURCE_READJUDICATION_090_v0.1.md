@@ -13,7 +13,8 @@
 - Chapter-boundary markers (not projection rules): **1** (`M06-590`)
 - Reusable projection rules: **76**
 - `CASE_SUPPORT_ONLY`: **13**, each with a row-level rationale
-- Conditions normalized: **89**; unresolved “前格”/“前述” shorthand: **0**
+- Conditions normalized: **89**; “前格” shorthand expanded: **24**; unresolved “前格”/“前述” shorthand: **0**
+- Source wording ambiguity preserved: **1** (`M06-503`; not a coverage gap)
 - Source locations corrected: **33**
 - Source-resolution changes: **48**
 - Historical `PATH_DEPENDENT_GATE`: **1** (`M06-579`); canonical gates: **0**
@@ -35,10 +36,11 @@ The candidate's labels for M06-567…572, M06-573…578 and M06-587…589 were c
 
 ## Major source adjudications
 
-- **Qisha movement is conditional.** 七杀 alone does not imply relocation. The text names 火铃同度 or 禄马交驰 as movement-related conditions, while the remaining Qisha branches distinguish external authority, instability, gain/loss, and location/occupation scene translations.
-- **Alternatives remain alternatives.** M06-514/515 preserve the distinct 火铃 and 空劫 branches. M06-542 preserves 廉贞化忌 **or** 武曲化忌 plus 煞曜, not a requirement that both transformations co-occur.
+- **Qisha movement is conditional.** 七杀 alone does not imply relocation. The text names 火铃同度（或火铃与命宫同度）或禄马交驰 as movement-related conditions, while the remaining Qisha branches distinguish external authority, instability, gain/loss, and location/occupation scene translations.
+- **Source clauses are not silently rewritten.** M06-514/515 preserve the distinct source groups “火铃” and “空劫” without decomposing them into unsupported single-star OR conditions. M06-542 retains the source wording “廉贞化忌、武曲化忌来会，见煞”; the artifact does not silently change it into an OR branch.
 - **Cross-palace constraints remain explicit.** The 命宫天府 / 天相 conditions are not flattened into generic migration scores. The source's special relation “羊陀夹天相 → 禄存同度且与破军对拱” remains attached to M06-547.
 - **M06-551 preserves textual scope.** The source says “破军、文曲同度，化忌” without explicitly naming the star to which 化忌 attaches; the condition records that ambiguity rather than forcing an unsupported attribution.
+- **M06-503 preserves scan uncertainty.** The scan reads “在迁移宫的驻突发”; the exact wording is uncertain. Only the broad “突发” scene is retained, with no inference of a specific accident or injury.
 - **Specialized skill is a constraint, not a deterministic job title.** Modern technical/craft and historical performing/itinerant scenes remain attributed source translations. The “异邦开家乡菜馆” phrase is an illustrative example, not a guaranteed occupation or business outcome.
 - **Severe event claims remain bounded.** The 13 CASE_SUPPORT_ONLY rows cover source-specific disaster, illness, legal-trouble, accident, or death-away outcomes. None is converted into a deterministic forecast, probability, hazard rate, or interval.
 - **M06-579 is not a personal-history activation gate.** The source orders “迁居异地” and a subsequent major-disaster claim within the same star-system statement. It does not require the system to first observe an already-completed personal relocation before representing that source condition. The historical gate flag is therefore removed; the major-disaster outcome remains CASE_SUPPORT_ONLY.
