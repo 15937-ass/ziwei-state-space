@@ -43,6 +43,7 @@ def test_supplement_ids_provenance_and_canonical_scope():
     assert all(r["source_gap_id"] in {"W05-SG-001", "W05-SG-002", "W05-SG-003"} for r in data)
     litigation = next(r for r in data if r["projection_rule_id"] == "P05-SG-002")
     assert "有煞曜空劫" in litigation["canonical_condition"]
+    assert "煞曜空劫" in litigation["canonical_normalization"]
     assert "刑忌夹印" not in litigation["canonical_condition"]
     assert "廉贞化忌" not in litigation["canonical_condition"]
     assert not ids.intersection({"W05-499", "W05-500", "W05-SG-001", "W05-SG-002", "W05-SG-003"})
