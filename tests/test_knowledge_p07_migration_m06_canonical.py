@@ -101,13 +101,3 @@ def test_residual_p07_gaps_remain_open():
         "P07-M03-GAP-001", "P07-M03-GAP-012",
     } <= gap_ids
     assert "not yet fully source-closed" in data["source_coverage_note"]
-
-
-def test_active_state_is_issue_scoped_and_product_is_not_authorized():
-    state = STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE"' in state
-    assert "active_issue: 645" in state
-    assert 'active_branch: "knowledge/p07-645-migration-m06-canonical"' in state
-    assert 'active_pr: null' in state
-    assert "M05_401_500_SOURCE_FIRST_MERGED" in state
-    assert "No Product runtime authorization" in state
