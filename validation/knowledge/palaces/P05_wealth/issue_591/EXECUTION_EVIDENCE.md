@@ -6,7 +6,7 @@
 - Source: SRC-ZZ-003, 《中州派紫微斗数深造讲义（下册）》 printed pp79–81 (PDF pages 40–41)
 - Candidate: validation/wp05/W05_wealth_projection_review_401_500.csv — noncanonical indexing input only
 - Directly rechecked: 100/100 rows (W05-401…W05-500)
-- Source-resolution changes: 94 rows
+- Source-resolution changes: 15 rows
 - Unresolved source-text uncertainty: 0
 - Direct page-image repairs: 12 rows (W05-406, W05-411, W05-422, W05-450, W05-452, W05-461, W05-466, W05-467, W05-468, W05-478, W05-480, W05-500)
 - Time scope: 0 DECADE, 0 YEAR; all row time layers NATAL
