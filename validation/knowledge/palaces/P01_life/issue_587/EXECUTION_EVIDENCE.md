@@ -16,6 +16,7 @@ Lane: KNOWLEDGE_ONLY / shard P01
 - 114 new canonical records total
 - 101 reusable; 13 CASE_SUPPORT_ONLY
 - P03-222 and P03-287 reuse existing A2-R1/history semantics
+- Independent source-schema review preserves P03-231's local 丁年同阴 context without inventing a fixed spouse-palace dependency; P01-SG-087 records “天同与天梁相对” as an opposite-palace dependency, not a generic cross-palace link
 - no new shared semantic primitive, memory type, independent time scale, weight, probability, or decay
 
 ## Validation
