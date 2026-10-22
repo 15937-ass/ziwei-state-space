@@ -24,12 +24,12 @@ The current resolver emits palace-bound `PALACE_HAS_STAR` facts for named stars 
 
 The earlier prepared branch accidentally substituted TP04-319 for the live Issue #583 nomination TP03-253. This revision follows the exact five IDs in Issue #583 and the canonical TP03 source row/readjudication/time-scope artifacts. TP04-319 remains a canonical source rule but is outside this bounded work unit.
 
-## Explicit exclusions retained
+## Explicit non-mapped rows retained (including scope-only deferral)
 
 | Rule | Disposition |
 |---|---|
 | TP01-018 | `独坐` requires exclusivity/absence semantics, not simple presence |
-| TP02-139 | Acquisition wording has a 天梁对拱 relation; reserve for relation mapping |
+| TP02-139 | Outside this exact five-ID nomination. Its canonical condition is direct `天同守田宅宫`; it is not blocked by the presence atom. Do not conflate it with the separate TP02-163 Tianliang-opposition comparison, which belongs in later relation mapping. |
 | TP02-170 | Preserve source glyph uncertainty around `破组`; do not normalize silently |
 | TP03-261 | Preserve literal `中年后` and surrounding source scope; reserve for context/time mapping |
 | TP03-275 | The projection includes a 化忌 strengthening clause |
