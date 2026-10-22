@@ -31,7 +31,12 @@ Lane: KNOWLEDGE_ONLY / shard P10
 ## Validation plan
 
 - Current-main canonical rows, source-readjudication records, and source-time-scope sidecars: **PASS 6/6** at activation.
-- Mapping JSON parse, exact six-ID census, exclusion/exception ledger reconciliation, resolver fact-shape tests, Python syntax, changed-path allowlist, and P0-auditor impact checks are required before PR.
+- Mapping JSON parse and exact six-ID census: **PASS**.
+- Canonical CSV ↔ source-readjudication ↔ source-time-scope reconciliation: **PASS 6/6**; separate exception ledger matches canonical rows: **PASS 5/5**.
+- Existing atom shape and resolver emitter source inspection: **PASS**; regression test asserts the resolver emits each exact palace-bound fact (runtime test execution remains pending CI).
+- Python syntax parse of the current test source: **PASS**.
+- Changed-path census: **PASS 5/5**; all changed paths fall within the P10 state, P10 WP07A artifacts, P10 validation, and P10 test allowlist.
+- P0-auditor impact inspection: **PASS**; the four new artifact/test stems are not referenced by `src/audit_repository.py`.
 - Full repository pytest has not yet run for this new unit.
 - Public-runner PR quality gate must pass on the exact head before merge; do not report a pass until completed.
 
