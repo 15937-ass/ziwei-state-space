@@ -18,6 +18,11 @@ SIGNATURES_PATH = CASE_ROOT / "SOURCE_BIRTH_SIGNATURES_V0_1.json"
 BLIND_PATH = CASE_ROOT / "BLIND_EVIDENCE_V0_1.json"
 READINESS_PATH = CASE_ROOT / "FULL_CHART_RECONSTRUCTION_READINESS_V0_1.json"
 
+EXPECTED_SOURCE_GIT_BLOB_SHAS = {
+    "source_signatures": "83800555169c4225427dbc35ae50e4ec21cf2257",
+    "blind_anchor": "c5744b4c5278394859e563cbf6a2537c7315546f",
+    "reconstruction_readiness": "a0ec93c5a17859a64d02eb029837c787c7b12bdf",
+}
 EXPECTED_CASE_IDS = (
     "WANG-CASE-001",
     "WANG-CASE-003",
@@ -211,6 +216,8 @@ def validate_wang_full_chart_evidence(
         if not isinstance(ref, Mapping) or ref.get("artifact_id") != artifact_id:
             raise ValueError(f"source artifact reference mismatch: {key}")
         digest = _check_digest(ref.get("sha256"), f"source_artifacts.{key}.sha256")
+        if ref.get("git_blob_sha") != EXPECTED_SOURCE_GIT_BLOB_SHAS[key]:
+            raise ValueError(f"source artifact Git blob version changed: {key}")
         if source_hashes is not None and digest != source_hashes.get(key):
             raise ValueError(f"source artifact digest mismatch: {key}")
 
@@ -402,11 +409,17 @@ def load_wang_full_chart_evidence(root: Path = ROOT) -> Mapping[str, Any]:
     signatures = _read_json(case_root / "SOURCE_BIRTH_SIGNATURES_V0_1.json")
     blind = _read_json(case_root / "BLIND_EVIDENCE_V0_1.json")
     readiness = _read_json(case_root / "FULL_CHART_RECONSTRUCTION_READINESS_V0_1.json")
-    source_hashes = {
-        "source_signatures": _sha256(case_root / "SOURCE_BIRTH_SIGNATURES_V0_1.json"),
-        "blind_anchor": _sha256(case_root / "BLIND_EVIDENCE_V0_1.json"),
-        "reconstruction_readiness": _sha256(case_root / "FULL_CHART_RECONSTRUCTION_READINESS_V0_1.json"),
+    source_paths = {
+        "source_signatures": case_root / "SOURCE_BIRTH_SIGNATURES_V0_1.json",
+        "blind_anchor": case_root / "BLIND_EVIDENCE_V0_1.json",
+        "reconstruction_readiness": case_root / "FULL_CHART_RECONSTRUCTION_READINESS_V0_1.json",
     }
+    for key, path in source_paths.items():
+        raw = path.read_bytes()
+        git_blob_sha = hashlib.sha1(b"blob " + str(len(raw)).encode("ascii") + b"\\0" + raw).hexdigest()
+        if git_blob_sha != EXPECTED_SOURCE_GIT_BLOB_SHAS[key]:
+            raise ValueError(f"source artifact Git blob version changed: {key}")
+    source_hashes = {key: _sha256(path) for key, path in source_paths.items()}
     validate_wang_full_chart_evidence(
         payload, signatures, blind, readiness, source_hashes=source_hashes
     )
