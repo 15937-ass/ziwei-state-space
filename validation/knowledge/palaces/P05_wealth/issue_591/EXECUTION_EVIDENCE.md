@@ -27,7 +27,7 @@
 - The three source claims not represented by the bounded candidate are preserved as explicit local source-coverage gaps rather than invented rule IDs.
 
 ## Validation state
-- Replacement PR: #PENDING, based on current main `11cbd21a38f593fbc75bf0d0c49eb1f02fba4191`.
+- Replacement PR: #621, based on current main `11cbd21a38f593fbc75bf0d0c49eb1f02fba4191`.
 - Exact-head GitHub Actions gate: PENDING for the current PR head; rerun is required after any further file/state update.
 - Required before merge: full repository tests, Product JS adapter syntax check, deterministic P0 audit, and G12 governance validation on the exact final head. Do not merge until the active P01/P10 main-moving PRs settle and latest main is rechecked.
 - Empirical validity remains separate from source fidelity; no traditional claim is represented as an empirically calibrated probability.
