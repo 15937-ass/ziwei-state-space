@@ -102,6 +102,26 @@ METRIC_DEFINITIONS: dict[str, dict[str, Any]] = {
         "definition": "A comparison score between eligible blind machine InferenceTrace outputs and source-demonstrated expert reasoning graphs.",
         "source_roles": ["readiness", "scope_review"],
     },
+    "critical_evidence_recall": {
+        "definition": "Recall of source-supported expert-critical evidence in an eligible blind machine trace.",
+        "source_roles": ["scope_review", "readiness"],
+    },
+    "wrong_evidence_selection": {
+        "definition": "Rate or count of selected evidence that is not supported by the held-out case's permitted input evidence.",
+        "source_roles": ["scope_review", "readiness"],
+    },
+    "next_action_and_branch_choice": {
+        "definition": "Compatibility of the machine's next action and branch choice with the source-demonstrated expert reasoning graph under its permitted partial order.",
+        "source_roles": ["scope_review", "readiness"],
+    },
+    "time_depth_choice": {
+        "definition": "Compatibility of the selected natal/decade/year time depth with the source-demonstrated expert reasoning graph.",
+        "source_roles": ["scope_review", "readiness"],
+    },
+    "stop_abstention_and_partial_order_compatibility": {
+        "definition": "Compatibility of terminal STOP/ABSTAIN decisions and trace ordering with the source-demonstrated expert reasoning graph.",
+        "source_roles": ["scope_review", "readiness"],
+    },
 }
 
 def _git_blob_sha(raw: bytes) -> str:
@@ -316,6 +336,43 @@ def _build_report(
             "case_count": case_count,
             "method_pattern_count": pattern_count,
             "assessment_count": assessment_count,
+            "asset_accounting": [
+                {
+                    "metric_id": "expert_replay_readiness",
+                    "asset_kind": "Wang expert replay cases",
+                    "eligible_assets": case_count,
+                    "covered_assets": replay_ready,
+                    "blocked_assets": case_count - replay_ready,
+                    "disposition": "BLOCKED",
+                    "status": "FULL_EXPERT_REPLAY_NOT_READY",
+                    "coverage_definition": "A case counts as covered only when the runtime can emit a source-grounded blind InferenceTrace eligible for comparison with its ExpertReasoningGraph; retrieval/action-selection readiness alone does not count.",
+                    "evidence_refs": ["product/WANG_METHOD_POLICY_READINESS_v0.3.json"],
+                },
+                {
+                    "metric_id": "method_scope_binding",
+                    "asset_kind": "Case × MethodPattern source-scope assessments",
+                    "eligible_assets": assessment_count,
+                    "covered_assets": assessment_count,
+                    "blocked_assets": 0,
+                    "disposition": "MEASURED",
+                    "status": "SOURCE_SCOPE_REVIEW_COMPLETE_NOT_METHOD_FIDELITY_SCORE",
+                    "coverage_definition": "Coverage means the source-bounded scope review assessed every case-pattern pair; it does not mean a binding was justified or expert-method fidelity was measured.",
+                    "evidence_refs": ["product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json"],
+                },
+            ],
+            "blocker_accounting": {
+                "empty_registry_blockers": {
+                    "disposition": "NOT_APPLICABLE",
+                    "count": 0,
+                    "reason": "Temporal-response and manifestation registries are reported under Canonical Fidelity; they are not the direct blocker for the current Wang method replay.",
+                },
+                "knowledge_dependency_blockers": {
+                    "disposition": "NOT_APPLICABLE",
+                    "count": 0,
+                    "reason": "The current expert replay is blocked by chart materialization, case-target method scope, and runtime evidence status rather than the Kr/M0 registry dependencies.",
+                },
+                "replay_blocker_classes": readiness_summary["remaining_blocker_classes"],
+            },
             "scope_review": {
                 "exact_target_domain_matches": review_summary["exact_target_domain_matches"],
                 "explicit_case_to_pattern_source_links": review_summary["explicit_case_to_pattern_source_links"],
@@ -335,30 +392,35 @@ def _build_report(
             },
             "score_dimensions": {
                 "critical_evidence_recall": {
+                    "metric_id": "critical_evidence_recall",
                     "disposition": "BLOCKED",
                     "value": None,
                     "reason": "No eligible full expert replay traces are available for comparison.",
                     "evidence_refs": ["product/WANG_METHOD_POLICY_READINESS_v0.3.json"],
                 },
                 "wrong_evidence_selection": {
+                    "metric_id": "wrong_evidence_selection",
                     "disposition": "BLOCKED",
                     "value": None,
                     "reason": "No eligible full expert replay traces are available for comparison.",
                     "evidence_refs": ["product/WANG_METHOD_POLICY_READINESS_v0.3.json"],
                 },
                 "next_action_and_branch_choice": {
+                    "metric_id": "next_action_and_branch_choice",
                     "disposition": "BLOCKED",
                     "value": None,
                     "reason": "No justified case-target MethodPattern bindings exist in the accepted scope review.",
                     "evidence_refs": ["product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json"],
                 },
                 "time_depth_choice": {
+                    "metric_id": "time_depth_choice",
                     "disposition": "BLOCKED",
                     "value": None,
                     "reason": "No eligible full expert replay traces are available for comparison.",
                     "evidence_refs": ["product/WANG_METHOD_POLICY_READINESS_v0.3.json"],
                 },
                 "stop_abstention_and_partial_order_compatibility": {
+                    "metric_id": "stop_abstention_and_partial_order_compatibility",
                     "disposition": "BLOCKED",
                     "value": None,
                     "reason": "Current INSPECT-to-ABSTAIN traces demonstrate fail-closed behavior only; they do not measure fidelity to a fully replayable expert graph.",
@@ -418,6 +480,19 @@ def validate_fidelity_benchmark_report(report: Mapping[str, Any]) -> None:
     method = report.get("expert_method_fidelity", {})
     if overall.get("combined_fidelity_score") is not None:
         raise ValueError("baseline report must not emit a combined fidelity score")
+    definitions = report.get("metric_definitions", {})
+    for asset in canonical.get("asset_accounting", []):
+        if asset.get("metric_id") not in definitions:
+            raise ValueError("every canonical asset metric must have a definition")
+    for dimension in canonical.get("dimensions", {}).values():
+        if dimension.get("metric_id") not in definitions:
+            raise ValueError("every canonical dimension must have a definition")
+    for asset in method.get("asset_accounting", []):
+        if asset.get("metric_id") not in definitions:
+            raise ValueError("every expert-method asset metric must have a definition")
+    for dimension in method.get("score_dimensions", {}).values():
+        if dimension.get("metric_id") not in definitions:
+            raise ValueError("every expert-method score dimension must have a definition")
     if canonical.get("score") is not None:
         raise ValueError("canonical fidelity score is not produced by this readiness baseline")
     if method.get("score") is not None:
