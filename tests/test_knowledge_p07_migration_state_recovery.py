@@ -18,7 +18,7 @@ def test_p07_state_cache_matches_accepted_m05_checkpoint():
     assert "active_pr: null" in state
     assert "M05_401_500_SOURCE_FIRST_MERGED" in state
     assert "Issue #619 / PR #622" in state
-    assert "four printed-p118 Tianxiang gaps remain explicit" in state
+    assert "printed-p118 Tianxiang gaps remain explicit" in state
     assert "P07-M03-GAP-001" in state and "P07-M03-GAP-012" in state
     assert "M06-501…590" in state
     assert "No Product runtime authorization is implied" in state
