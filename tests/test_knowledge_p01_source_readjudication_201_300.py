@@ -65,6 +65,9 @@ def test_tian_tong_source_gap_closed():
     assert [r["projection_rule_id"] for r in rows] == [f"P01-SG-{i:03d}" for i in range(78, 94)]
     assert set(r["source_gap_id"] for r in rows) == {"P01-SRC-GAP-022"}
     assert sum(r["case_support_only"] == "true" for r in rows) == 2
+    by_id = {r["projection_rule_id"]: r for r in rows}
+    assert by_id["P01-SG-087"]["opposite_palace_dependency"] == "天梁"
+    assert by_id["P01-SG-087"]["cross_palace_dependency"] == ""
     assert any("年运枢纽" in r["source_literal_claim"] for r in rows)
     assert any("年限枢纽" in r["source_literal_claim"] for r in rows)
 
