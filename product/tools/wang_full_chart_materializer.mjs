@@ -306,8 +306,7 @@ for (const caseId of EXPECTED_CASE_IDS) {
   const anchor = blindById.get(caseId);
   const readinessRow = readinessById.get(caseId);
   if (!sourceRow || !anchor || !readinessRow) throw new Error(caseId + ": required input row missing");
-  if (sourceRow.source_chart_span_ref !== anchor.source_chart_span_ref &&
-      sourceRow.source_chart_span_ref !== anchor.source_chart_span_ref) {
+  if (sourceRow.source_chart_span_ref !== anchor.source_chart_span_ref) {
     throw new Error(caseId + ": source span mismatch across source/anchor artifacts");
   }
   const candidate = candidateFor(sourceRow, readinessRow);
