@@ -8,21 +8,22 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "SOURCE_REVIEW_IN_PROGRESS"
+  status: "SOURCE_REVIEW_COMPLETE_VALIDATION_PENDING"
   active_issue: 591
   active_branch: "knowledge/p05-591-wealth-w05-canonical"
   active_pr: null
-  canonical_checkpoint: "W01_001_100_MERGED__W02_101_200_MERGED__W03_201_300_MERGED__W04_301_400_SOURCE_RECHECKED"
+  canonical_checkpoint: "W01_001_100_MERGED__W02_101_200_MERGED__W03_201_300_MERGED__W04_301_400_MERGED__W05_401_500_DIRECT_SOURCE_RECHECKED"
   merged_rule_count: 400
-  reviewed_rule_count: 400
+  reviewed_rule_count: 500
   current_batch_rule_count: 100
-  source_resolution_change_count_current_batch: 0
+  source_resolution_change_count_current_batch: 97
   source_uncertainty_count_current_batch: 0
-  visual_source_resolution_count_current_batch: 0
+  visual_source_resolution_count_current_batch: 29
   non_natal_source_count_current_batch: 0
-  path_dependent_gate_count_current_batch: 0
-  note: "W05-401..500 is now the active source-first re-adjudication unit against SRC-ZZ-003 printed pp79-81. Candidate source-span verification is only an indexing aid, not canonical approval. W01-W04 are merged/source-rechecked through W04-400; W05 source, time-scope, gap and path counts remain pending direct review."
-
+  path_dependent_gate_count_current_batch: 10
+  source_coverage_gap_count_current_batch: 1
+  note: "W05-401..500 directly source-rechecked against SRC-ZZ-003 printed pp79-81. All rules remain NATAL; 10 PATH_DEPENDENT_GATE sequences are preserved. 29 extraction surfaces were resolved by direct PDF page-image inspection. One clear source sentence (巳亥天同化忌 plus 命宫巨门化忌→劳心费力、求财多是非) is absent from the historical candidate ID range and is explicitly reserved for follow-up; no source-text uncertainty or Core gap remains."
+  
 integrity:
   source_first: true
   shared_semantics_must_escalate_to_core: true
