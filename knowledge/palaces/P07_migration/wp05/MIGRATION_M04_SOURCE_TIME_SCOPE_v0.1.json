@@ -1,0 +1,134 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P07-MIGRATION-M04-SOURCE-TIME-SCOPE-v0.1",
+  "issue": 601,
+  "source_id": "SRC-ZZ-003",
+  "chapter": "迁移宫",
+  "source_basis": {
+    "work": "中州派紫微斗数深造讲义（下册）",
+    "printed_pages": "115–117",
+    "pdf_scan_pages": [
+      58,
+      59
+    ]
+  },
+  "chapter_scope": {
+    "source_statement": "本篇所论大致可通用于星盘、大运、流年以及流月；星盘迁移宫为本质，大运流年等迁移宫为本质的反应。",
+    "source_layers": [
+      "NATAL",
+      "DECADE",
+      "YEAR",
+      "MONTH"
+    ],
+    "semantic_roles": {
+      "NATAL": "BASELINE_NATURE",
+      "DECADE": "TEMPORAL_REACTION",
+      "YEAR": "TEMPORAL_REACTION",
+      "MONTH": "TEMPORAL_REACTION_OR_TRAVEL_CONTEXT"
+    },
+    "runtime_note": "Chapter-level applicability does not itself grant executable eligibility to each star-system record."
+  },
+  "event_relative_overlay": {
+    "rule_id": "M01-004",
+    "overlay_id": "MIGRATION_FIRST_THREE_YEARS",
+    "human_gate": "HG-P07-TEMPORAL-01-A",
+    "trigger": "confirmed distant relocation/settlement",
+    "active_year_index": [
+      1,
+      2,
+      3
+    ],
+    "migration_role": "PRIMARY for relocation trend only",
+    "preserved_role": "ordinary annual Life-Palace rotation for other palace domains",
+    "seventh_calendar_layer": false,
+    "generic_event_timer": false,
+    "change_in_M04": false
+  },
+  "default_star_system_records": {
+    "ids": "M04-301..M04-400",
+    "primary_storage_layer": "NATAL",
+    "source_scope_relation": "NATAL defines baseline star-system nature; moved-period palace configurations remain reactions under the chapter-level multi-layer rule.",
+    "runtime_eligibility_granted": false
+  },
+  "special_records": [
+    {
+      "projection_rule_id": "M04-301..M04-324",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "NATAL_TAIYIN_BRANCHES_SOURCE_PRINTED_P115"
+    },
+    {
+      "projection_rule_id": "M04-325",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "YEAR_BRANCH_OF_ONE_COMPOUND_TAIYIN_HUAJI_SOURCE_CLAUSE"
+    },
+    {
+      "projection_rule_id": "M04-326",
+      "source_time_layers": [
+        "DECADE"
+      ],
+      "scope_status": "DECADE_BRANCH_OF_THE_SAME_COMPOUND_TAIYIN_HUAJI_SOURCE_CLAUSE"
+    },
+    {
+      "projection_rule_id": "M04-327..M04-367",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "NATAL_SOLAR_TANLANG_BRANCHES"
+    },
+    {
+      "projection_rule_id": "M04-368",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "EXPLICIT_FLOWING_TANLANG_YEAR_CLAUSE"
+    },
+    {
+      "projection_rule_id": "M04-369..M04-387",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "NATAL_JUMEN_BRANCHES"
+    },
+    {
+      "projection_rule_id": "M04-388",
+      "source_time_layers": [
+        "DECADE"
+      ],
+      "scope_status": "DECADE_UNFAVORABLE_MODIFIER_OF_JUMEN_SIWU_SOLAR_BASE"
+    },
+    {
+      "projection_rule_id": "M04-389",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "YEAR_UNFAVORABLE_MODIFIER_OF_THE_SAME_JUMEN_SIWU_SOLAR_BASE"
+    },
+    {
+      "projection_rule_id": "M04-390..M04-400",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "NATAL_JUMEN_BRANCHES"
+    }
+  ],
+  "path_dependent_gate_audit": {
+    "historical_flags": [
+      "M04-328",
+      "M04-349"
+    ],
+    "canonical_flags": [],
+    "history_feedback_rows": 0,
+    "rationale": "Both statements describe sequence inside a traditional conditional claim; neither requires an observed prior user event as an activation gate."
+  },
+  "quantitative_semantics": {
+    "new_time_scale": 0,
+    "weight": 0,
+    "probability": 0,
+    "decay": 0
+  },
+  "source_coverage_note": "Three p117 Jumen claims remain source gaps. M03 gaps are explicitly mapped to M04 rows where supported; two unrelated M03 gaps are carried forward."
+}
