@@ -53,6 +53,8 @@ def test_gap_ledger_closes_only_supported_claims():
     assert entries["W05-SG-002"]["status"] == "PARTIALLY_RESOLVED"
     assert entries["W05-SG-002"]["rule_ids"] == ["P05-SG-003"]
     assert len(entries["W05-SG-002"]["unresolved_claims"]) == 2
+    assert "有是非词不达意讼" in entries["W05-SG-002"]["unresolved_claims"][0]
+    assert "有是非词讼" in entries["W05-SG-002"]["unresolved_claims"][0]
     assert entries["W05-SG-003"]["status"] == "CLOSED_BY_NEW_CANONICAL_RULES"
     assert entries["W05-SG-003"]["rule_ids"] == ["P05-SG-004"]
     assert ledger["rule_count"] == 4
