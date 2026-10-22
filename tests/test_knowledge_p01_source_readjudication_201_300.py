@@ -44,11 +44,12 @@ def test_p03_time_scope_keeps_source_words():
     data = json.loads((BASE / "LIFE_P03_SOURCE_TIME_SCOPE_v0.1.json").read_text(encoding="utf-8"))
     rows = {r["projection_rule_id"]: r for r in data["records"]}
     assert len(rows) == 100
-    assert rows["P03-212"]["source_time_expression"] == "大限流年"
-    assert rows["P03-228"]["source_time_expression"] == "流年或大限"
+    assert rows["P03-212"]["source_time_expression"] == "无论大限流年均如是"
+    assert rows["P03-228"]["source_time_expression"] == "无论流年或大限"
     assert rows["P03-232"]["source_time_expression"] == "年运"
     assert rows["P03-231"]["source_time_expression"] == "天相运"
-    assert rows["P03-274"]["source_time_expression"] == "行至宫垣"
+    assert rows["P03-274"]["source_time_expression"] == "行至天同宫垣"
+    assert rows["P03-275"]["source_time_expression"] == "至武曲宫垣"
     assert rows["P03-280"]["source_time_expression"] == "枢纽"
     assert rows["P03-282"]["source_time_expression"] == "大运流年"
     assert rows["P03-297"]["source_time_expression"] == "流年大限"
