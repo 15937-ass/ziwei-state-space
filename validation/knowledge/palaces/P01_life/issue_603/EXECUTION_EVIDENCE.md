@@ -1,4 +1,4 @@
-# Execution evidence — issue #603 / PR #PENDING
+# Execution evidence — issue #603 / PR #620
 
 ## Source review performed
 
