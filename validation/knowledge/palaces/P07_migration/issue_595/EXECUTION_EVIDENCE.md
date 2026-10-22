@@ -28,11 +28,11 @@
 - canonical-condition normalization: 97 rows
 - bounded substantive source-resolution changes: 34 rows
 - source text uncertainty preserved: M03-233
-- explicit source-coverage gaps: 11
+- explicit source-coverage gaps: 12
 - overlap groups: 20
 
 ## Required source repairs
-- M03-233: preserve the anomalous scan wording “贞归三” without confident reconstruction.
+- M03-233: preserve the anomalous scan wording “贞归三” without confident reconstruction; keep uncertainty out of the semantic target and record the uncovered favorable 财荫夹 branch as GAP-012.
 - M03-265: do not force Tuo Luo and Tian Yue to co-occur; the source's “天月同度则带病回乡” is kept as its own branch.
 - M03-266: keep “煞忌刑重” as the source's broad severe modifier, not a forced Tuo Luo + Tian Yue conjunction.
 - M03-270/271: preserve the source's listed alternative Tianxiang clamp structures.
