@@ -8,17 +8,17 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "ACTIVE_PR_VALIDATION"
-  active_issue: 574
-  active_branch: "knowledge/p01-574-life-source-gap-closure"
-  active_pr: 577
+  status: "ACTIVE_SOURCE_FIRST_REVIEW"
+  active_issue: 587
+  active_branch: "knowledge/p01-587-life-canonical-201-300"
+  active_pr: null
   canonical_checkpoint: "P01_SOURCE_GAP_SUPPLEMENT_PP5_9"
-  note: "PR #577 adds the source-gap supplement after PR #571. The pre-rebase full quality gate passed on head 9472bbd031756c74fd0e0eeb85257175c80c3559; the branch is being rebased onto current main and must pass a final gate before merge. GitHub Issue/PR state overrides this cache."
+  note: "PR #577 merged the prior 77-record source-gap supplement. Main now has 277 P01 canonical records; this issue source-rechecks P03-201..300 and fills the omitted Tian Tong lines 358-385 before the next PR. Automatic push workflows remain prohibited."
 
 progress:
-  canonical_source_records_on_main: 200
-  canonical_source_records_ready_on_branch: 277
-  cumulative_after_merge: 277
+  canonical_source_records_on_main: 277
+  canonical_source_records_ready_on_branch: 391
+  cumulative_after_merge: 391
   cumulative_reusable_projection_rules_after_merge: 213
   cumulative_case_support_only_after_merge: 64
   prior_gap_ids_reviewed: 21
