@@ -1,0 +1,103 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P07-MIGRATION-M03-SOURCE-TIME-SCOPE-v0.1",
+  "issue": 595,
+  "source_id": "SRC-ZZ-003",
+  "chapter": "迁移宫",
+  "source_basis": {
+    "work": "中州派紫微斗数深造讲义（下册）",
+    "printed_pages": "113–116",
+    "pdf_scan_pages": [
+      57,
+      58
+    ]
+  },
+  "chapter_scope": {
+    "source_statement": "本篇所论大致可通用于星盘、大运、流年以及流月；星盘迁移宫为本质，大运流年等迁移宫为本质的反应。",
+    "source_layers": [
+      "NATAL",
+      "DECADE",
+      "YEAR",
+      "MONTH"
+    ],
+    "semantic_roles": {
+      "NATAL": "BASELINE_NATURE",
+      "DECADE": "TEMPORAL_REACTION",
+      "YEAR": "TEMPORAL_REACTION",
+      "MONTH": "TEMPORAL_REACTION_OR_TRAVEL_CONTEXT"
+    },
+    "runtime_note": "Chapter-level applicability does not itself grant executable eligibility to each star-system record."
+  },
+  "event_relative_overlay": {
+    "rule_id": "M01-004",
+    "overlay_id": "MIGRATION_FIRST_THREE_YEARS",
+    "human_gate": "HG-P07-TEMPORAL-01-A",
+    "trigger": "confirmed distant relocation/settlement",
+    "active_year_index": [
+      1,
+      2,
+      3
+    ],
+    "migration_role": "PRIMARY for relocation trend only",
+    "preserved_role": "ordinary annual Life-Palace rotation for other palace domains",
+    "seventh_calendar_layer": false,
+    "generic_event_timer": false,
+    "change_in_M03": false
+  },
+  "default_star_system_records": {
+    "ids": "M03-201..M03-300",
+    "primary_storage_layer": "NATAL",
+    "source_scope_relation": "NATAL defines baseline star-system nature; moved-period palace configurations remain reactions under the chapter-level multi-layer rule.",
+    "runtime_eligibility_granted": false
+  },
+  "special_records": [
+    {
+      "projection_rule_id": "M03-201..M03-237",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "STAR_SYSTEM_BASELINE"
+    },
+    {
+      "projection_rule_id": "M03-238",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "EXPLICIT_ANNUAL_TRIGGER_WITHIN_LIANPO_TRAFFIC_BRANCH"
+    },
+    {
+      "projection_rule_id": "M03-239",
+      "source_time_layers": [
+        "YEAR"
+      ],
+      "scope_status": "SAME_ANNUAL_TRIGGER_WITH_SOURCE_OUTCOME_QUALIFIER_NOT_A_SEPARATE_TIMER"
+    },
+    {
+      "projection_rule_id": "M03-240..M03-300",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "STAR_SYSTEM_BASELINE"
+    }
+  ],
+  "uncovered_source_time_claims": [
+    {
+      "gap_id": "P07-M03-GAP-010",
+      "source_location": "SRC-ZZ-003 printed p116",
+      "source_time_layers": [
+        "DECADE",
+        "YEAR"
+      ],
+      "source_literal_claim": "太阴化忌，受流年大运化忌冲起，双陀罗或双擎羊同躔，或两重羊陀夹，更见虚耗诸曜，决主在外横生是非，祸患起于突然。",
+      "scope_status": "SOURCE_COVERAGE_GAP_NOT_PROMOTED",
+      "runtime_eligibility_granted": false
+    }
+  ],
+  "quantitative_semantics": {
+    "new_time_scale": 0,
+    "weight": 0,
+    "probability": 0,
+    "decay": 0
+  },
+  "source_coverage_note": "Source claims not mapped by the 100 historical candidate IDs are kept in the readjudication gap ledger; no new M03 IDs or temporal semantics are invented."
+}
