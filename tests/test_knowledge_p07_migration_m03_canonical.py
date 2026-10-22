@@ -87,6 +87,7 @@ def test_lexical_uncertainty_is_preserved():
     m = records_by_id()["M03-233"]
     assert "source_text_uncertainty" in m
     assert "贞归三" in m["source_text_uncertainty"]
+    assert m["canonical_projection_target"] == "external_setbacks_and_unsmooth_progress"
     assert m["disposition"] == "SOURCE_TEXT_UNCERTAINTY_PRESERVED"
 
 def test_overlap_groups_cover_required_source_clauses():
@@ -112,9 +113,9 @@ def test_overlap_groups_cover_required_source_clauses():
 def test_source_coverage_gaps_are_explicit_and_not_promoted():
     d = load(READJ)
     gaps = d["source_coverage_gaps"]
-    assert len(gaps) == d["summary"]["source_coverage_gap_count"] == 11
+    assert len(gaps) == d["summary"]["source_coverage_gap_count"] == 12
     claims = " ".join(g["source_literal_claim"] for g in gaps)
-    for term in ["辅弼","魁钺","火铃","羊陀","随娘改嫁","太阴与天同","太阴天机","流年大运化忌冲起"]:
+    for term in ["财荫夹","辅弼","魁钺","火铃","羊陀","随娘改嫁","太阴与天同","太阴天机","流年大运化忌冲起"]:
         assert term in claims
     assert all(g["status"].startswith("SOURCE_COVERAGE_GAP") for g in gaps)
     assert not any("projection_rule_id" in g for g in gaps)
