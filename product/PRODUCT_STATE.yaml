@@ -4,21 +4,21 @@ authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  status: "ACTIVE_NO_ACTIVE_WORK"
+  status: "ACTIVE"
   phase: "PL3_METHOD_RESPONSE_VERTICAL_SLICE"
-  active_issue: null
-  active_pr: null
+  active_issue: 586
+  active_pr: 586
   next_work_unit: "WANG_FULL_CHART_MATERIALIZATION_V0_1B"
-  resume_entry: "Product #545 / PR #554 establishes a source-bounded Wang full-chart reconstruction readiness layer. Visual source review yields 24 cases: 22 source-usable, 2 hard source blockers, 37 bounded candidate inputs. The pinned iztro 2.6.1 Zhongzhou lunar probe evaluated all 37 candidates with zero engine-unsupported cases against the independent target-palace major-star anchor. Result: 11 UNIQUE_ANCHOR_MATCH (001,003,006,009,010,012,013,015,019,021,023), 6 MULTIPLE_ANCHOR_MATCH (002,008,014,018,020,022), 5 NO_ANCHOR_MATCH (005,007,011,017,024), 2 BLOCKED_SOURCE_INCOMPLETE (004,016). Only the 11 unique rows are eligible for SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED full-chart artifacts; this is not full-source-chart equivalence. No ambiguous candidate was collapsed and no Human Gate was required. Immediate next Product work is WANG_FULL_CHART_MATERIALIZATION_V0_1B."
-  state_cache_as_of_main_commit: "e236066167b36750c896cef7167d14b2f992b700"
-  state_cache_as_of_product_merge: "e236066167b36750c896cef7167d14b2f992b700"
+  resume_entry: "ACTIVE Product Issue #586 / draft PR #586: implement and validate source-gated full-chart materialization for the 11 unique Wang candidates. The 13 non-unique or source-blocked cases remain unmaterialized. Real-engine artifact generation is pending the authorized Product P1 workflow hook tracked by Governance Issue #584; do not hand-author chart output or modify Governance-owned workflows from this Product lane."
+  state_cache_as_of_main_commit: "9735cd7a78a3c0addcf93aad1730d775e691be40"
+  state_cache_as_of_product_merge: "81fca994340e06a4b0f3dc3c31427b3f24a2a62d"
   v04_entry_checkpoint_issue: 416
   v04_entry_checkpoint_pr: 418
   last_completed_product_issue: 545
   last_completed_product_pr: 554
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
-  resume_issue: 545
+  resume_issue: 586
   roadmap: "PRODUCT_ROADMAP.md#v0.4"
   execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
 
