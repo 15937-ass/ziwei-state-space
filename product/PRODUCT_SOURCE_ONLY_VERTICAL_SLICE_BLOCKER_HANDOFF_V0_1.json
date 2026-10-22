@@ -3,7 +3,7 @@
   "artifact_id": "PRODUCT_SOURCE_ONLY_VERTICAL_SLICE_BLOCKER_HANDOFF_V0_1",
   "work_unit": "PRODUCT_SOURCE_ONLY_VERTICAL_SLICE_BLOCKER_HANDOFF",
   "snapshot_date": "2026-10-22",
-  "snapshot_type": "PINNED_PRODUCT_AND_KNOWLEDGE_DEPENDENCY_HANDOFF",
+  "snapshot_type": "SOURCE_PINNED_DEPENDENCY_HANDOFF_WITH_RECOVERY_CACHE_SNAPSHOT",
   "overall_status": "BLOCKED_NO_ACTIVE_KNOWLEDGE_PRODUCER_ISSUE_VERIFIED",
   "purpose": "Identify the source-owned Knowledge deliverables required before the Product source-only N -> E -> tau -> M0 vertical slice can become executable. This report records dependencies and downstream Product gates; it does not supply missing semantics.",
   "source_artifacts": [
@@ -168,7 +168,8 @@
         "P10": "knowledge/states/P10_PROPERTY_STATE.yaml"
       }
     },
-    "recovery_state_note": "The coordinator and shard files listed in recovery_state_paths are mutable recovery pointers. Their observed checkpoints are preserved in this dated snapshot, not pinned as immutable source artifacts."
+    "recovery_state_note": "The coordinator and shard files listed in recovery_state_paths are mutable recovery pointers. Their observed status is captured as of snapshot_main_commit in this dated snapshot, not pinned as immutable source artifacts; later cache advancement does not invalidate the handoff.",
+    "snapshot_main_commit": "f10c68a6e22539f352a37dfe817a7889afcbca07"
   },
   "dependencies": [
     {
@@ -365,6 +366,9 @@
     "next_work_unit_at_snapshot": "PRODUCT_SOURCE_ONLY_VERTICAL_SLICE_BLOCKER_HANDOFF",
     "active_issue_at_snapshot": null,
     "active_pr_at_snapshot": null,
-    "note": "This is immutable snapshot metadata from the handoff date. PRODUCT_STATE.yaml is a mutable recovery pointer and is intentionally not included in source_artifacts digests, because later accepted Product work must advance the state cache without invalidating this completed handoff."
-  }
+    "note": "This is historical snapshot metadata captured on 2026-10-22 against main checkpoint f10c68a6e22539f352a37dfe817a7889afcbca07. It records the Product cache checkpoints as of the handoff. PRODUCT_STATE.yaml is a mutable recovery pointer and is intentionally excluded from source_artifacts digests so later accepted Product work can advance it without invalidating this completed handoff.",
+    "snapshot_main_commit": "f10c68a6e22539f352a37dfe817a7889afcbca07",
+    "state_cache_as_main_commit": "83077d1d35d92561b0440f91fda645f41ff43496"
+  },
+  "snapshot_main_commit": "f10c68a6e22539f352a37dfe817a7889afcbca07"
 }
