@@ -43,6 +43,7 @@ The 11 chart artifacts verify the reviewed target-palace identity and fourteen-m
 - Predictive validity: not evaluated.
 - Empty production registries are BLOCKED, not PASS.
 - Canonical-runtime trace completeness, runtime-wide deterministic reproducibility, contradiction preservation, and canonical-runtime unknown counts remain NOT_MEASURED.
+- The expert-method section separately accounts for 24 eligible cases (0 replay-covered, 24 blocked) and 144 completed source-scope assessments; scope-review coverage is not method-fidelity coverage.
 - The 64 insufficient-source-evidence and 24 missing-context-binding figures are case-pattern assessment dispositions, not real-world prediction errors.
 
 ## Boundaries
