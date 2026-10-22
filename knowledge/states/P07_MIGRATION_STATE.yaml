@@ -8,12 +8,12 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "ACTIVE_PR_VALIDATION"
-  active_issue: 619
-  active_branch: "knowledge/p07-619-migration-m05-canonical"
-  active_pr: 622
-  canonical_checkpoint: "M05_SOURCE_REVIEW_COMPLETE_PENDING_EXACT_HEAD_VALIDATION"
-  note: "M04-301..400 merged via PR #605 after 2426 tests and all repository gates passed. Current work unit #619 / PR #622 re-adjudicates M05-401..500 against SRC-ZZ-003 printed pp117–120: 100/100 reviewed, 90 reusable, 10 CASE_SUPPORT_ONLY, 41 corrected source spans, three M04 gaps closed and four p118 Tianxiang gaps recorded. Historical PATH_DEPENDENT_GATE flags on M05-455/487 were reclassified as source-internal sequences. Exact-head validation pending."
+  status: "ACTIVE_NO_ACTIVE_WORK"
+  active_issue: null
+  active_branch: null
+  active_pr: null
+  canonical_checkpoint: "M01_M05_500_CANDIDATES_REVIEWED; 443_REUSABLE; 57_CASE_SUPPORT_ONLY; M05_4_P118_GAPS_RECORDED; M06_NOT_SOURCE_FIRST_CANONICALIZED"
+  note: "Recovery synchronized after Issue #619 / PR #622 merged at d3eacc75fa745cef12a01ed29f899984ea10591a. M05-401..500 passed the exact-head gate with 2460 tests, Product JS adapter checks, deterministic P0 audit, and Repository Governance v1. Cumulative M01-M05 checkpoint: 500 reviewed, 443 reusable, 57 CASE_SUPPORT_ONLY. Four p118 Tianxiang source gaps and two carried-forward M03 gaps remain explicit; M06-501..590 is not yet source-first canonicalized. No active P07 Knowledge work unit remains after this bounded recovery issue closes. No Product runtime authorization."
 
 integrity:
   source_first: true
