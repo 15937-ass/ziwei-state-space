@@ -8,12 +8,12 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "SOURCE_REVIEW_IN_PROGRESS"
-  active_issue: 649
-  active_branch: "knowledge/p05-649-wealth-gap-closure-p81"
+  status: "ACTIVE_NO_ACTIVE_WORK"
+  active_issue: null
+  active_branch: null
   active_pr: null
-  canonical_checkpoint: "W01_001_100_MERGED__W02_101_200_MERGED__W03_201_300_MERGED__W04_301_400_MERGED__W05_401_500_SOURCE_FIRST_MERGED"
-  merged_rule_count: 500
+  canonical_checkpoint: "W01_001_100_MERGED__W02_101_200_MERGED__W03_201_300_MERGED__W04_301_400_MERGED__W05_401_500_SOURCE_FIRST_MERGED__P81_GAP_SUPPLEMENT_4_RECORDS_2_CLOSED_1_PARTIAL"
+  merged_rule_count: 504
   reviewed_rule_count: 500
   current_batch_rule_count: 100
   source_resolution_change_count_current_batch: 15
@@ -22,7 +22,14 @@ execution:
   non_natal_source_count_current_batch: 0
   path_dependent_gate_count_current_batch: 7
   source_coverage_gap_count_current_batch: 3
-  note: "Active source-gap closure is Issue #649, branch knowledge/p05-649-wealth-gap-closure-p81. Current accepted checkpoint remains W01–W05 with 500 reviewed candidates. W05-SG-001, W05-SG-002, and W05-SG-003 are open local gaps scoped to SRC-ZZ-003 printed p81; inspect the scan page and adjacent context directly. Preserve W05-499/500 as accepted rules and do not overload them. Resolve, partially resolve, or retain each gap only with explicit source evidence; do not begin W06/Tianfu extraction in this work unit. No Product/runtime authorization is implied."
+  source_gap_supplement_record_count: 4
+  source_coverage_gaps_closed_by_supplement: 2
+  source_coverage_gaps_partially_resolved_by_supplement: 1
+  source_coverage_gaps_remaining: 1
+  cumulative_reusable_projection_rules_after_gap_closure: 504
+  cumulative_case_support_only_after_gap_closure: 0
+  next_source_anchor: "After this bounded gap-closure unit is accepted, the next separate P05 source-first batch may begin at printed p82 in the Tianfu section. Carry W05-SG-002 forward as partially resolved; do not claim full printed-p81 coverage."
+  note: "P05 gap-closure recovery based on current main commit 8f4d3a0642193f19ef0c6c13594b1f77201afcd6 after Issue #641 / PR #642 merged. W01–W05 contain 500 canonical reusable rules. Four new P05-SG supplement records cover the clear source atoms on printed p81: W05-SG-001 and W05-SG-003 are closed; W05-SG-002 is partially resolved and remains open because the exact printed phrase/condition scope around the further 刑煞 clause and the surface-glamour alternative is not normalized. The original W05 batch metrics remain historical: 100/100 reviewed/promoted, 15 source-resolution revisions, 12 image/extraction repairs, seven PATH_DEPENDENT_GATE sequences, and three gaps discovered. The original W05 source-gap artifact remains unchanged. No Product/runtime authorization is implied."
 
 integrity:
   source_first: true
