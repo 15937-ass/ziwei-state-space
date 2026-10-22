@@ -8,6 +8,7 @@ GAPS = ROOT / "knowledge/palaces/P05_wealth/w05/WEALTH_W05_SOURCE_GAPS_v0.1.json
 
 EXPECTED_IDS = {f"W05-{i:03d}" for i in range(401, 501)}
 EXPECTED_PATH = ["W05-403","W05-410","W05-411","W05-412","W05-413","W05-414","W05-416","W05-417","W05-429","W05-434"]
+EXPECTED_CHANGED = ["W05-408","W05-412","W05-413","W05-417","W05-431","W05-432","W05-437","W05-454","W05-460","W05-462","W05-463","W05-474","W05-477","W05-486","W05-487","W05-488","W05-489","W05-490","W05-497","W05-498"]
 EXPECTED_VISUAL = ["W05-403","W05-407","W05-408","W05-410","W05-411","W05-416","W05-431","W05-432","W05-447","W05-454","W05-460","W05-462","W05-463","W05-470","W05-471","W05-474","W05-475","W05-477","W05-481","W05-482","W05-486","W05-487","W05-488","W05-489","W05-490","W05-497","W05-498","W05-499","W05-500"]
 
 def load(path):
@@ -30,7 +31,7 @@ def test_w05_all_rows_source_rechecked_and_promoted():
     assert all(r["case_support_only"] is False for r in records)
     assert all(r["palace_id"] == "P05" for r in records)
     assert all(r["source_uncertainty"] is None for r in records)
-    assert len([r for r in records if r["source_resolution_changed"]]) == 97
+    assert {r["projection_rule_id"] for r in records if r["source_resolution_changed"]} == set(EXPECTED_CHANGED)
 
 def test_w05_visual_resolution_and_coverage_gap_are_explicit():
     records = load(READJ)["records"]
