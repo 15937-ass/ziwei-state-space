@@ -1,6 +1,7 @@
 # P10 Property State Recovery Evidence
 
 - Tracking issue: #623
+- Pull request: #624
 - Lane: KNOWLEDGE_ONLY
 - Shard: P10 — 田宅宫
 - Scope: recovery-cache synchronization and deterministic regression only
