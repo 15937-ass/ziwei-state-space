@@ -191,7 +191,8 @@
         "reason": "No eligible full expert replay traces are available for comparison.",
         "evidence_refs": [
           "product/WANG_METHOD_POLICY_READINESS_v0.3.json"
-        ]
+        ],
+        "metric_id": "critical_evidence_recall"
       },
       "wrong_evidence_selection": {
         "disposition": "BLOCKED",
@@ -199,7 +200,8 @@
         "reason": "No eligible full expert replay traces are available for comparison.",
         "evidence_refs": [
           "product/WANG_METHOD_POLICY_READINESS_v0.3.json"
-        ]
+        ],
+        "metric_id": "wrong_evidence_selection"
       },
       "next_action_and_branch_choice": {
         "disposition": "BLOCKED",
@@ -207,7 +209,8 @@
         "reason": "No justified case-target MethodPattern bindings exist in the accepted scope review.",
         "evidence_refs": [
           "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json"
-        ]
+        ],
+        "metric_id": "next_action_and_branch_choice"
       },
       "time_depth_choice": {
         "disposition": "BLOCKED",
@@ -215,7 +218,8 @@
         "reason": "No eligible full expert replay traces are available for comparison.",
         "evidence_refs": [
           "product/WANG_METHOD_POLICY_READINESS_v0.3.json"
-        ]
+        ],
+        "metric_id": "time_depth_choice"
       },
       "stop_abstention_and_partial_order_compatibility": {
         "disposition": "BLOCKED",
@@ -223,7 +227,8 @@
         "reason": "Current INSPECT-to-ABSTAIN traces demonstrate fail-closed behavior only; they do not measure fidelity to a fully replayable expert graph.",
         "evidence_refs": [
           "product/WANG_METHOD_POLICY_READINESS_v0.3.json"
-        ]
+        ],
+        "metric_id": "stop_abstention_and_partial_order_compatibility"
       },
       "trace_completeness": {
         "metric_id": "trace_completeness",
@@ -261,6 +266,51 @@
           "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json"
         ]
       }
+    },
+    "asset_accounting": [
+      {
+        "metric_id": "expert_replay_readiness",
+        "asset_kind": "Wang expert replay cases",
+        "eligible_assets": 24,
+        "covered_assets": 0,
+        "blocked_assets": 24,
+        "disposition": "BLOCKED",
+        "status": "FULL_EXPERT_REPLAY_NOT_READY",
+        "coverage_definition": "A case counts as covered only when the runtime can emit a source-grounded blind InferenceTrace eligible for comparison with its ExpertReasoningGraph; retrieval/action-selection readiness alone does not count.",
+        "evidence_refs": [
+          "product/WANG_METHOD_POLICY_READINESS_v0.3.json"
+        ]
+      },
+      {
+        "metric_id": "method_scope_binding",
+        "asset_kind": "Case × MethodPattern source-scope assessments",
+        "eligible_assets": 144,
+        "covered_assets": 144,
+        "blocked_assets": 0,
+        "disposition": "MEASURED",
+        "status": "SOURCE_SCOPE_REVIEW_COMPLETE_NOT_METHOD_FIDELITY_SCORE",
+        "coverage_definition": "Coverage means the source-bounded scope review assessed every case-pattern pair; it does not mean a binding was justified or expert-method fidelity was measured.",
+        "evidence_refs": [
+          "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json"
+        ]
+      }
+    ],
+    "blocker_accounting": {
+      "empty_registry_blockers": {
+        "disposition": "NOT_APPLICABLE",
+        "count": 0,
+        "reason": "Temporal-response and manifestation registries are reported under Canonical Fidelity; they are not the direct blocker for the current Wang method replay."
+      },
+      "knowledge_dependency_blockers": {
+        "disposition": "NOT_APPLICABLE",
+        "count": 0,
+        "reason": "The current expert replay is blocked by chart materialization, case-target method scope, and runtime evidence status rather than the Kr/M0 registry dependencies."
+      },
+      "replay_blocker_classes": [
+        "FULL_CHART_NOT_MATERIALIZED",
+        "NO_EXECUTABLE_PATTERN_FOR_CASE_TARGET_SCOPE",
+        "METHOD_POLICY_RUNTIME_TARGET_CHART_EVIDENCE_REMAINS_BLOCKED"
+      ]
     }
   },
   "metric_definitions": {
@@ -340,6 +390,41 @@
       "source_roles": [
         "readiness",
         "scope_review"
+      ]
+    },
+    "critical_evidence_recall": {
+      "definition": "Recall of source-supported expert-critical evidence in an eligible blind machine trace.",
+      "source_roles": [
+        "scope_review",
+        "readiness"
+      ]
+    },
+    "wrong_evidence_selection": {
+      "definition": "Rate or count of selected evidence that is not supported by the held-out case's permitted input evidence.",
+      "source_roles": [
+        "scope_review",
+        "readiness"
+      ]
+    },
+    "next_action_and_branch_choice": {
+      "definition": "Compatibility of the machine's next action and branch choice with the source-demonstrated expert reasoning graph under its permitted partial order.",
+      "source_roles": [
+        "scope_review",
+        "readiness"
+      ]
+    },
+    "time_depth_choice": {
+      "definition": "Compatibility of the selected natal/decade/year time depth with the source-demonstrated expert reasoning graph.",
+      "source_roles": [
+        "scope_review",
+        "readiness"
+      ]
+    },
+    "stop_abstention_and_partial_order_compatibility": {
+      "definition": "Compatibility of terminal STOP/ABSTAIN decisions and trace ordering with the source-demonstrated expert reasoning graph.",
+      "source_roles": [
+        "scope_review",
+        "readiness"
       ]
     }
   },
