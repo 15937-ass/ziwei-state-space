@@ -8,11 +8,11 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "SOURCE_REVIEW_COMPLETE_VALIDATION_PENDING"
-  active_issue: 591
-  active_branch: "knowledge/p05-591-wealth-w05-canonical-main-r3"
-  active_pr: 634
-  canonical_checkpoint: "W01_001_100_MERGED__W02_101_200_MERGED__W03_201_300_MERGED__W04_301_400_MERGED__W05_401_500_DIRECT_SOURCE_RECHECKED"
+  status: "ACTIVE_NO_ACTIVE_WORK"
+  active_issue: null
+  active_branch: null
+  active_pr: null
+  canonical_checkpoint: "W01_W05_500_CANDIDATES_REVIEWED; W05_401_500_MERGED; 7_PATH_DEPENDENT_GATES_PRESERVED; 3_P05_SOURCE_GAPS_REMAIN"
   merged_rule_count: 400
   reviewed_rule_count: 500
   current_batch_rule_count: 100
@@ -22,7 +22,7 @@ execution:
   non_natal_source_count_current_batch: 0
   path_dependent_gate_count_current_batch: 7
   source_coverage_gap_count_current_batch: 3
-  note: "W05-401..500 directly source-rechecked against SRC-ZZ-003 printed pp79-81. All rules remain NATAL; 7 PATH_DEPENDENT_GATE sequences are preserved. 12 extraction surfaces were resolved by direct PDF page-image inspection. Three source-clear local P05 coverage gaps (廉贞天相刑忌夹印/无谓应酬破财; 廉贞天相空劫与刑煞的储财/词讼/表面风光条款; 廉贞天相横发横破但性质和缓) remain explicitly recorded for a later bounded closure; no source-text uncertainty or Core gap remains."
+  note: "Recovery synchronized after Issue #591 / PR #634 merged at 7bf664fc87db20bfe02ef0020785b91dd62cbbdf. W05-401..500 passed the exact-head gate with 2480 tests, Product JS adapter checks, deterministic P0 audit, and Repository Governance v1. Cumulative W01-W05 checkpoint: 500 reviewed candidates. Seven source-internal PATH_DEPENDENT_GATE sequences remain preserved; three source-clear local P05 source-coverage gaps remain explicitly open. No active P05 Knowledge work unit remains after this bounded recovery issue closes. No Product runtime authorization."
   
 integrity:
   source_first: true
