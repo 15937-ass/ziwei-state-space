@@ -28,6 +28,8 @@ def test_p03_source_first_repairs():
     assert rows["P03-225"]["cross_palace_dependency"] == "寅宫巨阳（借会）"
     assert rows["P03-227"]["canonical_condition"].count("或") == 1
     assert rows["P03-231"]["cross_palace_dependency"] == ""
+    assert rows["P03-231"]["canonical_condition"] == "P03-230结构；女命行至天相运"
+    assert "不推广至所有子午同阴女命" in rows["P03-231"]["canonical_normalization"]
     assert rows["P03-269"]["cross_palace_dependency"] == ""
     assert rows["P03-278"]["opposite_palace_dependency"] == "破军化禄（对宫）"
     assert "中局" in rows["P03-288"]["source_literal_claim"]
