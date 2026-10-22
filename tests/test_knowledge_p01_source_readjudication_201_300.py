@@ -75,9 +75,19 @@ def test_tian_tong_source_gap_closed():
 def test_gap_ledger_and_summary_cumulative_counts():
     ledger = json.loads((BASE / "LIFE_P03_SOURCE_GAP_LEDGER_v0.1.json").read_text(encoding="utf-8"))
     assert ledger["unresolved_gap_ids"] == []
+    next_gaps = ledger["next_checkpoint_gaps"]
+    assert len(next_gaps) == 1
+    assert next_gaps[0]["gap_id"] == "P01-SRC-GAP-023"
+    assert next_gaps[0]["status"] == "OPEN_FOR_NEXT_SOURCE_CHECKPOINT"
+    assert "寅申廉贞" in next_gaps[0]["source_claim"]
+    assert "卯酉廉破" in next_gaps[0]["source_claim"]
+    assert "寅申廉贞后续" in ledger["next_source_anchor"]
     assert ledger["entries"][0]["gap_id"] == "P01-SRC-GAP-022"
     assert len(ledger["entries"][0]["rule_ids"]) == 16
     summary = json.loads((BASE / "LIFE_P03_SOURCE_READJUDICATION_SUMMARY_v0.1.json").read_text(encoding="utf-8"))
+    next_summary_gaps = summary["source_coverage_gaps_next_checkpoint"]
+    assert next_summary_gaps[0]["gap_id"] == "P01-SRC-GAP-023"
+    assert "寅申廉贞" in next_summary_gaps[0]["source_claim"]
     s = summary["summary"]
     assert s["historical_candidates_reviewed"] == 100
     assert s["canonical_promoted"] == 98

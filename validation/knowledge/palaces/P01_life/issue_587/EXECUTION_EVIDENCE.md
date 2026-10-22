@@ -19,11 +19,6 @@ Lane: KNOWLEDGE_ONLY / shard P01
 - Independent source-schema review preserves P03-231's local 丁年同阴 context without inventing a fixed spouse-palace dependency; P01-SG-087 records “天同与天梁相对” as an opposite-palace dependency, not a generic cross-palace link
 - no new shared semantic primitive, memory type, independent time scale, weight, probability, or decay
 
-## Current-main synchronization
-- Current main at synchronization: `7f22005ea823473304d4ccd436c0246603960792` (P07 Migration M02 PR #579).
-- Branch was synchronized with current main in merge commit `10ab6ba8512fe3ad8622173eccfb4b11c4de2d20`; the PR is now 0 commits behind main.
-- Earlier successful run `39699218512` validated pre-synchronization head `b43451f0981fb303a0c2167c5ac40e7357eb582c` and is not the final merge gate.
-
 ## Validation
 - targeted P01 test is encoded in `tests/test_knowledge_p01_source_readjudication_201_300.py`
 - full pytest, Node syntax, P0 audit, Governance lane check: delegated to the repository quality workflow on PR #590; this file does not claim those commands have passed
@@ -32,4 +27,4 @@ Lane: KNOWLEDGE_ONLY / shard P01
 - automatic push workflows are not used; standard pull_request quality gate is allowed by current main
 
 ## Source boundary
-The historical candidate span ends at lines 421–422. Remaining Lian Zhen combinations after that span on printed p12 are reserved for the next source-first checkpoint. This work unit does not claim full coverage of all printed pp9–12.
+The historical candidate span ends at lines 421–422 and only captures the opening 寅申廉贞 clause. The next source-first checkpoint must first cover the remaining 寅申廉贞 conditions (迁移文曲, 命宫文昌/阴耗虚刑, 武曲化忌 with 重煞, 对宫贪狼火贪/铃贪, and 流年/大运 hubs), then 卯酉廉破、辰戌廉府、巳亥廉贪 and the 天府/太阴 material on printed pp13–15. This work unit does not claim full coverage of all printed pp9–12.
