@@ -8,7 +8,7 @@ Shard: P05 财帛宫
 - Direct source basis: SRC-ZZ-003《中州派紫微斗数深造讲义（下册）》财帛宫 printed pp79–81 (PDF pages 40–41).
 - Candidate input: historical/noncanonical W05-401…W05-500.
 - Direct source recheck: 100/100.
-- Source-resolution changes: 97.
+- Source-resolution changes: 20.
 - Direct PDF page-image resolutions: 29.
 - Unresolved source-text uncertainty: 0.
 - Non-NATAL rows: 0; all rules are natal-pattern or source-described life-course readings.
