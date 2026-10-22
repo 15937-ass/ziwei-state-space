@@ -12,7 +12,7 @@
 - Canonical records prepared: 90.
 - Conditions normalized: 90.
 - Source locations corrected: 33.
-- Source/semantic adjudications changed: 30.
+- Source/semantic adjudications changed: 31.
 - Reusable records: 77.
 - CASE_SUPPORT_ONLY: 13.
 - Historical PATH_DEPENDENT_GATE re-adjudicated: M06-579; canonical gate count for this batch: 0.
