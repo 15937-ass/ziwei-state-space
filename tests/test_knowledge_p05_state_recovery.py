@@ -20,6 +20,8 @@ def test_p05_state_cache_matches_merged_w05_checkpoint():
     assert "active_pr: null" in state
     assert "W05_401_500_SOURCE_FIRST_MERGED" in state
     assert "main commit 7bf664fc87db20bfe02ef0020785b91dd62cbbdf" in state
+    assert "current main commit 74087c97afffc5afa4821f8edb21ff42aea6eb6b" in state
+    assert "after Product PR #640 merged" in state
     assert "merged_rule_count: 500" in state
     assert "reviewed_rule_count: 500" in state
     assert "current_batch_rule_count: 100" in state
