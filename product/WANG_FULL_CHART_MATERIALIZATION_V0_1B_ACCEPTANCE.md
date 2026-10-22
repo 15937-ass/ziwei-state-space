@@ -2,7 +2,7 @@
 
 Tracking Issue: #588  
 Lane: PRODUCT_ONLY  
-Status: **PINNED-ENGINE ARTIFACT GENERATED; FORMAL VALIDATION PASS; FINAL-HEAD REGRESSION GATES PENDING**
+Status: **PINNED-ENGINE ARTIFACT GENERATED; FORMAL VALIDATION PASS; REGRESSION GATES PASS ON `bb3579b065aab8b86c1341813f08740e03768999`**
 
 ## 1. Purpose
 
@@ -93,7 +93,7 @@ No source subject identity, expert reasoning, expert conclusion, outcome, person
 - End-to-end materializer tests with an isolated mock engine, deterministic serialization, and fail-closed error/drift cases: **IMPLEMENTED**
 - Committed full-chart output artifact: **GENERATED AND COMMITTED IN THIS PR**
 - Real-engine end-to-end validation: **PASS** — Product P1 run [#39705521292](https://github.com/15937-ass/ziwei-state-space/actions/runs/39705521292) on execution head `708c615c574019f7d092a8cd23d223d9bd916c35`; formal validator passed against all three immutable inputs.
-- Exact final-head repository quality gate / P0 audit / Product regressions: **PENDING — rerun after artifact commit**
+- Exact-head repository quality gate / P0 audit / Product regressions: **PASS** — quality gate #39706427140; Product P1 runs #39706427147, #39706427146, #39706427307, and #39706427119 (all on commit `bb3579b065aab8b86c1341813f08740e03768999`).
 
 Synthetic chart objects and the isolated mock engine validate implementation wiring, schema, determinism, and guardrails only; they are not source evidence and must never be copied into the production artifact.
 
@@ -124,7 +124,9 @@ The separate persistent probe-hook gap remains tracked by Governance Issue #584 
 | Leakage controls | **PASS** — formal validator and committed-artifact regression test |
 | Remaining 13 cases stay unmaterialized | **PASS** — 6 multiple-match, 5 no-match, 2 source-blocked |
 | Actual 11-chart artifact committed | **PASS** — see `FULL_CHART_MATERIALIZATION_V0_1B.json` and execution evidence |
-| Exact final-head repository quality and Product gates | **PENDING** — run after this artifact/evidence commit |
+| Exact-head repository quality and Product gates | **PASS** — quality gate #39706427140 and all four Product P1 workflows passed on `bb3579b065aab8b86c1341813f08740e03768999` |
+
+The acceptance-only update that records these results creates a new PR head. Keep the PR draft until the rerun of the latest head also passes the repository quality gate and all four Product P1 workflows; never merge on the strength of an older head alone.
 
 ## 9. Next step after materialization
 
