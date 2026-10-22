@@ -87,14 +87,10 @@ def test_materializer_preserves_the_zi_time_candidate_ambiguity():
     assert ready_row["anchor_match_count"] == 1
 
 
-def test_materializer_does_not_read_expert_case_bundles_or_biography():
+def test_materializer_reads_only_the_three_governed_input_artifacts():
     source = MATERIALIZER.read_text(encoding="utf-8")
-    forbidden = (
-        "expert_reasoning_graph",
-        "expert_conclusion_refs",
-        "outcome_refs",
-        "person_group_id",
-        "biography",
-        "source_subject_label",
-    )
-    assert all(key not in source for key in forbidden)
+    assert "SOURCE_BIRTH_SIGNATURES_V0_1.json" in source
+    assert "FULL_CHART_RECONSTRUCTION_READINESS_V0_1.json" in source
+    assert "BLIND_EVIDENCE_V0_1.json" in source
+    assert "product/expert_cases/wang_tingzhi/cases/" not in source
+    assert "WANG-PERSON-" not in source
