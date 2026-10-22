@@ -11,7 +11,7 @@
 ## Source review result
 
 - W05-SG-001: CLOSED by P05-SG-001 and P05-SG-002.
-- W05-SG-002: PARTIALLY_RESOLVED by P05-SG-003; the unclear further 刑煞/litigation phrase and surface-glamour alternative remain explicitly unresolved.
+- W05-SG-002: PARTIALLY_RESOLVED by P05-SG-003; the printed sequence “有是非词不达意讼” is preserved literally because its intended reading is semantically anomalous; the surface-glamour alternative's condition scope also remains unresolved.
 - W05-SG-003: CLOSED by P05-SG-004.
 - Four new source-explicit, NATAL, reusable supplement records; zero CASE_SUPPORT_ONLY.
 - Cumulative P05 canonical/reusable count: 504; original W01–W05 candidate review count remains 500.
