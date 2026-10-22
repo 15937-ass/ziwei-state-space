@@ -1,0 +1,400 @@
+{
+  "schema_version": "0.1",
+  "audit_id": "KB-WP07A-PROPERTY-DIRECT-STAR-PRESENCE-MAP-01",
+  "work_unit": "KB-WP07A-PROPERTY-DIRECT-STAR-PRESENCE-MAP-01",
+  "issue": 583,
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "P10",
+  "status": "MAPPING_COMPLETE_5_OF_5_NOT_PRODUCTION",
+  "source_id": "SRC-ZZ-003",
+  "source_title": "中州派紫微斗数深造讲义（下册）",
+  "canonical_corpus": "PROPERTY_P10_CANONICAL_358_OF_358",
+  "scope": {
+    "nominated_source_rule_ids": [
+      "TP01-055",
+      "TP02-195",
+      "TP03-253",
+      "TP03-297",
+      "TP04-358"
+    ],
+    "selection": "Five direct, canonical, non-case NATAL star-presence rules whose source condition does not require a second star, transformation, brightness, branch, absence, or cross-palace relation.",
+    "mapping_boundary": "Existing PALACE_HAS_STAR atom only; representability does not authorize execution. Source-specific exceptions and modifiers remain separate."
+  },
+  "mappings": [
+    {
+      "source_rule_id": "TP01-055",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "田宅宫printed_p157",
+        "source_readjudication_ref": "knowledge/wp05/property/PROPERTY_TP01_SOURCE_READJUDICATION_100_v0.1.json#TP01-055",
+        "source_time_scope_ref": "knowledge/wp05/property/PROPERTY_TP01_SOURCE_TIME_SCOPE_v0.1.json#TP01-055",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false
+      },
+      "source_condition_text": "天机守田宅宫",
+      "source_span_summary": "原文称天机在田宅宫一般主产业变动，现代还包括居住、买卖物业及工作环境的变动；原文并未把它限定为单一退祖自兴路径。",
+      "source_anchor_phrase": "天机在田宅宫，一般主产业变动",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P10",
+              "star": "天机"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "PALACE_HAS_STAR"
+      ],
+      "expected_runtime_fact": {
+        "atom_type": "PALACE_HAS_STAR",
+        "args": {
+          "palace": "P10",
+          "star": "天机"
+        }
+      },
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "现有原局解析器会为 P10 宫内的每颗具名星曜发出 PALACE_HAS_STAR(palace=P10, star=<name>)。"
+      },
+      "source_time_scope": {
+        "legacy_primary_time_layer": "NATAL",
+        "source_time_layers": [
+          "NATAL"
+        ],
+        "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+        "dependencies": []
+      },
+      "expected_projection": {
+        "projection_domain": "property_stability",
+        "projection_target": "property_and_residential_change_are_structural",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "TP02-195",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "田宅宫printed_p161-162",
+        "source_readjudication_ref": "knowledge/wp05/property/PROPERTY_TP02_SOURCE_READJUDICATION_100_v0.1.json#TP02-195",
+        "source_time_scope_ref": "knowledge/wp05/property/PROPERTY_TP02_SOURCE_TIME_SCOPE_v0.1.json#TP02-195",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false
+      },
+      "source_condition_text": "天府守田宅宫",
+      "source_span_summary": "原文称天府坐守田宅，主有祖、父物业，或能在有基础声誉的机构服务。本映射只保留天府在 P10 的星曜存在条件，不添加辅佐、禄存或其他府库状态。",
+      "source_anchor_phrase": "田宅宫喜天府坐守，主有祖、父物业，或能在有基础声誉之机构服务。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P10",
+              "star": "天府"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "PALACE_HAS_STAR"
+      ],
+      "expected_runtime_fact": {
+        "atom_type": "PALACE_HAS_STAR",
+        "args": {
+          "palace": "P10",
+          "star": "天府"
+        }
+      },
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "现有原局解析器会为 P10 宫内的每颗具名星曜发出 PALACE_HAS_STAR(palace=P10, star=<name>)。"
+      },
+      "source_time_scope": {
+        "legacy_primary_time_layer": "NATAL",
+        "source_time_layers": [
+          "NATAL"
+        ],
+        "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+        "dependencies": []
+      },
+      "expected_projection": {
+        "projection_domain": "inheritance_existing_property",
+        "projection_target": "ancestral_or_parental_property_or_reputable_service_institution_base_is_supported",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "TP03-253",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "田宅宫printed_p163",
+        "source_readjudication_ref": "knowledge/wp05/property/PROPERTY_TP03_SOURCE_READJUDICATION_100_v0.1.json#TP03-253",
+        "source_time_scope_ref": "knowledge/wp05/property/PROPERTY_TP03_SOURCE_TIME_SCOPE_v0.1.json#TP03-253",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false
+      },
+      "source_condition_text": "贪狼守田宅",
+      "source_span_summary": "原文指出贪狼居田宅时受风水影响甚大。本映射只保留该直接星曜存在条件；流年贪狼化禄、化忌及其余复合应象不并入本条。",
+      "source_anchor_phrase": "贪狼大田宅，受风水影响甚大",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P10",
+              "star": "贪狼"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "PALACE_HAS_STAR"
+      ],
+      "expected_runtime_fact": {
+        "atom_type": "PALACE_HAS_STAR",
+        "args": {
+          "palace": "P10",
+          "star": "贪狼"
+        }
+      },
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "现有原局解析器会为 P10 宫内的每颗具名星曜发出 PALACE_HAS_STAR(palace=P10, star=<name>)。"
+      },
+      "source_time_scope": {
+        "legacy_primary_time_layer": "NATAL",
+        "source_time_layers": [
+          "NATAL"
+        ],
+        "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+        "dependencies": []
+      },
+      "expected_projection": {
+        "projection_domain": "fengshui_sensitivity",
+        "projection_target": "fengshui_sensitivity_is_high",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "TP03-297",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "田宅宫printed_p164",
+        "source_readjudication_ref": "knowledge/wp05/property/PROPERTY_TP03_SOURCE_READJUDICATION_100_v0.1.json#TP03-297",
+        "source_time_scope_ref": "knowledge/wp05/property/PROPERTY_TP03_SOURCE_TIME_SCOPE_v0.1.json#TP03-297",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false
+      },
+      "source_condition_text": "天相守田宅",
+      "source_span_summary": "原文称天相对风水相当敏感，并另行指出见煞、武曲破军对拱时更甚。本映射只映射基础敏感倾向，不把增强条件并入单星存在原子。",
+      "source_anchor_phrase": "天相对风水相当敏感",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P10",
+              "star": "天相"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "PALACE_HAS_STAR"
+      ],
+      "expected_runtime_fact": {
+        "atom_type": "PALACE_HAS_STAR",
+        "args": {
+          "palace": "P10",
+          "star": "天相"
+        }
+      },
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "现有原局解析器会为 P10 宫内的每颗具名星曜发出 PALACE_HAS_STAR(palace=P10, star=<name>)。"
+      },
+      "source_time_scope": {
+        "legacy_primary_time_layer": "NATAL",
+        "source_time_layers": [
+          "NATAL"
+        ],
+        "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+        "dependencies": []
+      },
+      "expected_projection": {
+        "projection_domain": "fengshui_sensitivity",
+        "projection_target": "fengshui_sensitivity_is_relatively_high",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "TP04-358",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "田宅宫printed_p165",
+        "source_readjudication_ref": "knowledge/wp05/property/PROPERTY_TP04_SOURCE_READJUDICATION_58_v0.1.json#TP04-358",
+        "source_time_scope_ref": "knowledge/wp05/property/PROPERTY_TP04_SOURCE_TIME_SCOPE_v0.1.json#TP04-358",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false
+      },
+      "source_condition_text": "破军守田宅",
+      "source_span_summary": "原文直接指出破军在田宅不受风水影响。本映射不把该陈述扩大为其他破军置产、迁居或破败条件。",
+      "source_anchor_phrase": "破军在田宅，不受风水影响。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P10",
+              "star": "破军"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "PALACE_HAS_STAR"
+      ],
+      "expected_runtime_fact": {
+        "atom_type": "PALACE_HAS_STAR",
+        "args": {
+          "palace": "P10",
+          "star": "破军"
+        }
+      },
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "现有原局解析器会为 P10 宫内的每颗具名星曜发出 PALACE_HAS_STAR(palace=P10, star=<name>)。"
+      },
+      "source_time_scope": {
+        "legacy_primary_time_layer": "NATAL",
+        "source_time_layers": [
+          "NATAL"
+        ],
+        "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+        "dependencies": []
+      },
+      "expected_projection": {
+        "projection_domain": "fengshui_sensitivity",
+        "projection_target": "fengshui_sensitivity_is_relatively_low",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOM",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "executable_registry_entry": false
+    }
+  ],
+  "exclusions": [
+    {
+      "source_rule_id": "TP01-018",
+      "source_location": "田宅宫printed_p156",
+      "source_condition_text": "紫微独坐守田宅宫",
+      "case_support_only": false,
+      "reason_code": "EXCLUSIVITY_NOT_CAPTURED_BY_PRESENCE_ATOM",
+      "reason": "独坐含有星曜排他/缺席含义；PALACE_HAS_STAR 只能表达有该星，不能表达没有其他主星。"
+    },
+    {
+      "source_rule_id": "TP02-139",
+      "source_location": "田宅宫printed_p160",
+      "source_condition_text": "天同守田宅宫",
+      "case_support_only": false,
+      "reason_code": "OUTSIDE_NOMINATED_SET",
+      "reason": "本工作单元严格限定为 Issue #583 指定的五条规则，TP02-139 不在该五条名单内。规范条件本身是直接的“天同守田宅宫”，并不因现有原子不可表达而被阻断。不得与独立的 TP02-163“天同与天梁对拱相对同度比较”混淆；后者才属于后续关系映射候选。"
+    },
+    {
+      "source_rule_id": "TP02-170",
+      "source_location": "田宅宫printed_p161",
+      "source_condition_text": "廉贞守田宅宫",
+      "case_support_only": false,
+      "reason_code": "SOURCE_LEXICAL_UNCERTAINTY_PRESERVED",
+      "reason": "原典抽取文本“破组”字样存疑；不在本单元将其静默改写为“破祖”并据此映射投影。"
+    },
+    {
+      "source_rule_id": "TP03-261",
+      "source_location": "田宅宫printed_p163",
+      "source_condition_text": "巨门守田宅",
+      "case_support_only": false,
+      "reason_code": "LITERAL_LIFE_STAGE_AND_CONTEXT",
+      "reason": "投影含“中年后”原文人生阶段语言及相邻吉曜语境；留待时间/上下文层处理，不转成数值年龄。"
+    },
+    {
+      "source_rule_id": "TP03-275",
+      "source_location": "田宅宫printed_p163",
+      "source_condition_text": "巨门守田宅",
+      "case_support_only": false,
+      "reason_code": "TRANSFORMATION_MODIFIER_NOT_CAPTURED",
+      "reason": "投影目标明确包含化忌增强作用，不能由单一巨门存在原子完整表达。"
+    },
+    {
+      "source_rule_id": "TP03-288",
+      "source_location": "田宅宫printed_p163",
+      "source_condition_text": "天相守田宅",
+      "case_support_only": false,
+      "reason_code": "CROSS_PALACE_REQUIRED_CONDITION",
+      "reason": "原典明确需要天府条件来细化天相田宅结果，留待跨宫映射。"
+    },
+    {
+      "source_rule_id": "TP04-320",
+      "source_location": "田宅宫printed_p164",
+      "source_condition_text": "天梁与阴煞同度又见火铃",
+      "case_support_only": false,
+      "reason_code": "COMPOUND_EXCEPTION_NOT_COLLAPSED",
+      "reason": "这是 TP04-319 基础风水结论之后的复合增强条件，保持独立，不并入天梁存在原子。"
+    },
+    {
+      "source_rule_id": "TP04-321",
+      "source_location": "田宅宫printed_p164",
+      "source_condition_text": "七杀独坐田宅除寅申外",
+      "case_support_only": false,
+      "reason_code": "EXCLUSIVITY_AND_BRANCH_SCOPE",
+      "reason": "该规则同时要求独坐和宫位例外范围，不能简化为七杀在田宅宫。"
+    }
+  ],
+  "validation": {
+    "nominated_rows": 5,
+    "mapped_rows": 5,
+    "blocked_nominated_rows": 0,
+    "all_rows_source_span_verified": true,
+    "all_rows_natal": true,
+    "all_rows_non_case_support_only": true,
+    "all_conditions_use_only_existing_palace_has_star_atom": true,
+    "executable_rule_created": false,
+    "production_registry_modified": false,
+    "product_runtime_modified": false,
+    "canonical_source_rows_modified": false,
+    "shared_semantics_modified": false,
+    "new_atom_created": false,
+    "new_probability_created": false,
+    "new_numeric_weight_created": false,
+    "new_threshold_created": false,
+    "exact_head_validation_required_before_merge": true
+  }
+}

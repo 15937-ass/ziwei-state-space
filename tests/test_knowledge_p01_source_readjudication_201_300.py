@@ -68,6 +68,9 @@ def test_tian_tong_source_gap_closed_across_printed_pages_10_11():
     by_id = {r["projection_rule_id"]: r for r in rows}
     assert by_id["P01-SG-087"]["opposite_palace_dependency"] == "天梁"
     assert by_id["P01-SG-087"]["cross_palace_dependency"] == ""
+    assert by_id["P01-SG-086"]["opposite_palace_dependency"] == "天梁在巳"
+    assert by_id["P01-SG-086"]["cross_palace_dependency"] == ""
+    assert by_id["P01-SG-109"]["cross_palace_dependency"] == "夫妻宫巨门化忌"
     assert any("运限的枢纽" in r["source_literal_claim"] for r in rows)
     assert any("凡[同巨]与陀罗同度者，主烦恼" in r["source_literal_claim"] for r in rows)
     assert any("寅申宫[天同天梁]同度，成[机月同梁]格" in r["source_literal_claim"] for r in rows)
