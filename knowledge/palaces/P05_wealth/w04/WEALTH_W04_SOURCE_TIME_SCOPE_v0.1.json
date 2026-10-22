@@ -1,0 +1,153 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P05-WEALTH-W04-SOURCE-TIME-SCOPE-v0.1",
+  "issue": 575,
+  "source_id": "SRC-ZZ-003",
+  "scope": "W04-301..W04-400 / printed pp76-79",
+  "counts": {
+    "non_natal_rows": 7,
+    "year": 4,
+    "decade": 3,
+    "path_dependent_gate_rows": 5
+  },
+  "exact_non_natal_ids": [
+    "W04-306",
+    "W04-307",
+    "W04-336",
+    "W04-354",
+    "W04-355",
+    "W04-364",
+    "W04-365"
+  ],
+  "path_dependent_gate_ids": [
+    "W04-318",
+    "W04-319",
+    "W04-388",
+    "W04-394",
+    "W04-400"
+  ],
+  "policy": [
+    "W04-306/307保留大运优先、流年后备：没有合格大运时，流年同样情形才应验；不得视为并列独立触发。",
+    "W04-336保留财星叠禄大运的常见应期，同时保留原局文曲化忌的损失限制；不编码成保证发财。",
+    "W04-354/355要求原局铃昌陀武结构不在财帛宫、对应的大运/流年财帛宫值此星系且流煞冲起；DECADE/YEAR不可互换。",
+    "W04-364/365是武曲禄权科见空劫的本命条件之下的流年应期，不是独立的YEAR通则。",
+    "W04-318/319、W04-388、W04-394、W04-400保留源文中的有序路径，但不推出固定时长、年龄阈值、转移概率或衰减参数。"
+  ],
+  "records": [
+    {
+      "projection_rule_id": "W04-306",
+      "source_location": "财帛宫printed_p76",
+      "time_layer": "DECADE",
+      "canonical_condition": "卯酉阳梁纵有吉化；大运财帛宫见忌星，并与空劫同会",
+      "canonical_target": "financial_constraint_during_the_qualifying_decade",
+      "source_scope_note": "大运触发：卯酉阳梁即使有吉化，大运财帛见忌且会空劫时为困乏期；流年条目只作没有此大运时的后备。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W04-307",
+      "source_location": "财帛宫printed_p76",
+      "time_layer": "YEAR",
+      "canonical_condition": "前述合格的大运条件不存在时，流年财帛见同样忌星并会空劫",
+      "canonical_target": "yearly_financial_constraint_only_as_fallback_when_no_qualifying_decade",
+      "source_scope_note": "YEAR fallback only: only when the qualifying decade pattern is absent does the same configuration in the year respond.",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W04-336",
+      "source_location": "财帛宫printed_p77",
+      "time_layer": "DECADE",
+      "canonical_condition": "武曲化禄或与禄存同度且不见煞忌刑；财星叠禄的大运为常见应期（原局文曲化忌则多损失）",
+      "canonical_target": "wealth_response_often_during_decade_of_stacked_wealth_lu_subject_to_wenqu_huaji_loss_exception",
+      "source_scope_note": "财星叠禄大运是常见应期，但原局文曲化忌为损失限制；不等于保证财富扩张。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W04-354",
+      "source_location": "财帛宫printed_p78",
+      "time_layer": "DECADE",
+      "canonical_condition": "原局铃昌陀武结构不在财帛宫；大运财帛宫值此星系，且有流煞冲起",
+      "canonical_target": "financial_collapse_tendency_during_the_qualifying_decade",
+      "source_scope_note": "原局铃昌陀武在其他宫位时，大运财帛值此星系且有流煞冲起才有破败倾向。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W04-355",
+      "source_location": "财帛宫printed_p78",
+      "time_layer": "YEAR",
+      "canonical_condition": "原局铃昌陀武结构不在财帛宫；流年财帛宫值此星系，且有流煞冲起",
+      "canonical_target": "financial_collapse_tendency_during_the_qualifying_year",
+      "source_scope_note": "与大运分开保存的流年触发，仍需原局结构位置前件及流煞冲起。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W04-364",
+      "source_location": "财帛宫printed_p78",
+      "time_layer": "YEAR",
+      "canonical_condition": "承接武曲禄权科见空劫的本命条件，大运财帛宫化忌之年",
+      "canonical_target": "yearly_response_to_decade_wealth_palace_huaji",
+      "source_scope_note": "承接武曲禄权科见空劫的本命条件；流年大运财帛宫化忌之年为来源所述应期之一。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W04-365",
+      "source_location": "财帛宫printed_p78",
+      "time_layer": "YEAR",
+      "canonical_condition": "承接武曲禄权科见空劫的本命条件，流年见煞、耗、空、劫之年",
+      "canonical_target": "yearly_response_when_malefic_loss_stars_join",
+      "source_scope_note": "承接武曲禄权科见空劫的本命条件；流年见煞耗空劫之年为来源所述应期之一。",
+      "no_numeric_generalization": true
+    }
+  ],
+  "path_records": [
+    {
+      "projection_rule_id": "W04-318",
+      "source_location": "财帛宫printed_p77",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "戌宫太阳日月反背，且见吉化、吉曜",
+      "canonical_target": "hardship_then_established_career_and_wealth",
+      "source_scope_note": "原文把艰苦后确立事业、由此得财作为有序路径；不把路径改成必然发生或固定持续时间。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W04-319",
+      "source_location": "财帛宫printed_p77",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "戌宫太阳日月反背，见吉化吉曜，且少年时期艰苦",
+      "canonical_target": "midlife_name_and_wealth_can_grow_after_early_hardship",
+      "source_scope_note": "原文具体说“少年时期艰苦者，中年后名利尤大”；不由此创造数值年龄阈值或转移概率。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W04-388",
+      "source_location": "财帛宫printed_p79",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "卯酉宫武曲七杀，见吉化",
+      "canonical_target": "self_made_path_can_develop_into_major_enterprise",
+      "source_scope_note": "原文“白手兴家，见吉化者必白手以成大业”保留自立到成业的路径关系，不推出固定年限。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W04-394",
+      "source_location": "财帛宫printed_p79",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "辰戌宫武曲独坐，与贪狼相对",
+      "canonical_target": "hardship_precedes_wealth_in_the_chenxu_wuqu_pattern",
+      "source_scope_note": "原文明确“必须经历艰辛而后成富”；只保存顺序，不推断固定时长。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W04-400",
+      "source_location": "财帛宫printed_p79",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "巳亥宫武曲破军得禄、权、科会",
+      "canonical_target": "at_least_one_hardship_period_then_wealth_after_overcoming_difficulty",
+      "source_scope_note": "PDF页图确认原文“至少有一次困境，但克服困难之后，仍能致富”；保留路径门控，不推断持续时间或必然概率。",
+      "no_numeric_generalization": true
+    }
+  ]
+}
