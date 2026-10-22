@@ -9,11 +9,11 @@ contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
   status: "ACTIVE"
-  active_issue: 583
-  active_branch: "knowledge/p10-583-direct-star-presence-map-04"
-  active_pr: 596
-  canonical_checkpoint: "PROPERTY_P10_CANONICAL_358_OF_358_ON_MAIN; NATAL_TRANSFORMATION_MAP_6_OF_6_MERGED; DIRECT_STAR_PRESENCE_MAP_5_OF_5_PENDING_CURRENT_MAIN_CI"
-  note: "Issue #583 maps five source-verified P10 NATAL star-presence rules to existing PALACE_HAS_STAR facts; no production rule is created. The audit corrects TP02-139 as a scope-only deferral (its direct condition does not require Tianliang opposition); TP02-163 is the separate relation-comparison candidate. Branch synchronized from latest main; current-head CI must pass before merge. After merge, continue residual direct-star mapping, then relation/cross-palace/context mapping before the first 100-row structural review."
+  active_issue: 597
+  active_branch: "knowledge/p10-597-direct-star-remainder-r3"
+  active_pr: null
+  canonical_checkpoint: "PROPERTY_P10_CANONICAL_358_OF_358_ON_MAIN; NATAL_TRANSFORMATION_MAP_6_OF_6_MERGED; DIRECT_STAR_PRESENCE_MAP_5_OF_5_MERGED; DIRECT_STAR_PRESENCE_REMAINDER_6_OF_6_PENDING_R3_CI"
+  note: "Issue #583 / PR #596 merged five source-verified P10 NATAL star-presence mappings to existing PALACE_HAS_STAR facts. Issue #597 maps six residual direct-star candidates using existing PALACE_HAS_STAR facts; no production rule is created. Current r3 branch is based on latest main 893ca30a7af91e0d80dfd5dfdcd0c96b1869190f. Require exact-head CI before merge. After merge, continue relation/cross-palace/context mapping before the first 100-row structural review."
 
 integrity:
   source_first: true
