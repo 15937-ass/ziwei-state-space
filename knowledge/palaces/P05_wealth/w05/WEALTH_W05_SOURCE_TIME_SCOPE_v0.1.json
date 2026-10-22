@@ -1,0 +1,122 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P05-WEALTH-W05-SOURCE-TIME-SCOPE-v0.1",
+  "issue": 591,
+  "source_id": "SRC-ZZ-003",
+  "scope": "W05-401..W05-500 / printed pp79-81",
+  "counts": {
+    "non_natal_rows": 0,
+    "year": 0,
+    "decade": 0,
+    "path_dependent_gate_rows": 7,
+    "source_age_qualifier_rows": 1
+  },
+  "exact_non_natal_ids": [],
+  "decade_ids": [],
+  "year_ids": [],
+  "path_dependent_gate_ids": [
+    "W05-403",
+    "W05-410",
+    "W05-411",
+    "W05-414",
+    "W05-416",
+    "W05-429",
+    "W05-434"
+  ],
+  "source_age_qualifier_ids": [
+    "W05-420"
+  ],
+  "dependent_outcome_ids": [
+    "W05-412"
+  ],
+  "policy": [
+    "W05-401..W05-500 的原局星系条件均保留为 NATAL；没有将源文人生阶段或星系组合误分类为大运/流年触发。",
+    "W05-420 保留“往往五十岁后始环境变佳”作为来源内年龄阶段措辞；不构造年龄阈值模型、固定持续期或经验概率。",
+    "W05-403、W05-410、W05-411、W05-414、W05-416、W05-429、W05-434 保留七个源文明确的有序路径；不推断转移概率、衰减或恢复系数。",
+    "W05-412 的“结局富裕”是 W05-411 空劫路径的终端结果，canonical_condition 明确承接东山复起，不作为独立触发。",
+    "未发现 DECADE/YEAR 来源触发；时间层计数不把“晚年”“少年”“五十岁后”等源文人生阶段标签改写为运限触发。"
+  ],
+  "records": [],
+  "path_records": [
+    {
+      "projection_rule_id": "W05-403",
+      "source_location": "财帛宫printed_p79",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "巳亥武破见贪狼化忌且破军化禄",
+      "canonical_target": "side_path_opens_unexpected_income",
+      "source_scope_note": "原文“见贪狼化忌…于事业外别开生路，由是富足”，并明确“此时必同时见破军化禄”；保留别开生路到得财的顺序，不推成保证成功。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W05-410",
+      "source_location": "财帛宫printed_p79",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "天同+火铃",
+      "canonical_target": "ancestral_assets_disperse_then_self_creation",
+      "source_scope_note": "原文明确“火铃同度者，有祖业亦必散尽。然后始主自身创兴”；只保留先散尽、后创兴的顺序，不加持续时间。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W05-411",
+      "source_location": "财帛宫printed_p79",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "天同+空劫",
+      "canonical_target": "self_creation_fails_then_comeback",
+      "source_scope_note": "原文“若空劫同度，则自身开创亦多破败，仅能东山复起，结局富裕”；页图校勘将 OCR“何破败”订正为“多破败”。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W05-414",
+      "source_location": "财帛宫printed_p79",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "天同独坐财帛",
+      "canonical_target": "later_life_financial_improvement",
+      "source_scope_note": "原文“必须中年辛苦求财，至晚年始得顺遂”；保存生命阶段顺序，不将中年/晚年换算成固定年份。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W05-416",
+      "source_location": "财帛宫printed_p79-80",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "天同化禄见煞",
+      "canonical_target": "depletion_before_unexpected_gain",
+      "source_scope_note": "原文说见煞时必须先“财帛破败净尽，至身无一文”，然后才有意外收获；PATH_DEPENDENT_GATE 只表示顺序，不表示概率。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W05-429",
+      "source_location": "财帛宫printed_p80",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "子午同阴天同化禄",
+      "canonical_target": "ancestral_loss_then_sudden_rise",
+      "source_scope_note": "直接复核 SRC-ZZ-003 对应原文，保留来源条件与投影方向；不增加概率、权重、频率、阈值、持续期或衰减参数。",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W05-434",
+      "source_location": "财帛宫printed_p80",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "同阴太阴化权",
+      "canonical_target": "early_wandering_then_status_then_wealth",
+      "source_scope_note": "原文明确“少年必主飘流，在异域先有地位，再成富裕”；保留飘流→异域地位→富裕的路径，不创设阶段时长。",
+      "no_numeric_generalization": true
+    }
+  ],
+  "source_age_qualifier_records": [
+    {
+      "projection_rule_id": "W05-420",
+      "source_location": "财帛宫printed_p79-80",
+      "time_layer": "NATAL",
+      "source_phrase": "往往五十岁后始环境变佳",
+      "source_scope_note": "年龄阶段仅保留为来源原话，不引入通用数值阈值或经验模型。",
+      "no_numeric_generalization": true
+    }
+  ]
+}
