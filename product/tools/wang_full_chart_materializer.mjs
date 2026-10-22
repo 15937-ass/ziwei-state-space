@@ -90,7 +90,7 @@ function sha256(path) {
 function gitBlobSha(path) {
   const content = fs.readFileSync(path);
   return createHash("sha1")
-    .update("blob " + content.length + "\\0")
+    .update("blob " + content.length + "\0")
     .update(content)
     .digest("hex");
 }
