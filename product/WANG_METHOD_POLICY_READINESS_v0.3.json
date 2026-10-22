@@ -1,0 +1,1688 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "WANG_METHOD_POLICY_READINESS_V0_3",
+  "policy_version": "METHOD_POLICY_V0_1_CBR_HEURISTIC_SYMBOLIC",
+  "corpus_id": "WANG_TINGZHI_ANXING_TUIDUAN_24_V0_1",
+  "issue": 615,
+  "fold_count": 24,
+  "summary": {
+    "fold_count": 24,
+    "retrieval_ready": 24,
+    "action_selection_ready": 24,
+    "full_expert_replay_ready": 0,
+    "reference_only_fold_count": 0,
+    "materialized_target_palace_fold_count": 24,
+    "full_chart_blocked_fold_count": 13,
+    "remaining_blocker_classes": [
+      "FULL_CHART_NOT_MATERIALIZED",
+      "NO_EXECUTABLE_PATTERN_FOR_CASE_TARGET_SCOPE",
+      "METHOD_POLICY_RUNTIME_TARGET_CHART_EVIDENCE_REMAINS_BLOCKED"
+    ],
+    "recommended_next_dependency": "CANONICAL_AND_METHOD_FIDELITY_BENCHMARK",
+    "full_chart_materialized_fold_count": 11,
+    "method_policy_runtime_target_chart_blocked_fold_count": 24,
+    "case_target_scope_binding_count": 0
+  },
+  "interpretation": {
+    "materialization_gain": "11/24 cases now have a real pinned-engine full-chart materialization artifact; 13/24 remain unmaterialized. The artifact verifies the reviewed target-palace identity and fourteen-major-star anchor only.",
+    "runtime_boundary": "The existing Method Policy runtime still marks TARGET_CHART evidence BLOCKED for all 24 cases. The separate full-chart artifact is not silently promoted into runtime evidence. All 24 cases remain unbound to an executable case-target MethodPattern.",
+    "benchmark_claim": "This artifact measures source-bounded replay readiness only; it is not expert-method fidelity or predictive-validity evidence."
+  },
+  "folds": [
+    {
+      "fold_id": "WANG-LOCO-001",
+      "held_out_case_id": "WANG-CASE-001",
+      "held_out_person_group_id": "WANG-PERSON-001",
+      "target_domains": [
+        "PARENTS"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-001:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-001:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-001:TARGET_PALACE:MAIN_STAR_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P7:CASE-001:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-001:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P7:CASE-001:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-002",
+          "person_group_id": "WANG-PERSON-002",
+          "target_domains": [
+            "PARENTS"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "MATERIALIZED",
+        "chart_specific_analysis_status": "LIMITED_ENGINE_RECONSTRUCTION_AVAILABLE",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+        "target_anchor_verified": true,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": null
+    },
+    {
+      "fold_id": "WANG-LOCO-002",
+      "held_out_case_id": "WANG-CASE-002",
+      "held_out_person_group_id": "WANG-PERSON-002",
+      "target_domains": [
+        "PARENTS"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-002:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-002:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-002:TARGET_PALACE:EMPTY_MAIN_STAR_AND_BORROWED_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P7-P8:CASE-002:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-002:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P7-P8:CASE-002:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-001",
+          "person_group_id": "WANG-PERSON-001",
+          "target_domains": [
+            "PARENTS"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "NOT_MATERIALIZED",
+        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": null,
+        "target_anchor_verified": false,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+    },
+    {
+      "fold_id": "WANG-LOCO-003",
+      "held_out_case_id": "WANG-CASE-003",
+      "held_out_person_group_id": "WANG-PERSON-003",
+      "target_domains": [
+        "LIFE"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-003:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-003:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-003:TARGET_PALACE:MAIN_STAR_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P8-P9:CASE-003:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-003:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P8-P9:CASE-003:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-004",
+          "person_group_id": "WANG-PERSON-004",
+          "target_domains": [
+            "LIFE"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "MATERIALIZED",
+        "chart_specific_analysis_status": "LIMITED_ENGINE_RECONSTRUCTION_AVAILABLE",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+        "target_anchor_verified": true,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": null
+    },
+    {
+      "fold_id": "WANG-LOCO-004",
+      "held_out_case_id": "WANG-CASE-004",
+      "held_out_person_group_id": "WANG-PERSON-004",
+      "target_domains": [
+        "LIFE"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-004:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-004:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-004:TARGET_PALACE:MAIN_STAR_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P9-P10:CASE-004:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-004:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P9-P10:CASE-004:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-003",
+          "person_group_id": "WANG-PERSON-003",
+          "target_domains": [
+            "LIFE"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "NOT_MATERIALIZED",
+        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": null,
+        "target_anchor_verified": false,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+    },
+    {
+      "fold_id": "WANG-LOCO-005",
+      "held_out_case_id": "WANG-CASE-005",
+      "held_out_person_group_id": "WANG-PERSON-005",
+      "target_domains": [
+        "SIBLINGS"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-005:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-005:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-005:TARGET_PALACE:MAIN_STAR_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P10-P11:CASE-005:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-005:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P10-P11:CASE-005:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-006",
+          "person_group_id": "WANG-PERSON-006",
+          "target_domains": [
+            "SIBLINGS"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "NOT_MATERIALIZED",
+        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": null,
+        "target_anchor_verified": false,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+    },
+    {
+      "fold_id": "WANG-LOCO-006",
+      "held_out_case_id": "WANG-CASE-006",
+      "held_out_person_group_id": "WANG-PERSON-006",
+      "target_domains": [
+        "SIBLINGS"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-006:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-006:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-006:TARGET_PALACE:MAIN_STAR_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P11:CASE-006:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-006:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P11:CASE-006:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-005",
+          "person_group_id": "WANG-PERSON-005",
+          "target_domains": [
+            "SIBLINGS"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "MATERIALIZED",
+        "chart_specific_analysis_status": "LIMITED_ENGINE_RECONSTRUCTION_AVAILABLE",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+        "target_anchor_verified": true,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": null
+    },
+    {
+      "fold_id": "WANG-LOCO-007",
+      "held_out_case_id": "WANG-CASE-007",
+      "held_out_person_group_id": "WANG-PERSON-007",
+      "target_domains": [
+        "SPOUSE"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-007:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-007:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-007:TARGET_PALACE:MAIN_STAR_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P11-P12:CASE-007:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-007:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P11-P12:CASE-007:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-008",
+          "person_group_id": "WANG-PERSON-008",
+          "target_domains": [
+            "SPOUSE"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "NOT_MATERIALIZED",
+        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": null,
+        "target_anchor_verified": false,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+    },
+    {
+      "fold_id": "WANG-LOCO-008",
+      "held_out_case_id": "WANG-CASE-008",
+      "held_out_person_group_id": "WANG-PERSON-008",
+      "target_domains": [
+        "SPOUSE"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-008:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-008:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-008:TARGET_PALACE:MAIN_STAR_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P12-P13:CASE-008:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-008:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P12-P13:CASE-008:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-007",
+          "person_group_id": "WANG-PERSON-007",
+          "target_domains": [
+            "SPOUSE"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "NOT_MATERIALIZED",
+        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": null,
+        "target_anchor_verified": false,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+    },
+    {
+      "fold_id": "WANG-LOCO-009",
+      "held_out_case_id": "WANG-CASE-009",
+      "held_out_person_group_id": "WANG-PERSON-009",
+      "target_domains": [
+        "CHILDREN"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-009:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-009:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-009:TARGET_PALACE:MAIN_STAR_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P13-P14:CASE-009:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-009:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P13-P14:CASE-009:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-010",
+          "person_group_id": "WANG-PERSON-010",
+          "target_domains": [
+            "CHILDREN"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "MATERIALIZED",
+        "chart_specific_analysis_status": "LIMITED_ENGINE_RECONSTRUCTION_AVAILABLE",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+        "target_anchor_verified": true,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": null
+    },
+    {
+      "fold_id": "WANG-LOCO-010",
+      "held_out_case_id": "WANG-CASE-010",
+      "held_out_person_group_id": "WANG-PERSON-010",
+      "target_domains": [
+        "CHILDREN"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-010:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-010:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-010:TARGET_PALACE:EMPTY_MAIN_STAR_AND_BORROWED_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P14:CASE-010:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-010:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P14:CASE-010:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-009",
+          "person_group_id": "WANG-PERSON-009",
+          "target_domains": [
+            "CHILDREN"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "MATERIALIZED",
+        "chart_specific_analysis_status": "LIMITED_ENGINE_RECONSTRUCTION_AVAILABLE",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+        "target_anchor_verified": true,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": null
+    },
+    {
+      "fold_id": "WANG-LOCO-011",
+      "held_out_case_id": "WANG-CASE-011",
+      "held_out_person_group_id": "WANG-PERSON-011",
+      "target_domains": [
+        "WEALTH"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-011:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-011:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-011:TARGET_PALACE:MAIN_STAR_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P14-P15:CASE-011:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-011:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P14-P15:CASE-011:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-012",
+          "person_group_id": "WANG-PERSON-012",
+          "target_domains": [
+            "WEALTH"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "NOT_MATERIALIZED",
+        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": null,
+        "target_anchor_verified": false,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+    },
+    {
+      "fold_id": "WANG-LOCO-012",
+      "held_out_case_id": "WANG-CASE-012",
+      "held_out_person_group_id": "WANG-PERSON-012",
+      "target_domains": [
+        "WEALTH"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-012:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-012:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-012:TARGET_PALACE:MAIN_STAR_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P15-P16:CASE-012:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-012:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P15-P16:CASE-012:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-011",
+          "person_group_id": "WANG-PERSON-011",
+          "target_domains": [
+            "WEALTH"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "MATERIALIZED",
+        "chart_specific_analysis_status": "LIMITED_ENGINE_RECONSTRUCTION_AVAILABLE",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+        "target_anchor_verified": true,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": null
+    },
+    {
+      "fold_id": "WANG-LOCO-013",
+      "held_out_case_id": "WANG-CASE-013",
+      "held_out_person_group_id": "WANG-PERSON-013",
+      "target_domains": [
+        "HEALTH"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-013:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-013:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-013:TARGET_PALACE:MAIN_STAR_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P16-P17:CASE-013:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-013:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P16-P17:CASE-013:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-014",
+          "person_group_id": "WANG-PERSON-014",
+          "target_domains": [
+            "HEALTH"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "MATERIALIZED",
+        "chart_specific_analysis_status": "LIMITED_ENGINE_RECONSTRUCTION_AVAILABLE",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+        "target_anchor_verified": true,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": null
+    },
+    {
+      "fold_id": "WANG-LOCO-014",
+      "held_out_case_id": "WANG-CASE-014",
+      "held_out_person_group_id": "WANG-PERSON-014",
+      "target_domains": [
+        "HEALTH"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-014:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-014:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-014:TARGET_PALACE:MAIN_STAR_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P17-P18:CASE-014:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-014:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P17-P18:CASE-014:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-013",
+          "person_group_id": "WANG-PERSON-013",
+          "target_domains": [
+            "HEALTH"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "NOT_MATERIALIZED",
+        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": null,
+        "target_anchor_verified": false,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+    },
+    {
+      "fold_id": "WANG-LOCO-015",
+      "held_out_case_id": "WANG-CASE-015",
+      "held_out_person_group_id": "WANG-PERSON-015",
+      "target_domains": [
+        "TRAVEL"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-015:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-015:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-015:TARGET_PALACE:EMPTY_MAIN_STAR_AND_BORROWED_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P18:CASE-015:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-015:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P18:CASE-015:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-016",
+          "person_group_id": "WANG-PERSON-016",
+          "target_domains": [
+            "TRAVEL"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "MATERIALIZED",
+        "chart_specific_analysis_status": "LIMITED_ENGINE_RECONSTRUCTION_AVAILABLE",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+        "target_anchor_verified": true,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": null
+    },
+    {
+      "fold_id": "WANG-LOCO-016",
+      "held_out_case_id": "WANG-CASE-016",
+      "held_out_person_group_id": "WANG-PERSON-016",
+      "target_domains": [
+        "TRAVEL"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-016:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-016:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-016:TARGET_PALACE:EMPTY_MAIN_STAR_AND_BORROWED_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P18-P19:CASE-016:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-016:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P18-P19:CASE-016:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-015",
+          "person_group_id": "WANG-PERSON-015",
+          "target_domains": [
+            "TRAVEL"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "NOT_MATERIALIZED",
+        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": null,
+        "target_anchor_verified": false,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+    },
+    {
+      "fold_id": "WANG-LOCO-017",
+      "held_out_case_id": "WANG-CASE-017",
+      "held_out_person_group_id": "WANG-PERSON-017",
+      "target_domains": [
+        "FRIENDS"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-017:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-017:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-017:TARGET_PALACE:EMPTY_MAIN_STAR_AND_BORROWED_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P19-P20:CASE-017:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-017:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P19-P20:CASE-017:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-018",
+          "person_group_id": "WANG-PERSON-018",
+          "target_domains": [
+            "FRIENDS"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "NOT_MATERIALIZED",
+        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": null,
+        "target_anchor_verified": false,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+    },
+    {
+      "fold_id": "WANG-LOCO-018",
+      "held_out_case_id": "WANG-CASE-018",
+      "held_out_person_group_id": "WANG-PERSON-018",
+      "target_domains": [
+        "FRIENDS"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-018:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-018:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-018:TARGET_PALACE:MAIN_STAR_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P20-P21:CASE-018:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-018:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P20-P21:CASE-018:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-017",
+          "person_group_id": "WANG-PERSON-017",
+          "target_domains": [
+            "FRIENDS"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "NOT_MATERIALIZED",
+        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": null,
+        "target_anchor_verified": false,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+    },
+    {
+      "fold_id": "WANG-LOCO-019",
+      "held_out_case_id": "WANG-CASE-019",
+      "held_out_person_group_id": "WANG-PERSON-019",
+      "target_domains": [
+        "CAREER"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-019:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-019:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-019:TARGET_PALACE:MAIN_STAR_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P21:CASE-019:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-019:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P21:CASE-019:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-020",
+          "person_group_id": "WANG-PERSON-020",
+          "target_domains": [
+            "CAREER"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "MATERIALIZED",
+        "chart_specific_analysis_status": "LIMITED_ENGINE_RECONSTRUCTION_AVAILABLE",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+        "target_anchor_verified": true,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": null
+    },
+    {
+      "fold_id": "WANG-LOCO-020",
+      "held_out_case_id": "WANG-CASE-020",
+      "held_out_person_group_id": "WANG-PERSON-020",
+      "target_domains": [
+        "CAREER"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-020:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-020:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-020:TARGET_PALACE:MAIN_STAR_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P22:CASE-020:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-020:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P22:CASE-020:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-019",
+          "person_group_id": "WANG-PERSON-019",
+          "target_domains": [
+            "CAREER"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "NOT_MATERIALIZED",
+        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": null,
+        "target_anchor_verified": false,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+    },
+    {
+      "fold_id": "WANG-LOCO-021",
+      "held_out_case_id": "WANG-CASE-021",
+      "held_out_person_group_id": "WANG-PERSON-021",
+      "target_domains": [
+        "PROPERTY"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-021:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-021:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-021:TARGET_PALACE:MAIN_STAR_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P22-P23:CASE-021:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-021:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P22-P23:CASE-021:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-022",
+          "person_group_id": "WANG-PERSON-022",
+          "target_domains": [
+            "PROPERTY"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "MATERIALIZED",
+        "chart_specific_analysis_status": "LIMITED_ENGINE_RECONSTRUCTION_AVAILABLE",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+        "target_anchor_verified": true,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": null
+    },
+    {
+      "fold_id": "WANG-LOCO-022",
+      "held_out_case_id": "WANG-CASE-022",
+      "held_out_person_group_id": "WANG-PERSON-022",
+      "target_domains": [
+        "PROPERTY"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-022:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-022:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-022:TARGET_PALACE:MAIN_STAR_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P23-P24:CASE-022:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-022:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P23-P24:CASE-022:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-021",
+          "person_group_id": "WANG-PERSON-021",
+          "target_domains": [
+            "PROPERTY"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "NOT_MATERIALIZED",
+        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": null,
+        "target_anchor_verified": false,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+    },
+    {
+      "fold_id": "WANG-LOCO-023",
+      "held_out_case_id": "WANG-CASE-023",
+      "held_out_person_group_id": "WANG-PERSON-023",
+      "target_domains": [
+        "FORTUNE_VIRTUE"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-023:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-023:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-023:TARGET_PALACE:MAIN_STAR_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P24:CASE-023:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-023:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P24:CASE-023:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-024",
+          "person_group_id": "WANG-PERSON-024",
+          "target_domains": [
+            "FORTUNE_VIRTUE"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "MATERIALIZED",
+        "chart_specific_analysis_status": "LIMITED_ENGINE_RECONSTRUCTION_AVAILABLE",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+        "target_anchor_verified": true,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": null
+    },
+    {
+      "fold_id": "WANG-LOCO-024",
+      "held_out_case_id": "WANG-CASE-024",
+      "held_out_person_group_id": "WANG-PERSON-024",
+      "target_domains": [
+        "FORTUNE_VIRTUE"
+      ],
+      "evidence_statuses": [
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-024:TARGET_PALACE",
+          "kind": "TARGET_PALACE",
+          "status": "MATERIALIZED_FACT",
+          "refs": [
+            "MATERIALIZED_FACT:WANG-CASE-024:TARGET_PALACE:PALACE_IDENTITY",
+            "MATERIALIZED_FACT:WANG-CASE-024:TARGET_PALACE:EMPTY_MAIN_STAR_AND_BORROWED_SYSTEM",
+            "WANG-ANXING-TUIDUAN:P25:CASE-024:CHART"
+          ]
+        },
+        {
+          "evidence_id": "EVIDENCE:WANG-CASE-024:TARGET_CHART",
+          "kind": "TARGET_CHART",
+          "status": "BLOCKED",
+          "refs": [
+            "WANG-ANXING-TUIDUAN:P25:CASE-024:CHART"
+          ]
+        }
+      ],
+      "retrieval_hits": [
+        {
+          "case_id": "WANG-CASE-023",
+          "person_group_id": "WANG-PERSON-023",
+          "target_domains": [
+            "FORTUNE_VIRTUE"
+          ],
+          "match_reasons": [
+            "EXACT_TARGET_DOMAIN"
+          ]
+        }
+      ],
+      "retrieval_ready": true,
+      "action_selection_ready": true,
+      "full_expert_replay_ready": false,
+      "trace_expected": [
+        "INSPECT",
+        "ABSTAIN"
+      ],
+      "trace_final_status": "ABSTAINED",
+      "blockers": [
+        "BLOCKED_EVIDENCE_PRESENT",
+        "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
+      ],
+      "full_chart_materialization": {
+        "status": "NOT_MATERIALIZED",
+        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
+        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+        "materialization_claim": null,
+        "target_anchor_verified": false,
+        "full_source_chart_equivalence_verified": false
+      },
+      "method_scope_review": {
+        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+        "assessment_count": 6,
+        "explicit_binding_count": 0,
+        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
+        "full_expert_replay_ready": false
+      },
+      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+    }
+  ],
+  "maturity": {
+    "deterministic_cbr": "IMPLEMENTED",
+    "heuristic_symbolic_planner": "IMPLEMENTED_V0_1",
+    "canonical_verifier_boundary": "IMPLEMENTED_V0_1",
+    "wang_machine_expert_replay": "NOT_READY",
+    "wang_blind_target_palace_evidence": "MATERIALIZED_24_OF_24",
+    "wang_full_chart_evidence": "NOT_MATERIALIZED",
+    "method_fidelity": "NOT_VALIDATED",
+    "predictive_validity": "NOT_VALIDATED"
+  },
+  "supersedes_artifact": "product/WANG_METHOD_POLICY_READINESS_v0.2.json",
+  "generated_from": [
+    "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+    "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+    "product/expert_cases/wang_tingzhi/FULL_CHART_RECONSTRUCTION_READINESS_V0_1.json",
+    "product/METHOD_POLICY_EXECUTION_RULES_v0.1.json"
+  ],
+  "scope_review_artifact_id": "WANG_METHOD_SCOPE_REVIEW_V0_1C",
+  "metric_definitions": {
+    "full_chart_materialized_fold_count": "Cases with a separate committed full-chart materialization artifact.",
+    "full_chart_blocked_fold_count": "Cases still lacking a full-chart materialization artifact; 13/24.",
+    "method_policy_runtime_target_chart_blocked_fold_count": "Cases for which the unchanged Method Policy runtime emits TARGET_CHART=BLOCKED; 24/24 until an explicitly authorized runtime integration work unit changes that behavior."
+  }
+}
