@@ -1,136 +1,143 @@
 import json
+from collections import Counter
 from pathlib import Path
 
-from src.product.wang_method_scope_review import (
-    build_wang_method_policy_readiness_v03,
-    build_wang_method_scope_review,
-)
-
 ROOT = Path(__file__).resolve().parents[1]
-REVIEW_PATH = ROOT / "product" / "WANG_METHOD_SCOPE_REVIEW_V0_1C.json"
-READINESS_V02_PATH = ROOT / "product" / "WANG_METHOD_POLICY_READINESS_v0.2.json"
-READINESS_V03_PATH = ROOT / "product" / "WANG_METHOD_POLICY_READINESS_v0.3.json"
-POLICY_PATH = ROOT / "product" / "METHOD_POLICY_EXECUTION_RULES_v0.1.json"
-PATTERNS_PATH = ROOT / "product" / "expert_cases" / "wang_tingzhi" / "METHOD_PATTERNS_v0.1.json"
+REVIEW = ROOT / "product" / "WANG_METHOD_SCOPE_REVIEW_V0_1C.json"
+READINESS_V02 = ROOT / "product" / "WANG_METHOD_POLICY_READINESS_v0.2.json"
+READINESS_V03 = ROOT / "product" / "WANG_METHOD_POLICY_READINESS_v0.3.json"
+INVENTORY = ROOT / "product" / "expert_cases" / "wang_tingzhi" / "CASE_SOURCE_INVENTORY_v0.1.json"
+CASES = ROOT / "product" / "expert_cases" / "wang_tingzhi" / "cases"
+METHODS = ROOT / "product" / "expert_cases" / "wang_tingzhi" / "METHOD_PATTERNS_v0.1.json"
+RULES = ROOT / "product" / "METHOD_POLICY_EXECUTION_RULES_v0.1.json"
+MATERIALIZATION = ROOT / "product" / "expert_cases" / "wang_tingzhi" / "FULL_CHART_MATERIALIZATION_V0_1B.json"
 
-
-def _read(path: Path):
+def load(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
+def case_path(case_id):
+    number = int(case_id.rsplit("-", 1)[1])
+    return CASES / f"wang_case_{number:03d}.json"
 
-def test_scope_review_is_deterministic_and_matches_committed_artifact():
-    assert _read(REVIEW_PATH) == build_wang_method_scope_review()
+def test_scope_review_covers_each_case_once_and_each_pattern_once_per_case():
+    review = load(REVIEW)
+    inventory = load(INVENTORY)
+    methods = load(METHODS)
+    expected_cases = [case["case_id"] for case in inventory["cases"]]
+    expected_patterns = [pattern["pattern_id"] for pattern in methods["method_patterns"]]
 
-
-def test_review_matrix_covers_all_24_cases_and_six_patterns_fail_closed():
-    review = _read(REVIEW_PATH)
+    assert len(review["matrix"]) == 24
+    assert [case["case_id"] for case in review["matrix"]] == expected_cases
     assert review["summary"]["case_count"] == 24
     assert review["summary"]["method_pattern_count"] == 6
     assert review["summary"]["assessment_count"] == 144
-    assert review["summary"]["exact_target_domain_matches"] == 0
-    assert review["summary"]["explicit_case_to_pattern_source_links"] == 0
-    assert review["summary"]["proposed_binding_count"] == 0
-    assert review["summary"]["full_expert_replay_ready"] == 0
-    assert review["summary"]["review_outcome_counts"] == {
-        "DEFERRED_SYMBOLIC_INTERPRETATION": 48,
-        "INSUFFICIENT_SOURCE_EVIDENCE": 64,
-        "MISSING_CONTEXT_BINDING": 24,
-        "SEMANTIC_ONLY_RELEVANCE": 8,
+
+    for row, source in zip(review["matrix"], inventory["cases"], strict=True):
+        case_record = load(case_path(source["case_id"]))
+        assert row["target"]["domain"] == source["domain"]
+        assert row["target"]["palace"] == source["palace"]
+        assert row["source"]["chart_span_ref"] == source["chart_span_ref"]
+        assert row["source"]["reasoning_span_ref"] == source["reasoning_span_ref"]
+        assert row["source"]["conclusion_span_ref"] == source["conclusion_span_ref"]
+        assert row["source"]["outcome_span_ref"] == source["outcome_span_ref"]
+        assert row["source"]["graph_status"] == source["graph_status"]
+        assert row["source"]["source_id"] == case_record["source"]["source_id"]
+        assert row["source"]["epistemic_status"] == case_record["epistemic_status"]
+        assert row["source"]["allowed_use"] == case_record["allowed_use"] == "CASE_SUPPORT_ONLY"
+        assert case_record["target"]["domains"] == [source["domain"]]
+        assert case_record["target"]["target_time_label"] == row["target"]["target_time_label"]
+        assert all(node["epistemic_status"] == "SOURCE_DEMONSTRATED" for node in case_record["expert_reasoning_graph"]["nodes"])
+        assert all(node["allowed_use"] == "CASE_SUPPORT_ONLY" for node in case_record["expert_reasoning_graph"]["nodes"])
+        assert all(source["palace"] in node["palace_targets"] for node in case_record["expert_reasoning_graph"]["nodes"])
+        assert [item["pattern_id"] for item in row["pattern_assessments"]] == expected_patterns
+        assert len(row["pattern_assessments"]) == 6
+
+def test_source_level_candidates_are_cited_and_never_become_runtime_bindings():
+    review = load(REVIEW)
+    allowed_statuses = {
+        "EXPLICIT_SCOPE_FIT",
+        "SEMANTIC_ONLY_RELEVANCE",
+        "MISSING_CONTEXT_BINDING",
+        "DEFERRED_SYMBOLIC_INTERPRETATION",
+        "INSUFFICIENT_SOURCE_EVIDENCE",
     }
+    candidate_count = 0
+    for case in review["matrix"]:
+        reasoning_ref = case["source"]["reasoning_span_ref"]
+        forbidden_refs = {
+            case["source"]["conclusion_span_ref"],
+            case["source"]["outcome_span_ref"],
+        }
+        for assessment in case["pattern_assessments"]:
+            assert assessment["assessment_status"] in allowed_statuses
+            assert assessment["proposed_executable_target_binding"] is False
+            assert assessment["runtime_binding_authorized"] is False
+            assert assessment["case_target_scope_check"]["exact_match_to_existing_pattern_target_domain"] is False
+            assert assessment["case_target_scope_check"]["result"] == "NO_EXACT_TARGET_DOMAIN_MATCH"
+            if assessment["source_method_association_candidate"]:
+                candidate_count += 1
+                assert reasoning_ref in assessment["source_evidence_refs"]
+                assert assessment["method_definition_span_refs"]
+                assert not (set(assessment["source_evidence_refs"]) & forbidden_refs)
+            if assessment["source_text_method_use_observed"]:
+                assert reasoning_ref in assessment["source_evidence_refs"]
+                assert not (set(assessment["source_evidence_refs"]) & forbidden_refs)
+    assert review["summary"]["exact_target_domain_scope_fits"] == 0
+    assert review["summary"]["proposed_executable_target_bindings"] == 0
+    assert review["summary"]["runtime_bindings_authorized"] == 0
+    assert candidate_count == review["summary"]["source_method_association_candidates"]
 
-    pattern_ids = [item["pattern_id"] for item in _read(PATTERNS_PATH)["method_patterns"]]
-    assert len(review["case_reviews"]) == 24
-    assert [row["case_id"] for row in review["case_reviews"]] == [
-        f"WANG-CASE-{index:03d}" for index in range(1, 25)
-    ]
-    for row in review["case_reviews"]:
-        assessments = row["method_pattern_assessments"]
-        assert len(assessments) == 6
-        assert [item["pattern_id"] for item in assessments] == pattern_ids
-        for item in assessments:
-            assert item["exact_target_domain_match"] is False
-            assert item["explicit_case_to_pattern_source_link"] is False
-            assert item["proposed_binding"] is None
-            assert item["binding_status"] == "NOT_BOUND_FAIL_CLOSED"
-            assert item["pattern_allowed_use"] == "SEMANTIC_ONLY"
+def test_method_patterns_and_execution_dispositions_are_unchanged():
+    review = load(REVIEW)
+    methods = load(METHODS)
+    rules = load(RULES)
+    pattern_by_id = {p["pattern_id"]: p for p in methods["method_patterns"]}
+    rule_by_id = {r["pattern_id"]: r for r in rules["dispositions"]}
 
+    assert len(pattern_by_id) == 6
+    assert all(p["allowed_use"] == "SEMANTIC_ONLY" for p in methods["method_patterns"])
+    for case in review["matrix"]:
+        for assessment in case["pattern_assessments"]:
+            p = pattern_by_id[assessment["pattern_id"]]
+            r = rule_by_id[assessment["pattern_id"]]
+            assert assessment["source_allowed_use"] == p["allowed_use"]
+            assert assessment["policy_disposition"] == r["disposition"]
+            assert assessment["policy_target_domains"] == r["target_domains"]
+            assert assessment["method_definition_span_refs"] == p["source_span_refs"]
+    assert review["summary"]["method_patterns_promoted_from_semantic_only"] == 0
 
-def test_case_source_spans_are_preserved_but_conclusion_and_outcome_are_not_binding_basis():
-    review = _read(REVIEW_PATH)
-    assert review["review_contract"]["case_conclusion_or_outcome_content_used_for_binding"] is False
-    assert review["review_contract"]["chart_structure_used_as_binding_basis"] is False
-    for row in review["case_reviews"]:
-        refs = row["source_span_refs"]
-        assert set(refs) == {"chart", "reasoning", "conclusion", "outcome"}
-        for assessment in row["method_pattern_assessments"]:
-            assert assessment["case_source_basis_refs"] == [refs["reasoning"]]
-            assert refs["conclusion"] not in assessment["case_source_basis_refs"]
-            assert refs["outcome"] not in assessment["case_source_basis_refs"]
-        assert row["case_allowed_use"] == "CASE_SUPPORT_ONLY"
-        assert row["case_graph_allowed_use"] == ["CASE_SUPPORT_ONLY"]
-        assert row["case_graph_canonical_rule_refs"] == []
+def test_materialized_11_and_blocked_13_are_distinguished_without_overclaiming():
+    review = load(REVIEW)
+    readiness = load(READINESS_V03)
+    historical = load(READINESS_V02)
+    materialization = load(MATERIALIZATION)
+    materialized_ids = {case["case_id"] for case in materialization["cases"]}
 
+    assert len(materialized_ids) == 11
+    assert materialization["summary"]["not_materialized"] == 13
+    historical_copy = load(READINESS_V02)
+    assert historical_copy["issue"] == 512
+    assert historical["summary"]["full_chart_blocked_fold_count"] == 24
+    assert readiness["issue"] == 615
+    assert readiness["summary"]["full_chart_materialized_fold_count"] == 11
+    assert readiness["summary"]["full_chart_not_materialized_fold_count"] == 13
+    assert readiness["summary"]["full_chart_blocked_fold_count"] == 13
+    assert readiness["summary"]["target_chart_evidence_blocked_fold_count"] == 24
+    assert readiness["summary"]["full_expert_replay_ready"] == 0
 
-def test_full_chart_materialization_split_and_zi_time_ambiguity_are_preserved():
-    review = _read(REVIEW_PATH)
-    assert review["summary"]["full_chart_materialized_case_count"] == 11
-    assert review["summary"]["full_chart_unmaterialized_case_count"] == 13
-
-    materialized = [
-        row["case_id"] for row in review["case_reviews"]
-        if row["chart_materialization"]["status"] == "MATERIALIZED"
-    ]
-    assert materialized == [
-        "WANG-CASE-001",
-        "WANG-CASE-003",
-        "WANG-CASE-006",
-        "WANG-CASE-009",
-        "WANG-CASE-010",
-        "WANG-CASE-012",
-        "WANG-CASE-013",
-        "WANG-CASE-015",
-        "WANG-CASE-019",
-        "WANG-CASE-021",
-        "WANG-CASE-023",
-    ]
-    for row in review["case_reviews"]:
-        chart = row["chart_materialization"]
-        if chart["status"] == "MATERIALIZED":
-            assert chart["materialization_claim"] == "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED"
-            assert chart["target_anchor_verification"]["status"] == "UNIQUE_ANCHOR_MATCH_RECONFIRMED"
-            assert chart["target_anchor_verification"]["matched"] is True
-            assert chart["full_source_chart_equivalence_verified"] is False
+    for fold in readiness["folds"]:
+        assert fold["full_source_chart_equivalence_verified"] is False
+        assert fold["target_chart_evidence_status_unchanged"] == "BLOCKED"
+        if fold["held_out_case_id"] in materialized_ids:
+            assert fold["chart_materialization_status"] == "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED"
+            assert fold["chart_specific_analysis_status"] == "AVAILABLE_WITH_ANCHOR_ONLY_CLAIM"
         else:
-            assert chart["chart_specific_analysis_status"] == "BLOCKED_UNMATERIALIZED"
+            assert fold["chart_materialization_status"] == "NOT_MATERIALIZED"
+            assert fold["chart_specific_analysis_status"] == "BLOCKED"
 
-    case_021 = next(row for row in review["case_reviews"] if row["case_id"] == "WANG-CASE-021")
-    provenance = case_021["chart_materialization"]["source_candidate_provenance"]
-    assert provenance["source_time_ambiguity_preserved"] is True
-    assert provenance["time_index_candidates"] == [0, 12]
-    assert provenance["anchor_match_count"] == 1
-
-
-def test_readiness_v03_is_a_versioned_successor_without_runtime_promotion():
-    readiness_v02 = _read(READINESS_V02_PATH)
-    readiness_v03 = _read(READINESS_V03_PATH)
-    policy = _read(POLICY_PATH)
-
-    assert readiness_v02["artifact_id"] == "WANG_METHOD_POLICY_READINESS_V0_2"
-    assert readiness_v02["summary"]["full_chart_blocked_fold_count"] == 24
-    assert readiness_v03 == build_wang_method_policy_readiness_v03()
-    assert readiness_v03["artifact_id"] == "WANG_METHOD_POLICY_READINESS_V0_3"
-    assert readiness_v03["supersedes_artifact"] == "product/WANG_METHOD_POLICY_READINESS_v0.2.json"
-    assert readiness_v03["summary"]["full_chart_materialized_fold_count"] == 11
-    assert readiness_v03["summary"]["full_chart_blocked_fold_count"] == 13
-    assert readiness_v03["summary"]["method_policy_runtime_target_chart_blocked_fold_count"] == 24
-    assert readiness_v03["summary"]["case_target_scope_binding_count"] == 0
-    assert readiness_v03["summary"]["full_expert_replay_ready"] == 0
-    assert len(policy["dispositions"]) == 6
-
-    for old_fold, new_fold in zip(readiness_v02["folds"], readiness_v03["folds"]):
-        assert new_fold["held_out_case_id"] == old_fold["held_out_case_id"]
-        assert new_fold["evidence_statuses"] == old_fold["evidence_statuses"]
-        assert new_fold["blockers"] == old_fold["blockers"]
-        assert new_fold["trace_final_status"] == old_fold["trace_final_status"]
-        assert new_fold["full_expert_replay_ready"] is False
-        assert new_fold["method_scope_review"]["explicit_binding_count"] == 0
+    blocked_counts = Counter(fold["chart_materialization_blocked_reason"] for fold in readiness["folds"] if fold["chart_materialization_status"] == "NOT_MATERIALIZED")
+    assert blocked_counts == {"MULTIPLE_ANCHOR_MATCH": 6, "NO_ANCHOR_MATCH": 5, "BLOCKED_SOURCE_INCOMPLETE": 2}
+    case_021 = next(row for row in review["matrix"] if row["case_id"] == "WANG-CASE-021")
+    assert case_021["chart_materialization"]["source_candidate_ambiguity_preserved"]["candidate_indices"] == [0, 12]
+    assert case_021["chart_materialization"]["source_candidate_ambiguity_preserved"]["unique_anchor_match"].endswith("T00")
+    assert review["summary"]["full_expert_replay_ready"] == 0

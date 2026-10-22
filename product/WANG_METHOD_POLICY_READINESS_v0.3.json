@@ -14,19 +14,27 @@
     "materialized_target_palace_fold_count": 24,
     "full_chart_blocked_fold_count": 13,
     "remaining_blocker_classes": [
-      "FULL_CHART_NOT_MATERIALIZED",
       "NO_EXECUTABLE_PATTERN_FOR_CASE_TARGET_SCOPE",
-      "METHOD_POLICY_RUNTIME_TARGET_CHART_EVIDENCE_REMAINS_BLOCKED"
+      "TARGET_CHART_EVIDENCE_BLOCKED_FOR_FULL_EXPERT_REPLAY",
+      "RELATED_PALACE_BINDING_REQUIRED",
+      "TARGET_TIME_LABEL_UNBOUND",
+      "SYMBOLIC_INTERPRETATION_DEFERRED",
+      "FULL_SOURCE_CHART_EQUIVALENCE_NOT_VERIFIED"
     ],
-    "recommended_next_dependency": "CANONICAL_AND_METHOD_FIDELITY_BENCHMARK",
+    "recommended_next_dependency": "EXPLICIT_CASE_TARGET_SCOPE_CONTRACT_AND_REQUIRED_EVIDENCE_BINDINGS",
     "full_chart_materialized_fold_count": 11,
-    "method_policy_runtime_target_chart_blocked_fold_count": 24,
-    "case_target_scope_binding_count": 0
+    "full_chart_not_materialized_fold_count": 13,
+    "target_chart_evidence_blocked_fold_count": 24,
+    "exact_target_domain_scope_fits": 0,
+    "source_method_association_candidates": 13,
+    "proposed_executable_target_bindings": 0,
+    "method_patterns_promoted_from_semantic_only": 0
   },
   "interpretation": {
-    "materialization_gain": "11/24 cases now have a real pinned-engine full-chart materialization artifact; 13/24 remain unmaterialized. The artifact verifies the reviewed target-palace identity and fourteen-major-star anchor only.",
-    "runtime_boundary": "The existing Method Policy runtime still marks TARGET_CHART evidence BLOCKED for all 24 cases. The separate full-chart artifact is not silently promoted into runtime evidence. All 24 cases remain unbound to an executable case-target MethodPattern.",
-    "benchmark_claim": "This artifact measures source-bounded replay readiness only; it is not expert-method fidelity or predictive-validity evidence."
+    "materialization_gain": "Exactly 11 cases have real-engine full-chart snapshots generated with iztro-js 2.6.1 and rechecked target-palace identity plus fourteen-major-star anchors. The other 13 remain unmaterialized: 6 MULTIPLE_ANCHOR_MATCH, 5 NO_ANCHOR_MATCH, 2 BLOCKED_SOURCE_INCOMPLETE.",
+    "scope_review_result": "The 24 × 6 review records source-level method association candidates with exact reasoning-span references where observed, but finds zero exact matches between concrete case target domains and existing abstract MethodPattern target_domains. No executable target binding is proposed.",
+    "remaining_boundary": "TARGET_CHART evidence remains BLOCKED for Method Policy across all 24 folds because target-anchor verification is not full-source-chart equivalence. All six MethodPatterns remain SEMANTIC_ONLY; symbolic patterns remain deferred; target_time_label is unbound; FULL_EXPERT_REPLAY_READY remains 0/24.",
+    "benchmark_claim": "This artifact measures source-bounded readiness and explicit blockers only. It is not evidence of canonical rule truth, expert-method fidelity, real-world outcome accuracy, or predictive validity."
   },
   "folds": [
     {
@@ -80,22 +88,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "MATERIALIZED",
-        "chart_specific_analysis_status": "LIMITED_ENGINE_RECONSTRUCTION_AVAILABLE",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
-        "target_anchor_verified": true,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": null
+      "chart_materialization_status": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+      "chart_specific_analysis_status": "AVAILABLE_WITH_ANCHOR_ONLY_CLAIM",
+      "chart_materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": null,
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-002",
@@ -148,22 +146,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "NOT_MATERIALIZED",
-        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": null,
-        "target_anchor_verified": false,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+      "chart_materialization_status": "NOT_MATERIALIZED",
+      "chart_specific_analysis_status": "BLOCKED",
+      "chart_materialization_claim": null,
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": "MULTIPLE_ANCHOR_MATCH",
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-003",
@@ -216,22 +204,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "MATERIALIZED",
-        "chart_specific_analysis_status": "LIMITED_ENGINE_RECONSTRUCTION_AVAILABLE",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
-        "target_anchor_verified": true,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": null
+      "chart_materialization_status": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+      "chart_specific_analysis_status": "AVAILABLE_WITH_ANCHOR_ONLY_CLAIM",
+      "chart_materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": null,
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-004",
@@ -284,22 +262,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "NOT_MATERIALIZED",
-        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": null,
-        "target_anchor_verified": false,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+      "chart_materialization_status": "NOT_MATERIALIZED",
+      "chart_specific_analysis_status": "BLOCKED",
+      "chart_materialization_claim": null,
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": "BLOCKED_SOURCE_INCOMPLETE",
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-005",
@@ -352,22 +320,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "NOT_MATERIALIZED",
-        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": null,
-        "target_anchor_verified": false,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+      "chart_materialization_status": "NOT_MATERIALIZED",
+      "chart_specific_analysis_status": "BLOCKED",
+      "chart_materialization_claim": null,
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": "NO_ANCHOR_MATCH",
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-006",
@@ -420,22 +378,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "MATERIALIZED",
-        "chart_specific_analysis_status": "LIMITED_ENGINE_RECONSTRUCTION_AVAILABLE",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
-        "target_anchor_verified": true,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": null
+      "chart_materialization_status": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+      "chart_specific_analysis_status": "AVAILABLE_WITH_ANCHOR_ONLY_CLAIM",
+      "chart_materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": null,
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-007",
@@ -488,22 +436,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "NOT_MATERIALIZED",
-        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": null,
-        "target_anchor_verified": false,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+      "chart_materialization_status": "NOT_MATERIALIZED",
+      "chart_specific_analysis_status": "BLOCKED",
+      "chart_materialization_claim": null,
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": "NO_ANCHOR_MATCH",
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-008",
@@ -556,22 +494,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "NOT_MATERIALIZED",
-        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": null,
-        "target_anchor_verified": false,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+      "chart_materialization_status": "NOT_MATERIALIZED",
+      "chart_specific_analysis_status": "BLOCKED",
+      "chart_materialization_claim": null,
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": "MULTIPLE_ANCHOR_MATCH",
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-009",
@@ -624,22 +552,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "MATERIALIZED",
-        "chart_specific_analysis_status": "LIMITED_ENGINE_RECONSTRUCTION_AVAILABLE",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
-        "target_anchor_verified": true,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": null
+      "chart_materialization_status": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+      "chart_specific_analysis_status": "AVAILABLE_WITH_ANCHOR_ONLY_CLAIM",
+      "chart_materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": null,
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-010",
@@ -692,22 +610,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "MATERIALIZED",
-        "chart_specific_analysis_status": "LIMITED_ENGINE_RECONSTRUCTION_AVAILABLE",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
-        "target_anchor_verified": true,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": null
+      "chart_materialization_status": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+      "chart_specific_analysis_status": "AVAILABLE_WITH_ANCHOR_ONLY_CLAIM",
+      "chart_materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": null,
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-011",
@@ -760,22 +668,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "NOT_MATERIALIZED",
-        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": null,
-        "target_anchor_verified": false,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+      "chart_materialization_status": "NOT_MATERIALIZED",
+      "chart_specific_analysis_status": "BLOCKED",
+      "chart_materialization_claim": null,
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": "NO_ANCHOR_MATCH",
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-012",
@@ -828,22 +726,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "MATERIALIZED",
-        "chart_specific_analysis_status": "LIMITED_ENGINE_RECONSTRUCTION_AVAILABLE",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
-        "target_anchor_verified": true,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": null
+      "chart_materialization_status": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+      "chart_specific_analysis_status": "AVAILABLE_WITH_ANCHOR_ONLY_CLAIM",
+      "chart_materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": null,
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-013",
@@ -896,22 +784,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "MATERIALIZED",
-        "chart_specific_analysis_status": "LIMITED_ENGINE_RECONSTRUCTION_AVAILABLE",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
-        "target_anchor_verified": true,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": null
+      "chart_materialization_status": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+      "chart_specific_analysis_status": "AVAILABLE_WITH_ANCHOR_ONLY_CLAIM",
+      "chart_materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": null,
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-014",
@@ -964,22 +842,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "NOT_MATERIALIZED",
-        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": null,
-        "target_anchor_verified": false,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+      "chart_materialization_status": "NOT_MATERIALIZED",
+      "chart_specific_analysis_status": "BLOCKED",
+      "chart_materialization_claim": null,
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": "MULTIPLE_ANCHOR_MATCH",
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-015",
@@ -1032,22 +900,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "MATERIALIZED",
-        "chart_specific_analysis_status": "LIMITED_ENGINE_RECONSTRUCTION_AVAILABLE",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
-        "target_anchor_verified": true,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": null
+      "chart_materialization_status": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+      "chart_specific_analysis_status": "AVAILABLE_WITH_ANCHOR_ONLY_CLAIM",
+      "chart_materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": null,
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-016",
@@ -1100,22 +958,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "NOT_MATERIALIZED",
-        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": null,
-        "target_anchor_verified": false,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+      "chart_materialization_status": "NOT_MATERIALIZED",
+      "chart_specific_analysis_status": "BLOCKED",
+      "chart_materialization_claim": null,
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": "BLOCKED_SOURCE_INCOMPLETE",
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-017",
@@ -1168,22 +1016,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "NOT_MATERIALIZED",
-        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": null,
-        "target_anchor_verified": false,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+      "chart_materialization_status": "NOT_MATERIALIZED",
+      "chart_specific_analysis_status": "BLOCKED",
+      "chart_materialization_claim": null,
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": "NO_ANCHOR_MATCH",
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-018",
@@ -1236,22 +1074,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "NOT_MATERIALIZED",
-        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": null,
-        "target_anchor_verified": false,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+      "chart_materialization_status": "NOT_MATERIALIZED",
+      "chart_specific_analysis_status": "BLOCKED",
+      "chart_materialization_claim": null,
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": "MULTIPLE_ANCHOR_MATCH",
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-019",
@@ -1304,22 +1132,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "MATERIALIZED",
-        "chart_specific_analysis_status": "LIMITED_ENGINE_RECONSTRUCTION_AVAILABLE",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
-        "target_anchor_verified": true,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": null
+      "chart_materialization_status": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+      "chart_specific_analysis_status": "AVAILABLE_WITH_ANCHOR_ONLY_CLAIM",
+      "chart_materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": null,
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-020",
@@ -1372,22 +1190,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "NOT_MATERIALIZED",
-        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": null,
-        "target_anchor_verified": false,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+      "chart_materialization_status": "NOT_MATERIALIZED",
+      "chart_specific_analysis_status": "BLOCKED",
+      "chart_materialization_claim": null,
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": "MULTIPLE_ANCHOR_MATCH",
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-021",
@@ -1440,22 +1248,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "MATERIALIZED",
-        "chart_specific_analysis_status": "LIMITED_ENGINE_RECONSTRUCTION_AVAILABLE",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
-        "target_anchor_verified": true,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": null
+      "chart_materialization_status": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+      "chart_specific_analysis_status": "AVAILABLE_WITH_ANCHOR_ONLY_CLAIM",
+      "chart_materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": null,
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-022",
@@ -1508,22 +1306,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "NOT_MATERIALIZED",
-        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": null,
-        "target_anchor_verified": false,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+      "chart_materialization_status": "NOT_MATERIALIZED",
+      "chart_specific_analysis_status": "BLOCKED",
+      "chart_materialization_claim": null,
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": "MULTIPLE_ANCHOR_MATCH",
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-023",
@@ -1576,22 +1364,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "MATERIALIZED",
-        "chart_specific_analysis_status": "LIMITED_ENGINE_RECONSTRUCTION_AVAILABLE",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
-        "target_anchor_verified": true,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": null
+      "chart_materialization_status": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+      "chart_specific_analysis_status": "AVAILABLE_WITH_ANCHOR_ONLY_CLAIM",
+      "chart_materialization_claim": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": null,
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     },
     {
       "fold_id": "WANG-LOCO-024",
@@ -1644,22 +1422,12 @@
         "BLOCKED_EVIDENCE_PRESENT",
         "NO_EXECUTABLE_PATTERN_FOR_TARGET_SCOPE"
       ],
-      "full_chart_materialization": {
-        "status": "NOT_MATERIALIZED",
-        "chart_specific_analysis_status": "BLOCKED_UNMATERIALIZED",
-        "artifact_ref": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-        "materialization_claim": null,
-        "target_anchor_verified": false,
-        "full_source_chart_equivalence_verified": false
-      },
-      "method_scope_review": {
-        "artifact_ref": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-        "assessment_count": 6,
-        "explicit_binding_count": 0,
-        "case_target_scope_binding_status": "NOT_BOUND_FAIL_CLOSED",
-        "full_expert_replay_ready": false
-      },
-      "full_chart_materialization_blocker": "FULL_CHART_NOT_MATERIALIZED"
+      "chart_materialization_status": "NOT_MATERIALIZED",
+      "chart_specific_analysis_status": "BLOCKED",
+      "chart_materialization_claim": null,
+      "full_source_chart_equivalence_verified": false,
+      "chart_materialization_blocked_reason": "NO_ANCHOR_MATCH",
+      "target_chart_evidence_status_unchanged": "BLOCKED"
     }
   ],
   "maturity": {
@@ -1672,17 +1440,5 @@
     "method_fidelity": "NOT_VALIDATED",
     "predictive_validity": "NOT_VALIDATED"
   },
-  "supersedes_artifact": "product/WANG_METHOD_POLICY_READINESS_v0.2.json",
-  "generated_from": [
-    "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
-    "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
-    "product/expert_cases/wang_tingzhi/FULL_CHART_RECONSTRUCTION_READINESS_V0_1.json",
-    "product/METHOD_POLICY_EXECUTION_RULES_v0.1.json"
-  ],
-  "scope_review_artifact_id": "WANG_METHOD_SCOPE_REVIEW_V0_1C",
-  "metric_definitions": {
-    "full_chart_materialized_fold_count": "Cases with a separate committed full-chart materialization artifact.",
-    "full_chart_blocked_fold_count": "Cases still lacking a full-chart materialization artifact; 13/24.",
-    "method_policy_runtime_target_chart_blocked_fold_count": "Cases for which the unchanged Method Policy runtime emits TARGET_CHART=BLOCKED; 24/24 until an explicitly authorized runtime integration work unit changes that behavior."
-  }
+  "supersedes": "product/WANG_METHOD_POLICY_READINESS_v0.2.json"
 }
