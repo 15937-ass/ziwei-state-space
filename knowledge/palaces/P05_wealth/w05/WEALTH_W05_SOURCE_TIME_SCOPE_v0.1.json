@@ -8,38 +8,44 @@
     "non_natal_rows": 0,
     "year": 0,
     "decade": 0,
-    "path_dependent_gate_rows": 10
+    "path_dependent_gate_rows": 7,
+    "source_age_qualifier_rows": 1
   },
   "exact_non_natal_ids": [],
+  "decade_ids": [],
+  "year_ids": [],
   "path_dependent_gate_ids": [
     "W05-403",
     "W05-410",
     "W05-411",
-    "W05-412",
-    "W05-413",
     "W05-414",
     "W05-416",
-    "W05-417",
     "W05-429",
     "W05-434"
   ],
-  "policy": [
-    "本批所有条件都属于本命星系/年龄路径描述；源文没有足以支持 DECADE/YEAR 事件触发的明确运限条件，因此全部保留 NATAL，不把“晚年/五十岁后”误编码成大限/流年层。",
-    "W05-403保留事业外别开生路后由是富足；W05-410/411/412保留祖业散尽/开创失败后再起的顺序；W05-413/414保留中年辛苦到晚年顺遂。",
-    "W05-416/417保留天同化禄的先破败后意外收获路径及无煞时较轻的限定，不添加数值损失阈值。",
-    "W05-429保留天同化禄破尽祖业后突然兴起；W05-434保留少年飘流、异域先有地位、再成富裕的路径。",
-    "所有年龄措辞仅作为原文条件/应象语义，不转成独立时间尺度、固定转移概率、衰减或持续期参数。",
-    "W05-477旁的巳亥天同化忌+命宫巨门化忌 source rule 是 coverage gap，不得错误并入天同化权条件。"
+  "source_age_qualifier_ids": [
+    "W05-420"
   ],
-  "records": [
+  "dependent_outcome_ids": [
+    "W05-412"
+  ],
+  "policy": [
+    "W05-401..W05-500 的原局星系条件均保留为 NATAL；没有将源文人生阶段或星系组合误分类为大运/流年触发。",
+    "W05-420 保留“往往五十岁后始环境变佳”作为来源内年龄阶段措辞；不构造年龄阈值模型、固定持续期或经验概率。",
+    "W05-403、W05-410、W05-411、W05-414、W05-416、W05-429、W05-434 保留七个源文明确的有序路径；不推断转移概率、衰减或恢复系数。",
+    "W05-412 的“结局富裕”是 W05-411 空劫路径的终端结果，canonical_condition 明确承接东山复起，不作为独立触发。",
+    "未发现 DECADE/YEAR 来源触发；时间层计数不把“晚年”“少年”“五十岁后”等源文人生阶段标签改写为运限触发。"
+  ],
+  "records": [],
+  "path_records": [
     {
       "projection_rule_id": "W05-403",
       "source_location": "财帛宫printed_p79",
       "time_layer": "NATAL",
       "history_feedback": "PATH_DEPENDENT_GATE",
-      "canonical_condition": "巳亥宫武曲破军守财帛；贪狼化忌且破军化禄",
-      "canonical_target": "side_path_opens_unexpected_income",
-      "source_scope_note": "原文要求贪狼化忌且同时见破军化禄，才有事业外另开生路、由此富足的应象；保留 PATH_DEPENDENT_GATE，不把意外财源视为保证。",
+      "canonical_condition": "巳亥宫武曲破军；贪狼化忌，且破军同时化禄",
+      "canonical_target": "side_path_outside_original_business_then_wealth",
+      "source_scope_note": "原文“见贪狼化忌…于事业外别开生路，由是富足”，并明确“此时必同时见破军化禄”；保留别开生路到得财的顺序，不推成保证成功。",
       "no_numeric_generalization": true
     },
     {
@@ -47,9 +53,9 @@
       "source_location": "财帛宫printed_p79",
       "time_layer": "NATAL",
       "history_feedback": "PATH_DEPENDENT_GATE",
-      "canonical_condition": "天同守财帛宫；火铃同度",
+      "canonical_condition": "天同守财帛宫，火铃同度；先祖业散尽，后自身创兴",
       "canonical_target": "ancestral_assets_disperse_then_self_creation",
-      "source_scope_note": "火铃同度时，原文明确先散尽祖业、然后自身创兴；保留先后次序。",
+      "source_scope_note": "原文明确“火铃同度者，有祖业亦必散尽。然后始主自身创兴”；只保留先散尽、后创兴的顺序，不加持续时间。",
       "no_numeric_generalization": true
     },
     {
@@ -57,29 +63,9 @@
       "source_location": "财帛宫printed_p79",
       "time_layer": "NATAL",
       "history_feedback": "PATH_DEPENDENT_GATE",
-      "canonical_condition": "天同守财帛宫；空劫同度",
+      "canonical_condition": "天同守财帛宫，空劫同度；自身开创亦多破败，仅能东山复起",
       "canonical_target": "self_creation_fails_then_comeback",
-      "source_scope_note": "空劫同度时，原文说自身开创也可能破败，之后才东山再起；这是路径而非单一静态标签。",
-      "no_numeric_generalization": true
-    },
-    {
-      "projection_rule_id": "W05-412",
-      "source_location": "财帛宫printed_p79",
-      "time_layer": "NATAL",
-      "history_feedback": "PATH_DEPENDENT_GATE",
-      "canonical_condition": "天同守财帛宫；空劫同度",
-      "canonical_target": "eventual_wealth_after_comeback",
-      "source_scope_note": "“结局富裕”承接空劫条件下的东山再起，不独立解读为见空劫即富。",
-      "no_numeric_generalization": true
-    },
-    {
-      "projection_rule_id": "W05-413",
-      "source_location": "财帛宫printed_p79",
-      "time_layer": "NATAL",
-      "history_feedback": "PATH_DEPENDENT_GATE",
-      "canonical_condition": "天同在财帛宫独坐",
-      "canonical_target": "midlife_income_struggle",
-      "source_scope_note": "天同独坐财帛须中年辛苦求财；这是源文生命阶段描述，不转为现代年龄概率。",
+      "source_scope_note": "原文“若空劫同度，则自身开创亦多破败，仅能东山复起，结局富裕”；页图校勘将 OCR“何破败”订正为“多破败”。",
       "no_numeric_generalization": true
     },
     {
@@ -87,9 +73,9 @@
       "source_location": "财帛宫printed_p79",
       "time_layer": "NATAL",
       "history_feedback": "PATH_DEPENDENT_GATE",
-      "canonical_condition": "天同在财帛宫独坐",
-      "canonical_target": "later_life_financial_improvement_after_earlier_struggle",
-      "source_scope_note": "晚年顺遂承接独坐情况下的中年辛苦求财；保留 PATH_DEPENDENT_GATE。",
+      "canonical_condition": "天同在财帛宫且独坐；中年辛苦求财后，至晚年始得顺遂",
+      "canonical_target": "late_life_financial_improvement_after_midlife_hardship",
+      "source_scope_note": "原文“必须中年辛苦求财，至晚年始得顺遂”；保存生命阶段顺序，不将中年/晚年换算成固定年份。",
       "no_numeric_generalization": true
     },
     {
@@ -97,19 +83,9 @@
       "source_location": "财帛宫printed_p79-80",
       "time_layer": "NATAL",
       "history_feedback": "PATH_DEPENDENT_GATE",
-      "canonical_condition": "天同化禄且同时见煞",
-      "canonical_target": "depletion_before_unexpected_gain_under_malefics",
-      "source_scope_note": "天同化禄且见煞时，原文要求先经历财帛破败净尽、至身无一文，然后才有意外收获；不省略前件。",
-      "no_numeric_generalization": true
-    },
-    {
-      "projection_rule_id": "W05-417",
-      "source_location": "财帛宫printed_p79-80",
-      "time_layer": "NATAL",
-      "history_feedback": "PATH_DEPENDENT_GATE",
-      "canonical_condition": "天同化禄而不见煞",
-      "canonical_target": "less_severe_depletion_before_gain_without_malefics",
-      "source_scope_note": "无煞时原文只说破败程度较轻；不是把损失路径完全删除，亦不编码损失强度数值。",
+      "canonical_condition": "天同化禄且同时见煞；财帛破败净尽、至身无一文后始有意外收获",
+      "canonical_target": "depletion_before_unexpected_gain",
+      "source_scope_note": "原文说见煞时必须先“财帛破败净尽，至身无一文”，然后才有意外收获；PATH_DEPENDENT_GATE 只表示顺序，不表示概率。",
       "no_numeric_generalization": true
     },
     {
@@ -117,9 +93,9 @@
       "source_location": "财帛宫printed_p80",
       "time_layer": "NATAL",
       "history_feedback": "PATH_DEPENDENT_GATE",
-      "canonical_condition": "子午宫天同太阴同度，天同化禄",
-      "canonical_target": "ancestral_assets_exhausted_then_sudden_rise",
-      "source_scope_note": "天同化禄的特定应象是破尽祖业后突然兴起；保留明确的先后路径。",
+      "canonical_condition": "子午宫天同太阴同度，天同化禄；祖业耗尽后突然兴起",
+      "canonical_target": "ancestral_loss_then_sudden_rise",
+      "source_scope_note": "直接复核 SRC-ZZ-003 对应原文，保留来源条件与投影方向；不增加概率、权重、频率、阈值、持续期或衰减参数。",
       "no_numeric_generalization": true
     },
     {
@@ -127,11 +103,20 @@
       "source_location": "财帛宫printed_p80",
       "time_layer": "NATAL",
       "history_feedback": "PATH_DEPENDENT_GATE",
-      "canonical_condition": "天同太阴同度，太阴化权",
-      "canonical_target": "early_wandering_then_foreign_status_then_wealth",
-      "source_scope_note": "太阴化权的路径为少年飘流、异域先有地位、再成富裕；保留 PATH_DEPENDENT_GATE。",
+      "canonical_condition": "子午宫天同太阴，太阴化权；少年飘流，先在异域有地位，再成富裕",
+      "canonical_target": "early_wandering_then_status_then_wealth",
+      "source_scope_note": "原文明确“少年必主飘流，在异域先有地位，再成富裕”；保留飘流→异域地位→富裕的路径，不创设阶段时长。",
       "no_numeric_generalization": true
     }
   ],
-  "non_natal_records": []
+  "source_age_qualifier_records": [
+    {
+      "projection_rule_id": "W05-420",
+      "source_location": "财帛宫printed_p79-80",
+      "time_layer": "NATAL",
+      "source_phrase": "往往五十岁后始环境变佳",
+      "source_scope_note": "年龄阶段仅保留为来源原话，不引入通用数值阈值或经验模型。",
+      "no_numeric_generalization": true
+    }
+  ]
 }
