@@ -2,7 +2,7 @@
 
 Tracking Issue: #615  
 Lane: PRODUCT_ONLY  
-Status: IMPLEMENTED — exact-head validation pending
+Status: INITIAL VALIDATION PASS — acceptance-only update requires final-head rerun
 
 ## 1. Purpose
 
@@ -47,13 +47,16 @@ WANG-CASE-021 retains unqualified \`子时\` candidate indices \`[0, 12]\`; the 
 
 ## 6. Exact-head validation
 
-Pending until the final PR head has passed:
+Initial exact-head validation passed on `827259746575ceceda976c19fe692e8b6e62e1ea`:
 
-- Repository quality gate, full pytest, deterministic P0 audit, and Governance v1.
-- Product P1 dual-engine, calendar, Zi-day, and temporal regression workflows.
-- Deterministic artifact regeneration and source-lock checks.
+- Repository quality gate, full pytest, deterministic P0 audit, Governance v1: [PASS #39746930177](https://github.com/15937-ass/ziwei-state-space/actions/runs/39746930177)
+- Product P1 dual-engine: [PASS #39746929817](https://github.com/15937-ass/ziwei-state-space/actions/runs/39746929817)
+- Product P1 calendar: [PASS #39746930084](https://github.com/15937-ass/ziwei-state-space/actions/runs/39746930084)
+- Product P1 Zi-day: [PASS #39746929755](https://github.com/15937-ass/ziwei-state-space/actions/runs/39746929755)
+- Product P1 temporal: [PASS #39746929929](https://github.com/15937-ass/ziwei-state-space/actions/runs/39746929929)
+- Deterministic artifact regeneration and source-lock checks: included in the repository quality gate.
 
-Keep the PR draft until every required gate passes on the exact final head. Do not rely on checks from an earlier head.
+This acceptance-record update creates a new PR head. Keep the PR draft until the repository quality gate and all four Product P1 workflows pass again on that final head. Do not rely on checks from an earlier head.
 
 ## 7. Next dependency
 
