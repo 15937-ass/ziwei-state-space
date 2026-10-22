@@ -34,6 +34,12 @@ def test_supplement_ids_provenance_and_canonical_scope():
     assert all(r["canonical_promotion"] == "true" for r in data)
     assert all(r["case_support_only"] == "false" for r in data)
     assert all(r["source_epistemic"] == "EXPLICIT" for r in data)
+    assert {r["projection_domain"] for r in data} <= {"spending", "risk", "retention", "volatility"}
+    assert {r["projection_target"] for r in data} <= {
+        "financial_harm", "litigation_or_dispute_loss", "wealth_hard_to_accumulate", "financial_source_fluctuation"
+    }
+    assert all(r["projection_mode"] == "FUNCTIONAL_PROJECTION" for r in data)
+    assert {r["direction_or_state"] for r in data} <= {"adverse", "conditional", "source_bounded"}
     assert all(r["source_gap_id"] in {"W05-SG-001", "W05-SG-002", "W05-SG-003"} for r in data)
     assert not ids.intersection({"W05-499", "W05-500", "W05-SG-001", "W05-SG-002", "W05-SG-003"})
 
