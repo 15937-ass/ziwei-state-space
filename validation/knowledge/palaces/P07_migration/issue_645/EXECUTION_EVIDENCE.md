@@ -18,6 +18,7 @@
 - Historical PATH_DEPENDENT_GATE re-adjudicated: M06-579; canonical gate count for this batch: 0.
 - Source time layers: NATAL for baseline structure; YEAR only for M06-540…542.
 - Residual source gaps carried: P07-M05-GAP-001…004 and P07-M03-GAP-001 / P07-M03-GAP-012.
+- Canonical state cache remains unchanged at the accepted M01–M05 checkpoint; Issue #645 and PR #656 are the active-work authority.
 
 ## Validation
 
