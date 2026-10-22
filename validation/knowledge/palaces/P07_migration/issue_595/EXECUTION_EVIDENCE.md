@@ -22,7 +22,7 @@
 - palace_id P07: 100/100
 - source locations: rechecked against printed pp. 113–116
 - reusable projection rules: 81
-- CASE_SUPPORT_ONLY: 19
+- CASE_SUPPORT_ONLY: 19; all 19 rows have row-level source-bounded reasons
 - history-feedback / PATH_DEPENDENT_GATE: 0
 - all canonical conditions: no unresolved “前格” pointer
 - canonical-condition normalization: 97 rows
