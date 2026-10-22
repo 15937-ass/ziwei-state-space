@@ -1,0 +1,61 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P01-LIFE-P03-SOURCE-READJUDICATION-SUMMARY-v0.1",
+  "issue": 587,
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "P01",
+  "palace": "命宫",
+  "source_basis": {
+    "source_id": "SRC-ZZ-003",
+    "work": "中州派紫微斗数深造讲义（下册）",
+    "chapter": "下篇·宫垣论·命宫",
+    "printed_pages": "9–12",
+    "historical_candidate_ref": "14fe294c81ba12a6745e82fdc7497a30d69fb5d7",
+    "historical_candidate_file": "validation/wp05/P03_life_palace_projection_review_v0.1.csv",
+    "historical_candidate_status": "NONCANONICAL_ACCELERATION_INPUT_ONLY"
+  },
+  "summary": {
+    "historical_candidates_reviewed": 100,
+    "canonical_promoted": 98,
+    "deduplicated_scope_metadata_rows": 2,
+    "new_tian_tong_gap_records": 16,
+    "new_canonical_records": 114,
+    "reusable_projection_rules": 101,
+    "case_support_only": 13,
+    "candidate_case_support_only": 11,
+    "gap_supplement_case_support_only": 2,
+    "prior_registered_gap_closed": "P01-SRC-GAP-022",
+    "cumulative_canonical_records_after_merge": 391,
+    "cumulative_reusable_projection_rules_after_merge": 314,
+    "cumulative_case_support_only_after_merge": 77,
+    "history_dependency_rows": [
+      "P03-222",
+      "P03-287"
+    ],
+    "new_primitive_qi": 0,
+    "new_memory_type": 0,
+    "new_independent_time_scale": 0,
+    "numeric_weight": 0,
+    "probability": 0,
+    "decay": 0
+  },
+  "major_findings": [
+    "历史候选 P03-201…300 中 100 条均已回源复核；两条只是时间范围元数据重复（P03-215、P03-229），并入其主规则，不重复晋升。",
+    "补录历史候选文件完全跳过的 lines 358–385（印刷页 11 天同尾段），新增 16 条原子规则；此前 P03-250 后直接跳到 P03-251 的缺口由此闭合。",
+    "“无论大限流年”“无论流年或大限”“大运流年”“流年大限”“年运”“年限”“天相运/行至宫垣”等词面分别保留，不把泛称枢纽压成单一时层。",
+    "P03-288 旧候选将原文“丑宫者亦仅成中局”写成“小康”；本批以书内原文“中局”修正。",
+    "P03-202、P03-231、P03-269 删除了由一般父母/婚姻场景或会合例子反推出来的固定父母宫、夫妻宫、事业宫/迁移宫依赖；P03-225 将误标的迁移宫改为源文明确的寅宫巨阳借会。",
+    "P03-222 与 P03-287 只挂接既有 A2-R1/history 语义候选；不创建新记忆类型。",
+    "健康、婚姻、法律、危险职业、自伤意念、客死异乡等具体应象均保留源文条件门控并限于 CASE_SUPPORT_ONLY。"
+  ],
+  "source_coverage_gaps_next_checkpoint": [
+    {
+      "gap_id": "P01-SRC-GAP-023",
+      "source_location": "宫垣论·命宫·p12，historical lines >422",
+      "source_claim": "P03-300 的历史候选边界之后，原文继续卯酉廉破、辰戌廉府、巳亥廉贪等结构。",
+      "reason": "不属于 P03-201…300 历史跨度；下一批应从原文续读而非把本批宣称为完整覆盖印刷页 12。"
+    }
+  ],
+  "shared_semantic_gaps": [],
+  "human_gate_required": false
+}
