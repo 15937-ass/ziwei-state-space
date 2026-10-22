@@ -2,7 +2,7 @@
 
 - Issue: #591
 - Lane / shard: KNOWLEDGE_ONLY / P05 财帛宫
-- Branch: knowledge/p05-591-wealth-w05-canonical
+- Branch: knowledge/p05-591-wealth-w05-canonical-main-sync
 - Source: SRC-ZZ-003, 《中州派紫微斗数深造讲义（下册）》 printed pp79–81 (PDF pages 40–41)
 - Candidate: validation/wp05/W05_wealth_projection_review_401_500.csv — noncanonical indexing input only
 - Directly rechecked: 100/100 rows (W05-401…W05-500)
@@ -27,6 +27,7 @@
 - The three source claims not represented by the bounded candidate are preserved as explicit local source-coverage gaps rather than invented rule IDs.
 
 ## Validation state
-- Exact-head GitHub Actions gate: PENDING at artifact commit time.
-- Required before merge: full repository tests, Product JS adapter syntax check, deterministic P0 audit, and G12 governance validation.
+- Replacement PR: #608, based on latest main `893ca30a7af91e0d80dfd5dfdcd0c96b1869190f`.
+- Exact-head GitHub Actions gate: PENDING for the current PR head; rerun is required after any further file/state update.
+- Required before merge: full repository tests, Product JS adapter syntax check, deterministic P0 audit, and G12 governance validation on the exact final head. Do not merge until the active P01/P10 main-moving PRs settle and latest main is rechecked.
 - Empirical validity remains separate from source fidelity; no traditional claim is represented as an empirically calibrated probability.
