@@ -19,6 +19,11 @@ Lane: KNOWLEDGE_ONLY / shard P01
 - Independent source-schema review preserves P03-231's local 丁年同阴 context without inventing a fixed spouse-palace dependency; P01-SG-087 records “天同与天梁相对” as an opposite-palace dependency, not a generic cross-palace link
 - no new shared semantic primitive, memory type, independent time scale, weight, probability, or decay
 
+## Current-main synchronization
+- Current main at synchronization: `7f22005ea823473304d4ccd436c0246603960792` (P07 Migration M02 PR #579).
+- Branch was synchronized with current main in merge commit `10ab6ba8512fe3ad8622173eccfb4b11c4de2d20`; the PR is now 0 commits behind main.
+- Earlier successful run `39699218512` validated pre-synchronization head `b43451f0981fb303a0c2167c5ac40e7357eb582c` and is not the final merge gate.
+
 ## Validation
 - targeted P01 test is encoded in `tests/test_knowledge_p01_source_readjudication_201_300.py`
 - full pytest, Node syntax, P0 audit, Governance lane check: delegated to the repository quality workflow on PR #590; this file does not claim those commands have passed
