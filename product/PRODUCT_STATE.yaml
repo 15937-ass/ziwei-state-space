@@ -8,17 +8,17 @@ execution:
   phase: "PL3_METHOD_RESPONSE_VERTICAL_SLICE"
   active_issue: null
   active_pr: null
-  next_work_unit: "WANG_METHOD_SCOPE_AND_FULL_CHART_REVIEW"
-  resume_entry: "Product #539 adds the first tau -> M0 integration contract on top of Product #534. M0 consumes only natal_rule_id/temporal_rule_id carried by actual CareerResponseProfile entries and reuses the existing manifestation ontology/mapping router; it does not infer events from projection prose or synthesize activation IDs from reaction effect names. TEST_ONLY explicit mappings prove one source-supported possibility can be routed with full tau + mapping + ontology trace, while HYPOTHESIS remains held. Production remains fail-closed because tau dynamic content, manifestation ontology, and manifestation mappings are not yet canonical-ready; zero M0 candidates is represented as readiness/unknown, not a negative prediction. The N -> E -> tau -> M0 runtime contract path now exists without probability. Immediate next Product work returns to WANG_METHOD_SCOPE_AND_FULL_CHART_REVIEW, then fidelity benchmark and Forecast Ledger activation."
+  next_work_unit: "WANG_FULL_CHART_MATERIALIZATION_V0_1B"
+  resume_entry: "Product #545 / PR #554 establishes a source-bounded Wang full-chart reconstruction readiness layer. Visual source review yields 24 cases: 22 source-usable, 2 hard source blockers, 37 bounded candidate inputs. The pinned iztro 2.6.1 Zhongzhou lunar probe evaluated all 37 candidates with zero engine-unsupported cases against the independent target-palace major-star anchor. Result: 11 UNIQUE_ANCHOR_MATCH (001,003,006,009,010,012,013,015,019,021,023), 6 MULTIPLE_ANCHOR_MATCH (002,008,014,018,020,022), 5 NO_ANCHOR_MATCH (005,007,011,017,024), 2 BLOCKED_SOURCE_INCOMPLETE (004,016). Only the 11 unique rows are eligible for SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED full-chart artifacts; this is not full-source-chart equivalence. No ambiguous candidate was collapsed and no Human Gate was required. Immediate next Product work is WANG_FULL_CHART_MATERIALIZATION_V0_1B."
   state_cache_as_of_main_commit: "e236066167b36750c896cef7167d14b2f992b700"
   state_cache_as_of_product_merge: "e236066167b36750c896cef7167d14b2f992b700"
   v04_entry_checkpoint_issue: 416
   v04_entry_checkpoint_pr: 418
-  last_completed_product_issue: 539
-  last_completed_product_pr: 542
+  last_completed_product_issue: 545
+  last_completed_product_pr: 554
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
-  resume_issue: 539
+  resume_issue: 545
   roadmap: "PRODUCT_ROADMAP.md#v0.4"
   execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
 
@@ -82,7 +82,7 @@ capability_snapshot:
     internal_validation: "CONTRACT_CORPUS_AND_POLICY"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    note: "Product #431/#435 define expert-method contracts; #441/#444 add the source-backed Wang 24-case corpus, 6 SOURCE_EXPLICIT/SEMANTIC_ONLY method patterns and LOCO-24; #453/#455 add deterministic same-domain CBR and fail-closed Method Policy π v0.1. Product #512/#517 source-reviews all 24 case charts and materializes only target-palace identity + fourteen-major-star systems: 24/24 TARGET_PALACE=MATERIALIZED_FACT, six empty-main-star palaces preserve explicit opposite borrowing, full chart remains NOT_MATERIALIZED. RETRIEVAL_READY=24/24, ACTION_SELECTION_READY=24/24, FULL_EXPERT_REPLAY_READY=0/24 because accepted MethodPatterns target GLOBAL_PROFILE/TEMPORAL_INFERENCE/SYMBOLIC_INFERENCE rather than the twelve individual held-out domains. Method fidelity and predictive validity remain NOT_VALIDATED."
+    note: "Product #431/#435 define expert-method contracts; #441/#444 add the source-backed Wang 24-case corpus, 6 SOURCE_EXPLICIT/SEMANTIC_ONLY method patterns and LOCO-24; #453/#455 add deterministic same-domain CBR and fail-closed Method Policy π v0.1. Product #512/#517 source-reviews all 24 case target palaces. Product #545 then reviews source birth signatures and runs a pinned Zhongzhou lunar reconstruction probe: 11/24 UNIQUE_ANCHOR_MATCH, 6/24 MULTIPLE_ANCHOR_MATCH, 5/24 NO_ANCHOR_MATCH, 2/24 source-blocked, 0 engine-unsupported. Only 11 are eligible for target-anchor-verified full-chart materialization; no full-source-chart equivalence is claimed. RETRIEVAL_READY=24/24 and ACTION_SELECTION_READY=24/24 remain, while FULL_EXPERT_REPLAY_READY remains 0/24 because full chart materialization and case-target MethodPattern scope remain unresolved. Method fidelity and predictive validity remain NOT_VALIDATED."
 
   response_semantics_adapter:
     specification: "V0_4_ARCHITECTURE_APPROVED"
@@ -174,7 +174,8 @@ capability_snapshot:
 
 critical_path:
   now:
-    - "WANG_METHOD_SCOPE_AND_FULL_CHART_REVIEW"
+    - "WANG_FULL_CHART_MATERIALIZATION_V0_1B"
+    - "WANG_METHOD_SCOPE_REVIEW_V0_1C"
     - "CANONICAL_AND_METHOD_FIDELITY_BENCHMARK"
     - "FORECAST_LEDGER_ACTIVATION"
   future:
