@@ -88,12 +88,14 @@ No source subject identity, expert reasoning, expert conclusion, outcome, person
 
 - Dedicated pinned-lunar materializer: **IMPLEMENTED**
 - Strict artifact validator: **IMPLEMENTED**
+- Strict input-artifact revision locks (source signatures, blind anchor, readiness report): **IMPLEMENTED**
 - Validator tests with explicitly synthetic, test-only chart fixtures: **IMPLEMENTED**
+- End-to-end materializer tests with an isolated mock engine, deterministic serialization, and fail-closed error/drift cases: **IMPLEMENTED**
 - Committed full-chart output artifact: **NOT YET GENERATED**
 - Real-engine end-to-end validation on the current PR head: **PENDING**
 - Repository quality gate / P0 audit / Product regressions: **PENDING**
 
-Synthetic chart objects used by unit tests validate the schema and guardrails only; they are not source evidence and must never be copied into the production artifact.
+Synthetic chart objects and the isolated mock engine validate implementation wiring, schema, determinism, and guardrails only; they are not source evidence and must never be copied into the production artifact.
 
 ## 7. Execution dependency
 
@@ -109,7 +111,7 @@ This Product work unit does not modify `.github/workflows/**`, and it does not w
 | Exact unique readiness candidate used for each case | Implemented; test pending execution |
 | Pinned lunar engine and Zhongzhou config | Implemented; real-engine run pending |
 | Exactly 12 normalized palaces per chart | Implemented; test pending execution |
-| Source span/pages and SHA-256 lineage | Implemented; test pending execution |
+| Source span/pages, SHA-256 lineage, and exact Git blob revision pins | Implemented; test pending execution |
 | Target-anchor recheck on generated chart | Implemented; real-engine run pending |
 | Forbidden leakage keys rejected | Implemented; test pending execution |
 | Remaining 13 cases stay blocked | Implemented in contract; test pending execution |
