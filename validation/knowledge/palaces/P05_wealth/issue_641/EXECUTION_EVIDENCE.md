@@ -1,6 +1,7 @@
 # P05 Wealth W05 Acceptance State-Recovery Evidence
 
 - Issue: #641
+- Pull request: #642
 - Lane / shard: KNOWLEDGE_ONLY / P05 财帛宫
 - Branch: knowledge/p05-641-wealth-state-recovery-r3
 - Base main: `74087c97afffc5afa4821f8edb21ff42aea6eb6b`
