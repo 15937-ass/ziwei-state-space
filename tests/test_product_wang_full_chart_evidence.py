@@ -11,6 +11,7 @@ from src.product.wang_full_chart_evidence import (
     BRANCH_ORDER,
     EXPECTED_CASE_IDS,
     ENGINE_EXPECTED,
+    EXPECTED_SOURCE_GIT_BLOB_SHAS,
     validate_wang_full_chart_evidence,
 )
 
@@ -164,14 +165,17 @@ def _synthetic_payload():
         "source_artifacts": {
             "source_signatures": {
                 "artifact_id": signatures["artifact_id"],
+                "git_blob_sha": EXPECTED_SOURCE_GIT_BLOB_SHAS["source_signatures"],
                 "sha256": source_hashes["source_signatures"],
             },
             "blind_anchor": {
                 "artifact_id": blind["artifact_id"],
+                "git_blob_sha": EXPECTED_SOURCE_GIT_BLOB_SHAS["blind_anchor"],
                 "sha256": source_hashes["blind_anchor"],
             },
             "reconstruction_readiness": {
                 "artifact_id": readiness["artifact_id"],
+                "git_blob_sha": EXPECTED_SOURCE_GIT_BLOB_SHAS["reconstruction_readiness"],
                 "sha256": source_hashes["reconstruction_readiness"],
             },
         },
