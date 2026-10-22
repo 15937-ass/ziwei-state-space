@@ -8,12 +8,12 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "ACTIVE_NO_ACTIVE_WORK"
-  active_issue: null
-  active_branch: null
-  active_pr: null
-  canonical_checkpoint: "M01_CANONICAL_REVALIDATION_100_OF_100_READY_FOR_MERGE"
-  note: "M01-001..100 source-first re-adjudication is complete on PR #564: 100 reviewed / 92 reusable / 8 CASE_SUPPORT_ONLY / 4 history-feedback, with 6 bounded source-preserving repairs. Next P07 batch after merge is M02-101..200."
+  status: "ACTIVE"
+  active_issue: 576
+  active_branch: "knowledge/p07-576-migration-m02-canonical"
+  active_pr: 579
+  canonical_checkpoint: "M02_SOURCE_REVIEW_AND_INITIAL_FULL_GATE_PASS"
+  note: "M02-101..200 source-first review is complete: 100 reviewed / 89 reusable / 11 CASE_SUPPORT_ONLY / 4 PATH_DEPENDENT_GATE, with six bounded repairs, two lexical uncertainties preserved, one scan-resolved row, and an explicit overlap group. PR #579 carries validation evidence; live Issue #576 / PR #579 remains authoritative until merge. After merge, the next P07 batch is M03-201..300."
 
 integrity:
   source_first: true

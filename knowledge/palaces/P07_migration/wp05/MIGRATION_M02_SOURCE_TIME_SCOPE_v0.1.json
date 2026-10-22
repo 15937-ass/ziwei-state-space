@@ -1,0 +1,81 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P07-MIGRATION-M02-SOURCE-TIME-SCOPE-v0.1",
+  "issue": 576,
+  "source_id": "SRC-ZZ-003",
+  "chapter": "迁移宫",
+  "chapter_scope": {
+    "source_statement": "本篇所论大致可通用于星盘、大运、流年以及流月；星盘迁移宫为本质，大运流年等迁移宫为本质的反应。",
+    "source_layers": [
+      "NATAL",
+      "DECADE",
+      "YEAR",
+      "MONTH"
+    ],
+    "semantic_roles": {
+      "NATAL": "BASELINE_NATURE",
+      "DECADE": "TEMPORAL_REACTION",
+      "YEAR": "TEMPORAL_REACTION",
+      "MONTH": "TEMPORAL_REACTION_OR_TRAVEL_CONTEXT"
+    },
+    "runtime_note": "M02 star-system records are stored with NATAL as their primary layer. Chapter-wide temporal applicability does not itself make these records executable at every time layer."
+  },
+  "event_relative_overlay": {
+    "rule_id": "M01-004",
+    "overlay_id": "MIGRATION_FIRST_THREE_YEARS",
+    "human_gate": "HG-P07-TEMPORAL-01-A",
+    "trigger": "confirmed distant relocation/settlement",
+    "active_year_index": [
+      1,
+      2,
+      3
+    ],
+    "migration_role": "PRIMARY for relocation trend only",
+    "preserved_role": "ordinary annual Life-Palace rotation for other palace domains",
+    "seventh_calendar_layer": false,
+    "generic_event_timer": false,
+    "change_in_M02": false
+  },
+  "default_star_system_records": {
+    "ids": "M02-101..M02-200",
+    "primary_storage_layer": "NATAL",
+    "source_scope_relation": "NATAL defines baseline star-system nature; decade/year/month configurations are reactions under the chapter-level multi-layer rule.",
+    "runtime_eligibility_granted": false
+  },
+  "special_records": [
+    {
+      "projection_rule_id": "M02-101..M02-111",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "TIANJI_SYSTEM_BASELINE"
+    },
+    {
+      "projection_rule_id": "M02-112..M02-134",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "SOLAR_SYSTEM_BASELINE"
+    },
+    {
+      "projection_rule_id": "M02-135..M02-174",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "WUQU_SYSTEM_BASELINE"
+    },
+    {
+      "projection_rule_id": "M02-175..M02-200",
+      "source_time_layers": [
+        "NATAL"
+      ],
+      "scope_status": "TIANTONG_SYSTEM_BASELINE"
+    }
+  ],
+  "quantitative_semantics": {
+    "new_time_scale": 0,
+    "weight": 0,
+    "probability": 0,
+    "decay": 0
+  }
+}
