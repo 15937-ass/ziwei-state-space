@@ -20,8 +20,9 @@ Lane: KNOWLEDGE_ONLY / shard P01
 
 ## Validation
 - targeted P01 test is encoded in `tests/test_knowledge_p01_source_readjudication_201_300.py`
-- full pytest, Node syntax, P0 audit, Governance lane check: pending PR quality workflow
+- full pytest, Node syntax, P0 audit, Governance lane check: delegated to the repository quality workflow on PR #590; this file does not claim those commands have passed
 - exact-head/current-main check required before merge
+- after the final PR-head run completes, record its URL, head SHA, and pass/fail results in a durable PR comment; do not modify source/test artifacts after that final run
 - automatic push workflows are not used; standard pull_request quality gate is allowed by current main
 
 ## Source boundary
