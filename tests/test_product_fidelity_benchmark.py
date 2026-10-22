@@ -125,3 +125,36 @@ def test_method_insufficient_evidence_counts_are_assessment_level_only():
     assert metric["missing_context_binding_assessments"] == 24
     assert metric["deferred_symbolic_interpretation_assessments"] == 48
     assert metric["semantic_only_relevance_assessments"] == 8
+
+
+def test_every_metric_has_a_definition_and_source_roles():
+    report = _read_report()
+    definitions = report["metric_definitions"]
+    canonical = report["canonical_fidelity"]
+    method = report["expert_method_fidelity"]
+    metric_items = (
+        canonical["asset_accounting"]
+        + list(canonical["dimensions"].values())
+        + method["asset_accounting"]
+        + list(method["score_dimensions"].values())
+    )
+    for item in metric_items:
+        metric_id = item.get("metric_id")
+        assert metric_id in definitions
+        assert definitions[metric_id]["definition"]
+        assert definitions[metric_id]["source_roles"]
+
+
+def test_expert_method_assets_distinguish_review_coverage_from_replay_coverage():
+    report = _read_report()
+    method = report["expert_method_fidelity"]
+    cases, assessments = method["asset_accounting"]
+    assert (cases["eligible_assets"], cases["covered_assets"], cases["blocked_assets"]) == (24, 0, 24)
+    assert cases["disposition"] == "BLOCKED"
+    assert (assessments["eligible_assets"], assessments["covered_assets"], assessments["blocked_assets"]) == (144, 144, 0)
+    assert assessments["status"] == "SOURCE_SCOPE_REVIEW_COMPLETE_NOT_METHOD_FIDELITY_SCORE"
+    assert method["blocker_accounting"]["replay_blocker_classes"] == [
+        "FULL_CHART_NOT_MATERIALIZED",
+        "NO_EXECUTABLE_PATTERN_FOR_CASE_TARGET_SCOPE",
+        "METHOD_POLICY_RUNTIME_TARGET_CHART_EVIDENCE_REMAINS_BLOCKED",
+    ]
