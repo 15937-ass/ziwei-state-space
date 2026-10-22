@@ -49,6 +49,8 @@ def test_rejudication_census_and_case_only_boundary():
     assert set(s["case_support_only_ids"]) == expected_case
     actual = {r["projection_rule_id"] for r in d["records"] if r["case_support_only"]}
     assert actual == expected_case
+    assert all(d["records"][i].get("case_support_reason") for i in range(len(d["records"])) if d["records"][i]["case_support_only"])
+    assert all("源文" in d["records"][i]["case_support_reason"] for i in range(len(d["records"])) if d["records"][i]["case_support_only"])
     assert all(r["canonical_promotion"] is True for r in d["records"])
 
 def test_every_prege_antecedent_is_resolved():
