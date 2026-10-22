@@ -197,7 +197,7 @@ def main():
             materialized_path.read_text(encoding="utf-8")
         )
         Path(args.report).write_text(
-            json.dumps(report, ensure_ascii=False, indent=2) + "\\n",
+            json.dumps(report, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
         )
         print("WANG full-chart materialization completed on the pinned Product P1 runner")
