@@ -1,6 +1,7 @@
 # P07 Migration State Recovery Evidence
 
 - Tracking issue: #626
+- Pull request: #628
 - Lane: KNOWLEDGE_ONLY
 - Shard: P07 — 迁移宫
 - Scope: recovery-cache synchronization and deterministic consistency checks only
