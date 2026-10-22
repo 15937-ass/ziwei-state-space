@@ -69,6 +69,11 @@ const ENGINE = {
   horoscope_divide: "normal",
 };
 const ADAPTER_VERSION = "0.1B";
+const EXPECTED_INPUT_GIT_BLOBS = {
+  source_signatures: "83800555169c4225427dbc35ae50e4ec21cf2257",
+  blind_anchor: "c5744b4c5278394859e563cbf6a2537c7315546f",
+  reconstruction_readiness: "a0ec93c5a17859a64d02eb029837c787c7b12bdf",
+};
 const FORBIDDEN_KEYS = new Set([
   "source_subject_label", "source_subject_name", "person_name", "person_group_id",
   "expert_reasoning_graph", "expert_conclusion_refs", "outcome_refs",
@@ -81,6 +86,13 @@ function readJson(path) {
 }
 function sha256(path) {
   return createHash("sha256").update(fs.readFileSync(path)).digest("hex");
+}
+function gitBlobSha(path) {
+  const content = fs.readFileSync(path);
+  return createHash("sha1")
+    .update("blob " + content.length + "\\0")
+    .update(content)
+    .digest("hex");
 }
 function requireText(value, label) {
   const text = String(value ?? "").trim();
@@ -263,6 +275,16 @@ function walkKeys(value, out = new Set()) {
 const signatures = readJson(signaturePath);
 const blind = readJson(blindPath);
 const readiness = readJson(readinessPath);
+const inputGitBlobs = {
+  source_signatures: gitBlobSha(signaturePath),
+  blind_anchor: gitBlobSha(blindPath),
+  reconstruction_readiness: gitBlobSha(readinessPath),
+};
+for (const [key, expected] of Object.entries(EXPECTED_INPUT_GIT_BLOBS)) {
+  if (inputGitBlobs[key] !== expected) {
+    throw new Error(key + " artifact version changed; explicit re-review is required");
+  }
+}
 if (signatures.artifact_id !== "WANG_SOURCE_BIRTH_SIGNATURES_V0_1") throw new Error("unexpected source-signature artifact");
 if (blind.artifact_id !== "WANG_BLIND_EVIDENCE_V0_1") throw new Error("unexpected blind-anchor artifact");
 if (readiness.artifact_id !== "WANG_FULL_CHART_RECONSTRUCTION_READINESS_V0_1") throw new Error("unexpected readiness artifact");
@@ -393,14 +415,17 @@ const payload = {
   source_artifacts: {
     source_signatures: {
       artifact_id: signatures.artifact_id,
+      git_blob_sha: inputGitBlobs.source_signatures,
       sha256: sha256(signaturePath),
     },
     blind_anchor: {
       artifact_id: blind.artifact_id,
+      git_blob_sha: inputGitBlobs.blind_anchor,
       sha256: sha256(blindPath),
     },
     reconstruction_readiness: {
       artifact_id: readiness.artifact_id,
+      git_blob_sha: inputGitBlobs.reconstruction_readiness,
       sha256: sha256(readinessPath),
     },
   },
