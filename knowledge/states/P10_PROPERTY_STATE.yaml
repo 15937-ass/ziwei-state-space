@@ -8,12 +8,12 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "ACTIVE"
-  active_issue: 607
-  active_branch: "knowledge/p10-607-relation-cross-palace-map-r2"
-  active_pr: 616
-  canonical_checkpoint: "PROPERTY_P10_CANONICAL_358_OF_358_ON_MAIN; NATAL_TRANSFORMATION_MAP_6_OF_6_MERGED; DIRECT_STAR_PRESENCE_MAP_5_OF_5_MERGED; DIRECT_STAR_PRESENCE_REMAINDER_6_OF_6_MERGED; RELATION_CROSS_PALACE_MAP_3_OF_3_PENDING_R2_CI"
-  note: "Issue #583 / PR #596 merged five source-verified P10 NATAL star-presence mappings; Issue #597 / PR #609 merged six residual direct-star mappings. Issue #607 maps three relation/cross-palace constraints using existing PALACE_HAS_STAR and PALACE_RELATION facts only. r2 is based on latest main 7f34532ef7e18b0d871428a97f30def7be9fee31. Require exact-head CI before merge; do not infer Tianfu treasury state or create production rules."
+  status: "ACTIVE_NO_ACTIVE_WORK"
+  active_issue: null
+  active_branch: null
+  active_pr: null
+  canonical_checkpoint: "PROPERTY_P10_CANONICAL_358_OF_358_ON_MAIN; NATAL_TRANSFORMATION_MAP_6_OF_6_MERGED; DIRECT_STAR_PRESENCE_MAP_5_OF_5_MERGED; DIRECT_STAR_PRESENCE_REMAINDER_6_OF_6_MERGED; RELATION_CROSS_PALACE_MAP_3_OF_3_MERGED"
+  note: "Recovery synchronized after Issue #607 / PR #616 merged at 83db2c351e09cff686527530823e44fda6ec1808. P10 has 358/358 canonical source records, six natal transformation mappings, five initial direct-star mappings, six residual direct-star mappings, and three relation/cross-palace mappings on main. No active P10 Knowledge work unit remains after this bounded recovery issue closes. Relation mappings remain non-executable; unresolved Tianfu treasury state is not inferred; no Product runtime authorization."
 
 integrity:
   source_first: true
