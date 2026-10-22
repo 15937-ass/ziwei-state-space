@@ -1,6 +1,7 @@
 # P05 Wealth State Recovery Evidence
 
 - Tracking issue: #636
+- Pull request: #638
 - Lane: KNOWLEDGE_ONLY
 - Shard: P05 — 财帛宫
 - Scope: recovery-cache synchronization and deterministic consistency checks only
