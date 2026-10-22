@@ -9,7 +9,7 @@ GAPS = ROOT / "knowledge/palaces/P05_wealth/w04/WEALTH_W04_SOURCE_GAPS_v0.1.json
 EXPECTED_IDS = {f"W04-{i:03d}" for i in range(301, 401)}
 EXPECTED_NON_NATAL = {"W04-306", "W04-307", "W04-336", "W04-354", "W04-355", "W04-364", "W04-365"}
 EXPECTED_PATH = {"W04-318", "W04-319", "W04-388", "W04-394", "W04-400"}
-EXPECTED_VISUAL = {"W04-338", "W04-340", "W04-353", "W04-354", "W04-355", "W04-358", "W04-359", "W04-360", "W04-389", "W04-397", "W04-398", "W04-400"}
+EXPECTED_VISUAL = {"W04-338", "W04-339", "W04-340", "W04-343", "W04-353", "W04-354", "W04-355", "W04-358", "W04-359", "W04-360", "W04-389", "W04-393", "W04-397", "W04-398", "W04-400"}
 
 def load(path):
     return json.loads(path.read_text(encoding="utf-8"))

@@ -9,7 +9,7 @@ Shard: P05 财帛宫
 - Candidate input: historical/noncanonical W04-301…W04-400.
 - Direct source recheck: 100/100.
 - Source-resolution changes: 70 rows (including W04-367’s explicit “火星或铃星任一同度” antecedent).
-- Direct PDF page-image resolutions: 12 rows (W04-338, W04-340, W04-353, W04-354, W04-355, W04-358, W04-359, W04-360, W04-389, W04-397, W04-398, W04-400).
+- Direct PDF page-image resolutions: 15 rows (W04-338, W04-339, W04-340, W04-343, W04-353, W04-354, W04-355, W04-358, W04-359, W04-360, W04-389, W04-393, W04-397, W04-398, W04-400).
 - Unresolved source uncertainty: 0.
 - Non-NATAL rows: 7 (3 DECADE, 4 YEAR).
 - PATH_DEPENDENT_GATE: W04-318, W04-319, W04-388, W04-394, W04-400.
@@ -35,6 +35,8 @@ Specifically checked for:
 
 ## Visual source verification
 Direct page-image inspection was performed on PDF pages 38–40 (printed pp75–80). It resolved:
+- W04-339: PDF printed p77 page-image confirms“武曲化禄、权、科时，亦为从事财政经济、金融企业的表征”，resolving extracted “极” to “权”.
+- W04-343: PDF printed p77 page-image confirms“视同会煞曜凶星多寡而定” and “地劫、地空、天刑、大耗、天虚等曜”，resolving extracted “天删/天超” to “天刑/天虚”.
 - W04-338: PDF printed p77 page-image confirms“武曲为金属之星，故亦宜从事与金属有关的职业”，resolving extraction damage in“有关”.
 - W04-340: PDF printed p77 page-image confirms“武曲化禄、权、科” and the separate “若又见煞，则倾向于工程技术等专业” clause.
 - W04-353: PDF printed p78 page-image confirms the phrase“铃昌陀武，限至投河” and the definition as 武曲与文昌、铃星、陀罗同度或相对.
@@ -44,6 +46,7 @@ Direct page-image inspection was performed on PDF pages 38–40 (printed pp75–
 - W04-359: PDF printed p78 page-image confirms 武曲化权's cross-palace dependency: 事业宫必见禄存.
 - W04-360: PDF printed p78 page-image confirms 武曲化科's cross-palace dependency: 事业宫廉贞叠禄.
 - W04-389: PDF printed p79 page-image resolves extraction corruption and confirms“必须见化禄或禄存始是，且须无煞曜伺踞”.
+- W04-393: PDF printed p79 page-image confirms“若同时见煞，则事业虽大，但财帛反而有损”，resolving extracted OCR “剐” to “则”.
 - W04-397: PDF printed p79 page-image confirms 禄存在命宫、天马在命宫或迁移宫为上格，并明确天马不宜与空劫火铃同度.
 - W04-398: PDF printed p79 page-image confirms“辰戌武曲化忌，必生破败；见煞曜刑耗，亦主困乏”.
 - W04-400: PDF printed p79 page-image confirms“得禄权科会…至少有一次困境，但克服困难之后，仍能致富”.
