@@ -81,7 +81,7 @@ def test_w05_critical_cross_palace_and_temporal_antecedents():
     assert "太阴不化禄" in r["W05-431"]["canonical_condition"]
     assert "太阴不化禄" in r["W05-432"]["canonical_condition"]
     assert "天马" in r["W05-433"]["canonical_condition"] and "事业宫" in r["W05-433"]["source_note"]
-    assert "少年飘流" in r["W05-434"]["source_note"]
+    assert "少年必主飘流" in r["W05-434"]["source_note"]
     assert "天同化忌或太阴化忌" in r["W05-437"]["canonical_condition"]
     assert "或对面福德宫有禄马" in r["W05-454"]["canonical_condition"]
     assert "不主商业贸迁" in r["W05-454"]["canonical_condition"]
@@ -103,7 +103,7 @@ def test_w05_source_gaps_are_not_misrepresented_as_core_gaps():
     gaps = load(GAPS)
     assert gaps["core_gap_count"] == 0
     assert all(g["gap_type"] == "OPEN_LOCAL_SOURCE_COVERAGE_GAP" for g in gaps["gaps"])
-    assert all("do not invent" in g["action"].lower() or "no new projection ID" in g["action"].lower() for g in gaps["gaps"])
+    assert all("do not invent" in g["action"].lower() or "no new projection id" in g["action"].lower() for g in gaps["gaps"])
 
 def test_w05_no_numeric_model_parameters_introduced():
     data = load(READJ)
