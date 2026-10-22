@@ -1,0 +1,104 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P05-WEALTH-W05-SOURCE-GAPS-v0.1",
+  "issue": 591,
+  "shard": "P05",
+  "source_id": "SRC-ZZ-003",
+  "gap_count": 3,
+  "core_gap_count": 0,
+  "resolved_extraction_surfaces": [
+    {
+      "projection_rule_id": "W05-406",
+      "resolution": "PDF printed p79 page-image confirms“武曲破军守财帛宫，勇于投资，而俭于应酬”，resolving extracted “与” to “于”.",
+      "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION"
+    },
+    {
+      "projection_rule_id": "W05-411",
+      "resolution": "PDF printed p79 page-image confirms“若空劫同度，则自身开创亦多破败，仅能东山复起，结局富裕”，resolving extracted “何” to “多”.",
+      "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION"
+    },
+    {
+      "projection_rule_id": "W05-422",
+      "resolution": "PDF printed p80 page-image confirms“则财源稍顺即告更迂，必须时时另起炉灶”，resolving extracted “双” to “即”.",
+      "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION"
+    },
+    {
+      "projection_rule_id": "W05-450",
+      "resolution": "PDF printed p80 page-image confirms“而当局者却并不斤斤计较金钱”，restoring the negation “不”.",
+      "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION"
+    },
+    {
+      "projection_rule_id": "W05-452",
+      "resolution": "PDF printed p80 page-image confirms“天梁化禄，则财源往往受人指责”，resolving extracted “入” to “人”.",
+      "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION"
+    },
+    {
+      "projection_rule_id": "W05-461",
+      "resolution": "PDF printed p80 page-image confirms“卯酉天同化忌，倘更有羊陀夹”，resolving extracted “羊院” to “羊陀”.",
+      "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION"
+    },
+    {
+      "projection_rule_id": "W05-466",
+      "resolution": "PDF printed p80 page-image confirms“辰戌天同见煞同度，亦为必费心力”，resolving severely damaged OCR text.",
+      "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION"
+    },
+    {
+      "projection_rule_id": "W05-467",
+      "resolution": "PDF printed p80 page-image confirms“求财费尽机关”，resolving extracted “赞” to “费”; the alternative “或铃星同度” is preserved.",
+      "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION"
+    },
+    {
+      "projection_rule_id": "W05-468",
+      "resolution": "PDF printed p81 page-image confirms“辰戌天同化忌，火铃夹者，主受人拖累而破财”，resolving extracted “皆” to “者”.",
+      "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION"
+    },
+    {
+      "projection_rule_id": "W05-478",
+      "resolution": "PDF printed p81 page-image confirms“财帛为弱宫，稍见煞即主劳心费力。不见煞，见诸吉，然后晚年始能富裕”，resolving “弱寓/渚吉” to “弱宫/诸吉”.",
+      "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION"
+    },
+    {
+      "projection_rule_id": "W05-480",
+      "resolution": "PDF printed p81 page-image confirms“廉贞守财帛宫，性质相当复杂”，resolving extracted “俐当” to “相当”.",
+      "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION"
+    },
+    {
+      "projection_rule_id": "W05-500",
+      "resolution": "PDF printed p81 page-image confirms“受到厚报”，resolving extracted “同报” to “厚报”.",
+      "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION"
+    }
+  ],
+  "gaps": [
+    {
+      "gap_id": "W05-SG-001",
+      "source_location": "财帛宫printed_p81",
+      "source_claim": "“廉贞天相”刑忌夹印，或廉贞化忌时，因无谓应酬而破财；有煞曜空劫时涉及是非词讼。",
+      "gap_type": "OPEN_LOCAL_SOURCE_COVERAGE_GAP",
+      "reason": "W05-499/500 covers the social-networking scene and 财荫夹印 outcome; W05-494/496 cover general 廉贞化忌 outcomes, but no bounded candidate row faithfully encodes this exact 廉贞天相 + 刑忌夹印 / 无谓应酬 modifier chain.",
+      "core_gap": false,
+      "status": "OPEN",
+      "action": "Keep as a local P05 source-coverage gap for a later bounded closure task; do not invent a W05 rule ID or overload W05-499/500."
+    },
+    {
+      "gap_id": "W05-SG-002",
+      "source_location": "财帛宫printed_p81",
+      "source_claim": "“廉贞天相”与空劫同度则难以积财；更见刑煞有是非词讼，或表面风光而内在空虚、寅吃卯粮。",
+      "gap_type": "OPEN_LOCAL_SOURCE_COVERAGE_GAP",
+      "reason": "The W05 candidate has no separate row for the specific 廉贞天相 + 空劫 retention-loss / punishment-star litigation / surface-versus-internal-finance clause. The adjacent social-business and 财荫夹印 rows do not represent it.",
+      "image_resolution": "Printed p81 page-image confirms the phrase “有是非词讼”; extracted OCR “词不达意讼” is damaged, but the source meaning is visually legible.",
+      "core_gap": false,
+      "status": "OPEN",
+      "action": "Retain the source claim and image correction here; schedule a bounded local coverage-closure task; do not invent or add a new projection ID."
+    },
+    {
+      "gap_id": "W05-SG-003",
+      "source_location": "财帛宫printed_p81",
+      "source_claim": "“廉贞天相”亦可横发横破，但性质较为和缓。",
+      "gap_type": "OPEN_LOCAL_SOURCE_COVERAGE_GAP",
+      "reason": "No W05 candidate row independently captures the source's separate 横发横破 tendency and its moderating qualifier; it must not be merged into the social-networking or 财荫夹印 result.",
+      "core_gap": false,
+      "status": "OPEN",
+      "action": "Keep open for a later source-coverage closure; no new projection ID is invented in this bounded batch."
+    }
+  ]
+}
