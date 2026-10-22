@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "artifact_id": "LIFE-P04-SOURCE-READJUDICATION-SUMMARY-v0.1",
+  "issue": 603,
+  "source_id": "SRC-ZZ-003",
+  "source_basis": {
+    "canonical_source": "中州派紫微斗数深造讲义（下册）",
+    "source_section": "下篇·宫垣论·命宫",
+    "printed_pages": [
+      "12",
+      "13",
+      "14",
+      "15"
+    ],
+    "historical_candidate_file": "validation/wp05/P04_life_palace_projection_review_v0.1.csv",
+    "historical_candidate_range": "P04-301…P04-400",
+    "historical_candidate_status": "NONCANONICAL_ACCELERATION_INPUT_ONLY",
+    "source_images_verified": true
+  },
+  "summary": {
+    "historical_candidate_rows_reviewed": 100,
+    "canonical_promotions_from_candidate_batch": 100,
+    "deduplicated_scope_metadata_rows": 0,
+    "candidate_case_support_only": 12,
+    "source_gap_supplement_records": 11,
+    "source_gap_supplement_case_support_only": 3,
+    "canonical_records_added": 111,
+    "reusable_projection_rules_added": 96,
+    "case_support_only_added": 15,
+    "cumulative_canonical_records_after_merge": 533,
+    "cumulative_reusable_projection_rules_after_merge": 438,
+    "cumulative_case_support_only_after_merge": 95,
+    "source_resolution_changes": 39,
+    "source_coverage_gaps_closed": [
+      "P01-SRC-GAP-023"
+    ],
+    "source_coverage_gaps_open_for_next_checkpoint": [
+      "P01-SRC-GAP-024"
+    ],
+    "new_shared_semantic_gaps": 0,
+    "human_gate_required": false
+  },
+  "source_coverage_gaps_next_checkpoint": [
+    {
+      "gap_id": "P01-SRC-GAP-024",
+      "status": "OPEN_FOR_NEXT_SOURCE_CHECKPOINT",
+      "source_location": "SRC-ZZ-003 · 宫垣论·命宫 · printed pp14–16",
+      "source_claim": "The historical P04 candidate set does not exhaust the remaining Taiyin classical configurations (日巳月酉、日月会照、明珠出海/反背、羊陀空劫等) and the Tanlang opening. P04-400 is not the end of printed p15 source coverage.",
+      "reason": "Generate a new source-first candidate set from scanned page images; recheck printed page order because historical candidate IDs are thematic rather than source-ordered.",
+      "notes": "Do not claim printed p15 fully covered until the remaining Taiyin and Tanlang source paragraphs are read and adjudicated."
+    }
+  ],
+  "major_findings": [
+    "P03-300 captures only the opening 寅申廉贞 clause; P04-301 is a distinct continuation, not a duplicate.",
+    "The historical P04 candidate file omits the entire printed-p12 巳亥廉贪 section; 11 separately identified source-grounded rules P01-SG-125…135 were added.",
+    "P04-389/390 and P04-398…400 are on printed p14, not p15; P04-376…390 page attribution was rechecked against scan images.",
+    "Opposite-palace relationships are no longer misfiled as fixed 迁移宫 dependencies; fixed 夫妻宫/事业宫 dependencies are retained only when the source explicitly names them.",
+    "P04-384 restores the explicit 财帛宫 dependency for material enjoyment.",
+    "Generic 年限、宫限、之限 wording remains unresolved rather than being narrowed to DECADE."
+  ],
+  "scope_preservation": [
+    "No new shared semantic primitive, independent time scale, memory type, numeric weight, probability, or decay was introduced.",
+    "Concrete biography/event/diagnosis claims remain CASE_SUPPORT_ONLY.",
+    "P01-SRC-GAP-024 remains open; the reviewed candidate span is not treated as exhaustive of printed pp14–16."
+  ],
+  "forbidden_additions": {
+    "new_shared_primitives": 0,
+    "new_independent_time_scales": 0,
+    "new_memory_types": 0,
+    "numeric_weights": 0,
+    "probabilities": 0,
+    "decay": 0
+  }
+}
