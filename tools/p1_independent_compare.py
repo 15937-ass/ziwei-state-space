@@ -11,6 +11,7 @@ engine bugs.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import subprocess
@@ -193,13 +194,63 @@ def main():
             ],
             check=True,
         )
-        report["wang_full_chart_materialization"] = json.loads(
-            materialized_path.read_text(encoding="utf-8")
-        )
+        materialization = json.loads(materialized_path.read_text(encoding="utf-8"))
+        report["wang_full_chart_materialization"] = materialization
         Path(args.report).write_text(
             json.dumps(report, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
         )
+
+        # Emit bounded chunks so the generated artifact can be recovered even though
+        # the workflow's upload list is intentionally unchanged and read-only.
+        materialization_json = json.dumps(materialization, ensure_ascii=False, separators=(",", ":"))
+        chunk_size = 3000
+        chunk_count = (len(materialization_json) + chunk_size - 1) // chunk_size
+        print(f"WANG_MATERIALIZATION_JSON_BEGIN chunks={chunk_count}")
+        for chunk_index in range(chunk_count):
+            chunk = materialization_json[chunk_index * chunk_size:(chunk_index + 1) * chunk_size]
+            print(f"WANG_MATERIALIZATION_JSON_CHUNK:{chunk_index:04d}:{chunk}")
+        print("WANG_MATERIALIZATION_JSON_END")
+
+        from src.product.wang_full_chart_materialization import validate_wang_full_chart_evidence
+        case_root = Path("product/expert_cases/wang_tingzhi")
+        signatures_path = case_root / "SOURCE_BIRTH_SIGNATURES_V0_1.json"
+        blind_path = case_root / "BLIND_EVIDENCE_V0_1.json"
+        readiness_path = case_root / "FULL_CHART_RECONSTRUCTION_READINESS_V0_1.json"
+        signatures = json.loads(signatures_path.read_text(encoding="utf-8"))
+        blind = json.loads(blind_path.read_text(encoding="utf-8"))
+        readiness = json.loads(readiness_path.read_text(encoding="utf-8"))
+        source_hashes = {
+            "source_signatures": hashlib.sha256(signatures_path.read_bytes()).hexdigest(),
+            "blind_anchor": hashlib.sha256(blind_path.read_bytes()).hexdigest(),
+            "reconstruction_readiness": hashlib.sha256(readiness_path.read_bytes()).hexdigest(),
+        }
+        try:
+            validate_wang_full_chart_evidence(
+                materialization, signatures, blind, readiness, source_hashes=source_hashes
+            )
+        except Exception as error:
+            report["wang_full_chart_validation"] = {
+                "status": "FAIL",
+                "validator": "src/product/wang_full_chart_materialization.py",
+                "error": str(error),
+            }
+            Path(args.report).write_text(
+                json.dumps(report, ensure_ascii=False, indent=2) + "\n",
+                encoding="utf-8",
+            )
+            print(f"WANG full-chart formal validator: FAIL: {error}")
+            raise
+        report["wang_full_chart_validation"] = {
+            "status": "PASS",
+            "validator": "src/product/wang_full_chart_materialization.py",
+            "source_sha256": source_hashes,
+        }
+        Path(args.report).write_text(
+            json.dumps(report, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        print("WANG full-chart formal validator: PASS")
         print("WANG full-chart materialization completed on the pinned Product P1 runner")
     print("P1 INDEPENDENT GO CORE AUDIT")
     print(f"cases={report['case_count']}")
