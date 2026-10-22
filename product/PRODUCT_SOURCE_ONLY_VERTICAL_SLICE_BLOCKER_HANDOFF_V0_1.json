@@ -1,0 +1,377 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "PRODUCT_SOURCE_ONLY_VERTICAL_SLICE_BLOCKER_HANDOFF_V0_1",
+  "work_unit": "PRODUCT_SOURCE_ONLY_VERTICAL_SLICE_BLOCKER_HANDOFF",
+  "snapshot_date": "2026-10-22",
+  "snapshot_type": "PINNED_PRODUCT_AND_KNOWLEDGE_DEPENDENCY_HANDOFF",
+  "overall_status": "BLOCKED_NO_ACTIVE_KNOWLEDGE_PRODUCER_ISSUE_VERIFIED",
+  "purpose": "Identify the source-owned Knowledge deliverables required before the Product source-only N -> E -> tau -> M0 vertical slice can become executable. This report records dependencies and downstream Product gates; it does not supply missing semantics.",
+  "source_artifacts": [
+    {
+      "role": "product_recovery_state",
+      "path": "product/PRODUCT_STATE.yaml",
+      "git_blob_sha": "17cc955417070ce0fa495eb74daa2d6960f0f0c7"
+    },
+    {
+      "role": "canonical_and_method_fidelity_baseline",
+      "path": "product/benchmarks/CANONICAL_AND_METHOD_FIDELITY_BENCHMARK_V0_1.json",
+      "git_blob_sha": "598f90aeff740d2f6688cefa93febaa606ae2be4"
+    },
+    {
+      "role": "active_product_knowledge_lock",
+      "path": "product/PRODUCT_KNOWLEDGE.lock.json",
+      "git_blob_sha": "39985e1be3d974b414e683925f4a135c0dc69e91"
+    },
+    {
+      "role": "active_product_knowledge_bundle",
+      "path": "product/PRODUCT_KNOWLEDGE_BUNDLE_V0_3.json",
+      "git_blob_sha": "a9291c26b4116c59518dcad173b59dc19d377865"
+    },
+    {
+      "role": "historical_bootstrap_impact_report",
+      "path": "product/PRODUCT_KNOWLEDGE_IMPACT_V0_1.json",
+      "git_blob_sha": "4b76bc301f92c087e0eed484acb433177274f6c1"
+    },
+    {
+      "role": "knowledge_impact_contract",
+      "path": "product/PRODUCT_KNOWLEDGE_IMPACT_V0_1_ACCEPTANCE.md",
+      "git_blob_sha": "a46bac9a9073e9eddc5e59ba62b941921036f0bf"
+    },
+    {
+      "role": "production_temporal_reaction_registry",
+      "path": "product/PL3T_TEMPORAL_REACTION_REGISTRY_v0.1.json",
+      "git_blob_sha": "6749bd569dca1f593a7e437bd6a86c81a7d578c8"
+    },
+    {
+      "role": "production_manifestation_ontology_registry",
+      "path": "product/PL3M_MANIFESTATION_ONTOLOGY_REGISTRY_v0.1.json",
+      "git_blob_sha": "d1f5f5035ff7e5b51431fc2abc43ac844c84e2bf"
+    },
+    {
+      "role": "production_manifestation_mapping_registry",
+      "path": "product/PL3M_MANIFESTATION_MAPPING_REGISTRY_v0.1.json",
+      "git_blob_sha": "367bc603b33d24bda7c66023c7e386f8cd0528eb"
+    },
+    {
+      "role": "knowledge_coordinator",
+      "path": "knowledge/KNOWLEDGE_STATE.yaml",
+      "git_blob_sha": "c3ababfe3ca7fc7eaccc99dd24531a00fc48acf0"
+    },
+    {
+      "role": "knowledge_core_state",
+      "path": "knowledge/states/CORE_STATE.yaml",
+      "git_blob_sha": "b9dc0974429fb26dd71b593e47641f88bf065c40"
+    },
+    {
+      "role": "knowledge_p09_state",
+      "path": "knowledge/states/P09_CAREER_STATE.yaml",
+      "git_blob_sha": "ef157853c08bef0ba676bbd76b52e78b714ddc01"
+    },
+    {
+      "role": "knowledge_p10_state",
+      "path": "knowledge/states/P10_PROPERTY_STATE.yaml",
+      "git_blob_sha": "8510b26f03a127f442a9d015555f2056962edc29"
+    },
+    {
+      "role": "knowledge_roadmap",
+      "path": "KNOWLEDGE_BASE_ROADMAP.md",
+      "git_blob_sha": "196f74da14acbeca1bad2a19e0c04f12bb00eb17"
+    },
+    {
+      "role": "career_temporal_eligibility_audit",
+      "path": "knowledge/wp07b/CAREER_TEMPORAL_REACTION_ELIGIBILITY_SUMMARY_v0.1.json",
+      "git_blob_sha": "abcdadcbd776f0f531a0a6b73a9e1b18b370c7fa"
+    },
+    {
+      "role": "property_temporal_eligibility_audit",
+      "path": "knowledge/palaces/P10_property/wp07b/PROPERTY_TEMPORAL_REACTION_ELIGIBILITY_SUMMARY_v0.1.json",
+      "git_blob_sha": "9d0322cf1b2f904e50e2caf133d3f52eb1f28158"
+    },
+    {
+      "role": "temporal_compiler_contract",
+      "path": "product/PL3T_NATAL_TEMPORAL_REACTION_COMPILER_ACCEPTANCE.md",
+      "git_blob_sha": "5c2982e1696ccead468ceb503310172a830271bc"
+    },
+    {
+      "role": "manifestation_ontology_contract",
+      "path": "product/PL3M_MANIFESTATION_ONTOLOGY_ADAPTER_ACCEPTANCE.md",
+      "git_blob_sha": "90b40619ba4fcb6e93f592541841d316cb81ad22"
+    },
+    {
+      "role": "manifestation_m0_contract",
+      "path": "product/PL3M0_CANONICAL_MANIFESTATION_CANDIDATES_V0_1.md",
+      "git_blob_sha": "c36940884b9683412645d405eba718a07000cf28"
+    }
+  ],
+  "active_product_knowledge": {
+    "lock": {
+      "path": "product/PRODUCT_KNOWLEDGE.lock.json",
+      "lock_id": "PRODUCT_KNOWLEDGE_LOCK_V0_3",
+      "active_bundle_id": "KIB-PRODUCT-20261021-V0_3",
+      "active_bundle_path": "product/PRODUCT_KNOWLEDGE_BUNDLE_V0_3.json",
+      "source_commit": "eaa33deeb77a4f982bc13121c06cad657975177b",
+      "promotion_state": "ACTIVE",
+      "promoted_by_issue": 518,
+      "auto_refresh": false,
+      "previous_bundle_id": "KIB-PRODUCT-20261021-V0_2",
+      "active_lock_mutated_by_handoff": false
+    },
+    "bundle_components": {
+      "K_response": {
+        "coverage_status": "ACTIVE_LOCKED_RESPONSE_INPUTS_V0_3_CONDITION_IR_12",
+        "artifact_count": 22,
+        "relevant_locked_artifacts": [
+          "knowledge/wp07b/CAREER_TEMPORAL_REACTION_ELIGIBILITY_SUMMARY_v0.1.json",
+          "knowledge/wp07b/CAREER_TEMPORAL_REACTION_ELIGIBILITY_v0.1.csv"
+        ],
+        "interpretation": "The active K_response component includes Career temporal-eligibility evidence, but that evidence does not constitute a compiler-ready canonical temporal-reaction specification. The production reaction registry remains empty."
+      },
+      "K_manifest": {
+        "coverage_status": "EMPTY_NOT_READY",
+        "artifact_count": 0,
+        "artifacts": [],
+        "accepted_baseline_commit": null,
+        "bootstrap_equivalence": "NO_CANONICAL_CONTENT"
+      }
+    },
+    "impact_report_caveat": {
+      "path": "product/PRODUCT_KNOWLEDGE_IMPACT_V0_1.json",
+      "report_id": "PRODUCT_KNOWLEDGE_IMPACT_V0_1_BOOTSTRAP",
+      "active_bundle_id_in_report": "KIB-PRODUCT-20261021-V0_1",
+      "candidate_bundle_id_in_report": "KIB-CANDIDATE-ISSUE-500-V0_1",
+      "status": "HISTORICAL_BOOTSTRAP_REPORT_NOT_CURRENT_V0_3_DECISION",
+      "use_for_current_promotion_decision": false,
+      "reason": "The report compares v0.1 bootstrap bundles, not the current active KIB-PRODUCT-20261021-V0_3. Build a new explicit candidate and impact report when accepted source artifacts become available."
+    }
+  },
+  "live_knowledge_work_snapshot": {
+    "as_of_date": "2026-10-22",
+    "coordinator_current_known_live_work": {},
+    "shard_execution": {
+      "CORE": {
+        "status": "ACTIVE_NO_ACTIVE_WORK",
+        "active_issue": null,
+        "active_pr": null
+      },
+      "P09": {
+        "status": "ACTIVE_NO_ACTIVE_WORK",
+        "active_issue": null,
+        "active_pr": null
+      },
+      "P10": {
+        "status": "ACTIVE_NO_ACTIVE_WORK",
+        "active_issue": null,
+        "active_pr": null
+      }
+    },
+    "matching_open_knowledge_issues": [],
+    "matching_open_knowledge_prs": [],
+    "search_scope": "Repository issue/PR searches for KB-WP07B, KB-WP06B, KB-WP06C and the corresponding temporal-reaction / manifestation producer names.",
+    "excluded_hits": [
+      {
+        "issue": 655,
+        "reason": "This Product handoff issue contains the work-package terms but is not a Knowledge producer issue."
+      },
+      {
+        "issue": 544,
+        "state": "CLOSED",
+        "closed_at": "2026-10-21T13:42:08Z",
+        "reason": "Historical P10 temporal-eligibility audit, not an active shared KB-WP07B specification work unit."
+      }
+    ],
+    "future_gate": {
+      "id": "HG-WP06B-MANIFESTATION-ROOT-01",
+      "status": "FUTURE_GATE_NOT_CURRENT_REQUEST",
+      "reason": "The Knowledge coordinator says historical/future gates are not current PI requests unless a live shard Issue names them."
+    },
+    "conclusion": "No active Knowledge producer Issue/PR for these three work packages was verified in this snapshot. Do not invent issue numbers or treat closed eligibility audits as accepted production specifications."
+  },
+  "dependencies": [
+    {
+      "dependency_id": "KB-WP07B",
+      "title": "Temporal Reaction Specification",
+      "product_component": "K_response",
+      "product_registry_path": "product/PL3T_TEMPORAL_REACTION_REGISTRY_v0.1.json",
+      "registry_status": "EMPTY_UNTIL_KB_WP07B_STRUCTURED_NORMALIZATION",
+      "registry_entries": 0,
+      "live_knowledge_issue": null,
+      "live_knowledge_pr": null,
+      "producer_status": "NO_ACTIVE_LIVE_KNOWLEDGE_ISSUE_OR_PR_FOUND",
+      "accepted_specification_available": false,
+      "existing_eligibility_evidence": [
+        {
+          "path": "knowledge/wp07b/CAREER_TEMPORAL_REACTION_ELIGIBILITY_SUMMARY_v0.1.json",
+          "audit_status": "NO_ELIGIBLE_SOURCE_EXPLICIT_TEMPORAL_RULE_UNDER_CURRENT_CONTRACT",
+          "candidates_audited": 9,
+          "eligible_for_current_compiler": 0,
+          "blocked": 8,
+          "case_support_only_excluded": 1,
+          "executable_pilot_emitted": false,
+          "in_active_kib": true,
+          "meaning": "Eligibility screening only; not a canonical temporal-reaction specification."
+        },
+        {
+          "path": "knowledge/palaces/P10_property/wp07b/PROPERTY_TEMPORAL_REACTION_ELIGIBILITY_SUMMARY_v0.1.json",
+          "issue": 544,
+          "issue_state": "CLOSED",
+          "audit_status": "COMPLETE_NO_ELIGIBLE_REACTION_UNDER_CURRENT_CONTRACT",
+          "candidates_audited": 35,
+          "eligible_for_current_compiler": 0,
+          "blocked_reusable": 19,
+          "case_support_only_excluded": 16,
+          "in_active_kib": false,
+          "meaning": "Historical P10 eligibility audit; it did not create shared temporal semantics or authorize a production reaction."
+        }
+      ],
+      "required_knowledge_deliverable": {
+        "description": "A source-reviewed structured temporal-reaction specification compatible with the current PL3-T contract.",
+        "required_dimensions": [
+          "natal essence remains separate from temporal environment",
+          "source-explicit path dependence",
+          "time-layer precedence and conflict handling",
+          "unresolved states remain explicit",
+          "temporal activation is not equated directly with a real-world event"
+        ],
+        "producer_lane": "KNOWLEDGE_ONLY"
+      },
+      "product_disposition": "BLOCKED",
+      "downstream_impact_class": "READINESS_REBUILD",
+      "downstream_artifacts_if_present": [
+        "RESPONSE_PROFILE_TAU",
+        "MANIFESTATION_M0",
+        "EMPIRICAL_DATASET",
+        "CALIBRATED_MODEL"
+      ],
+      "next_product_actions_after_source_acceptance": [
+        "Verify the accepted Knowledge artifact and its exact source commit.",
+        "Add the artifact explicitly to a candidate KIB K_response component with schema/contract version, artifact digest, and semantic digest.",
+        "Run candidate verification and an active-v0.3 versus candidate semantic-impact report.",
+        "Perform only the required response-readiness rebuild and reachable downstream work; do not assume future artifacts exist.",
+        "Run the required readiness/regression validations and evaluate the promotion gate.",
+        "Update the active lock only in a separate explicit Product promotion work unit after PROMOTABLE."
+      ]
+    },
+    {
+      "dependency_id": "KB-WP06B",
+      "title": "Manifestation Ontology",
+      "product_component": "K_manifest",
+      "product_registry_path": "product/PL3M_MANIFESTATION_ONTOLOGY_REGISTRY_v0.1.json",
+      "registry_status": "EMPTY_PENDING_KB_WP06B",
+      "registry_entries": 0,
+      "live_knowledge_issue": null,
+      "live_knowledge_pr": null,
+      "producer_status": "NO_ACTIVE_LIVE_KNOWLEDGE_ISSUE_OR_PR_FOUND",
+      "accepted_artifact_available": false,
+      "future_gate": "HG-WP06B-MANIFESTATION-ROOT-01",
+      "required_knowledge_deliverable": {
+        "description": "A versioned, source-backed manifestation ontology artifact with stable node identity and source provenance.",
+        "required_fields_from_roadmap": [
+          "manifestation_id",
+          "parent_id",
+          "domain",
+          "abstraction_level",
+          "source-supported labels",
+          "source rule IDs",
+          "event specificity",
+          "ambiguity notes",
+          "probability_status"
+        ],
+        "probability_status_boundary": "UNKNOWN unless supported by the source; Product must not invent probabilities or manifestation categories.",
+        "producer_lane": "KNOWLEDGE_ONLY"
+      },
+      "product_disposition": "BLOCKED",
+      "downstream_impact_class": "MANIFESTATION_REBUILD",
+      "downstream_artifacts_if_present": [
+        "MANIFESTATION_M0",
+        "EMPIRICAL_DATASET",
+        "CALIBRATED_MODEL"
+      ],
+      "next_product_actions_after_source_acceptance": [
+        "Verify the accepted ontology artifact and source commit.",
+        "Add it explicitly to a candidate KIB K_manifest component with schema/contract version, artifact digest, and semantic digest.",
+        "Run candidate verification and the active-v0.3 versus candidate semantic-impact report.",
+        "Rebuild only manifestation-dependent reachable artifacts and run MANIFESTATION_FIDELITY_REGRESSION plus required downstream validations.",
+        "Update the active lock only in a separate explicit Product promotion work unit after PROMOTABLE."
+      ]
+    },
+    {
+      "dependency_id": "KB-WP06C",
+      "title": "Manifestation Hypothesis Registry",
+      "product_component": "K_manifest",
+      "product_registry_path": "product/PL3M_MANIFESTATION_MAPPING_REGISTRY_v0.1.json",
+      "registry_status": "EMPTY_PENDING_KB_WP06C",
+      "registry_entries": 0,
+      "live_knowledge_issue": null,
+      "live_knowledge_pr": null,
+      "producer_status": "NO_ACTIVE_LIVE_KNOWLEDGE_ISSUE_OR_PR_FOUND",
+      "accepted_artifact_available": false,
+      "required_knowledge_deliverable": {
+        "description": "A versioned source-backed mapping from symbolic activation to allowed candidate manifestation channels.",
+        "required_mapping_kinds": [
+          "EXPLICIT",
+          "TRANSPARENT_INFERENCE",
+          "CASE_SUPPORT_ONLY",
+          "HYPOTHESIS"
+        ],
+        "constraints": [
+          "Do not promote case frequency into a canonical mapping.",
+          "Do not turn commonness into probability unless the source explicitly states it and the claim remains source-attributed."
+        ],
+        "producer_lane": "KNOWLEDGE_ONLY"
+      },
+      "product_disposition": "BLOCKED",
+      "downstream_impact_class": "MANIFESTATION_REBUILD",
+      "downstream_artifacts_if_present": [
+        "MANIFESTATION_M0",
+        "EMPIRICAL_DATASET",
+        "CALIBRATED_MODEL"
+      ],
+      "next_product_actions_after_source_acceptance": [
+        "Verify the accepted mapping artifact and source commit.",
+        "Add it explicitly to a candidate KIB K_manifest component with schema/contract version, artifact digest, and semantic digest.",
+        "Run candidate verification and the active-v0.3 versus candidate semantic-impact report.",
+        "Rebuild only manifestation-dependent reachable artifacts and run MANIFESTATION_FIDELITY_REGRESSION plus required downstream validations.",
+        "Update the active lock only in a separate explicit Product promotion work unit after PROMOTABLE."
+      ]
+    }
+  ],
+  "downstream_promotion_contract": {
+    "ordered_steps": [
+      "Wait for the source-owned artifact to be accepted on main and verify its live Knowledge issue/PR and source commit.",
+      "Build an explicit candidate KIB from active KIB-PRODUCT-20261021-V0_3; do not use Knowledge main as an implicit active dependency.",
+      "Verify exact artifact digests, semantic digests, component/schema contracts, and candidate identity.",
+      "Generate a fresh active-v0.3 versus candidate semantic-impact report; the v0.1 bootstrap impact report is not a current decision.",
+      "Perform only direct and reachable rebuild/recompile/replay/rematerialization steps required by the impact report.",
+      "Supply deterministic evidence for every required validation; missing validation means BLOCKED.",
+      "Evaluate the promotion gate. PROMOTABLE permits, but does not itself perform, an explicit Product promotion.",
+      "In a separate authorized Product work unit, update the active lock and preserve the previous bundle for rollback."
+    ],
+    "current_impact_policy": {
+      "K_response": "READINESS_REBUILD",
+      "K_manifest": "MANIFESTATION_REBUILD",
+      "active_lock_auto_refresh": false,
+      "Knowledge_merge_auto_promotes_into_Product": false
+    },
+    "active_lock_mutated_by_handoff": false
+  },
+  "vertical_slice_gate": {
+    "required_chain": [
+      "NATAL_ESSENCE",
+      "TEMPORAL_ENVIRONMENT",
+      "RESPONSE_PROFILE_TAU",
+      "MANIFESTATION_M0"
+    ],
+    "status": "GATED",
+    "gate_reason": "The production temporal-reaction registry, manifestation ontology, and manifestation mapping registries remain empty. The handoff does not create their source semantics.",
+    "forecast_ledger_activation": "DO_NOT_ACTIVATE",
+    "forecast_ledger_precondition": "The source-only N -> E -> tau -> M0 vertical slice must first become executable."
+  },
+  "benchmark_claim_boundary": {
+    "canonical_fidelity_score": null,
+    "expert_method_fidelity_score": null,
+    "full_expert_replay_ready": "0/24",
+    "full_source_chart_equivalence_verified": false,
+    "predictive_validity": "NOT_EVALUATED",
+    "statement": "This is a dependency/status handoff, not canonical fidelity, expert-method fidelity, or predictive-validity evidence."
+  }
+}
