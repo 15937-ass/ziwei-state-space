@@ -269,11 +269,23 @@ if (readiness.artifact_id !== "WANG_FULL_CHART_RECONSTRUCTION_READINESS_V0_1") t
 if (signatures.schema_version !== "0.1" || blind.schema_version !== "0.1" || readiness.schema_version !== "0.1") {
   throw new Error("unsupported source artifact schema version");
 }
-if (signatures.reconstruction_policy?.engine_version !== ENGINE.version ||
+if (signatures.reconstruction_policy?.engine !== ENGINE.name ||
+    signatures.reconstruction_policy?.engine_version !== ENGINE.version ||
     signatures.reconstruction_policy?.algorithm !== ENGINE.algorithm ||
+    signatures.reconstruction_policy?.astro_type !== ENGINE.astro_type ||
+    signatures.reconstruction_policy?.fix_leap !== ENGINE.fix_leap ||
+    signatures.reconstruction_policy?.day_divide !== ENGINE.day_divide ||
+    signatures.reconstruction_policy?.year_divide !== ENGINE.year_divide ||
+    signatures.reconstruction_policy?.horoscope_divide !== ENGINE.horoscope_divide ||
+    readiness.probe?.engine !== ENGINE.name ||
     readiness.probe?.engine_version !== ENGINE.version ||
     readiness.probe?.entrypoint !== ENGINE.entrypoint ||
-    readiness.probe?.algorithm !== ENGINE.algorithm) {
+    readiness.probe?.algorithm !== ENGINE.algorithm ||
+    readiness.probe?.astro_type !== ENGINE.astro_type ||
+    readiness.probe?.fix_leap !== ENGINE.fix_leap ||
+    readiness.probe?.day_divide !== ENGINE.day_divide ||
+    readiness.probe?.year_divide !== ENGINE.year_divide ||
+    readiness.probe?.horoscope_divide !== ENGINE.horoscope_divide) {
   throw new Error("source/readiness engine contract does not match pinned materializer");
 }
 if (readiness.summary?.cases_total !== 24 ||
