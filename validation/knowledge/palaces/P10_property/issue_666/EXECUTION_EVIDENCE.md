@@ -1,8 +1,8 @@
 # P10 recovery-state synchronization — Issue #666
 
-Date: 2026-10-23  
-Lane/shard: `KNOWLEDGE_ONLY / P10 / 田宅宫`  
-Work unit: `KB-P10-STATE-SYNC-AFTER-COMPOUND-MAP-01`
+- Date: 2026-10-23
+- Lane/shard: `KNOWLEDGE_ONLY / P10 / 田宅宫`
+- Work unit: `KB-P10-STATE-SYNC-AFTER-COMPOUND-MAP-01`
 
 ## Source checkpoints
 
