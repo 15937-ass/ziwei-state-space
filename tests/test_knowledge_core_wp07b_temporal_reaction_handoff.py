@@ -136,6 +136,9 @@ def test_ca04_350_reaudit_retires_stale_star_binding_blocker_only():
     row = by_id["CA04-350"]
 
     assert row["current_contract_eligible"] is False
+    assert row["original_eligibility_status"] == "BLOCKED_TEMPORAL_FACT_BINDING_AND_SCOPE"
+    assert "STAR_MUTAGEN_BINDING_GAP" in row["original_blocker_codes"]
+    assert row["eligibility_status"] == "BLOCKED_COMMERCE_CONTEXT_AND_SCOPE"
     assert "STAR_MUTAGEN_BINDING_GAP" not in row["blocker_codes"]
     assert "REAL_WORLD_COMMERCE_CONTEXT_UNTYPED" in row["blocker_codes"]
     assert "LAYER_SCOPE_MISMATCH" in row["blocker_codes"]
