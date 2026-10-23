@@ -1,0 +1,184 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP06C-P09-SOURCE-CANDIDATE-INDEX",
+  "version": "0.1",
+  "status": "CANDIDATE_ONLY_NOT_CANONICAL",
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "P09",
+  "source_id": "SRC-ZZ-003",
+  "source_title": "《中州派紫微斗数深造讲义（下）》",
+  "source_attachment_sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+  "source_scope": {
+    "palace": "事业宫",
+    "printed_pages": [
+      133,
+      144
+    ],
+    "candidate_count": 3,
+    "selection_policy": "bounded source-first pilot; includes one explicit career-development pattern, one action-conditional outcome, and one scene-translation negative control",
+    "exhaustive": false
+  },
+  "dependencies": {
+    "wp06b_issue": 672,
+    "wp06b_ontology_contract": "PENDING_CORE_ROOT_DECISION",
+    "human_gate_id": "HG-WP06B-MANIFESTATION-ROOT-01",
+    "human_gate_status": "FUTURE_GATE_NOT_APPROVED_BY_THIS_ARTIFACT",
+    "product_consumer_issue": 674
+  },
+  "evidence_tier_vocabulary": [
+    "EXPLICIT",
+    "TRANSPARENT_INFERENCE",
+    "CASE_SUPPORT_ONLY",
+    "HYPOTHESIS"
+  ],
+  "invariants": {
+    "candidate_only": true,
+    "canonical_mapping": false,
+    "ontology_node_ids_assigned": false,
+    "executable": false,
+    "product_consumable": false,
+    "probability_status": "UNKNOWN",
+    "no_case_frequency_promotion": true,
+    "no_chart_activation_to_observed_event_shortcut": true
+  },
+  "candidates": [
+    {
+      "candidate_id": "P09-WP06C-CAND-001",
+      "source_rule_id": "CA01-035",
+      "source_span_ids": [
+        "ZZ003-P133"
+      ],
+      "source": {
+        "source_location": "事业宫printed_p133",
+        "printed_page": 133,
+        "pdf_page": 67,
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "source_epistemic": "EXPLICIT",
+        "normalization_epistemic": "SOURCE_PRESERVING",
+        "case_support_only": false,
+        "time_layer": "NATAL"
+      },
+      "source_condition_text": "事业宫见火铃",
+      "source_anchor_phrase": "事业宫见火铃，主波折。",
+      "normalized_projection": {
+        "projection_domain": "development",
+        "projection_target": "career_setbacks_before_stabilization",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "mapping_evidence_tier": "EXPLICIT",
+      "candidate_scope": "CAREER_DEVELOPMENT_PATTERN_NOT_SINGLE_OBSERVED_EVENT",
+      "ontology_node_id": null,
+      "mapping_status": "HOLD_PENDING_WP06B_AND_CONDITION_RESOLUTION",
+      "condition_status": "BLOCKED_SHORTHAND_QUANTIFIER_UNRESOLVED",
+      "probability_status": "UNKNOWN",
+      "executable": false,
+      "product_consumable": false,
+      "ambiguity_notes": [
+        "源文支持事业发展波折与经历艰苦后趋于底定这一候选描述，但不指定单一现实事件。",
+        "“火铃”简写的 BOTH_STARS 与 EITHER_STAR 两种解释均未被源文定解；不得擅自选定。",
+        "不得把“往往”改写成必然性、事件发生率或时间预测。"
+      ],
+      "evidence_refs": [
+        "validation/wp05/CA01_career_projection_review_001_100.csv",
+        "knowledge/wp07a/CAREER_CONTEXT_MAP_CA01_035_043_045_v0.1.json#CA01-035",
+        "knowledge/wp07a/CAREER_FIRE_BELL_SOURCE_EVIDENCE_v0.1.json#FB08"
+      ]
+    },
+    {
+      "candidate_id": "P09-WP06C-CAND-002",
+      "source_rule_id": "CA01-045",
+      "source_span_ids": [
+        "ZZ003-P133"
+      ],
+      "source": {
+        "source_location": "事业宫printed_p133",
+        "printed_page": 133,
+        "pdf_page": 67,
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "source_epistemic": "EXPLICIT",
+        "normalization_epistemic": "SOURCE_PRESERVING",
+        "case_support_only": false,
+        "time_layer": "NATAL"
+      },
+      "source_condition_text": "前格勉强求变",
+      "source_anchor_phrase": "勉强求变，结果反而陷入困境。",
+      "normalized_projection": {
+        "projection_domain": "development",
+        "projection_target": "forced_change_can_create_career_difficulty",
+        "projection_mode": "FUNCTIONAL_PROJECTION"
+      },
+      "source_context": {
+        "inherited_source_rule_ids": [
+          "CA01-042",
+          "CA01-044"
+        ],
+        "antecedent_text": "事业宫禄存，再见空劫同度",
+        "action_prerequisite": "勉强求变",
+        "action_prerequisite_status": "EXPLICIT_IN_SOURCE_BUT_NOT_REPRESENTED_BY_APPROVED_CHART_FACTS",
+        "source_context_completeness": "CHART_CONTEXT_COMPLETE_FULL_ANTECEDENT_INCOMPLETE"
+      },
+      "mapping_evidence_tier": "EXPLICIT",
+      "candidate_scope": "ACTION_CONDITIONAL_OUTCOME_NOT_CHART_ONLY",
+      "ontology_node_id": null,
+      "mapping_status": "HOLD_ACTION_PREREQUISITE_AND_WP06B",
+      "condition_status": "BLOCKED_NON_CHART_ACTION_PREREQUISITE",
+      "probability_status": "UNKNOWN",
+      "executable": false,
+      "product_consumable": false,
+      "ambiguity_notes": [
+        "结果描述依赖“勉强求变”这一现实行为前提，不能仅凭命盘条件认定行为已发生。",
+        "必须保留 CA01-042 与 CA01-044 的上下文关系；不得把本条推广为无条件的事业困境映射。",
+        "本候选不作经验因果、概率或个人预测结论。"
+      ],
+      "evidence_refs": [
+        "validation/wp05/CA01_career_projection_review_001_100.csv",
+        "knowledge/wp07a/CAREER_CONTEXT_MAP_CA01_035_043_045_v0.1.json#CA01-045"
+      ]
+    },
+    {
+      "candidate_id": "P09-WP06C-CAND-003",
+      "source_rule_id": "CA05-469",
+      "source_span_ids": [
+        "ZZ003-P144"
+      ],
+      "source": {
+        "source_location": "事业宫printed_p144",
+        "printed_page": 144,
+        "pdf_page": null,
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "source_epistemic": "EXPLICIT",
+        "normalization_epistemic": "INFERRED",
+        "case_support_only": false,
+        "time_layer": "NATAL"
+      },
+      "source_condition_text": "廉贞化忌",
+      "source_paraphrase": "事业宫章节将血光象义引申至行业场景，并举饮食、化验等例；这是职业场景翻译，不是个人伤病事件。",
+      "normalized_projection": {
+        "projection_domain": "career",
+        "projection_target": "blood_or_injury_symbolism_related_industry_scene",
+        "projection_mode": "SCENE_TRANSLATION"
+      },
+      "mapping_evidence_tier": "EXPLICIT",
+      "candidate_scope": "CAREER_SCENE_NOT_OBSERVED_EVENT",
+      "ontology_node_id": null,
+      "mapping_status": "EXCLUDED_FROM_EVENT_MAPPING",
+      "exclusion_reason": "该记录是行业/职业场景翻译，不是身体受伤、疾病或事故事件的断言。",
+      "condition_status": "SOURCE_SCENE_TRANSLATION_ONLY",
+      "probability_status": "UNKNOWN",
+      "executable": false,
+      "product_consumable": false,
+      "ambiguity_notes": [
+        "不得将血光象义直接映射为命主受伤、患病或发生医疗事件。",
+        "如未来需要表示行业/职业场景，应与可观察现实事件的本体分开处理。",
+        "该负向处置用于防止将场景翻译误作现实事件预测。"
+      ],
+      "evidence_refs": [
+        "validation/wp05/CA05_career_projection_review_401_500.csv",
+        "knowledge/wp07a/CAREER_DIRECT_TRANSFORM_AUDIT_CA04_CA09_v0.1.md"
+      ]
+    }
+  ]
+}
