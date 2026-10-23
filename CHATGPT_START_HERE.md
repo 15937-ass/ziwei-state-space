@@ -31,6 +31,8 @@
 6. 只读取当前 Issue/PR 要求的材料，并遵守路径所有权、验证门、Human Gate 和 `Issue -> branch -> PR -> validation -> merge` 流程。
 7. 若 lane state 与实时 Issue/PR 冲突，以实时 GitHub Issue/PR 为准，并记录需要修复的状态缓存。
 
+**每次仓库工作对话结束前**（包括只读审查、实施、验证和因阻塞暂停），按 `AGENT_WORKFLOW.md` 第 13 节向 PI 用中文汇报。结束时只读核对实时宫位、Knowledge Core、Product 的 Issue/PR 与已接受的 `main`，分别说明当前状态、下一步可做什么及等待什么；再给出一个优先的集成/决策建议。所选执行 lane 仍然只有一个，不为汇报启动其他 lane 的工作。无法核对的状态须写明“未核实”及原因，不能从旧聊天或状态缓存猜测。
+
 ## 4. 旧规则与历史文件的处理
 
 - `governance/archive/WORK_CODEX_EXECUTION_PROTOCOL_v0.1_G7_HISTORICAL.md`（G7）是**历史/已被替代**文件，不得作为当前执行政策或新对话启动指令。
