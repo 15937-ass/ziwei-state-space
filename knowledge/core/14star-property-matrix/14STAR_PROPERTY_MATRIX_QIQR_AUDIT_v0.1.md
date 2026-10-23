@@ -164,6 +164,34 @@ PR #710 已作为 proposal-only 基线合并，但其中的值域仍不是 canon
 | directional_axis | DIRECTIONAL_AXIS | CLOSE_MATCH | Direction/development axis does not establish completed movement. |
 | event_candidate | EVENT_CANDIDATE | CLOSE_MATCH | Candidate classification does not prove the event occurred. |
 
+### 5.1 `output_kind` 逐值检查
+
+| 候选值 | 最接近的研究角色 | 首轮判断 | 主要风险 |
+|---|---|---|---|
+| `PROCESS_PATTERN` | process_pattern | CLOSE_MATCH_WITH_BOUNDARIES | A process sequence is not a single observed event; retain modal words and prerequisites. |
+| `ACTION_CONDITIONED_OUTCOME` | conditional_tendency_candidate, outcome_or_contextual_manifestation, explicit_prerequisite_dependency | MIXED_CONDITION_AND_OUTCOME | Combines a condition/action prerequisite with a result; may conflate rule condition and semantic output. |
+| `SCENE_OR_CONTEXT` | scene_or_context, domain_context_projection | SCENE_VS_PROJECTION_AMBIGUITY | A scene/context is semantic content; projection is an operation/relationship that maps a claim into a domain. |
+| `DIRECTIONAL_AXIS` | directional_axis | CLOSE_MATCH_WITH_BOUNDARIES | Direction/development axis is not proof that movement or migration occurred. |
+| `DOMAIN_SEMANTIC_BOUNDARY` | domain_semantic_boundary | CLOSE_MATCH_WITH_BOUNDARIES | Boundary constrains interpretation; it should not be treated as an event or manifestation. |
+| `CROSS_PALACE_CONSTRAINT` | relational_property, structural_relation_or_constraint | TOO_NARROW_FOR_GENERAL_RELATIONS | A cross-palace constraint is one kind of relation, not a general relation/property category. |
+| `STRUCTURAL_CONSTRAINT` | structural_relation_or_constraint, conditional_tendency_candidate | OVERLAP_REQUIRES_EXAMPLES | Overlaps prerequisite, condition, and relational constraint roles; define boundary against CROSS_PALACE_CONSTRAINT and ACTION_CONDITIONED_OUTCOME. |
+| `TEMPORAL_CONDITION` | temporal_reaction_or_scope_candidate, conditional_tendency_candidate | CONDITION_VS_REACTION | A temporal condition is not the state change/reaction occurring during a time window. |
+| `EVENT_CANDIDATE` | event_candidate | CLOSE_MATCH_WITH_BOUNDARIES | Candidate event classification does not establish real-world occurrence or allow case-only promotion. |
+
+### 5.2 `event_specificity` 逐值检查
+
+| 候选值 | 最接近的研究角色 | 首轮判断 | 主要风险 |
+|---|---|---|---|
+| `PROCESS_SEQUENCE_NOT_SINGLE_EVENT` | process_pattern | SEMANTIC_FORM_NOT_GRANULARITY | Describes process/sequence and non-single-event status, not simply how specific an event is. |
+| `CONDITIONAL_OUTCOME_NOT_OBSERVED` | conditional_tendency_candidate, outcome_or_contextual_manifestation | CONDITION_PLUS_OCCURRENCE_STATUS | Combines conditional outcome type with whether occurrence is observed/established. |
+| `SCENE_NOT_OBSERVED_EVENT` | scene_or_context, domain_context_projection | SCENE_PLUS_OCCURRENCE_STATUS | Combines scene semantics with an empirical observation-status boundary. |
+| `EVENT_CLASS_CANDIDATE` | event_candidate | GRANULARITY_CANDIDATE | Broad event-class granularity; still a candidate, not evidence of occurrence. |
+| `SPECIFIC_EVENT_CANDIDATE` | event_candidate | GRANULARITY_CANDIDATE | More specific candidate level, but not proof that a real-world event occurred. |
+
+这里的 `NOT_APPLICABLE` 是提案规定的轴状态，不是一个 `event_specificity` 值。它可能适用于非事件语义，但不能解决候选值域本身混合“语义类型、条件状态与观测状态”的问题。
+
+另一个必须保持的边界是：**条件不等于原因**。前置条件、适用条件、统计相关、因果解释是不同的关系；除非来源明确支持，不得从 `condition` 或 `ACTION_CONDITIONED_OUTCOME` 自动推导因果关系。
+
 初步判断：
 1. `output_kind` 同时包含过程/场景等语义形态，以及跨宫/结构/时间约束等推断角色。它们可能都需要，但未必构成互斥、同层级的单一枚举。
 2. `event_specificity` 当前候选值包含“过程序列”“条件结果”“场景”“事件类别”“具体事件候选”。这更像事件关系/表现类型与具体程度的混合，而不是自然的单调“具体性”尺度。
