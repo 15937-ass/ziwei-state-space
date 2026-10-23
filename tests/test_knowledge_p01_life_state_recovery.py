@@ -94,7 +94,7 @@ def test_p01_source_gap_026_closed_and_027_is_next():
     next_gap = next_gaps[0]
     assert next_gap["gap_id"] == "P01-SRC-GAP-027"
     assert next_gap["status"] == "OPEN_FOR_NEXT_SOURCE_CHECKPOINT"
-    assert "printed p21" in next_gap["source_location"]
+    assert "printed pp21–23" in next_gap["source_location"]
     assert "七杀" in next_gap["source_claim"]
     assert next_gap["next_source_anchor"] == ledger["next_source_anchor"]
     assert "P01-601" in ledger["next_source_anchor"]
