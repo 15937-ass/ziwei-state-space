@@ -111,15 +111,16 @@ def test_wp06c_p09_candidate_index_is_fail_closed_and_source_linked():
         "EXPLICIT_IN_SOURCE_BUT_NOT_REPRESENTED_BY_APPROVED_CHART_FACTS"
     )
     assert ca01_045["condition_status"] == "BLOCKED_NON_CHART_ACTION_PREREQUISITE"
-    assert "勉强求变，结果反而陷入困境" in ca01_045["source_anchor_phrase"]
+    assert ca01_045["source_anchor_phrase"] == "勉强求变"
+    assert "结果反而陷入困境" in source_045["source_anchor_phrase"]
 
     ca05_469 = next(item for item in candidates if item["source_rule_id"] == "CA05-469")
     audit = DIRECT_TRANSFORM_AUDIT.read_text(encoding="utf-8")
     assert "CA05-469" in audit
     assert "不是疾病或伤害预测" in audit
     assert ca05_469["source"]["pdf_page"] == 72
-    assert "与血液有关的事业" in ca05_469["source_anchor_phrase"]
-    assert "血腥屠宰" in ca05_469["source_anchor_phrase"]
+    assert ca05_469["source_anchor_phrase"] is None
+    assert "血光象义引申至职业场景" in ca05_469["source_paraphrase"]
     assert ca05_469["candidate_scope"] == "CAREER_SCENE_NOT_OBSERVED_EVENT"
     assert ca05_469["mapping_status"] == "EXCLUDED_FROM_EVENT_MAPPING"
     assert ca05_469["ontology_node_id"] is None
