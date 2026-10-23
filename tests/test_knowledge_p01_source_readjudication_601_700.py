@@ -28,7 +28,7 @@ def test_p07_candidate_census_and_source_first_dispositions():
     assert all(r["source_resolution_changed"] == "true" for r in rows)
     assert sum(r["case_support_only"] == "true" for r in rows if r["canonical_promotion"] == "true") == 3
     by = {r["projection_rule_id"]: r for r in rows}
-    assert "天梁第12节既有段落" in by["P01-601"]["source_location"]
+    assert "第12节既有段落" in by["P01-601"]["source_location"]
     assert "P01-SG-203" in by["P01-601"]["notes"]
     assert "P01-SG-208" in by["P01-612"]["notes"]
     assert "printed p20" in by["P01-613"]["source_location"]
