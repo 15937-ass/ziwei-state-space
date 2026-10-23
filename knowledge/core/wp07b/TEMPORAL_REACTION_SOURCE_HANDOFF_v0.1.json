@@ -76,8 +76,58 @@
       {
         "path": "product/PRODUCT_SOURCE_ONLY_VERTICAL_SLICE_BLOCKER_HANDOFF_V0_1.json",
         "git_blob_sha": "32a241b385038e3627df52f71000314ada1e8008"
+      },
+      {
+        "path": "src/product/temporal_asset_adapter.py",
+        "git_blob_sha": "f383d97830f7ddf8e5bd7275e84bb0f1b967b892"
+      },
+      {
+        "path": "knowledge/wp07a/CAREER_NATAL_ATOMIZATION_AUDIT_v0.1.md",
+        "git_blob_sha": "d8653bd8da58eb27a409920b3ce393530fe8b112"
       }
-    ]
+    ],
+    "source_scan_review": {
+      "status": "VISUALLY_REVIEWED",
+      "source_id": "SRC-ZZ-003",
+      "printed_pages_reviewed": {
+        "career": [
+          140,
+          141,
+          145,
+          146,
+          147,
+          148,
+          154,
+          155
+        ],
+        "property": [
+          156,
+          157,
+          158,
+          159,
+          160,
+          161,
+          162,
+          163,
+          164,
+          165
+        ]
+      },
+      "scan_pdf_pages_1based": [
+        70,
+        71,
+        73,
+        74,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83
+      ],
+      "note": "PDF-page numbers are convenience locators to the supplied scan. Canonical source identity remains source_id plus printed-page anchor plus source-record path. Exact source wording remains in canonical rows; no long quotation is duplicated."
+    }
   },
   "current_compiler_contract": {
     "path": "product/PL3T_NATAL_TEMPORAL_REACTION_COMPILER_ACCEPTANCE.md",
@@ -90,7 +140,10 @@
       "an explicit positive temporal condition is required",
       "all temporal condition atoms must use the selected reaction layer",
       "unbound star-presence and mutagen facts must not be joined by inference"
-    ]
+    ],
+    "adapter_path": "src/product/temporal_asset_adapter.py",
+    "adapter_git_blob_sha": "f383d97830f7ddf8e5bd7275e84bb0f1b967b892",
+    "star_bound_transformation_behavior": "The adapter emits a star-bound TRANSFORMATION_PRESENT only when the PL1 temporal star object itself carries mutagen and its palace_name is grounded. It never joins a scope-level mutagen to an unbound star."
   },
   "counts": {
     "career": {
@@ -221,7 +274,6 @@
       "summary": "Separate star presence and scope-level mutagen facts cannot be joined. Where the source does not identify a temporal palace, do not invent one to satisfy the runtime fact shape.",
       "human_gate_id": null,
       "impacted_rule_ids": [
-        "CA04-350",
         "TP01-061",
         "TP04-307",
         "TP04-308"
@@ -373,6 +425,15 @@
       ],
       "status": "OPEN_BLOCKER_INDEX_ONLY_NOT_AN_ACTIVE_WORK_ITEM",
       "runtime_semantics_added": false
+    },
+    {
+      "gap_id": "WP07B-GAP-014-COMMERCE-CONTEXT",
+      "summary": "CA04-350's capital-shortage interpretation is conditioned on commerce, but CA04-348 is a real-world context gate rather than a natal fact and no typed commerce/context fact is available to this PL3-T reaction contract. Do not substitute CA04-349's technical-skill scene or infer commerce from the outcome.",
+      "status": "OPEN_BLOCKER_INDEX_ONLY_NOT_AN_ACTIVE_WORK_ITEM",
+      "impacted_rule_ids": [
+        "CA04-350"
+      ],
+      "runtime_semantics_added": false
     }
   ],
   "human_gate_candidates": [
@@ -484,7 +545,9 @@
         "source_scope_layers": [
           "DECADE",
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 70,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "reference": "CA04-345 (CASE_SUPPORT_ONLY)",
@@ -535,7 +598,9 @@
         "source_scope_layers": [
           "DECADE",
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 71,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "reference": "CA04-348/CA04-349 (NATAL context)",
@@ -543,26 +608,26 @@
         "source_antecedent_is_case_support_only": false
       },
       "source_claim_summary": "The source associates Wuqu Hua Ji in a major or annual period with a capital constraint on career development.",
-      "current_contract_gap": "The current temporal adapter emits star presence and transformation presence separately; it does not bind the mutagen to the same temporal star in the condition-fact namespace. The source also names both major and annual periods.",
+      "current_contract_gap": "Re-audit correction: the current adapter emits a star-bound TRANSFORMATION_PRESENT when the PL1 temporal star object itself carries mutagen, so the previous STAR_MUTAGEN_BINDING_GAP is no longer a current blanket blocker. The candidate remains blocked because the capital-shortage interpretation depends on commerce context: CA04-348 is explicitly a CONTEXT_DEPENDENT_COMMERCE_GATE in the WP07A natal audit, not a natal fact, and CA04-349's technical-skill scene is not a valid substitute antecedent. The source scope is DECADE_OR_YEAR and cannot be silently narrowed; explicit layer-specific normalization would still be required.",
       "eligibility_status": "BLOCKED_TEMPORAL_FACT_BINDING_AND_SCOPE",
       "blocker_codes": [
         "LAYER_SCOPE_MISMATCH",
-        "STAR_MUTAGEN_BINDING_GAP"
+        "REAL_WORLD_COMMERCE_CONTEXT_UNTYPED"
       ],
       "gap_ids": [
         "WP07B-GAP-002-TIME-SCOPE",
-        "WP07B-GAP-004-STAR-MUTAGEN-BINDING"
+        "WP07B-GAP-014-COMMERCE-CONTEXT"
       ],
       "uncertainty_flags": [
         "SOURCE_TIME_SCOPE_WIDER_THAN_SINGLE_DECLARED_LAYER",
-        "EXACT_STAR_MUTAGEN_FACT_BINDING_UNRESOLVED"
+        "COMMERCE_CONTEXT_NOT_ENCODED_AS_NATAL_FACT"
       ],
       "case_support_only": false,
       "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
       "normalization_status": "BLOCKED_NOT_NORMALIZED",
       "current_contract_eligible": false,
       "production_authorization": "NONE",
-      "decision": "Do not infer star-specific Hua Ji from separate unbound facts.",
+      "decision": "Do not promote until the commerce context is explicitly available under an approved context/state contract and the source's major/annual scope is normalized without narrowing.",
       "source_status_codes": []
     },
     {
@@ -584,7 +649,9 @@
         "source_scope_layers": [
           "DECADE",
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 73,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "reference": "CA05-495 (CASE_SUPPORT_ONLY) plus Lian-Zhen/Qi-Sha source context",
@@ -636,7 +703,9 @@
         "source_scope_layers": [
           "DECADE",
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 73,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "reference": "CA05-493/CA05-495 case examples",
@@ -681,7 +750,9 @@
         "source_scope_layers": [
           "DECADE",
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 73,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "reference": "CA06-544 (CASE_SUPPORT_ONLY)",
@@ -730,7 +801,9 @@
         "source_scope_layers": [
           "DECADE",
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 74,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "reference": "CA06-579 (reusable NATAL context)",
@@ -779,7 +852,9 @@
         "source_scope_layers": [
           "DECADE",
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 74,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "reference": "CA06-599 (reusable NATAL context)",
@@ -830,7 +905,9 @@
         "source_time_scope_literal": "THREE_TO_FOUR_CONSECUTIVE_FAVORABLE_YEARS",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 77,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "reference": "CA09-850 / Pojun career context",
@@ -877,7 +954,9 @@
         "source_time_scope_literal": "UNFAVORABLE_PERIOD_UNSPECIFIED",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 78,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "reference": "CA09-865/CA09-866 (Pojun public-office context)",
@@ -925,7 +1004,9 @@
         "source_time_scope_literal": "YEAR",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 78,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "PARENT_TP01_036_NOT_NORMALIZED_FOR_REACTION",
@@ -976,7 +1057,9 @@
         "source_scope_layers": [
           "DECADE",
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 79,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "NO_SEPARATE_NATAL_ANTECEDENT_REQUIRED_BY_SOURCE_ROW",
@@ -1025,7 +1108,9 @@
         "source_scope_layers": [
           "DECADE",
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 79,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "INHERITS_TP01_044",
@@ -1076,7 +1161,9 @@
         "source_time_scope_literal": "YEAR",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 79,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "NOT_ELIGIBLE_FOR_RUNTIME",
@@ -1119,7 +1206,9 @@
         "source_time_scope_literal": "YEAR",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 79,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "NO_EXPLICIT_SEPARATE_NATAL_ANTECEDENT",
@@ -1167,7 +1256,9 @@
         "source_time_scope_literal": "YEAR",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 79,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "INHERITS_TP01_049",
@@ -1215,7 +1306,9 @@
         "source_time_scope_literal": "YEAR",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 79,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "INHERITS_TP01_049",
@@ -1262,7 +1355,9 @@
         "source_time_scope_literal": "YEAR",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 79,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "TIANJI_PROPERTY_CONTEXT_SOURCE_SUPPORTED_BUT_NOT_ENOUGH",
@@ -1310,7 +1405,9 @@
         "source_time_scope_literal": "YEAR",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 79,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "NOT_ELIGIBLE_FOR_RUNTIME",
@@ -1353,7 +1450,9 @@
         "source_time_scope_literal": "YEAR;labels=流煞同会或冲会|太岁",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 80,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "NOT_ELIGIBLE_FOR_RUNTIME",
@@ -1396,7 +1495,9 @@
         "source_time_scope_literal": "YEAR;labels=是年|流煞冲会",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 80,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "NOT_ELIGIBLE_FOR_RUNTIME",
@@ -1439,7 +1540,9 @@
         "source_time_scope_literal": "YEAR",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 80,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "NOT_ELIGIBLE_FOR_RUNTIME",
@@ -1482,7 +1585,9 @@
         "source_time_scope_literal": "YEAR;labels=流年",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 80,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "TIANTONG_PROPERTY_CONTEXT_SOURCE_SUPPORTED",
@@ -1528,7 +1633,9 @@
         "source_time_scope_literal": "YEAR;labels=流年（承接同句主语）",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 80,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "TIANTONG_PROPERTY_CONTEXT_SOURCE_SUPPORTED",
@@ -1574,7 +1681,9 @@
         "source_time_scope_literal": "YEAR;labels=流煞冲起",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 80,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "NOT_ELIGIBLE_FOR_RUNTIME",
@@ -1617,7 +1726,9 @@
         "source_time_scope_literal": "YEAR;labels=承接TP02-167流煞动态语境",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 80,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "NOT_ELIGIBLE_FOR_RUNTIME",
@@ -1661,7 +1772,9 @@
         "source_scope_layers": [
           "YEAR",
           "SMALL_LIMIT"
-        ]
+        ],
+        "scan_pdf_page_1based": 81,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "LIANZHEN_HUAJI_PROPERTY_CONTEXT_SOURCE_SUPPORTED",
@@ -1711,7 +1824,9 @@
         "source_scope_layers": [
           "YEAR",
           "SMALL_LIMIT"
-        ]
+        ],
+        "scan_pdf_page_1based": 81,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "NOT_ELIGIBLE_FOR_RUNTIME",
@@ -1754,7 +1869,9 @@
         "source_time_scope_literal": "YEAR;labels=是年|流煞冲破",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 81,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "NOT_ELIGIBLE_FOR_RUNTIME",
@@ -1797,7 +1914,9 @@
         "source_time_scope_literal": "YEAR;labels=流年/流煞年度语境",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 81,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "NOT_ELIGIBLE_FOR_RUNTIME",
@@ -1840,7 +1959,9 @@
         "source_time_scope_literal": "YEAR;labels=流年/流煞年度语境",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 81,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "NOT_ELIGIBLE_FOR_RUNTIME",
@@ -1883,7 +2004,9 @@
         "source_time_scope_literal": "YEAR;labels=流年/流煞年度语境",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 81,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "NOT_ELIGIBLE_FOR_RUNTIME",
@@ -1926,7 +2049,9 @@
         "source_time_scope_literal": "YEAR;labels=流年/流煞年度语境",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 81,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "TAIYIN_PROPERTY_CONTEXT_SOURCE_SUPPORTED",
@@ -1973,7 +2098,9 @@
         "source_time_scope_literal": "YEAR;labels=流年/流煞年度语境",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 81,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "TAIYIN_PROPERTY_CONTEXT_SOURCE_SUPPORTED",
@@ -2020,7 +2147,9 @@
         "source_time_scope_literal": "YEAR;labels=流年/流煞年度语境",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 82,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "SOURCE_RULE_IS_PURE_ANNUAL_PROPERTY_PALACE_TRIGGER",
@@ -2063,7 +2192,9 @@
         "source_time_scope_literal": "YEAR;labels=流年/流煞年度语境",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 82,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "SOURCE_RULE_IS_PURE_ANNUAL_PROPERTY_PALACE_TRIGGER",
@@ -2106,7 +2237,9 @@
         "source_time_scope_literal": "YEAR;labels=流年/流煞年度语境",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 82,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "NOT_ELIGIBLE_FOR_RUNTIME",
@@ -2149,7 +2282,9 @@
         "source_time_scope_literal": "YEAR;labels=流年/流煞年度语境",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 82,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "DEPENDS_ON_TP03_247_EVENT_STRUCTURE",
@@ -2201,7 +2336,9 @@
         "source_scope_layers": [
           "DECADE",
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 82,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "NOT_ELIGIBLE_FOR_RUNTIME",
@@ -2244,7 +2381,9 @@
         "source_time_scope_literal": "YEAR;labels=流年天机化忌",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 82,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "P10_TIANLIANG_AND_TIANJI_SOURCE_SUPPORTED",
@@ -2293,7 +2432,9 @@
         "source_time_scope_literal": "YEAR;labels=前句明确流年天机化忌|后句天机化禄同段对比",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 82,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "P10_TIANLIANG_AND_TIANJI_SOURCE_SUPPORTED",
@@ -2344,7 +2485,9 @@
         "source_time_scope_literal": "YEAR;labels=流煞冲起",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 83,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "NOT_ELIGIBLE_FOR_RUNTIME",
@@ -2390,7 +2533,9 @@
         "source_time_scope_literal": "YEAR;labels=流年田宅宫",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 83,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "NO_SEPARATE_NATAL_ANTECEDENT_REQUIRED_BY_SOURCE",
@@ -2437,7 +2582,9 @@
         "source_time_scope_literal": "YEAR;labels=流年田宅宫",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 83,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "NO_SEPARATE_NATAL_ANTECEDENT_REQUIRED_BY_SOURCE",
@@ -2484,7 +2631,9 @@
         "source_time_scope_literal": "YEAR;labels=流年田宅宫",
         "source_scope_layers": [
           "YEAR"
-        ]
+        ],
+        "scan_pdf_page_1based": 83,
+        "scan_visual_reviewed": true
       },
       "antecedent": {
         "status": "NOT_ELIGIBLE_FOR_RUNTIME",
@@ -2524,7 +2673,7 @@
     "probability_added": 0,
     "duration_threshold_added": 0,
     "source_truth_changed": false,
-    "conclusion": "All 44 reviewed candidates fail at least one current PL3-T compiler requirement. This is a current-contract eligibility result, not evidence that Zhongzhou has no temporal rules. Preserve all source rows and blockers; do not force a non-empty executable registry.",
+    "conclusion": "All 44 reviewed candidates fail at least one current PL3-T compiler requirement. Re-audit correction: CA04-350's prior star-mutagen-binding blocker is superseded by the current adapter capability, but its real-world commerce-context and explicit layer-normalization blockers remain. This is a current-contract eligibility result, not evidence that Zhongzhou has no temporal rules. Preserve all source rows and blockers; do not force a non-empty executable registry.",
     "product_handoff": {
       "issue_number": 674,
       "issue_title": "Product: candidate KIB only after accepted source handoff",
