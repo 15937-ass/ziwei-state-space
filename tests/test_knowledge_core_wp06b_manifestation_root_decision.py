@@ -50,6 +50,7 @@ def test_root_packet_uses_only_accepted_main_source_rows_and_exact_spans():
     assert d["source_basis"]["school"] == "中州派"
     assert d["source_basis"]["source_review_base_sha"] == "2143ac7030b531cd46836cf034baba6f801bdf8e"
     assert d["source_basis"]["current_main_base_sha"] == "971cffc166e318b1c47184c3d297422dac1e3c2b"
+    assert d["capability_comparison"]["fixture_main_base_sha"] == "971cffc166e318b1c47184c3d297422dac1e3c2b"
     assert len(d["source_evidence"]) == 8
     assert len({x["source_rule_id"] for x in d["source_evidence"]}) == 8
     for item in d["source_evidence"]:
