@@ -572,7 +572,13 @@ def audit_longitudinal_data_quality(
             )
             continue
 
-        if key not in duplicate_response_keys and answer_valid and date_valid:
+        if (
+            key not in duplicate_response_keys
+            and answer_valid
+            and date_valid
+            and response_schema_version in {"0.1", "0.2"}
+            and not missing_identifier_fields
+        ):
             complete_closeout_keys.add(key)
 
     missing_closeout_keys = set(expected_closeouts) - matched_response_keys

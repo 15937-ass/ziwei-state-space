@@ -320,3 +320,17 @@ def test_invalid_response_schema_version_is_reported():
         plans=[plan], checkin_responses=[response]
     )
     assert "INVALID_RESPONSE_SCHEMA_VERSION" in _codes(report)
+    assert report["counts"]["complete_window_close_responses"] == 0
+
+
+def test_missing_response_record_id_is_not_counted_complete():
+    plan = _plans()[1]
+    response = _response(
+        plan["plan_id"], "T-WEA-CHANGE", "CLOSE", "NO", "2027-07-02"
+    )
+    response.pop("record_id")
+    report = audit_longitudinal_data_quality(
+        plans=[plan], checkin_responses=[response]
+    )
+    assert "MISSING_RESPONSE_IDENTIFIER_FIELDS" in _codes(report)
+    assert report["counts"]["complete_window_close_responses"] == 0
