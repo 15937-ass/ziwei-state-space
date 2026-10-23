@@ -146,18 +146,19 @@
       "projection_target": "earning_difficulty_modified_by_fortune_palace",
       "projection_mode": "PALACE_SEMANTIC_BOUNDARY",
       "case_support_only": false,
-      "candidate_family_review_id": "FAMILY-REVIEW-RESOURCE-01",
-      "candidate_family_label": "资源获取条件／财务难易",
-      "abstraction_level_candidate": "RESOURCE_CONDITION_CANDIDATE",
+      "candidate_family_review_id": "FAMILY-REVIEW-CONSTRAINT-RESOURCE-01",
+      "candidate_family_label": "资源域中的宫位语义边界（不是应象节点）",
+      "abstraction_level_candidate": "INFERENCE_CONSTRAINT_NOT_MANIFESTATION",
       "abstraction_vocabulary_frozen": false,
-      "event_specificity_candidate": "RESOURCE_CONDITION_NOT_SINGLE_EVENT",
+      "event_specificity_candidate": "NOT_A_MANIFESTATION",
       "source_epistemic": "SOURCE_SPAN_VERIFIED; accepted CSV does not encode a separate epistemic field",
-      "normalization_epistemic": "NOT_SEPARATELY_ENCODED_IN_THIS_CSV; do not silently upgrade to EXPLICIT",
+      "normalization_epistemic": "PALACE_SEMANTIC_BOUNDARY; must not be promoted to manifestation node",
       "ambiguity_notes": [
-        "该行表达财务难易受福德宫影响的条件，不是单一可观察事件。",
+        "该行规定财帛宫与福德宫的解释边界，不是一个资源事件或可观察状态的断言。",
+        "projection_domain=resource 不能单独证明该行属于 manifestation family。",
         "本包只复用 accepted main 中的来源跨度和规范化目标。"
       ],
-      "excluded_from_canonical_root_evidence": false
+      "excluded_from_canonical_root_evidence": true
     },
     {
       "review_item_id": "ROOT-REVIEW-005",
