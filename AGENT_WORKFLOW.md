@@ -35,6 +35,8 @@ Read access may be broad. Write access follows governance/PATH_OWNERSHIP.json.
 
 Cross-lane discoveries are recorded as dependency/gap Issues; they are not silently repaired from the wrong lane.
 
+For a cross-lane blocker, use `governance/CROSS_LANE_HANDOFF_v1.md` to link the producer and consumer Issues, name the exact accepted-main input and unblock condition, and record work that can proceed independently. A roadmap label, an unmerged branch, or a green PR check does not by itself release a consumer.
+
 ## 4. Issue-first execution
 
 Normal execution requires an Issue satisfying Definition of Ready:
