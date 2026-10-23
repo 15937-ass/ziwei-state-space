@@ -38,7 +38,7 @@ The supplied source scan was visually reviewed at these PDF pages (1-based), wit
 
 ## Current-adapter re-audit correction
 
-The old `STAR_MUTAGEN_BINDING_GAP` on CA04-350 is no longer a current blanket blocker: the PL3-T adapter now emits star-bound `TRANSFORMATION_PRESENT` when the PL1 temporal star object explicitly carries `mutagen`. CA04-350 remains blocked because the capital-shortage clause depends on the real-world commerce context classified as `CONTEXT_DEPENDENT_COMMERCE_GATE` in the WP07A Career natal audit, and because the source's DECADE/YEAR scope cannot be silently narrowed. This is now tracked as `WP07B-GAP-014-COMMERCE-CONTEXT`; GAP-004 remains attached only to rows still blocked by exact temporal star/palace binding.
+The old implementation-level `STAR_MUTAGEN_BINDING_GAP` on CA04-350 is superseded: the PL3-T adapter now emits star-bound `TRANSFORMATION_PRESENT` when the PL1 temporal star object explicitly carries `mutagen`. The source condition still does not explicitly identify the temporal palace needed by the current palace-bound fact shape; a Career-palace section heading does not by itself license that temporal location. CA04-350 also remains blocked by the real-world commerce context classified as `CONTEXT_DEPENDENT_COMMERCE_GATE` in the WP07A Career natal audit and by its DECADE/YEAR scope. The commerce blocker is tracked as `WP07B-GAP-014-COMMERCE-CONTEXT`; GAP-004 retains CA04-350 as a source-to-runtime palace-binding gap alongside TP01-061 and TP04-307/308.
 
 ## Files in this work unit
 
