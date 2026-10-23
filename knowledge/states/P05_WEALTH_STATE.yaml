@@ -12,8 +12,8 @@ execution:
   active_issue: null
   active_branch: null
   active_pr: null
-  canonical_checkpoint: "W01_001_100_MERGED__W02_101_200_MERGED__W03_201_300_MERGED__W04_301_400_MERGED__W05_401_500_SOURCE_FIRST_MERGED"
-  merged_rule_count: 500
+  canonical_checkpoint: "W01_001_100_MERGED__W02_101_200_MERGED__W03_201_300_MERGED__W04_301_400_MERGED__W05_401_500_SOURCE_FIRST_MERGED__P81_GAP_SUPPLEMENT_4_RECORDS_2_CLOSED_1_PARTIAL"
+  merged_rule_count: 504
   reviewed_rule_count: 500
   current_batch_rule_count: 100
   source_resolution_change_count_current_batch: 15
@@ -22,7 +22,14 @@ execution:
   non_natal_source_count_current_batch: 0
   path_dependent_gate_count_current_batch: 7
   source_coverage_gap_count_current_batch: 3
-  note: "Recovery synchronized to accepted P05 Issue #591 / PR #634, merged at main commit 7bf664fc87db20bfe02ef0020785b91dd62cbbdf. This replacement recovery branch is based on current main commit 74087c97afffc5afa4821f8edb21ff42aea6eb6b after Product PR #640 merged. W01–W05 are canonical on main, with 500 reviewed candidates across checkpoints. W05-401..500: 100/100 candidates promoted and reusable; 15 source-resolution revisions, 12 page-image extraction repairs, zero unresolved source-text uncertainty, zero DECADE/YEAR rows, and seven PATH_DEPENDENT_GATE sequences. W05-SG-001…003 remain explicit open local P05 source-coverage gaps; Core gap count is 0. This recovery does not start the gap-closure work unit. No Product/runtime authorization is implied."
+  source_gap_supplement_record_count: 4
+  source_coverage_gaps_closed_by_supplement: 2
+  source_coverage_gaps_partially_resolved_by_supplement: 1
+  source_coverage_gaps_remaining: 1
+  cumulative_reusable_projection_rules_after_gap_closure: 504
+  cumulative_case_support_only_after_gap_closure: 0
+  next_source_anchor: "After this bounded gap-closure unit is accepted, the next separate P05 source-first batch may begin at printed p82 in the Tianfu section. Carry W05-SG-002 forward as partially resolved; do not claim full printed-p81 coverage."
+  note: "Accepted W05 merge baseline: P05 Issue #591 / PR #634 merged at main commit 7bf664fc87db20bfe02ef0020785b91dd62cbbdf. Historical pre-gap-closure recovery base was current main commit 74087c97afffc5afa4821f8edb21ff42aea6eb6b after Product PR #640 merged, with historical merged_rule_count: 500 and W05-SG-001…003 discovered. Before this bounded printed-p81 gap-closure unit, W01–W05 had 500 canonical reusable rules. This integration branch is based on current main commit 6b13ba8bd95612092357b8a9b146b0a5b7943076 after P07 M06 recovery and P09 v0.16 state synchronization were accepted; no unmerged cross-palace branch is used as canonical truth. Four new P05-local source-explicit supplement records cover the clear atoms on printed p81: W05-SG-001 and W05-SG-003 are closed; W05-SG-002 is partially resolved and remains open because the printed phrase and condition scope remain uncertain. Carry W05-SG-002 forward as partially resolved; do not claim full printed-p81 coverage. The original W05 batch metrics and source-gap artifact remain historical. Next source anchor: printed p82 in the Tianfu section. No Product/runtime authorization is implied."
 
 integrity:
   source_first: true
