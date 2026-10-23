@@ -145,14 +145,15 @@ def test_ca04_350_reaudit_reclassifies_stale_adapter_gap_and_keeps_source_bindin
     assert "REAL_WORLD_COMMERCE_CONTEXT_UNTYPED" in row["blocker_codes"]
     assert "LAYER_SCOPE_MISMATCH" in row["blocker_codes"]
     assert "WP07B-GAP-014-COMMERCE-CONTEXT" in row["gap_ids"]
-    assert "WP07B-GAP-004-STAR-MUTAGEN-BINDING" not in row["gap_ids"]
+    assert "SOURCE_DOES_NOT_SPECIFY_TEMPORAL_PALACE_NAME" in row["blocker_codes"]
+    assert "WP07B-GAP-004-STAR-MUTAGEN-BINDING" in row["gap_ids"]
     assert "CONTEXT_DEPENDENT_COMMERCE_GATE" in row["current_contract_gap"]
     assert "CA04-349" in row["current_contract_gap"]
+    assert "does not explicitly identify the temporal palace" in row["current_contract_gap"]
 
     gap_by_id = {g["gap_id"]: g for g in d["gap_register"]}
-    assert "CA04-350" not in gap_by_id["WP07B-GAP-004-STAR-MUTAGEN-BINDING"]["impacted_rule_ids"]
     assert set(gap_by_id["WP07B-GAP-004-STAR-MUTAGEN-BINDING"]["impacted_rule_ids"]) >= {
-        "TP01-061", "TP04-307", "TP04-308"
+        "CA04-350", "TP01-061", "TP04-307", "TP04-308"
     }
     assert gap_by_id["WP07B-GAP-014-COMMERCE-CONTEXT"]["impacted_rule_ids"] == ["CA04-350"]
     assert gap_by_id["WP07B-GAP-014-COMMERCE-CONTEXT"]["runtime_semantics_added"] is False
