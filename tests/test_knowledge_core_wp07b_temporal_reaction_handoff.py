@@ -1,3 +1,4 @@
+import csv
 import json
 from collections import Counter
 from pathlib import Path
@@ -188,3 +189,24 @@ def test_blocker_code_aggregate_matches_current_candidate_dispositions():
         for code in row["blocker_codes"]
     )
     assert d["blocker_code_counts"] == dict(sorted(counts.items()))
+
+
+def test_original_eligibility_status_and_blockers_are_preserved_for_all_candidates():
+    d = data()
+    by_id = {r["rule_id"]: r for r in d["candidate_dispositions"]}
+    inputs = (
+        ROOT / "knowledge/wp07b/CAREER_TEMPORAL_REACTION_ELIGIBILITY_v0.1.csv",
+        ROOT / "knowledge/palaces/P10_property/wp07b/PROPERTY_TEMPORAL_REACTION_ELIGIBILITY_v0.1.csv",
+    )
+    source_rows = []
+    for path in inputs:
+        with path.open(encoding="utf-8", newline="") as handle:
+            source_rows.extend(csv.DictReader(handle))
+
+    assert len(source_rows) == 44
+    for source in source_rows:
+        row = by_id[source["candidate_id"]]
+        assert row["original_eligibility_status"] == source["eligibility_status"]
+        assert row["original_blocker_codes"] == [
+            code for code in source["blocking_reasons"].split("|") if code
+        ]
