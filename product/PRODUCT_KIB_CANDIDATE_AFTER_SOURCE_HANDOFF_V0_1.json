@@ -690,18 +690,19 @@
   "promotion_gate": {
     "schema_version": "0.1",
     "status": "BLOCKED",
+    "recommendation": "DO_NOT_PROMOTE",
     "candidate_bundle_id": "KIB-CANDIDATE-WP07B-HANDOFF-20261023-V0_1",
     "required_validations": [
       "READINESS_REGRESSION"
     ],
-    "validation_results": {
+    "supplied_validation_results": {
       "READINESS_REGRESSION": "PASS"
     },
     "blockers": [
       "NO_COMPILER_READY_TEMPORAL_REACTION_SPECIFICATION",
       "SOURCE_HANDOFF_ZERO_ELIGIBLE_UNDER_CURRENT_CONTRACT"
     ],
-    "promotion_allowed": false
+    "active_lock_mutated": false
   },
   "runtime_authorization": "NONE",
   "active_lock_mutated": false,
