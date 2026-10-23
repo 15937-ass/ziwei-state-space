@@ -19,7 +19,7 @@
 
 - Accepted source records include process/development, action-conditioned outcome, occupational scene, resource condition, mobility axis, a relationship-domain cross-palace constraint, a case-only event candidate, and a methodology cross-palace constraint.
 - This is sufficient to show that `projection_mode` cannot be blindly reused as ontology hierarchy, but it does **not** prove a universal root.
-- CA09-809 is explicitly case-support-only and excluded from root evidence. CA01-005 is a cross-palace inference constraint, not a manifestation.
+- CA09-809 is explicitly case-support-only and excluded from root evidence. CA01-005 and CA01-007 are cross-palace constraints, not manifestation nodes.
 - Three root strategies are documented for PI review. Option C is only a preliminary recommendation; no option is selected or accepted.
 - Every source evidence item has an unresolved `ontology_node_id=null` and `probability_status=UNKNOWN`.
 
