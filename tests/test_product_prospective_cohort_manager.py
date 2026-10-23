@@ -78,6 +78,16 @@ def test_registration_rejects_outcome_leakage():
         register_prospective_cohort_window(plan)
 
 
+def test_locked_plan_provenance_cannot_be_silently_rewritten():
+    plan = copy.deepcopy(_plans()[0])
+    state = register_prospective_cohort_window(plan)
+    changed = copy.deepcopy(state)
+    changed["plan"]["targets"][0]["event_type"] = "silently_rewritten_event"
+
+    with pytest.raises(ValueError, match="locked plan digest mismatch"):
+        open_prospective_cohort_window(changed, on_date=plan["window"]["start_date"])
+
+
 def test_open_window_requires_date_inside_locked_window_and_does_not_mutate_input():
     plan = _plans()[0]
     state = register_prospective_cohort_window(plan)

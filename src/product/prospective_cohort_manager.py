@@ -9,6 +9,8 @@ from __future__ import annotations
 
 from copy import deepcopy
 from datetime import date
+import hashlib
+import json
 from typing import Any, Mapping, Sequence
 
 from .longitudinal_data_quality_audit import audit_longitudinal_data_quality
@@ -56,6 +58,20 @@ def _is_sequence(value: Any) -> bool:
     )
 
 
+def _plan_digest(plan_payload: Mapping[str, Any]) -> str:
+    try:
+        canonical = json.dumps(
+            dict(plan_payload),
+            sort_keys=True,
+            separators=(",", ":"),
+            ensure_ascii=False,
+            allow_nan=False,
+        ).encode("utf-8")
+    except (TypeError, ValueError) as exc:
+        raise ValueError("plan must be JSON-serializable for immutable provenance") from exc
+    return hashlib.sha256(canonical).hexdigest()
+
+
 def _validate_state(state: Mapping[str, Any]):
     if not isinstance(state, Mapping):
         raise ValueError("cohort window state must be an object")
@@ -65,6 +81,9 @@ def _validate_state(state: Mapping[str, Any]):
     if not isinstance(plan, Mapping):
         raise ValueError("state.plan must be an object")
     compiled = compile_prospective_checkin_plan(plan)
+    expected_digest = _plan_digest(plan)
+    if _text(state.get("plan_digest")) != expected_digest:
+        raise ValueError("locked plan digest mismatch; plan provenance is immutable")
     if _text(state.get("plan_id")) != compiled.plan_id:
         raise ValueError("state.plan_id must match the compiled plan")
     if _text(state.get("person_key")) != compiled.person_key:
@@ -94,6 +113,7 @@ def register_prospective_cohort_window(
         "plan_id": plan.plan_id,
         "person_key": plan.person_key,
         "plan": deepcopy(dict(plan_payload)),
+        "plan_digest": _plan_digest(plan_payload),
         "window": {
             "start_date": plan.window_start.isoformat(),
             "end_date": plan.window_end.isoformat(),

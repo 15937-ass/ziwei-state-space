@@ -11,7 +11,7 @@ Manage the lifecycle of prospective cohort windows and the follow-up queue using
 
 ## Lifecycle and queue contract
 
-- Registration reuses the existing prospective plan compiler and retains the locked plan/window/checkpoint provenance.
+- Registration reuses the existing prospective plan compiler, retains the locked plan/window/checkpoint provenance, and records a canonical SHA-256 plan fingerprint. Every transition rejects a plan/digest mismatch.
 - Window lifecycle is separate from follow-up status. The lifecycle states are PLANNED, OPEN, CLOSED, CANCELLED, and TERMINATED_EARLY.
 - A window opens only on/after its locked start and no later than its end. Normal close-out is only available on/after the end date. A missed window may be administratively closed, but it remains INCOMPLETE unless the accepted audit finds every target close-out complete.
 - Early withdrawal/loss-to-follow-up requires an explicit disposition, reason, termination date, and observed-through date. Censoring metadata does not carry an event status.
