@@ -13,20 +13,20 @@ def load(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def test_p01_state_cache_matches_accepted_p06_checkpoint():
+def test_p01_state_cache_matches_accepted_p07_checkpoint():
     state = STATE.read_text(encoding="utf-8")
     assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
     assert "active_issue: null" in state
     assert "active_branch: null" in state
     assert "active_pr: null" in state
-    assert 'canonical_checkpoint: "P01_P06_501_600_SOURCE_FIRST_P17_P20_MERGED"' in state
-    assert "canonical_source_records_on_main: 789" in state
+    assert 'canonical_checkpoint: "P01_P07_601_700_SOURCE_FIRST_P20_P22_MERGED"' in state
+    assert "canonical_source_records_on_main: 882" in state
     assert "canonical_source_records_ready_on_branch" not in state
-    assert "cumulative_after_merge: 789" in state
-    assert "cumulative_reusable_projection_rules_after_merge: 656" in state
-    assert "cumulative_case_support_only_after_merge: 133" in state
-    assert "P01-SRC-GAP-026" in state and "P01-SRC-GAP-027" in state
-    assert "P01-601…P01-700" in state
+    assert "cumulative_after_merge: 882" in state
+    assert "cumulative_reusable_projection_rules_after_merge: 745" in state
+    assert "cumulative_case_support_only_after_merge: 137" in state
+    assert "P01-SRC-GAP-026" in state and "P01-SRC-GAP-027" in state and "P01-SRC-GAP-028" in state
+    assert "P01-701…P01-800" in state
     assert "No Product/runtime authorization is implied" in state
 
 
@@ -78,7 +78,7 @@ def test_p01_accepted_p06_counts_reconcile():
     assert load(SUMMARY_P06)["human_gate_required"] is False
 
 
-def test_p01_source_gap_026_closed_and_027_is_next():
+def test_p01_source_gap_027_closed_and_028_is_next():
     ledger = load(GAP_LEDGER)
     entries = {g["gap_id"]: g for g in ledger["entries"]}
     assert entries["P01-SRC-GAP-025"]["status"] == "CLOSED_BY_SOURCE_RECHECK_AND_CANONICAL_RULES"
@@ -92,10 +92,10 @@ def test_p01_source_gap_026_closed_and_027_is_next():
     next_gaps = ledger["next_checkpoint_gaps"]
     assert len(next_gaps) == 1
     next_gap = next_gaps[0]
-    assert next_gap["gap_id"] == "P01-SRC-GAP-027"
+    assert next_gap["gap_id"] == "P01-SRC-GAP-028"
     assert next_gap["status"] == "OPEN_FOR_NEXT_SOURCE_CHECKPOINT"
-    assert "printed pp21–23" in next_gap["source_location"]
-    assert "七杀" in next_gap["source_claim"]
+    assert "printed p23" in next_gap["source_location"]
+    assert "破军" in next_gap["source_claim"]
     assert next_gap["next_source_anchor"] == ledger["next_source_anchor"]
-    assert "P01-601" in ledger["next_source_anchor"]
+    assert "P01-701" in ledger["next_source_anchor"]
     assert ledger["next_source_anchor"] in STATE.read_text(encoding="utf-8")
