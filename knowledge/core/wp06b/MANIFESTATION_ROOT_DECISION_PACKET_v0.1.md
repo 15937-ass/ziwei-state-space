@@ -33,13 +33,12 @@
 - P05 W01-002、P09 CA01-005／CA01-007／CA09-809 仅复用 `main` 上标记 `SOURCE_SPAN_VERIFIED` 的 canonical CSV 行；本工作单元没有宣称重新逐字校勘这些页面。
 - P07 M01-006 使用已接受的 `knowledge/palaces/P07_migration/wp05/MIGRATION_M01_SOURCE_READJUDICATION_100_v0.1.json`（`DIRECT_SOURCE_RECHECK_CONFIRMED` 且 `canonical_promotion=true`）；旧 `validation/wp05/M01_migration_projection_review_001_100.csv` 是 `PRE_G12_READ_ONLY_ACCELERATION_INPUT`，不作为 canonical evidence。
 - 本包不使用 P03/P06 中当前 palace state 仍标记 `CANONICAL_REVALIDATION_NOT_STARTED` 的 CSV 行作为 canonical evidence。
-- P07 M01-006 使用已接受的 `knowledge/palaces/P07_migration/wp05/MIGRATION_M01_SOURCE_READJUDICATION_100_v0.1.json`（`DIRECT_SOURCE_RECHECK_CONFIRMED` 且 `canonical_promotion=true`）；旧 `validation/wp05/M01_migration_projection_review_001_100.csv` 是 `PRE_G12_READ_ONLY_ACCELERATION_INPUT`，不作为 canonical evidence。
 - 来源文件 SHA-256：`6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c`。
 
 ## 3. 核心发现
 
-1. **projection_mode 不等于 ontology hierarchy。** `FUNCTIONAL_PROJECTION`、`STATE_EXPRESSION`、`RELATIONAL_PROJECTION`、`SCENE_TRANSLATION`、`EVENT_CANDIDATE` 与 `STRUCTURAL_CONSTRAINT` 是现有规则行的投影／约束模式。不能仅凭这些值就把它们串成父子层级。
-2. **事件具体度是另一条轴。** 发展过程、关系状态、职业场景和具体事件候选并非天然同义。尤其不能把职业场景映射直接升级成个人伤病事件。
+1. **projection_mode 不等于 ontology hierarchy。** 当前 accepted evidence cohort 包含 `FUNCTIONAL_PROJECTION`、`SCENE_TRANSLATION`、`PALACE_SEMANTIC_BOUNDARY`、`CROSS_PALACE_CONSTRAINT` 与 `EVENT_CANDIDATE`。这些值描述规则的投影／约束行为，不自动定义本体父子层级。
+2. **事件具体度是另一条轴。** 发展过程、行动条件、资源条件、迁移轴、职业场景、跨宫约束和具体事件候选并非天然同义。尤其不能把职业场景映射直接升级成个人伤病事件。
 3. **case-only 证据不能决定 canonical root。** CA09-809 的 `case_support_only=true`，只作为负控制，不能用来证明通用事件家族或现实发生率。
 4. **来源跨度已核验不等于规范化目标逐字显式。** 对缺少单独 epistemic 字段的旧 canonical CSV，本包明确记录该缺口，不把它默认为 `EXPLICIT`。
 5. **没有证据时应保留多根／未知。** 技术上的统一查询需求不能替代来源支持的语义根。
@@ -51,7 +50,7 @@
 建立一个跨领域的 manifestation 根，再向下划分 family、channel 与 observable event label。
 
 - 优点：统一入口和层级查询简单。
-- 风险：现有来源没有直接给出一个能同时覆盖过程、状态、关系、场景和具体事件的通用语义根；可能把异质输出压成同一种东西。
+- 风险：当前 accepted evidence cohort 展示的是过程、行动条件、资源条件、场景、迁移轴、跨宫约束与案例型事件候选；这些异质输出尚不能证明一个共享语义根。
 - 门槛：属于新增跨领域共享语义，必须经 `HG-WP06B-MANIFESTATION-ROOT-01` 明确批准。
 
 ### OPTION B — 来源本位根森林
@@ -65,7 +64,7 @@
 
 保留来源本位根森林，并将 `output_kind`、`event_specificity`、`source_epistemic` 分开建模；不把 `projection_mode` 直接当作 ontology hierarchy。
 
-- 优点：能区分状态、关系、过程、职业场景和具体事件候选，也能把来源显式性与规范化推断分开。
+- 优点：能区分资源条件、迁移轴、过程、职业场景、跨宫约束和具体事件候选，也能把来源显式性与规范化推断分开。
 - 风险：需要另行冻结最小字段契约；字段若被提升为通用语义原语，也可能需要 Human Gate。
 
 **供 PI 讨论的初步建议：OPTION C。** 这是风险较低的审查建议，不是已选方案，不会被代码或测试当作批准结果。
