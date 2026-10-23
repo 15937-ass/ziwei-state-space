@@ -100,14 +100,17 @@ def test_tian_tong_source_gap_time_scope_is_not_narrowed():
 def test_gap_ledger_and_summary_cumulative_counts():
     ledger = json.loads((BASE / "LIFE_P03_SOURCE_GAP_LEDGER_v0.1.json").read_text(encoding="utf-8"))
     assert ledger["unresolved_gap_ids"] == []
+    closed = {g["gap_id"]: g for g in ledger["entries"]}
+    assert closed["P01-SRC-GAP-025"]["status"] == "CLOSED_BY_SOURCE_RECHECK_AND_CANONICAL_RULES"
+    assert len(closed["P01-SRC-GAP-025"]["rule_ids"]) == 91
     next_gaps = ledger["next_checkpoint_gaps"]
     assert len(next_gaps) == 1
-    assert next_gaps[0]["gap_id"] == "P01-SRC-GAP-025"
+    assert next_gaps[0]["gap_id"] == "P01-SRC-GAP-026"
     assert next_gaps[0]["status"] == "OPEN_FOR_NEXT_SOURCE_CHECKPOINT"
-    assert "printed p15" in next_gaps[0]["source_location"]
-    assert "太阴" in next_gaps[0]["source_claim"]
-    assert "贪狼" in next_gaps[0]["source_claim"]
-    assert "P05-401" in ledger["next_source_anchor"]
+    assert "printed p17" in next_gaps[0]["source_location"]
+    assert "巨门" in next_gaps[0]["source_claim"]
+    assert "天相" in next_gaps[0]["source_claim"]
+    assert "P01-501" in ledger["next_source_anchor"]
     assert ledger["entries"][0]["gap_id"] == "P01-SRC-GAP-022"
     assert len(ledger["entries"][0]["rule_ids"]) == 47
     summary = json.loads((BASE / "LIFE_P03_SOURCE_READJUDICATION_SUMMARY_v0.1.json").read_text(encoding="utf-8"))

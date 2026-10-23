@@ -32,13 +32,15 @@ def test_gap_supplement_and_ledger():
     by={x["projection_rule_id"]:x for x in r}
     assert by["P01-SG-125"]["source_gap_id"]=="P01-SRC-GAP-023" and by["P01-SG-137"]["source_gap_id"]=="P01-SRC-GAP-024"
     assert "并非反背" in by["P01-SG-146"]["source_literal_claim"]
+    assert "性质不侔" in by["P01-SG-144"]["source_literal_claim"]
     ts={x["projection_rule_id"]:x for x in _json("LIFE_P04_SOURCE_GAP_TIME_SCOPE_PP12_14_v0.1.json")["records"]}
     assert ts["P01-SG-125"]["source_time_layers"]==["DECADE","YEAR"]
     assert ts["P01-SG-132"]["source_time_layers"]==[] and ts["P01-SG-132"]["scope_status"]=="SOURCE_GENERIC_YEAR_PERIOD_NOT_NARROWED"
     led=_json("LIFE_P03_SOURCE_GAP_LEDGER_v0.1.json");g={x["gap_id"]:x for x in led["entries"]}
     assert g["P01-SRC-GAP-023"]["status"]=="CLOSED_BY_SOURCE_RECHECK_AND_CANONICAL_RULES" and len(g["P01-SRC-GAP-023"]["rule_ids"])==47
     assert g["P01-SRC-GAP-024"]["status"]=="CLOSED_BY_SOURCE_RECHECK_AND_CANONICAL_RULES" and len(g["P01-SRC-GAP-024"]["rule_ids"])==81
-    assert led["next_checkpoint_gaps"][0]["gap_id"]=="P01-SRC-GAP-025"
+    assert g["P01-SRC-GAP-025"]["status"]=="CLOSED_BY_SOURCE_RECHECK_AND_CANONICAL_RULES" and len(g["P01-SRC-GAP-025"]["rule_ids"])==91
+    assert led["next_checkpoint_gaps"][0]["gap_id"]=="P01-SRC-GAP-026"
 def test_counts():
     s=_json("LIFE_P04_SOURCE_READJUDICATION_SUMMARY_v0.1.json")["summary"]
     assert (s["historical_candidates_reviewed"],s["canonical_promoted"],s["new_source_gap_supplement_records"],s["new_canonical_records"])==(100,100,28,128)
