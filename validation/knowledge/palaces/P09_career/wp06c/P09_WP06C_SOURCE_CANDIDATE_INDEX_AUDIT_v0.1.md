@@ -21,9 +21,9 @@ Status: **SOURCE-LINKED CANDIDATE INDEX ONLY; NOT A CANONICAL MAPPING REGISTRY**
 
 ## Source trace
 
-- CA01-035: `validation/wp05/CA01_career_projection_review_001_100.csv`; `knowledge/wp07a/CAREER_CONTEXT_MAP_CA01_035_043_045_v0.1.json`; `knowledge/wp07a/CAREER_FIRE_BELL_SOURCE_EVIDENCE_v0.1.json#FB08`. The source quote now preserves both `事业宫见火铃，主波折` and the following hardship-before-stabilization clause; the fire/bell quantifier remains unresolved.
-- CA01-045: same canonical CA01 review CSV and context map. The full source sentence is preserved; the context map retains antecedent rules CA01-042 / CA01-044 and marks `勉强求变` as a non-chart action prerequisite not represented by approved chart facts.
-- CA05-469: `validation/wp05/CA05_career_projection_review_401_500.csv`; `knowledge/wp07a/CAREER_DIRECT_TRANSFORM_AUDIT_CA04_CA09_v0.1.md`. The literal excerpt about `与血液有关的事业` and `血腥屠宰` is preserved; its source scan is PDF page 72 / printed page 144. It remains a scene-translation negative control, not an observed injury/illness event.
+- CA01-035: `validation/wp05/CA01_career_projection_review_001_100.csv`; `knowledge/wp07a/CAREER_CONTEXT_MAP_CA01_035_043_045_v0.1.json`; `knowledge/wp07a/CAREER_FIRE_BELL_SOURCE_EVIDENCE_v0.1.json#FB08`. The index keeps a short source anchor; the full reviewed passage and unresolved alternatives remain in the source context/evidence records.
+- CA01-045: same canonical CA01 review CSV and context map. The index keeps only a short action anchor; the context map retains the full source context, antecedent rules CA01-042 / CA01-044, and the non-chart action prerequisite not represented by approved chart facts.
+- CA05-469: `validation/wp05/CA05_career_projection_review_401_500.csv`; `knowledge/wp07a/CAREER_DIRECT_TRANSFORM_AUDIT_CA04_CA09_v0.1.md`. The index paraphrases the source rather than duplicating its longer wording; direct scan review is recorded as PDF page 72 / printed page 144. It remains a scene-translation negative control, not an observed injury/illness event.
 
 The stable page span IDs follow the repository convention `ZZ003-P{printed_page}`. Each row retains the source rule ID, original condition, source location, source-review status, original normalized projection target/mode, and evidence references.
 
