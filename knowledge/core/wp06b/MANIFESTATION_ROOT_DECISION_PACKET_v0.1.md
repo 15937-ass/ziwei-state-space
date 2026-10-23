@@ -30,7 +30,8 @@
 ### 直接复核与复用边界
 
 - P09 的 CA01-035、CA01-045、CA05-469 已直接对照所提供 PDF 扫描页复核：PDF p.67 / 印刷 pp.133–134，以及 PDF p.72 / 印刷 p.144。
-- P05、P07、P03、P06 样本仅复用 `main` 上已标记 `SOURCE_SPAN_VERIFIED` 的 canonical CSV 行；本工作单元没有宣称重新逐字校勘这些页面。
+- P05 W07-605、P03 SP03-206、P06 D06-508／D01-003 仅复用 `main` 上标记 `SOURCE_SPAN_VERIFIED` 的 canonical CSV 行；本工作单元没有宣称重新逐字校勘这些页面。
+- P07 M01-006 使用已接受的 `knowledge/palaces/P07_migration/wp05/MIGRATION_M01_SOURCE_READJUDICATION_100_v0.1.json`（`DIRECT_SOURCE_RECHECK_CONFIRMED` 且 `canonical_promotion=true`）；旧 `validation/wp05/M01_migration_projection_review_001_100.csv` 是 `PRE_G12_READ_ONLY_ACCELERATION_INPUT`，不作为 canonical evidence。
 - 来源文件 SHA-256：`6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c`。
 
 ## 3. 核心发现
