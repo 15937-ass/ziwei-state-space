@@ -77,6 +77,7 @@ class TestFourteenStarPropertyMatrix(unittest.TestCase):
         self.assertIn("evaluation_component", roles)
         self.assertTrue(any(r["status"] == "MANY_TO_MANY" for r in crosswalk))
         self.assertTrue(any(r["status"] == "GAP_OR_OUTSIDE_CURRENT_OUTPUT_KIND" for r in crosswalk))
+        self.assertTrue(any(r["research_claim_role"] == "causal_or_explanatory_relation" for r in crosswalk))
 
     def test_pr710_event_specificity_is_not_assumed_to_be_an_ordinal_scale(self):
         data = load_data()
@@ -86,6 +87,15 @@ class TestFourteenStarPropertyMatrix(unittest.TestCase):
         self.assertIn("PROCESS_SEQUENCE_NOT_SINGLE_EVENT", axis["candidate_values"])
         self.assertIn("SCENE_NOT_OBSERVED_EVENT", axis["candidate_values"])
         self.assertFalse(axis["canonical_change_authorized"])
+        self.assertEqual(
+            {row["value"] for row in data["pr710_event_specificity_value_audit"]},
+            set(axis["candidate_values"]),
+        )
+        self.assertEqual(
+            {row["value"] for row in data["pr710_output_kind_value_audit"]},
+            set(data["pr710_candidate_axes"]["output_kind_values"]),
+        )
+        self.assertFalse(data["pr710_event_specificity_audit"]["not_applicable_is_candidate_value"])
 
     def test_no_false_claim_of_independent_held_out_validation(self):
         data = load_data()
