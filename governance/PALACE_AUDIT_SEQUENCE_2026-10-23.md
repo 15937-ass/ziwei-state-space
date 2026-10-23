@@ -2,6 +2,8 @@
 
 Status: PI-selected execution schedule; tracking Issue #676. This document schedules work, not canonical source meaning. Recover the current truth from `PROJECT_STATE.yaml`, each shard state, and live Issues/PRs before admitting any unit; the dated counts below are a starting snapshot, not an ACTIVE selector.
 
+The entry point is `governance/KNOWLEDGE_SHARD_EXECUTION_v1.md`. The existing Product source-handoff snapshot pins the Git blob of `KNOWLEDGE_BASE_ROADMAP.md`; adding a roadmap pointer alone fails its source-artifact contract. Keep that file's bytes unchanged in this Governance unit. Any later source-snapshot refresh belongs to a separately scoped Product work unit with its own acceptance checks.
+
 ## Admission and handoff
 
 The PI chose **one palace at a time** for the source-first twelve-palace audit. The priority order is **P01 命 → P05 财帛 → P09 事业（官禄）→ P07 迁移 → P03 夫妻 → P11 福德**. Keep one ACTIVE palace source-audit or palace-local mapping unit across these palaces at a time; do not start another palace's branch or PR preparation while one is ACTIVE. Several bounded batches may be necessary within one palace; finish its source coverage census and record the disposition of remaining gaps before admitting the next palace. A READY backlog Issue is not ACTIVE.
