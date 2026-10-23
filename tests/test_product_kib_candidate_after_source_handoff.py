@@ -22,8 +22,8 @@ def test_source_handoff_exact_bytes_commit_and_zero_eligibility_are_pinned():
     handoff = json.loads(SOURCE_PATH.read_text(encoding="utf-8"))
     assert source["path"] == "knowledge/core/wp07b/TEMPORAL_REACTION_SOURCE_HANDOFF_v0.1.json"
     assert source["git_blob_sha"] == compute_artifact_digest(SOURCE_PATH).removeprefix("git-sha1:")
-    assert source["byte_count"] == len(SOURCE_PATH.read_bytes()) == 120317
-    assert source["accepted_source_commit"] if "accepted_source_commit" in source else package["accepted_source_commit"] == "2143ac7030b531cd46836cf034baba6f801bdf8e"
+    assert source["byte_count"] == len(SOURCE_PATH.read_bytes()) == 124065
+    assert source["accepted_source_commit"] == package["accepted_source_commit"] == "2143ac7030b531cd46836cf034baba6f801bdf8e"
     assert source["analysis_snapshot_commit"] == handoff["snapshot"]["main_commit"] == "6088670a2a303b603d1af044288aa6a2e27a9db7"
     assert source["semantic_status"] == handoff["status"] == "SOURCE_REVIEW_COMPLETE_ZERO_ELIGIBLE_UNDER_CURRENT_CONTRACT"
     assert source["counts"]["total"] == {
