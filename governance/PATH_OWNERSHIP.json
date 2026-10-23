@@ -21,6 +21,7 @@
     "GOVERNANCE_ONLY": [
       "governance/**",
       ".github/**",
+      ".agents/skills/**",
       "PROJECT_CONSTITUTION.md",
       "GOVERNANCE.md",
       "AGENT_WORKFLOW.md",
@@ -38,5 +39,5 @@
       "tests/test_a1_invariants.py"
     ]
   },
-  "note": "Read access is broad. Routine writes follow lane ownership. Knowledge palace branches receive an additional shard write-set restriction from governance/KNOWLEDGE_SHARDS.json; Governance may create/migrate shard state files."
+  "note": "Read access is broad. Routine writes follow lane ownership. Governance owns only the explicitly scoped .agents/skills/** Agent-instruction subtree; this does not grant Product/Knowledge semantic or runtime write access. Knowledge palace branches receive an additional shard write-set restriction from governance/KNOWLEDGE_SHARDS.json; Governance may create/migrate shard state files."
 }
