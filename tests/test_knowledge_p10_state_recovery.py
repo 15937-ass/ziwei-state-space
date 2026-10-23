@@ -95,7 +95,12 @@ def test_p10_same_palace_compound_map_has_exact_13_source_verified_rows():
         assert provenance["time_layer"] == "NATAL"
         assert provenance["case_support_only"] is False
         assert provenance["history_feedback"] is None
-        assert row["mapping_status"] == "MAPPED_EXISTING_ATOMS"
+        expected_mapping_status = (
+            "MAPPED_GEOMETRY_WITH_EXPLICIT_UNRESOLVED_STATE_DEPENDENCY"
+            if row["source_rule_id"] == "TP02-126"
+            else "MAPPED_EXISTING_ATOMS"
+        )
+        assert row["mapping_status"] == expected_mapping_status
         assert row["condition_atom_types"] == ["PALACE_HAS_STAR"]
         assert row["execution_readiness"] in {
             "STATIC_COMPOUND_CANDIDATE_NOT_EXECUTABLE",
