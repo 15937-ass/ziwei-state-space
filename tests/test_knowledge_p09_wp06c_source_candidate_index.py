@@ -92,7 +92,7 @@ def test_wp06c_p09_candidate_index_is_fail_closed_and_source_linked():
     context_by_id = {item["source_rule_id"]: item for item in context["mappings"]}
     ca01_035 = next(item for item in candidates if item["source_rule_id"] == "CA01-035")
     source_035 = context_by_id["CA01-035"]
-    assert ca01_035["source_anchor_phrase"] in source_035["source_anchor_phrase"]
+    assert ca01_035["source_anchor_phrase"] == source_035["source_anchor_phrase"]
     assert ca01_035["condition_status"] == "BLOCKED_SHORTHAND_QUANTIFIER_UNRESOLVED"
     assert "经艰苦而始能底定事业" in ca01_035["source_anchor_phrase"]
     assert source_035["source_context"]["resolution_status"] == "INSUFFICIENT_SOURCE_IN_REVIEWED_PASSAGE"
