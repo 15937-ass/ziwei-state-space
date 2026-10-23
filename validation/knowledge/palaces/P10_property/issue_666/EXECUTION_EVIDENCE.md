@@ -1,0 +1,40 @@
+# P10 recovery-state synchronization — Issue #666
+
+Date: 2026-10-23  
+Lane/shard: `KNOWLEDGE_ONLY / P10 / 田宅宫`  
+Work unit: `KB-P10-STATE-SYNC-AFTER-COMPOUND-MAP-01`
+
+## Source checkpoints
+
+- Product snapshot-contract fix: PR #660, merge commit `6523a0a07051ebe8416dd6d074bf4c6e157aa217`.
+- P10 same-palace compound-star mapping: PR #661, merge commit `ec61c8872ec1e407bf8372e2f2ef67bd225c3661`.
+- State-sync branch base / snapshot checkpoint: `6523a0a07051ebe8416dd6d074bf4c6e157aa217`.
+- Mapping artifact: `knowledge/palaces/P10_property/wp07a/PROPERTY_SAME_PALACE_COMPOUND_STAR_MAP_01_v0.1.json`.
+- Mapping audit ID: `KB-WP07A-PROPERTY-SAME-PALACE-COMPOUND-STAR-MAP-01`.
+- Mapping status: `MAPPING_COMPLETE_13_OF_13_NOT_PRODUCTION`.
+
+## Exact mapped source IDs
+
+`TP01-071`, `TP01-072`, `TP01-097`, `TP02-121`, `TP02-126`, `TP02-160`, `TP02-186`, `TP03-226`, `TP03-227`, `TP04-306`, `TP04-310`, `TP04-311`, `TP04-340`.
+
+## Preserved boundaries
+
+- Every mapping remains a static, non-executable candidate; every `executable_registry_entry` is `false`.
+- Conditions use only existing `PALACE_HAS_STAR` facts bound to P10.
+- TP02-121 retains its explicit 火贪 / 铃贪 alternatives; TP04-340 retains its explicit 廉贞七杀 / 武曲七杀 alternatives.
+- TP02-126 retains the unresolved 天府得禄 / 府库空露 dependency. No treasury state is inferred from palace geometry or missing transformation facts.
+- No canonical source row, shared Core semantic, Product runtime, production registry, atom, probability, numeric weight, threshold, or time primitive is changed.
+- `knowledge/states/P10_PROPERTY_STATE.yaml` is a mutable recovery cache and is not included among the Product handoff's immutable `source_artifacts`. Immutable source-artifact blob-SHA checks remain strict.
+- The recovery cache preserves `ACTIVE_NO_ACTIVE_WORK` and null active issue/branch/PR pointers after the bounded issue is complete.
+
+## Validation plan
+
+The exact-head PR gate must verify:
+1. `PYTHONPATH="$PWD" python -m pytest -q tests/test_knowledge_p10_state_recovery.py`
+2. `PYTHONPATH="$PWD" python -m pytest -q`
+3. `PYTHONPATH="$PWD" python src/audit_repository.py --fail-on-p0 --output /tmp/issue-666-audit.json`
+4. `python tools/validate_governance.py --base-ref origin/main --head-branch knowledge/p10-666-state-sync-after-compound-map`
+5. `git diff --check origin/main` and the repository's scope/diff guard.
+6. Confirm Product handoff tests continue to exclude all mutable recovery caches from immutable `source_artifacts`.
+
+Record the resulting GitHub Actions run IDs and outcomes here after the first exact-head run. Any subsequent evidence update must be followed by another exact-head gate; the final PR head must pass.
