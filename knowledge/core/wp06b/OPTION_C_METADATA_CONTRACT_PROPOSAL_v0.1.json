@@ -1,0 +1,483 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP06B-OPTION-C-METADATA-CONTRACT-PROPOSAL",
+  "version": "0.1",
+  "status": "PROPOSAL_ONLY_NOT_CANONICAL",
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "CORE",
+  "work_unit": "KB-WP06B-OPTION-C-METADATA-CONTRACT-PROPOSAL-01",
+  "main_base_sha": "cdc4fce773ea5133f2210c6ea8e87022678fff2f",
+  "decision_reference": {
+    "decision_id": "PI-WP06B-OPTION-C-2026-10-23",
+    "selected_option_id": "OPTION-C",
+    "selected_architecture": "SOURCE_NATIVE_FOREST_WITH_ORTHOGONAL_AXES",
+    "scope": "ARCHITECTURE_DIRECTION_ONLY",
+    "contract_frozen": false
+  },
+  "source_schema_references": {
+    "source_epistemic_schema": {
+      "path": "knowledge/REVIEW_SCHEMA_v0.3.md",
+      "blob_sha": "38daee9b65390e79e5ba164faa19dfc459f6786b"
+    },
+    "kb_schema": {
+      "path": "knowledge/KB_SCHEMA.md",
+      "blob_sha": "06e26c90a0040fa607ae32a4bb5e5fa30ed3212b"
+    },
+    "product_ontology_adapter": {
+      "path": "product/PL3M_MANIFESTATION_ONTOLOGY_ADAPTER_ACCEPTANCE.md",
+      "blob_sha": "90b40619ba4fcb6e93f592541841d316cb81ad22"
+    },
+    "source_comparison_fixture": "knowledge/core/wp06b/ONTOLOGY_CAPABILITY_COMPARISON_FIXTURE_v0.1.json",
+    "source_decision_packet": "knowledge/core/wp06b/MANIFESTATION_ROOT_DECISION_PACKET_v0.1.json"
+  },
+  "key_design_rule": "Three independent dimensions, at different semantic levels: output_kind classifies the normalized claim's form; event_specificity says how event-like/specific the candidate is; source_epistemic records how directly the source supports the literal claim. None is projection_mode, ontology depth, review_status, or case_support_only.",
+  "axes": {
+    "output_kind": {
+      "status": "PROPOSAL_ONLY",
+      "placement": "NormalizedClaim / MappingProposal review layer; not automatically a field on every ontology node",
+      "meaning": "The semantic form of the normalized claim. It can describe a process, action-conditioned outcome, scene, axis, boundary, constraint, temporal condition, or event candidate; it does not imply that the claim is an observed event.",
+      "candidate_values": [
+        {
+          "value": "PROCESS_PATTERN",
+          "definition": "A development sequence or recurring process, not a single observed event.",
+          "examples": [
+            "CA01-035"
+          ]
+        },
+        {
+          "value": "ACTION_CONDITIONED_OUTCOME",
+          "definition": "An outcome whose applicability requires a real-world action prerequisite.",
+          "examples": [
+            "CA01-045"
+          ]
+        },
+        {
+          "value": "SCENE_OR_CONTEXT",
+          "definition": "A vocational, situational, or contextual scene; not proof that the person experienced a corresponding event.",
+          "examples": [
+            "CA05-469"
+          ]
+        },
+        {
+          "value": "DIRECTIONAL_AXIS",
+          "definition": "A direction, comparison, or development axis; not proof that movement or migration occurred.",
+          "examples": [
+            "M01-006"
+          ]
+        },
+        {
+          "value": "DOMAIN_SEMANTIC_BOUNDARY",
+          "definition": "A palace/domain boundary or semantic interpretation limit, not an event node.",
+          "examples": [
+            "W01-002"
+          ]
+        },
+        {
+          "value": "CROSS_PALACE_CONSTRAINT",
+          "definition": "A cross-palace interpretive constraint or relationship, not automatically a manifestation.",
+          "examples": [
+            "CA01-005",
+            "CA01-007"
+          ]
+        },
+        {
+          "value": "STRUCTURAL_CONSTRAINT",
+          "definition": "A prerequisite or structural condition that constrains another inference.",
+          "examples": [
+            "CA01-002",
+            "W01-005"
+          ]
+        },
+        {
+          "value": "TEMPORAL_CONDITION",
+          "definition": "A timing or temporal-scope condition, not the resulting event itself.",
+          "examples": [
+            "CA01-046",
+            "M01-001"
+          ]
+        },
+        {
+          "value": "EVENT_CANDIDATE",
+          "definition": "A candidate event form that still requires evidence-tier and case-only gating.",
+          "examples": [
+            "CA09-809",
+            "CA05-493"
+          ]
+        }
+      ],
+      "not_applicable_allowed": false,
+      "forbidden_substitutions": [
+        "projection_mode",
+        "abstraction_level",
+        "source_epistemic",
+        "normalization_epistemic",
+        "review_status"
+      ]
+    },
+    "event_specificity": {
+      "status": "PROPOSAL_ONLY",
+      "placement": "Candidate manifestation concept / mapping proposal; Product's existing node contract already has an event_specificity field, but its production vocabulary is not frozen",
+      "candidate_values": [
+        {
+          "value": "PROCESS_SEQUENCE_NOT_SINGLE_EVENT",
+          "definition": "Process or development sequence; not one observed event.",
+          "examples": [
+            "CA01-035"
+          ]
+        },
+        {
+          "value": "CONDITIONAL_OUTCOME_NOT_OBSERVED",
+          "definition": "A conditional outcome whose real-world prerequisite or occurrence is not established by chart/source activation alone.",
+          "examples": [
+            "CA01-045"
+          ]
+        },
+        {
+          "value": "SCENE_NOT_OBSERVED_EVENT",
+          "definition": "A scene or context that must not be promoted to a personal event.",
+          "examples": [
+            "CA05-469"
+          ]
+        },
+        {
+          "value": "EVENT_CLASS_CANDIDATE",
+          "definition": "A broad event-class candidate, not an observed event.",
+          "examples": [
+            "future reviewed candidate only"
+          ]
+        },
+        {
+          "value": "SPECIFIC_EVENT_CANDIDATE",
+          "definition": "A specific event candidate, not proof that the event occurred; case-only evidence remains excluded from canonical promotion.",
+          "examples": [
+            "CA09-809 as a negative control only"
+          ]
+        }
+      ],
+      "not_applicable_allowed": true,
+      "not_applicable_rule": "Use axis status NOT_APPLICABLE for non-event semantic kinds such as directional axes, domain boundaries, and constraints. Do not encode NOT_APPLICABLE as a canonical event-specificity value.",
+      "forbidden_value": "OBSERVED_EVENT",
+      "forbidden_value_reason": "Observed events belong to the empirical observation/evidence layer; an ontology candidate cannot assert that a real-world event occurred."
+    },
+    "source_epistemic": {
+      "status": "REUSE_EXISTING_SCHEMA_NO_NEW_ENUM",
+      "placement": "Per SourceAssertion / per source evidence reference, not a single aggregate property of a concept node",
+      "question_answered": "How directly does the original source support the literal claim?",
+      "allowed_values": [
+        "EXPLICIT",
+        "INFERRED_FROM_SOURCE",
+        "UNRESOLVED_SOURCE"
+      ],
+      "value_source": "knowledge/REVIEW_SCHEMA_v0.3.md",
+      "rules": [
+        "Do not add new source_epistemic enum values.",
+        "EXPLICIT applies to a literal claim directly supported by source wording; it does not mean the normalized output_kind or event interpretation is itself explicit.",
+        "INFERRED_FROM_SOURCE marks a literal claim inferred from source rather than stated directly.",
+        "UNRESOLVED_SOURCE means the source support for the literal claim remains unresolved.",
+        "SOURCE_SPAN_VERIFIED and HUMAN_VERIFIED are review_status values, not source_epistemic values.",
+        "case_support_only is a separate evidence boundary; it must not be encoded by source_epistemic."
+      ],
+      "not_applicable_allowed": false
+    }
+  },
+  "axis_status_contract": {
+    "status": "PROPOSAL_ONLY",
+    "proposed_field": "metadata_axis_status",
+    "candidate_status_values": [
+      "RESOLVED",
+      "UNKNOWN",
+      "MISSING",
+      "CONFLICT",
+      "NOT_APPLICABLE"
+    ],
+    "purpose": "Keep the state of reviewing/classifying an axis separate from the axis value itself. This is a proposal for the candidate/review layer, not an approved shared primitive.",
+    "semantics": {
+      "RESOLVED": "A value has been reviewed and assigned; the value must be valid for that axis and backed by evidence/provenance.",
+      "UNKNOWN": "The axis was reviewed but the value cannot currently be determined; the value is null and the uncertainty is recorded.",
+      "MISSING": "The input field or review is absent; do not infer a value from source_span_verified or another field.",
+      "CONFLICT": "Two or more incompatible interpretations remain; retain them through the existing Conflict object/references and do not choose one automatically.",
+      "NOT_APPLICABLE": "The axis genuinely does not apply; proposed as valid only for event_specificity when output_kind is a non-event semantic kind."
+    },
+    "value_presence_rules": [
+      "RESOLVED requires a non-null valid value.",
+      "UNKNOWN, MISSING, CONFLICT, and NOT_APPLICABLE require a null value.",
+      "NOT_APPLICABLE is invalid for output_kind and source_epistemic when a source assertion exists.",
+      "CONFLICT requires references to the existing Conflict object or a documented conflict record; do not replace it with UNKNOWN.",
+      "MISSING and UNKNOWN are not interchangeable.",
+      "For source_epistemic, status RESOLVED with value UNRESOLVED_SOURCE means the source epistemic classification itself has been reviewed and found unresolved; it is different from axis status UNKNOWN."
+    ],
+    "compatibility_note": "This status envelope is proposed only. Before canonical schema freeze, PI must decide whether to adopt it or reuse existing review/conflict structures without a new shared primitive."
+  },
+  "semantic_separations": [
+    {
+      "left": "projection_mode",
+      "right": "output_kind",
+      "rule": "projection_mode describes the rule's projection/constraint behavior; output_kind describes the semantic form of the normalized claim. Similar words do not make them the same field."
+    },
+    {
+      "left": "abstraction_level",
+      "right": "output_kind",
+      "rule": "abstraction_level concerns ontology topology/depth; output_kind is semantic type. Do not infer one from the other."
+    },
+    {
+      "left": "source_epistemic",
+      "right": "normalization_epistemic",
+      "rule": "source_epistemic describes support for the literal source claim; normalization_epistemic describes the transformation from that claim into a computational representation."
+    },
+    {
+      "left": "source_epistemic",
+      "right": "review_status",
+      "rule": "epistemic support and review provenance are independent."
+    },
+    {
+      "left": "source_epistemic",
+      "right": "case_support_only",
+      "rule": "case-only support is an evidence boundary, not an epistemic enum."
+    },
+    {
+      "left": "event_specificity",
+      "right": "observed_event",
+      "rule": "event specificity classifies a candidate; it never proves an event was observed."
+    }
+  ],
+  "examples": [
+    {
+      "source_rule_id": "CA01-035",
+      "source_span_id": "ZZ003-P133",
+      "projection_mode": "FUNCTIONAL_PROJECTION",
+      "output_kind": {
+        "value": "PROCESS_PATTERN",
+        "status": "RESOLVED"
+      },
+      "event_specificity": {
+        "value": "PROCESS_SEQUENCE_NOT_SINGLE_EVENT",
+        "status": "RESOLVED"
+      },
+      "source_epistemic": {
+        "value": "EXPLICIT",
+        "status": "RESOLVED"
+      },
+      "normalization_epistemic_candidate": {
+        "value": "INFERRED",
+        "status": "PROPOSAL_ONLY"
+      },
+      "case_support_only": false,
+      "source_anchor": "事业宫见火铃，主波折。故往往经艰苦而始能底定事业。",
+      "guardrail": "Preserve 往往; output_kind PROCESS_PATTERN is a normalization classification, not a verbatim source enum and not a single observed event."
+    },
+    {
+      "source_rule_id": "CA01-045",
+      "source_span_id": "ZZ003-P133",
+      "projection_mode": "FUNCTIONAL_PROJECTION",
+      "output_kind": {
+        "value": "ACTION_CONDITIONED_OUTCOME",
+        "status": "RESOLVED"
+      },
+      "event_specificity": {
+        "value": "CONDITIONAL_OUTCOME_NOT_OBSERVED",
+        "status": "RESOLVED"
+      },
+      "source_epistemic": {
+        "value": "EXPLICIT",
+        "status": "RESOLVED"
+      },
+      "normalization_epistemic_candidate": {
+        "value": "INFERRED",
+        "status": "PROPOSAL_ONLY"
+      },
+      "case_support_only": false,
+      "prerequisite_rule_ids": [
+        "CA01-042",
+        "CA01-044"
+      ],
+      "real_world_action_prerequisite": true,
+      "source_anchor": "若更见空劫同度，则主进退失据，往往不安于受薪，或不甘心经营现成事业，勉强求变，结果反而陷入困境。",
+      "guardrail": "The real-world action 勉强求变 and antecedent rules remain required; this is not a chart-only observed event."
+    },
+    {
+      "source_rule_id": "CA05-469",
+      "source_span_id": "ZZ003-P144",
+      "projection_mode": "SCENE_TRANSLATION",
+      "output_kind": {
+        "value": "SCENE_OR_CONTEXT",
+        "status": "RESOLVED"
+      },
+      "event_specificity": {
+        "value": "SCENE_NOT_OBSERVED_EVENT",
+        "status": "RESOLVED"
+      },
+      "source_epistemic": {
+        "value": "EXPLICIT",
+        "status": "RESOLVED"
+      },
+      "normalization_epistemic_candidate": {
+        "value": "INFERRED",
+        "status": "PROPOSAL_ONLY"
+      },
+      "case_support_only": false,
+      "source_anchor": "若廉贞化忌，则宜从事与血液有关的事业。",
+      "guardrail": "Career scene only; never map to personal injury/illness or an observed event."
+    },
+    {
+      "source_rule_id": "M01-006",
+      "source_span_id": "ZZ003-P109",
+      "projection_mode": "FUNCTIONAL_PROJECTION",
+      "output_kind": {
+        "value": "DIRECTIONAL_AXIS",
+        "status": "RESOLVED"
+      },
+      "event_specificity": {
+        "value": null,
+        "status": "NOT_APPLICABLE"
+      },
+      "source_epistemic": {
+        "value": null,
+        "status": "MISSING"
+      },
+      "normalization_epistemic_candidate": {
+        "value": null,
+        "status": "MISSING"
+      },
+      "case_support_only": false,
+      "guardrail": "The accepted source readjudication JSON does not encode source_epistemic; do not infer EXPLICIT from DIRECT_SOURCE_RECHECK_CONFIRMED or source_span_verified."
+    },
+    {
+      "source_rule_id": "W01-002",
+      "source_span_id": "ZZ003-P69",
+      "projection_mode": "PALACE_SEMANTIC_BOUNDARY",
+      "output_kind": {
+        "value": "DOMAIN_SEMANTIC_BOUNDARY",
+        "status": "RESOLVED"
+      },
+      "event_specificity": {
+        "value": null,
+        "status": "NOT_APPLICABLE"
+      },
+      "source_epistemic": {
+        "value": null,
+        "status": "MISSING"
+      },
+      "normalization_epistemic_candidate": {
+        "value": null,
+        "status": "MISSING"
+      },
+      "case_support_only": false,
+      "guardrail": "The accepted CSV does not encode a separate source_epistemic value; a verified source span is not a substitute for that field."
+    },
+    {
+      "source_rule_id": "CA01-005",
+      "source_span_id": "ZZ003-P132",
+      "projection_mode": "CROSS_PALACE_CONSTRAINT",
+      "output_kind": {
+        "value": "CROSS_PALACE_CONSTRAINT",
+        "status": "RESOLVED"
+      },
+      "event_specificity": {
+        "value": null,
+        "status": "NOT_APPLICABLE"
+      },
+      "source_epistemic": {
+        "value": null,
+        "status": "MISSING"
+      },
+      "normalization_epistemic_candidate": {
+        "value": null,
+        "status": "MISSING"
+      },
+      "case_support_only": false,
+      "guardrail": "Constraint is not a manifestation node; source_epistemic is not encoded on the accepted CSV row."
+    },
+    {
+      "source_rule_id": "CA09-809",
+      "source_span_id": "ZZ003-P153",
+      "projection_mode": "EVENT_CANDIDATE",
+      "output_kind": {
+        "value": "EVENT_CANDIDATE",
+        "status": "RESOLVED"
+      },
+      "event_specificity": {
+        "value": "SPECIFIC_EVENT_CANDIDATE",
+        "status": "RESOLVED"
+      },
+      "source_epistemic": {
+        "value": null,
+        "status": "MISSING"
+      },
+      "normalization_epistemic_candidate": {
+        "value": null,
+        "status": "MISSING"
+      },
+      "case_support_only": true,
+      "excluded_from_canonical_root_evidence": true,
+      "guardrail": "Negative control only. A resolved candidate classification never overrides case_support_only or permits canonical promotion."
+    }
+  ],
+  "synthetic_controls": [
+    {
+      "control_type": "MISSING_PREREQUISITE",
+      "source_backed": false,
+      "input_record_ref": "CA01-045",
+      "expected": "BLOCK_CANONICALIZATION_AND_RUNTIME"
+    },
+    {
+      "control_type": "CONFLICTING_EVIDENCE",
+      "source_backed": false,
+      "input_record_ref": "CA01-035",
+      "expected": "PRESERVE_CONFLICT_NO_AUTOMATIC_CHOICE"
+    },
+    {
+      "control_type": "UNKNOWN",
+      "source_backed": false,
+      "input_record_ref": "CA01-035",
+      "expected": "UNKNOWN_NOT_NEGATIVE"
+    },
+    {
+      "control_type": "LIKELY_MISCLASSIFICATION",
+      "source_backed": false,
+      "input_record_ref": "CA05-469",
+      "proposed_invalid_mapping": "PERSONAL_INJURY_EVENT",
+      "expected": "BLOCK_SCENE_TO_EVENT_INFLATION"
+    },
+    {
+      "control_type": "CASE_ONLY_PROMOTION",
+      "source_backed": false,
+      "input_record_ref": "CA05-493",
+      "expected": "BLOCK_CASE_ONLY_CANONICAL_PROMOTION"
+    }
+  ],
+  "compatibility": {
+    "source_epistemic_enum_changes": [],
+    "normalization_epistemic_enum_changes": [],
+    "review_status_enum_changes": [],
+    "projection_mode_changes": [],
+    "product_code_changes": [],
+    "product_registry_changes": [],
+    "canonical_node_ids_assigned": false,
+    "production_schema_frozen": false,
+    "product_consumption_authorized": false,
+    "probability_status": "UNKNOWN",
+    "rollback": "Because this is a proposal-only artifact and does not alter canonical consumers, rollback is to remove/supersede the proposal artifact; no production migration is performed."
+  },
+  "required_pi_review": [
+    "Approve or revise the candidate output_kind vocabulary.",
+    "Approve or revise event_specificity candidate values and the NOT_APPLICABLE rule.",
+    "Decide whether metadata_axis_status should be a shared contract primitive or whether existing review/conflict structures are sufficient.",
+    "Confirm source_epistemic remains the existing v0.3 enum and is attached per source assertion/reference.",
+    "Approve missing/unknown/conflict handling, migration and rollback boundaries before schema freeze."
+  ],
+  "guardrails": {
+    "selected_architecture_option": "OPTION-C",
+    "direction_approved": true,
+    "proposal_only": true,
+    "canonical_root_selected": false,
+    "accepted_root_id": null,
+    "accepted_nodes": [],
+    "ontology_node_ids_assigned": false,
+    "production_ontology_registry_unchanged": true,
+    "production_mapping_registry_unchanged": true,
+    "product_consumption_authorized": false,
+    "runtime_eligible": false,
+    "probability_status": "UNKNOWN",
+    "empirical_validity_claim": false
+  }
+}
