@@ -1,4 +1,4 @@
-# P01 / WP05 — Source-first readjudication P01-501…600
+# P01 / WP05 — Source-first readjudication P01-501…P01-600
 
 ## Status
 - Issue: #678
@@ -8,8 +8,8 @@
 - Direct scan map: PDF physical p9 = printed pp17–18; physical p10 = printed pp19–20. Physical p11 begins printed p21 and the following section 13 七杀, which is the next checkpoint.
 
 ## Disposition
-- Historical candidates reviewed: **100** (`P06-501…600`).
-- Canonical IDs assigned after source recheck: `P01-501…600`.
+- Historical candidates reviewed: **100** (`P06-501…P06-600`).
+- Canonical IDs assigned after source recheck: `P01-501…P01-600`.
 - Candidate rows promoted: **100**; duplicates promoted twice: **0**.
 - Source omissions supplemented: **42** (`P01-SG-168…209`).
 - New canonical records in this checkpoint: **142**.
