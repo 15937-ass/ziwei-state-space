@@ -1,0 +1,124 @@
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+REPORT = ROOT / "knowledge/core/wp07b/TEMPORAL_REACTION_SOURCE_HANDOFF_v0.1.json"
+
+
+def data():
+    return json.loads(REPORT.read_text(encoding="utf-8"))
+
+
+def test_wp07b_source_census_and_source_record_join_are_exact():
+    d = data()
+    rows = d["candidate_dispositions"]
+    assert d["schema_version"] == "0.1"
+    assert d["source_basis"]["source_id"] == "SRC-ZZ-003"
+    assert len(rows) == 44
+    assert len({row["rule_id"] for row in rows}) == 44
+    assert d["counts"]["career"] == {
+        "candidates": 9,
+        "eligible_current_contract": 0,
+        "case_support_only": 1,
+        "blocked_reusable": 8,
+    }
+    assert d["counts"]["property"] == {
+        "candidates": 35,
+        "eligible_current_contract": 0,
+        "case_support_only": 16,
+        "blocked_reusable": 19,
+        "declared_year": 32,
+        "declared_decade": 3,
+    }
+    assert d["counts"]["total"] == {
+        "candidates": 44,
+        "eligible_current_contract": 0,
+        "case_support_only": 17,
+        "blocked_reusable": 27,
+    }
+    for row in rows:
+        span = row["source_span"]
+        assert span["source_id"] == "SRC-ZZ-003"
+        assert span["source_location"]
+        assert span["source_condition_anchor"]
+        assert span["source_span_verified"] is True
+        assert span["source_record_path"]
+        assert row["blocker_codes"]
+        assert row["current_contract_eligible"] is False
+        assert row["production_authorization"] == "NONE"
+
+
+def test_case_support_and_event_candidates_never_become_runtime_reactions():
+    d = data()
+    case_rows = [r for r in d["candidate_dispositions"] if r["case_support_only"]]
+    assert len(case_rows) == 17
+    assert all(not r["current_contract_eligible"] for r in case_rows)
+    assert all(r["normalization_status"] == "EXCLUDED_FROM_EXECUTABLE_NORMALIZATION" for r in case_rows)
+    assert all("WP07B-GAP-013-CASE-SUPPORT-EXCLUSION" in r["gap_ids"] for r in case_rows)
+
+
+def test_near_ready_rows_remain_blocked_for_source_fidelity_reasons():
+    by_id = {r["rule_id"]: r for r in data()["candidate_dispositions"]}
+
+    for rule_id in ("TP03-245", "TP03-246"):
+        row = by_id[rule_id]
+        assert row["eligibility_status"] == "BLOCKED_COMPILER_NATAL_ANTECEDENT"
+        assert "REQUIRED_NATAL_ANTECEDENT_ABSENT_IN_SOURCE" in row["blocker_codes"]
+        assert row["current_contract_eligible"] is False
+        assert "WP07B-GAP-010-PURE-TEMPORAL-TRIGGER" in row["gap_ids"]
+
+    for rule_id in ("TP04-307", "TP04-308"):
+        row = by_id[rule_id]
+        assert row["eligibility_status"] == "BLOCKED_TEMPORAL_STAR_TRANSFORMATION_BINDING"
+        assert "SCOPE_LEVEL_MUTAGEN_MUST_NOT_BE_JOINED_TO_STAR" in row["blocker_codes"]
+        assert row["current_contract_eligible"] is False
+        assert "WP07B-GAP-004-STAR-MUTAGEN-BINDING" in row["gap_ids"]
+
+    multi_year = by_id["CA09-851"]
+    assert multi_year["current_contract_eligible"] is False
+    assert "MULTIYEAR_SEQUENCE_NOT_SUPPORTED" in multi_year["blocker_codes"]
+    assert "DURATION_IS_EVIDENCE_NOT_THRESHOLD" in multi_year["blocker_codes"]
+    assert "WP07B-GAP-007-PERSISTENCE-AND-PATH" in multi_year["gap_ids"]
+
+
+def test_source_scope_and_uncertainty_are_preserved_not_silently_normalized():
+    by_id = {r["rule_id"]: r for r in data()["candidate_dispositions"]}
+    for rule_id in ("CA04-346", "CA04-350", "CA05-496"):
+        span = by_id[rule_id]["source_span"]
+        assert set(span["source_scope_layers"]) == {"DECADE", "YEAR"}
+        assert span["declared_time_layer"] == "DECADE"
+
+    tp044 = by_id["TP01-044"]["source_span"]
+    assert set(tp044["source_scope_layers"]) == {"DECADE", "YEAR"}
+    assert "SOURCE_TEXT_UNCERTAIN" in by_id["TP01-037"]["blocker_codes"]
+    assert "SOURCE_TEXT_UNCERTAIN_OR_OCR_UNCERTAIN" in by_id["TP01-037"]["uncertainty_flags"]
+
+
+def test_no_new_semantics_or_product_runtime_authorization_is_created():
+    d = data()
+    decision = d["decision"]
+    assert decision["executable_pilot_emitted"] is False
+    assert decision["production_temporal_reaction_registry_mutated"] is False
+    assert decision["product_knowledge_lock_mutated"] is False
+    assert decision["new_shared_semantics_created"] is False
+    assert decision["new_runtime_atom_created"] is False
+    assert decision["new_time_scale_created"] is False
+    assert decision["numeric_weight_added"] == 0
+    assert decision["probability_added"] == 0
+    assert decision["duration_threshold_added"] == 0
+    assert decision["source_truth_changed"] is False
+
+
+def test_gap_and_future_gate_ids_have_traceable_impacted_rule_ids():
+    d = data()
+    rule_ids = {r["rule_id"] for r in d["candidate_dispositions"]}
+    assert d["gap_register"]
+    for gap in d["gap_register"]:
+        assert gap["gap_id"].startswith("WP07B-GAP-")
+        assert gap["runtime_semantics_added"] is False
+        assert set(gap["impacted_rule_ids"]) <= rule_ids
+    for gate in d["human_gate_candidates"]:
+        assert gate["gate_candidate_id"].startswith("HG-WP07B-")
+        assert gate["status"] == "FUTURE_NOT_PENDING"
+        assert gate["no_decision_made"] is True
+        assert set(gate["impacted_rule_ids"]) <= rule_ids
