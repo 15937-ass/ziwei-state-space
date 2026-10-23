@@ -17,6 +17,29 @@
 - Source scope preserved where the source spans DECADE+YEAR or YEAR+小限.
 - JSON report parsed successfully and stable blocker/gate IDs were checked for candidate references.
 
+## Source scan audit
+
+The supplied source scan was visually reviewed at these PDF pages (1-based), with exact printed-page anchors and candidate source rows retained in the handoff JSON:
+
+| Printed page(s) | Scan PDF page(s) | Candidate span |
+|---|---:|---|
+| Career 140 | 70 | CA04-346 |
+| Career 141 | 71 | CA04-350 |
+| Career 145–146 | 73 | CA05-496/497; CA06-545 |
+| Career 147–148 | 74 | CA06-580/600 |
+| Career 154 | 77 | CA09-851 |
+| Career 155 | 78 | CA09-867 |
+| Property 156 | 78 | TP01-037 |
+| Property 157–158 | 79 | TP01-044/045/048/049/050/051/061/084 |
+| Property 159–160 | 80 | TP02-103/135/137/165/166/167/168 |
+| Property 161–162 | 81 | TP02-175/176/191; TP03-213/228/232/233/234 |
+| Property 163–164 | 82 | TP03-245/246/247/248/273; TP04-307/308/338 |
+| Property 165 | 83 | TP04-355/356/357 |
+
+## Current-adapter re-audit correction
+
+The old `STAR_MUTAGEN_BINDING_GAP` on CA04-350 is no longer a current blanket blocker: the PL3-T adapter now emits star-bound `TRANSFORMATION_PRESENT` when the PL1 temporal star object explicitly carries `mutagen`. CA04-350 remains blocked because the capital-shortage clause depends on the real-world commerce context classified as `CONTEXT_DEPENDENT_COMMERCE_GATE` in the WP07A Career natal audit, and because the source's DECADE/YEAR scope cannot be silently narrowed. This is now tracked as `WP07B-GAP-014-COMMERCE-CONTEXT`; GAP-004 remains attached only to rows still blocked by exact temporal star/palace binding.
+
 ## Files in this work unit
 
 - `knowledge/core/wp07b/TEMPORAL_REACTION_SOURCE_HANDOFF_v0.1.json`
