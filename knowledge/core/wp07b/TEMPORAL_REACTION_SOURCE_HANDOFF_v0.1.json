@@ -580,7 +580,13 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "Do not normalize until the antecedent and temporal activation semantics are separately resolved.",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_ANTECEDENT_AND_TEMPORAL_SCOPE",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ANTECEDENT",
+        "LAYER_SCOPE_MISMATCH",
+        "SHA_JI_ACTIVATION_NOT_EXPRESSIBLE"
+      ]
     },
     {
       "rule_id": "CA04-350",
@@ -690,7 +696,14 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "Keep as source-supported possibility evidence, not an executable trigger.",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_COMPOUND_TEMPORAL_CONDITION",
+      "original_blocker_codes": [
+        "LAYER_SCOPE_MISMATCH",
+        "AMBIGUOUS_FINANCIAL_STAR",
+        "COMPOUND_CONVERGENCE_NOT_EXPRESSIBLE",
+        "CASE_SUPPORT_ANTECEDENT"
+      ]
     },
     {
       "rule_id": "CA05-497",
@@ -737,7 +750,12 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "Exclude from executable normalization regardless of apparent condition specificity.",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY",
+        "EVENT_CANDIDATE_NOT_TEMPORAL_RULE"
+      ]
     },
     {
       "rule_id": "CA06-545",
@@ -788,7 +806,12 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "Do not upgrade the antecedent or split the scope without an audited source-normalization decision.",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_CASE_SUPPORT_ANTECEDENT",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ANTECEDENT",
+        "LAYER_SCOPE_MISMATCH"
+      ]
     },
     {
       "rule_id": "CA06-580",
@@ -839,7 +862,12 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "Do not invent a good/bad time score or infer favorability from an outcome.",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_UNDEFINED_FAVORABLE_PERIOD",
+      "original_blocker_codes": [
+        "LAYER_SCOPE_MISMATCH",
+        "FAVORABLE_PERIOD_UNDEFINED"
+      ]
     },
     {
       "rule_id": "CA06-600",
@@ -893,7 +921,13 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "Keep the natal projection separate from the unresolved timing condition.",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_UNSPECIFIED_TEMPORAL_SUPPORT",
+      "original_blocker_codes": [
+        "LAYER_SCOPE_MISMATCH",
+        "SUPPORTIVE_PERIOD_UNDEFINED",
+        "PRECEDING_CONTEXT_REFERENCE"
+      ]
     },
     {
       "rule_id": "CA09-851",
@@ -942,7 +976,13 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "No timer, persistence rule, or probability may be inferred in this work unit.",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_MULTIYEAR_SEQUENCE",
+      "original_blocker_codes": [
+        "MULTIYEAR_SEQUENCE_NOT_SUPPORTED",
+        "DURATION_IS_EVIDENCE_NOT_THRESHOLD",
+        "PATH_DEPENDENT_GATE"
+      ]
     },
     {
       "rule_id": "CA09-867",
@@ -992,7 +1032,12 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "Do not define the period by the same outcome being predicted.",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_UNDEFINED_UNFAVORABLE_PERIOD",
+      "original_blocker_codes": [
+        "UNFAVORABLE_PERIOD_UNDEFINED",
+        "PRECEDING_CONTEXT_REFERENCE"
+      ]
     },
     {
       "rule_id": "TP01-037",
@@ -1044,7 +1089,13 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "KEEP_SOURCE_EVIDENCE_FAIL_CLOSED",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_SOURCE_TEXT_AND_PARENT",
+      "original_blocker_codes": [
+        "SOURCE_TEXT_UNCERTAIN",
+        "PARENT_ANTECEDENT_REQUIRED",
+        "RELATION_SEMANTICS_UNDERSPECIFIED"
+      ]
     },
     {
       "rule_id": "TP01-044",
@@ -1095,7 +1146,13 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "DO_NOT_SPLIT_OR_INVENT_GEOMETRY",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_MULTI_LAYER_STRUCTURE",
+      "original_blocker_codes": [
+        "SOURCE_MULTI_LAYER_DECADE_YEAR",
+        "TEMPORAL_STAR_SYSTEM_GEOMETRY_UNDERSPECIFIED",
+        "SINGLE_REACTION_LAYER_CONTRACT"
+      ]
     },
     {
       "rule_id": "TP01-045",
@@ -1149,7 +1206,13 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "KEEP_AS_DEPENDENT_SOURCE_CONSTRAINT",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_PARENT_AND_GENERIC_ADVERSITY",
+      "original_blocker_codes": [
+        "PARENT_ANTECEDENT_REQUIRED",
+        "SOURCE_MULTI_LAYER_DECADE_YEAR",
+        "GENERIC_MALEFIC_SEVERITY_UNDEFINED"
+      ]
     },
     {
       "rule_id": "TP01-048",
@@ -1194,7 +1257,11 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
     },
     {
       "rule_id": "TP01-049",
@@ -1244,7 +1311,13 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "DO_NOT_DROP_BROAD_GROUP_REQUIREMENT",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_GENERIC_BENEFIC_GROUPS",
+      "original_blocker_codes": [
+        "GENERIC_BENEFIC_GROUP_UNDEFINED",
+        "GENERIC_BENEFIC_TRANSFORMATION_GROUP_UNDEFINED",
+        "COMPOUND_TEMPORAL_CONDITION_NOT_EXACT"
+      ]
     },
     {
       "rule_id": "TP01-050",
@@ -1294,7 +1367,12 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "FAIL_CLOSED",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_PARENT_AND_NEGATED_GROUP",
+      "original_blocker_codes": [
+        "PARENT_ANTECEDENT_REQUIRED",
+        "NEGATED_GENERIC_BENEFIC_GROUP_UNDEFINED"
+      ]
     },
     {
       "rule_id": "TP01-051",
@@ -1343,7 +1421,12 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "KEEP_CONTEXTUAL_ONLY",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_PARENT_AND_SERVICE_CONTEXT",
+      "original_blocker_codes": [
+        "PARENT_ANTECEDENT_REQUIRED",
+        "SERVICE_INSTITUTION_CONTEXT_NOT_TYPED_FACT"
+      ]
     },
     {
       "rule_id": "TP01-061",
@@ -1393,7 +1476,12 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "FAIL_CLOSED",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_NEGATED_MALEFIC_AND_BINDING",
+      "original_blocker_codes": [
+        "NEGATED_GENERIC_MALEFIC_GROUP_UNDEFINED",
+        "STAR_MUTAGEN_BINDING_REQUIRES_EXACT_RUNTIME_SHAPE"
+      ]
     },
     {
       "rule_id": "TP01-084",
@@ -1438,7 +1526,11 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
     },
     {
       "rule_id": "TP02-103",
@@ -1483,7 +1575,11 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
     },
     {
       "rule_id": "TP02-135",
@@ -1528,7 +1624,11 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
     },
     {
       "rule_id": "TP02-137",
@@ -1573,7 +1673,11 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
     },
     {
       "rule_id": "TP02-165",
@@ -1621,7 +1725,12 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "FAIL_CLOSED",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_GENERIC_ADVERSE_GROUP",
+      "original_blocker_codes": [
+        "GENERIC_MALEFIC_GROUP_UNDEFINED",
+        "GENERIC_HUAJI_OR_ADVERSE_GROUP_UNDEFINED"
+      ]
     },
     {
       "rule_id": "TP02-166",
@@ -1669,7 +1778,12 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "FAIL_CLOSED",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_GENERIC_BENEFIC_GROUPS",
+      "original_blocker_codes": [
+        "GENERIC_BENEFIC_GROUP_UNDEFINED",
+        "GENERIC_BENEFIC_TRANSFORMATION_GROUP_UNDEFINED"
+      ]
     },
     {
       "rule_id": "TP02-167",
@@ -1714,7 +1828,11 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
     },
     {
       "rule_id": "TP02-168",
@@ -1759,7 +1877,11 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
     },
     {
       "rule_id": "TP02-175",
@@ -1811,7 +1933,13 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "DO_NOT_ERASE_SMALL_LIMIT_OR_INVENT_GOOD_PERIOD_SCORE",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_CROSS_LAYER_FAVORABILITY",
+      "original_blocker_codes": [
+        "YEAR_SMALL_LIMIT_COMPOUND_SCOPE",
+        "FAVORABILITY_PREDICATE_UNDEFINED",
+        "MULTI_LAYER_CONJUNCTION_NOT_SINGLE_REACTION"
+      ]
     },
     {
       "rule_id": "TP02-176",
@@ -1857,7 +1985,11 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
     },
     {
       "rule_id": "TP02-191",
@@ -1902,7 +2034,11 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
     },
     {
       "rule_id": "TP03-213",
@@ -1947,7 +2083,11 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
     },
     {
       "rule_id": "TP03-228",
@@ -1992,7 +2132,11 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
     },
     {
       "rule_id": "TP03-232",
@@ -2037,7 +2181,11 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
     },
     {
       "rule_id": "TP03-233",
@@ -2086,7 +2234,12 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "FAIL_CLOSED",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_BRIGHTNESS_AND_MALEFIC_GROUP",
+      "original_blocker_codes": [
+        "BRIGHTNESS_NOT_TEMPORAL_CONDITION_FACT",
+        "GENERIC_MALEFIC_GROUP_UNDEFINED"
+      ]
     },
     {
       "rule_id": "TP03-234",
@@ -2135,7 +2288,12 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "FAIL_CLOSED",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_BRIGHTNESS_AND_NEGATED_MALEFIC",
+      "original_blocker_codes": [
+        "BRIGHTNESS_NOT_TEMPORAL_CONDITION_FACT",
+        "NEGATED_GENERIC_MALEFIC_GROUP_UNDEFINED"
+      ]
     },
     {
       "rule_id": "TP03-245",
@@ -2180,7 +2338,11 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "NEAR_READY_TEMPORAL_ONLY_DO_NOT_INVENT_NATAL_GATE",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_COMPILER_NATAL_ANTECEDENT",
+      "original_blocker_codes": [
+        "REQUIRED_NATAL_ANTECEDENT_ABSENT_IN_SOURCE"
+      ]
     },
     {
       "rule_id": "TP03-246",
@@ -2225,7 +2387,11 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "NEAR_READY_TEMPORAL_ONLY_DO_NOT_INVENT_NATAL_GATE",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_COMPILER_NATAL_ANTECEDENT",
+      "original_blocker_codes": [
+        "REQUIRED_NATAL_ANTECEDENT_ABSENT_IN_SOURCE"
+      ]
     },
     {
       "rule_id": "TP03-247",
@@ -2270,7 +2436,11 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
     },
     {
       "rule_id": "TP03-248",
@@ -2323,7 +2493,13 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "KEEP_PATH_EVIDENCE_FAIL_CLOSED",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_PATH_AND_CASE_PARENT",
+      "original_blocker_codes": [
+        "PATH_DEPENDENT_GATE",
+        "PARENT_CASE_SUPPORT_ONLY",
+        "GENERIC_BENEFIC_GROUP_UNDEFINED"
+      ]
     },
     {
       "rule_id": "TP03-273",
@@ -2369,7 +2545,11 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
     },
     {
       "rule_id": "TP04-307",
@@ -2420,6 +2600,13 @@
       "decision": "NEAR_READY_NATAL_CONTEXT_ONLY_FAIL_CLOSED",
       "source_status_codes": [
         "SOURCE_NATAL_CONTEXT_READY"
+      ],
+      "original_eligibility_status": "BLOCKED_TEMPORAL_STAR_TRANSFORMATION_BINDING",
+      "original_blocker_codes": [
+        "SOURCE_NATAL_CONTEXT_READY",
+        "STAR_MUTAGEN_BINDING_RUNTIME_REQUIRES_PALACE_NAME",
+        "SOURCE_DOES_NOT_SPECIFY_TEMPORAL_PALACE_NAME",
+        "SCOPE_LEVEL_MUTAGEN_MUST_NOT_BE_JOINED_TO_STAR"
       ]
     },
     {
@@ -2473,6 +2660,14 @@
       "decision": "NEAR_READY_NATAL_CONTEXT_ONLY_FAIL_CLOSED",
       "source_status_codes": [
         "SOURCE_NATAL_CONTEXT_READY"
+      ],
+      "original_eligibility_status": "BLOCKED_TEMPORAL_STAR_TRANSFORMATION_BINDING",
+      "original_blocker_codes": [
+        "SOURCE_NATAL_CONTEXT_READY",
+        "YEAR_SCOPE_INHERITED_FROM_PRECEDING_SENTENCE",
+        "STAR_MUTAGEN_BINDING_RUNTIME_REQUIRES_PALACE_NAME",
+        "SOURCE_DOES_NOT_SPECIFY_TEMPORAL_PALACE_NAME",
+        "SCOPE_LEVEL_MUTAGEN_MUST_NOT_BE_JOINED_TO_STAR"
       ]
     },
     {
@@ -2521,7 +2716,11 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
     },
     {
       "rule_id": "TP04-355",
@@ -2570,7 +2769,12 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "FAIL_CLOSED",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_BRIGHTNESS_AND_BENEFIC_GROUP",
+      "original_blocker_codes": [
+        "BRIGHTNESS_NOT_TEMPORAL_CONDITION_FACT",
+        "GENERIC_BENEFIC_GROUP_UNDEFINED"
+      ]
     },
     {
       "rule_id": "TP04-356",
@@ -2619,7 +2823,12 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "FAIL_CLOSED",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_BRIGHTNESS_AND_MALEFIC_GROUP",
+      "original_blocker_codes": [
+        "BRIGHTNESS_NOT_TEMPORAL_CONDITION_FACT",
+        "GENERIC_MALEFIC_GROUP_UNDEFINED"
+      ]
     },
     {
       "rule_id": "TP04-357",
@@ -2667,7 +2876,11 @@
       "current_contract_eligible": false,
       "production_authorization": "NONE",
       "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
-      "source_status_codes": []
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
     }
   ],
   "decision": {
