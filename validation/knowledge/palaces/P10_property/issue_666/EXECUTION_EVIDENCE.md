@@ -47,3 +47,14 @@ Record the resulting GitHub Actions run IDs and outcomes here after the first ex
 - The only failure was an overly strict test expectation for TP02-126. The source mapping correctly uses `MAPPED_GEOMETRY_WITH_EXPLICIT_UNRESOLVED_STATE_DEPENDENCY`, preserving the unresolved Tianfu treasury-state dependency; the test had incorrectly required `MAPPED_EXISTING_ATOMS` for every row.
 - The regression now requires that explicit unresolved status for TP02-126 and `MAPPED_EXISTING_ATOMS` for the other twelve rows. No canonical mapping/source data or Product runtime was changed.
 - The updated head must pass a fresh full repository quality gate, including pytest, Product JS adapter checks, deterministic P0 audit, and Repository Governance v1, before merge.
+
+## Exact-head validation results
+
+- Repository quality gate run #2275: **PASS** — https://github.com/15937-ass/ziwei-state-space/actions/runs/39879627186
+- Validated PR head: `ee2053045ff336452d8b66ccddd79954ab81bd91`; base main checkpoint: `6523a0a07051ebe8416dd6d074bf4c6e157aa217`.
+- Full pytest: **2,527 passed** in 340.15 seconds.
+- Product JS adapter syntax check: **PASS**.
+- Deterministic P0 repository audit: **PASS**.
+- Repository Governance v1 / Knowledge shard write-isolation validation: **PASS**.
+- The prior run #2273 failure was limited to an overstrict test expectation for TP02-126; the test now asserts its explicit unresolved-state mapping status while preserving the non-executable boundary.
+- This record update requires a fresh exact-head gate before merge; the final PR head must pass with this evidence included.
