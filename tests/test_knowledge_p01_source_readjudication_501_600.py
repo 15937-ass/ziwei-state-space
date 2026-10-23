@@ -71,7 +71,7 @@ def test_p06_time_scope_preserves_generic_and_multilayer_words():
 def test_p06_gap_supplement_time_scope_and_cumulative_state():
     data = read_json("LIFE_P06_SOURCE_GAP_TIME_SCOPE_PP17_20_v0.1.json")
     rows = {r["projection_rule_id"]: r for r in data["records"]}
-    assert len(rows) == 41
+    assert len(rows) == 42
     assert rows["P01-SG-173"]["source_time_layers"] == ["DECADE", "YEAR"]
     assert rows["P01-SG-177"]["source_time_layers"] == ["DECADE", "YEAR"]
     assert rows["P01-SG-187"]["source_time_layers"] == ["DECADE", "YEAR"]
@@ -80,10 +80,10 @@ def test_p06_gap_supplement_time_scope_and_cumulative_state():
     assert rows["P01-SG-209"]["source_time_layers"] == ["YEAR"]
     assert rows["P01-SG-209"]["scope_status"] == "SOURCE_EXPLICIT_YEAR_OR_SMALL_LIMIT_UNMAPPED"
     summary = read_json("LIFE_P06_SOURCE_READJUDICATION_SUMMARY_v0.1.json")["summary"]
-    assert (summary["historical_candidates_reviewed"], summary["canonical_promoted"], summary["new_source_gap_supplement_records"]) == (100, 100, 41)
+    assert (summary["historical_candidates_reviewed"], summary["canonical_promoted"], summary["new_source_gap_supplement_records"]) == (100, 100, 42)
     assert (summary["new_canonical_records"], summary["reusable_projection_rules"], summary["case_support_only"]) == (142, 126, 16)
     assert (summary["cumulative_canonical_records_after_merge"], summary["cumulative_reusable_projection_rules_after_merge"], summary["cumulative_case_support_only_after_merge"]) == (789, 656, 133)
     assert summary["new_primitive_qi"] == summary["new_memory_type"] == summary["new_independent_time_scale"] == 0
     assert summary["numeric_weight"] == summary["probability"] == summary["decay"] == 0
-    assert 'canonical_source_records_on_main: 788' in STATE.read_text(encoding="utf-8")
+    assert 'canonical_source_records_on_main: 789' in STATE.read_text(encoding="utf-8")
     assert "No Product/runtime authorization is implied" in STATE.read_text(encoding="utf-8")
