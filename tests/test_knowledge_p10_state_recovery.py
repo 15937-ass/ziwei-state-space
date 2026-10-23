@@ -64,6 +64,16 @@ def test_p10_state_cache_matches_merged_acceptance_checkpoint():
     assert 'cache_semantics: "MUTABLE_RECOVERY_POINTER"' in state
     assert "unresolved Tianfu treasury-state dependency is not inferred" in state
     assert "no Product runtime authorization" in state
+    assert 'same_palace_compound_star_mapping:' in state
+    assert (
+        'artifact: "knowledge/palaces/P10_property/wp07a/PROPERTY_SAME_PALACE_COMPOUND_STAR_MAP_01_v0.1.json"'
+    ) in state
+    assert 'audit_id: "KB-WP07A-PROPERTY-SAME-PALACE-COMPOUND-STAR-MAP-01"' in state
+    assert 'status: "MAPPING_COMPLETE_13_OF_13_NOT_PRODUCTION"' in state
+    assert all(rule_id in state for rule_id in EXPECTED_COMPOUND_IDS)
+    assert 'execution_readiness: "STATIC_CANDIDATE_NON_EXECUTABLE"' in state
+    assert "executable_registry_entry: false" in state
+    assert 'unresolved_tianfu_treasury_state: "UNRESOLVED_NOT_INFERRED"' in state
 
 
 def test_p10_same_palace_compound_map_has_exact_13_source_verified_rows():
@@ -73,6 +83,10 @@ def test_p10_same_palace_compound_map_has_exact_13_source_verified_rows():
     assert [row["source_rule_id"] for row in mapping["mappings"]] == EXPECTED_COMPOUND_IDS
     assert len(mapping["mappings"]) == 13
     assert "not executable rules" in mapping["scope"]["mapping_boundary"]
+    assert mapping["validation"]["mapped_rows"] == 13
+    assert mapping["validation"]["executable_rule_created"] is False
+    assert mapping["validation"]["production_registry_modified"] is False
+    assert mapping["validation"]["tianfu_state_not_inferred"] is True
 
     for row in mapping["mappings"]:
         provenance = row["source_provenance"]
