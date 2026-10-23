@@ -19,6 +19,16 @@ FORBIDDEN_NUMERIC_SEMANTICS = {
 }
 
 
+def _all_keys(value):
+    if isinstance(value, dict):
+        for key, nested in value.items():
+            yield key.lower()
+            yield from _all_keys(nested)
+    elif isinstance(value, list):
+        for nested in value:
+            yield from _all_keys(nested)
+
+
 def _csv_rows(path):
     with path.open(encoding="utf-8", newline="") as handle:
         return {row["projection_rule_id"]: row for row in csv.DictReader(handle)}
@@ -36,6 +46,11 @@ def test_wp06c_p09_candidate_index_is_fail_closed_and_source_linked():
     assert payload["invariants"]["executable"] is False
     assert payload["invariants"]["product_consumable"] is False
     assert payload["invariants"]["probability_status"] == "UNKNOWN"
+    assert set(payload["evidence_tier_vocabulary"]) == ALLOWED_EVIDENCE_TIERS
+    assert payload["source_scan_review"]["attachment_sha256"] == payload["source_attachment_sha256"]
+    assert payload["source_scan_review"]["verification_method"] == "DIRECT_PDF_VISUAL_REVIEW"
+    assert payload["source_scan_review"]["verified_pdf_pages"] == [67, 72]
+    assert payload["source_scope"]["pdf_pages"] == [67, 72]
 
     candidates = payload["candidates"]
     assert len(candidates) == 3
@@ -70,7 +85,7 @@ def test_wp06c_p09_candidate_index_is_fail_closed_and_source_linked():
         assert item["evidence_refs"]
 
         # Probability/frequency/weight semantics are not permitted in candidate content.
-        lowered = {key.lower() for key in item}
+        lowered = set(_all_keys(item))
         assert not (lowered & FORBIDDEN_NUMERIC_SEMANTICS)
 
     context = json.loads(CONTEXT_MAP.read_text(encoding="utf-8"))
@@ -79,6 +94,7 @@ def test_wp06c_p09_candidate_index_is_fail_closed_and_source_linked():
     source_035 = context_by_id["CA01-035"]
     assert ca01_035["source_anchor_phrase"] in source_035["source_anchor_phrase"]
     assert ca01_035["condition_status"] == "BLOCKED_SHORTHAND_QUANTIFIER_UNRESOLVED"
+    assert "经历艰苦而始能底定事业" in ca01_035["source_anchor_phrase"]
     assert source_035["source_context"]["resolution_status"] == "INSUFFICIENT_SOURCE_IN_REVIEWED_PASSAGE"
     fire_bell = json.loads(FIRE_BELL_EVIDENCE.read_text(encoding="utf-8"))
     assert any(
@@ -95,11 +111,15 @@ def test_wp06c_p09_candidate_index_is_fail_closed_and_source_linked():
         "EXPLICIT_IN_SOURCE_BUT_NOT_REPRESENTED_BY_APPROVED_CHART_FACTS"
     )
     assert ca01_045["condition_status"] == "BLOCKED_NON_CHART_ACTION_PREREQUISITE"
+    assert "勉强求变，结果反而陷入困境" in ca01_045["source_anchor_phrase"]
 
     ca05_469 = next(item for item in candidates if item["source_rule_id"] == "CA05-469")
     audit = DIRECT_TRANSFORM_AUDIT.read_text(encoding="utf-8")
     assert "CA05-469" in audit
     assert "不是疾病或伤害预测" in audit
+    assert ca05_469["source"]["pdf_page"] == 72
+    assert "与血液有关的事业" in ca05_469["source_anchor_phrase"]
+    assert "血腥屠宰" in ca05_469["source_anchor_phrase"]
     assert ca05_469["candidate_scope"] == "CAREER_SCENE_NOT_OBSERVED_EVENT"
     assert ca05_469["mapping_status"] == "EXCLUDED_FROM_EVENT_MAPPING"
     assert ca05_469["ontology_node_id"] is None
