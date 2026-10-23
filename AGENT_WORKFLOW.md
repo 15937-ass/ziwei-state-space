@@ -151,9 +151,11 @@ Knowledge palace branches are write-isolated by `governance/KNOWLEDGE_SHARDS.jso
 Scope creep becomes a new Issue/Proposal.
 Stacked PRs are exceptional and limited to two levels.
 
-## 13. Mandatory PI-facing Chinese progress report
+## 13. Mandatory PI-facing Chinese progress and cross-lane closeout report
 
 The PI-facing report is domain- and project-oriented, not Git-oriented. The PI is expected to judge Ziwei theory, research boundaries, interpretation quality, and major product direction; routine Git mechanics should be hidden unless they block progress or create risk.
+
+At the end of **every repository-work conversation** (including read-only review, completed implementation, validation, or a blocked/paused work unit), perform a lightweight **read-only** live Issue/PR census for the current palace worker, Knowledge Core, and Product. Check accepted `main` where a delivery claim depends on it. Report all three in Chinese even though this turn executes in exactly one lane. Do not open an Issue, change another lane, rerun its tests, or consume an unmerged artifact merely to prepare the report. Live Issue/PR and accepted `main` outrank a stale state cache; if a live check fails, mark that lane **未核实** with the reason and do not recommend a dependent activation as if it were verified.
 
 Default report order:
 
@@ -162,12 +164,17 @@ Default report order:
 - Explain how the current work fits into the full path: knowledge construction -> faithful inference -> empirical validation -> personalization/productization.
 - State what has already become stable and what is still only preparatory.
 
+【宫位、Knowledge Core、Product 当前状态】
+- For each of the three, name the live bounded Issue/PR or say there is no verified ACTIVE unit; distinguish ACTIVE, waiting, ready, and accepted-on-main outcomes. For the palace line, name the currently admitted palace and respect the PI's one-palace-at-a-time schedule.
+- In one short line per work stream, state what it can independently continue, what exact input/gate blocks its next step, and whether PI judgment is pending. A candidate ledger or green unmerged PR is not an accepted Product input.
+
 【这一步刚刚完成了什么】
 - Explain the substantive result, not commit/branch details.
 - Distinguish clearly between "framework/interface ready", "knowledge/content ready", "internally validated", and "empirically validated".
 
 【下一步准备做什么】
-- Name the next 1–2 substantive tasks and why they are next.
+- Give adaptive advice: continue the selected work when runnable, switch attention to a different independently runnable work stream when blocked, and name at most **one** next integration candidate with its remaining exact-main gate. Do not call it merge-ready before validation. Independent preparation may overlap; canonical merges remain serial.
+- Name the next 1–2 substantive tasks and why they are next, without restarting an existing work unit or exceeding its lane/shard WIP limit.
 - Do not present a long technical backlog unless requested.
 
 【现在需要 PI 帮助什么】
@@ -181,6 +188,7 @@ Default report order:
 - Omit routine technical noise.
 
 Technical appendix is optional and normally omitted. Include GitHub Issue/PR/CI identifiers only when:
+- they are the compact live work-unit references needed for the mandatory three-stream snapshot;
 - a technical failure blocks progress;
 - the PI explicitly asks;
 - a Human Gate/audit needs a durable reference;
