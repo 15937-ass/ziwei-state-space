@@ -301,7 +301,7 @@
         "与路线图示意的 latent activation -> manifestation family -> channel -> observable event label 对齐"
       ],
       "risks": [
-        "当前样本包含过程、现实行动条件、职业场景、心理状态、迁移轴、关系状态及仅案例支持的具体事件；一个语义根可能把不同本体类型误当作同一层级。",
+        "当前 accepted evidence cohort 包含过程、现实行动条件、资源条件、迁移轴、职业场景、跨宫约束及仅案例支持的具体事件候选；一个语义根可能把不同本体类型误当作同一层级。",
         "通用根不是上述 canonical rows 中任何一个来源明示的概念，不能由 schema 便利性证明其传统语义。"
       ],
       "required_evidence_before_acceptance": [
@@ -340,8 +340,8 @@
       "status": "REQUIRES_HUMAN_GATE",
       "proposal": "保留来源本位根森林，并将 output_kind / event_specificity / source_epistemic 作为彼此独立的元数据轴；不把 projection_mode 直接当作 ontology hierarchy。",
       "benefits": [
-        "能区分状态、关系、过程、职业场景和具体事件候选",
-        "避免将 EVENT_CANDIDATE 与 FUNCTIONAL_PROJECTION、STATE_EXPRESSION 或 SCENE_TRANSLATION 强行串成父子层级",
+        "能区分资源条件、迁移轴、过程、职业场景、跨宫约束和具体事件候选",
+        "避免将 EVENT_CANDIDATE 与 FUNCTIONAL_PROJECTION、PALACE_SEMANTIC_BOUNDARY、CROSS_PALACE_CONSTRAINT 或 SCENE_TRANSLATION 强行串成父子层级",
         "与 fail-closed 及 probability_status=UNKNOWN 边界相容"
       ],
       "risks": [
@@ -359,7 +359,7 @@
   "preliminary_review_recommendation": {
     "option_id": "OPTION-C",
     "status": "RECOMMENDATION_FOR_PI_REVIEW_ONLY_NOT_SELECTED",
-    "rationale": "现有 accepted rows 的输出类型明显异质；先保留来源本位根并将输出类型、事件具体度和证据等级分开，较不容易把过程／状态／场景误当作具体事件。该建议不是 Human Gate 决定，也不创建任何 canonical node。"
+    "rationale": "当前 accepted evidence cohort 的输出类型明显异质；先保留来源本位根并将输出类型、事件具体度和证据等级分开，较不容易把过程／资源条件／场景／跨宫约束误当作具体事件。该建议不是 Human Gate 决定，也不创建任何 canonical node。"
   },
   "design_invariants": [
     "projection_mode describes the rule's projection behavior; it is not automatically an ontology abstraction level.",
