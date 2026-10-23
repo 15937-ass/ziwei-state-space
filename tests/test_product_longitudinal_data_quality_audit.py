@@ -178,15 +178,26 @@ def test_duplicate_plan_target_checkpoint_responses_are_not_auto_selected():
 
 
 def test_unmatched_plan_target_and_checkpoint_references_are_reported():
-    response = _response(
-        "NO-SUCH-PLAN", "NO-SUCH-TARGET", "NO-SUCH-CHECKPOINT",
-        "NO", "2027-07-02"
-    )
+    plan = _plans()[0]
+    responses = [
+        _response(
+            "NO-SUCH-PLAN", "T-CAR-CHANGE", "CLOSE", "NO", "2027-07-02"
+        ),
+        _response(
+            plan["plan_id"], "NO-SUCH-TARGET", "CLOSE", "NO", "2027-07-02"
+        ),
+        _response(
+            plan["plan_id"], "T-CAR-CHANGE", "NO-SUCH-CHECKPOINT",
+            "NO", "2027-07-02"
+        ),
+    ]
     report = audit_longitudinal_data_quality(
-        plans=[_plans()[0]], checkin_responses=[response]
+        plans=[plan], checkin_responses=responses
     )
     codes = _codes(report)
     assert "UNMATCHED_PLAN_REFERENCE" in codes
+    assert "UNMATCHED_TARGET_REFERENCE" in codes
+    assert "UNMATCHED_CHECKPOINT_REFERENCE" in codes
     assert "FOLLOW_UP_MISSING" in codes
 
 
@@ -260,3 +271,52 @@ def test_target_definition_drift_is_reported():
     second["target"]["event_type"] = "different_event_type"
     report = audit_longitudinal_data_quality(observations=[first, second])
     assert "TARGET_DEFINITION_DRIFT" in _codes(report)
+
+
+def test_invalid_collection_type_is_review_required_not_no_data():
+    report = audit_longitudinal_data_quality(observations="not-an-array")
+    assert report["status"] == "REVIEW_REQUIRED"
+    assert "INVALID_INPUT_COLLECTION" in _codes(report)
+
+
+def test_duplicate_plan_id_is_ambiguous_for_response_join():
+    plan = _plans()[0]
+    response = _response(
+        plan["plan_id"], "T-CAR-CHANGE", "CLOSE", "NO", "2028-01-02"
+    )
+    report = audit_longitudinal_data_quality(
+        plans=[plan, copy.deepcopy(plan)],
+        checkin_responses=[response],
+    )
+    assert "DUPLICATE_PLAN_ID" in _codes(report)
+    assert "AMBIGUOUS_PLAN_REFERENCE" in _codes(report)
+    assert report["counts"]["complete_window_close_responses"] == 0
+
+
+def test_response_record_id_collision_is_reported():
+    plan = _plans()[1]
+    first = _response(
+        plan["plan_id"], "T-WEA-CHANGE", "CLOSE", "NO", "2027-07-02"
+    )
+    second = _response(
+        plan["plan_id"], "T-WEA-CHANGE", "CLOSE", "YES", "2027-07-02",
+        event_time_report={"precision": "DAY", "value": "2027-05-12"},
+    )
+    second["record_id"] = first["record_id"]
+    report = audit_longitudinal_data_quality(
+        plans=[plan], checkin_responses=[first, second]
+    )
+    assert "RESPONSE_RECORD_ID_COLLISION" in _codes(report)
+    assert "DUPLICATE_PLAN_TARGET_CHECKPOINT_RESPONSE" in _codes(report)
+
+
+def test_invalid_response_schema_version_is_reported():
+    plan = _plans()[1]
+    response = _response(
+        plan["plan_id"], "T-WEA-CHANGE", "CLOSE", "NO", "2027-07-02"
+    )
+    response["schema_version"] = "9"
+    report = audit_longitudinal_data_quality(
+        plans=[plan], checkin_responses=[response]
+    )
+    assert "INVALID_RESPONSE_SCHEMA_VERSION" in _codes(report)

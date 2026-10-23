@@ -44,18 +44,6 @@ def _overlaps(left_start: date, left_end: date, right_start: date, right_end: da
     return max(left_start, right_start) <= min(left_end, right_end)
 
 
-def _definition(payload: Mapping[str, Any]) -> tuple[str, str, str, str]:
-    target = payload.get("target")
-    if not isinstance(target, Mapping):
-        return ("", "", "", "")
-    return (
-        _text(target.get("domain")),
-        _text(target.get("manifestation_family")),
-        _text(target.get("event_type")),
-        _text(target.get("ontology_version")),
-    )
-
-
 def _finding_sort_key(item: Mapping[str, Any]) -> tuple[Any, ...]:
     severity_order = {"ERROR": 0, "WARNING": 1, "INFO": 2}
     return (
@@ -158,7 +146,7 @@ def audit_longitudinal_data_quality(
             )
         return grouped
 
-    observation_id_groups = duplicate_ids(
+    duplicate_ids(
         observation_rows,
         "record_id",
         "observation",
@@ -172,7 +160,7 @@ def audit_longitudinal_data_quality(
         "DUPLICATE_PLAN_ID",
         "PLAN_ID_COLLISION",
     )
-    response_id_groups = duplicate_ids(
+    duplicate_ids(
         response_rows,
         "record_id",
         "checkin_response",
@@ -398,10 +386,37 @@ def audit_longitudinal_data_quality(
 
     for index, payload in enumerate(response_rows):
         response_id = _text(payload.get("record_id")) or f"row:{index}"
+        response_schema_version = _text(payload.get("schema_version"))
         plan_id = _text(payload.get("plan_id"))
         target_id = _text(payload.get("target_id"))
         checkpoint_id = _text(payload.get("checkpoint_id"))
         key = (plan_id, target_id, checkpoint_id)
+        missing_identifier_fields = [
+            field
+            for field, value in (
+                ("record_id", payload.get("record_id")),
+                ("plan_id", payload.get("plan_id")),
+                ("target_id", payload.get("target_id")),
+                ("checkpoint_id", payload.get("checkpoint_id")),
+            )
+            if not _text(value)
+        ]
+        if missing_identifier_fields:
+            emit(
+                "MISSING_RESPONSE_IDENTIFIER_FIELDS",
+                "ERROR",
+                "checkin_response",
+                [response_id],
+                {"fields": missing_identifier_fields},
+            )
+        if response_schema_version not in {"0.1", "0.2"}:
+            emit(
+                "INVALID_RESPONSE_SCHEMA_VERSION",
+                "ERROR",
+                "checkin_response",
+                [response_id],
+                {"schema_version": response_schema_version or None},
+            )
         answer = _text(payload.get("answer"))
         response_date = _parse_date(payload.get("response_date"))
         refs_valid = True
@@ -589,10 +604,10 @@ def audit_longitudinal_data_quality(
         severity: sum(1 for item in findings if item["severity"] == severity)
         for severity in ("ERROR", "WARNING", "INFO")
     }
-    if total_supplied == 0:
-        status = "NO_DATA"
-    elif severity_counts["ERROR"] or severity_counts["WARNING"]:
+    if severity_counts["ERROR"] or severity_counts["WARNING"]:
         status = "REVIEW_REQUIRED"
+    elif total_supplied == 0:
+        status = "NO_DATA"
     else:
         status = "PASS"
 
