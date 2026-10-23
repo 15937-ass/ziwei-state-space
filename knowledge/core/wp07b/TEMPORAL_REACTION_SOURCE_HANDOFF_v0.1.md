@@ -11,6 +11,25 @@ This report re-joins every WP07B candidate to its canonical WP05 projection reco
 
 Snapshot main commit: `45d308c95437062110c013f086f48e368f42eaaf`
 
+## Source scan page review
+
+The supplied source scan was visually checked against the canonical printed-page anchors. The PDF-page locator is supplementary; source identity remains `SRC-ZZ-003` + printed page + canonical WP05 source-record path.
+
+| Printed page(s) | Scan PDF page(s), 1-based | Candidate span |
+|---|---:|---|
+| Career 140 | 70 | CA04-346 |
+| Career 141 | 71 | CA04-350 |
+| Career 145–146 | 73 | CA05-496/497; CA06-545 |
+| Career 147–148 | 74 | CA06-580/600 |
+| Career 154 | 77 | CA09-851 |
+| Career 155 | 78 | CA09-867 |
+| Property 156 | 78 | TP01-037 |
+| Property 157–158 | 79 | TP01-044/045/048/049/050/051/061/084 |
+| Property 159–160 | 80 | TP02-103/135/137/165/166/167/168 |
+| Property 161–162 | 81 | TP02-175/176/191; TP03-213/228/232/233/234 |
+| Property 163–164 | 82 | TP03-245/246/247/248/273; TP04-307/308/338 |
+| Property 165 | 83 | TP04-355/356/357 |
+
 The product compiler contract was read-only. No Product files, executable registries, or active Product Knowledge lock were changed.
 
 ## Result
@@ -27,7 +46,7 @@ The zero is a valid result under the current contract. It is not a claim that th
 
 1. **Antecedents are not automatically executable.** `CA04-346`, `CA05-496`, and `CA06-545` reference case-support or compound context; dependent Property rows such as `TP01-037`, `TP01-045`, `TP01-050`, `TP01-051`, and `TP03-248` cannot be flattened into standalone triggers.
 2. **Source scope must not be narrowed silently.** Career rows including `CA04-346`, `CA04-350`, and `CA05-496` name major/annual periods while the current row declares one layer. Property rows `TP01-044/045` and `TP03-273` retain explicit 大限+流年 scope; `TP02-175/176` preserves YEAR+小限 context.
-3. **Exact star-to-mutagen binding is mandatory.** `CA04-350` cannot be compiled from independent star and transformation facts. `TP04-307/308` preserve a source-supported natal Tianliang–Tianji context, but the source does not specify the temporal palace needed by the current palace-bound fact shape.
+3. **Re-audit the current adapter, not an obsolete blocker snapshot.** The current adapter can emit a star-bound `TRANSFORMATION_PRESENT` when the PL1 temporal star object itself carries `mutagen`; therefore the old `STAR_MUTAGEN_BINDING_GAP` is no longer a current blanket blocker for `CA04-350`. That row remains blocked by the real-world commerce context required by its capital-shortage interpretation and by its explicit DECADE/YEAR scope. `TP04-307/308` remain blocked because the source does not specify the temporal palace needed by the current palace-bound fact shape; `TP01-061` also retains the exact-binding and undefined-negative-group blockers.
 4. **The closest annual candidates still fail a hard requirement.** `TP03-245/246` have representable annual Property-palace Tanlang transformation conditions, but the source clause supplies no independent natal antecedent. Adding `PALACE_PRESENT(P10)` only to satisfy software would fabricate a gate.
 5. **Generic groups and negation remain undefined.** `吉曜`, `煞曜`, `吉化`, `煞忌`, `不见吉曜`, and `不见煞` must not be reduced to untyped or closed-world predicates.
 6. **Duration remains source evidence, not a timer.** `CA09-851` preserves the source's three-or-four-consecutive-good-years wording. It does not authorize a universal duration threshold, persistence rule, clock, or hazard rate.
@@ -35,7 +54,7 @@ The zero is a valid result under the current contract. It is not a claim that th
 
 ## Stable blocker index
 
-The JSON artifact carries stable `WP07B-GAP-*` IDs and exact impacted rule IDs for antecedent chains, source time-scope mismatch, activation geometry, star-mutagen binding, compound conditions, undefined generic groups/favorability, multi-year persistence/path dependence, source-text uncertainty, brightness facts, pure temporal triggers without a natal antecedent, negation, service-institution context, and case-support exclusion.
+The JSON artifact carries stable `WP07B-GAP-*` IDs and exact impacted rule IDs for antecedent chains, source time-scope mismatch, activation geometry, star-mutagen binding, compound conditions, undefined generic groups/favorability, multi-year persistence/path dependence, source-text uncertainty, brightness facts, pure temporal triggers without a natal antecedent, negation, service-institution context, case-support exclusion, and the newly isolated real-world commerce-context gate (`WP07B-GAP-014-COMMERCE-CONTEXT`). The star-mutagen gap (`WP07B-GAP-004`) now points only to rows still blocked by exact temporal palace/star binding, not CA04-350.
 
 The `HG-WP07B-*` records are **future gate candidates only** (`FUTURE_NOT_PENDING`). This review opened no new semantic family and makes no human-gate decision. If later work proposes a new shared activation predicate, generic favorability/group predicate, cross-layer reaction, brightness fact, closed-world negation, or persistence clock, stop and obtain the required R3 Human Gate before implementation.
 
