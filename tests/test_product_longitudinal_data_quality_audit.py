@@ -156,12 +156,13 @@ def test_overlapping_windows_do_not_conflict_when_event_is_after_negative_window
     assert "OVERLAPPING_WINDOW_EVENT_TIME_AMBIGUITY" not in codes
 
 
-def test_event_after_observed_through_does_not_conflict_with_early_negative():
+def test_event_after_censoring_cutoff_does_not_conflict_with_censored_record():
     occurred = _observations()[0]
     negative = copy.deepcopy(occurred)
-    negative["record_id"] = "LO-NEGATIVE-EARLY-001"
-    negative["outcome"]["status"] = "EVENT_NOT_OCCURRED"
+    negative["record_id"] = "LO-CENSORED-EARLY-001"
+    negative["outcome"]["status"] = "CENSORED"
     negative["outcome"]["event_date"] = None
+    negative["outcome"]["censor_reason"] = "follow-up ended before target window close"
     negative["window"]["observed_through"] = "2027-05-31"
 
     report = audit_longitudinal_data_quality(observations=[occurred, negative])
