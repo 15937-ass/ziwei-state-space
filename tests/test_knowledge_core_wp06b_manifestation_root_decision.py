@@ -15,11 +15,32 @@ def packet():
 
 def source_row(item):
     path = ROOT / item["canonical_record_path"]
+    if path.suffix == ".json":
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        matches = [
+            row for row in payload["records"]
+            if row["projection_rule_id"] == item["source_rule_id"]
+        ]
+        assert len(matches) == 1, item["source_rule_id"]
+        row = matches[0]
+        return {
+            "record_kind": "accepted_source_readjudication_json",
+            "source_id": payload["source_basis"]["source_id"],
+            "source_location": row["source_location"],
+            "condition": row["canonical_condition"],
+            "projection_domain": row["canonical_projection_domain"],
+            "projection_target": row["canonical_projection_target"],
+            "projection_mode": row["projection_mode"],
+            "case_support_only": row["case_support_only"],
+            "disposition": row["disposition"],
+            "canonical_promotion": row["canonical_promotion"],
+        }
     with path.open(encoding="utf-8", newline="") as f:
         rows = list(csv.DictReader(f))
     matches = [row for row in rows if row["projection_rule_id"] == item["source_rule_id"]]
     assert len(matches) == 1, item["source_rule_id"]
-    return matches[0]
+    row = matches[0]
+    return {"record_kind": "accepted_source_csv", **row}
 
 
 def test_root_packet_uses_only_accepted_main_source_rows_and_exact_spans():
@@ -37,9 +58,16 @@ def test_root_packet_uses_only_accepted_main_source_rows_and_exact_spans():
         assert row["projection_domain"] == item["projection_domain"]
         assert row["projection_target"] == item["projection_target"]
         assert row["projection_mode"] == item["projection_mode"]
-        assert row["review_status"] == "SOURCE_SPAN_VERIFIED"
-        assert row["source_span_verified"].lower() == "true"
-        assert row["case_support_only"].lower() == str(item["case_support_only"]).lower()
+        if row["record_kind"] == "accepted_source_csv":
+            assert row["review_status"] == "SOURCE_SPAN_VERIFIED"
+            assert row["source_span_verified"].lower() == "true"
+            assert row["case_support_only"].lower() == str(item["case_support_only"]).lower()
+        else:
+            # P07 M01 pre-G12 CSV is historical acceleration input only; the
+            # accepted source readjudication JSON is the canonical evidence.
+            assert row["disposition"] == "DIRECT_SOURCE_RECHECK_CONFIRMED"
+            assert row["canonical_promotion"] is True
+            assert row["case_support_only"] is item["case_support_only"]
         page_match = re.search(r"printed_p(\d+)", row["source_location"])
         assert page_match, item["source_rule_id"]
         assert item["source_span_id"] == f"ZZ003-P{page_match.group(1)}"
