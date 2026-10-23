@@ -15,6 +15,13 @@ Knowledge execution is split into one shared Core plus twelve palace shards.
 - Research/PR preparation may run in parallel across distinct palaces.
 - Canonical merge to `main` is serialized.
 
+The PI-selected twelve-palace source-audit sequence is recorded in
+`governance/PALACE_AUDIT_SEQUENCE_2026-10-23.md`. During that schedule, admit
+only one ACTIVE palace audit/mapping unit at a time. This operating choice is
+stricter than, and does not alter, the G12 hard ceilings above. At cutover,
+finish the already ACTIVE P09 #673 source-candidate-index unit before starting
+P01; use live Issues/PRs rather than this document to confirm its status.
+
 A separate ChatGPT conversation may own one palace shard. Chat history is never synchronization state; GitHub Issue/PR + shard state are.
 
 ## 2. Shards
