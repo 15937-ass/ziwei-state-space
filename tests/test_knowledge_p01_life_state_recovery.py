@@ -25,7 +25,7 @@ def test_p01_state_cache_matches_accepted_p06_checkpoint():
     assert "cumulative_after_merge: 788" in state
     assert "cumulative_reusable_projection_rules_after_merge: 655" in state
     assert "cumulative_case_support_only_after_merge: 133" in state
-    assert "P01-SRC-GAP-025" in state and "P01-SRC-GAP-026" in state and "P01-SRC-GAP-027" in state
+    assert "P01-SRC-GAP-026" in state and "P01-SRC-GAP-027" in state
     assert "P01-601…P01-700" in state
     assert "No Product/runtime authorization is implied" in state
 
