@@ -38,7 +38,7 @@
 ## 3. 核心发现
 
 1. **projection_mode 不等于 ontology hierarchy。** 当前 accepted evidence cohort 包含 `FUNCTIONAL_PROJECTION`、`SCENE_TRANSLATION`、`PALACE_SEMANTIC_BOUNDARY`、`CROSS_PALACE_CONSTRAINT` 与 `EVENT_CANDIDATE`。这些值描述规则的投影／约束行为，不自动定义本体父子层级。
-2. **事件具体度是另一条轴。** 发展过程、行动条件、资源条件、迁移轴、职业场景、跨宫约束和具体事件候选并非天然同义。尤其不能把职业场景映射直接升级成个人伤病事件。
+2. **事件具体度是另一条轴。** 发展过程、行动条件、宫位语义边界、迁移轴、职业场景、跨宫约束和具体事件候选并非天然同义。尤其不能把职业场景映射直接升级成个人伤病事件。
 3. **case-only 证据不能决定 canonical root。** CA09-809 的 `case_support_only=true`，只作为负控制，不能用来证明通用事件家族或现实发生率。
 4. **来源跨度已核验不等于规范化目标逐字显式。** 对缺少单独 epistemic 字段的旧 canonical CSV，本包明确记录该缺口，不把它默认为 `EXPLICIT`。
 5. **没有证据时应保留多根／未知。** 技术上的统一查询需求不能替代来源支持的语义根。
@@ -50,21 +50,21 @@
 建立一个跨领域的 manifestation 根，再向下划分 family、channel 与 observable event label。
 
 - 优点：统一入口和层级查询简单。
-- 风险：当前 accepted evidence cohort 展示的是过程、行动条件、资源条件、场景、迁移轴、跨宫约束与案例型事件候选；这些异质输出尚不能证明一个共享语义根。
+- 风险：当前 accepted evidence cohort 展示的是过程、行动条件、宫位语义边界、场景、迁移轴、跨宫约束与案例型事件候选；这些异质输出尚不能证明一个共享语义根。
 - 门槛：属于新增跨领域共享语义，必须经 `HG-WP06B-MANIFESTATION-ROOT-01` 明确批准。
 
 ### OPTION B — 来源本位根森林
 
 允许多个 `parent_id=null` 的来源本位根，不制造统一语义父节点。
 
-- 优点：保留 source-native 差异，不凭技术便利发明传统概念；可按过程、行动条件、资源条件、迁移轴、场景与跨宫约束分别组织根节点。产品 adapter 已支持根节点。
+- 优点：保留 source-native 差异，不凭技术便利发明传统概念；可按过程、行动条件、迁移轴、场景与宫位合参／跨宫约束分别组织根节点。产品 adapter 已支持根节点。
 - 风险：跨领域检索需要显式元数据或接口，不能靠共同父节点实现。
 
 ### OPTION C — 来源本位根森林 + 正交元数据轴
 
 保留来源本位根森林，并将 `output_kind`、`event_specificity`、`source_epistemic` 分开建模；不把 `projection_mode` 直接当作 ontology hierarchy。
 
-- 优点：能区分资源条件、迁移轴、过程、职业场景、跨宫约束和具体事件候选，也能把来源显式性与规范化推断分开。
+- 优点：能区分过程、行动条件、迁移轴、职业场景、宫位合参／跨宫约束和具体事件候选，也能把来源显式性与规范化推断分开。
 - 风险：需要另行冻结最小字段契约；字段若被提升为通用语义原语，也可能需要 Human Gate。
 
 **供 PI 讨论的初步建议：OPTION C。** 这是风险较低的审查建议，不是已选方案，不会被代码或测试当作批准结果。
