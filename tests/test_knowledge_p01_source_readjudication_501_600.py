@@ -92,5 +92,5 @@ def test_p06_gap_supplement_time_scope_and_cumulative_state():
     assert (summary["cumulative_canonical_records_after_merge"], summary["cumulative_reusable_projection_rules_after_merge"], summary["cumulative_case_support_only_after_merge"]) == (789, 656, 133)
     assert summary["new_primitive_qi"] == summary["new_memory_type"] == summary["new_independent_time_scale"] == 0
     assert summary["numeric_weight"] == summary["probability"] == summary["decay"] == 0
-    assert 'canonical_source_records_on_main: 789' in STATE.read_text(encoding="utf-8")
+    assert 'canonical_source_records_on_main: 882' in STATE.read_text(encoding="utf-8")
     assert "No Product/runtime authorization is implied" in STATE.read_text(encoding="utf-8")
