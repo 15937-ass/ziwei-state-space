@@ -14,6 +14,11 @@ from typing import Any, Mapping, Sequence
 
 from .longitudinal_observation import compile_longitudinal_observation
 from .longitudinal_observation_v02 import compile_longitudinal_observation_v02
+from .checkin_observation_bridge import bridge_checkin_response
+from .checkin_observation_bridge_v02 import (
+    bridge_checkin_response_v02,
+    normalize_event_time_report,
+)
 from .prospective_checkin import (
     CHECKIN_ANSWERS,
     compile_prospective_checkin_plan,
@@ -501,6 +506,15 @@ def audit_longitudinal_data_quality(
                 {"user_confirmed": payload.get("user_confirmed")},
             )
 
+        response_contract_valid = (
+            not missing_identifier_fields
+            and response_schema_version in {"0.1", "0.2"}
+            and answer_valid
+            and date_valid
+            and isinstance(payload.get("user_confirmed"), bool)
+        )
+        bridge_disposition: str | None = None
+
         plan = plans_by_id.get(plan_id)
         if plan is None:
             refs_valid = False
@@ -547,6 +561,61 @@ def audit_longitudinal_data_quality(
                     {},
                 )
 
+        # Validate event-time payloads and response semantics through the
+        # existing deterministic bridge. Its candidate is never persisted or
+        # promoted by this audit.
+        if plan is not None and refs_valid and response_contract_valid:
+            try:
+                if response_schema_version == "0.1":
+                    if payload.get("event_time_report") is not None:
+                        raise ValueError(
+                            "schema_version 0.1 uses event_date, not event_time_report"
+                        )
+                    if answer == "YES" and payload.get("event_date") is not None:
+                        event_date = _parse_date(payload.get("event_date"))
+                        if event_date is None:
+                            raise ValueError("event_date must be ISO YYYY-MM-DD")
+                        if response_date is not None and event_date > response_date:
+                            raise ValueError("event_date cannot be after response_date")
+                    elif answer != "YES" and payload.get("event_date") is not None:
+                        raise ValueError("non-YES response cannot carry event_date")
+                    bridge_result = bridge_checkin_response(plan, payload)
+                else:
+                    if payload.get("event_date") is not None:
+                        raise ValueError(
+                            "schema_version 0.2 uses event_time_report, not event_date"
+                        )
+                    if answer == "YES" and payload.get("event_time_report") is not None:
+                        normalized_time = normalize_event_time_report(
+                            payload["event_time_report"]
+                        )
+                        upper_bound = _parse_date(
+                            normalized_time.get("upper_bound_date")
+                        )
+                        if (
+                            upper_bound is not None
+                            and response_date is not None
+                            and upper_bound > response_date
+                        ):
+                            raise ValueError(
+                                "reported event-time interval cannot end after response_date"
+                            )
+                    elif answer != "YES" and payload.get("event_time_report") is not None:
+                        raise ValueError(
+                            "non-YES response cannot carry event_time_report"
+                        )
+                    bridge_result = bridge_checkin_response_v02(plan, payload)
+                bridge_disposition = bridge_result.disposition
+            except (ValueError, TypeError, KeyError) as exc:
+                response_contract_valid = False
+                emit(
+                    "INVALID_CHECKIN_RESPONSE",
+                    "ERROR",
+                    "checkin_response",
+                    [response_id],
+                    {"reason": str(exc)},
+                )
+
         if refs_valid and all(key):
             matched_response_keys.add(key)
 
@@ -562,6 +631,37 @@ def audit_longitudinal_data_quality(
             )
 
         if checkpoint_type != "WINDOW_CLOSE" or not refs_valid:
+            continue
+
+        if not response_contract_valid:
+            unresolved_closeout_keys.add(key)
+            continue
+
+        if bridge_disposition == "TEMPORAL_ASSIGNMENT_AMBIGUOUS":
+            unresolved_closeout_keys.add(key)
+            emit(
+                "FOLLOW_UP_EVENT_TIME_AMBIGUOUS",
+                "WARNING",
+                "checkin_response",
+                [response_id, plan_id, target_id],
+                {
+                    "action": "retain_ambiguous_time; do_not_promote_target_specific_positive"
+                },
+            )
+            continue
+
+        if bridge_disposition in {
+            "NEEDS_EVENT_TIME_DETAIL",
+            "NEEDS_EVENT_DATE_DETAIL",
+        }:
+            unresolved_closeout_keys.add(key)
+            emit(
+                "FOLLOW_UP_EVENT_TIME_DETAIL_MISSING",
+                "WARNING",
+                "checkin_response",
+                [response_id, plan_id, target_id],
+                {"action": "request_event_time_detail_without_imputation"},
+            )
             continue
 
         if answer == "NO_RESPONSE":
@@ -627,10 +727,8 @@ def audit_longitudinal_data_quality(
 
         if (
             key not in duplicate_response_keys
-            and answer_valid
-            and date_valid
-            and response_schema_version in {"0.1", "0.2"}
-            and not missing_identifier_fields
+            and response_contract_valid
+            and bridge_disposition == "OBSERVATION_READY"
         ):
             complete_closeout_keys.add(key)
 
