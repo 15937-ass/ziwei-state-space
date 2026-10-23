@@ -13,6 +13,11 @@ def load_data():
     return json.loads(JSON_PATH.read_text(encoding="utf-8"))
 
 
+def matrix_records(data):
+    columns = data["matrix"]["columns"]
+    return [dict(zip(columns, row)) for row in data["matrix"]["rows"]]
+
+
 class TestFourteenStarPropertyMatrix(unittest.TestCase):
     def test_proposal_only_and_no_canonical_or_product_authority(self):
         data = load_data()
@@ -30,10 +35,11 @@ class TestFourteenStarPropertyMatrix(unittest.TestCase):
         self.assertEqual(data["source_corpus"]["unique_rule_ids"], 430)
         self.assertEqual(len(data["source_corpus"]["subject_counts"]), 14)
         self.assertTrue(all(count > 0 for _, count in data["source_corpus"]["subject_counts"]))
+        self.assertEqual(len(matrix_records(data)), 430)
 
     def test_source_and_normalization_epistemic_are_separate_and_unresolved_is_preserved(self):
         data = load_data()
-        rows = data["records"]
+        rows = matrix_records(data)
         self.assertTrue(all("source_epistemic" in r for r in rows))
         self.assertTrue(all("normalization_epistemic" in r for r in rows))
         self.assertTrue(all(r["source_epistemic"] == "EXPLICIT" for r in rows))
@@ -42,7 +48,7 @@ class TestFourteenStarPropertyMatrix(unittest.TestCase):
 
     def test_provenance_conditions_and_source_locators_are_preserved(self):
         data = load_data()
-        rows = data["records"]
+        rows = matrix_records(data)
         self.assertTrue(all(r["source_id"] in {"SRC-ZZ-001", "SRC-ZZ-002"} for r in rows))
         self.assertTrue(all(r["source_location"] for r in rows))
         self.assertTrue(all("condition" in r for r in rows))
@@ -54,7 +60,7 @@ class TestFourteenStarPropertyMatrix(unittest.TestCase):
 
     def test_candidate_targets_are_not_promoted_to_accepted_mappings(self):
         data = load_data()
-        for row in data["records"]:
+        for row in matrix_records(data):
             self.assertFalse(row["canonicalization_authorized"])
             self.assertFalse(row["product_consumption_authorized"])
             self.assertIn(row["mapping_status"], {
@@ -63,7 +69,7 @@ class TestFourteenStarPropertyMatrix(unittest.TestCase):
                 "NO_EXPLICIT_EXISTING_QI_QR_EVIDENCE_LINK_FOUND",
             })
 
-    def test_pr710_taxonomy_crosswalk_keeps_gaps_and_overlaps_visible(self):
+    def test_pr710_output_kind_crosswalk_keeps_gaps_and_overlaps_visible(self):
         data = load_data()
         crosswalk = data["pr710_crosswalk"]
         roles = {r["research_claim_role"] for r in crosswalk}
@@ -71,7 +77,15 @@ class TestFourteenStarPropertyMatrix(unittest.TestCase):
         self.assertIn("evaluation_component", roles)
         self.assertTrue(any(r["status"] == "MANY_TO_MANY" for r in crosswalk))
         self.assertTrue(any(r["status"] == "GAP_OR_OUTSIDE_CURRENT_OUTPUT_KIND" for r in crosswalk))
-        self.assertTrue(any("specificity" in r["risk"].lower() or "具体" in r["risk"] for r in crosswalk) or any("event_specificity" in r["research_claim_role"] for r in crosswalk))
+
+    def test_pr710_event_specificity_is_not_assumed_to_be_an_ordinal_scale(self):
+        data = load_data()
+        axis = data["pr710_event_specificity_audit"]
+        self.assertFalse(axis["candidate_values_form_ordinal_scale"])
+        self.assertTrue(data["methodology"]["event_specificity_axis_review_required"])
+        self.assertIn("PROCESS_SEQUENCE_NOT_SINGLE_EVENT", axis["candidate_values"])
+        self.assertIn("SCENE_NOT_OBSERVED_EVENT", axis["candidate_values"])
+        self.assertFalse(axis["canonical_change_authorized"])
 
     def test_no_false_claim_of_independent_held_out_validation(self):
         data = load_data()
@@ -82,6 +96,9 @@ class TestFourteenStarPropertyMatrix(unittest.TestCase):
         data = load_data()
         with CSV_PATH.open(encoding="utf-8", newline="") as f:
             rows = list(csv.DictReader(f))
-        self.assertEqual(len(rows), len(data["records"]))
+        self.assertEqual(len(rows), len(matrix_records(data)))
         self.assertEqual(len(rows), 430)
 
+
+if __name__ == "__main__":
+    unittest.main()
