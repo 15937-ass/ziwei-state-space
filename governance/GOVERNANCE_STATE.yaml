@@ -93,12 +93,13 @@ archived_work_references:
 
 # Scheduling recovery only; live Issues/PRs remain execution truth.
 slot_handoff:
-  tracking_issue: 701
+  tracking_issue: 700
+  plan_path: "governance/proposals/700-durable-ontology-plan-and-cross-chat-handoff.md"
   released_from_issue: 446
   paused_issue_status: "PAUSED_REQUIRES_RECONSTITUTION"
   preserved_draft_pr: 447
-  next_nominee: 700
-  next_nominee_status: "NOT_ACTIVE_RECHECK_LIVE_ISSUES"
+  next_nominee: null
+  next_nominee_status: "UNSELECTED_RECHECK_LIVE_ISSUES"
   deferred_issue: 584
-  activation_condition: "Issue #701 implementation PR accepted on current main and #701 closed; fresh live census and explicit activation of #700."
-  note: "The #446 release is explicit in its live Issue. Hardening remains incomplete; no ontology option or Product semantics is approved by this handoff."
+  activation_condition: "Recover implementation acceptance from live Issue #700 and its PR; select and explicitly activate any later bounded Governance unit only after that unit releases its slot."
+  note: "This plan pointer replaces the completed #701 -> #700 nomination. Hardening remains incomplete; live Issues/PRs remain authoritative. No ontology option or Product semantics is approved."
