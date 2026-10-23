@@ -240,6 +240,31 @@ def test_queue_snapshot_is_sorted_deterministic_and_does_not_mutate_states():
     assert queue[1]["next_action"] == "OPEN_WINDOW"
 
 
+def test_open_window_is_close_due_on_exact_window_end_date():
+    plan = _plans()[0]
+    state = register_prospective_cohort_window(plan)
+    opened = open_prospective_cohort_window(state, on_date=plan["window"]["start_date"])
+
+    queue = build_prospective_cohort_queue(
+        [opened], as_of_date=plan["window"]["end_date"]
+    )
+
+    assert queue[0]["queue_status"] == "CLOSE_DUE"
+    assert queue[0]["next_action"] == "CLOSE_WINDOW_AND_AUDIT_FOLLOW_UP"
+
+
+def test_closed_incomplete_window_keeps_a_review_action_in_queue():
+    plan = _plans()[0]
+    state = register_prospective_cohort_window(plan)
+    closed = close_prospective_cohort_window(state, on_date="2028-01-02")
+
+    queue = build_prospective_cohort_queue([closed], as_of_date="2028-01-02")
+
+    assert queue[0]["queue_status"] == "CLOSED"
+    assert queue[0]["followup_status"] == "INCOMPLETE"
+    assert queue[0]["next_action"] == "REVIEW_INCOMPLETE_FOLLOW_UP"
+
+
 def test_queue_rejects_duplicate_plan_ids():
     state = register_prospective_cohort_window(_plans()[0])
     with pytest.raises(ValueError, match="duplicate plan_id"):
