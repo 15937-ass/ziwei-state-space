@@ -145,3 +145,20 @@ def test_projection_mode_is_not_reused_as_ontology_abstraction_level():
     assert ca01["abstraction_level_candidate"] == "PROCESS_PATTERN_CANDIDATE"
     assert ca01["projection_mode"] != ca01["abstraction_level_candidate"]
     assert all(x["ontology_node_id"] is None for x in d["source_evidence"])
+
+def test_packet_does_not_use_legacy_or_unrevalidated_palace_rows_as_canonical():
+    d = packet()
+    by_id = {item["source_rule_id"]: item for item in d["source_evidence"]}
+    assert "W07-605" not in by_id
+    assert "SP03-206" not in by_id
+    assert "D06-508" not in by_id
+    assert "D01-003" not in by_id
+    assert by_id["M01-006"]["canonical_record_path"] == (
+        "knowledge/palaces/P07_migration/wp05/"
+        "MIGRATION_M01_SOURCE_READJUDICATION_100_v0.1.json"
+    )
+    assert all(
+        item["canonical_record_path"] != "validation/wp05/M01_migration_projection_review_001_100.csv"
+        for item in d["source_evidence"]
+    )
+
