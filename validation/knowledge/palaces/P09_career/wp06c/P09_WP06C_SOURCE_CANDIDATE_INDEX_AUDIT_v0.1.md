@@ -7,6 +7,8 @@ Status: **SOURCE-LINKED CANDIDATE INDEX ONLY; NOT A CANONICAL MAPPING REGISTRY**
 - Work unit: `KB-P09-WP06C-SOURCE-CANDIDATE-INDEX-01` (Issue #673).
 - Source: `SRC-ZZ-003`, 《中州派紫微斗数深造讲义（下）》, 事业宫 section.
 - Bounded cohort: 3 source rules, printed pages 133 and 144.
+- Source attachment SHA-256: `6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c` (matches the inspected source PDF).
+- Visual scan review: PDF page 67 (printed pp133–134) and PDF page 72 (printed pp143–144); the candidate page map is retained in the JSON artifact.
 - Canonical source records are read-only. This work adds no source rule, no ontology node, and no executable mapping.
 
 ## Candidate dispositions
@@ -19,9 +21,9 @@ Status: **SOURCE-LINKED CANDIDATE INDEX ONLY; NOT A CANONICAL MAPPING REGISTRY**
 
 ## Source trace
 
-- CA01-035: `validation/wp05/CA01_career_projection_review_001_100.csv`; `knowledge/wp07a/CAREER_CONTEXT_MAP_CA01_035_043_045_v0.1.json`; `knowledge/wp07a/CAREER_FIRE_BELL_SOURCE_EVIDENCE_v0.1.json#FB08`.
-- CA01-045: same canonical CA01 review CSV and context map. The context map retains antecedent rules CA01-042 / CA01-044 and marks the non-chart action prerequisite as unrepresented.
-- CA05-469: `validation/wp05/CA05_career_projection_review_401_500.csv`; `knowledge/wp07a/CAREER_DIRECT_TRANSFORM_AUDIT_CA04_CA09_v0.1.md`.
+- CA01-035: `validation/wp05/CA01_career_projection_review_001_100.csv`; `knowledge/wp07a/CAREER_CONTEXT_MAP_CA01_035_043_045_v0.1.json`; `knowledge/wp07a/CAREER_FIRE_BELL_SOURCE_EVIDENCE_v0.1.json#FB08`. The source quote now preserves both `事业宫见火铃，主波折` and the following hardship-before-stabilization clause; the fire/bell quantifier remains unresolved.
+- CA01-045: same canonical CA01 review CSV and context map. The full source sentence is preserved; the context map retains antecedent rules CA01-042 / CA01-044 and marks `勉强求变` as a non-chart action prerequisite not represented by approved chart facts.
+- CA05-469: `validation/wp05/CA05_career_projection_review_401_500.csv`; `knowledge/wp07a/CAREER_DIRECT_TRANSFORM_AUDIT_CA04_CA09_v0.1.md`. The literal excerpt about `与血液有关的事业` and `血腥屠宰` is preserved; its source scan is PDF page 72 / printed page 144. It remains a scene-translation negative control, not an observed injury/illness event.
 
 The stable page span IDs follow the repository convention `ZZ003-P{printed_page}`. Each row retains the source rule ID, original condition, source location, source-review status, original normalized projection target/mode, and evidence references.
 
