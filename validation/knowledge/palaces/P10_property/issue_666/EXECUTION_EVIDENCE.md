@@ -38,3 +38,12 @@ The exact-head PR gate must verify:
 6. Confirm Product handoff tests continue to exclude all mutable recovery caches from immutable `source_artifacts`.
 
 Record the resulting GitHub Actions run IDs and outcomes here after the first exact-head run. Any subsequent evidence update must be followed by another exact-head gate; the final PR head must pass.
+
+
+## First exact-head validation result
+
+- Repository quality-gate run: [#39878761619](https://github.com/15937-ass/ziwei-state-space/actions/runs/39878761619) on head `5387084aad0f310fc90d38147598395c8a40e664` — **FAIL**, so it is not accepted as merge evidence.
+- Full pytest: **2,526 passed, 1 failed** in 353.93 seconds.
+- The only failure was an overly strict test expectation for TP02-126. The source mapping correctly uses `MAPPED_GEOMETRY_WITH_EXPLICIT_UNRESOLVED_STATE_DEPENDENCY`, preserving the unresolved Tianfu treasury-state dependency; the test had incorrectly required `MAPPED_EXISTING_ATOMS` for every row.
+- The regression now requires that explicit unresolved status for TP02-126 and `MAPPED_EXISTING_ATOMS` for the other twelve rows. No canonical mapping/source data or Product runtime was changed.
+- The updated head must pass a fresh full repository quality gate, including pytest, Product JS adapter checks, deterministic P0 audit, and Repository Governance v1, before merge.
