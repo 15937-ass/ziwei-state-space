@@ -1,0 +1,44 @@
+schema_version: 1
+lane: "KNOWLEDGE_ONLY"
+shard: "P01"
+palace: "命宫"
+slug: "life"
+authoritative_execution: "GITHUB_ISSUE"
+canonical_branch: "main"
+contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
+
+execution:
+  status: "ACTIVE_NO_ACTIVE_WORK"
+  active_issue: null
+  active_branch: null
+  active_pr: null
+  canonical_checkpoint: "P01_P06_501_600_SOURCE_FIRST_P17_P20_MERGED"
+  note: "Accepted P01 Issue #678 source-first checkpoint. Historical candidates P06-501…600 were re-adjudicated to canonical P01-501…600 after visual review of SRC-ZZ-003 physical PDF p9 = printed pp17–18 and p10 = printed pp19–20. All 100 candidate rows were promoted; 42 omitted source atoms P01-SG-168…209 were added. P01-SRC-GAP-026 is closed for the Jumen remainder, Tianxiang and Tianliang span only. The accepted corpus now contains 789 records (656 reusable; 133 CASE_SUPPORT_ONLY). Next source anchor: P01-601…P01-700, printed pp21–23, section 13 七杀; section 14 破军 begins printed p24. No Product/runtime authorization is implied."
+
+progress:
+  canonical_source_records_on_main: 789
+  cumulative_after_merge: 789
+  cumulative_reusable_projection_rules_after_merge: 656
+  cumulative_case_support_only_after_merge: 133
+  historical_candidate_rows_reviewed: 100
+  canonical_promotions_from_candidate_batch: 100
+  deduplicated_scope_metadata_rows: 0
+  tian_tong_gap_supplement_records: 47
+  source_gap_supplement_records: 42
+  source_coverage_gaps_closed_in_current_batch: 1
+  source_coverage_gaps_recorded_in_current_batch: 1
+  next_source_gap_id: "P01-SRC-GAP-027"
+  next_source_anchor: "P01-601…P01-700 source-first checkpoint: audit section 13 七杀 across printed pp21–23 (PDF physical pp11–12); printed p24 begins section 14 破军 and is the next source checkpoint."
+
+integrity:
+  source_first: true
+  shared_semantics_must_escalate_to_core: true
+  may_write_other_palace: false
+  empirical_feedback_may_rewrite_source_truth: false
+  new_primitive_qi: 0
+  new_memory_type: 0
+  numeric_weight: 0
+  probability: 0
+
+human_gate:
+  pending: null

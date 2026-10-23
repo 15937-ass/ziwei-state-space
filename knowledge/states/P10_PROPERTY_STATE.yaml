@@ -1,0 +1,52 @@
+schema_version: 1
+lane: "KNOWLEDGE_ONLY"
+shard: "P10"
+palace: "田宅宫"
+slug: "property"
+authoritative_execution: "GITHUB_ISSUE"
+canonical_branch: "main"
+contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
+
+execution:
+  status: "ACTIVE_NO_ACTIVE_WORK"
+  active_issue: null
+  active_branch: null
+  active_pr: null
+  canonical_checkpoint: "PROPERTY_P10_CANONICAL_358_OF_358_ON_MAIN; NATAL_TRANSFORMATION_MAP_6_OF_6_MERGED; DIRECT_STAR_PRESENCE_MAP_5_OF_5_MERGED; DIRECT_STAR_PRESENCE_REMAINDER_6_OF_6_MERGED; RELATION_CROSS_PALACE_MAP_3_OF_3_MERGED; SAME_PALACE_COMPOUND_STAR_MAP_13_OF_13_MERGED"
+  same_palace_compound_star_mapping:
+    artifact: "knowledge/palaces/P10_property/wp07a/PROPERTY_SAME_PALACE_COMPOUND_STAR_MAP_01_v0.1.json"
+    audit_id: "KB-WP07A-PROPERTY-SAME-PALACE-COMPOUND-STAR-MAP-01"
+    status: "MAPPING_COMPLETE_13_OF_13_NOT_PRODUCTION"
+    source_rule_ids:
+      - "TP01-071"
+      - "TP01-072"
+      - "TP01-097"
+      - "TP02-121"
+      - "TP02-126"
+      - "TP02-160"
+      - "TP02-186"
+      - "TP03-226"
+      - "TP03-227"
+      - "TP04-306"
+      - "TP04-310"
+      - "TP04-311"
+      - "TP04-340"
+    execution_readiness: "STATIC_CANDIDATE_NON_EXECUTABLE"
+    executable_registry_entry: false
+    unresolved_tianfu_treasury_state: "UNRESOLVED_NOT_INFERRED"
+    boundary: "P10-bound PALACE_HAS_STAR only; explicit alternatives preserved; no source/result claim promoted to an executable rule."
+  note: "Recovery synchronized for Issue #666 after Product snapshot-contract fix PR #660 merged at 6523a0a07051ebe8416dd6d074bf4c6e157aa217. P10 has 358/358 canonical source records, six natal transformation mappings, five initial direct-star mappings, six residual direct-star mappings, three relation/cross-palace mappings, and thirteen same-palace compound-star mappings on main. Relation/cross-palace PR #616 merged at 83db2c351e09cff686527530823e44fda6ec1808; the 13-row same-palace map was merged in PR #661 at ec61c8872ec1e407bf8372e2f2ef67bd225c3661. All 13 source IDs are explicitly recorded in same_palace_compound_star_mapping.source_rule_ids. Both mapping families remain static/non-executable; explicit alternatives are preserved, and the unresolved Tianfu treasury-state dependency is not inferred. no Product runtime authorization is granted."
+
+recovery_snapshot:
+  snapshot_date: "2026-10-23"
+  snapshot_main_commit: "6523a0a07051ebe8416dd6d074bf4c6e157aa217"
+  latest_p10_mapping_merge: "ec61c8872ec1e407bf8372e2f2ef67bd225c3661"
+  product_snapshot_contract_merge: "6523a0a07051ebe8416dd6d074bf4c6e157aa217"
+  cache_semantics: "MUTABLE_RECOVERY_POINTER"
+  note: "This is a dated recovery-state cache, not an immutable source artifact. The snapshot contract preserves strict Git blob SHA checks for immutable source materials while allowing recovery pointers to advance."
+
+integrity:
+  source_first: true
+  shared_semantics_must_escalate_to_core: true
+  may_write_other_palace: false
+  empirical_feedback_may_rewrite_source_truth: false

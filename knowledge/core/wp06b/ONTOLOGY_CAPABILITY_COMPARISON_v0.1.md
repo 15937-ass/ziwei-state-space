@@ -1,0 +1,119 @@
+# WP06B 本体能力问题与 A/B/C 非生产比较 v0.1
+
+**状态：非生产设计比较；PI 已选择 OPTION-C 架构方向；不构成已冻结的 canonical ontology 契约。**  
+**Issue：** #672 · **Human Gate：** `HG-WP06B-MANIFESTATION-ROOT-01=PI_DECISION_RECORDED_OPTION_C_DIRECTION_ONLY`  
+**本分支基线：** `2267c5686ce353b5f7b8a4b56f0335bf3792ac63`  
+**输入 fixture：** `knowledge/core/wp06b/ONTOLOGY_CAPABILITY_COMPARISON_FIXTURE_v0.1.json`  
+**正式本体节点、映射注册表与 Product runtime：** 均未改变。
+
+## 1. 这轮工作到底在解决什么
+
+当前问题不是“要不要把所有输出统一叫应象”，而是：系统必须能把来源支持的不同对象区分开，同时又能跨领域查询。技术上统一入口，不等于理论上存在一个共同语义根。
+
+本轮依据当前 main 上已接受的来源记录建立 **36 条来源记录 + 5 个明确标为合成的设计控制**。样本按来源集合与 `projection_mode` 分层，并固定加入边界案例；它是工程设计样本，不是随机样本，不代表任何现实事件的发生率，也不能证明紫微斗数的预测效度。
+
+## 2. W1：能力问题（字段或概念必须回答至少一个问题）
+
+| ID | 必须回答的能力问题 | 为什么必要 |
+|---|---|---|
+| CQ01 | 任一结论能否追溯到来源、页码／位置、来源记录和版本？ | 没有来源链就无法审计。 |
+| CQ02 | 原文断言与规范化解释是否分开保存？ | 规范化标签不能冒充原文逐字含义。 |
+| CQ03 | 能否区分来源断言、概念、规则与运行输出？ | 四者不是同一种对象。 |
+| CQ04 | 能否表达发展过程，而不把过程压成一个已发生事件？ | 如 CA01-035 的“先波折、后底定”是过程模式。 |
+| CQ05 | 能否保存行动前提及其依赖规则？ | CA01-045 依赖 CA01-042/044；“勉强求变”不是命盘静态事实。 |
+| CQ06 | 能否区分职业／行业场景与个人事件？ | CA05-469 是血液相关行业场景，不是命主受伤或患病。 |
+| CQ07 | 能否表示方向轴、迁移动象与迁移后的结果为不同层次？ | M01-006 的内外发展轴不等于已发生迁移。 |
+| CQ08 | 能否把跨宫约束、宫位语义边界和方法论前提保留为约束，而非应象节点？ | CA01-005、CA01-007、W01-002 等不能被强制映射成事件。 |
+| CQ09 | 能否保留时间层、条件范围和前提，不把运限刺激直接当事件？ | 时间激活与现实应事之间仍有推理间隔。 |
+| CQ10 | 能否阻止案例支持材料升级为普遍规则或事件族？ | CA05-493/495 等 case-only 项只可作为负控制。 |
+| CQ11 | 能否分别表达 UNKNOWN、MISSING、CONFLICT、NOT_APPLICABLE？ | 未知、缺失、冲突和不适用不能合并成“否”。 |
+| CQ12 | 多来源之间存在冲突时，能否保留双方证据及来源，而不自动抹平？ | 先保留冲突，后由明确裁决解决。 |
+| CQ13 | 能否进行跨领域查询，而不为了方便查询就发明共同父节点？ | 查询接口可以统一，语义根不必统一。 |
+| CQ14 | 能否将来源忠实度、内部案例复现与现实预测效度分开报告？ | 前两项不构成预测有效的证据。 |
+| CQ15 | 能否为未来 Product 提供稳定输出契约，同时不让 Product 的输出格式反向定义传统本体？ | Product contract 不等于传统语义根。 |
+
+**字段准入规则：** 新字段必须对应以上至少一个能力问题或明确的治理不变量；否则先不加。当前只做职责审计和方案比较，不在本轮冻结通用字段枚举。
+
+## 3. W2：最小逻辑契约审计（复用优先，不急于新增类）
+
+| 逻辑职责 | 当前证据／表示 | 当前缺口 | 本轮处理 |
+|---|---|---|---|
+| SourceSpan | source ID、source location/span 引用、已验证状态分散在来源记录中 | 各分片的定位精度并不完全统一 | 保留原字段；不虚构缺失 span ID |
+| SourceAssertion | 条件、来源位置、原文复核状态部分可得 | 原文断言与后续规范化标签仍需显式区分 | 由映射提案引用来源记录，不覆盖来源记录 |
+| NormalizedClaim | `projection_domain/target/mode` 与条件已可见 | `projection_mode` 容易被误读成本体层级 | 把 mode 解释为投影／约束行为，不当作父子关系 |
+| CandidateConcept | 决策包有 review-local family label 与 abstraction candidate | 这些标签未冻结、无 canonical ID | 继续保持 candidate-only，不分配正式 ID |
+| MappingProposal | P09 候选索引及本决策包能表达部分候选关系 | 还没有经 PI 接受的通用映射契约 | 本轮仅评估，不晋升映射 |
+| RuntimeRule | 规则、前提与条件 IR 在既有 Knowledge 工程中另行管理 | ontology candidate 不代表可执行条件已经闭合 | 本体就绪与可执行性继续分开 |
+| EmpiricalObservation | Product/PL7 有纵向观察与随访契约 | 不应混入来源真值或本体定义 | 保持独立；不在 Core 中估计概率 |
+| Unknown/conflict/missing | 当前有 ambiguity notes、状态字段和 fail-closed 约定 | 还不能假定已形成全局统一枚举 | 先列为契约缺口；不在本轮擅自冻结新共享原语 |
+
+## 4. “正式映射”和“应象映射”如何衔接
+
+这里把“正式映射”按当前工程语境理解为 **来源／规范化主张到概念的 Knowledge-side mapping**；“应象映射”是其中更窄、面向应象语义与 Product 输出的下游映射。两者不能混为一谈。
+
+```text
+SourceSpan / SourceAssertion
+        ↓ 先保留原文与来源证据
+NormalizedClaim
+        ↓ formal / source-to-concept mapping proposal
+CandidateConcept or accepted concept
+        ↓ 只有概念获接受、规则输出类型确属应象时
+Manifestation mapping proposal (WP06C / Product handoff)
+        ↓ 独立审核与 Product acceptance
+Product-facing output
+```
+
+- **正式／来源到概念映射**回答：“这条来源主张规范化后属于什么概念或约束？”它可以指向过程、场景、方法论、跨宫约束、时间条件等；不要求每一条都成为应象。
+- **应象映射**回答：“一条符合条件的规则输出，应引用哪个已接受的应象概念／输出标签？”它必须建立在已接受概念和明确的输出语义上，不能自行创造本体节点。
+- 因此，正式映射可以存在，而应象映射为空；一条记录也可能只应映射到约束概念，不应映射到任何事件。
+- `projection_target` 是规范化目标，不等于 canonical ontology ID；`projection_mode` 描述投影／约束方式，不等于 ontology hierarchy。
+- CA01-005／CA01-007 属于跨宫方法或约束，不应强制成为 manifestation；CA05-469 可表达职业场景，但不得升级为个人伤病事件；CA01-045 的现实行动前提必须保留。
+- WP06C 的候选索引仍是 candidate-only。即使将来 Core 接受概念，也不代表其映射已被接受，更不代表规则已经可执行或 Product 已获准消费。
+
+## 5. W3：A/B/C 非生产比较
+
+比较标准是能力覆盖、查询复杂度、映射歧义、维护成本和扩展成本。**不使用数字权重或虚构分数**；下表是基于设计 fixture 的定性工程判断。
+
+| 维度 | A：通用根 | B：来源本位根森林 | C：根森林 + 有依据的正交元数据 |
+|---|---|---|---|
+| 来源差异保真 | 需把异质对象放进共同根下；容易产生“表面统一、语义混同” | 高；保留来源原生差异 | 高；根仍来源本位，元数据只辅助查询 |
+| 过程／场景／约束／事件区分 | 可通过子类补救，但共同根本身没有被当前证据证明 | 可保留，但若无类型元数据，查询端需自行辨别 | 可通过最小 `output_kind`、`event_specificity` 等候选轴显式表达 |
+| 行动前提与跨宫约束 | 若设计不慎容易把约束当成根下输出 | 可独立保留约束；跨根查询更复杂 | 保留约束类别并支持统一筛选；前提仍需独立字段／引用 |
+| case-only 与 UNKNOWN | 根本身不能解决证据状态问题，仍须另设门控 | 同样需要显式状态 | 同样需要显式状态；元数据能帮助校验，但不能替代来源审核 |
+| 跨领域查询 | 最简单 | 复杂度较高，需多根联合查询 | 中等；可以通过被证明有用的元数据做联合查询 |
+| 映射歧义风险 | 高：容易被误认为每条记录都必须落到统一语义家族 | 中：无公共根，但查询层可能出现未声明的隐式归类 | 较低：类型可见；但字段定义不严会引入新的歧义 |
+| 维护成本 | 根／子类设计成本较高，后续改根影响面大 | 根少而来源差异显式，查询适配成本较高 | 中等；须防止元数据轴不断膨胀 |
+| 扩展与回滚 | 新领域可能要求继续加通用根下的类；错误抽象迁移成本大 | 新来源可独立加入根；跨域检索需要适配 | 新来源可独立加入根；只在有明确能力需求时增加元数据 |
+| 当前证据／PI 决策状态 | 未选择 | 保留为来源保真比较基线 | PI 已选择为架构方向；具体字段契约尚待 W5 审查 |
+
+### Fixture 的覆盖与硬约束
+
+- 36 条来源记录来自当前 main 上四组已接受记录，每组 9 条；覆盖过程／发展、行动条件、职业场景、方向／迁移轴、跨宫关系、宫位语义边界、结构约束、时间触发与 case-only 事件候选。
+- 5 个 synthetic controls 明确不是来源证据：缺失前提、冲突证据、未知语义、场景误映射为个人事件、case-only 升格为普遍事件族。
+- 必须通过的硬约束：不得发生 scene-to-event inflation；不得丢失前提；不得将 case-only 升格为普遍规则；不得虚构概率；不得把 UNKNOWN/MISSING 当作负面结论；不得让未批准候选进入 runtime。
+- 这些控制是架构设计测试，不是对现实预测准确率的测量。
+
+## 6. 本轮结论与下一步
+
+1. 当前来源样本足以证明 `projection_mode` 不能直接当作 ontology hierarchy，也足以暴露“场景／过程／约束／事件”混同风险；**不足以证明传统体系必然存在一个跨领域通用应象根**。
+2. PI 已选择 C 作为架构方向：保留 B 的来源保真原则，并仅按明确能力需求逐步引入正交元数据。A 不因查询便利而重开；除非未来有明确能力问题和比较证据支持共同根必要。
+3. 这是非生产设计比较，PI 已于 2026-10-23 明确选择 C 的架构方向；仍没有 canonical root、ontology IDs、正式映射晋升、Product 注册表变更或 runtime 授权。
+4. 下一步：在当前决策记录更新后的 exact-head CI 通过后，结束 W1–W4 决策材料工作；随后用独立 Core W5 工作单元提出最小元数据契约、值域、缺失语义、兼容与回滚方案。未完成契约审查前，不创建 canonical nodes 或生产映射。
+
+## 7. 可追溯输入
+
+- `knowledge/core/wp06b/MANIFESTATION_ROOT_DECISION_PACKET_v0.1.json`
+- `knowledge/core/wp06b/MANIFESTATION_ROOT_DECISION_PACKET_v0.1.md`
+- `knowledge/core/wp06b/ONTOLOGY_CAPABILITY_COMPARISON_FIXTURE_v0.1.json`
+- `validation/knowledge/core/wp06b/EXECUTION_EVIDENCE.md`
+
+
+
+## 8. PI 决策 checkpoint — 2026-10-23
+
+- PI 已明确选择 **OPTION-C — SOURCE_NATIVE_FOREST_WITH_ORTHOGONAL_AXES**；该方向已记录于 Issue #672 与 PR #704 讨论。
+- 此选择批准的是架构方向，不冻结 `output_kind`、`event_specificity`、`source_epistemic` 的允许值、缺失语义或全局共享 schema。
+- 保留来源本位根森林；不把 `projection_mode` 当作本体层级；不创建通用语义根。
+- 本体节点 ID、canonical mapping、Product 注册表／锁、runtime 消费授权均保持未启用；概率状态继续为 `UNKNOWN`。
+- 下一步由独立 W5 Core 单元设计并验证最小元数据契约，必要时再提交 PI 审阅；当前决策 PR 更新后的精确 head 仍须重新通过全量质量门。
+- Current main advanced one commit from 971cffc166e318b1c47184c3d297422dac1e3c2b to 2267c5686ce353b5f7b8a4b56f0335bf3792ac63 through the P01 source-first audit. The 13 changed paths are P01-owned; the four WP06B source artifact blob SHAs are unchanged.

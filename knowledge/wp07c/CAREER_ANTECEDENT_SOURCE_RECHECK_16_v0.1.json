@@ -1,0 +1,232 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-CAREER-ANTECEDENT-SOURCE-RECHECK-16-v0.1",
+  "lane": "KNOWLEDGE_ONLY",
+  "issue": 458,
+  "source_id": "SRC-ZZ-003",
+  "source_title": "《中州派紫微斗数深造讲义（下）》",
+  "source_scope": "事业宫 printed pp133-137",
+  "status": "16_OF_16_SOURCE_RECHECK_COMPLETE_NO_HUMAN_GATE",
+  "method": [
+    "READ_VISUAL_REVIEWED_SOURCE_SPANS",
+    "INDEPENDENT_PROJECT_PDF_PAGE_RECHECK",
+    "TREAT_PRIOR_REVIEW_REASON_AS_HINT_NOT_EVIDENCE",
+    "PREFER_SOURCE_LOCAL_GRAMMAR_OVER_ROW_ADJACENCY",
+    "REPAIR_CONTRADICTORY_INHERITANCE_INSTEAD_OF_FORCING_EDGE"
+  ],
+  "summary": {
+    "reviewed": 16,
+    "resolved_existing_rule": 14,
+    "resolved_base_rule_scope_correction": 1,
+    "source_condition_repair": 1,
+    "still_ambiguous": 0,
+    "human_gate_required": false
+  },
+  "records": [
+    {
+      "source_rule_id": "CA01-058",
+      "disposition": "RESOLVED_EXISTING_RULE",
+      "antecedent_rule_ids": [
+        "CA01-057"
+      ],
+      "source_span_ids": [
+        "ZZ003-P133"
+      ],
+      "evidence_excerpt": "紫微得百官朝拱，又无煞曜……若命宫吉者，更主为方面大员，司部长官。",
+      "reasoning": "“若命宫吉者”直接承接同一句前段的百官朝拱+无煞条件；CA01-057正对应该前段。"
+    },
+    {
+      "source_rule_id": "CA01-060",
+      "disposition": "RESOLVED_EXISTING_RULE",
+      "antecedent_rule_ids": [
+        "CA01-059"
+      ],
+      "source_span_ids": [
+        "ZZ003-P133"
+      ],
+      "evidence_excerpt": "若紫微无煞曜同度，却有辅佐吉曜同会，又见禄马交驰，或会……化禄者，主职掌财权，从政亦为财赋税之官。",
+      "reasoning": "“从政亦为财赋税之官”与“主职掌财权”共享同一复合条件，CA01-059即该完整前置条件。"
+    },
+    {
+      "source_rule_id": "CA01-080",
+      "disposition": "RESOLVED_BASE_RULE_SCOPE_CORRECTION",
+      "antecedent_rule_ids": [
+        "CA01-078"
+      ],
+      "source_span_ids": [
+        "ZZ003-P134"
+      ],
+      "evidence_excerpt": "子午紫微化科……若百官朝拱，则主在行业中有地位。不见刑耗空劫，可以从政，以行政管理为宜。",
+      "reasoning": "“若百官朝拱”与随后“不见刑耗空劫”是同一母句“子午紫微化科”下的并列条件分支；原文没有说“不见刑耗空劫”还必须继承百官朝拱。因此改接基础 CA01-078，而非历史 review_reason 所提示的 CA01-079。",
+      "prior_historical_hint": "CA01-079",
+      "correction_kind": "DEPENDENCY_SCOPE_CORRECTION"
+    },
+    {
+      "source_rule_id": "CA01-098",
+      "disposition": "SOURCE_CONDITION_REPAIR",
+      "antecedent_rule_ids": [],
+      "source_span_ids": [
+        "ZZ003-P134"
+      ],
+      "evidence_excerpt": "[紫破]与空劫同度而无刑煞者……；唯若见煞刑耗曜，则一生事业往往功败垂成，且屡伤元气。",
+      "reasoning": "原文是“无刑煞”与“见煞刑耗曜”的对举，而不是把后者追加到前者。若整体继承 CA01-097 会形成“无刑煞 AND 见煞刑耗曜”矛盾。故不继承 CA01-097，直接修复为完整 source-local 条件。",
+      "repaired_source_condition_text": "紫微破军与空劫同度且见煞刑耗曜",
+      "excluded_inherited_component": "无刑煞",
+      "correction_kind": "CONTRADICTORY_ANTECEDENT_SPLIT_REPAIR"
+    },
+    {
+      "source_rule_id": "CA02-108",
+      "disposition": "RESOLVED_EXISTING_RULE",
+      "antecedent_rule_ids": [
+        "CA02-107"
+      ],
+      "source_span_ids": [
+        "ZZ003-P134"
+      ],
+      "evidence_excerpt": "若见刑曜，则以从事武职为佳，权力甚重。",
+      "reasoning": "“权力甚重”与“从事武职为佳”共享同一个“见刑曜”条件；CA02-107是直接前置规则。"
+    },
+    {
+      "source_rule_id": "CA02-117",
+      "disposition": "RESOLVED_EXISTING_RULE",
+      "antecedent_rule_ids": [
+        "CA02-116"
+      ],
+      "source_span_ids": [
+        "ZZ003-P134"
+      ],
+      "evidence_excerpt": "[紫贪]与火铃同度，事业主突破，唯若同时见空劫刑耗，则暴起暴败。",
+      "reasoning": "“唯若同时见空劫刑耗”明确是在“紫贪与火铃同度”基础上追加条件，直接承接 CA02-116。"
+    },
+    {
+      "source_rule_id": "CA02-134",
+      "disposition": "RESOLVED_EXISTING_RULE",
+      "antecedent_rule_ids": [
+        "CA02-133"
+      ],
+      "source_span_ids": [
+        "ZZ003-P135"
+      ],
+      "evidence_excerpt": "[紫相]守事业宫，见吉化，宜从事财经工作。若从商，以资金营运数额巨大者为宜。",
+      "reasoning": "“若从商”是同一“紫相见吉化”条件下的场景细分，直接承接 CA02-133。"
+    },
+    {
+      "source_rule_id": "CA02-152",
+      "disposition": "RESOLVED_EXISTING_RULE",
+      "antecedent_rule_ids": [
+        "CA02-151"
+      ],
+      "source_span_ids": [
+        "ZZ003-P135"
+      ],
+      "evidence_excerpt": "[紫杀]最喜紫微化科，可加强管理领导之力。更百官朝拱，亦可从政，在商则为行业领袖。",
+      "reasoning": "“更百官朝拱”显式追加在紫微化科之上，直接承接 CA02-151。"
+    },
+    {
+      "source_rule_id": "CA02-157",
+      "disposition": "RESOLVED_EXISTING_RULE",
+      "antecedent_rule_ids": [
+        "CA02-156"
+      ],
+      "source_span_ids": [
+        "ZZ003-P135"
+      ],
+      "evidence_excerpt": "天机化禄……若吉星祥曜会合，则可能转变到从事有前途的工作。或仅多兼职，或同时从事两三种事业。",
+      "reasoning": "兼职/多事业是同一“天机化禄且吉曜会合”条件的并列结果，直接承接 CA02-156。"
+    },
+    {
+      "source_rule_id": "CA02-167",
+      "disposition": "RESOLVED_EXISTING_RULE",
+      "antecedent_rule_ids": [
+        "CA02-166"
+      ],
+      "source_span_ids": [
+        "ZZ003-P135",
+        "ZZ003-P136"
+      ],
+      "evidence_excerpt": "若天机化忌……见空劫、煞耗诸曜者，更属动辄得咎。趋吉避凶之道，在于寻求保守。",
+      "reasoning": "在该段落中“趋吉避凶之道”紧接“见空劫、煞耗诸曜者，更属动辄得咎”，既有拆分也把策略作为前格延续；保留 CA02-166 作为直接 antecedent，不把此策略外推为所有天机化忌的普遍规则。"
+    },
+    {
+      "source_rule_id": "CA02-168",
+      "disposition": "RESOLVED_EXISTING_RULE",
+      "antecedent_rule_ids": [
+        "CA02-166"
+      ],
+      "source_span_ids": [
+        "ZZ003-P135",
+        "ZZ003-P136"
+      ],
+      "evidence_excerpt": "趋吉避凶之道，在于寻求保守，不可为似乎有利的假象所吸引，以致反为失机。",
+      "reasoning": "“不可为似乎有利的假象所吸引”与同一句趋避策略共享前格；直接继承 CA02-166，避免无来源地扩大到全部天机条件。"
+    },
+    {
+      "source_rule_id": "CA02-170",
+      "disposition": "RESOLVED_EXISTING_RULE",
+      "antecedent_rule_ids": [
+        "CA02-169"
+      ],
+      "source_span_ids": [
+        "ZZ003-P136"
+      ],
+      "evidence_excerpt": "天机化忌与吉曜同会者……亦可成为代理商。若命宫有太阳化科，则宜代理名牌商品。",
+      "reasoning": "“若命宫有太阳化科”是在天机化忌+吉曜同会的代理场景上增加条件，直接承接 CA02-169。"
+    },
+    {
+      "source_rule_id": "CA02-171",
+      "disposition": "RESOLVED_EXISTING_RULE",
+      "antecedent_rule_ids": [
+        "CA02-170"
+      ],
+      "source_span_ids": [
+        "ZZ003-P136"
+      ],
+      "evidence_excerpt": "若命宫有太阳化科，则宜代理名牌商品……唯一生必多竞争，且主受对手中伤。",
+      "reasoning": "“唯”紧承前一名牌代理句，既有拆分亦将其作为前格结果；直接接 CA02-170，因此通过 CA02-170 间接保留 CA02-169。"
+    },
+    {
+      "source_rule_id": "CA02-184",
+      "disposition": "RESOLVED_EXISTING_RULE",
+      "antecedent_rule_ids": [
+        "CA02-183"
+      ],
+      "source_span_ids": [
+        "ZZ003-P136"
+      ],
+      "evidence_excerpt": "子午宫天机独坐，对宫巨门……倘有煞忌刑耗诸曜，则往往受客观环境影响，为事业奔波劳累。",
+      "reasoning": "“倘有煞忌刑耗”是在子午天机独坐、对宫巨门基础上追加条件，直接承接 CA02-183。"
+    },
+    {
+      "source_rule_id": "CA02-199",
+      "disposition": "RESOLVED_EXISTING_RULE",
+      "antecedent_rule_ids": [
+        "CA02-198"
+      ],
+      "source_span_ids": [
+        "ZZ003-P136"
+      ],
+      "evidence_excerpt": "见煞忌刑耗者，则常转换事业，或转换服务机构，且局面不大。",
+      "reasoning": "“且局面不大”与事业/机构转换共享同一“丑未天机见煞忌刑耗”条件，直接承接 CA02-198。"
+    },
+    {
+      "source_rule_id": "CA03-235",
+      "disposition": "RESOLVED_EXISTING_RULE",
+      "antecedent_rule_ids": [
+        "CA03-234"
+      ],
+      "source_span_ids": [
+        "ZZ003-P137"
+      ],
+      "evidence_excerpt": "若[天机天梁]见禄、权、科会，及辅佐吉曜，则亦可从政，但较难独当一面，且职位调动频仍。",
+      "reasoning": "“较难独当一面”与从政场景共享同一禄权科+辅佐吉曜条件，直接承接 CA03-234。"
+    }
+  ],
+  "guardrails": {
+    "adjacency_guess_used": false,
+    "contradictory_condition_allowed": false,
+    "source_truth_rewritten_without_evidence": false,
+    "product_runtime_modified": false,
+    "numeric_weights_added": false,
+    "probabilities_added": false
+  }
+}

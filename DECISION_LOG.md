@@ -1,5 +1,11 @@
 # DECISION_LOG.md
 
+## Recovery / task-routing note
+
+This file is a decision registry, **not an execution queue**. For current work recovery use `PROJECT_STATE.yaml -> governance/RECOVERY_PRECEDENCE_v1.md -> live lane Issue/PR`.
+
+An entry does not become a current task merely because it appears under an older `Pending decisions` heading. Entries explicitly marked `Resolved`, `FROZEN`, approved, implemented, or superseded are closed/historical for task-routing purposes. A Human Gate is current only when the active lane state and/or live Issue names it as pending.
+
 All important conceptual decisions are recorded here.
 
 ## Frozen decisions
@@ -66,7 +72,9 @@ All important conceptual decisions are recorded here.
 **Rationale:** 六十星系原文明确指出，若逐一枚举星系×十二宫×辅佐煞化等组合将爆炸式增长，因此完整知识库必须采用“原子规则 + 条件算子 + 生成式组合 + provenance”的架构。  
 **Approved after:** G6
 
-## Pending decisions
+## Pending decisions / historical candidate registry
+
+> **Task-routing warning:** this section accumulated candidates over multiple gates. Some entries below are already explicitly resolved. Treat only genuinely unresolved entries as design questions, and never use this heading itself to create a new work unit.
 
 ### P-001 — Candidate qi ontology dimensionality
 The 100-rule pilot is complete. Next step is to propose Qi Ontology v0.1 for G2.
@@ -146,3 +154,11 @@ Paper 2 需要处理 star-core / Delta / modifier / projection 参数混淆。
 **Approved at:** Proposal #425 / Product v0.4
 **Approved by:** PI
 **Approved date:** 2026-10-20
+
+
+### D-020 — Palace-sharded parallel Knowledge execution v1
+**Decision:** 批准将 Knowledge 执行从“全局 WIP=1”升级为“Knowledge Core WIP≤1 + 最多4个不同宫位并行 worker + 每宫 WIP≤1”。不同聊天可分别推进不同宫位，但共享 ontology / semantics / schema 只能由 Knowledge Core 串行修改；宫位 worker 遇到跨宫公共语义问题必须 fail-closed 并提交 KNOWLEDGE_CORE_GAP，不得自行定义全局规则。研究/PR 准备可并行，进入 main 必须逐个串行，并在最新 main 上重新通过 exact-head gate。新 Knowledge 分支采用 knowledge/pXX-<issue>-<slug> 或 knowledge/core-<issue>-<slug>；当前 #525 Property legacy branch 仅作一次性 grandfather。
+**Status:** FROZEN / IMPLEMENTED BY PR #541
+**Approved at:** Proposal #528
+**Approved by:** PI
+**Approved date:** 2026-10-21

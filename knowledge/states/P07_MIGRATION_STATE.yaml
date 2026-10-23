@@ -1,0 +1,21 @@
+schema_version: 1
+lane: "KNOWLEDGE_ONLY"
+shard: "P07"
+palace: "迁移宫"
+slug: "migration"
+authoritative_execution: "GITHUB_ISSUE"
+canonical_branch: "main"
+contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
+
+execution:
+  status: "ACTIVE_NO_ACTIVE_WORK"
+  active_issue: null
+  active_branch: null
+  active_pr: null
+  canonical_checkpoint: "M01_001_100_MERGED__M02_101_200_MERGED__M03_201_300_MERGED__M04_301_400_MERGED__M05_401_500_SOURCE_FIRST_MERGED__M06_501_590_SOURCE_FIRST_MERGED"
+  note: "Recovery synchronized to accepted P07 Issue #645 / PR #656, merged at main commit c31417fcab709af55a40a58e2983cd1171f101f7. The M06 source-first checkpoint has 590 cumulative candidates reviewed: 520 reusable projection/method records and 70 CASE_SUPPORT_ONLY; the M06 batch contains 90 reviewed, 77 reusable, 13 CASE_SUPPORT_ONLY, 33 corrected source spans, and 31 source/semantic adjudications. M06-579/580 remain CASE_SUPPORT_ONLY source-internal result sequences, not prior-user-history gates. Six residual source gaps remain explicit: P07-M05-GAP-001, P07-M05-GAP-002, P07-M05-GAP-003, P07-M05-GAP-004, P07-M03-GAP-001, and P07-M03-GAP-012. Next source anchor: resolve these six gaps against printed pp114–118 (PDF scan pp57–59). Do not proceed to P08 until source-first closure is complete or residual gaps are explicitly accepted. No Product runtime authorization is implied."
+integrity:
+  source_first: true
+  shared_semantics_must_escalate_to_core: true
+  may_write_other_palace: false
+  empirical_feedback_may_rewrite_source_truth: false

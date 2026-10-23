@@ -1,8 +1,9 @@
 # Repository Governance v1.0
 
-Status: APPROVED FOR MIGRATION
-Tracking: #275
-Effective after the Governance v1.0 migration PR is merged to main.
+Status: **ACTIVE**  
+Tracking: #275  
+Migration implementation: PR #276 merged.  
+Recovery routing: `governance/RECOVERY_PRECEDENCE_v1.md`.
 
 ## 1. Purpose
 
@@ -29,6 +30,8 @@ When artifacts disagree, higher levels win:
 
 No lower layer may silently change a higher layer.
 
+**Important:** this hierarchy governs semantic/design authority, not “which work unit is active right now.” Daily execution status follows `governance/RECOVERY_PRECEDENCE_v1.md`: live lane GitHub Issue = execution truth, linked PR = implementation truth, and lane State YAML = recovery cache. A Roadmap can constrain an Issue but cannot make its own historical “current/next” paragraph the active task.
+
 ## 3. Governance layers
 
 - Constitution: non-negotiable epistemic and research boundaries.
@@ -50,6 +53,8 @@ Owns product runtime, adapters, product tests, product benchmarks and product st
 ### KNOWLEDGE_ONLY
 Owns canonical knowledge, source review, knowledge validation and knowledge state.
 
+Knowledge execution is internally sharded under `governance/KNOWLEDGE_SHARD_EXECUTION_v1.md`: one shared Knowledge Core plus twelve palace shards. Palace workers are write-isolated and shared semantics remain Core-owned.
+
 ### GOVERNANCE_ONLY
 Owns governance, shared workflow, CI policy, state schemas, Roadmaps, Proposals and Human-Gate integration.
 
@@ -70,10 +75,11 @@ A PR must implement one primary Issue. Scope discoveries become new Issues or Pr
 ## 6. WIP limits
 
 - Product lane: at most 1 ACTIVE work unit.
-- Knowledge lane: at most 1 ACTIVE work unit.
+- Knowledge Core: at most 1 ACTIVE shared-semantics/ontology work unit.
+- Knowledge palace workers: at most 4 ACTIVE work units total, with at most 1 ACTIVE work unit per palace shard.
 - Governance lane: at most 1 ACTIVE migration/design work unit.
 
-Backlog items may be recorded but are not executed until promoted to READY/ACTIVE.
+Knowledge palace workers may run in separate conversations only when their shard identities and write sets are disjoint. Shared semantics are never parallelized by palace. Backlog items may be recorded but are not executed until promoted to READY/ACTIVE.
 
 ## 7. Definition of Ready
 
@@ -123,16 +129,23 @@ Interface implementation is not production readiness.
 
 New branches use:
 - product/<issue>-<slug>
-- knowledge/<issue>-<slug>
+- knowledge/core-<issue>-<slug>
+- knowledge/pXX-<issue>-<slug> for palace shards P01..P12
 - governance/<issue>-<slug>
 
+The pre-G12 #525 Property branch merged before G12 final integration, so its temporary grandfather exemption is expired. No legacy-form Knowledge branch is authorized after G12.
+
 Branches are short-lived. Stacked PRs are exceptional, maximum two levels, and the child must be rebased to main promptly after the base merges.
+
+For Knowledge, research/PR preparation may be parallel across distinct palaces, but canonical merge is serialized. If another Knowledge PR changes `main` after a shard PR's validation base, that shard PR must update to current `main` and pass the exact-head gate again before merge.
 
 main is accepted canonical state, not a workspace.
 
 ## 12. State-file rule
 
 PROJECT_STATE.yaml, product/PRODUCT_STATE.yaml, knowledge/KNOWLEDGE_STATE.yaml and governance/GOVERNANCE_STATE.yaml are recovery pointers.
+
+For Knowledge, `knowledge/KNOWLEDGE_STATE.yaml` is a coordinator/index. Shard recovery state lives in `knowledge/states/CORE_STATE.yaml` and `knowledge/states/P01_...P12_..._STATE.yaml`. Palace workers update only their own shard state; they do not use the coordinator as a shared scratchpad.
 
 GitHub Issues/PRs are authoritative for execution status. If a state cache disagrees with GitHub, GitHub wins and the cache is repaired.
 
@@ -147,6 +160,23 @@ After PL3 interface construction, a new adapter/registry/interface is not create
 
 Empty production registries are BLOCKED/UNCOVERED, never fidelity PASS.
 
+## 13A. Product Knowledge dependency and promotion
+
+Product artifacts that claim a frozen Knowledge baseline must be able to verify the exact Knowledge inputs they consumed. A human-readable `knowledge_version` or baseline commit string alone is not sufficient when the runtime reads mutable current-checkout files.
+
+For reproducibility-critical Product paths:
+- active Product Knowledge is pinned through an immutable/content-addressed Product lock or equivalent approved manifest;
+- Knowledge `main` is research truth, not an implicit mutable production dependency;
+- Knowledge updates become Product candidates and require impact analysis before adoption;
+- unrelated Knowledge edits must not force full Product rebuilds;
+- semantic changes propagate through explicit dependencies and require the corresponding rebuild/recompile/replay/rematerialize/retrain action;
+- promotion requires the validation scope appropriate to the affected Product capability;
+- failed candidates do not alter the active Product lock;
+- historical forecasts, datasets, models and evidence artifacts preserve their original Knowledge lineage;
+- incompatible Knowledge-derived training labels/features may not be silently mixed without an explicit migration.
+
+The controlling Product architecture is Proposal #491 and the active Product Roadmap.
+
 ## 14. Knowledge integrity
 
 Empirical mismatch may create a Knowledge Gap Report but may not silently rewrite canonical knowledge. User feedback never changes source truth. School attribution, conflicts and UNKNOWN states are preserved.
@@ -154,13 +184,21 @@ Empirical mismatch may create a Knowledge Gap Report but may not silently rewrit
 ## 15. Chat and recovery
 
 After timeout/new session:
-1. read PROJECT_STATE.yaml;
-2. read the active lane state;
-3. read the active GitHub Issue;
-4. read the linked PR if any;
-5. read only Issue-required artifacts.
+1. read `PROJECT_STATE.yaml`;
+2. read `governance/RECOVERY_PRECEDENCE_v1.md`;
+3. read the selected lane state as a cache;
+4. for Knowledge, select CORE or one palace shard and read its state file from the coordinator;
+5. query live GitHub Issues for that lane/shard;
+6. use the bounded active/open Issue as execution truth and its linked PR as implementation truth;
+7. read only Issue-required artifacts.
 
-Do not reconstruct authoritative project state from old chat text.
+If a lane-state cache disagrees with live GitHub Issue/PR state, GitHub wins and the cache is repaired.
+
+README phase text, legacy `tasks/*.yaml`, historical validation reports, completed acceptance records, archived checkpoints, old proposal files, superseded protocols, and historical `READY_FOR_PI` markers are not execution truth merely because they contain `ACTIVE`, `CURRENT`, `NEXT`, or `PENDING`.
+
+Roadmaps are long-horizon architecture/direction, not daily task queues. Historical Human Gates do not become current again unless the active lane state and/or live Issue names them as pending.
+
+Do not reconstruct authoritative project state from old chat text or from isolated status words in historical artifacts.
 
 ## 16. Administrative controls
 

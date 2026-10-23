@@ -1,0 +1,174 @@
+{
+  "schema_version": "0.1",
+  "corpus_id": "WANG_TINGZHI_METHOD_PATTERNS_V0_1",
+  "source_artifact_ref": "PROJECT_SOURCE:王亭之-安星法与推断实例.pdf",
+  "extraction_policy": "SOURCE_EXPLICIT_ONLY",
+  "method_patterns": [
+    {
+      "schema_version": "0.1",
+      "pattern_id": "WT-METHOD-001",
+      "label": "先看父母宫，再看田宅宫，以了解出身与父母荫庇背景",
+      "maturity": "SOURCE_EXPLICIT",
+      "allowed_use": "SEMANTIC_ONLY",
+      "school_scope": [
+        "ZHONGZHOU"
+      ],
+      "source_case_refs": [],
+      "source_span_refs": [
+        "WANG-ANXING-TUIDUAN:P2:METHOD:STEP-1"
+      ],
+      "action_sequence": [
+        "INSPECT",
+        "CROSS_CHECK",
+        "CLASSIFY"
+      ],
+      "required_evidence_kinds": [
+        "PARENTS_PALACE",
+        "PROPERTY_PALACE"
+      ],
+      "target_domains": [
+        "GLOBAL_PROFILE"
+      ],
+      "review_status": "SOURCE_SPAN_VERIFIED"
+    },
+    {
+      "schema_version": "0.1",
+      "pattern_id": "WT-METHOD-002",
+      "label": "命宫与福德宫同时观察，区分较实质运程与精神思想活动",
+      "maturity": "SOURCE_EXPLICIT",
+      "allowed_use": "SEMANTIC_ONLY",
+      "school_scope": [
+        "ZHONGZHOU"
+      ],
+      "source_case_refs": [],
+      "source_span_refs": [
+        "WANG-ANXING-TUIDUAN:P3:METHOD:STEP-2"
+      ],
+      "action_sequence": [
+        "INSPECT",
+        "CROSS_CHECK",
+        "CLASSIFY"
+      ],
+      "required_evidence_kinds": [
+        "LIFE_PALACE",
+        "FORTUNE_VIRTUE_PALACE"
+      ],
+      "target_domains": [
+        "GLOBAL_PROFILE"
+      ],
+      "review_status": "SOURCE_SPAN_VERIFIED"
+    },
+    {
+      "schema_version": "0.1",
+      "pattern_id": "WT-METHOD-003",
+      "label": "由前述综合观察定位相关宫位，再针对疑点作交叉检查",
+      "maturity": "SOURCE_EXPLICIT",
+      "allowed_use": "SEMANTIC_ONLY",
+      "school_scope": [
+        "ZHONGZHOU"
+      ],
+      "source_case_refs": [],
+      "source_span_refs": [
+        "WANG-ANXING-TUIDUAN:P3:METHOD:STEP-3"
+      ],
+      "action_sequence": [
+        "INSPECT",
+        "CROSS_CHECK",
+        "CLASSIFY"
+      ],
+      "required_evidence_kinds": [
+        "TARGET_PALACE",
+        "RELATED_PALACE"
+      ],
+      "target_domains": [
+        "GLOBAL_PROFILE"
+      ],
+      "review_status": "SOURCE_SPAN_VERIFIED"
+    },
+    {
+      "schema_version": "0.1",
+      "pattern_id": "WT-METHOD-004",
+      "label": "由宫位观察追查大限与流年，以补充原盘综合判断",
+      "maturity": "SOURCE_EXPLICIT",
+      "allowed_use": "SEMANTIC_ONLY",
+      "school_scope": [
+        "ZHONGZHOU"
+      ],
+      "source_case_refs": [],
+      "source_span_refs": [
+        "WANG-ANXING-TUIDUAN:P3-P4:METHOD:STEP-4"
+      ],
+      "action_sequence": [
+        "INSPECT",
+        "REFINE",
+        "REFINE",
+        "COMPARE"
+      ],
+      "required_evidence_kinds": [
+        "NATAL",
+        "DECADE",
+        "YEAR"
+      ],
+      "target_domains": [
+        "TEMPORAL_INFERENCE"
+      ],
+      "review_status": "SOURCE_SPAN_VERIFIED"
+    },
+    {
+      "schema_version": "0.1",
+      "pattern_id": "WT-METHOD-005",
+      "label": "借星安宫须借入所借宫整组星系；三方四正遇无正曜宫先借对宫再合看",
+      "maturity": "SOURCE_EXPLICIT",
+      "allowed_use": "SEMANTIC_ONLY",
+      "school_scope": [
+        "ZHONGZHOU"
+      ],
+      "source_case_refs": [],
+      "source_span_refs": [
+        "WANG-ANXING-TUIDUAN:P4-P5:METHOD:BORROWED-PALACE"
+      ],
+      "action_sequence": [
+        "INSPECT",
+        "ACTIVATE",
+        "CROSS_CHECK",
+        "CLASSIFY"
+      ],
+      "required_evidence_kinds": [
+        "BORROWED_PALACE",
+        "OPPOSITE_PALACE",
+        "STAR_SYSTEM"
+      ],
+      "target_domains": [
+        "SYMBOLIC_INFERENCE"
+      ],
+      "review_status": "SOURCE_SPAN_VERIFIED"
+    },
+    {
+      "schema_version": "0.1",
+      "pattern_id": "WT-METHOD-006",
+      "label": "对星出现时须按相对位置比较作用强弱，不能只按是否出现判断",
+      "maturity": "SOURCE_EXPLICIT",
+      "allowed_use": "SEMANTIC_ONLY",
+      "school_scope": [
+        "ZHONGZHOU"
+      ],
+      "source_case_refs": [],
+      "source_span_refs": [
+        "WANG-ANXING-TUIDUAN:P6:METHOD:PAIRED-STARS"
+      ],
+      "action_sequence": [
+        "INSPECT",
+        "COMPARE",
+        "CLASSIFY"
+      ],
+      "required_evidence_kinds": [
+        "PAIRED_STAR_IDENTITY",
+        "RELATIVE_POSITION"
+      ],
+      "target_domains": [
+        "SYMBOLIC_INFERENCE"
+      ],
+      "review_status": "SOURCE_SPAN_VERIFIED"
+    }
+  ]
+}

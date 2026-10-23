@@ -1,6 +1,8 @@
 # Phase II：中州派完整知识库工程路线图
 
-版本：0.2  
+> **Recovery note — not an execution queue.** 本文件定义长期知识工程方向，不承担当前任务恢复。文中“状态：ACTIVE”“当前继续”“当前执行顺序”等均是其写入时的路线图上下文，不能覆盖 live GitHub Issue/PR。新对话必须按 `PROJECT_STATE.yaml -> governance/RECOVERY_PRECEDENCE_v1.md -> KNOWLEDGE_STATE -> live Knowledge Issue/PR` 恢复。旧 `READY_FOR_PI` 仅在当前 lane state / live Issue 仍标 pending 时才是现行 Human Gate。
+
+版本：0.3  
 状态：ACTIVE  
 生效日期：2026-10-05  
 替代：v0.1
@@ -234,15 +236,16 @@ L4 只规定“可应为什么”，不规定“最常应为什么”。
 
 ## KB-WP05 — 十二宫全文 Projection Corpus
 
-状态：ACTIVE。
+状态：ACTIVE — PALACE-SHARDED。
 
-当前继续：
-- 事业宫 CA05 起后续批次；
-- 按现行 100-item recoverable checkpoint；
-- 用户侧每 200 items 汇报一次；
-- 每批抽取 palace-specific projection、cross-palace dependency、history feedback、temporal boundary。
+事业宫已经完成当前 source-deepening 主线并形成可复用方法。WP05 现在按 G12 宫位分片执行：
+- 最多 4 个不同宫位 worker 并行；
+- 每宫同一时间最多 1 个 ACTIVE work unit；
+- 每批仍以约 100-item recoverable checkpoint 为上限；
+- 每批抽取 palace-specific projection、cross-palace dependency、history feedback、temporal boundary；
+- 公共 ontology / relation / response / quantifier 等语义不得由宫位 worker 各自定义，统一提交 Knowledge Core gap。
 
-WP05 不因产品 PL3 启动而暂停。
+WP05 不因产品 PL3 启动而暂停，也不要求十二宫继续全局串行。
 
 ---
 

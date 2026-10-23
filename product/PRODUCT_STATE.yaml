@@ -8,13 +8,18 @@ execution:
   phase: "PL3_METHOD_RESPONSE_VERTICAL_SLICE"
   active_issue: null
   active_pr: null
-  next_work_unit: "PRODUCT_METHOD_CASE_CONTRACTS_V0_1"
-  resume_entry: "Product #416 / PR #418 are complete on main with 190 accepted Career NATAL rules. Product v0.4 (Proposal #425) changes the critical path from further Career-NATAL count expansion to expert-method contracts, Wang expert-case LOCO replay, fail-closed Response Semantics adapter, Decade/Year Response Compiler, M0 manifestation candidates, fidelity benchmarks, and early Forecast Ledger activation. No Product runtime work from Proposal #425 is implied complete by this state."
-  last_completed_product_issue: 416
-  last_completed_product_pr: 418
+  next_work_unit: "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"
+  resume_entry: "Product #696 / PR #698 completes PL7-Q2 prospective cohort lifecycle management. The next Product unit is PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT; it remains blocked until a new accepted compiler-ready source artifact or an explicit contract change. Active KIB-PRODUCT-20261021-V0_3 and its lock remain unchanged with auto_refresh=false; K_manifest and production temporal-response/manifestation registries remain empty. Forecast Ledger remains gated on an executable source-only N -> E -> tau -> M0 vertical slice. No predictive-validity claim is made."
+  state_cache_as_of_main_commit: "3407150866a5ace99552daa674356b92610f080e"
+  state_cache_as_of_product_merge: "085e65c509fc5f9fed8230d00d2fc07a0e01b79b"
+  state_cache_snapshot_date: "2026-10-23"
+  v04_entry_checkpoint_issue: 416
+  v04_entry_checkpoint_pr: 418
+  last_completed_product_issue: 696
+  last_completed_product_pr: 698
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
-  resume_issue: 290
+  resume_issue: 696
   roadmap: "PRODUCT_ROADMAP.md#v0.4"
   execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
 
@@ -73,39 +78,67 @@ capability_snapshot:
 
   expert_method:
     specification: "V0_4_ARCHITECTURE_APPROVED"
-    implementation: "NOT_IMPLEMENTED"
+    implementation: "CORPUS_PLUS_POLICY_BASELINE"
     canonical_content: "NOT_APPLICABLE"
-    internal_validation: "NONE"
+    internal_validation: "CONTRACT_CORPUS_AND_POLICY"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    note: "Next work unit defines CaseBundle, ExpertReasoningGraph, InferenceTrace, MethodPattern and SchoolCompatibility before Wang-case LOCO replay."
+    note: "Product #431/#435 define expert-method contracts; #441/#444 add the source-backed Wang 24-case corpus, six SOURCE_EXPLICIT/SEMANTIC_ONLY patterns and LOCO-24; #453/#455 add deterministic same-domain CBR and fail-closed Method Policy pi v0.1. Product #512/#517 reviewed all 24 case target palaces. Product #545 evaluated 37 source-bounded lunar candidates; Product #588 / PR #611 materialized 11 pinned-engine chart snapshots with target-anchor verification only; Product #615 / PR #633 reviewed all 24 case targets against six MethodPatterns (144 assessments), with zero justified bindings. Product #643 / PR #643 established canonical + expert-method fidelity benchmark baseline v0.1: 11 target-anchor-only chart artifacts, 13 unmaterialized cases, no canonical or method score, and FULL_EXPERT_REPLAY_READY=0/24. Product #655 / PR #655 confirmed active KIB v0.3 remains locked and K_manifest is empty. Knowledge #671 / PR #685 accepted the WP07B source handoff; Product #674 / PR #693 recorded 44 candidates, 0 eligible, 17 case-support-only, 27 reusable-but-blocked, and a BLOCKED candidate promotion decision. Active KIB v0.3 and its lock remain unchanged. Knowledge #672 / PR #692 is the WP06B root decision; Knowledge #673 / PR #691 is merged as a candidate-only WP06C source index explicitly marked not Product-consumable; ontology IDs remain null and probability status is UNKNOWN, so it is not included in this KIB candidate. Career temporal eligibility is 0/9 and the closed Property audit is 0/35 eligible. Product #696 / PR #698 completes PL7-Q2 prospective cohort lifecycle management. The next Product unit is PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT, blocked until a new accepted compiler-ready source artifact or an explicit contract change. Forecast Ledger remains gated until N -> E -> tau -> M0 is executable. No source semantics, full-source-chart equivalence, or predictive validity is inferred."
+
 
   response_semantics_adapter:
     specification: "V0_4_ARCHITECTURE_APPROVED"
-    implementation: "NOT_IMPLEMENTED"
-    canonical_content: "KNOWLEDGE_DEPENDENT"
-    internal_validation: "NONE"
+    implementation: "IMPLEMENTED_V0_3_CONDITION_IR_AWARE"
+    canonical_content: "KNOWLEDGE_DEPENDENT_ACTIVE_K_RESPONSE_V0_16_CONDITION_IR_12"
+    internal_validation: "INTERNALLY_VALIDATED"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    note: "Knowledge Response Semantics compatibility never implies execution unlock; Product adapter must fail closed."
+    note: "Product #462/#464 established the fail-closed Response Semantics adapter; #504/#506 promoted Career v0.13; #518/#520 promoted K_response closure v0.16. Exactly 12 Knowledge condition-IR-ready rows have now crossed the Product structural compiler (#521) and bounded NATAL evaluator/effect-binding pilot (#526); 14 LOCAL_STRUCTURE_READY rows remain fail-closed outside compiler input. Knowledge execution flags remain unchanged and runtime effects authorized=0."
+
+  response_condition_compiler:
+    specification: "PL3R_V0_1_PILOT"
+    implementation: "IMPLEMENTED_V0_1"
+    canonical_content: "ACTIVE_K_RESPONSE_V0_16_CONDITION_IR_12"
+    internal_validation: "DETERMINISTIC_CONTRACT"
+    empirical_calibration: "NOT_APPLICABLE"
+    production_readiness: "NOT_READY"
+    note: "Product #521/#523 compiles exactly 12 governed Career condition IR records into typed Product plans: 9 direct + 3 dependency references. Fourteen local-ready/non-IR-ready rows are explicit NOT_COMPILER_INPUT. This layer remains structural only: condition_evaluated=0, response_effect_bound=0, runtime_effect_allowed=0. Downstream Product #526 evaluates them and Product #534 builds the separate ResponseProfile tau contract."
+
+  response_condition_evaluator:
+    specification: "PL3R_V0_1_PILOT"
+    implementation: "IMPLEMENTED_V0_1"
+    canonical_content: "ACTIVE_K_RESPONSE_V0_16_CONDITION_IR_12_EFFECT_BINDINGS_12"
+    internal_validation: "DETERMINISTIC_CONTRACT"
+    empirical_calibration: "NOT_APPLICABLE"
+    production_readiness: "NOT_READY"
+    note: "Product #526 / PR #527 evaluates exactly 12 Career NATAL conditions against canonical P09 chart structure and binds 12 source-reviewed projection descriptors. Direct conditions=9 and exact-parent dependency conditions=3. Evaluation supports only governed term/relation forms; unsupported system/relation forms fail closed. Runtime effects remain unauthorized; Product #534 consumes this evaluator only through the separate ResponseProfile compiler."
+
+  knowledge_dependency_control:
+    specification: "PROPOSAL_491_APPROVED"
+    implementation: "IMPLEMENTED_V0_1"
+    canonical_content: "NOT_APPLICABLE"
+    internal_validation: "INTERNALLY_VALIDATED"
+    empirical_calibration: "NOT_APPLICABLE"
+    production_readiness: "NOT_READY"
+    note: "Implemented by Product #494 and #500; controlled promotions exercised by #504 and #518. Active lock is PRODUCT_KNOWLEDGE_LOCK_V0_3 / KIB-PRODUCT-20261021-V0_3. Knowledge main does not silently mutate active Product: components are locked, impact is classified before rebuild, candidate->validation->promotion is explicit, and v0.2 remains immutable rollback history."
 
   response_profile:
     specification: "V0_4_ARCHITECTURE_APPROVED"
-    implementation: "NOT_IMPLEMENTED"
-    canonical_content: "EMPTY"
-    internal_validation: "NONE"
+    implementation: "IMPLEMENTED_V0_1"
+    canonical_content: "PRODUCTION_DYNAMIC_CONTENT_EMPTY"
+    internal_validation: "DETERMINISTIC_CONTRACT"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    note: "Target: symbolic source-traceable tau_t from N + E_decade/year + canonical response knowledge."
+    note: "Product #534 / PR #535 implements sparse source-traceable Career tau_t from NATAL evaluation + E_decade/year. A dynamic entry requires explicit TemporalReactionEvidence.matched_natal_rule_ids linkage to an actually matched NATAL rule. Production temporal reaction registry is still empty, therefore production tau is PARTIAL_UNKNOWN with zero entries and explicit blockers; this is not negative event evidence. Product #539 consumes tau only through the separate source-supported M0 adapter."
 
   manifestation_m0:
     specification: "V0_4_ARCHITECTURE_APPROVED"
-    implementation: "NOT_IMPLEMENTED"
-    canonical_content: "EMPTY"
-    internal_validation: "NONE"
+    implementation: "IMPLEMENTED_V0_1"
+    canonical_content: "PRODUCTION_ONTOLOGY_MAPPING_AND_UPSTREAM_DYNAMIC_CONTENT_EMPTY"
+    internal_validation: "DETERMINISTIC_CONTRACT_PENDING_FINAL_GATE"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    note: "M0 is source-supported possibility only, not probability."
+    note: "Product #539 implements tau -> M0 source-supported possibility routing. Only rule IDs carried by actual tau entries enter the router; projection text and reaction effect names cannot create manifestation semantics or activation IDs. TEST_ONLY explicit mappings route with tau+mapping+ontology provenance while HYPOTHESIS/CASE_SUPPORT remain held. Production M0 remains empty/fail-closed because canonical temporal response content and WP06B/WP06C ontology/mapping content are not ready. probability_status remains UNKNOWN and predictive validity is NOT_VALIDATED."
 
   acquired_state_belief:
     specification: "FUTURE_V0_4"
@@ -143,14 +176,7 @@ capability_snapshot:
 
 critical_path:
   now:
-    - "PRODUCT_METHOD_CASE_CONTRACTS_V0_1"
-    - "WANG_EXPERT_CASE_STRUCTURING_AND_LOCO"
-    - "METHOD_POLICY_V0_1_CBR_HEURISTIC_SYMBOLIC"
-    - "RESPONSE_SEMANTICS_FAIL_CLOSED_ADAPTER"
-    - "SOURCE_BACKED_RESPONSE_CORPUS_DEPENDENCY"
-    - "PL3R_DECADE_YEAR_RESPONSE_COMPILER"
-    - "PL3M0_CANONICAL_MANIFESTATION_CANDIDATES"
-    - "CANONICAL_AND_METHOD_FIDELITY_BENCHMARK"
+    - "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"
     - "FORECAST_LEDGER_ACTIVATION"
   future:
     - "ACQUIRED_STATE_X_AND_BELIEF_B"
@@ -191,3 +217,7 @@ permanent_boundaries:
   llm_owns_probability: false
   llm_may_propose_next_reasoning_action_only: true
   world_model_is_current_critical_path: false
+  knowledge_main_is_implicit_active_product_dependency: false
+  knowledge_update_requires_impact_before_product_promotion: true
+  historical_product_lineage_is_immutable: true
+  incompatible_knowledge_training_mix_requires_explicit_migration: true

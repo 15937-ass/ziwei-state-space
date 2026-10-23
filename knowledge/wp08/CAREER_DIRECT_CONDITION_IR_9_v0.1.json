@@ -1,0 +1,368 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP08-CAREER-DIRECT-CONDITION-IR-9-v0.1",
+  "issue": 510,
+  "lane": "KNOWLEDGE_ONLY",
+  "scope": {
+    "domain": "事业宫",
+    "record_count": 9,
+    "source_rule_ids": [
+      "CA02-181",
+      "CA03-228",
+      "CA05-411",
+      "CA05-417",
+      "CA05-419",
+      "CA05-433",
+      "CA07-638",
+      "CA07-681",
+      "CA09-820"
+    ]
+  },
+  "semantics": {
+    "representation_layer": "KNOWLEDGE_CONDITION_IR",
+    "product_condition_compiler": false,
+    "runtime_authorization": false,
+    "free_text_parsing": false,
+    "source_local_semantics_only": true,
+    "global_member_activation_defaults": false,
+    "generic_meeting_geometry_inference": false
+  },
+  "records": [
+    {
+      "source_rule_id": "CA02-181",
+      "source_location": "事业宫printed_p136",
+      "source_condition_text": "天机与龙池凤阁同度",
+      "semantic_basis": [
+        "CAREER_RELATION_BINDING_132_v0.1:CA02-181",
+        "CAREER_RESPONSE_COMPATIBILITY_01_v0.1:CA02-181"
+      ],
+      "condition_ir": {
+        "subject_scope": [
+          "STAR(天机)"
+        ],
+        "relation": {
+          "operator": "EXACT_GEOMETRY",
+          "geometry": "SAME_PALACE",
+          "palace_offsets": [
+            0
+          ]
+        },
+        "target": {
+          "node_type": "NAMED_COMPOSITE",
+          "members": [
+            "龙池",
+            "凤阁"
+          ],
+          "member_requirement": "PAIR_REQUIRED"
+        },
+        "canonical_expression": "SAME_PALACE(STAR(天机), PAIR_CO_PRESENT(龙池,凤阁))"
+      },
+      "inheritance_mode": "NONE",
+      "source_local_only": true,
+      "global_default_created": false,
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA03-228",
+      "source_location": "事业宫printed_p137",
+      "source_condition_text": "天机巨门与火铃同度",
+      "semantic_basis": [
+        "CAREER_THIRD_LAYER_PRIORITY_100_v0.1:CA03-228",
+        "CAREER_RELATION_BINDING_132_v0.1:CA03-228"
+      ],
+      "condition_ir": {
+        "subject_scope": [
+          "STAR_SYSTEM(天机巨门)"
+        ],
+        "relation": {
+          "operator": "EXACT_GEOMETRY",
+          "geometry": "SAME_PALACE",
+          "palace_offsets": [
+            0
+          ]
+        },
+        "target": {
+          "node_type": "LOCAL_ANY_OF",
+          "members": [
+            "火星",
+            "铃星"
+          ],
+          "member_requirement": "ANY_SOURCE_LOCAL"
+        },
+        "canonical_expression": "SAME_PALACE(LOCAL_ANY_OF[火星,铃星])"
+      },
+      "inheritance_mode": "NONE",
+      "source_local_only": true,
+      "global_default_created": false,
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA05-411",
+      "source_location": "事业宫printed_p142",
+      "source_condition_text": "天同化忌又与四煞同度",
+      "semantic_basis": [
+        "CAREER_RESIDUAL_CLOSURE_37_v0.1:CA05-411",
+        "CAREER_RELATION_BINDING_132_v0.1:CA05-411"
+      ],
+      "condition_ir": {
+        "subject_scope": [
+          "TRANSFORM(天同,化忌)"
+        ],
+        "relation": {
+          "operator": "EXACT_GEOMETRY",
+          "geometry": "SAME_PALACE",
+          "palace_offsets": [
+            0
+          ]
+        },
+        "target": {
+          "node_type": "LOCAL_ANY_OF",
+          "members": [
+            "擎羊",
+            "陀罗",
+            "火星",
+            "铃星"
+          ],
+          "member_requirement": "ANY_SOURCE_LOCAL"
+        },
+        "canonical_expression": "SAME_PALACE(天同化忌, LOCAL_ANY_OF[擎羊,陀罗,火星,铃星])"
+      },
+      "inheritance_mode": "NONE",
+      "source_local_only": true,
+      "global_default_created": false,
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA05-417",
+      "source_location": "事业宫printed_p143",
+      "source_condition_text": "天同与龙池凤阁同度",
+      "semantic_basis": [
+        "CAREER_RELATION_BINDING_132_v0.1:CA05-417",
+        "CAREER_RESPONSE_COMPATIBILITY_02_v0.1:CA05-417"
+      ],
+      "condition_ir": {
+        "subject_scope": [
+          "STAR(天同)"
+        ],
+        "relation": {
+          "operator": "EXACT_GEOMETRY",
+          "geometry": "SAME_PALACE",
+          "palace_offsets": [
+            0
+          ]
+        },
+        "target": {
+          "node_type": "NAMED_COMPOSITE",
+          "members": [
+            "龙池",
+            "凤阁"
+          ],
+          "member_requirement": "PAIR_REQUIRED"
+        },
+        "canonical_expression": "SAME_PALACE(STAR(天同), PAIR_CO_PRESENT(龙池,凤阁))"
+      },
+      "inheritance_mode": "NONE",
+      "source_local_only": true,
+      "global_default_created": false,
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA05-419",
+      "source_location": "事业宫printed_p143",
+      "source_condition_text": "天同化忌又见左辅右弼",
+      "semantic_basis": [
+        "CAREER_RELATION_BINDING_132_v0.1:CA05-419",
+        "CAREER_RESPONSE_COMPATIBILITY_02_v0.1:CA05-419"
+      ],
+      "condition_ir": {
+        "subject_scope": [
+          "TRANSFORM(天同,化忌)"
+        ],
+        "relation": {
+          "operator": "FOUR_DIRECTIONS_VISIBILITY",
+          "geometry": "UNSPECIFIED_WITHIN_SCOPE",
+          "palace_offsets": [
+            0,
+            4,
+            6,
+            8
+          ]
+        },
+        "target": {
+          "node_type": "EXPLICIT_MEMBER_SET",
+          "members": [
+            "左辅",
+            "右弼"
+          ],
+          "member_requirement": "BOTH_SOURCE_LITERAL"
+        },
+        "canonical_expression": "AND[TRANSFORM(天同,化忌), FOUR_DIRECTIONS_VISIBILITY(BOTH[左辅,右弼])]"
+      },
+      "inheritance_mode": "NONE",
+      "source_local_only": true,
+      "global_default_created": false,
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA05-433",
+      "source_location": "事业宫printed_p143",
+      "source_condition_text": "天同巨门见天厨火星",
+      "semantic_basis": [
+        "CAREER_SOURCE_LEXICAL_RECHECK_10_v0.2:CA05-433"
+      ],
+      "condition_ir": {
+        "subject_scope": [
+          "STAR_SYSTEM(天同巨门)"
+        ],
+        "relation": {
+          "operator": "EXACT_GEOMETRY",
+          "geometry": "SAME_PALACE",
+          "palace_offsets": [
+            0
+          ]
+        },
+        "target": {
+          "node_type": "SOURCE_LOCAL_PAIR",
+          "members": [
+            "天厨",
+            "火星"
+          ],
+          "member_requirement": "BOTH_SOURCE_LOCAL"
+        },
+        "canonical_expression": "SAME_PALACE(PAIR_CO_PRESENT(天厨,火星))"
+      },
+      "precedence_note": "Later source-local lexical re-adjudication supplies the same-palace pair semantics and supersedes the older coarse literal-binding uncertainty for this row only.",
+      "inheritance_mode": "NONE",
+      "source_local_only": true,
+      "global_default_created": false,
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA07-638",
+      "source_location": "事业宫printed_p149",
+      "source_condition_text": "贪狼与左辅右弼同度",
+      "semantic_basis": [
+        "CAREER_RELATION_BINDING_132_v0.1:CA07-638",
+        "CAREER_RESPONSE_COMPATIBILITY_02_v0.1:CA07-638"
+      ],
+      "condition_ir": {
+        "subject_scope": [
+          "STAR(贪狼)"
+        ],
+        "relation": {
+          "operator": "EXACT_GEOMETRY",
+          "geometry": "SAME_PALACE",
+          "palace_offsets": [
+            0
+          ]
+        },
+        "target": {
+          "node_type": "EXPLICIT_MEMBER_SET",
+          "members": [
+            "左辅",
+            "右弼"
+          ],
+          "member_requirement": "BOTH_SOURCE_LITERAL"
+        },
+        "canonical_expression": "SAME_PALACE(STAR(贪狼), BOTH[左辅,右弼])"
+      },
+      "inheritance_mode": "NONE",
+      "source_local_only": true,
+      "global_default_created": false,
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA07-681",
+      "source_location": "事业宫printed_p150",
+      "source_condition_text": "子午巨门得禄",
+      "semantic_basis": [
+        "CAREER_RESIDUAL_CLOSURE_37_v0.1:CA07-681"
+      ],
+      "condition_ir": {
+        "subject_scope": [
+          "PALACE_BRANCH(子午)",
+          "STAR(巨门)"
+        ],
+        "relation": null,
+        "target": {
+          "node_type": "LOCAL_OR",
+          "members": [
+            "TRANSFORM(巨门,化禄)",
+            "ATOM(禄存)"
+          ],
+          "member_requirement": "ANY_SOURCE_LOCAL"
+        },
+        "canonical_expression": "LOCAL_OR[TRANSFORM(巨门,化禄), ATOM(禄存)]"
+      },
+      "inheritance_mode": "NONE",
+      "source_local_only": true,
+      "global_default_created": false,
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    },
+    {
+      "source_rule_id": "CA09-820",
+      "source_location": "事业宫printed_p153",
+      "source_condition_text": "子午七杀得禄",
+      "semantic_basis": [
+        "CAREER_RESIDUAL_CLOSURE_37_v0.1:CA09-820"
+      ],
+      "condition_ir": {
+        "subject_scope": [
+          "PALACE_BRANCH(子午)",
+          "STAR(七杀)"
+        ],
+        "relation": null,
+        "target": {
+          "node_type": "LOCAL_OR",
+          "members": [
+            "TRANSFORM(武曲,化禄)",
+            "TRANSFORM(贪狼,化禄)",
+            "TRANSFORM(破军,化禄)",
+            "ATOM(禄存)"
+          ],
+          "member_requirement": "ANY_SOURCE_LOCAL"
+        },
+        "canonical_expression": "LOCAL_OR[TRANSFORM(武曲,化禄), TRANSFORM(贪狼,化禄), TRANSFORM(破军,化禄), ATOM(禄存)]"
+      },
+      "inheritance_mode": "NONE",
+      "source_local_only": true,
+      "global_default_created": false,
+      "product_condition_compiled": false,
+      "runtime_authorized": false
+    }
+  ],
+  "deferred_controls": [
+    {
+      "source_rule_id": "CA05-484",
+      "reason": "MEETING_GENERIC_GEOMETRY_UNSPECIFIED",
+      "preserved_semantics": "ANY_OF[TRANSFORM(武曲,化禄), ATOM(禄存), TRANSFORM(天府,化科)]",
+      "prohibited_step": "Do not map generic 会 to SAME_PALACE/TRINE/OPPOSITION without canonical evidence."
+    },
+    {
+      "source_rule_id": "CA06-582",
+      "reason": "COMPOUND_VISIBILITY_PLUS_GENERIC_MEETING_NOT_DETERMINISTIC",
+      "preserved_semantics": "EXPLICIT_BOTH[文昌,文曲]",
+      "prohibited_step": "Do not collapse 见 + 同会 into one geometry or ignore one surface."
+    },
+    {
+      "source_rule_id": "CA07-699",
+      "reason": "GENERIC_TONGHUI_GEOMETRY_UNSPECIFIED",
+      "preserved_semantics": "EXPLICIT_BOTH[文昌,文曲]",
+      "prohibited_step": "Do not assign a palace-offset geometry to 同会 from wording alone."
+    }
+  ],
+  "summary": {
+    "direct_condition_ir_ready": 9,
+    "direct_deferred": 3,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0
+  }
+}

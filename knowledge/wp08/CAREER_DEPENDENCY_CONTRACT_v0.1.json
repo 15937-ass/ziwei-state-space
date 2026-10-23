@@ -1,0 +1,106 @@
+{
+  "schema_version": "0.1",
+  "contract_id": "CAREER-DEPENDENCY-CONTRACT-v0.1",
+  "issue": 505,
+  "lane": "KNOWLEDGE_ONLY",
+  "scope": {
+    "domain": "事业宫",
+    "source_rule_family": "CA01-CA09",
+    "applicable_only_when": "antecedent_mode == EXPLICIT_RULE_REFERENCE and antecedent_rule_ids were source-adjudicated",
+    "universal_natural_language_parser": false,
+    "cross_domain_transfer": false
+  },
+  "semantics": {
+    "reference_identity": "Rule IDs are authoritative. Text adjacency MUST NOT create an antecedent edge.",
+    "surface_classes": {
+      "EXACT_FOREGOING_REFERENCE": "The target clause is an explicit `前格` continuation. Preserve the source-adjudicated parent ID; do not infer a parent from nearest text.",
+      "FOREGOING_REFERENCE_WITH_SOURCE_LOCAL_CONTINUATION": "The target begins with `前格` and retains additional source text as a local continuation/delta. The delta is not automatically compiled merely because the parent is known.",
+      "EXPLICIT_SOURCE_LOCAL_ADDITIVE_CONTINUATION": "The source explicitly adds a condition to a source-adjudicated parent without using `前格`; currently represented only by CA09-847."
+    },
+    "parent_compositions": {
+      "SINGLE_PARENT": "Inherit from exactly one explicit antecedent rule ID.",
+      "SOURCE_BRANCH_UNION_SHARED_QUALIFIER": "Apply a local qualifier over alternative source branches. Parent IDs are OR/branch-union context, never implicit AND. Currently required by CA05-473."
+    },
+    "blocker_propagation": {
+      "rule": "A dependency target cannot become condition-ready by reference resolution alone if any required parent branch, transitive antecedent, or local continuation remains source-underdetermined.",
+      "single_parent": "Propagate unresolved parent blocker metadata transitively across explicit-reference chains; do not delete or rewrite any parent blocker.",
+      "branch_union": "Track readiness per parent branch. A shared qualifier does not convert alternative branches into conjunction. Any executable branch would separately require a source-resolved parent and source-resolved local qualifier.",
+      "local_blockers": "All target blockers other than ANTECEDENT_DEPENDENCY remain independently binding."
+    },
+    "graph_constraints": {
+      "parent_id_must_resolve": true,
+      "cycles_allowed": false,
+      "implicit_parent_inference_allowed": false,
+      "multi_parent_requires_explicit_composition": true,
+      "current_max_reference_depth": 2,
+      "current_only_internal_chain": "CA02-171 -> CA02-170 -> CA02-169"
+    },
+    "readiness_bands": {
+      "REFERENCE_EDGE_RESOLVED_INHERITED_SOURCE_UNDERDETERMINATION": "The explicit reference edge is source-resolved and the target has no row-local blocker, but one or more required parent/ancestor conditions remain source-underdetermined.",
+      "REFERENCE_EDGE_RESOLVED_LOCAL_BLOCKERS_REMAIN": "The explicit reference edge is source-resolved but the target still has independent row-local blockers.",
+      "REFERENCE_EDGE_RESOLVED_PARENT_SCOPE_NOT_ASSESSED": "The explicit reference edge is source-resolved, but a required parent lies outside this contextual-activation closure and is not treated as ready by absence of blocker metadata.",
+      "REFERENCE_EDGE_RESOLVED_EFFECTIVE_CONDITION_READY": "Reserved for a reference-resolved target with no local blockers, complete parent assessment, and no inherited parent blockers. Current count is zero.",
+      "DEPENDENCY_ONLY_PARENT_READY": "The only current target blocker is ANTECEDENT_DEPENDENCY; parent assessment is complete and effective parent blockers are empty. Knowledge-side compiler candidate only.",
+      "DEPENDENCY_ONLY_INHERITS_SOURCE_UNDERDETERMINATION": "The only target blocker is ANTECEDENT_DEPENDENCY, but a required parent or ancestor remains source-underdetermined.",
+      "DEPENDENCY_ONLY_PARENT_SCOPE_NOT_ASSESSED": "The only target blocker is ANTECEDENT_DEPENDENCY, but a required parent is outside this closure's readiness assessment.",
+      "DEPENDENCY_COMPILER_PLUS_LOCAL_BLOCKERS": "The target has ANTECEDENT_DEPENDENCY plus independent row-local blockers and remains blocked even if graph traversal is implemented."
+    },
+    "row_local_vs_effective_readiness": {
+      "rule": "Closure readiness_class is row-local and MUST NOT be interpreted as recursively compiled dependency readiness.",
+      "effective_dependency_rule": "Effective dependency readiness recursively propagates source-underdetermined blockers across explicit antecedent chains before any compiler candidate can be called parent-ready.",
+      "outside_closure_rule": "A parent outside the contextual-activation closure is NOT silently considered ready; it is marked not assessed by this closure and remains non-executable unless another canonical artifact establishes its condition readiness."
+    }
+  },
+  "canonical_counts": {
+    "explicit_reference_nodes": 65,
+    "explicit_edges": 66,
+    "compiler_gated_reference_nodes": 50,
+    "already_reference_resolved_nodes": 15,
+    "exact_qiange": 28,
+    "qiange_with_continuation": 36,
+    "explicit_additive": 1,
+    "dependency_only_rows": 27,
+    "dependency_plus_local_blockers_rows": 23,
+    "dependency_only_parent_ready": 3,
+    "dependency_only_parent_underdetermined": 24,
+    "immediate_dependency_compiler_candidate_ids": [
+      "CA05-420",
+      "CA07-639",
+      "CA07-682"
+    ],
+    "cycles": 0,
+    "max_explicit_reference_depth": 2,
+    "already_reference_resolved_no_local_blocker": 11,
+    "already_reference_resolved_local_blockers": 4,
+    "already_reference_resolved_inherited_source_underdetermination": 11,
+    "already_reference_resolved_effective_condition_ready": 0,
+    "dependency_only_parent_scope_not_assessed": 0,
+    "rows_with_transitive_inherited_blockers": 38,
+    "parent_edges_outside_contextual_activation_closure": 25
+  },
+  "compiler_boundary": {
+    "product_compiler_implemented": false,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0,
+    "required_product_behavior_if_implemented_later": [
+      "Consume explicit rule IDs, not text adjacency.",
+      "Respect parent composition metadata.",
+      "Compute dependency readiness recursively, not from the target row's local blocker list alone.",
+      "Propagate unresolved parent and ancestor blockers fail-closed.",
+      "Treat parent-outside-closure as unassessed, not blocker-free.",
+      "Do not create global semantics from 前格, 更见, 又见, 同时见 or other surface tokens.",
+      "Keep branch-local provenance in outputs and tests."
+    ],
+    "explicit_reference_graph_complete": true,
+    "effective_condition_semantics_complete": false
+  },
+  "human_gate": {
+    "required_for_this_contract": false,
+    "required_if_future_change_infers_implicit_parents_or_global_inheritance": true
+  },
+  "critic_correction": {
+    "issue": "Initial draft labeled 11 already-reference-resolved rows as RULE_READY based only on row-local blockers. That label ignored inherited parent uncertainty and was semantically unsafe.",
+    "correction": "Readiness is now split into row-local closure readiness versus effective dependency readiness. Parent blocker propagation is transitive across explicit-reference chains. CA02-171 therefore inherits OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED through CA02-170 -> CA02-169.",
+    "invariant": "No explicit-reference row is called condition-ready merely because its own row-local blocker list is empty."
+  }
+}

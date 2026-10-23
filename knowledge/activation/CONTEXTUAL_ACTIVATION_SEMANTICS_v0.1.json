@@ -1,0 +1,82 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-CONTEXTUAL-ACTIVATION-SEMANTICS-v0.1",
+  "lane": "KNOWLEDGE_ONLY",
+  "issue": 445,
+  "status": "SOURCE_PRESERVING_ACTIVATION_SCHEMA_NO_EXECUTION_UNLOCK",
+  "purpose": "Represent source-local activation structure after lexical/category/relation binding without inventing global member quantifiers.",
+  "invariants": [
+    "SOURCE_EXPLICIT_OPERATOR_SCOPE_ONLY",
+    "SIMULTANEOUS_DOES_NOT_IMPLY_GROUP_ALL_UNLESS_MEMBERS_ARE_EXPLICIT",
+    "EXPLICIT_OR_DOES_NOT_IMPLY_GROUP_INTERNAL_ANY",
+    "NEGATION_REQUIRES_CLOSED_WORLD_EVIDENCE_BEFORE_EXECUTION",
+    "ANTECEDENT_INHERITANCE_REQUIRES_EXPLICIT_DEPENDENCY_EDGE",
+    "MEMBERSHIP_CLOSURE_DOES_NOT_IMPLY_ACTIVATION_QUANTIFIER",
+    "RELATION_BINDING_DOES_NOT_IMPLY_MEMBER_REALIZATION"
+  ],
+  "antecedent_modes": [
+    "NONE",
+    "EXPLICIT_RULE_REFERENCE",
+    "ANTECEDENT_SURFACE_UNRESOLVED"
+  ],
+  "clause_operators": [
+    "EXPLICIT_OR",
+    "EXPLICIT_AND",
+    "ADDITIVE",
+    "SIMULTANEOUS",
+    "NEGATION"
+  ],
+  "member_realization_modes": [
+    "EXPLICIT_MEMBER_SET_LOCAL",
+    "NAMED_COMPOSITE_CONTRACT",
+    "STRUCTURED_PATTERN_CONTRACT",
+    "SYMBOLIC_GROUP_UNSPECIFIED",
+    "OPEN_CATEGORY_UNSPECIFIED",
+    "MIXED_OR_SOURCE_LITERAL"
+  ],
+  "absence_modes": [
+    "NOT_REQUIRED",
+    "SOURCE_NEGATION_REQUIRES_CLOSED_WORLD_EVIDENCE"
+  ],
+  "activation_statuses": [
+    "STRUCTURE_ONLY",
+    "PARTIAL_LOCAL_STRUCTURE",
+    "BLOCKED_MEMBER_QUANTIFIER",
+    "BLOCKED_OPEN_WORLD_ABSENCE",
+    "BLOCKED_ANTECEDENT",
+    "MULTI_BLOCKER"
+  ],
+  "source_evidence_reuse": [
+    {
+      "artifact": "knowledge/wp07c/CAREER_GROUP_QUANTIFIER_CLOSURE_v0.1.json",
+      "locator": "resolved_at_source_evidence_level.CLAUSE_OPERATORS",
+      "supports": "Preserve 或/同时/且/又/更/无/不见 only where source-explicit; unspecified group cardinality stays UNSPECIFIED."
+    },
+    {
+      "artifact": "knowledge/wp07c/CAREER_GROUP_LEXICON_REVIEW_01_v0.1.json",
+      "locator": "source_evidence_catalog.GLEX-E03/GLEX-E04",
+      "supports": "Source uses explicit 同时 and 单星 locally; this does not establish a universal shorthand default."
+    },
+    {
+      "artifact": "knowledge/relation/RELATION_BINDING_SEMANTICS_v0.1.json",
+      "locator": "clause_model.invariant",
+      "supports": "Relation claim never implies group member realization except source-explicit member sets."
+    },
+    {
+      "artifact": "knowledge/category/CATEGORY_OPEN_LEXICON_v0.1.json",
+      "locator": "principles",
+      "supports": "Membership closure and activation quantifier closure are separate."
+    }
+  ],
+  "guardrails": {
+    "global_any_default": false,
+    "global_all_default": false,
+    "global_n_of_default": false,
+    "database_missing_means_absent": false,
+    "antecedent_guessed_by_adjacency": false,
+    "source_truth_rewritten": false,
+    "product_runtime_modified": false,
+    "numeric_weights_added": false,
+    "probabilities_added": false
+  }
+}

@@ -1,0 +1,423 @@
+{
+  "schema_version": "0.1",
+  "audit_id": "KB-WP07A-PROPERTY-RELATION-CROSS-PALACE-MAP-01",
+  "work_unit": "KB-WP07A-PROPERTY-RELATION-CROSS-PALACE-MAP-01",
+  "issue": 607,
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "P10",
+  "status": "MAPPING_COMPLETE_3_OF_3_NOT_PRODUCTION",
+  "source_id": "SRC-ZZ-003",
+  "source_title": "中州派紫微斗数深造讲义（下册）",
+  "canonical_corpus": "PROPERTY_P10_CANONICAL_358_OF_358",
+  "base_main_sha": "7f34532ef7e18b0d871428a97f30def7be9fee31",
+  "scope": {
+    "nominated_source_rule_ids": [
+      "TP01-027",
+      "TP02-129",
+      "TP02-163"
+    ],
+    "selection": "Three source-verified NATAL relation/cross-palace constraints; only existing palace-bound star and explicit opposite-relation facts are used.",
+    "mapping_boundary": "Mapping captures geometry and source-stated dependency/comparison only. It does not determine Tianfu treasury state, create a runtime comparison operator, or authorize execution."
+  },
+  "mappings": [
+    {
+      "source_rule_id": "TP01-027",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "田宅宫printed_p156",
+        "source_readjudication_ref": "knowledge/wp05/property/PROPERTY_TP01_SOURCE_READJUDICATION_100_v0.1.json#TP01-027",
+        "source_time_scope_ref": "knowledge/wp05/property/PROPERTY_TP01_SOURCE_TIME_SCOPE_v0.1.json#TP01-027",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": null
+      },
+      "source_condition_text": "紫微七杀同度或对拱",
+      "source_anchor_printed_pages": [
+        156
+      ],
+      "source_anchor_phrase": "紫微与七杀同度或对拱，须视天府吉凶。若库廪充盈则有自置物业，若府库空露，则产业动摇。",
+      "source_span_summary": "在田宅宫紫微语境中保留紫微与七杀同宫或对宫两种几何路径。映射只表达天府状态是进一步判断所需的约束，不判定天府府库状态，也不直接推断置业结果。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P10",
+              "star": "紫微"
+            }
+          }
+        ],
+        "alternatives": [
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P10",
+                "star": "七杀"
+              }
+            }
+          ],
+          [
+            {
+              "atom_type": "PALACE_HAS_STAR",
+              "args": {
+                "palace": "P04",
+                "star": "七杀"
+              }
+            },
+            {
+              "atom_type": "PALACE_RELATION",
+              "args": {
+                "source": "P10",
+                "target": "P04",
+                "relation": "OPPOSITE"
+              }
+            }
+          ]
+        ]
+      },
+      "condition_atom_types": [
+        "PALACE_HAS_STAR",
+        "PALACE_RELATION"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P10",
+              "star": "紫微"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P10",
+              "star": "七杀"
+            }
+          }
+        ],
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P10",
+              "star": "紫微"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P04",
+              "star": "七杀"
+            }
+          },
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P10",
+              "target": "P04",
+              "relation": "OPPOSITE"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "现有解析器根据已审核的宫位本体输出 palace-bound PALACE_HAS_STAR 与明确的 OPPOSITE / TRIAD PALACE_RELATION 事实；映射不新增原子或运行时语义。"
+      },
+      "source_time_scope": {
+        "legacy_primary_time_layer": "NATAL",
+        "source_time_layers": [
+          "NATAL"
+        ],
+        "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+        "dependencies": []
+      },
+      "expected_projection": {
+        "projection_domain": "methodology",
+        "projection_target": "tianfu_condition_is_required_to_refine_property_outcome",
+        "projection_mode": "CROSS_PALACE_CONSTRAINT"
+      },
+      "source_context": {
+        "unresolved_state_dependency": {
+          "required_state": "天府吉凶：库廪充盈与府库空露",
+          "state_representable_by_current_approved_atoms": false,
+          "do_not_infer_from_missing_TRANSFORMATION_PRESENT": true,
+          "boundary": "本映射只编码几何结构及“须视天府吉凶”的依赖，不选择充盈/空露分支，不直接生成物业结果。"
+        }
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOMS",
+      "normalization_epistemic": "SOURCE_PRESERVING_WITH_EXPLICIT_ALTERNATIVE_GEOMETRY",
+      "execution_readiness": "STATIC_CROSS_PALACE_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "TP02-129",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "田宅宫printed_p159",
+        "source_readjudication_ref": "knowledge/wp05/property/PROPERTY_TP02_SOURCE_READJUDICATION_100_v0.1.json#TP02-129",
+        "source_time_scope_ref": "knowledge/wp05/property/PROPERTY_TP02_SOURCE_TIME_SCOPE_v0.1.json#TP02-129",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": null
+      },
+      "source_condition_text": "武曲七杀与天府对拱",
+      "source_anchor_printed_pages": [
+        159
+      ],
+      "source_anchor_phrase": "[武曲七杀]与天府对拱，亦宜注意天府是否得禄，抑或府库空露，而定其吉凶克应的情况。",
+      "source_span_summary": "保留田宅宫武曲七杀与对宫天府的结构关系。对宫关系只确定应检查的天府宫位，不等于天府已得禄或府库空露。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P10",
+              "star": "武曲"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P10",
+              "star": "七杀"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P04",
+              "star": "天府"
+            }
+          },
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P10",
+              "target": "P04",
+              "relation": "OPPOSITE"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "PALACE_HAS_STAR",
+        "PALACE_RELATION"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P10",
+              "star": "武曲"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P10",
+              "star": "七杀"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P04",
+              "star": "天府"
+            }
+          },
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P10",
+              "target": "P04",
+              "relation": "OPPOSITE"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "现有解析器根据已审核的宫位本体输出 palace-bound PALACE_HAS_STAR 与明确的 OPPOSITE / TRIAD PALACE_RELATION 事实；映射不新增原子或运行时语义。"
+      },
+      "source_time_scope": {
+        "legacy_primary_time_layer": "NATAL",
+        "source_time_layers": [
+          "NATAL"
+        ],
+        "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+        "dependencies": []
+      },
+      "expected_projection": {
+        "projection_domain": "methodology",
+        "projection_target": "tianfu_resource_condition_is_required_to_refine_wuqu_qisha_property_outcome",
+        "projection_mode": "CROSS_PALACE_CONSTRAINT"
+      },
+      "source_context": {
+        "unresolved_state_dependency": {
+          "required_state": "天府是否得禄，抑或府库空露",
+          "state_representable_by_current_approved_atoms": false,
+          "do_not_infer_from_missing_TRANSFORMATION_PRESENT": true,
+          "boundary": "本映射只编码武曲七杀与天府对拱关系；不将“得禄”强行等同于单一化禄事实，也不将缺少化禄事实解释为府库空露。"
+        }
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOMS",
+      "normalization_epistemic": "SOURCE_PRESERVING_WITH_EXPLICIT_STATE_DEPENDENCY",
+      "execution_readiness": "STATIC_CROSS_PALACE_CANDIDATE_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    },
+    {
+      "source_rule_id": "TP02-163",
+      "source_provenance": {
+        "source_id": "SRC-ZZ-003",
+        "source_location": "田宅宫printed_p160",
+        "source_readjudication_ref": "knowledge/wp05/property/PROPERTY_TP02_SOURCE_READJUDICATION_100_v0.1.json#TP02-163",
+        "source_time_scope_ref": "knowledge/wp05/property/PROPERTY_TP02_SOURCE_TIME_SCOPE_v0.1.json#TP02-163",
+        "review_status": "SOURCE_SPAN_VERIFIED",
+        "source_span_verified": true,
+        "time_layer": "NATAL",
+        "case_support_only": false,
+        "history_feedback": null
+      },
+      "source_condition_text": "天同与天梁对拱相对同度比较",
+      "source_anchor_printed_pages": [
+        160
+      ],
+      "source_anchor_phrase": "天同守田宅宫与天梁对拱，其性质较[天同天梁]同度为佳，主置业较为顺利。",
+      "source_span_summary": "条件识别田宅宫天同与对宫天梁的变体，投影目标保留其相较天同天梁同度变体更利置业的相对方向；不把比较改写为绝对置业保证。",
+      "condition": {
+        "all_of": [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P10",
+              "star": "天同"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P04",
+              "star": "天梁"
+            }
+          },
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P10",
+              "target": "P04",
+              "relation": "OPPOSITE"
+            }
+          }
+        ]
+      },
+      "condition_atom_types": [
+        "PALACE_HAS_STAR",
+        "PALACE_RELATION"
+      ],
+      "expected_runtime_fact_patterns": [
+        [
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P10",
+              "star": "天同"
+            }
+          },
+          {
+            "atom_type": "PALACE_HAS_STAR",
+            "args": {
+              "palace": "P04",
+              "star": "天梁"
+            }
+          },
+          {
+            "atom_type": "PALACE_RELATION",
+            "args": {
+              "source": "P10",
+              "target": "P04",
+              "relation": "OPPOSITE"
+            }
+          }
+        ]
+      ],
+      "runtime_fact_support": {
+        "source_code": "src/product/palace_structure.py",
+        "emitter": "ResolvedPalaceStructure.runtime_facts",
+        "rationale": "现有解析器根据已审核的宫位本体输出 palace-bound PALACE_HAS_STAR 与明确的 OPPOSITE / TRIAD PALACE_RELATION 事实；映射不新增原子或运行时语义。"
+      },
+      "source_time_scope": {
+        "legacy_primary_time_layer": "NATAL",
+        "source_time_layers": [
+          "NATAL"
+        ],
+        "scope_status": "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER",
+        "dependencies": []
+      },
+      "expected_projection": {
+        "projection_domain": "property_acquisition",
+        "projection_target": "opposition_variant_is_relatively_smoother_for_property_acquisition",
+        "projection_mode": "STRUCTURAL_CONSTRAINT"
+      },
+      "source_context": {
+        "comparison_basis": {
+          "compared_variant": "P10 天同 + P04 天梁，且 P10/P04 为 OPPOSITE",
+          "baseline_variant": "P10 天同 + P10 天梁同宫",
+          "relative_direction": "对宫变体相较同宫变体更利置业、较为顺利",
+          "runtime_comparator_created": false,
+          "boundary": "比较方向由原文与规范 projection_target 保留；当前条件只识别对宫变体，不声称运行时对两张命盘或两个状态作数值比较。"
+        }
+      },
+      "mapping_status": "MAPPED_EXISTING_ATOMS",
+      "normalization_epistemic": "SOURCE_PRESERVING_COMPARATIVE_CONSTRAINT",
+      "execution_readiness": "STATIC_STRUCTURAL_COMPARISON_NOT_EXECUTABLE",
+      "executable_registry_entry": false
+    }
+  ],
+  "explicit_non_scope": [
+    {
+      "source_rule_id": "TP02-139",
+      "reason": "Direct 天同守田宅宫 rule already belongs to the merged direct-star sequence; it is not relation-dependent."
+    },
+    {
+      "source_rule_id": "TP03-288",
+      "reason": "Tianfu cross-palace plus qualitative treasury-state dependency remains deferred."
+    },
+    {
+      "source_rule_id": "TP03-289",
+      "reason": "Tianfu cross-palace plus qualitative treasury-state dependency remains deferred."
+    },
+    {
+      "source_rule_id": "TP02-195",
+      "reason": "Dual scene issue SC-P10-A property_home vs SC-P10-B work_institution remains separate."
+    }
+  ],
+  "validation": {
+    "nominated_rows": 3,
+    "mapped_rows": 3,
+    "blocked_nominated_rows": 0,
+    "source_rows_reconciled_latest_main": true,
+    "resolver_fact_shape_tested": true,
+    "existing_atom_types_only": true,
+    "relation_geometry_alternatives_explicit": true,
+    "tianfu_state_not_inferred": true,
+    "comparative_direction_preserved": true,
+    "production_registry_modified": false,
+    "product_runtime_modified": false,
+    "canonical_source_rows_modified": false,
+    "shared_semantics_modified": false,
+    "new_atom_created": false,
+    "new_probability_created": false,
+    "new_numeric_weight_created": false,
+    "new_threshold_created": false
+  }
+}

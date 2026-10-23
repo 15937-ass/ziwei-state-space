@@ -1,0 +1,22 @@
+schema_version: 1
+lane: "KNOWLEDGE_ONLY"
+shard: "P04"
+palace: "子女宫"
+slug: "children"
+authoritative_execution: "GITHUB_ISSUE"
+canonical_branch: "main"
+contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
+
+execution:
+  status: "ACTIVE_NO_ACTIVE_WORK"
+  active_issue: null
+  active_branch: null
+  active_pr: null
+  canonical_checkpoint: "CANONICAL_REVALIDATION_NOT_STARTED"
+  note: "Archived/noncanonical candidate material, if any, is not promoted by this state initialization."
+
+integrity:
+  source_first: true
+  shared_semantics_must_escalate_to_core: true
+  may_write_other_palace: false
+  empirical_feedback_may_rewrite_source_truth: false

@@ -10,6 +10,7 @@ import json
 from pathlib import Path
 from typing import Any, Mapping
 
+from .knowledge_bundle import require_active_component_lock
 from .registry_driven_natal_provider import (
     RegistryDrivenNatalDomainProvider,
     load_registry_driven_natal_provider,
@@ -238,6 +239,7 @@ def load_default_career_natal_provider(
     """Load the source-pinned Career NATAL provider."""
 
     root = Path(repository_root)
+    require_active_component_lock(root, "K_signal")
     registry_path = root / DEFAULT_CAREER_PROVIDER_REGISTRY_PATH
     registry = _load_json(registry_path)
     load_career_source_mappings(root, registry)

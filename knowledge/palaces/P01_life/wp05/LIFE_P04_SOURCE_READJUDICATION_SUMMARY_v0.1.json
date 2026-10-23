@@ -1,0 +1,63 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P01-LIFE-P04-SOURCE-READJUDICATION-SUMMARY-v0.1",
+  "issue": 603,
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "P01",
+  "palace": "命宫",
+  "source_basis": {
+    "source_id": "SRC-ZZ-003",
+    "work": "中州派紫微斗数深造讲义（下册）",
+    "chapter": "下篇·宫垣论·命宫",
+    "printed_pages": "12–14",
+    "historical_candidate_file": "validation/wp05/P04_life_palace_projection_review_v0.1.csv",
+    "historical_candidate_status": "NONCANONICAL_ACCELERATION_INPUT_ONLY",
+    "direct_page_verification": "PDF physical page 6 contains printed pp11–12; physical page 7 contains printed pp13–14; physical page 8 begins printed p15. P04-376…400 are all printed p14."
+  },
+  "summary": {
+    "historical_candidates_reviewed": 100,
+    "canonical_promoted": 100,
+    "deduplicated_scope_metadata_rows": 0,
+    "new_source_gap_supplement_records": 28,
+    "new_canonical_records": 128,
+    "reusable_projection_rules": 109,
+    "case_support_only": 19,
+    "candidate_case_support_only": 12,
+    "gap_supplement_case_support_only": 7,
+    "registered_gaps_closed": [
+      "P01-SRC-GAP-023",
+      "P01-SRC-GAP-024"
+    ],
+    "cumulative_canonical_records_after_merge": 550,
+    "cumulative_reusable_projection_rules_after_merge": 451,
+    "cumulative_case_support_only_after_merge": 99,
+    "history_dependency_rows": [],
+    "new_primitive_qi": 0,
+    "new_memory_type": 0,
+    "new_independent_time_scale": 0,
+    "numeric_weight": 0,
+    "probability": 0,
+    "decay": 0
+  },
+  "major_findings": [
+    "100 条 P04-301…400 候选逐条回到 SRC-ZZ-003 原页复核；历史候选只作加速输入。",
+    "扫描页核验：P04-301…335 对应印刷 p12，P04-336…371 对应 p13，P04-372…400 对应 p14；旧候选把 P04-376…388 标为 p14–15、P04-389…400 标为 p15，均已更正。",
+    "候选表没有巳亥廉贪段，也遗漏辰戌廉府、丑未天府、卯酉天府、巳亥天府的部分枢纽与条件；新增 28 条源文补录，关闭 p12 后续缺口 023 和 p13–p14 覆盖缺口 024。",
+    "对宫贪狼、天府对宫七杀、巳亥天府对宫紫杀归入 opposite_palace_dependency；只有源文明示的迁移宫、疾厄宫、命宫、事业宫、福德宫、夫妻宫等进入 cross_palace_dependency。",
+    "“年限”“宫限”“限”“年运”不被静默缩窄为大限；“流年大运/大运流年”保留双层范围。",
+    "偷窃、弃祖离家、婚姻、手术、意外、目疾、童年离亲、精神诊断及投资错误等具体应象保持 CASE_SUPPORT_ONLY；原书“自闭症/弱智”不作为现代医学诊断。",
+    "本批不引入新共享语义原语、记忆类型、独立时间尺度、数值权重、概率或衰减；P01-SRC-GAP-025 保留印刷 p15 太阴后续与贪狼未审范围。"
+  ],
+  "source_coverage_gaps_next_checkpoint": [
+    {
+      "gap_id": "P01-SRC-GAP-025",
+      "status": "OPEN_FOR_NEXT_SOURCE_CHECKPOINT",
+      "source_location": "宫垣论·命宫·printed p15 onward; PDF physical page 8 left column starts printed p15",
+      "source_claim": "P04 历史候选 P04-376…400 实际止于印刷 p14。未审的 p15 从太阴主富与禄开始，包含卯酉太阴（反背与枢纽）、辰戌太阴、巳亥太阴及其年运枢纽，随后进入第9节贪狼（物欲/色欲、昌曲/左右、火铃、化忌、空曜/天刑、羊陀与各宫位分支、火贪铃贪触发等）。",
+      "reason": "本批按扫描图像只核对印刷 p12–p14。历史候选页码不能替代源文页覆盖；p15 太阴后续与贪狼开篇单独保留为下一批。",
+      "next_source_anchor": "P05-401…500 source-first checkpoint: begin at printed p15 with 太阴主富/禄、卯酉/辰戌/巳亥太阴及其枢纽；then re-read the full 贪狼 section from its opening. Verify printed pages from scan images, not historical rendered-line labels."
+    }
+  ],
+  "shared_semantic_gaps": [],
+  "human_gate_required": false
+}

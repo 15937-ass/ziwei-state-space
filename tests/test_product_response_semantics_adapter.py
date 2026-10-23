@@ -1,0 +1,670 @@
+import copy
+import json
+from collections import Counter
+from pathlib import Path
+
+import pytest
+
+from src.product.response_semantics_adapter import (
+    ACTIVATION_CLOSURE_PATH,
+    CATEGORY_REVIEW_PATH,
+    CAREER_ORDINAL_CONSTRAINTS_PATH,
+    CAREER_ORDINAL_RULE_LINKS_PATH,
+    CAREER_ORDINAL_BLOCKER_IMPACT_PATH,
+    CAREER_SEMANTIC_NORMALIZATION_PATH,
+    CAREER_COMPILER_READINESS_CENSUS_PATH,
+    CAREER_DEPENDENCY_IR_PATH,
+    CAREER_DIRECT_CONDITION_IR_PATH,
+    RESPONSE_PILOT_PATH,
+    CareerResponseDecision,
+    ResponseSemanticEnvelope,
+    absence_evidence_ready,
+    adapt_response_pilot_registry,
+    adapt_response_semantics_record,
+    audit_response_semantics_adapter_readiness,
+    build_career_response_decisions,
+    load_activation_closure,
+    load_career_compatibility_records,
+    load_career_ordinal_constraints,
+    load_career_ordinal_rule_links,
+    load_career_ordinal_blocker_impact,
+    load_career_semantic_normalization,
+    load_career_compiler_readiness_census,
+    load_career_dependency_ir,
+    load_career_direct_condition_ir,
+    load_response_pilot_records,
+    validate_career_ordinal_cross_artifacts,
+    validate_career_compiler_readiness_cross_artifacts,
+    validate_real_adapter_zero_unlock,
+)
+
+
+ROOT = Path(__file__).resolve().parents[1]
+SYNTHETIC = (
+    ROOT / "product" / "RESPONSE_SEMANTICS_ADAPTER_SYNTHETIC_FIXTURE_v0.1.json"
+)
+READINESS = (
+    ROOT / "product" / "RESPONSE_SEMANTICS_ADAPTER_READINESS_v0.3.json"
+)
+
+
+def _load(path):
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _decision(rule_id):
+    return next(
+        item for item in build_career_response_decisions()
+        if item.source_rule_id == rule_id
+    )
+
+
+def test_all_pilot_response_records_adapt_without_semantic_loss():
+    raw_records = load_response_pilot_records()
+    envelopes = adapt_response_pilot_registry()
+
+    assert len(raw_records) == len(envelopes) == 8
+
+    for raw, envelope in zip(raw_records, envelopes):
+        assert isinstance(envelope, ResponseSemanticEnvelope)
+        assert envelope.semantic_payload() == raw
+
+
+def test_real_response_pilot_authorizes_zero_runtime_effects():
+    envelopes = adapt_response_pilot_registry()
+
+    assert Counter(
+        item.knowledge_execution_status for item in envelopes
+    ) == {
+        "LEXICAL_ONLY": 4,
+        "STRUCTURAL_ONLY": 4,
+    }
+    assert all(item.allowed_use == "SEMANTIC_ONLY" for item in envelopes)
+    assert all(item.runtime_effect_allowed is False for item in envelopes)
+    assert all(item.authorization_ref is None for item in envelopes)
+
+
+def test_membership_never_invents_activation_quantifier():
+    records = {item["record_id"]: item for item in load_response_pilot_records()}
+    fire_bell = adapt_response_semantics_record(records["RS-GROUP-FIRE-BELL"])
+
+    assert [item["id"] for item in fire_bell.members] == ["火星", "铃星"]
+    assert fire_bell.activation["mode"] == "UNSPECIFIED"
+    assert "ACTIVATION_UNSPECIFIED_NO_DEFAULT" in fire_bell.blockers
+    assert fire_bell.runtime_effect_allowed is False
+
+
+def test_named_composite_does_not_become_generic_shorthand():
+    records = {item["record_id"]: item for item in load_response_pilot_records()}
+    luma = records["RS-COMPOSITE-LUMA-JIAOCHI"]
+
+    adapted = adapt_response_semantics_record(
+        luma,
+        application_term="禄马",
+    )
+
+    assert adapted.term == "禄马交驰"
+    assert "NAMED_COMPOSITE_NOT_GENERIC_SHORTHAND" in adapted.blockers
+    assert adapted.runtime_effect_allowed is False
+
+
+def test_safe_symbolic_still_requires_separate_authorization():
+    fixture = _load(SYNTHETIC)
+    record = fixture["record"]
+
+    adapted = adapt_response_semantics_record(
+        record,
+        requested_scope=fixture["requested_scope"],
+        application_term=fixture["application_term"],
+    )
+
+    assert adapted.knowledge_execution_status == "SAFE_SYMBOLIC"
+    assert adapted.allowed_use == "SEMANTIC_ONLY"
+    assert adapted.runtime_effect_allowed is False
+    assert adapted.authorization_ref is None
+    assert adapted.blockers == ("EXPLICIT_EXECUTION_AUTHORIZATION_REQUIRED",)
+
+
+def test_synthetic_explicit_authorization_can_pass_positive_path():
+    fixture = _load(SYNTHETIC)
+
+    adapted = adapt_response_semantics_record(
+        fixture["record"],
+        authorization_ref=fixture["authorization_ref"],
+        requested_scope=fixture["requested_scope"],
+        application_term=fixture["application_term"],
+    )
+
+    assert adapted.allowed_use == "EXECUTABLE"
+    assert adapted.runtime_effect_allowed is True
+    assert adapted.authorization_ref == fixture["authorization_ref"]
+    assert adapted.blockers == ()
+
+
+def test_authorization_cannot_override_non_safe_knowledge_status():
+    record = copy.deepcopy(load_response_pilot_records()[0])
+
+    adapted = adapt_response_semantics_record(
+        record,
+        authorization_ref="SYNTHETIC_AUTH:BAD",
+    )
+
+    assert adapted.runtime_effect_allowed is False
+    assert adapted.allowed_use == "SEMANTIC_ONLY"
+    assert "AUTHORIZATION_CANNOT_OVERRIDE_KNOWLEDGE_STATUS" in adapted.blockers
+
+
+def test_authorization_cannot_invent_unspecified_activation():
+    fixture = _load(SYNTHETIC)
+    record = copy.deepcopy(fixture["record"])
+    record["activation"]["mode"] = "UNSPECIFIED"
+
+    adapted = adapt_response_semantics_record(
+        record,
+        authorization_ref=fixture["authorization_ref"],
+        requested_scope=fixture["requested_scope"],
+        application_term=fixture["application_term"],
+    )
+
+    assert adapted.runtime_effect_allowed is False
+    assert "AUTHORIZATION_CANNOT_INVENT_ACTIVATION" in adapted.blockers
+
+
+def test_local_scope_requires_explicit_binding_before_authorization():
+    fixture = _load(SYNTHETIC)
+
+    adapted = adapt_response_semantics_record(
+        fixture["record"],
+        authorization_ref=fixture["authorization_ref"],
+        requested_scope=None,
+        application_term=fixture["application_term"],
+    )
+
+    assert adapted.runtime_effect_allowed is False
+    assert "LOCAL_SCOPE_BINDING_REQUIRED" in adapted.blockers
+
+
+def test_local_scope_mismatch_fails_closed():
+    fixture = _load(SYNTHETIC)
+    bad_scope = dict(fixture["requested_scope"])
+    bad_scope["domain"] = "OTHER_DOMAIN"
+
+    adapted = adapt_response_semantics_record(
+        fixture["record"],
+        authorization_ref=fixture["authorization_ref"],
+        requested_scope=bad_scope,
+        application_term=fixture["application_term"],
+    )
+
+    assert adapted.runtime_effect_allowed is False
+    assert "SCOPE_MISMATCH:domain" in adapted.blockers
+    assert "AUTHORIZATION_CANNOT_OVERRIDE_SCOPE" in adapted.blockers
+
+
+def test_named_composite_authorization_requires_exact_application_term():
+    fixture = _load(SYNTHETIC)
+    record = copy.deepcopy(fixture["record"])
+    record["semantic_role"] = "NAMED_COMPOSITE"
+    record["term"] = "SYNTHETIC_NAMED_COMPOSITE"
+
+    missing_term = adapt_response_semantics_record(
+        record,
+        authorization_ref=fixture["authorization_ref"],
+        requested_scope=fixture["requested_scope"],
+    )
+    wrong_term = adapt_response_semantics_record(
+        record,
+        authorization_ref=fixture["authorization_ref"],
+        requested_scope=fixture["requested_scope"],
+        application_term="SYNTHETIC_GENERIC",
+    )
+
+    assert missing_term.runtime_effect_allowed is False
+    assert (
+        "NAMED_COMPOSITE_APPLICATION_TERM_REQUIRED"
+        in missing_term.blockers
+    )
+    assert wrong_term.runtime_effect_allowed is False
+    assert "NAMED_COMPOSITE_NOT_GENERIC_SHORTHAND" in wrong_term.blockers
+
+
+def test_promoted_career_response_inputs_are_explicit_superseding_versions():
+    assert ACTIVATION_CLOSURE_PATH.name == (
+        "CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.16.json"
+    )
+    assert CAREER_SEMANTIC_NORMALIZATION_PATH.name == (
+        "CAREER_SEMANTIC_NORMALIZATION_36_v0.2.json"
+    )
+    activation = load_activation_closure()
+    normalization = load_career_semantic_normalization()
+    assert activation["schema_version"] == "0.16"
+    assert activation["summary"]["conditions_compiled"] == 0
+    assert activation["summary"]["execution_unlocked"] == 0
+    assert normalization["schema_version"] == "0.2"
+
+
+def test_career_response_and_activation_join_is_exact_251():
+    compatibility = load_career_compatibility_records()
+    activation = load_activation_closure()
+    decisions = build_career_response_decisions()
+
+    compat_ids = {item["source_rule_id"] for item in compatibility}
+    activation_ids = {item["source_rule_id"] for item in activation["records"]}
+    decision_ids = {item.source_rule_id for item in decisions}
+
+    assert len(compatibility) == 251
+    assert len(activation["records"]) == 251
+    assert len(decisions) == 251
+    assert compat_ids == activation_ids == decision_ids
+    assert len(decision_ids) == 251
+
+
+def test_career_adapter_preserves_knowledge_readiness_and_compiler_bands():
+    decisions = build_career_response_decisions()
+
+    assert Counter(item.knowledge_readiness_class for item in decisions) == {
+        "MULTI_CLASS_BLOCKED": 44,
+        "LOCAL_STRUCTURE_READY": 26,
+        "SOURCE_UNDERDETERMINED": 157,
+        "DEPENDENCY_COMPILER_GATED": 24,
+    }
+    assert Counter(item.adapter_status for item in decisions) == {
+        "BLOCKED_MULTIPLE": 44,
+        "KNOWLEDGE_CONDITION_IR_READY_PENDING_PRODUCT_COMPILATION": 12,
+        "LOCAL_STRUCTURE_NOT_CONDITION_IR_READY": 14,
+        "BLOCKED_SOURCE_UNDERDETERMINED": 157,
+        "BLOCKED_DEPENDENCY_COMPILER": 24,
+    }
+
+    local_ready = [
+        item
+        for item in decisions
+        if item.knowledge_readiness_class == "LOCAL_STRUCTURE_READY"
+    ]
+    assert Counter(item.compiler_readiness_band for item in local_ready) == {
+        "DEPENDENCY_EFFECTIVE_UNDERDETERMINED": 11,
+        "DEPENDENCY_CONDITION_IR_READY": 3,
+        "DIRECT_CONDITION_IR_READY": 9,
+        "DIRECT_RELATION_OR_COMPOSITION_DEFERRED": 3,
+    }
+
+
+def test_local_structure_ready_is_split_by_condition_ir_readiness_without_unlock():
+    local_ready = [
+        item
+        for item in build_career_response_decisions()
+        if item.knowledge_readiness_class == "LOCAL_STRUCTURE_READY"
+    ]
+    ready = [item for item in local_ready if item.knowledge_condition_ir_ready]
+    not_ready = [item for item in local_ready if not item.knowledge_condition_ir_ready]
+
+    assert len(local_ready) == 26
+    assert len(ready) == 12
+    assert len(not_ready) == 14
+    assert all(
+        item.adapter_status
+        == "KNOWLEDGE_CONDITION_IR_READY_PENDING_PRODUCT_COMPILATION"
+        for item in ready
+    )
+    assert all(item.condition_ir_artifact for item in ready)
+    assert all(
+        item.adapter_status == "LOCAL_STRUCTURE_NOT_CONDITION_IR_READY"
+        for item in not_ready
+    )
+    assert all(item.condition_ir_artifact is None for item in not_ready)
+    assert all(item.condition_compiled is False for item in local_ready)
+    assert all(item.knowledge_execution_unlocked is False for item in local_ready)
+    assert all(item.runtime_effect_allowed is False for item in local_ready)
+
+
+def test_condition_ir_artifacts_cross_validate_and_ready_ids_are_exact():
+    census = load_career_compiler_readiness_census()
+    dependency = load_career_dependency_ir()
+    direct = load_career_direct_condition_ir()
+    validate_career_compiler_readiness_cross_artifacts()
+
+    ready_ids = {
+        row["source_rule_id"]
+        for row in census["records"]
+        if row["knowledge_condition_ir_ready"] is True
+    }
+    assert ready_ids == {
+        "CA02-181",
+        "CA03-228",
+        "CA05-411",
+        "CA05-417",
+        "CA05-419",
+        "CA05-420",
+        "CA05-433",
+        "CA07-638",
+        "CA07-639",
+        "CA07-681",
+        "CA07-682",
+        "CA09-820",
+    }
+    assert {row["child_rule_id"] for row in dependency["records"]} == {
+        "CA05-420",
+        "CA07-639",
+        "CA07-682",
+    }
+    assert len(direct["records"]) == 9
+
+
+def test_condition_ir_ready_rows_are_semantic_only_not_product_compiled():
+    ready = [
+        item
+        for item in build_career_response_decisions()
+        if item.knowledge_condition_ir_ready
+    ]
+    assert len(ready) == 12
+    assert all(item.condition_compiled is False for item in ready)
+    assert all(item.knowledge_execution_unlocked is False for item in ready)
+    assert all(item.runtime_effect_allowed is False for item in ready)
+    assert all(not item.compiler_readiness_blockers for item in ready)
+
+
+def test_real_career_adapter_authorizes_zero_runtime_effects():
+    decisions = build_career_response_decisions()
+
+    assert all(isinstance(item, CareerResponseDecision) for item in decisions)
+    assert all(item.condition_compiled is False for item in decisions)
+    assert all(item.knowledge_execution_unlocked is False for item in decisions)
+    assert all(item.runtime_effect_allowed is False for item in decisions)
+
+    validate_real_adapter_zero_unlock()
+
+
+def test_antecedent_source_recheck_is_consumed_without_unresolved_refs():
+    activation = load_activation_closure()
+    decisions = build_career_response_decisions()
+
+    assert activation["summary"]["unresolved_antecedent_reference_rows"] == 0
+    assert activation["summary"]["explicit_antecedent_dependency_rows"] == 65
+    assert sum(
+        1 for item in decisions if item.antecedent_mode == "EXPLICIT_RULE_REFERENCE"
+    ) == 65
+
+
+def test_ca01_080_uses_corrected_base_antecedent():
+    decision = _decision("CA01-080")
+
+    assert decision.antecedent_mode == "EXPLICIT_RULE_REFERENCE"
+    assert decision.antecedent_rule_ids == ("CA01-078",)
+    assert decision.runtime_effect_allowed is False
+
+
+def test_ca01_098_does_not_inherit_contradictory_antecedent():
+    decision = _decision("CA01-098")
+
+    assert decision.antecedent_mode == "NONE"
+    assert decision.antecedent_rule_ids == ()
+    assert decision.runtime_effect_allowed is False
+
+
+def test_relation_binding_does_not_imply_member_realization_or_execution():
+    decision = _decision("CA01-081")
+
+    assert decision.relation_binding_dispositions == ("RB1_SINGLE_TARGET_BOUND",)
+    assert "OPEN_WORLD" in decision.category_membership_statuses
+    assert decision.runtime_effect_allowed is False
+    assert (
+        decision.adapter_status
+        != "KNOWLEDGE_CONDITION_IR_READY_PENDING_PRODUCT_COMPILATION"
+    )
+
+
+def test_closed_world_absence_requires_explicit_evidence_token():
+    decision = _decision("CA01-057")
+    assert "CLOSED_WORLD_ABSENCE_EVIDENCE" in decision.blockers
+
+    assert absence_evidence_ready(
+        decision,
+        closed_world_evidence_ref=None,
+    ) is False
+    assert absence_evidence_ready(
+        decision,
+        closed_world_evidence_ref="EVIDENCE:CLOSED_WORLD:EXPLICIT",
+    ) is True
+
+    # Evidence-readiness does not itself unlock Product execution.
+    assert decision.runtime_effect_allowed is False
+
+
+def test_open_category_review_remains_non_executable():
+    decision = _decision("CA01-081")
+
+    assert "OPEN_WORLD" in decision.category_membership_statuses
+    assert decision.runtime_effect_allowed is False
+
+
+def test_career_ordinal_registry_is_semantic_only_and_non_numeric():
+    constraints = load_career_ordinal_constraints()
+
+    assert len(constraints) == 130
+    assert all(item["product_execution_unlocked"] is False for item in constraints)
+    assert all(item["transitive_closure_allowed"] is False for item in constraints)
+
+    for item in constraints:
+        for key in ("numeric_gain", "numeric_value", "probability", "numeric_threshold"):
+            if key in item:
+                assert item[key] is None
+
+
+def test_ordinal_relation_types_are_preserved_without_numeric_gain():
+    payload = _load(CAREER_ORDINAL_CONSTRAINTS_PATH)
+    constraints = load_career_ordinal_constraints()
+
+    assert Counter(item["relation_type"] for item in constraints) == Counter(
+        payload["relation_type_counts"]
+    )
+    assert any(
+        item["relation_type"] == "MORE_IMPORTANT_THAN"
+        for item in constraints
+    )
+    assert any(
+        item["relation_type"] == "SOURCE_LOCAL_EMPHASIS"
+        for item in constraints
+    )
+
+
+def test_semantic_normalization_36_refines_generic_blocker_without_unlock():
+    payload = load_career_semantic_normalization()
+    summary = payload["summary"]
+
+    assert payload["coverage"] == {
+        "target_rows": 36,
+        "reviewed": 36,
+        "remaining": 0,
+    }
+    assert summary["semantic_normalization_blockers_before"] == 36
+    assert summary["semantic_normalization_blockers_after"] == 0
+    assert summary["disposition_counts"] == {
+        "NORMALIZED_COMPOSITE_EXPRESSION": 10,
+        "SOURCE_SHORTHAND_REMAINS_UNRESOLVED": 4,
+        "NORMALIZED_TO_OPEN_CATEGORY_OR_VALENCE": 8,
+        "NORMALIZED_KNOWN_GROUP_PLUS_LITERAL": 4,
+        "NORMALIZED_EXPLICIT_ATOM_OR_SET": 6,
+        "NORMALIZED_EXPLICIT_LOGICAL_EXPRESSION": 4,
+    }
+    assert summary["added_precise_blocker_counts"] == {
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED": 6,
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED": 13,
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED": 4,
+        "CARDINALITY_THRESHOLD_UNSPECIFIED": 2,
+        "TRANSFORMATION_CARRIER_UNSPECIFIED": 2,
+    }
+    assert summary["source_resolution_changes"] == 0
+    assert summary["conditions_compiled"] == 0
+    assert summary["execution_unlocked"] == 0
+
+    for row in payload["records"]:
+        assert (
+            "SEMANTIC_NORMALIZATION_OR_QUANTIFIER_UNSPECIFIED"
+            not in row["blockers_after"]
+        )
+        assert row["condition_compiled"] is False
+        assert row["execution_unlocked"] is False
+
+
+def test_ordinal_rule_links_cover_all_130_constraints_without_gap():
+    links = load_career_ordinal_rule_links()
+    records = links["records"]
+
+    assert len(records) == 130
+    assert links["coverage"]["constraints"] == 130
+    assert links["coverage"]["linked_atomic_rule_ids"] == 130
+    assert links["disposition_counts"] == {
+        "DIRECT_ATOMIC_RULE": 114,
+        "METHODOLOGY_OR_CONTEXT_ONLY": 1,
+        "MULTI_RULE_SHARED_SOURCE_SENTENCE": 15,
+    }
+    assert all(item["linked_rule_ids"] for item in records)
+
+
+def test_ordinal_blocker_impact_is_qualitative_only_and_unlocks_nothing():
+    impact = load_career_ordinal_blocker_impact()
+    summary = impact["summary"]
+
+    assert len(impact["records"]) == 130
+    assert summary["constraints_audited"] == 130
+    assert summary["impact_counts"] == {
+        "NO_BLOCKER_REDUCTION": 94,
+        "QUALITATIVE_REFINEMENT_ONLY": 36,
+    }
+    assert summary["unique_activation_rules_touched"] == 33
+    assert summary["blockers_resolved_by_ordinal_evidence"] == 0
+    assert summary["execution_unlocked"] == 0
+    assert all(item["execution_unlocked"] is False for item in impact["records"])
+    assert all(item["resolved_blockers"] == [] for item in impact["records"])
+
+
+def test_ordinal_constraint_link_and_impact_artifacts_are_one_to_one():
+    validate_career_ordinal_cross_artifacts()
+
+    constraint_ids = {
+        item["constraint_id"] for item in load_career_ordinal_constraints()
+    }
+    link_ids = {
+        item["constraint_id"]
+        for item in load_career_ordinal_rule_links()["records"]
+    }
+    impact_ids = {
+        item["constraint_id"]
+        for item in load_career_ordinal_blocker_impact()["records"]
+    }
+
+    assert constraint_ids == link_ids == impact_ids
+
+
+def test_ordinal_linking_does_not_change_real_product_runtime_unlock():
+    payload = audit_response_semantics_adapter_readiness()
+    linking = payload["career_ordinal_rule_linking"]
+
+    assert linking["constraints_dispositioned"] == 130
+    assert linking["linked_atomic_rule_ids"] == 130
+    assert linking["link_disposition_counts"] == {
+        "DIRECT_ATOMIC_RULE": 114,
+        "METHODOLOGY_OR_CONTEXT_ONLY": 1,
+        "MULTI_RULE_SHARED_SOURCE_SENTENCE": 15,
+    }
+    assert linking["blocker_impact_counts"] == {
+        "NO_BLOCKER_REDUCTION": 94,
+        "QUALITATIVE_REFINEMENT_ONLY": 36,
+    }
+    assert linking["unique_activation_rules_touched"] == 33
+    assert linking["blockers_resolved_by_ordinal_evidence"] == 0
+    assert linking["execution_unlocked"] == 0
+    assert payload["career"]["runtime_effects_authorized"] == 0
+
+
+def test_readiness_audit_matches_versioned_artifact():
+    generated = audit_response_semantics_adapter_readiness()
+    stored = _load(READINESS)
+
+    assert generated == stored
+
+
+def test_readiness_summary_records_zero_unauthorized_unlocks():
+    payload = audit_response_semantics_adapter_readiness()
+
+    assert payload["response_pilot"]["total"] == 8
+    assert payload["response_pilot"]["runtime_effects_authorized"] == 0
+
+    ordinal = payload["career_ordinal_registry"]
+    assert ordinal["total_constraints"] == 130
+    assert ordinal["runtime_effects_authorized"] == 0
+    assert ordinal["numericized_constraints"] == 0
+    assert ordinal["transitive_closure_authorized"] == 0
+
+    career = payload["career"]
+    assert career["total_rows"] == 251
+    assert career["response_gain_total"] == 89
+    assert career["knowledge_condition_ir_ready_pending_product_compilation"] == 12
+    assert career["local_structure_not_condition_ir_ready"] == 14
+    assert career["compiler_readiness_band_counts"] == {
+        "DEPENDENCY_EFFECTIVE_UNDERDETERMINED": 11,
+        "DEPENDENCY_CONDITION_IR_READY": 3,
+        "DIRECT_CONDITION_IR_READY": 9,
+        "DIRECT_RELATION_OR_COMPOSITION_DEFERRED": 3,
+    }
+    assert career["knowledge_condition_ir_ready_total"] == 12
+    assert career["dependency_condition_ir_records"] == 3
+    assert career["direct_condition_ir_records"] == 9
+    assert career["runtime_effects_authorized"] == 0
+    assert career["condition_compiled_count"] == 0
+    assert career["knowledge_execution_unlocked_count"] == 0
+    assert career["unresolved_antecedent_reference_rows"] == 0
+    assert career["explicit_antecedent_dependency_rows"] == 65
+    assert career["closed_world_evidence_gated_rows"] == 23
+    assert career["rows_with_source_underdetermination"] == 201
+    assert career["relation_bound_rows"] == 132
+    assert career["category_reviewed_rows"] == 59
+    assert career["unauthorized_unlock_count"] == 0
+    normalization = payload["career_semantic_normalization"]
+    assert normalization["target_rows"] == 36
+    assert normalization["reviewed"] == 36
+    assert normalization["remaining"] == 0
+    assert normalization["generic_blocker_before"] == 36
+    assert normalization["generic_blocker_after"] == 0
+    assert normalization["conditions_compiled"] == 0
+    assert normalization["execution_unlocked"] == 0
+
+
+def test_adapter_output_contains_no_probability_or_numeric_gain_fields():
+    payload = audit_response_semantics_adapter_readiness()
+    synthetic = _load(SYNTHETIC)
+
+    def walk(value):
+        if isinstance(value, dict):
+            for key, child in value.items():
+                assert key not in {
+                    "probability",
+                    "posterior",
+                    "learned_weight",
+                    "numeric_gain",
+                    "effect_weight",
+                    "confidence_score",
+                    "reward",
+                }
+                walk(child)
+        elif isinstance(value, list):
+            for child in value:
+                walk(child)
+
+    walk(payload)
+    walk(synthetic)
+
+
+def test_source_knowledge_files_are_read_only_inputs():
+    # Product tests assert the adapter points to Knowledge assets, while the
+    # repository lane validator enforces that this Product PR does not edit them.
+    assert RESPONSE_PILOT_PATH.exists()
+    assert ACTIVATION_CLOSURE_PATH.exists()
+    assert CATEGORY_REVIEW_PATH.exists()
+    assert CAREER_ORDINAL_CONSTRAINTS_PATH.exists()
+    assert CAREER_ORDINAL_RULE_LINKS_PATH.exists()
+    assert CAREER_ORDINAL_BLOCKER_IMPACT_PATH.exists()
+    assert CAREER_SEMANTIC_NORMALIZATION_PATH.exists()
+    assert CAREER_COMPILER_READINESS_CENSUS_PATH.exists()
+    assert CAREER_DEPENDENCY_IR_PATH.exists()
+    assert CAREER_DIRECT_CONDITION_IR_PATH.exists()

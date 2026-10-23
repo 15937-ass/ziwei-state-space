@@ -1,0 +1,516 @@
+{
+  "schema_version": "0.2",
+  "artifact_id": "KB-CAREER-SOURCE-LEXICAL-RECHECK-10-v0.2",
+  "lane": "KNOWLEDGE_ONLY",
+  "issue": 472,
+  "status": "10_OF_10_RECHECKED_1_BLOCKER_RESTORED_1_RECLASSIFIED_NO_NEW_READY_NO_EXECUTION_UNLOCK",
+  "recheck_of": "knowledge/wp08/CAREER_SOURCE_LEXICON_QUANTIFIER_10_v0.1.json",
+  "source_basis": [
+    "SRC-ZZ-003",
+    "SRC-ZZ-002"
+  ],
+  "scope": {
+    "target_rule_ids": [
+      "CA01-059",
+      "CA02-107",
+      "CA03-289",
+      "CA04-345",
+      "CA04-391",
+      "CA05-433",
+      "CA05-484",
+      "CA06-502",
+      "CA08-723",
+      "CA09-864"
+    ],
+    "exact_overlap_with_issue_469": 10,
+    "scope_correction": "The earlier Issue #472 description called these rows remaining residuals, but the target IDs exactly match Issue #469. This artifact treats the work as a second-pass source adjudication against the current main closure, not as new row coverage."
+  },
+  "principles": [
+    "PRIMARY_SOURCE_SURFACE_PRECEDES_PROJECTED_SHORTHAND",
+    "CROSS_SOURCE_PAIR_EVIDENCE_RESOLVES_PAIR_INTERNAL_SEMANTICS_ONLY",
+    "PAIR_INTERNAL_BOTH_DOES_NOT_RESOLVE_OUTER_LIST_ANY_ALL",
+    "SOURCE_EXPLICIT_ENUMERATION_DOES_NOT_AUTO_IMPLY_LIST_QUANTIFIER",
+    "SOURCE_LOCAL_ALIAS_DOES_NOT_CREATE_GLOBAL_MEMBERSHIP",
+    "OPEN_TAIL_MEMBERSHIP_REMAINS_OPEN",
+    "NO_GLOBAL_ANY_ALL_N_OF_DEFAULT",
+    "NO_NUMERIC_CARDINALITY_THRESHOLD",
+    "NO_EXECUTION_UNLOCK_FROM_LEXICAL_RECHECK",
+    "REPEATED_SAME_SOURCE_PAIR_SYNTAX_MAY_RESOLVE_PAIR_INTERNAL_CO_PRESENCE_WITHOUT_GLOBALIZING"
+  ],
+  "summary": {
+    "reviewed": 10,
+    "target_overlap_with_issue_469": 10,
+    "blocker_restorations": 1,
+    "blocker_reclassifications": 1,
+    "pair_internal_semantics_confirmed": 3,
+    "outer_list_quantifiers_resolved": 0,
+    "newly_blocker_free_rows": 1,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0,
+    "human_gate_required": false,
+    "changed_source_rule_ids": [
+      "CA01-059",
+      "CA05-433",
+      "CA06-502"
+    ],
+    "confirmed_but_not_reopened": [
+      "CA02-107",
+      "CA03-289",
+      "CA04-345",
+      "CA04-391",
+      "CA05-484",
+      "CA08-723",
+      "CA09-864"
+    ]
+  },
+  "source_evidence_catalog": [
+    {
+      "evidence_id": "LR2-E01",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "printed_page": 133,
+      "pdf_page": 67,
+      "excerpt": "若紫微无煞曜同度，却有辅佐吉曜同会，又见禄马交驰，或会廉贞化禄、贪狼化禄、武曲化禄者，主职掌财权。",
+      "finding": "The three transformation carriers are source-explicit, but inner quantifier among the three named transformations is not explicit."
+    },
+    {
+      "evidence_id": "LR2-E02",
+      "source_id": "SRC-ZZ-002",
+      "source_title": "《中州派紫微斗数深造讲义（上）》",
+      "printed_page": 5,
+      "pdf_page": 5,
+      "excerpt": "太阳又为词讼及是非口舌之星，所以不宜见过多的刑曜，如擎羊、天刑、官符、白虎等。",
+      "finding": "Examples marked by 如/等 support an open, non-exhaustive category, not a closed membership list."
+    },
+    {
+      "evidence_id": "LR2-E03",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "printed_page": 139,
+      "pdf_page": 70,
+      "excerpt": "太阳亦喜三台八座，恩光天贵等杂曜朝拱，皆有助于事业。",
+      "finding": "Two named pair surfaces occur under the open tail 等杂曜 and relation 朝拱; this alone does not state the outer list quantifier."
+    },
+    {
+      "evidence_id": "LR2-E03A",
+      "source_id": "SRC-ZZ-002",
+      "source_title": "《中州派紫微斗数深造讲义（上）》",
+      "printed_page": 234,
+      "pdf_page": 118,
+      "excerpt": "三台属阳土，八座属阴土，均为仪仗之星，必须成对会照，然后才主增高地位。",
+      "finding": "Explicitly supports pair-internal BOTH for 三台/八座 only."
+    },
+    {
+      "evidence_id": "LR2-E03B",
+      "source_id": "SRC-ZZ-002",
+      "source_title": "《中州派紫微斗数深造讲义（上）》",
+      "printed_page": 235,
+      "pdf_page": 118,
+      "excerpt": "以上十对星曜，多需成对同会然后始有力量。",
+      "finding": "Supports pair-section reading for named pairs including 恩光/天贵; it does not prove ANY/ALL across the list of pair patterns."
+    },
+    {
+      "evidence_id": "LR2-E04",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "printed_page": 140,
+      "pdf_page": 71,
+      "excerpt": "武曲与火铃同度，则不喜更落于巳午二宫，亦不喜多见属火的星曜，否则一生至少有一次卸职或失业。",
+      "finding": "Preserve the open property category 属火的星曜 and the nonnumeric cardinal phrase 多见."
+    },
+    {
+      "evidence_id": "LR2-E05",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "printed_page": 142,
+      "pdf_page": 71,
+      "excerpt": "武破在事业宫，与铃星、陀罗、阴煞、华盖、天刑同度者，为偏门或半偏行业。",
+      "finding": "Explicit five-item list without a reusable ANY/ALL/N_OF quantifier."
+    },
+    {
+      "evidence_id": "LR2-E06",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "printed_page": 143,
+      "pdf_page": 72,
+      "excerpt": "天同巨门可从事饮食业，见天厨、火星同度者尤然。",
+      "finding": "Two named stars are listed, but the sentence does not define a transferable list quantifier."
+    },
+    {
+      "evidence_id": "LR2-E06A",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "printed_page": 180,
+      "pdf_page": 90,
+      "excerpt": "唯武曲化忌，天厨、火星同度者，往往又主父母所业者带煞气，如饮食业之类。不见天厨，亦为操利器行业。",
+      "finding": "The same source reuses 天厨、火星同度 as a conjunction tied to the food-industry manifestation and explicitly contrasts absence of 天厨, supporting pair-internal co-presence rather than an open list."
+    },
+    {
+      "evidence_id": "LR2-E06B",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "printed_page": 170,
+      "pdf_page": 85,
+      "excerpt": "武曲与天厨、火星同躔福德宫，其人擅长品评饮食。",
+      "finding": "A further same-source occurrence uses the same two-star surface under 同躔, reinforcing local pair-internal BOTH semantics without establishing a global category rule."
+    },
+    {
+      "evidence_id": "LR2-E07",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "printed_page": 145,
+      "pdf_page": 73,
+      "excerpt": "廉相会禄（武曲化禄为上，禄存次之），或会天府化科，宜握财权。",
+      "finding": "Existing main closure correctly preserves ranked alternatives within 会禄 and explicit outer OR to 天府化科."
+    },
+    {
+      "evidence_id": "LR2-E08",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "printed_page": 145,
+      "pdf_page": 73,
+      "excerpt": "卯酉宫廉贞破军必须见禄然后始主事业有成。以廉贞化禄事业较为顺遂。若破军化禄，则不但多劳，而且事业必有挫折。",
+      "finding": "见禄 is an explicitly necessary contextual shorthand; two local carriers are attested but not exhaustive, supporting a precise contextual LU blocker."
+    },
+    {
+      "evidence_id": "LR2-E09",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "printed_page": 151,
+      "pdf_page": 76,
+      "excerpt": "天相守事业宫而为刑忌来会，更见煞曜同度，斗生牛马。有吉曜同会，亦时受压力。",
+      "finding": "刑忌来会 is preserved as a source pattern with unspecified internal binding; no specific 夹局 is asserted."
+    },
+    {
+      "evidence_id": "LR2-E09A",
+      "source_id": "SRC-ZZ-002",
+      "source_title": "《中州派紫微斗数深造讲义（上）》",
+      "printed_page": 25,
+      "pdf_page": 13,
+      "excerpt": "另一个格局是刑忌夹印。天相相邻两宫，一见擎羊躔守、一见化忌躔守，即成为正格。",
+      "finding": "A separate named pattern has explicit spatial binding, proving that generic 刑忌来会 must not be conflated with 刑忌夹印."
+    },
+    {
+      "evidence_id": "LR2-E10",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "printed_page": 155,
+      "pdf_page": 78,
+      "excerpt": "与空劫同度，见吉辅者，创新之能力极强，此时却又喜昌曲相济。",
+      "finding": "吉辅 may be represented as a scoped qualified-support alias candidate, but membership/activation remain open."
+    }
+  ],
+  "records": [
+    {
+      "source_rule_id": "CA01-059",
+      "source_location": null,
+      "source_condition_surface": "紫微无煞曜同度，有辅佐吉曜同会，又见禄马交驰，或会廉贞化禄、贪狼化禄、武曲化禄",
+      "issue_469_disposition": "SOURCE_RESOLVED",
+      "issue_469_blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "main_closure_v0_10_blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "recheck_disposition": "SOURCE_LIST_QUANTIFIER_RESTORED_FAIL_CLOSED",
+      "source_evidence_ids": [
+        "LR2-E01"
+      ],
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed_before": true,
+      "source_resolution_changed_after": true,
+      "normalized_expression": "NEGATED_OPEN_CATEGORY(煞曜) AND QUALIFIED_CATEGORY(辅佐吉曜) AND [GROUP(禄马交驰) OR ENUMERATED_TRANSFORMS(廉贞化禄,贪狼化禄,武曲化禄; inner_quantifier=UNSPECIFIED)]",
+      "decision_zh": "原文在三项四化列表前有“或会”，但列表内部没有足够依据判定三项之间是 ANY、ALL 还是 N_OF。保留现有闭世界缺席与辅佐支持 blocker，并恢复列表量词 blocker。",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA02-107",
+      "source_location": null,
+      "source_condition_surface": "紫微天府见刑曜",
+      "issue_469_disposition": "NO_UNIVERSAL_RULE",
+      "issue_469_blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "main_closure_v0_10_blockers": [
+        "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED"
+      ],
+      "recheck_disposition": "OPEN_CATEGORY_RECONFIRMED",
+      "source_evidence_ids": [
+        "LR2-E02"
+      ],
+      "blockers_before": [
+        "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED"
+      ],
+      "source_resolution_changed_before": true,
+      "source_resolution_changed_after": true,
+      "normalized_expression": "PRESENCE(OPEN_CATEGORY(刑曜; examples=擎羊|天刑|官符|白虎|...))",
+      "decision_zh": "中州派上册同样以“如……等”举例，支持非穷尽成员表；不把示例封闭成全集，也不把跨语境举例升级为全局激活规则。",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-289",
+      "source_location": null,
+      "source_condition_surface": "太阳见三台八座恩光天贵",
+      "issue_469_disposition": "NO_UNIVERSAL_RULE",
+      "issue_469_blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "main_closure_v0_10_blockers": [
+        "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "recheck_disposition": "PAIR_INTERNAL_SEMANTICS_CONFIRMED_OUTER_QUANTIFIER_UNRESOLVED",
+      "source_evidence_ids": [
+        "LR2-E03",
+        "LR2-E03A",
+        "LR2-E03B"
+      ],
+      "blockers_before": [
+        "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed_before": true,
+      "source_resolution_changed_after": true,
+      "normalized_expression": "SOURCE_BRANCH_SET[PAIR_CO_PRESENT(三台,八座); PAIR_CO_PRESENT(恩光,天贵); OPEN_TAIL(等杂曜)]",
+      "decision_zh": "上册明确支持三台/八座及恩光/天贵的 pair-internal 成对语义；但没有明确授权把两组外层压成 ANY_OF 或 ALL_OF，且下册保留“等杂曜”开放尾项。因此只确认内部成对，不清除 SOURCE_LIST_QUANTIFIER_UNSPECIFIED 与 SOURCE_OPEN_TAIL_MEMBERSHIP_UNSPECIFIED。",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-345",
+      "source_location": null,
+      "source_condition_surface": "武曲与火铃同度且在巳午或多见火曜",
+      "issue_469_disposition": "NO_UNIVERSAL_RULE",
+      "issue_469_blockers_after": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "CARDINALITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "main_closure_v0_10_blockers": [
+        "CARDINALITY_THRESHOLD_UNSPECIFIED",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "ELEMENTAL_CATEGORY_MEMBERSHIP_UNSPECIFIED"
+      ],
+      "recheck_disposition": "OPEN_PROPERTY_AND_NONNUMERIC_CARDINALITY_RECONFIRMED",
+      "source_evidence_ids": [
+        "LR2-E04"
+      ],
+      "blockers_before": [
+        "CARDINALITY_THRESHOLD_UNSPECIFIED",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "ELEMENTAL_CATEGORY_MEMBERSHIP_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "CARDINALITY_THRESHOLD_UNSPECIFIED",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "ELEMENTAL_CATEGORY_MEMBERSHIP_UNSPECIFIED"
+      ],
+      "source_resolution_changed_before": true,
+      "source_resolution_changed_after": true,
+      "normalized_expression": "SAME_PALACE(武曲,GROUP(火铃)) AND [LOCATION(巳|午) OR CARDINAL_SOURCE_WORDING(多见,OPEN_PROPERTY_CATEGORY(属火的星曜))]",
+      "decision_zh": "按原文恢复“多见属火的星曜”；属性类别保持开放，“多见”不转成数值阈值。",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-391",
+      "source_location": null,
+      "source_condition_surface": "武曲破军与铃星陀罗阴煞华盖天刑同度",
+      "issue_469_disposition": "STILL_UNDERDETERMINED",
+      "issue_469_blockers_after": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "main_closure_v0_10_blockers": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "recheck_disposition": "NO_UNIVERSAL_RULE_RECONFIRMED",
+      "source_evidence_ids": [
+        "LR2-E05"
+      ],
+      "blockers_before": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed_before": false,
+      "source_resolution_changed_after": false,
+      "normalized_expression": "SAME_PALACE_WITH_ENUMERATED_LIST(铃星,陀罗,阴煞,华盖,天刑; quantifier=UNSPECIFIED)",
+      "decision_zh": "五项显名列表仍未说明 ANY、ALL 或 N_OF；保留原 blocker。",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-433",
+      "source_location": null,
+      "source_condition_surface": "天同巨门见天厨火星",
+      "issue_469_disposition": "STILL_UNDERDETERMINED",
+      "issue_469_blockers_after": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "main_closure_v0_10_blockers": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "recheck_disposition": "SOURCE_LOCAL_PAIR_CO_PRESENCE_RESOLVED",
+      "source_evidence_ids": [
+        "LR2-E06",
+        "LR2-E06A",
+        "LR2-E06B"
+      ],
+      "blockers_before": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [],
+      "source_resolution_changed_before": false,
+      "source_resolution_changed_after": true,
+      "normalized_expression": "SAME_PALACE(PAIR_CO_PRESENT(天厨,火星))",
+      "decision_zh": "本句单看标点仍可能有歧义，但同一来源在父母宫明确再次使用“天厨、火星同度”对应饮食业，并以“不见天厨”转向操利器行业；福德宫又见“天厨、火星同躔”对应饮食鉴赏。三处同源用法共同支持本句的 pair-internal BOTH。仅对这一本句结构作 source-local 解析，不建立任何全局“天厨火星”规则。",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-484",
+      "source_location": null,
+      "source_condition_surface": "廉相会禄（武曲化禄为上，禄存次之），或会天府化科",
+      "issue_469_disposition": "SOURCE_RESOLVED",
+      "issue_469_blockers_after": [],
+      "main_closure_v0_10_blockers": [],
+      "recheck_disposition": "EXISTING_SOURCE_LOCAL_ALTERNATIVES_RECONFIRMED",
+      "source_evidence_ids": [
+        "LR2-E07"
+      ],
+      "blockers_before": [],
+      "blockers_after": [],
+      "source_resolution_changed_before": true,
+      "source_resolution_changed_after": true,
+      "normalized_expression": "ANY_OF[TRANSFORM(武曲,化禄), ATOM(禄存), TRANSFORM(天府,化科)]",
+      "decision_zh": "当前 main closure 已包含会禄内部武曲化禄/禄存的有序备选，以及外层“或会天府化科”；本轮只确认既有处理，不重复计为新解锁。",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-502",
+      "source_location": null,
+      "source_condition_surface": "卯酉廉贞破军必须见禄",
+      "issue_469_disposition": "STILL_UNDERDETERMINED",
+      "issue_469_blockers_after": [
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
+      ],
+      "main_closure_v0_10_blockers": [
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
+      ],
+      "recheck_disposition": "LU_SHORTHAND_RECLASSIFIED_FAIL_CLOSED",
+      "source_evidence_ids": [
+        "LR2-E08"
+      ],
+      "blockers_before": [
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "LU_SHORTHAND_CONTEXTUAL_UNRESOLVED"
+      ],
+      "source_resolution_changed_before": false,
+      "source_resolution_changed_after": true,
+      "normalized_expression": "EXPLICIT_NECESSITY(PRESENCE(CONTEXTUAL_LU_SHORTHAND; attested=廉贞化禄|破军化禄; exhaustive=false))",
+      "decision_zh": "原文明确“必须见禄”，邻句只展示廉贞化禄与破军化禄的局部实现，并未声明穷尽成员。将宽泛 SOURCE_SHORTHAND blocker 收窄为现有 LU_SHORTHAND_CONTEXTUAL_UNRESOLVED；不建立全局见禄成员表。",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-723",
+      "source_location": null,
+      "source_condition_surface": "天相为刑忌来会且煞曜同度",
+      "issue_469_disposition": "NO_UNIVERSAL_RULE",
+      "issue_469_blockers_after": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "main_closure_v0_10_blockers": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "recheck_disposition": "SOURCE_PATTERN_BINDING_REMAINS_UNRESOLVED",
+      "source_evidence_ids": [
+        "LR2-E09",
+        "LR2-E09A"
+      ],
+      "blockers_before": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "source_resolution_changed_before": true,
+      "source_resolution_changed_after": true,
+      "normalized_expression": "CO_OCCURRENCE(SOURCE_PATTERN(刑忌来会; binding=UNSPECIFIED)) AND SAME_PALACE(CLOSED_CATEGORY(煞曜); activation=UNRESOLVED)",
+      "decision_zh": "来源的“刑忌来会”不能偷换成上册定义的特定“刑忌夹印”；当前 closure 保留 source-compound 与 closed-category activation blockers。",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-864",
+      "source_location": null,
+      "source_condition_surface": "破军与空劫同度且见吉辅",
+      "issue_469_disposition": "NO_UNIVERSAL_RULE",
+      "issue_469_blockers_after": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "main_closure_v0_10_blockers": [
+        "QUALIFIED_SUPPORT_MEMBERSHIP_OR_ACTIVATION_OPEN"
+      ],
+      "recheck_disposition": "SCOPED_QUALIFIED_SUPPORT_ALIAS_CANDIDATE_FAIL_CLOSED",
+      "source_evidence_ids": [
+        "LR2-E10"
+      ],
+      "blockers_before": [
+        "QUALIFIED_SUPPORT_MEMBERSHIP_OR_ACTIVATION_OPEN"
+      ],
+      "blockers_after": [
+        "QUALIFIED_SUPPORT_MEMBERSHIP_OR_ACTIVATION_OPEN"
+      ],
+      "source_resolution_changed_before": true,
+      "source_resolution_changed_after": true,
+      "normalized_expression": "SAME_PALACE(GROUP(空劫)) AND PRESENCE(QUALIFIED_SUPPORT_ALIAS(吉辅; scope=local; membership_or_activation=open))",
+      "decision_zh": "“吉辅”可作为本句的限定性辅助支持别名候选，但成员范围和激活量词仍开放；不将它扩展成全局词典规则。",
+      "condition_compiled": false,
+      "execution_unlocked": false
+    }
+  ],
+  "guardrails": {
+    "global_any_default_added": false,
+    "global_all_default_added": false,
+    "global_n_of_default_added": false,
+    "ca03_289_outer_any_inferred": false,
+    "open_tail_closed": false,
+    "ca01_059_inner_transform_list_quantifier_invented": false,
+    "numeric_threshold_added": false,
+    "source_pattern_equated_to_named_夹局": false,
+    "global_lu_membership_closed": false,
+    "product_runtime_modified": false,
+    "conditions_compiled": false,
+    "execution_unlocked": false,
+    "historical_audit_artifacts_rewritten": false
+  }
+}

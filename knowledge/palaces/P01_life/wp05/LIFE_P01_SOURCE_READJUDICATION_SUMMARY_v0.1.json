@@ -1,0 +1,95 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P01-LIFE-P01-SOURCE-READJUDICATION-SUMMARY-v0.1",
+  "issue": 548,
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "P01",
+  "palace": "命宫",
+  "status": "100_OF_100_DIRECT_SOURCE_RECHECKED_CANONICAL_PROMOTION_READY",
+  "source_basis": {
+    "source_id": "SRC-ZZ-003",
+    "work": "中州派紫微斗数深造讲义（下册）",
+    "chapter": "宫垣论·命宫",
+    "printed_pages": "3-6",
+    "archived_candidate_commit": "14fe294c81ba12a6745e82fdc7497a30d69fb5d7",
+    "archived_candidate_status": "NONCANONICAL_ACCELERATION_INPUT_ONLY"
+  },
+  "summary": {
+    "reviewed": 100,
+    "canonical_promoted": 100,
+    "reusable_projection_rules": 79,
+    "case_support_only": 21,
+    "source_resolution_changed_rows": [
+      "P01-007",
+      "P01-008",
+      "P01-009",
+      "P01-010",
+      "P01-011",
+      "P01-015",
+      "P01-017",
+      "P01-023",
+      "P01-027",
+      "P01-028",
+      "P01-030",
+      "P01-036",
+      "P01-037",
+      "P01-046",
+      "P01-049",
+      "P01-050",
+      "P01-054",
+      "P01-055",
+      "P01-057",
+      "P01-074",
+      "P01-075",
+      "P01-076",
+      "P01-077"
+    ],
+    "source_resolution_change_count": 23,
+    "source_text_uncertainty_preserved": [
+      "P01-011",
+      "P01-017",
+      "P01-046"
+    ],
+    "history_dependency_rows": [
+      "P01-022",
+      "P01-041",
+      "P01-056"
+    ],
+    "new_primitive_qi": 0,
+    "new_memory_type": 0,
+    "new_independent_time_scale": 0,
+    "numeric_weight": 0,
+    "probability": 0,
+    "decay": 0
+  },
+  "major_findings": [
+    "命宫原文不是平面人格标签库：大量规则直接描述原局结构对大限、流年环境的不同反应。",
+    "源文中的“运限流年”“大运或流年”“年限”必须按字面保留；旧候选中若仅存 DECADE/YEAR，不能据此宣称源文只支持该层。",
+    "跨宫信息是命宫推断的必要条件，但只保留源文明示的对宫/宫垣/父母/夫妻/财帛/事业/福德/疾厄等依赖，不凭解释便利补宫位。",
+    "具体疾病、婚姻破裂、上司更换、重大风波等继续作为有源依据的事件候选/CASE_SUPPORT_ONLY，不升格为必然现实事件。",
+    "紫相“翌年即有反复”可使用既有 A2-R1 PATH_DEPENDENT_GATE + specific_next_period 语义承接，不需要新建记忆类型。",
+    "本批未出现可合法数值化的概率、权重、衰减或统一宫位评分。"
+  ],
+  "source_coverage_gaps_next_checkpoint": [
+    {
+      "gap_id": "P01-SRC-GAP-001",
+      "source_location": "命宫·天机·printed p5",
+      "source_claim": "未宫天机，夫妻宫太阳在巳，若化为权禄者主与异族通婚；丑宫不然。",
+      "reason": "源文位于本批覆盖页内，但旧 P01-001..100 候选未形成独立记录；转下一 checkpoint 补抽取。"
+    },
+    {
+      "gap_id": "P01-SRC-GAP-002",
+      "source_location": "命宫·天机·printed p5",
+      "source_claim": "丑未天机以太阳、太阴宫垣为大限枢纽，以天同、巨门宫垣为流年枢纽。",
+      "reason": "旧候选遗漏独立枢纽规则；下一 checkpoint 源先补抽。"
+    },
+    {
+      "gap_id": "P01-SRC-GAP-003",
+      "source_location": "命宫·天机·printed p5",
+      "source_claim": "卯酉机巨以太阳太阴躔度宫垣为流年枢纽。",
+      "reason": "旧候选只保留后续太阳化忌不利分支，未独立保存基础流年枢纽语义；下一 checkpoint 补抽。"
+    }
+  ],
+  "shared_semantic_gaps": [],
+  "human_gate_required": false
+}

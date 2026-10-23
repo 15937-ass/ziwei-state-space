@@ -1,0 +1,174 @@
+{
+  "schema_version": "1.0",
+  "status": "ACTIVE_AFTER_G12_MERGE",
+  "proposal": 528,
+  "implementation_issue": 530,
+  "limits": {
+    "core_wip": 1,
+    "total_palace_wip": 4,
+    "per_palace_wip": 1,
+    "canonical_merge": "SERIAL_EXACT_HEAD"
+  },
+  "branch_patterns": {
+    "palace": "^knowledge/(p(?:0[1-9]|1[0-2]))-([0-9]+)-[a-z0-9][a-z0-9-]*$",
+    "core": "^knowledge/core-([0-9]+)-[a-z0-9][a-z0-9-]*$"
+  },
+  "grandfather_branches": {},
+  "core": {
+    "state": "knowledge/states/CORE_STATE.yaml",
+    "allowed_paths": [
+      "knowledge/core/**",
+      "knowledge/KNOWLEDGE_STATE.yaml",
+      "knowledge/states/CORE_STATE.yaml",
+      "validation/knowledge/core/**",
+      "tests/test_knowledge_core_*.py",
+      "tools/knowledge_core_*.py"
+    ]
+  },
+  "palaces": {
+    "P01": {
+      "name": "命宫",
+      "slug": "life",
+      "state": "knowledge/states/P01_LIFE_STATE.yaml",
+      "allowed_paths": [
+        "knowledge/palaces/P01_life/**",
+        "validation/knowledge/palaces/P01_life/**",
+        "tests/test_knowledge_p01_*.py",
+        "knowledge/states/P01_LIFE_STATE.yaml"
+      ]
+    },
+    "P02": {
+      "name": "兄弟宫",
+      "slug": "siblings",
+      "state": "knowledge/states/P02_SIBLINGS_STATE.yaml",
+      "allowed_paths": [
+        "knowledge/palaces/P02_siblings/**",
+        "validation/knowledge/palaces/P02_siblings/**",
+        "tests/test_knowledge_p02_*.py",
+        "knowledge/states/P02_SIBLINGS_STATE.yaml"
+      ]
+    },
+    "P03": {
+      "name": "夫妻宫",
+      "slug": "spouse",
+      "state": "knowledge/states/P03_SPOUSE_STATE.yaml",
+      "allowed_paths": [
+        "knowledge/palaces/P03_spouse/**",
+        "validation/knowledge/palaces/P03_spouse/**",
+        "tests/test_knowledge_p03_*.py",
+        "knowledge/states/P03_SPOUSE_STATE.yaml"
+      ]
+    },
+    "P04": {
+      "name": "子女宫",
+      "slug": "children",
+      "state": "knowledge/states/P04_CHILDREN_STATE.yaml",
+      "allowed_paths": [
+        "knowledge/palaces/P04_children/**",
+        "validation/knowledge/palaces/P04_children/**",
+        "tests/test_knowledge_p04_*.py",
+        "knowledge/states/P04_CHILDREN_STATE.yaml"
+      ]
+    },
+    "P05": {
+      "name": "财帛宫",
+      "slug": "wealth",
+      "state": "knowledge/states/P05_WEALTH_STATE.yaml",
+      "allowed_paths": [
+        "knowledge/palaces/P05_wealth/**",
+        "validation/knowledge/palaces/P05_wealth/**",
+        "tests/test_knowledge_p05_*.py",
+        "knowledge/states/P05_WEALTH_STATE.yaml"
+      ]
+    },
+    "P06": {
+      "name": "疾厄宫",
+      "slug": "health",
+      "state": "knowledge/states/P06_HEALTH_STATE.yaml",
+      "allowed_paths": [
+        "knowledge/palaces/P06_health/**",
+        "validation/knowledge/palaces/P06_health/**",
+        "tests/test_knowledge_p06_*.py",
+        "knowledge/states/P06_HEALTH_STATE.yaml"
+      ]
+    },
+    "P07": {
+      "name": "迁移宫",
+      "slug": "migration",
+      "state": "knowledge/states/P07_MIGRATION_STATE.yaml",
+      "allowed_paths": [
+        "knowledge/palaces/P07_migration/**",
+        "validation/knowledge/palaces/P07_migration/**",
+        "tests/test_knowledge_p07_*.py",
+        "knowledge/states/P07_MIGRATION_STATE.yaml"
+      ]
+    },
+    "P08": {
+      "name": "交友宫",
+      "slug": "friends",
+      "state": "knowledge/states/P08_FRIENDS_STATE.yaml",
+      "allowed_paths": [
+        "knowledge/palaces/P08_friends/**",
+        "validation/knowledge/palaces/P08_friends/**",
+        "tests/test_knowledge_p08_*.py",
+        "knowledge/states/P08_FRIENDS_STATE.yaml"
+      ]
+    },
+    "P09": {
+      "name": "事业宫",
+      "slug": "career",
+      "state": "knowledge/states/P09_CAREER_STATE.yaml",
+      "allowed_paths": [
+        "knowledge/palaces/P09_career/**",
+        "validation/knowledge/palaces/P09_career/**",
+        "tests/test_knowledge_p09_*.py",
+        "knowledge/states/P09_CAREER_STATE.yaml",
+        "knowledge/wp05/career/**",
+        "knowledge/wp07a/CAREER_*",
+        "knowledge/wp07b/CAREER_*",
+        "knowledge/wp07c/CAREER_*",
+        "knowledge/wp08/CAREER_*",
+        "validation/wp05/CA*",
+        "validation/knowledge/*career*",
+        "tests/test_knowledge_career_*.py"
+      ]
+    },
+    "P10": {
+      "name": "田宅宫",
+      "slug": "property",
+      "state": "knowledge/states/P10_PROPERTY_STATE.yaml",
+      "allowed_paths": [
+        "knowledge/palaces/P10_property/**",
+        "validation/knowledge/palaces/P10_property/**",
+        "tests/test_knowledge_p10_*.py",
+        "knowledge/states/P10_PROPERTY_STATE.yaml",
+        "knowledge/wp05/property/**",
+        "validation/wp05/TP*",
+        "validation/knowledge/*property*",
+        "tests/test_knowledge_property_*.py"
+      ]
+    },
+    "P11": {
+      "name": "福德宫",
+      "slug": "fortune",
+      "state": "knowledge/states/P11_FORTUNE_STATE.yaml",
+      "allowed_paths": [
+        "knowledge/palaces/P11_fortune/**",
+        "validation/knowledge/palaces/P11_fortune/**",
+        "tests/test_knowledge_p11_*.py",
+        "knowledge/states/P11_FORTUNE_STATE.yaml"
+      ]
+    },
+    "P12": {
+      "name": "父母宫",
+      "slug": "parents",
+      "state": "knowledge/states/P12_PARENTS_STATE.yaml",
+      "allowed_paths": [
+        "knowledge/palaces/P12_parents/**",
+        "validation/knowledge/palaces/P12_parents/**",
+        "tests/test_knowledge_p12_*.py",
+        "knowledge/states/P12_PARENTS_STATE.yaml"
+      ]
+    }
+  }
+}

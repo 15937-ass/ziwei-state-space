@@ -1,0 +1,439 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "CANONICAL_AND_METHOD_FIDELITY_BENCHMARK_V0_1",
+  "benchmark_type": "VERSIONED_COVERAGE_AND_READINESS_BASELINE",
+  "overall": {
+    "status": "BASELINE_ONLY_WITH_BLOCKERS",
+    "combined_fidelity_score": null,
+    "predictive_validity": "NOT_EVALUATED",
+    "claim_boundary": "This artifact reports current coverage/readiness and explicit blockers; it does not establish full canonical fidelity, expert-method fidelity, or real-world predictive validity."
+  },
+  "source_artifacts": [
+    {
+      "role": "case_inventory",
+      "path": "product/expert_cases/wang_tingzhi/CASE_SOURCE_INVENTORY_v0.1.json",
+      "git_blob_sha": "804b3163b40ed19c8626427ce988fb12b6f85763"
+    },
+    {
+      "role": "method_patterns",
+      "path": "product/expert_cases/wang_tingzhi/METHOD_PATTERNS_v0.1.json",
+      "git_blob_sha": "f81cd49e74bd7fb0a960d40b63f7d014c839f287"
+    },
+    {
+      "role": "full_chart_materialization",
+      "path": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+      "git_blob_sha": "3778e5f3d66c1e5ab44461360b6d9f71b3f8be56"
+    },
+    {
+      "role": "scope_review",
+      "path": "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+      "git_blob_sha": "73b020a161fce8076481316a34f053e422f4270e"
+    },
+    {
+      "role": "readiness",
+      "path": "product/WANG_METHOD_POLICY_READINESS_v0.3.json",
+      "git_blob_sha": "a4f6d395f736a393955320aeef15f0ade2019409"
+    },
+    {
+      "role": "temporal_reaction_registry",
+      "path": "product/PL3T_TEMPORAL_REACTION_REGISTRY_v0.1.json",
+      "git_blob_sha": "6749bd569dca1f593a7e437bd6a86c81a7d578c8"
+    },
+    {
+      "role": "manifestation_ontology_registry",
+      "path": "product/PL3M_MANIFESTATION_ONTOLOGY_REGISTRY_v0.1.json",
+      "git_blob_sha": "d1f5f5035ff7e5b51431fc2abc43ac844c84e2bf"
+    },
+    {
+      "role": "manifestation_mapping_registry",
+      "path": "product/PL3M_MANIFESTATION_MAPPING_REGISTRY_v0.1.json",
+      "git_blob_sha": "367bc603b33d24bda7c66023c7e386f8cd0528eb"
+    }
+  ],
+  "canonical_fidelity": {
+    "disposition": "BLOCKED",
+    "status": "PARTIAL_COVERAGE_WITH_BLOCKED_DYNAMIC_CONTENT",
+    "score": null,
+    "asset_accounting": [
+      {
+        "metric_id": "chart_materialization_coverage",
+        "asset_kind": "Wang source-case chart reconstruction",
+        "eligible_assets": 24,
+        "covered_assets": 11,
+        "blocked_assets": 13,
+        "disposition": "MEASURED",
+        "status": "TARGET_ANCHOR_ONLY",
+        "coverage_definition": "A covered case has a separate pinned-engine chart artifact and a reviewed target-palace identity plus fourteen-major-star anchor. This is not full-source-chart equivalence.",
+        "full_source_chart_equivalence_verified": false,
+        "evidence_refs": [
+          "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+          "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json",
+          "product/WANG_METHOD_POLICY_READINESS_v0.3.json"
+        ]
+      },
+      {
+        "metric_id": "production_temporal_response_coverage",
+        "asset_kind": "Production temporal-reaction rules",
+        "eligible_assets": null,
+        "covered_assets": 0,
+        "blocked_assets": null,
+        "registered_assets": 0,
+        "disposition": "BLOCKED",
+        "status": "EMPTY_PRODUCTION_REGISTRY",
+        "blocked_by_empty_registry": true,
+        "blocked_by_knowledge_dependency": true,
+        "registry_status": "EMPTY_UNTIL_KB_WP07B_STRUCTURED_NORMALIZATION",
+        "evidence_refs": [
+          "product/PL3T_TEMPORAL_REACTION_REGISTRY_v0.1.json"
+        ]
+      },
+      {
+        "metric_id": "production_manifestation_ontology_coverage",
+        "asset_kind": "Production manifestation ontology nodes",
+        "eligible_assets": null,
+        "covered_assets": 0,
+        "blocked_assets": null,
+        "registered_assets": 0,
+        "disposition": "BLOCKED",
+        "status": "EMPTY_PRODUCTION_REGISTRY",
+        "blocked_by_empty_registry": true,
+        "blocked_by_knowledge_dependency": true,
+        "registry_status": "EMPTY_PENDING_KB_WP06B",
+        "blocked_reason": "KB-WP06B Manifestation Ontology has not yet frozen a consumable canonical artifact.",
+        "evidence_refs": [
+          "product/PL3M_MANIFESTATION_ONTOLOGY_REGISTRY_v0.1.json"
+        ]
+      },
+      {
+        "metric_id": "production_manifestation_mapping_coverage",
+        "asset_kind": "Production manifestation mappings",
+        "eligible_assets": null,
+        "covered_assets": 0,
+        "blocked_assets": null,
+        "registered_assets": 0,
+        "disposition": "BLOCKED",
+        "status": "EMPTY_PRODUCTION_REGISTRY",
+        "blocked_by_empty_registry": true,
+        "blocked_by_knowledge_dependency": true,
+        "registry_status": "EMPTY_PENDING_KB_WP06C",
+        "blocked_reason": "KB-WP06C Manifestation Hypothesis Registry has not yet frozen a consumable canonical mapping artifact.",
+        "evidence_refs": [
+          "product/PL3M_MANIFESTATION_MAPPING_REGISTRY_v0.1.json"
+        ]
+      }
+    ],
+    "dimensions": {
+      "source_to_runtime_trace_completeness": {
+        "metric_id": "trace_completeness",
+        "disposition": "NOT_MEASURED",
+        "value": null,
+        "reason": "This baseline does not execute an end-to-end source-to-rule-to-runtime-to-evidence trace audit.",
+        "evidence_refs": []
+      },
+      "deterministic_reproducibility": {
+        "metric_id": "deterministic_reproducibility",
+        "disposition": "NOT_MEASURED",
+        "value": null,
+        "reason": "The report builder is regression-tested for determinism; canonical runtime-wide reproducibility is not measured by this artifact.",
+        "evidence_refs": [
+          "tests/test_product_fidelity_benchmark.py"
+        ]
+      },
+      "contradiction_preservation": {
+        "metric_id": "contradiction_preservation",
+        "disposition": "NOT_MEASURED",
+        "value": null,
+        "reason": "No benchmark-wide contradiction/counterevidence trace comparison is executed in this baseline.",
+        "evidence_refs": []
+      },
+      "unknown_or_insufficient_evidence_count": {
+        "metric_id": "unknown_or_insufficient_evidence_count",
+        "disposition": "NOT_MEASURED",
+        "value": null,
+        "reason": "A canonical-runtime-wide count is not available from the pinned artifacts; it is not silently treated as zero.",
+        "evidence_refs": []
+      }
+    }
+  },
+  "expert_method_fidelity": {
+    "disposition": "BLOCKED",
+    "status": "NOT_SCORABLE_FULL_EXPERT_REPLAY_NOT_READY",
+    "score": null,
+    "case_count": 24,
+    "method_pattern_count": 6,
+    "assessment_count": 144,
+    "scope_review": {
+      "exact_target_domain_matches": 0,
+      "explicit_case_to_pattern_source_links": 0,
+      "justified_bindings": 0,
+      "all_source_patterns_remain_semantic_only": true,
+      "assessment_outcomes": {
+        "DEFERRED_SYMBOLIC_INTERPRETATION": 48,
+        "INSUFFICIENT_SOURCE_EVIDENCE": 64,
+        "MISSING_CONTEXT_BINDING": 24,
+        "SEMANTIC_ONLY_RELEVANCE": 8
+      }
+    },
+    "replay_readiness": {
+      "retrieval_ready_cases": 24,
+      "action_selection_ready_cases": 24,
+      "full_expert_replay_ready_cases": 0,
+      "full_expert_replay_blocked_cases": 24,
+      "target_palace_materialized_cases": 24,
+      "runtime_target_chart_blocked_cases": 24,
+      "full_chart_materialized_cases": 11,
+      "full_chart_unmaterialized_cases": 13
+    },
+    "score_dimensions": {
+      "critical_evidence_recall": {
+        "disposition": "BLOCKED",
+        "value": null,
+        "reason": "No eligible full expert replay traces are available for comparison.",
+        "evidence_refs": [
+          "product/WANG_METHOD_POLICY_READINESS_v0.3.json"
+        ],
+        "metric_id": "critical_evidence_recall"
+      },
+      "wrong_evidence_selection": {
+        "disposition": "BLOCKED",
+        "value": null,
+        "reason": "No eligible full expert replay traces are available for comparison.",
+        "evidence_refs": [
+          "product/WANG_METHOD_POLICY_READINESS_v0.3.json"
+        ],
+        "metric_id": "wrong_evidence_selection"
+      },
+      "next_action_and_branch_choice": {
+        "disposition": "BLOCKED",
+        "value": null,
+        "reason": "No justified case-target MethodPattern bindings exist in the accepted scope review.",
+        "evidence_refs": [
+          "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json"
+        ],
+        "metric_id": "next_action_and_branch_choice"
+      },
+      "time_depth_choice": {
+        "disposition": "BLOCKED",
+        "value": null,
+        "reason": "No eligible full expert replay traces are available for comparison.",
+        "evidence_refs": [
+          "product/WANG_METHOD_POLICY_READINESS_v0.3.json"
+        ],
+        "metric_id": "time_depth_choice"
+      },
+      "stop_abstention_and_partial_order_compatibility": {
+        "disposition": "BLOCKED",
+        "value": null,
+        "reason": "Current INSPECT-to-ABSTAIN traces demonstrate fail-closed behavior only; they do not measure fidelity to a fully replayable expert graph.",
+        "evidence_refs": [
+          "product/WANG_METHOD_POLICY_READINESS_v0.3.json"
+        ],
+        "metric_id": "stop_abstention_and_partial_order_compatibility"
+      },
+      "trace_completeness": {
+        "metric_id": "trace_completeness",
+        "disposition": "BLOCKED",
+        "value": null,
+        "reason": "FULL_EXPERT_REPLAY_READY is 0/24, so expert trace completeness cannot be scored.",
+        "evidence_refs": [
+          "product/WANG_METHOD_POLICY_READINESS_v0.3.json"
+        ]
+      },
+      "deterministic_reproducibility": {
+        "metric_id": "deterministic_reproducibility",
+        "disposition": "NOT_MEASURED",
+        "value": null,
+        "reason": "Determinism of the replayed expert method is not measured without eligible replay traces.",
+        "evidence_refs": []
+      },
+      "contradiction_preservation": {
+        "metric_id": "contradiction_preservation",
+        "disposition": "NOT_MEASURED",
+        "value": null,
+        "reason": "No eligible replay trace comparison is available.",
+        "evidence_refs": []
+      },
+      "unknown_or_insufficient_evidence_count": {
+        "metric_id": "unknown_or_insufficient_evidence_count",
+        "disposition": "MEASURED",
+        "assessment_count": 144,
+        "insufficient_source_evidence_assessments": 64,
+        "missing_context_binding_assessments": 24,
+        "deferred_symbolic_interpretation_assessments": 48,
+        "semantic_only_relevance_assessments": 8,
+        "reason": "These are scope-review disposition counts across case-pattern assessments, not real-world event outcomes or predictive errors.",
+        "evidence_refs": [
+          "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json"
+        ]
+      }
+    },
+    "asset_accounting": [
+      {
+        "metric_id": "expert_replay_readiness",
+        "asset_kind": "Wang expert replay cases",
+        "eligible_assets": 24,
+        "covered_assets": 0,
+        "blocked_assets": 24,
+        "disposition": "BLOCKED",
+        "status": "FULL_EXPERT_REPLAY_NOT_READY",
+        "coverage_definition": "A case counts as covered only when the runtime can emit a source-grounded blind InferenceTrace eligible for comparison with its ExpertReasoningGraph; retrieval/action-selection readiness alone does not count.",
+        "evidence_refs": [
+          "product/WANG_METHOD_POLICY_READINESS_v0.3.json"
+        ]
+      },
+      {
+        "metric_id": "method_scope_binding",
+        "asset_kind": "Case × MethodPattern source-scope assessments",
+        "eligible_assets": 144,
+        "covered_assets": 144,
+        "blocked_assets": 0,
+        "disposition": "MEASURED",
+        "status": "SOURCE_SCOPE_REVIEW_COMPLETE_NOT_METHOD_FIDELITY_SCORE",
+        "coverage_definition": "Coverage means the source-bounded scope review assessed every case-pattern pair; it does not mean a binding was justified or expert-method fidelity was measured.",
+        "evidence_refs": [
+          "product/WANG_METHOD_SCOPE_REVIEW_V0_1C.json"
+        ]
+      }
+    ],
+    "blocker_accounting": {
+      "empty_registry_blockers": {
+        "disposition": "NOT_APPLICABLE",
+        "count": 0,
+        "reason": "Temporal-response and manifestation registries are reported under Canonical Fidelity; they are not the direct blocker for the current Wang method replay."
+      },
+      "knowledge_dependency_blockers": {
+        "disposition": "NOT_APPLICABLE",
+        "count": 0,
+        "reason": "The current expert replay is blocked by chart materialization, case-target method scope, and runtime evidence status rather than the Kr/M0 registry dependencies."
+      },
+      "replay_blocker_classes": [
+        "FULL_CHART_NOT_MATERIALIZED",
+        "NO_EXECUTABLE_PATTERN_FOR_CASE_TARGET_SCOPE",
+        "METHOD_POLICY_RUNTIME_TARGET_CHART_EVIDENCE_REMAINS_BLOCKED"
+      ]
+    }
+  },
+  "metric_definitions": {
+    "chart_materialization_coverage": {
+      "definition": "Cases with a separate pinned-engine chart artifact and reviewed target-anchor verification; this is not full-source-chart equivalence.",
+      "source_roles": [
+        "case_inventory",
+        "full_chart_materialization",
+        "scope_review",
+        "readiness"
+      ]
+    },
+    "production_temporal_response_coverage": {
+      "definition": "Source-reviewed temporal-reaction rules available in the production reaction registry.",
+      "source_roles": [
+        "temporal_reaction_registry"
+      ]
+    },
+    "production_manifestation_ontology_coverage": {
+      "definition": "Canonical manifestation ontology nodes available to Product.",
+      "source_roles": [
+        "manifestation_ontology_registry"
+      ]
+    },
+    "production_manifestation_mapping_coverage": {
+      "definition": "Canonical manifestation mappings available to Product.",
+      "source_roles": [
+        "manifestation_mapping_registry"
+      ]
+    },
+    "expert_replay_readiness": {
+      "definition": "Wang cases for which the current runtime can perform a full source-grounded expert replay, not merely retrieval or action selection.",
+      "source_roles": [
+        "readiness",
+        "scope_review"
+      ]
+    },
+    "method_scope_binding": {
+      "definition": "Case-to-MethodPattern bindings justified by exact target scope and explicit source linkage.",
+      "source_roles": [
+        "scope_review"
+      ]
+    },
+    "trace_completeness": {
+      "definition": "Completeness of an executed canonical or expert replay trace against its eligible evidence and expected partial order.",
+      "source_roles": [
+        "scope_review",
+        "readiness"
+      ]
+    },
+    "deterministic_reproducibility": {
+      "definition": "Repeatability of the Product behavior under identical pinned inputs; report-builder determinism is not a substitute for runtime fidelity.",
+      "source_roles": [
+        "case_inventory",
+        "method_patterns",
+        "scope_review",
+        "readiness",
+        "temporal_reaction_registry",
+        "manifestation_ontology_registry",
+        "manifestation_mapping_registry"
+      ]
+    },
+    "contradiction_preservation": {
+      "definition": "Whether conflicting source-supported claims remain separately represented through the canonical runtime and evidence package.",
+      "source_roles": [
+        "scope_review"
+      ]
+    },
+    "unknown_or_insufficient_evidence_count": {
+      "definition": "Explicit count of source-insufficient or context-blocked benchmark assessments; it is not a count of real-world prediction errors.",
+      "source_roles": [
+        "scope_review"
+      ]
+    },
+    "method_fidelity_score": {
+      "definition": "A comparison score between eligible blind machine InferenceTrace outputs and source-demonstrated expert reasoning graphs.",
+      "source_roles": [
+        "readiness",
+        "scope_review"
+      ]
+    },
+    "critical_evidence_recall": {
+      "definition": "Recall of source-supported expert-critical evidence in an eligible blind machine trace.",
+      "source_roles": [
+        "scope_review",
+        "readiness"
+      ]
+    },
+    "wrong_evidence_selection": {
+      "definition": "Rate or count of selected evidence that is not supported by the held-out case's permitted input evidence.",
+      "source_roles": [
+        "scope_review",
+        "readiness"
+      ]
+    },
+    "next_action_and_branch_choice": {
+      "definition": "Compatibility of the machine's next action and branch choice with the source-demonstrated expert reasoning graph under its permitted partial order.",
+      "source_roles": [
+        "scope_review",
+        "readiness"
+      ]
+    },
+    "time_depth_choice": {
+      "definition": "Compatibility of the selected natal/decade/year time depth with the source-demonstrated expert reasoning graph.",
+      "source_roles": [
+        "scope_review",
+        "readiness"
+      ]
+    },
+    "stop_abstention_and_partial_order_compatibility": {
+      "definition": "Compatibility of terminal STOP/ABSTAIN decisions and trace ordering with the source-demonstrated expert reasoning graph.",
+      "source_roles": [
+        "scope_review",
+        "readiness"
+      ]
+    }
+  },
+  "claim_boundaries": [
+    "Readiness is not expert-method fidelity.",
+    "Target-anchor verification is not full-source-chart equivalence.",
+    "An empty production registry is blocked/uncovered, never fidelity PASS.",
+    "SEMANTIC_ONLY source MethodPatterns do not create runtime effects.",
+    "Textbook conclusions and outcomes are not real-world predictive ground truth.",
+    "No empirical probability, numeric weight, causal effect, or predictive-validity claim is made."
+  ]
+}

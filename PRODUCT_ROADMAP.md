@@ -1,5 +1,7 @@
 # 产品化路线图 — Product-First Program v0.4
 
+> **Recovery note — roadmap status is not execution truth.** 本文件的 `CURRENT CRITICAL PATH`、`NOW`、`FUTURE` 用于表达架构顺序和阶段关系；实际正在做什么由 live Product GitHub Issue/PR 决定。新对话按 `PROJECT_STATE.yaml -> governance/RECOVERY_PRECEDENCE_v1.md -> PRODUCT_STATE -> live Product Issue/PR` 恢复，不从路线图中间段落自行选择下一任务。
+
 状态：ACTIVE  
 生效日期：2026-10-20  
 替代：Product-First Program v0.3  
@@ -564,6 +566,9 @@ NOW-4  Response Semantics fail-closed Product adapter
    ↓
 NOW-5  Source-backed response corpus dependency
    ↓
+NOW-5A Product Knowledge Dependency Control
+       KIB + active lock + semantic impact + promotion
+   ↓
 NOW-6  PL3-R Decade/Year Response Compiler -> τ_t
    ↓
 NOW-7  PL3-M0 source-supported manifestation candidates
@@ -631,6 +636,68 @@ Product 可创建 KnowledgeGapReport，但不能跨 lane 自行“补全理论�
 - 提供更细的表达语言；
 - 重新分类 blocker；
 - 不是自动 execution unlock。
+
+### 11.1 Knowledge dependency / promotion contract
+
+Product 不直接把 Knowledge `main` 当作可变的生产依赖。
+
+正式消费路径冻结为：
+
+~~~text
+Knowledge main
+-> Candidate Knowledge Input Bundle (KIB)
+-> semantic diff / impact report
+-> affected Product rebuild / recompile / replay / rematerialize
+-> validation
+-> promotion
+-> Active Product Knowledge Lock
+~~~
+
+KIB 至少按下列组件分离：
+
+~~~text
+K_signal
+K_response
+K_manifest
+K_method
+~~~
+
+每个组件至少记录：
+- artifact refs；
+- source commit；
+- schema/contract version；
+- artifact digest；
+- semantic digest。
+
+`knowledge_version` 可继续作为人可读标签，但不能单独充当内容身份。
+
+永久规则：
+- Knowledge merge 不自动改变 active Product；
+- Product frozen baseline 必须能够由 lock/digest 机器验证；
+- 无关 Knowledge 改动不得强迫全 Product rebuild；
+- semantic change 只沿显式依赖图传播；
+- Product 不得静默拼接 incompatible Knowledge semantics；
+- Candidate 只有通过相关 fidelity/regression/benchmark 后才能 promotion；
+- failed candidate 不改变 active lock；
+- 历史 forecast / dataset / model / evidence artifact 保留原始 Knowledge lineage，不事后覆写。
+
+Impact 至少区分：
+
+~~~text
+NO_RUNTIME_EFFECT
+PROVENANCE_REVALIDATION
+READINESS_REBUILD
+SYMBOLIC_RECOMPILE
+METHOD_REPLAY
+MANIFESTATION_REBUILD
+DATASET_REMATERIALIZE
+RETRAIN_OR_RECALIBRATE
+MIGRATION_REQUIRED
+~~~
+
+在 PL5 前必须建立 dataset/model lineage gate；不同 KIB 产生的 feature/label 不得无 migration 静默混合。
+
+详细设计：`governance/proposals/491-product-knowledge-dependency-promotion.md`。
 
 ---
 
@@ -774,20 +841,21 @@ LLM 不可以：
 
 ## 19. 当前恢复点
 
-Product #416 / PR #418 已完成，Career canonical NATAL inventory 已到 190。
+Product #416 / PR #418 已完成 Career NATAL 首条 vertical slice 所需基线；Product #431/#435、#441/#444、#453/#455、#462/#464 已完成 expert-method contract、Wang case corpus、Method Policy 与 Response Semantics adapter；Product #482 / PR #484 已完成 NOW-5 Product-side Response Corpus ingestion/readiness。
 
-Product 不再把 #416/#418 当 active work。
+#482 的关键结论是：source temporal material 已存在，但 frozen acceptance baseline 上 compiler-ready canonical Kr = 0；因此 NOW-6 不得通过 Product 猜测语义硬启动。
 
-Proposal #425 合并后，下一推荐 Product work unit：
+Proposal #491 之后，下一推荐 Product work unit：
 
-**PRODUCT_METHOD_CASE_CONTRACTS_V0_1**
+**PRODUCT_KNOWLEDGE_LOCK_V0_1**
 
-然后依次进入：
-- Wang case structuring + LOCO；
-- Method Policy v0.1；
-- Response Adapter；
-- Response Compiler；
-- M0 vertical slice。
+随后：
+- PRODUCT_KNOWLEDGE_IMPACT_V0_1；
+- Wang blind evidence materialization 可并行推进其独立依赖；
+- Knowledge 提供 compiler-ready Kr 后进入 PL3-R Response Compiler；
+- 再进入 M0 vertical slice。
+
+Product 只有在 active KIB/lock 可机器验证后，才允许把更新后的 Knowledge candidate promotion 到当前 runtime。
 
 详细执行顺序见：
 

@@ -1,0 +1,2534 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP08-CAREER-SOURCE-DEEPEN-100B-v0.1",
+  "lane": "KNOWLEDGE_ONLY",
+  "issue": 498,
+  "source_basis": {
+    "approved_source": "SRC-ZZ-003 / 中州派紫微斗数深造讲义（下册）",
+    "domain": "事业宫",
+    "printed_pages": "133-155",
+    "baseline_closure": "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.11.json"
+  },
+  "selection": {
+    "target_count": 100,
+    "target_ids": [
+      "CA01-064",
+      "CA01-080",
+      "CA01-081",
+      "CA01-082",
+      "CA01-097",
+      "CA02-113",
+      "CA02-117",
+      "CA02-166",
+      "CA02-175",
+      "CA02-197",
+      "CA03-215",
+      "CA03-231",
+      "CA03-234",
+      "CA03-236",
+      "CA03-243",
+      "CA03-246",
+      "CA03-247",
+      "CA03-261",
+      "CA03-269",
+      "CA03-276",
+      "CA03-277",
+      "CA04-314",
+      "CA04-317",
+      "CA04-323",
+      "CA04-345",
+      "CA04-353",
+      "CA04-357",
+      "CA04-359",
+      "CA04-363",
+      "CA04-366",
+      "CA04-382",
+      "CA04-390",
+      "CA04-393",
+      "CA04-397",
+      "CA05-410",
+      "CA05-420",
+      "CA05-423",
+      "CA05-424",
+      "CA05-429",
+      "CA05-447",
+      "CA05-464",
+      "CA05-473",
+      "CA06-506",
+      "CA06-509",
+      "CA06-519",
+      "CA06-532",
+      "CA06-533",
+      "CA06-538",
+      "CA06-539",
+      "CA06-543",
+      "CA06-550",
+      "CA06-552",
+      "CA06-553",
+      "CA06-555",
+      "CA06-559",
+      "CA06-573",
+      "CA06-574",
+      "CA06-576",
+      "CA06-583",
+      "CA06-594",
+      "CA07-603",
+      "CA07-604",
+      "CA07-610",
+      "CA07-629",
+      "CA07-632",
+      "CA07-634",
+      "CA07-637",
+      "CA07-639",
+      "CA07-645",
+      "CA07-648",
+      "CA07-649",
+      "CA07-652",
+      "CA07-660",
+      "CA07-668",
+      "CA07-679",
+      "CA07-682",
+      "CA07-686",
+      "CA07-687",
+      "CA07-692",
+      "CA07-694",
+      "CA07-697",
+      "CA08-704",
+      "CA08-718",
+      "CA08-721",
+      "CA08-723",
+      "CA08-725",
+      "CA08-726",
+      "CA08-784",
+      "CA08-800",
+      "CA09-805",
+      "CA09-807",
+      "CA09-816",
+      "CA09-839",
+      "CA09-847",
+      "CA09-849",
+      "CA09-859",
+      "CA09-860",
+      "CA09-865",
+      "CA09-871",
+      "CA09-879"
+    ],
+    "remaining_not_issue489_policy": "all remaining antecedent / pair-closed-group / closed-category rows plus source-researchable single blockers to durable ceiling 100",
+    "excluded_low_yield_or_recent": [
+      "CA01-079",
+      "CA02-152",
+      "CA04-391",
+      "CA06-502",
+      "CA09-864",
+      "CA09-887"
+    ]
+  },
+  "summary": {
+    "reviewed": 100,
+    "antecedent_dependency_rows": 50,
+    "antecedent_only_compiler_gated_rows": 27,
+    "pair_or_closed_group_rows": 29,
+    "closed_category_rows": 22,
+    "source_condition_repairs_this_pass": 2,
+    "source_scope_metadata_repairs_this_pass": 1,
+    "duplicate_aliases_recorded_this_pass": 1,
+    "blocker_removals_this_pass": 1,
+    "newly_blocker_free_rows": 0,
+    "source_resolution_changed_rows_this_pass": [
+      "CA08-800",
+      "CA09-847"
+    ],
+    "conditions_compiled": 0,
+    "execution_unlocked": 0
+  },
+  "major_findings": [
+    "All 27 antecedent-only rows remain dependency/compiler gated: their source-local inheritance edge is a known dependency, not an unresolved nearest-text guess.",
+    "No reviewed pair/closed-category family yields a new global ANY/ALL/N_OF default. Source-local group realization remains fail-closed unless a discriminating source contrast exists.",
+    "CA08-800 is repaired from a flattened 'same-palace especially Fire/Bell' surface into two ordered source clauses with different relations: general 煞曜同度, then 火铃同会 as an ordinal worsening clause.",
+    "CA09-805 is confirmed as a duplicate alias of CA08-800 across the CA08/CA09 batch boundary.",
+    "CA09-847 clears only ANTECEDENT_SOURCE_CONDITION_RECHECK_REQUIRED: its antecedent base condition is separated from optional 化禄/化权 strengtheners. Dependency and auxiliary activation blockers remain.",
+    "CA08-704 receives the previously deferred source-scope metadata repair to the 巳亥巨门 paragraph; its antecedent blocker remains."
+  ],
+  "guardrails": {
+    "global_any_default_created": false,
+    "global_all_default_created": false,
+    "global_n_of_default_created": false,
+    "numeric_severity_threshold_created": false,
+    "cross_school_rule_used": false,
+    "product_runtime_changed": false,
+    "condition_compilation_claimed": false,
+    "execution_unlock_claimed": false
+  },
+  "records": [
+    {
+      "source_rule_id": "CA01-064",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p133-134",
+      "source_condition_text": "子午紫微且命宫或财帛宫得禄",
+      "projection": "career_status_strengthened",
+      "projection_kind": "CROSS_PALACE_CONSTRAINT",
+      "blockers_before": [
+        "LU_SHORTHAND_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "LU_SHORTHAND_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "PRECISE_SOURCE_BLOCKER_RECONFIRMED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA01-080",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p134",
+      "source_condition_text": "前格不见刑耗空劫",
+      "projection": "administrative_public_role_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "antecedent_rule_ids": [
+        "CA01-078"
+      ],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA01-081",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p134",
+      "source_condition_text": "子午紫微与桃花同度且有昌曲",
+      "projection": "refined_or_cultural_occupation_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA01-082",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p134",
+      "source_condition_text": "子午紫微与桃花同度无昌曲",
+      "projection": "less_refined_or_pleasure_oriented_occupation_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA01-097",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p134",
+      "source_condition_text": "紫微破军与空劫同度而无刑煞",
+      "projection": "career_creation_can_be_abstract_or_unconventional",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA02-113",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p134",
+      "source_condition_text": "紫微贪狼见桃花昌曲",
+      "projection": "enjoyment_or_pleasure_industry_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA02-117",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p134-135",
+      "source_condition_text": "前格同时见空劫刑耗",
+      "projection": "breakthrough_can_reverse_into_abrupt_failure",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "antecedent_rule_ids": [
+        "CA02-116"
+      ],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA02-166",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p136",
+      "source_condition_text": "天机化忌见空劫煞耗",
+      "projection": "career_change_error_cost_strengthened",
+      "projection_kind": "STRUCTURAL_CONSTRAINT",
+      "blockers_before": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA02-175",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p136",
+      "source_condition_text": "天机化忌见煞刑虚耗空劫",
+      "projection": "speculative_career_risk_strengthened",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA02-197",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p136",
+      "source_condition_text": "丑未天机见辅佐吉曜",
+      "projection": "service_organization_scale_increases",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "PRECISE_SOURCE_BLOCKER_RECONFIRMED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-215",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p137",
+      "source_condition_text": "天机太阴有煞忌空劫",
+      "projection": "independent_business_not_preferred",
+      "projection_kind": "STRUCTURAL_CONSTRAINT",
+      "blockers_before": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA03-231",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p137",
+      "source_condition_text": "天机巨门见吉曜",
+      "projection": "retail_scene_remains_preferred",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "PRECISE_SOURCE_BLOCKER_RECONFIRMED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-234",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p137",
+      "source_condition_text": "天机天梁见禄权科及辅佐吉曜",
+      "projection": "public_service_scene_possible",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "PRECISE_SOURCE_BLOCKER_RECONFIRMED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-236",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p137",
+      "source_condition_text": "前格",
+      "projection": "position_transfers_are_frequent",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA03-234"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA03-243",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p137",
+      "source_condition_text": "前格有所建树",
+      "projection": "unconventional_method_can_support_career_achievement",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA03-242"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA03-246",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p137",
+      "source_condition_text": "天机天梁吉煞交集",
+      "projection": "inherited_base_can_be_exhausted_before_new_career_establishment",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "MIXED_VALENCE_COMPOSITION_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "MIXED_VALENCE_COMPOSITION_UNSPECIFIED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "PRECISE_SOURCE_BLOCKER_RECONFIRMED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA03-247",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p137",
+      "source_condition_text": "前格另一表现",
+      "projection": "leaving_existing_base_after_setback_can_lead_to_new_career",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA03-246"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA03-261",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p138",
+      "source_condition_text": "前格稍见煞",
+      "projection": "nominal_reputation_can_lack_substance",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA03-259"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA03-269",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p138",
+      "source_condition_text": "前格",
+      "projection": "mobile_or_high_contact_work_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA03-268"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA03-276",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p138",
+      "source_condition_text": "前格现代化",
+      "projection": "government_semi_public_or_large_enterprise_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA03-275"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA03-277",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p138",
+      "source_condition_text": "昌曲入事业宫且太阳昌曲同躔",
+      "projection": "arts_media_public_relations_or_performance_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_BRANCH_DECOMPOSITION_REQUIRED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_BRANCH_DECOMPOSITION_REQUIRED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA04-314",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p139",
+      "source_condition_text": "前格",
+      "projection": "changing_ideas_can_create_advance_retreat_indecision",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA04-313"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA04-317",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p139-140",
+      "source_condition_text": "前格同时见忌星",
+      "projection": "avoid_joining_compromising_peer_behavior_to_prevent_entanglement",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA04-316"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA04-323",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p140",
+      "source_condition_text": "前格又见辅弼昌曲三台八座恩光天贵",
+      "projection": "public_service_or_diplomatic_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "antecedent_rule_ids": [
+        "CA04-322"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge.",
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA04-345",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p140",
+      "source_condition_text": "武曲与火铃同度且在巳午或多见火曜",
+      "projection": "dismissal_or_unemployment_candidate",
+      "projection_kind": "EVENT_CANDIDATE",
+      "blockers_before": [
+        "CARDINALITY_THRESHOLD_UNSPECIFIED",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "ELEMENTAL_CATEGORY_MEMBERSHIP_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "CARDINALITY_THRESHOLD_UNSPECIFIED",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "ELEMENTAL_CATEGORY_MEMBERSHIP_UNSPECIFIED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA04-353",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p141",
+      "source_condition_text": "前格又见吉曜",
+      "projection": "hazard_aligned_career_can_still_develop",
+      "projection_kind": "STRUCTURAL_CONSTRAINT",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [
+        "CA04-352"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA04-357",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p141",
+      "source_condition_text": "前格更见辅佐诸曜",
+      "projection": "organizational_status_strengthened",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [
+        "CA04-356"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA04-359",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p141",
+      "source_condition_text": "前格同时见辅佐诸曜",
+      "projection": "achievement_through_military_or_operational_merit",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [
+        "CA04-358"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA04-363",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p141",
+      "source_condition_text": "前格见辅佐诸曜同拱",
+      "projection": "military_or_disciplined_service_scene_strengthened",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [
+        "CA04-362"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA04-366",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p141",
+      "source_condition_text": "前格稍有煞刑",
+      "projection": "large_gain_can_reverse_into_abrupt_loss",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED",
+        "SEVERITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED",
+        "SEVERITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "antecedent_rule_ids": [
+        "CA04-365"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA04-382",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p142",
+      "source_condition_text": "武曲七杀得禄",
+      "projection": "finance_and_operations_work_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "TRANSFORMATION_CARRIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "TRANSFORMATION_CARRIER_UNSPECIFIED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "PRECISE_SOURCE_BLOCKER_RECONFIRMED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-390",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p142",
+      "source_condition_text": "前格煞忌重重",
+      "projection": "hazard_and_career_danger_strengthened",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "SEVERITY_THRESHOLD_UNSPECIFIED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "SEVERITY_THRESHOLD_UNSPECIFIED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "antecedent_rule_ids": [
+        "CA04-389"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA04-393",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p142",
+      "source_condition_text": "武曲破军煞轻",
+      "projection": "engineering_or_technical_entry_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "SEVERITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "SEVERITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "PRECISE_SOURCE_BLOCKER_RECONFIRMED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA04-397",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p142",
+      "source_condition_text": "武曲破军见魁钺或辅弼",
+      "projection": "opportunities_and_assistance_are_separable_support_channels",
+      "projection_kind": "STRUCTURAL_CONSTRAINT",
+      "blockers_before": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_BRANCH_DECOMPOSITION_REQUIRED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_BRANCH_DECOMPOSITION_REQUIRED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA05-410",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p142",
+      "source_condition_text": "前格",
+      "projection": "intensive_effort_can_precede_later_achievement",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA05-409"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA05-420",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p143",
+      "source_condition_text": "前格",
+      "projection": "self_reliance_and_personal_execution_remain_required",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA05-419"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA05-423",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p143",
+      "source_condition_text": "子午天同太阴见禄存或化禄",
+      "projection": "inherited_or_existing_career_base_available",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "TRANSFORMATION_CARRIER_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "TRANSFORMATION_CARRIER_UNSPECIFIED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "PRECISE_SOURCE_BLOCKER_RECONFIRMED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA05-424",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p143",
+      "source_condition_text": "前格",
+      "projection": "preservation_preferred_over_innovation",
+      "projection_kind": "STRUCTURAL_CONSTRAINT",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA05-423"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA05-429",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p143",
+      "source_condition_text": "前格同时见火铃",
+      "projection": "mobility_and_turbulence_strengthened",
+      "projection_kind": "STRUCTURAL_CONSTRAINT",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [
+        "CA05-428"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge.",
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA05-447",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p143-144",
+      "source_condition_text": "天同天梁见吉化昌曲",
+      "projection": "artistic_work_with_internal_operational_role",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker.",
+      "category_finding": "Closed membership does not by itself establish activation/cardinality in this clause; preserve the contextual activation blocker unless the source gives a local discriminator."
+    },
+    {
+      "source_rule_id": "CA05-464",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p144",
+      "source_condition_text": "前格见煞",
+      "projection": "appearance_over_substance_tendency_strengthened",
+      "projection_kind": "STRUCTURAL_CONSTRAINT",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [
+        "CA05-463"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge.",
+      "category_finding": "Closed membership does not by itself establish activation/cardinality in this clause; preserve the contextual activation blocker unless the source gives a local discriminator."
+    },
+    {
+      "source_rule_id": "CA05-473",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p144",
+      "source_condition_text": "前格煞曜不居本宫",
+      "projection": "malefic_location_modifies_suitability_of_military_expression",
+      "projection_kind": "STRUCTURAL_CONSTRAINT",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [
+        "CA05-471",
+        "CA05-472"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge.",
+      "category_finding": "Closed membership does not by itself establish activation/cardinality in this clause; preserve the contextual activation blocker unless the source gives a local discriminator."
+    },
+    {
+      "source_rule_id": "CA06-506",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p145",
+      "source_condition_text": "卯酉廉贞破军见煞轻",
+      "projection": "marginal_or_pleasure_oriented_industry_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "SEVERITY_THRESHOLD_UNSPECIFIED",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "SEVERITY_THRESHOLD_UNSPECIFIED",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "category_finding": "Closed membership does not by itself establish activation/cardinality in this clause; preserve the contextual activation blocker unless the source gives a local discriminator."
+    },
+    {
+      "source_rule_id": "CA06-509",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p145",
+      "source_condition_text": "前格",
+      "projection": "career_operations_often_span_multiple_business_lines",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA06-508"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA06-519",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p146",
+      "source_condition_text": "前格更见煞",
+      "projection": "career_litigation_risk_strengthened",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [
+        "CA06-518"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge.",
+      "category_finding": "Closed membership does not by itself establish activation/cardinality in this clause; preserve the contextual activation blocker unless the source gives a local discriminator."
+    },
+    {
+      "source_rule_id": "CA06-532",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p146",
+      "source_condition_text": "廉贞贪狼必须得禄",
+      "projection": "career_flourishing_requires_lu_support",
+      "projection_kind": "STRUCTURAL_CONSTRAINT",
+      "blockers_before": [
+        "LU_SHORTHAND_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "LU_SHORTHAND_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "PRECISE_SOURCE_BLOCKER_RECONFIRMED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-533",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p146",
+      "source_condition_text": "廉贞贪狼无禄见煞",
+      "projection": "craft_or_technical_path_is_preferred",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "category_finding": "Closed membership does not by itself establish activation/cardinality in this clause; preserve the contextual activation blocker unless the source gives a local discriminator."
+    },
+    {
+      "source_rule_id": "CA06-538",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p146",
+      "source_condition_text": "前格见煞",
+      "projection": "overcaution_and_development_constraint_strengthened",
+      "projection_kind": "STRUCTURAL_CONSTRAINT",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [
+        "CA06-537"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge.",
+      "category_finding": "Closed membership does not by itself establish activation/cardinality in this clause; preserve the contextual activation blocker unless the source gives a local discriminator."
+    },
+    {
+      "source_rule_id": "CA06-539",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p146",
+      "source_condition_text": "主星在午宫守事业且天府得禄",
+      "projection": "career_scale_and_support_strengthened",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "LU_SHORTHAND_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "LU_SHORTHAND_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "PRECISE_SOURCE_BLOCKER_RECONFIRMED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-543",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p146",
+      "source_condition_text": "天府无吉曜而有煞曜凑会",
+      "projection": "career_can_fail_through_other_people_or_entanglement",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "category_finding": "Closed membership does not by itself establish activation/cardinality in this clause; preserve the contextual activation blocker unless the source gives a local discriminator."
+    },
+    {
+      "source_rule_id": "CA06-550",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p146",
+      "source_condition_text": "前格",
+      "projection": "industrial_or_engineering_scene_preferred",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA06-549"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA06-552",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p146",
+      "source_condition_text": "前格",
+      "projection": "advance_retreat_indecision_can_hinder_career_development",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA06-551"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA06-553",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p146",
+      "source_condition_text": "前格",
+      "projection": "real_economy_or_concrete_industry_preferred_over_speculation",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA06-551"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA06-555",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p146",
+      "source_condition_text": "前格",
+      "projection": "industrial_or_engineering_scene_preferred",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA06-554"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA06-559",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p147",
+      "source_condition_text": "前格见煞",
+      "projection": "engineering_or_industrial_scene_overrides_credit_scene",
+      "projection_kind": "STRUCTURAL_CONSTRAINT",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [
+        "CA06-558"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge.",
+      "category_finding": "Closed membership does not by itself establish activation/cardinality in this clause; preserve the contextual activation blocker unless the source gives a local discriminator."
+    },
+    {
+      "source_rule_id": "CA06-573",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p147",
+      "source_condition_text": "前格见辅弼",
+      "projection": "support_can_moderate_authority_isolation",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [
+        "CA06-572"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge.",
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA06-574",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p147",
+      "source_condition_text": "前格无辅弼",
+      "projection": "career_isolation_risk_strengthened",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [
+        "CA06-572"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge.",
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA06-576",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p147",
+      "source_condition_text": "前格见煞",
+      "projection": "showiness_and_instability_strengthened",
+      "projection_kind": "STRUCTURAL_CONSTRAINT",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [
+        "CA06-575"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge.",
+      "category_finding": "Closed membership does not by itself establish activation/cardinality in this clause; preserve the contextual activation blocker unless the source gives a local discriminator."
+    },
+    {
+      "source_rule_id": "CA06-583",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p147",
+      "source_condition_text": "太阴会科文诸曜",
+      "projection": "arts_media_or_culture_related_public_work_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "CAREER_KEWEN_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "CAREER_KEWEN_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "PRECISE_SOURCE_BLOCKER_RECONFIRMED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA06-594",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p148",
+      "source_condition_text": "太阴与空劫同会且无科文诸曜",
+      "projection": "ideals_can_exceed_reality_and_career_can_become_hollow",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "CAREER_KEWEN_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "CAREER_KEWEN_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA07-603",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p148",
+      "source_condition_text": "前格",
+      "projection": "speculation_not_preferred",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA07-602"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA07-604",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p148",
+      "source_condition_text": "前格",
+      "projection": "mobile_engineering_transport_or_aerospace_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA07-602"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA07-610",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p148",
+      "source_condition_text": "天同化忌而无煞",
+      "projection": "low_level_start_can_precede_later_achievement",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "category_finding": "Closed membership does not by itself establish activation/cardinality in this clause; preserve the contextual activation blocker unless the source gives a local discriminator."
+    },
+    {
+      "source_rule_id": "CA07-629",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p148",
+      "source_condition_text": "贪狼与空劫同度且无昌曲",
+      "projection": "concrete_industry_or_real_economy_scene_preferred",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA07-632",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p148",
+      "source_condition_text": "贪狼化权见煞不多",
+      "projection": "competitive_sports_expression_strengthened",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "CARDINALITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "CARDINALITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "category_finding": "Closed membership does not by itself establish activation/cardinality in this clause; preserve the contextual activation blocker unless the source gives a local discriminator."
+    },
+    {
+      "source_rule_id": "CA07-634",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p149",
+      "source_condition_text": "前格",
+      "projection": "compromise_mediation_or_faction_buffer_role",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA07-633"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA07-637",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p149",
+      "source_condition_text": "前格",
+      "projection": "consumer_decoration_entertainment_or_consumer_goods_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA07-636"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA07-639",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p149",
+      "source_condition_text": "前格",
+      "projection": "career_operation_tends_to_have_visible_scale_or_presence",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA07-638"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA07-645",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p149",
+      "source_condition_text": "贪狼化忌有吉曜同会",
+      "projection": "failure_of_initial_ideal_can_open_alternative_career_path",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "PRECISE_SOURCE_BLOCKER_RECONFIRMED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-648",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p149",
+      "source_condition_text": "子午贪狼见桃花昌曲",
+      "projection": "opposite_sex_oriented_service_industry_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA07-649",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p149",
+      "source_condition_text": "子午贪狼见禄权科及辅佐吉曜",
+      "projection": "political_or_public_affairs_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "PRECISE_SOURCE_BLOCKER_RECONFIRMED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA07-652",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p149",
+      "source_condition_text": "寅申贪狼与廉贞相对且见陀罗或煞",
+      "projection": "political_corruption_and_consequent_harm_candidate",
+      "projection_kind": "EVENT_CANDIDATE",
+      "blockers_before": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_BRANCH_SCOPE_RECHECK_REQUIRED"
+      ],
+      "blockers_after": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_BRANCH_SCOPE_RECHECK_REQUIRED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "category_finding": "Closed membership does not by itself establish activation/cardinality in this clause; preserve the contextual activation blocker unless the source gives a local discriminator."
+    },
+    {
+      "source_rule_id": "CA07-660",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p149",
+      "source_condition_text": "前格",
+      "projection": "multiple_business_directions_are_common",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA07-659"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA07-668",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p149-150",
+      "source_condition_text": "巨门化忌见四煞空劫刑耗",
+      "projection": "career_litigation_or_major_dispute_candidate",
+      "projection_kind": "EVENT_CANDIDATE",
+      "blockers_before": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker.",
+      "category_finding": "Closed membership does not by itself establish activation/cardinality in this clause; preserve the contextual activation blocker unless the source gives a local discriminator."
+    },
+    {
+      "source_rule_id": "CA07-679",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p150",
+      "source_condition_text": "前格",
+      "projection": "restraint_and_timing_are_important_for_preservation",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA07-678"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA07-682",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p150",
+      "source_condition_text": "前格",
+      "projection": "avoid_showing_off",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA07-681"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA07-686",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p150",
+      "source_condition_text": "前格有吉星祥曜",
+      "projection": "secondary_business_lines_can_also_develop",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [
+        "CA07-684"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA07-687",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p150",
+      "source_condition_text": "前格有煞曜",
+      "projection": "career_changes_become_more_frequent",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [
+        "CA07-684"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge.",
+      "category_finding": "Closed membership does not by itself establish activation/cardinality in this clause; preserve the contextual activation blocker unless the source gives a local discriminator."
+    },
+    {
+      "source_rule_id": "CA07-692",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p150",
+      "source_condition_text": "前格",
+      "projection": "career_can_involve_wandering_and_hardship",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA07-691"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA07-694",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p150",
+      "source_condition_text": "前格",
+      "projection": "low_profile_preservation_is_required_after_unexpected_gain",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA07-693"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA07-697",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p150",
+      "source_condition_text": "巳亥巨门见禄马",
+      "projection": "career_can_be_rooted_in_foreign_or_cross_region_context",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "LUMA_SHORTHAND_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "LUMA_SHORTHAND_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "PRECISE_SOURCE_BLOCKER_RECONFIRMED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-704",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p150",
+      "source_condition_text": "前格",
+      "projection": "timely_exit_and_preservation_are_preferred_after_gain",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "antecedent_rule_ids": [
+        "CA08-703"
+      ],
+      "review_disposition": "SOURCE_SCOPE_METADATA_REPAIRED_DEPENDENCY_RETAINED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge.",
+      "source_scope_override": "事业宫／巨门／巳亥宫巨门段（printed_p150）",
+      "source_scope_historical_value": "邻接分段漂移至天相语境",
+      "source_scope_note": "The clause follows the 巳亥巨门与火铃同度 passage: after sudden rise/fall risk, 持盈保泰 is explicitly tied to timely withdrawal. The CA08-703 antecedent stays unchanged."
+    },
+    {
+      "source_rule_id": "CA08-718",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p151",
+      "source_condition_text": "前格又见煞曜",
+      "projection": "misuse_of_authority_can_trigger_setbacks_or_collapse",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [
+        "CA08-717"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge.",
+      "category_finding": "Closed membership does not by itself establish activation/cardinality in this clause; preserve the contextual activation blocker unless the source gives a local discriminator."
+    },
+    {
+      "source_rule_id": "CA08-721",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p151",
+      "source_condition_text": "前格同时见辅佐吉曜",
+      "projection": "support_can_make_nominal_status_substantive",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [
+        "CA08-719"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge."
+    },
+    {
+      "source_rule_id": "CA08-723",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p151",
+      "source_condition_text": "天相为刑忌来会且煞曜同度",
+      "projection": "career_pressure_and_heavy_labor_strengthened",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "category_finding": "Closed membership does not by itself establish activation/cardinality in this clause; preserve the contextual activation blocker unless the source gives a local discriminator."
+    },
+    {
+      "source_rule_id": "CA08-725",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p151",
+      "source_condition_text": "天相与空劫同度且有吉曜",
+      "projection": "idea_driven_career_creation_is_possible_while_partnership_remains_viable",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "VALENCE_STATE_CRITERION_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "VALENCE_STATE_CRITERION_UNSPECIFIED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA08-726",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p151",
+      "source_condition_text": "天相与空劫同度无吉曜或见凶曜",
+      "projection": "ambition_can_exceed_capacity_and_career_can_become_unsettled",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA08-784",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p152",
+      "source_condition_text": "丑未天梁会辅佐吉曜",
+      "projection": "multiple_concurrent_roles_are_common",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "PRECISE_SOURCE_BLOCKER_RECONFIRMED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA08-800",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p153",
+      "source_condition_text": "七杀与煞曜同度尤其火铃",
+      "projection": "management_or_military_career_complications_accidents_and_turbulence_strengthen",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_CLAUSE_STRUCTURE_REPAIRED_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": true,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker.",
+      "category_finding": "Closed membership does not by itself establish activation/cardinality in this clause; preserve the contextual activation blocker unless the source gives a local discriminator.",
+      "source_condition_repair": "The source has two ordered clauses: 七杀不宜与煞曜同度; 火铃同会者更不宜. The prior compressed surface '煞曜同度尤其火铃' must not collapse SAME_PALACE and MEET into one relation.",
+      "normalized_expression": "SOURCE_BRANCH_SET[SAME_PALACE(七杀,煞曜_CATEGORY_ACTIVATION_UNRESOLVED)->不宜; MEET(七杀,火铃_GROUP_INTERNAL_REALIZATION_UNRESOLVED)->更不宜]",
+      "ordinal_note": "更不宜 is retained as an ordinal worsening relation, not numericized."
+    },
+    {
+      "source_rule_id": "CA09-805",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p153",
+      "source_condition_text": "七杀与煞曜同度尤其火铃",
+      "projection": "management_or_military_career_complications_accidents_and_turbulence_strengthen",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "DUPLICATE_ALIAS_CONFIRMED_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker.",
+      "category_finding": "Closed membership does not by itself establish activation/cardinality in this clause; preserve the contextual activation blocker unless the source gives a local discriminator.",
+      "duplicate_source_rule_of": "CA08-800",
+      "duplicate_note": "CA09-805 repeats the same source condition and projection at the CA08/CA09 batch boundary. Preserve the ID for audit compatibility; canonical semantics follow repaired CA08-800."
+    },
+    {
+      "source_rule_id": "CA09-807",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p153",
+      "source_condition_text": "七杀本宫无煞",
+      "projection": "military_police_or_disciplinary_management_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "category_finding": "Closed membership does not by itself establish activation/cardinality in this clause; preserve the contextual activation blocker unless the source gives a local discriminator."
+    },
+    {
+      "source_rule_id": "CA09-816",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p153",
+      "source_condition_text": "七杀有煞而无化忌会合",
+      "projection": "sharp_tool_craft_hairdressing_carving_or_metal_engineering_scene",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "category_finding": "Closed membership does not by itself establish activation/cardinality in this clause; preserve the contextual activation blocker unless the source gives a local discriminator."
+    },
+    {
+      "source_rule_id": "CA09-839",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p154",
+      "source_condition_text": "前格有煞",
+      "projection": "wealth_potential_can_remain_despite_adverse_stars",
+      "projection_kind": "STRUCTURAL_CONSTRAINT",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [
+        "CA09-838"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge.",
+      "category_finding": "Closed membership does not by itself establish activation/cardinality in this clause; preserve the contextual activation blocker unless the source gives a local discriminator."
+    },
+    {
+      "source_rule_id": "CA09-847",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p154",
+      "source_condition_text": "破军更见辅佐吉曜",
+      "projection": "career_status_and_scale_are_strengthened",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "ANTECEDENT_SOURCE_CONDITION_RECHECK_REQUIRED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [
+        "CA09-846"
+      ],
+      "review_disposition": "ANTECEDENT_SOURCE_CONDITION_REPAIRED_STILL_BLOCKED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": true,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge.",
+      "source_condition_repair": "The antecedent source states: 破军不与煞忌同躔、三方亦煞轻 is the base condition for 武职; 化禄、化权尤佳 are strengthening alternatives/modifiers, not mandatory conjuncts. Therefore the source-condition recheck blocker can clear.",
+      "antecedent_source_condition_override": {
+        "antecedent_rule_id": "CA09-846",
+        "base_condition": "破军不与煞忌同躔 AND 三方煞轻",
+        "optional_strengtheners": [
+          "破军化禄",
+          "破军化权"
+        ],
+        "current_row_extension": "更见辅佐吉曜同会"
+      },
+      "normalized_expression": "ANTECEDENT(CA09-846_BASE) AND AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+    },
+    {
+      "source_rule_id": "CA09-849",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p154",
+      "source_condition_text": "破军入庙而吉煞交集",
+      "projection": "commerce_is_possible_but_success_failure_is_highly_timing_sensitive",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "MIXED_VALENCE_COMPOSITION_UNSPECIFIED"
+      ],
+      "blockers_after": [
+        "MIXED_VALENCE_COMPOSITION_UNSPECIFIED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "PRECISE_SOURCE_BLOCKER_RECONFIRMED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-859",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p154",
+      "source_condition_text": "破军会辅弼魁钺昌曲",
+      "projection": "fubi_reduces_labor_kuiyue_adds_opportunity_and_changqu_does_not_by_itself_reverse_adversity",
+      "projection_kind": "STRUCTURAL_CONSTRAINT",
+      "blockers_before": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_BRANCH_DECOMPOSITION_REQUIRED"
+      ],
+      "blockers_after": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_BRANCH_DECOMPOSITION_REQUIRED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA09-860",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p154",
+      "source_condition_text": "破军会昌曲化忌",
+      "projection": "career_unsettledness_and_inconsistent_development_strengthen",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "TRANSFORMATION_CARRIER_UNSPECIFIED",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "TRANSFORMATION_CARRIER_UNSPECIFIED",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA09-865",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p155",
+      "source_condition_text": "子午破军见吉曜",
+      "projection": "public_office_scene_is_possible",
+      "projection_kind": "SCENE_TRANSLATION",
+      "blockers_before": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "PRECISE_SOURCE_BLOCKER_RECONFIRMED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false
+    },
+    {
+      "source_rule_id": "CA09-871",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p155",
+      "source_condition_text": "前格见辅弼或不见辅弼",
+      "projection": "fubi_can_turn_maneuvering_into_advantage_while_its_absence_increases_backfire_risk",
+      "projection_kind": "STRUCTURAL_CONSTRAINT",
+      "blockers_before": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [
+        "CA09-870"
+      ],
+      "review_disposition": "DEPENDENCY_BINDING_CONFIRMED_COMPILER_GATED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "dependency_finding": "Current explicit antecedent edge is source-local and remains compiler-gated; source review does not authorize text-nearest implicit inheritance beyond the recorded edge.",
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    },
+    {
+      "source_rule_id": "CA09-879",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫printed_p155",
+      "source_condition_text": "寅申破军无禄无吉曜或空劫同度",
+      "projection": "outward_scale_can_exceed_internal_substance_and_kongjie_strengthens_hollowness",
+      "projection_kind": "FUNCTIONAL_PROJECTION",
+      "blockers_before": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "LU_SHORTHAND_CONTEXTUAL_UNRESOLVED",
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "blockers_after": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "LU_SHORTHAND_CONTEXTUAL_UNRESOLVED",
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "antecedent_rule_ids": [],
+      "review_disposition": "SOURCE_RECHECK_CONFIRMS_FAIL_CLOSED",
+      "direct_source_recheck": true,
+      "source_resolution_changed_this_pass": false,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "group_finding": "No new source-local evidence in this pass establishes a global ANY/ALL/N_OF realization for the pair/closed-group shorthand; preserve the contextual activation blocker."
+    }
+  ]
+}

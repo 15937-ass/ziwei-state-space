@@ -1,0 +1,3282 @@
+{
+  "schema_version": "0.3",
+  "artifact_id": "KB-CAREER-CONTEXTUAL-ACTIVATION-CLOSURE-251-v0.3",
+  "lane": "KNOWLEDGE_ONLY",
+  "issue": 467,
+  "status": "251_OF_251_SEMANTIC_NORMALIZATION_REFINED_NO_EXECUTION_UNLOCK",
+  "supersedes": "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.1.json",
+  "inputs": [
+    "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_01_v0.2.json",
+    "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_02_v0.1.json",
+    "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_03_v0.1.json",
+    "knowledge/wp07c/CAREER_ANTECEDENT_SOURCE_RECHECK_16_v0.1.json"
+  ],
+  "coverage": {
+    "total": 251,
+    "unique_source_rule_ids": 251,
+    "complete": true
+  },
+  "summary": {
+    "activation_status_counts": {
+      "MULTI_BLOCKER": 77,
+      "PARTIAL_LOCAL_STRUCTURE": 17,
+      "BLOCKED_MEMBER_QUANTIFIER": 126,
+      "STRUCTURE_ONLY": 4,
+      "BLOCKED_ANTECEDENT": 27
+    },
+    "antecedent_mode_counts": {
+      "NONE": 187,
+      "EXPLICIT_RULE_REFERENCE": 64
+    },
+    "blocker_counts": {
+      "CLOSED_WORLD_ABSENCE_EVIDENCE": 23,
+      "STRUCTURED_PATTERN_EXECUTION_DEFERRED": 4,
+      "MEMBER_QUANTIFIER_UNSPECIFIED": 93,
+      "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED": 6,
+      "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED": 129,
+      "ANTECEDENT_DEPENDENCY": 49,
+      "SOURCE_LIST_QUANTIFIER_UNSPECIFIED": 4,
+      "CARDINALITY_THRESHOLD_UNSPECIFIED": 2,
+      "SEVERITY_THRESHOLD_UNSPECIFIED": 6,
+      "TRANSFORMATION_CARRIER_UNSPECIFIED": 2
+    },
+    "readiness_class_counts": {
+      "MULTI_CLASS_BLOCKED": 46,
+      "LOCAL_STRUCTURE_READY": 17,
+      "SOURCE_UNDERDETERMINED": 160,
+      "STRUCTURED_PATTERN_COMPILER_GATED": 1,
+      "DEPENDENCY_COMPILER_GATED": 27
+    },
+    "rows_with_no_current_activation_blocker": 17,
+    "rows_with_source_underdetermination": 204,
+    "unresolved_antecedent_reference_rows": 0,
+    "explicit_antecedent_dependency_rows": 64,
+    "closed_world_evidence_gated_rows": 23,
+    "source_resolution_changes": 16,
+    "source_condition_repairs": 1,
+    "dependency_scope_corrections": 1,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0,
+    "semantic_normalization_or_quantifier_unspecified_before": 36,
+    "semantic_normalization_or_quantifier_unspecified_after": 0
+  },
+  "source_recheck_outcome": {
+    "human_gate_required": false,
+    "all_16_dispositioned": true,
+    "unresolved_antecedent_reference_rows_after_recheck": 0,
+    "notable_corrections": {
+      "CA01_080": "dependency corrected from historical CA01-079 hint to base CA01-078",
+      "CA01_098": "contradictory inheritance removed; condition repaired to 紫微破军与空劫同度且见煞刑耗曜"
+    }
+  },
+  "interpretation": {
+    "semantic_review_complete": true,
+    "antecedent_source_recheck_complete": true,
+    "execution_complete": false,
+    "product_compiler_ready_claim": false,
+    "source_underdetermined_is_valid_completion_state": true,
+    "note": "The remaining blockers are no longer unresolved 前格 references. They are source-underdetermined group/category/severity semantics, closed-world evidence needs, or normalization/compiler work.",
+    "semantic_normalization_pass": "36/36 generic source-literal blockers replaced by normalized structure or precise source-underdetermination blockers; prior unresolved source quantifier findings are preserved."
+  },
+  "records": [
+    {
+      "source_rule_id": "CA01-057",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "STRUCTURED_PATTERN_EXECUTION_DEFERRED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA01-058",
+      "activation_status": "PARTIAL_LOCAL_STRUCTURE",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA01-057"
+      ],
+      "readiness_class": "LOCAL_STRUCTURE_READY",
+      "blockers": [],
+      "source_resolution_changed": true,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA01-059",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA01-060",
+      "activation_status": "PARTIAL_LOCAL_STRUCTURE",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA01-059"
+      ],
+      "readiness_class": "LOCAL_STRUCTURE_READY",
+      "blockers": [],
+      "source_resolution_changed": true,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA01-064",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA01-079",
+      "activation_status": "STRUCTURE_ONLY",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "STRUCTURED_PATTERN_COMPILER_GATED",
+      "blockers": [
+        "STRUCTURED_PATTERN_EXECUTION_DEFERRED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA01-080",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA01-078"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": true,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA01-081",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA01-082",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA01-085",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA01-086",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA01-097",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA01-098",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": true,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA01-100",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA02-107",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA02-108",
+      "activation_status": "PARTIAL_LOCAL_STRUCTURE",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA02-107"
+      ],
+      "readiness_class": "LOCAL_STRUCTURE_READY",
+      "blockers": [],
+      "source_resolution_changed": true,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA02-113",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA02-116",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA02-117",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA02-116"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": true,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA02-133",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA02-134",
+      "activation_status": "PARTIAL_LOCAL_STRUCTURE",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA02-133"
+      ],
+      "readiness_class": "LOCAL_STRUCTURE_READY",
+      "blockers": [],
+      "source_resolution_changed": true,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA02-141",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA02-147",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA02-152",
+      "activation_status": "STRUCTURE_ONLY",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA02-151"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "STRUCTURED_PATTERN_EXECUTION_DEFERRED"
+      ],
+      "source_resolution_changed": true,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA02-154",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA02-156",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA02-157",
+      "activation_status": "PARTIAL_LOCAL_STRUCTURE",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA02-156"
+      ],
+      "readiness_class": "LOCAL_STRUCTURE_READY",
+      "blockers": [],
+      "source_resolution_changed": true,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA02-166",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA02-167",
+      "activation_status": "PARTIAL_LOCAL_STRUCTURE",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA02-166"
+      ],
+      "readiness_class": "LOCAL_STRUCTURE_READY",
+      "blockers": [],
+      "source_resolution_changed": true,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA02-168",
+      "activation_status": "PARTIAL_LOCAL_STRUCTURE",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA02-166"
+      ],
+      "readiness_class": "LOCAL_STRUCTURE_READY",
+      "blockers": [],
+      "source_resolution_changed": true,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA02-169",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA02-170",
+      "activation_status": "PARTIAL_LOCAL_STRUCTURE",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA02-169"
+      ],
+      "readiness_class": "LOCAL_STRUCTURE_READY",
+      "blockers": [],
+      "source_resolution_changed": true,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA02-171",
+      "activation_status": "PARTIAL_LOCAL_STRUCTURE",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA02-170"
+      ],
+      "readiness_class": "LOCAL_STRUCTURE_READY",
+      "blockers": [],
+      "source_resolution_changed": true,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA02-175",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA02-180",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA02-181",
+      "activation_status": "PARTIAL_LOCAL_STRUCTURE",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "LOCAL_STRUCTURE_READY",
+      "blockers": [],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA02-182",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA02-184",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA02-183"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": true,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA02-197",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA02-198",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA02-199",
+      "activation_status": "PARTIAL_LOCAL_STRUCTURE",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA02-198"
+      ],
+      "readiness_class": "LOCAL_STRUCTURE_READY",
+      "blockers": [],
+      "source_resolution_changed": true,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA03-204",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA03-215",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA03-225",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA03-228",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA03-231",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA03-233",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA03-234",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA03-235",
+      "activation_status": "PARTIAL_LOCAL_STRUCTURE",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA03-234"
+      ],
+      "readiness_class": "LOCAL_STRUCTURE_READY",
+      "blockers": [],
+      "source_resolution_changed": true,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA03-236",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA03-234"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA03-238",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA03-242",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA03-243",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA03-242"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA03-245",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA03-246",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA03-247",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA03-246"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA03-248",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA03-251",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA03-256",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA03-257",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA03-258",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA03-259",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA03-261",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA03-259"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA03-268",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA03-269",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA03-268"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA03-273",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA03-275",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA03-276",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA03-275"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA03-277",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA03-289",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA03-290",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA03-298",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA04-303",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-304",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA04-305",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA04-311",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-312",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-313",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-314",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA04-313"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA04-316",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-317",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA04-316"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA04-321",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-323",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA04-322"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-326",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA04-337",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-343",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-344",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-345",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED",
+        "CARDINALITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-353",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA04-352"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-357",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA04-356"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-358",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA04-359",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA04-358"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-360",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-363",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA04-362"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-366",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA04-365"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-375",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-376",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-378",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA04-379",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-382",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-383",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-386",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-390",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA04-389"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "SEVERITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-391",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA04-393",
+      "activation_status": "STRUCTURE_ONLY",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "SEVERITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA04-397",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA05-409",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA05-410",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA05-409"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA05-411",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA05-413",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA05-414",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA05-416",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA05-417",
+      "activation_status": "PARTIAL_LOCAL_STRUCTURE",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "LOCAL_STRUCTURE_READY",
+      "blockers": [],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA05-419",
+      "activation_status": "PARTIAL_LOCAL_STRUCTURE",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "LOCAL_STRUCTURE_READY",
+      "blockers": [],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA05-420",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA05-419"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA05-423",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "TRANSFORMATION_CARRIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA05-424",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA05-423"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA05-429",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA05-428"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA05-433",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA05-437",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA05-442",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "SEVERITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA05-447",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA05-456",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA05-459",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA05-460",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA05-464",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA05-463"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA05-465",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA05-471",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "STRUCTURED_PATTERN_EXECUTION_DEFERRED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA05-473",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA05-471",
+        "CA05-472"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA05-483",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA05-484",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA05-492",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA05-493",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-501",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-502",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA06-506",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "SEVERITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-508",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-509",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA06-508"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA06-516",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-519",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA06-518"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-520",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-526",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-532",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-533",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-538",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA06-537"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-539",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-542",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-543",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-549",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-550",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA06-549"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA06-551",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-552",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA06-551"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA06-553",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA06-551"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA06-554",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-555",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA06-554"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA06-559",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA06-558"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-573",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA06-572"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-574",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA06-572"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-576",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA06-575"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-582",
+      "activation_status": "PARTIAL_LOCAL_STRUCTURE",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "LOCAL_STRUCTURE_READY",
+      "blockers": [],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA06-583",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-584",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-585",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-593",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA06-594",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-602",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-603",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA07-602"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA07-604",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA07-602"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA07-609",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-610",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-620",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-621",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-625",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-626",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-628",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-629",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-632",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-633",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "CARDINALITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-634",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA07-633"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA07-636",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-637",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA07-636"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA07-638",
+      "activation_status": "PARTIAL_LOCAL_STRUCTURE",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "LOCAL_STRUCTURE_READY",
+      "blockers": [],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA07-639",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA07-638"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA07-643",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-644",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-645",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-648",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-649",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-652",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA07-658",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-659",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-660",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA07-659"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA07-668",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-678",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-679",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA07-678"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA07-681",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-682",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA07-681"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA07-686",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA07-684"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-687",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA07-684"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-691",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-692",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA07-691"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA07-693",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-694",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA07-693"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA07-697",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA07-699",
+      "activation_status": "PARTIAL_LOCAL_STRUCTURE",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "LOCAL_STRUCTURE_READY",
+      "blockers": [],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA07-700",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA08-701",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA08-702",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA08-703",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA08-704",
+      "activation_status": "BLOCKED_ANTECEDENT",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA08-703"
+      ],
+      "readiness_class": "DEPENDENCY_COMPILER_GATED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM"
+    },
+    {
+      "source_rule_id": "CA08-718",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA08-717"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA08-721",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA08-719"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA08-723",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA08-725",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA08-726",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA08-733",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA08-734",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA08-771",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA08-772",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA08-776",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA08-784",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA08-799",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA08-800",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-804",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-805",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-806",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-807",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-811",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-812",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-816",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-817",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-818",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-819",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-820",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-833",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-839",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA09-838"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-840",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-847",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-848",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-849",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-859",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-860",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "TRANSFORMATION_CARRIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-861",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-863",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-864",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "SOURCE_SHORTHAND_MEMBERSHIP_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-865",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-871",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "EXPLICIT_RULE_REFERENCE",
+      "antecedent_rule_ids": [
+        "CA09-870"
+      ],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "ANTECEDENT_DEPENDENCY",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-879",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "MEMBER_QUANTIFIER_UNSPECIFIED",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-885",
+      "activation_status": "MULTI_BLOCKER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "MULTI_CLASS_BLOCKED",
+      "blockers": [
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED",
+        "SEVERITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-886",
+      "activation_status": "BLOCKED_MEMBER_QUANTIFIER",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "OPEN_CATEGORY_MEMBER_OR_QUANTIFIER_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    },
+    {
+      "source_rule_id": "CA09-887",
+      "activation_status": "STRUCTURE_ONLY",
+      "antecedent_mode": "NONE",
+      "antecedent_rule_ids": [],
+      "readiness_class": "SOURCE_UNDERDETERMINED",
+      "blockers": [
+        "SEVERITY_THRESHOLD_UNSPECIFIED"
+      ],
+      "source_resolution_changed": false,
+      "canonical_source_disposition": "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT"
+    }
+  ],
+  "guardrails": {
+    "source_truth_rewritten_without_evidence": false,
+    "product_runtime_modified": false,
+    "numeric_weights_added": false,
+    "probabilities_added": false,
+    "unknown_forced_to_executable": false,
+    "adjacency_guess_used": false
+  }
+}

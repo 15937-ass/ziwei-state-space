@@ -1,0 +1,368 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "WANG_FULL_CHART_RECONSTRUCTION_READINESS_V0_1",
+  "issue": 545,
+  "corpus_id": "WANG_TINGZHI_ANXING_TUIDUAN_24_V0_1",
+  "source_input_artifact_id": "WANG_SOURCE_BIRTH_SIGNATURES_V0_1",
+  "anchor_artifact_id": "WANG_BLIND_EVIDENCE_V0_1",
+  "probe": {
+    "engine": "iztro-js",
+    "engine_version": "2.6.1",
+    "algorithm": "zhongzhou",
+    "input_calendar": "lunar",
+    "astro_type": "heaven",
+    "fix_leap": true,
+    "day_divide": "forward",
+    "year_divide": "normal",
+    "horoscope_divide": "normal",
+    "entrypoint": "astro.byLunar"
+  },
+  "observed_validation": {
+    "github_workflow": "product-p1-dual-engine",
+    "run_id": 39695779056,
+    "run_number": 612,
+    "probe_step": "Probe Wang source-bounded lunar reconstruction",
+    "probe_step_conclusion": "success",
+    "observed_head_sha": "096f82b13a635a19543105d88446b2dded44939d"
+  },
+  "summary": {
+    "cases_total": 24,
+    "source_candidate_inputs": 37,
+    "evaluated_candidate_inputs": 37,
+    "unique_anchor_match": 11,
+    "multiple_anchor_match": 6,
+    "no_anchor_match": 5,
+    "blocked_source_incomplete": 2,
+    "engine_unsupported": 0,
+    "full_chart_materialization_ready": 11
+  },
+  "cases": [
+    {
+      "case_id": "WANG-CASE-001",
+      "source_status": "SOURCE_EXACT",
+      "source_candidate_count": 1,
+      "evaluated_candidate_count": 1,
+      "anchor_match_count": 1,
+      "status": "UNIQUE_ANCHOR_MATCH",
+      "matched_candidate_ids": [
+        "WANG-CASE-001:D13:T06"
+      ],
+      "full_chart_materialization_ready": true,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-002",
+      "source_status": "SOURCE_EXPLICIT_DAY_ALTERNATIVES",
+      "source_candidate_count": 2,
+      "evaluated_candidate_count": 2,
+      "anchor_match_count": 2,
+      "status": "MULTIPLE_ANCHOR_MATCH",
+      "matched_candidate_ids": [
+        "WANG-CASE-002:D10:T09",
+        "WANG-CASE-002:D11:T09"
+      ],
+      "full_chart_materialization_ready": false,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-003",
+      "source_status": "SOURCE_EXACT",
+      "source_candidate_count": 1,
+      "evaluated_candidate_count": 1,
+      "anchor_match_count": 1,
+      "status": "UNIQUE_ANCHOR_MATCH",
+      "matched_candidate_ids": [
+        "WANG-CASE-003:D23:T05"
+      ],
+      "full_chart_materialization_ready": true,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-004",
+      "source_status": "BLOCKED_SOURCE_DAY_UNKNOWN",
+      "source_candidate_count": 0,
+      "evaluated_candidate_count": 0,
+      "anchor_match_count": 0,
+      "status": "BLOCKED_SOURCE_INCOMPLETE",
+      "matched_candidate_ids": [],
+      "full_chart_materialization_ready": false,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-005",
+      "source_status": "SOURCE_EXACT",
+      "source_candidate_count": 1,
+      "evaluated_candidate_count": 1,
+      "anchor_match_count": 0,
+      "status": "NO_ANCHOR_MATCH",
+      "matched_candidate_ids": [],
+      "full_chart_materialization_ready": false,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-006",
+      "source_status": "SOURCE_EXACT",
+      "source_candidate_count": 1,
+      "evaluated_candidate_count": 1,
+      "anchor_match_count": 1,
+      "status": "UNIQUE_ANCHOR_MATCH",
+      "matched_candidate_ids": [
+        "WANG-CASE-006:D29:T10"
+      ],
+      "full_chart_materialization_ready": true,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-007",
+      "source_status": "SOURCE_EXACT_ZI_TIME_AMBIGUITY",
+      "source_candidate_count": 2,
+      "evaluated_candidate_count": 2,
+      "anchor_match_count": 0,
+      "status": "NO_ANCHOR_MATCH",
+      "matched_candidate_ids": [],
+      "full_chart_materialization_ready": false,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-008",
+      "source_status": "SOURCE_EXPLICIT_DAY_ALTERNATIVES",
+      "source_candidate_count": 2,
+      "evaluated_candidate_count": 2,
+      "anchor_match_count": 2,
+      "status": "MULTIPLE_ANCHOR_MATCH",
+      "matched_candidate_ids": [
+        "WANG-CASE-008:D08:T10",
+        "WANG-CASE-008:D09:T10"
+      ],
+      "full_chart_materialization_ready": false,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-009",
+      "source_status": "SOURCE_EXACT",
+      "source_candidate_count": 1,
+      "evaluated_candidate_count": 1,
+      "anchor_match_count": 1,
+      "status": "UNIQUE_ANCHOR_MATCH",
+      "matched_candidate_ids": [
+        "WANG-CASE-009:D15:T06"
+      ],
+      "full_chart_materialization_ready": true,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-010",
+      "source_status": "SOURCE_EXACT",
+      "source_candidate_count": 1,
+      "evaluated_candidate_count": 1,
+      "anchor_match_count": 1,
+      "status": "UNIQUE_ANCHOR_MATCH",
+      "matched_candidate_ids": [
+        "WANG-CASE-010:D21:T05"
+      ],
+      "full_chart_materialization_ready": true,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-011",
+      "source_status": "SOURCE_EXACT",
+      "source_candidate_count": 1,
+      "evaluated_candidate_count": 1,
+      "anchor_match_count": 0,
+      "status": "NO_ANCHOR_MATCH",
+      "matched_candidate_ids": [],
+      "full_chart_materialization_ready": false,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-012",
+      "source_status": "SOURCE_EXACT",
+      "source_candidate_count": 1,
+      "evaluated_candidate_count": 1,
+      "anchor_match_count": 1,
+      "status": "UNIQUE_ANCHOR_MATCH",
+      "matched_candidate_ids": [
+        "WANG-CASE-012:D01:T03"
+      ],
+      "full_chart_materialization_ready": true,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-013",
+      "source_status": "SOURCE_EXACT",
+      "source_candidate_count": 1,
+      "evaluated_candidate_count": 1,
+      "anchor_match_count": 1,
+      "status": "UNIQUE_ANCHOR_MATCH",
+      "matched_candidate_ids": [
+        "WANG-CASE-013:D15:T06"
+      ],
+      "full_chart_materialization_ready": true,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-014",
+      "source_status": "SOURCE_EXPLICIT_DAY_ALTERNATIVES",
+      "source_candidate_count": 2,
+      "evaluated_candidate_count": 2,
+      "anchor_match_count": 2,
+      "status": "MULTIPLE_ANCHOR_MATCH",
+      "matched_candidate_ids": [
+        "WANG-CASE-014:D04:T09",
+        "WANG-CASE-014:D12:T09"
+      ],
+      "full_chart_materialization_ready": false,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-015",
+      "source_status": "SOURCE_EXACT",
+      "source_candidate_count": 1,
+      "evaluated_candidate_count": 1,
+      "anchor_match_count": 1,
+      "status": "UNIQUE_ANCHOR_MATCH",
+      "matched_candidate_ids": [
+        "WANG-CASE-015:D25:T06"
+      ],
+      "full_chart_materialization_ready": true,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-016",
+      "source_status": "BLOCKED_SOURCE_CENTER_INCOMPLETE",
+      "source_candidate_count": 0,
+      "evaluated_candidate_count": 0,
+      "anchor_match_count": 0,
+      "status": "BLOCKED_SOURCE_INCOMPLETE",
+      "matched_candidate_ids": [],
+      "full_chart_materialization_ready": false,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-017",
+      "source_status": "SOURCE_EXACT_ZI_TIME_AMBIGUITY",
+      "source_candidate_count": 2,
+      "evaluated_candidate_count": 2,
+      "anchor_match_count": 0,
+      "status": "NO_ANCHOR_MATCH",
+      "matched_candidate_ids": [],
+      "full_chart_materialization_ready": false,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-018",
+      "source_status": "SOURCE_EXPLICIT_DAY_ALTERNATIVES",
+      "source_candidate_count": 4,
+      "evaluated_candidate_count": 4,
+      "anchor_match_count": 4,
+      "status": "MULTIPLE_ANCHOR_MATCH",
+      "matched_candidate_ids": [
+        "WANG-CASE-018:D02:T04",
+        "WANG-CASE-018:D12:T04",
+        "WANG-CASE-018:D15:T04",
+        "WANG-CASE-018:D21:T04"
+      ],
+      "full_chart_materialization_ready": false,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-019",
+      "source_status": "SOURCE_EXACT",
+      "source_candidate_count": 1,
+      "evaluated_candidate_count": 1,
+      "anchor_match_count": 1,
+      "status": "UNIQUE_ANCHOR_MATCH",
+      "matched_candidate_ids": [
+        "WANG-CASE-019:D20:T08"
+      ],
+      "full_chart_materialization_ready": true,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-020",
+      "source_status": "SOURCE_EXPLICIT_DAY_ALTERNATIVES",
+      "source_candidate_count": 3,
+      "evaluated_candidate_count": 3,
+      "anchor_match_count": 3,
+      "status": "MULTIPLE_ANCHOR_MATCH",
+      "matched_candidate_ids": [
+        "WANG-CASE-020:D04:T07",
+        "WANG-CASE-020:D07:T07",
+        "WANG-CASE-020:D13:T07"
+      ],
+      "full_chart_materialization_ready": false,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-021",
+      "source_status": "SOURCE_EXACT_ZI_TIME_AMBIGUITY",
+      "source_candidate_count": 2,
+      "evaluated_candidate_count": 2,
+      "anchor_match_count": 1,
+      "status": "UNIQUE_ANCHOR_MATCH",
+      "matched_candidate_ids": [
+        "WANG-CASE-021:D01:T00"
+      ],
+      "full_chart_materialization_ready": true,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-022",
+      "source_status": "SOURCE_EXPLICIT_DAY_ALTERNATIVES",
+      "source_candidate_count": 4,
+      "evaluated_candidate_count": 4,
+      "anchor_match_count": 4,
+      "status": "MULTIPLE_ANCHOR_MATCH",
+      "matched_candidate_ids": [
+        "WANG-CASE-022:D10:T01",
+        "WANG-CASE-022:D20:T01",
+        "WANG-CASE-022:D23:T01",
+        "WANG-CASE-022:D29:T01"
+      ],
+      "full_chart_materialization_ready": false,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-023",
+      "source_status": "SOURCE_EXACT",
+      "source_candidate_count": 1,
+      "evaluated_candidate_count": 1,
+      "anchor_match_count": 1,
+      "status": "UNIQUE_ANCHOR_MATCH",
+      "matched_candidate_ids": [
+        "WANG-CASE-023:D28:T05"
+      ],
+      "full_chart_materialization_ready": true,
+      "engine_errors": []
+    },
+    {
+      "case_id": "WANG-CASE-024",
+      "source_status": "SOURCE_EXPLICIT_DAY_ALTERNATIVES",
+      "source_candidate_count": 2,
+      "evaluated_candidate_count": 2,
+      "anchor_match_count": 0,
+      "status": "NO_ANCHOR_MATCH",
+      "matched_candidate_ids": [],
+      "full_chart_materialization_ready": false,
+      "engine_errors": []
+    }
+  ],
+  "boundaries": {
+    "unique_match_is_only_eligibility_not_full_source_chart_equivalence": true,
+    "multiple_matches_are_not_collapsed": true,
+    "no_match_is_not_corrected_from_biography": true,
+    "blocked_source_input_is_not_backfilled": true,
+    "target_anchor_is_major_star_system_only": true,
+    "method_scope_broadened": false,
+    "empirical_probability_used": false,
+    "predictive_validity": "NOT_VALIDATED",
+    "target_palace_identity_checked": true,
+    "partial_engine_failure_blocks_promotion": true
+  },
+  "next_actions": {
+    "materialize_unique_cases_as": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+    "multiple_match_cases": "KEEP_AMBIGUOUS_UNTIL_STRONGER_SOURCE_ANCHOR",
+    "no_match_cases": "SOURCE_REVIEW_AND_ENGINE_CROSS_CHECK_REQUIRED",
+    "blocked_cases": "REMAIN_BLOCKED_UNLESS_SOURCE_EVIDENCE_IMPROVES"
+  }
+}
