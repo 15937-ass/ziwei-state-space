@@ -175,13 +175,21 @@ def audit_longitudinal_data_quality(
     for index, payload in enumerate(observation_rows):
         record_id = _text(payload.get("record_id")) or f"row:{index}"
         version = _text(payload.get("schema_version"))
+        event_time_start: date | None = None
+        event_time_end: date | None = None
         try:
             if version == "0.1":
                 compiled = compile_longitudinal_observation(payload)
                 base = compiled
+                if base.event_date is not None:
+                    event_time_start = base.event_date
+                    event_time_end = base.event_date
             elif version == "0.2":
                 compiled_v02 = compile_longitudinal_observation_v02(payload)
                 base = compiled_v02.base
+                if compiled_v02.event_time is not None:
+                    event_time_start = compiled_v02.event_time.lower_bound
+                    event_time_end = compiled_v02.event_time.upper_bound
             else:
                 raise ValueError(f"unsupported schema_version: {version or '(missing)'}")
         except (ValueError, TypeError, KeyError) as exc:
@@ -213,6 +221,9 @@ def audit_longitudinal_data_quality(
                 "window_end": base.window_end,
                 "observed_through": base.observed_through,
                 "event_status": base.event_status,
+                "observation_confidence": base.observation_confidence,
+                "event_time_start": event_time_start,
+                "event_time_end": event_time_end,
             }
         )
 
@@ -297,20 +308,62 @@ def audit_longitudinal_data_quality(
                     continue
                 if {left["event_status"], right["event_status"]} != resolved:
                     continue
-                intersection_start = max(left["window_start"], right["window_start"])
-                intersection_end = min(left["window_end"], right["window_end"])
+
+                occurred = left if left["event_status"] == "EVENT_OCCURRED" else right
+                negative = left if left["event_status"] == "EVENT_NOT_OCCURRED" else right
+                if (
+                    occurred["observation_confidence"] == "INSUFFICIENT"
+                    or negative["observation_confidence"] == "INSUFFICIENT"
+                ):
+                    continue
+
+                event_start = occurred["event_time_start"]
+                event_end = occurred["event_time_end"]
+                if event_start is None or event_end is None:
+                    continue
+
+                # A negative record only covers the part of its target window
+                # that was actually observed. Window overlap by itself is not
+                # evidence of contradiction.
+                negative_covered_end = min(
+                    negative["observed_through"], negative["window_end"]
+                )
+                if negative_covered_end < negative["window_start"]:
+                    continue
+                if (
+                    event_end < negative["window_start"]
+                    or event_start > negative_covered_end
+                ):
+                    continue
+
+                event_fully_observed = (
+                    negative["window_start"] <= event_start
+                    and event_end <= negative_covered_end
+                )
+                finding_code = (
+                    "OVERLAPPING_WINDOW_OUTCOME_CONFLICT"
+                    if event_fully_observed
+                    else "OVERLAPPING_WINDOW_EVENT_TIME_AMBIGUITY"
+                )
                 emit(
-                    "OVERLAPPING_WINDOW_OUTCOME_CONFLICT",
-                    "ERROR",
+                    finding_code,
+                    "ERROR" if event_fully_observed else "WARNING",
                     "observation_pair",
-                    [left["record_id"], right["record_id"]],
+                    [occurred["record_id"], negative["record_id"]],
                     {
                         "person_key": person_key,
                         "target_id": target_id,
-                        "left_status": left["event_status"],
-                        "right_status": right["event_status"],
-                        "overlap_start": intersection_start.isoformat(),
-                        "overlap_end": intersection_end.isoformat(),
+                        "event_record_id": occurred["record_id"],
+                        "negative_record_id": negative["record_id"],
+                        "event_time_start": event_start.isoformat(),
+                        "event_time_end": event_end.isoformat(),
+                        "negative_observed_start": negative["window_start"].isoformat(),
+                        "negative_observed_through": negative_covered_end.isoformat(),
+                        "interpretation": (
+                            "event time is fully within negative observation coverage"
+                            if event_fully_observed
+                            else "event-time interval only partially overlaps negative observation coverage"
+                        ),
                     },
                 )
 
@@ -603,6 +656,14 @@ def audit_longitudinal_data_quality(
                 "interpretation": "risk_flag_only_not_an_MNAR_classification",
             },
         )
+
+    # Any matched closeout key that did not meet the complete-response contract
+    # remains unresolved, including duplicate keys and malformed responses.
+    unresolved_closeout_keys.update(
+        key
+        for key in expected_closeouts
+        if key in matched_response_keys and key not in complete_closeout_keys
+    )
 
     total_supplied = observations_supplied + plans_supplied + responses_supplied
     findings.sort(key=_finding_sort_key)
