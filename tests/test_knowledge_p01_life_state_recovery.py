@@ -19,6 +19,8 @@ def test_p01_state_cache_matches_accepted_p07_checkpoint():
     assert "active_issue: null" in state
     assert "active_branch: null" in state
     assert "active_pr: null" in state
+    assert "\n  note: >-\n" in state
+    assert "\nnote: >-\n" not in state
     assert 'canonical_checkpoint: "P01_P07_601_700_SOURCE_FIRST_P20_P22_MERGED"' in state
     assert "canonical_source_records_on_main: 882" in state
     assert "canonical_source_records_ready_on_branch" not in state
