@@ -18,6 +18,7 @@
 ## Semantic findings
 
 - Accepted source records include process/development, action-conditioned outcome, occupational scene, resource-domain semantic boundary, mobility axis, a relationship-domain cross-palace constraint, a case-only event candidate, and a methodology cross-palace constraint.
+- W01-002 is a palace-semantic boundary and is explicitly excluded from manifestation-root evidence, as are the cross-palace constraints and case-only event candidate.
 - This is sufficient to show that `projection_mode` cannot be blindly reused as ontology hierarchy, but it does **not** prove a universal root.
 - CA09-809 is explicitly case-support-only and excluded from root evidence. CA01-005 and CA01-007 are cross-palace constraints, not manifestation nodes.
 - Three root strategies are documented for PI review. Option C is only a preliminary recommendation; no option is selected or accepted.
