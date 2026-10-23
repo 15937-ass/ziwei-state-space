@@ -93,11 +93,11 @@ def test_promotion_gate_stays_blocked_despite_technical_readiness_pass():
     actual = evaluate_promotion_gate(
         impact_for_gate,
         candidate_verification=package["candidate_verification"],
-        validation_results=package["promotion_gate"]["validation_results"],
+        validation_results=package["promotion_gate"]["supplied_validation_results"],
     )
     assert actual == package["promotion_gate"]
     assert actual["status"] == "BLOCKED"
-    assert actual["promotion_allowed"] is False
+    assert actual["recommendation"] == "DO_NOT_PROMOTE"
     assert actual["active_lock_mutated"] is False
     assert set(actual["blockers"]) == {
         "NO_COMPILER_READY_TEMPORAL_REACTION_SPECIFICATION",
