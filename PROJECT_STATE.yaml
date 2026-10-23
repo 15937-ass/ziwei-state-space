@@ -12,9 +12,11 @@ authority:
   execution_truth: "GITHUB_ISSUES"
   implementation_truth: "GITHUB_PULL_REQUESTS"
   validation_truth: "CI_AND_VERSIONED_AUDITS"
+  session_bootstrap: "CHATGPT_START_HERE.md"
   current_execution_protocol: "governance/PUBLIC_ACTIONS_EXECUTION_PROTOCOL_v0.2.md"
   recovery_precedence: "governance/RECOVERY_PRECEDENCE_v1.md"
-  chat_is_authoritative: false
+  chat_is_project_state_authority: false
+  chat_is_repository_operator: true
 
 state_files:
   product: "product/PRODUCT_STATE.yaml"
@@ -32,11 +34,12 @@ archive:
   note: "Historical checkpoint retained. Explicit PI authorization recorded in Issue #290; current execution follows current main and active lane Issues."
 
 recovery_order:
-  - "Read PROJECT_STATE.yaml."
+  - "Read PROJECT_STATE.yaml for project status and current authority pointers."
+  - "Read CHATGPT_START_HERE.md as the single canonical ChatGPT session bootstrap; do not reuse conflicting old startup prompts."
   - "Read governance/RECOVERY_PRECEDENCE_v1.md before interpreting any ACTIVE/CURRENT/NEXT/READY_FOR_PI marker elsewhere."
   - "If project_status is ARCHIVED, read the archive checkpoint and do not execute work unless the PI explicitly requests resume."
   - "Read the selected lane state as a recovery cache; for Knowledge select CORE or one palace shard state, then query live GitHub Issues for that lane/shard."
-  - "When ACTIVE, the live bounded GitHub Issue is execution truth and its linked PR is implementation truth; they override a stale lane-state cache."
+  - "When an active/open bounded Issue exists, the live GitHub Issue is execution truth and its linked PR is implementation truth; they override a stale lane-state cache."
   - "Read only Issue-required artifacts after the Issue/PR is identified."
-  - "Do not use README current-phase text, legacy tasks/*.yaml, historical validation next-work sections, archived files, superseded protocols, or old proposal status words as current task selectors."
+  - "Do not use old chat prompts, README current-phase text, legacy tasks/*.yaml, historical validation next-work sections, archived files, superseded protocols, or old proposal status words as current task selectors."
   - "Use authority.current_execution_protocol for routine execution policy; do not choose a protocol by searching for the word ACTIVE."

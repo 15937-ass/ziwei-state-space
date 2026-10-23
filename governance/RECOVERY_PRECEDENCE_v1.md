@@ -16,19 +16,22 @@ For recovery and task selection, **current authority is determined by pointers a
 For every new ChatGPT conversation, timeout recovery, model/session change, or suspected external merge:
 
 1. Read `PROJECT_STATE.yaml`.
-2. Read this file.
-3. Read the selected lane state:
+2. Read the single canonical session-start instruction `CHATGPT_START_HERE.md`.
+3. Read this file.
+4. Read the selected lane state:
    - `product/PRODUCT_STATE.yaml`
    - `knowledge/KNOWLEDGE_STATE.yaml`
    - `governance/GOVERNANCE_STATE.yaml`
-4. If the selected lane is Knowledge, select exactly one shard (`CORE` or `P01..P12`) and read the shard state referenced by the Knowledge coordinator.
-5. Query live GitHub Issues for the selected lane/shard.
-6. If an active/open bounded Issue exists, **the Issue is execution truth even when the state cache is stale**.
-7. Read the Issue-linked PR, if any. The PR is implementation truth.
-8. Read only artifacts required by that Issue/PR.
-9. Use the execution protocol explicitly named by `PROJECT_STATE.yaml`; do not select a protocol by filename age or by searching for the word `ACTIVE`.
+5. If the selected lane is Knowledge, select exactly one shard (`CORE` or `P01..P12`) and read the shard state referenced by the Knowledge coordinator.
+6. Query live GitHub Issues for the selected lane/shard.
+7. If an active/open bounded Issue exists, **the Issue is execution truth even when the state cache is stale**.
+8. Read the Issue-linked PR, if any. The PR is implementation truth.
+9. Read only artifacts required by that Issue/PR.
+10. Use the execution protocol explicitly named by `PROJECT_STATE.yaml`; do not select a protocol by filename age or by searching for the word `ACTIVE`.
 
-If GitHub live state and a state YAML disagree, **GitHub Issue/PR wins and the cache must be repaired**.
+If GitHub live state and a state YAML disagree, **GitHub Issue/PR wins and the cache must be repaired**. The current ChatGPT conversation is permitted to operate the repository through exposed connector actions, but chat text itself is not project-state authority.
+
+Old saved startup prompts, prior-chat instructions, and copied snippets are not authority. In particular, never follow a stale prompt that treats the G7-era Actions restriction as current; use `CHATGPT_START_HERE.md` and the current protocol pointer instead.
 
 ## 3. Current execution policy
 
@@ -38,7 +41,8 @@ The effective routine execution protocol is:
 
 Current rules:
 
-- the current ChatGPT conversation is a first-class repository operator and may use all GitHub repository operations actually exposed by connected tools;
+- the current ChatGPT conversation is a first-class repository operator and may use all GitHub repository operations actually exposed by connected tools; this capability is distinct from whether chat text is authoritative project state;
+- standard public GitHub-hosted runner validation is allowed; automatic `pull_request` triggers and `workflow_dispatch` are allowed, while automatic `push` triggers remain prohibited; a prohibition on automatic push triggers must never be paraphrased as a blanket Actions disablement;
 - standard GitHub-hosted runners for this public repository are allowed for routine deterministic validation;
 - automatic `pull_request` triggers are allowed;
 - automatic `push` triggers are prohibited;
@@ -47,7 +51,7 @@ Current rules:
 - normal work remains `Issue -> branch -> PR -> validation -> merge`;
 - connector capability never bypasses lane ownership, Human Gates, source integrity, or validation.
 
-The G7 protocol `governance/WORK_CODEX_EXECUTION_PROTOCOL_v0.1.md` is historical and must never be used to determine current Actions or repository-operator policy.
+The G7 protocol `governance/archive/WORK_CODEX_EXECUTION_PROTOCOL_v0.1_G7_HISTORICAL.md` is historical and must never be used to determine current Actions or repository-operator policy.
 
 ## 4. Artifacts that are NOT execution truth by themselves
 
@@ -58,6 +62,7 @@ The following may be read for evidence or historical context, but must **not** d
 - completed acceptance documents;
 - legacy `tasks/*.yaml`;
 - README “Current phase” text;
+- old ChatGPT startup prompts or copied instructions that conflict with `CHATGPT_START_HERE.md`;
 - branch/PR names from old work;
 - files named `*_PROPOSAL*` or stored in proposal directories when they are not the currently approved controlling proposal;
 - old roadmap “current/next” snapshots;

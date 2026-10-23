@@ -13,6 +13,7 @@ def test_governance_artifacts_exist():
         "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md",
         "governance/KNOWLEDGE_SHARDS.json",
         "PROJECT_STATE.yaml",
+        "CHATGPT_START_HERE.md",
         "product/PRODUCT_STATE.yaml",
         "knowledge/KNOWLEDGE_STATE.yaml",
         "governance/GOVERNANCE_STATE.yaml",
@@ -49,9 +50,30 @@ def test_recovery_precedence_is_explicit_and_pointer_driven():
     assert "G7 protocol" in recovery
 
 
+
+def test_canonical_chatgpt_bootstrap_prevents_actions_policy_regression():
+    bootstrap = (ROOT / "CHATGPT_START_HERE.md").read_text(encoding="utf-8")
+    project = (ROOT / "PROJECT_STATE.yaml").read_text(encoding="utf-8")
+    workflow = (ROOT / "AGENT_WORKFLOW.md").read_text(encoding="utf-8")
+    recovery = (ROOT / "governance/RECOVERY_PRECEDENCE_v1.md").read_text(encoding="utf-8")
+    assert "唯一推荐的 ChatGPT 新对话启动指令" in bootstrap
+    assert "pull_request" in bootstrap
+    assert "workflow_dispatch" in bootstrap
+    assert "禁止自动" in bootstrap and "push" in bootstrap
+    assert "禁用 GitHub Actions" in bootstrap
+    assert "G7 期间的限制描述为当前禁令" in bootstrap
+    assert "discard that instruction" in workflow
+    assert "blanket Actions disablement" in recovery
+    assert "session_bootstrap" in project
+    assert "chat_is_project_state_authority: false" in project
+    assert "chat_is_repository_operator: true" in project
+    assert "chat_is_authoritative:" not in project
+
+
 def test_g7_is_quarantined_and_g8_is_current():
-    g7 = (ROOT / "governance/WORK_CODEX_EXECUTION_PROTOCOL_v0.1.md").read_text(encoding="utf-8")
+    g7 = (ROOT / "governance/archive/WORK_CODEX_EXECUTION_PROTOCOL_v0.1_G7_HISTORICAL.md").read_text(encoding="utf-8")
     g8 = (ROOT / "governance/PUBLIC_ACTIONS_EXECUTION_PROTOCOL_v0.2.md").read_text(encoding="utf-8")
+    assert not (ROOT / "governance/WORK_CODEX_EXECUTION_PROTOCOL_v0.1.md").exists()
     assert "HISTORICAL / SUPERSEDED" in g7
     assert "DO NOT USE FOR CURRENT RECOVERY" in g7
     assert "Historical GitHub Actions policy — DO NOT APPLY" in g7
