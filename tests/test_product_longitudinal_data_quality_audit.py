@@ -140,6 +140,57 @@ def test_overlapping_windows_alone_are_not_classified_as_outcome_conflict():
     assert "OVERLAPPING_WINDOW_OUTCOME_CONFLICT" not in _codes(report)
 
 
+def test_overlapping_windows_do_not_conflict_when_event_is_after_negative_window():
+    occurred = _observations()[0]
+    occurred["outcome"]["event_date"] = "2027-12-15"
+    negative = copy.deepcopy(occurred)
+    negative["record_id"] = "LO-NEGATIVE-JUN-001"
+    negative["outcome"]["status"] = "EVENT_NOT_OCCURRED"
+    negative["outcome"]["event_date"] = None
+    negative["window"]["end_date"] = "2027-06-30"
+    negative["window"]["observed_through"] = "2027-06-30"
+
+    report = audit_longitudinal_data_quality(observations=[occurred, negative])
+    codes = _codes(report)
+    assert "OVERLAPPING_WINDOW_OUTCOME_CONFLICT" not in codes
+    assert "OVERLAPPING_WINDOW_EVENT_TIME_AMBIGUITY" not in codes
+
+
+def test_event_after_observed_through_does_not_conflict_with_early_negative():
+    occurred = _observations()[0]
+    negative = copy.deepcopy(occurred)
+    negative["record_id"] = "LO-NEGATIVE-EARLY-001"
+    negative["outcome"]["status"] = "EVENT_NOT_OCCURRED"
+    negative["outcome"]["event_date"] = None
+    negative["window"]["observed_through"] = "2027-05-31"
+
+    report = audit_longitudinal_data_quality(observations=[occurred, negative])
+    codes = _codes(report)
+    assert "OVERLAPPING_WINDOW_OUTCOME_CONFLICT" not in codes
+    assert "OVERLAPPING_WINDOW_EVENT_TIME_AMBIGUITY" not in codes
+
+
+def test_partial_v02_event_interval_overlap_is_reviewed_not_called_conflict():
+    occurred = migrate_longitudinal_observation_v01_to_v02(_observations()[0])
+    occurred["outcome"]["event_time"] = {
+        "precision": "INTERVAL",
+        "lower_bound_date": "2027-06-15",
+        "upper_bound_date": "2027-07-15",
+    }
+    negative = copy.deepcopy(_observations()[0])
+    negative["record_id"] = "LO-NEGATIVE-JUL-001"
+    negative["outcome"]["status"] = "EVENT_NOT_OCCURRED"
+    negative["outcome"]["event_date"] = None
+    negative["window"]["start_date"] = "2027-07-01"
+    negative["window"]["end_date"] = "2027-12-31"
+    negative["window"]["observed_through"] = "2027-12-31"
+
+    report = audit_longitudinal_data_quality(observations=[occurred, negative])
+    codes = _codes(report)
+    assert "OVERLAPPING_WINDOW_EVENT_TIME_AMBIGUITY" in codes
+    assert "OVERLAPPING_WINDOW_OUTCOME_CONFLICT" not in codes
+
+
 def test_target_ontology_version_drift_is_flagged_without_claiming_registry_validation():
     first = _observations()[0]
     second = copy.deepcopy(first)
@@ -175,6 +226,7 @@ def test_duplicate_plan_target_checkpoint_responses_are_not_auto_selected():
     )
     assert "DUPLICATE_PLAN_TARGET_CHECKPOINT_RESPONSE" in _codes(report)
     assert report["counts"]["complete_window_close_responses"] == 0
+    assert report["counts"]["unresolved_window_close_responses"] == 1
 
 
 def test_unmatched_plan_target_and_checkpoint_references_are_reported():
@@ -321,6 +373,7 @@ def test_invalid_response_schema_version_is_reported():
     )
     assert "INVALID_RESPONSE_SCHEMA_VERSION" in _codes(report)
     assert report["counts"]["complete_window_close_responses"] == 0
+    assert report["counts"]["unresolved_window_close_responses"] == 1
 
 
 def test_missing_response_record_id_is_not_counted_complete():
