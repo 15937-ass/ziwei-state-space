@@ -1,4 +1,5 @@
 import json
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -177,3 +178,13 @@ def test_blocker_code_counts_match_current_reaudit_dispositions():
     assert d["blocker_code_counts"] == expected
     assert "STAR_MUTAGEN_BINDING_GAP" not in d["blocker_code_counts"]
     assert d["blocker_code_counts"]["REAL_WORLD_COMMERCE_CONTEXT_UNTYPED"] == 1
+
+
+def test_blocker_code_aggregate_matches_current_candidate_dispositions():
+    d = data()
+    counts = Counter(
+        code
+        for row in d["candidate_dispositions"]
+        for code in row["blocker_codes"]
+    )
+    assert d["blocker_code_counts"] == dict(sorted(counts.items()))
