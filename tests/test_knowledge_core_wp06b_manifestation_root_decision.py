@@ -87,6 +87,10 @@ def test_source_native_family_labels_are_candidates_not_frozen_ontology_vocabula
         }
         assert item["abstraction_vocabulary_frozen"] is False
         assert item["excluded_from_canonical_root_evidence"] in {True, False}
+    w01_002 = next(x for x in d["source_evidence"] if x["source_rule_id"] == "W01-002")
+    assert w01_002["projection_mode"] == "PALACE_SEMANTIC_BOUNDARY"
+    assert w01_002["event_specificity_candidate"] == "NOT_A_MANIFESTATION"
+    assert w01_002["excluded_from_canonical_root_evidence"] is True
     ca01 = next(x for x in d["source_evidence"] if x["source_rule_id"] == "CA01-035")
     assert ca01["source_quote"] == "事业宫见火铃，主波折。故往往经艰苦而始能底定事业。"
     assert ca01["projection_mode"] == "FUNCTIONAL_PROJECTION"
