@@ -49,7 +49,7 @@ The old implementation-level `STAR_MUTAGEN_BINDING_GAP` on CA04-350 is supersede
 
 ## Validation status
 
-**Repository tests have not yet been claimed as passing.** The pull request must run the new regression test and the repository's required full pytest suite, Product JavaScript syntax checks, P0 audit, knowledge-shard governance tests, and exact-main/head validation. Any unrelated baseline failure must be recorded separately rather than attributed to this work unit.
+**Initial exact-head quality gate passed on commit `1a92b3aa34b8e456036d8acd41590daab3c5f891`:** [run #39918497474](https://github.com/15937-ass/ziwei-state-space/actions/runs/39918497474) reports 2552 pytest tests passed; Product JavaScript adapter syntax, deterministic P0 repository gate, and Repository Governance v1 all passed. This evidence records the validated predecessor head; the documentation-only evidence update must itself pass the final exact-head gate before merge. Any unrelated baseline failure is recorded separately rather than attributed to this work unit.
 
 No Product registry, active Product Knowledge lock, palace-owned canonical row, source text, new semantic family, runtime atom, time scale, probability, numeric weight, or duration threshold was changed.
 
