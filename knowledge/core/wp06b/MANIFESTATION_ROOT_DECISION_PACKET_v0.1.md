@@ -21,7 +21,7 @@
 | CA01-035 | p133 / `ZZ003-P133` | `career_setbacks_before_stabilization` | FUNCTIONAL_PROJECTION | 职业发展过程 | 原文“往往”须保留；火铃量词未决 |
 | CA01-045 | p133 / `ZZ003-P133` | `forced_change_can_create_career_difficulty` | FUNCTIONAL_PROJECTION | 现实行动条件下的结果 | 依赖 CA01-042 / CA01-044；“勉强求变”不是盘面事实 |
 | CA05-469 | p144 / `ZZ003-P144` | `blood_or_injury_symbolism_related_industry_scene` | SCENE_TRANSLATION | 职业／行业场景 | 是血液相关行业场景，不是命主伤病事件 |
-| W01-002 | p69 / `ZZ003-P69` | `earning_difficulty_modified_by_fortune_palace` | PALACE_SEMANTIC_BOUNDARY | 资源获取条件／财务难易 | 不是单一可观察事件 |
+| W01-002 | p69 / `ZZ003-P69` | `earning_difficulty_modified_by_fortune_palace` | PALACE_SEMANTIC_BOUNDARY | 资源域中的宫位语义边界 | 不构成独立应象节点 |
 | M01-006 | p109 / `ZZ003-P109` | `home_vs_away_development_axis` | FUNCTIONAL_PROJECTION | 迁移／内外发展轴 | 不等于已经发生迁移 |
 | CA01-007 | p132 / `ZZ003-P132` | `career_structure_can_affect_marriage_context` | CROSS_PALACE_CONSTRAINT | 关系域中的跨宫约束 | 不是已观察到婚姻事件的证明 |
 | CA09-809 | p153 / `ZZ003-P153` | `life_threatening_hazard_candidate` | EVENT_CANDIDATE | 具体事件候选 | `case_support_only=true`，仅作排除用负控制 |
