@@ -17,7 +17,7 @@
 - Promoted after source recheck: 88 (`P07-613…700` → `P01-613…700`).
 - Deduplicated to the prior accepted span: 12 (`P07-601…612` → `P01-SG-203…208`). These are Tianliang/section-12 candidates from printed p20 and are not promoted again.
 - Omitted source atoms added: 5 (`P01-SG-210…214`).
-- New canonical records in this batch: 93; 89 reusable projection rules and 4 CASE_SUPPORT_ONLY records.
+- New canonical records in this batch: 93; 89 reusable projection rules and 4 CASE_SUPPORT_ONLY records. Cumulative source-gap supplements after this merge: 47.
 - Among promoted historical candidates, 85 are reusable and 3 are CASE_SUPPORT_ONLY. The five supplements include 4 reusable records and 1 CASE_SUPPORT_ONLY marriage claim.
 
 ## Important source-preservation findings

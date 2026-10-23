@@ -28,6 +28,7 @@ def test_p07_candidate_census_and_source_first_dispositions():
     assert all(r["source_resolution_changed"] == "true" for r in rows)
     assert sum(r["case_support_only"] == "true" for r in rows if r["canonical_promotion"] == "true") == 3
     by = {r["projection_rule_id"]: r for r in rows}
+    assert "天梁第12节既有段落" in by["P01-601"]["source_location"]
     assert "P01-SG-203" in by["P01-601"]["notes"]
     assert "P01-SG-208" in by["P01-612"]["notes"]
     assert "printed p20" in by["P01-613"]["source_location"]
@@ -108,6 +109,7 @@ def test_p07_gap_ledger_and_cumulative_counts():
     assert "P01-701" in ledger["next_source_anchor"]
     state = STATE.read_text(encoding="utf-8")
     assert "canonical_source_records_on_main: 882" in state
+    assert "source_gap_supplement_records: 47" in state
     assert "cumulative_reusable_projection_rules_after_merge: 745" in state
     assert "cumulative_case_support_only_after_merge: 137" in state
     assert "P01-701…P01-800" in state
