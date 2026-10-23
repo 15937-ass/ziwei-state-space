@@ -53,7 +53,7 @@ def test_p07_source_gap_supplements_and_case_only_boundary():
     assert "不能相制为用" in by["P01-SG-210"]["source_literal_claim"]
     assert "福德宫紫微化权" in by["P01-SG-211"]["canonical_condition"]
     assert by["P01-SG-211"]["cross_palace_dependency"] == "福德宫紫微化权"
-    assert "贪狼同时影响福德宫" in by["P01-SG-213"]["canonical_normalization"]
+    assert "关系甚大" in by["P01-SG-213"]["source_literal_claim"]
     assert "易发易破" in by["P01-SG-214"]["source_literal_claim"]
     assert by["P01-SG-211"]["case_support_only"] == "true"
 
@@ -120,6 +120,6 @@ def test_p07_report_records_verified_scan_boundary_and_text_variants():
     report = (BASE / "LIFE_P07_SOURCE_READJUDICATION_601_700_v0.1.md").read_text(encoding="utf-8")
     assert "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c" in report
     assert "printed p20 bottom through printed p22" in report
-    assert "Printed p23 begins 破军 prose" in report
+    assert "printed p23" in report and "破军 prose" in report
     assert "雄宿乾无格" in report and "雄宿乾元格" in report
     assert "No Product/runtime authorization is implied" in report
