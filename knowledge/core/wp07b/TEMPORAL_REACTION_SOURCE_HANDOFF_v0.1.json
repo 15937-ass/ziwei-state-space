@@ -199,7 +199,7 @@
     "SERVICE_INSTITUTION_CONTEXT_NOT_TYPED_FACT": 1,
     "SHA_JI_ACTIVATION_NOT_EXPRESSIBLE": 1,
     "SINGLE_REACTION_LAYER_CONTRACT": 1,
-    "SOURCE_DOES_NOT_SPECIFY_TEMPORAL_PALACE_NAME": 2,
+    "SOURCE_DOES_NOT_SPECIFY_TEMPORAL_PALACE_NAME": 3,
     "SOURCE_MULTI_LAYER_DECADE_YEAR": 2,
     "SOURCE_TEXT_UNCERTAIN": 1,
     "STAR_MUTAGEN_BINDING_REQUIRES_EXACT_RUNTIME_SHAPE": 1,
@@ -274,6 +274,7 @@
       "summary": "Separate star presence and scope-level mutagen facts cannot be joined. Where the source does not identify a temporal palace, do not invent one to satisfy the runtime fact shape.",
       "human_gate_id": null,
       "impacted_rule_ids": [
+        "CA04-350",
         "TP01-061",
         "TP04-307",
         "TP04-308"
@@ -617,26 +618,29 @@
         "source_antecedent_is_case_support_only": false
       },
       "source_claim_summary": "The source associates Wuqu Hua Ji in a major or annual period with a capital constraint on career development.",
-      "current_contract_gap": "Re-audit correction: the current adapter emits a star-bound TRANSFORMATION_PRESENT when the PL1 temporal star object itself carries mutagen, so the previous STAR_MUTAGEN_BINDING_GAP is no longer a current blanket blocker. The candidate remains blocked because the capital-shortage interpretation depends on commerce context: CA04-348 is explicitly a CONTEXT_DEPENDENT_COMMERCE_GATE in the WP07A natal audit, not a natal fact, and CA04-349's technical-skill scene is not a valid substitute antecedent. The source scope is DECADE_OR_YEAR and cannot be silently narrowed; explicit layer-specific normalization would still be required.",
-      "eligibility_status": "BLOCKED_COMMERCE_CONTEXT_AND_SCOPE",
+      "current_contract_gap": "Re-audit correction: the current adapter emits a star-bound TRANSFORMATION_PRESENT when the PL1 temporal star object itself carries mutagen, so the old implementation-level STAR_MUTAGEN_BINDING_GAP is superseded. However, the source condition does not explicitly identify the temporal palace needed by the current palace-bound fact shape; the fact that the source passage sits in the Career-palace section does not by itself license that temporal location. The candidate also remains conditioned on real-world commerce context: CA04-348 is a CONTEXT_DEPENDENT_COMMERCE_GATE in the WP07A natal audit, not a natal fact, and CA04-349's technical-skill scene is not a valid substitute antecedent. Finally, the source names major and annual periods; scope cannot be silently narrowed.",
+      "eligibility_status": "BLOCKED_SOURCE_BINDING_CONTEXT_AND_SCOPE",
       "blocker_codes": [
         "LAYER_SCOPE_MISMATCH",
-        "REAL_WORLD_COMMERCE_CONTEXT_UNTYPED"
+        "REAL_WORLD_COMMERCE_CONTEXT_UNTYPED",
+        "SOURCE_DOES_NOT_SPECIFY_TEMPORAL_PALACE_NAME"
       ],
       "gap_ids": [
         "WP07B-GAP-002-TIME-SCOPE",
+        "WP07B-GAP-004-STAR-MUTAGEN-BINDING",
         "WP07B-GAP-014-COMMERCE-CONTEXT"
       ],
       "uncertainty_flags": [
         "SOURCE_TIME_SCOPE_WIDER_THAN_SINGLE_DECLARED_LAYER",
-        "COMMERCE_CONTEXT_NOT_ENCODED_AS_NATAL_FACT"
+        "COMMERCE_CONTEXT_NOT_ENCODED_AS_NATAL_FACT",
+        "SOURCE_DOES_NOT_SPECIFY_TEMPORAL_PALACE_NAME"
       ],
       "case_support_only": false,
       "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
       "normalization_status": "BLOCKED_NOT_NORMALIZED",
       "current_contract_eligible": false,
       "production_authorization": "NONE",
-      "decision": "Do not promote until the commerce context is explicitly available under an approved context/state contract and the source's major/annual scope is normalized without narrowing.",
+      "decision": "Do not promote until the source explicitly licenses the temporal palace or an approved source-preserving fact shape resolves the location, the commerce context is available under an approved state/context contract, and DECADE/YEAR scope is normalized without narrowing.",
       "source_status_codes": [],
       "original_eligibility_status": "BLOCKED_TEMPORAL_FACT_BINDING_AND_SCOPE",
       "original_blocker_codes": [
@@ -2894,7 +2898,7 @@
     "probability_added": 0,
     "duration_threshold_added": 0,
     "source_truth_changed": false,
-    "conclusion": "All 44 reviewed candidates fail at least one current PL3-T compiler requirement. Re-audit correction: CA04-350's prior star-mutagen-binding blocker is superseded by the current adapter capability, but its real-world commerce-context and explicit layer-normalization blockers remain. This is a current-contract eligibility result, not evidence that Zhongzhou has no temporal rules. Preserve all source rows and blockers; do not force a non-empty executable registry.",
+    "conclusion": "All 44 reviewed candidates fail at least one current PL3-T compiler requirement. Re-audit correction: CA04-350's old implementation-level star-mutagen-binding blocker is superseded by current adapter capability, but source-level temporal palace binding, real-world commerce context, and explicit DECADE/YEAR scope remain unresolved. This is a current-contract eligibility result, not evidence that Zhongzhou has no temporal rules. Preserve all source rows and blockers; do not force a non-empty executable registry.",
     "product_handoff": {
       "issue_number": 674,
       "issue_title": "Product: candidate KIB only after accepted source handoff",
