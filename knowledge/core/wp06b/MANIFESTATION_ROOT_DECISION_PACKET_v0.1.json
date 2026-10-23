@@ -1,0 +1,382 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP06B-MANIFESTATION-ROOT-DECISION-PACKET",
+  "version": "0.1",
+  "status": "HUMAN_GATE_PACKET_NOT_CANONICAL",
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "CORE",
+  "work_unit": "KB-WP06B-MANIFESTATION-ROOT-SOURCE-REVIEW",
+  "source_basis": {
+    "source_id": "SRC-ZZ-003",
+    "source_title": "《中州派紫微斗数深造讲义（下）》",
+    "school": "中州派",
+    "attachment_sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+    "current_main_base_sha": "2143ac7030b531cd46836cf034baba6f801bdf8e",
+    "cross_domain_method": "P09 exact source wording was directly rechecked against PDF pp.67 and 72. P05/P07/P03/P06 examples are read-only reuse of accepted main canonical rows marked SOURCE_SPAN_VERIFIED; their verbatim wording was not re-adjudicated in this work unit."
+  },
+  "human_gate": {
+    "gate_id": "HG-WP06B-MANIFESTATION-ROOT-01",
+    "status": "PENDING_PI_DECISION",
+    "decision_made": false,
+    "requires_pi_decision": true,
+    "risk": "R3_IF_UNIVERSAL_ROOT_OR_NEW_SHARED_FAMILY_IS_SELECTED"
+  },
+  "decision_question": "是否采用一个跨领域的通用应象语义根，还是保留多个有来源依据的根，并把输出类型与事件具体度作为正交字段？",
+  "source_evidence": [
+    {
+      "review_item_id": "ROOT-REVIEW-001",
+      "source_rule_id": "CA01-035",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "school": "中州派",
+      "canonical_record_path": "validation/wp05/CA01_career_projection_review_001_100.csv",
+      "source_location": "事业宫printed_p133",
+      "source_span_id": "ZZ003-P133",
+      "source_span_verified": true,
+      "source_quote": "事业宫见火铃，主波折。故往往经艰苦而始能底定事业。",
+      "source_quote_status": "DIRECT_SCAN_RECHECKED",
+      "source_condition_text": "事业宫见火铃",
+      "projection_domain": "development",
+      "projection_target": "career_setbacks_before_stabilization",
+      "projection_mode": "FUNCTIONAL_PROJECTION",
+      "case_support_only": false,
+      "candidate_family_review_id": "FAMILY-REVIEW-PROCESS-01",
+      "candidate_family_label": "职业发展过程／先波折后底定",
+      "abstraction_level_candidate": "PROCESS_PATTERN_CANDIDATE",
+      "abstraction_vocabulary_frozen": false,
+      "event_specificity_candidate": "NOT_A_SINGLE_OBSERVED_EVENT",
+      "source_epistemic": "EXPLICIT_SOURCE_WORDING",
+      "normalization_epistemic": "CANONICAL_NORMALIZED_TARGET; do not equate target literal with a guaranteed event",
+      "ontology_node_id": null,
+      "probability_status": "UNKNOWN",
+      "ambiguity_notes": [
+        "保留原文“往往”，不得升级为必然。",
+        "火铃是两星同见还是任一星出现仍未裁定；参见 accepted knowledge/wp07a/CAREER_FIRE_BELL_SOURCE_EVIDENCE_v0.1.json#FB08。",
+        "发展过程模式不能自动下沉为某一具体现实事件。"
+      ],
+      "excluded_from_canonical_root_evidence": false
+    },
+    {
+      "review_item_id": "ROOT-REVIEW-002",
+      "source_rule_id": "CA01-045",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "school": "中州派",
+      "canonical_record_path": "validation/wp05/CA01_career_projection_review_001_100.csv",
+      "source_location": "事业宫printed_p133",
+      "source_span_id": "ZZ003-P133",
+      "source_span_verified": true,
+      "source_quote": "若更见空劫同度，则主进退失据……不甘心经营现成事业，勉强求变，结果反而陷入困境。",
+      "source_quote_status": "DIRECT_SCAN_RECHECKED",
+      "source_condition_text": "前格勉强求变",
+      "projection_domain": "development",
+      "projection_target": "forced_change_can_create_career_difficulty",
+      "projection_mode": "FUNCTIONAL_PROJECTION",
+      "case_support_only": false,
+      "antecedent_rule_ids": [
+        "CA01-042",
+        "CA01-044"
+      ],
+      "real_world_action_prerequisite": true,
+      "candidate_family_review_id": "FAMILY-REVIEW-CONDITIONAL-01",
+      "candidate_family_label": "现实行动条件下的结果",
+      "abstraction_level_candidate": "ACTION_CONDITIONED_OUTCOME_CANDIDATE",
+      "abstraction_vocabulary_frozen": false,
+      "event_specificity_candidate": "CONDITIONAL_OUTCOME_NOT_CHART_ONLY_EVENT",
+      "source_epistemic": "EXPLICIT_CONDITIONAL_SOURCE_WORDING",
+      "normalization_epistemic": "CANONICAL_NORMALIZED_TARGET; the real-world action is not represented by approved chart facts",
+      "ontology_node_id": null,
+      "probability_status": "UNKNOWN",
+      "ambiguity_notes": [
+        "“前格”依赖 CA01-042／CA01-044 的上下文，不可单独截断。",
+        "“勉强求变”是现实行动前提，不得仅凭命盘激活就断言结果已发生。",
+        "本条与单一具体事件标签不同。"
+      ],
+      "excluded_from_canonical_root_evidence": false
+    },
+    {
+      "review_item_id": "ROOT-REVIEW-003",
+      "source_rule_id": "CA05-469",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "school": "中州派",
+      "canonical_record_path": "validation/wp05/CA05_career_projection_review_401_500.csv",
+      "source_location": "事业宫printed_p144",
+      "source_span_id": "ZZ003-P144",
+      "source_span_verified": true,
+      "source_quote": "若廉贞化忌，则宜从事与血液有关的事业……例如“血腥导演”亦属此类。",
+      "source_quote_status": "DIRECT_SCAN_RECHECKED",
+      "source_condition_text": "廉贞化忌",
+      "projection_domain": "career",
+      "projection_target": "blood_or_injury_symbolism_related_industry_scene",
+      "projection_mode": "SCENE_TRANSLATION",
+      "case_support_only": false,
+      "candidate_family_review_id": "FAMILY-REVIEW-SCENE-01",
+      "candidate_family_label": "职业／行业场景转换",
+      "abstraction_level_candidate": "OCCUPATIONAL_SCENE_CANDIDATE",
+      "abstraction_vocabulary_frozen": false,
+      "event_specificity_candidate": "SCENE_NOT_OBSERVED_EVENT",
+      "source_epistemic": "EXPLICIT_SOURCE_WORDING_FOR_BLOOD_RELATED_CAREER",
+      "normalization_epistemic": "SCENE_TRANSLATION; the normalized target must not become a personal injury/illness event",
+      "ontology_node_id": null,
+      "probability_status": "UNKNOWN",
+      "ambiguity_notes": [
+        "原文讨论职业场景，不是命主个人受伤或患病的事件断言。",
+        "“blood/injury symbolism”是规范化标签，不得冒充逐字原文。",
+        "SCENE_TRANSLATION 是规则投影模式，不自动等于 ontology parent-child level。"
+      ],
+      "excluded_from_canonical_root_evidence": false
+    },
+    {
+      "review_item_id": "ROOT-REVIEW-004",
+      "source_rule_id": "W07-605",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "school": "中州派",
+      "canonical_record_path": "validation/wp05/W07_wealth_projection_review_601_700.csv",
+      "source_location": "财帛宫printed_p84",
+      "source_span_id": "ZZ003-P84",
+      "source_span_verified": true,
+      "source_quote": null,
+      "source_quote_status": "ACCEPTED_CANONICAL_ROW_ONLY; no verbatim quote copied into this packet",
+      "source_condition_text": "太阴财帛",
+      "projection_domain": "psychology",
+      "projection_target": "satisfaction_from_financial_planning_outcomes",
+      "projection_mode": "STATE_EXPRESSION",
+      "case_support_only": false,
+      "candidate_family_review_id": "FAMILY-REVIEW-STATE-01",
+      "candidate_family_label": "心理／状态表达",
+      "abstraction_level_candidate": "STATE_EXPRESSION_CANDIDATE",
+      "abstraction_vocabulary_frozen": false,
+      "event_specificity_candidate": "STATE_NOT_SINGLE_EVENT",
+      "source_epistemic": "SOURCE_SPAN_VERIFIED; accepted CSV does not encode a separate epistemic field",
+      "normalization_epistemic": "NOT_SEPARATELY_ENCODED_IN_THIS_CSV; do not silently upgrade to EXPLICIT",
+      "ontology_node_id": null,
+      "probability_status": "UNKNOWN",
+      "ambiguity_notes": [
+        "此记录表达状态／体验，不是可观察的单一事件。",
+        "本包只复用 accepted main 中的来源跨度和规范化目标，不宣称本轮重新逐字校勘该页。"
+      ],
+      "excluded_from_canonical_root_evidence": false
+    },
+    {
+      "review_item_id": "ROOT-REVIEW-005",
+      "source_rule_id": "M01-006",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "school": "中州派",
+      "canonical_record_path": "validation/wp05/M01_migration_projection_review_001_100.csv",
+      "source_location": "迁移宫printed_p109",
+      "source_span_id": "ZZ003-P109",
+      "source_span_verified": true,
+      "source_quote": null,
+      "source_quote_status": "ACCEPTED_CANONICAL_ROW_ONLY; no verbatim quote copied into this packet",
+      "source_condition_text": "迁移宫推断在家乡发展或离乡发展",
+      "projection_domain": "mobility",
+      "projection_target": "home_vs_away_development_axis",
+      "projection_mode": "FUNCTIONAL_PROJECTION",
+      "case_support_only": false,
+      "candidate_family_review_id": "FAMILY-REVIEW-MOBILITY-01",
+      "candidate_family_label": "迁移／内外发展轴",
+      "abstraction_level_candidate": "MOBILITY_AXIS_CANDIDATE",
+      "abstraction_vocabulary_frozen": false,
+      "event_specificity_candidate": "DEVELOPMENT_AXIS_NOT_SINGLE_EVENT",
+      "source_epistemic": "SOURCE_SPAN_VERIFIED; accepted CSV does not encode a separate epistemic field",
+      "normalization_epistemic": "NOT_SEPARATELY_ENCODED_IN_THIS_CSV; do not silently upgrade to EXPLICIT",
+      "ontology_node_id": null,
+      "probability_status": "UNKNOWN",
+      "ambiguity_notes": [
+        "home-versus-away 是发展轴／情境，不等于已经发生迁移事件。",
+        "本包只复用 accepted main 中的来源跨度和规范化目标。"
+      ],
+      "excluded_from_canonical_root_evidence": false
+    },
+    {
+      "review_item_id": "ROOT-REVIEW-006",
+      "source_rule_id": "SP03-206",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "school": "中州派",
+      "canonical_record_path": "validation/wp05/SP03_spouse_projection_review_201_300.csv",
+      "source_location": "夫妻宫printed_p37",
+      "source_span_id": "ZZ003-P37",
+      "source_span_verified": true,
+      "source_quote": null,
+      "source_quote_status": "ACCEPTED_CANONICAL_ROW_ONLY; no verbatim quote copied into this packet",
+      "source_condition_text": "卯酉阳梁见煞忌",
+      "projection_domain": "relationship",
+      "projection_target": "separation_or_long_distance",
+      "projection_mode": "RELATIONAL_PROJECTION",
+      "case_support_only": false,
+      "candidate_family_review_id": "FAMILY-REVIEW-RELATION-01",
+      "candidate_family_label": "关系状态／关系距离",
+      "abstraction_level_candidate": "RELATIONAL_CONDITION_CANDIDATE",
+      "abstraction_vocabulary_frozen": false,
+      "event_specificity_candidate": "RELATIONAL_CONDITION_NOT_CONFIRMED_EVENT",
+      "source_epistemic": "SOURCE_SPAN_VERIFIED; accepted CSV does not encode a separate epistemic field",
+      "normalization_epistemic": "NOT_SEPARATELY_ENCODED_IN_THIS_CSV; do not silently upgrade to EXPLICIT",
+      "ontology_node_id": null,
+      "probability_status": "UNKNOWN",
+      "ambiguity_notes": [
+        "RELATIONAL_PROJECTION 不是已观察到分居／分离事件的证明。",
+        "本包只复用 accepted main 中的来源跨度和规范化目标。"
+      ],
+      "excluded_from_canonical_root_evidence": false
+    },
+    {
+      "review_item_id": "ROOT-REVIEW-007",
+      "source_rule_id": "D06-508",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "school": "中州派",
+      "canonical_record_path": "validation/wp05/D06_disease_projection_review_501_600.csv",
+      "source_location": "疾厄宫printed_p102",
+      "source_span_id": "ZZ003-P102",
+      "source_span_verified": true,
+      "source_quote": null,
+      "source_quote_status": "ACCEPTED_CANONICAL_ROW_ONLY; no verbatim quote copied into this packet",
+      "source_condition_text": "破军火铃同度",
+      "projection_domain": "clinical_event",
+      "projection_target": "eczema_or_skin_allergy_candidate",
+      "projection_mode": "EVENT_CANDIDATE",
+      "case_support_only": true,
+      "candidate_family_review_id": "FAMILY-REVIEW-CASE-EXCLUSION-01",
+      "candidate_family_label": "具体健康事件候选（仅案例支持）",
+      "abstraction_level_candidate": "CONCRETE_EVENT_CANDIDATE_CASE_ONLY",
+      "abstraction_vocabulary_frozen": false,
+      "event_specificity_candidate": "CONCRETE_EVENT_CANDIDATE",
+      "source_epistemic": "SOURCE_SPAN_VERIFIED; CASE_SUPPORT_ONLY=true",
+      "normalization_epistemic": "CASE_SUPPORT_ONLY; explicitly excluded from canonical root evidence",
+      "ontology_node_id": null,
+      "probability_status": "UNKNOWN",
+      "ambiguity_notes": [
+        "该行 case_support_only=true；不能用于建立 canonical event family 或证明现实发生率。",
+        "只作为负控制，说明具体事件候选与状态／场景／过程不能混成同一层。"
+      ],
+      "excluded_from_canonical_root_evidence": true
+    },
+    {
+      "review_item_id": "ROOT-REVIEW-008",
+      "source_rule_id": "D01-003",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "school": "中州派",
+      "canonical_record_path": "validation/wp05/D01_disease_projection_review_001_100.csv",
+      "source_location": "疾厄宫printed_p93",
+      "source_span_id": "ZZ003-P93",
+      "source_span_verified": true,
+      "source_quote": null,
+      "source_quote_status": "ACCEPTED_CANONICAL_ROW_ONLY; no verbatim quote copied into this packet",
+      "source_condition_text": "欲视一生重要病患手术危症",
+      "projection_domain": "methodology",
+      "projection_target": "major_health_events_require_full_chart_context",
+      "projection_mode": "STRUCTURAL_CONSTRAINT",
+      "case_support_only": false,
+      "candidate_family_review_id": "FAMILY-REVIEW-CONSTRAINT-EXCLUSION-01",
+      "candidate_family_label": "推断前提／结构约束（不是应象节点）",
+      "abstraction_level_candidate": "INFERENCE_CONSTRAINT_NOT_MANIFESTATION",
+      "abstraction_vocabulary_frozen": false,
+      "event_specificity_candidate": "NOT_A_MANIFESTATION",
+      "source_epistemic": "SOURCE_SPAN_VERIFIED; accepted CSV does not encode a separate epistemic field",
+      "normalization_epistemic": "STRUCTURAL_CONSTRAINT; must not be promoted to manifestation node",
+      "ontology_node_id": null,
+      "probability_status": "UNKNOWN",
+      "ambiguity_notes": [
+        "这是关于推断所需上下文的结构约束，不是应象。",
+        "它用于防止将规则／方法限制误收进 manifestation ontology。"
+      ],
+      "excluded_from_canonical_root_evidence": true
+    }
+  ],
+  "root_options": [
+    {
+      "option_id": "OPTION-A",
+      "name": "UNIVERSAL_SEMANTIC_ROOT",
+      "selected": false,
+      "status": "REQUIRES_HUMAN_GATE",
+      "proposal": "建立单一跨领域 manifestation 根，再向下划分 family、channel 与 observable event label。",
+      "benefits": [
+        "查询入口统一",
+        "与路线图示意的 latent activation -> manifestation family -> channel -> observable event label 对齐"
+      ],
+      "risks": [
+        "当前样本包含过程、现实行动条件、职业场景、心理状态、迁移轴、关系状态及仅案例支持的具体事件；一个语义根可能把不同本体类型误当作同一层级。",
+        "通用根不是上述 canonical rows 中任何一个来源明示的概念，不能由 schema 便利性证明其传统语义。"
+      ],
+      "required_evidence_before_acceptance": [
+        "跨来源共享根的明确语义定义",
+        "根与 source-native family 的边界规则",
+        "事件具体度与 source epistemic 的正交关系"
+      ],
+      "probability_status": "UNKNOWN"
+    },
+    {
+      "option_id": "OPTION-B",
+      "name": "SOURCE_NATIVE_ROOT_FOREST",
+      "selected": false,
+      "status": "REQUIRES_HUMAN_GATE",
+      "proposal": "允许多个 parent_id=null 的来源本位根；每个根只收纳来源支持的家族，不制造统一语义父节点。",
+      "benefits": [
+        "避免无来源的通用根",
+        "可以按来源原生的过程、场景、状态、关系等表达保留差异",
+        "Product adapter 已支持 parent_id=null 的根节点"
+      ],
+      "risks": [
+        "跨域查询需要通过明确的元数据或接口进行，而不是依靠共同父节点。",
+        "仍需裁定各根的 abstraction_level 标签是否为临时描述还是冻结词表。"
+      ],
+      "required_evidence_before_acceptance": [
+        "每个根的来源跨度和规则 ID",
+        "不同根之间不得自动建立父子关系的约束",
+        "跨根查询的非语义化技术方案"
+      ],
+      "probability_status": "UNKNOWN"
+    },
+    {
+      "option_id": "OPTION-C",
+      "name": "SOURCE_NATIVE_FOREST_WITH_ORTHOGONAL_AXES",
+      "selected": false,
+      "status": "REQUIRES_HUMAN_GATE",
+      "proposal": "保留来源本位根森林，并将 output_kind / event_specificity / source_epistemic 作为彼此独立的元数据轴；不把 projection_mode 直接当作 ontology hierarchy。",
+      "benefits": [
+        "能区分状态、关系、过程、职业场景和具体事件候选",
+        "避免将 EVENT_CANDIDATE 与 FUNCTIONAL_PROJECTION、STATE_EXPRESSION 或 SCENE_TRANSLATION 强行串成父子层级",
+        "与 fail-closed 及 probability_status=UNKNOWN 边界相容"
+      ],
+      "risks": [
+        "需要冻结最小元数据契约；如果把这些字段定义为通用语义原语，仍可能触发 Core Human Gate。",
+        "不允许用标签分类替代对具体映射的来源审查。"
+      ],
+      "required_evidence_before_acceptance": [
+        "output_kind 与 projection_mode 的定义边界",
+        "event_specificity 的允许值与缺失语义",
+        "每个标签的 source-supported / inferred 标记"
+      ],
+      "probability_status": "UNKNOWN"
+    }
+  ],
+  "preliminary_review_recommendation": {
+    "option_id": "OPTION-C",
+    "status": "RECOMMENDATION_FOR_PI_REVIEW_ONLY_NOT_SELECTED",
+    "rationale": "现有 accepted rows 的输出类型明显异质；先保留来源本位根并将输出类型、事件具体度和证据等级分开，较不容易把过程／状态／场景误当作具体事件。该建议不是 Human Gate 决定，也不创建任何 canonical node。"
+  },
+  "design_invariants": [
+    "projection_mode describes the rule's projection behavior; it is not automatically an ontology abstraction level.",
+    "event_specificity is orthogonal to output kind; a concrete-event label is not canonical merely because a row has a specific noun.",
+    "CASE_SUPPORT_ONLY rows may be used as exclusion/negative-control evidence, never as the sole basis for a canonical root or mapping.",
+    "Source wording, normalized target and inferred category must remain separate.",
+    "No cross-school semantics are imported into this Zhongzhou packet.",
+    "probability_status remains UNKNOWN; no frequency, probability, weight, score, posterior, likelihood, hazard or odds are added.",
+    "No node ID is assigned and no production registry is populated before PI gate approval."
+  ],
+  "canonicalization": {
+    "accepted_root_id": null,
+    "accepted_nodes": [],
+    "ontology_node_ids_assigned": false,
+    "ontology_contract_frozen": false,
+    "production_ontology_registry_status": "EMPTY_PENDING_KB_WP06B",
+    "production_mapping_registry_status": "EMPTY_PENDING_KB_WP06C",
+    "product_consumption_authorized": false,
+    "probability_status": "UNKNOWN"
+  }
+}
