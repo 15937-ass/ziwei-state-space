@@ -1,0 +1,527 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP06B-MANIFESTATION-ROOT-DECISION-PACKET",
+  "version": "0.1",
+  "status": "PI_DECISION_RECORDED_OPTION_C_NOT_CANONICAL",
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "CORE",
+  "work_unit": "KB-WP06B-MANIFESTATION-ROOT-SOURCE-REVIEW",
+  "source_basis": {
+    "source_id": "SRC-ZZ-003",
+    "source_title": "《中州派紫微斗数深造讲义（下）》",
+    "school": "中州派",
+    "attachment_sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+    "current_main_base_sha": "2267c5686ce353b5f7b8a4b56f0335bf3792ac63",
+    "cross_domain_method": "P09 exact source wording was directly rechecked for CA01-035, CA01-045 and CA05-469 against PDF pp.67 and 72. P09 CA01-005, CA01-007 and CA09-809 plus P05 W01-002 reuse accepted main canonical CSV rows marked SOURCE_SPAN_VERIFIED; no fresh page-image re-adjudication is claimed for those rows. P07 M01-006 reuses the accepted source readjudication JSON with DIRECT_SOURCE_RECHECK_CONFIRMED and canonical_promotion=true. No P03/P06 rows whose state remains CANONICAL_REVALIDATION_NOT_STARTED are used as canonical evidence.",
+    "source_review_base_sha": "2143ac7030b531cd46836cf034baba6f801bdf8e",
+    "base_resync_note": "The source packet was first prepared against 2143ac7030b531cd46836cf034baba6f801bdf8e. Main advanced by 14 accepted commits to cb4259d4e83904b81ab556bd4e8a414471c4085e, then by bee69d462a73abda1b51d3271d44f59627e3cbc6 adding the P09 WP06C source candidate index, and then by 9538cad4cdf6b7c30014dbecdb82b644a61c8232 via PR #695, which updates the canonical agent/bootstrap closeout instructions. File-level comparisons confirm the source evidence paths referenced here were unchanged by those mainline advances. The P09 index is cross-checked as candidate-only, not canonical root evidence. This branch is rebuilt directly on the latest main; no unmerged palace/Core artifact is consumed. Main subsequently advanced through Governance PR #703 to 3407150866a5ace99552daa674356b92610f080e. This new comparison branch is based on that current main. Blob-SHA comparison against the previous packet branch confirmed the four referenced accepted source artifacts are unchanged: validation/wp05/CA01_career_projection_review_001_100.csv; validation/wp05/CA05_career_projection_review_401_500.csv; validation/wp05/W01_wealth_projection_review_001_100.csv; knowledge/palaces/P07_migration/wp05/MIGRATION_M01_SOURCE_READJUDICATION_100_v0.1.json. Prior PR #692 CI is historical only and must not be treated as validation for this branch. After PR #704 was opened on 3407150866a5ace99552daa674356b92610f080e, main advanced via Product PR #698 to 971cffc166e318b1c47184c3d297422dac1e3c2b. GitHub compare shows only Product-owned paths changed: product/PL7_PROSPECTIVE_COHORT_MANAGER_ACCEPTANCE.md; product/PRODUCT_STATE.yaml; src/product/prospective_cohort_manager.py; tests/test_product_prospective_cohort_manager.py; tests/test_product_source_only_vertical_slice_blocker_handoff.py. The four accepted source-record files used by this packet are outside that diff and remain unchanged. The prior exact-head run #39945722025 is on the older base and cannot serve as final base/head validation after this resync. Main then advanced by one accepted P01 source-first audit commit to 2267c5686ce353b5f7b8a4b56f0335bf3792ac63; its 13 changed paths are P01-owned. Direct blob-SHA checks confirm the four accepted WP06B source evidence artifacts are unchanged on main and this branch. The decision update is carried forward in a single merge-base-preserving commit, not by resetting or force-pushing the existing branch.",
+    "latest_main_cross_check": {
+      "main_base_sha": "2267c5686ce353b5f7b8a4b56f0335bf3792ac63",
+      "artifact_commit_sha": "bee69d462a73abda1b51d3271d44f59627e3cbc6",
+      "artifact_path": "knowledge/palaces/P09_career/wp06c/P09_WP06C_SOURCE_CANDIDATE_INDEX_v0.1.json",
+      "artifact_id": "KB-WP06C-P09-SOURCE-CANDIDATE-INDEX",
+      "artifact_status": "CANDIDATE_ONLY_NOT_CANONICAL",
+      "source_rule_ids": [
+        "CA01-035",
+        "CA01-045",
+        "CA05-469"
+      ],
+      "result": "All three P09 source-rule IDs, source spans and normalized projection domain/target/mode agree with this decision packet; the mainline index retains null ontology_node_id, UNKNOWN probability, non-executable and non-Product-consumable status.",
+      "decision_impact": "This cross-check corroborates the bounded source review only; it does not prove a universal root or promote candidate mappings. PI separately selected OPTION-C as an architecture direction on 2026-10-23; metadata contract values and missing semantics remain for W5 review.",
+      "verified_against_main_sha": "2267c5686ce353b5f7b8a4b56f0335bf3792ac63"
+    },
+    "latest_main_governance_check": {
+      "commit_sha": "3407150866a5ace99552daa674356b92610f080e",
+      "merged_pr": 703,
+      "changed_paths": [
+        "CHATGPT_START_HERE.md",
+        "governance/GOVERNANCE_STATE.yaml",
+        "governance/proposals/700-durable-ontology-plan-and-cross-chat-handoff.md"
+      ],
+      "result": "Current accepted main includes Governance PR #703. It preserves the approved W0-W8 plan and updates the conditional bootstrap and Governance slot handoff. The change is governance-only: it does not change the source evidence cohort, select A/B/C, or authorize ontology implementation. Exact-head repository quality gate #39942187184 passed on the PR #703 source head before merge; the current PR #704 still requires its own exact-head gate."
+    },
+    "latest_main_non_core_checkpoint": {
+      "main_sha": "971cffc166e318b1c47184c3d297422dac1e3c2b",
+      "prior_main_sha": "3407150866a5ace99552daa674356b92610f080e",
+      "merged_pr": 698,
+      "changed_paths_since_prior_main": [
+        "product/PL7_PROSPECTIVE_COHORT_MANAGER_ACCEPTANCE.md",
+        "product/PRODUCT_STATE.yaml",
+        "src/product/prospective_cohort_manager.py",
+        "tests/test_product_prospective_cohort_manager.py",
+        "tests/test_product_source_only_vertical_slice_blocker_handoff.py"
+      ],
+      "source_evidence_paths_changed": false,
+      "verified_source_paths": [
+        {
+          "path": "validation/wp05/CA01_career_projection_review_001_100.csv",
+          "blob_sha": "a18ce21a5d46da1c05f9ba0dace017d319ed377a"
+        },
+        {
+          "path": "validation/wp05/CA05_career_projection_review_401_500.csv",
+          "blob_sha": "08f812c0e928093977e17a303482e382d41375d0"
+        },
+        {
+          "path": "validation/wp05/W01_wealth_projection_review_001_100.csv",
+          "blob_sha": "f0db066d3f8abae58309104bcd75d863fe0cb557"
+        },
+        {
+          "path": "knowledge/palaces/P07_migration/wp05/MIGRATION_M01_SOURCE_READJUDICATION_100_v0.1.json",
+          "blob_sha": "8adc20a637ac99e5c7aa537850cbc4968fe10908"
+        }
+      ],
+      "result": "Product PR #698 merged the PL7-Q2 lifecycle manager. Its changed paths are Product-owned; the accepted source evidence artifacts referenced by WP06B are unchanged. This records a mainline resync only and does not authorize ontology semantics or Product consumption of WP06B candidates."
+    },
+    "latest_main_checkpoint": {
+      "prior_main_sha": "971cffc166e318b1c47184c3d297422dac1e3c2b",
+      "current_main_sha": "2267c5686ce353b5f7b8a4b56f0335bf3792ac63",
+      "commits_ahead": 1,
+      "changed_paths": [
+        "knowledge/palaces/P01_life/wp05/LIFE_P03_SOURCE_GAP_LEDGER_v0.1.json",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_TIME_SCOPE_PP17_20_v0.1.json",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_READJUDICATION_501_600_v0.1.csv",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_READJUDICATION_501_600_v0.1.md",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_READJUDICATION_SUMMARY_v0.1.json",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_TIME_SCOPE_501_600_v0.1.json",
+        "knowledge/states/P01_LIFE_STATE.yaml",
+        "tests/test_knowledge_p01_life_state_recovery.py",
+        "tests/test_knowledge_p01_source_readjudication_201_300.py",
+        "tests/test_knowledge_p01_source_readjudication_301_400.py",
+        "tests/test_knowledge_p01_source_readjudication_401_500.py",
+        "tests/test_knowledge_p01_source_readjudication_501_600.py"
+      ],
+      "core_source_evidence_paths_changed": false,
+      "wp06b_paths_changed": false,
+      "source_record_blob_checks_unchanged": true,
+      "verified_source_blob_shas": {
+        "validation/wp05/CA01_career_projection_review_001_100.csv": "a18ce21a5d46da1c05f9ba0dace017d319ed377a",
+        "validation/wp05/CA05_career_projection_review_401_500.csv": "08f812c0e928093977e17a303482e382d41375d0",
+        "validation/wp05/W01_wealth_projection_review_001_100.csv": "f0db066d3f8abae58309104bcd75d863fe0cb557",
+        "knowledge/palaces/P07_migration/wp05/MIGRATION_M01_SOURCE_READJUDICATION_100_v0.1.json": "8adc20a637ac99e5c7aa537850cbc4968fe10908"
+      },
+      "main_quality_gate_run_id": 39947533885,
+      "result": "Main advanced by one accepted P01 source-first audit commit. Its 13 changed paths are P01-owned; the four accepted WP06B source evidence artifacts are byte-identical on main and this branch. The current PR was carried forward with a single merge-base-preserving commit, not reset or force-pushed."
+    }
+  },
+  "human_gate": {
+    "gate_id": "HG-WP06B-MANIFESTATION-ROOT-01",
+    "status": "PI_DECISION_RECORDED_OPTION_C_DIRECTION_ONLY",
+    "decision_made": true,
+    "requires_pi_decision": false,
+    "risk": "R3_IF_W5_FREEZES_NEW_SHARED_SEMANTIC_PRIMITIVES_BEYOND_THE_APPROVED_DIRECTION",
+    "decision_scope": "ARCHITECTURE_DIRECTION_ONLY",
+    "follow_up_work": "W5_MINIMAL_METADATA_CONTRACT_REVIEW",
+    "follow_up_status": "CONTRACT_VALUES_MISSING_SEMANTICS_AND_MIGRATION_NOT_FROZEN"
+  },
+  "decision_question": "是否采用一个跨领域的通用应象语义根，还是保留多个有来源依据的根，并把输出类型与事件具体度作为正交字段？",
+  "source_evidence": [
+    {
+      "review_item_id": "ROOT-REVIEW-001",
+      "source_rule_id": "CA01-035",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "school": "中州派",
+      "canonical_record_path": "validation/wp05/CA01_career_projection_review_001_100.csv",
+      "source_location": "事业宫printed_p133",
+      "source_span_id": "ZZ003-P133",
+      "source_span_verified": true,
+      "source_quote": "事业宫见火铃，主波折。故往往经艰苦而始能底定事业。",
+      "source_quote_status": "DIRECT_SCAN_RECHECKED",
+      "source_condition_text": "事业宫见火铃",
+      "projection_domain": "development",
+      "projection_target": "career_setbacks_before_stabilization",
+      "projection_mode": "FUNCTIONAL_PROJECTION",
+      "case_support_only": false,
+      "candidate_family_review_id": "FAMILY-REVIEW-PROCESS-01",
+      "candidate_family_label": "职业发展过程／先波折后底定",
+      "abstraction_level_candidate": "PROCESS_PATTERN_CANDIDATE",
+      "abstraction_vocabulary_frozen": false,
+      "event_specificity_candidate": "NOT_A_SINGLE_OBSERVED_EVENT",
+      "source_epistemic": "EXPLICIT_SOURCE_WORDING",
+      "normalization_epistemic": "CANONICAL_NORMALIZED_TARGET; do not equate target literal with a guaranteed event",
+      "ontology_node_id": null,
+      "probability_status": "UNKNOWN",
+      "ambiguity_notes": [
+        "保留原文“往往”，不得升级为必然。",
+        "火铃是两星同见还是任一星出现仍未裁定；参见 accepted knowledge/wp07a/CAREER_FIRE_BELL_SOURCE_EVIDENCE_v0.1.json#FB08。",
+        "发展过程模式不能自动下沉为某一具体现实事件。"
+      ],
+      "excluded_from_canonical_root_evidence": false
+    },
+    {
+      "review_item_id": "ROOT-REVIEW-002",
+      "source_rule_id": "CA01-045",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "school": "中州派",
+      "canonical_record_path": "validation/wp05/CA01_career_projection_review_001_100.csv",
+      "source_location": "事业宫printed_p133",
+      "source_span_id": "ZZ003-P133",
+      "source_span_verified": true,
+      "source_quote": "若更见空劫同度，则主进退失据，往往不安于受薪，或不甘心经营现成事业，勉强求变，结果反而陷入困境。",
+      "source_quote_status": "DIRECT_SCAN_RECHECKED",
+      "source_condition_text": "前格勉强求变",
+      "projection_domain": "development",
+      "projection_target": "forced_change_can_create_career_difficulty",
+      "projection_mode": "FUNCTIONAL_PROJECTION",
+      "case_support_only": false,
+      "antecedent_rule_ids": [
+        "CA01-042",
+        "CA01-044"
+      ],
+      "real_world_action_prerequisite": true,
+      "candidate_family_review_id": "FAMILY-REVIEW-CONDITIONAL-01",
+      "candidate_family_label": "现实行动条件下的结果",
+      "abstraction_level_candidate": "ACTION_CONDITIONED_OUTCOME_CANDIDATE",
+      "abstraction_vocabulary_frozen": false,
+      "event_specificity_candidate": "CONDITIONAL_OUTCOME_NOT_CHART_ONLY_EVENT",
+      "source_epistemic": "EXPLICIT_CONDITIONAL_SOURCE_WORDING",
+      "normalization_epistemic": "CANONICAL_NORMALIZED_TARGET; the real-world action is not represented by approved chart facts",
+      "ontology_node_id": null,
+      "probability_status": "UNKNOWN",
+      "ambiguity_notes": [
+        "“前格”依赖 CA01-042／CA01-044 的上下文，不可单独截断。",
+        "“勉强求变”是现实行动前提，不得仅凭命盘激活就断言结果已发生。",
+        "本条与单一具体事件标签不同。"
+      ],
+      "excluded_from_canonical_root_evidence": false
+    },
+    {
+      "review_item_id": "ROOT-REVIEW-003",
+      "source_rule_id": "CA05-469",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "school": "中州派",
+      "canonical_record_path": "validation/wp05/CA05_career_projection_review_401_500.csv",
+      "source_location": "事业宫printed_p144",
+      "source_span_id": "ZZ003-P144",
+      "source_span_verified": true,
+      "source_quote": "若廉贞化忌，则宜从事与血液有关的事业。",
+      "source_quote_status": "DIRECT_SCAN_RECHECKED",
+      "source_condition_text": "廉贞化忌",
+      "projection_domain": "career",
+      "projection_target": "blood_or_injury_symbolism_related_industry_scene",
+      "projection_mode": "SCENE_TRANSLATION",
+      "case_support_only": false,
+      "candidate_family_review_id": "FAMILY-REVIEW-SCENE-01",
+      "candidate_family_label": "职业／行业场景转换",
+      "abstraction_level_candidate": "OCCUPATIONAL_SCENE_CANDIDATE",
+      "abstraction_vocabulary_frozen": false,
+      "event_specificity_candidate": "SCENE_NOT_OBSERVED_EVENT",
+      "source_epistemic": "EXPLICIT_SOURCE_WORDING_FOR_BLOOD_RELATED_CAREER",
+      "normalization_epistemic": "SCENE_TRANSLATION; the normalized target must not become a personal injury/illness event",
+      "ontology_node_id": null,
+      "probability_status": "UNKNOWN",
+      "ambiguity_notes": [
+        "原文讨论职业场景，不是命主个人受伤或患病的事件断言。",
+        "“blood/injury symbolism”是规范化标签，不得冒充逐字原文。",
+        "SCENE_TRANSLATION 是规则投影模式，不自动等于 ontology parent-child level。"
+      ],
+      "excluded_from_canonical_root_evidence": false
+    },
+    {
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "school": "中州派",
+      "source_span_verified": true,
+      "source_quote": null,
+      "source_quote_status": "ACCEPTED_CANONICAL_ROW_ONLY; no verbatim quote copied into this packet",
+      "ontology_node_id": null,
+      "probability_status": "UNKNOWN",
+      "review_item_id": "ROOT-REVIEW-004",
+      "source_rule_id": "W01-002",
+      "canonical_record_path": "validation/wp05/W01_wealth_projection_review_001_100.csv",
+      "source_location": "财帛宫printed_p69",
+      "source_span_id": "ZZ003-P69",
+      "source_condition_text": "由财帛宫看福德宫影响生财难易",
+      "projection_domain": "resource",
+      "projection_target": "earning_difficulty_modified_by_fortune_palace",
+      "projection_mode": "PALACE_SEMANTIC_BOUNDARY",
+      "case_support_only": false,
+      "candidate_family_review_id": "FAMILY-REVIEW-CONSTRAINT-WEALTH-01",
+      "candidate_family_label": "财帛／福德宫合参约束（不是应象节点）",
+      "abstraction_level_candidate": "INFERENCE_CONSTRAINT_NOT_MANIFESTATION",
+      "abstraction_vocabulary_frozen": false,
+      "event_specificity_candidate": "NOT_A_MANIFESTATION",
+      "source_epistemic": "SOURCE_SPAN_VERIFIED; accepted CSV does not encode a separate epistemic field",
+      "normalization_epistemic": "PALACE_SEMANTIC_BOUNDARY; must not be promoted to manifestation node",
+      "ambiguity_notes": [
+        "该行说明财帛宫需参考福德宫判断生财难易，是宫位合参边界，不是可消费的应象节点。",
+        "本包只复用 accepted main 中的来源跨度和规范化目标。"
+      ],
+      "excluded_from_canonical_root_evidence": true
+    },
+    {
+      "review_item_id": "ROOT-REVIEW-005",
+      "source_rule_id": "M01-006",
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "school": "中州派",
+      "canonical_record_path": "knowledge/palaces/P07_migration/wp05/MIGRATION_M01_SOURCE_READJUDICATION_100_v0.1.json",
+      "source_location": "迁移宫printed_p109",
+      "source_span_id": "ZZ003-P109",
+      "source_span_verified": true,
+      "source_quote": null,
+      "source_quote_status": "ACCEPTED_SOURCE_READJUDICATION_JSON; no verbatim quote copied into this packet",
+      "source_condition_text": "迁移宫推断在家乡发展或离乡发展",
+      "projection_domain": "mobility",
+      "projection_target": "home_vs_away_development_axis",
+      "projection_mode": "FUNCTIONAL_PROJECTION",
+      "case_support_only": false,
+      "candidate_family_review_id": "FAMILY-REVIEW-MOBILITY-01",
+      "candidate_family_label": "迁移／内外发展轴",
+      "abstraction_level_candidate": "MOBILITY_AXIS_CANDIDATE",
+      "abstraction_vocabulary_frozen": false,
+      "event_specificity_candidate": "DEVELOPMENT_AXIS_NOT_SINGLE_EVENT",
+      "source_epistemic": "SOURCE_SPAN_VERIFIED / DIRECT_SOURCE_RECHECK_CONFIRMED; accepted readjudication JSON does not encode a separate source_epistemic field",
+      "normalization_epistemic": "NOT_SEPARATELY_ENCODED_IN_ACCEPTED_READJUDICATION_JSON; do not silently upgrade to EXPLICIT",
+      "ontology_node_id": null,
+      "probability_status": "UNKNOWN",
+      "ambiguity_notes": [
+        "home-versus-away 是发展轴／情境，不等于已经发生迁移事件。",
+        "本包只复用 accepted main 中的来源跨度和规范化目标。",
+        "不得把 PRE_G12_READ_ONLY_ACCELERATION_INPUT 的 validation/wp05/M01 CSV 当作 canonical；本项改链至 accepted source readjudication JSON。"
+      ],
+      "excluded_from_canonical_root_evidence": false
+    },
+    {
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "school": "中州派",
+      "source_span_verified": true,
+      "source_quote": null,
+      "source_quote_status": "ACCEPTED_CANONICAL_ROW_ONLY; no verbatim quote copied into this packet",
+      "ontology_node_id": null,
+      "probability_status": "UNKNOWN",
+      "review_item_id": "ROOT-REVIEW-006",
+      "source_rule_id": "CA01-007",
+      "canonical_record_path": "validation/wp05/CA01_career_projection_review_001_100.csv",
+      "source_location": "事业宫printed_p132",
+      "source_span_id": "ZZ003-P132",
+      "source_condition_text": "事业宫星曜影响婚姻",
+      "projection_domain": "relationship",
+      "projection_target": "career_structure_can_affect_marriage_context",
+      "projection_mode": "CROSS_PALACE_CONSTRAINT",
+      "case_support_only": false,
+      "candidate_family_review_id": "FAMILY-REVIEW-CONSTRAINT-02",
+      "candidate_family_label": "关系域中的跨宫约束（不是应象节点）",
+      "abstraction_level_candidate": "INFERENCE_CONSTRAINT_NOT_MANIFESTATION",
+      "abstraction_vocabulary_frozen": false,
+      "event_specificity_candidate": "NOT_A_MANIFESTATION",
+      "source_epistemic": "SOURCE_SPAN_VERIFIED; accepted CSV does not encode a separate epistemic field",
+      "normalization_epistemic": "CROSS_PALACE_CONSTRAINT; must not be promoted to manifestation node",
+      "ambiguity_notes": [
+        "projection_domain=relationship 不代表已观察到婚姻事件；该行声明的是跨宫解释关系。",
+        "本包只复用 accepted main 中的来源跨度和规范化目标。"
+      ],
+      "excluded_from_canonical_root_evidence": true
+    },
+    {
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "school": "中州派",
+      "source_span_verified": true,
+      "source_quote": null,
+      "source_quote_status": "ACCEPTED_CANONICAL_ROW_ONLY; no verbatim quote copied into this packet",
+      "ontology_node_id": null,
+      "probability_status": "UNKNOWN",
+      "review_item_id": "ROOT-REVIEW-007",
+      "source_rule_id": "CA09-809",
+      "canonical_record_path": "validation/wp05/CA09_career_projection_review_801_888.csv",
+      "source_location": "事业宫printed_p153",
+      "source_span_id": "ZZ003-P153",
+      "source_condition_text": "七杀煞忌刑重且会廉贞化忌或武曲化忌",
+      "projection_domain": "event",
+      "projection_target": "life_threatening_hazard_candidate",
+      "projection_mode": "EVENT_CANDIDATE",
+      "case_support_only": true,
+      "candidate_family_review_id": "FAMILY-REVIEW-CASE-EXCLUSION-01",
+      "candidate_family_label": "具体事件候选（仅案例支持）",
+      "abstraction_level_candidate": "CONCRETE_EVENT_CANDIDATE_CASE_ONLY",
+      "abstraction_vocabulary_frozen": false,
+      "event_specificity_candidate": "CONCRETE_EVENT_CANDIDATE",
+      "source_epistemic": "SOURCE_SPAN_VERIFIED; CASE_SUPPORT_ONLY=true",
+      "normalization_epistemic": "CASE_SUPPORT_ONLY; explicitly excluded from canonical root evidence",
+      "ambiguity_notes": [
+        "该行 case_support_only=true；不能用于建立 canonical event family 或证明现实发生率。",
+        "只作为负控制，说明具体事件候选与过程／行动条件／场景／宫位合参约束不能混成同一层。"
+      ],
+      "excluded_from_canonical_root_evidence": true
+    },
+    {
+      "source_id": "SRC-ZZ-003",
+      "source_title": "《中州派紫微斗数深造讲义（下）》",
+      "school": "中州派",
+      "source_span_verified": true,
+      "source_quote": null,
+      "source_quote_status": "ACCEPTED_CANONICAL_ROW_ONLY; no verbatim quote copied into this packet",
+      "ontology_node_id": null,
+      "probability_status": "UNKNOWN",
+      "review_item_id": "ROOT-REVIEW-008",
+      "source_rule_id": "CA01-005",
+      "canonical_record_path": "validation/wp05/CA01_career_projection_review_001_100.csv",
+      "source_location": "事业宫printed_p132",
+      "source_span_id": "ZZ003-P132",
+      "source_condition_text": "厘定职业需参考命宫财帛宫",
+      "projection_domain": "methodology",
+      "projection_target": "career_refinement_requires_life_and_wealth_context",
+      "projection_mode": "CROSS_PALACE_CONSTRAINT",
+      "case_support_only": false,
+      "candidate_family_review_id": "FAMILY-REVIEW-CONSTRAINT-01",
+      "candidate_family_label": "推断前提／跨宫约束（不是应象节点）",
+      "abstraction_level_candidate": "INFERENCE_CONSTRAINT_NOT_MANIFESTATION",
+      "abstraction_vocabulary_frozen": false,
+      "event_specificity_candidate": "NOT_A_MANIFESTATION",
+      "source_epistemic": "SOURCE_SPAN_VERIFIED; accepted CSV does not encode a separate epistemic field",
+      "normalization_epistemic": "CROSS_PALACE_CONSTRAINT; must not be promoted to manifestation node",
+      "ambiguity_notes": [
+        "这是关于职业推断所需上下文的结构约束，不是应象。",
+        "它用于防止将规则／方法限制误收进 manifestation ontology。"
+      ],
+      "excluded_from_canonical_root_evidence": true
+    }
+  ],
+  "root_options": [
+    {
+      "option_id": "OPTION-A",
+      "name": "UNIVERSAL_SEMANTIC_ROOT",
+      "selected": false,
+      "status": "NOT_SELECTED_BY_PI",
+      "proposal": "建立单一跨领域 manifestation 根，再向下划分 family、channel 与 observable event label。",
+      "benefits": [
+        "查询入口统一",
+        "与路线图示意的 latent activation -> manifestation family -> channel -> observable event label 对齐"
+      ],
+      "risks": [
+        "当前 accepted evidence cohort 包含过程、现实行动条件、职业场景、迁移轴、宫位合参／跨宫约束及仅案例支持的具体事件候选；一个语义根可能把不同本体类型误当作同一层级。",
+        "通用根不是上述 canonical rows 中任何一个来源明示的概念，不能由 schema 便利性证明其传统语义。"
+      ],
+      "required_evidence_before_acceptance": [
+        "跨来源共享根的明确语义定义",
+        "根与 source-native family 的边界规则",
+        "事件具体度与 source epistemic 的正交关系"
+      ],
+      "probability_status": "UNKNOWN"
+    },
+    {
+      "option_id": "OPTION-B",
+      "name": "SOURCE_NATIVE_ROOT_FOREST",
+      "selected": false,
+      "status": "NOT_SELECTED_BY_PI",
+      "proposal": "允许多个 parent_id=null 的来源本位根；每个根只收纳来源支持的家族，不制造统一语义父节点。",
+      "benefits": [
+        "避免无来源的通用根",
+        "可以按来源原生的过程、行动条件、迁移轴、场景与宫位合参／跨宫约束保留差异",
+        "Product adapter 已支持 parent_id=null 的根节点"
+      ],
+      "risks": [
+        "跨域查询需要通过明确的元数据或接口进行，而不是依靠共同父节点。",
+        "仍需裁定各根的 abstraction_level 标签是否为临时描述还是冻结词表。"
+      ],
+      "required_evidence_before_acceptance": [
+        "每个根的来源跨度和规则 ID",
+        "不同根之间不得自动建立父子关系的约束",
+        "跨根查询的非语义化技术方案"
+      ],
+      "probability_status": "UNKNOWN"
+    },
+    {
+      "option_id": "OPTION-C",
+      "name": "SOURCE_NATIVE_FOREST_WITH_ORTHOGONAL_AXES",
+      "selected": true,
+      "status": "PI_SELECTED_DIRECTION_ONLY_CONTRACT_PENDING",
+      "proposal": "保留来源本位根森林，并将 output_kind / event_specificity / source_epistemic 作为彼此独立的元数据轴；不把 projection_mode 直接当作 ontology hierarchy。",
+      "benefits": [
+        "能区分过程、行动条件、迁移轴、职业场景、宫位合参／跨宫约束和具体事件候选",
+        "避免将 EVENT_CANDIDATE 与 FUNCTIONAL_PROJECTION、PALACE_SEMANTIC_BOUNDARY、CROSS_PALACE_CONSTRAINT 或 SCENE_TRANSLATION 强行串成父子层级",
+        "与 fail-closed 及 probability_status=UNKNOWN 边界相容"
+      ],
+      "risks": [
+        "需要冻结最小元数据契约；如果把这些字段定义为通用语义原语，仍可能触发 Core Human Gate。",
+        "不允许用标签分类替代对具体映射的来源审查。"
+      ],
+      "required_evidence_before_acceptance": [
+        "output_kind 与 projection_mode 的定义边界",
+        "event_specificity 的允许值与缺失语义",
+        "每个标签的 source-supported / inferred 标记"
+      ],
+      "probability_status": "UNKNOWN"
+    }
+  ],
+  "preliminary_review_recommendation": {
+    "option_id": "OPTION-C",
+    "status": "SUPERSEDED_BY_EXPLICIT_PI_DECISION_OPTION_C",
+    "rationale": "该初步建议已被 PI 于 2026-10-23 的明确决定替代。当前仅确认来源本位根森林 + 正交元数据轴的架构方向；不创建 canonical node，也不冻结字段契约。"
+  },
+  "design_invariants": [
+    "projection_mode describes the rule's projection behavior; it is not automatically an ontology abstraction level.",
+    "event_specificity is orthogonal to output kind; a concrete-event label is not canonical merely because a row has a specific noun.",
+    "CASE_SUPPORT_ONLY rows may be used as exclusion/negative-control evidence, never as the sole basis for a canonical root or mapping.",
+    "Source wording, normalized target and inferred category must remain separate.",
+    "No cross-school semantics are imported into this Zhongzhou packet.",
+    "probability_status remains UNKNOWN; no frequency, probability, weight, score, posterior, likelihood, hazard or odds are added.",
+    "No node ID is assigned and no production registry is populated until the separately reviewed W5 contract/implementation acceptance."
+  ],
+  "canonicalization": {
+    "accepted_root_id": null,
+    "accepted_nodes": [],
+    "ontology_node_ids_assigned": false,
+    "ontology_contract_frozen": false,
+    "production_ontology_registry_status": "EMPTY_PENDING_KB_WP06B",
+    "production_mapping_registry_status": "EMPTY_PENDING_KB_WP06C",
+    "product_consumption_authorized": false,
+    "probability_status": "UNKNOWN"
+  },
+  "capability_comparison": {
+    "status": "NON_PRODUCTION_DESIGN_COMPARISON_WITH_PI_DIRECTION_RECORDED",
+    "comparison_document": "knowledge/core/wp06b/ONTOLOGY_CAPABILITY_COMPARISON_v0.1.md",
+    "fixture_path": "knowledge/core/wp06b/ONTOLOGY_CAPABILITY_COMPARISON_FIXTURE_v0.1.json",
+    "fixture_main_base_sha": "2267c5686ce353b5f7b8a4b56f0335bf3792ac63",
+    "source_record_count": 36,
+    "synthetic_design_control_count": 5,
+    "root_option_selected": false,
+    "human_gate_status": "PI_DECISION_RECORDED_OPTION_C_DIRECTION_ONLY",
+    "production_ontology_registry_unchanged": true,
+    "production_mapping_registry_unchanged": true,
+    "product_consumption_authorized": false,
+    "probability_status": "UNKNOWN",
+    "architecture_option_selected": true,
+    "selected_architecture_option": "OPTION-C",
+    "canonical_root_selected": false
+  },
+  "fixture_main_base_sha": "2267c5686ce353b5f7b8a4b56f0335bf3792ac63",
+  "pi_decision": {
+    "decision_id": "PI-WP06B-OPTION-C-2026-10-23",
+    "status": "DIRECTION_ACCEPTED_CONTRACT_NOT_FROZEN",
+    "selected_option_id": "OPTION-C",
+    "selected_option_name": "SOURCE_NATIVE_FOREST_WITH_ORTHOGONAL_AXES",
+    "decision_date": "2026-10-23",
+    "decision_recorded_in": [
+      "Issue #672 comment",
+      "PR #704 comment"
+    ],
+    "approved_direction": [
+      "Preserve source-native ontology roots as a forest; do not create a universal manifestation root for query convenience.",
+      "Treat output_kind, event_specificity, and source_epistemic as independent candidate metadata axes.",
+      "Do not reuse projection_mode as ontology hierarchy."
+    ],
+    "not_approved": [
+      "Canonical ontology root or node IDs",
+      "Frozen metadata enumerations, missing-value semantics, or shared schema",
+      "Production mapping promotion",
+      "Product registry or lock changes",
+      "Runtime or Product-consumption authorization",
+      "Probabilities or empirical-validity claims"
+    ],
+    "follow_up_work": "W5_MINIMAL_METADATA_CONTRACT_REVIEW",
+    "follow_up_review_required": true,
+    "follow_up_review_scope": [
+      "Define output_kind separately from projection_mode.",
+      "Specify event_specificity values and missing/unknown handling.",
+      "Specify source_epistemic labels distinguishing source-supported content from inference.",
+      "Specify conflict, missing, not-applicable, and unknown behavior.",
+      "Document migration, compatibility, rollback, and validation."
+    ]
+  }
+}
