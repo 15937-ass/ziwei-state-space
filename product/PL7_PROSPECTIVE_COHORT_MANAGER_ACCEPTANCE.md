@@ -34,4 +34,12 @@ The manager reuses the existing PL7 data-quality audit and records the audit's e
 
 ## Validation evidence
 
-To be completed against the exact final PR head. Required: full pytest, Product JS adapter checks, deterministic P0 audit, Repository Governance v1, and applicable Product regressions.
+Pre-final validation on the current-main-synced implementation (before this evidence section was committed):
+
+- Execution runtime: GitHub Actions standard public runners.
+- Base commit: `3407150866a5ace99552daa674356b92610f080e`.
+- Validated pre-final head: `952102868857b928488f6be4234485e865132ced`.
+- Repository quality gate: **PASS** — 2,607 pytest tests passed in 249.26s; Product JS adapter check, deterministic P0 audit, and Repository Governance v1 all passed. [Run #39944977993](https://github.com/15937-ass/ziwei-state-space/actions/runs/39944977993)
+- Applicable Product regressions: **PASS** — [dual engine #39944977766](https://github.com/15937-ass/ziwei-state-space/actions/runs/39944977766), [Zi-day #39944977588](https://github.com/15937-ass/ziwei-state-space/actions/runs/39944977588), [calendar #39944977844](https://github.com/15937-ass/ziwei-state-space/actions/runs/39944977844), and [temporal #39944978034](https://github.com/15937-ass/ziwei-state-space/actions/runs/39944978034).
+
+Because this note changes the PR head, a final exact-head validation is still required before merge. The PR description must record the final head SHA and final workflow results; do not merge unless the final repository quality gate and all applicable Product regressions pass.
