@@ -21,16 +21,18 @@
 | CA01-035 | p133 / `ZZ003-P133` | `career_setbacks_before_stabilization` | FUNCTIONAL_PROJECTION | 职业发展过程 | 原文“往往”须保留；火铃量词未决 |
 | CA01-045 | p133 / `ZZ003-P133` | `forced_change_can_create_career_difficulty` | FUNCTIONAL_PROJECTION | 现实行动条件下的结果 | 依赖 CA01-042 / CA01-044；“勉强求变”不是盘面事实 |
 | CA05-469 | p144 / `ZZ003-P144` | `blood_or_injury_symbolism_related_industry_scene` | SCENE_TRANSLATION | 职业／行业场景 | 是血液相关行业场景，不是命主伤病事件 |
-| W07-605 | p84 / `ZZ003-P84` | `satisfaction_from_financial_planning_outcomes` | STATE_EXPRESSION | 心理／状态表达 | 不是单一可观察事件 |
+| W01-002 | p69 / `ZZ003-P69` | `earning_difficulty_modified_by_fortune_palace` | PALACE_SEMANTIC_BOUNDARY | 资源获取条件／财务难易 | 不是单一可观察事件 |
 | M01-006 | p109 / `ZZ003-P109` | `home_vs_away_development_axis` | FUNCTIONAL_PROJECTION | 迁移／内外发展轴 | 不等于已经发生迁移 |
-| SP03-206 | p37 / `ZZ003-P37` | `separation_or_long_distance` | RELATIONAL_PROJECTION | 关系状态／关系距离 | 不是已观察到分离事件的证明 |
-| D06-508 | p102 / `ZZ003-P102` | `eczema_or_skin_allergy_candidate` | EVENT_CANDIDATE | 具体健康事件候选 | `case_support_only=true`，仅作排除用负控制 |
-| D01-003 | p93 / `ZZ003-P93` | `major_health_events_require_full_chart_context` | STRUCTURAL_CONSTRAINT | 推断前提／结构约束 | 不是应象节点 |
+| CA01-007 | p132 / `ZZ003-P132` | `career_structure_can_affect_marriage_context` | CROSS_PALACE_CONSTRAINT | 关系域中的跨宫约束 | 不是已观察到婚姻事件的证明 |
+| CA09-809 | p153 / `ZZ003-P153` | `life_threatening_hazard_candidate` | EVENT_CANDIDATE | 具体事件候选 | `case_support_only=true`，仅作排除用负控制 |
+| CA01-005 | p132 / `ZZ003-P132` | `career_refinement_requires_life_and_wealth_context` | CROSS_PALACE_CONSTRAINT | 推断前提／跨宫约束 | 不是应象节点 |
 
 ### 直接复核与复用边界
 
 - P09 的 CA01-035、CA01-045、CA05-469 已直接对照所提供 PDF 扫描页复核：PDF p.67 / 印刷 pp.133–134，以及 PDF p.72 / 印刷 p.144。
-- P05 W07-605、P03 SP03-206、P06 D06-508／D01-003 仅复用 `main` 上标记 `SOURCE_SPAN_VERIFIED` 的 canonical CSV 行；本工作单元没有宣称重新逐字校勘这些页面。
+- P05 W01-002、P09 CA01-005／CA01-007／CA09-809 仅复用 `main` 上标记 `SOURCE_SPAN_VERIFIED` 的 canonical CSV 行；本工作单元没有宣称重新逐字校勘这些页面。
+- P07 M01-006 使用已接受的 `knowledge/palaces/P07_migration/wp05/MIGRATION_M01_SOURCE_READJUDICATION_100_v0.1.json`（`DIRECT_SOURCE_RECHECK_CONFIRMED` 且 `canonical_promotion=true`）；旧 `validation/wp05/M01_migration_projection_review_001_100.csv` 是 `PRE_G12_READ_ONLY_ACCELERATION_INPUT`，不作为 canonical evidence。
+- 本包不使用 P03/P06 中当前 palace state 仍标记 `CANONICAL_REVALIDATION_NOT_STARTED` 的 CSV 行作为 canonical evidence。
 - P07 M01-006 使用已接受的 `knowledge/palaces/P07_migration/wp05/MIGRATION_M01_SOURCE_READJUDICATION_100_v0.1.json`（`DIRECT_SOURCE_RECHECK_CONFIRMED` 且 `canonical_promotion=true`）；旧 `validation/wp05/M01_migration_projection_review_001_100.csv` 是 `PRE_G12_READ_ONLY_ACCELERATION_INPUT`，不作为 canonical evidence。
 - 来源文件 SHA-256：`6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c`。
 
@@ -38,7 +40,7 @@
 
 1. **projection_mode 不等于 ontology hierarchy。** `FUNCTIONAL_PROJECTION`、`STATE_EXPRESSION`、`RELATIONAL_PROJECTION`、`SCENE_TRANSLATION`、`EVENT_CANDIDATE` 与 `STRUCTURAL_CONSTRAINT` 是现有规则行的投影／约束模式。不能仅凭这些值就把它们串成父子层级。
 2. **事件具体度是另一条轴。** 发展过程、关系状态、职业场景和具体事件候选并非天然同义。尤其不能把职业场景映射直接升级成个人伤病事件。
-3. **case-only 证据不能决定 canonical root。** D06-508 的 `case_support_only=true`，只作为负控制，不能用来证明通用事件家族或现实发生率。
+3. **case-only 证据不能决定 canonical root。** CA09-809 的 `case_support_only=true`，只作为负控制，不能用来证明通用事件家族或现实发生率。
 4. **来源跨度已核验不等于规范化目标逐字显式。** 对缺少单独 epistemic 字段的旧 canonical CSV，本包明确记录该缺口，不把它默认为 `EXPLICIT`。
 5. **没有证据时应保留多根／未知。** 技术上的统一查询需求不能替代来源支持的语义根。
 
