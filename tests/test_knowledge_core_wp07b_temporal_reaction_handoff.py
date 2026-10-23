@@ -132,7 +132,7 @@ def test_gap_and_future_gate_ids_have_traceable_impacted_rule_ids():
 
 
 
-def test_ca04_350_reaudit_retires_stale_star_binding_blocker_only():
+def test_ca04_350_reaudit_reclassifies_stale_adapter_gap_and_keeps_source_binding_gap():
     d = data()
     by_id = {r["rule_id"]: r for r in d["candidate_dispositions"]}
     row = by_id["CA04-350"]
@@ -140,7 +140,7 @@ def test_ca04_350_reaudit_retires_stale_star_binding_blocker_only():
     assert row["current_contract_eligible"] is False
     assert row["original_eligibility_status"] == "BLOCKED_TEMPORAL_FACT_BINDING_AND_SCOPE"
     assert "STAR_MUTAGEN_BINDING_GAP" in row["original_blocker_codes"]
-    assert row["eligibility_status"] == "BLOCKED_COMMERCE_CONTEXT_AND_SCOPE"
+    assert row["eligibility_status"] == "BLOCKED_SOURCE_BINDING_CONTEXT_AND_SCOPE"
     assert "STAR_MUTAGEN_BINDING_GAP" not in row["blocker_codes"]
     assert "REAL_WORLD_COMMERCE_CONTEXT_UNTYPED" in row["blocker_codes"]
     assert "LAYER_SCOPE_MISMATCH" in row["blocker_codes"]
