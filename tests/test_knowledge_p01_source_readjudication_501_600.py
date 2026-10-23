@@ -30,6 +30,8 @@ def test_p06_candidate_census_source_first_and_promotions():
     assert by["P01-564"]["opposite_palace_dependency"] == ""
     assert by["P01-563"]["cross_palace_dependency"] == "天同化忌（邻宫）"
     assert by["P01-564"]["cross_palace_dependency"] == "天同化忌（邻宫）"
+    assert "原文明确为“邻宫天同化忌”" in by["P01-564"]["notes"]
+    assert "原文是“对宫天同化忌”" not in by["P01-564"]["notes"]
     assert by["P01-543"]["event_specificity"] == "ABSTRACT"
     assert "同度或对拱" in by["P01-585"]["canonical_condition"]
     assert "同度或对拱" in by["P01-586"]["canonical_condition"]
