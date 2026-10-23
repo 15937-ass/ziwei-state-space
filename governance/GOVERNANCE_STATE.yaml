@@ -90,3 +90,15 @@ archived_work_references:
   knowledge_top_wp05_pr_272: "PRESERVE_BRANCH_FOR_SEGMENTED_AUDIT; do not merge directly."
   knowledge_wp06b_prep_pr_273: "ARCHIVED_ONLY; preserve for audit. Its unresolved Human Gate is not pending_on_main unless reconstituted by a live Knowledge Issue."
   archive_issue: 286
+
+# Scheduling recovery only; live Issues/PRs remain execution truth.
+slot_handoff:
+  tracking_issue: 701
+  released_from_issue: 446
+  paused_issue_status: "PAUSED_REQUIRES_RECONSTITUTION"
+  preserved_draft_pr: 447
+  next_nominee: 700
+  next_nominee_status: "NOT_ACTIVE_RECHECK_LIVE_ISSUES"
+  deferred_issue: 584
+  activation_condition: "Issue #701 implementation PR accepted on current main and #701 closed; fresh live census and explicit activation of #700."
+  note: "The #446 release is explicit in its live Issue. Hardening remains incomplete; no ontology option or Product semantics is approved by this handoff."

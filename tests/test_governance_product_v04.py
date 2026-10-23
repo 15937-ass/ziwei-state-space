@@ -1,5 +1,6 @@
 from pathlib import Path
 import re
+import json
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -22,11 +23,31 @@ def test_product_v04_has_explicit_now_future_execution_plan():
     assert "Career NATAL 190 is sufficient for the first vertical slice" in text
 
 
+def _assert_product_execution_cache(text: str) -> None:
+    """Validate recovery-pointer consistency without freezing a daily task."""
+    block = re.search(r"(?ms)^execution:\n(.*?)(?=^\S|\Z)", text)
+    assert block is not None, "Product state must have a top-level execution block"
+    fields = {}
+    for name in ("status", "active_issue", "active_pr"):
+        matches = re.findall(rf"^  {name}:\s*([^\n]+)$", block.group(1), re.M)
+        assert len(matches) == 1, f"execution.{name} must occur exactly once"
+        # These controlled state fields use JSON-compatible YAML scalars.
+        fields[name] = json.loads(matches[0])
+
+    status = fields["status"]
+    issue = fields["active_issue"]
+    pr = fields["active_pr"]
+    assert status in ("ACTIVE_NO_ACTIVE_WORK", "ACTIVE"), "unsupported execution status"
+    if status == "ACTIVE_NO_ACTIVE_WORK":
+        assert issue is None and pr is None, "idle cache cannot retain active pointers"
+    else:
+        assert type(issue) is int and issue > 0, "active cache needs a positive Issue ID"
+        assert pr is None or (type(pr) is int and pr > 0), "PR ID must be positive or null"
+
+
 def test_product_state_preserves_v04_entry_checkpoint_and_can_advance():
     text = (ROOT / "product" / "PRODUCT_STATE.yaml").read_text(encoding="utf-8")
-    assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in text
-    assert "active_issue: null" in text
-    assert "active_pr: null" in text
+    _assert_product_execution_cache(text)
 
     # Proposal #425 entry checkpoint remains durable history, while the
     # last-completed and next-work pointers are allowed to advance normally.
@@ -90,3 +111,60 @@ def test_product_v04_proposal_is_recorded():
     assert "IMPLEMENTED BY PR #427" in proposal
     assert "Forecast Ledger" in proposal
     assert "Product runtime" in proposal
+
+
+def _execution_fixture(status, issue, pr):
+    return (
+        "execution:\n"
+        f"  status: {json.dumps(status)}\n"
+        f"  active_issue: {json.dumps(issue)}\n"
+        f"  active_pr: {json.dumps(pr)}\n"
+    )
+
+
+def test_product_execution_cache_accepts_consistent_idle_and_active_states():
+    for fields in [
+        ("ACTIVE_NO_ACTIVE_WORK", None, None),
+        ("ACTIVE", 696, None),  # An Issue can be active before a PR exists.
+        ("ACTIVE", 696, 698),  # Regression: the real Product #698 snapshot.
+    ]:
+        _assert_product_execution_cache(_execution_fixture(*fields))
+
+
+def test_product_execution_cache_rejects_inconsistent_or_invalid_pointers():
+    for fields in [
+        ("ACTIVE_NO_ACTIVE_WORK", 696, None),
+        ("ACTIVE_NO_ACTIVE_WORK", None, 698),
+        ("ACTIVE", None, None),
+        ("ACTIVE", None, 698),
+        ("ACTIVE", 0, 698),
+        ("ACTIVE", -1, 698),
+        ("ACTIVE", "696", 698),
+        ("ACTIVE", True, 698),
+        ("ACTIVE", 696, 0),
+        ("ACTIVE", 696, -1),
+        ("ACTIVE", 696, "698"),
+        ("ACTIVE", 696, True),
+        ("UNKNOWN", None, None),
+    ]:
+        try:
+            _assert_product_execution_cache(_execution_fixture(*fields))
+        except AssertionError:
+            continue
+        raise AssertionError(f"invalid execution pointers were accepted: {fields!r}")
+
+
+def test_product_execution_cache_requires_unique_top_level_fields():
+    valid = _execution_fixture("ACTIVE", 696, 698)
+    for text in [
+        valid.replace('  status: "ACTIVE"\n', ""),
+        valid + "  active_issue: 697\n",
+        valid.replace("  active_pr: 698\n", ""),
+        "capability_snapshot:\n  execution:\n    status: \"ACTIVE\"\n",
+        valid.replace("  active_issue: 696", "  active_issue: invalid"),
+    ]:
+        try:
+            _assert_product_execution_cache(text)
+        except (AssertionError, ValueError):
+            continue
+        raise AssertionError("malformed execution block was accepted")
