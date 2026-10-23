@@ -163,3 +163,14 @@ def test_source_scan_review_covers_all_printed_page_anchors():
         row["source_span"]["scan_visual_reviewed"] is True
         for row in d["candidate_dispositions"]
     )
+
+
+def test_blocker_code_counts_match_current_reaudit_dispositions():
+    d = data()
+    expected = {}
+    for row in d["candidate_dispositions"]:
+        for code in row["blocker_codes"]:
+            expected[code] = expected.get(code, 0) + 1
+    assert d["blocker_code_counts"] == expected
+    assert "STAR_MUTAGEN_BINDING_GAP" not in d["blocker_code_counts"]
+    assert d["blocker_code_counts"]["REAL_WORLD_COMMERCE_CONTEXT_UNTYPED"] == 1
