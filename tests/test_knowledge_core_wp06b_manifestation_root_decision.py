@@ -105,12 +105,12 @@ def test_action_prerequisite_scene_boundary_and_case_only_exclusion_are_preserve
     assert ca05_469["projection_mode"] == "SCENE_TRANSLATION"
     assert ca05_469["event_specificity_candidate"] == "SCENE_NOT_OBSERVED_EVENT"
     assert "个人受伤" in "；".join(ca05_469["ambiguity_notes"])
-    d06_508 = next(x for x in d["source_evidence"] if x["source_rule_id"] == "D06-508")
-    assert d06_508["case_support_only"] is True
-    assert d06_508["excluded_from_canonical_root_evidence"] is True
-    d01_003 = next(x for x in d["source_evidence"] if x["source_rule_id"] == "D01-003")
-    assert d01_003["projection_mode"] == "STRUCTURAL_CONSTRAINT"
-    assert d01_003["excluded_from_canonical_root_evidence"] is True
+    ca09_809 = next(x for x in d["source_evidence"] if x["source_rule_id"] == "CA09-809")
+    assert ca09_809["case_support_only"] is True
+    assert ca09_809["excluded_from_canonical_root_evidence"] is True
+    ca01_005 = next(x for x in d["source_evidence"] if x["source_rule_id"] == "CA01-005")
+    assert ca01_005["projection_mode"] == "CROSS_PALACE_CONSTRAINT"
+    assert ca01_005["excluded_from_canonical_root_evidence"] is True
 
 
 def test_root_choice_is_not_made_and_no_product_registry_is_populated():
