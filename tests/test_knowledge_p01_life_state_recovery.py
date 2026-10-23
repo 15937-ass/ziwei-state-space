@@ -22,8 +22,8 @@ def test_p01_state_cache_matches_accepted_p06_checkpoint():
     assert 'canonical_checkpoint: "P01_P06_501_600_SOURCE_FIRST_P17_P20_MERGED"' in state
     assert "canonical_source_records_on_main: 789" in state
     assert "canonical_source_records_ready_on_branch" not in state
-    assert "cumulative_after_merge: 788" in state
-    assert "cumulative_reusable_projection_rules_after_merge: 655" in state
+    assert "cumulative_after_merge: 789" in state
+    assert "cumulative_reusable_projection_rules_after_merge: 656" in state
     assert "cumulative_case_support_only_after_merge: 133" in state
     assert "P01-SRC-GAP-026" in state and "P01-SRC-GAP-027" in state
     assert "P01-601…P01-700" in state
