@@ -43,6 +43,9 @@ def test_wp07b_source_census_and_source_record_join_are_exact():
         assert span["source_condition_anchor"]
         assert span["source_span_verified"] is True
         assert span["source_record_path"]
+        printed_page = int(span["source_location"].split("printed_p", 1)[1])
+        assert span["scan_pdf_page_1based"] == (printed_page + 1) // 2
+        assert span["scan_visual_reviewed"] is True
         assert row["blocker_codes"]
         assert row["current_contract_eligible"] is False
         assert row["production_authorization"] == "NONE"
@@ -124,3 +127,39 @@ def test_gap_and_future_gate_ids_have_traceable_impacted_rule_ids():
         assert gate["status"] == "FUTURE_NOT_PENDING"
         assert gate["no_decision_made"] is True
         assert set(gate["impacted_rule_ids"]) <= rule_ids
+
+
+
+def test_ca04_350_reaudit_retires_stale_star_binding_blocker_only():
+    d = data()
+    by_id = {r["rule_id"]: r for r in d["candidate_dispositions"]}
+    row = by_id["CA04-350"]
+
+    assert row["current_contract_eligible"] is False
+    assert "STAR_MUTAGEN_BINDING_GAP" not in row["blocker_codes"]
+    assert "REAL_WORLD_COMMERCE_CONTEXT_UNTYPED" in row["blocker_codes"]
+    assert "LAYER_SCOPE_MISMATCH" in row["blocker_codes"]
+    assert "WP07B-GAP-014-COMMERCE-CONTEXT" in row["gap_ids"]
+    assert "WP07B-GAP-004-STAR-MUTAGEN-BINDING" not in row["gap_ids"]
+    assert "CONTEXT_DEPENDENT_COMMERCE_GATE" in row["current_contract_gap"]
+    assert "CA04-349" in row["current_contract_gap"]
+
+    gap_by_id = {g["gap_id"]: g for g in d["gap_register"]}
+    assert "CA04-350" not in gap_by_id["WP07B-GAP-004-STAR-MUTAGEN-BINDING"]["impacted_rule_ids"]
+    assert set(gap_by_id["WP07B-GAP-004-STAR-MUTAGEN-BINDING"]["impacted_rule_ids"]) >= {
+        "TP01-061", "TP04-307", "TP04-308"
+    }
+    assert gap_by_id["WP07B-GAP-014-COMMERCE-CONTEXT"]["impacted_rule_ids"] == ["CA04-350"]
+    assert gap_by_id["WP07B-GAP-014-COMMERCE-CONTEXT"]["runtime_semantics_added"] is False
+
+
+def test_source_scan_review_covers_all_printed_page_anchors():
+    d = data()
+    scan = d["snapshot"]["source_scan_review"]
+    assert scan["status"] == "VISUALLY_REVIEWED"
+    assert scan["source_id"] == "SRC-ZZ-003"
+    assert scan["scan_pdf_pages_1based"] == [70, 71, 73, 74, 77, 78, 79, 80, 81, 82, 83]
+    assert all(
+        row["source_span"]["scan_visual_reviewed"] is True
+        for row in d["candidate_dispositions"]
+    )
