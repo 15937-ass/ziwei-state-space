@@ -292,12 +292,17 @@ def build_prospective_cohort_queue(
             else:
                 queue_status, next_action = "CLOSE_DUE", "CLOSE_WINDOW_AND_AUDIT_FOLLOW_UP"
         elif lifecycle == "OPEN":
-            if snapshot_date <= plan.window_end:
+            if snapshot_date < plan.window_end:
                 queue_status, next_action = "OPEN", "COLLECT_CHECKPOINTS"
             else:
                 queue_status, next_action = "CLOSE_DUE", "CLOSE_WINDOW_AND_AUDIT_FOLLOW_UP"
         elif lifecycle == "CLOSED":
-            queue_status, next_action = "CLOSED", "NONE"
+            queue_status = "CLOSED"
+            next_action = (
+                "REVIEW_INCOMPLETE_FOLLOW_UP"
+                if state["followup_status"] == "INCOMPLETE"
+                else "NONE"
+            )
         elif lifecycle == "CANCELLED":
             queue_status, next_action = "CANCELLED", "NONE"
         else:
