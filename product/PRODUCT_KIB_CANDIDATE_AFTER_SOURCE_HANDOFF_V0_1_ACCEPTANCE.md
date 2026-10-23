@@ -15,7 +15,7 @@ This is a Product readiness decision, not a claim that Zhongzhou has no temporal
 | Accepted main commit | `2143ac7030b531cd46836cf034baba6f801bdf8e` |
 | Analysis snapshot commit | `6088670a2a303b603d1af044288aa6a2e27a9db7` |
 | Git blob SHA | `51fe70e975ed54a44e30bc29266cf80dd7216a89` |
-| Exact byte count | 120317 |
+| Exact byte count | 124065 UTF-8 bytes (verified against the Git blob SHA) |
 | Semantic status | `SOURCE_REVIEW_COMPLETE_ZERO_ELIGIBLE_UNDER_CURRENT_CONTRACT` |
 | Source ID | `SRC-ZZ-003` |
 | Source PDF SHA-256 | `6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c` |
