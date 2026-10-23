@@ -146,16 +146,15 @@
       "projection_target": "earning_difficulty_modified_by_fortune_palace",
       "projection_mode": "PALACE_SEMANTIC_BOUNDARY",
       "case_support_only": false,
-      "candidate_family_review_id": "FAMILY-REVIEW-CONSTRAINT-RESOURCE-01",
-      "candidate_family_label": "资源域中的宫位语义边界（不是应象节点）",
+      "candidate_family_review_id": "FAMILY-REVIEW-CONSTRAINT-WEALTH-01",
+      "candidate_family_label": "财帛／福德宫合参约束（不是应象节点）",
       "abstraction_level_candidate": "INFERENCE_CONSTRAINT_NOT_MANIFESTATION",
       "abstraction_vocabulary_frozen": false,
       "event_specificity_candidate": "NOT_A_MANIFESTATION",
       "source_epistemic": "SOURCE_SPAN_VERIFIED; accepted CSV does not encode a separate epistemic field",
       "normalization_epistemic": "PALACE_SEMANTIC_BOUNDARY; must not be promoted to manifestation node",
       "ambiguity_notes": [
-        "该行规定财帛宫与福德宫的解释边界，不是一个资源事件或可观察状态的断言。",
-        "projection_domain=resource 不能单独证明该行属于 manifestation family。",
+        "该行说明财帛宫需参考福德宫判断生财难易，是宫位合参边界，不是可消费的应象节点。",
         "本包只复用 accepted main 中的来源跨度和规范化目标。"
       ],
       "excluded_from_canonical_root_evidence": true
@@ -253,7 +252,7 @@
       "normalization_epistemic": "CASE_SUPPORT_ONLY; explicitly excluded from canonical root evidence",
       "ambiguity_notes": [
         "该行 case_support_only=true；不能用于建立 canonical event family 或证明现实发生率。",
-        "只作为负控制，说明具体事件候选与过程／资源条件／场景／跨宫约束不能混成同一层。"
+        "只作为负控制，说明具体事件候选与过程／行动条件／场景／宫位合参约束不能混成同一层。"
       ],
       "excluded_from_canonical_root_evidence": true
     },
@@ -302,7 +301,7 @@
         "与路线图示意的 latent activation -> manifestation family -> channel -> observable event label 对齐"
       ],
       "risks": [
-        "当前 accepted evidence cohort 包含过程、现实行动条件、资源条件、迁移轴、职业场景、跨宫约束及仅案例支持的具体事件候选；一个语义根可能把不同本体类型误当作同一层级。",
+        "当前 accepted evidence cohort 包含过程、现实行动条件、职业场景、迁移轴、宫位合参／跨宫约束及仅案例支持的具体事件候选；一个语义根可能把不同本体类型误当作同一层级。",
         "通用根不是上述 canonical rows 中任何一个来源明示的概念，不能由 schema 便利性证明其传统语义。"
       ],
       "required_evidence_before_acceptance": [
@@ -320,7 +319,7 @@
       "proposal": "允许多个 parent_id=null 的来源本位根；每个根只收纳来源支持的家族，不制造统一语义父节点。",
       "benefits": [
         "避免无来源的通用根",
-        "可以按来源原生的过程、行动条件、资源条件、迁移轴、场景与跨宫约束保留差异",
+        "可以按来源原生的过程、行动条件、迁移轴、场景与宫位合参／跨宫约束保留差异",
         "Product adapter 已支持 parent_id=null 的根节点"
       ],
       "risks": [
@@ -341,7 +340,7 @@
       "status": "REQUIRES_HUMAN_GATE",
       "proposal": "保留来源本位根森林，并将 output_kind / event_specificity / source_epistemic 作为彼此独立的元数据轴；不把 projection_mode 直接当作 ontology hierarchy。",
       "benefits": [
-        "能区分资源条件、迁移轴、过程、职业场景、跨宫约束和具体事件候选",
+        "能区分过程、行动条件、迁移轴、职业场景、宫位合参／跨宫约束和具体事件候选",
         "避免将 EVENT_CANDIDATE 与 FUNCTIONAL_PROJECTION、PALACE_SEMANTIC_BOUNDARY、CROSS_PALACE_CONSTRAINT 或 SCENE_TRANSLATION 强行串成父子层级",
         "与 fail-closed 及 probability_status=UNKNOWN 边界相容"
       ],
@@ -360,7 +359,7 @@
   "preliminary_review_recommendation": {
     "option_id": "OPTION-C",
     "status": "RECOMMENDATION_FOR_PI_REVIEW_ONLY_NOT_SELECTED",
-    "rationale": "当前 accepted evidence cohort 的输出类型明显异质；先保留来源本位根并将输出类型、事件具体度和证据等级分开，较不容易把过程／资源条件／场景／跨宫约束误当作具体事件。该建议不是 Human Gate 决定，也不创建任何 canonical node。"
+    "rationale": "当前 accepted evidence cohort 的输出类型明显异质；先保留来源本位根并将输出类型、事件具体度和证据等级分开，较不容易把过程／行动条件／场景／迁移轴／宫位合参与跨宫约束误当作具体事件。该建议不是 Human Gate 决定，也不创建任何 canonical node。"
   },
   "design_invariants": [
     "projection_mode describes the rule's projection behavior; it is not automatically an ontology abstraction level.",
