@@ -30,6 +30,9 @@ def test_p06_candidate_census_source_first_and_promotions():
     assert by["P01-564"]["opposite_palace_dependency"] == ""
     assert by["P01-563"]["cross_palace_dependency"] == "天同化忌（邻宫）"
     assert by["P01-564"]["cross_palace_dependency"] == "天同化忌（邻宫）"
+    assert by["P01-543"]["event_specificity"] == "ABSTRACT"
+    assert "同度或对拱" in by["P01-585"]["canonical_condition"]
+    assert "同度或对拱" in by["P01-586"]["canonical_condition"]
     assert "天梁天马陷" in by["P01-590"]["source_text_uncertainty"]
     assert by["P01-590"]["canonical_condition"].endswith("“天梁天马陷”")
     assert by["P01-600"]["archived_primary_time_layer"] == "DECADE"
@@ -48,6 +51,8 @@ def test_p06_gap_supplement_census_and_case_only():
     assert by["P01-SG-198"]["archived_primary_time_layer"] == "SOURCE_SCOPE_UNRESOLVED"
     assert by["P01-SG-204"]["cross_palace_dependency"] == "夫妻宫巨门吉化（尤喜化禄）"
     assert "丧门、吊客、白虎" in by["P01-SG-209"]["source_literal_claim"]
+    assert "见奏书亦吉" in by["P01-SG-190"]["source_literal_claim"]
+    assert "若同时又见煞及昌曲化忌" in by["P01-SG-190"]["source_literal_claim"]
 
 
 def test_p06_time_scope_preserves_generic_and_multilayer_words():
