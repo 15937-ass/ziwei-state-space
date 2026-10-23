@@ -58,3 +58,14 @@ Record the resulting GitHub Actions run IDs and outcomes here after the first ex
 - Repository Governance v1 / Knowledge shard write-isolation validation: **PASS**.
 - The prior run #2273 failure was limited to an overstrict test expectation for TP02-126; the test now asserts its explicit unresolved-state mapping status while preserving the non-executable boundary.
 - This record update requires a fresh exact-head gate before merge; the final PR head must pass with this evidence included.
+
+
+## Corrected-head validation result
+
+- Repository quality-gate run: [#39879627186](https://github.com/15937-ass/ziwei-state-space/actions/runs/39879627186) on head `ee2053045ff336452d8b66ccddd79954ab81bd91` — **PASS**.
+- Full pytest: **2,527 passed** in 340.15 seconds.
+- Product JS adapter check: **PASS**.
+- Deterministic P0 repository audit: **PASS**.
+- Repository Governance v1 / Knowledge write-boundary validation: **PASS**.
+- The corrected regression now requires `MAPPED_GEOMETRY_WITH_EXPLICIT_UNRESOLVED_STATE_DEPENDENCY` for TP02-126 and `MAPPED_EXISTING_ATOMS` for the other twelve rows.
+- This evidence update changes documentation only. A fresh exact-head gate must pass on the resulting final PR head before merge.
