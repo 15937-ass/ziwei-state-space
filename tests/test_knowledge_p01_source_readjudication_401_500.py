@@ -81,8 +81,8 @@ def test_p01_gap_ledger_and_cumulative_counts():
     assert entries["P01-SRC-GAP-025"]["status"] == "CLOSED_BY_SOURCE_RECHECK_AND_CANONICAL_RULES"
     assert len(entries["P01-SRC-GAP-025"]["rule_ids"]) == 91
     assert ledger["unresolved_gap_ids"] == []
-    assert ledger["next_checkpoint_gaps"][0]["gap_id"] == "P01-SRC-GAP-026"
-    assert "P01-501" in ledger["next_source_anchor"]
+    assert ledger["next_checkpoint_gaps"][0]["gap_id"] == "P01-SRC-GAP-027"
+    assert "P01-601" in ledger["next_source_anchor"]
     s = _json("LIFE_P05_SOURCE_READJUDICATION_SUMMARY_v0.1.json")["summary"]
     assert s["historical_candidates_reviewed"] == 100
     assert s["canonical_promoted"] == 82
@@ -96,8 +96,9 @@ def test_p01_gap_ledger_and_cumulative_counts():
 
 
 def test_p01_next_source_anchor_uses_canonical_p01_ids():
-    review = (BASE / "LIFE_P05_SOURCE_READJUDICATION_401_500_v0.1.md").read_text(encoding="utf-8")
+    review = (BASE / "LIFE_P06_SOURCE_READJUDICATION_501_600_v0.1.md").read_text(encoding="utf-8")
     state = (ROOT / "knowledge/states/P01_LIFE_STATE.yaml").read_text(encoding="utf-8")
-    assert "`P01-501…P01-600 source-first checkpoint" in review
-    assert "P06-501…600" not in review
-    assert "P01-501…P01-600 source-first checkpoint" in state
+    assert "Source-first readjudication P01-501…P01-600" in review
+    assert "Canonical IDs assigned after source recheck: `P01-501…P01-600`" in review
+    assert "Historical acceleration inputs: `validation/wp05/P06_life_palace_projection_review_part1_v0.1.csv`" in review
+    assert "P01-601…P01-700 source-first checkpoint" in state

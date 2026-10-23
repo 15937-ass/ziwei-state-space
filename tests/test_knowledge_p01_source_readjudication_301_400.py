@@ -40,7 +40,7 @@ def test_gap_supplement_and_ledger():
     assert g["P01-SRC-GAP-023"]["status"]=="CLOSED_BY_SOURCE_RECHECK_AND_CANONICAL_RULES" and len(g["P01-SRC-GAP-023"]["rule_ids"])==47
     assert g["P01-SRC-GAP-024"]["status"]=="CLOSED_BY_SOURCE_RECHECK_AND_CANONICAL_RULES" and len(g["P01-SRC-GAP-024"]["rule_ids"])==81
     assert g["P01-SRC-GAP-025"]["status"]=="CLOSED_BY_SOURCE_RECHECK_AND_CANONICAL_RULES" and len(g["P01-SRC-GAP-025"]["rule_ids"])==91
-    assert led["next_checkpoint_gaps"][0]["gap_id"]=="P01-SRC-GAP-026"
+    assert led["next_checkpoint_gaps"][0]["gap_id"]=="P01-SRC-GAP-027"
 def test_counts():
     s=_json("LIFE_P04_SOURCE_READJUDICATION_SUMMARY_v0.1.json")["summary"]
     assert (s["historical_candidates_reviewed"],s["canonical_promoted"],s["new_source_gap_supplement_records"],s["new_canonical_records"])==(100,100,28,128)
