@@ -1,11 +1,12 @@
 # WP06B execution evidence — manifestation root decision packet
 
 - Issue: #672
-- Branch: `knowledge/core-672-wp06b-manifestation-root-main-sync-20261023`
+- Current review branch: `knowledge/core-672-wp06b-capability-comparison-20261023` (PR #704).
+- Historical predecessor branch: `knowledge/core-672-wp06b-manifestation-root-main-sync-20261023` (PR #692, closed/superseded).
 - Original activation/source-review base: `2143ac7030b531cd46836cf034baba6f801bdf8e`
 - Historical packet base: `9538cad4cdf6b7c30014dbecdb82b644a61c8232`.
 - Current comparison branch base: `3407150866a5ace99552daa674356b92610f080e` (merged Governance PR #703 is included).
-- Main advanced by 14 accepted commits to `cb4259d4e83904b81ab556bd4e8a414471c4085e` after initial activation, then by `bee69d462a73abda1b51d3271d44f59627e3cbc6` adding the P09 WP06C source candidate index, then by `9538cad4cdf6b7c30014dbecdb82b644a61c8232` (PR #695) updating `AGENT_WORKFLOW.md` and `CHATGPT_START_HERE.md`. File-level comparisons confirm the source evidence paths referenced here were unchanged; this branch is rebuilt directly on the latest main and does not consume unmerged source artifacts.
+- Main advanced by 14 accepted commits to `cb4259d4e83904b81ab556bd4e8a414471c4085e` after initial activation, then by `bee69d462a73abda1b51d3271d44f59627e3cbc6` adding the P09 WP06C source candidate index, then by `9538cad4cdf6b7c30014dbecdb82b644a61c8232` (PR #695) updating `AGENT_WORKFLOW.md` and `CHATGPT_START_HERE.md`, and then to current main `3407150866a5ace99552daa674356b92610f080e` through Governance PR #703. PR #703 changed `CHATGPT_START_HERE.md`, `governance/GOVERNANCE_STATE.yaml`, and `governance/proposals/700-durable-ontology-plan-and-cross-chat-handoff.md`. File-level comparisons confirm the source evidence paths referenced here were unchanged; PR #704 is rebuilt directly on current main and does not consume unmerged source artifacts.
 - Lane/shard: `KNOWLEDGE_ONLY / CORE`
 - Status: source-backed gate packet prepared; **Human Gate remains pending**.
 
@@ -17,7 +18,8 @@
 - P07 M01-006: linked to the accepted source readjudication artifact `knowledge/palaces/P07_migration/wp05/MIGRATION_M01_SOURCE_READJUDICATION_100_v0.1.json` (`DIRECT_SOURCE_RECHECK_CONFIRMED`, `canonical_promotion=true`). The pre-G12 `validation/wp05/M01_migration_projection_review_001_100.csv` is historical acceleration input only and is not treated as canonical.
 - P03 and P06 are not used as canonical evidence because their current palace state says `CANONICAL_REVALIDATION_NOT_STARTED`.
 - The source PDF attachment SHA-256 recorded in the packet is `6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c`.
-- Latest-main cross-check: main `9538cad4cdf6b7c30014dbecdb82b644a61c8232` includes the governance-only PR #695 closeout instructions and the accepted P09 index from `bee69d462a73abda1b51d3271d44f59627e3cbc6`. The index `knowledge/palaces/P09_career/wp06c/P09_WP06C_SOURCE_CANDIDATE_INDEX_v0.1.json` is `CANDIDATE_ONLY_NOT_CANONICAL`; its CA01-035 / CA01-045 / CA05-469 spans and projection values match this packet. It preserves null ontology IDs, `probability_status=UNKNOWN`, non-executable and non-Product-consumable status. It does not add root evidence or resolve the PI gate.
+- Current-main governance checkpoint: main `3407150866a5ace99552daa674356b92610f080e` includes Governance PR #703, which changed only `CHATGPT_START_HERE.md`, `governance/GOVERNANCE_STATE.yaml`, and `governance/proposals/700-durable-ontology-plan-and-cross-chat-handoff.md`. The earlier PR #695 checkpoint remains in the history above.
+- Latest-main P09 cross-check: the accepted index was introduced by commit `bee69d462a73abda1b51d3271d44f59627e3cbc6` and is cross-checked against current main `3407150866a5ace99552daa674356b92610f080e`. The index `knowledge/palaces/P09_career/wp06c/P09_WP06C_SOURCE_CANDIDATE_INDEX_v0.1.json` remains `CANDIDATE_ONLY_NOT_CANONICAL`; its CA01-035 / CA01-045 / CA05-469 spans and projection values match this packet. It preserves null ontology IDs, `probability_status=UNKNOWN`, non-executable and non-Product-consumable status. It does not add root evidence or resolve the PI gate.
 
 ## Semantic findings
 
@@ -44,3 +46,11 @@
 - The four source artifact blob SHAs were compared between the prior packet branch and current main and were identical.
 - No A/B/C option is selected; no accepted ontology node, production mapping, Product registry, runtime artifact or probability was created. Human Gate remains `PENDING_PI_DECISION`.
 - Validation for this replacement head: PENDING until the current PR's actual checks complete.
+
+
+## Exact-head CI repair checkpoint
+
+- Run `39944788602` on prior PR #704 head `4704c6583506330bb86fa2086961fcb2012d18d4` failed after 2,605 tests passed because the regression test expected the current main SHA while the packet's `latest_main_governance_check` still described PR #695 and its two changed paths.
+- Corrected the packet to identify current Governance PR #703 / main `3407150866a5ace99552daa674356b92610f080e` and its three exact changed paths; retained the PR #695 history in the resynchronization note.
+- Updated the regression test to check the coherent PR #703 checkpoint. No semantic gate was weakened.
+- Validation on the resulting repair head is pending; the prior failed run is diagnostic evidence only.

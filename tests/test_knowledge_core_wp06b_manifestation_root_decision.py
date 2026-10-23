@@ -174,9 +174,11 @@ def test_latest_main_p09_candidate_index_cross_check_does_not_promote_root_evide
     assert cross_check["main_base_sha"] == "3407150866a5ace99552daa674356b92610f080e"
     assert cross_check["artifact_commit_sha"] == "bee69d462a73abda1b51d3271d44f59627e3cbc6"
     assert d["source_basis"]["latest_main_governance_check"]["commit_sha"] == "3407150866a5ace99552daa674356b92610f080e"
-    assert d["source_basis"]["latest_main_governance_check"]["merged_pr"] == 695
+    assert d["source_basis"]["latest_main_governance_check"]["merged_pr"] == 703
     assert d["source_basis"]["latest_main_governance_check"]["changed_paths"] == [
-        "AGENT_WORKFLOW.md", "CHATGPT_START_HERE.md"
+        "CHATGPT_START_HERE.md",
+        "governance/GOVERNANCE_STATE.yaml",
+        "governance/proposals/700-durable-ontology-plan-and-cross-chat-handoff.md"
     ]
     assert cross_check["artifact_path"] == (
         "knowledge/palaces/P09_career/wp06c/P09_WP06C_SOURCE_CANDIDATE_INDEX_v0.1.json"
