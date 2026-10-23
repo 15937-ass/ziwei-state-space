@@ -96,7 +96,7 @@ def test_p01_gap_ledger_and_cumulative_counts():
 
 
 def test_p01_next_source_anchor_uses_canonical_p01_ids():
-    review = (BASE / "LIFE_P05_SOURCE_READJUDICATION_401_500_v0.1.md").read_text(encoding="utf-8")
+    review = (BASE / "LIFE_P06_SOURCE_READJUDICATION_501_600_v0.1.md").read_text(encoding="utf-8")
     state = (ROOT / "knowledge/states/P01_LIFE_STATE.yaml").read_text(encoding="utf-8")
     assert "Source-first readjudication P01-501…P01-600" in review
     assert "Canonical IDs assigned after source recheck: `P01-501…P01-600`" in review
