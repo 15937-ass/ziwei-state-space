@@ -24,7 +24,7 @@ def _plans():
 
 def _response(plan_id, target_id, checkpoint_id, answer, response_date, **overrides):
     payload = {
-        "schema_version": "0.1",
+        "schema_version": "0.2",
         "record_id": f"RESP-{plan_id}-{target_id}-{checkpoint_id}",
         "plan_id": plan_id,
         "target_id": target_id,
@@ -33,6 +33,19 @@ def _response(plan_id, target_id, checkpoint_id, answer, response_date, **overri
         "response_date": response_date,
         "user_confirmed": True,
         "event_time_report": None,
+        "severity": None,
+        "duration_days": None,
+        "actions": [],
+        "context": {
+            "exposures": [],
+            "external_factors": [],
+            "counterparty_factors": [],
+        },
+        "observation": {
+            "source_type": "USER_SELF_REPORT",
+            "confidence": "HIGH",
+            "notes_ref": None,
+        },
     }
     payload.update(overrides)
     return payload
@@ -387,4 +400,107 @@ def test_missing_response_record_id_is_not_counted_complete():
         plans=[plan], checkin_responses=[response]
     )
     assert "MISSING_RESPONSE_IDENTIFIER_FIELDS" in _codes(report)
+    assert report["counts"]["complete_window_close_responses"] == 0
+
+
+
+def test_malformed_event_time_report_is_not_counted_as_complete_closeout():
+    plan = _plans()[1]
+    response = _response(
+        plan["plan_id"], "T-WEA-CHANGE", "CLOSE", "YES", "2027-07-02",
+        event_time_report={"precision": "DAY", "value": "not-a-date"},
+    )
+    report = audit_longitudinal_data_quality(
+        plans=[plan], checkin_responses=[response]
+    )
+    assert "INVALID_CHECKIN_RESPONSE" in _codes(report)
+    assert report["counts"]["complete_window_close_responses"] == 0
+    assert report["counts"]["unresolved_window_close_responses"] == 1
+
+
+def test_partial_overlap_event_time_is_not_promoted_to_complete_closeout():
+    plan = _plans()[1]
+    response = _response(
+        plan["plan_id"], "T-WEA-CHANGE", "CLOSE", "YES", "2027-07-02",
+        event_time_report={
+            "precision": "INTERVAL",
+            "lower_bound_date": "2026-12-31",
+            "upper_bound_date": "2027-02-01",
+        },
+    )
+    report = audit_longitudinal_data_quality(
+        plans=[plan], checkin_responses=[response]
+    )
+    assert "FOLLOW_UP_EVENT_TIME_AMBIGUOUS" in _codes(report)
+    assert report["counts"]["complete_window_close_responses"] == 0
+    assert report["counts"]["unresolved_window_close_responses"] == 1
+
+
+def test_negative_closeout_with_event_time_is_invalid():
+    plan = _plans()[1]
+    response = _response(
+        plan["plan_id"], "T-WEA-CHANGE", "CLOSE", "NO", "2027-07-02",
+        event_time_report={"precision": "DAY", "value": "2027-05-12"},
+    )
+    report = audit_longitudinal_data_quality(
+        plans=[plan], checkin_responses=[response]
+    )
+    assert "INVALID_CHECKIN_RESPONSE" in _codes(report)
+    assert report["counts"]["complete_window_close_responses"] == 0
+
+
+def test_window_close_negative_before_window_end_is_invalid():
+    plan = _plans()[1]
+    response = _response(
+        plan["plan_id"], "T-WEA-CHANGE", "CLOSE", "NO", "2027-06-29"
+    )
+    report = audit_longitudinal_data_quality(
+        plans=[plan], checkin_responses=[response]
+    )
+    assert "INVALID_CHECKIN_RESPONSE" in _codes(report)
+    assert report["counts"]["complete_window_close_responses"] == 0
+
+
+def test_v01_exact_date_response_is_validated_by_existing_bridge():
+    plan = _plans()[1]
+    response = {
+        "schema_version": "0.1",
+        "record_id": "RESP-V01-LEGACY-001",
+        "plan_id": plan["plan_id"],
+        "target_id": "T-WEA-CHANGE",
+        "checkpoint_id": "CLOSE",
+        "answer": "YES",
+        "response_date": "2027-07-02",
+        "event_date": "2027-05-12",
+        "user_confirmed": True,
+        "actions": [],
+        "context": {
+            "exposures": [],
+            "external_factors": [],
+            "counterparty_factors": [],
+        },
+        "observation": {
+            "source_type": "USER_SELF_REPORT",
+            "confidence": "HIGH",
+            "notes_ref": None,
+        },
+    }
+    report = audit_longitudinal_data_quality(
+        plans=[plan], checkin_responses=[response]
+    )
+    assert "INVALID_CHECKIN_RESPONSE" not in _codes(report)
+    assert report["counts"]["complete_window_close_responses"] == 1
+
+
+def test_unconfirmed_malformed_event_time_is_still_flagged_for_review():
+    plan = _plans()[1]
+    response = _response(
+        plan["plan_id"], "T-WEA-CHANGE", "CLOSE", "YES", "2027-07-02",
+        user_confirmed=False,
+        event_time_report={"precision": "MONTH", "value": "not-a-month"},
+    )
+    report = audit_longitudinal_data_quality(
+        plans=[plan], checkin_responses=[response]
+    )
+    assert "INVALID_CHECKIN_RESPONSE" in _codes(report)
     assert report["counts"]["complete_window_close_responses"] == 0
