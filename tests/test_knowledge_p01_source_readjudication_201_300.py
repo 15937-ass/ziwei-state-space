@@ -107,7 +107,7 @@ def test_gap_ledger_and_summary_cumulative_counts():
     assert len(next_gaps) == 1
     assert next_gaps[0]["gap_id"] == "P01-SRC-GAP-027"
     assert next_gaps[0]["status"] == "OPEN_FOR_NEXT_SOURCE_CHECKPOINT"
-    assert "printed p21" in next_gaps[0]["source_location"]
+    assert "printed pp21–23" in next_gaps[0]["source_location"]
     assert "七杀" in next_gaps[0]["source_claim"]
     assert "P01-601" in ledger["next_source_anchor"]
     assert ledger["entries"][0]["gap_id"] == "P01-SRC-GAP-022"
