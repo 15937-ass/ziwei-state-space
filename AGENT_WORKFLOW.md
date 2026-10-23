@@ -1,6 +1,6 @@
 # AGENT_WORKFLOW.md
 
-Version: 1.0
+Version: 1.1
 Governance: GOVERNANCE.md
 
 ## 1. Core rule
@@ -112,6 +112,87 @@ Default source-review reasoning sub-batch remains about 50 items; durable integr
 
 After timeout, inspect GitHub first. Never replay work blindly.
 
+### 10.1 In-work-unit synchronization fast path
+
+GitHub remains the durable source of truth. The fast path only reduces redundant reads; it never transfers authority to chat memory, a local workspace, or an execution cache.
+
+At work-unit bootstrap, recover authoritative state once and establish a temporary execution context containing at minimum:
+- lane;
+- active Issue;
+- active PR if present;
+- working branch and observed head SHA;
+- observed main/base SHA;
+- state-file/version references required by the Issue;
+- the current source-review/item range when applicable.
+
+While the same bounded work unit continues and no invalidation trigger occurs, do not repeatedly re-read PROJECT_STATE, lane state, Issue, PR or unchanged repository files merely to reconfirm values already observed. Product/Knowledge reasoning, critic passes and tests should run continuously inside that bounded context.
+
+Batch independent, task-required reads and state queries in one round where supported; inspect every result. Keep dependent reads, writes and acceptance decisions sequential. Load a change summary/changed-path list and relevant blob/version references first, then reload only affected or missing material. A summary cannot replace direct source inspection needed to resolve wording, prerequisites, conflicts or temporal scope. Do not load all sources, the full ontology plan or unrelated lane histories by default.
+
+Mandatory resynchronization occurs before continuing whenever any of the following happens:
+- timeout, new session or execution-environment restart;
+- lane, Issue, PR or working-branch change;
+- known or suspected external merge/push;
+- observed head/base SHA mismatch, rejected optimistic-concurrency write, merge conflict or stale blob SHA;
+- a GitHub write returns an ambiguous/unknown outcome;
+- hard checkpoint, pre-merge validation or final acceptance;
+- tool/runtime failure that could have changed repository state;
+- any evidence that the cached execution context may be stale.
+
+All GitHub writes use optimistic concurrency. Fetch the target blob/ref SHA when required, write against that observed version, and on mismatch stop and resynchronize. Never force-overwrite a newer repository state merely to preserve the fast path. If a write times out or its outcome is unknown, verify whether it actually landed before retrying, so duplicate commits/comments or accidental overwrites are not created.
+
+#### No-information-loss invariant
+
+Execution speed may never be purchased by losing recoverability. Before leaving a bounded work unit, crossing a hard checkpoint, switching lane, or allowing an unreconstructable sub-batch to grow beyond the approved boundary, durably preserve all material progress.
+
+A durable checkpoint must preserve enough information to restart without semantic loss, including as applicable:
+- base/main SHA and working head SHA;
+- lane, Issue, PR and branch;
+- changed/versioned artifact paths;
+- exact source-review or rule/item range completed;
+- accepted, blocked, conflicted and unresolved classifications;
+- source/evidence traceability needed to reproduce the conclusion;
+- material decisions and their rationale;
+- validation status, executed commands/workflows and known limitations;
+- discovered blockers/dependencies that remain outside the current work unit.
+
+Durable preservation means versioned repository artifacts and/or the authoritative Issue/PR record. A chat-only statement is not a durable checkpoint.
+
+Never discard local/uncommitted source-review output merely because a resync is required. First determine whether the output already exists durably; if not, preserve it or explicitly reconstruct/verify it before proceeding. Ambiguous partial writes are verified, not blindly replayed.
+
+For Knowledge source review, the existing batch discipline is unchanged: reasoning sub-batches remain about 50 items and durable integration remains capped at 100 items unless explicitly approved. The intended pattern is therefore one authoritative sync -> continuous bounded processing -> durable checkpoint/resync, not per-item or per-few-item Git polling.
+
+The execution context cache is disposable and non-authoritative. On any conflict, GitHub wins; the cache is invalidated and rebuilt from authoritative state.
+
+### 10.2 Validation reuse and combined audit
+
+Maintain one durable validation record per validation identity: exact PR base/main and head SHAs, relevant source/input/lock versions, check scope and commands, workflow/config/dependency/runtime versions, run attempt and outcome. Reuse an existing successful record only when all these match and every required check completed. Reference its evidence rather than copying a second full report or starting an identical run merely for another progress message. Unknown, skipped, pending, failed or unavailable required evidence is not PASS.
+
+At a hard checkpoint and before merge, recheck live main/head, required check status, inputs and gates. This freshness check is mandatory even when a matching completed run can be reused. A changed base/head, relevant input, dependency, workflow, environment or required scope invalidates the affected result; synchronize safely and perform the required validation again. An unchanged source blob may retain its source-review evidence, but that does not carry forward a stale whole-PR acceptance. Existing full-gate requirements remain controlling; this section grants no narrower scope or validation exemption.
+
+For one bounded source batch, inspect provenance/source fidelity, IDs/count reconciliation and temporal layers together, but record each verdict separately with evidence and unresolved items. Preserve school boundaries, prerequisites, conflicts and UNKNOWN; aggregate success cannot hide a failed dimension. Keep source fidelity, structural consistency, internal reconstruction and empirical validity distinct. The existing ~50-item reasoning sub-batch / <=100-item durable integration limits still apply.
+
+When CI is pending, retain its run ID and last observed status; check at meaningful completion/dependency boundaries instead of tight polling. Record a terminal outcome once. Retry a failed check only under the existing failure policy; a retry/attempt is new evidence, not a rewrite of the failed record.
+
+### 10.3 Compact cross-chat checkpoint
+
+Before stopping or switching work, update the existing Issue/PR with this compact payload (or link equivalent versioned evidence); do not create a second status authority:
+
+```text
+Observed at: <timestamp with timezone>; lane/shard: <one>; Issue/PR/branch: <references>
+Versions: main/base=<SHA>; head=<SHA>; relevant input/lock=<versions or evidence link>
+Done: <bounded source/item range, decisions and artifact paths; evidence links>
+Remaining: <next precise source anchor/action; unresolved items and rationale>
+Validation: <identity/run/attempt; PASS/FAIL/PENDING/UNVERIFIED; required gaps>
+Blocker/handoff: <producer -> consumer; accepted input; exact unblock condition>
+Ownership: <task claimant/executing session reference; allowed write set; active/waiting/released>
+Next: <resume this task / wait / release; current PI gate if any>
+```
+
+On resume, read the existing checkpoint after the mandatory bootstrap/live-state recovery. Compare versions and task assignment, then load the delta; do not replay completed evidence without a reason. Update the checkpoint to supersede stale resume instructions while preserving material decisions and historical evidence. Before claiming a slot, confirm the live Issue and linked PR have no existing worker on that task; a second chat resumes only after explicit handoff, rather than duplicating the work. An observation timestamp or chat claim alone is not an atomic cross-chat lock; ambiguous ownership blocks writes until resolved. Slot availability does not itself activate a backlog Issue or satisfy its dependencies.
+
+The controlling proposal and worked recovery/reuse examples are in [Proposal #432](governance/proposals/432-fast-sync-no-loss.md); load the examples only when needed.
+
 ## 11. Execution and validation policy
 
 Routine deterministic validation may use GitHub Actions because this repository is public and G8 explicitly authorizes standard GitHub-hosted runners. Larger/billable runners are not authorized.
@@ -156,6 +237,8 @@ Stacked PRs are exceptional and limited to two levels.
 The PI-facing report is domain- and project-oriented, not Git-oriented. The PI is expected to judge Ziwei theory, research boundaries, interpretation quality, and major product direction; routine Git mechanics should be hidden unless they block progress or create risk.
 
 At the end of **every repository-work conversation** (including read-only review, completed implementation, validation, or a blocked/paused work unit), perform a lightweight **read-only** live Issue/PR census for the current palace worker, Knowledge Core, and Product. Check accepted `main` where a delivery claim depends on it. Report all three in Chinese even though this turn executes in exactly one lane. Do not open an Issue, change another lane, rerun its tests, or consume an unmerged artifact merely to prepare the report. Live Issue/PR and accepted `main` outrank a stale state cache; if a live check fails, mark that lane **未核实** with the reason and do not recommend a dependent activation as if it were verified.
+
+Batch this census where supported and include its observation time. For each stream, distinguish **occupied/runnable**, **occupied/waiting**, **free/no admitted task** and **unverified**, alongside its Issue/PR, next independent action, blocker and PI gate. Preserve Core WIP 1, Product WIP 1 and the PI's one-palace-at-a-time schedule within the existing palace caps; Governance remains its own one-unit write lane. Respect registered path ownership and cross-lane handoffs. Independent preparation may overlap in separate chats; canonical integration remains serial against current accepted main, ordered by dependencies and validated readiness rather than a fixed Palace -> Core -> Product cycle. Report at most one next integration candidate and its remaining gate. A status report does not launch another task or authorize unmerged Knowledge consumption.
 
 Default report order:
 
