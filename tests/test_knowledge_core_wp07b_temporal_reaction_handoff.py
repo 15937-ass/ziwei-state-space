@@ -72,6 +72,8 @@ def test_near_ready_rows_remain_blocked_for_source_fidelity_reasons():
         assert row["eligibility_status"] == "BLOCKED_TEMPORAL_STAR_TRANSFORMATION_BINDING"
         assert "SCOPE_LEVEL_MUTAGEN_MUST_NOT_BE_JOINED_TO_STAR" in row["blocker_codes"]
         assert row["current_contract_eligible"] is False
+        assert "SOURCE_NATAL_CONTEXT_READY" not in row["blocker_codes"]
+        assert "SOURCE_NATAL_CONTEXT_READY" in row["source_status_codes"]
         assert "WP07B-GAP-004-STAR-MUTAGEN-BINDING" in row["gap_ids"]
 
     multi_year = by_id["CA09-851"]
