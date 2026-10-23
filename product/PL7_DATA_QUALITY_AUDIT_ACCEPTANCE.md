@@ -47,7 +47,7 @@ An empty input returns `NO_DATA`, not `PASS`. The function reads only caller-sup
 
 ## Validation boundary
 
-The regression suite contains 25 focused tests. The tests use committed demonstration fixtures and synthetic perturbations. The repository currently contains no established real cohort dataset for this audit, so test success is **fixture/contract evidence only**. It is not a real-cohort data-quality result, calibration result, canonical fidelity result, or predictive-validity result.
+The regression suite contains 31 focused tests, including bridge-backed response validation for schema v0.1/v0.2, malformed event-time reports, ambiguous intervals, invalid negative close-outs, and legacy exact-date compatibility. The tests use committed demonstration fixtures and synthetic perturbations. The repository currently contains no established real cohort dataset for this audit, so test success is **fixture/contract evidence only**. It is not a real-cohort data-quality result, calibration result, canonical fidelity result, or predictive-validity result.
 
 ## Acceptance evidence
 
