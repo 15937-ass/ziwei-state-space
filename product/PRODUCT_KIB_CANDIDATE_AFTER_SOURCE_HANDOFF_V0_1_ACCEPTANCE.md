@@ -53,7 +53,7 @@ The source-eligibility blockers are supplied separately to the existing promotio
 - `NO_COMPILER_READY_TEMPORAL_REACTION_SPECIFICATION`
 - `SOURCE_HANDOFF_ZERO_ELIGIBLE_UNDER_CURRENT_CONTRACT`
 
-The readiness regression is required and recorded as `PASS`; it does not override the source-eligibility blockers. The promotion gate is `BLOCKED` with `promotion_allowed=false`.
+The readiness regression is required and recorded as `PASS`; it does not override the source-eligibility blockers. The promotion gate is `BLOCKED` with `recommendation=DO_NOT_PROMOTE` and `active_lock_mutated=false`.
 
 ## Invariants
 
