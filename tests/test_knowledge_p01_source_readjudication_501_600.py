@@ -26,8 +26,10 @@ def test_p06_candidate_census_source_first_and_promotions():
     assert sum(r["case_support_only"] == "true" for r in rows) == 6
     by = {r["projection_rule_id"]: r for r in rows}
     assert "或不见吉化" in by["P01-515"]["canonical_condition"]
-    assert by["P01-563"]["opposite_palace_dependency"] == "天同化忌（对宫）"
-    assert by["P01-564"]["opposite_palace_dependency"] == "天同化忌（对宫）"
+    assert by["P01-563"]["opposite_palace_dependency"] == ""
+    assert by["P01-564"]["opposite_palace_dependency"] == ""
+    assert by["P01-563"]["cross_palace_dependency"] == "天同化忌（邻宫）"
+    assert by["P01-564"]["cross_palace_dependency"] == "天同化忌（邻宫）"
     assert "天梁天马陷" in by["P01-590"]["source_text_uncertainty"]
     assert by["P01-590"]["canonical_condition"].endswith("“天梁天马陷”")
     assert by["P01-600"]["archived_primary_time_layer"] == "DECADE"
@@ -35,8 +37,8 @@ def test_p06_candidate_census_source_first_and_promotions():
 
 def test_p06_gap_supplement_census_and_case_only():
     rows = read_csv("LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv")
-    assert len(rows) == 41
-    assert [r["projection_rule_id"] for r in rows] == [f"P01-SG-{i:03d}" for i in range(168, 209)]
+    assert len(rows) == 42
+    assert [r["projection_rule_id"] for r in rows] == [f"P01-SG-{i:03d}" for i in range(168, 210)]
     assert all(r["source_gap_id"] == "P01-SRC-GAP-026" for r in rows)
     assert all(r["canonical_promotion"] == "true" for r in rows)
     assert sum(r["case_support_only"] == "true" for r in rows) == 10
@@ -45,6 +47,7 @@ def test_p06_gap_supplement_census_and_case_only():
     assert by["P01-SG-177"]["archived_primary_time_layer"] == "DECADE_YEAR"
     assert by["P01-SG-198"]["archived_primary_time_layer"] == "SOURCE_SCOPE_UNRESOLVED"
     assert by["P01-SG-204"]["cross_palace_dependency"] == "夫妻宫巨门吉化（尤喜化禄）"
+    assert "丧门、吊客、白虎" in by["P01-SG-209"]["source_literal_claim"]
 
 
 def test_p06_time_scope_preserves_generic_and_multilayer_words():
@@ -74,10 +77,12 @@ def test_p06_gap_supplement_time_scope_and_cumulative_state():
     assert rows["P01-SG-187"]["source_time_layers"] == ["DECADE", "YEAR"]
     assert rows["P01-SG-198"]["source_time_layers"] == []
     assert rows["P01-SG-208"]["source_time_layers"] == ["DECADE", "YEAR"]
+    assert rows["P01-SG-209"]["source_time_layers"] == ["YEAR"]
+    assert rows["P01-SG-209"]["scope_status"] == "SOURCE_EXPLICIT_YEAR_OR_SMALL_LIMIT_UNMAPPED"
     summary = read_json("LIFE_P06_SOURCE_READJUDICATION_SUMMARY_v0.1.json")["summary"]
     assert (summary["historical_candidates_reviewed"], summary["canonical_promoted"], summary["new_source_gap_supplement_records"]) == (100, 100, 41)
-    assert (summary["new_canonical_records"], summary["reusable_projection_rules"], summary["case_support_only"]) == (141, 125, 16)
-    assert (summary["cumulative_canonical_records_after_merge"], summary["cumulative_reusable_projection_rules_after_merge"], summary["cumulative_case_support_only_after_merge"]) == (788, 655, 133)
+    assert (summary["new_canonical_records"], summary["reusable_projection_rules"], summary["case_support_only"]) == (142, 126, 16)
+    assert (summary["cumulative_canonical_records_after_merge"], summary["cumulative_reusable_projection_rules_after_merge"], summary["cumulative_case_support_only_after_merge"]) == (789, 656, 133)
     assert summary["new_primitive_qi"] == summary["new_memory_type"] == summary["new_independent_time_scale"] == 0
     assert summary["numeric_weight"] == summary["probability"] == summary["decay"] == 0
     assert 'canonical_source_records_on_main: 788' in STATE.read_text(encoding="utf-8")
