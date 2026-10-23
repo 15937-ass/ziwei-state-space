@@ -2,7 +2,7 @@
 
 Status: **ACTIVE — G8 EXECUTION POLICY, G9 REPOSITORY-AUTHORITY AMENDMENT**  
 Tracking Issues: #372 (G8), #374 (G9)  
-Supersedes for routine execution: `governance/WORK_CODEX_EXECUTION_PROTOCOL_v0.1.md`  
+Supersedes for routine execution: `governance/archive/WORK_CODEX_EXECUTION_PROTOCOL_v0.1_G7_HISTORICAL.md`  
 Recovery precedence: `governance/RECOVERY_PRECEDENCE_v1.md`
 
 ## 1. Purpose

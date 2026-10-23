@@ -5,21 +5,22 @@ Governance: GOVERNANCE.md
 
 ## 1. Core rule
 
-Chat is not project state. GitHub Issues define active work; PRs define implementation; main contains accepted state.
+Chat text is not project state. GitHub Issues define active work; PRs define implementation; main contains accepted state. Separately, the current ChatGPT conversation is a first-class repository operator and may use every GitHub operation exposed by the connected tools. Do not confuse “chat is not state authority” with “chat cannot operate the repository.”
 
 ## 2. Session bootstrap
 
-For a new session, timeout recovery, hard checkpoint, or possible external merge:
+For a new session, timeout recovery, hard checkpoint, model/session change, or possible external merge:
 1. read `PROJECT_STATE.yaml`;
-2. read `governance/RECOVERY_PRECEDENCE_v1.md`;
-3. read the selected lane state as a recovery cache;
-4. for KNOWLEDGE_ONLY, select CORE or one palace shard and read the shard state referenced by `knowledge/KNOWLEDGE_STATE.yaml`;
-5. query live GitHub Issues for the selected lane/shard;
-6. if a bounded active/open Issue exists, treat it as execution truth even if the state cache is stale;
-7. open the Issue-linked PR if present and treat it as implementation truth;
-8. read only Issue-required artifacts.
+2. read `CHATGPT_START_HERE.md` as the single canonical ChatGPT startup instruction;
+3. read `governance/RECOVERY_PRECEDENCE_v1.md`;
+4. read the selected lane state as a recovery cache;
+5. for KNOWLEDGE_ONLY, select CORE or one palace shard and read the shard state referenced by `knowledge/KNOWLEDGE_STATE.yaml`;
+6. query live GitHub Issues for the selected lane/shard;
+7. if a bounded active/open Issue exists, treat it as execution truth even if the state cache is stale;
+8. open the Issue-linked PR if present and treat it as implementation truth;
+9. read only Issue-required artifacts.
 
-Do not infer current work from old chat, stale branch names, legacy PRs, README “Current phase” text, `tasks/*.yaml`, historical validation “next work” sections, old proposal files, or superseded protocols.
+Do not reuse conflicting startup instructions from prior chats or external notes. If an old prompt claims that GitHub Actions are disabled based on G7-era rules, discard that instruction and follow `CHATGPT_START_HERE.md` plus the current protocol pointer. Do not infer current work from old chat, stale branch names, legacy PRs, README “Current phase” text, `tasks/*.yaml`, historical validation “next work” sections, old proposal files, or superseded protocols.
 
 Words such as `ACTIVE`, `CURRENT`, `NEXT`, `PENDING`, and `READY_FOR_PI` are local metadata unless the current authority chain names that artifact. Historical Human-Gate markers do not create a current PI request by themselves.
 
@@ -62,7 +63,7 @@ Product and Governance retain one ACTIVE work unit each. Knowledge follows `gove
 9. report status;
 10. stop.
 
-After G8, GitHub Actions on standard public-repository runners is an approved routine deterministic validation runtime.
+After G8, GitHub Actions on standard public-repository runners is an approved routine deterministic validation runtime. Automatic `pull_request` validation and `workflow_dispatch` are allowed; automatic `push` triggers remain prohibited. This is not a blanket Actions disablement.
 
 Do not automatically chain into the next Issue in the same turn.
 
