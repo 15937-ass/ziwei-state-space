@@ -1,20 +1,23 @@
 import json
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 STATE = ROOT / "knowledge/states/P09_CAREER_STATE.yaml"
 SOURCE_AUDIT = ROOT / "knowledge/wp07a/CAREER_888_CLOSURE_AUDIT_v0.1.json"
 SOURCE_TAIL = ROOT / "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json"
-CLOSURE = ROOT / "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.15.json"
+CLOSURE = ROOT / "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.16.json"
 GRAPH = ROOT / "knowledge/wp08/CAREER_ANTECEDENT_DEPENDENCY_GRAPH_65_v0.1.json"
-IR = ROOT / "knowledge/wp08/CAREER_DEPENDENCY_IR_3_v0.1.json"
+DEPENDENCY_IR = ROOT / "knowledge/wp08/CAREER_DEPENDENCY_IR_3_v0.1.json"
+DIRECT_IR = ROOT / "knowledge/wp08/CAREER_DIRECT_CONDITION_IR_9_v0.1.json"
+CENSUS = ROOT / "knowledge/wp08/CAREER_COMPILER_READINESS_CENSUS_26_v0.1.json"
 
 
 def load(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def test_p09_state_cache_matches_accepted_recovery_checkpoint():
+def test_p09_state_cache_matches_accepted_v016_checkpoint():
     state = STATE.read_text(encoding="utf-8")
     assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
     assert "active_issue: null" in state
@@ -22,13 +25,15 @@ def test_p09_state_cache_matches_accepted_recovery_checkpoint():
     assert "active_pr: null" in state
     assert (
         'canonical_checkpoint: "CAREER_CANONICAL_888_OF_888_SOURCE_REVIEWED; '
-        'CLOSURE_251_V0_15; DEPENDENCY_IR_3_OF_3; '
-        '12_CONDITION_IR_READY_14_LOCAL_FAIL_CLOSED"'
+        'CLOSURE_251_V0_16; COMPILER_READINESS_CENSUS_26; '
+        'KNOWLEDGE_CONDITION_IR_READY_12_OF_26; DEPENDENCY_IR_3_OF_3"'
     ) in state
-    assert "Issue #508 / PR #509" in state
+    assert "Issue #510 / PR #511" in state
+    assert "12/26 are Knowledge condition-IR-ready" in state
+    assert "14 stay fail-closed" in state
     assert "conditions_compiled=0" in state
     assert "execution_unlocked=0" in state
-    assert "Future work is gap-driven" in state
+    assert "Future work must be gap-driven" in state
 
 
 def test_career_source_id_coverage_remains_888_of_888():
@@ -50,8 +55,10 @@ def test_career_source_id_coverage_remains_888_of_888():
     assert len(tail["mappings"]) == 36
 
 
-def test_v015_activation_closure_counts_and_execution_boundary_reconcile():
+def test_v016_activation_closure_counts_and_execution_boundary_reconcile():
     closure = load(CLOSURE)
+    assert closure["schema_version"] == "0.16"
+    assert closure["supersedes"] == "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.15.json"
     assert closure["coverage"] == {
         "total": 251,
         "unique_source_rule_ids": 251,
@@ -69,9 +76,60 @@ def test_v015_activation_closure_counts_and_execution_boundary_reconcile():
     assert summary["execution_unlocked"] == 0
 
 
+def test_compiler_readiness_census_partitions_all_26_rows_exactly_once():
+    census = load(CENSUS)
+    summary = census["summary"]
+    expected_bands = {
+        "DEPENDENCY_EFFECTIVE_UNDERDETERMINED": 11,
+        "DEPENDENCY_CONDITION_IR_READY": 3,
+        "DIRECT_CONDITION_IR_READY": 9,
+        "DIRECT_RELATION_OR_COMPOSITION_DEFERRED": 3,
+    }
+    assert summary["audited_local_structure_ready_rows"] == 26
+    assert summary["band_counts"] == expected_bands
+    assert sum(summary["band_counts"].values()) == 26
+    assert summary["total_knowledge_condition_ir_ready"] == 12
+    assert summary["not_condition_ir_ready_despite_local_structure_ready"] == 14
+    assert summary["conditions_compiled"] == 0
+    assert summary["execution_unlocked"] == 0
+
+    records = census["records"]
+    assert len(records) == 26
+    ids = [row["source_rule_id"] for row in records]
+    assert len(set(ids)) == 26
+    assert Counter(row["compiler_readiness_band"] for row in records) == Counter(expected_bands)
+    ir_ready_ids = {
+        row["source_rule_id"] for row in records
+        if row["knowledge_condition_ir_ready"] is True
+    }
+    assert len(ir_ready_ids) == 12
+
+    dependency_ir = load(DEPENDENCY_IR)
+    direct_ir = load(DIRECT_IR)
+    expected_dependency_ids = {
+        "CA05-420",
+        "CA07-639",
+        "CA07-682",
+    }
+    expected_direct_ids = {
+        "CA02-181",
+        "CA03-228",
+        "CA05-411",
+        "CA05-417",
+        "CA05-419",
+        "CA05-433",
+        "CA07-638",
+        "CA07-681",
+        "CA09-820",
+    }
+    assert {row["child_rule_id"] for row in dependency_ir["records"]} == expected_dependency_ids
+    assert {row["source_rule_id"] for row in direct_ir["records"]} == expected_direct_ids
+    assert ir_ready_ids == expected_dependency_ids | expected_direct_ids
+
+
 def test_dependency_graph_and_ir_have_exact_accepted_scope():
     graph = load(GRAPH)
-    ir = load(IR)
+    ir = load(DEPENDENCY_IR)
     graph_summary = graph["summary"]
 
     assert len(graph["records"]) == 65
