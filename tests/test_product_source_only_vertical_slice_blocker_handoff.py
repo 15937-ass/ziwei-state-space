@@ -179,12 +179,12 @@ def test_product_recovery_state_is_snapshot_metadata_not_a_mutable_pinned_input(
 def test_product_recovery_state_cache_tracks_main_freshness_and_product_checkpoint():
     state = (ROOT / "product" / "PRODUCT_STATE.yaml").read_text(encoding="utf-8")
 
-    assert 'state_cache_as_of_main_commit: "bee69d462a73abda1b51d3271d44f59627e3cbc6"' in state
-    assert 'state_cache_as_of_product_merge: "cb4259d4e83904b81ab556bd4e8a414471c4085e"' in state
+    assert 'state_cache_as_of_main_commit: "3407150866a5ace99552daa674356b92610f080e"' in state
+    assert 'state_cache_as_of_product_merge: "085e65c509fc5f9fed8230d00d2fc07a0e01b79b"' in state
     assert 'state_cache_snapshot_date: "2026-10-23"' in state
-    assert 'next_work_unit: "PRODUCT_PL7_Q2_PROSPECTIVE_COHORT_MANAGER"' in state
-    assert "last_completed_product_issue: 674" in state
-    assert "last_completed_product_pr: 693" in state
+    assert 'next_work_unit: "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"' in state
+    assert "last_completed_product_issue: 696" in state
+    assert "last_completed_product_pr: 698" in state
 
 def test_all_recovery_state_caches_are_snapshotted_not_pinned_as_sources():
     report = _report()
