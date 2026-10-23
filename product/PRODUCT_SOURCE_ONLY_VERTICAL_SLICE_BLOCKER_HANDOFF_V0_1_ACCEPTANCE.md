@@ -9,6 +9,8 @@ Snapshot date: 2026-10-22
 
 This handoff records the source-owned Knowledge inputs that remain absent from the active Product dependency set. It separates the current active Product KIB from candidate/other Knowledge files on main and from historical impact reports.
 
+All immutable source artifacts in `source_artifacts` remain pinned by Git blob SHA, and the tests recompute each digest from the exact file bytes. Recovery-state YAMLs are different: `product/PRODUCT_STATE.yaml`, `knowledge/KNOWLEDGE_STATE.yaml`, and the recorded Knowledge shard state files are mutable recovery caches. Their status is captured in dated, checkpointed snapshot metadata (`snapshot_date` and `snapshot_main_commit`), not as immutable source-artifact digests. Advancing a cache later must not invalidate this historical handoff; the normative source and contract artifacts remain strictly pinned.
+
 ## Verified Product baseline
 
 - Active lock: PRODUCT_KNOWLEDGE_LOCK_V0_3.
