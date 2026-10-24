@@ -32,3 +32,12 @@
 
 ## Supplemental source critic
 - W08-712 explicitly inherits the 太阳化忌 clause before 天刑; W08-714 preserves the literal 火、铃星、空劫、大耗 list; W08-729 retains 禄存同度; W08-733/734 preserve the 辰戌巨门与煞曜同度 antecedent; W08-736 retains 独坐.
+
+
+## Rebased replacement PR (2026-10-24)
+- The Product-owned historical-snapshot test repair was merged to main at `5a7be5651f1682fe1c5c039f99d77cb1852d9ed3` after all Repository Quality Gate steps passed.
+- Stale Draft PR #739 is superseded; the source-first work has been replayed onto current main in [Draft PR #744](https://github.com/15937-ass/ziwei-state-space/pull/744).
+- Replacement branch: `knowledge/p05-737-source-first-jumen-p86-p87-r2`.
+- Replacement PR base SHA: `5a7be5651f1682fe1c5c039f99d77cb1852d9ed3`.
+- The P05 state cache and regression assertions now point to Issue #737, the replacement branch, and PR #744.
+- Source scope and semantic safeguards are unchanged by this rebase. Exact-head validation remains pending; do not merge before all required checks pass.
