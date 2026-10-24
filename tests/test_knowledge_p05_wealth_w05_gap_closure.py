@@ -117,5 +117,5 @@ def test_p05_state_cache_preserves_historical_batch_and_open_gap():
     assert "source_coverage_gap_count_current_batch: 0" in state
     assert "W05-SG-002 remains PARTIALLY_RESOLVED" in state
     assert "printed p84" in state
-    assert "W05-SG-002 forward as partially resolved" in state
+    assert "Carry W05-SG-002 forward as PARTIALLY_RESOLVED" in state
     assert "No Product/runtime authorization is implied" in state
