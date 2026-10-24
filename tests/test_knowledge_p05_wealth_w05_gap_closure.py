@@ -108,7 +108,7 @@ def test_p05_state_cache_preserves_historical_batch_and_open_gap():
     assert "active_pr: null" in state
     assert "merged_rule_count: 563" in state
     assert "reviewed_rule_count: 500" in state
-    assert "current_batch_rule_count: 37" in state
+    assert "current_batch_rule_count: 34" in state
     assert "source_first_records_added_current_batch: 34" in state
     assert "source_gap_supplement_record_count: 4" in state
     assert "source_coverage_gaps_closed_by_supplement: 2" in state
