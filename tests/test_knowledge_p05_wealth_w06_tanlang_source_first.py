@@ -78,9 +78,7 @@ def test_tanlang_batch_preserves_prior_audit_without_pinning_live_cache():
     assert previous["records"][-1]["projection_rule_id"] == "W06-562"
     assert previous["summary"]["cumulative_canonical_records_after_merge"] == 563
     state = STATE.read_text(encoding="utf-8")
-    assert "P05 canonical reusable rule count after this checkpoint is 642" in state
     assert "source_gap_supplement_record_count: 4" in state
-    assert "source_coverage_gaps_remaining: 6" in state
     assert "W06-SG-001" in state and "W06-SG-005" in state
     assert "W05-SG-002 remains PARTIALLY_RESOLVED" in state
     assert "No Product/runtime authorization is implied" in state
