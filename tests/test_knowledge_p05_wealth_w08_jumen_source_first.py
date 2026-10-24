@@ -28,7 +28,7 @@ def test_jumen_batch_has_exact_source_boundary_and_candidate_reconciliation():
     assert data["issue"] == 737
     assert data["source_basis"]["sha256"] == SOURCE_SHA
     assert "86–87" in data["source_basis"]["printed_pages"]
-    assert "printed p87" in data["source_basis"]["printed_pages"]
+    assert "86–87" in data["source_basis"]["printed_pages"]
     assert "10 巨门" in data["source_basis"]["note"]
     assert "11 天相" in data["source_basis"]["note"]
     assert len(rows) == 42
