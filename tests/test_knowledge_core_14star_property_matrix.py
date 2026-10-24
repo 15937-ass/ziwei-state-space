@@ -58,6 +58,23 @@ class TestFourteenStarPropertyMatrix(unittest.TestCase):
         self.assertTrue(all("source_span_verified" in r for r in rows))
         self.assertTrue(all("case_support_only_status" in r for r in rows))
 
+    def test_report_includes_structural_fit_ambiguity_overlap_conflict_and_counterexample(self):
+        data = load_data()
+        cases = {case["category"]: case for case in data["representative_case_audit"]}
+        self.assertIn("STRUCTURALLY_ALIGNED_CANDIDATE_NOT_ACCEPTED", cases)
+        self.assertIn("MULTI_TARGET_PROJECTION_AMBIGUITY", cases)
+        self.assertIn("QI_QR_OVERLAP_CANDIDATE", cases)
+        self.assertIn("APPARENT_CONFLICT_CONDITIONALLY_DISTINGUISHED", cases)
+        self.assertIn("COUNTEREXAMPLE_TO_MANDATORY_COMPLETE_INTRINSIC_VECTOR", cases)
+        self.assertEqual(data["source_corpus"]["explicit_conflict_link_rows"], 0)
+        self.assertEqual(cases["STRUCTURALLY_ALIGNED_CANDIDATE_NOT_ACCEPTED"]["rule_ids"], ["ZZ-TF-002"])
+        self.assertEqual(cases["APPARENT_CONFLICT_CONDITIONALLY_DISTINGUISHED"]["rule_ids"], ["ZZ-ZW-003", "ZZ-ZW-004"])
+        report = REPORT_PATH.read_text(encoding="utf-8")
+        for rule_id in ["ZZ-TF-002", "ZZ-ZW-013", "ZZ-WQ-020", "ZZ-ZW-003", "ZZ-ZW-004", "ZZ-ZW-002"]:
+            self.assertIn(rule_id, report)
+        self.assertIn("不等于已经通过人工来源复核", report)
+        self.assertIn("不证明紫微没有任何内在性质", report)
+
     def test_qi_qr_coverage_counts_match_matrix_rows(self):
         data = load_data()
         rows = matrix_records(data)
