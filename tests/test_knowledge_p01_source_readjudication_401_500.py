@@ -81,8 +81,10 @@ def test_p01_gap_ledger_and_cumulative_counts():
     assert entries["P01-SRC-GAP-025"]["status"] == "CLOSED_BY_SOURCE_RECHECK_AND_CANONICAL_RULES"
     assert len(entries["P01-SRC-GAP-025"]["rule_ids"]) == 91
     assert ledger["unresolved_gap_ids"] == []
-    assert ledger["next_checkpoint_gaps"][0]["gap_id"] == "P01-SRC-GAP-028"
-    assert "P01-701" in ledger["next_source_anchor"]
+    assert entries["P01-SRC-GAP-028"]["status"] == "CLOSED_BY_SOURCE_RECHECK_AND_CANONICAL_RULES"
+    assert len(entries["P01-SRC-GAP-028"]["rule_ids"]) == 51
+    assert ledger["next_checkpoint_gaps"] == []
+    assert "P01 source audit complete through printed p24" in ledger["next_source_anchor"]
     s = _json("LIFE_P05_SOURCE_READJUDICATION_SUMMARY_v0.1.json")["summary"]
     assert s["historical_candidates_reviewed"] == 100
     assert s["canonical_promoted"] == 82
@@ -101,4 +103,4 @@ def test_p01_next_source_anchor_uses_canonical_p01_ids():
     assert "Source-first readjudication P01-501…P01-600" in review
     assert "Canonical IDs assigned after source recheck: `P01-501…P01-600`" in review
     assert "Historical acceleration inputs: `validation/wp05/P06_life_palace_projection_review_part1_v0.1.csv`" in review
-    assert "P01-701…P01-800 source-first checkpoint" in state
+    assert "P01-701…P01-751" in state

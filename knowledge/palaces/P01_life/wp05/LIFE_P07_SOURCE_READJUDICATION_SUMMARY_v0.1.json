@@ -6,9 +6,9 @@
     "source_id": "SRC-ZZ-003",
     "title": "《中州派紫微斗数深造讲义（下册）》",
     "sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
-    "source_span": "宫垣论·命宫·第13节七杀：printed p20 bottom from the section heading through printed p22",
-    "scan_mapping": "PDF physical p10 = printed pp19–20; physical p11 = printed pp21–22; physical p12 left half = printed p23, where 破军 prose begins before the printed p24 heading.",
-    "out_of_scope": "Printed p23 onward is 破军 prose and is not part of this 七杀 checkpoint."
+    "source_span": "宫垣论·命宫·第13节七杀：printed p20 bottom through the final 七杀 text immediately before heading 14 破军 at printed p22 bottom",
+    "scan_mapping": "PDF physical p10 = printed pp19–20; physical p11 = printed pp21–22. The 14 破军 heading and opening prose are at printed p22 bottom (PDF physical p11 right half); physical p12 contains printed pp23–24 continuing the section.",
+    "out_of_scope": "The 14 破军 heading and opening prose at printed p22 bottom through the end of the section on printed p24 are outside Issue #707 and were audited by Issue #714. The next heading 兄弟宫 is printed p25."
   },
   "candidate_inputs": [
     "validation/wp05/P07_life_palace_projection_review_part1_v0.1.csv",
@@ -52,8 +52,8 @@
     {
       "gap_id": "P01-SRC-GAP-027",
       "status": "CLOSED_BY_SOURCE_RECHECK_AND_CANONICAL_RULES",
-      "source_location": "宫垣论·命宫·printed p20 bottom through printed p22; PDF physical pp10–11",
-      "closure_scope": "Only section 13 七杀, from its heading/opening at printed p20 bottom through its final statements at printed p22. Earlier Tianliang material on p20 is not reopened; printed p23 begins 破军 prose.",
+      "source_location": "宫垣论·命宫·printed p20 bottom through final 七杀 text immediately before the heading 14 破军 at printed p22 bottom; PDF physical p10–p11 right half",
+      "closure_scope": "Only section 13 七杀, from its heading/opening at printed p20 bottom through the last 七杀 statement immediately before the 14 破军 heading at printed p22 bottom. The 14 破军 heading and opening prose are excluded from Issue #707 and audited by Issue #714. Earlier Tianliang material on p20 remains closed by gap 026.",
       "rule_ids": [
         "P01-613",
         "P01-614",
@@ -158,17 +158,7 @@
       }
     }
   ],
-  "source_coverage_gaps_next_checkpoint": [
-    {
-      "gap_id": "P01-SRC-GAP-028",
-      "status": "OPEN_FOR_NEXT_SOURCE_CHECKPOINT",
-      "source_location": "宫垣论·命宫·printed p23 opening prose of section 14 破军; PDF physical p12 left half",
-      "source_claim": "Printed p23 begins 破军 prose even though the heading “14 破军” appears on printed p24. This is the next source anchor; it is not audited by Issue #707.",
-      "reason": "The current checkpoint closes section 13 七杀 only through printed p22. Continue source-first at the actual first 破军 prose on printed p23; do not skip it because the section heading is on p24.",
-      "partial_canonical_rule_ids": [],
-      "next_source_anchor": "P01-701…P01-800 source-first checkpoint: audit 破军 opening prose beginning printed p23 (PDF physical p12 left half); the “14 破军” heading appears on printed p24."
-    }
-  ],
+  "source_coverage_gaps_next_checkpoint": [],
   "source_text_variants": [
     {
       "term": "雄宿乾无格",
@@ -198,5 +188,18 @@
   "shared_semantic_gaps": [],
   "human_gate_required": false,
   "product_runtime_authorization": false,
-  "no_new_semantic_primitives": true
+  "no_new_semantic_primitives": true,
+  "post_merge_boundary_correction": {
+    "found_during_issue": 714,
+    "previous_incorrect_anchor": "Printed p23 begins 破军 prose; heading 14 破军 appears on printed p24.",
+    "verified_correction": "Printed p22 bottom already contains heading 14 破军 and its opening prose; printed p23 continues; the section ends on printed p24 before 兄弟宫 at printed p25.",
+    "previous_issue_707_seven_kill_scope": "Section 13 七杀 ends immediately before the 14 破军 heading at printed p22 bottom; its accepted rule IDs and meanings are unchanged.",
+    "gap_028_status_after_issue_714": "CLOSED_BY_SOURCE_RECHECK_AND_CANONICAL_RULES",
+    "gap_028_rule_ids_count": 51,
+    "current_cumulative_counts_after_issue_714": {
+      "canonical_source_records": 933,
+      "reusable_projection_rules": 783,
+      "case_support_only": 150
+    }
+  }
 }
