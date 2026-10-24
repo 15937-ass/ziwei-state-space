@@ -1,21 +1,21 @@
-# P05 财帛宫 W06 天府与太阴来源审计摘要（Issues #719 / #723）
+# P05 财帛宫 W06 来源审计摘要（Issues #719 / #723 / #733）
 
 ## 状态与来源
 - 状态：DIRECT SOURCE-FIRST；KNOWLEDGE_ONLY / P05 财帛宫。
 - 来源：SRC-ZZ-003《中州派紫微斗数深造讲义（下册）》。
 - 已核对来源 SHA-256：`6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c`。
-- 当前覆盖：printed p82 底部的 `7 天府` 开篇至 printed p83 末尾；printed p84 的 `8 太阴` 开篇至 printed p85 最后一条太阴正文。
-- PDF 对应位置：physical p41 右半 = printed p82；physical p42 左半 = printed p83；physical p42 右半 = printed p84；physical p43 左半 = printed p85。printed p85 的太阴最后一句之后，同页紧接着可见 `9 贪狼` 标题及开篇正文 `贪狼守财帛宫，手段阔绰大方…`；该标题和开篇均不在本批范围。physical p43 右半是 printed p86，后续正文才以 `子午贪狼守财帛者…` 开始。
+- 当前覆盖：printed p82 底部的 `7 天府` 开篇至 printed p83 末尾；printed p84 的 `8 太阴` 开篇至 printed p85 最后一条太阴正文；printed p85 的 `9 贪狼` 标题至 printed p86 的 `10 巨门` 标题之前。
+- PDF 对应位置：physical p41 右半 = printed p82；physical p42 左半 = printed p83；physical p42 右半 = printed p84；physical p43 左半 = printed p85；physical p43 右半 = printed p86。Issue #723 stops before the printed-p85 `9 贪狼` heading. Issue #733 covers the complete `9 贪狼` section from printed p85 through the last sentence before `10 巨门` on printed p86.
 
 ## 记录结果
-- W06 直接来源审计记录累计：62（`W06-501…W06-562`）；其中 59 条可提升为 canonical 规则，3 条原文歧义记录保留审计但不晋升。
+- W06 直接来源审计记录累计：100（`W06-501…W06-600`）；其中 96 条可提升为 canonical 规则，4 条原文歧义记录保留审计但不晋升（`W06-540`、`W06-542`、`W06-559`、`W06-596`）。
 - Issue #719 天府批次：25 条（`W06-501…W06-525`）。
 - Issue #723 太阴批次：37 条审计记录（`W06-526…W06-562`），其中 34 条晋升为 canonical 规则，3 条原文歧义暂不晋升。
-- 可复用规则累计：59；CASE_SUPPORT_ONLY：0。
-- 合并当前批次后的 P05 canonical 累计：563；可复用规则：563；CASE_SUPPORT_ONLY：0。
+- W06 可复用规则累计：96；CASE_SUPPORT_ONLY：0。
+- 合并 Issue #733 后的 P05 canonical 累计：600；可复用规则：600；CASE_SUPPORT_ONLY：0。
 - P05 来源缺口补充记录仍为 4；本次未新增 canonical gap-supplement 规则。
-- 新增 W06 本地原文歧义 4 项，均保持 OPEN：`W06-SG-001`（“被绰或遗失”）、`W06-SG-002`（“卯本太阴”）、`W06-SG-003`（“性质不占时”）、`W06-SG-004`（“其实(即社会地位)亦由富而来”）。W06-532 只晋升夜生/日生层级这一清楚主张；该异常子句不校改、不用于推导路径。
-- `W06-501…W06-600` 是上限窗口，不是必须填满 100 行的配额；`W06-563…W06-600` 不伪造。
+- W06 本地原文歧义共 5 项，均保持 OPEN：`W06-SG-001`（“被绰或遗失”）、`W06-SG-002`（“卯本太阴”）、`W06-SG-003`（“性质不占时”）、`W06-SG-004`（“其实(即社会地位)亦由富而来”）、`W06-SG-005`（“风流采杖”）。W06-532 只晋升夜生/日生层级这一清楚主张；异常子句不校改、不用于推导路径。W06-596 保留“风流采杖”字面，但不晋升。
+- W06-501…600 的数值范围不是未来批次必须填满的配额；本轮 563…600 对应实际审查到的贪狼原文原子，未添加无来源的填充记录。
 
 ## 原文边界与条件保真
 1. 天府守财帛宫不直接等于富厚；基础储财/理财能力与“必须见禄始可成富局”的门槛分别保留。
@@ -26,6 +26,15 @@
 6. `W05-SG-002` 仍为 `PARTIALLY_RESOLVED`，位置在 printed p81；本批不修复其字面，也不声称 p81 已完整覆盖。
 
 ## 下一来源锚点
-- 下一 P05 来源批次从 printed p85 太阴最后一句之后的 `9 贪狼` 标题及开篇正文 `贪狼守财帛宫，手段阔绰大方…` 开始；printed p86 的 `子午贪狼守财帛者…` 是贪狼章节后续段落，不是首个来源锚点。
+- 下一 P05 来源批次从 printed p86 的 `10 巨门` 标题及开篇正文 `巨门守财帛宫，基本性质为劳心费神以求财…` 开始。贪狼批次中 W06-SG-005 保持 OPEN；W06-SG-001…004 仍 OPEN，W05-SG-002 仍 PARTIALLY_RESOLVED。
 - 在完成财帛宫来源覆盖清点及剩余缺口处置之前，不切换到 P09。
 - 无新增共享语义、独立时间尺度、概率、权重、阈值、频率、衰减或 Product/runtime 授权。
+
+
+## Issue #733 — 贪狼来源审计（printed pp85–86）
+- 来源范围：printed p85 的 `9 贪狼` 标题至 printed p86 的 `10 巨门` 标题之前；physical PDF p43 左半为 p85，右半为 p86。原始 PDF SHA-256 已复核。
+- 新增 `W06-563…W06-600` 共 38 条来源审计记录；37 条晋升，`W06-596` 因印刷词组 `『风流采杖』` 的语义范围未能由本来源独立确定而保留不晋升。
+- 本批无历史候选可复核、无来源字面修订、无新增共享语义、无年份/大限层、无数字权重/概率/阈值/频率/衰减。
+- 新增来源歧义 `W06-SG-005`，状态 OPEN；既有 `W06-SG-001…004` 保持 OPEN，`W05-SG-002` 保持 PARTIALLY_RESOLVED。累计仍有 6 项来源缺口/未决状态需要后续处置。
+- 下一来源锚点：printed p86 的 `10 巨门`。本次不包含巨门正文，也不代表 P05 整宫来源覆盖已完成。
+- 不授权 Product/runtime 消费或预测有效性主张。
