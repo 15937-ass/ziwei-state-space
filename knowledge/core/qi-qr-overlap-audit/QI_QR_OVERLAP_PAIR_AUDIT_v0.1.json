@@ -1,0 +1,294 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-CORE-QIQR-OVERLAP-PAIR-AUDIT-v0.1",
+  "issue": 731,
+  "activation_main_sha": "46dc68d0fcf9ccc99c74b8f7088050c483130014",
+  "status": "PROPOSAL_ONLY_NOT_CANONICAL",
+  "scope": "Eight pre-identified QI/QR overlap pairs; no canonicalization authority.",
+  "source_basis": [
+    "knowledge/qi_ontology.yaml",
+    "knowledge/star_cores.yaml",
+    "knowledge/star_systems.yaml",
+    "14STAR_PROPERTY_MATRIX_QIQR_AUDIT_v0.1.json",
+    "DIRECT_STAR_SOURCE_REVIEW_BATCH_01_v0.1.csv",
+    "DIRECT_STAR_SOURCE_REVIEW_BATCH_02_v0.1.csv"
+  ],
+  "epistemic_policy": {
+    "source_epistemic_separate_from_normalization_epistemic": true,
+    "normalization_epistemic": "UNRESOLVED",
+    "canonicalization_authorized": false,
+    "product_consumption_authorized": false
+  },
+  "pairs": [
+    {
+      "pair_id": "OVERLAP-01",
+      "left_id": "QI-01",
+      "left_name": "发射—收敛",
+      "left_layer": "L1 / intrinsic state",
+      "left_definition": "气机向外扩散、显发与向内潜藏、收束之间的动力学倾向。",
+      "right_id": "QI-14",
+      "right_name": "信息/状态遮蔽—显露",
+      "right_layer": "L1 / intrinsic state",
+      "right_definition": "信息、意图、能力或状态被隐藏、遮蔽，或被显露、可辨识的程度。",
+      "source_rule_ids": [
+        "ZZ-TYI-002",
+        "ZZ-JM-002",
+        "ZZ-JM-X04",
+        "ZZ-JM-X10"
+      ],
+      "source_locations": [
+        "SRC-ZZ-002 printed p19",
+        "SRC-ZZ-002 printed pp23–24",
+        "SRC-ZZ-001 printed p83"
+      ],
+      "shared_reference_status": "NO_SHARED_RULE_ID_FOUND_IN_CURRENT_MATRIX",
+      "evidence_summary": "太阴来源把潜藏/收敛描述为动力学倾向；巨门来源以暗曜及太阳化解暗蔽描述信息/状态的可见性。现有本体 modeling note 也明确说 QI-01 不等同信息可见性。",
+      "distinction_hypothesis": "两者可相关但不等价：一个描述气机方向/收束程度，另一个描述信息或状态是否可被看见/辨识。",
+      "counterexample_or_limit": "“潜藏”在一般语言中可同时指向内收与不显露，但来源没有证明二者总是同步。不能因词面相似就合并，也不能仅凭定义宣布完全正交。",
+      "research_disposition": "OVERLAP_BUT_DISTINCT_CANDIDATE",
+      "unresolved_question": "需要更多同一来源中将收敛与遮蔽明确区分或联动的成对例子；当前没有同一规则同时指向 QI-01 与 QI-14。",
+      "normalization_epistemic": "UNRESOLVED",
+      "proposal_status": "PROPOSAL_ONLY_NOT_CANONICAL",
+      "canonicalization_authorized": false,
+      "product_consumption_authorized": false
+    },
+    {
+      "pair_id": "OVERLAP-02",
+      "left_id": "QI-03",
+      "left_name": "稳定—变动",
+      "left_layer": "L1 / intrinsic state",
+      "left_definition": "系统保持既有结构与发生迁移、转换、重组之间的倾向。",
+      "right_id": "QI-04",
+      "right_name": "守成—开创/冲刺",
+      "right_layer": "L1 / intrinsic state",
+      "right_definition": "维护既有结构、资源与秩序，或主动突破既有结构推动新局的倾向。",
+      "source_rule_ids": [
+        "ZZ-PJ-002",
+        "ZZ-PJ-003",
+        "ZZ-PJ-X10",
+        "ZZ-TF-005"
+      ],
+      "source_locations": [
+        "SRC-ZZ-002 printed pp31–32",
+        "十四正曜·天府·书页17"
+      ],
+      "shared_reference_status": "SAME_RULES_REFERENCED_BY_BOTH_QI_03_AND_QI_04",
+      "evidence_summary": "破军“冲锋/不主退守”的同一规则同时被引用到 QI-03 与 QI-04；“旧事创新”则描述变化与既有事项的联系。天府守成与开创的比较提供另一方向的对照。",
+      "distinction_hypothesis": "QI-03 应回答“结构是否发生变化”；QI-04 应回答“变化相对守成的方向/方式是否偏开创或冲刺”。变化不自动意味着开创新局。",
+      "counterexample_or_limit": "破军“冲锋”文本可同时被读作变化和开创，因此当前共享引用确有歧义。相同句子被两个维度引用不构成两个独立证据，也不证明维度等价。",
+      "research_disposition": "OVERLAP_BUT_DISTINCT_CANDIDATE",
+      "unresolved_question": "需要一组明确“发生变化但不具开创方向”以及“维持结构但主动开创”的来源案例，以检验边界。",
+      "normalization_epistemic": "UNRESOLVED",
+      "proposal_status": "PROPOSAL_ONLY_NOT_CANONICAL",
+      "canonicalization_authorized": false,
+      "product_consumption_authorized": false
+    },
+    {
+      "pair_id": "OVERLAP-03",
+      "left_id": "QI-02",
+      "left_name": "刚—柔",
+      "left_layer": "L1 / intrinsic state",
+      "left_definition": "作用方式偏强硬、切断、压制或偏调和、缓冲、顺应的程度。",
+      "right_id": "QI-15",
+      "right_name": "缓冲/调和能力",
+      "right_layer": "L1 / scalar capacity",
+      "right_definition": "吸收冲突、降低极端、化解不利或使不同性质趋向平衡的能力。",
+      "source_rule_ids": [
+        "ZZ-WQ-020",
+        "ZZ-WQ-022",
+        "ZZ-TT-002",
+        "ZZ-TT-006"
+      ],
+      "source_locations": [
+        "SRC-ZZ-002 printed p11",
+        "SRC-ZZ-002 printed pp13–14",
+        "SRC-ZZ-001 诸星曜基本性质·天同"
+      ],
+      "shared_reference_status": "SAME_RULES_ZZ_WQ_020_AND_ZZ_WQ_022_LINK_TO_BOTH; ZZ-TT-002 HAS MULTI-TARGET CANDIDATE LINKS",
+      "evidence_summary": "武曲的刚烈/刚克可在天府、禄存或化禄等条件下被收敛/调和；现有矩阵将相关规则同时链接到 QI-02 与 QI-15。天同“和气/善化凶”也曾被分别关联到刚柔与缓冲。",
+      "distinction_hypothesis": "QI-02 描述状态/作用方式落在刚柔轴的哪一侧；QI-15 描述调节、吸收冲突或化解极端的功能能力。一个调节过程可能改变刚柔状态，但状态变化不自动证明主体具备独立的缓冲能力。",
+      "counterexample_or_limit": "同一条“刚烈被收敛”证据可描述 QI-02 的状态变化，也可被解释为 QI-15 的调节作用；但来源中的调节者可能是天府/禄存等外部条件，而不是武曲的内在能力。",
+      "research_disposition": "LAYER_OR_ROLE_MISMATCH_CANDIDATE",
+      "unresolved_question": "需明确 QI-15 是主体可复用能力、外部 modifier 的功能，还是系统交互结果；未定义前不应接受双重映射。",
+      "normalization_epistemic": "UNRESOLVED",
+      "proposal_status": "PROPOSAL_ONLY_NOT_CANONICAL",
+      "canonicalization_authorized": false,
+      "product_consumption_authorized": false
+    },
+    {
+      "pair_id": "OVERLAP-04",
+      "left_id": "QI-08",
+      "left_name": "行动驱动",
+      "left_layer": "L1 / scalar capacity",
+      "left_definition": "把内部意图转换为主动行动、执行、进取和实际推进的驱动力。",
+      "right_id": "QI-06",
+      "right_name": "决策激活度",
+      "right_layer": "L1 / non-monotonic scalar",
+      "right_definition": "从决策延迟到适度审慎，再到过度冲决的激活程度。",
+      "source_rule_ids": [
+        "ZZ-WQ-019",
+        "ZZ-WQ-024",
+        "ZZ-QS-004",
+        "ZZ-PJ-X02"
+      ],
+      "source_locations": [
+        "SRC-ZZ-002 printed pp11–12",
+        "SRC-ZZ-002 printed p29",
+        "SRC-ZZ-002 printed pp31–32"
+      ],
+      "shared_reference_status": "NO_SHARED_RULE_ID_FOUND_IN_CURRENT_MATRIX",
+      "evidence_summary": "武曲昌曲条件可出现优柔寡断，武曲见破军可转为躁决；七杀的独行与破军守命后的持续承担任务，则是行动/执行方面的描述。",
+      "distinction_hypothesis": "QI-06 描述决策过程的激活区间，允许低端迟疑与高端躁决；QI-08 描述将意图转为行动的驱动力。二者可能相关，但“决得快”不等于“能持续执行”，“行动多”也不等于决策恰当。",
+      "counterexample_or_limit": "当前矩阵未发现同一规则同时指向 QI-08 与 QI-06；现阶段是概念边界审查，不是已证实的重复映射。源文中的“躁决/优柔”也不能直接推成行动能力高低。",
+      "research_disposition": "DISTINCT_CONSTRUCTS_CANDIDATE",
+      "unresolved_question": "需要同一配置下分别记录决策迟疑/躁决与实际行动启动/执行的来源案例，检验是否有必要保留两个轴。",
+      "normalization_epistemic": "UNRESOLVED",
+      "proposal_status": "PROPOSAL_ONLY_NOT_CANONICAL",
+      "canonicalization_authorized": false,
+      "product_consumption_authorized": false
+    },
+    {
+      "pair_id": "OVERLAP-05",
+      "left_id": "QI-04",
+      "left_name": "守成—开创/冲刺",
+      "left_layer": "L1 / intrinsic state",
+      "left_definition": "维护既有结构、资源与秩序，或主动突破既有结构推动新局的倾向。",
+      "right_id": "QI-16",
+      "right_name": "目标导向性",
+      "right_layer": "L1 / scalar capacity",
+      "right_definition": "行动、变化与资源投入具有明确目标、方向与建设性组织的程度。",
+      "source_rule_ids": [
+        "ZZ-PJ-002",
+        "ZZ-PJ-X06",
+        "ZZ-SYS-09-004",
+        "ZZ-SYS-09-006",
+        "ZZ-SYS-31-003",
+        "ZZ-SYS-31-004",
+        "ZZ-SYS-52-038"
+      ],
+      "source_locations": [
+        "SRC-ZZ-002 printed pp31–32",
+        "六十星系相关规则（需按各规则定位复核）"
+      ],
+      "shared_reference_status": "NO_SHARED_RULE_ID_FOUND_FOR_QI_04_AND_QI_16_IN_CURRENT_MATRIX",
+      "evidence_summary": "破军的冲锋/开创描述与 QI-16 对有目的建设、无目的破坏的区分相关，但并非同一概念。当前本体说明变化多、行动强、开创强均不充分推出目标明确。",
+      "distinction_hypothesis": "QI-04 描述维护/突破的方向；QI-16 描述行动或变化是否受明确目标组织。可以高开创而目标不清，也可以有明确目标但选择守成。",
+      "counterexample_or_limit": "ZZ-PJ-X06 的 canonical 条件比已核验源文更具体；来源此处的“或”不能被改成更强合取。该规则目前不能单独作为 QI-16 已被充分证明的依据。",
+      "research_disposition": "DISTINCT_CONSTRUCTS_BUT_EVIDENCE_MIXED",
+      "unresolved_question": "需对引用的六十星系例子逐条做原文页核验，并修复/解释 ZZ-PJ-X06 的条件范围差异后，才能评价目标导向维度的证据充足性。",
+      "normalization_epistemic": "UNRESOLVED",
+      "proposal_status": "PROPOSAL_ONLY_NOT_CANONICAL",
+      "canonicalization_authorized": false,
+      "product_consumption_authorized": false
+    },
+    {
+      "pair_id": "OVERLAP-06",
+      "left_id": "QI-08",
+      "left_name": "行动驱动",
+      "left_layer": "L1 / scalar capacity",
+      "left_definition": "把内部意图转换为主动行动、执行、进取和实际推进的驱动力。",
+      "right_id": "QI-16",
+      "right_name": "目标导向性",
+      "right_layer": "L1 / scalar capacity",
+      "right_definition": "行动、变化与资源投入具有明确目标、方向与建设性组织的程度。",
+      "source_rule_ids": [
+        "ZZ-PJ-X02",
+        "ZZ-PJ-X06",
+        "ZZ-QS-004",
+        "ZZ-TL-008"
+      ],
+      "source_locations": [
+        "SRC-ZZ-002 printed pp29–32",
+        "SRC-ZZ-001 printed p83"
+      ],
+      "shared_reference_status": "NO_SHARED_RULE_ID_FOUND_FOR_QI_08_AND_QI_16_IN_CURRENT_MATRIX",
+      "evidence_summary": "行动/任务承担的来源描述不等于目标明确；破军的条件性“破坏而欠建设”候选被用于目标质量维度，但其条件归一化仍有未决差异。",
+      "distinction_hypothesis": "QI-08 描述行动启动/推进驱动力；QI-16 描述行动的目标组织性。高行动驱动可用于建设，也可用于无目的或破坏性行动。",
+      "counterexample_or_limit": "当前直接来源中，破军守命承担困难任务可支持行动/任务驱动，却不能单凭该句推断目标明确；ZZ-PJ-X06 的源文条件差异进一步限制了强结论。",
+      "research_disposition": "DISTINCT_CONSTRUCTS_CANDIDATE",
+      "unresolved_question": "需用相同动作强度、不同目标质量的对照源文，检验 QI-08 与 QI-16 是否能独立变化。",
+      "normalization_epistemic": "UNRESOLVED",
+      "proposal_status": "PROPOSAL_ONLY_NOT_CANONICAL",
+      "canonicalization_authorized": false,
+      "product_consumption_authorized": false
+    },
+    {
+      "pair_id": "OVERLAP-07",
+      "left_id": "QI-17-CAND",
+      "left_name": "意志控制强度（候选）",
+      "left_layer": "L1 / candidate scalar capacity",
+      "left_definition": "在欲望、情绪、诱因或环境压力下维持自主约束与方向的能力。",
+      "right_id": "QI-18-CAND",
+      "right_name": "毅力/持续性（候选）",
+      "right_layer": "L1 / candidate scalar capacity",
+      "right_definition": "在时间、阻力、延迟或重复挫折下维持行动的持续程度。",
+      "source_rule_ids": [
+        "ZZ-SYS-48-002",
+        "ZZ-SYS-48-007",
+        "ZZ-SYS-48-009",
+        "ZZ-SYS-48-012",
+        "ZZ-SYS-38-009",
+        "ZZ-SYS-22-002",
+        "ZZ-SYS-22-003",
+        "ZZ-SYS-22-004",
+        "ZZ-SYS-22-005"
+      ],
+      "source_locations": [
+        "SRC-ZZ-002 printed pp133–135",
+        "SRC-ZZ-002 printed pp77–78",
+        "SRC-ZZ-002 printed pp110–112"
+      ],
+      "shared_reference_status": "CANDIDATE_DIMENSIONS; SOURCE EXPLICITLY DISTINGUISHES WILL FROM PERSEVERANCE",
+      "evidence_summary": "天同巳亥的原文分别讨论意志强弱与毅力不足，并明确指出两者不同；意志薄弱者也可能有毅力。该来源提供了当前最直接的区分证据。",
+      "distinction_hypothesis": "意志控制关注面对诱因/压力时的约束与方向；毅力关注时间与阻力下是否持续。前者较强不必然保证后者强，反之亦然。",
+      "counterexample_or_limit": "这支持把两个候选概念分开研究，但不自动证明它们应成为正式 QI 原语，也不授权接受 QI-17-CAND/QI-18-CAND 的映射或定义。",
+      "research_disposition": "SOURCE_SUPPORTS_DISTINCT_CANDIDATES_ONLY",
+      "unresolved_question": "候选维度是否具有跨星曜复用性、与 QI-03/QI-06/QI-08 的边界如何定义，仍需更多独立例子和 PI/Human Gate。",
+      "normalization_epistemic": "UNRESOLVED",
+      "proposal_status": "PROPOSAL_ONLY_NOT_CANONICAL",
+      "canonicalization_authorized": false,
+      "product_consumption_authorized": false
+    },
+    {
+      "pair_id": "OVERLAP-08",
+      "left_id": "QR-01",
+      "left_name": "关系整合—孤离",
+      "left_layer": "L2 / relational axis",
+      "left_definition": "关系网络中的嵌入、支持、协同程度与孤立、疏离、孤克程度。",
+      "right_id": "QR-04",
+      "right_name": "支持资源",
+      "right_layer": "L2 / relational scalar",
+      "right_definition": "来自辅佐、同伴、属下、组织或贵人网络的可用支持程度。",
+      "source_rule_ids": [
+        "ZZ-ZW-013",
+        "ZZ-ZW-014",
+        "ZZ-TLIA-004",
+        "ZZ-TLIA-X05",
+        "ZZ-WQ-006",
+        "ZZ-WQ-010",
+        "ZZ-WQ-021"
+      ],
+      "source_locations": [
+        "SRC-ZZ-002 printed p5",
+        "SRC-ZZ-002 printed pp27–28",
+        "十四正曜·武曲·书页11"
+      ],
+      "shared_reference_status": "ZZ-ZW-013_AND_ZZ-ZW-014_LINK_TO_BOTH_AS_PROJECTION_EVIDENCE",
+      "evidence_summary": "紫微在左辅右弼三方会合时，源文分别描述助力与属下众多；现有矩阵将两条投影证据同时关联 QR-01 与 QR-04。它们描述资源/结果，不足以单独证明关系整合程度。",
+      "distinction_hypothesis": "QR-01 描述关系网络的整合或孤离状态；QR-04 描述可获得的支持资源。资源数量、可用性、互惠程度与实际关系嵌入不是同一变量。",
+      "counterexample_or_limit": "属下众多或外部助力多，不必然意味着亲密、互惠或低孤离；反之，关系网络整合也不保证在特定任务中有可用资源。两条现有证据均属 projection tier。",
+      "research_disposition": "LAYER_OR_ROLE_MISMATCH_CANDIDATE",
+      "unresolved_question": "需区分关系网络状态、资源可用性与下游助力结果；当前投影证据不应直接接受为两个 QR 维度的等权直接证据。",
+      "normalization_epistemic": "UNRESOLVED",
+      "proposal_status": "PROPOSAL_ONLY_NOT_CANONICAL",
+      "canonicalization_authorized": false,
+      "product_consumption_authorized": false
+    }
+  ],
+  "overall_findings": [
+    "Shared rule references do not prove dimension equivalence.",
+    "No shared reference does not prove orthogonality.",
+    "State/property, modifier function, relational network state, support resource, action drive, decision activation, change direction and target orientation must remain distinct candidate axes until evidence adjudication.",
+    "QI-17-CAND and QI-18-CAND remain candidate-only despite source support for conceptual distinction."
+  ]
+}
