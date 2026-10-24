@@ -9,6 +9,8 @@ Inputs: `knowledge/REVIEW_SCHEMA_v0.3.md`, `knowledge/KB_SCHEMA.md`, and the PI-
 
 This is a small synthetic representability probe, not a source adjudication and not a production schema migration. The fixture uses only `PROBE-*` IDs and explicitly says its source sentence is not a real quotation. It tests which requirements can be represented with existing typed fields, which require a non-canonical review envelope, and which reveal a concrete typed-schema gap.
 
+## Supported by existing typed fields / Non-canonical review-envelope only / Typed-schema gap
+
 ## Capability matrix
 
 | Requirement | Existing typed support | Probe result |
