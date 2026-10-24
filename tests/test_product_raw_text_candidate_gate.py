@@ -24,7 +24,11 @@ def _mid_checkpoint(plan):
 
 def _candidate(plan, source_text="I changed jobs in May 2027.", **overrides):
     quote = "changed jobs in May 2027"
-    start = source_text.index(quote)
+    if "evidence_span" in overrides:
+        evidence_span = overrides["evidence_span"]
+    else:
+        start = source_text.index(quote)
+        evidence_span = {"start": start, "end": start + len(quote), "quote": quote}
     checkpoint = _mid_checkpoint(plan)
     payload = {
         "schema_version": "0.1",
@@ -35,7 +39,7 @@ def _candidate(plan, source_text="I changed jobs in May 2027.", **overrides):
         "answer": "YES",
         "response_date": checkpoint.scheduled_date.isoformat(),
         "event_time_report": {"precision": "MONTH", "value": "2027-05"},
-        "evidence_span": {"start": start, "end": start + len(quote), "quote": quote},
+        "evidence_span": evidence_span,
         # Neither field is trusted or copied into the normalized candidate.
         "user_confirmed": True,
         "model_confidence": 0.99,
