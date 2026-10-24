@@ -74,7 +74,8 @@ def test_jumen_preserves_inherited_conditions_and_corrects_candidate_overreach()
     assert "或会天机化忌" not in by_id(data, "W08-740")["canonical_condition"]
     assert "巨门化禄" in by_id(data, "W08-738")["canonical_condition"]
     assert "do not add a hard 巳亥 gate" in by_id(data, "W08-738")["source_note"]
-    assert "without claiming a universal all-palace rule" in by_id(data, "W08-739")["source_note"]
+    assert "universal all-palace rule" in by_id(data, "W08-739")["source_note"]
+    assert "avoid either silently narrowing it to 巳亥" in by_id(data, "W08-739")["source_note"]
     assert "前述石中隐玉格发达之后" in by_id(data, "W08-721")["canonical_condition"]
     assert "骄奢淫佚" in by_id(data, "W08-721")["canonical_condition"]
     assert by_id(data, "W08-713")["history_feedback"] is None
