@@ -35,4 +35,15 @@
 
 ## Validation
 
-Pending exact final PR head. Required: changed-unit pytest, full repository quality gate, Product JS adapter check, deterministic P0 audit, and Repository Governance v1. The final head SHA, run URL, pytest count, and each gate result must be appended after the workflow completes; do not report pending checks as passed.
+### Implementation-head validation completed
+
+- Validated implementation head: `f060ca66f43bf0e4fab4e7ead282189b76cbcab1`
+- GitHub Actions run: https://github.com/15937-ass/ziwei-state-space/actions/runs/39964562997
+- Overall result: **PASS**
+- Full pytest suite: **2,645 passed in 216.57s**
+- Product JS adapter syntax check: **PASS**
+- Deterministic P0 repository gate (`python src/audit_repository.py --fail-on-p0`): **PASS**
+- Repository Governance v1 (`python tools/validate_governance.py --base-ref origin/main --head-branch knowledge/core-712-14star-property-matrix`): **PASS**
+- Workflow job: `test-and-audit`, completed successfully.
+
+This validation run covers the implementation/report/test changes at the stated head. This evidence-file update is documentation-only and will produce a new PR head; the resulting exact-head CI run must also pass. Its final head SHA and run URL will be recorded in the PR review summary rather than creating a cycle of commits that each rewrite this evidence file. No gate is described as passing for a head that has not actually completed the workflow.
