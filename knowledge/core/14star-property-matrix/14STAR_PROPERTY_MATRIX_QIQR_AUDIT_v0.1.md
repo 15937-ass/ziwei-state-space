@@ -255,3 +255,9 @@ PR #710 已作为 proposal-only 基线合并，但其中的值域仍不是 canon
 - `14STAR_PROPERTY_MATRIX_QIQR_AUDIT_v0.1.json`：同一矩阵的机器可读版本，包含现有证据引用、星核角色、重叠标记、交叉分类风险与守门字段。
 - `tests/test_knowledge_core_14star_property_matrix.py`：对覆盖率、来源字段、认识论分离、未解决状态保留和非 canonical 守门进行确定性测试。
 - 最终 exact-head 验证结果将记录在 `14STAR_PROPERTY_MATRIX_QIQR_AUDIT_EVIDENCE.md`。
+
+## 10. 面向论命相关模块的归档入口
+
+本轮矩阵如何衔接单星气核、星系交互、QI/QR、四化与时间反应、WP06B/WP06C 应象映射及 Product 论命输出，统一见 [十四主星性质矩阵到论命相关模块的归档与使用说明 v0.1](14STAR_MATRIX_TO_LUNMING_MODULES_v0.1.md)。
+
+该说明只负责模块间的内容路由和证据边界，不修改 canonical ontology、星曜气核、正式应象映射或 Product 执行契约；其状态仍为研究归档，不可作为可执行规则。
