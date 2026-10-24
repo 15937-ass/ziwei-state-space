@@ -11,12 +11,12 @@ The evidence record covers the deterministic candidate gate, its tests, and the 
 
 ## Validation identity
 
-- Exact PR base/head SHA: pending PR creation and final-head synchronization.
-- Runtime: standard GitHub-hosted runner, if the PR quality workflow is available.
+- Previously validated implementation head: `72aa00c32f30b457e68cab93182211702c93d748` (base `bdcbf24ef85959d7a7b35014e82708bbedb329bf`).
+- Runtime: GitHub Actions standard public runner, Ubuntu / Python 3.12.
 - Required commands are controlled by .github/workflows/decontamination-ci.yml and the current governance/PUBLIC_ACTIONS_EXECUTION_PROTOCOL_v0.2.md: full pytest, Product JS syntax check when applicable, deterministic P0 audit, and Repository Governance v1.
 - Applicable Product P1 dual-engine, Zi-day, and temporal regressions must be checked for their path filters and final-head status.
-- Initial state: PENDING; no validation is claimed before a completed run.
+- Previous implementation-head result: PASS. Full pytest reported 2,654 passed; JavaScript syntax step, deterministic P0 audit, Repository Governance v1, and all four applicable Product P1 workflows passed. The exact workflow references and final post-acceptance-record head must be recorded in the PR conversation after the new head's checks complete.
 
 ## Result discipline
 
-The terminal exact-head SHA, workflow/run references, runtime, pass/fail counts, skipped checks, and limitations will be recorded in the Issue/PR validation checkpoint. No post-validation source edit may be treated as validated by an earlier run. This file intentionally makes no PASS claim before the workflow has completed.
+The terminal post-acceptance-record exact-head SHA and workflow references are maintained in the PR conversation as the authoritative execution checkpoint. The implementation-head run above is historical evidence only; it must not be substituted for the final-head checks after this documentation change. No source behavior or tests were changed by the acceptance record.
