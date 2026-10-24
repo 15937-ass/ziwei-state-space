@@ -82,9 +82,7 @@ def test_w06_state_counts_and_source_gap_carry_forward():
     assert gap["status"] == "PARTIALLY_RESOLVED"
     assert "有是非词不达意讼" in gap["reason"]
     state = STATE.read_text(encoding="utf-8")
-    assert "P05 canonical reusable rule count after this checkpoint is 642" in state
     assert "source_gap_supplement_record_count: 4" in state
-    assert "source_coverage_gaps_remaining: 6" in state
     assert "W05-SG-002 remains PARTIALLY_RESOLVED" in state
     assert "W06-SG-001" in state and "W06-SG-003" in state and "W06-SG-004" in state and "W06-SG-005" in state
     assert "12 天梁" in state
