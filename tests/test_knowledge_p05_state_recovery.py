@@ -12,12 +12,12 @@ def load(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def test_p05_state_cache_matches_current_jumen_checkpoint_and_preserves_w05_baseline():
+def test_p05_state_cache_matches_merged_jumen_checkpoint_and_preserves_w05_baseline():
     state = STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE"' in state
-    assert "active_issue: 737" in state
-    assert 'active_branch: "knowledge/p05-737-source-first-jumen-p86-p87-r2"' in state
-    assert "active_pr: 744" in state
+    assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
+    assert "active_issue: null" in state
+    assert "active_branch: null" in state
+    assert "active_pr: null" in state
     assert "W05_401_500_SOURCE_FIRST_MERGED" in state
     assert "main commit 7bf664fc87db20bfe02ef0020785b91dd62cbbdf" in state
     assert "current main commit 74087c97afffc5afa4821f8edb21ff42aea6eb6b" in state
