@@ -48,7 +48,10 @@ def test_p01_pojun_time_scope_preserves_explicit_and_generic_words():
     assert rows["P01-744"]["source_time_layers"] == ["DECADE", "YEAR"]
     assert rows["P01-750"]["source_time_layers"] == ["DECADE", "YEAR"]
     assert rows["P01-735"]["source_time_layers"] == []
-    assert rows["P01-735"]["scope_status"] == "SOURCE_LIFE_STAGE_WORD_RETAINED_NO_NEW_TIME_LAYER"
+    assert rows["P01-735"]["scope_status"] == "SOURCE_LIFE_STAGE_SEQUENCE_NOT_NEW_TIME_PRIMITIVE"
+    assert rows["P01-701"]["scope_status"] == "SOURCE_SCOPE_MATCHES_PRIMARY_LAYER"
+    assert rows["P01-714"]["source_time_layers"] == []
+    assert rows["P01-714"]["scope_status"] == "SOURCE_TEMPORAL_LAYER_UNSPECIFIED"
 
 
 def test_p01_pojun_gap_ledger_summary_state_and_boundary_correction_reconcile():
