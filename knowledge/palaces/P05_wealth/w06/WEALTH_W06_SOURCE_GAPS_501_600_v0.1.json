@@ -1,0 +1,114 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P05-WEALTH-W06-SOURCE-GAPS-P82-P85-v0.1",
+  "issue": 723,
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "P05",
+  "palace": "财帛宫",
+  "source_basis": {
+    "source_id": "SRC-ZZ-003",
+    "work": "中州派紫微斗数深造讲义（下册）",
+    "chapter": "下篇·宫垣论·财帛宫",
+    "printed_pages": "82–85",
+    "sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+    "page_image_map": "physical p42 right half = printed p84; physical p43 left half = printed p85",
+    "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION",
+    "note": "The page images confirm the literal printed forms recorded below. This file records source-text ambiguities; it does not authorize semantic emendation."
+  },
+  "gap_count": 4,
+  "core_gap_count": 0,
+  "summary": {
+    "new_local_source_ambiguities": 4,
+    "open_local_source_ambiguities": 4,
+    "closed_local_source_ambiguities": 0,
+    "canonical_source_gap_supplement_records": 0,
+    "shared_semantic_gaps": [],
+    "unresolved_prior_gap_ids": [
+      "W05-SG-002"
+    ]
+  },
+  "source_image_checks": [
+    {
+      "projection_rule_id": "W06-540",
+      "source_location": "财帛宫printed_p84",
+      "literal": "被绰或遗失",
+      "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION",
+      "finding": "The glyph is visibly printed as 绰; intended semantic reading remains unresolved."
+    },
+    {
+      "projection_rule_id": "W06-542",
+      "source_location": "财帛宫printed_p84",
+      "literal": "卯本太阴",
+      "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION",
+      "finding": "The page image visibly reads 卯本太阴; intended wording remains unresolved."
+    },
+    {
+      "projection_rule_id": "W06-559",
+      "source_location": "财帛宫printed_p85",
+      "literal": "性质不占时",
+      "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION",
+      "finding": "The page image visibly reads 性质不占时; intended wording remains unresolved."
+    },
+    {
+      "projection_rule_id": "W06-532",
+      "source_location": "财帛宫printed_p84",
+      "literal": "其实(即社会地位)亦由富而来",
+      "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION",
+      "finding": "The printed clause is legible as 其实(即社会地位)亦由富而来, but the wording is semantically anomalous. The clear night/day birth hierarchy remains separately promoted; this subclause is not normalized."
+    }
+  ],
+  "gaps": [
+    {
+      "gap_id": "W06-SG-001",
+      "source_location": "财帛宫printed_p84",
+      "rule_ids": [
+        "W06-540"
+      ],
+      "source_claim": "太阴化禄冲会文曲化忌，则主被绰或遗失。",
+      "gap_type": "OPEN_LOCAL_SOURCE_TEXT_AMBIGUITY",
+      "reason": "The printed page image confirms the literal glyph 绰 in 被绰或遗失, but the phrase is semantically anomalous. The intended reading cannot be established from this source alone.",
+      "core_gap": false,
+      "status": "OPEN",
+      "action": "Preserve the literal source text and mark its intended meaning unresolved. Do not silently replace 绰 with a plausible character or promote an emended reading."
+    },
+    {
+      "gap_id": "W06-SG-002",
+      "source_location": "财帛宫printed_p84",
+      "rule_ids": [
+        "W06-542"
+      ],
+      "source_claim": "卯本太阴，在求财时常过份追求理想，因而亦时有失落感。",
+      "gap_type": "OPEN_LOCAL_SOURCE_TEXT_AMBIGUITY",
+      "reason": "The printed page image visibly reads 卯本太阴. Context may invite a correction, but the source itself does not establish the intended wording.",
+      "core_gap": false,
+      "status": "OPEN",
+      "action": "Retain 卯本太阴 literally. Do not emend it to 卯宫太阴 or another phrase without independent source evidence."
+    },
+    {
+      "gap_id": "W06-SG-003",
+      "source_location": "财帛宫printed_p85",
+      "rule_ids": [
+        "W06-559"
+      ],
+      "source_claim": "性质不占时，主财帛不聚，或主所任职务长期带流动色彩。",
+      "gap_type": "OPEN_LOCAL_SOURCE_TEXT_AMBIGUITY",
+      "reason": "The printed page image visibly reads 性质不占时. Its intended character/phrase cannot be established from this source alone.",
+      "core_gap": false,
+      "status": "OPEN",
+      "action": "Preserve 性质不占时 literally. Do not silently normalize it to 性质不佳时 or another contextual guess."
+    },
+    {
+      "gap_id": "W06-SG-004",
+      "source_location": "财帛宫printed_p84",
+      "rule_ids": [
+        "W06-532"
+      ],
+      "source_claim": "其实(即社会地位)亦由富而来",
+      "gap_type": "OPEN_LOCAL_SOURCE_TEXT_AMBIGUITY",
+      "reason": "The printed page image reads 其实(即社会地位)亦由富而来. The parenthetical points to social status, but the literal character 实 is semantically anomalous in this construction. The intended reading cannot be established from this source alone.",
+      "core_gap": false,
+      "status": "OPEN",
+      "action": "Preserve the printed literal and do not silently emend 实 to 贵 or another character without independent source evidence. The W06-532 promoted target is limited to the clear night/day birth hierarchy; this subclause remains unnormalized."
+    }
+  ]
+}

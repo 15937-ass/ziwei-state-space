@@ -11,58 +11,87 @@ def read_json(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def test_w06_tianfu_source_first_census_and_boundary():
+def test_w06_source_first_census_and_boundary():
     data = read_json(BASE / "WEALTH_W06_SOURCE_READJUDICATION_501_600_v0.1.json")
     rows = data["records"]
-    assert len(rows) == 25
-    assert [r["projection_rule_id"] for r in rows] == [f"W06-{i}" for i in range(501, 526)]
+    assert len(rows) == 62
+    assert [r["projection_rule_id"] for r in rows] == [f"W06-{i}" for i in range(501, 563)]
     assert data["candidate_inputs"]["legacy_candidate_files_found"] == 0
     assert data["candidate_inputs"]["historical_candidates_reviewed"] == 0
     assert data["candidate_inputs"]["upper_id_window"] == "W06-501…W06-600"
     assert data["source_basis"]["sha256"] == "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c"
     assert rows[0]["source_location"] == "财帛宫printed_p82"
-    assert all(r["source_location"] == "财帛宫printed_p83" for r in rows[1:])
-    assert all(r["canonical_promotion"] is True for r in rows)
+    assert all(r["source_location"] == "财帛宫printed_p83" for r in rows[1:25])
+    assert all(r["source_location"] == "财帛宫printed_p84" for r in rows[25:54])
+    assert rows[54]["source_location"] == "财帛宫printed_p84-85"
+    assert all(r["source_location"] == "财帛宫printed_p85" for r in rows[55:])
+    assert sum(r["canonical_promotion"] is True for r in rows) == 59
+    assert {r["projection_rule_id"] for r in rows if r["canonical_promotion"] is False} == {"W06-540", "W06-542", "W06-559"}
     assert all(r["case_support_only"] is False for r in rows)
     assert all(r["archived_candidate_condition"] is None for r in rows)
     assert rows[0]["source_digest"].startswith("天府守财帛宫，不主富厚")
-    assert rows[-1]["source_digest"] == "巳亥天府亦最不喜会刑忌夹的天相，主受财政压力。"
-    assert "printed p84" in data["source_basis"]["note"]
-    assert "8 太阴" in data["source_basis"]["note"]
+    assert rows[24]["source_digest"] == "巳亥天府亦最不喜会刑忌夹的天相，主受财政压力。"
+    assert rows[25]["projection_rule_id"] == "W06-526"
+    assert rows[-1]["source_digest"] == "太阴在十二宫，唯居巳亥守财帛宫主贵不主富，此点最宜再三注意。"
+    note = data["source_basis"]["note"]
+    assert "printed p84" in note
+    assert "8 太阴" in note
+    assert "printed p85" in note
+    assert "9 贪狼" in note
+    assert "贪狼守财帛宫，手段阔绰大方" in note
+    assert "printed p86" in note
+    assert "子午贪狼守财帛者" in note
+    assert note.index("8 太阴") < note.index("9 贪狼") < note.index("printed p86") < note.index("子午贪狼守财帛者")
+    assert all("子午贪狼守财帛者" not in r["source_digest"] for r in rows)
+    assert all("贪狼守财帛宫，手段阔绰大方" not in r["source_digest"] for r in rows)
 
 
-def test_w06_tianfu_temporal_scope_stays_natal_and_does_not_create_paths():
+def test_w06_temporal_scope_stays_natal_and_tracks_only_source_ordered_paths():
     data = read_json(BASE / "WEALTH_W06_SOURCE_TIME_SCOPE_501_600_v0.1.json")
-    assert data["counts"] == {"non_natal_rows": 0, "year": 0, "decade": 0, "path_dependent_gate_rows": 0, "source_age_qualifier_rows": 0}
+    assert data["counts"] == {"non_natal_rows": 0, "year": 0, "decade": 0, "path_dependent_gate_rows": 4, "source_age_qualifier_rows": 0}
     assert data["exact_non_natal_ids"] == []
     assert data["decade_ids"] == []
     assert data["year_ids"] == []
-    assert data["path_dependent_gate_ids"] == []
+    assert data["path_dependent_gate_ids"] == ["W06-535", "W06-546", "W06-547", "W06-555"]
     assert data["records"] == []
-    assert data["path_records"] == []
+    assert {r["projection_rule_id"] for r in data["path_records"]} == {"W06-535", "W06-546", "W06-547", "W06-555"}
+    assert all(r["time_layer"] == "NATAL" and r["no_numeric_generalization"] is True for r in data["path_records"] )
+    source_rows = {r["projection_rule_id"]: r for r in read_json(BASE / "WEALTH_W06_SOURCE_READJUDICATION_501_600_v0.1.json")["records"]}
+    assert all(r["canonical_condition"] == source_rows[r["projection_rule_id"]]["canonical_condition"] for r in data["path_records"])
+    assert all(r["canonical_target"] == source_rows[r["projection_rule_id"]]["canonical_target"] for r in data["path_records"])
     assert data["source_age_qualifier_records"] == []
 
 
-def test_w06_tianfu_state_counts_and_w05_gap_carry_forward():
+def test_w06_state_counts_and_source_gap_carry_forward():
     data = read_json(BASE / "WEALTH_W06_SOURCE_READJUDICATION_501_600_v0.1.json")
     s = data["summary"]
-    assert s["direct_source_first_records_created"] == 25
-    assert s["reusable_projection_rules"] == 25
+    assert s["direct_source_first_records_created"] == 62
+    assert s["current_batch_records_created"] == 37
+    assert s["canonical_promotions"] == 59
+    assert s["reusable_projection_rules"] == 59
     assert s["case_support_only"] == 0
-    assert s["cumulative_canonical_records_after_merge"] == 529
-    assert s["cumulative_reusable_projection_rules_after_merge"] == 529
+    assert s["cumulative_canonical_records_after_merge"] == 563
+    assert s["cumulative_reusable_projection_rules_after_merge"] == 563
     assert s["cumulative_source_gap_supplement_records_after_merge"] == 4
+    assert s["unresolved_source_uncertainty_count"] == 4
+    assert s["source_coverage_gap_count"] == 4
+    assert s["path_dependent_gate_count"] == 4
+    assert s["open_source_gap_ids_current_batch"] == ["W06-SG-001", "W06-SG-002", "W06-SG-003", "W06-SG-004"]
     gap_ledger = read_json(W05_GAP_LEDGER)
     gap = next(g for g in gap_ledger["entries"] if g["gap_id"] == "W05-SG-002")
     assert gap["status"] == "PARTIALLY_RESOLVED"
     assert "有是非词不达意讼" in gap["reason"]
     state = STATE.read_text(encoding="utf-8")
-    assert "merged_rule_count: 529" in state
-    assert "current_batch_rule_count: 25" in state
+    assert "merged_rule_count: 563" in state
+    assert "current_batch_rule_count: 34" in state
     assert "source_gap_supplement_record_count: 4" in state
-    assert "source_coverage_gaps_remaining: 1" in state
+    assert "source_coverage_gaps_remaining: 5" in state
     assert "W05-SG-002" in state and "PARTIALLY_RESOLVED" in state
-    assert "printed p84" in state
+    assert "source_uncertainty_count_current_batch: 4" in state
+    assert "path_dependent_gate_count_current_batch: 4" in state
+    assert "source_coverage_gap_count_current_batch: 4" in state
+    assert "W06-SG-001" in state and "W06-SG-003" in state and "W06-SG-004" in state
+    assert "printed p86" in state
     assert "No Product/runtime authorization is implied" in state
 
 def test_w06_tianfu_structured_rules_preserve_source_branches_and_dependencies():
@@ -107,4 +136,49 @@ def test_w06_tianfu_structured_rules_preserve_source_branches_and_dependencies()
     assert "financial_authority_greater_than_chouwei_tianfu" in r516["canonical_target"]
     assert "大于丑未宫天府" in r516["source_digest"]
     assert "no numeric weight or ratio is inferred" in r516["source_note"]
+
+def test_w06_taiyin_source_gap_ledger_preserves_literal_ambiguities():
+    data = read_json(BASE / "WEALTH_W06_SOURCE_GAPS_501_600_v0.1.json")
+    ledger = read_json(BASE / "WEALTH_W06_SOURCE_GAP_CLOSURE_LEDGER_501_600_v0.1.json")
+    assert data["gap_count"] == 4
+    assert data["core_gap_count"] == 0
+    gaps = {g["gap_id"]: g for g in data["gaps"]}
+    assert set(gaps) == {"W06-SG-001", "W06-SG-002", "W06-SG-003", "W06-SG-004"}
+    assert all(g["status"] == "OPEN" and g["core_gap"] is False for g in gaps.values())
+    assert "被绰或遗失" in gaps["W06-SG-001"]["source_claim"]
+    assert "卯本太阴" in gaps["W06-SG-002"]["source_claim"]
+    assert "性质不占时" in gaps["W06-SG-003"]["source_claim"]
+    assert "其实(即社会地位)亦由富而来" in gaps["W06-SG-004"]["source_claim"]
+    assert ledger["gap_count"] == 4
+    assert ledger["rule_count"] == 0
+    assert ledger["open_gap_count"] == 4
+    assert ledger["fully_closed_gap_count"] == 0
+    assert ledger["unresolved_prior_gap_ids"] == ["W05-SG-002"]
+    assert ledger["shared_semantic_gaps"] == []
+
+
+def test_w06_taiyin_source_order_and_literal_ambiguities_are_retained():
+    data = read_json(BASE / "WEALTH_W06_SOURCE_READJUDICATION_501_600_v0.1.json")
+    rows = {r["projection_rule_id"]: r for r in data["records"]}
+    assert rows["W06-540"]["source_uncertainty"] is not None
+    assert rows["W06-540"]["canonical_promotion"] is False
+    assert rows["W06-542"]["source_uncertainty"] is not None
+    assert rows["W06-542"]["canonical_promotion"] is False
+    assert rows["W06-559"]["source_uncertainty"] is not None
+    assert rows["W06-532"]["source_uncertainty"] is not None
+    assert rows["W06-532"]["canonical_promotion"] is True
+    assert "excluded from the promoted target" in rows["W06-532"]["source_uncertainty"]
+    assert rows["W06-559"]["canonical_promotion"] is False
+    assert "被绰或遗失" in rows["W06-540"]["source_digest"]
+    assert "卯本太阴" in rows["W06-542"]["source_digest"]
+    assert "性质不占时" in rows["W06-559"]["source_digest"]
+    assert "其实(即社会地位)亦由富而来" in rows["W06-532"]["source_digest"]
+    assert rows["W06-535"]["history_feedback"] == "PATH_DEPENDENT_GATE"
+    assert rows["W06-546"]["history_feedback"] == "PATH_DEPENDENT_GATE"
+    assert rows["W06-547"]["history_feedback"] == "PATH_DEPENDENT_GATE"
+    assert rows["W06-555"]["history_feedback"] == "PATH_DEPENDENT_GATE"
+    assert "辰戌太阴段落上下文" in rows["W06-553"]["canonical_condition"]
+    assert rows["W06-553"]["canonical_target"] == "property_inheritance_in_source_context"
+    assert "do not generalize this claim" in rows["W06-553"]["source_note"]
+    assert all(r["case_support_only"] is False for r in rows.values())
 
