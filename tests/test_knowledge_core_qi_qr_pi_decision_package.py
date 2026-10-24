@@ -60,7 +60,7 @@ def test_core_recovery_cache_matches_active_issue_and_pr():
     assert 'status: "ACTIVE"' in text
     assert "active_issue: 735" in text
     assert 'active_branch: "knowledge/core-735-qi-qr-pi-decision-package-r2"' in text
-    assert "active_pr: 736" in text
+    assert "active_pr: 743" in text
 
 
 def test_original_audit_remains_the_research_source():
