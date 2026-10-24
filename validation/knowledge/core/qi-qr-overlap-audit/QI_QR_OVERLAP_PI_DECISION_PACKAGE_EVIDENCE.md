@@ -14,6 +14,7 @@ Draft PR：[#736](https://github.com/15937-ass/ziwei-state-space/pull/736)
 - 测试路径修正 commit：90508484e4bf3565aa56a05f27bbe2075adc23e0
 - 最小 CORE_STATE 恢复缓存同步 commit：b336b29cfd3b2de836badef3edd6ba84fb891288
 - 测试加入恢复缓存断言的 commit：901edae22c4c06c2b6fcb192ffb97d99e60ef501
+- 测试断言与契约非目标措辞对齐的 commit：72021033c02e5e88e4d1a0ce1e758e81a38e26ac
 - 本记录更新会继续推进 PR head；最终 exact head 以 PR #736 实时元数据为准，必须在该 head 上读取 CI 结果。
 
 文件清单：
