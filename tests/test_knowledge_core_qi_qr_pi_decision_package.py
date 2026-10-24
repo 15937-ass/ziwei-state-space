@@ -96,3 +96,22 @@ def test_each_pair_records_baseline_source_boundary_and_reconsideration_gate():
     )
     for baseline in expected_baselines:
         assert baseline in text
+
+
+def test_pi_acceptance_records_six_design_inputs_without_canonical_authority():
+    contract = CONTRACT.read_text(encoding="utf-8")
+    decision = DECISION.read_text(encoding="utf-8")
+    assert "PI 审议结果（2026-10-24）" in contract
+    assert "六项全部接受" in contract
+    assert "mapping review" in contract
+    assert "output_kind" in contract and "event_specificity" in contract and "source_epistemic" in contract
+    assert "每个目标映射必须有独立、目标特定的 rationale" in contract
+    assert "QI-04、QI-06、QI-16" in contract
+    assert "bearer/agent" in contract and "target" in contract and "condition" in contract
+    assert "资源存在、资源可用与支持实际发生" in contract
+    assert "优先复用 schema" in contract and "额外 Human Gate" in contract
+    assert "QI-17-CAND / QI-18-CAND" in contract
+    assert "不构成 canonical ontology 修改、正式 mapping 接受" in contract
+    assert "PI 明确接受" in decision
+    assert "下一独立工作单的设计输入" in decision
+    assert "Product/runtime 已获消费授权" in decision

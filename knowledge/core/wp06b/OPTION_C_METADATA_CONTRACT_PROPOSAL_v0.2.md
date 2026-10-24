@@ -114,13 +114,21 @@ QI/QR 的概念身份与 output_kind/event_specificity/source_epistemic 不是�
 - 修改 Product adapter、registry、KIB lock、runtime 或消费权限；
 - 声称概念正交、紫微斗数现实预测有效，或推导数值权重/概率。
 
-## 10. 请 PI 审阅的问题
+## 10. PI 审议结果（2026-10-24）
 
-1. 是否接受“QI/QR 语义边界属于 mapping review，不塞入 Option C 三轴”的原则？
-2. 是否接受每条映射必须有目标特定 rationale 和证据角色说明？
-3. 是否接受 QI-04、QI-06、QI-16 的定义收窄作为后续 canonical 修订候选，而不是本轮直接修改？
-4. 是否接受 QI-15 需记录主体/对象/条件/作用角色，QR-04 区分资源存在、可用与已实现支持？
-5. 是否同意先复用现有 schema；若实现证明必须新增共享字段，再开额外 Human Gate？
-6. 是否接受 QI-17-CAND/QI-18-CAND 继续候选状态，直至独立证据与审批完成？
+**PI 决定：六项全部接受，作为下一独立、有限范围的契约实现工作单的设计输入。**
 
-本文件所有建议均为 PROPOSAL_ONLY_NOT_CANONICAL。以上问题未通过正式审阅前，不得把建议写入生产 ontology/mapping registry 或启用 Product 消费。
+1. **语义边界：** QI/QR 的概念边界属于 mapping review；不将概念层级或语义角色塞入 `output_kind`、`event_specificity` 或 `source_epistemic`。
+2. **映射证据：** 每个目标映射必须有独立、目标特定的 rationale，并记录证据角色；同一来源行不能被重复计作独立证据。
+3. **定义收窄：** QI-04、QI-06、QI-16 的收窄只作为后续 canonical review 的候选，不在本工作单修改正式定义。
+4. **功能与关系角色：** QI-15 的审查应记录 bearer/agent、target、condition，以及证据描述的是状态变化、外部 modifier 还是 interaction；QR-04 区分资源存在、资源可用与支持实际发生。
+5. **优先复用 schema：** 先使用现有 review artifact、mapping rationale、condition、provenance、`target_type`/`operator`、`review_status` 与 Conflict object。只有有限实现试验证明存在具体能力缺口时，才提出最小字段差异，并在任何共享 schema 变更前经过额外 Human Gate。
+6. **候选保护：** QI-17-CAND / QI-18-CAND 继续保持候选身份；没有独立证据与单独审批，不分配正式 ID、不接受 canonical mapping。
+
+### 批准范围与下一步
+
+本次批准**仅代表接受上述设计输入**，不代表冻结生产 schema，不构成 canonical ontology 修改、正式 mapping 接受、受控词表扩展或 Product/runtime 消费授权。
+
+下一工作单应在非 canonical review artifact/fixture 中做有边界的实现验证，并以测试回答：现有字段是否足以表达目标特定理由、证据角色、主体/对象/条件、来源条件保真、四种未知状态与候选/正式状态边界。若现有结构足够，不新增字段；若不足，先提交最小 schema 差异、兼容/迁移/回滚方案，并等待额外 Human Gate。
+
+本文件仍为 `PROPOSAL_ONLY_NOT_CANONICAL`。任何 canonical 定义修改、正式 ID 分配、accepted mapping 或 Product 消费授权均须另开工作单并通过适用审批。

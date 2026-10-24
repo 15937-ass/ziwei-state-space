@@ -78,16 +78,16 @@ def test_tanlang_batch_preserves_prior_audit_and_reconciles_current_state():
     assert previous["records"][-1]["projection_rule_id"] == "W06-562"
     assert previous["summary"]["cumulative_canonical_records_after_merge"] == 563
     state = STATE.read_text(encoding="utf-8")
-    assert "merged_rule_count: 600" in state
-    assert "current_batch_rule_count: 37" in state
-    assert "source_first_records_added_current_batch: 37" in state
-    assert "source_uncertainty_count_current_batch: 1" in state
-    assert "path_dependent_gate_count_current_batch: 0" in state
-    assert "source_coverage_gap_count_current_batch: 1" in state
+    assert "merged_rule_count: 642" in state
+    assert "current_batch_rule_count: 42" in state
+    assert "source_first_records_added_current_batch: 42" in state
+    assert "source_uncertainty_count_current_batch: 0" in state
+    assert "path_dependent_gate_count_current_batch: 4" in state
+    assert "source_coverage_gap_count_current_batch: 0" in state
     assert "source_coverage_gaps_remaining: 6" in state
     assert "W06-SG-001" in state and "W06-SG-005" in state
     assert "W05-SG-002" in state and "PARTIALLY_RESOLVED" in state
-    assert "10 巨门" in state
+    assert "11 天相" in state
     assert "No Product/runtime authorization is implied" in state
     summary = SUMMARY.read_text(encoding="utf-8")
     assert "Issue #733" in summary

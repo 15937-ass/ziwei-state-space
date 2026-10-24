@@ -181,8 +181,12 @@ PI 已同意采用以下研究处理方向：
 - 未知、缺失、冲突、不适用保持可区分；缺少证据不能默认填成否定值。
 - 任何本包提议都不应改变 canonical ontology、源规则、Product/runtime 或消费权限。
 
-## 6. 本包之后的决策门
+## 6. PI 审议结果与下一道门
 
-本包通过后，下一步是审阅 Option C v0.2 的非 canonical 契约提案。该提案通过不等于正式 schema 已冻结。若需要修改 QI/QR canonical 定义、分配 ID、接受映射或改变 Product 消费权限，必须另开工作单、列明具体差异和回滚方案，并经过适用 Human Gate。
+2026-10-24，PI 明确接受 Option C v0.2 中列出的六项设计输入：QI/QR 语义边界与三轴分离；映射理由与证据角色逐目标记录；QI-04/QI-06/QI-16 收窄留待后续 canonical review；QI-15 与 QR-04 的主体、对象、条件和资源状态边界；优先复用既有 schema；QI-17-CAND/QI-18-CAND 保持候选身份。
+
+此接受仅授权将六项原则作为**下一独立工作单的设计输入**，不代表八组概念已被证明正交或冗余，也不代表 canonical ontology 已修改、mapping 已正式接受、生产词表已冻结或 Product/runtime 已获消费授权。
+
+下一工作单应使用非 canonical review artifact/fixture 和测试验证现有 schema 能否表达目标特定 rationale、证据角色、来源条件/模态、主体/对象/条件、UNKNOWN/MISSING/CONFLICT/NOT_APPLICABLE，以及候选/正式/消费状态的分离。只有在有界试验显示现有结构无法表达必要信息时，才提出最小 schema 差异，并在共享 schema 变更前另行通过 Human Gate。
 
 本包不主张八组概念已经正交，也不主张紫微斗数具备经验预测效度。
