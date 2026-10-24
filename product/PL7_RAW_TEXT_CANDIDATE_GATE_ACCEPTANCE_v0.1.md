@@ -1,7 +1,7 @@
 # PL7-Q3 Raw-Text Observation Candidate Gate v0.1
 
 Status: implementation proposal on the Product branch; acceptance depends on exact-head validation and review.
-Tracking Issue: #714
+Tracking Issue: #715
 Lane: PRODUCT_ONLY
 Base main: bdcbf24ef85959d7a7b35014e82708bbedb329bf
 
