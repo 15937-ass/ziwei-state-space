@@ -1,30 +1,77 @@
 {
   "schema_version": "0.1",
-  "artifact_id": "KB-WP05-P05-WEALTH-W06-SOURCE-TIME-SCOPE-P82-P83-v0.1",
+  "artifact_id": "KB-WP05-P05-WEALTH-W06-SOURCE-TIME-SCOPE-P82-P85-v0.1",
   "issue": 719,
   "source_id": "SRC-ZZ-003",
-  "scope": "W06-501..W06-525 / printed pp82–83",
+  "scope": "W06-501..W06-562 / printed pp82–85",
   "counts": {
     "non_natal_rows": 0,
     "year": 0,
     "decade": 0,
-    "path_dependent_gate_rows": 0,
+    "path_dependent_gate_rows": 4,
     "source_age_qualifier_rows": 0
   },
   "exact_non_natal_ids": [],
   "decade_ids": [],
   "year_ids": [],
-  "path_dependent_gate_ids": [],
+  "path_dependent_gate_ids": [
+    "W06-535",
+    "W06-546",
+    "W06-547",
+    "W06-555"
+  ],
   "source_age_qualifier_ids": [],
   "dependent_outcome_ids": [],
   "policy": [
-    "W06-501…W06-525 are source-native natal star-configuration claims; no explicit DECADE or YEAR trigger occurs in this bounded section.",
-    "Words such as 一生 are retained in source notes and do not create a new time layer.",
+    "W06-501…W06-562 are source-native natal star-configuration claims; no explicit DECADE or YEAR trigger occurs in printed pp82–85.",
+    "Words such as 一生 and source-stated 富而后贵/先贵而后富 are retained as source wording; ordered paths are not converted into fixed durations or separate time layers.",
+    "The four PATH_DEPENDENT_GATE rows preserve explicit ordered source relationships only; they do not imply a probability, numeric weight, duration, or decay.",
     "在现代 is source framing for the stated modern examples, not a predictive time layer.",
-    "Generic period wording must not be narrowed to a decade or year without explicit source support.",
+    "Source-text ambiguities W06-SG-001…003 remain explicit and do not create temporal rules.",
     "No probability, numeric weight, threshold, frequency, duration, or decay parameter is inferred."
   ],
   "records": [],
-  "path_records": [],
+  "path_records": [
+    {
+      "projection_rule_id": "W06-535",
+      "source_location": "财帛宫printed_p84",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "太阳/太阴守财帛宫；按源文分别论贵与富",
+      "canonical_target": "太阳先有社会地位然后有钱财；太阴先有钱财或财经成就然后有社会地位",
+      "source_scope_note": "Preserve the source's explicit Sun/Taiyin order contrast. No fixed durations or probabilities are inferred.",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W06-546",
+      "source_location": "财帛宫printed_p84",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "辰戌太阴；太阴化禄",
+      "canonical_target": "富而后贵",
+      "source_scope_note": "Source explicitly states 富而后贵; retain order without assigning a time unit or duration.",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W06-547",
+      "source_location": "财帛宫printed_p84",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "辰戌太阴；太阳化禄",
+      "canonical_target": "先贵而后富；源文建议先任职企业然后自创",
+      "source_scope_note": "Source explicitly states 先贵而后富 and gives the employment-before-self-creation advice. Preserve source order; do not generalize to a universal timeline.",
+      "no_numeric_generalization": true
+    },
+    {
+      "projection_rule_id": "W06-555",
+      "source_location": "财帛宫printed_p84-85",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "亥宫太阴守财帛宫；即使太阴得禄",
+      "canonical_target": "先有地位名誉然后有财富；非经商致富之命",
+      "source_scope_note": "Source explicitly orders status/reputation before wealth and denies business-enrichment framing even with Lu. No fixed duration is inferred.",
+      "no_numeric_generalization": true
+    }
+  ],
   "source_age_qualifier_records": []
 }
