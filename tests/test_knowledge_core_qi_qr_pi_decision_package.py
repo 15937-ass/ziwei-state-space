@@ -67,3 +67,32 @@ def test_original_audit_remains_the_research_source():
     text = AUDIT.read_text(encoding="utf-8")
     assert "PROPOSAL_ONLY_NOT_CANONICAL" in text
     assert "OVERLAP-08" in text
+
+
+def test_each_pair_records_baseline_source_boundary_and_reconsideration_gate():
+    text = DECISION.read_text(encoding="utf-8")
+    blocks = re.split(r"(?=^### OVERLAP-\\d{2} — )", text, flags=re.MULTILINE)
+    blocks = [block for block in blocks if block.startswith("### OVERLAP-")]
+    assert len(blocks) == 8
+    for block in blocks:
+        assert "当前登记名称/定义（仅记录现状）：" in block
+        assert "来源/归一化边界：" in block
+        assert "改变决策的条件：" in block
+
+    expected_baselines = (
+        "QI-01「发射—收敛」—“气机向外扩散、显发与向内潜藏、收束之间的动力学倾向。”",
+        "QI-14「信息/状态遮蔽—显露」—“信息、意图、能力或状态被隐藏、遮蔽，或被显露、可辨识的程度。”",
+        "QI-03「稳定—变动」—“系统保持既有结构与发生迁移、转换、重组之间的倾向。”",
+        "QI-04「守成—开创/冲刺」—“维护既有结构、资源与秩序，或主动突破既有结构推动新局的倾向。”",
+        "QI-02「刚—柔」—“作用方式偏强硬、切断、压制或偏调和、缓冲、顺应的程度。”",
+        "QI-15「缓冲/调和能力」—“吸收冲突、降低极端、化解不利或使不同性质趋向平衡的能力。”",
+        "QI-08「行动驱动」—“把内部意图转换为主动行动、执行、进取和实际推进的驱动力。”",
+        "QI-06「决策激活度」—“从决策延迟到适度审慎，再到过度冲决的激活程度。”",
+        "QI-16「目标导向性」—“行动、变化与资源投入具有明确目标、方向与建设性组织的程度。”",
+        "QI-17-CAND「意志控制强度」—“在欲望、情绪、诱因或环境压力下维持自主约束与方向的能力。”",
+        "QI-18-CAND「毅力/持续性」—“在时间、阻力、延迟或重复挫折下维持行动的持续程度。”",
+        "QR-01「关系整合—孤离」—“关系网络中的嵌入、支持、协同程度与孤立、疏离、孤克程度。”",
+        "QR-04「支持资源」—“来自辅佐、同伴、属下、组织或贵人网络的可用支持程度。”",
+    )
+    for baseline in expected_baselines:
+        assert baseline in text
