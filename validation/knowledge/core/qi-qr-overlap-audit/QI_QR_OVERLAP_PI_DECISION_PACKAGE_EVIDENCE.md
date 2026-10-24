@@ -55,3 +55,10 @@ Issue：[#735](https://github.com/15937-ass/ziwei-state-space/issues/735)
 - Product 测试修复经正确的 Product-owned PR #742 合并，main 当前基线为 `5a7be5651f1682fe1c5c039f99d77cb1852d9ed3`。
 - 当前工作在 PR #743 / 分支 `knowledge/core-735-qi-qr-pi-decision-package-r2` 上继续；Core recovery cache 和回归测试均指向 Issue #735 / PR #743。
 - 不要合并旧 PR #736，也不要把本提案提前写入正式本体或启用 Product 消费。
+
+
+## Exact-head validation update after decision-package refinement (2026-10-24)
+- The current decision-package refinements and corrected overlap-section matcher are at head `21c827bc680eb7f3d809519b7efe24e12db6cf75`.
+- Repository Quality Gate run #2525 completed successfully on that exact head: 2,688 tests passed, 132 subtests passed; Product JS adapter checks, deterministic P0 gate, and Repository Governance v1 all passed.
+- This evidence-only update advances the PR head. The new exact-head run must also pass before merge; the PR must remain unmerged pending the explicit PI review required by Issue #735.
+- The artifacts remain `PROPOSAL_ONLY_NOT_CANONICAL`. No canonical ontology, Product/runtime, registry, lock, or consumption authorization is included.
