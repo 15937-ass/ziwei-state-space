@@ -74,6 +74,9 @@ def test_w08_temporal_scope_preserves_only_source_ordered_paths():
     assert sidecar["source_age_qualifier_ids"] == ["W08-719"]
     assert sidecar["source_age_qualifier_records"][0]["literal_qualifier"] == "中年后"
     assert all(r["time_layer"] == "NATAL" and r["no_numeric_generalization"] is True for r in sidecar["path_records"])
+    source_rows = {r["projection_rule_id"]: r for r in load(READJ)["records"]}
+    assert all(p["canonical_condition"] == source_rows[p["projection_rule_id"]]["canonical_condition"] for p in sidecar["path_records"])
+    assert all(p["canonical_target"] == source_rows[p["projection_rule_id"]]["canonical_target"] for p in sidecar["path_records"])
 
 def test_w08_gap_census_and_prior_gaps_are_carried_forward():
     data = load(GAPS)
