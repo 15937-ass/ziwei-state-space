@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P05-WEALTH-W08-SOURCE-GAPS-JUMEN-P86-P87-v0.1",
+  "issue": 738,
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "P05",
+  "palace": "财帛宫",
+  "source_basis": {
+    "source_id": "SRC-ZZ-003",
+    "work": "中州派紫微斗数深造讲义（下册）",
+    "chapter": "下篇·宫垣论·财帛宫",
+    "printed_pages": "86–87",
+    "sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+    "page_image_map": "physical p43 right half = printed p86; physical p44 left half = printed p87",
+    "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION",
+    "note": "This file records only ambiguities or uncovered atoms found within the bounded 巨门 passage. It does not close or rewrite earlier P05 gaps."
+  },
+  "gap_count": 0,
+  "core_gap_count": 0,
+  "summary": {
+    "new_local_source_ambiguities": 0,
+    "open_local_source_ambiguities": 0,
+    "closed_local_source_ambiguities": 0,
+    "canonical_source_gap_supplement_records": 0,
+    "shared_semantic_gaps": [],
+    "unresolved_prior_gap_ids": [
+      "W05-SG-002",
+      "W06-SG-001",
+      "W06-SG-002",
+      "W06-SG-003",
+      "W06-SG-004",
+      "W06-SG-005"
+    ]
+  },
+  "source_image_checks": [],
+  "coverage_checks": [
+    {
+      "check_id": "W08-JUMEN-BOUNDARY-START",
+      "source_location": "财帛宫printed_p86",
+      "finding": "The page image visibly begins the in-scope section at heading 10 巨门 and its opening sentence."
+    },
+    {
+      "check_id": "W08-JUMEN-BOUNDARY-END",
+      "source_location": "财帛宫printed_p87",
+      "finding": "The final in-scope 巨门 statements end immediately before heading 11 天相; the 天相 heading and prose are excluded."
+    },
+    {
+      "check_id": "W08-JUMEN-CANDIDATE-CENSUS",
+      "source_location": "财帛宫printed_p86-87",
+      "finding": "All 42 candidate rows W08-701…W08-742 were individually rechecked. No unsupported row or uncovered source atom was found in this bounded section."
+    }
+  ],
+  "resolved_extraction_surfaces": [],
+  "gaps": []
+}
