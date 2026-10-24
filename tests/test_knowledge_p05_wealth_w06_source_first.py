@@ -79,12 +79,12 @@ def test_w06_state_counts_and_source_gap_carry_forward():
     assert "merged_rule_count: 563" in state
     assert "current_batch_rule_count: 34" in state
     assert "source_gap_supplement_record_count: 4" in state
-    assert "source_coverage_gaps_remaining: 4" in state
+    assert "source_coverage_gaps_remaining: 5" in state
     assert "W05-SG-002" in state and "PARTIALLY_RESOLVED" in state
-    assert "source_uncertainty_count_current_batch: 3" in state
+    assert "source_uncertainty_count_current_batch: 4" in state
     assert "path_dependent_gate_count_current_batch: 4" in state
-    assert "source_coverage_gap_count_current_batch: 3" in state
-    assert "W06-SG-001" in state and "W06-SG-003" in state
+    assert "source_coverage_gap_count_current_batch: 4" in state
+    assert "W06-SG-001" in state and "W06-SG-003" in state and "W06-SG-004" in state
     assert "printed p86" in state
     assert "No Product/runtime authorization is implied" in state
 
