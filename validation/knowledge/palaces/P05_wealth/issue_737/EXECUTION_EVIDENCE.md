@@ -28,3 +28,7 @@
 ## Handoff
 - Next source anchor after this bounded checkpoint: printed p87 heading 11 天相, opening “天相坐财帛宫，有些情形与天府相似。天府为财库。但天相却亦可为财印。”
 - This checkpoint does not close the P05 source census and does not authorize Product/runtime consumption or empirical prediction claims.
+
+
+## Supplemental source critic
+- W08-712 explicitly inherits the 太阳化忌 clause before 天刑; W08-714 preserves the literal 火、铃星、空劫、大耗 list; W08-729 retains 禄存同度; W08-733/734 preserve the 辰戌巨门与煞曜同度 antecedent; W08-736 retains 独坐.
