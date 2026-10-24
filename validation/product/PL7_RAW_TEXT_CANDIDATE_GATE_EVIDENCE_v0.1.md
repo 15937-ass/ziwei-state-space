@@ -1,9 +1,9 @@
 # PL7-Q3 Raw-Text Candidate Gate v0.1 — Validation Evidence
 
-Tracking Issue: #714
+Tracking Issue: #715
 Lane: PRODUCT_ONLY
 Base main observed at activation: bdcbf24ef85959d7a7b35014e82708bbedb329bf
-Implementation branch: product/714-pl7-q3-raw-text-candidate-gate
+Implementation branch: product/715-pl7-q3-raw-text-candidate-gate
 
 ## Scope
 
