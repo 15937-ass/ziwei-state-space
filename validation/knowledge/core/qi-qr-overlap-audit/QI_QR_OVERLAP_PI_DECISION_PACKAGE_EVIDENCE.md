@@ -56,3 +56,13 @@ Draft PR：[#736](https://github.com/15937-ass/ziwei-state-space/pull/736)
 - ZZ-PJ-X06 条件范围差异仍需独立来源复核。
 - QI-04、QI-06、QI-16 的定义收窄仅为后续提案；canonical 定义没有在本轮改变。
 - PI 审阅 v0.2 提案后，若需要新增共享语义原语或正式修改 canonical 定义/映射，应另开有界工作单并经过适用 Human Gate。
+
+
+## Rebased replacement PR (2026-10-24)
+- The Product-owned historical snapshot test fix was merged at `5a7be5651f1682fe1c5c039f99d77cb1852d9ed3` after all Repository Quality Gate checks passed.
+- Stale Draft PR #736 remains a historical branch and is superseded by [Draft PR #743](https://github.com/15937-ass/ziwei-state-space/pull/743).
+- Replacement branch: `knowledge/core-735-qi-qr-pi-decision-package-r2`.
+- Replacement PR base SHA: `5a7be5651f1682fe1c5c039f99d77cb1852d9ed3` (current main at branch creation).
+- The active Core recovery cache and regression test now reference Issue #735, the replacement branch, and PR #743.
+- All proposal artifacts remain `PROPOSAL_ONLY_NOT_CANONICAL`; this rebasing step does not authorize canonical ontology or Product/runtime changes.
+- Exact-head validation is pending; do not merge before all required checks pass.
