@@ -55,10 +55,13 @@ def test_jumen_preserves_inherited_conditions_and_corrects_candidate_overreach()
     assert "化禄、化忌皆然" in by_id(data, "W08-726")["canonical_condition"]
     assert "辰戌" in by_id(data, "W08-735")["canonical_condition"]
     assert "辰宫巨门化忌反格" not in by_id(data, "W08-735")["canonical_condition"]
-    assert "且会天机化忌" in by_id(data, "W08-740")["canonical_condition"]
+    assert "及会天机化忌" in by_id(data, "W08-740")["canonical_condition"]
     assert "或会天机化忌" not in by_id(data, "W08-740")["canonical_condition"]
-    assert "local context" in by_id(data, "W08-738")["source_note"]
-    assert "do not generalize" in by_id(data, "W08-738")["source_note"]
+    assert "巨门化禄" in by_id(data, "W08-738")["canonical_condition"]
+    assert "do not add a hard 巳亥 gate" in by_id(data, "W08-738")["source_note"]
+    assert "without claiming a universal all-palace rule" in by_id(data, "W08-739")["source_note"]
+    assert "前述石中隐玉格发达之后" in by_id(data, "W08-721")["canonical_condition"]
+    assert "骄奢淫佚" in by_id(data, "W08-721")["canonical_condition"]
     assert by_id(data, "W08-713")["history_feedback"] is None
 
 
