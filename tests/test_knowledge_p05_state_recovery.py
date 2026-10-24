@@ -22,11 +22,17 @@ def test_p05_state_cache_matches_current_w06_checkpoint_and_preserves_w05_baseli
     assert "main commit 7bf664fc87db20bfe02ef0020785b91dd62cbbdf" in state
     assert "current main commit 74087c97afffc5afa4821f8edb21ff42aea6eb6b" in state
     assert "after Product PR #640 merged" in state
-    assert "merged_rule_count: 529" in state
+    assert "merged_rule_count: 566" in state
     assert "reviewed_rule_count: 500" in state
-    assert "current_batch_rule_count: 25" in state
-    assert "source_first_records_added_current_batch: 25" in state
+    assert "current_batch_rule_count: 37" in state
+    assert "source_first_records_added_current_batch: 37" in state
     assert "W05-SG-001" in state and "W05-SG-003" in state
+    assert "W06-SG-001" in state and "W06-SG-003" in state
+    assert "source_uncertainty_count_current_batch: 3" in state
+    assert "path_dependent_gate_count_current_batch: 4" in state
+    assert "source_coverage_gap_count_current_batch: 3" in state
+    assert "source_coverage_gaps_remaining: 4" in state
+    assert "printed p86" in state
     assert "No Product/runtime authorization is implied" in state
 
 
