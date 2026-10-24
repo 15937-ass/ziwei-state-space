@@ -49,6 +49,9 @@ def test_w06_temporal_scope_stays_natal_and_tracks_only_source_ordered_paths():
     assert data["records"] == []
     assert {r["projection_rule_id"] for r in data["path_records"]} == {"W06-535", "W06-546", "W06-547", "W06-555"}
     assert all(r["time_layer"] == "NATAL" and r["no_numeric_generalization"] is True for r in data["path_records"] )
+    source_rows = {r["projection_rule_id"]: r for r in read_json(BASE / "WEALTH_W06_SOURCE_READJUDICATION_501_600_v0.1.json")["records"]}
+    assert all(r["canonical_condition"] == source_rows[r["projection_rule_id"]]["canonical_condition"] for r in data["path_records"])
+    assert all(r["canonical_target"] == source_rows[r["projection_rule_id"]]["canonical_target"] for r in data["path_records"])
     assert data["source_age_qualifier_records"] == []
 
 
