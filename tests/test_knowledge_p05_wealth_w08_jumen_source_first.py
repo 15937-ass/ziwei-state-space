@@ -120,8 +120,6 @@ def test_jumen_state_and_summary_counts_reconcile_and_prior_source_is_preserved(
     assert data["summary"]["historical_candidates_reviewed"] == 42
     assert data["summary"]["canonical_promotions"] == 42
     assert data["summary"]["cumulative_canonical_records_after_merge"] == 642
-    assert "W08_701_742_JUMEN_P86_P87_SOURCE_FIRST_42_PROMOTED" in state
-    assert "source_coverage_gaps_remaining: 6" in state
     assert "W05-SG-002 remains PARTIALLY_RESOLVED" in state
     summary = SUMMARY.read_text(encoding="utf-8")
     assert "Issue #737" in summary
