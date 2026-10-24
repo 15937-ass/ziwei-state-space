@@ -106,5 +106,5 @@ def test_w06_tianfu_structured_rules_preserve_source_branches_and_dependencies()
     r516 = rows["W06-516"]
     assert "financial_authority_greater_than_chouwei_tianfu" in r516["canonical_target"]
     assert "大于丑未宫天府" in r516["source_digest"]
-    assert "不引入数值权重" in r516["source_note"]
+    assert "no numeric weight or ratio is inferred" in r516["source_note"]
 
