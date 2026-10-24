@@ -165,5 +165,8 @@ def test_w06_taiyin_source_order_and_literal_ambiguities_are_retained():
     assert rows["W06-546"]["history_feedback"] == "PATH_DEPENDENT_GATE"
     assert rows["W06-547"]["history_feedback"] == "PATH_DEPENDENT_GATE"
     assert rows["W06-555"]["history_feedback"] == "PATH_DEPENDENT_GATE"
+    assert "辰戌太阴段落上下文" in rows["W06-553"]["canonical_condition"]
+    assert rows["W06-553"]["canonical_target"] == "property_inheritance_in_source_context"
+    assert "do not generalize this claim" in rows["W06-553"]["source_note"]
     assert all(r["case_support_only"] is False for r in rows.values())
 
