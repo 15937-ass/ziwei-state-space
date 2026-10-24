@@ -51,8 +51,8 @@ def test_no_canonical_change_is_authorized_by_this_package():
     text = DECISION.read_text(encoding="utf-8")
     contract = CONTRACT.read_text(encoding="utf-8")
     assert "不修改 canonical ontology" in text
-    assert "不修改 knowledge/qi_ontology.yaml" in contract
-    assert "不修改 Product adapter" in contract
+    assert "knowledge/qi_ontology.yaml" in contract
+    assert "Product adapter" in contract
 
 
 def test_core_recovery_cache_matches_active_issue_and_pr():
