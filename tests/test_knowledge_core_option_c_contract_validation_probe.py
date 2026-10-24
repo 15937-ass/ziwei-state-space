@@ -123,6 +123,7 @@ def test_report_records_capability_matrix_and_no_shared_schema_change():
         "Supported by existing typed fields",
         "Non-canonical review-envelope only",
         "Typed-schema gap",
+        "mapping_disposition: \"candidate_only\"",
         "No shared schema file was changed",
         "separate PI/Human Gate",
     ):

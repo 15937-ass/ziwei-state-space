@@ -38,7 +38,7 @@ mapping_review:
   target_ref: QI-15-PROBE             # candidate target reference only
   rationale: "target-specific reason"
   evidence_role: "external_modifier"  # proposed typed field; controlled vocabulary TBD
-  disposition: "candidate_only"       # separate from canonical approval
+  mapping_disposition: "candidate_only" # separate from canonical approval
 ```
 
 This is a proposal illustration only. `evidence_role` and `disposition` are **not** approved shared fields or controlled values. Canonical approval and Product consumer readiness remain separate gates and must not be inferred from `disposition`. QI-15 role slots and QR-04 resource states may need further vocabulary design only if a concrete consumer requirement demonstrates that prose-only envelope metadata is insufficient.
