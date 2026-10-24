@@ -12,7 +12,7 @@ def load(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def test_p05_state_cache_matches_merged_w05_checkpoint():
+def test_p05_state_cache_matches_current_w06_checkpoint_and_preserves_w05_baseline():
     state = STATE.read_text(encoding="utf-8")
     assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
     assert "active_issue: null" in state
@@ -22,10 +22,11 @@ def test_p05_state_cache_matches_merged_w05_checkpoint():
     assert "main commit 7bf664fc87db20bfe02ef0020785b91dd62cbbdf" in state
     assert "current main commit 74087c97afffc5afa4821f8edb21ff42aea6eb6b" in state
     assert "after Product PR #640 merged" in state
-    assert "merged_rule_count: 500" in state
+    assert "merged_rule_count: 529" in state
     assert "reviewed_rule_count: 500" in state
-    assert "current_batch_rule_count: 100" in state
-    assert "W05-SG-001…003" in state
+    assert "current_batch_rule_count: 25" in state
+    assert "source_first_records_added_current_batch: 25" in state
+    assert "W05-SG-001" in state and "W05-SG-003" in state
     assert "No Product/runtime authorization is implied" in state
 
 
