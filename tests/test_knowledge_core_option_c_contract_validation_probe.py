@@ -3,7 +3,7 @@ import json
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-FIXTURE = ROOT / "tests/fixtures/knowledge_core/qi_qr_contract_probe/contract_probe_v0.1.json"
+FIXTURE = ROOT / "knowledge/core/wp06b/fixtures/contract_probe_v0.1.json"
 REVIEW_SCHEMA = ROOT / "knowledge/REVIEW_SCHEMA_v0.3.md"
 KB_SCHEMA = ROOT / "knowledge/KB_SCHEMA.md"
 CONTRACT = ROOT / "knowledge/core/wp06b/OPTION_C_METADATA_CONTRACT_PROPOSAL_v0.2.md"
