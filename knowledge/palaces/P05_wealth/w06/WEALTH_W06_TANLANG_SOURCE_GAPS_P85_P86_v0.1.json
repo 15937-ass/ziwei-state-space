@@ -1,0 +1,58 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P05-WEALTH-W06-TANLANG-SOURCE-GAPS-P85-P86-v0.1",
+  "issue": 733,
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "P05",
+  "palace": "财帛宫",
+  "source_basis": {
+    "source_id": "SRC-ZZ-003",
+    "work": "中州派紫微斗数深造讲义（下册）",
+    "chapter": "下篇·宫垣论·财帛宫",
+    "printed_pages": "86",
+    "sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+    "page_image_map": "physical p43 right half = printed p86",
+    "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION",
+    "note": "This file records a local source-text ambiguity; it does not authorize semantic emendation."
+  },
+  "gap_count": 1,
+  "core_gap_count": 0,
+  "summary": {
+    "new_local_source_ambiguities": 1,
+    "open_local_source_ambiguities": 1,
+    "closed_local_source_ambiguities": 0,
+    "canonical_source_gap_supplement_records": 0,
+    "shared_semantic_gaps": [],
+    "unresolved_prior_gap_ids": [
+      "W05-SG-002",
+      "W06-SG-001",
+      "W06-SG-002",
+      "W06-SG-003",
+      "W06-SG-004"
+    ]
+  },
+  "source_image_checks": [
+    {
+      "projection_rule_id": "W06-596",
+      "source_location": "财帛宫printed_p86",
+      "literal": "风流采杖",
+      "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION",
+      "finding": "The printed page image visibly reads 风流采杖. Its intended semantic scope as the named setup in this sentence cannot be established from this source alone."
+    }
+  ],
+  "gaps": [
+    {
+      "gap_id": "W06-SG-005",
+      "source_location": "财帛宫printed_p86",
+      "rule_ids": [
+        "W06-596"
+      ],
+      "source_claim": "不化忌，但成『风流采杖』之局者，则主投机致祸，或经营半偏及偏门行业而致身败名裂。",
+      "gap_type": "OPEN_LOCAL_SOURCE_TEXT_AMBIGUITY",
+      "reason": "The physical p86 scan visibly reads 『风流采杖』. The source alone does not establish the intended semantic scope of this named setup. The consequences that follow are transcribed, but the conditional rule is not promoted while its named entry condition remains unresolved.",
+      "core_gap": false,
+      "status": "OPEN",
+      "action": "Preserve 『风流采杖』 literally. Do not silently emend it to a plausible phrase or import an external-school interpretation. Revisit only if an independently approved source can resolve the wording."
+    }
+  ]
+}

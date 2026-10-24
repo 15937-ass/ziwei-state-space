@@ -142,18 +142,30 @@ def test_forecast_ledger_and_predictive_claims_remain_gated():
     assert boundary["predictive_validity"] == "NOT_EVALUATED"
 
 
-def test_knowledge_coordinator_and_relevant_shard_caches_have_no_active_work():
-    coordinator = (ROOT / "knowledge/KNOWLEDGE_STATE.yaml").read_text(encoding="utf-8")
-    assert "current_known_live_work: {}" in coordinator
-    for relative_path in (
+def test_historical_knowledge_snapshot_is_validated_without_pinning_mutable_state_caches():
+    # The handoff is a dated historical snapshot. Current Knowledge state caches
+    # are mutable recovery pointers and must follow live Issues/PRs, per
+    # governance/RECOVERY_PRECEDENCE_v1.md; they are not snapshot source inputs.
+    report = _report()
+    snapshot = report["live_knowledge_work_snapshot"]
+
+    assert snapshot["as_of_date"] == "2026-10-22"
+    assert snapshot["coordinator_current_known_live_work"] == {}
+    assert snapshot["matching_open_knowledge_issues"] == []
+    assert snapshot["matching_open_knowledge_prs"] == []
+    for shard in snapshot["shard_execution"].values():
+        assert shard["status"] == "ACTIVE_NO_ACTIVE_WORK"
+        assert shard["active_issue"] is None
+        assert shard["active_pr"] is None
+
+    mutable_paths = {
+        "knowledge/KNOWLEDGE_STATE.yaml",
         "knowledge/states/CORE_STATE.yaml",
         "knowledge/states/P09_CAREER_STATE.yaml",
         "knowledge/states/P10_PROPERTY_STATE.yaml",
-    ):
-        state = (ROOT / relative_path).read_text(encoding="utf-8")
-        assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
-        assert "active_issue: null" in state
-        assert "active_pr: null" in state
+    }
+    source_paths = {item["path"] for item in report["source_artifacts"]}
+    assert not mutable_paths.intersection(source_paths)
 
 def test_product_recovery_state_is_snapshot_metadata_not_a_mutable_pinned_input():
     report = _report()
