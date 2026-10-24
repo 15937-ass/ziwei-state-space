@@ -106,12 +106,16 @@ def test_p05_state_cache_preserves_historical_batch_and_open_gap():
     assert "active_issue: null" in state
     assert "active_branch: null" in state
     assert "active_pr: null" in state
-    assert "merged_rule_count: 504" in state
+    assert "merged_rule_count: 529" in state
     assert "reviewed_rule_count: 500" in state
-    assert "current_batch_rule_count: 100" in state
+    assert "current_batch_rule_count: 25" in state
+    assert "source_first_records_added_current_batch: 25" in state
     assert "source_gap_supplement_record_count: 4" in state
     assert "source_coverage_gaps_closed_by_supplement: 2" in state
     assert "source_coverage_gaps_partially_resolved_by_supplement: 1" in state
     assert "source_coverage_gaps_remaining: 1" in state
+    assert "source_coverage_gap_count_current_batch: 0" in state
+    assert "W05-SG-002 remains PARTIALLY_RESOLVED" in state
+    assert "printed p84" in state
     assert "W05-SG-002 forward as partially resolved" in state
     assert "No Product/runtime authorization is implied" in state
