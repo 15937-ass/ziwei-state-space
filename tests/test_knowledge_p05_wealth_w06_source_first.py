@@ -138,6 +138,8 @@ def test_w06_taiyin_source_gap_ledger_preserves_literal_ambiguities():
     assert "被绰或遗失" in gaps["W06-SG-001"]["source_claim"]
     assert "卯本太阴" in gaps["W06-SG-002"]["source_claim"]
     assert "性质不占时" in gaps["W06-SG-003"]["source_claim"]
+    assert ledger["gap_count"] == 3
+    assert ledger["rule_count"] == 0
     assert ledger["open_gap_count"] == 3
     assert ledger["fully_closed_gap_count"] == 0
     assert ledger["unresolved_prior_gap_ids"] == ["W05-SG-002"]
