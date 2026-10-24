@@ -300,3 +300,21 @@ def test_candidate_without_evidence_or_candidate_payload_never_defaults_to_no_ev
 
     with pytest.raises(ValueError, match="candidate_payload must be an object"):
         review_raw_text_candidate(plan, source_text, None)
+
+def test_candidate_and_record_identifiers_cannot_echo_narrative():
+    plan = _plan()
+    payload, source_text = _candidate(plan)
+    payload["candidate_id"] = "I changed jobs in May 2027"
+    with pytest.raises(ValueError, match="short ASCII identifier"):
+        review_raw_text_candidate(plan, source_text, payload)
+
+    payload, source_text = _candidate(plan)
+    with pytest.raises(ValueError, match="short ASCII identifier"):
+        confirm_raw_text_candidate(
+            plan,
+            source_text,
+            payload,
+            user_confirmed=True,
+            record_id=source_text,
+            observation_confidence="MEDIUM",
+        )
