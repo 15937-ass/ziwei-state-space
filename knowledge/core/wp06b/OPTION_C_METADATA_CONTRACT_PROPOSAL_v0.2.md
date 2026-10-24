@@ -118,6 +118,8 @@ QI/QR 的概念身份与 output_kind/event_specificity/source_epistemic 不是�
 
 **PI 决定：六项全部接受，作为下一独立、有限范围的契约实现工作单的设计输入。**
 
+QI/QR 的语义边界属于 mapping review，**不塞入 Option C 三轴**；不把概念层级或语义角色写入 `output_kind`、`event_specificity` 或 `source_epistemic`。
+
 1. **语义边界：** QI/QR 的概念边界属于 mapping review；不将概念层级或语义角色塞入 `output_kind`、`event_specificity` 或 `source_epistemic`。
 2. **映射证据：** 每个目标映射必须有独立、目标特定的 rationale，并记录证据角色；同一来源行不能被重复计作独立证据。
 3. **定义收窄：** QI-04、QI-06、QI-16 的收窄只作为后续 canonical review 的候选，不在本工作单修改正式定义。

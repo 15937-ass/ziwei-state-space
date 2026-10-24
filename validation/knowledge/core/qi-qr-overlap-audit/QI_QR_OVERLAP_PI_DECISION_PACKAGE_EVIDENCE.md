@@ -43,7 +43,13 @@ PR：[#743](https://github.com/15937-ass/ziwei-state-space/pull/743)，开放且
 
 本次仅更新非 canonical 决策/契约文档、对应回归测试、验证记录与 Core 执行恢复缓存。未修改 `knowledge/qi_ontology.yaml`、`knowledge/star_cores.yaml`、`knowledge/star_systems.yaml`、canonical 来源行、Product adapter/registry/KIB lock/runtime 或消费权限。没有新增 schema 字段，也没有接受正式 mapping。
 
-## 6. 下一步
+## 6. Exact-head validation follow-up
+
+- Run #2529 on head `a72a24c9dd50ee8df6b6d7ce1edf9ae9478511e6` completed with 2,694 tests passed and 132 subtests passed, but one existing contract-phrase assertion failed.
+- Failure: `test_contract_keeps_option_c_axes_separate_from_qi_qr_mapping_review` required the explicit wording “不塞入 Option C 三轴”. The semantic boundary was already described, but the exact compatibility phrase was absent.
+- This patch restores the explicit wording in the PI-approved contract text; it does not weaken or remove the test. The corrected exact head must pass the full quality gate before merge.
+
+## 7. 下一步
 
 - 等待同步后新 head 的完整 repository-quality-gate 通过。
 - PR #743 通过 PI 审议后只合并上述非 canonical 提案包。
