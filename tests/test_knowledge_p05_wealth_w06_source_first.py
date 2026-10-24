@@ -64,3 +64,47 @@ def test_w06_tianfu_state_counts_and_w05_gap_carry_forward():
     assert "W05-SG-002" in state and "PARTIALLY_RESOLVED" in state
     assert "printed p84" in state
     assert "No Product/runtime authorization is implied" in state
+
+def test_w06_tianfu_structured_rules_preserve_source_branches_and_dependencies():
+    data = read_json(BASE / "WEALTH_W06_SOURCE_READJUDICATION_501_600_v0.1.json")
+    rows = {row["projection_rule_id"]: row for row in data["records"]}
+
+    # Baseline storage/management ability is distinct from the source's wealth-formation gate.
+    r501 = rows["W06-501"]
+    assert "基础储财/理财能力不以见禄为条件" in r501["canonical_condition"]
+    assert "成富局另须见禄（禄存或化禄均可）" in r501["canonical_condition"]
+    assert "saving_and_management_without_automatic_wealth" in r501["canonical_target"]
+    assert "wealth_formation_requires_lu_cun_or_hua_lu" in r501["canonical_target"]
+    assert "不主富厚" in r501["source_digest"]
+
+    # Direction remains unresolved until both named palaces are reviewed.
+    r509 = rows["W06-509"]
+    assert "命宫及福德宫" in r509["canonical_condition"]
+    assert "骗人/受骗方向" in r509["canonical_condition"]
+    assert "direction_unresolved" in r509["canonical_target"]
+    assert "命宫及福德宫" in r509["source_digest"]
+
+    # The quoted classic branch is preserved separately from this passage's entry gate.
+    r511 = rows["W06-511"]
+    assert "原文所引古诀分支" in r511["canonical_condition"]
+    assert "不权则富" in r511["canonical_condition"]
+    assert "加羊陀冲守则宜僧道" in r511["canonical_condition"]
+    assert "入格条件：见禄、权、科及吉曜" in r511["canonical_condition"]
+    assert "separately_from_entry_gate" in r511["canonical_target"]
+    assert "日月夹财，不权则富，加羊陀冲守则宜僧道" in r511["source_digest"]
+
+    # Preserve both stated branches without inventing a criterion for "good"/"bad nature".
+    r513 = rows["W06-513"]
+    assert "性质优良/不佳" in r513["canonical_condition"]
+    assert "favorable_nature_may_be_yinhui_leader" in r513["canonical_target"]
+    assert "unfavorable_nature_may_cause_incidents" in r513["canonical_target"]
+    assert "nature_criteria_unspecified" in r513["canonical_target"]
+    assert "性质优良者" in r513["source_digest"]
+    assert "若性质不佳，则主生事端" in r513["source_digest"]
+
+    # Preserve the source's qualitative cross-configuration comparison without numeric weights.
+    r516 = rows["W06-516"]
+    assert "financial_authority_greater_than_chouwei_tianfu" in r516["canonical_target"]
+    assert "大于丑未宫天府" in r516["source_digest"]
+    assert "不引入数值权重" in r516["source_note"]
+
