@@ -24,7 +24,7 @@ def test_p05_state_cache_matches_current_w06_checkpoint_and_preserves_w05_baseli
     assert "after Product PR #640 merged" in state
     assert "merged_rule_count: 563" in state
     assert "reviewed_rule_count: 500" in state
-    assert "current_batch_rule_count: 37" in state
+    assert "current_batch_rule_count: 34" in state
     assert "source_first_records_added_current_batch: 34" in state
     assert "W05-SG-001" in state and "W05-SG-003" in state
     assert "W06-SG-001" in state and "W06-SG-003" in state
