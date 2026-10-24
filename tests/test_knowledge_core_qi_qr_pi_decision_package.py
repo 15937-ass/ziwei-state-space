@@ -59,7 +59,7 @@ def test_core_recovery_cache_matches_active_issue_and_pr():
     text = CORE_STATE.read_text(encoding="utf-8")
     assert 'status: "ACTIVE"' in text
     assert "active_issue: 735" in text
-    assert 'active_branch: "knowledge/core-735-qi-qr-pi-decision-package"' in text
+    assert 'active_branch: "knowledge/core-735-qi-qr-pi-decision-package-r2"' in text
     assert "active_pr: 736" in text
 
 
