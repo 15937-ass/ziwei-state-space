@@ -103,13 +103,12 @@ def test_gap_ledger_and_summary_cumulative_counts():
     closed = {g["gap_id"]: g for g in ledger["entries"]}
     assert closed["P01-SRC-GAP-025"]["status"] == "CLOSED_BY_SOURCE_RECHECK_AND_CANONICAL_RULES"
     assert len(closed["P01-SRC-GAP-025"]["rule_ids"]) == 91
-    next_gaps = ledger["next_checkpoint_gaps"]
-    assert len(next_gaps) == 1
-    assert next_gaps[0]["gap_id"] == "P01-SRC-GAP-028"
-    assert next_gaps[0]["status"] == "OPEN_FOR_NEXT_SOURCE_CHECKPOINT"
-    assert "printed p23" in next_gaps[0]["source_location"]
-    assert "破军" in next_gaps[0]["source_claim"]
-    assert "P01-701" in ledger["next_source_anchor"]
+    entries_now = {g["gap_id"]: g for g in ledger["entries"]}
+    assert entries_now["P01-SRC-GAP-028"]["status"] == "CLOSED_BY_SOURCE_RECHECK_AND_CANONICAL_RULES"
+    assert len(entries_now["P01-SRC-GAP-028"]["rule_ids"]) == 51
+    assert "printed p22 bottom" in entries_now["P01-SRC-GAP-028"]["source_location"]
+    assert ledger["next_checkpoint_gaps"] == []
+    assert "P01 source audit complete through printed p24" in ledger["next_source_anchor"]
     assert ledger["entries"][0]["gap_id"] == "P01-SRC-GAP-022"
     assert len(ledger["entries"][0]["rule_ids"]) == 47
     summary = json.loads((BASE / "LIFE_P03_SOURCE_READJUDICATION_SUMMARY_v0.1.json").read_text(encoding="utf-8"))
