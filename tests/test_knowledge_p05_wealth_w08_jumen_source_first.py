@@ -7,7 +7,7 @@ READJ = BASE / "WEALTH_W08_SOURCE_READJUDICATION_701_742_v0.1.json"
 TIME = BASE / "WEALTH_W08_SOURCE_TIME_SCOPE_701_742_v0.1.json"
 GAPS = BASE / "WEALTH_W08_SOURCE_GAPS_701_742_v0.1.json"
 STATE = ROOT / "knowledge" / "states" / "P05_WEALTH_STATE.yaml"
-SUMMARY = ROOT / "knowledge" / "palaces" / "P05_wealth" / "w06" / "WEALTH_W06_CANONICAL_SUMMARY_v0.1.md"
+SUMMARY = BASE / "WEALTH_W08_CANONICAL_SUMMARY_701_742_v0.1.md"
 W05_GAP_LEDGER = ROOT / "knowledge" / "palaces" / "P05_wealth" / "w05" / "WEALTH_W05_SOURCE_GAP_CLOSURE_LEDGER_v0.1.json"
 
 EXPECTED_IDS = {f"W08-{i}" for i in range(701, 743)}
@@ -65,14 +65,14 @@ def test_w08_source_condition_corrections_are_explicit():
 def test_w08_temporal_scope_preserves_only_source_ordered_paths():
     data = load(READJ)
     sidecar = load(TIME)
-    assert sidecar["counts"] == {"non_natal_rows": 0, "year": 0, "decade": 0, "path_dependent_gate_rows": 4, "source_age_qualifier_rows": 1}
+    assert sidecar["counts"] == {"non_natal_rows": 0, "year": 0, "decade": 0, "path_dependent_gate_rows": 4, "source_age_qualifier_rows": 2}
     assert sidecar["exact_non_natal_ids"] == []
     assert sidecar["decade_ids"] == []
     assert sidecar["year_ids"] == []
     assert set(sidecar["path_dependent_gate_ids"]) == EXPECTED_PATH_IDS
     assert {r["projection_rule_id"] for r in sidecar["path_records"]} == EXPECTED_PATH_IDS
-    assert sidecar["source_age_qualifier_ids"] == ["W08-719"]
-    assert sidecar["source_age_qualifier_records"][0]["literal_qualifier"] == "中年后"
+    assert sidecar["source_age_qualifier_ids"] == ["W08-719", "W08-720"]
+    assert [r["literal_qualifier"] for r in sidecar["source_age_qualifier_records"]] == ["中年后", "早年必受艰辛"]
     assert all(r["time_layer"] == "NATAL" and r["no_numeric_generalization"] is True for r in sidecar["path_records"])
     source_rows = {r["projection_rule_id"]: r for r in load(READJ)["records"]}
     assert all(p["canonical_condition"] == source_rows[p["projection_rule_id"]]["canonical_condition"] for p in sidecar["path_records"])
@@ -102,6 +102,7 @@ def test_w08_gap_census_and_prior_gaps_are_carried_forward():
     assert "11 天相" in state
     summary = SUMMARY.read_text(encoding="utf-8")
     assert "Issue #738" in summary and "W08-701…W08-742" in summary
+    assert "source_resolution_change_count_current_batch: 16" in summary
     assert "下一来源锚点" in summary and "11 天相" in summary
 
 def test_w08_no_forbidden_model_parameters_or_product_authorization():
