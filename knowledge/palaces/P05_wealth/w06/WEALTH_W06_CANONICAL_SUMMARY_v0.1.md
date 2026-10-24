@@ -8,11 +8,11 @@
 - PDF 对应位置：physical p41 右半 = printed p82；physical p42 左半 = printed p83；physical p42 右半 = printed p84；physical p43 左半 = printed p85。physical p43 右半 printed p86 以 `9 贪狼` 开始，属于下一节，不在本批范围。
 
 ## 记录结果
-- W06 直接来源原子记录累计：62（`W06-501…W06-562`）。
+- W06 直接来源审计记录累计：62（`W06-501…W06-562`）；其中 59 条可提升为 canonical 规则，3 条原文歧义记录保留审计但不晋升。
 - Issue #719 天府批次：25 条（`W06-501…W06-525`）。
-- Issue #723 太阴批次：37 条（`W06-526…W06-562`）。
-- 可复用规则累计：62；CASE_SUPPORT_ONLY：0。
-- 合并当前批次后的 P05 canonical 累计：566；可复用规则：566；CASE_SUPPORT_ONLY：0。
+- Issue #723 太阴批次：37 条审计记录（`W06-526…W06-562`），其中 34 条晋升为 canonical 规则，3 条原文歧义暂不晋升。
+- 可复用规则累计：59；CASE_SUPPORT_ONLY：0。
+- 合并当前批次后的 P05 canonical 累计：563；可复用规则：563；CASE_SUPPORT_ONLY：0。
 - P05 来源缺口补充记录仍为 4；本次未新增 canonical gap-supplement 规则。
 - 新增 W06 本地原文歧义 3 项，均保持 OPEN：`W06-SG-001`（“被绰或遗失”）、`W06-SG-002`（“卯本太阴”）、`W06-SG-003`（“性质不占时”）。
 - `W06-501…W06-600` 是上限窗口，不是必须填满 100 行的配额；`W06-563…W06-600` 不伪造。
