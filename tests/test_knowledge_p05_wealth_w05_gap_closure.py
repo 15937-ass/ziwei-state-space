@@ -102,10 +102,10 @@ def test_time_scope_and_cumulative_summary_reconcile():
 
 def test_p05_state_cache_preserves_historical_batch_and_open_gap():
     state = STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
-    assert "active_issue: null" in state
-    assert "active_branch: null" in state
-    assert "active_pr: null" in state
+    assert 'status: "ACTIVE"' in state
+    assert "active_issue: 737" in state
+    assert 'active_branch: "knowledge/p05-737-source-first-jumen-p86-p87"' in state
+    assert "active_pr: 739" in state
     assert "merged_rule_count: 642" in state
     assert "Post-merge P05 total is 563 canonical reusable rules." in state
     assert "reviewed_rule_count: 500" in state
