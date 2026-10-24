@@ -5,6 +5,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DECISION = ROOT / "knowledge/core/qi-qr-overlap-audit/QI_QR_OVERLAP_PI_DECISION_PACKAGE_v0.1.md"
 CONTRACT = ROOT / "knowledge/core/wp06b/OPTION_C_METADATA_CONTRACT_PROPOSAL_v0.2.md"
 AUDIT = ROOT / "knowledge/core/qi-qr-overlap-audit/QI_QR_OVERLAP_PAIR_AUDIT_v0.1.md"
+CORE_STATE = ROOT / "knowledge/states/CORE_STATE.yaml"
 
 
 def test_decision_package_covers_exactly_eight_overlap_pairs():
@@ -52,6 +53,14 @@ def test_no_canonical_change_is_authorized_by_this_package():
     assert "不修改 canonical ontology" in text
     assert "不修改 knowledge/qi_ontology.yaml" in contract
     assert "不修改 Product adapter" in contract
+
+
+def test_core_recovery_cache_matches_active_issue_and_pr():
+    text = CORE_STATE.read_text(encoding="utf-8")
+    assert 'status: "ACTIVE"' in text
+    assert "active_issue: 735" in text
+    assert 'active_branch: "knowledge/core-735-qi-qr-pi-decision-package"' in text
+    assert "active_pr: 736" in text
 
 
 def test_original_audit_remains_the_research_source():
