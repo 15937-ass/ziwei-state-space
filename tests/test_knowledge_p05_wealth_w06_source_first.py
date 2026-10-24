@@ -36,7 +36,8 @@ def test_w06_source_first_census_and_boundary():
     assert "printed p84" in data["source_basis"]["note"]
     assert "8 太阴" in data["source_basis"]["note"]
     assert "printed p85" in data["source_basis"]["note"]
-    assert "9 贪狼" in data["source_basis"]["note"]
+    assert "子午贪狼守财帛者" in data["source_basis"]["note"]
+    assert all("子午贪狼守财帛者" not in r["source_digest"] for r in rows)
 
 
 def test_w06_temporal_scope_stays_natal_and_tracks_only_source_ordered_paths():
