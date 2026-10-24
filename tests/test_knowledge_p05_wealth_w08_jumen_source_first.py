@@ -57,8 +57,8 @@ def test_jumen_preserves_inherited_conditions_and_corrects_candidate_overreach()
     assert "辰宫巨门化忌反格" not in by_id(data, "W08-735")["canonical_condition"]
     assert "且会天机化忌" in by_id(data, "W08-740")["canonical_condition"]
     assert "或会天机化忌" not in by_id(data, "W08-740")["canonical_condition"]
-    assert "局部" in by_id(data, "W08-738")["source_note"]
-    assert "不将该句泛化" in by_id(data, "W08-738")["source_note"]
+    assert "local context" in by_id(data, "W08-738")["source_note"]
+    assert "do not generalize" in by_id(data, "W08-738")["source_note"]
     assert by_id(data, "W08-713")["history_feedback"] is None
 
 
