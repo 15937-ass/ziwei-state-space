@@ -18,7 +18,8 @@
 - Major stars covered: 14
 - Source ID counts: {"SRC-ZZ-002":413,"SRC-ZZ-001":17}
 - QI/QR evidence-link rows: 129
-- No explicit QI/QR evidence-link rows: 283
+- No explicit QI/QR evidence-link rows: 301
+- Rows with multiple distinct QI/QR dimensions: 12
 - Multiple candidate-target rows: 15
 - Rows flagged for overlap/layer/normalization review: 149
 - Current star-system index: 60 systems

@@ -58,6 +58,29 @@ class TestFourteenStarPropertyMatrix(unittest.TestCase):
         self.assertTrue(all("source_span_verified" in r for r in rows))
         self.assertTrue(all("case_support_only_status" in r for r in rows))
 
+    def test_qi_qr_coverage_counts_match_matrix_rows(self):
+        data = load_data()
+        rows = matrix_records(data)
+        dimensions = data["dimensions"]
+        qi_qr_links = [row["existing_qi_qr_evidence_links"] for row in rows]
+
+        self.assertEqual(sum(bool(links) for links in qi_qr_links), dimensions["records_with_existing_qi_qr_evidence_link"])
+        self.assertEqual(sum(not links for links in qi_qr_links), dimensions["records_without_existing_qi_qr_evidence_link"])
+        self.assertEqual(
+            sum(len({link[0] for link in links}) > 1 for links in qi_qr_links),
+            dimensions["records_with_multiple_qi_qr_dimensions"],
+        )
+        self.assertEqual(
+            sum(len(row["candidate_mapping_targets"]) > 1 for row in rows),
+            dimensions["records_with_multiple_candidate_targets"],
+        )
+        self.assertEqual(sum(bool(row["overlap_flags"]) for row in rows), dimensions["records_with_overlap_flags"])
+        self.assertEqual(dimensions["records_with_existing_qi_qr_evidence_link"], 129)
+        self.assertEqual(dimensions["records_without_existing_qi_qr_evidence_link"], 301)
+        self.assertEqual(dimensions["records_with_multiple_qi_qr_dimensions"], 12)
+        self.assertEqual(dimensions["records_with_multiple_candidate_targets"], 15)
+        self.assertEqual(dimensions["records_with_overlap_flags"], 149)
+
     def test_candidate_targets_are_not_promoted_to_accepted_mappings(self):
         data = load_data()
         for row in matrix_records(data):
