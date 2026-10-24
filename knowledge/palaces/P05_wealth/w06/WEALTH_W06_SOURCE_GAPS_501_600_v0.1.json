@@ -15,11 +15,11 @@
     "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION",
     "note": "The page images confirm the literal printed forms recorded below. This file records source-text ambiguities; it does not authorize semantic emendation."
   },
-  "gap_count": 3,
+  "gap_count": 4,
   "core_gap_count": 0,
   "summary": {
-    "new_local_source_ambiguities": 3,
-    "open_local_source_ambiguities": 3,
+    "new_local_source_ambiguities": 4,
+    "open_local_source_ambiguities": 4,
     "closed_local_source_ambiguities": 0,
     "canonical_source_gap_supplement_records": 0,
     "shared_semantic_gaps": [],
@@ -48,6 +48,13 @@
       "literal": "性质不占时",
       "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION",
       "finding": "The page image visibly reads 性质不占时; intended wording remains unresolved."
+    },
+    {
+      "projection_rule_id": "W06-532",
+      "source_location": "财帛宫printed_p84",
+      "literal": "其实(即社会地位)亦由富而来",
+      "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION",
+      "finding": "The printed clause is legible as 其实(即社会地位)亦由富而来, but the wording is semantically anomalous. The clear night/day birth hierarchy remains separately promoted; this subclause is not normalized."
     }
   ],
   "gaps": [
@@ -89,6 +96,19 @@
       "core_gap": false,
       "status": "OPEN",
       "action": "Preserve 性质不占时 literally. Do not silently normalize it to 性质不佳时 or another contextual guess."
+    },
+    {
+      "gap_id": "W06-SG-004",
+      "source_location": "财帛宫printed_p84",
+      "rule_ids": [
+        "W06-532"
+      ],
+      "source_claim": "其实(即社会地位)亦由富而来",
+      "gap_type": "OPEN_LOCAL_SOURCE_TEXT_AMBIGUITY",
+      "reason": "The printed page image reads 其实(即社会地位)亦由富而来. The parenthetical points to social status, but the literal character 实 is semantically anomalous in this construction. The intended reading cannot be established from this source alone.",
+      "core_gap": false,
+      "status": "OPEN",
+      "action": "Preserve the printed literal and do not silently emend 实 to 贵 or another character without independent source evidence. The W06-532 promoted target is limited to the clear night/day birth hierarchy; this subclause remains unnormalized."
     }
   ]
 }
