@@ -67,10 +67,10 @@ def test_w06_state_counts_and_source_gap_carry_forward():
     assert s["cumulative_canonical_records_after_merge"] == 563
     assert s["cumulative_reusable_projection_rules_after_merge"] == 563
     assert s["cumulative_source_gap_supplement_records_after_merge"] == 4
-    assert s["unresolved_source_uncertainty_count"] == 3
-    assert s["source_coverage_gap_count"] == 3
+    assert s["unresolved_source_uncertainty_count"] == 4
+    assert s["source_coverage_gap_count"] == 4
     assert s["path_dependent_gate_count"] == 4
-    assert s["open_source_gap_ids_current_batch"] == ["W06-SG-001", "W06-SG-002", "W06-SG-003"]
+    assert s["open_source_gap_ids_current_batch"] == ["W06-SG-001", "W06-SG-002", "W06-SG-003", "W06-SG-004"]
     gap_ledger = read_json(W05_GAP_LEDGER)
     gap = next(g for g in gap_ledger["entries"] if g["gap_id"] == "W05-SG-002")
     assert gap["status"] == "PARTIALLY_RESOLVED"
@@ -134,17 +134,18 @@ def test_w06_tianfu_structured_rules_preserve_source_branches_and_dependencies()
 def test_w06_taiyin_source_gap_ledger_preserves_literal_ambiguities():
     data = read_json(BASE / "WEALTH_W06_SOURCE_GAPS_501_600_v0.1.json")
     ledger = read_json(BASE / "WEALTH_W06_SOURCE_GAP_CLOSURE_LEDGER_501_600_v0.1.json")
-    assert data["gap_count"] == 3
+    assert data["gap_count"] == 4
     assert data["core_gap_count"] == 0
     gaps = {g["gap_id"]: g for g in data["gaps"]}
-    assert set(gaps) == {"W06-SG-001", "W06-SG-002", "W06-SG-003"}
+    assert set(gaps) == {"W06-SG-001", "W06-SG-002", "W06-SG-003", "W06-SG-004"}
     assert all(g["status"] == "OPEN" and g["core_gap"] is False for g in gaps.values())
     assert "被绰或遗失" in gaps["W06-SG-001"]["source_claim"]
     assert "卯本太阴" in gaps["W06-SG-002"]["source_claim"]
     assert "性质不占时" in gaps["W06-SG-003"]["source_claim"]
-    assert ledger["gap_count"] == 3
+    assert "其实(即社会地位)亦由富而来" in gaps["W06-SG-004"]["source_claim"]
+    assert ledger["gap_count"] == 4
     assert ledger["rule_count"] == 0
-    assert ledger["open_gap_count"] == 3
+    assert ledger["open_gap_count"] == 4
     assert ledger["fully_closed_gap_count"] == 0
     assert ledger["unresolved_prior_gap_ids"] == ["W05-SG-002"]
     assert ledger["shared_semantic_gaps"] == []
@@ -158,10 +159,14 @@ def test_w06_taiyin_source_order_and_literal_ambiguities_are_retained():
     assert rows["W06-542"]["source_uncertainty"] is not None
     assert rows["W06-542"]["canonical_promotion"] is False
     assert rows["W06-559"]["source_uncertainty"] is not None
+    assert rows["W06-532"]["source_uncertainty"] is not None
+    assert rows["W06-532"]["canonical_promotion"] is True
+    assert "excluded from the promoted target" in rows["W06-532"]["source_uncertainty"]
     assert rows["W06-559"]["canonical_promotion"] is False
     assert "被绰或遗失" in rows["W06-540"]["source_digest"]
     assert "卯本太阴" in rows["W06-542"]["source_digest"]
     assert "性质不占时" in rows["W06-559"]["source_digest"]
+    assert "其实(即社会地位)亦由富而来" in rows["W06-532"]["source_digest"]
     assert rows["W06-535"]["history_feedback"] == "PATH_DEPENDENT_GATE"
     assert rows["W06-546"]["history_feedback"] == "PATH_DEPENDENT_GATE"
     assert rows["W06-547"]["history_feedback"] == "PATH_DEPENDENT_GATE"
