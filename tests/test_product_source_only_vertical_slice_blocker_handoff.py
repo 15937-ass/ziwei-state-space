@@ -185,8 +185,8 @@ def test_product_recovery_state_cache_tracks_main_freshness_and_product_checkpoi
     assert 'state_cache_as_of_product_merge: "085e65c509fc5f9fed8230d00d2fc07a0e01b79b"' in state
     assert 'state_cache_snapshot_date: "2026-10-24"' in state
     assert 'next_work_unit: "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"' in state
-    assert "last_completed_product_issue: 714" in state
-    assert "last_completed_product_pr: 716" in state
+    assert "last_completed_product_issue: 715" in state
+    assert "last_completed_product_pr: 717" in state
     assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
     assert "active_issue: null" in state
     assert "active_pr: null" in state
