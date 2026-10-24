@@ -5,7 +5,7 @@
 - 来源：SRC-ZZ-003《中州派紫微斗数深造讲义（下册）》。
 - 已核对来源 SHA-256：`6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c`。
 - 当前覆盖：printed p82 底部的 `7 天府` 开篇至 printed p83 末尾；printed p84 的 `8 太阴` 开篇至 printed p85 最后一条太阴正文。
-- PDF 对应位置：physical p41 右半 = printed p82；physical p42 左半 = printed p83；physical p42 右半 = printed p84；physical p43 左半 = printed p85。physical p43 右半 printed p86 以 `9 贪狼` 开始，属于下一节，不在本批范围。
+- PDF 对应位置：physical p41 右半 = printed p82；physical p42 左半 = printed p83；physical p42 右半 = printed p84；physical p43 左半 = printed p85。physical p43 右半为 printed p86，页首进入下一段贪狼正文 `子午贪狼守财帛者…`；该段不在本批范围。扫描页在此边界未显示独立的 `9 贪狼` 标题。
 
 ## 记录结果
 - W06 直接来源审计记录累计：62（`W06-501…W06-562`）；其中 59 条可提升为 canonical 规则，3 条原文歧义记录保留审计但不晋升。
@@ -26,6 +26,6 @@
 6. `W05-SG-002` 仍为 `PARTIALLY_RESOLVED`，位置在 printed p81；本批不修复其字面，也不声称 p81 已完整覆盖。
 
 ## 下一来源锚点
-- 下一 P05 来源批次从 printed p86 的 `9 贪狼` 开始。
+- 下一 P05 来源批次从 printed p86 页首的贪狼正文 `子午贪狼守财帛者…` 开始；以扫描页原文为锚点，不假定边界处有独立标题。
 - 在完成财帛宫来源覆盖清点及剩余缺口处置之前，不切换到 P09。
 - 无新增共享语义、独立时间尺度、概率、权重、阈值、频率、衰减或 Product/runtime 授权。
