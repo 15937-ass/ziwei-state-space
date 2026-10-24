@@ -213,6 +213,16 @@ PR #710 已作为 proposal-only 基线合并，但其中的值域仍不是 canon
 
 因此，不建议在本轮把 output_kind 或 event_specificity 写入任何 canonical 词表。Issue #712 的后续工作应继续检查它们是需要拆分、改名、扩展，还是仅在审查层保留为候选标签。
 
+### 5.3 明确建议：先拆分候选轴，再讨论是否规范化
+
+| 候选轴 | 建议动作 | 理由 | 当前权限边界 |
+|---|---|---|---|
+| `output_kind` | **建议拆分，不保留为一个同层级平面枚举。** 研究上先区分“语义表现形态”与“推理关系/约束角色”；`PROCESS_PATTERN`、`SCENE_OR_CONTEXT`、`DIRECTIONAL_AXIS`、`EVENT_CANDIDATE` 可继续作为前一类候选，`CROSS_PALACE_CONSTRAINT`、`STRUCTURAL_CONSTRAINT`、`TEMPORAL_CONDITION`、`DOMAIN_SEMANTIC_BOUNDARY` 更接近后一类；`ACTION_CONDITIONED_OUTCOME` 还需拆开条件关系与结果形态。 | 这是研究建议，不新增正式字段或枚举。 |
+| `event_specificity` | **建议拆分并改名。** 将过程/条件结果/场景等值域先作为候选的 `event_relation_or_manifestation_kind`；将 `EVENT_CLASS_CANDIDATE` 与 `SPECIFIC_EVENT_CANDIDATE` 作为独立的 `event_granularity` 候选；“是否已观察/发生”另设独立证据状态，不塞入具体程度轴。 | 现有值域混合语义类型、粒度和观测状态，不构成自然的单调具体性尺度。 |
+| `source_epistemic` 与 `normalization_epistemic` | **建议保持分离。** 原文主张有来源支持，不代表归一化映射已被接受。 | 不把任何 `UNRESOLVED` 自动升格；`NOT_APPLICABLE` 是轴适用性状态，不是 event-specificity 的候选值。 |
+
+以上为本 Issue 的明确研究建议：对 `output_kind` 采取“拆分”，对 `event_specificity` 采取“拆分并改名”。是否采纳及最终字段名仍需 PI 审阅；本 PR 不实施任何 canonical schema 改动。
+
 ## 6. 时间尺度与性质/状态的区分
 
 现有 430 条主星规则中，绝大多数记录的 time_scope 是 generic，另有明确标记 natal、decade/year 的子集。它们是来源规则的时间适用范围，不等同于“原局只代表性质、大限代表状态、流年代表事件”的固定映射。

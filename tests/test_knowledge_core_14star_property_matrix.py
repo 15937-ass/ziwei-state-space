@@ -67,6 +67,12 @@ class TestFourteenStarPropertyMatrix(unittest.TestCase):
         self.assertIn("APPARENT_CONFLICT_CONDITIONALLY_DISTINGUISHED", cases)
         self.assertIn("COUNTEREXAMPLE_TO_MANDATORY_COMPLETE_INTRINSIC_VECTOR", cases)
         self.assertEqual(data["source_corpus"]["explicit_conflict_link_rows"], 0)
+        recommendations = data["pr710_taxonomy_recommendation"]
+        self.assertEqual(recommendations["output_kind"]["action"], "SPLIT")
+        self.assertEqual(recommendations["event_specificity"]["action"], "SPLIT_AND_RENAME")
+        self.assertEqual(recommendations["epistemic_axes"]["action"], "KEEP_SEPARATE")
+        self.assertTrue(recommendations["pi_review_required"])
+        self.assertFalse(recommendations["canonical_change_authorized"])
         self.assertEqual(cases["STRUCTURALLY_ALIGNED_CANDIDATE_NOT_ACCEPTED"]["rule_ids"], ["ZZ-TF-002"])
         self.assertEqual(cases["APPARENT_CONFLICT_CONDITIONALLY_DISTINGUISHED"]["rule_ids"], ["ZZ-ZW-003", "ZZ-ZW-004"])
         report = REPORT_PATH.read_text(encoding="utf-8")
