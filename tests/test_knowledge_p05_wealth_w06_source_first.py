@@ -25,7 +25,8 @@ def test_w06_source_first_census_and_boundary():
     assert all(r["source_location"] == "财帛宫printed_p84" for r in rows[25:54])
     assert rows[54]["source_location"] == "财帛宫printed_p84-85"
     assert all(r["source_location"] == "财帛宫printed_p85" for r in rows[55:])
-    assert all(r["canonical_promotion"] is True for r in rows)
+    assert sum(r["canonical_promotion"] is True for r in rows) == 59
+    assert {r["projection_rule_id"] for r in rows if r["canonical_promotion"] is False} == {"W06-540", "W06-542", "W06-559"}
     assert all(r["case_support_only"] is False for r in rows)
     assert all(r["archived_candidate_condition"] is None for r in rows)
     assert rows[0]["source_digest"].startswith("天府守财帛宫，不主富厚")
@@ -56,10 +57,11 @@ def test_w06_state_counts_and_source_gap_carry_forward():
     s = data["summary"]
     assert s["direct_source_first_records_created"] == 62
     assert s["current_batch_records_created"] == 37
-    assert s["reusable_projection_rules"] == 62
+    assert s["canonical_promotions"] == 59
+    assert s["reusable_projection_rules"] == 59
     assert s["case_support_only"] == 0
-    assert s["cumulative_canonical_records_after_merge"] == 566
-    assert s["cumulative_reusable_projection_rules_after_merge"] == 566
+    assert s["cumulative_canonical_records_after_merge"] == 563
+    assert s["cumulative_reusable_projection_rules_after_merge"] == 563
     assert s["cumulative_source_gap_supplement_records_after_merge"] == 4
     assert s["unresolved_source_uncertainty_count"] == 3
     assert s["source_coverage_gap_count"] == 3
@@ -146,8 +148,11 @@ def test_w06_taiyin_source_order_and_literal_ambiguities_are_retained():
     data = read_json(BASE / "WEALTH_W06_SOURCE_READJUDICATION_501_600_v0.1.json")
     rows = {r["projection_rule_id"]: r for r in data["records"]}
     assert rows["W06-540"]["source_uncertainty"] is not None
+    assert rows["W06-540"]["canonical_promotion"] is False
     assert rows["W06-542"]["source_uncertainty"] is not None
+    assert rows["W06-542"]["canonical_promotion"] is False
     assert rows["W06-559"]["source_uncertainty"] is not None
+    assert rows["W06-559"]["canonical_promotion"] is False
     assert "被绰或遗失" in rows["W06-540"]["source_digest"]
     assert "卯本太阴" in rows["W06-542"]["source_digest"]
     assert "性质不占时" in rows["W06-559"]["source_digest"]
