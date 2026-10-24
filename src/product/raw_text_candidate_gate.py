@@ -62,6 +62,21 @@ def _required_text(value: Any, field: str) -> str:
     return text
 
 
+def _identifier(value: Any, field: str) -> str:
+    text = _required_text(value, field)
+    allowed_punctuation = "._:-"
+    if (
+        not text.isascii()
+        or len(text) > 64
+        or not text[0].isalnum()
+        or any(not (char.isalnum() or char in allowed_punctuation) for char in text)
+    ):
+        raise ValueError(
+            f"{field} must be a short ASCII identifier (max 64 characters)"
+        )
+    return text
+
+
 def _iso_date(value: Any, field: str) -> date:
     text = _required_text(value, field)
     try:
@@ -202,7 +217,7 @@ def review_raw_text_candidate(
     if str(candidate_payload.get("schema_version", "")).strip() != CANDIDATE_SCHEMA_VERSION:
         raise ValueError(f"schema_version must be {CANDIDATE_SCHEMA_VERSION}")
 
-    candidate_id = _required_text(candidate_payload.get("candidate_id"), "candidate_id")
+    candidate_id = _identifier(candidate_payload.get("candidate_id"), "candidate_id")
     plan_id = _required_text(candidate_payload.get("plan_id"), "plan_id")
     if plan_id != plan.plan_id:
         raise ValueError("candidate plan_id does not match locked plan")
@@ -296,7 +311,7 @@ def confirm_raw_text_candidate(
     if not user_confirmed:
         return reviewed
 
-    resolved_record_id = _required_text(record_id, "record_id")
+    resolved_record_id = _identifier(record_id, "record_id")
     resolved_confidence = _required_text(
         observation_confidence, "observation_confidence"
     )
