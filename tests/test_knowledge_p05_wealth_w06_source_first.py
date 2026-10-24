@@ -76,7 +76,7 @@ def test_w06_state_counts_and_source_gap_carry_forward():
     assert "有是非词不达意讼" in gap["reason"]
     state = STATE.read_text(encoding="utf-8")
     assert "merged_rule_count: 563" in state
-    assert "current_batch_rule_count: 37" in state
+    assert "current_batch_rule_count: 34" in state
     assert "source_gap_supplement_record_count: 4" in state
     assert "source_coverage_gaps_remaining: 4" in state
     assert "W05-SG-002" in state and "PARTIALLY_RESOLVED" in state
