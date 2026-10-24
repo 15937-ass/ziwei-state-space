@@ -41,3 +41,9 @@
 - Replacement PR base SHA: `5a7be5651f1682fe1c5c039f99d77cb1852d9ed3`.
 - The P05 state cache and regression assertions now point to Issue #737, the replacement branch, and PR #744.
 - Source scope and semantic safeguards are unchanged by this rebase. Exact-head validation remains pending; do not merge before all required checks pass.
+
+
+## Exact-head validation update (2026-10-24)
+- Source artifacts, state-cache reconciliation, and regression tests at pre-evidence head `6de84c7ce59d1ff80cdd621f42dc3e6b9d914630` passed Repository Quality Gate run #2521: 2,685 tests passed, 132 subtests passed; Product JS adapter checks, deterministic P0 gate, and Repository Governance v1 all passed.
+- This evidence-only update records that result; it creates a new PR head and therefore requires a fresh exact-head quality-gate run before merge. The latest PR head and linked Actions result are authoritative.
+- PR #744 is ready for review but remains unmerged pending PI review and serialized Knowledge merge. No Product/runtime authorization is implied.
