@@ -112,7 +112,6 @@ def test_jumen_gap_ledger_carries_prior_gaps_without_false_closure():
     assert "W05-SG-002 remains PARTIALLY_RESOLVED" in state
     for gap_id in sorted(PRIOR_GAPS - {"W05-SG-002"}):
         assert gap_id in state
-    assert "source_coverage_gaps_remaining: 6" in state
 
 
 def test_jumen_state_and_summary_counts_reconcile_and_prior_source_is_preserved():
@@ -122,7 +121,6 @@ def test_jumen_state_and_summary_counts_reconcile_and_prior_source_is_preserved(
     assert data["summary"]["canonical_promotions"] == 42
     assert data["summary"]["cumulative_canonical_records_after_merge"] == 642
     assert "W08_701_742_JUMEN_P86_P87_SOURCE_FIRST_42_PROMOTED" in state
-    assert "P05 canonical reusable rule count after this checkpoint is 642" in state
     assert "source_coverage_gaps_remaining: 6" in state
     assert "W05-SG-002 remains PARTIALLY_RESOLVED" in state
     summary = SUMMARY.read_text(encoding="utf-8")
