@@ -43,6 +43,14 @@ def test_jumen_batch_has_exact_source_boundary_and_candidate_reconciliation():
     assert data["summary"]["historical_candidates_reviewed"] == 42
     assert data["summary"]["canonical_promotions"] == 42
     assert data["summary"]["cumulative_canonical_records_after_merge"] == 642
+    assert data["summary"]["candidate_condition_or_scope_corrections"] == 25
+    assert set(data["summary"]["candidate_condition_or_scope_correction_ids"]) == {
+        "W08-702", "W08-704", "W08-705", "W08-709", "W08-711", "W08-712",
+        "W08-713", "W08-714", "W08-716", "W08-717", "W08-718", "W08-721",
+        "W08-726", "W08-728", "W08-729", "W08-730", "W08-732", "W08-733",
+        "W08-734", "W08-735", "W08-736", "W08-738", "W08-739", "W08-740",
+        "W08-741",
+    }
 
 
 def test_jumen_preserves_inherited_conditions_and_corrects_candidate_overreach():
@@ -53,6 +61,13 @@ def test_jumen_preserves_inherited_conditions_and_corrects_candidate_overreach()
     assert "天刑" in by_id(data, "W08-713")["canonical_condition"]
     assert "刑法纪律行业" in by_id(data, "W08-713")["canonical_condition"]
     assert "化禄、化忌皆然" in by_id(data, "W08-726")["canonical_condition"]
+    assert "太阳化忌" in by_id(data, "W08-712")["canonical_condition"]
+    assert "天刑" in by_id(data, "W08-712")["canonical_condition"]
+    assert "火、铃星、空劫、大耗" in by_id(data, "W08-714")["canonical_condition"]
+    assert "禄存同度" in by_id(data, "W08-729")["canonical_condition"]
+    assert "与煞曜同度" in by_id(data, "W08-733")["canonical_condition"]
+    assert "辰戌巨门与煞曜同度" in by_id(data, "W08-734")["canonical_condition"]
+    assert "独坐" in by_id(data, "W08-736")["canonical_condition"]
     assert "辰戌" in by_id(data, "W08-735")["canonical_condition"]
     assert "辰宫巨门化忌反格" not in by_id(data, "W08-735")["canonical_condition"]
     assert "及会天机化忌" in by_id(data, "W08-740")["canonical_condition"]
