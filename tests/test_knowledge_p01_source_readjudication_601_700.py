@@ -102,17 +102,18 @@ def test_p07_gap_ledger_and_cumulative_counts():
     assert gap["status"] == "CLOSED_BY_SOURCE_RECHECK_AND_CANONICAL_RULES"
     assert len(gap["rule_ids"]) == 93
     assert "P01-613" in gap["rule_ids"] and "P01-SG-214" in gap["rule_ids"]
-    next_gap = ledger["next_checkpoint_gaps"][0]
-    assert next_gap["gap_id"] == "P01-SRC-GAP-028"
-    assert "printed p23" in next_gap["source_location"]
-    assert "破军" in next_gap["source_claim"]
-    assert "P01-701" in ledger["next_source_anchor"]
+    gap28 = {g["gap_id"]: g for g in ledger["entries"]}["P01-SRC-GAP-028"]
+    assert gap28["status"] == "CLOSED_BY_SOURCE_RECHECK_AND_CANONICAL_RULES"
+    assert len(gap28["rule_ids"]) == 51
+    assert "printed p22 bottom" in gap28["source_location"] and "printed p24" in gap28["source_location"]
+    assert ledger["next_checkpoint_gaps"] == []
+    assert "P01 source audit complete through printed p24" in ledger["next_source_anchor"]
     state = STATE.read_text(encoding="utf-8")
-    assert "canonical_source_records_on_main: 882" in state
+    assert "canonical_source_records_on_main: 933" in state
     assert "source_gap_supplement_records: 47" in state
-    assert "cumulative_reusable_projection_rules_after_merge: 745" in state
-    assert "cumulative_case_support_only_after_merge: 137" in state
-    assert "P01-701…P01-800" in state
+    assert "cumulative_reusable_projection_rules_after_merge: 783" in state
+    assert "cumulative_case_support_only_after_merge: 150" in state
+    assert "P01-701…P01-751" in state
     assert "No Product/runtime authorization is implied" in state
 
 
@@ -120,6 +121,7 @@ def test_p07_report_records_verified_scan_boundary_and_text_variants():
     report = (BASE / "LIFE_P07_SOURCE_READJUDICATION_601_700_v0.1.md").read_text(encoding="utf-8")
     assert "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c" in report
     assert "printed p20 bottom through printed p22" in report
-    assert "printed p23" in report and "破军 prose" in report
+    assert "Post-merge boundary correction (Issue #714)" in report
+    assert "printed p22 bottom" in report and "printed p25" in report
     assert "雄宿乾无格" in report and "雄宿乾元格" in report
     assert "No Product/runtime authorization is implied" in report
