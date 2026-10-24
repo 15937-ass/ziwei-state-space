@@ -118,16 +118,17 @@ def test_jumen_gap_ledger_carries_prior_gaps_without_false_closure():
 def test_jumen_state_and_summary_counts_reconcile_and_prior_source_is_preserved():
     data = load(SOURCE)
     state = STATE.read_text(encoding="utf-8")
-    assert "merged_rule_count: 642" in state
-    assert "current_batch_rule_count: 42" in state
-    assert "source_first_records_added_current_batch: 42" in state
-    assert "source_uncertainty_count_current_batch: 0" in state
-    assert "path_dependent_gate_count_current_batch: 4" in state
-    assert "source_coverage_gap_count_current_batch: 0" in state
+    assert data["summary"]["historical_candidates_reviewed"] == 42
+    assert data["summary"]["canonical_promotions"] == 42
+    assert data["summary"]["cumulative_canonical_records_after_merge"] == 642
+    assert "W08_701_742_JUMEN_P86_P87_SOURCE_FIRST_42_PROMOTED" in state
+    assert "P05 canonical reusable rule count after this checkpoint is 642" in state
     assert "source_coverage_gaps_remaining: 6" in state
-    assert "11 天相" in state
-    assert "Issue #737" in SUMMARY.read_text(encoding="utf-8")
-    assert "W08-701…W08-742" in SUMMARY.read_text(encoding="utf-8")
+    assert "W05-SG-002 remains PARTIALLY_RESOLVED" in state
+    summary = SUMMARY.read_text(encoding="utf-8")
+    assert "Issue #737" in summary
+    assert "W08-701…W08-742" in summary
+    assert "11 天相" in summary
     previous = load(PREVIOUS_TANLANG)
     assert by_id(previous, "W06-596")["canonical_promotion"] is False
     assert "W06-SG-005" in previous["source_basis"]["note"] or "风流采杖" in by_id(previous, "W06-596")["source_digest"]
