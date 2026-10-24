@@ -1,0 +1,73 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P05-WEALTH-W08-TIANXIANG-SOURCE-GAPS-P87-P88-v0.1",
+  "issue": 746,
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "P05",
+  "palace": "财帛宫",
+  "source_basis": {
+    "source_id": "SRC-ZZ-003",
+    "work": "中州派紫微斗数深造讲义（下册）",
+    "chapter": "下篇·宫垣论·财帛宫",
+    "printed_pages": "87–88 (section 11 天相 only)",
+    "sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+    "page_image_map": "physical p44 left half = printed p87; physical p44 right half = printed p88",
+    "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION"
+  },
+  "gap_count": 2,
+  "core_gap_count": 0,
+  "summary": {
+    "new_local_source_ambiguities": 2,
+    "open_local_source_ambiguities": 2,
+    "closed_local_source_ambiguities": 0,
+    "canonical_source_gap_supplement_records": 0,
+    "shared_semantic_gaps": [],
+    "unresolved_prior_gap_ids": [
+      "W05-SG-002",
+      "W06-SG-001",
+      "W06-SG-002",
+      "W06-SG-003",
+      "W06-SG-004",
+      "W06-SG-005"
+    ]
+  },
+  "source_image_checks": [
+    {
+      "source_location": "physical p44 left half / printed p87",
+      "result": "VERIFIED",
+      "note": "Verified section 11 天相 heading and opening."
+    },
+    {
+      "source_location": "physical p44 right half / printed p88",
+      "result": "VERIFIED_WITH_TWO_LITERAL_AMBIGUITIES",
+      "note": "Verified three opposition branches and temporal wording; retained two printed-text discrepancies without emendation."
+    }
+  ],
+  "gaps": [
+    {
+      "gap_id": "W08-SG-001",
+      "source_location": "财帛宫printed_p88",
+      "source_claim": "一四十以后始渐兴家",
+      "rule_ids": [
+        "W08-761"
+      ],
+      "status": "OPEN",
+      "core_gap": false,
+      "reason": "The original image visibly reads 一四十以后. Do not silently delete 一 or normalize to 四十以后; no age threshold is promoted.",
+      "resolution_requirements": "Resolve only against an authoritative alternate edition or explicit source-owner decision."
+    },
+    {
+      "gap_id": "W08-SG-002",
+      "source_location": "财帛宫printed_p88",
+      "source_claim": "丑来天相，常以『紫破』或天相大运或流年，为突发克应之期。",
+      "rule_ids": [
+        "W08-766",
+        "W08-767"
+      ],
+      "status": "OPEN",
+      "core_gap": false,
+      "reason": "The image prints 丑来天相 although the preceding branch reads 丑未宫天相. Do not emend the printed source phrase from context.",
+      "resolution_requirements": "Check an authoritative alternate edition or explicit source-owner decision; timing candidates remain unpromoted."
+    }
+  ]
+}
