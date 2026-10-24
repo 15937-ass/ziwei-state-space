@@ -26,7 +26,7 @@ def test_p05_state_cache_tracks_live_tianxiang_work_and_preserves_historical_che
     assert "W05-SG-001" in state and "W05-SG-003" in state
     assert "W06-SG-001" in state and "W06-SG-004" in state and "W06-SG-005" in state
     assert "source_gap_supplement_record_count: 4" in state
-    assert "source_coverage_gaps_remaining: 6" in state
+    assert "source_coverage_gaps_remaining: 8" in state
     assert "W05-SG-002 remains PARTIALLY_RESOLVED" in state
     assert "12 天梁" in state
     assert "No Product/runtime authorization is implied" in state
