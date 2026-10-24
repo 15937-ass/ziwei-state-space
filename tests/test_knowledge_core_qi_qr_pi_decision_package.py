@@ -71,7 +71,7 @@ def test_original_audit_remains_the_research_source():
 
 def test_each_pair_records_baseline_source_boundary_and_reconsideration_gate():
     text = DECISION.read_text(encoding="utf-8")
-    blocks = re.split(r"(?=^### OVERLAP-\\d{2} — )", text, flags=re.MULTILINE)
+    blocks = re.split(r"(?=^### OVERLAP-\d{2} — )", text, flags=re.MULTILINE)
     blocks = [block for block in blocks if block.startswith("### OVERLAP-")]
     assert len(blocks) == 8
     for block in blocks:
