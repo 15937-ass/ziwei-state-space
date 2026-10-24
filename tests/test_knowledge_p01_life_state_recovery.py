@@ -21,14 +21,14 @@ def test_p01_state_cache_matches_accepted_p07_checkpoint():
     assert "active_pr: null" in state
     assert "\n  note: >-\n" in state
     assert "\nnote: >-\n" not in state
-    assert 'canonical_checkpoint: "P01_P07_601_700_SOURCE_FIRST_P20_P22_MERGED"' in state
-    assert "canonical_source_records_on_main: 882" in state
+    assert 'canonical_checkpoint: "P01_P08_701_751_POJUN_SOURCE_FIRST_P22_P24_MERGED"' in state
+    assert "canonical_source_records_on_main: 933" in state
     assert "canonical_source_records_ready_on_branch" not in state
-    assert "cumulative_after_merge: 882" in state
-    assert "cumulative_reusable_projection_rules_after_merge: 745" in state
-    assert "cumulative_case_support_only_after_merge: 137" in state
+    assert "cumulative_after_merge: 933" in state
+    assert "cumulative_reusable_projection_rules_after_merge: 783" in state
+    assert "cumulative_case_support_only_after_merge: 150" in state
     assert "P01-SRC-GAP-026" in state and "P01-SRC-GAP-027" in state and "P01-SRC-GAP-028" in state
-    assert "P01-701…P01-800" in state
+    assert "P01-701…P01-751" in state
     assert "No Product/runtime authorization is implied" in state
 
 
@@ -80,7 +80,7 @@ def test_p01_accepted_p06_counts_reconcile():
     assert load(SUMMARY_P06)["human_gate_required"] is False
 
 
-def test_p01_source_gap_027_closed_and_028_is_next():
+def test_p01_source_gaps_027_and_028_closed_after_boundary_correction():
     ledger = load(GAP_LEDGER)
     entries = {g["gap_id"]: g for g in ledger["entries"]}
     assert entries["P01-SRC-GAP-025"]["status"] == "CLOSED_BY_SOURCE_RECHECK_AND_CANONICAL_RULES"
@@ -91,13 +91,14 @@ def test_p01_source_gap_027_closed_and_028_is_next():
     assert gap["status"] == "CLOSED_BY_SOURCE_RECHECK_AND_CANONICAL_RULES"
     assert len(gap["rule_ids"]) == 142
     assert "P01-501" in gap["rule_ids"] and "P01-SG-209" in gap["rule_ids"]
-    next_gaps = ledger["next_checkpoint_gaps"]
-    assert len(next_gaps) == 1
-    next_gap = next_gaps[0]
-    assert next_gap["gap_id"] == "P01-SRC-GAP-028"
-    assert next_gap["status"] == "OPEN_FOR_NEXT_SOURCE_CHECKPOINT"
-    assert "printed p23" in next_gap["source_location"]
-    assert "破军" in next_gap["source_claim"]
-    assert next_gap["next_source_anchor"] == ledger["next_source_anchor"]
-    assert "P01-701" in ledger["next_source_anchor"]
+    gap27 = entries["P01-SRC-GAP-027"]
+    assert gap27["status"] == "CLOSED_BY_SOURCE_RECHECK_AND_CANONICAL_RULES"
+    assert "immediately before the heading 14 破军" in gap27["source_location"]
+    gap28 = entries["P01-SRC-GAP-028"]
+    assert gap28["status"] == "CLOSED_BY_SOURCE_RECHECK_AND_CANONICAL_RULES"
+    assert len(gap28["rule_ids"]) == 51
+    assert "printed p22 bottom" in gap28["source_location"] and "printed p24" in gap28["source_location"]
+    assert ledger["unresolved_gap_ids"] == []
+    assert ledger["next_checkpoint_gaps"] == []
+    assert "P01 source audit complete through printed p24" in ledger["next_source_anchor"]
     assert ledger["next_source_anchor"] in STATE.read_text(encoding="utf-8")

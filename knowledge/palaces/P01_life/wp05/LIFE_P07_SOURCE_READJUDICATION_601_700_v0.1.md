@@ -10,7 +10,7 @@
 ## Scan boundary verified
 - PDF physical p10 contains printed pp19–20. Printed p20 bottom begins `13 七杀`; only text from that heading onward belongs to this checkpoint. Earlier Tianliang text is already covered by accepted gap 026.
 - PDF physical p11 contains printed pp21–22. The final 七杀 marriage/tendency paragraphs and then the `14 破军` heading appear at the bottom of printed p22.
-- PDF physical p12 left half is printed p23 and begins 破军 prose, although the `14 破军` heading is printed on p24. Thus p23 is the next source anchor and is out of scope here.
+- PDF physical p12 left half is printed p23 and continues 破军 prose. **Post-merge correction in Issue #714:** the `14 破军` heading and opening text are already at printed p22 bottom; p23 is continuation, and the section ends on printed p24.
 
 ## Candidate disposition
 - Historical candidates reviewed: 100 (`P07-601…700`).
@@ -28,5 +28,10 @@
 
 ## Gap closure and next anchor
 - `P01-SRC-GAP-027`: closed only for section 13 七杀 from printed p20 bottom through printed p22, supported by `P01-613…700` plus `P01-SG-210…214`.
-- Next: `P01-SRC-GAP-028`, source-first review of the 破军 opening prose beginning printed p23 (PDF physical p12 left half); the section heading appears on p24.
+- `P01-SRC-GAP-028` was subsequently closed by Issue #714, which rechecked the full 破军 section from printed p22 bottom through p24.
 - No Product/runtime authorization is implied.
+
+
+## Post-merge boundary correction (Issue #714)
+
+Direct reinspection of the original scan (SHA-256 `6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c`) found that printed p22 bottom already contains the `14 破军` heading and opening prose. The prior handoff statement that printed p23 begins the section and that the heading appears on p24 was incorrect. Printed p23 continues the section; it ends on printed p24 before `兄弟宫` at printed p25. The accepted 七杀 scope and IDs `P01-613…700` plus `P01-SG-210…214` remain unchanged and end immediately before the 破军 heading. Issue #714 adds `P01-701…P01-751` and closes `P01-SRC-GAP-028`.
