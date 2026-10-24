@@ -1,6 +1,6 @@
 # PL7-Q3 Raw-Text Observation Candidate Gate v0.1
 
-Status: PI product-semantic acceptance RECORDED on 2026-10-24. Deterministic implementation checks passed on the prior implementation head; final PR head checks must be re-run after this acceptance-record commit. PR #718 remains draft and unmerged; this acceptance is not merge authorization.
+Status: PI product-semantic acceptance RECORDED on 2026-10-24. Exact-head implementation validation is tracked in the latest PR conversation checkpoint and required GitHub Actions checks. PR #718 remains draft and unmerged; this acceptance is not merge authorization.
 Tracking Issue: #715
 Lane: PRODUCT_ONLY
 Base main: bdcbf24ef85959d7a7b35014e82708bbedb329bf
