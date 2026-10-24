@@ -87,7 +87,7 @@ def test_tanlang_batch_preserves_prior_audit_and_reconciles_current_state():
     assert "source_coverage_gaps_remaining: 6" in state
     assert "W06-SG-001" in state and "W06-SG-005" in state
     assert "W05-SG-002" in state and "PARTIALLY_RESOLVED" in state
-    assert "10 巨门" in state
+    assert "11 天相" in state
     assert "No Product/runtime authorization is implied" in state
     summary = SUMMARY.read_text(encoding="utf-8")
     assert "Issue #733" in summary
