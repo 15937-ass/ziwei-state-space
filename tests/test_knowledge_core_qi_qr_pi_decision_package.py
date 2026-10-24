@@ -1,7 +1,7 @@
 from pathlib import Path
 import re
 
-ROOT = Path(__file__).resolve().parents[2]
+ROOT = Path(__file__).resolve().parents[1]
 DECISION = ROOT / "knowledge/core/qi-qr-overlap-audit/QI_QR_OVERLAP_PI_DECISION_PACKAGE_v0.1.md"
 CONTRACT = ROOT / "knowledge/core/wp06b/OPTION_C_METADATA_CONTRACT_PROPOSAL_v0.2.md"
 AUDIT = ROOT / "knowledge/core/qi-qr-overlap-audit/QI_QR_OVERLAP_PAIR_AUDIT_v0.1.md"
