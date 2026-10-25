@@ -9,6 +9,7 @@
 - Selected targets: T1_LEAP_LATE_ZI and T3_DAYTIME.
 - Coverage: 2 natal projections, 24 palace records, 4 target snapshots, 24 temporal scope instances, 204 temporal star objects.
 - The fixture omits birth inputs and nonessential natal metadata. It is a reduced projection of engine-generated output, not source-transcribed ground truth.
+- The source-row SHA-256 values for CR-001 and CR-031 are verified against the pinned regression CSV using exact UTF-8 row text excluding line terminators; the hashes and convention are recorded in the fixture manifest.
 
 ## Deterministic structural results
 
@@ -30,7 +31,7 @@ The pinned upstream **iztro v2.6.1** type defines `HoroscopeItem.mutagen: StarNa
 In the pinned projection, all 96 scope-level entries are star names, and all occur in the corresponding natal star inventory. Therefore, the earlier toy fixture's glyph-like scope values do not match the pinned upstream type. The current adapter preserves the names but emits `TRANSFORMATION_PRESENT(mutagen=<star name>)`. This is a **semantic-mapping gap**, not a reason to reinterpret the raw values: the scope-level list does not by itself bind each named star to a particular glyph (禄、权、科、忌). This probe records the issue and deliberately does not modify production code.
 ## Engineering decision
 
-**KEEP_INDEX_BASELINE.** No production migration benefit has been demonstrated. Continue the isolated TEST_ONLY guarded-temporal experiment, but do not promote canonical reaction semantics until the mutagen value-domain contract is resolved.
+**KEEP_INDEX_BASELINE.** No production migration benefit has been demonstrated. Continue the isolated TEST_ONLY guarded-temporal experiment, but do not promote canonical reaction semantics until scope-level mutagen-to-glyph binding semantics are contractually resolved.
 
 ## Not evaluated
 
