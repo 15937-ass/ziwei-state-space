@@ -12,16 +12,16 @@ def load(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def test_p05_state_cache_tracks_active_coverage_census_and_historical_checkpoints():
+def test_p05_state_cache_tracks_active_lianzheng_tail_audit_and_historical_checkpoints():
     state = STATE.read_text(encoding="utf-8")
     assert 'status: "ACTIVE"' in state
-    assert "active_issue: 775" in state
-    assert 'active_branch: "knowledge/p05-775-source-coverage-census"' in state
+    assert "active_issue: 777" in state
+    assert 'active_branch: "knowledge/p05-777-source-first-lianzhen-tail-p81-p82"' in state
     assert "merged_rule_count: 794" in state
-    assert "reviewed_rule_count: 803" in state
-    assert "source_coverage_gaps_remaining: 23" in state
+    assert "reviewed_rule_count: 843" in state
+    assert "source_coverage_gaps_remaining: 26" in state
     assert "P05-COV-GAP-001" in state
-    assert "source_coverage_census_status: \"GAP_IDENTIFIED_NOT_READY_TO_ADVANCE\"" in state
+    assert "source_coverage_census_status: \"SOURCE_SPAN_ACCOUNTED_PENDING_ACCEPTANCE\"" in state
     assert "W05_401_500_SOURCE_FIRST_MERGED" in state
     assert "main commit 7bf664fc87db20bfe02ef0020785b91dd62cbbdf" in state
     assert "W08_701_742_JUMEN_P86_P87_SOURCE_FIRST_42_PROMOTED" in state

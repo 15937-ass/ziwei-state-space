@@ -5,7 +5,7 @@
   "lane": "KNOWLEDGE_ONLY",
   "shard": "P05",
   "palace": "财帛宫",
-  "census_status": "COVERAGE_GAP_IDENTIFIED_NOT_READY_TO_ADVANCE",
+  "census_status": "SOURCE_COVERAGE_COMPLETE_WITH_EXPLICIT_RESIDUAL_AMBIGUITIES_PENDING_ACCEPTANCE",
   "source_basis": {
     "source_id": "SRC-ZZ-003",
     "title": "《中州派紫微斗数深造讲义（下册）》",
@@ -234,17 +234,28 @@
       "supplement_records": 0,
       "accepted_pr": 771,
       "merge_commit_sha": "20c5716a6bf609fc86e1b6668595a10f84ccc934"
+    },
+    {
+      "batch_id": "W10-923…W10-962",
+      "section": "6 廉贞尾段（本 PR 待验收）",
+      "printed_pages": "81 bottom–82 top; stop before 7 天府",
+      "source_first_review_records": 40,
+      "canonical_promotions": 36,
+      "unpromoted_records": 4,
+      "supplement_records": 0,
+      "issue": 777,
+      "acceptance_status": "PENDING_CURRENT_PR"
     }
   ],
   "record_census": {
-    "source_first_review_records": 803,
-    "source_first_canonical_promotions": 790,
-    "source_first_unpromoted": 13,
+    "source_first_review_records": 843,
+    "source_first_canonical_promotions": 826,
+    "source_first_unpromoted": 17,
     "p81_supplement_records": 4,
-    "total_records_accounted": 807,
-    "total_canonical_reusable_records": 794,
+    "total_records_accounted": 847,
+    "total_canonical_reusable_records": 830,
     "case_support_only_records": 0,
-    "count_basis": "807 = 803 source-first section-review records + 4 accepted p81 supplement records. 794 = 790 source-first promotions + 4 supplement promotions. Thirteen source-first records remain unpromoted.",
+    "count_basis": "843 = 803 prior accepted source-first records + 40 W10 source-first review records. 847 = 843 source-first records + 4 accepted p81 supplements. 830 = 826 source-first promotions + 4 supplement promotions. Seventeen source-first records remain unpromoted.",
     "unpromoted_rule_ids": [
       "W06-540",
       "W06-542",
@@ -258,7 +269,11 @@
       "W09-881",
       "W09-882",
       "W09-904",
-      "W09-909"
+      "W09-909",
+      "W10-925",
+      "W10-926",
+      "W10-929",
+      "W10-952"
     ],
     "unpromoted_dispositions": [
       {
@@ -312,14 +327,30 @@
       {
         "rule_id": "W09-909",
         "reason": "Printed p92 connective in 同破财损耗极大 remains unresolved."
+      },
+      {
+        "rule_id": "W10-925",
+        "reason": "Printed p81 phrase `唯财源不如在未宫之易顺耳` remains unresolved; literal preserved."
+      },
+      {
+        "rule_id": "W10-926",
+        "reason": "Printed p82 phrase `为浮华性质至少之星系` remains unresolved; literal preserved."
+      },
+      {
+        "rule_id": "W10-929",
+        "reason": "The referent/scope of `化忌` in the debt-assumption clause is not explicit."
+      },
+      {
+        "rule_id": "W10-952",
+        "reason": "The relation between the two `若` condition clauses for the wealth pattern is not explicit."
       }
     ]
   },
   "explicit_residual_gap_ledger": {
-    "explicit_gap_id_count": 22,
+    "explicit_gap_id_count": 26,
     "status_counts": {
       "PARTIALLY_RESOLVED": 1,
-      "OPEN": 21
+      "OPEN": 25
     },
     "gap_ids": [
       "W05-SG-002",
@@ -343,7 +374,11 @@
       "W09-SG-013",
       "W09-SG-014",
       "W09-SG-015",
-      "W09-SG-016"
+      "W09-SG-016",
+      "W10-SG-001",
+      "W10-SG-002",
+      "W10-SG-003",
+      "W10-SG-004"
     ],
     "gaps": [
       {
@@ -659,6 +694,66 @@
         "resolution_requirements": "Do not infer or silently normalize the printed phrase; resolve only with an authoritative alternate edition or explicit source-owner decision.",
         "disposition": "RETAINED_OPEN_WITH_REASON",
         "source_artifact": "knowledge/palaces/P05_wealth/w09/WEALTH_W09_POJUN_SOURCE_GAPS_P91_P92_v0.1.json"
+      },
+      {
+        "gap_id": "W10-SG-001",
+        "source_location": "财帛宫printed_p81",
+        "source_claim": "唯财源不如在未宫之易顺耳。",
+        "rule_ids": [
+          "W10-925"
+        ],
+        "status": "OPEN",
+        "core_gap": false,
+        "reason": "The physical page image visibly reads `易顺耳`. Its intended reading cannot be established from this source alone; the source must not be emended from context.",
+        "resolution_requirements": "Preserve the literal phrase; resolve only from an authoritative alternate edition or explicit source-owner decision.",
+        "unresolved_claims": [],
+        "disposition": "RETAINED_OPEN_WITH_REASON",
+        "source_artifact": "knowledge/palaces/P05_wealth/w10/WEALTH_W10_LIANZHEN_SOURCE_GAPS_P81_P82_v0.1.json"
+      },
+      {
+        "gap_id": "W10-SG-002",
+        "source_location": "财帛宫printed_p82",
+        "source_claim": "『廉贞七杀』在财帛宫，为浮华性质至少之星系。",
+        "rule_ids": [
+          "W10-926"
+        ],
+        "status": "OPEN",
+        "core_gap": false,
+        "reason": "The physical page image visibly reads `至少`. The intended reading of `浮华性质至少之星系` is unclear from this source alone.",
+        "resolution_requirements": "Preserve `至少` literally. Do not normalize to `最少` or another phrase without authoritative source evidence.",
+        "unresolved_claims": [],
+        "disposition": "RETAINED_OPEN_WITH_REASON",
+        "source_artifact": "knowledge/palaces/P05_wealth/w10/WEALTH_W10_LIANZHEN_SOURCE_GAPS_P81_P82_v0.1.json"
+      },
+      {
+        "gap_id": "W10-SG-003",
+        "source_location": "财帛宫printed_p82",
+        "source_claim": "『廉贞七杀』有昌曲同度，则主同情心强，化忌则不宜代人负债。",
+        "rule_ids": [
+          "W10-929"
+        ],
+        "status": "OPEN",
+        "core_gap": false,
+        "reason": "The debt clause follows the Chang Qu sentence but does not explicitly identify which star's Hua Ji is meant or state its full scope. No specific star is inferred.",
+        "resolution_requirements": "Retain the clause as unresolved; resolve only with an authoritative alternate edition or explicit source-owner decision.",
+        "unresolved_claims": [],
+        "disposition": "RETAINED_OPEN_WITH_REASON",
+        "source_artifact": "knowledge/palaces/P05_wealth/w10/WEALTH_W10_LIANZHEN_SOURCE_GAPS_P81_P82_v0.1.json"
+      },
+      {
+        "gap_id": "W10-SG-004",
+        "source_location": "财帛宫printed_p82",
+        "source_claim": "若廉贞化禄或命宫有禄存，若事业宫有禄存（登禄者更佳），则为富格。",
+        "rule_ids": [
+          "W10-952"
+        ],
+        "status": "OPEN",
+        "core_gap": false,
+        "reason": "The source gives two `若` condition clauses but does not fully establish their logical relation. Treating the career-palace Lu Cun as mandatory for both first alternatives would be an inference.",
+        "resolution_requirements": "Preserve the full literal condition and do not infer conjunction/disjunction; resolve only with an authoritative alternate edition or explicit source-owner decision.",
+        "unresolved_claims": [],
+        "disposition": "RETAINED_OPEN_WITH_REASON",
+        "source_artifact": "knowledge/palaces/P05_wealth/w10/WEALTH_W10_LIANZHEN_SOURCE_GAPS_P81_P82_v0.1.json"
       }
     ]
   },
@@ -753,7 +848,7 @@
   "uncovered_source_spans": [
     {
       "gap_id": "P05-COV-GAP-001",
-      "status": "OPEN_UNREVIEWED_SOURCE_SPAN",
+      "status": "CLOSED_BY_SOURCE_FIRST_REVIEW_ON_CURRENT_PR_HEAD",
       "source_location": "财帛宫 printed p81 bottom through printed p82 top, physical PDF p41 left/right halves",
       "start_literal": "丑未宫『廉贞、七杀』同度",
       "end_boundary": "Immediately before the printed p82 heading 7 天府",
@@ -764,21 +859,35 @@
         "w06_artifact": "knowledge/palaces/P05_wealth/w06/WEALTH_W06_SOURCE_READJUDICATION_501_600_v0.1.json",
         "w06_scope": "The accepted Tianfu scope starts at printed p82 bottom and its first record is 天府守财帛宫; it does not cover the preceding 廉贞 tail."
       },
-      "reason": "The original source scan shows section 6 廉贞 continuing from printed p81 onto printed p82 until the 7 天府 heading. The accepted W05 source-first records and p81 supplement records do not account for this tail; the accepted Tianfu batch starts below it.",
-      "disposition": "MUST_RECEIVE_SEPARATE_SOURCE_FIRST_REVIEW",
-      "next_action": "Open the next P05 bounded source-first Issue after this census is accepted. Review only the uncovered tail; check ID collisions against current main before assigning new IDs; preserve 顺耳 literally unless approved source evidence resolves it."
+      "reason": "The exact p81-bottom through p82-top section-6 廉贞 tail is accounted for in the W10 source-first artifact. Thirty-six clear atoms are proposed for promotion; four unresolved source phrases/condition scopes remain in the explicit gap ledger. No source span remains unreviewed within this boundary.",
+      "disposition": "CLOSED_BY_SOURCE_FIRST_REVIEW",
+      "next_action": "The bounded source span is accounted on the current PR head. After exact-head acceptance and merge, recheck current main and live Issues, then admit P09 under the approved serial queue.",
+      "closure_evidence": {
+        "artifact": "knowledge/palaces/P05_wealth/w10/WEALTH_W10_LIANZHEN_SOURCE_READJUDICATION_P81_P82_v0.1.json",
+        "record_ids": "W10-923…W10-962",
+        "reviewed_records": 40,
+        "proposed_promotions": 36,
+        "held_unpromoted": [
+          "W10-925",
+          "W10-926",
+          "W10-929",
+          "W10-952"
+        ],
+        "next_heading": "7 天府",
+        "source_hash": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c"
+      }
     }
   ],
   "disposition": {
-    "source_span_coverage": "NOT_YET_COMPLETE",
+    "source_span_coverage": "COMPLETE_WITH_EXPLICIT_RESIDUAL_AMBIGUITIES",
     "accepted_batches_reconciled": true,
-    "explicit_residual_gap_ids": 22,
+    "explicit_residual_gap_ids": 26,
     "record_level_uncertainty_annotations": 8,
-    "uncovered_source_spans": 1,
-    "total_open_coverage_items": 23,
-    "next_palace_ready": false,
+    "uncovered_source_spans": 0,
+    "total_open_coverage_items": 26,
+    "next_palace_ready": true,
     "next_palace": "P09 事业宫",
-    "next_step": "Continue P05 with a separate source-first review of P05-COV-GAP-001. Only after that span is accepted with explicit residual dispositions may the serial queue advance to P09."
+    "next_step": "After Issue #777 and its source-first PR are accepted and merged, recheck current main and live Issues, then promote the next bounded P09 gap-driven audit. Do not activate P09 before this handoff."
   },
   "boundaries": {
     "no_existing_rule_reextraction": true,
