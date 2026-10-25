@@ -66,7 +66,7 @@
 
 - 本文件与 JSON 均为候选研究材料。
 - 不修改 `knowledge/star_cores.yaml`、`knowledge/star_systems.yaml`、`knowledge/qi_ontology.yaml`、canonical 规则行或 Product/runtime。
-- 下一检查点：太阴试点，重点检查相对描述、收敛基调及条件分支是否被误写为绝对量值。
+- 历史下一检查点（已完成）：太阴试点。当前下一步以第 10 节与 [PI 决策说明书](14STAR_PROPERTY_NORMALIZATION_PI_DECISION_MEMO_v0.1.md) 为准：由 PI 决定是否接受研究方法进入阶段 B。
 
 
 ## 6. 太阴试点性质卡（当前检查点）
