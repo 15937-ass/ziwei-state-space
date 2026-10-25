@@ -342,10 +342,11 @@ def make_report() -> dict[str, Any]:
                 "observation": "The pinned upstream iztro v2.6.1 type defines HoroscopeItem.mutagen as StarName[] (src/data/types/astro.ts at v2.6.1, blob 2d692b84e9a28c6786c804078f06d34c4388125f), while Mutagen itself is the separate four-transformation type (禄/权/科/忌; src/i18n/types/mutagen.ts at v2.6.1, blob 268d2440e3ea024a07673942cbe313bfe752fca3; Simplified Chinese values at blob 7bb0325767a33ffc0c2e9c5952e3ac43c1978e80). In this pinned projection, all 96 scope-level mutagen entries are star names and all are present in the corresponding natal star inventory. The earlier toy fixture's glyph-like values do not match the pinned upstream type. The current adapter serializes these raw star names as TRANSFORMATION_PRESENT(mutagen=<star name>); that representation must not be read as identifying the specific transformation glyph or a star-to-glyph binding. This issue records the mismatch and does not alter production code.",
             }
         ],
-        "decision": "KEEP_INDEX_BASELINE; continue TEST_ONLY guarded-temporal research, but do not promote canonical reaction semantics until the mutagen value-domain contract is resolved.",
+        "decision": "KEEP_INDEX_BASELINE; continue TEST_ONLY guarded-temporal research, but do not promote canonical reaction semantics until scope-level mutagen-to-glyph binding semantics are contractually resolved.",
         "not_evaluated": [
             "source-transcribed full-chart equivalence",
             "traditional semantic correctness",
+            "scope-level mutagen-to-glyph/star binding semantics",
             "canonical temporal reaction rule eligibility",
             "production performance or migration benefit",
             "predictive validity or probability calibration",
