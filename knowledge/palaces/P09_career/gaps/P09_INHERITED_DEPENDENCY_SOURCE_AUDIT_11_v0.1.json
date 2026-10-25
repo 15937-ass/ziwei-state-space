@@ -1,0 +1,285 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-P09-INHERITED-DEPENDENCY-SOURCE-AUDIT-11-v0.1",
+  "status": "SOURCE_RECHECKED_INHERITED_BLOCKERS_RETAINED",
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "P09",
+  "issue": 787,
+  "source": {
+    "source_id": "SRC-ZZ-003",
+    "source_title": "《中州派紫微斗数深造讲义（下册）》",
+    "attachment_sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+    "scope": {
+      "palace": "事业宫",
+      "printed_pages": [
+        133,
+        134,
+        135,
+        136,
+        137
+      ],
+      "pdf_physical_pages": [
+        67,
+        68,
+        69
+      ]
+    },
+    "visual_review": {
+      "verification_method": "DIRECT_PDF_VISUAL_REVIEW",
+      "attachment_sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+      "verified_pdf_physical_pages": [
+        67,
+        68,
+        69
+      ],
+      "verified_printed_pages": [
+        133,
+        134,
+        135,
+        136,
+        137
+      ],
+      "finding": "The original scan images for the specified printed pages were inspected. They confirm the local wording and accepted explicit-reference surfaces, but do not resolve the inherited category membership, closed-world absence, list quantifier, or compound-composition blockers."
+    }
+  },
+  "baseline": {
+    "current_main_at_admission": "14acf5b812f3919c922690a8de47d5fce3c12838",
+    "career_source_rules_reviewed": 888,
+    "contextual_activation_source_ids_reviewed": 251,
+    "local_structure_ready_rows": 26,
+    "knowledge_condition_ir_ready_rows": 12,
+    "dependency_effective_underdetermined_rows_before_review": 11,
+    "direct_relation_or_composition_deferred_rows": 3,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0
+  },
+  "summary": {
+    "rows_rechecked": 11,
+    "rows_source_resolved_for_inherited_blocker": 0,
+    "rows_retained_fail_closed": 11,
+    "antecedent_edges_changed": 0,
+    "canonical_source_rows_changed": 0,
+    "shared_semantics_changed": 0,
+    "condition_ir_changes": 0,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0,
+    "product_or_runtime_authorization": false
+  },
+  "records": [
+    {
+      "gap_id": "P09-DEP-GAP-001",
+      "source_rule_id": "CA01-058",
+      "parent_chain": [
+        "CA01-057"
+      ],
+      "source_location": "事业宫 printed p133 / PDF physical p67",
+      "source_span_id": "ZZ003-P133",
+      "source_condition_text": "前格且命宫吉",
+      "printed_source_excerpt": "紫微得百官朝拱，又无煞曜，可以从政，必能发展至部门首脑。若命宫吉者，更主为方面大员，司部长官。",
+      "inherited_blockers": [
+        "BAIGUAN_ACTIVATION_NO_UNIVERSAL_THRESHOLD",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE"
+      ],
+      "direct_scan_finding": "The image confirms the continuation from 紫微得百官朝拱、又无煞曜 to the added 命宫吉 qualifier. This span supplies no universal activation threshold for 百官朝拱 and no closed-world evidence contract for absence of 煞曜.",
+      "disposition": "RETAINED_UNRESOLVED",
+      "reason": "The parent condition remains underdetermined. The explicit 命宫吉 continuation does not remove either inherited blocker; do not invent a count/threshold for 百官朝拱 or infer complete absence from an incomplete inventory.",
+      "antecedent_edge_changed": false
+    },
+    {
+      "gap_id": "P09-DEP-GAP-002",
+      "source_rule_id": "CA01-060",
+      "parent_chain": [
+        "CA01-059"
+      ],
+      "source_location": "事业宫 printed p133 / PDF physical p67",
+      "source_span_id": "ZZ003-P133",
+      "source_condition_text": "前格从政古称财赋税之官",
+      "printed_source_excerpt": "若紫微无煞曜同度，却有辅佐吉曜同会，又见禄马交驰，或会廉贞化禄、贪狼化禄、武曲化禄者，主职掌财权，从政亦为财赋税之官。",
+      "inherited_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "CLOSED_WORLD_ABSENCE_EVIDENCE",
+        "SOURCE_LIST_QUANTIFIER_UNSPECIFIED"
+      ],
+      "direct_scan_finding": "The scan confirms the outer 或 alternative and the three named 化禄 carriers. It does not close the inner list quantifier, enumerate the full 辅佐吉曜 category, or define closed-world absence for 无煞曜同度.",
+      "disposition": "RETAINED_UNRESOLVED",
+      "reason": "The already accepted distinction between outer alternatives and unresolved inner list quantifier remains supported. The parent’s support-category and absence conditions are not made deterministic by this sentence.",
+      "antecedent_edge_changed": false
+    },
+    {
+      "gap_id": "P09-DEP-GAP-003",
+      "source_rule_id": "CA02-108",
+      "parent_chain": [
+        "CA02-107"
+      ],
+      "source_location": "事业宫 printed p134 / PDF physical p67",
+      "source_span_id": "ZZ003-P134",
+      "source_condition_text": "前格",
+      "printed_source_excerpt": "若见刑曜，则以从事武职为佳，权力甚重。",
+      "inherited_blockers": [
+        "OPEN_FUNCTIONAL_CATEGORY_MEMBERSHIP_OR_ACTIVATION_UNRESOLVED"
+      ],
+      "direct_scan_finding": "The scan confirms that 权力甚重 shares the preceding 刑曜 condition. The cited span does not define a closed, universally applicable member set or activation rule for 刑曜.",
+      "disposition": "RETAINED_UNRESOLVED",
+      "reason": "The antecedent link to CA02-107 remains source-supported, but the open category membership/activation blocker remains. Do not promote examples elsewhere into a closed list for this row.",
+      "antecedent_edge_changed": false
+    },
+    {
+      "gap_id": "P09-DEP-GAP-004",
+      "source_rule_id": "CA02-134",
+      "parent_chain": [
+        "CA02-133"
+      ],
+      "source_location": "事业宫 printed p135 / PDF physical p68",
+      "source_span_id": "ZZ003-P135",
+      "source_condition_text": "前格从商",
+      "printed_source_excerpt": "[紫相]守事业宫，见吉化，宜从事财经工作。若从商，以资金营运数额巨大者为宜。",
+      "inherited_blockers": [
+        "CLOSED_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "direct_scan_finding": "The scan confirms 若从商 narrows the preceding 财经工作 scene. It does not identify which transformation carrier(s) satisfy 见吉化 or define a source-approved universal activation rule.",
+      "disposition": "RETAINED_UNRESOLVED",
+      "reason": "The source-supported scene qualifier does not resolve the inherited 吉化 activation gap. The target continues to inherit CA02-133’s condition rather than dropping it.",
+      "antecedent_edge_changed": false
+    },
+    {
+      "gap_id": "P09-DEP-GAP-005",
+      "source_rule_id": "CA02-157",
+      "parent_chain": [
+        "CA02-156"
+      ],
+      "source_location": "事业宫 printed p136 / PDF physical p68",
+      "source_span_id": "ZZ003-P136",
+      "source_condition_text": "前格",
+      "printed_source_excerpt": "天机化禄，不能改变其不稳定的性质。若吉星祥曜会合，则可能转变到从事有前途的工作。或仅多兼职，或同时从事两三种事业。",
+      "inherited_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "direct_scan_finding": "The scan confirms the multiple-job/parallel-career clauses follow the 天机化禄且吉星祥曜会合 condition. It does not define the members or activation scope of 吉星祥曜.",
+      "disposition": "RETAINED_UNRESOLVED",
+      "reason": "The explicit antecedent remains supported, while the open favorable-star category remains underdetermined. The phrase 两三种事业 is preserved as source wording, not converted into a universal numeric rule.",
+      "antecedent_edge_changed": false
+    },
+    {
+      "gap_id": "P09-DEP-GAP-006",
+      "source_rule_id": "CA02-167",
+      "parent_chain": [
+        "CA02-166"
+      ],
+      "source_location": "事业宫 printed p136 / PDF physical p68",
+      "source_span_id": "ZZ003-P136",
+      "source_condition_text": "前格趋吉避凶",
+      "printed_source_excerpt": "见空劫、煞耗诸曜者，更属动辄得咎。趋吉避凶之道，在于寻求保守。",
+      "inherited_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "direct_scan_finding": "The image confirms the intensifying clause about 空劫、煞耗诸曜 and the following advice. It does not define group membership, quantifier, or the compound relation required to activate the parent condition.",
+      "disposition": "RETAINED_UNRESOLVED",
+      "reason": "Keep the previously accepted CA02-167 → CA02-166 link and its source-local scope. The visual review adds no evidence for a closed group or deterministic compound composition.",
+      "antecedent_edge_changed": false
+    },
+    {
+      "gap_id": "P09-DEP-GAP-007",
+      "source_rule_id": "CA02-168",
+      "parent_chain": [
+        "CA02-166"
+      ],
+      "source_location": "事业宫 printed p136 / PDF physical p68",
+      "source_span_id": "ZZ003-P136",
+      "source_condition_text": "前格",
+      "printed_source_excerpt": "趋吉避凶之道，在于寻求保守，不可为似乎有利的假象所吸引，以致反为失机。",
+      "inherited_blockers": [
+        "PAIR_OR_CLOSED_GROUP_ACTIVATION_CONTEXTUAL_UNRESOLVED",
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "direct_scan_finding": "The image confirms that the caution against apparently profitable illusions continues the same passage. It does not supply the missing membership or composition semantics for the parent condition.",
+      "disposition": "RETAINED_UNRESOLVED",
+      "reason": "Retain the accepted explicit antecedent CA02-168 → CA02-166; do not generalize it beyond the adjudicated source scope or infer a closed 空劫/煞耗 group.",
+      "antecedent_edge_changed": false
+    },
+    {
+      "gap_id": "P09-DEP-GAP-008",
+      "source_rule_id": "CA02-170",
+      "parent_chain": [
+        "CA02-169"
+      ],
+      "source_location": "事业宫 printed p136 / PDF physical p68",
+      "source_span_id": "ZZ003-P136",
+      "source_condition_text": "前格且命宫太阳化科",
+      "printed_source_excerpt": "天机化忌与吉曜同会者，则以从事经纪业为宜。亦可成为代理商。若命宫有太阳化科，则宜代理名牌商品，成为著名字号经纪。",
+      "inherited_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "direct_scan_finding": "The image confirms the additional 命宫太阳化科 qualifier on the brokerage/agency scene. The parent phrase 吉曜同会 remains open-category wording and is not enumerated in this span.",
+      "disposition": "RETAINED_UNRESOLVED",
+      "reason": "The local 命宫太阳化科 qualifier does not remove the inherited 吉曜 membership/activation uncertainty.",
+      "antecedent_edge_changed": false
+    },
+    {
+      "gap_id": "P09-DEP-GAP-009",
+      "source_rule_id": "CA02-171",
+      "parent_chain": [
+        "CA02-170",
+        "CA02-169"
+      ],
+      "source_location": "事业宫 printed p136 / PDF physical p68",
+      "source_span_id": "ZZ003-P136",
+      "source_condition_text": "前格",
+      "printed_source_excerpt": "若命宫有太阳化科，则宜代理名牌商品，成为著名字号经纪。唯……一生必多竞争，且主受对手中伤。",
+      "inherited_blockers": [
+        "OPEN_VALENCE_CATEGORY_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "direct_scan_finding": "The scan supports the accepted direct reference to CA02-170 and the transitive dependency on CA02-169. The parent’s 吉曜同会 category remains unspecified; the local continuation does not resolve it.",
+      "disposition": "RETAINED_UNRESOLVED",
+      "reason": "Preserve the accepted two-edge chain CA02-171 → CA02-170 → CA02-169. The local solar-transformation qualifier does not replace or erase the unresolved parent condition.",
+      "antecedent_edge_changed": false
+    },
+    {
+      "gap_id": "P09-DEP-GAP-010",
+      "source_rule_id": "CA02-199",
+      "parent_chain": [
+        "CA02-198"
+      ],
+      "source_location": "事业宫 printed p136 / PDF physical p68",
+      "source_span_id": "ZZ003-P136",
+      "source_condition_text": "前格",
+      "printed_source_excerpt": "见煞忌刑耗者，则常转换事业，或转换服务机构，且局面不大。",
+      "inherited_blockers": [
+        "SOURCE_COMPOUND_COMPOSITION_UNSPECIFIED"
+      ],
+      "direct_scan_finding": "The scan confirms 且局面不大 continues the same clause about career/employer changes under 煞忌刑耗. It does not define the compound group’s members, quantifier, or relation scope.",
+      "disposition": "RETAINED_UNRESOLVED",
+      "reason": "The explicit antecedent to CA02-198 remains supported, but the compound-condition composition remains unresolved. Do not turn the shorthand into an invented ALL/ANY trigger.",
+      "antecedent_edge_changed": false
+    },
+    {
+      "gap_id": "P09-DEP-GAP-011",
+      "source_rule_id": "CA03-235",
+      "parent_chain": [
+        "CA03-234"
+      ],
+      "source_location": "事业宫 printed p137 / PDF physical p69",
+      "source_span_id": "ZZ003-P137",
+      "source_condition_text": "前格",
+      "printed_source_excerpt": "若[天机天梁]见禄、权、科会，及辅佐吉曜，则亦可从政，但较难独当一面，且职位调动频仍。",
+      "inherited_blockers": [
+        "AUXILIARY_SUPPORT_ACTIVATION_CONTEXTUAL_UNRESOLVED"
+      ],
+      "direct_scan_finding": "The scan confirms that the role limitation follows the 天机天梁见禄权科会及辅佐吉曜 condition. The local source span does not enumerate 辅佐吉曜 or define its contextual activation scope.",
+      "disposition": "RETAINED_UNRESOLVED",
+      "reason": "The accepted antecedent remains supported. The auxiliary-support category remains context-dependent; this audit does not invent its member set or alter other condition axes.",
+      "antecedent_edge_changed": false
+    }
+  ],
+  "guardrails": {
+    "accepted_888_rule_corpus_reextracted": false,
+    "accepted_antecedent_edges_changed": false,
+    "no_universal_group_membership_invented": true,
+    "no_numeric_thresholds_or_probabilities_invented": true,
+    "no_closed_world_absence_assumed": true,
+    "no_generic_all_any_default_invented": true,
+    "no_shared_core_semantics_changed": true,
+    "no_product_runtime_or_condition_compilation_authorization": true,
+    "all_11_remain_fail_closed": true
+  }
+}
