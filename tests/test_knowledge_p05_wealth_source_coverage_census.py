@@ -109,14 +109,21 @@ def test_w10_local_source_gaps_are_open_and_not_core_gaps():
     assert {g["gap_id"] for g in gaps["gaps"]} == {"W10-SG-001", "W10-SG-002", "W10-SG-003", "W10-SG-004"}
     assert all(g["status"] == "OPEN" and g["core_gap"] is False for g in gaps["gaps"])
 
-def test_state_cache_tracks_active_p05_tail_audit_without_authorizing_product():
+def test_state_cache_tracks_accepted_p05_handoff_without_authorizing_product():
     state = STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE"' in state
-    assert "active_issue: 777" in state
-    assert 'active_branch: "knowledge/p05-777-source-first-lianzhen-tail-p81-p82"' in state
-    assert "merged_rule_count: 794" in state
+    assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
+    assert "active_issue: null" in state
+    assert "active_branch: null" in state
+    assert "active_pr: null" in state
+    assert "merged_rule_count: 831" in state
     assert "reviewed_rule_count: 844" in state
+    assert "current_batch_rule_count: 0" in state
+    assert "source_first_review_records_current_main: 844" in state
+    assert "unpromoted_source_first_records_current_main: 17" in state
+    assert "explicit_residual_gap_id_count: 26" in state
+    assert "record_level_uncertainty_annotation_count: 8" in state
+    assert "Next scheduled palace is P09 under Governance #676" in state
     assert "source_coverage_gaps_remaining: 26" in state
     assert "P05-COV-GAP-001" in state
-    assert "SOURCE_SPAN_ACCOUNTED_PENDING_ACCEPTANCE" in state
+    assert "COMPLETE_WITH_EXPLICIT_RESIDUAL_AMBIGUITIES" in state
     assert "No Product/runtime authorization is implied" in state
