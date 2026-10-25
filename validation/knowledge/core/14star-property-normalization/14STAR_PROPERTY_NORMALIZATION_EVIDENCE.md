@@ -111,3 +111,14 @@
 - 研究重点：谋士/军师与认知机敏是描述候选，但固定高 QI-07 仍需目标特定复审；近贵/天阙是关系门控；本命与运限变化分层；四化与不同煞曜的条件效应不合并。
 - 未修改 `star_cores.yaml`、`star_systems.yaml`、`qi_ontology.yaml`、canonical rule rows、共享 schema、正式 ID、Product/runtime、KIB 或消费者权限。canonical `source_span_verified` 继续为 false。
 - 当前阶段停止在天机候选检查点；下一颗为武曲，不在同一轮自动展开下一星。
+
+
+## 阶段 B 第三轮 — 武曲来源与候选检查点
+
+- Issue / PR：#757 / Draft PR #783。
+- 基线 main：`e2d550b8fbc9893560c0c93957f30cae8ce21f71`。
+- 来源：`SRC-ZZ-002`《中州派紫微斗数深造讲义（上）》，SHA-256 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a`，与来源索引一致。
+- 视觉核对范围：PDF 扫描页 6，印刷页 11–12。新增 `WUQU_SOURCE_SPAN_REVIEW_v0.1.csv` 覆盖 41 条 `ZZ-WQ` 行；新增 15 条 source-claim 卡、11 项候选性质和 17 条逐目标 mapping-review 记录。
+- 既有 DIRECT_STAR Batch 01 中 6 条武曲审查记录均交叉核对；ZZ-WQ-005 的历史 literal_source_span 与原页不符。新侧车保留实际原文并记录差异，未修改历史审查 CSV 或 canonical 规则。
+- 前一检查点 Tianji exact-head gate（head `67bec2c3dbbd4d462333735fbd2b959306ce61cf`）通过：Run [#40194363706](https://github.com/15937-ass/ziwei-state-space/actions/runs/40194363706)，2772 passed + 132 subtests；JS adapter、P0 audit、Repository Governance v1 均通过。该结果不替代新增武曲内容后的 exact-head gate。
+- 本文件不从历史绿色结果推断新提交通过；以本提交对应的 GitHub Actions exact-head 运行和 Issue #757 最新交接为准。

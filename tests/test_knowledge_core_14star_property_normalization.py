@@ -12,6 +12,7 @@ CANONICAL_RULES = ROOT / "knowledge/rules/stars/major_stars_canonical_v0.1.csv"
 TAIYIN_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TAIYIN_SOURCE_SPAN_REVIEW_v0.1.csv"
 TIANXIANG_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TIANXIANG_SOURCE_SPAN_REVIEW_v0.1.csv"
 TIANJI_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TIANJI_SOURCE_SPAN_REVIEW_v0.1.csv"
+WUQU_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/WUQU_SOURCE_SPAN_REVIEW_v0.1.csv"
 ZIWEI_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/ZIWEI_SOURCE_SPAN_REVIEW_v0.1.csv"
 
 
@@ -22,7 +23,7 @@ def load_baseline():
 def test_solar_taiyin_and_tianxiang_pilots_are_explicitly_noncanonical_and_source_bounded():
     data = load_baseline()
     assert data["status"] == "PROPOSAL_ONLY_NOT_CANONICAL"
-    assert data["checkpoint_status"] == "STAGE_B_TIANJI_CHECKPOINT_COMPLETED_NOT_FINAL"
+    assert data["checkpoint_status"] == "STAGE_B_WUQU_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert data["progress"]["completed_pilot_cards"] == ["太阳", "太阴", "天相"]
     assert data["progress"]["active_pilot_card"] is None
     assert data["progress"]["draft_pilot_cards"] == ["太阳", "太阴", "天相"]
@@ -35,7 +36,8 @@ def test_solar_taiyin_and_tianxiang_pilots_are_explicitly_noncanonical_and_sourc
     assert data["method_guardrails"]["product_consumption_authorized"] is False
     assert data["method_guardrails"]["normalization_epistemic"] == "UNRESOLVED"
     assert len([star for star in data["stars"] if star["name"] in {"太阳", "太阴", "天相"}]) == 3
-    assert len(data["stars"]) == 5
+    assert len(data["stars"]) == 6
+    assert data["stars"][5]["name"] == "武曲"
     assert data["stars"][0]["name"] == "太阳"
     assert data["stars"][0]["status"] == "PILOT_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert data["stars"][1]["name"] == "太阴"
@@ -262,9 +264,10 @@ def test_context_audit_refs_existing_source_claims_without_growing_canonical_evi
         assert row["source_locator"]["source_id"] == "SRC-ZZ-002"
         assert row["normalization_epistemic"] == "UNRESOLVED"
         assert row["canonical_accepted"] is row["executable"] is False
-    assert len(data["mapping_review_records"]) == 67
-    assert sum(not record["review_record_id"].startswith("MR-TJ-") for record in data["mapping_review_records"]) == 50
+    assert len(data["mapping_review_records"]) == 84
+    assert sum(not record["review_record_id"].startswith(("MR-TJ-", "MR-WQ-")) for record in data["mapping_review_records"]) == 50
     assert sum(record["review_record_id"].startswith("MR-TJ-") for record in data["mapping_review_records"]) == 17
+    assert sum(record["review_record_id"].startswith("MR-WQ-") for record in data["mapping_review_records"]) == 17
     assert validate_mapping_review_collection(data["mapping_review_records"]) == []
     assert all("context_method_audit" not in record for record in data["mapping_review_records"])
 
@@ -336,8 +339,8 @@ def test_method_permission_has_advanced_without_expanding_stars_or_semantic_perm
 def test_ziwei_stage_b_candidate_card_preserves_role_context_conditions_and_time():
     data = load_baseline()
     ziwei = next(star for star in data["stars"] if star["name"] == "紫微")
-    assert data["checkpoint_status"] == "STAGE_B_TIANJI_CHECKPOINT_COMPLETED_NOT_FINAL"
-    assert data["progress"]["stage"] == "B_TIANJI_CHECKPOINT_COMPLETED_READY_FOR_WUQU"
+    assert data["checkpoint_status"] == "STAGE_B_WUQU_CHECKPOINT_COMPLETED_NOT_FINAL"
+    assert data["progress"]["stage"] == "B_WUQU_CHECKPOINT_COMPLETED_READY_FOR_TONG"
     assert ziwei["status"] == "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert len(ziwei["source_claims"]) >= 15
     assert len(ziwei["candidate_properties"]) == 5
@@ -395,8 +398,8 @@ def test_ziwei_visual_review_covers_exact_canonical_rows_without_mutating_them()
 def test_tianji_stage_b_candidate_card_preserves_context_time_and_conditional_branches():
     data = load_baseline()
     tianji = next(star for star in data["stars"] if star["name"] == "天机")
-    assert data["checkpoint_status"] == "STAGE_B_TIANJI_CHECKPOINT_COMPLETED_NOT_FINAL"
-    assert data["progress"]["stage"] == "B_TIANJI_CHECKPOINT_COMPLETED_READY_FOR_WUQU"
+    assert data["checkpoint_status"] == "STAGE_B_WUQU_CHECKPOINT_COMPLETED_NOT_FINAL"
+    assert data["progress"]["stage"] == "B_WUQU_CHECKPOINT_COMPLETED_READY_FOR_TONG"
     assert tianji["status"] == "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert len(tianji["source_claims"]) >= 14
     assert len(tianji["candidate_properties"]) >= 8
@@ -457,3 +460,69 @@ def test_tianji_source_review_literals_are_transcribed_from_the_visual_source():
     assert rows["ZZ-TJ-X08"]["literal_source_span"] == "一般情形下，最喜卯宫的天机巨门。"
     assert rows["ZZ-TJ-X09"]["literal_source_span"] == "于天机独坐的情形下，较不喜巳亥二宫。"
     assert rows["ZZ-TJ-Y05"]["literal_source_span"].startswith("在子午两宫，天机巨门相对；在卯酉两宫，[天机巨门]同度。")
+
+
+def test_wuqu_stage_b_candidate_card_preserves_comparison_palace_gates_and_interactions():
+    data = load_baseline()
+    wuqu = next(star for star in data["stars"] if star["name"] == "武曲")
+    assert data["checkpoint_status"] == "STAGE_B_WUQU_CHECKPOINT_COMPLETED_NOT_FINAL"
+    assert data["progress"]["stage"] == "B_WUQU_CHECKPOINT_COMPLETED_READY_FOR_TONG"
+    assert wuqu["status"] == "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL"
+    assert len(wuqu["source_claims"]) == 15
+    assert len(wuqu["candidate_properties"]) >= 10
+    assert all(item["canonicalization_authorized"] is False for item in wuqu["candidate_properties"])
+    assert all(item["numeric_strength_assigned"] is False for item in wuqu["candidate_properties"])
+    claims = {row["claim_key"]: row for row in wuqu["source_claims"]}
+    assert "阴金" in claims["WQ-L0-SUBSTRATE"]["source_excerpt"]
+    assert "太阴" in claims["WQ-FINANCIAL-QUALITY-ACTION"]["source_excerpt"]
+    assert "非常之具体" in claims["WQ-FINANCIAL-QUALITY-ACTION"]["source_excerpt"]
+    assert "宫垣" in claims["WQ-KINSHIP-PALACE-GATE"]["claim_summary"]
+    assert "不一定代表事业失败" in claims["WQ-HUAJI-YANGTUO-INVESTMENT"]["source_excerpt"]
+    assert "优柔寡断" in claims["WQ-CHANGQU-TRADEOFF"]["source_excerpt"]
+    assert "躁决" in claims["WQ-WUPO-INTERACTION"]["source_excerpt"]
+    records = {row["review_record_id"]: row for row in data["mapping_review_records"]}
+    assert records["MR-WQ-QI05-ACTION-003"]["mapping_disposition"]["value"] == "supported_candidate"
+    assert records["MR-WQ-QI02-RIGIDITY-005"]["mapping_disposition"]["value"] == "needs_review"
+    assert records["MR-WQ-TIME-TRANSFORMATIONS-016"]["mapping_disposition"]["value"] == "not_supported_for_target"
+    assert validate_mapping_review_collection(data["mapping_review_records"]) == []
+
+
+def test_wuqu_visual_review_covers_exact_canonical_rows_without_mutating_them():
+    data = load_baseline()
+    expected_ids = set(data["source_policy"]["wuqu_review_rule_ids"])
+    assert len(expected_ids) == 41
+    with CANONICAL_RULES.open(encoding="utf-8", newline="") as stream:
+        canonical = {row["rule_id"]: row for row in csv.DictReader(stream) if row["rule_id"].startswith("ZZ-WQ-")}
+    with WUQU_SOURCE_REVIEW.open(encoding="utf-8", newline="") as stream:
+        review_rows = list(csv.DictReader(stream))
+    assert len(review_rows) == 41
+    assert {row["rule_id"] for row in review_rows} == expected_ids == set(canonical)
+    assert len({row["rule_id"] for row in review_rows}) == len(review_rows)
+    for row in review_rows:
+        assert row["source_id"] == "SRC-ZZ-002"
+        assert row["source_pdf_page"] == "6"
+        assert row["source_printed_page"] in {"11", "12"}
+        assert row["source_span_status"] == "VERIFIED_VISUAL_SCAN"
+        assert row["proposal_status"] == "PROPOSAL_ONLY_NOT_CANONICAL"
+        assert row["normalization_epistemic_after"] == "UNRESOLVED"
+        assert row["canonical_source_span_verified_after"] == "false"
+        assert row["claim_role"] in {"INTRINSIC", "RELATIONAL", "CONDITIONAL", "UNRESOLVED_OTHER"}
+        assert row["proposed_evidence_tier"] in {"DIRECT_STAR", "SAME_STAR_MODIFIER", "SYSTEM_CONTEXT"}
+        assert canonical[row["rule_id"]]["source_span_verified"] == "false"
+        assert canonical[row["rule_id"]]["normalization_epistemic"] == "UNRESOLVED"
+    assert data["source_policy"]["wuqu_source_locator"]["source_sha256"] == data["source_policy"]["source_sha256"]
+    assert data["source_policy"]["wuqu_source_locator"]["canonical_source_span_verified_mutated"] is False
+
+
+def test_wuqu_source_review_literals_preserve_exact_text_and_context_boundaries():
+    with WUQU_SOURCE_REVIEW.open(encoding="utf-8", newline="") as stream:
+        rows = {row["rule_id"]: row for row in csv.DictReader(stream)}
+    assert rows["ZZ-WQ-001"]["literal_source_span"] == "武曲为北斗第六星，属阴金。"
+    assert rows["ZZ-WQ-005"]["literal_source_span"] == "因此二者比较，太阴就显得柔和，武曲则显得刚烈。"
+    assert "武曲性刚，所以不宜再见火铃同度" not in rows["ZZ-WQ-005"]["literal_source_span"]
+    assert rows["ZZ-WQ-009"]["literal_source_span"] == rows["ZZ-WQ-010"]["literal_source_span"]
+    assert rows["ZZ-WQ-015"]["literal_source_span"] == rows["ZZ-WQ-017"]["literal_source_span"]
+    assert "不一定代表事业失败" in rows["ZZ-WQ-X04"]["literal_source_span"]
+    assert rows["ZZ-WQ-X11"]["source_printed_page"] == "12"
+    assert "文昌、文曲" in rows["ZZ-WQ-X06"]["literal_source_span"]
+    assert "躁决" in rows["ZZ-WQ-024"]["literal_source_span"]

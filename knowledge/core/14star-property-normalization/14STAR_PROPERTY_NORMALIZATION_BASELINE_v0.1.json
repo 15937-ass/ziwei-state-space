@@ -3,7 +3,7 @@
   "artifact_id": "KB-CORE-14STAR-PROPERTY-NORMALIZATION-BASELINE-01",
   "issue": 757,
   "status": "PROPOSAL_ONLY_NOT_CANONICAL",
-  "checkpoint_status": "STAGE_B_TIANJI_CHECKPOINT_COMPLETED_NOT_FINAL",
+  "checkpoint_status": "STAGE_B_WUQU_CHECKPOINT_COMPLETED_NOT_FINAL",
   "activation_main_sha": "74864f572cdd04407c241c483f3a34c646f69d3a",
   "execution_branch": "knowledge/core-757-14star-property-normalization",
   "source_policy": {
@@ -249,10 +249,75 @@
       ],
       "verification": "VISUAL_SOURCE_REVIEWED; SHA256_MATCHES_SOURCES_INDEX",
       "canonical_source_span_verified_mutated": false
+    },
+    "wuqu_review_rule_ids": [
+      "ZZ-WQ-001",
+      "ZZ-WQ-002",
+      "ZZ-WQ-003",
+      "ZZ-WQ-004",
+      "ZZ-WQ-005",
+      "ZZ-WQ-006",
+      "ZZ-WQ-007",
+      "ZZ-WQ-008",
+      "ZZ-WQ-009",
+      "ZZ-WQ-010",
+      "ZZ-WQ-011",
+      "ZZ-WQ-012",
+      "ZZ-WQ-013",
+      "ZZ-WQ-014",
+      "ZZ-WQ-015",
+      "ZZ-WQ-016",
+      "ZZ-WQ-017",
+      "ZZ-WQ-018",
+      "ZZ-WQ-019",
+      "ZZ-WQ-020",
+      "ZZ-WQ-021",
+      "ZZ-WQ-022",
+      "ZZ-WQ-023",
+      "ZZ-WQ-024",
+      "ZZ-WQ-025",
+      "ZZ-WQ-X01",
+      "ZZ-WQ-X02",
+      "ZZ-WQ-X03",
+      "ZZ-WQ-X04",
+      "ZZ-WQ-X05",
+      "ZZ-WQ-X06",
+      "ZZ-WQ-X07",
+      "ZZ-WQ-X08",
+      "ZZ-WQ-X09",
+      "ZZ-WQ-X10",
+      "ZZ-WQ-X11",
+      "ZZ-WQ-Y01",
+      "ZZ-WQ-Y02",
+      "ZZ-WQ-Y03",
+      "ZZ-WQ-Y04",
+      "ZZ-WQ-Y05"
+    ],
+    "wuqu_review_path": "knowledge/core/14star-property-normalization/WUQU_SOURCE_SPAN_REVIEW_v0.1.csv",
+    "wuqu_prior_review_rule_ids": [
+      "ZZ-WQ-003",
+      "ZZ-WQ-004",
+      "ZZ-WQ-005",
+      "ZZ-WQ-006",
+      "ZZ-WQ-019",
+      "ZZ-WQ-024"
+    ],
+    "wuqu_prior_review_path": "knowledge/core/direct-star-source-review/DIRECT_STAR_SOURCE_REVIEW_BATCH_01_v0.1.csv",
+    "wuqu_source_locator": {
+      "source_id": "SRC-ZZ-002",
+      "source_work": "《中州派紫微斗数深造讲义（上）》",
+      "source_sha256": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a",
+      "pdf_scan_page": 6,
+      "printed_pages": [
+        11,
+        12
+      ],
+      "verification": "VISUAL_SOURCE_REVIEWED; SHA256_MATCHES_SOURCES_INDEX",
+      "canonical_source_span_verified_mutated": false
     }
   },
   "progress": {
-    "stage": "B_TIANJI_CHECKPOINT_COMPLETED_READY_FOR_WUQU",
+    "stage": "B_WUQU_CHECKPOINT_COMPLETED_READY_FOR_TONG",
     "completed_pilot_cards": [
       "太阳",
       "太阴",
@@ -260,7 +325,6 @@
     ],
     "remaining_pilot_cards": [],
     "remaining_expansion_stars_in_existing_order": [
-      "武曲",
       "天同",
       "廉贞",
       "天府",
@@ -270,7 +334,7 @@
       "七杀",
       "破军"
     ],
-    "coverage_warning": "Stage A pilots 太阳、太阴、天相 remain completed research checkpoints, not final canonical mappings. Stage B has completed bounded candidate checkpoints for 紫微 (43 canonical ZZ-ZW rows, printed pp5–6 / PDF scan p3) and 天机 (39 canonical ZZ-TJ rows, printed pp7–8 / PDF scan p4). All canonical source_span_verified flags remain false and normalization_epistemic remains UNRESOLVED. Scope does not include the full sixty-star-system chapter or all related rules elsewhere. All mappings remain proposal-only; next star is 武曲.",
+    "coverage_warning": "Stage A pilots 太阳、太阴、天相 remain completed research checkpoints, not final canonical mappings. Stage B has completed bounded candidate checkpoints for 紫微 (43 canonical ZZ-ZW rows, printed pp5–6 / PDF scan p3), 天机 (39 canonical ZZ-TJ rows, printed pp7–8 / PDF scan p4), and 武曲 (41 canonical ZZ-WQ rows including X/Y sidecar rows, printed pp11–12 / PDF scan p6). All canonical source_span_verified flags remain false and normalization_epistemic remains UNRESOLVED. Scope does not include the full sixty-star-system chapter or all related rules elsewhere. All mappings remain proposal-only; next star is 天同.",
     "active_pilot_card": null,
     "draft_pilot_cards": [
       "太阳",
@@ -279,12 +343,14 @@
     ],
     "completed_expansion_stars": [
       "紫微",
-      "天机"
+      "天机",
+      "武曲"
     ],
     "active_expansion_star": null,
     "draft_expansion_stars": [
       "紫微",
-      "天机"
+      "天机",
+      "武曲"
     ],
     "expansion_checkpoint_history": [
       {
@@ -321,6 +387,28 @@
         "canonicalization_authorized": false,
         "product_consumption_authorized": false,
         "next_star": "武曲"
+      },
+      {
+        "star": "武曲",
+        "status": "CHECKPOINT_COMPLETED_NOT_FINAL",
+        "source_id": "SRC-ZZ-002",
+        "pdf_scan_page": 6,
+        "printed_pages": [
+          11,
+          12
+        ],
+        "canonical_rule_rows_reviewed": 41,
+        "source_review_rows": 41,
+        "prior_visual_review_rows_compared": 6,
+        "prior_visual_review_rows_reused": 5,
+        "historical_literal_discrepancy_rule_ids": [
+          "ZZ-WQ-005"
+        ],
+        "mapping_review_records_added": 17,
+        "normalization_epistemic": "UNRESOLVED",
+        "canonicalization_authorized": false,
+        "product_consumption_authorized": false,
+        "next_star": "天同"
       }
     ]
   },
@@ -2843,6 +2931,579 @@
         "机巨、机梁、机阴的同度/相对位置与卯宫、巳亥比较保持原文范围，不推导绝对排名。",
         "所有候选仍为PROPOSAL_ONLY_NOT_CANONICAL；不修改canonical星核、本体、规则、共享schema、Product/runtime、KIB或消费者权限。"
       ]
+    },
+    {
+      "star_id": "STAR-WQ",
+      "name": "武曲",
+      "status": "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL",
+      "source_claims": [
+        {
+          "claim_key": "WQ-L0-SUBSTRATE",
+          "source_rule_ids": [
+            "ZZ-WQ-001"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 6,
+            "printed_page": 11
+          },
+          "source_excerpt": "武曲为北斗第六星，属阴金。",
+          "claim_layer": "L0_STRUCTURE_METADATA",
+          "claim_summary": "北斗第六星与阴金是传统结构元数据；不直接转换为QI方向、数值强度或五行生克效应。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+          "conditions_to_preserve": [
+            "保留阴金标签",
+            "不从阴金推出QI方向、强度或五行效应"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P6:printed-p11:substrate",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "WQ-FINANCIAL-QUALITY-ACTION",
+          "source_rule_ids": [
+            "ZZ-WQ-002",
+            "ZZ-WQ-003",
+            "ZZ-WQ-004",
+            "ZZ-WQ-005",
+            "ZZ-WQ-X01"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 6,
+            "printed_page": 11
+          },
+          "source_excerpt": "在斗数中，武曲为财星。他跟太阴不同。太阴偏重于[性]；而武曲则偏重于[质]。所以太阴主计划，比较抽象，武曲则主行动，非常之具体。因此二者比较，太阴就显得柔和，武曲则显得刚烈。",
+          "claim_layer": "L1_DESCRIPTIVE_CANDIDATE_WITH_COMPARISON_LIMIT",
+          "claim_summary": "同一段同时给出财星角色、与太阴比较、行动/具体与刚烈对比；财星不等于实际财富结果，刚烈不得脱离比较语境升格为无条件值。",
+          "candidate_target_ref": "STAR-WQ.intrinsic_signature:QI-05",
+          "conditions_to_preserve": [
+            "保留与太阴的比较关系",
+            "行动/具体与财星角色分开",
+            "同段重复引用不重复计证"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P6:printed-p11:financial-comparison-action",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "WQ-KINSHIP-PALACE-GATE",
+          "source_rule_ids": [
+            "ZZ-WQ-006",
+            "ZZ-WQ-007",
+            "ZZ-WQ-008",
+            "ZZ-WQ-Y01"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 6,
+            "printed_page": 11
+          },
+          "source_excerpt": "凡刚烈之星，一定不利六亲，盖刚烈必同时带孤克之性。所以推断武曲在命盘中的吉凶，常因宫垣不同而评价不同。在财帛宮、事业宮，甚至在福德宮，都不忌武曲之刚烈。可是在命宮、父母宮、兄弟宫、夫妻宫、子女宮，以及交友宫，却嫌武曲的孤克。",
+          "claim_layer": "L2_RELATIONAL_AND_PALACE_GATE",
+          "claim_summary": "孤克/六亲关系与刚烈相连，但来源明确说明不同宫垣评价不同；宫位范围必须分开。",
+          "candidate_target_ref": "STAR-WQ.relational_signature:QR-01",
+          "conditions_to_preserve": [
+            "保留六亲语境",
+            "财帛/事业/福德宫不忌刚烈",
+            "命/父母/兄弟/夫妻/子女/交友宫嫌孤克"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P6:printed-p11:kinship-palace-gate",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "WQ-YANGTUO-EXCEPTIONS",
+          "source_rule_ids": [
+            "ZZ-WQ-009",
+            "ZZ-WQ-010",
+            "ZZ-WQ-011",
+            "ZZ-WQ-012",
+            "ZZ-WQ-013",
+            "ZZ-WQ-014"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 6,
+            "printed_page": 11
+          },
+          "source_excerpt": "擎羊、陀罗，最易加强武曲的刚烈与孤克。因此武曲不宜受其会照。当武曲化忌，或跟武曲同度之星化忌时，则甚畏羊陀相夹。――羊陀夹武曲之忌，为斗数中相当坏的结构。但当坐财帛宮与事业宮之时，武曲却又不忌羊陀。因为刚烈之性，正好促使武曲积极进取，顶多发展到不择手段而已，并不代表他的进取失败，所谓[武曲会羊陀，奸诈]，正好代表这种性质。",
+          "claim_layer": "CONDITIONAL_MODIFIER_AND_PALACE_EXCEPTION",
+          "claim_summary": "羊陀增强刚烈/孤克、羊陀夹化忌结构与财帛/事业宫例外是不同分支；保留替代条件、复合门控与例外。",
+          "candidate_target_ref": "STAR-WQ.conditional_signature:QI-02",
+          "conditions_to_preserve": [
+            "会照与相夹区分",
+            "武曲化忌或同度星化忌的替代条件保留",
+            "财帛/事业宫例外单独记录"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P6:printed-p11:yangtuo-branches",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "WQ-HUOLING-ADVERSE-OUTCOMES",
+          "source_rule_ids": [
+            "ZZ-WQ-015",
+            "ZZ-WQ-016",
+            "ZZ-WQ-017",
+            "ZZ-WQ-X05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 6,
+            "printed_page": 11
+          },
+          "source_excerpt": "武曲真正畏惧的是火星与铃星，同度或会照，主恶性竞争，主剥削掠夺，主侵吞盗窃。",
+          "claim_layer": "CONDITIONAL_TRADITIONAL_OUTCOME",
+          "claim_summary": "火铃条件下列出竞争、掠夺、侵吞等传统结果；不当作现代行为诊断或现实犯罪预测。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "火铃同度或会照",
+            "三个结果词项分开",
+            "不推导现代诊断"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P6:printed-p11:huoling-outcomes",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "WQ-CHANGQU-TRADEOFF",
+          "source_rule_ids": [
+            "ZZ-WQ-018",
+            "ZZ-WQ-019",
+            "ZZ-WQ-X06"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 6,
+            "printed_page": 11
+          },
+          "source_excerpt": "首先是文昌、文曲。这对星曜，如果成对会入武曲坐守的宮度（特别是武曲独守的宮度）。会使武曲变得柔和一点。但与此同时，却会使武曲变得优柔寡断。",
+          "claim_layer": "CONDITIONAL_MODIFIER_WITH_TRADEOFF",
+          "claim_summary": "昌曲成对会入时，来源同时描述柔和与优柔寡断，不能只保留有利方向。",
+          "candidate_target_ref": "STAR-WQ.conditional_signature:QI-06",
+          "conditions_to_preserve": [
+            "文昌文曲成对会入",
+            "武曲坐守特别是独守",
+            "柔和与优柔寡断分开"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P6:printed-p11:changqu-tradeoff",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "WQ-TIANFU-MODERATION",
+          "source_rule_ids": [
+            "ZZ-WQ-020",
+            "ZZ-WQ-021"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 6,
+            "printed_page": 11
+          },
+          "source_excerpt": "其次是天府。天府有库藏之性，又属阳土，因此就可以收敛武曲的刚烈之性（正如诸葛亮之收服张飞），并同时减少了它的孤克。所以六亲的宫垣，于武曲诸星系中，最喜[武曲天府]。",
+          "claim_layer": "CONDITIONAL_MODIFIER_AND_RELATIONAL_EFFECT",
+          "claim_summary": "原文把天府库藏/阳土与收敛刚烈、减少孤克相连；不抽象成通用五行运算。",
+          "candidate_target_ref": "STAR-WQ.conditional_signature:QI-02",
+          "conditions_to_preserve": [
+            "天府条件",
+            "刚烈与孤克分别保留",
+            "六亲宫垣语境"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P6:printed-p11:tianfu-moderation",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "WQ-LUCUN-HUALU-ORDER",
+          "source_rule_ids": [
+            "ZZ-WQ-022",
+            "ZZ-WQ-023",
+            "ZZ-WQ-Y02",
+            "ZZ-WQ-Y05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 6,
+            "printed_page": 11
+          },
+          "source_excerpt": "再其次，能调和武曲刚克之性者，为禄存或化禄。最喜武曲化禄，其次为贪狼化禄及廉贞化禄，再其次为破军化禄。武曲化禄多发达的机缘，贪廉二宿化禄主得财不甚费神，破军化禄便劳心劳力了。",
+          "claim_layer": "CONDITIONAL_TRANSFORMATION_AND_COMPARISON",
+          "claim_summary": "保留禄存或化禄的替代条件、化禄主体顺序和不同结果，不转成数值权重。",
+          "candidate_target_ref": "STAR-WQ.conditional_signature:QI-02",
+          "conditions_to_preserve": [
+            "禄存或化禄的OR条件",
+            "武曲/贪狼/廉贞/破军化禄顺序",
+            "不同结果语义分开"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P6:printed-p11:lucun-hualu-order",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "WQ-HUAJI-YANGTUO-INVESTMENT",
+          "source_rule_ids": [
+            "ZZ-WQ-X03",
+            "ZZ-WQ-X04"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 6,
+            "printed_page": 11
+          },
+          "source_excerpt": "当武曲化忌，或跟武曲同度之星化忌时，则甚畏羊陀相夹。――羊陀夹武曲之忌，为斗数中相当坏的结构。即使是武曲化忌，羊陀来夹，亦不一定代表事业失败，可能只是因为过份积极进取，不自量力，投资太大，以致无以为继（如俗语说的[十个罌，九个盖]），因而引起挫折与经济困难而已。",
+          "claim_layer": "CONDITIONAL_STRUCTURE_AND_PROJECTION",
+          "claim_summary": "羊陀夹化忌是传统不利结构，但原文明确说不一定事业失败，并给出投资过大/无以为继的可能解释。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "化忌主体的替代条件",
+            "羊陀相夹",
+            "不一定事业失败",
+            "投资过大只是可能分支"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P6:printed-p11:huaji-investment",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "WQ-HISTORICAL-MARRIAGE-TERMS",
+          "source_rule_ids": [
+            "ZZ-WQ-X02"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 6,
+            "printed_page": 11
+          },
+          "source_excerpt": "特别是夫妻宮，倘如有孤克的性质，人生便多缺憾。古代社会女子无事业，嫁夫之后即以丈夫的事业为事业，因此便最嫌武曲坐夫妻宫，古人称之为[寡宿]。至于男命，则不过嫌其[妇夺夫权]而已。",
+          "claim_layer": "L3_HISTORICAL_TRADITIONAL_PROJECTION",
+          "claim_summary": "“寡宿/妇夺夫权”是原文的历史性婚姻评价，不是现代性别规范或必然婚姻结论。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "夫妻宫范围",
+            "古代社会角色前提",
+            "历史语境保留"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P6:printed-p11:historical-marriage",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "WQ-LUCUN-COLOCATION",
+          "source_rule_ids": [
+            "ZZ-WQ-X07"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 6,
+            "printed_page": 12
+          },
+          "source_excerpt": "武曲喜会禄存，不喜禄存同度。因为禄存同度之时，必有羊陀来夹。在命宮，主人自私自利，在财帛宫与事业宫则主受掣肘。在六亲的宫度则主缘份不深厚。",
+          "claim_layer": "L2_RELATIONAL_STRUCTURE_AND_PALACE_SCOPE",
+          "claim_summary": "来源区分会禄存与禄存同度；同度时羊陀来夹，并按命、财帛/事业、六亲宫分别描述。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "会禄存与同度区分",
+            "同度时羊陀来夹",
+            "宫位结果分开"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P6:printed-p12:lucun-colocation",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "WQ-FOUR-TRANSFORMATIONS",
+          "source_rule_ids": [
+            "ZZ-WQ-X08",
+            "ZZ-WQ-X09",
+            "ZZ-WQ-X10"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 6,
+            "printed_page": 12
+          },
+          "source_excerpt": "武曲喜化禄，主可发富；亦喜化权，主有财帛可以运用，或主独当一面；化科较次，不过主得声誉而已。化忌则为孤克、拮据，以致挫折破败。",
+          "claim_layer": "CONDITIONAL_TRANSFORMATION_BRANCHES",
+          "claim_summary": "化禄、化权、化科、化忌的传统描述不同，不能压成统一加减分。",
+          "candidate_target_ref": "STAR-WQ.conditional_signature",
+          "conditions_to_preserve": [
+            "化禄/权/科/忌分开",
+            "化科为声誉",
+            "化忌结果不量化"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P6:printed-p12:four-transformations",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "WQ-TEMPORAL-TRANSFORMATIONS",
+          "source_rule_ids": [
+            "ZZ-WQ-X11"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 6,
+            "printed_page": 12
+          },
+          "source_excerpt": "于推断大限流年时，武曲的四化，常常影响全局甚大，尤其是化忌，即当详细检视在何宮垣化忌来作为推断的重点。",
+          "claim_layer": "TEMPORAL_REACTION_OR_SCOPE",
+          "claim_summary": "大限/流年属于时间层推断，不回写为本命固定性质。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "大限/流年时间范围",
+            "化忌所在宫垣",
+            "不回写本命"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P6:printed-p12:temporal-transformations",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "WQ-SYSTEM-FAMILY-STRUCTURE",
+          "source_rule_ids": [
+            "ZZ-WQ-Y04"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 6,
+            "printed_page": 12
+          },
+          "source_excerpt": "因此可以说，在子午卯酉宮的[武府杀]是一个系统；在寅申巳亥宮的[武破相]又是一个系统；在辰戌丑未宮的[武贪]自成一个系统。",
+          "claim_layer": "L2_STAR_SYSTEM_STRUCTURE",
+          "claim_summary": "武府杀、武破相、武贪按宫位组合划分，属于星系结构，不是单星内在向量。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "子午卯酉武府杀",
+            "寅申巳亥武破相",
+            "辰戌丑未武贪"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P6:printed-p12:system-families",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "WQ-WUPO-INTERACTION",
+          "source_rule_ids": [
+            "ZZ-WQ-024",
+            "ZZ-WQ-025",
+            "ZZ-WQ-Y03"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 6,
+            "printed_page": 12
+          },
+          "source_excerpt": "三个系统之中，以[武破相]一系，最具刚烈孤克之性，因为武曲不喜破军，见破军．便使原来刚烈的武曲变成躁决。常易因欠考虑或欠长远计划，因一时的冲动而导致失败。古人说：[武曲破军难贵显]，即是这道理。",
+          "claim_layer": "SYSTEM_INTERACTION_AND_CONDITIONAL_PROJECTION",
+          "claim_summary": "躁决与冲动失败处于武破相系统语境，不作为武曲单星固定性质，也不视为必然预测。",
+          "candidate_target_ref": "STAR-WQ.conditional_signature:QI-06",
+          "conditions_to_preserve": [
+            "武破相系统",
+            "见破军交互",
+            "欠考虑/欠长远计划",
+            "传统结果语气保留"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P6:printed-p12:wupo-interaction",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        }
+      ],
+      "candidate_properties": [
+        {
+          "candidate_key": "EXP-WQ-01",
+          "layer": "L1",
+          "candidate_label": "行动/具体的描述性候选",
+          "target_ref": "STAR-WQ.intrinsic_signature:QI-05",
+          "source_rule_ids": [
+            "ZZ-WQ-004"
+          ],
+          "mapping_review_record_id": "MR-WQ-QI05-ACTION-003",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-WQ-02",
+          "layer": "L1",
+          "candidate_label": "行动驱动描述性候选",
+          "target_ref": "STAR-WQ.intrinsic_signature:QI-08",
+          "source_rule_ids": [
+            "ZZ-WQ-004"
+          ],
+          "mapping_review_record_id": "MR-WQ-QI08-ACTION-004",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-WQ-03",
+          "layer": "L1",
+          "candidate_label": "刚烈倾向（保留与太阴的比较语境）",
+          "target_ref": "STAR-WQ.intrinsic_signature:QI-02",
+          "source_rule_ids": [
+            "ZZ-WQ-003",
+            "ZZ-WQ-005"
+          ],
+          "mapping_review_record_id": "MR-WQ-QI02-RIGIDITY-005",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-WQ-04",
+          "layer": "L2",
+          "candidate_label": "孤克/六亲关系的宫位门控",
+          "target_ref": "STAR-WQ.relational_signature:QR-01",
+          "source_rule_ids": [
+            "ZZ-WQ-006",
+            "ZZ-WQ-007",
+            "ZZ-WQ-008",
+            "ZZ-WQ-Y01"
+          ],
+          "mapping_review_record_id": "MR-WQ-QR01-KINSHIP-006",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-WQ-05",
+          "layer": "L2",
+          "candidate_label": "羊陀增强与财帛/事业宫例外",
+          "target_ref": "STAR-WQ.conditional_signature:QI-02",
+          "source_rule_ids": [
+            "ZZ-WQ-009",
+            "ZZ-WQ-010",
+            "ZZ-WQ-011",
+            "ZZ-WQ-012",
+            "ZZ-WQ-013",
+            "ZZ-WQ-014"
+          ],
+          "mapping_review_record_id": "MR-WQ-QI02-YANGTUO-007",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-WQ-06",
+          "layer": "L2",
+          "candidate_label": "昌曲调柔与优柔寡断的双向代价",
+          "target_ref": "STAR-WQ.conditional_signature:QI-06",
+          "source_rule_ids": [
+            "ZZ-WQ-018",
+            "ZZ-WQ-019",
+            "ZZ-WQ-X06"
+          ],
+          "mapping_review_record_id": "MR-WQ-QI06-CHANGQU-010",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-WQ-07",
+          "layer": "L2",
+          "candidate_label": "天府收敛刚烈并减少孤克的条件修饰",
+          "target_ref": "STAR-WQ.conditional_signature:QI-02",
+          "source_rule_ids": [
+            "ZZ-WQ-020",
+            "ZZ-WQ-021"
+          ],
+          "mapping_review_record_id": "MR-WQ-QI02-TIANFU-011",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-WQ-08",
+          "layer": "L2",
+          "candidate_label": "禄存/化禄调和及化禄来源顺序",
+          "target_ref": "STAR-WQ.conditional_signature:QI-02",
+          "source_rule_ids": [
+            "ZZ-WQ-022",
+            "ZZ-WQ-023",
+            "ZZ-WQ-Y02",
+            "ZZ-WQ-Y05"
+          ],
+          "mapping_review_record_id": "MR-WQ-QI02-HUALU-012",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-WQ-09",
+          "layer": "L2",
+          "candidate_label": "武破相系统下的躁决交互候选",
+          "target_ref": "STAR-WQ.conditional_signature:QI-06",
+          "source_rule_ids": [
+            "ZZ-WQ-024",
+            "ZZ-WQ-025",
+            "ZZ-WQ-Y03",
+            "ZZ-WQ-Y04"
+          ],
+          "mapping_review_record_id": "MR-WQ-QI06-WUPO-015",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-WQ-10",
+          "layer": "L3",
+          "candidate_label": "财星角色与传统结果投影（不等同现实财富）",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "source_rule_ids": [
+            "ZZ-WQ-002",
+            "ZZ-WQ-X01",
+            "ZZ-WQ-015",
+            "ZZ-WQ-016",
+            "ZZ-WQ-017"
+          ],
+          "mapping_review_record_id": "MR-WQ-FINANCIAL-ROLE-002",
+          "mapping_disposition": "not_supported_for_target",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-WQ-11",
+          "layer": "L3",
+          "candidate_label": "羊陀夹化忌下的投资过度/经济困难传统投影",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "source_rule_ids": [
+            "ZZ-WQ-X03",
+            "ZZ-WQ-X04"
+          ],
+          "mapping_review_record_id": "MR-WQ-L3-INVESTMENT-013",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        }
+      ]
     }
   ],
   "mapping_review_records": [
@@ -4185,6 +4846,351 @@
       "mapping_disposition": {
         "state": "KNOWN",
         "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-WQ-L0-METADATA-001",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-001"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+      "rationale": "阴金和北斗第六星是来源结构元数据；不能直接映射为QI方向、强度或五行计算规则。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-WQ-FINANCIAL-ROLE-002",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-002",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-X01"
+      ],
+      "target_ref": "STAR-WQ.intrinsic_signature:QI-05",
+      "rationale": "财星是传统角色标签；同段直接描述行动/具体的是另一项主张。仅凭财星称谓不能证明固定QI-05值或现实财富结果。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-WQ-QI05-ACTION-003",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-004"
+      ],
+      "target_ref": "STAR-WQ.intrinsic_signature:QI-05",
+      "rationale": "原文直接写武曲主行动、表现具体，可保留为QI-05目标特定候选；多处引用仍是一条规则。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-WQ-QI08-ACTION-004",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-004"
+      ],
+      "target_ref": "STAR-WQ.intrinsic_signature:QI-08",
+      "rationale": "原文直接写武曲主行动，可作为QI-08描述候选；目标维度规范化仍未裁决，也不分配数值强度。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-WQ-QI02-RIGIDITY-005",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-003",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-005"
+      ],
+      "target_ref": "STAR-WQ.intrinsic_signature:QI-02",
+      "rationale": "来源以太阴为比较对象来描述武曲显得刚烈；是否足以成为无条件固定QI-02值仍需目标特定复审。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-WQ-QR01-KINSHIP-006",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-006",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-007",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-008"
+      ],
+      "target_ref": "STAR-WQ.relational_signature:QR-01",
+      "rationale": "来源把孤克与六亲关系相连，同时按宫位区分评价；仅支持带宫位门控的关系候选。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-WQ-QI02-YANGTUO-007",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-009",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-010",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-011",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-012",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-013",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-014"
+      ],
+      "target_ref": "STAR-WQ.conditional_signature:QI-02",
+      "rationale": "羊陀增强刚烈/孤克与羊陀夹化忌结构有来源支持，但财帛/事业宫有明确例外；不同分支不能压成统一负值。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-WQ-L3-YANGTUO-008",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-014"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "积极进取/不择手段是羊陀条件下的传统结果描述，不等于无条件人格或现实行为预测。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-WQ-L3-HUOLING-009",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-015",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-016",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-017"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "火铃条件下的竞争、掠夺、侵吞是传统下游描述，不推导现代诊断或现实犯罪概率。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-WQ-QI06-CHANGQU-010",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-018",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-019"
+      ],
+      "target_ref": "STAR-WQ.conditional_signature:QI-06",
+      "rationale": "昌曲成对会入时，来源同时描述柔和与优柔寡断；该双向trade-off不能归为单向正增益。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-WQ-QI02-TIANFU-011",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-020",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-021"
+      ],
+      "target_ref": "STAR-WQ.conditional_signature:QI-02",
+      "rationale": "来源描述天府收敛刚烈、减少孤克；可作为条件调节候选，但不升级为通用五行算法。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-WQ-QI02-HUALU-012",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-022",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-023",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-Y02",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-Y05"
+      ],
+      "target_ref": "STAR-WQ.conditional_signature:QI-02",
+      "rationale": "来源将禄存或化禄作为调和分支，并对不同化禄主体作有序比较；保留OR与原有顺序，不产生数值权重。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-WQ-L3-INVESTMENT-013",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-X03",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-X04"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "羊陀夹化忌是不利结构，但原文明确说不一定事业失败，并给出投资过大/无以为继的可能分支。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-WQ-L2-SYSTEM-FAMILY-014",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=12#ZZ-WQ-Y04"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "武府杀、武破相、武贪依宫位组合划分，属于星系/空间关系结构，不是单星内在QI值。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-WQ-QI06-WUPO-015",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=12#ZZ-WQ-024",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=12#ZZ-WQ-025",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=12#ZZ-WQ-Y03"
+      ],
+      "target_ref": "STAR-WQ.conditional_signature:QI-06",
+      "rationale": "躁决与冲动失败被限定在武破相系统；目标特定交互解释可保留为候选，但不作为武曲固定基线。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-WQ-TIME-TRANSFORMATIONS-016",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=12#ZZ-WQ-X08",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=12#ZZ-WQ-X09",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=12#ZZ-WQ-X10",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=12#ZZ-WQ-X11"
+      ],
+      "target_ref": "STAR-WQ.intrinsic_signature:QI-02",
+      "rationale": "四化结果与大限/流年推断属于条件或时间反应，不支持无条件固定本命QI-02值。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "state_change",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-WQ-L3-HISTORICAL-MARRIAGE-017",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-X02"
+      ],
+      "target_ref": "STAR-WQ.relational_signature:QR-01",
+      "rationale": "寡宿/妇夺夫权属于夫妻宫下的历史性传统评价，不支持现代性别规范或无条件QR-01结论。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
         "conflict_ref": null
       }
     }
