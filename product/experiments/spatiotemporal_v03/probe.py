@@ -160,13 +160,18 @@ def _rotate_matrix(rows: list[list[int]], offset: int) -> list[list[int]]:
 
 
 def _temporal_signature(target: dict[str, Any]) -> tuple[Any, ...]:
+    """Stable signature over the adapter-ready normalized scope payload."""
     return tuple(
         (
             key,
-            scope["i"],
-            scope["b"],
-            tuple(scope["mu"]),
-            tuple((index, tuple(tuple(pair) for pair in group)) for index, group in sorted((scope["s"] or {}).items(), key=lambda item: int(item[0]))),
+            scope["index"],
+            scope["branch"],
+            tuple(scope["mutagen"]),
+            tuple(
+                (index, tuple(tuple(sorted(star.items())) for star in group))
+                for index, group in enumerate(scope["stars"])
+                if group
+            ),
         )
         for key, scope in sorted(target["scopes"].items())
     )
