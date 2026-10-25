@@ -84,10 +84,20 @@ def expand_snapshot(record: dict[str, Any], palace_vocab: list[str]) -> dict[str
                 "scopes": scopes,
             }
         )
+    natal_projection = {}
+    for branch, row in record["natal"].items():
+        name_id, major, minor, adjective = row
+        natal_projection[branch] = {
+            "palace_name": palace_vocab[name_id],
+            "major_stars": list(major),
+            "minor_stars": list(minor),
+            "adjective_stars": list(adjective),
+        }
     return {
         "schema_version": record["schema"],
         "case_id": record["id"],
         "engine": dict(record["engine"]),
+        "natal_projection": natal_projection,
         "temporal": temporal,
     }
 
