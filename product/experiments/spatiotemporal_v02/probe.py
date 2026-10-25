@@ -223,11 +223,15 @@ def _validate_case(
     if case.get("full_source_chart_equivalence_verified") is not False:
         raise ValueError(f"{case_id}: source-equivalence limitation changed unexpectedly")
     target_label = str(case.get("target_palace", ""))
-    expected_observed_label = target_label[:-1] if target_label.endswith("宫") else target_label
+    if anchor.get("expected_target_palace") != target_label:
+        raise ValueError(f"{case_id}: expected target palace does not match case metadata")
     observed_label = anchor.get("observed_target_palace")
     observed_branch = anchor.get("observed_target_branch")
-    if observed_label != expected_observed_label:
-        raise ValueError(f"{case_id}: target palace label does not match anchor metadata")
+    allowed_observed_labels = {target_label}
+    if target_label.endswith("宫"):
+        allowed_observed_labels.add(target_label[:-1])
+    if observed_label not in allowed_observed_labels:
+        raise ValueError(f"{case_id}: observed target palace label is not a recognized alias")
     target_matches = [
         palace for palace in palaces
         if palace.get("name") == observed_label and palace.get("branch") == observed_branch
