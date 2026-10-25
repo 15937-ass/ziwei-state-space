@@ -12,7 +12,7 @@
 
 - Exact source span: printed p81 bottom `丑未宫『廉贞、七杀』同度` through printed p82 section 6 廉贞, stopping immediately before `7 天府`.
 - Inspected physical PDF p41 left/right page images at full-page and enlarged-crop resolution.
-- Source-first records: 41; proposed promotions: 37; held: 4 (`W10-925`, `W10-926`, `W10-929`, `W10-954`).
+- Source-first records: 41; proposed promotions: 37; held: 4 (`W10-925`, `W10-926`, `W10-929`, `W10-953`).
 - New local source gaps: `W10-SG-001…004` (all OPEN, none a shared Core gap).
 - Explicit annual response condition retained as YEAR on `W10-948`; no DECADE layer or numeric temporal parameter added.
 - Proposed cumulative P05 total after acceptance: 844 source-first review records + 4 p81 supplements = 848 accounted; 831 reusable rules; 17 held source-first records; 26 explicit residual gap IDs plus eight separate record-level uncertainty annotations.

@@ -34,7 +34,7 @@ def test_source_first_counts_reconcile_without_quota_filling():
     assert counts["total_records_accounted"] == 848
     assert counts["total_canonical_reusable_records"] == 831
     assert counts["case_support_only_records"] == 0
-    expected_held = {"W06-540", "W06-542", "W06-559", "W06-596", "W08-761", "W08-766", "W08-767", "W08-820", "W09-865", "W09-881", "W09-882", "W09-904", "W09-909", "W10-925", "W10-926", "W10-929", "W10-954"}
+    expected_held = {"W06-540", "W06-542", "W06-559", "W06-596", "W08-761", "W08-766", "W08-767", "W08-820", "W09-865", "W09-881", "W09-882", "W09-904", "W09-909", "W10-925", "W10-926", "W10-929", "W10-953"}
     assert set(counts["unpromoted_rule_ids"]) == expected_held
     assert len(counts["unpromoted_dispositions"]) == 17
     batches = data["accepted_batches"]
@@ -111,7 +111,7 @@ def test_state_cache_tracks_active_p05_tail_audit_without_authorizing_product():
     assert "active_issue: 777" in state
     assert 'active_branch: "knowledge/p05-777-source-first-lianzhen-tail-p81-p82"' in state
     assert "merged_rule_count: 794" in state
-    assert "reviewed_rule_count: 843" in state
+    assert "reviewed_rule_count: 844" in state
     assert "source_coverage_gaps_remaining: 26" in state
     assert "P05-COV-GAP-001" in state
     assert "SOURCE_SPAN_ACCOUNTED_PENDING_ACCEPTANCE" in state
