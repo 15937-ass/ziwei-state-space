@@ -30,6 +30,9 @@ def test_accepted_batch_counts_reconcile_without_quota_filling():
     assert counts["source_first_review_records"] == 803
     assert counts["source_first_canonical_promotions"] == 790
     assert counts["source_first_unpromoted"] == 13
+    expected_held = {"W06-540", "W06-542", "W06-559", "W06-596", "W08-761", "W08-766", "W08-767", "W08-820", "W09-865", "W09-881", "W09-882", "W09-904", "W09-909"}
+    assert set(counts["unpromoted_rule_ids"]) == expected_held
+    assert len(counts["unpromoted_dispositions"]) == 13
     assert counts["p81_supplement_records"] == 4
     assert counts["total_records_accounted"] == 807
     assert counts["total_canonical_reusable_records"] == 794
