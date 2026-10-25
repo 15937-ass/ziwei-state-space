@@ -13,7 +13,7 @@
 - Source SHA-256：`1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a`；登记位置为 `sources/source_index.csv`。
 - 太阳原文定位：PDF 扫描页 5，书内印刷页 9–10；太阴原文定位：PDF 扫描页 10，书内印刷页 19–20。
 - 本轮核对所附 PDF 的 SHA-256 与 `sources/source_index.csv` 一致；太阴第 10 个 PDF 页面对应书内印刷页 19–20。
-- 复用 [DIRECT_STAR 第一批来源审查](https://github.com/15937-ass/ziwei-state-space/blob/main/knowledge/core/direct-star-source-review/DIRECT_STAR_SOURCE_REVIEW_BATCH_01_v0.1.csv) 中太阳的七条既有行级审查记录；本轮在本分支追加太阴印刷页 19–20 对应的 25 条行级来源审查记录。canonical 规则行未修改。
+- 复用 [DIRECT_STAR 第一批来源审查](https://github.com/15937-ass/ziwei-state-space/blob/main/knowledge/core/direct-star-source-review/DIRECT_STAR_SOURCE_REVIEW_BATCH_01_v0.1.csv) 中太阳的七条既有行级审查记录；本轮在同目录独立的 `TAIYIN_SOURCE_SPAN_REVIEW_v0.1.csv` 中记录太阴印刷页 19–20 对应的 25 条行级来源审查；不改写 #720 的 Batch 01 固定覆盖表。canonical 规则行未修改。
 - 直接来源审查记录为研究草案。研究表中的 `VERIFIED_VISUAL_SCAN` 不会自动改写 canonical CSV 的 `source_span_verified=false`，也不把 `normalization_epistemic=UNRESOLVED` 升级。
 - 太阳检查点**没有**逐条重审太阳全部 40 条规则。太阴本轮逐项核对印刷页 19–20 的 25 条既有规则；太阴另有一条规则定位于印刷页 42，本轮未审，因此不声称完成全部 26 条太阴规则。
 
@@ -75,7 +75,7 @@
 
 - 使用同一中州派来源 `SRC-ZZ-002`，PDF 扫描页 10、书内印刷页 19–20；源文件 SHA-256 与来源索引一致。
 - 本轮对该跨页范围的 25 条太阴 canonical 规则逐项核对来源短跨度、条件/关系/结果角色及当前核心引用。这是有界来源跨度审查，不代表全量 26 条太阴规则或其他星系页面已完成。
-- 直接来源审查 CSV 的 `source_span_status=VERIFIED_VISUAL_SCAN` 只表示本次看过原文；canonical CSV 中的 `source_span_verified=false` 与 `normalization_epistemic=UNRESOLVED` 保持不变。
+- 太阴专用来源审查 CSV 的 `source_span_status=VERIFIED_VISUAL_SCAN` 只表示本次看过原文；canonical CSV 中的 `source_span_verified=false` 与 `normalization_epistemic=UNRESOLVED` 保持不变。
 
 ### L0：结构底座
 
