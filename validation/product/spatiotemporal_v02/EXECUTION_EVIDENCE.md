@@ -15,7 +15,7 @@ This is a TEST_ONLY natal-coordinate encoding experiment. It reads the pinned 11
 
 ## Pre-implementation session audit
 
-A separate in-memory preflight compared the pinned input and declared Z12 contract before the repository probe was written. It observed 11 complete 12-branch maps, 11 unique palace-name sets, 11 reconfirmed target anchors, 132 index/matrix offset matches, 132 inverse checks, 1,584 cyclic composition checks, and 11 input-order invariance checks. This preflight is not a substitute for the committed probe and test suite.
+A separate in-memory preflight compared the pinned input and declared Z12 contract before the repository probe was written. Its star-only occupancy view observed 11 complete 12-branch maps, 11 unique palace-name sets, 11 reconfirmed target anchors, 132 index/matrix offset matches, 132 inverse checks, 1,584 cyclic composition checks, and 11 input-order invariance checks. The committed probe additionally includes a palace-name identity token in each row, so its occupancy-cell count is larger. This preflight is not a substitute for the committed probe and test suite.
 
 ## Repository validation
 
