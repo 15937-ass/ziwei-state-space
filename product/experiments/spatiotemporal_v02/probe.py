@@ -383,7 +383,7 @@ def make_report() -> dict[str, Any]:
         "charts": 11,
         "palace_records": 132,
         "star_objects": 748,
-        "occupancy_cells": 8976,
+        "occupancy_cells": 10560,
         "index_matrix_offset_checks": 132,
         "inverse_checks": 132,
         "composition_checks": 1584,
