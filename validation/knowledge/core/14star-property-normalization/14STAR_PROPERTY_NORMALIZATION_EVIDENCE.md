@@ -2,8 +2,9 @@
 
 ## 当前检查点
 
-- 太阳检查点已通过 exact-head CI；太阴 exact-head 9e0f886dbde89278fc761ee3c2c85474150a6549 的质量门 Run #40161943905 已通过。两者仍为研究候选，非 canonical。
-- 当前进入天相试点：PDF 扫描页 13 / 印刷页 25–26；ZZ-TX-009/ZZ-TX-010 因定位于相关星系而不在本次页范围内。
+- 太阳、太阴、天相三个有界试点均已形成候选卡与逐目标审核记录；pilot checkpoint head 9e0364015758a387c3351a6516183cad0e7a54d7 的 exact-head 质量门 Run #40169844516 已通过，完整 pytest、Product JS adapter、确定性 P0 与 Repository Governance v1 均成功。
+- 三星横向比较已完成，当前状态为 READY_FOR_PI_METHOD_DECISION_STAGE_A_COMPLETE；跨星比较文档的新提交仍必须由 PR #763 当前 exact-head 检查独立验证，不能沿用旧 head 的绿色结果。
+- 本轮来源覆盖边界仍有效：太阳未逐行审完全部 40 条规则；太阴书页 19–20 的 25 条已审但书页 42 的 ZZ-TYI-010 未审；天相 25 条范围内规则已审，ZZ-TX-009/010 的书页 47 相关星系内容未审。所有结果仍为研究候选，非 canonical。
 
 - Lane / shard：`KNOWLEDGE_ONLY / CORE`
 - Work unit：`KB-CORE-14STAR-PROPERTY-NORMALIZATION-BASELINE-01`
@@ -54,5 +55,13 @@
 - Added 19 grouped source claims, 19 target-specific mapping-review records, Tianxiang gap/PI observations, and regression tests.
 - Key finding: the source's direct emphasis is on contextual dependence and clamp/relational structure; it does not directly establish a fixed intrinsic QI-02 softness baseline. The specific TianTong/JuMen HuaJi branches are located on printed p46; the p46 scan visibly reads `是非尤的徵兆`, while the canonical target literal is `是非怨尤`, so that wording remains unresolved.
 - All candidate claims remain PROPOSAL_ONLY_NOT_CANONICAL; no canonical source flag, normalization epistemic status, ontology ID, Product/runtime, KIB lock, or consumer permission is changed.
-- The new Tianxiang exact-head quality gate must pass before the next step. The prior Sun/Taiyin green runs do not transfer to this new head.
+- Tianxiang's pilot checkpoint was validated by exact-head Run #40169844516 on head 9e0364015758a387c3351a6516183cad0e7a54d7. This result does not transfer to later cross-star comparison commits; the latest PR #763 check is authoritative for the current head.
 - The canonical rules CSV, star cores, star systems, ontology and Product/runtime files remain unchanged; only research sidecars/card/evidence are updated.
+
+
+## 三星横向比较与 PI 停止点
+
+- 比较范围：太阳、太阴、天相三张试点卡；结论与机器可读 cross_star_comparison 对齐。
+- 方法结论：现有 #755 v0.1 mapping-review 契约可记录本轮逐目标审核形状；目前没有必须新增共享 schema 的阻塞。研究卡仍须承载来源层次、条件/OR/AND、比较范围、关系与 L3 投影，因为结构校验不能自动证明语义解释正确。
+- 建议：请 PI 先决定是否接受该方法进入阶段 B。未获决定前，不扩展剩余十一星；不修改正式星核、本体、canonical rule rows、Product/runtime 或消费者权限。
+- 已通过的 pilot checkpoint exact head/run 是本节所列历史验证；跨星比较修改后的 head 以 PR #763 的最新 exact-head check 为准。
