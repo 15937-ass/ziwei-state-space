@@ -95,18 +95,10 @@ def test_prior_qisha_and_tianliang_artifacts_remain_immutable():
     assert "疾厄宫" in SUMMARY.read_text(encoding="utf-8")
 
 
-def test_state_cache_tracks_active_pojun_and_inherited_gaps():
+def test_state_preserves_pojun_gap_handoff_without_pinning_old_active_batch():
     state = STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE"' in state
-    assert "active_issue: 770" in state
-    assert 'active_branch: "knowledge/p05-770-source-first-pojun-p91-p92"' in state
-    assert "active_pr: 771" in state
-    assert "merged_rule_count: 765" in state
-    assert "current_batch_rule_count: 29" in state
-    assert "source_first_records_added_current_batch: 30" in state
-    assert "source_uncertainty_count_current_batch: 2" in state
-    assert "path_dependent_gate_count_current_batch: 9" in state
-    assert "source_coverage_gap_count_current_batch: 2" in state
-    assert "source_coverage_gaps_remaining: 22" in state
+    assert "source_coverage_gaps_remaining: 23" in state
+    assert "P05-COV-GAP-001" in state
     assert all(g in state for g in PRIOR_GAPS)
     assert "No Product/runtime authorization is implied" in state
+

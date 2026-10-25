@@ -1,3 +1,21 @@
+# 当前补充检查点 — 上下文方法审查（2026-10-25）
+
+- Lane/shard/Issue/PR：KNOWLEDGE_ONLY / CORE / #757 / Draft #763。
+- 本轮接手head：401a4ab61ae306124a5b2f4cf90eeebf45e9a4c1；同步base main：0c9210855d874045f577914e8ec27e909438ecf4。最终head/run在实时Issue/PR中记录；本文件不能自包含其结果commit SHA。
+- PI已接受“补一次有界上下文检查、退出条件满足后继续”的建议；本轮只完成该检查点，不自动展开十一星。
+- SHA-256已与source index核对；本次使用原PDF视觉复核scan pages 5、10、13、24左半，对应印刷9—10、19—20、25—26、46。源哈希：1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a。
+- 复用已有source_claim与定位，不新增canonical规则或独立证据计数。page47相关规则仍未逐项裁定。
+- 具体修正：太阴原文“落陷、化忌之时”曾被研究卡改写为“落陷或化忌”；研究卡/理由已纠正，保留组内连接未决，明确外层或。canonical CSV与历史来源审查CSV不改。
+- 研究记录增加本单局部context_method_audit，分开事实依据、知识内容层与规则作用；原有38条mapping_review对象保持已接受的字段形状。
+- 五行复杂标签、四生等分类作用、无煞完整性仅登记局部缺口。没有共享Schema扩展、正式星核/本体/源规则、Product/runtime、KIB或消费权限修改。
+- 变更限本单baseline MD/JSON、gaps、PI review、PI decision memo、现有test、Core恢复缓存和本执行证据；主线宫位更新只经同步继承，不算Core写集。
+- 研究退出条件已满足；候选归一化仍UNRESOLVED。下一轮紫微候选研究已有方法授权；编译相关局部语义仍未定稿。
+- 本次针对性pytest：23 passed；JS adapter语法检查通过；确定性P0检查退出0，P0=0（现存P1=907）。完整pytest及Core写集检查按最终exact head独立执行，结果在Issue/PR以精确base/head/run记录；历史run不替代本次验证。
+
+---
+
+以下是此前检查点的历史证据；其中等待PI方法决定的停止点已被上述授权与补充检查取代。
+
 # 执行证据 — Issue #757 / 十四主星基础性质归一化
 
 ## 当前检查点

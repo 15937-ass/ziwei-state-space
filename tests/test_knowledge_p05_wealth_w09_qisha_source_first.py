@@ -57,13 +57,10 @@ def test_prior_tianliang_and_tianxiang_artifacts_remain_immutable_and_counts_rec
  assert tx["issue"]==746 and len(tx["records"])==45 and tx["summary"]["canonical_promotions"]==42 and tx["summary"]["cumulative_canonical_records_after_merge"]==684
  assert d["summary"]["cumulative_canonical_records_after_merge"]==721+d["summary"]["canonical_promotions"]
  assert "14 破军" in SUMMARY.read_text(encoding="utf-8")
-def test_state_cache_tracks_active_qisha_and_inherited_gaps():
- s=STATE.read_text(encoding="utf-8")
- assert 'status: "ACTIVE"' in s and "active_issue: 770" in s
- assert 'active_branch: "knowledge/p05-770-source-first-pojun-p91-p92"' in s
- assert "active_pr: 771" in s
- assert "merged_rule_count: 765" in s and "current_batch_rule_count: 29" in s and "source_first_records_added_current_batch: 30" in s
- assert "source_uncertainty_count_current_batch: 2" in s and "source_coverage_gap_count_current_batch: 2" in s
- assert "source_coverage_gaps_remaining: 22" in s and "path_dependent_gate_count_current_batch: 9" in s
- assert all(g in s for g in PRIOR_GAPS) and "13 七杀" in s and "14 破军" in s
- assert "No Product/runtime authorization is implied" in s
+def test_state_preserves_qisha_gap_handoff_without_pinning_old_active_batch():
+    state = STATE.read_text(encoding="utf-8")
+    assert "source_coverage_gaps_remaining: 23" in state
+    assert "P05-COV-GAP-001" in state
+    assert all(g in state for g in PRIOR_GAPS)
+    assert "No Product/runtime authorization is implied" in state
+

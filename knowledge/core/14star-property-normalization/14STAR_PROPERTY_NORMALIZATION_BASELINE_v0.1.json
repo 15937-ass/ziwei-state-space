@@ -3,7 +3,7 @@
   "artifact_id": "KB-CORE-14STAR-PROPERTY-NORMALIZATION-BASELINE-01",
   "issue": 757,
   "status": "PROPOSAL_ONLY_NOT_CANONICAL",
-  "checkpoint_status": "READY_FOR_PI_METHOD_DECISION_STAGE_A_COMPLETE",
+  "checkpoint_status": "CONTEXT_METHOD_CHECK_COMPLETE_STAGE_B_AUTHORIZED",
   "activation_main_sha": "74864f572cdd04407c241c483f3a34c646f69d3a",
   "execution_branch": "knowledge/core-757-14star-property-normalization",
   "source_policy": {
@@ -134,7 +134,7 @@
     "tianxiang_out_of_scope_note": "ZZ-TX-009 and ZZ-TX-010 point to related star-system material on printed p47. A locator lead was observed during source reconnaissance, but the current page-13 pilot does not adjudicate their rule content."
   },
   "progress": {
-    "stage": "A_PILOT_COMPLETE_AWAITING_PI_METHOD_DECISION",
+    "stage": "A_CONTEXT_CHECK_COMPLETE_READY_FOR_B",
     "completed_pilot_cards": [
       "太阳",
       "太阴",
@@ -154,7 +154,7 @@
       "七杀",
       "破军"
     ],
-    "coverage_warning": "All three bounded pilot cards (太阳、太阴、天相) are now recorded and the pilot checkpoint head 9e0364015758a387c3351a6516183cad0e7a54d7 passed exact-head repository quality gate Run #40169844516. This completes only Stage A pilot checkpoints, not the fourteen-star baseline. Solar source review reuses seven prior rows and does not re-review all 40 Sun rules; Taiyin review covers 25 rules on printed pp19–20 while ZZ-TYI-010 on p42 remains unaudited; Tianxiang review covers 25 in-scope IDs, with ZZ-TX-009/010 on p47 out of scope. The cross-star comparison is proposal-only, does not authorize canonicalization or Product consumption, and Stage B remains pending PI method decision.",
+    "coverage_warning": "All three bounded pilot cards (太阳、太阴、天相) are now recorded and the pilot checkpoint head 9e0364015758a387c3351a6516183cad0e7a54d7 passed exact-head repository quality gate Run #40169844516. This completes only Stage A pilot checkpoints, not the fourteen-star baseline. Solar source review reuses seven prior rows and does not re-review all 40 Sun rules; Taiyin review covers 25 rules on printed pp19–20 while ZZ-TYI-010 on p42 remains unaudited; Tianxiang review covers 25 in-scope IDs, with ZZ-TX-009/010 on p47 out of scope. The cross-star comparison is proposal-only, does not authorize canonicalization or Product consumption, PI accepted the bounded context-check recommendation on 2026-10-25; its research exit conditions are met. Stage B is authorized for a later bounded turn, without canonicalization or Product consumption.",
     "active_pilot_card": null,
     "draft_pilot_cards": [
       "太阳",
@@ -578,9 +578,9 @@
           },
           "source_excerpt": "过份收敛",
           "claim_layer": "CONDITIONAL_STATE_CHANGE_AND_DOWNSTREAM_OUTCOME",
-          "claim_summary": "不利表现与过度收敛相关；必须保留“落陷/化忌”与“会合潜藏收敛星曜”之间的 OR 结构，不可误改成所有条件同时成立。",
+          "claim_summary": "来源写“太阴落陷、化忌之时，或与主潜藏收敛的星曜…会合之时”；保留原文明示的外层替代分支。“落陷、化忌”组内连接关系未由本次审查定稿，不再改写为“太阴落陷或化忌”，也不静默改成AND。",
           "conditions_to_preserve": [
-            "太阴落陷或化忌",
+            "太阴落陷、化忌之时（组内连接关系未决）",
             "或会合主潜藏/收敛的星曜",
             "替代分支，不静默改成所有条件同时成立"
           ],
@@ -1572,7 +1572,7 @@
         "SRC-ZZ-002#pdf_scan_page=10#printed_page=19#ZZ-TYI-005"
       ],
       "target_ref": "STAR-TYI.conditional_signature:QI-01",
-      "rationale": "不利表现受落陷/化忌或会合潜藏收敛星曜等替代分支门控；保留 OR 结构与下游结果边界。",
+      "rationale": "不利表现受原文“落陷、化忌”组或会合潜藏收敛星曜的替代分支（前组内部连接关系未决）门控；保留 OR 结构与下游结果边界。",
       "evidence_role": {
         "state": "KNOWN",
         "value": "state_change",
@@ -2170,7 +2170,7 @@
     "boundary": "This run validates the three-star pilot checkpoint before the cross-star comparison update. The comparison update must be checked at its own exact head; prior green runs do not transfer."
   },
   "cross_star_comparison": {
-    "status": "COMPLETED_RESEARCH_COMPARISON_NOT_PI_APPROVED",
+    "status": "COMPLETED_RESEARCH_COMPARISON_METHOD_ACCEPTED_NOT_CANONICAL",
     "scope": [
       "太阳",
       "太阴",
@@ -2199,7 +2199,7 @@
       },
       {
         "axis_id": "CONDITIONS_AND_STATE_CHANGE",
-        "finding": "太阳过度发射需保留入庙与过多发射星曜的联合条件；太阴过度收敛的替代分支保留 OR，太阳补偿与过度发射保留条件门控；天相夹宫/刑忌夹/财荫夹和化解分支保留具体化禄或化忌主体及 AND/OR 条件。",
+        "finding": "太阳过度发射需保留入庙与过多发射星曜的联合条件；太阴过度收敛的替代分支保留 OR，太阳补偿与过度发射保留条件门控；天相夹宫/刑忌夹/财荫夹和化解分支保留具体化禄或化忌主体及 AND/OR 条件。 太阴原文明示的外层“或”保留，“落陷、化忌”组内连接关系未决。",
         "evidence_star_ids": [
           "STAR-TY",
           "STAR-TYI",
@@ -2209,7 +2209,7 @@
       },
       {
         "axis_id": "L2_RELATIONSHIP_AND_CONTEXT",
-        "finding": "太阳的财富/贵显表现依赖其他星曜会合；太阴涉及太阳补偿、昌曲分支与福德宫依赖；天相涉及夹宫优先、对宫破军和星系家族。它们均应按关系/上下文处理，而非重复记作单星内在证据。",
+        "finding": "太阳的财富/贵显表现依赖其他星曜会合；太阴涉及太阳补偿、昌曲分支与福德宫依赖；天相涉及夹宫优先、对宫破军和星系家族。它们均应按关系/上下文处理，而非重复记作单星内在证据。 本标签是历史研究分类；空间结构、条件作用与L2关系状态分别核对，不因“关系”二字自动接受L2归属。",
         "evidence_star_ids": [
           "STAR-TY",
           "STAR-TYI",
@@ -2249,6 +2249,516 @@
       ]
     },
     "pi_method_recommendation": "ACCEPT_METHOD_FOR_STAGE_B_WITHOUT_CANONICALIZATION",
-    "pi_method_decision_required_before_expansion": true
+    "pi_method_decision_required_before_expansion": false,
+    "pi_method_decision": {
+      "date": "2026-10-25",
+      "response_literal": "就按你的说法来",
+      "scope": "Accept bounded context-method review; if its research exit conditions hold, continue Stage B candidate research in a subsequent turn.",
+      "context_check_passed": true,
+      "canonical_mapping_approved": false,
+      "product_consumption_approved": false
+    }
+  },
+  "context_method_audit": {
+    "status": "COMPLETED_RESEARCH_CONTEXT_METHOD_CHECK_NOT_CANONICAL",
+    "date": "2026-10-25",
+    "authorization": {
+      "response_literal": "就按你的说法来",
+      "method_only": true,
+      "stage_b_authorized_after_exit_conditions": true,
+      "canonicalization_authorized": false,
+      "product_consumption_authorized": false
+    },
+    "scope": {
+      "source_id": "SRC-ZZ-002",
+      "source_sha256": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a",
+      "visual_rechecked_scan_pages": [
+        5,
+        10,
+        13,
+        24
+      ],
+      "printed_spans": [
+        "9-10",
+        "19-20",
+        "25-26",
+        "46 (left half only)"
+      ],
+      "exclusions": [
+        "ZZ-TYI-010 on printed p42",
+        "ZZ-TX-009/010 on printed p47",
+        "full 430-rule matrix re-review",
+        "Lianzheng/Jumen element source adjudication",
+        "generic brightness or growth-stage lookup table"
+      ]
+    },
+    "record_boundary": "Local research sidecar inside this candidate artifact; these labels/expressions are not shared schema fields, controlled vocabulary or executable condition IR. Existing mapping_review objects retain their accepted shape.",
+    "axes": {
+      "fact_basis": [
+        "engine_reported_value",
+        "source_attribute_assertion",
+        "derived_state_under_named_rule_set"
+      ],
+      "semantic_layer": "L0-L4 according to claim content, not assigned from condition/relationship keywords",
+      "rule_role": "Antecedent, gate, modifier, interaction, projection, evaluation are separately explained local research roles."
+    },
+    "records": [
+      {
+        "audit_id": "CTX-TY-01",
+        "star_or_scope": "太阳",
+        "source_rule_ids": [
+          "ZZ-TY-009"
+        ],
+        "source_claim_keys": [
+          "TY-CONDITION-009"
+        ],
+        "source_locator": {
+          "source_id": "SRC-ZZ-002",
+          "pdf_scan_page": 5,
+          "printed_pages": [
+            9
+          ]
+        },
+        "verification": "VISUAL_SOURCE_CONTEXT_RECHECK_ONLY",
+        "findings": [
+          "入庙属于太阳的状态前提；过多发射星曜会合是另一前提。结果是过度发射风险，不能改成恒定内在性质。",
+          "此处未指定某个主事宫位，不将其补成命宫或事业宫条件。"
+        ],
+        "rule_roles_research_only": [
+          "antecedent",
+          "conditional_modifier"
+        ],
+        "condition_expression_research_only": {
+          "outer_connective": "AND",
+          "operands": [
+            "太阳入庙",
+            "过多带发射性质的星曜会合"
+          ],
+          "brightness_table_calculation": "NOT_PERFORMED"
+        },
+        "disposition": "RESEARCH_RECORDABLE_WITH_BOUNDARIES",
+        "normalization_epistemic": "UNRESOLVED",
+        "canonical_accepted": false,
+        "executable": false
+      },
+      {
+        "audit_id": "CTX-TY-02",
+        "star_or_scope": "太阳",
+        "source_rule_ids": [
+          "ZZ-TY-011",
+          "ZZ-TY-023"
+        ],
+        "source_claim_keys": [
+          "TY-COMPARISON-011",
+          "TY-DOWNSTREAM-023-025"
+        ],
+        "source_locator": {
+          "source_id": "SRC-ZZ-002",
+          "pdf_scan_page": 5,
+          "printed_pages": [
+            9,
+            10
+          ]
+        },
+        "verification": "VISUAL_SOURCE_CONTEXT_RECHECK_ONLY",
+        "findings": [
+          "巳/午/申/酉是来源的地支位置语境，命宫/运限命宫是角色语境，不能互换。",
+          "日生/夜生采用原文所列时支语境；本轮不建立现代日出日落算法或通用庙旺表。",
+          "夜生、落陷与下游传统主张分别保留，不合并成固定星性或现实保证。"
+        ],
+        "rule_roles_research_only": [
+          "position_context",
+          "birth_time_context",
+          "downstream_projection"
+        ],
+        "condition_expression_research_only": {
+          "literal_context_only": true,
+          "position_frame": "SOURCE_NATAL_OR_EXPLICIT_FORTUNE_SCOPE",
+          "unmentioned_context": "NOT_INVENTED"
+        },
+        "disposition": "RESEARCH_RECORDABLE_WITH_BOUNDARIES",
+        "normalization_epistemic": "UNRESOLVED",
+        "canonical_accepted": false,
+        "executable": false
+      },
+      {
+        "audit_id": "CTX-TYI-01",
+        "star_or_scope": "太阴",
+        "source_rule_ids": [
+          "ZZ-TYI-005"
+        ],
+        "source_claim_keys": [
+          "TYI-OVERCONVERGENCE-BRANCHES"
+        ],
+        "source_locator": {
+          "source_id": "SRC-ZZ-002",
+          "pdf_scan_page": 10,
+          "printed_pages": [
+            19
+          ]
+        },
+        "verification": "VISUAL_SOURCE_CONTEXT_RECHECK_ONLY",
+        "findings": [
+          "视觉复核原文组“落陷、化忌之时”及外层“或与主潜藏收敛的星曜…会合之时”。",
+          "修正本研究卡中多加的“太阴落陷或化忌”；只保留确定的外层或，组内连接关系不定稿。"
+        ],
+        "rule_roles_research_only": [
+          "antecedent",
+          "conditional_modifier"
+        ],
+        "condition_expression_research_only": {
+          "outer_connective": "SOURCE_EXPLICIT_OR",
+          "branches": [
+            {
+              "literal_group": "太阴落陷、化忌之时",
+              "group_internal_connective": "UNRESOLVED"
+            },
+            {
+              "literal_group": "与主潜藏收敛的星曜会合之时"
+            }
+          ]
+        },
+        "disposition": "LOCAL_RESEARCH_WORDING_CORRECTED_INTERNAL_LOGIC_UNRESOLVED",
+        "normalization_epistemic": "UNRESOLVED",
+        "canonical_accepted": false,
+        "executable": false
+      },
+      {
+        "audit_id": "CTX-TYI-02",
+        "star_or_scope": "太阴与太阳",
+        "source_rule_ids": [
+          "ZZ-TYI-006"
+        ],
+        "source_claim_keys": [
+          "TYI-SOLAR-COMPENSATION"
+        ],
+        "source_locator": {
+          "source_id": "SRC-ZZ-002",
+          "pdf_scan_page": 10,
+          "printed_pages": [
+            19
+          ]
+        },
+        "verification": "VISUAL_SOURCE_CONTEXT_RECHECK_ONLY",
+        "findings": [
+          "补偿条件中的入庙或化禄属于太阳，过度收敛语境属于太阴，三方四正同会连接两者。",
+          "不能把太阳的状态写到太阴身上；不能把补偿写成太阴自身的无条件发射性。"
+        ],
+        "rule_roles_research_only": [
+          "antecedent",
+          "cross_star_interaction"
+        ],
+        "condition_expression_research_only": {
+          "outer_connective": "AND",
+          "operands": [
+            "太阴过度收敛语境",
+            {
+              "subject": "太阳",
+              "source_explicit_or": [
+                "入庙",
+                "化禄"
+              ]
+            },
+            "太阳与太阴三方四正同会"
+          ]
+        },
+        "disposition": "RESEARCH_RECORDABLE_WITH_BOUNDARIES",
+        "normalization_epistemic": "UNRESOLVED",
+        "canonical_accepted": false,
+        "executable": false
+      },
+      {
+        "audit_id": "CTX-TYI-03",
+        "star_or_scope": "太阴星系地支分组",
+        "source_rule_ids": [
+          "ZZ-TYI-Y04"
+        ],
+        "source_claim_keys": [
+          "TYI-STAR-FAMILY-STRUCTURE"
+        ],
+        "source_locator": {
+          "source_id": "SRC-ZZ-002",
+          "pdf_scan_page": 10,
+          "printed_pages": [
+            20
+          ]
+        },
+        "verification": "VISUAL_SOURCE_CONTEXT_RECHECK_ONLY",
+        "findings": [
+          "已审来源将子午卯酉、辰戌丑未、寅申巳亥分别联系到同阴、阴阳、机阴组合。",
+          "保留这组来源具体分组及组合关联；不替原文添加四生/四旺/四墓分类名，更不推出统一强弱或吉凶。"
+        ],
+        "rule_roles_research_only": [
+          "structural_group",
+          "system_context"
+        ],
+        "condition_expression_research_only": {
+          "source_groups": [
+            {
+              "branches": [
+                "子",
+                "午",
+                "卯",
+                "酉"
+              ],
+              "system_literal": "同阴"
+            },
+            {
+              "branches": [
+                "辰",
+                "戌",
+                "丑",
+                "未"
+              ],
+              "system_literal": "阴阳"
+            },
+            {
+              "branches": [
+                "寅",
+                "申",
+                "巳",
+                "亥"
+              ],
+              "system_literal": "机阴"
+            }
+          ],
+          "generic_growth_stage_effect": "NOT_ESTABLISHED_IN_REVIEWED_CLAIMS"
+        },
+        "disposition": "RESEARCH_RECORDABLE_WITH_BOUNDARIES",
+        "normalization_epistemic": "UNRESOLVED",
+        "canonical_accepted": false,
+        "executable": false
+      },
+      {
+        "audit_id": "CTX-TX-01",
+        "star_or_scope": "天相夹宫与四化主体",
+        "source_rule_ids": [
+          "ZZ-TX-X04",
+          "ZZ-TX-X05",
+          "ZZ-TX-004",
+          "ZZ-TX-X06"
+        ],
+        "source_claim_keys": [
+          "TX-CAIYIN-STRUCTURE",
+          "TX-XINGJI-CLAMP",
+          "TX-CAIYIN-SOFTNESS-INFERENCE"
+        ],
+        "source_locator": {
+          "source_id": "SRC-ZZ-002",
+          "pdf_scan_page": 13,
+          "printed_pages": [
+            25
+          ]
+        },
+        "verification": "VISUAL_SOURCE_CONTEXT_RECHECK_ONLY",
+        "findings": [
+          "相邻宫是空间条件；巨门、天梁、擎羊及化忌主体必须分别辨认。",
+          "财荫/刑忌结构与其对软弱性或能力的解释分开；现有L2目标引用仍是候选，不因结构是关系就获接受。",
+          "禄存与天梁夹持的破格分支保留，不能只检索禄字即认定成格。"
+        ],
+        "rule_roles_research_only": [
+          "spatial_antecedent",
+          "subject_binding",
+          "conditional_effect_candidate"
+        ],
+        "condition_expression_research_only": {
+          "structure_and_effect_separate": true,
+          "four_transformation_subject_required": true,
+          "L2_assignment": "NOT_AUTOMATIC"
+        },
+        "disposition": "RESEARCH_RECORDABLE_WITH_BOUNDARIES",
+        "normalization_epistemic": "UNRESOLVED",
+        "canonical_accepted": false,
+        "executable": false
+      },
+      {
+        "audit_id": "CTX-TX-02",
+        "star_or_scope": "天相刑忌夹化解",
+        "source_rule_ids": [
+          "ZZ-TX-X07"
+        ],
+        "source_claim_keys": [
+          "TX-XINGJI-RELIEF-GATE"
+        ],
+        "source_locator": {
+          "source_id": "SRC-ZZ-002",
+          "pdf_scan_page": 13,
+          "printed_pages": [
+            25,
+            26
+          ]
+        },
+        "verification": "VISUAL_SOURCE_CONTEXT_RECHECK_ONLY",
+        "findings": [
+          "原文明确以天梁化科、三方四正无煞曜、见魁钺辅弼昌曲诸吉构成联合条件。",
+          "无煞的判定范围、煞曜集合及吉曜组内部量词仍需来源/执行契约，不能从事实集合未出现就确认不存在。",
+          "化禄、化权与化科的分支分别保存，不设统一吉化效果。"
+        ],
+        "rule_roles_research_only": [
+          "antecedent",
+          "scoped_negation",
+          "conditional_interaction"
+        ],
+        "condition_expression_research_only": {
+          "outer_connective": "AND",
+          "operands": [
+            "天梁化科",
+            "天相三方四正无煞曜",
+            "见魁钺、辅弼、昌曲诸吉"
+          ],
+          "positive_group_internal_quantifier": "UNRESOLVED_FOR_RUNTIME",
+          "negation_completeness_contract": "NOT_ESTABLISHED"
+        },
+        "disposition": "RESEARCH_RECORDABLE_WITH_BOUNDARIES",
+        "normalization_epistemic": "UNRESOLVED",
+        "canonical_accepted": false,
+        "executable": false
+      },
+      {
+        "audit_id": "CTX-TX-03",
+        "star_or_scope": "天相及梁府的地支/庙旺条件",
+        "source_rule_ids": [
+          "ZZ-TX-007",
+          "ZZ-TX-Y05"
+        ],
+        "source_claim_keys": [
+          "TX-PALACE-STABILITY-ALTERNATIVES"
+        ],
+        "source_locator": {
+          "source_id": "SRC-ZZ-002",
+          "pdf_scan_page": 13,
+          "printed_pages": [
+            26
+          ]
+        },
+        "verification": "VISUAL_SOURCE_CONTEXT_RECHECK_ONLY",
+        "findings": [
+          "巳亥天相、子宫天梁和丑或未宫天府均为指定星曜的地支条件；主事领域未由这些地支名自动确定。",
+          "丑与未属于相互替代的分支；天梁/天府入庙分别绑定本星，不改成天相自己的庙旺值。",
+          "较为安定及格局平衡保留比较语境，不转成绝对强度或现实保证。"
+        ],
+        "rule_roles_research_only": [
+          "position_antecedent",
+          "comparison_scope",
+          "conditional_modifier"
+        ],
+        "condition_expression_research_only": {
+          "alternative_subject": "天府",
+          "source_explicit_or": [
+            "丑",
+            "未"
+          ],
+          "brightness_subjects": [
+            "天梁",
+            "天府"
+          ],
+          "comparison_modality_preserved": true
+        },
+        "disposition": "RESEARCH_RECORDABLE_WITH_BOUNDARIES",
+        "normalization_epistemic": "UNRESOLVED",
+        "canonical_accepted": false,
+        "executable": false
+      },
+      {
+        "audit_id": "CTX-L0-01",
+        "star_or_scope": "三星阴阳五行背景",
+        "source_rule_ids": [
+          "ZZ-FULL-TX-001",
+          "ZZ-TY-001",
+          "ZZ-TYI-001"
+        ],
+        "source_claim_keys": [
+          "TY-L0-SUBSTRATE",
+          "TYI-L0-SUBSTRATE",
+          "TX-L0-SUBSTRATE"
+        ],
+        "source_locator": {
+          "source_id": "SRC-ZZ-002",
+          "pdf_scan_page": [
+            5,
+            10,
+            13
+          ],
+          "printed_pages": [
+            9,
+            19,
+            25
+          ]
+        },
+        "verification": "VISUAL_SOURCE_CONTEXT_RECHECK_ONLY",
+        "findings": [
+          "所查对应段分别记太阳阳火、太阴阴水、天相阳水。它们是传统属性声明，来源与排盘位置输出分列。",
+          "本轮没有据这些标签建立五行生克到QI变化的规则。",
+          "廉贞木火、巨门土/金仅作为当前star_cores标签的后续来源缺口登记，本轮不审其原文，不拆分计算。"
+        ],
+        "rule_roles_research_only": [
+          "source_attribute_assertion"
+        ],
+        "condition_expression_research_only": {
+          "declarations": [
+            {
+              "star": "太阳",
+              "literal": "阳火"
+            },
+            {
+              "star": "太阴",
+              "literal": "阴水"
+            },
+            {
+              "star": "天相",
+              "literal": "阳水"
+            }
+          ],
+          "five_element_effect_derivation": "NOT_ESTABLISHED",
+          "compound_labels": [
+            "廉贞:木火",
+            "巨门:土/金"
+          ]
+        },
+        "disposition": "RESEARCH_RECORDABLE_WITH_BOUNDARIES",
+        "normalization_epistemic": "UNRESOLVED",
+        "canonical_accepted": false,
+        "executable": false
+      }
+    ],
+    "retained_source_ambiguities": [
+      {
+        "id": "CTX-GAP-TYI-INNER-CONNECTIVE",
+        "claim_key": "TYI-OVERCONVERGENCE-BRANCHES",
+        "literal": "落陷、化忌之时",
+        "state": "UNRESOLVED",
+        "blocks": "This group cannot be compiled to a definite AND/OR yet; other bounded research can continue."
+      },
+      {
+        "id": "CTX-GAP-ELEMENT-PROFILE",
+        "literal_labels": [
+          "廉贞:木火",
+          "巨门:土/金"
+        ],
+        "state": "UNRESOLVED",
+        "blocks": "Only future effect derivations that require these labels; no blanket Stage B blocker."
+      },
+      {
+        "id": "CTX-GAP-GROWTH-GROUP-EFFECT",
+        "state": "NOT_ESTABLISHED_IN_REVIEWED_CLAIMS",
+        "blocks": "No automatic four-birth/growth-stage -> qi/valence mapping."
+      },
+      {
+        "id": "CTX-GAP-TX-NONAPPEARANCE",
+        "state": "UNRESOLVED_FOR_RUNTIME",
+        "blocks": "Scoped negation needs an approved star-group and completeness contract before execution."
+      }
+    ],
+    "exit_conditions": {
+      "source_and_normalization_separate": true,
+      "subject_position_layer_scope_preserved": true,
+      "unknown_conflict_and_grouping_preserved": true,
+      "shared_schema_extension_required_for_current_research_records": false,
+      "canonical_artifacts_changed": false,
+      "product_consumption_authorized": false
+    },
+    "research_disposition": "CONTINUE_STAGE_B_CANDIDATE_RESEARCH_NEXT_BOUNDED_TURN",
+    "next_star": "紫微",
+    "runtime_contract_complete": false
   }
 }

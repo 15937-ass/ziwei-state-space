@@ -20,7 +20,7 @@ def load_baseline():
 def test_solar_taiyin_and_tianxiang_pilots_are_explicitly_noncanonical_and_source_bounded():
     data = load_baseline()
     assert data["status"] == "PROPOSAL_ONLY_NOT_CANONICAL"
-    assert data["checkpoint_status"] == "READY_FOR_PI_METHOD_DECISION_STAGE_A_COMPLETE"
+    assert data["checkpoint_status"] == "CONTEXT_METHOD_CHECK_COMPLETE_STAGE_B_AUTHORIZED"
     assert data["progress"]["completed_pilot_cards"] == ["太阳", "太阴", "天相"]
     assert data["progress"]["active_pilot_card"] is None
     assert data["progress"]["draft_pilot_cards"] == ["太阳", "太阴", "天相"]
@@ -219,7 +219,7 @@ def test_tianxiang_context_and_clamp_branches_are_not_promoted_to_intrinsic_qi02
 def test_three_star_cross_comparison_is_complete_but_not_canonical_or_product_ready():
     data = load_baseline()
     comparison = data["cross_star_comparison"]
-    assert comparison["status"] == "COMPLETED_RESEARCH_COMPARISON_NOT_PI_APPROVED"
+    assert comparison["status"] == "COMPLETED_RESEARCH_COMPARISON_METHOD_ACCEPTED_NOT_CANONICAL"
     assert comparison["scope"] == ["太阳", "太阴", "天相"]
     axes = {row["axis_id"]: row for row in comparison["comparison_axes"]}
     assert {
@@ -233,9 +233,94 @@ def test_three_star_cross_comparison_is_complete_but_not_canonical_or_product_re
     assert comparison["method_adequacy"]["accepted_v01_mapping_review_schema_sufficient_for_pilot_record_shape"] is True
     assert comparison["method_adequacy"]["shared_schema_extension_required_for_this_pilot"] is False
     assert comparison["method_adequacy"]["manual_semantic_review_required"] is True
-    assert comparison["pi_method_decision_required_before_expansion"] is True
+    assert comparison["pi_method_decision_required_before_expansion"] is False
+    assert comparison["pi_method_decision"]["context_check_passed"] is True
+    assert comparison["pi_method_decision"]["canonical_mapping_approved"] is False
     assert comparison["pi_method_recommendation"] == "ACCEPT_METHOD_FOR_STAGE_B_WITHOUT_CANONICALIZATION"
     assert data["method_guardrails"]["candidate_canonicalization_authorized"] is False
     assert data["method_guardrails"]["product_consumption_authorized"] is False
     assert data["pilot_checkpoint_validation"]["run_id"] == 40169844516
     assert data["pilot_checkpoint_validation"]["conclusion"] == "success"
+
+
+def test_context_audit_refs_existing_source_claims_without_growing_canonical_evidence():
+    data = load_baseline()
+    audit = data["context_method_audit"]
+    claims = {claim["claim_key"]: claim for star in data["stars"] for claim in star["source_claims"]}
+    assert audit["scope"]["source_sha256"] == data["source_policy"]["source_sha256"]
+    assert audit["scope"]["visual_rechecked_scan_pages"] == [5, 10, 13, 24]
+    ids = [row["audit_id"] for row in audit["records"]]
+    assert len(ids) == len(set(ids))
+    for row in audit["records"]:
+        cited_rules = set()
+        for key in row["source_claim_keys"]:
+            cited_rules.update(claims[key]["source_rule_ids"])
+        assert set(row["source_rule_ids"]) <= cited_rules
+        assert row["source_locator"]["source_id"] == "SRC-ZZ-002"
+        assert row["normalization_epistemic"] == "UNRESOLVED"
+        assert row["canonical_accepted"] is row["executable"] is False
+    assert len(data["mapping_review_records"]) == 38
+    assert validate_mapping_review_collection(data["mapping_review_records"]) == []
+    assert all("context_method_audit" not in record for record in data["mapping_review_records"])
+
+
+def test_source_explicit_outer_or_does_not_resolve_the_inner_taiyin_group():
+    data = load_baseline()
+    audit = data["context_method_audit"]
+    row = next(row for row in audit["records"] if row["audit_id"] == "CTX-TYI-01")
+    expression = row["condition_expression_research_only"]
+    assert expression["outer_connective"] == "SOURCE_EXPLICIT_OR"
+    assert expression["branches"][0] == {
+        "literal_group": "太阴落陷、化忌之时",
+        "group_internal_connective": "UNRESOLVED",
+    }
+    taiyin = next(star for star in data["stars"] if star["name"] == "太阴")
+    claim = next(c for c in taiyin["source_claims"] if c["claim_key"] == "TYI-OVERCONVERGENCE-BRANCHES")
+    assert claim["conditions_to_preserve"][0] == "太阴落陷、化忌之时（组内连接关系未决）"
+    assert "太阴落陷或化忌" not in claim["conditions_to_preserve"]
+    gaps = {gap["id"]: gap for gap in audit["retained_source_ambiguities"]}
+    assert gaps["CTX-GAP-TYI-INNER-CONNECTIVE"]["state"] == "UNRESOLVED"
+
+
+def test_context_subjects_and_scoped_negation_cannot_be_flattened_into_star_traits():
+    audit = load_baseline()["context_method_audit"]
+    rows = {row["audit_id"]: row for row in audit["records"]}
+    sun = rows["CTX-TY-01"]["condition_expression_research_only"]
+    assert sun["outer_connective"] == "AND"
+    assert sun["operands"] == ["太阳入庙", "过多带发射性质的星曜会合"]
+    compensation = rows["CTX-TYI-02"]["condition_expression_research_only"]
+    assert compensation["operands"][1] == {"subject": "太阳", "source_explicit_or": ["入庙", "化禄"]}
+    relief = rows["CTX-TX-02"]["condition_expression_research_only"]
+    assert relief["outer_connective"] == "AND"
+    assert relief["negation_completeness_contract"] == "NOT_ESTABLISHED"
+    assert relief["positive_group_internal_quantifier"] == "UNRESOLVED_FOR_RUNTIME"
+    palace = rows["CTX-TX-03"]["condition_expression_research_only"]
+    assert palace["alternative_subject"] == "天府"
+    assert palace["source_explicit_or"] == ["丑", "未"]
+    assert palace["brightness_subjects"] == ["天梁", "天府"]
+    assert rows["CTX-TX-01"]["condition_expression_research_only"]["L2_assignment"] == "NOT_AUTOMATIC"
+
+
+def test_branch_groups_and_element_labels_do_not_create_unproved_effect_rules():
+    audit = load_baseline()["context_method_audit"]
+    rows = {row["audit_id"]: row for row in audit["records"]}
+    groups = rows["CTX-TYI-03"]["condition_expression_research_only"]
+    assert groups["source_groups"][0] == {"branches": ["子", "午", "卯", "酉"], "system_literal": "同阴"}
+    assert groups["generic_growth_stage_effect"] == "NOT_ESTABLISHED_IN_REVIEWED_CLAIMS"
+    substrate = rows["CTX-L0-01"]["condition_expression_research_only"]
+    assert substrate["five_element_effect_derivation"] == "NOT_ESTABLISHED"
+    assert substrate["compound_labels"] == ["廉贞:木火", "巨门:土/金"]
+    assert audit["runtime_contract_complete"] is False
+
+
+def test_method_permission_has_advanced_without_expanding_stars_or_semantic_permissions():
+    data = load_baseline()
+    audit = data["context_method_audit"]
+    assert audit["authorization"]["stage_b_authorized_after_exit_conditions"] is True
+    assert audit["authorization"]["canonicalization_authorized"] is False
+    assert audit["authorization"]["product_consumption_authorized"] is False
+    assert audit["research_disposition"] == "CONTINUE_STAGE_B_CANDIDATE_RESEARCH_NEXT_BOUNDED_TURN"
+    assert audit["next_star"] == data["progress"]["remaining_expansion_stars_in_existing_order"][0] == "紫微"
+    assert len(data["stars"]) == 3 and len(data["progress"]["remaining_expansion_stars_in_existing_order"]) == 11
+    assert audit["exit_conditions"]["shared_schema_extension_required_for_current_research_records"] is False
+    assert audit["exit_conditions"]["canonical_artifacts_changed"] is False
