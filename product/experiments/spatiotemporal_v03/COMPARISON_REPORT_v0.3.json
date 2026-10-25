@@ -29,7 +29,8 @@
     "raw_scope_mutagen_values": 96,
     "raw_scope_mutagen_glyph_values": 0,
     "raw_scope_mutagen_non_glyph_values": 96,
-    "temporal_star_objects": 204
+    "temporal_star_objects": 204,
+    "raw_scope_mutagen_values_not_in_natal_star_names": 0
   },
   "checks": {
     "fixture_sha256_matches_manifest": true,
@@ -43,13 +44,14 @@
     "target_temporal_signature_changes_without_natal_rebuild": true,
     "raw_mutagen_domain_difference_flagged": true,
     "canonical_acceptance": false,
-    "runtime_effect_allowed": false
+    "runtime_effect_allowed": false,
+    "scope_mutagen_values_are_natal_star_names": true
   },
   "findings": [
     {
-      "id": "MUTAGEN_DOMAIN_REQUIRES_CONTRACT_REVIEW",
-      "status": "REVIEW_REQUIRED",
-      "observation": "P1 full-exporter scope-level mutagen arrays contain transformed star names (for example 天梁 / 紫微 / 左辅 / 武曲), whereas the earlier toy temporal fixture used glyph-like values such as 科. The current adapter preserves each raw value as TRANSFORMATION_PRESENT(mutagen=<raw value>). v0.3 records the domain difference without reinterpreting it."
+      "id": "SCOPE_MUTAGEN_STAR_NAME_DOMAIN_CONFIRMED",
+      "status": "SEMANTIC_MAPPING_GAP_CONFIRMED",
+      "observation": "The pinned upstream iztro v2.6.1 type defines HoroscopeItem.mutagen as StarName[] (src/data/types/astro.ts at v2.6.1, blob 2d692b84e9a28c6786c804078f06d34c4388125f), while Mutagen itself is the separate four-transformation type (禄/权/科/忌; src/i18n/types/mutagen.ts at v2.6.1, blob 268d2440e3ea024a07673942cbe313bfe752fca3; Simplified Chinese values at blob 7bb0325767a33ffc0c2e9c5952e3ac43c1978e80). In this pinned projection, all 96 scope-level mutagen entries are star names and all are present in the corresponding natal star inventory. The earlier toy fixture's glyph-like values do not match the pinned upstream type. The current adapter serializes these raw star names as TRANSFORMATION_PRESENT(mutagen=<star name>); that representation must not be read as identifying the specific transformation glyph or a star-to-glyph binding. This issue records the mismatch and does not alter production code."
     }
   ],
   "decision": "KEEP_INDEX_BASELINE; continue TEST_ONLY guarded-temporal research, but do not promote canonical reaction semantics until the mutagen value-domain contract is resolved.",
