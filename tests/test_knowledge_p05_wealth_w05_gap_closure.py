@@ -105,7 +105,7 @@ def test_p05_state_cache_preserves_w05_gap_during_coverage_census():
     assert "source_gap_supplement_record_count: 4" in state
     assert "source_coverage_gaps_closed_by_supplement: 2" in state
     assert "source_coverage_gaps_partially_resolved_by_supplement: 1" in state
-    assert "source_coverage_gaps_remaining: 23" in state
+    assert "source_coverage_gaps_remaining: 26" in state
     assert "W05-SG-002 remains PARTIALLY_RESOLVED" in state
     assert "P05-COV-GAP-001" in state
     assert "No Product/runtime authorization is implied" in state

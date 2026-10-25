@@ -45,7 +45,7 @@ def test_state_preserves_tianxiang_gap_handoff_without_pinning_old_active_batch(
     state = STATE.read_text(encoding="utf-8")
     assert all(g in state for g in PRIOR)
     assert "W08-SG-003" in state and "W08-SG-004" in state and "W08-SG-005" in state
-    assert "source_coverage_gaps_remaining: 23" in state
+    assert "source_coverage_gaps_remaining: 26" in state
     assert "P05-COV-GAP-001" in state
     historical = load(SOURCE)
     assert historical["issue"] == 746 and len(historical["records"]) == 45
