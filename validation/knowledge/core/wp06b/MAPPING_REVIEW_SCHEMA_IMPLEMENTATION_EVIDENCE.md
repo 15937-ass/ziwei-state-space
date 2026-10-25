@@ -21,6 +21,7 @@
 - `knowledge/core/wp06b/fixtures/mapping_review_schema_v0.1_fixtures.json`
 - `tools/knowledge_core_mapping_review_schema.py`
 - `tests/test_knowledge_core_mapping_review_schema.py`
+- `tests/test_knowledge_core_option_c_contract_validation_probe.py` (PI-authorized update to the obsolete pre-implementation assertion only; historical probe fixture/report remain unchanged)
 - `validation/knowledge/core/wp06b/MAPPING_REVIEW_SCHEMA_IMPLEMENTATION_EVIDENCE.md`
 - `knowledge/states/CORE_STATE.yaml` (execution recovery cache only)
 
