@@ -103,8 +103,8 @@
 
 ## 阶段 B 第二轮 — 天机来源与候选检查点（2026-10-25）
 
-- Issue / PR：#757 / Draft #763；分支 `knowledge/core-757-14star-property-normalization`。
-- 起始 head：`500415d6b5bb61aa3d798fa5464de8ebe0c968a6`；当前 main 基线：`0c9210855d874045f577914e8ec27e909438ecf4`。本次提交后的 exact head 与对应质量门由 PR #763 的实时执行记录确定；不沿用旧 head 的绿色结果。
+- Issue / PR：#757 / successor Draft PR pending creation；分支 `knowledge/core-757-14star-property-normalization-main-sync`。
+- 起始 head：`500415d6b5bb61aa3d798fa5464de8ebe0c968a6`；同步后的 main 基线：`c44056b0a762adaaefe95a8300b82b8d4d6f1159`（已包含 P05 廉贞尾段验收；Core 写集与该提交的 P05 文件不重叠）。新分支上的最终 exact head 与对应质量门以 successor PR 的实时执行记录为准；不沿用旧 head 的绿色结果。
 - 来源：`SRC-ZZ-002`《中州派紫微斗数深造讲义（上）》，SHA-256 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a`；PDF扫描页4，印刷页7–8。源文件哈希与 `sources/source_index.csv` 一致。
 - 对当前 canonical 文件中的39条 `ZZ-TJ` 规则逐行视觉核对并新增 `TIANJI_SOURCE_SPAN_REVIEW_v0.1.csv`；复用 DIRECT_STAR Batch 01 中3条既有天机记录，不将复用行算作独立来源证据。
 - 新增天机候选卡、17条逐目标 mapping-review 记录、天机缺口与回归测试。全部候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`。
