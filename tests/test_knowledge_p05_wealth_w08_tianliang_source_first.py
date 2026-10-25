@@ -27,9 +27,12 @@ def test_source_hash_boundary_and_candidate_census():
     assert ids == [f"W08-{i}" for i in range(788, 826)]
     assert len(ids) == len(set(ids)) == 38
     assert data["summary"]["historical_candidates_reviewed"] == 13
-    assert data["summary"]["new_source_supported_atoms"] == 25
-    assert data["summary"]["canonical_promotions"] == 38
-    assert data["summary"]["cumulative_canonical_records_after_merge"] == 722
+    assert data["summary"]["new_source_supported_atoms"] == 24
+    assert data["summary"]["new_source_atoms_reviewed"] == 25
+    assert data["summary"]["new_atoms_not_promoted_due_uncertainty"] == 1
+    assert data["summary"]["canonical_promotions"] == 37
+    assert data["summary"]["cumulative_canonical_records_after_merge"] == 721
+    assert data["summary"]["unresolved_candidate_ids"] == ["W08-820"]
 
 def test_historical_candidate_reconciliation_and_correction():
     data = load(SOURCE)
@@ -49,6 +52,8 @@ def test_source_text_anomalies_are_literal_and_not_silently_repaired():
     assert "为本星生活费居财帛宫的最大缺点" not in row(data, "W08-823")["source_digest"]
     assert "丑来天梁" in row(data, "W08-820")["canonical_condition"]
     assert "W08-SG-005" in row(data, "W08-820")["source_note"]
+    assert row(data, "W08-820")["canonical_promotion"] is False
+    assert row(data, "W08-820")["disposition"] == "NEW_SOURCE_ATOM_HELD_UNPROMOTED_SOURCE_UNCERTAINTY"
     assert "W08-SG-003" in row(data, "W08-823")["source_note"]
     assert gaps["gap_count"] == 3 and gaps["core_gap_count"] == 0
     assert {g["gap_id"] for g in gaps["gaps"]} == {"W08-SG-003", "W08-SG-004", "W08-SG-005"}
@@ -87,7 +92,7 @@ def test_state_cache_tracks_active_tianliang_work_and_inherited_gaps():
     assert "active_issue: 760" in state
     assert 'active_branch: "knowledge/p05-760-source-first-tianliang-p88-p90"' in state
     assert "merged_rule_count: 684" in state
-    assert "current_batch_rule_count: 38" in state
+    assert "current_batch_rule_count: 37" in state
     assert "source_first_records_added_current_batch: 38" in state
     assert "source_uncertainty_count_current_batch: 3" in state
     assert "source_coverage_gaps_remaining: 11" in state

@@ -11,11 +11,11 @@ Status: DRAFT — final exact-head repository validation pending.
 
 ## Reconciliation
 - Historical candidates W08-788…W08-800: 13 reviewed exactly once.
-- Additional directly supported atoms: W08-801…W08-825 (25).
-- Total source-first records: 38; clear target promotions proposed: 38.
+- Additional atoms reviewed: W08-801…W08-825 (25); 24 are promoted and W08-820 remains unpromoted because the printed condition `丑来天梁` is unresolved.
+- Total source-first records: 38; 37 promotions proposed; W08-820 is held unpromoted pending resolution of W08-SG-005.
 - One historical candidate condition correction: W08-798.
 - Three source-text anomalies remain OPEN: W08-SG-003, W08-SG-004 and W08-SG-005; neither anomaly is silently normalized into a canonical target.
-- Accepted main baseline before this batch: 684 reusable rules; expected cumulative count after merge: 722.
+- Accepted main baseline before this batch: 684 reusable rules; expected cumulative count after merge: 721.
 - Existing gap dispositions carried forward: W05-SG-002 PARTIALLY_RESOLVED; W06-SG-001…005 and W08-SG-001/002 OPEN. New local gaps bring the tracked residual count from 8 to 11.
 
 ## Write set

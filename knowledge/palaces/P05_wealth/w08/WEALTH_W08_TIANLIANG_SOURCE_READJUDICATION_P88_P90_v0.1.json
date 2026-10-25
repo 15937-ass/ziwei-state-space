@@ -36,11 +36,11 @@
   ],
   "summary": {
     "direct_source_first_records_created": 38,
-    "canonical_promotions": 38,
-    "reusable_projection_rules": 38,
+    "canonical_promotions": 37,
+    "reusable_projection_rules": 37,
     "case_support_only": 0,
     "historical_candidates_reviewed": 13,
-    "new_source_supported_atoms": 25,
+    "new_source_supported_atoms": 24,
     "candidate_condition_or_scope_corrections": 1,
     "candidate_condition_or_scope_correction_ids": [
       "W08-798"
@@ -59,8 +59,8 @@
       "W08-SG-001",
       "W08-SG-002"
     ],
-    "cumulative_canonical_records_after_merge": 722,
-    "cumulative_reusable_projection_rules_after_merge": 722,
+    "cumulative_canonical_records_after_merge": 721,
+    "cumulative_reusable_projection_rules_after_merge": 721,
     "cumulative_case_support_only_after_merge": 0,
     "cumulative_source_gap_supplement_records_after_merge": 4,
     "new_primitive_qi": 0,
@@ -72,8 +72,8 @@
     "frequency_parameter": 0,
     "decay": 0,
     "reviewed": 38,
-    "canonical_promoted": 38,
-    "new_canonical_records": 38,
+    "canonical_promoted": 37,
+    "new_canonical_records": 37,
     "source_resolution_changed_rows": [],
     "source_resolution_change_count": 0,
     "unresolved_source_uncertainty_count": 3,
@@ -95,12 +95,19 @@
       "W08-SG-004",
       "W08-SG-005"
     ],
-    "unresolved_candidate_ids": [],
-    "human_gate_required": false
+    "unresolved_candidate_ids": [
+      "W08-820"
+    ],
+    "human_gate_required": false,
+    "new_source_atoms_reviewed": 25,
+    "new_atoms_not_promoted_due_uncertainty": 1,
+    "new_atoms_not_promoted_ids": [
+      "W08-820"
+    ]
   },
   "major_findings": [
     "完整覆盖 printed p88 section 12 天梁至 printed p90 heading 13 七杀之前的最后一句；未将七杀内容混入本批。",
-    "一对一复核历史候选 W08-788…800 共 13 条；新增 25 条直接受原文支持的缺失原子，不以旧 CSV 的覆盖标记作为证据。",
+    "一对一复核历史候选 W08-788…800 共 13 条；另审查 25 个新增原子，其中 24 条清晰目标晋升，W08-820 因原文疑点暂不晋升；不以旧 CSV 覆盖标记作为证据。",
     "更正 W08-798：原文“或主有现成事业生财”并未要求现成事业必须由长辈提供。",
     "保留服务动机、求财动机、化禄/叠禄、会禄权科但非天梁化禄、天马、荫星及子午/丑未/巳亥分支之间的条件差异。",
     "交入不佳岁运保留为原文时间短语，不强行映射到大限或流年；不引入独立时间尺度。",
@@ -957,13 +964,13 @@
       "case_support_only": false,
       "archived_history_feedback": null,
       "history_feedback": null,
-      "disposition": "NEW_SOURCE_ATOM_DIRECTLY_SUPPORTED",
+      "disposition": "NEW_SOURCE_ATOM_HELD_UNPROMOTED_SOURCE_UNCERTAINTY",
       "source_digest": "丑来天梁，见太阴化科，则天机必同时化忌，主因财受谤。未宫者尤甚。故得财亦不宜张扬。",
-      "source_note": "Direct source-first review against the approved original page images: physical PDF p44 right half = printed p88; physical PDF p45 left half = printed p89; physical PDF p45 right half top line = printed p90. The historical CSV is an index only; source wording and conditions control. Preserves the coupled transformation condition and the explicit warning against publicizing gains. The literal condition `丑来天梁` is retained without interpreting it as `丑宫天梁`; see W08-SG-005.",
+      "source_note": "Direct source-first review against the approved original page images: physical PDF p44 right half = printed p88; physical PDF p45 left half = printed p89; physical PDF p45 right half top line = printed p90. The historical CSV is an index only; source wording and conditions control. Preserves the coupled transformation condition and the explicit warning against publicizing gains. The literal condition `丑来天梁` is retained without interpreting it as `丑宫天梁`; see W08-SG-005. The literal is retained in the audit record but this row is NOT promoted because the intended condition/branch gate is unresolved; see W08-SG-005.",
       "visual_source_resolution": null,
       "source_uncertainty": "The approved image visibly prints 丑来天梁. The intended reading/branch gate is not resolved by this source. Keep the literal and do not normalize to 丑宫天梁; see W08-SG-005.",
       "source_resolution_changed": false,
-      "canonical_promotion": true
+      "canonical_promotion": false
     },
     {
       "projection_rule_id": "W08-821",

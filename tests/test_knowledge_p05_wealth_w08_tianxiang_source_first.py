@@ -46,7 +46,7 @@ def test_state_and_handoff_counts_track_current_tianliang_and_preserve_tianxiang
  assert 'status: "ACTIVE"' in s and "active_issue: 760" in s
  assert 'active_branch: "knowledge/p05-760-source-first-tianliang-p88-p90"' in s
  assert "active_pr: 762" in s
- assert "merged_rule_count: 684" in s and "current_batch_rule_count: 38" in s
+ assert "merged_rule_count: 684" in s and "current_batch_rule_count: 37" in s
  assert "source_first_records_added_current_batch: 38" in s and "source_uncertainty_count_current_batch: 3" in s
  assert "source_coverage_gap_count_current_batch: 3" in s and "source_coverage_gaps_remaining: 11" in s
  assert "W05-SG-002 remains PARTIALLY_RESOLVED" in s and all(g in s for g in PRIOR)
