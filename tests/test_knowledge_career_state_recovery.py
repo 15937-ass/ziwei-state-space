@@ -30,7 +30,7 @@ def test_p09_state_cache_retains_gap_audit_handoff_without_changing_accepted_bas
     ) in state
     assert "888/888 Career source rules reviewed" in state
     assert "Issue #785 / PR #786" in state
-    assert "11 inherited dependency-effective-underdetermined rows remain outside this batch" in state
+    assert "Follow-up Issue #787 visually rechecked the original scan for all 11 inherited dependency-effective-underdetermined rows on printed pp133–137" in state
     assert "condition compilation" in state
     assert "execution unlock" in state
     assert "P09 stage is not closed" in state
