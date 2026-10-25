@@ -19,17 +19,15 @@
 - Proposed cumulative reusable rules after merge: 684. Current main remains at 642 until merge.
 - No Product, Governance, shared Core, other-palace or historical candidate files are modified.
 
-## Validation history
-- Previous exact-head snapshot: head `1017bcdb79a11ab29a74cee25f73496733278ab5`, base `3611e5e73654ca3015910314edf92fc0ca612a8b`, [Actions run #2558](https://github.com/15937-ass/ziwei-state-space/actions/runs/40155390972).
-- That snapshot passed: 2,718 tests and 132 subtests; Product JS adapter checks; deterministic P0 gate; Repository Governance v1 including P05 shard/write-set validation.
-- This evidence-file update creates a new PR head. The prior green run is historical evidence only and is not sufficient to merge the new head.
-
-## Current exact-head validation
-- Full pytest: PENDING on the head produced by this evidence update.
-- Product JS adapter checks: PENDING on the new head.
-- Deterministic P0 gate: PENDING on the new head.
-- Repository Governance v1 and P05 shard/write-set validation: PENDING on the new head.
-- The live Issue #746 and PR #756 record the final base/head SHAs and final Actions run after the new exact-head gate completes.
+## Validation snapshot (parent head; historical evidence)
+- Tested head: `276bd0d7e069688c4794e9bb1dc0919c355f388b`.
+- Base: `3611e5e73654ca3015910314edf92fc0ca612a8b`.
+- [Exact-head Actions run #2560](https://github.com/15937-ass/ziwei-state-space/actions/runs/40155967909) passed.
+- Full pytest: 2,718 passed, 132 subtests passed.
+- Product JS adapter checks: PASS.
+- Deterministic P0 repository gate: PASS.
+- Repository Governance v1 including P05 shard/write-set validation: PASS.
+- This record documents the tested parent head. Recording the result creates a new PR head, so this snapshot is not authorization to merge the new head. The live Issue #746 and PR #756 record the final head and final exact-head run after that gate completes.
 
 ## Handoff
 - Next source anchor: printed p88 heading 12 天梁.
