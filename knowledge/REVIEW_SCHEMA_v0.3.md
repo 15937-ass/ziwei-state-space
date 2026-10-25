@@ -96,3 +96,10 @@ The deterministic repository auditor is a merge gate for:
 
 Heuristic findings such as atomicity or layer-boundary candidates remain P1
 review queues and do not fail the schema gate by themselves.
+
+
+## 7. Boundary to the mapping-review contract
+
+The optional per-target `mapping_review` envelope is governed by `knowledge/core/wp06b/MAPPING_REVIEW_SCHEMA_v0.1.json`. Its `evidence_role` and `mapping_disposition` fields describe the role of evidence and the research disposition of a mapping hypothesis. They do **not** redefine or add values to `source_epistemic`, `normalization_epistemic`, or `review_status`.
+
+The existing v0.3 controlled vocabularies and migration rules above remain unchanged. Mapping disposition is not canonical approval, formal-ID acceptance, or Product consumer readiness; those remain separate gates. An absent envelope on a legacy artifact means it has not yet been reviewed under the mapping-review contract, not that its source epistemic/review status is missing.

@@ -44,13 +44,35 @@ def test_existing_schema_fields_support_provenance_and_epistemic_separation():
     assert "SOURCE_PRESERVING" in review and "HYPOTHESIS" in review and "UNRESOLVED" in review
 
 
-def test_typed_mapping_disposition_and_evidence_role_are_not_assumed_to_exist():
+def test_mapping_review_fields_are_separate_from_option_c_axes_and_v03_enums():
     review = REVIEW_SCHEMA.read_text(encoding="utf-8")
     kb = KB_SCHEMA.read_text(encoding="utf-8")
+    mapping_schema = json.loads(
+        (ROOT / "knowledge/core/wp06b/MAPPING_REVIEW_SCHEMA_v0.1.json").read_text(encoding="utf-8")
+    )
+
+    # These names belong to the separate mapping-review envelope, not the
+    # existing Review Schema v0.3 field vocabulary.
+    review_v03, review_boundary = review.split(
+        "## 7. Boundary to the mapping-review contract", maxsplit=1
+    )
+    kb_before_envelope, kb_envelope = kb.split(
+        "## 9. Mapping-review envelope v0.1", maxsplit=1
+    )
     for field in ("mapping_disposition", "evidence_role"):
         pattern = rf"(?<![A-Za-z0-9_]){re.escape(field)}(?![A-Za-z0-9_])"
-        assert re.search(pattern, review) is None
-        assert re.search(pattern, kb) is None
+        assert re.search(pattern, review_v03) is None
+        assert re.search(pattern, review_boundary) is not None
+        assert re.search(pattern, kb_before_envelope) is None
+        assert re.search(pattern, kb_envelope) is not None
+
+    assert "do **not** redefine or add values to" in review_boundary
+    assert "separate, non-canonical review record" in kb_envelope
+    assert mapping_schema["properties"]["evidence_role"]["$ref"] == "#/$defs/evidence_role_state"
+    assert mapping_schema["properties"]["mapping_disposition"]["$ref"] == "#/$defs/mapping_disposition_state"
+
+    # This report is a historical probe snapshot; its earlier gap finding
+    # remains valid as a record of the pre-implementation state.
     report = REPORT.read_text(encoding="utf-8")
     assert "typed-schema gap" in report.lower()
     assert "proposal-only" in report.lower()
