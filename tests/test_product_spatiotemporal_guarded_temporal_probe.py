@@ -142,14 +142,16 @@ def test_full_projection_has_twelve_palaces_and_all_six_scopes():
 def test_same_natal_projection_is_independent_of_selected_target():
     fixture = _fixture()
     for record in fixture["records"]:
-        assert record["natal"] == record["natal"]
-        targets = {item["target"]["target_id"]: item for item in _expanded_record(record)["temporal"]}
-        first = adapt_target_from_full_snapshot(_expanded_record(record), target_id="T1_LEAP_LATE_ZI")
-        second = adapt_target_from_full_snapshot(_expanded_record(record), target_id="T3_DAYTIME")
+        snapshot = _expanded_record(record)
+        natal_before = copy.deepcopy(snapshot["natal_projection"])
+        targets = {item["target"]["target_id"]: item for item in snapshot["temporal"]}
+        first = adapt_target_from_full_snapshot(snapshot, target_id="T1_LEAP_LATE_ZI")
+        second = adapt_target_from_full_snapshot(snapshot, target_id="T3_DAYTIME")
         assert first.target_id == "T1_LEAP_LATE_ZI"
         assert second.target_id == "T3_DAYTIME"
         assert first.condition_facts != second.condition_facts
         assert first.temporal_facts != second.temporal_facts
+        assert snapshot["natal_projection"] == natal_before
         assert targets["T1_LEAP_LATE_ZI"]["target"]["target_id"] != targets["T3_DAYTIME"]["target"]["target_id"]
 
 
