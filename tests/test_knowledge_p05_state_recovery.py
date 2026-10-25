@@ -12,29 +12,24 @@ def load(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def test_p05_state_cache_matches_merged_jumen_checkpoint_and_preserves_w05_baseline():
+def test_p05_state_cache_tracks_live_tianxiang_work_and_preserves_historical_checkpoints():
     state = STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
-    assert "active_issue: null" in state
-    assert "active_branch: null" in state
-    assert "active_pr: null" in state
+    assert 'status: "ACTIVE"' in state
+    assert "active_issue: 746" in state
+    assert 'active_branch: "knowledge/p05-746-source-first-tianxiang-p87-p88-r4"' in state
     assert "W05_401_500_SOURCE_FIRST_MERGED" in state
     assert "main commit 7bf664fc87db20bfe02ef0020785b91dd62cbbdf" in state
     assert "current main commit 74087c97afffc5afa4821f8edb21ff42aea6eb6b" in state
     assert "after Product PR #640 merged" in state
-    assert "merged_rule_count: 642" in state
-    assert "reviewed_rule_count: 500" in state
-    assert "current_batch_rule_count: 42" in state
-    assert "source_first_records_added_current_batch: 42" in state
+    assert "W08_701_742_JUMEN_P86_P87_SOURCE_FIRST_42_PROMOTED" in state
+    assert "P05 canonical reusable rule count after this checkpoint is 642" in state
     assert "W05-SG-001" in state and "W05-SG-003" in state
     assert "W06-SG-001" in state and "W06-SG-004" in state and "W06-SG-005" in state
-    assert "source_uncertainty_count_current_batch: 0" in state
-    assert "path_dependent_gate_count_current_batch: 4" in state
-    assert "source_coverage_gap_count_current_batch: 0" in state
-    assert "source_coverage_gaps_remaining: 6" in state
-    assert "printed p87" in state and "11 天相" in state
+    assert "source_gap_supplement_record_count: 4" in state
+    assert "source_coverage_gaps_remaining: 8" in state
+    assert "W05-SG-002 remains PARTIALLY_RESOLVED" in state
+    assert "12 天梁" in state
     assert "No Product/runtime authorization is implied" in state
-
 
 def test_w05_accepted_batch_summary_reconciles():
     summary = load(READJ)["summary"]
