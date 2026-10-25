@@ -1,0 +1,210 @@
+{
+  "schema_version": "0.1",
+  "status": "TEST_ONLY_ENGINEERING_BENCHMARK",
+  "source": {
+    "source_experiment_issue": 772,
+    "source_experiment_pr": 774,
+    "source_experiment_head": "a2595cb5e88f854fccd19281e14a7950604ba783",
+    "fixture_sha256": "05f1dd790faae77ce0caf34af259e0b85c597056f3e18ac207a8e581ee1d2524",
+    "source_row_sha256": {
+      "CR-001": "7d53685c37f7b24a3a34a7adbb70eaa9f8f754faa229d452d8e650bbacc62bd9",
+      "CR-031": "9637dfbbce10a912b1e2f2a5395132d3ba3e0da4caa42bf6ea732271d1b68981"
+    },
+    "fixture_role": "REDUCED_ENGINE_GENERATED_TEST_PROJECTION_NOT_SOURCE_TRUTH"
+  },
+  "workload": {
+    "case_ids": [
+      "CR-001",
+      "CR-031"
+    ],
+    "target_ids": [
+      "T1_LEAP_LATE_ZI",
+      "T3_DAYTIME"
+    ],
+    "temporal_scope_instances": 24,
+    "unique_permutations": 11,
+    "synthetic_payload_widths": [
+      12,
+      64,
+      256
+    ],
+    "batch_layers": 6,
+    "index_representation": "12-entry permutation map",
+    "matrix_representation": "dense 12x12 one-hot Python tuple/list matrix with explicit pure-Python multiplication",
+    "timing_thresholds_enforced_in_ci": false
+  },
+  "correctness": {
+    "counts": {
+      "natal_charts": 2,
+      "target_snapshots": 4,
+      "temporal_scope_instances": 24,
+      "unique_permutations": 11,
+      "index_matrix_application_checks": 72,
+      "inverse_checks": 24,
+      "inverse_roundtrip_checks": 24,
+      "all_pair_composition_checks": 576
+    },
+    "checks": {
+      "fixture_sha256_matches_manifest": true,
+      "source_row_hashes_match_manifest": true,
+      "all_scope_orders_are_valid_permutations": true,
+      "index_matrix_application_equivalent": true,
+      "inverse_and_roundtrip_laws_hold": true,
+      "all_pair_composition_laws_hold": true
+    }
+  },
+  "timing_environment": {
+    "python_version": "3.13.5",
+    "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+    "environment_role": "one observational measurement runtime; not the GitHub Actions CI runtime",
+    "cpu_model": "not captured"
+  },
+  "timing_protocol": {
+    "single_operation_samples": 5,
+    "single_operation_loops_per_sample": 100,
+    "single_operation_warmups": 20,
+    "six_layer_batch_samples": 7,
+    "six_layer_batch_loops_per_sample": 50,
+    "six_layer_batch_warmups": 30,
+    "statistic": "median nanoseconds per operation, with min/max across samples",
+    "note": "Timing snapshots vary by runtime and host; compare environments before comparing values."
+  },
+  "measurements": {
+    "build_index_map": {
+      "median_ns_per_op": 60.1,
+      "min_ns_per_op": 59.2,
+      "max_ns_per_op": 82.2,
+      "samples": 5,
+      "loops_per_sample": 100
+    },
+    "build_dense_permutation_matrix": {
+      "median_ns_per_op": 8576.5,
+      "min_ns_per_op": 7623.3,
+      "max_ns_per_op": 9941,
+      "samples": 5,
+      "loops_per_sample": 100
+    },
+    "inverse_index_map": {
+      "median_ns_per_op": 426.6,
+      "min_ns_per_op": 420.2,
+      "max_ns_per_op": 1505.2,
+      "samples": 5,
+      "loops_per_sample": 100
+    },
+    "inverse_dense_matrix": {
+      "median_ns_per_op": 7636.2,
+      "min_ns_per_op": 7240,
+      "max_ns_per_op": 8385,
+      "samples": 5,
+      "loops_per_sample": 100
+    },
+    "compose_index_maps": {
+      "median_ns_per_op": 337.2,
+      "min_ns_per_op": 335.9,
+      "max_ns_per_op": 344,
+      "samples": 5,
+      "loops_per_sample": 100
+    },
+    "compose_dense_matrices": {
+      "median_ns_per_op": 95346.7,
+      "min_ns_per_op": 92026.1,
+      "max_ns_per_op": 96770.9,
+      "samples": 5,
+      "loops_per_sample": 100
+    },
+    "serialize_index_bytes": {
+      "json_bytes": 27
+    },
+    "serialize_matrix_bytes": {
+      "json_bytes": 313
+    },
+    "apply_index_width_12": {
+      "median_ns_per_op": 260.3,
+      "min_ns_per_op": 255.9,
+      "max_ns_per_op": 267.1,
+      "samples": 5,
+      "loops_per_sample": 100
+    },
+    "apply_matrix_width_12": {
+      "median_ns_per_op": 102709.4,
+      "min_ns_per_op": 99303.4,
+      "max_ns_per_op": 106787.7,
+      "samples": 5,
+      "loops_per_sample": 100
+    },
+    "apply_index_width_64": {
+      "median_ns_per_op": 256.9,
+      "min_ns_per_op": 255.5,
+      "max_ns_per_op": 262.9,
+      "samples": 5,
+      "loops_per_sample": 100
+    },
+    "apply_matrix_width_64": {
+      "median_ns_per_op": 526104.4,
+      "min_ns_per_op": 511059.1,
+      "max_ns_per_op": 543165.9,
+      "samples": 5,
+      "loops_per_sample": 100
+    },
+    "apply_index_width_256": {
+      "median_ns_per_op": 259.7,
+      "min_ns_per_op": 257.1,
+      "max_ns_per_op": 272.6,
+      "samples": 5,
+      "loops_per_sample": 100
+    },
+    "apply_matrix_width_256": {
+      "median_ns_per_op": 2099569.9,
+      "min_ns_per_op": 2061576.6,
+      "max_ns_per_op": 2187302.8,
+      "samples": 5,
+      "loops_per_sample": 100
+    },
+    "batch_six_layers_index_width_64": {
+      "median_ns_per_op": 2572.9,
+      "min_ns_per_op": 1582.6,
+      "max_ns_per_op": 4164.3,
+      "samples": 7,
+      "loops_per_sample": 50
+    },
+    "batch_six_layers_matrix_prebuilt_width_64": {
+      "median_ns_per_op": 3066078,
+      "min_ns_per_op": 3014073.7,
+      "max_ns_per_op": 3157478.5,
+      "samples": 7,
+      "loops_per_sample": 50
+    },
+    "batch_six_layers_matrix_build_and_apply_width_64": {
+      "median_ns_per_op": 3118263.3,
+      "min_ns_per_op": 3076330.2,
+      "max_ns_per_op": 3134605.5,
+      "samples": 7,
+      "loops_per_sample": 50
+    },
+    "retained_memory_estimate_bytes": {
+      "index_map": 488,
+      "dense_matrix": 2064
+    }
+  },
+  "relative_cost_ratios": {
+    "build_matrix_over_index": 142.7,
+    "inverse_matrix_over_index": 17.9,
+    "compose_matrix_over_index": 282.76,
+    "apply_matrix_over_index_width_12": 394.58,
+    "apply_matrix_over_index_width_64": 2047.9,
+    "apply_matrix_over_index_width_256": 8084.6,
+    "batch_matrix_prebuilt_over_index": 1191.68,
+    "batch_matrix_build_apply_over_index": 1211.96,
+    "serialized_size_ratio": 11.59,
+    "memory_ratio": 4.23
+  },
+  "decision": "KEEP_INDEX_BASELINE_FOR_CURRENT_PYTHON_LIST_IMPLEMENTATION",
+  "limitations": [
+    "Performance payloads are deterministic synthetic numeric rows; they are not source-transcribed chart truth.",
+    "The dense matrix uses explicit pure-Python list-of-lists multiplication; optimized NumPy/BLAS, sparse representations and compiled kernels were not evaluated.",
+    "These microbenchmarks do not establish production workload performance or a universal claim against matrix representations.",
+    "The fixture is a reduced engine-generated projection, not source-transcribed ground truth.",
+    "The scope-level mutagen-to-transformation-glyph binding remains unresolved and is not inferred.",
+    "No traditional semantic correctness, canonical rule eligibility, predictive validity, or production migration claim is made."
+  ]
+}

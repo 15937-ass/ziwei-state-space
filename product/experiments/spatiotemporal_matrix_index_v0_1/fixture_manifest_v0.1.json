@@ -1,0 +1,45 @@
+{
+  "schema_version": "0.1",
+  "fixture_path": "product/experiments/spatiotemporal_matrix_index_v0_1/fixtures/full_snapshot_projection_v0.1.json",
+  "fixture_sha256": "05f1dd790faae77ce0caf34af259e0b85c597056f3e18ac207a8e581ee1d2524",
+  "fixture_role": "REDUCED_ENGINE_GENERATED_TEST_PROJECTION_NOT_SOURCE_TRUTH",
+  "source_experiment": {
+    "issue": 772,
+    "pr": 774,
+    "head": "a2595cb5e88f854fccd19281e14a7950604ba783",
+    "pr_disposition": "CLOSED_UNMERGED_RESEARCH_ARCHIVE"
+  },
+  "producer": {
+    "workflow_run_id": 40161980768,
+    "artifact_id": 12586873751,
+    "artifact_digest": "sha256:730158ea500b26b458ca836091a23bf209363e8121437bf0296f374dc5936a8f",
+    "artifact_member": "p1_iztro_js.jsonl",
+    "producer_head": "88a25f4265ce7c81cbbdab37c143b7168ab00595",
+    "seed_csv_blob": "afc97cb78f11e081b10ab9e6deb327892c606fdc",
+    "target_manifest_blob": "5cb12000aa2b88fe35457e5aa9ffe553ad15e7d0",
+    "exporter_blob": "c8d783774e49a2454b3bc1bff4933e17a40a1539"
+  },
+  "selection": {
+    "case_ids": [
+      "CR-001",
+      "CR-031"
+    ],
+    "target_ids": [
+      "T1_LEAP_LATE_ZI",
+      "T3_DAYTIME"
+    ],
+    "target_snapshots": 4,
+    "temporal_scope_instances": 24
+  },
+  "source_row_sha256": {
+    "CR-001": "7d53685c37f7b24a3a34a7adbb70eaa9f8f754faa229d452d8e650bbacc62bd9",
+    "CR-031": "9637dfbbce10a912b1e2f2a5395132d3ba3e0da4caa42bf6ea732271d1b68981"
+  },
+  "source_row_hash_convention": "SHA-256 of the exact UTF-8 CSV row text excluding its line terminator",
+  "benchmark_policy": {
+    "index_representation": "12-entry permutation map",
+    "matrix_representation": "dense 12x12 one-hot Python list-of-lists",
+    "performance_payloads": "deterministic synthetic numeric rows of widths 12, 64, 256; not chart truth",
+    "timing_claim": "observational microbenchmark only; no CI time threshold"
+  }
+}
