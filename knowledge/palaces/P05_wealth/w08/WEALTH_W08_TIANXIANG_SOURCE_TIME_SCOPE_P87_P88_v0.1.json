@@ -1,0 +1,161 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P05-WEALTH-W08-TIANXIANG-SOURCE-TIME-SCOPE-P87-P88-v0.1",
+  "issue": 746,
+  "source_id": "SRC-ZZ-003",
+  "scope": "W08-743..787 / printed pp87–88, section 11 天相 only",
+  "counts": {
+    "non_natal_rows": 4,
+    "year": 2,
+    "decade": 2,
+    "path_dependent_gate_rows": 4,
+    "source_age_qualifier_rows": 1
+  },
+  "exact_non_natal_ids": [
+    "W08-766",
+    "W08-767",
+    "W08-771",
+    "W08-772"
+  ],
+  "decade_ids": [
+    "W08-766",
+    "W08-771"
+  ],
+  "year_ids": [
+    "W08-767",
+    "W08-772"
+  ],
+  "path_dependent_gate_ids": [
+    "W08-761",
+    "W08-763",
+    "W08-773",
+    "W08-777"
+  ],
+  "source_age_qualifier_ids": [
+    "W08-761"
+  ],
+  "dependent_outcome_ids": [
+    "W08-761",
+    "W08-763",
+    "W08-773",
+    "W08-777"
+  ],
+  "policy": [
+    "W08-766/767 preserve 大运/流年 but remain unpromoted because 丑来天相 conflicts with preceding 丑未宫天相.",
+    "W08-771/772 retain 于此大限流年; historical primary-layer labels do not narrow the source scope.",
+    "W08-773 preserves 继续行至吉限、吉年 as a path-dependent outcome, not a standalone trigger.",
+    "W08-761's 一四十以后始渐兴家 remains unresolved; do not normalize to 四十以后.",
+    "No duration, probability, weight, threshold, frequency, persistence, or decay parameter is inferred."
+  ],
+  "records": [
+    {
+      "projection_rule_id": "W08-766",
+      "source_location": "财帛宫printed_p88",
+      "archived_time_layer": "DECADE",
+      "time_layer": "DECADE",
+      "source_time_scope": [
+        "DECADE",
+        "YEAR"
+      ],
+      "source_time_phrase": "天相大运或流年",
+      "scope_status": "SOURCE_EXPLICIT_DECADE_AND_YEAR_BUT_BRANCH_GATE_UNRESOLVED",
+      "canonical_promotion": false
+    },
+    {
+      "projection_rule_id": "W08-767",
+      "source_location": "财帛宫printed_p88",
+      "archived_time_layer": "YEAR",
+      "time_layer": "YEAR",
+      "source_time_scope": [
+        "DECADE",
+        "YEAR"
+      ],
+      "source_time_phrase": "天相大运或流年",
+      "scope_status": "SOURCE_EXPLICIT_DECADE_AND_YEAR_BUT_BRANCH_GATE_UNRESOLVED",
+      "canonical_promotion": false
+    },
+    {
+      "projection_rule_id": "W08-771",
+      "source_location": "财帛宫printed_p88",
+      "archived_time_layer": "DECADE",
+      "time_layer": "DECADE",
+      "source_time_scope": [
+        "DECADE",
+        "YEAR"
+      ],
+      "source_time_phrase": "于此大限流年",
+      "scope_status": "SOURCE_EXPLICIT_COMBINED_DECADE_YEAR_SCOPE",
+      "canonical_promotion": true
+    },
+    {
+      "projection_rule_id": "W08-772",
+      "source_location": "财帛宫printed_p88",
+      "archived_time_layer": "YEAR",
+      "time_layer": "YEAR",
+      "source_time_scope": [
+        "DECADE",
+        "YEAR"
+      ],
+      "source_time_phrase": "于此大限流年",
+      "scope_status": "SOURCE_EXPLICIT_COMBINED_DECADE_YEAR_SCOPE",
+      "canonical_promotion": true
+    }
+  ],
+  "path_records": [
+    {
+      "projection_rule_id": "W08-761",
+      "source_location": "财帛宫printed_p88",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "前述天相刑忌夹并加煞同宫或空劫同度；后接原文印作“一四十以后始渐兴家”的人生阶段短语（字面未解决）。",
+      "canonical_target": "ancestral_loss_then_gradual_household_rebuilding_age_qualifier_unresolved",
+      "source_phrase": "倾覆破尽祖业，一四十以后始渐兴家。",
+      "no_numeric_generalization": true,
+      "canonical_promotion": false
+    },
+    {
+      "projection_rule_id": "W08-763",
+      "source_location": "财帛宫printed_p88",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "丑未天相突发之前",
+      "canonical_target": "financial_difficulty_then_sudden_rise",
+      "source_phrase": "突发前必有一段时期经济困难，或财源虽有，但却似鸡肋。",
+      "no_numeric_generalization": true,
+      "canonical_promotion": true
+    },
+    {
+      "projection_rule_id": "W08-773",
+      "source_location": "财帛宫printed_p88",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "卯酉天相前述严重破败后；唯若继续行至吉限、吉年。",
+      "canonical_target": "breakdown_then_comeback",
+      "source_phrase": "唯若继续行至吉限、吉年，则主可以东山复起。",
+      "no_numeric_generalization": true,
+      "canonical_promotion": true
+    },
+    {
+      "projection_rule_id": "W08-777",
+      "source_location": "财帛宫printed_p88",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "前格改变环境",
+      "canonical_target": "overexpectation_then_change_then_disappointment",
+      "source_phrase": "盖以为改变环境即可达到理想，然结果必仍然失望。",
+      "no_numeric_generalization": true,
+      "canonical_promotion": true
+    }
+  ],
+  "source_age_qualifier_records": [
+    {
+      "projection_rule_id": "W08-761",
+      "source_location": "财帛宫printed_p88",
+      "source_phrase": "一四十以后",
+      "classification": "SOURCE_LITERAL_UNRESOLVED_DO_NOT_NORMALIZE_TO_四十以后",
+      "time_layer": "NATAL",
+      "no_numeric_generalization": true,
+      "canonical_promotion": false
+    }
+  ]
+}
