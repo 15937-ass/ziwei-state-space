@@ -6,8 +6,10 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parent
+REPO_ROOT = Path(__file__).resolve().parents[3]
 FIXTURE_PATH = ROOT / "fixtures" / "full_snapshot_projection_v0.3.json"
 MANIFEST_PATH = ROOT / "fixture_manifest_v0.3.json"
+SEED_CSV_PATH = REPO_ROOT / "validation" / "product_chart_regression" / "regression_inputs_v0.1.csv"
 
 BRANCH_ORDER = ("子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥")
 SCOPE_TO_LAYER = {
@@ -25,6 +27,21 @@ def _load() -> tuple[dict[str, Any], dict[str, Any]]:
     fixture = json.loads(FIXTURE_PATH.read_text(encoding="utf-8"))
     manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
     return fixture, manifest
+
+
+def _actual_source_row_hashes(case_ids: list[str]) -> dict[str, str]:
+    lines = SEED_CSV_PATH.read_text(encoding="utf-8").splitlines()
+    if not lines or not lines[0].startswith("case_id,"):
+        raise ValueError("pinned regression seed CSV has an unexpected header")
+    rows: dict[str, str] = {}
+    for line in lines[1:]:
+        case_id = line.split(",", 1)[0]
+        if case_id in case_ids:
+            rows[case_id] = hashlib.sha256(line.encode("utf-8")).hexdigest()
+    missing = sorted(set(case_ids) - set(rows))
+    if missing:
+        raise ValueError(f"pinned regression seed CSV is missing case IDs: {missing}")
+    return {case_id: rows[case_id] for case_id in case_ids}
 
 
 def expand_scope(scope: dict[str, Any], palace_vocab: list[str]) -> dict[str, Any]:
@@ -189,8 +206,16 @@ def make_report() -> dict[str, Any]:
     records = fixture["records"]
     if [record["id"] for record in records] != manifest["selection"]["case_ids"]:
         raise ValueError("fixture case IDs do not match manifest")
-    if fixture["source_rows"] != [[case_id, digest] for case_id, digest in manifest["source_row_sha256"].items()]:
+    manifest_source_rows = [
+        [case_id, digest]
+        for case_id, digest in manifest["source_row_sha256"].items()
+    ]
+    if fixture["source_rows"] != manifest_source_rows:
         raise ValueError("fixture source-row hashes do not match manifest")
+    actual_source_row_hashes = _actual_source_row_hashes(manifest["selection"]["case_ids"])
+    source_row_hashes_match_manifest = (
+        actual_source_row_hashes == manifest["source_row_sha256"]
+    )
 
     target_snapshots = 0
     layer_instances = 0
@@ -277,6 +302,7 @@ def make_report() -> dict[str, Any]:
             "source_artifact_id": fixture["producer"]["artifact"],
             "case_ids": expected_cases,
             "target_ids": expected_targets,
+            "source_row_sha256": actual_source_row_hashes,
         },
         "counts": {
             "natal_charts": len(records),
@@ -296,7 +322,7 @@ def make_report() -> dict[str, Any]:
         },
         "checks": {
             "fixture_sha256_matches_manifest": fixture_sha256 == expected_sha256,
-            "source_row_hashes_match_manifest": True,
+            "source_row_hashes_match_manifest": source_row_hashes_match_manifest,
             "twelve_unique_palace_identities_per_natal_chart": natal_palace_records == len(records) * 12,
             "all_targets_have_six_scopes": layer_instances == target_snapshots * 6,
             "all_temporal_palace_orders_are_unique_twelve_item_maps": True,
