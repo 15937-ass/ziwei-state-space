@@ -13,13 +13,13 @@
 
 - 已接受的映射审核契约：`knowledge/core/wp06b/MAPPING_REVIEW_SCHEMA_v0.1.json`，由 #755 / PR #758 合入 main。
 - 既有矩阵：`knowledge/core/14star-property-matrix/14STAR_PROPERTY_MATRIX_QIQR_AUDIT_v0.1.{md,csv,json}`，状态仍为研究草案。
-- 既有直接来源审查：`knowledge/core/direct-star-source-review/DIRECT_STAR_SOURCE_REVIEW_BATCH_01_v0.1.csv`，太阳七条既有行级记录被复用，本分支新增太阴印刷页 19–20 对应的 25 条视觉来源审查记录。
+- 既有直接来源审查：`knowledge/core/direct-star-source-review/DIRECT_STAR_SOURCE_REVIEW_BATCH_01_v0.1.csv`，太阳七条既有行级记录被复用，太阴 25 条视觉来源审查另存于 `knowledge/core/14star-property-normalization/TAIYIN_SOURCE_SPAN_REVIEW_v0.1.csv`；不修改 #720 Batch 01 的固定覆盖表。
 - 原文：`SRC-ZZ-002`《中州派紫微斗数深造讲义（上）》，来源登记 SHA-256 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a`，太阳 PDF 扫描页 5 / 印刷页 9–10；太阴 PDF 扫描页 10 / 印刷页 19–20。
 - 已读取项目所附原文 PDF 的第 5 个 PDF 页面；太阳 40 条规则未全审；太阴本轮仅覆盖书页 19–20 的 25 条规则，书页 42 的 `ZZ-TYI-010` 未审。
 
 ## 变更与限制
 
-- 新建/更新候选基线 JSON/Markdown、缺口清单、PI 审议草稿、太阳与太阴试点测试、执行证据及 Core 状态；追加 25 条太阴来源审查记录。
+- 新建/更新候选基线 JSON/Markdown、缺口清单、PI 审议草稿、太阳与太阴试点测试、执行证据及 Core 状态；新增独立的 25 条太阴来源审查 CSV，不修改 #720 Batch 01 固定覆盖表。
 - `knowledge/star_cores.yaml`、`knowledge/star_systems.yaml`、`knowledge/qi_ontology.yaml`、`knowledge/rules/stars/major_stars_canonical_v0.1.csv` 未修改。
 - 未新增正式 ontology ID、共享枚举、数值权重、概率、时间阈值或 Product 消费权限。
 - 当前是研究检查点；PR exact-head gate 在 PR 建立后执行。尚未将本文件标记为最终验收证据。
