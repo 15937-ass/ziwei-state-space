@@ -1,20 +1,21 @@
 # 十四主星基础性质归一化基线 v0.1
 
-**当前状态：** `IN_PROGRESS_STAGE_A_SOLAR_PILOT` / `PROPOSAL_ONLY_NOT_CANONICAL`  
+**当前状态：** `IN_PROGRESS_STAGE_A_TAIYIN_PILOT` / `PROPOSAL_ONLY_NOT_CANONICAL`  
 **跟踪 Issue：** [#757](https://github.com/15937-ass/ziwei-state-space/issues/757)  
 **本轮基线 main：** `74864f572cdd04407c241c483f3a34c646f69d3a`  
 **执行分支：** `knowledge/core-757-14star-property-normalization`
 
-> 本文件当前只记录太阳试点检查点，不代表十四主星研究完成，不是正式本体变更，也不授权 Product 消费。
+> 本文件记录太阳已完成自动化验收的研究检查点与太阴当前试点；不代表十四主星研究完成，不是正式本体变更，也不授权 Product 消费。
 
 ## 1. 本轮来源与复用边界
 
 - 仅使用中州派来源 `SRC-ZZ-002`：《中州派紫微斗数深造讲义（上）》。
 - Source SHA-256：`1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a`；登记位置为 `sources/source_index.csv`。
-- 相关原文定位：PDF 扫描页 5，书内印刷页 9–10。
-- 复用 [DIRECT_STAR 第一批来源审查](https://github.com/15937-ass/ziwei-state-space/blob/main/knowledge/core/direct-star-source-review/DIRECT_STAR_SOURCE_REVIEW_BATCH_01_v0.1.csv) 中太阳的七条既有行级审查记录；原文件与 canonical 规则行均未修改。
+- 太阳原文定位：PDF 扫描页 5，书内印刷页 9–10；太阴原文定位：PDF 扫描页 10，书内印刷页 19–20。
+- 本轮核对所附 PDF 的 SHA-256 与 `sources/source_index.csv` 一致；太阴第 10 个 PDF 页面对应书内印刷页 19–20。
+- 复用 [DIRECT_STAR 第一批来源审查](https://github.com/15937-ass/ziwei-state-space/blob/main/knowledge/core/direct-star-source-review/DIRECT_STAR_SOURCE_REVIEW_BATCH_01_v0.1.csv) 中太阳的七条既有行级审查记录；本轮在本分支追加太阴印刷页 19–20 对应的 25 条行级来源审查记录。canonical 规则行未修改。
 - 直接来源审查记录为研究草案。研究表中的 `VERIFIED_VISUAL_SCAN` 不会自动改写 canonical CSV 的 `source_span_verified=false`，也不把 `normalization_epistemic=UNRESOLVED` 升级。
-- 已读取该来源扫描页的可检索文本，以确认该页同时讨论太阳基础描述、条件补偿、宫位比较、运限机会与下游应象；本检查点**没有**逐条重审太阳全部 40 条规则。
+- 太阳检查点**没有**逐条重审太阳全部 40 条规则。太阴本轮逐项核对印刷页 19–20 的 25 条既有规则；太阴另有一条规则定位于印刷页 42，本轮未审，因此不声称完成全部 26 条太阴规则。
 
 ## 2. 太阳试点性质卡
 
@@ -66,3 +67,49 @@
 - 本文件与 JSON 均为候选研究材料。
 - 不修改 `knowledge/star_cores.yaml`、`knowledge/star_systems.yaml`、`knowledge/qi_ontology.yaml`、canonical 规则行或 Product/runtime。
 - 下一检查点：太阴试点，重点检查相对描述、收敛基调及条件分支是否被误写为绝对量值。
+
+
+## 6. 太阴试点性质卡（当前检查点）
+
+### 来源与覆盖边界
+
+- 使用同一中州派来源 `SRC-ZZ-002`，PDF 扫描页 10、书内印刷页 19–20；源文件 SHA-256 与来源索引一致。
+- 本轮对该跨页范围的 25 条太阴 canonical 规则逐项核对来源短跨度、条件/关系/结果角色及当前核心引用。这是有界来源跨度审查，不代表全量 26 条太阴规则或其他星系页面已完成。
+- 直接来源审查 CSV 的 `source_span_status=VERIFIED_VISUAL_SCAN` 只表示本次看过原文；canonical CSV 中的 `source_span_verified=false` 与 `normalization_epistemic=UNRESOLVED` 保持不变。
+
+### L0：结构底座
+
+太阴的阴水标签留在 L0 结构元数据，不将阴水直接转换成 QI-01 的数值或内在强度。
+
+### L1：基础性质候选
+
+- 原文直接描述太阴的倾向为“潜藏与收敛”，与现有 QI-01 的收敛端相符，形成 `supported_candidate`。
+- 这是方向性候选而非数值测量，也不表示收敛越强越好。现有 QI-01 是带最优区域的有符号轴；太阴的条件分支进一步说明必须保留“适度收敛”的限制。
+- `normalization_epistemic` 仍为 `UNRESOLVED`，没有新增正式映射或消费者权限。
+
+### 条件、关系与状态变化
+
+- **过度收敛：** 来源涉及太阴落陷/化忌，或会合主潜藏收敛的星曜。保留 OR 关系，不静默改成所有条件同时成立。
+- **太阳补偿：** 只在过度收敛语境下，结合太阳入庙或化禄且三方四正同会，才构成来源描述的补偿关系；不是太阴无条件的发射属性。
+- **最优区域：** 入庙、吉化与适度收敛共同形成“英华内敛”条件；不得将单一方向线性加权。
+- **过度发射：** 入庙吉化后再遇天马、火星等来源列举星曜，原文描述可能转为虚浮；映射到 QI-05 仍待审。
+- **昌曲分支：** 昌曲成对、有禄/无禄、星系稳重/浮动与单见昌曲是不同门控；不得合并为“昌曲总是有利”。
+- **火铃门控：** 作用依太阴当前敛射状态而变，不作固定吉凶判断。
+- **福德宫依赖：** 太阴守命时，命宫与福德宫须联合判断。例证中的巨门、化忌与刑煞条件不泛化为所有命盘的无条件规律。
+- **外部支持与自力：** 辅弼/魁钺提供的外部支持、佐曜所代表的自力/后天努力分别记录，不折叠为单一内在能力。
+
+### L3：投影与下游结果
+
+- 财富表现与化禄/禄存等条件相连，是传统下游投影，不等同于太阴基础内在性质。
+- 六亲与传统健康主张保留日生/落陷等语境，不当作现代医学证据或现实个体事件预测。
+- 宫位偏好与同阴/阴阳/机阴星系组合保留比较范围和结构关系，不归一化成绝对排名。
+
+### 当前方法判断
+
+太阴试点强化了三个方法要求：**有符号轴必须保留最优区域；条件里的 OR/AND 结构必须显式保留；跨星/跨宫关系与 L3 结果不能被提升为单星内在性质。** 这些是本轮研究发现，不是新的共享本体契约或正式语义裁决。
+
+## 7. 当前交付状态
+
+- 太阳 exact-head CI 已通过；太阳候选仍非 canonical。
+- 太阴候选卡、逐目标映射审核记录与 25 条来源跨度审查记录已加入当前分支；太阴新 exact-head CI 尚待运行。
+- 下一步：先验收太阴当前提交；通过后再进入天相试点。三颗试点完成前，不扩展剩余十一星。
