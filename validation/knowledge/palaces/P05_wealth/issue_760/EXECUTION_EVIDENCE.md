@@ -14,7 +14,7 @@ Status: DRAFT — source-first adjudication complete; do not merge until the fin
 - Additional atoms reviewed: W08-801…W08-825 (25); 24 are promoted and W08-820 remains unpromoted because the printed condition `丑来天梁` is unresolved.
 - Total source-first records: 38; 37 promotions proposed; W08-820 is held unpromoted pending resolution of W08-SG-005.
 - One historical candidate condition correction: W08-798.
-- Three source-text anomalies remain OPEN: W08-SG-003, W08-SG-004 and W08-SG-005; neither anomaly is silently normalized into a canonical target.
+- Three source-text anomalies remain OPEN: W08-SG-003, W08-SG-004 and W08-SG-005; no uncertain reading is promoted.
 - Accepted main baseline before this batch: 684 reusable rules; expected cumulative count after merge: 721.
 - Existing gap dispositions carried forward: W05-SG-002 PARTIALLY_RESOLVED; W06-SG-001…005 and W08-SG-001/002 OPEN. New local gaps bring the tracked residual count from 8 to 11.
 
@@ -22,8 +22,9 @@ Status: DRAFT — source-first adjudication complete; do not merge until the fin
 P05-only paths: Tianliang readjudication, time-scope and gap sidecars, canonical summary, P05 state, P05 tests, and this execution evidence. No Product, Governance, shared Core, historical candidate index, or other-palace paths are changed.
 
 ## Validation
-- Latest synchronized base after Core PR #758 merged: `74864f572cdd04407c241c483f3a34c646f69d3a`.
-- The P05 branch was reconstituted on that current main after the independent Core merge; the ten-file P05 write set remains isolated, with no Core/Product/Governance overlap.
-- Final exact head: resolve from PR #762 metadata after this evidence update. The latest repository-quality-gate run must have a `head_sha` equal to the PR head before acceptance; run URL and exact SHA will be recorded in the PR handoff.
-- Full pytest, Product JS adapter checks, deterministic P0 gate, Repository Governance v1, and P05 shard/write-set validation: pending. Do not merge until all required exact-head gates pass.
+- Exact base after Core PR #758 merged: `74864f572cdd04407c241c483f3a34c646f69d3a`.
+- Source/state/test head validated before this evidence-only update: `748a31916a57735930e0bde0b4452421294ff6ee`.
+- Repository-quality-gate run #40158863609 passed on that exact tested head: https://github.com/15937-ass/ziwei-state-space/actions/runs/40158863609.
+- Full pytest, Product JS adapter checks, deterministic P0 repository gate, and Repository Governance v1 all completed successfully on that tested head; the P05 write set was confined to the ten P05-owned paths.
+- This evidence-only update does not change source adjudication, rule counts, tests, or the allowed write set. The resulting final PR head must pass its own latest exact-head gate before merge; record that final head and run in the PR conversation.
 - No Product/runtime authorization or empirical predictive-validity claim is implied.
