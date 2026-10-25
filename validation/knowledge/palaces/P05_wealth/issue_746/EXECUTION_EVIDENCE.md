@@ -3,6 +3,7 @@
 - Lane/shard: KNOWLEDGE_ONLY / P05 财帛宫.
 - Work unit: KB-P05-SOURCE-FIRST-TIANXIANG-P87-P88.
 - Branch: `knowledge/p05-746-source-first-tianxiang-p87-p88-r3`.
+- Active draft PR: [#751](https://github.com/15937-ass/ziwei-state-space/pull/751). Supersedes stale-base draft PR #749.
 - Source: SRC-ZZ-003《中州派紫微斗数深造讲义（下册）》.
 - Source SHA-256: `6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c`.
 - Scope: printed p87 heading 11 天相 through the final 天相 sentence before printed p88 heading 12 天梁.
@@ -19,7 +20,7 @@
 - No Product, Governance, shared Core, other-palace or historical candidate files are modified.
 
 ## Validation
-- Exact-head full pytest: PENDING.
+- Exact-head full pytest on replacement head: PENDING.
 - Product JS adapter checks: PENDING.
 - Deterministic P0 gate: PENDING.
 - Repository Governance v1 and P05 shard/write-set validation: PENDING.
