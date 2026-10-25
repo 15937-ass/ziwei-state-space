@@ -262,7 +262,9 @@ def test_context_audit_refs_existing_source_claims_without_growing_canonical_evi
         assert row["source_locator"]["source_id"] == "SRC-ZZ-002"
         assert row["normalization_epistemic"] == "UNRESOLVED"
         assert row["canonical_accepted"] is row["executable"] is False
-    assert len(data["mapping_review_records"]) == 50
+    assert len(data["mapping_review_records"]) == 67
+    assert sum(not record["review_record_id"].startswith("MR-TJ-") for record in data["mapping_review_records"]) == 50
+    assert sum(record["review_record_id"].startswith("MR-TJ-") for record in data["mapping_review_records"]) == 17
     assert validate_mapping_review_collection(data["mapping_review_records"]) == []
     assert all("context_method_audit" not in record for record in data["mapping_review_records"])
 
@@ -403,7 +405,8 @@ def test_tianji_stage_b_candidate_card_preserves_context_time_and_conditional_br
     claims = {row["claim_key"]: row for row in tianji["source_claims"]}
     assert "阴木" in claims["TJ-L0-SUBSTRATE"]["source_excerpt"]
     assert "谋士或军师" in claims["TJ-STRATEGIC-ROLE-METAPHOR"]["source_excerpt"]
-    assert "昌曲" in claims["TJ-COGNITIVE-SUPPORT-GATE"]["source_excerpt"]
+    assert "文昌文曲" in claims["TJ-COGNITIVE-SUPPORT-GATE"]["source_excerpt"]
+    assert any("昌曲" in condition for condition in claims["TJ-COGNITIVE-SUPPORT-GATE"]["conditions_to_preserve"])
     assert claims["TJ-TEMPORAL-NATAL-VS-LUCK"]["claim_layer"] == "TEMPORAL_REACTION_OR_SCOPE"
     assert "本命" in claims["TJ-TEMPORAL-NATAL-VS-LUCK"]["conditions_to_preserve"][0]
     assert "天阙" in claims["TJ-TIANQUE-RELATIONAL-GATE"]["source_excerpt"]
