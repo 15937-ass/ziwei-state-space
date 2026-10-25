@@ -27,7 +27,7 @@ def test_p05_state_cache_tracks_active_coverage_census_and_historical_checkpoint
     assert "W08_701_742_JUMEN_P86_P87_SOURCE_FIRST_42_PROMOTED" in state
     assert "P05 canonical reusable rule count after this checkpoint is 642" in state
     assert "W05-SG-002 remains PARTIALLY_RESOLVED" in state
-    assert "next scheduled palace is P09 事业宫" in state
+    assert "do not advance to P09 until accepted" in state
     assert "No Product/runtime authorization is implied" in state
 
 def test_w05_accepted_batch_summary_reconciles():
