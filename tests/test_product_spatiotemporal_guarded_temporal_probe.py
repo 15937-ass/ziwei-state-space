@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 EXP_ROOT = ROOT / "product/experiments/spatiotemporal_v03"
 FIXTURE_PATH = EXP_ROOT / "fixtures/full_snapshot_projection_v0.3.json"
 REPORT_PATH = EXP_ROOT / "COMPARISON_REPORT_v0.3.json"
+REPORT_MD_PATH = EXP_ROOT / "COMPARISON_REPORT_v0.3.md"
 
 EXPECTED_SCOPES = {
     "decadal": "DECADE",
@@ -122,6 +123,17 @@ def test_report_is_exactly_reproducible_from_pinned_fixture():
     }
     assert report["checks"]["canonical_acceptance"] is False
     assert report["checks"]["runtime_effect_allowed"] is False
+
+
+def test_markdown_report_preserves_the_json_decision_and_semantic_boundary():
+    report = json.loads(REPORT_PATH.read_text(encoding="utf-8"))
+    report_md = REPORT_MD_PATH.read_text(encoding="utf-8")
+    assert report["decision"].startswith("KEEP_INDEX_BASELINE")
+    assert "**KEEP_INDEX_BASELINE.**" in report_md
+    assert "No production migration benefit has been demonstrated." in report_md
+    assert "The normalized field does not carry an explicit (star, glyph) pair" in report_md
+    assert "does not infer a glyph from array position" in report_md
+    assert "canonical reaction semantics" in report_md
 
 
 def test_full_projection_has_twelve_palaces_and_all_six_scopes():
