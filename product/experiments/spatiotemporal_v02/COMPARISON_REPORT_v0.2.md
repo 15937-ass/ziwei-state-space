@@ -14,7 +14,7 @@ The artifact's only materialization claim is SOURCE_INPUT_RECONSTRUCTED_TARGET_A
 
 ## Results
 
-- 11 charts; 132 palace records; 748 star objects represented in 8,976 branch-by-occupancy cells.
+- 11 charts; 132 palace records; 748 star objects plus palace-identity labels represented in 10,560 branch-by-occupancy cells.
 - 132 index-versus-matrix offset checks passed.
 - 132 inverse checks and 1,584 cyclic composition checks passed.
 - Reversing the input palace array preserved all 11 branch-indexed views.
