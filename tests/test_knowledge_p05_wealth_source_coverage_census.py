@@ -95,5 +95,5 @@ def test_state_cache_tracks_census_and_does_not_advance_the_palace_queue():
     assert "reviewed_rule_count: 803" in state
     assert "source_coverage_gaps_remaining: 23" in state
     assert "P05-COV-GAP-001" in state
-    assert "next scheduled palace is P09 事业宫" in state
+    assert "do not advance to P09 until accepted" in state
     assert "No Product/runtime authorization is implied" in state
