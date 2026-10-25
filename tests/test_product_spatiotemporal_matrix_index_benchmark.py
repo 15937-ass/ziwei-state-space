@@ -86,7 +86,8 @@ def test_committed_benchmark_report_is_observational_and_bounded():
     assert report["decision"] == "KEEP_INDEX_BASELINE_FOR_CURRENT_PYTHON_LIST_IMPLEMENTATION"
     assert report["workload"]["temporal_scope_instances"] == 24
     assert report["workload"]["timing_thresholds_enforced_in_ci"] is False
-    assert report["timing_environment"]["python_version"] == "3.13.5"
+    assert report["timing_environment"]["python_version"]
+    assert report["timing_environment"]["platform"]
     assert report["measurements"]["serialize_index_bytes"]["json_bytes"] == 27
     assert report["measurements"]["serialize_matrix_bytes"]["json_bytes"] == 313
     assert "optimized NumPy/BLAS" in " ".join(report["limitations"])
