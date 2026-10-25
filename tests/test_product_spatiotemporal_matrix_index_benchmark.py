@@ -13,6 +13,7 @@ from product.experiments.spatiotemporal_matrix_index_v0_1.benchmark import (
     inverse_matrix,
     load_inputs,
     make_correctness_summary,
+    make_report,
     matrix_from_permutation,
     matrix_to_permutation,
     synthetic_payload,
@@ -78,6 +79,20 @@ def test_correctness_summary_reports_expected_bounded_coverage():
         "all_pair_composition_checks": 576,
     }
     assert all(summary["checks"].values())
+
+
+def test_benchmark_harness_runs_and_emits_the_committed_schema():
+    dynamic = make_report()
+    committed = json.loads(REPORT_PATH.read_text(encoding="utf-8"))
+    assert dynamic["source"] == committed["source"]
+    assert dynamic["correctness"] == committed["correctness"]
+    assert dynamic["decision"] == committed["decision"]
+    assert dynamic["measurements"].keys() == committed["measurements"].keys()
+    for name, measurement in dynamic["measurements"].items():
+        if "median_ns_per_op" in measurement:
+            assert measurement["median_ns_per_op"] > 0
+        if "json_bytes" in measurement:
+            assert measurement["json_bytes"] > 0
 
 
 def test_committed_benchmark_report_is_observational_and_bounded():
