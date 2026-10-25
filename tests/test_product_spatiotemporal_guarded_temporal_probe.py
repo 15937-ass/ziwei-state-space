@@ -115,6 +115,11 @@ def test_report_is_exactly_reproducible_from_pinned_fixture():
     checked_in = json.loads(REPORT_PATH.read_text(encoding="utf-8"))
     assert report == checked_in
     assert report["status"] == "TEST_ONLY_ENGINEERING_PROBE"
+    assert report["checks"]["source_row_hashes_match_manifest"] is True
+    assert report["input"]["source_row_sha256"] == {
+        "CR-001": "7d53685c37f7b24a3a34a7adbb70eaa9f8f754faa229d452d8e650bbacc62bd9",
+        "CR-031": "9637dfbbce10a912b1e2f2a5395132d3ba3e0da4caa42bf6ea732271d1b68981",
+    }
     assert report["checks"]["canonical_acceptance"] is False
     assert report["checks"]["runtime_effect_allowed"] is False
 
