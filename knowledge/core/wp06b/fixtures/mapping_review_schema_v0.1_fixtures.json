@@ -1,0 +1,302 @@
+{
+  "fixture_status": "TEST_ONLY_NON_CANONICAL",
+  "note": "All IDs and records here are synthetic contract tests, not source evidence or accepted mappings.",
+  "valid_records": [
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MREV-TEST-001",
+      "source_refs": [
+        "SYNTH-SRC-001"
+      ],
+      "target_ref": "TARGET-CAND-001",
+      "rationale": "Synthetic example only: this source is reviewed as an external modifier for this target.",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier"
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only"
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MREV-TEST-002",
+      "source_refs": [
+        "SYNTH-SRC-002"
+      ],
+      "target_ref": "TARGET-CAND-002",
+      "rationale": "Synthetic example: the role was considered but cannot be determined.",
+      "evidence_role": {
+        "state": "UNKNOWN",
+        "value": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review"
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MREV-TEST-003",
+      "source_refs": [
+        "SYNTH-SRC-003"
+      ],
+      "target_ref": "TARGET-CAND-003",
+      "rationale": "Synthetic example: conflicting role interpretations remain open.",
+      "evidence_role": {
+        "state": "CONFLICT",
+        "value": null,
+        "conflict_ref": "CF-SYNTH-001"
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review"
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MREV-TEST-004",
+      "source_refs": [
+        "SYNTH-SRC-004"
+      ],
+      "target_ref": "TARGET-CAND-004",
+      "rationale": "Synthetic example: role was expected but not supplied.",
+      "evidence_role": {
+        "state": "MISSING",
+        "value": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review"
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MREV-TEST-005",
+      "source_refs": [
+        "SYNTH-SRC-005"
+      ],
+      "target_ref": "TARGET-CAND-005",
+      "rationale": "Synthetic example: evidence role does not apply to this target.",
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only"
+      }
+    }
+  ],
+  "invalid_records": [
+    {
+      "case": "duplicate_source_refs",
+      "record": {
+        "schema_version": "0.1",
+        "review_record_id": "MREV-TEST-001",
+        "source_refs": [
+          "SYNTH-SRC-001",
+          "SYNTH-SRC-001"
+        ],
+        "target_ref": "TARGET-CAND-001",
+        "rationale": "Synthetic example only: this source is reviewed as an external modifier for this target.",
+        "evidence_role": {
+          "state": "KNOWN",
+          "value": "external_modifier"
+        },
+        "mapping_disposition": {
+          "state": "KNOWN",
+          "value": "candidate_only"
+        }
+      }
+    },
+    {
+      "case": "multiple_targets",
+      "record": {
+        "schema_version": "0.1",
+        "review_record_id": "MREV-TEST-001",
+        "source_refs": [
+          "SYNTH-SRC-001"
+        ],
+        "target_ref": [
+          "TARGET-CAND-001",
+          "TARGET-CAND-002"
+        ],
+        "rationale": "Synthetic example only: this source is reviewed as an external modifier for this target.",
+        "evidence_role": {
+          "state": "KNOWN",
+          "value": "external_modifier"
+        },
+        "mapping_disposition": {
+          "state": "KNOWN",
+          "value": "candidate_only"
+        }
+      }
+    },
+    {
+      "case": "multiple_roles",
+      "record": {
+        "schema_version": "0.1",
+        "review_record_id": "MREV-TEST-001",
+        "source_refs": [
+          "SYNTH-SRC-001"
+        ],
+        "target_ref": "TARGET-CAND-001",
+        "rationale": "Synthetic example only: this source is reviewed as an external modifier for this target.",
+        "evidence_role": {
+          "state": "KNOWN",
+          "value": [
+            "external_modifier",
+            "interaction"
+          ]
+        },
+        "mapping_disposition": {
+          "state": "KNOWN",
+          "value": "candidate_only"
+        }
+      }
+    },
+    {
+      "case": "unknown_role_enum",
+      "record": {
+        "schema_version": "0.1",
+        "review_record_id": "MREV-TEST-001",
+        "source_refs": [
+          "SYNTH-SRC-001"
+        ],
+        "target_ref": "TARGET-CAND-001",
+        "rationale": "Synthetic example only: this source is reviewed as an external modifier for this target.",
+        "evidence_role": {
+          "state": "KNOWN",
+          "value": "unapproved_role"
+        },
+        "mapping_disposition": {
+          "state": "KNOWN",
+          "value": "candidate_only"
+        }
+      }
+    },
+    {
+      "case": "canonical_acceptance_not_a_disposition",
+      "record": {
+        "schema_version": "0.1",
+        "review_record_id": "MREV-TEST-001",
+        "source_refs": [
+          "SYNTH-SRC-001"
+        ],
+        "target_ref": "TARGET-CAND-001",
+        "rationale": "Synthetic example only: this source is reviewed as an external modifier for this target.",
+        "evidence_role": {
+          "state": "KNOWN",
+          "value": "external_modifier"
+        },
+        "mapping_disposition": {
+          "state": "KNOWN",
+          "value": "accepted"
+        }
+      }
+    },
+    {
+      "case": "conflict_requires_ref",
+      "record": {
+        "schema_version": "0.1",
+        "review_record_id": "MREV-TEST-001",
+        "source_refs": [
+          "SYNTH-SRC-001"
+        ],
+        "target_ref": "TARGET-CAND-001",
+        "rationale": "Synthetic example only: this source is reviewed as an external modifier for this target.",
+        "evidence_role": {
+          "state": "CONFLICT",
+          "value": null
+        },
+        "mapping_disposition": {
+          "state": "KNOWN",
+          "value": "candidate_only"
+        }
+      }
+    },
+    {
+      "case": "known_must_not_have_conflict_ref",
+      "record": {
+        "schema_version": "0.1",
+        "review_record_id": "MREV-TEST-001",
+        "source_refs": [
+          "SYNTH-SRC-001"
+        ],
+        "target_ref": "TARGET-CAND-001",
+        "rationale": "Synthetic example only: this source is reviewed as an external modifier for this target.",
+        "evidence_role": {
+          "state": "KNOWN",
+          "value": "external_modifier",
+          "conflict_ref": "CF-SYNTH-001"
+        },
+        "mapping_disposition": {
+          "state": "KNOWN",
+          "value": "candidate_only"
+        }
+      }
+    },
+    {
+      "case": "unknown_value_must_be_null",
+      "record": {
+        "schema_version": "0.1",
+        "review_record_id": "MREV-TEST-001",
+        "source_refs": [
+          "SYNTH-SRC-001"
+        ],
+        "target_ref": "TARGET-CAND-001",
+        "rationale": "Synthetic example only: this source is reviewed as an external modifier for this target.",
+        "evidence_role": {
+          "state": "UNKNOWN",
+          "value": "external_modifier"
+        },
+        "mapping_disposition": {
+          "state": "KNOWN",
+          "value": "candidate_only"
+        }
+      }
+    },
+    {
+      "case": "value_state_requires_explicit_value",
+      "record": {
+        "schema_version": "0.1",
+        "review_record_id": "MREV-TEST-001",
+        "source_refs": [
+          "SYNTH-SRC-001"
+        ],
+        "target_ref": "TARGET-CAND-001",
+        "rationale": "Synthetic example only: this source is reviewed as an external modifier for this target.",
+        "evidence_role": {
+          "state": "KNOWN"
+        },
+        "mapping_disposition": {
+          "state": "KNOWN",
+          "value": "candidate_only"
+        }
+      }
+    },
+    {
+      "case": "consumer_gate_not_part_of_schema",
+      "record": {
+        "schema_version": "0.1",
+        "review_record_id": "MREV-TEST-001",
+        "source_refs": [
+          "SYNTH-SRC-001"
+        ],
+        "target_ref": "TARGET-CAND-001",
+        "rationale": "Synthetic example only: this source is reviewed as an external modifier for this target.",
+        "evidence_role": {
+          "state": "KNOWN",
+          "value": "external_modifier"
+        },
+        "mapping_disposition": {
+          "state": "KNOWN",
+          "value": "candidate_only"
+        },
+        "consumer_readiness": "READY"
+      }
+    }
+  ]
+}

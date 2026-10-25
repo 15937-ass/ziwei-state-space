@@ -1,0 +1,304 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Mapping Review Envelope v0.1",
+  "description": "Validates the value of an optional mapping_review object. This is non-canonical review metadata; it does not approve a mapping or authorize a Product consumer.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "review_record_id",
+    "source_refs",
+    "target_ref",
+    "rationale",
+    "evidence_role",
+    "mapping_disposition"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1",
+      "description": "Version of this separate mapping-review envelope; not the Rule Schema version."
+    },
+    "review_record_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Unique within a collection of mapping-review records; not an ontology ID."
+    },
+    "source_refs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "Distinct provenance references. Reuse across target records is allowed and does not count as independent evidence."
+    },
+    "target_ref": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Exactly one target reference. A reference alone does not establish canonical acceptance."
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Target-specific rationale preserving scope and the source's alternatives/conditions."
+    },
+    "evidence_role": {
+      "$ref": "#/$defs/evidence_role_state",
+      "description": "One primary evidence role, independent of source epistemic and normalization epistemic status."
+    },
+    "mapping_disposition": {
+      "$ref": "#/$defs/mapping_disposition_state",
+      "description": "Research/review disposition only; never a canonical-approval or consumer-readiness gate."
+    }
+  },
+  "$defs": {
+    "review_value_state": {
+      "type": "string",
+      "enum": [
+        "KNOWN",
+        "UNKNOWN",
+        "MISSING",
+        "CONFLICT",
+        "NOT_APPLICABLE"
+      ]
+    },
+    "evidence_role_values": {
+      "type": "string",
+      "enum": [
+        "direct_state",
+        "state_change",
+        "external_modifier",
+        "interaction",
+        "resource_existence",
+        "resource_availability",
+        "realized_support",
+        "projection_outcome"
+      ]
+    },
+    "mapping_disposition_values": {
+      "type": "string",
+      "enum": [
+        "candidate_only",
+        "needs_review",
+        "supported_candidate",
+        "not_supported_for_target",
+        "superseded"
+      ]
+    },
+    "evidence_role_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "value"
+      ],
+      "properties": {
+        "state": {
+          "$ref": "#/$defs/review_value_state"
+        },
+        "value": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/evidence_role_values"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "conflict_ref": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1,
+          "description": "Reference to an existing Conflict object; required only for CONFLICT."
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "KNOWN"
+              }
+            },
+            "required": [
+              "state"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "$ref": "#/$defs/evidence_role_values"
+              },
+              "conflict_ref": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "UNKNOWN",
+                  "MISSING",
+                  "NOT_APPLICABLE"
+                ]
+              }
+            },
+            "required": [
+              "state"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "null"
+              },
+              "conflict_ref": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "CONFLICT"
+              }
+            },
+            "required": [
+              "state"
+            ]
+          },
+          "then": {
+            "required": [
+              "conflict_ref"
+            ],
+            "properties": {
+              "value": {
+                "type": "null"
+              },
+              "conflict_ref": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "mapping_disposition_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "value"
+      ],
+      "properties": {
+        "state": {
+          "$ref": "#/$defs/review_value_state"
+        },
+        "value": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/mapping_disposition_values"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "conflict_ref": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1,
+          "description": "Reference to an existing Conflict object; required only for CONFLICT."
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "KNOWN"
+              }
+            },
+            "required": [
+              "state"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "$ref": "#/$defs/mapping_disposition_values"
+              },
+              "conflict_ref": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "UNKNOWN",
+                  "MISSING",
+                  "NOT_APPLICABLE"
+                ]
+              }
+            },
+            "required": [
+              "state"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "null"
+              },
+              "conflict_ref": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "CONFLICT"
+              }
+            },
+            "required": [
+              "state"
+            ]
+          },
+          "then": {
+            "required": [
+              "conflict_ref"
+            ],
+            "properties": {
+              "value": {
+                "type": "null"
+              },
+              "conflict_ref": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
