@@ -17,11 +17,9 @@ This is a TEST_ONLY natal-coordinate encoding experiment. It reads the pinned 11
 
 A separate in-memory preflight compared the pinned input and declared Z12 contract before the repository probe was written. Its star-only occupancy view observed 11 complete 12-branch maps, 11 unique palace-name sets, 11 reconfirmed target anchors, 132 index/matrix offset matches, 132 inverse checks, 1,584 cyclic composition checks, and 11 input-order invariance checks. The committed probe additionally includes a palace-name identity token in each row, so its occupancy-cell count is larger. This preflight is not a substitute for the committed probe and test suite.
 
-## Repository validation
+## Repository validation and exact-head policy
 
-Status: PENDING exact-head repository-quality gate and applicable Product P1 workflows.
-
-The final evidence record must be reconciled with the exact base/head and workflow run IDs after the implementation PR is opened. Older runs must not be represented as validation of a later commit.
+GitHub Actions checks on the current PR head are the authoritative execution result. The exact head SHA and workflow run IDs are recorded in Issue #768 progress comments after completion. This file intentionally does not store a permanent PASS status: changing this file changes the commit head and requires a fresh run. Any later commit invalidates earlier-head evidence; prior runs must never be treated as validation of a later head.
 
 ## Claim boundary
 
