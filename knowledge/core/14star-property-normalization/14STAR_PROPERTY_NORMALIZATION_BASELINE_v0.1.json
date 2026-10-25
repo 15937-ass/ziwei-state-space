@@ -3,7 +3,7 @@
   "artifact_id": "KB-CORE-14STAR-PROPERTY-NORMALIZATION-BASELINE-01",
   "issue": 757,
   "status": "PROPOSAL_ONLY_NOT_CANONICAL",
-  "checkpoint_status": "IN_PROGRESS_STAGE_A_SOLAR_PILOT",
+  "checkpoint_status": "IN_PROGRESS_STAGE_A_TAIYIN_PILOT",
   "activation_main_sha": "74864f572cdd04407c241c483f3a34c646f69d3a",
   "execution_branch": "knowledge/core-757-14star-property-normalization",
   "source_policy": {
@@ -29,15 +29,57 @@
       "ZZ-TY-017",
       "ZZ-TY-018",
       "ZZ-TY-X02"
+    ],
+    "pilot_source_locators": {
+      "solar": {
+        "pdf_scan_page": 5,
+        "printed_pages": [
+          9,
+          10
+        ]
+      },
+      "taiyin": {
+        "pdf_scan_page": 10,
+        "printed_pages": [
+          19,
+          20
+        ]
+      }
+    },
+    "taiyin_review_rule_ids": [
+      "ZZ-TYI-001",
+      "ZZ-TYI-002",
+      "ZZ-TYI-003",
+      "ZZ-TYI-004",
+      "ZZ-TYI-005",
+      "ZZ-TYI-006",
+      "ZZ-TYI-007",
+      "ZZ-TYI-008",
+      "ZZ-TYI-009",
+      "ZZ-TYI-X01",
+      "ZZ-TYI-X02",
+      "ZZ-TYI-X03",
+      "ZZ-TYI-X04",
+      "ZZ-TYI-X05",
+      "ZZ-TYI-X06",
+      "ZZ-TYI-X07",
+      "ZZ-TYI-X08",
+      "ZZ-TYI-X09",
+      "ZZ-TYI-X10",
+      "ZZ-TYI-X11",
+      "ZZ-TYI-Y01",
+      "ZZ-TYI-Y02",
+      "ZZ-TYI-Y03",
+      "ZZ-TYI-Y04",
+      "ZZ-TYI-Y05"
     ]
   },
   "progress": {
-    "stage": "A_SOLAR_PILOT",
+    "stage": "A_TAIYIN_PILOT",
     "completed_pilot_cards": [
       "太阳"
     ],
     "remaining_pilot_cards": [
-      "太阴",
       "天相"
     ],
     "remaining_expansion_stars_in_existing_order": [
@@ -53,7 +95,12 @@
       "七杀",
       "破军"
     ],
-    "coverage_warning": "This is a bounded solar checkpoint, not an exhaustive adjudication of all 40 canonical solar rules or a complete fourteen-star baseline."
+    "coverage_warning": "The solar pilot passed exact-head CI and remains non-canonical. The Taiyin pilot is in progress and reviews the 25 canonical rule rows on printed pages 19–20 only; ZZ-TYI-010 on printed page 42 and the full 26-rule Taiyin corpus are not adjudicated. This is not a complete fourteen-star baseline.",
+    "active_pilot_card": "太阴",
+    "draft_pilot_cards": [
+      "太阳",
+      "太阴"
+    ]
   },
   "method_guardrails": {
     "source_epistemic": "EXPLICIT",
@@ -69,7 +116,7 @@
     {
       "star_id": "STAR-TY",
       "name": "太阳",
-      "status": "PILOT_CHECKPOINT_NOT_FINAL",
+      "status": "PILOT_CHECKPOINT_COMPLETED_NOT_FINAL",
       "source_claims": [
         {
           "claim_key": "TY-L0-SUBSTRATE",
@@ -365,6 +412,435 @@
         "Do not convert the general moderation rule ZZ-TY-018 into an unconditional solar capacity.",
         "Do not infer numeric magnitude, probability, duration, or real-world event prediction."
       ]
+    },
+    {
+      "star_id": "STAR-TYI",
+      "name": "太阴",
+      "status": "PILOT_CHECKPOINT_IN_PROGRESS",
+      "source_claims": [
+        {
+          "claim_key": "TYI-L0-SUBSTRATE",
+          "source_rule_ids": [
+            "ZZ-TYI-001"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 10,
+            "printed_page": 19
+          },
+          "source_excerpt": "属阴水",
+          "claim_layer": "L0_STRUCTURE_METADATA",
+          "claim_summary": "阴水与中天星系身份属于结构底座元数据；不得将阴阳五行标签直接当作 L1 的 QI-01 收敛值。",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P10:printed-p19:tyi-l0-substrate",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TYI-L1-BASELINE-CONVERGENCE",
+          "source_rule_ids": [
+            "ZZ-TYI-002"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 10,
+            "printed_page": 19
+          },
+          "source_excerpt": "潜藏与收敛",
+          "claim_layer": "L1_INTRINSIC_BASELINE_CANDIDATE",
+          "claim_summary": "来源直接把太阴与潜藏、收敛联系起来，可作为既有 QI-01 收敛端候选；不能推成绝对量值或“收敛越多越好”。",
+          "candidate_target_ref": "QI-01",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P10:printed-p19:sun-moon-emission-convergence-contrast",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TYI-CHANGQU-PAIRED-GATE",
+          "source_rule_ids": [
+            "ZZ-TYI-003",
+            "ZZ-TYI-X01",
+            "ZZ-TYI-X02"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 10,
+            "printed_page": [
+              19,
+              20
+            ]
+          },
+          "source_excerpt": "文昌文曲同会",
+          "claim_layer": "CONDITIONAL_RELATIONAL_MODIFIER",
+          "claim_summary": "昌曲成对与否、太阴是否有禄、星系是否稳重共同构成门控；不能把成对昌曲的修饰推广到单见昌曲或所有星系。",
+          "conditions_to_preserve": [
+            "文昌文曲成对同会",
+            "有禄与无禄分支不同",
+            "无禄见昌曲还须检查星系稳重/浮动"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P10:printed-p19-20:tyi-changqu-paired-gate",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TYI-CHANGQU-SINGLE-RESPONSE",
+          "source_rule_ids": [
+            "ZZ-TYI-004",
+            "ZZ-TYI-X03"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 10,
+            "printed_page": [
+              19,
+              20
+            ]
+          },
+          "source_excerpt": "单见昌曲",
+          "claim_layer": "CONDITIONAL_RESPONSE_OR_PROJECTION",
+          "claim_summary": "单见昌曲，尤其单见文曲，被来源描述为可能转向权术/假斯文；这是条件化传统判断，不是太阴恒定的认知本质。",
+          "conditions_to_preserve": [
+            "单见文昌或文曲",
+            "尤其单见文曲",
+            "不得与昌曲成对分支合并"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P10:printed-p19-20:tyi-changqu-single-response",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TYI-OVERCONVERGENCE-BRANCHES",
+          "source_rule_ids": [
+            "ZZ-TYI-005"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 10,
+            "printed_page": 19
+          },
+          "source_excerpt": "过份收敛",
+          "claim_layer": "CONDITIONAL_STATE_CHANGE_AND_DOWNSTREAM_OUTCOME",
+          "claim_summary": "不利表现与过度收敛相关；必须保留“落陷/化忌”与“会合潜藏收敛星曜”之间的 OR 结构，不可误改成所有条件同时成立。",
+          "conditions_to_preserve": [
+            "太阴落陷或化忌",
+            "或会合主潜藏/收敛的星曜",
+            "替代分支，不静默改成所有条件同时成立"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P10:printed-p19:tyi-overconvergence-branches",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TYI-SOLAR-COMPENSATION",
+          "source_rule_ids": [
+            "ZZ-TYI-006"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 10,
+            "printed_page": [
+              19,
+              20
+            ]
+          },
+          "source_excerpt": "发越其英华",
+          "claim_layer": "CONDITIONAL_INTERACTION",
+          "claim_summary": "过度收敛语境下，入庙或化禄的太阳在三方四正同会才构成来源描述的补偿关系；不是太阴自身无条件发射能力。",
+          "conditions_to_preserve": [
+            "太阴过度收敛分支",
+            "太阳入庙或化禄",
+            "太阳与太阴三方四正同会"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P10:printed-p19-20:tyi-solar-compensation",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TYI-OPTIMAL-REGION",
+          "source_rule_ids": [
+            "ZZ-TYI-007"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 10,
+            "printed_page": 19
+          },
+          "source_excerpt": "英华内敛",
+          "claim_layer": "CONDITIONAL_BALANCE_OR_OPTIMAL_REGION",
+          "claim_summary": "入庙、吉化与适度收敛共同构成“英华内敛”条件；支持 QI-01 最优区域的审议，而非单调地把更多收敛判为更好。",
+          "candidate_target_ref": "QI-01",
+          "conditions_to_preserve": [
+            "太阴入庙",
+            "太阴吉化",
+            "收敛须适度"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P10:printed-p19:tyi-optimal-region",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TYI-EMISSION-OVERSHOOT",
+          "source_rule_ids": [
+            "ZZ-TYI-008"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 10,
+            "printed_page": 19
+          },
+          "source_excerpt": "空虚不实",
+          "claim_layer": "CONDITIONAL_STATE_CHANGE_CANDIDATE",
+          "claim_summary": "入庙吉化语境下若再遇天马、火星等来源列举的发射性星曜，可能破坏适度内敛并转为虚浮；映射到 QI-05 仍待审。",
+          "candidate_target_ref": "QI-05",
+          "conditions_to_preserve": [
+            "太阴入庙且吉化",
+            "遇天马、火星、天伤、天使、孤辰、寡宿、蜚廉、破碎等来源列举星曜",
+            "不得脱离条件作为无条件性质"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P10:printed-p19:tyi-emission-overshoot",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TYI-L3-WEALTH-PROJECTION",
+          "source_rule_ids": [
+            "ZZ-TYI-009"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 10,
+            "printed_page": 19
+          },
+          "source_excerpt": "见化禄及禄存",
+          "claim_layer": "L3_PROJECTION_OR_OUTCOME",
+          "claim_summary": "富格属于传统财富结果投影，且与化禄/禄存条件相连；不能将财富结果当作太阴基础内在性质或现实财富预测证据。",
+          "conditions_to_preserve": [
+            "化禄或见禄存",
+            "财富结果与内在收敛倾向分层"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P10:printed-p19:tyi-l3-wealth-projection",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TYI-SUPPORT-RESOURCE-AND-EFFORT",
+          "source_rule_ids": [
+            "ZZ-TYI-X04",
+            "ZZ-TYI-X05",
+            "ZZ-TYI-X06"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 10,
+            "printed_page": [
+              19,
+              20
+            ]
+          },
+          "source_excerpt": "左辅右弼",
+          "claim_layer": "RELATIONAL_SUPPORT_AND_SELF_EFFORT",
+          "claim_summary": "辅弼/魁钺的外部支持与佐曜代表的自力、后天努力应分开；不能压成太阴的单一内在能力。",
+          "conditions_to_preserve": [
+            "左辅右弼同会",
+            "天魁天钺会照",
+            "佐曜偏自力，辅曜偏他力"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P10:printed-p19-20:tyi-support-resource-and-effort",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TYI-SHEEP-DARA-AND-EMPTY-ROBBERY",
+          "source_rule_ids": [
+            "ZZ-TYI-X07",
+            "ZZ-TYI-X08"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 10,
+            "printed_page": 20
+          },
+          "source_excerpt": "较太阳更畏羊陀",
+          "claim_layer": "CONDITIONAL_RELATIONAL_AND_STATE_CHANGE",
+          "claim_summary": "羊陀相关的六亲/资源压力与空劫同度下的幻想、不满现状是不同分支；不得合并成单一无条件负面性质。",
+          "conditions_to_preserve": [
+            "擎羊或陀罗相关分支",
+            "空劫同度分支",
+            "关系/资源结果与状态描述分层"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P10:printed-p20:tyi-sheep-dara-and-empty-robbery",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TYI-CROSS-PALACE-FUDE-DEPENDENCY",
+          "source_rule_ids": [
+            "ZZ-TYI-X09",
+            "ZZ-TYI-Y02",
+            "ZZ-TYI-Y03"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 10,
+            "printed_page": [
+              19,
+              20
+            ]
+          },
+          "source_excerpt": "福德宫对他的影响甚为重要",
+          "claim_layer": "L2_RELATIONAL_OR_CROSS_PALACE_DEPENDENCY",
+          "claim_summary": "太阴守命时，福德宫被明确要求纳入判断；例证中的巨门、化忌与刑煞条件不能泛化为所有命盘的无条件规律。",
+          "conditions_to_preserve": [
+            "太阴守命",
+            "命宫与福德宫同时参阅",
+            "例证的巨门化忌、天机化忌及刑煞条件保留"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P10:printed-p19-20:tyi-cross-palace-fude-dependency",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TYI-DAYBIRTH-TRADITIONAL-OUTCOMES",
+          "source_rule_ids": [
+            "ZZ-TYI-X10",
+            "ZZ-TYI-X11"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 10,
+            "printed_page": 20
+          },
+          "source_excerpt": "落陷的太阴尤其不宜",
+          "claim_layer": "L3_TRADITIONAL_DOWNSTREAM_OUTCOME_CLAIMS",
+          "claim_summary": "日生与落陷语境下的六亲/传统健康应象属于下游主张；不归入内在性质，也不把传统健康标签当作现代医学证据。",
+          "conditions_to_preserve": [
+            "日生条件",
+            "落陷条件",
+            "六亲与传统健康结果分别保留",
+            "不推断现代医学有效性"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P10:printed-p20:tyi-daybirth-traditional-outcomes",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TYI-FIRE-BELL-STATE-GATE",
+          "source_rule_ids": [
+            "ZZ-TYI-Y01"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 10,
+            "printed_page": 20
+          },
+          "source_excerpt": "敛射不同而定",
+          "claim_layer": "CONDITIONAL_NON_MONOTONIC_GATE",
+          "claim_summary": "火铃喜忌依太阴当前敛射状态而变；不能把火铃固定判为吉或凶。",
+          "conditions_to_preserve": [
+            "火铃出现",
+            "太阴当前收敛/发射状态",
+            "非单一方向"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P10:printed-p20:tyi-fire-bell-state-gate",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TYI-STAR-FAMILY-STRUCTURE",
+          "source_rule_ids": [
+            "ZZ-TYI-Y04"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 10,
+            "printed_page": 20
+          },
+          "source_excerpt": "同度或相对",
+          "claim_layer": "L0_L2_STAR_SYSTEM_STRUCTURE",
+          "claim_summary": "太阴与天同、太阳、天机的同度/对照组合属于星系结构与关系上下文，不是太阴单星内在性质。",
+          "conditions_to_preserve": [
+            "同阴组合",
+            "阴阳组合",
+            "机阴组合",
+            "同度/对照结构"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P10:printed-p20:tyi-star-family-structure",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TYI-PALACE-COMPARISON",
+          "source_rule_ids": [
+            "ZZ-TYI-Y05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 10,
+            "printed_page": 20
+          },
+          "source_excerpt": "较喜子宫的天同太阴",
+          "claim_layer": "COMPARATIVE_PALACE_CONTEXT",
+          "claim_summary": "不同宫位与星系组合的偏好是有比较对象的传统判断；不归一化为绝对数值排名。",
+          "conditions_to_preserve": [
+            "子宫天同太阴",
+            "戌亥太阴独坐",
+            "巳宫太阴独坐与午宫天同太阴的比较"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P10:printed-p20:tyi-palace-comparison",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        }
+      ],
+      "candidate_properties": [
+        {
+          "candidate_key": "PILOT-TYI-01",
+          "layer": "L1",
+          "candidate_label": "潜藏与收敛倾向",
+          "target_ref": "QI-01",
+          "source_rule_ids": [
+            "ZZ-TYI-002"
+          ],
+          "mapping_review_record_id": "MR-TYI-QI01-BASELINE-001",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PILOT-TYI-02",
+          "layer": "L1_CONDITIONAL_OPTIMAL_REGION",
+          "candidate_label": "入庙吉化条件下的适度收敛/英华内敛",
+          "target_ref": "QI-01",
+          "source_rule_ids": [
+            "ZZ-TYI-007"
+          ],
+          "mapping_review_record_id": "MR-TYI-QI01-OPTIMAL-002",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PILOT-TYI-03",
+          "layer": "CONDITIONAL_STATE_CHANGE",
+          "candidate_label": "特定发射星曜条件下的空虚不实",
+          "target_ref": "QI-05",
+          "source_rule_ids": [
+            "ZZ-TYI-008"
+          ],
+          "mapping_review_record_id": "MR-TYI-QI05-EMISSION-OVERSHOOT-005",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        }
+      ],
+      "non_promotion_guards": [
+        "Do not treat Taiyin's yin-water substrate as an L1 QI value.",
+        "Do not convert Taiyin's convergence baseline into a monotonic rule that more convergence is always better.",
+        "Preserve OR branches for Taiyin falling/transforming Ji versus meeting convergence-oriented stars.",
+        "Do not merge paired Changqu, single Changqu, wealth-gated Changqu, or unstable-star-system branches.",
+        "Do not promote Sun compensation or Ming/Fude cross-palace dependency to an unconditional Taiyin intrinsic property.",
+        "Keep wealth, kinship, and traditional health statements in conditional downstream layers; no modern medical or real-world predictive validity is implied."
+      ]
     }
   ],
   "mapping_review_records": [
@@ -462,6 +938,281 @@
       "mapping_disposition": {
         "state": "KNOWN",
         "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TYI-L0-METADATA-014",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19#ZZ-TYI-001"
+      ],
+      "target_ref": "STAR-TYI.intrinsic_signature:QI-01",
+      "rationale": "阴水是 L0 结构元数据，不支持把阴阳五行标签映射成 QI-01 的收敛值。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TYI-QI01-BASELINE-001",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19#ZZ-TYI-002"
+      ],
+      "target_ref": "STAR-TYI.intrinsic_signature:QI-01",
+      "rationale": "来源明确描述太阴的潜藏与收敛，可支持 QI-01 收敛端方向性候选；没有数值，也没有证明收敛越强越好，归一化仍为 UNRESOLVED。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TYI-QI01-OPTIMAL-002",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19#ZZ-TYI-007"
+      ],
+      "target_ref": "STAR-TYI.conditional_signature:QI-01",
+      "rationale": "入庙且吉化时来源偏好适度收敛；支持条件化最优区域审议，不支持单调增益或无条件性质。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TYI-QI01-OVERCONVERGENCE-003",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19#ZZ-TYI-005"
+      ],
+      "target_ref": "STAR-TYI.conditional_signature:QI-01",
+      "rationale": "不利表现受落陷/化忌或会合潜藏收敛星曜等替代分支门控；保留 OR 结构与下游结果边界。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "state_change",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TYI-QI01-SOLAR-COMPENSATION-004",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19#ZZ-TYI-006"
+      ],
+      "target_ref": "STAR-TYI.conditional_signature:QI-01",
+      "rationale": "补偿依赖太阴过度收敛语境、太阳入庙或化禄及三方四正同会；不把跨星互动提升为太阴无条件发射能力。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TYI-QI05-EMISSION-OVERSHOOT-005",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19#ZZ-TYI-008"
+      ],
+      "target_ref": "STAR-TYI.conditional_signature:QI-05",
+      "rationale": "来源在入庙吉化并遇天马、火星等条件下描述虚浮结果；QI-05 对应仍是目标特定的归一化候选，不能视为已接受映射。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "state_change",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TYI-QI07-CHANGQU-GATE-006",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19-20#ZZ-TYI-003",
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19-20#ZZ-TYI-004",
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19-20#ZZ-TYI-X01",
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19-20#ZZ-TYI-X02",
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19-20#ZZ-TYI-X03"
+      ],
+      "target_ref": "STAR-TYI.conditional_signature:QI-07",
+      "rationale": "昌曲成对/单见、有禄/无禄及星系稳重/浮动构成不同分支；认知相关描述可作条件修饰候选，但不足以确认太阴无条件 QI-07 内在映射。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TYI-L3-WEALTH-007",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19#ZZ-TYI-009"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "富格属于有化禄/禄存条件的传统下游财富投影；本段不定义已接受的具体输出变量，也不证明现实财富预测有效性。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TYI-QR04-SUPPORT-008",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19-20#ZZ-TYI-X04",
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19-20#ZZ-TYI-X05",
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19-20#ZZ-TYI-X06"
+      ],
+      "target_ref": "STAR-TYI.conditional_signature:QR-04",
+      "rationale": "辅弼/魁钺外部支持与佐曜、自力和后天努力不是同一概念；保留为关系/支持条件，不折叠成太阴内在能力。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "realized_support",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TYI-L2-FUDE-DEPENDENCY-009",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19-20#ZZ-TYI-X09",
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19-20#ZZ-TYI-Y02",
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19-20#ZZ-TYI-Y03"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "太阴守命时福德宫对实质安宁的影响应作为跨宫关系上下文保存；例证中的巨门、化忌与刑煞条件不能泛化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TYI-L3-TRADITIONAL-OUTCOMES-010",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19-20#ZZ-TYI-X10",
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19-20#ZZ-TYI-X11"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "日生/落陷条件下的六亲与传统健康应象属于下游主张；不归入内在性质，也不把传统健康标签当作现代医学证据。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TYI-QI01-FIREBELL-GATE-011",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19-20#ZZ-TYI-Y01"
+      ],
+      "target_ref": "STAR-TYI.conditional_signature:QI-01",
+      "rationale": "火铃喜忌依太阴当前敛射状态而定，支持非单调、状态门控的审议；不支持火铃固定为吉或凶。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TYI-L2-STAR-FAMILY-012",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19-20#ZZ-TYI-Y04"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "同阴、阴阳、机阴是星系结构/同度对照关系；不能直接当作太阴单星内在性质。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TYI-QI01-PALACE-COMPARISON-013",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=10#printed_page=19-20#ZZ-TYI-Y05"
+      ],
+      "target_ref": "STAR-TYI.intrinsic_signature:QI-01",
+      "rationale": "宫位与星系偏好具有比较范围；不能归一化为脱离宫位、星系与比较对象的绝对数值。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
         "conflict_ref": null
       }
     }
