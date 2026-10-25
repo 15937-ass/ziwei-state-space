@@ -10,7 +10,7 @@
 
 ## Bounded source and outcome
 
-- Exact source span: printed p81 bottom `丑未宫『廉贞、七杀』同度` through printed p82 section 6 廉贞, stopping immediately before `7 天府`.
+- Exact source span: printed p81 bottom `丑未宫『廉贞，七杀』同度` through printed p82 section 6 廉贞, stopping immediately before `7 天府`.
 - Inspected physical PDF p41 left/right page images at full-page and enlarged-crop resolution.
 - Source-first records: 41; proposed promotions: 37; held: 4 (`W10-925`, `W10-926`, `W10-929`, `W10-953`).
 - New local source gaps: `W10-SG-001…004` (all OPEN, none a shared Core gap).
@@ -20,7 +20,7 @@
 
 ## Validation
 
-- Focused P05 source-first tests: PENDING exact head.
+- Focused P05 source-first tests: pending exact-head validation for the final branch commit.
 - Full repository pytest: PENDING exact head.
 - Product JS adapter check: PENDING exact head.
 - Deterministic P0 gate: PENDING exact head.

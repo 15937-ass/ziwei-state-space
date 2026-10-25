@@ -58,7 +58,7 @@ def test_eight_w01_w02_record_uncertainties_are_not_double_counted():
     assert set(rows["rule_ids"]) == {"W01-047", "W01-056", "W01-069", "W01-074", "W01-076", "W01-077", "W02-138", "W02-139"}
     assert all(r["status"] == "PRESERVED_RECORD_LEVEL_UNCERTAINTY" for r in rows["entries"])
 
-def test_lianzheng_tail_is_accounted_and_next_palace_waits_for_acceptance():
+def test_lianzheng_tail_is_accounted_with_explicit_residual_ambiguities():
     data = load(CENSUS)
     disposition = data["disposition"]
     assert disposition["source_span_coverage"] == "COMPLETE_WITH_EXPLICIT_RESIDUAL_AMBIGUITIES"
@@ -77,14 +77,17 @@ def test_w10_source_first_records_and_four_holds_reconcile():
     assert len(data["records"]) == 41
     assert len({r["projection_rule_id"] for r in data["records"]}) == 41
     assert sum(r["canonical_promotion"] for r in data["records"]) == 37
-    assert {r["projection_rule_id"] for r in data["records"] if not r["canonical_promotion"]} == {"W10-925", "W10-926", "W10-929", "W10-952"}
+    assert {r["projection_rule_id"] for r in data["records"] if not r["canonical_promotion"]} == {"W10-925", "W10-926", "W10-929", "W10-953"}
     assert all(r["time_layer"] in {"NATAL", "YEAR"} for r in data["records"])
-    assert "顺耳" in next(r["source_digest"] for r in data["records"] if r["projection_rule_id"] == "W10-925")
+    assert "畅顺耳" in next(r["source_digest"] for r in data["records"] if r["projection_rule_id"] == "W10-925")
     assert "至少" in next(r["source_digest"] for r in data["records"] if r["projection_rule_id"] == "W10-926")
     assert next(r["source_digest"] for r in data["records"] if r["projection_rule_id"] == "W10-923") == "丑未宫『廉贞，七杀』同度，在未宫为『雄宿乾元格』，若得禄则可成富格，唯仍须历艰辛。"
     assert next(r["source_digest"] for r in data["records"] if r["projection_rule_id"] == "W10-925") == "唯财源不如在未宫之畅顺耳。"
     assert next(r["source_digest"] for r in data["records"] if r["projection_rule_id"] == "W10-941") == "若同时见煞刑耗曜，且主词讼。"
-    assert "二者任一化禄" in next(r["canonical_condition"] for r in data["records"] if r["projection_rule_id"] == "W10-955")
+    assert next(r["source_digest"] for r in data["records"] if r["projection_rule_id"] == "W10-943") == "卯酉宫『廉贞破军』同度，财源不稳定。"
+    assert next(r["source_digest"] for r in data["records"] if r["projection_rule_id"] == "W10-944") == "若破军化禄，往往须兼行兼职。"
+    assert "破军化禄" in next(r["canonical_condition"] for r in data["records"] if r["projection_rule_id"] == "W10-944")
+    assert "二者任一化禄" in next(r["canonical_condition"] for r in data["records"] if r["projection_rule_id"] == "W10-956")
     assert "与火铃同度" in next(r["canonical_condition"] for r in data["records"] if r["projection_rule_id"] == "W10-955")
     assert data["summary"]["cumulative_reusable_projection_rules_after_merge"] == 831
 

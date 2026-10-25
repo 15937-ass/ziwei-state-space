@@ -5,7 +5,7 @@
   "lane": "KNOWLEDGE_ONLY",
   "shard": "P05",
   "palace": "财帛宫",
-  "census_status": "SOURCE_COVERAGE_COMPLETE_WITH_EXPLICIT_RESIDUAL_AMBIGUITIES_PENDING_ACCEPTANCE",
+  "census_status": "SOURCE_COVERAGE_COMPLETE_WITH_EXPLICIT_RESIDUAL_AMBIGUITIES",
   "source_basis": {
     "source_id": "SRC-ZZ-003",
     "title": "《中州派紫微斗数深造讲义（下册）》",
@@ -244,7 +244,6 @@
       "unpromoted_records": 4,
       "supplement_records": 0,
       "issue": 777,
-      "acceptance_status": "PENDING_MERGE",
       "accepted_pr": 780
     }
   ],
@@ -849,7 +848,7 @@
   "uncovered_source_spans": [
     {
       "gap_id": "P05-COV-GAP-001",
-      "status": "CLOSED_BY_SOURCE_FIRST_REVIEW_ON_CURRENT_PR_HEAD",
+      "status": "CLOSED_BY_SOURCE_FIRST_REVIEW",
       "source_location": "财帛宫 printed p81 bottom through printed p82 top, physical PDF p41 left/right halves",
       "start_literal": "丑未宫『廉贞，七杀』同度",
       "end_boundary": "Immediately before the printed p82 heading 7 天府",
@@ -862,7 +861,7 @@
       },
       "reason": "The exact p81-bottom through p82-top section-6 廉贞 tail is accounted for in the W10 source-first artifact. Thirty-six clear atoms are proposed for promotion; four unresolved source phrases/condition scopes remain in the explicit gap ledger. No source span remains unreviewed within this boundary.",
       "disposition": "CLOSED_BY_SOURCE_FIRST_REVIEW",
-      "next_action": "The bounded source span is accounted on the current PR head. After exact-head acceptance and merge, recheck current main and live Issues, then admit P09 under the approved serial queue.",
+      "next_action": "Recheck current main and live Issues, then admit P09 under the approved serial queue. Do not re-extract accepted P05 source spans.",
       "closure_evidence": {
         "artifact": "knowledge/palaces/P05_wealth/w10/WEALTH_W10_LIANZHEN_SOURCE_READJUDICATION_P81_P82_v0.1.json",
         "record_ids": "W10-923…W10-963",
@@ -888,7 +887,7 @@
     "total_open_coverage_items": 26,
     "next_palace_ready": true,
     "next_palace": "P09 事业宫",
-    "next_step": "After Issue #777 and its source-first PR are accepted and merged, recheck current main and live Issues, then promote the next bounded P09 gap-driven audit. Do not activate P09 before this handoff."
+    "next_step": "Recheck current main and live Issues, then admit the next bounded P09 gap-driven audit under Governance #676. Do not re-extract accepted P05 source spans."
   },
   "boundaries": {
     "no_existing_rule_reextraction": true,

@@ -1,6 +1,6 @@
 # P05 财帛宫全宫来源覆盖清点 v0.2
 
-**状态：** `SOURCE_COVERAGE_COMPLETE_WITH_EXPLICIT_RESIDUAL_AMBIGUITIES_PENDING_ACCEPTANCE`（本次闭合结果仍须通过 Issue #777 的 exact-head 验收与合并）。
+**状态：** `SOURCE_COVERAGE_COMPLETE_WITH_EXPLICIT_RESIDUAL_AMBIGUITIES`（P05-COV-GAP-001 已由 Issue #777 的来源优先审查闭合；残余疑义仍保留）。
 **来源：** `SRC-ZZ-003`《中州派紫微斗数深造讲义（下册）》；SHA-256 `6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c`。
 
 ## 1. 审计边界
@@ -28,7 +28,7 @@
 | W08-788…W08-825 | 天梁，pp88–90 | 38 | 37 | 1 |
 | W09-845…W09-888 + W09-901…W09-904 | 七杀，pp90–91 | 48 | 44 | 4 |
 | W09-889…W09-900 + W09-905…W09-922 | 破军，pp91–92 | 30 | 29 | 1 |
-| W10-923…W10-963 | 廉贞尾段，p81 底至 p82 顶（本 PR 待验收） | 41 | 37 | 4 |
+| W10-923…W10-963 | 廉贞尾段，p81 底至 p82 顶（PR #780 来源审查批次） | 41 | 37 | 4 |
 
 - 来源优先审查记录总计：**844**。
 - p81 补充记录：**4**；总计已核对记录：**848**。
@@ -53,5 +53,5 @@
 ## 5. 交接
 
 - 当前 PR 完成 exact-head 质量门禁并合并前，不启动 P09。
-- 合并后重新核对 `main`、实时 Issue/PR 和槽位；随后才可按 Governance #676 启动 P09 的 gap-driven 来源/条件审计，不重提已接受的 888 条历史规则。
+- 合并后重新核对 `main`、实时 Issue/PR 和槽位；随后才可按 Governance #676 启动 P09 的 gap-driven 来源/条件审计，不重提已接受的历史来源批次。
 - 不授权 Product/runtime 消费；不新增共享 Core 语义、概率、权重、阈值、持续时间或衰减参数。
