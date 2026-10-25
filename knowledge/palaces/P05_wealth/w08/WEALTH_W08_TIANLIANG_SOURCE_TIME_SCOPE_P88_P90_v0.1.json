@@ -1,0 +1,142 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P05-WEALTH-W08-TIANLIANG-SOURCE-TIME-SCOPE-P88-P90-v0.1",
+  "issue": 760,
+  "source_id": "SRC-ZZ-003",
+  "scope": "W08-788..825 / printed pp88–90, section 12 天梁 only",
+  "counts": {
+    "non_natal_rows": 0,
+    "year": 0,
+    "decade": 0,
+    "path_dependent_gate_rows": 5,
+    "source_time_phrase_rows": 1,
+    "source_life_course_qualifier_rows": 3,
+    "source_condition_qualifier_rows": 1
+  },
+  "exact_non_natal_ids": [],
+  "decade_ids": [],
+  "year_ids": [],
+  "path_dependent_gate_ids": [
+    "W08-799",
+    "W08-803",
+    "W08-814",
+    "W08-819",
+    "W08-824"
+  ],
+  "source_life_course_qualifier_ids": [
+    "W08-808",
+    "W08-810",
+    "W08-822"
+  ],
+  "policy": [
+    "No source sentence in this bounded section unambiguously assigns a standalone DECADE or YEAR trigger; do not manufacture one.",
+    "Preserve `交入不佳岁运` on W08-804 as a source-explicit but unresolved-granularity fortune-period phrase; keep it out of exact_non_natal_ids and do not force it into DECADE or YEAR.",
+    "W08-799 and W08-824 preserve `先名后利` as ordering/path annotations, not fixed durations.",
+    "W08-803 preserves `一时之富` followed by criticism without a duration or probability.",
+    "W08-814 preserves the source-stated establishment → arrogance → breakdown/trouble sequence.",
+    "W08-819 preserves `得财后必有破耗随来` as an ordered outcome, not a numeric persistence model.",
+    "Life-course phrases such as `一生`, `一旦`, and `早年至中年` remain source qualifiers, not a new time scale.",
+    "No duration, probability, weight, threshold, frequency, persistence, or decay parameter is inferred."
+  ],
+  "records": [],
+  "source_time_phrase_records": [
+    {
+      "projection_rule_id": "W08-804",
+      "source_location": "财帛宫printed_p89",
+      "time_layer": "NATAL",
+      "source_time_phrase": "交入不佳岁运",
+      "scope_status": "SOURCE_EXPLICIT_FORTUNE_PERIOD_NOT_DISAMBIGUATED",
+      "canonical_promotion": true,
+      "note": "The natal configuration remains the rule's base; the phrase is retained verbatim and is not mapped to DECADE or YEAR."
+    }
+  ],
+  "path_records": [
+    {
+      "projection_rule_id": "W08-799",
+      "source_location": "财帛宫printed_p89",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "天梁守财帛宫",
+      "canonical_target": "fame_then_profit",
+      "source_phrase": "天梁守财帛宫，亦先名后利。",
+      "no_numeric_generalization": true,
+      "canonical_promotion": true
+    },
+    {
+      "projection_rule_id": "W08-803",
+      "source_location": "财帛宫printed_p89",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "天梁在财帛宫化禄或叠禄",
+      "canonical_target": "temporary_wealth_then_reputational_criticism",
+      "source_phrase": "皆只主一时之富，但背后却受人讥评。",
+      "no_numeric_generalization": true,
+      "canonical_promotion": true
+    },
+    {
+      "projection_rule_id": "W08-814",
+      "source_location": "财帛宫printed_p89",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "经商且建立商业后妄自尊大",
+      "canonical_target": "establishment_then_arrogance_then_breakdown_or_major_trouble",
+      "source_phrase": "若建立商业后即妄自尊大，即立生破败，或引起重大风波。",
+      "no_numeric_generalization": true,
+      "canonical_promotion": true
+    },
+    {
+      "projection_rule_id": "W08-819",
+      "source_location": "财帛宫printed_p89",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "丑未天梁；前述日月照临与吉化分支",
+      "canonical_target": "income_under_dispute_followed_by_loss",
+      "source_phrase": "但仍主在是非纠纷困扰中进财。且得财后必有破耗随来。",
+      "no_numeric_generalization": true,
+      "canonical_promotion": true
+    },
+    {
+      "projection_rule_id": "W08-824",
+      "source_location": "财帛宫printed_p89",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "巳亥天梁若先名后利，且宜昌曲交会/化科",
+      "canonical_target": "fame_before_profit_mitigates_branch_weakness",
+      "source_phrase": "巳亥天梁若先名后利者，对上述缺点即可弥补。",
+      "no_numeric_generalization": true,
+      "canonical_promotion": true
+    }
+  ],
+  "source_life_course_qualifier_records": [
+    {
+      "projection_rule_id": "W08-808",
+      "source_location": "财帛宫printed_p89",
+      "source_phrase": "纵见凶曜，亦终不致贫",
+      "treatment": "SOURCE_LIFE_COURSE_QUALIFIER_ONLY"
+    },
+    {
+      "projection_rule_id": "W08-810",
+      "source_location": "财帛宫printed_p89",
+      "source_phrase": "一生多进财钱会，但散财亦不少",
+      "treatment": "SOURCE_LIFE_COURSE_QUALIFIER_ONLY"
+    },
+    {
+      "projection_rule_id": "W08-822",
+      "source_location": "财帛宫printed_p89",
+      "source_phrase": "主早年至中年财帛难聚",
+      "treatment": "SOURCE_LIFE_COURSE_QUALIFIER_ONLY"
+    }
+  ],
+  "source_condition_qualifier_ids": [
+    "W08-811"
+  ],
+  "source_condition_qualifier_records": [
+    {
+      "projection_rule_id": "W08-811",
+      "source_location": "财帛宫printed_p89",
+      "source_phrase": "唯一旦富足，或享受较奢即易受人妒忌",
+      "treatment": "SOURCE_CONDITION_QUALIFIER_ONLY",
+      "note": "一旦富足 is preserved as a condition, not recast as a separate time layer."
+    }
+  ]
+}

@@ -33,3 +33,10 @@
 ## 下一步
 
 太阳检查点已通过 exact-head CI。当前继续太阴：检验收敛最优区域、OR 条件、昌曲门控、跨星/跨宫关系与下游结果能否在不引入新共享枚举的情况下被保存；新 head 必须重新通过 exact-head CI 后再进入天相。
+
+
+## Main synchronization after the Taiyin pilot update
+
+- Latest main at synchronization: `cb48ac8fe6316eb9644448c99c596b72d72776c3` (P05 source-first Tianliang audit merge).
+- The Core branch was synchronized with this main through a two-parent merge commit; P05 changes are retained from main and are not part of the Core semantic change set.
+- The previous exact-head checks do not transfer to the post-sync head. The post-sync Taiyin exact-head quality gate must complete before the next pilot.
