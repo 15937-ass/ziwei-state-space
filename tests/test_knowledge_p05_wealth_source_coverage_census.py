@@ -27,19 +27,19 @@ def test_source_hash_and_printed_boundary_are_explicit():
 def test_source_first_counts_reconcile_without_quota_filling():
     data = load(CENSUS)
     counts = data["record_census"]
-    assert counts["source_first_review_records"] == 843
-    assert counts["source_first_canonical_promotions"] == 826
+    assert counts["source_first_review_records"] == 844
+    assert counts["source_first_canonical_promotions"] == 827
     assert counts["source_first_unpromoted"] == 17
     assert counts["p81_supplement_records"] == 4
-    assert counts["total_records_accounted"] == 847
-    assert counts["total_canonical_reusable_records"] == 830
+    assert counts["total_records_accounted"] == 848
+    assert counts["total_canonical_reusable_records"] == 831
     assert counts["case_support_only_records"] == 0
-    expected_held = {"W06-540", "W06-542", "W06-559", "W06-596", "W08-761", "W08-766", "W08-767", "W08-820", "W09-865", "W09-881", "W09-882", "W09-904", "W09-909", "W10-925", "W10-926", "W10-929", "W10-952"}
+    expected_held = {"W06-540", "W06-542", "W06-559", "W06-596", "W08-761", "W08-766", "W08-767", "W08-820", "W09-865", "W09-881", "W09-882", "W09-904", "W09-909", "W10-925", "W10-926", "W10-929", "W10-954"}
     assert set(counts["unpromoted_rule_ids"]) == expected_held
     assert len(counts["unpromoted_dispositions"]) == 17
     batches = data["accepted_batches"]
     assert len(batches) == 15
-    assert sum(b["source_first_review_records"] for b in batches) == 843
+    assert sum(b["source_first_review_records"] for b in batches) == 844
     assert sum(b["unpromoted_records"] for b in batches) == 17
     assert sum(b["supplement_records"] for b in batches) == 4
     assert len({b["batch_id"] for b in batches}) == len(batches)
@@ -68,15 +68,15 @@ def test_lianzheng_tail_is_accounted_and_next_palace_waits_for_acceptance():
     gap = data["uncovered_source_spans"][0]
     assert gap["gap_id"] == "P05-COV-GAP-001"
     assert gap["status"] == "CLOSED_BY_SOURCE_FIRST_REVIEW_ON_CURRENT_PR_HEAD"
-    assert "W10-923…W10-962" in gap["closure_evidence"]["record_ids"]
+    assert "W10-923…W10-963" in gap["closure_evidence"]["record_ids"]
     assert "7 天府" in gap["end_boundary"]
 
 def test_w10_source_first_records_and_four_holds_reconcile():
     data = load(W10)
     assert data["source_basis"]["sha256"] == SOURCE_HASH
-    assert len(data["records"]) == 40
-    assert len({r["projection_rule_id"] for r in data["records"]}) == 40
-    assert sum(r["canonical_promotion"] for r in data["records"]) == 36
+    assert len(data["records"]) == 41
+    assert len({r["projection_rule_id"] for r in data["records"]}) == 41
+    assert sum(r["canonical_promotion"] for r in data["records"]) == 37
     assert {r["projection_rule_id"] for r in data["records"] if not r["canonical_promotion"]} == {"W10-925", "W10-926", "W10-929", "W10-952"}
     assert all(r["time_layer"] in {"NATAL", "YEAR"} for r in data["records"])
     assert "顺耳" in next(r["source_digest"] for r in data["records"] if r["projection_rule_id"] == "W10-925")
@@ -86,11 +86,11 @@ def test_w10_source_first_records_and_four_holds_reconcile():
     assert next(r["source_digest"] for r in data["records"] if r["projection_rule_id"] == "W10-941") == "若同时见煞刑耗曜，且主词讼。"
     assert "二者任一化禄" in next(r["canonical_condition"] for r in data["records"] if r["projection_rule_id"] == "W10-955")
     assert "与火铃同度" in next(r["canonical_condition"] for r in data["records"] if r["projection_rule_id"] == "W10-955")
-    assert data["summary"]["cumulative_reusable_projection_rules_after_merge"] == 830
+    assert data["summary"]["cumulative_reusable_projection_rules_after_merge"] == 831
 
 def test_w10_time_scope_preserves_only_the_explicit_year_condition():
     sidecar = load(TIME)
-    assert sidecar["year_ids"] == ["W10-947"]
+    assert sidecar["year_ids"] == ["W10-948"]
     assert sidecar["decade_ids"] == []
     assert sidecar["counts"]["year"] == 1
     assert sidecar["counts"]["decade"] == 0

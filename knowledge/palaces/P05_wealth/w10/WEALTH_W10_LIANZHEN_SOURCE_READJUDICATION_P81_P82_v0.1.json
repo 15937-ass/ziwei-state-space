@@ -43,19 +43,19 @@
     }
   ],
   "summary": {
-    "direct_source_first_records_created": 40,
-    "canonical_promotions": 36,
-    "reusable_projection_rules": 36,
+    "direct_source_first_records_created": 41,
+    "canonical_promotions": 37,
+    "reusable_projection_rules": 37,
     "case_support_only": 0,
     "historical_candidates_reviewed": 0,
-    "new_source_supported_atoms": 36,
-    "new_source_atoms_reviewed": 40,
+    "new_source_supported_atoms": 37,
+    "new_source_atoms_reviewed": 41,
     "new_atoms_not_promoted_due_uncertainty": 4,
     "new_atoms_not_promoted_ids": [
       "W10-925",
       "W10-926",
       "W10-929",
-      "W10-952"
+      "W10-953"
     ],
     "candidate_condition_or_scope_corrections": 0,
     "source_resolution_changes": 0,
@@ -86,8 +86,8 @@
       "W09-SG-015",
       "W09-SG-016"
     ],
-    "cumulative_canonical_records_after_merge": 830,
-    "cumulative_reusable_projection_rules_after_merge": 830,
+    "cumulative_canonical_records_after_merge": 831,
+    "cumulative_reusable_projection_rules_after_merge": 831,
     "cumulative_case_support_only_after_merge": 0,
     "cumulative_source_gap_supplement_records_after_merge": 4,
     "new_primitive_qi": 0,
@@ -105,21 +105,22 @@
     "visually_resolved_extraction_count": 0,
     "non_natal_source_rows": 1,
     "non_natal_source_ids": [
-      "W10-947"
+      "W10-948"
     ],
     "decade_rows": [],
     "year_rows": [
-      "W10-947"
+      "W10-948"
     ],
-    "path_dependent_gate_count": 7,
+    "path_dependent_gate_count": 8,
     "path_dependent_gate_ids": [
       "W10-938",
       "W10-940",
-      "W10-945",
       "W10-946",
-      "W10-949",
+      "W10-947",
+      "W10-948",
       "W10-950",
-      "W10-962"
+      "W10-951",
+      "W10-963"
     ],
     "source_coverage_gap_count": 4,
     "open_source_gap_ids_current_batch": [
@@ -132,18 +133,23 @@
       "W10-925",
       "W10-926",
       "W10-929",
-      "W10-952"
+      "W10-953"
     ],
-    "human_gate_required": false
+    "human_gate_required": false,
+    "source_first_review_records_after_merge": 844,
+    "total_records_accounted_after_merge": 848,
+    "source_first_canonical_promotions_after_merge": 827,
+    "source_first_unpromoted_after_merge": 17
   },
   "major_findings": [
     "The exact uncovered span is atomized into 40 source-first review records; 36 are proposed for promotion and four remain unpromoted because the source phrase or condition scope is unresolved.",
     "W10-925 preserves `畅顺耳` literally; no contextual emendation is inferred.",
     "W10-926 preserves `至少` literally in `浮华性质至少之星系`; no correction is inferred.",
     "W10-929 holds the debt-assumption clause because the referent/scope of `化忌` is not explicit.",
-    "W10-952 holds the wealth-pattern clause because the logical relation between the two `若` condition clauses is not fully explicit.",
-    "W10-947 is assigned YEAR only because the source explicitly states `流年命宫或财帛宫见煞忌刑劫之年为克应`; no decade layer or numeric time parameter is added.",
-    "P05-COV-GAP-001 is closed only if this bounded batch is accepted; 26 residual local source gaps remain explicitly listed."
+    "W10-954 holds the wealth-pattern clause because the logical relation between the two `若` condition clauses is not fully explicit.",
+    "W10-948 is assigned YEAR only because the source explicitly states `流年命宫或财帛宫见煞忌刑劫之年为克应`; no decade layer or numeric time parameter is added.",
+    "P05-COV-GAP-001 is closed only if this bounded batch is accepted; 26 residual local source gaps remain explicitly listed.",
+    "The Mao/You Lian Zhen–Po Jun income-instability claim and the conditional `若破军化禄，往往须兼行兼职` claim are separated as W10-943 and W10-944."
   ],
   "records": [
     {
@@ -678,15 +684,15 @@
       "archived_projection_domain": null,
       "projection_domain": "income_source",
       "archived_projection_target": null,
-      "canonical_target": "unstable_income_source_and_often_needing_multiple_or_side_jobs",
+      "canonical_target": "unstable_income_source",
       "archived_projection_mode": null,
       "projection_mode": "SCENE_TRANSLATION",
       "case_support_only": false,
       "archived_history_feedback": null,
       "history_feedback": null,
       "disposition": "NEW_SOURCE_ATOM_PROMOTED",
-      "source_digest": "卯酉宫『廉贞破军』同度，财源不稳定，往往须兼行兼职。",
-      "source_note": "Direct source-first review against the approved original page images (physical PDF p41 left half = printed p81; right half = printed p82). No historical candidate row exists for this exact tail. Preserves the Mao/You placement and source wording. No silent emendation, cross-palace generalization, numeric weight, probability, duration, or Product/runtime authorization is implied.",
+      "source_digest": "卯酉宫『廉贞破军』同度，财源不稳定。",
+      "source_note": "Direct source-first review against the approved original page images (physical PDF p41 left half = printed p81; right half = printed p82). No historical candidate row exists for this exact tail. Preserves only the unconditional instability claim; the side-job clause is separately conditioned on Po Jun Hua Lu in W10-944. No silent emendation, cross-palace generalization, numeric weight, probability, duration, or Product/runtime authorization is implied.",
       "visual_source_resolution": null,
       "source_uncertainty": null,
       "source_resolution_changed": false,
@@ -694,6 +700,32 @@
     },
     {
       "projection_rule_id": "W10-944",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "财帛宫printed_p82",
+      "palace_id": "P05",
+      "archived_candidate_condition": null,
+      "canonical_condition": "卯酉宫『廉贞破军』同度；破军化禄",
+      "archived_time_layer": null,
+      "time_layer": "NATAL",
+      "archived_projection_domain": null,
+      "projection_domain": "income_source",
+      "archived_projection_target": null,
+      "canonical_target": "often_needing_multiple_or_side_jobs_when_po_jun_hua_lu_is_present",
+      "archived_projection_mode": null,
+      "projection_mode": "SCENE_TRANSLATION",
+      "case_support_only": false,
+      "archived_history_feedback": null,
+      "history_feedback": null,
+      "disposition": "NEW_SOURCE_ATOM_PROMOTED",
+      "source_digest": "若破军化禄，往往须兼行兼职。",
+      "source_note": "Direct source-first review of printed p82. The source explicitly conditions the side-job clause on 破军化禄; it is not merged into the preceding unconditional income-instability clause. No modern employment claim is inferred.",
+      "visual_source_resolution": null,
+      "source_uncertainty": null,
+      "source_resolution_changed": false,
+      "canonical_promotion": true
+    },
+    {
+      "projection_rule_id": "W10-945",
       "source_id": "SRC-ZZ-003",
       "source_location": "财帛宫printed_p82",
       "palace_id": "P05",
@@ -719,7 +751,7 @@
       "canonical_promotion": true
     },
     {
-      "projection_rule_id": "W10-945",
+      "projection_rule_id": "W10-946",
       "source_id": "SRC-ZZ-003",
       "source_location": "财帛宫printed_p82",
       "palace_id": "P05",
@@ -745,7 +777,7 @@
       "canonical_promotion": true
     },
     {
-      "projection_rule_id": "W10-946",
+      "projection_rule_id": "W10-947",
       "source_id": "SRC-ZZ-003",
       "source_location": "财帛宫printed_p82",
       "palace_id": "P05",
@@ -771,7 +803,7 @@
       "canonical_promotion": true
     },
     {
-      "projection_rule_id": "W10-947",
+      "projection_rule_id": "W10-948",
       "source_id": "SRC-ZZ-003",
       "source_location": "财帛宫printed_p82",
       "palace_id": "P05",
@@ -797,7 +829,7 @@
       "canonical_promotion": true
     },
     {
-      "projection_rule_id": "W10-948",
+      "projection_rule_id": "W10-949",
       "source_id": "SRC-ZZ-003",
       "source_location": "财帛宫printed_p82",
       "palace_id": "P05",
@@ -823,7 +855,7 @@
       "canonical_promotion": true
     },
     {
-      "projection_rule_id": "W10-949",
+      "projection_rule_id": "W10-950",
       "source_id": "SRC-ZZ-003",
       "source_location": "财帛宫printed_p82",
       "palace_id": "P05",
@@ -849,7 +881,7 @@
       "canonical_promotion": true
     },
     {
-      "projection_rule_id": "W10-950",
+      "projection_rule_id": "W10-951",
       "source_id": "SRC-ZZ-003",
       "source_location": "财帛宫printed_p82",
       "palace_id": "P05",
@@ -875,7 +907,7 @@
       "canonical_promotion": true
     },
     {
-      "projection_rule_id": "W10-951",
+      "projection_rule_id": "W10-952",
       "source_id": "SRC-ZZ-003",
       "source_location": "财帛宫printed_p82",
       "palace_id": "P05",
@@ -901,7 +933,7 @@
       "canonical_promotion": true
     },
     {
-      "projection_rule_id": "W10-952",
+      "projection_rule_id": "W10-953",
       "source_id": "SRC-ZZ-003",
       "source_location": "财帛宫printed_p82",
       "palace_id": "P05",
@@ -927,7 +959,7 @@
       "canonical_promotion": false
     },
     {
-      "projection_rule_id": "W10-953",
+      "projection_rule_id": "W10-954",
       "source_id": "SRC-ZZ-003",
       "source_location": "财帛宫printed_p82",
       "palace_id": "P05",
@@ -953,7 +985,7 @@
       "canonical_promotion": true
     },
     {
-      "projection_rule_id": "W10-954",
+      "projection_rule_id": "W10-955",
       "source_id": "SRC-ZZ-003",
       "source_location": "财帛宫printed_p82",
       "palace_id": "P05",
@@ -979,7 +1011,7 @@
       "canonical_promotion": true
     },
     {
-      "projection_rule_id": "W10-955",
+      "projection_rule_id": "W10-956",
       "source_id": "SRC-ZZ-003",
       "source_location": "财帛宫printed_p82",
       "palace_id": "P05",
@@ -1005,7 +1037,7 @@
       "canonical_promotion": true
     },
     {
-      "projection_rule_id": "W10-956",
+      "projection_rule_id": "W10-957",
       "source_id": "SRC-ZZ-003",
       "source_location": "财帛宫printed_p82",
       "palace_id": "P05",
@@ -1031,7 +1063,7 @@
       "canonical_promotion": true
     },
     {
-      "projection_rule_id": "W10-957",
+      "projection_rule_id": "W10-958",
       "source_id": "SRC-ZZ-003",
       "source_location": "财帛宫printed_p82",
       "palace_id": "P05",
@@ -1057,7 +1089,7 @@
       "canonical_promotion": true
     },
     {
-      "projection_rule_id": "W10-958",
+      "projection_rule_id": "W10-959",
       "source_id": "SRC-ZZ-003",
       "source_location": "财帛宫printed_p82",
       "palace_id": "P05",
@@ -1083,7 +1115,7 @@
       "canonical_promotion": true
     },
     {
-      "projection_rule_id": "W10-959",
+      "projection_rule_id": "W10-960",
       "source_id": "SRC-ZZ-003",
       "source_location": "财帛宫printed_p82",
       "palace_id": "P05",
@@ -1109,7 +1141,7 @@
       "canonical_promotion": true
     },
     {
-      "projection_rule_id": "W10-960",
+      "projection_rule_id": "W10-961",
       "source_id": "SRC-ZZ-003",
       "source_location": "财帛宫printed_p82",
       "palace_id": "P05",
@@ -1135,7 +1167,7 @@
       "canonical_promotion": true
     },
     {
-      "projection_rule_id": "W10-961",
+      "projection_rule_id": "W10-962",
       "source_id": "SRC-ZZ-003",
       "source_location": "财帛宫printed_p82",
       "palace_id": "P05",
@@ -1161,7 +1193,7 @@
       "canonical_promotion": true
     },
     {
-      "projection_rule_id": "W10-962",
+      "projection_rule_id": "W10-963",
       "source_id": "SRC-ZZ-003",
       "source_location": "财帛宫printed_p82",
       "palace_id": "P05",
