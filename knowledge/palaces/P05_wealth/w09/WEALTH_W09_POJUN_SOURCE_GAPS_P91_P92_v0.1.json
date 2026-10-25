@@ -1,0 +1,91 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P05-WEALTH-W09-POJUN-SOURCE-GAPS-P91-P92-v0.1",
+  "issue": 770,
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "P05",
+  "palace": "财帛宫",
+  "source_basis": {
+    "source_id": "SRC-ZZ-003",
+    "work": "中州派紫微斗数深造讲义（下册）",
+    "chapter": "下篇·宫垣论·财帛宫",
+    "printed_pages": "91–92 (section 14 破军 only; stops before printed p93 疾厄宫)",
+    "sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+    "page_image_map": "physical PDF p46 left half = printed p91; physical PDF p46 right half = printed p92; physical PDF p47 left half = printed p93",
+    "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION"
+  },
+  "gap_count": 2,
+  "core_gap_count": 0,
+  "summary": {
+    "new_local_source_ambiguities": 2,
+    "open_local_source_ambiguities": 2,
+    "closed_local_source_ambiguities": 0,
+    "canonical_source_gap_supplement_records": 0,
+    "shared_semantic_gaps": [],
+    "unresolved_prior_gap_ids": [
+      "W05-SG-002",
+      "W06-SG-001",
+      "W06-SG-002",
+      "W06-SG-003",
+      "W06-SG-004",
+      "W06-SG-005",
+      "W08-SG-001",
+      "W08-SG-002",
+      "W08-SG-003",
+      "W08-SG-004",
+      "W08-SG-005",
+      "W09-SG-006",
+      "W09-SG-007",
+      "W09-SG-008",
+      "W09-SG-009",
+      "W09-SG-010",
+      "W09-SG-011",
+      "W09-SG-012",
+      "W09-SG-013",
+      "W09-SG-014"
+    ]
+  },
+  "source_image_checks": [
+    {
+      "source_location": "physical PDF p46 left half / printed p91",
+      "result": "VERIFIED_WITH_LITERAL_ANOMALIES",
+      "note": "Verified the complete 14 破军 section opening and all page-91 conditions, including the 子午, 寅申, and Wuqu-hua-ji branches. Printed `同破财损耗极大` is retained as a local ambiguity."
+    },
+    {
+      "source_location": "physical PDF p46 right half / printed p92",
+      "result": "VERIFIED_WITH_LITERAL_ANOMALIES",
+      "note": "Verified the 寅申, 辰戌, and 亥子丑 branches. Printed `纵会占化吉曜者亦然` is retained as a local ambiguity."
+    },
+    {
+      "source_location": "physical PDF p47 left half / printed p93",
+      "result": "BOUNDARY_VERIFIED",
+      "note": "The next heading is `疾厄宫`; no text from this section is included."
+    }
+  ],
+  "gaps": [
+    {
+      "gap_id": "W09-SG-015",
+      "source_location": "财帛宫printed_p91",
+      "source_claim": "若有煞忌空劫，同破财损耗极大。",
+      "rule_ids": [
+        "W09-909"
+      ],
+      "status": "OPEN",
+      "core_gap": false,
+      "reason": "The original page image visibly prints `同` immediately before `破财损耗极大`. Its intended relation cannot be confidently resolved; the whole clause is held rather than normalized. The clear adjacent outcome `而且往往功败垂成` is separately scoped as W09-910.",
+      "resolution_requirements": "Resolve only against an authoritative alternate edition or explicit source-owner decision. Do not silently replace `同` with `则` or delete it."
+    },
+    {
+      "gap_id": "W09-SG-016",
+      "source_location": "财帛宫printed_p92",
+      "source_claim": "纵会占化吉曜者亦然",
+      "rule_ids": [
+        "W09-917"
+      ],
+      "status": "OPEN",
+      "core_gap": false,
+      "reason": "The page image visibly prints `占化吉曜`; the intended phrase is unclear. The target for W09-917 uses only the clear core statement that the 罗网 configuration requires a breakthrough before success.",
+      "resolution_requirements": "Do not infer or silently normalize the printed phrase; resolve only with an authoritative alternate edition or explicit source-owner decision."
+    }
+  ]
+}

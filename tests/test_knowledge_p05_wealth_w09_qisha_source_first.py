@@ -59,11 +59,11 @@ def test_prior_tianliang_and_tianxiang_artifacts_remain_immutable_and_counts_rec
  assert "14 破军" in SUMMARY.read_text(encoding="utf-8")
 def test_state_cache_tracks_active_qisha_and_inherited_gaps():
  s=STATE.read_text(encoding="utf-8")
- assert 'status: "ACTIVE"' in s and "active_issue: 765" in s
- assert 'active_branch: "knowledge/p05-765-source-first-qisha-p90-p91"' in s
- assert "active_pr: 767" in s
- assert "merged_rule_count: 721" in s and "current_batch_rule_count: 44" in s and "source_first_records_added_current_batch: 48" in s
- assert "source_uncertainty_count_current_batch: 10" in s and "source_coverage_gap_count_current_batch: 9" in s
- assert "source_coverage_gaps_remaining: 20" in s and "path_dependent_gate_count_current_batch: 6" in s
+ assert 'status: "ACTIVE"' in s and "active_issue: 770" in s
+ assert 'active_branch: "knowledge/p05-770-source-first-pojun-p91-p92"' in s
+ assert "active_pr: 771" in s
+ assert "merged_rule_count: 765" in s and "current_batch_rule_count: 29" in s and "source_first_records_added_current_batch: 30" in s
+ assert "source_uncertainty_count_current_batch: 2" in s and "source_coverage_gap_count_current_batch: 2" in s
+ assert "source_coverage_gaps_remaining: 22" in s and "path_dependent_gate_count_current_batch: 9" in s
  assert all(g in s for g in PRIOR_GAPS) and "13 七杀" in s and "14 破军" in s
  assert "No Product/runtime authorization is implied" in s
