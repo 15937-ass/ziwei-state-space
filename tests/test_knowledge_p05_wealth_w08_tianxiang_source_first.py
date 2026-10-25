@@ -13,7 +13,8 @@ def row(d,rid): return next(x for x in d["records"] if x["projection_rule_id"]==
 def test_candidate_census():
  d=load(SOURCE); rs=d["records"]
  assert d["issue"]==746 and d["source_basis"]["sha256"]=="6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c"
- assert "11 天相" in d["source_basis"]["note"] and "12 天梁" in d["source_basis"]["note"]
+ assert "87–88" in d["source_basis"]["printed_pages"]
+ assert "一四十以后始渐兴家" in d["source_basis"]["note"] and "丑来天相" in d["source_basis"]["note"]
  assert len(rs)==45 and [r["projection_rule_id"] for r in rs]==[f"W08-{i}" for i in range(743,788)]
  assert sum(r["canonical_promotion"] is True for r in rs)==42
  assert {r["projection_rule_id"] for r in rs if not r["canonical_promotion"]}=={"W08-761","W08-766","W08-767"}
