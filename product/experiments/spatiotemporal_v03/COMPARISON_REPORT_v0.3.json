@@ -1,0 +1,63 @@
+{
+  "schema_version": "0.3",
+  "experiment_id": "PRODUCT_SPATIOTEMPORAL_GUARDED_TEMPORAL_PROBE_V0_3",
+  "status": "TEST_ONLY_ENGINEERING_PROBE",
+  "input": {
+    "fixture_sha256": "f2cea083717685fbacf2911ed5fe2e15ba3692122519708ac606943c45684450",
+    "expected_fixture_sha256": "f2cea083717685fbacf2911ed5fe2e15ba3692122519708ac606943c45684450",
+    "source_run_id": 40161980768,
+    "source_artifact_id": 12586873751,
+    "case_ids": [
+      "CR-001",
+      "CR-031"
+    ],
+    "target_ids": [
+      "T1_LEAP_LATE_ZI",
+      "T3_DAYTIME"
+    ]
+  },
+  "counts": {
+    "natal_charts": 2,
+    "natal_palace_records": 24,
+    "target_snapshots": 4,
+    "temporal_scope_instances": 24,
+    "matrix_offset_checks": 24,
+    "inverse_checks": 24,
+    "composition_checks": 288,
+    "input_order_invariance_checks": 2,
+    "target_isolation_pairs": 2,
+    "raw_scope_mutagen_values": 96,
+    "raw_scope_mutagen_glyph_values": 0,
+    "raw_scope_mutagen_non_glyph_values": 96,
+    "temporal_star_objects": 204
+  },
+  "checks": {
+    "fixture_sha256_matches_manifest": true,
+    "source_row_hashes_match_manifest": true,
+    "twelve_unique_palace_identities_per_natal_chart": true,
+    "all_targets_have_six_scopes": true,
+    "all_temporal_palace_orders_are_unique_twelve_item_maps": true,
+    "input_order_invariant": true,
+    "index_matrix_equivalent": true,
+    "inverse_and_composition_laws_hold": true,
+    "target_temporal_signature_changes_without_natal_rebuild": true,
+    "raw_mutagen_domain_difference_flagged": true,
+    "canonical_acceptance": false,
+    "runtime_effect_allowed": false
+  },
+  "findings": [
+    {
+      "id": "MUTAGEN_DOMAIN_REQUIRES_CONTRACT_REVIEW",
+      "status": "REVIEW_REQUIRED",
+      "observation": "P1 full-exporter scope-level mutagen arrays contain transformed star names (for example 天梁 / 紫微 / 左辅 / 武曲), whereas the earlier toy temporal fixture used glyph-like values such as 科. The current adapter preserves each raw value as TRANSFORMATION_PRESENT(mutagen=<raw value>). v0.3 records the domain difference without reinterpreting it."
+    }
+  ],
+  "decision": "KEEP_INDEX_BASELINE; continue TEST_ONLY guarded-temporal research, but do not promote canonical reaction semantics until the mutagen value-domain contract is resolved.",
+  "not_evaluated": [
+    "source-transcribed full-chart equivalence",
+    "traditional semantic correctness",
+    "canonical temporal reaction rule eligibility",
+    "production performance or migration benefit",
+    "predictive validity or probability calibration"
+  ]
+}
