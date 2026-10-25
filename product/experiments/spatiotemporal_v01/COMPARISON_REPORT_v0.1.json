@@ -1,0 +1,199 @@
+{
+  "status": "TEST_ONLY_NOT_CANONICAL",
+  "policy": "TEST-THREE-VALUED-01",
+  "implementation_sha256": "6fe0bec1e9d3f896ab1b9e330232df1e1f93474c4675dbf269a1078141f4324c",
+  "fixture": {
+    "path": "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.1.json",
+    "sha256": "74e598b36a71d5a3058276658a2214a4f893a04278e2e44174c530a1a8985628",
+    "git_blob_sha": "d3683eface782c6397db617da1760b35ea8563d0",
+    "kind": "ACCEPTED_SYNTHETIC_ENGINEERING_DEMO",
+    "scope_slots": 2,
+    "natal_empty": true
+  },
+  "checks": {
+    "all_12_offsets_agree": true,
+    "all_12_inverses": true,
+    "all_144_compositions": true,
+    "input_unchanged": true,
+    "all_traces_replay": true
+  },
+  "baseline_observation": {
+    "missing_none_of_returns": true,
+    "experimental_missing_none_of": "UNKNOWN",
+    "production_bug_claimed": false
+  },
+  "operation_counts_per_12_by_2_view": {
+    "index_row_lookups": 12,
+    "dense_matrix_multiply_terms": 288,
+    "timing_benchmark": "NOT_RUN"
+  },
+  "rules": [
+    {
+      "all_of": [
+        "atom:{\"args\":{\"layer\":\"YEAR\",\"star\":\"天马\"},\"type\":\"STAR_PRESENT\"}"
+      ],
+      "any_of": [],
+      "canonical_accepted": false,
+      "execution_id": "03e15cbe387804fbe447fa939401c9d185aed3064bbd06c349a5f209218a407b",
+      "implementation_sha256": "6fe0bec1e9d3f896ab1b9e330232df1e1f93474c4675dbf269a1078141f4324c",
+      "none_of": [],
+      "policy": "TEST-THREE-VALUED-01",
+      "rule_id": "TEST-PRESENT",
+      "runtime_effect_allowed": false,
+      "scope": {
+        "layer": "YEAR",
+        "snapshot_sha256": "e7c4d8ced12a96b6b41aa2d1fd06d425744df923ba348b3ea7ecf9102fd6516a",
+        "target_id": "T-DEMO"
+      },
+      "status": "TEST_ONLY_NOT_CANONICAL",
+      "trace": [
+        {
+          "atom": "atom:{\"args\":{\"layer\":\"YEAR\",\"star\":\"天马\"},\"type\":\"STAR_PRESENT\"}",
+          "input_id": "84ebfa824d93e31c0b7744e91af8e3eee555d2e5af3cdb4ae2e8df7a1730c639",
+          "negative": false,
+          "positive": true,
+          "predicate_complete": false,
+          "reasons": [
+            "EXPLICIT_PRESENT"
+          ],
+          "truth": "TRUE"
+        }
+      ],
+      "verdict": {
+        "reasons": [
+          "EXPLICIT_PRESENT"
+        ],
+        "truth": "TRUE"
+      }
+    },
+    {
+      "all_of": [],
+      "any_of": [],
+      "canonical_accepted": false,
+      "execution_id": "ac62d87476ba738456803d61c25d6601d91a0deb2b2d71850b93db7a9d8057c5",
+      "implementation_sha256": "6fe0bec1e9d3f896ab1b9e330232df1e1f93474c4675dbf269a1078141f4324c",
+      "none_of": [
+        "atom:{\"args\":{\"layer\":\"YEAR\",\"star\":\"TEST-MISSING\"},\"type\":\"STAR_PRESENT\"}"
+      ],
+      "policy": "TEST-THREE-VALUED-01",
+      "rule_id": "TEST-ABSENT-NEGATION",
+      "runtime_effect_allowed": false,
+      "scope": {
+        "layer": "YEAR",
+        "snapshot_sha256": "e7c4d8ced12a96b6b41aa2d1fd06d425744df923ba348b3ea7ecf9102fd6516a",
+        "target_id": "T-DEMO"
+      },
+      "status": "TEST_ONLY_NOT_CANONICAL",
+      "trace": [
+        {
+          "atom": "atom:{\"args\":{\"layer\":\"YEAR\",\"star\":\"TEST-MISSING\"},\"type\":\"STAR_PRESENT\"}",
+          "input_id": "fdad90243981e464289ab398b65bc5baead7d1b502090c4298e3cce39bd1ef4b",
+          "negative": false,
+          "positive": false,
+          "predicate_complete": false,
+          "reasons": [
+            "MISSING_WITHOUT_COMPLETENESS"
+          ],
+          "truth": "UNKNOWN"
+        }
+      ],
+      "verdict": {
+        "reasons": [
+          "MISSING_WITHOUT_COMPLETENESS"
+        ],
+        "truth": "UNKNOWN"
+      }
+    },
+    {
+      "all_of": [
+        "atom:{\"args\":{\"layer\":\"YEAR\",\"mutagen\":\"科\"},\"type\":\"TRANSFORMATION_PRESENT\"}"
+      ],
+      "any_of": [],
+      "canonical_accepted": false,
+      "execution_id": "fb2d35c2fe794f100080c163880b249fcacecfafc81b8530e2a707bebbe74714",
+      "implementation_sha256": "6fe0bec1e9d3f896ab1b9e330232df1e1f93474c4675dbf269a1078141f4324c",
+      "none_of": [],
+      "policy": "TEST-THREE-VALUED-01",
+      "rule_id": "TEST-SCOPE-TRANSFORMATION",
+      "runtime_effect_allowed": false,
+      "scope": {
+        "layer": "YEAR",
+        "snapshot_sha256": "e7c4d8ced12a96b6b41aa2d1fd06d425744df923ba348b3ea7ecf9102fd6516a",
+        "target_id": "T-DEMO"
+      },
+      "status": "TEST_ONLY_NOT_CANONICAL",
+      "trace": [
+        {
+          "atom": "atom:{\"args\":{\"layer\":\"YEAR\",\"mutagen\":\"科\"},\"type\":\"TRANSFORMATION_PRESENT\"}",
+          "input_id": "d62dbc9cb83090b5dd11bdf3a7852a77758c3ed5159fbb6baf41047d321c6e46",
+          "negative": false,
+          "positive": true,
+          "predicate_complete": false,
+          "reasons": [
+            "EXPLICIT_PRESENT"
+          ],
+          "truth": "TRUE"
+        }
+      ],
+      "verdict": {
+        "reasons": [
+          "EXPLICIT_PRESENT"
+        ],
+        "truth": "TRUE"
+      }
+    },
+    {
+      "all_of": [
+        "atom:{\"args\":{\"layer\":\"YEAR\",\"mutagen\":\"科\",\"palace_name\":\"命宫\",\"star\":\"天马\"},\"type\":\"TRANSFORMATION_PRESENT\"}"
+      ],
+      "any_of": [],
+      "canonical_accepted": false,
+      "execution_id": "9c0a2a8afe97ca7333818b8ba184a4ac76bb48e293c891284c584043adce9505",
+      "implementation_sha256": "6fe0bec1e9d3f896ab1b9e330232df1e1f93474c4675dbf269a1078141f4324c",
+      "none_of": [],
+      "policy": "TEST-THREE-VALUED-01",
+      "rule_id": "TEST-NO-INVENTED-STAR-JOIN",
+      "runtime_effect_allowed": false,
+      "scope": {
+        "layer": "YEAR",
+        "snapshot_sha256": "e7c4d8ced12a96b6b41aa2d1fd06d425744df923ba348b3ea7ecf9102fd6516a",
+        "target_id": "T-DEMO"
+      },
+      "status": "TEST_ONLY_NOT_CANONICAL",
+      "trace": [
+        {
+          "atom": "atom:{\"args\":{\"layer\":\"YEAR\",\"mutagen\":\"科\",\"palace_name\":\"命宫\",\"star\":\"天马\"},\"type\":\"TRANSFORMATION_PRESENT\"}",
+          "input_id": "02b510dfa8102419409855022140f104d0c4c6635c183c9aa5cd31b2c29368b4",
+          "negative": false,
+          "positive": false,
+          "predicate_complete": false,
+          "reasons": [
+            "MISSING_WITHOUT_COMPLETENESS"
+          ],
+          "truth": "UNKNOWN"
+        }
+      ],
+      "verdict": {
+        "reasons": [
+          "MISSING_WITHOUT_COMPLETENESS"
+        ],
+        "truth": "UNKNOWN"
+      }
+    }
+  ],
+  "decision": "KEEP_INDEX_BASELINE_NO_PRODUCTION_MIGRATION",
+  "not_evaluated": [
+    "real_chart_coordinate_mapping",
+    "full_natal_occupancy",
+    "canonical_cross_layer_reaction_semantics",
+    "predictive_validity",
+    "rule_authoring_cost_in_real_corpus",
+    "runtime_performance"
+  ],
+  "next_core_questions": [
+    "predicate completeness / negation contract",
+    "cross-layer binding and temporal-instance contract"
+  ],
+  "canonical_accepted": false,
+  "runtime_effect_allowed": false
+}

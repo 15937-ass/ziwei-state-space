@@ -191,10 +191,12 @@ def test_product_recovery_state_is_snapshot_metadata_not_a_mutable_pinned_input(
 def test_product_recovery_state_cache_tracks_main_freshness_and_product_checkpoint():
     state = (ROOT / "product" / "PRODUCT_STATE.yaml").read_text(encoding="utf-8")
 
-    assert 'state_cache_as_of_main_commit: "3407150866a5ace99552daa674356b92610f080e"' in state
+    assert 'state_cache_as_of_main_commit: "74864f572cdd04407c241c483f3a34c646f69d3a"' in state
     assert 'state_cache_as_of_product_merge: "085e65c509fc5f9fed8230d00d2fc07a0e01b79b"' in state
-    assert 'state_cache_snapshot_date: "2026-10-23"' in state
-    assert 'next_work_unit: "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"' in state
+    assert 'state_cache_snapshot_date: "2026-10-25"' in state
+    assert 'next_work_unit: "PRODUCT_SPATIOTEMPORAL_ENGINEERING_PROBE_V0_1"' in state
+    assert "active_issue: 764" in state
+    assert "#715 / Draft PR #718 is PAUSED" in state
     assert "last_completed_product_issue: 696" in state
     assert "last_completed_product_pr: 698" in state
 

@@ -1,0 +1,48 @@
+{
+  "status": "TEST_ONLY_NOT_CANONICAL",
+  "baseline_commit": "74864f572cdd04407c241c483f3a34c646f69d3a",
+  "inputs": [
+    {
+      "path": "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.1.json",
+      "sha256": "74e598b36a71d5a3058276658a2214a4f893a04278e2e44174c530a1a8985628",
+      "git_blob_sha": "d3683eface782c6397db617da1760b35ea8563d0"
+    },
+    {
+      "path": "src/product/condition_atoms.py",
+      "sha256": "659b564c39dd135c2778ff9085a96fd0bdd5bec5cc6800b5809cbb2ceb7204ab",
+      "git_blob_sha": "949bf250ebffdb95f7123096e271397d73913559"
+    },
+    {
+      "path": "src/product/temporal_asset_adapter.py",
+      "sha256": "59e96363c60a7c4621b27b028ab79b880a46465d46904c896d8b37d5594118f6",
+      "git_blob_sha": "f383d97830f7ddf8e5bd7275e84bb0f1b967b892"
+    },
+    {
+      "path": "product/PRODUCT_KNOWLEDGE.lock.json",
+      "sha256": "e648bbbde76be9bf4183afd747d61f20fa910527331f5da3009815416518d820",
+      "git_blob_sha": "39985e1be3d974b414e683925f4a135c0dc69e91"
+    },
+    {
+      "path": "product/PL3T_TEMPORAL_REACTION_REGISTRY_v0.1.json",
+      "sha256": "1397090d3aa930a3f0e2f85773b6413141a041e8c97f4c1d7adb7ba2e991601e",
+      "git_blob_sha": "6749bd569dca1f593a7e437bd6a86c81a7d578c8"
+    },
+    {
+      "path": "product/PL3M_MANIFESTATION_ONTOLOGY_REGISTRY_v0.1.json",
+      "sha256": "1cee17cc6686c7ec01c35cae688b9d9ec07ee90cb59fa0ba20d153fd96bca3b8",
+      "git_blob_sha": "d1f5f5035ff7e5b51431fc2abc43ac844c84e2bf"
+    },
+    {
+      "path": "product/PL3M_MANIFESTATION_MAPPING_REGISTRY_v0.1.json",
+      "sha256": "ff46435c46a1de27cac83e107feca1fe70a5995e5eb445c9ff2e55ad2746f714",
+      "git_blob_sha": "367bc603b33d24bda7c66023c7e386f8cd0528eb"
+    }
+  ],
+  "fixture_limitations": [
+    "accepted fixture is an engineering demo, not a full source chart",
+    "natal is empty; each temporal scope has only two slots",
+    "no actual 12-palace temporal coordinate mapping is inferred"
+  ],
+  "synthetic_coordinate_input": "TEST_ONLY 12-slot ring with two binary occupancy columns",
+  "consumer_activation_allowed": false
+}
