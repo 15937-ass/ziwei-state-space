@@ -1,6 +1,6 @@
 # Execution Evidence — P05 Pojun source-first audit (Issue #770)
 
-Status: DRAFT — merge requires the latest exact-head repository-quality-gate run to pass.
+Status: DRAFT — source audit is complete; merge requires the latest exact-head repository-quality-gate run to pass.
 
 ## Source integrity and boundary
 - Approved source: SRC-ZZ-003, 《中州派紫微斗数深造讲义（下册）》.
