@@ -22,5 +22,14 @@ This change updates only P05 state-cache metadata and regression assertions. It 
 
 ## Validation
 
-- Exact-head validation: pending for the final state-sync PR head.
-- Full repository pytest, Product JS adapter/syntax check, deterministic P0 audit, Repository Governance v1 and P05 write-set validation must all pass before merge.
+Execution runtime: GitHub Actions standard public runner.
+Base commit: `c44056b0a762adaaefe95a8300b82b8d4d6f1159`
+Exact tested state/code/test head: `5ffdc83ca5f6ada3acf745522ae8d3b0a3902afa`
+Workflow run: [#40192163986](https://github.com/15937-ass/ziwei-state-space/actions/runs/40192163986) (run #2679).
+
+- Full repository pytest: **PASS** — 2752 passed, 132 subtests passed in 235.17s.
+- Product JS adapter / syntax check: **PASS**.
+- Deterministic P0 repository audit: **PASS**.
+- Repository Governance v1 and P05 write-set validation: **PASS**.
+
+This evidence validates the exact state/code/test head above. The evidence-file update creates a new PR head; that final evidence head must pass the same full repository gate before PR #781 is marked ready or merged.
