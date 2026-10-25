@@ -69,4 +69,8 @@
 - 财荫夹/刑忌夹如何表达为条件关系，同时不把结构条件误当成固定内在量值。
 - ZZ-TX-009/ZZ-TX-010 的相关星系来源跨度尚未审查。
 
-| GAP-TX-10 | 扫描字面与 canonical target 不一致 | 印刷页46图像可见“是非尤的徵兆”，canonical target literal 写作“是非怨尤” | 保留扫描可见文字；不静默补入“怨”；相关映射仍 needs_review | 仅凭权威异本或来源负责人裁决解决，canonical source flags 继续 false |
+### GAP-TX-10 — 扫描字面与 canonical target 不一致
+
+- 证据：印刷页46图像可见“是非尤的徵兆”，canonical target literal 写作“是非怨尤”。
+- 当前处理：保留扫描可见文字；不静默补入“怨”；相关映射仍 `needs_review`，canonical source flags 继续 `false`。
+- 后续需要：仅凭权威异本或来源负责人裁决解决。
