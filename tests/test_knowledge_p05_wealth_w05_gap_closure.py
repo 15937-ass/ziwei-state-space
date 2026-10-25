@@ -100,26 +100,17 @@ def test_time_scope_and_cumulative_summary_reconcile():
     assert summary["human_gate_required"] is False
 
 
-def test_p05_state_cache_preserves_historical_batch_and_open_gap():
+def test_p05_state_cache_tracks_tianxiang_and_preserves_historical_w05_gap():
     state = STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
-    assert "active_issue: null" in state
-    assert "active_branch: null" in state
-    assert "active_pr: null" in state
-    assert "merged_rule_count: 642" in state
+    assert 'status: "ACTIVE"' in state
+    assert "active_issue: 746" in state
+    assert 'active_branch: "knowledge/p05-746-source-first-tianxiang-p87-p88-r3"' in state
+    assert "W05_401_500_SOURCE_FIRST_MERGED" in state
     assert "Post-merge P05 total is 563 canonical reusable rules." in state
-    assert "reviewed_rule_count: 500" in state
-    assert "current_batch_rule_count: 42" in state
-    assert "source_first_records_added_current_batch: 42" in state
     assert "source_gap_supplement_record_count: 4" in state
     assert "source_coverage_gaps_closed_by_supplement: 2" in state
     assert "source_coverage_gaps_partially_resolved_by_supplement: 1" in state
-    assert "source_coverage_gaps_remaining: 6" in state
-    assert "source_coverage_gap_count_current_batch: 0" in state
-    assert "source_uncertainty_count_current_batch: 0" in state
-    assert "path_dependent_gate_count_current_batch: 4" in state
     assert "W06-SG-001" in state and "W06-SG-004" in state and "W06-SG-005" in state
     assert "W05-SG-002 remains PARTIALLY_RESOLVED" in state
-    assert "printed p87" in state and "11 天相" in state
-    assert "Carry W05-SG-002 as PARTIALLY_RESOLVED" in state
+    assert "12 天梁" in state
     assert "No Product/runtime authorization is implied" in state
