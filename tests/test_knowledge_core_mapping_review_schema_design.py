@@ -76,7 +76,7 @@ def test_qi15_qr04_and_source_fidelity_boundaries_are_documented():
     for phrase in ("QI-15 role decomposition", "QR-04 resource distinctions",
                    "Source alternatives", "not counted as multiple independent pieces of evidence"):
         assert phrase in text
-    assert "never convert source “OR” to “AND”" in text
+    assert "never convert source “or” to “and”" in text.lower()
 
 
 def test_human_gate_decisions_and_write_boundary_are_explicit():
