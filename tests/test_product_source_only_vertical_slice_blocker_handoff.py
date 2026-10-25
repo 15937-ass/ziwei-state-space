@@ -191,7 +191,7 @@ def test_product_recovery_state_is_snapshot_metadata_not_a_mutable_pinned_input(
 def test_product_recovery_state_cache_tracks_main_freshness_and_product_checkpoint():
     state = (ROOT / "product" / "PRODUCT_STATE.yaml").read_text(encoding="utf-8")
 
-    assert 'state_cache_as_of_main_commit: "74864f572cdd04407c241c483f3a34c646f69d3a"' in state
+    assert 'state_cache_as_of_main_commit: "5e3b26d8ad5d49152bf9cc44339f53e9db43d803"' in state
     assert 'state_cache_as_of_product_merge: "085e65c509fc5f9fed8230d00d2fc07a0e01b79b"' in state
     assert 'state_cache_snapshot_date: "2026-10-25"' in state
     assert 'next_work_unit: "PRODUCT_SPATIOTEMPORAL_ENGINEERING_PROBE_V0_1"' in state

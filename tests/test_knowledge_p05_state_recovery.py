@@ -12,11 +12,12 @@ def load(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def test_p05_state_cache_tracks_live_tianxiang_work_and_preserves_historical_checkpoints():
+def test_p05_state_cache_tracks_live_tianliang_work_and_preserves_historical_checkpoints():
     state = STATE.read_text(encoding="utf-8")
     assert 'status: "ACTIVE"' in state
-    assert "active_issue: 746" in state
-    assert 'active_branch: "knowledge/p05-746-source-first-tianxiang-p87-p88-r4"' in state
+    assert "active_issue: 760" in state
+    assert 'active_branch: "knowledge/p05-760-source-first-tianliang-p88-p90"' in state
+    assert "active_pr: 762" in state
     assert "W05_401_500_SOURCE_FIRST_MERGED" in state
     assert "main commit 7bf664fc87db20bfe02ef0020785b91dd62cbbdf" in state
     assert "current main commit 74087c97afffc5afa4821f8edb21ff42aea6eb6b" in state
@@ -26,7 +27,7 @@ def test_p05_state_cache_tracks_live_tianxiang_work_and_preserves_historical_che
     assert "W05-SG-001" in state and "W05-SG-003" in state
     assert "W06-SG-001" in state and "W06-SG-004" in state and "W06-SG-005" in state
     assert "source_gap_supplement_record_count: 4" in state
-    assert "source_coverage_gaps_remaining: 8" in state
+    assert "source_coverage_gaps_remaining: 11" in state
     assert "W05-SG-002 remains PARTIALLY_RESOLVED" in state
     assert "12 天梁" in state
     assert "No Product/runtime authorization is implied" in state
