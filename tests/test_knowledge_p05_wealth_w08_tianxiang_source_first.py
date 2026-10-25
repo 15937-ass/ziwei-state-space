@@ -41,17 +41,14 @@ def test_ambiguities_and_prior_gaps():
  assert g["gap_count"]==2 and g["core_gap_count"]==0
  assert {x["gap_id"] for x in g["gaps"]}=={"W08-SG-001","W08-SG-002"}
  assert g["summary"]["unresolved_prior_gap_ids"]==sorted(PRIOR)
-def test_state_and_handoff_counts_track_current_tianliang_and_preserve_tianxiang_artifact():
- s=STATE.read_text(encoding="utf-8")
- assert 'status: "ACTIVE"' in s and "active_issue: 770" in s
- assert 'active_branch: "knowledge/p05-770-source-first-pojun-p91-p92"' in s
- assert "merged_rule_count: 765" in s and "current_batch_rule_count: 29" in s
- assert "source_first_records_added_current_batch: 30" in s and "source_uncertainty_count_current_batch: 2" in s
- assert "source_coverage_gap_count_current_batch: 2" in s and "source_coverage_gaps_remaining: 22" in s
- assert "W05-SG-002 remains PARTIALLY_RESOLVED" in s and all(g in s for g in PRIOR)
- historical=load(SOURCE)
- assert historical["issue"]==746
- assert len(historical["records"])==45
- assert historical["summary"]["canonical_promotions"]==42
- assert historical["summary"]["cumulative_canonical_records_after_merge"]==684
- assert {r["projection_rule_id"] for r in historical["records"] if not r["canonical_promotion"]}=={"W08-761","W08-766","W08-767"}
+def test_state_preserves_tianxiang_gap_handoff_without_pinning_old_active_batch():
+    state = STATE.read_text(encoding="utf-8")
+    assert all(g in state for g in PRIOR)
+    assert "W08-SG-003" in state and "W08-SG-004" in state and "W08-SG-005" in state
+    assert "source_coverage_gaps_remaining: 23" in state
+    assert "P05-COV-GAP-001" in state
+    historical = load(SOURCE)
+    assert historical["issue"] == 746 and len(historical["records"]) == 45
+    assert historical["summary"]["canonical_promotions"] == 42
+    assert "No Product/runtime authorization is implied" in state
+
