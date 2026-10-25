@@ -23,10 +23,11 @@ The fixture uses compact positional encoding only to avoid duplicating the same 
 - explicit TEST_ONLY temporal guards, including a palace-bound YEAR star that changes palace between targets;
 - raw scope-level `mutagen` values versus condition facts derived by the current adapter.
 
-## Finding boundary
+## Finding boundary: scope-level mutagen is not the glyph
 
-The P1 exporter’s scope-level `mutagen` arrays contain transformed star names (e.g. 天梁 / 紫微 / 左辅 / 武曲), while the earlier tiny test fixture used glyph-like values (e.g. 科). The current adapter preserves the raw array values as `TRANSFORMATION_PRESENT(mutagen=<value>)`. v0.3 records this representation difference for contract review; it does not reinterpret or patch it.
+The pinned upstream **iztro v2.6.1** type declares `HoroscopeItem.mutagen: StarName[]` ([source at the exact tag](https://github.com/SylarLong/iztro/blob/v2.6.1/src/data/types/astro.ts)); its separate `Mutagen` type represents the four transformation labels (禄、权、科、忌; [type definition](https://github.com/SylarLong/iztro/blob/v2.6.1/src/i18n/types/mutagen.ts)). In the selected projection, all 96 scope-level entries are star names and each is present in the corresponding natal star inventory.
 
+This means the earlier toy fixture's glyph-like `mutagen` values are inconsistent with the pinned upstream scope type. The current adapter preserves those scope-level names but serializes them as `TRANSFORMATION_PRESENT(mutagen=<raw value>)`. That serialization must not be interpreted as specifying a particular glyph or a star-to-glyph binding. The upstream scope list alone does not tell us which of 禄、权、科、忌 is attached to each named star. v0.3 records this semantic-mapping gap; it does not change the production adapter or invent the missing association.
 ## Non-goals
 
 No source truth claim, canonical reaction-rule acceptance, inference-runtime change, KIB promotion, production migration, predictive-validity claim, performance claim, or universal temporal-layer priority.
