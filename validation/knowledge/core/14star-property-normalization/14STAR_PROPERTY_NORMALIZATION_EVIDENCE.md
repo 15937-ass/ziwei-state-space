@@ -49,9 +49,10 @@
 
 - Source: SRC-ZZ-002, 《中州派紫微斗数深造讲义（上）》.
 - SHA-256: 1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a, matches sources/source_index.csv.
-- Visually inspected PDF scan page 13, which displays printed pages 25–26.
-- The dedicated TIANXIANG_SOURCE_SPAN_REVIEW_v0.1.csv records 25 canonical rows on that spread. ZZ-TX-009 and ZZ-TX-010 point to related star-system material and are explicitly not adjudicated here.
+- Visually inspected PDF scan page 13, which displays printed pages 25–26. Because the canonical locator for ZZ-TX-005/006 did not match that spread, also inspected PDF scan page 24 / printed p46 and corrected their locator in the research sidecar only.
+- The dedicated TIANXIANG_SOURCE_SPAN_REVIEW_v0.1.csv records 25 in-scope rule IDs. The main span is printed pp25–26; ZZ-TX-005/006 are directly verified on printed p46 after locator correction. ZZ-TX-009 and ZZ-TX-010 have a related-star locator lead on printed p47 but remain explicitly out of scope and are not adjudicated here.
 - Added 19 grouped source claims, 19 target-specific mapping-review records, Tianxiang gap/PI observations, and regression tests.
-- Key finding: the source's direct emphasis is on contextual dependence and clamp/relational structure; it does not directly establish a fixed intrinsic QI-02 softness baseline. Some existing canonical targets (notably the softness/ability transformations and specific TianTong/JuMen HuaJi outcomes) remain source-span mismatches or unresolved in this bounded pass.
+- Key finding: the source's direct emphasis is on contextual dependence and clamp/relational structure; it does not directly establish a fixed intrinsic QI-02 softness baseline. The specific TianTong/JuMen HuaJi branches are located on printed p46; the p46 scan visibly reads `是非尤的徵兆`, while the canonical target literal is `是非怨尤`, so that wording remains unresolved.
 - All candidate claims remain PROPOSAL_ONLY_NOT_CANONICAL; no canonical source flag, normalization epistemic status, ontology ID, Product/runtime, KIB lock, or consumer permission is changed.
 - The new Tianxiang exact-head quality gate must pass before the next step. The prior Sun/Taiyin green runs do not transfer to this new head.
+- The canonical rules CSV, star cores, star systems, ontology and Product/runtime files remain unchanged; only research sidecars/card/evidence are updated.
