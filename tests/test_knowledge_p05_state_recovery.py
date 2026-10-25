@@ -12,22 +12,29 @@ def load(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def test_p05_state_cache_tracks_active_lianzheng_tail_audit_and_historical_checkpoints():
+def test_p05_state_cache_tracks_accepted_lianzheng_tail_handoff_and_historical_checkpoints():
     state = STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE"' in state
-    assert "active_issue: 777" in state
-    assert 'active_branch: "knowledge/p05-777-source-first-lianzhen-tail-p81-p82"' in state
-    assert "merged_rule_count: 794" in state
+    assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
+    assert "active_issue: null" in state
+    assert "active_branch: null" in state
+    assert "active_pr: null" in state
+    assert "merged_rule_count: 831" in state
     assert "reviewed_rule_count: 844" in state
+    assert "current_batch_rule_count: 0" in state
+    assert "source_first_records_added_current_batch: 0" in state
+    assert "source_first_review_records_current_main: 844" in state
+    assert "unpromoted_source_first_records_current_main: 17" in state
+    assert "record_level_uncertainty_annotation_count: 8" in state
     assert "source_coverage_gaps_remaining: 26" in state
     assert "P05-COV-GAP-001" in state
-    assert "source_coverage_census_status: \"SOURCE_SPAN_ACCOUNTED_PENDING_ACCEPTANCE\"" in state
+    assert "source_coverage_census_status: \"COMPLETE_WITH_EXPLICIT_RESIDUAL_AMBIGUITIES\"" in state
     assert "W05_401_500_SOURCE_FIRST_MERGED" in state
     assert "main commit 7bf664fc87db20bfe02ef0020785b91dd62cbbdf" in state
     assert "W08_701_742_JUMEN_P86_P87_SOURCE_FIRST_42_PROMOTED" in state
     assert "P05 canonical reusable rule count after this checkpoint is 642" in state
     assert "W05-SG-002 remains PARTIALLY_RESOLVED" in state
-    assert "Do not activate P09 before #777 merges" in state
+    assert "Next scheduled palace is P09 under Governance #676" in state
+    assert "do not re-extract P09's accepted 888 source records" in state
     assert "No Product/runtime authorization is implied" in state
 
 def test_w05_accepted_batch_summary_reconciles():
