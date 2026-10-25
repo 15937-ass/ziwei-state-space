@@ -103,8 +103,8 @@ def test_time_scope_and_cumulative_summary_reconcile():
 def test_p05_state_cache_tracks_qisha_and_preserves_historical_w05_gap():
     state = STATE.read_text(encoding="utf-8")
     assert 'status: "ACTIVE"' in state
-    assert "active_issue: 765" in state
-    assert 'active_branch: "knowledge/p05-765-source-first-qisha-p90-p91"' in state
+    assert "active_issue: 770" in state
+    assert 'active_branch: "knowledge/p05-770-source-first-pojun-p91-p92"' in state
     assert "W05_401_500_SOURCE_FIRST_MERGED" in state
     assert "Post-merge P05 total is 563 canonical reusable rules." in state
     assert "source_gap_supplement_record_count: 4" in state
