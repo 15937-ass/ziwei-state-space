@@ -1,6 +1,6 @@
 # Execution Evidence — P05 Tianliang source-first audit (Issue #760)
 
-Status: DRAFT — exact-head repository validation pending.
+Status: DRAFT — final exact-head repository validation pending.
 
 ## Source integrity and boundary
 - Approved source: SRC-ZZ-003, 《中州派紫微斗数深造讲义（下册）》.
@@ -22,7 +22,8 @@ Status: DRAFT — exact-head repository validation pending.
 P05-only paths: Tianliang readjudication, time-scope and gap sidecars, canonical summary, P05 state, P05 tests, and this execution evidence. No Product, Governance, shared Core, historical candidate index, or other-palace paths are changed.
 
 ## Validation
-- Exact base at branch creation: `28668b1354e8c9f86991b8c25a5b8ea62afce898`.
-- Exact head and GitHub Actions run: pending.
+- Latest synchronized base after Core PR #758 merged: `74864f572cdd04407c241c483f3a34c646f69d3a`.
+- The P05 branch was reconstituted on that current main after the independent Core merge; the ten-file P05 write set remains isolated, with no Core/Product/Governance overlap.
+- Final exact head: resolve from PR #762 metadata after this evidence update. The latest repository-quality-gate run must have a `head_sha` equal to the PR head before acceptance; run URL and exact SHA will be recorded in the PR handoff.
 - Full pytest, Product JS adapter checks, deterministic P0 gate, Repository Governance v1, and P05 shard/write-set validation: pending. Do not merge until all required exact-head gates pass.
 - No Product/runtime authorization or empirical predictive-validity claim is implied.
