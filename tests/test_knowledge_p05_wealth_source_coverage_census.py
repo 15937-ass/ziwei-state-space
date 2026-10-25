@@ -81,6 +81,11 @@ def test_w10_source_first_records_and_four_holds_reconcile():
     assert all(r["time_layer"] in {"NATAL", "YEAR"} for r in data["records"])
     assert "顺耳" in next(r["source_digest"] for r in data["records"] if r["projection_rule_id"] == "W10-925")
     assert "至少" in next(r["source_digest"] for r in data["records"] if r["projection_rule_id"] == "W10-926")
+    assert next(r["source_digest"] for r in data["records"] if r["projection_rule_id"] == "W10-923") == "丑未宫『廉贞，七杀』同度，在未宫为『雄宿乾元格』，若得禄则可成富格，唯仍须历艰辛。"
+    assert next(r["source_digest"] for r in data["records"] if r["projection_rule_id"] == "W10-925") == "唯财源不如在未宫之畅顺耳。"
+    assert next(r["source_digest"] for r in data["records"] if r["projection_rule_id"] == "W10-941") == "若同时见煞刑耗曜，且主词讼。"
+    assert "二者任一化禄" in next(r["canonical_condition"] for r in data["records"] if r["projection_rule_id"] == "W10-955")
+    assert "与火铃同度" in next(r["canonical_condition"] for r in data["records"] if r["projection_rule_id"] == "W10-955")
     assert data["summary"]["cumulative_reusable_projection_rules_after_merge"] == 830
 
 def test_w10_time_scope_preserves_only_the_explicit_year_condition():
