@@ -20,9 +20,9 @@ def load_baseline():
 def test_solar_taiyin_and_tianxiang_pilots_are_explicitly_noncanonical_and_source_bounded():
     data = load_baseline()
     assert data["status"] == "PROPOSAL_ONLY_NOT_CANONICAL"
-    assert data["checkpoint_status"] == "IN_PROGRESS_STAGE_A_TIANXIANG_PILOT"
-    assert data["progress"]["completed_pilot_cards"] == ["太阳", "太阴"]
-    assert data["progress"]["active_pilot_card"] == "天相"
+    assert data["checkpoint_status"] == "READY_FOR_PI_METHOD_DECISION_STAGE_A_COMPLETE"
+    assert data["progress"]["completed_pilot_cards"] == ["太阳", "太阴", "天相"]
+    assert data["progress"]["active_pilot_card"] is None
     assert data["progress"]["draft_pilot_cards"] == ["太阳", "太阴", "天相"]
     assert data["progress"]["remaining_pilot_cards"] == []
     assert data["source_policy"]["source_id"] == "SRC-ZZ-002"
@@ -38,7 +38,7 @@ def test_solar_taiyin_and_tianxiang_pilots_are_explicitly_noncanonical_and_sourc
     assert data["stars"][1]["name"] == "太阴"
     assert data["stars"][1]["status"] == "PILOT_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert data["stars"][2]["name"] == "天相"
-    assert data["stars"][2]["status"] == "PILOT_CHECKPOINT_IN_PROGRESS"
+    assert data["stars"][2]["status"] == "PILOT_CHECKPOINT_COMPLETED_NOT_FINAL"
 
 
 def test_solar_mapping_review_records_validate_against_accepted_v01_contract():
@@ -214,3 +214,28 @@ def test_tianxiang_context_and_clamp_branches_are_not_promoted_to_intrinsic_qi02
     firebell = claims["TX-FIREBELL-GATE"]
     assert set(firebell["source_rule_ids"]) == {"ZZ-TX-008", "ZZ-TX-Y06"}
     assert all(prop["canonicalization_authorized"] is False and prop["numeric_strength_assigned"] is False for prop in tianxiang["candidate_properties"])
+
+
+def test_three_star_cross_comparison_is_complete_but_not_canonical_or_product_ready():
+    data = load_baseline()
+    comparison = data["cross_star_comparison"]
+    assert comparison["status"] == "COMPLETED_RESEARCH_COMPARISON_NOT_PI_APPROVED"
+    assert comparison["scope"] == ["太阳", "太阴", "天相"]
+    axes = {row["axis_id"]: row for row in comparison["comparison_axes"]}
+    assert {
+        "L0_STRUCTURE_METADATA",
+        "L1_INTRINSIC_BASELINE_CANDIDATES",
+        "CONDITIONS_AND_STATE_CHANGE",
+        "L2_RELATIONSHIP_AND_CONTEXT",
+        "L3_PROJECTION_OR_OUTCOME",
+        "PROVENANCE_AND_EPISTEMIC_BOUNDARY",
+    } <= set(axes)
+    assert comparison["method_adequacy"]["accepted_v01_mapping_review_schema_sufficient_for_pilot_record_shape"] is True
+    assert comparison["method_adequacy"]["shared_schema_extension_required_for_this_pilot"] is False
+    assert comparison["method_adequacy"]["manual_semantic_review_required"] is True
+    assert comparison["pi_method_decision_required_before_expansion"] is True
+    assert comparison["pi_method_recommendation"] == "ACCEPT_METHOD_FOR_STAGE_B_WITHOUT_CANONICALIZATION"
+    assert data["method_guardrails"]["candidate_canonicalization_authorized"] is False
+    assert data["method_guardrails"]["product_consumption_authorized"] is False
+    assert data["pilot_checkpoint_validation"]["run_id"] == 40169844516
+    assert data["pilot_checkpoint_validation"]["conclusion"] == "success"
