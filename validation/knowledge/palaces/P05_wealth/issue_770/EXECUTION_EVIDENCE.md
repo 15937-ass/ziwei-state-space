@@ -24,6 +24,6 @@ P05-only paths: Pojun readjudication, time-scope and gap sidecars, canonical sum
 ## Validation
 - Exact base: `cb48ac8fe6316eb9644448c99c596b72d72776c3` (accepted Qisha PR #767 merged).
 - Branch: `knowledge/p05-770-source-first-pojun-p91-p92`.
-- Exact final head and repository-quality-gate run are to be recorded in the PR handoff after the final state-pointer commit.
+- Draft PR: #771. Exact final head and repository-quality-gate run will be recorded in the PR handoff after the final state-pointer commit.
 - Merge requires full pytest, Product JS adapter checks, deterministic P0, Repository Governance v1 and P05 shard/write-set validation to pass on that exact head.
 - No Product/runtime authorization or empirical predictive-validity claim is implied.
