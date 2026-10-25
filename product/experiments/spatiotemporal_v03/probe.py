@@ -200,11 +200,18 @@ def make_report() -> dict[str, Any]:
     composition_checks = 0
     order_checks = 0
     mutagen_values: list[str] = []
+    mutagen_values_not_in_natal: list[tuple[str, str]] = []
     temporal_star_objects = 0
     target_isolation_pairs = 0
 
     for record in records:
         columns, rows = occupancy_matrix(record, vocab)
+        natal_star_names = {
+            star
+            for row in record["natal"].values()
+            for star_group in row[1:]
+            for star in star_group
+        }
         natal_palace_records += len(record["natal"])
         reversed_record = dict(record)
         reversed_record["natal"] = dict(reversed(list(record["natal"].items())))
@@ -246,7 +253,11 @@ def make_report() -> dict[str, Any]:
                 layer_instances += 1
                 if len(scope["palace_names"]) != 12 or len(set(scope["palace_names"])) != 12:
                     raise ValueError(f"{record['id']}: {scope_key} palace mapping is incomplete or duplicated")
-                mutagen_values.extend(str(value) for value in scope["mutagen"])
+                for value in scope["mutagen"]:
+                    raw_value = str(value)
+                    mutagen_values.append(raw_value)
+                    if raw_value not in natal_star_names:
+                        mutagen_values_not_in_natal.append((record["id"], raw_value))
                 for group in scope["stars"]:
                     temporal_star_objects += len(group)
 
@@ -280,6 +291,7 @@ def make_report() -> dict[str, Any]:
             "raw_scope_mutagen_values": len(mutagen_values),
             "raw_scope_mutagen_glyph_values": glyph_count,
             "raw_scope_mutagen_non_glyph_values": non_glyph_count,
+            "raw_scope_mutagen_values_not_in_natal_star_names": len(mutagen_values_not_in_natal),
             "temporal_star_objects": temporal_star_objects,
         },
         "checks": {
@@ -292,15 +304,16 @@ def make_report() -> dict[str, Any]:
             "index_matrix_equivalent": matrix_checks == len(records) * 12,
             "inverse_and_composition_laws_hold": inverse_checks == len(records) * 12 and composition_checks == len(records) * 144,
             "target_temporal_signature_changes_without_natal_rebuild": target_isolation_pairs == len(records),
+            "scope_mutagen_values_are_natal_star_names": not mutagen_values_not_in_natal,
             "raw_mutagen_domain_difference_flagged": glyph_count == 0 and non_glyph_count == len(mutagen_values),
             "canonical_acceptance": False,
             "runtime_effect_allowed": False,
         },
         "findings": [
             {
-                "id": "MUTAGEN_DOMAIN_REQUIRES_CONTRACT_REVIEW",
-                "status": "REVIEW_REQUIRED",
-                "observation": "P1 full-exporter scope-level mutagen arrays contain transformed star names (for example 天梁 / 紫微 / 左辅 / 武曲), whereas the earlier toy temporal fixture used glyph-like values such as 科. The current adapter preserves each raw value as TRANSFORMATION_PRESENT(mutagen=<raw value>). v0.3 records the domain difference without reinterpreting it.",
+                "id": "SCOPE_MUTAGEN_STAR_NAME_DOMAIN_CONFIRMED",
+                "status": "SEMANTIC_MAPPING_GAP_CONFIRMED",
+                "observation": "The pinned upstream iztro v2.6.1 type defines HoroscopeItem.mutagen as StarName[] (src/data/types/astro.ts at v2.6.1, blob 2d692b84e9a28c6786c804078f06d34c4388125f), while Mutagen itself is the separate four-transformation type (禄/权/科/忌; src/i18n/types/mutagen.ts at v2.6.1, blob 268d2440e3ea024a07673942cbe313bfe752fca3; Simplified Chinese values at blob 7bb0325767a33ffc0c2e9c5952e3ac43c1978e80). In this pinned projection, all 96 scope-level mutagen entries are star names and all are present in the corresponding natal star inventory. The earlier toy fixture's glyph-like values do not match the pinned upstream type. The current adapter serializes these raw star names as TRANSFORMATION_PRESENT(mutagen=<star name>); that representation must not be read as identifying the specific transformation glyph or a star-to-glyph binding. This issue records the mismatch and does not alter production code.",
             }
         ],
         "decision": "KEEP_INDEX_BASELINE; continue TEST_ONLY guarded-temporal research, but do not promote canonical reaction semantics until the mutagen value-domain contract is resolved.",
