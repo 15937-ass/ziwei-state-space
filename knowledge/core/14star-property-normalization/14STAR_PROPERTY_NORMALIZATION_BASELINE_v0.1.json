@@ -3,7 +3,7 @@
   "artifact_id": "KB-CORE-14STAR-PROPERTY-NORMALIZATION-BASELINE-01",
   "issue": 757,
   "status": "PROPOSAL_ONLY_NOT_CANONICAL",
-  "checkpoint_status": "STAGE_B_ZIWEI_CHECKPOINT_COMPLETED_NOT_FINAL",
+  "checkpoint_status": "STAGE_B_TIANJI_CHECKPOINT_COMPLETED_NOT_FINAL",
   "activation_main_sha": "74864f572cdd04407c241c483f3a34c646f69d3a",
   "execution_branch": "knowledge/core-757-14star-property-normalization",
   "source_policy": {
@@ -189,10 +189,70 @@
       ],
       "verification": "VISUAL_SOURCE_REVIEWED; SHA256_MATCHES_SOURCES_INDEX",
       "canonical_source_span_verified_mutated": false
+    },
+    "tianji_review_rule_ids": [
+      "ZZ-TJ-001",
+      "ZZ-TJ-002",
+      "ZZ-TJ-003",
+      "ZZ-TJ-004",
+      "ZZ-TJ-005",
+      "ZZ-TJ-006",
+      "ZZ-TJ-007",
+      "ZZ-TJ-008",
+      "ZZ-TJ-009",
+      "ZZ-TJ-010",
+      "ZZ-TJ-011",
+      "ZZ-TJ-012",
+      "ZZ-TJ-013",
+      "ZZ-TJ-014",
+      "ZZ-TJ-015",
+      "ZZ-TJ-016",
+      "ZZ-TJ-017",
+      "ZZ-TJ-018",
+      "ZZ-TJ-019",
+      "ZZ-TJ-020",
+      "ZZ-TJ-021",
+      "ZZ-TJ-022",
+      "ZZ-TJ-023",
+      "ZZ-TJ-024",
+      "ZZ-TJ-025",
+      "ZZ-TJ-X01",
+      "ZZ-TJ-X02",
+      "ZZ-TJ-X03",
+      "ZZ-TJ-X04",
+      "ZZ-TJ-X05",
+      "ZZ-TJ-X06",
+      "ZZ-TJ-X07",
+      "ZZ-TJ-X08",
+      "ZZ-TJ-X09",
+      "ZZ-TJ-Y01",
+      "ZZ-TJ-Y02",
+      "ZZ-TJ-Y03",
+      "ZZ-TJ-Y04",
+      "ZZ-TJ-Y05"
+    ],
+    "tianji_review_path": "knowledge/core/14star-property-normalization/TIANJI_SOURCE_SPAN_REVIEW_v0.1.csv",
+    "tianji_prior_review_rule_ids": [
+      "ZZ-TJ-002",
+      "ZZ-TJ-005",
+      "ZZ-TJ-X01"
+    ],
+    "tianji_prior_review_path": "knowledge/core/direct-star-source-review/DIRECT_STAR_SOURCE_REVIEW_BATCH_01_v0.1.csv",
+    "tianji_source_locator": {
+      "source_id": "SRC-ZZ-002",
+      "source_work": "《中州派紫微斗数深造讲义（上）》",
+      "source_sha256": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a",
+      "pdf_scan_page": 4,
+      "printed_pages": [
+        7,
+        8
+      ],
+      "verification": "VISUAL_SOURCE_REVIEWED; SHA256_MATCHES_SOURCES_INDEX",
+      "canonical_source_span_verified_mutated": false
     }
   },
   "progress": {
-    "stage": "B_ZIWEI_CHECKPOINT_COMPLETED_READY_FOR_TIANJI",
+    "stage": "B_TIANJI_CHECKPOINT_COMPLETED_READY_FOR_WUQU",
     "completed_pilot_cards": [
       "太阳",
       "太阴",
@@ -200,7 +260,6 @@
     ],
     "remaining_pilot_cards": [],
     "remaining_expansion_stars_in_existing_order": [
-      "天机",
       "武曲",
       "天同",
       "廉贞",
@@ -211,7 +270,7 @@
       "七杀",
       "破军"
     ],
-    "coverage_warning": "Stage A pilots 太阳、太阴、天相 remain completed research checkpoints, not final canonical mappings. Stage B first bounded 紫微 checkpoint: 43 canonical ZZ-ZW rows on SRC-ZZ-002 printed pp5–6 (PDF scan page 3) visually reviewed. Canonical source_span_verified remains false and normalization_epistemic remains UNRESOLVED. Scope does not include the full sixty-star-system chapter or all Ziwei-related rules elsewhere. All mappings remain proposal-only; next star is 天机.",
+    "coverage_warning": "Stage A pilots 太阳、太阴、天相 remain completed research checkpoints, not final canonical mappings. Stage B has completed bounded candidate checkpoints for 紫微 (43 canonical ZZ-ZW rows, printed pp5–6 / PDF scan p3) and 天机 (39 canonical ZZ-TJ rows, printed pp7–8 / PDF scan p4). All canonical source_span_verified flags remain false and normalization_epistemic remains UNRESOLVED. Scope does not include the full sixty-star-system chapter or all related rules elsewhere. All mappings remain proposal-only; next star is 武曲.",
     "active_pilot_card": null,
     "draft_pilot_cards": [
       "太阳",
@@ -219,11 +278,13 @@
       "天相"
     ],
     "completed_expansion_stars": [
-      "紫微"
+      "紫微",
+      "天机"
     ],
     "active_expansion_star": null,
     "draft_expansion_stars": [
-      "紫微"
+      "紫微",
+      "天机"
     ],
     "expansion_checkpoint_history": [
       {
@@ -242,6 +303,24 @@
         "canonicalization_authorized": false,
         "product_consumption_authorized": false,
         "next_star": "天机"
+      },
+      {
+        "star": "天机",
+        "status": "CHECKPOINT_COMPLETED_NOT_FINAL",
+        "source_id": "SRC-ZZ-002",
+        "pdf_scan_page": 4,
+        "printed_pages": [
+          7,
+          8
+        ],
+        "canonical_rule_rows_reviewed": 39,
+        "source_review_rows": 39,
+        "prior_visual_review_rows_reused": 3,
+        "mapping_review_records_added": 17,
+        "normalization_epistemic": "UNRESOLVED",
+        "canonicalization_authorized": false,
+        "product_consumption_authorized": false,
+        "next_star": "武曲"
       }
     ]
   },
@@ -2197,6 +2276,573 @@
         "Scope is limited to SRC-ZZ-002 printed pp5–6 (PDF scan page 3), not the full sixty-star-system chapter or every Ziwei rule elsewhere.",
         "All candidates remain PROPOSAL_ONLY_NOT_CANONICAL; no canonicalization, formal ID, numeric weight, Product/runtime/KIB consumption, or consumer permission is authorized."
       ]
+    },
+    {
+      "star_id": "STAR-TJ",
+      "name": "天机",
+      "status": "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL",
+      "source_claims": [
+        {
+          "claim_key": "TJ-L0-SUBSTRATE",
+          "source_rule_ids": [
+            "ZZ-TJ-001"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 4,
+            "printed_page": 7
+          },
+          "source_excerpt": "天机为南斗第一星，属阴木。",
+          "claim_layer": "L0_STRUCTURE_METADATA",
+          "claim_summary": "阴木与南斗第一星身份属于传统结构元数据；不直接转换成QI方向、数值强度或五行生克效应。",
+          "candidate_target_ref": "STAR-TJ.substrate:yin_wood",
+          "conditions_to_preserve": [
+            "保留原始阴木标签",
+            "不从阴木推出QI方向、强度或生克效应"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P4:printed-p7:substrate",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TJ-STRATEGIC-ROLE-METAPHOR",
+          "source_rule_ids": [
+            "ZZ-TJ-X01"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 4,
+            "printed_page": 7
+          },
+          "source_excerpt": "天机被喻为谋士或军师。",
+          "claim_layer": "L1_DESCRIPTIVE_CANDIDATE_WITH_ROLE_LIMIT",
+          "claim_summary": "谋士/军师是来源采用的角色比喻，可支持谋略/规划描述候选；不等于现实能力测量、行动驱动分数或固定人格。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L1",
+          "conditions_to_preserve": [
+            "保留比喻语气",
+            "不等同于可测智力、执行力或QI-08",
+            "与外部星曜支持条件分开"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P4:printed-p7:strategist-metaphor",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TJ-COGNITIVE-SUPPORT-GATE",
+          "source_rule_ids": [
+            "ZZ-TJ-002",
+            "ZZ-TJ-005"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 4,
+            "printed_pages": [
+              7
+            ]
+          },
+          "source_excerpt": "需要带聪明才艺性质的星曜会合；文昌文曲在左右两宫相夹，前者增加天机的聪敏。",
+          "claim_layer": "CONDITIONAL_SAME_STAR_MODIFIER",
+          "claim_summary": "来源明确把聪敏/才艺的支持与指定星曜会合、昌曲左右相夹联系起来；这是条件/修饰证据，不自动证明无条件的高QI-07基线。",
+          "candidate_target_ref": "STAR-TJ.conditional_signature:QI-07",
+          "conditions_to_preserve": [
+            "会合带聪明才艺性质的星曜",
+            "昌曲在左右两宫相夹",
+            "文昌文曲的增益与其他星曜条件分开"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P4:printed-p7:cognitive-support",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TJ-FIREBELL-CLAMP-TRADEOFF",
+          "source_rule_ids": [
+            "ZZ-TJ-006",
+            "ZZ-TJ-007"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 4,
+            "printed_page": 7
+          },
+          "source_excerpt": "火星、铃星夹制；令天机心思不定，多劳多虑而少实际效果。",
+          "claim_layer": "CONDITIONAL_MODIFIER_AND_OUTCOME",
+          "claim_summary": "火铃夹制对应心思不定与实际成效下降；保留条件和结果两类目标，不合并成单一固定负向星性。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "火星、铃星相夹",
+            "心思不定与少实际效果分别记录",
+            "不转为无条件QI-03/QI-06负值"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P4:printed-p7:firebell-clamp",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TJ-RESOURCE-AND-NEAR-NOBLE",
+          "source_rule_ids": [
+            "ZZ-TJ-008",
+            "ZZ-TJ-009",
+            "ZZ-TJ-010"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 4,
+            "printed_page": 7
+          },
+          "source_excerpt": "喜欢依附权贵；寅申两宫紫贪与天府相夹一般有利；魁钺同宫或对拱谓之“一生近贵”。",
+          "claim_layer": "L2_RELATIONAL_SUPPORT_AND_RESOURCE_DEPENDENCE",
+          "claim_summary": "依附权贵、紫贪/天府夹持与魁钺近贵是不同的关系/支持门控；不将“近贵”倒推为天机固定内在能力。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "依附权贵的谋臣语境",
+            "紫贪与天府相夹限定寅/申宫",
+            "魁钺同宫或对拱为另一条件"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P4:printed-p7:resource-near-noble",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TJ-TIANQUE-RELATIONAL-GATE",
+          "source_rule_ids": [
+            "ZZ-TJ-011",
+            "ZZ-TJ-012",
+            "ZZ-TJ-X02"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 4,
+            "printed_pages": [
+              7,
+              8
+            ]
+          },
+          "source_excerpt": "庙旺太阳照射的巨门称为“天阙”；若天机与天阙相朝冲，主能得志、为世所用。",
+          "claim_layer": "L2_STAR_SYSTEM_RELATION_AND_L3_PROJECTION",
+          "claim_summary": "天阙由巨门及庙旺太阳条件构成，天机还须与天阙相朝冲；得志/用世是关系门控下的传统投影。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "巨门受庙旺太阳照射形成天阙",
+            "天机与天阙相朝冲",
+            "得志与为世所用属于条件性下游描述"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P4:printed-p7-8:tianque",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TJ-FOUR-TRANSFORMATIONS-NATAL",
+          "source_rule_ids": [
+            "ZZ-TJ-013",
+            "ZZ-TJ-014",
+            "ZZ-TJ-015",
+            "ZZ-TJ-016",
+            "ZZ-TJ-017",
+            "ZZ-TJ-X03"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 4,
+            "printed_page": 7
+          },
+          "source_excerpt": "化权能用于世；化科表示聪敏且归于正道；化禄为普通经商者的聪明才智与机变；化忌见煞空动曜可能流为奸僻。",
+          "claim_layer": "CONDITIONAL_TRANSFORMATION_AND_TRADITIONAL_EVALUATION",
+          "claim_summary": "四化分支的对象和结果不同：权偏用世、科偏聪敏/归正、禄偏经商机变、忌再遇煞空动曜才可能转为传统文本所说的奸僻；不得合并成统一增益/惩罚或无条件人格。",
+          "candidate_target_ref": "STAR-TJ.conditional_signature",
+          "conditions_to_preserve": [
+            "分别保留化权、化科、化禄、化忌分支",
+            "化忌与煞空动曜的组合条件不省略",
+            "“可能”语气保留",
+            "传统道德化词语不当作现代人格诊断"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P4:printed-p7:four-transformations",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TJ-TEMPORAL-NATAL-VS-LUCK",
+          "source_rule_ids": [
+            "ZZ-TJ-018"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 4,
+            "printed_page": 7
+          },
+          "source_excerpt": "本命所主者为人的本质，运限只是人的际遇；运限天机主要表示一种变化。",
+          "claim_layer": "TEMPORAL_REACTION_OR_SCOPE",
+          "claim_summary": "原文明示本命天机与流年/大运天机不是同一解释对象；运限层主要表示变化，不应回写为本命谋臣/军师人格。",
+          "candidate_target_ref": "STAR-TJ.conditional_signature:QI-03",
+          "conditions_to_preserve": [
+            "区分本命与流年/大运",
+            "运限不要求科文诸曜会合来证明本命聪明",
+            "不把运限变化回写为本命固定值"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P4:printed-p7:temporal-natal-luck",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TJ-TEMPORAL-KUIYUE-SEQUENCE",
+          "source_rule_ids": [
+            "ZZ-TJ-019",
+            "ZZ-TJ-020",
+            "ZZ-TJ-X04"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 4,
+            "printed_pages": [
+              7,
+              8
+            ]
+          },
+          "source_excerpt": "流魁、流钺冲起原局魁钺，才智得以发挥，由发挥而生变动。",
+          "claim_layer": "TEMPORAL_REACTION_SEQUENCE",
+          "claim_summary": "先有流魁/流钺在三方四正冲起原局魁钺，再描述运限内才智发挥，继而生变动；保留顺序与时间层，不压成一项本命基线。",
+          "candidate_target_ref": "STAR-TJ.conditional_signature:QI-03",
+          "conditions_to_preserve": [
+            "流魁、流钺在三方四正冲起原局魁钺",
+            "先才智发挥、后由发挥生变动",
+            "限于该运限"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P4:printed-p7-8:flow-kuiyue-sequence",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TJ-TEMPORAL-TRANSFORMATION-DIFFERENCES",
+          "source_rule_ids": [
+            "ZZ-TJ-021",
+            "ZZ-TJ-022",
+            "ZZ-TJ-Y02",
+            "ZZ-TJ-Y03"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 4,
+            "printed_page": 7
+          },
+          "source_excerpt": "运限天机化权仍重要；化禄主因变化或筹划得财禄；化科充其量代表一时名誉。",
+          "claim_layer": "TEMPORAL_REACTION_AND_L3_PROJECTION",
+          "claim_summary": "运限化权、化禄、化科有不同作用：权仍关乎发挥/用世，禄与变化/筹划及财禄相连，科主要是一时名誉；不能将运限效果混成本命性质。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "仅运限语境",
+            "化权/化禄/化科分开",
+            "财禄和一时名誉是传统结果投影"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P4:printed-p7:temporal-hua-differences",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TJ-ADVERSE-STAR-SPECIFIC-MODIFIERS",
+          "source_rule_ids": [
+            "ZZ-TJ-023",
+            "ZZ-TJ-024",
+            "ZZ-TJ-025",
+            "ZZ-TJ-X05",
+            "ZZ-TJ-Y04"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 4,
+            "printed_pages": [
+              7,
+              8
+            ]
+          },
+          "source_excerpt": "擎羊易生竞争；陀罗使计划延缓甚至出错；火铃使人多虑以致失机；天刑于谋求变动时生掣肘；空动令变动易流为空想。",
+          "claim_layer": "CONDITIONAL_MODIFIER_FAMILY",
+          "claim_summary": "羊、陀、火铃、天刑、空劫/空动对应不同的竞争、延缓、失机、掣肘、空想分支；不可压成统一煞曜强度或同一负向维度。",
+          "candidate_target_ref": "STAR-TJ.conditional_signature",
+          "conditions_to_preserve": [
+            "每种星曜对应的效果分别保留",
+            "天刑效果绑定谋求变动的语境",
+            "空动与空劫的具体原文措辞不互相替换",
+            "不合成统一数值惩罚"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P4:printed-p7-8:adverse-modifiers",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TJ-TIANXU-YINSHA-TRADITIONAL-OUTCOME",
+          "source_rule_ids": [
+            "ZZ-TJ-003",
+            "ZZ-TJ-004",
+            "ZZ-TJ-X06"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 4,
+            "printed_pages": [
+              7,
+              8
+            ]
+          },
+          "source_excerpt": "最畏化忌，或遇天虚、阴煞；运限之中则为空想或阴谋权术。",
+          "claim_layer": "CONDITIONAL_TRADITIONAL_EVALUATION_AND_PROJECTION",
+          "claim_summary": "化忌、天虚/阴煞及运限下的空想/权术描述必须保留各自条件与时间范围；“奸僻/心术不正”等为传统道德化表述，不当作现代心理诊断或无条件人格。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "化忌与天虚/阴煞不强行并为一个条件",
+            "运限层结果与本命描述分开",
+            "保留传统文本的可能性/评价语气"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P4:printed-p7-8:tianxu-yinsha",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TJ-SYSTEM-FAMILY-STRUCTURE",
+          "source_rule_ids": [
+            "ZZ-TJ-X07",
+            "ZZ-TJ-Y05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 4,
+            "printed_pages": [
+              7,
+              8
+            ]
+          },
+          "source_excerpt": "天机与太阴、巨门、天梁同宫或相对；形成机巨、机梁、机阴三组。",
+          "claim_layer": "L2_STRUCTURAL_RELATION",
+          "claim_summary": "三组固定星系与宫位位置是关系结构；不是天机单星的固定内在QI值。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "机巨：子午相对、卯酉同度",
+            "机梁：丑未相对、辰戌同度",
+            "机阴：巳亥相对、寅申同度",
+            "保留同度/相对的区别"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P4:printed-p8:system-families",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TJ-SYSTEM-COMPARISONS",
+          "source_rule_ids": [
+            "ZZ-TJ-X08",
+            "ZZ-TJ-X09"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 4,
+            "printed_pages": [
+              7,
+              8
+            ]
+          },
+          "source_excerpt": "一般情形下最喜卯宫天机巨门；天机独坐较不喜巳亥二宫。",
+          "claim_layer": "CONDITIONAL_COMPARISON",
+          "claim_summary": "卯宫机巨偏好与巳亥独坐的相对不利是两条有范围的比较，不建立脱离组合的绝对排名。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "卯宫天机巨门",
+            "天机独坐巳亥",
+            "保留“一般”“较”等比较语气"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P4:printed-p8:system-comparisons",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TJ-APPRAISAL-ORDER",
+          "source_rule_ids": [
+            "ZZ-TJ-Y01"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 4,
+            "printed_pages": [
+              7,
+              8
+            ]
+          },
+          "source_excerpt": "先看其聪明机敏的程度，然后看其是否近贵，能有用世的机会。",
+          "claim_layer": "GENERAL_INTERPRETIVE_METHOD",
+          "claim_summary": "这是来源给出的论断顺序：先看聪明机敏，再看近贵/用世机会；不把评价顺序转为QI权重或天机自身新性质。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L4",
+          "conditions_to_preserve": [
+            "保留先后顺序",
+            "聪明机敏与近贵/用世机会分开",
+            "不转为数值权重"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P4:printed-p7:appraisal-order",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        }
+      ],
+      "candidate_properties": [
+        {
+          "candidate_key": "EXP-TJ-01",
+          "layer": "L1",
+          "candidate_label": "谋略/认知机敏候选（不预设固定高值）",
+          "target_ref": "STAR-TJ.intrinsic_signature:QI-07",
+          "source_rule_ids": [
+            "ZZ-TJ-002",
+            "ZZ-TJ-X01",
+            "ZZ-TJ-Y01"
+          ],
+          "mapping_review_record_id": "MR-TJ-QI07-BASELINE-002",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TJ-02",
+          "layer": "L2_CONTEXTUAL_SENSITIVITY",
+          "candidate_label": "聪敏表现对指定会合/夹宫资源敏感",
+          "target_ref": "STAR-TJ.contextual_sensitivity",
+          "source_rule_ids": [
+            "ZZ-TJ-002",
+            "ZZ-TJ-005"
+          ],
+          "mapping_review_record_id": "MR-TJ-CONTEXT-DEPENDENCE-003",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TJ-03",
+          "layer": "L2_RELATIONAL_SUPPORT",
+          "candidate_label": "近贵与用世机会依赖外部支持关系",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TJ-008",
+            "ZZ-TJ-009",
+            "ZZ-TJ-010"
+          ],
+          "mapping_review_record_id": "MR-TJ-L2-NEAR-NOBLE-005",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TJ-04",
+          "layer": "L2_STAR_SYSTEM_RELATION",
+          "candidate_label": "天阙相朝冲的条件性关系候选",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TJ-011",
+            "ZZ-TJ-012",
+            "ZZ-TJ-X02"
+          ],
+          "mapping_review_record_id": "MR-TJ-L2-TIANQUE-006",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TJ-05",
+          "layer": "TEMPORAL_REACTION",
+          "candidate_label": "运限层变化性（不回写本命）",
+          "target_ref": "STAR-TJ.conditional_signature:QI-03",
+          "source_rule_ids": [
+            "ZZ-TJ-018",
+            "ZZ-TJ-019",
+            "ZZ-TJ-020",
+            "ZZ-TJ-X04"
+          ],
+          "mapping_review_record_id": "MR-TJ-QI03-TEMPORAL-007",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TJ-06",
+          "layer": "CONDITIONAL_MODIFIER",
+          "candidate_label": "特定四化与昌曲条件下的认知修饰",
+          "target_ref": "STAR-TJ.conditional_signature:QI-07",
+          "source_rule_ids": [
+            "ZZ-TJ-002",
+            "ZZ-TJ-005",
+            "ZZ-TJ-014",
+            "ZZ-TJ-016"
+          ],
+          "mapping_review_record_id": "MR-TJ-QI07-CONDITIONAL-004",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TJ-07",
+          "layer": "CONDITIONAL_MODIFIER",
+          "candidate_label": "火铃等条件下的计划/决策受阻候选",
+          "target_ref": "STAR-TJ.conditional_signature:QI-06",
+          "source_rule_ids": [
+            "ZZ-TJ-006",
+            "ZZ-TJ-024",
+            "ZZ-TJ-X05",
+            "ZZ-TJ-Y04"
+          ],
+          "mapping_review_record_id": "MR-TJ-QI06-FIREBELL-011",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TJ-08",
+          "layer": "CONDITIONAL_MODIFIER",
+          "candidate_label": "空劫会合时变动流为空想的候选",
+          "target_ref": "STAR-TJ.conditional_signature:QI-05",
+          "source_rule_ids": [
+            "ZZ-TJ-025"
+          ],
+          "mapping_review_record_id": "MR-TJ-QI05-KONGJIE-012",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TJ-09",
+          "layer": "L3_TRADITIONAL_PROJECTION",
+          "candidate_label": "近贵、用世、财禄与名誉等条件性下游结果",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "source_rule_ids": [
+            "ZZ-TJ-010",
+            "ZZ-TJ-011",
+            "ZZ-TJ-012",
+            "ZZ-TJ-013",
+            "ZZ-TJ-016",
+            "ZZ-TJ-021",
+            "ZZ-TJ-022"
+          ],
+          "mapping_review_record_id": "MR-TJ-L3-OUTCOMES-013",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        }
+      ],
+      "non_promotion_guards": [
+        "不把阴木元数据直接换算为QI方向、强度或五行生克效应。",
+        "“谋士/军师”是来源比喻，不等同于现实智力测量、行动驱动、执行力或固定人格。",
+        "聪敏/才艺与指定星曜会合、昌曲左右相夹有关；不得把条件性支持提升为无条件的QI-07高值。",
+        "近贵、得志、用世依赖魁钺、紫贪/天府夹持或天阙结构等关系条件；不倒推为天机内在能力。",
+        "天阙必须保留庙旺太阳照射巨门、天机与天阙相朝冲的条件。",
+        "本命天机与流年/大运天机的解释对象不同；运限变化不能回写为本命人格。",
+        "化权、化科、化禄、化忌分别保存，不合并成统一吉凶/增益；化忌与煞空动曜的组合门控与“可能”语气保留。",
+        "擎羊、陀罗、火铃、天刑、空劫、天虚、阴煞等分别对应不同效果，不合成为统一煞曜强度。",
+        "传统道德化表述如“奸僻/心术不正”不当作现代人格诊断或现实个体结论。",
+        "机巨、机梁、机阴的同度/相对位置与卯宫、巳亥比较保持原文范围，不推导绝对排名。",
+        "所有候选仍为PROPOSAL_ONLY_NOT_CANONICAL；不修改canonical星核、本体、规则、共享schema、Product/runtime、KIB或消费者权限。"
+      ]
     }
   ],
   "mapping_review_records": [
@@ -3189,6 +3835,356 @@
       "mapping_disposition": {
         "state": "KNOWN",
         "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TJ-L0-SUBSTRATE-001",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-001"
+      ],
+      "target_ref": "STAR-TJ.substrate:yin_wood",
+      "rationale": "原文明确记载天机为南斗第一星、属阴木；这是传统结构元数据，不直接证明任何QI方向、强度或五行生克效应。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TJ-QI07-BASELINE-002",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-X01",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-002",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7-8#ZZ-TJ-Y01"
+      ],
+      "target_ref": "STAR-TJ.intrinsic_signature:QI-07",
+      "rationale": "“谋士/军师”及“聪明机敏”支持认知谋略候选，但同段又明确说天机需要聪明才艺星曜会合，昌曲可进一步增加聪敏。证据不足以把现有“认知机变高”解释为无条件、固定强度的本命高值；目标映射保持复审。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TJ-CONTEXT-DEPENDENCE-003",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-002",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-005"
+      ],
+      "target_ref": "STAR-TJ.contextual_sensitivity",
+      "rationale": "原文把聪明才艺星曜会合、昌曲左右相夹作为天机聪敏的条件来源；支持外部星曜影响候选，但不能把这些条件抬升成天机自身无条件能力。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TJ-QI07-CONDITIONAL-004",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-002",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-005",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-014",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-016"
+      ],
+      "target_ref": "STAR-TJ.conditional_signature:QI-07",
+      "rationale": "聪敏、化科与化禄的认知表述具有不同条件与语境。可记录为条件修饰候选，但不能将化科、化禄、昌曲会合合并为同一种无条件QI-07增益。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TJ-L2-NEAR-NOBLE-005",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-008",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-009",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-010"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "谋臣依附权贵、寅申宫紫贪与天府相夹、魁钺同宫或对拱属于不同的关系/支持条件；“近贵”与“用世”是传统下游机会，不是单星内在QI值。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "realized_support",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TJ-L2-TIANQUE-006",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-011",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-012",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7-8#ZZ-TJ-X02"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "“天阙”先要求庙旺太阳照射的巨门，再要求天机与天阙相朝冲。得志、为世所用属于这一特定星系关系下的传统投影；条件不应删除或泛化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TJ-QI03-TEMPORAL-007",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-018",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-020",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7-8#ZZ-TJ-X04"
+      ],
+      "target_ref": "STAR-TJ.conditional_signature:QI-03",
+      "rationale": "来源明确区分本命天机与大限/流年遇天机：前者谈本质，后者主要表示际遇与变化。可保留运限变化性的候选，但不能回写本命固定人格。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "state_change",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TJ-TIME-SEPARATION-008",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-018"
+      ],
+      "target_ref": "STAR-TJ.intrinsic_signature:QI-07",
+      "rationale": "该句明确否定把运限天机直接解释为本命谋臣/军师性质；对“运限变化=本命认知机变”的目标映射不支持。时间层与本命层必须分开。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "state_change",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TJ-QI10-HUAKE-009",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-014",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-015"
+      ],
+      "target_ref": "STAR-TJ.conditional_signature:QI-10",
+      "rationale": "化科被描述为聪敏且归于正道；“正道”是传统评价用语，是否等价于现代本体中的原则/规范约束并未由该段直接定义。保留目标特定复审。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TJ-QI08-HUAQUAN-010",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-013",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7-8#ZZ-TJ-Y02"
+      ],
+      "target_ref": "STAR-TJ.intrinsic_signature:QI-08",
+      "rationale": "化权“能用于世”是四化条件下的传统发挥/用世描述，且运限化权另有时间语境；不能据此认定天机具有固定的本命行动驱动QI-08值。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TJ-QI06-FIREBELL-011",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-006",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7-8#ZZ-TJ-Y04"
+      ],
+      "target_ref": "STAR-TJ.conditional_signature:QI-06",
+      "rationale": "火铃夹制/会合对应心思不定、多虑失机等不同语句与条件；可以保留为决策或行动受阻的候选修饰，但该目标映射仍需审议，不能将火铃统一为固定负值。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TJ-QI05-KONGJIE-012",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-025"
+      ],
+      "target_ref": "STAR-TJ.conditional_signature:QI-05",
+      "rationale": "空劫使天机变动易流为空想，来源支持条件化的空泛风险描述；是否与QI-05现实化—空泛轴完全等价仍需目标特定审查。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "state_change",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TJ-L3-OUTCOMES-013",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-010",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-011",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-012",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-013",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-016",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-021",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-022"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "近贵、得志、用世、经商机变、财禄与一时名誉是不同条件下的传统下游结果。它们不能倒推为天机无条件内在性质，也不构成现实预测有效性证据。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TJ-L2-SYSTEM-FAMILY-014",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7-8#ZZ-TJ-X07",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7-8#ZZ-TJ-Y05"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "原文列出机巨、机梁、机阴三组固定星系及其宫位组合；这是结构关系证据，不是天机独立的QI维度或固定强弱排名。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TJ-L2-COMPARISON-015",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7-8#ZZ-TJ-X08",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7-8#ZZ-TJ-X09"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "“一般较喜卯宫机巨”与“天机独坐较不喜巳亥”是带比较语气的具体组合判断；不得改写成绝对排名或脱离组合的普遍性质。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TJ-L4-APPRAISAL-016",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7-8#ZZ-TJ-Y01"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L4",
+      "rationale": "“先看聪明机敏，再看近贵/用世机会”是论断顺序与评价方法，不是天机自身新增的一项内在能力，也不应转换为数值权重。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TJ-ADVERSE-MORALIZED-017",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-003",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-004",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-017",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7-8#ZZ-TJ-X03",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7-8#ZZ-TJ-X06"
+      ],
+      "target_ref": "STAR-TJ.intrinsic_signature:QI-07",
+      "rationale": "“最畏化忌”“天虚/阴煞”与“化忌并见煞空动曜可能流为奸僻”是不同条件和传统评价语气；不得将道德化结果直接当作天机固定的认知机变值或现代人格诊断。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "state_change",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
         "conflict_ref": null
       }
     }
