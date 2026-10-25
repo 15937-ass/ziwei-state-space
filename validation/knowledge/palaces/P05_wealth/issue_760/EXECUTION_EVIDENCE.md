@@ -1,6 +1,6 @@
 # Execution Evidence — P05 Tianliang source-first audit (Issue #760)
 
-Status: DRAFT — final exact-head repository validation pending.
+Status: DRAFT — source-first adjudication complete; do not merge until the final PR head's latest exact-head gate passes.
 
 ## Source integrity and boundary
 - Approved source: SRC-ZZ-003, 《中州派紫微斗数深造讲义（下册）》.
