@@ -2,6 +2,8 @@
 
 ## 当前检查点
 
+- Artifact status: `PROPOSAL_ONLY_NOT_CANONICAL`; this evidence records research-only work and does not authorize canonicalization or Product consumption.
+
 - 太阳、太阴、天相三个有界试点均已形成候选卡与逐目标审核记录；pilot checkpoint head 9e0364015758a387c3351a6516183cad0e7a54d7 的 exact-head 质量门 Run #40169844516 已通过，完整 pytest、Product JS adapter、确定性 P0 与 Repository Governance v1 均成功。
 - 三星横向比较已完成，当前状态为 READY_FOR_PI_METHOD_DECISION_STAGE_A_COMPLETE；跨星比较文档的新提交仍必须由 PR #763 当前 exact-head 检查独立验证，不能沿用旧 head 的绿色结果。
 - 本轮来源覆盖边界仍有效：太阳未逐行审完全部 40 条规则；太阴书页 19–20 的 25 条已审但书页 42 的 ZZ-TYI-010 未审；天相 25 条范围内规则已审，ZZ-TX-009/010 的书页 47 相关星系内容未审。所有结果仍为研究候选，非 canonical。
