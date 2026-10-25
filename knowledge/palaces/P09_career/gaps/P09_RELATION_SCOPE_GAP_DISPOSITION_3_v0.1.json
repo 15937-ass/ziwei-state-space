@@ -1,0 +1,166 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-P09-RELATION-SCOPE-GAP-DISPOSITION-3",
+  "status": "SOURCE_RECHECKED_RESIDUALS_RETAINED",
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "P09",
+  "issue": 784,
+  "source": {
+    "source_id": "SRC-ZZ-003",
+    "source_title": "《中州派紫微斗数深造讲义（下册）》",
+    "attachment_sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+    "source_scope": {
+      "palace": "事业宫",
+      "printed_pages": [
+        145,
+        147,
+        150
+      ],
+      "pdf_physical_pages": [
+        73,
+        74,
+        75
+      ]
+    },
+    "visual_review": {
+      "verification_method": "DIRECT_PDF_VISUAL_REVIEW",
+      "attachment_sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+      "verified_pdf_physical_pages": [
+        73,
+        74,
+        75
+      ],
+      "verified_printed_pages": [
+        145,
+        147,
+        150
+      ],
+      "finding": "All three cited spans were visually checked against the supplied scan. The printed wording confirms the relation surfaces but does not define a deterministic palace geometry/composition for the generic 会/同会 terms."
+    }
+  },
+  "baseline": {
+    "career_source_rules_reviewed": 888,
+    "contextual_activation_source_ids_reviewed": 251,
+    "local_structure_ready_rows": 26,
+    "knowledge_condition_ir_ready_rows": 12,
+    "local_structure_ready_but_not_condition_ir_ready_rows": 14,
+    "dependency_effective_underdetermined_rows": 11,
+    "direct_relation_or_composition_deferred_rows_before_review": 3,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0
+  },
+  "summary": {
+    "rows_rechecked": 3,
+    "rows_with_source_supported_new_geometry": 0,
+    "rows_retained_unresolved": 3,
+    "canonical_rule_changes": 0,
+    "condition_ir_changes": 0,
+    "product_or_runtime_authorization": false
+  },
+  "records": [
+    {
+      "gap_id": "P09-REL-SCOPE-GAP-001",
+      "source_rule_id": "CA05-484",
+      "source_location": "事业宫 printed p145 / PDF physical p73",
+      "source_span_id": "ZZ003-P145",
+      "source_condition_text": "廉贞天相会武曲化禄禄存或天府化科",
+      "printed_source_excerpt": "[廉相]会禄（武曲化禄为上，禄存次之），或会天府化科，宜握财权。",
+      "relation_surfaces": [
+        "会"
+      ],
+      "preserved_local_semantics": {
+        "explicit_alternative": "武曲化禄/禄存为一支，或天府化科为另一支",
+        "source_clause_or_preserved": true
+      },
+      "direct_scan_finding": "The scan supports the generic meeting wording and explicit 或 alternative, but supplies no palace-position or relation-geometry definition for 会.",
+      "relation_gap": {
+        "operator": "MEETING_GENERIC",
+        "canonical_geometry": "UNSPECIFIED",
+        "allowed_geometry": null,
+        "relation_binding": "UNRESOLVED"
+      },
+      "disposition": "RETAINED_UNRESOLVED",
+      "condition_ir_artifact": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "product_consumable": false
+    },
+    {
+      "gap_id": "P09-REL-SCOPE-GAP-002",
+      "source_rule_id": "CA06-582",
+      "source_location": "事业宫 printed p147 / PDF physical p74",
+      "source_span_id": "ZZ003-P147",
+      "source_condition_text": "太阴见文昌文曲同会",
+      "printed_source_excerpt": "太阴主富不主贵，故守事业宫时，必以见文昌文曲同会，然后始主其人有社会地位。",
+      "relation_surfaces": [
+        "见",
+        "同会"
+      ],
+      "preserved_local_semantics": {
+        "explicit_named_members": [
+          "文昌",
+          "文曲"
+        ],
+        "source_clause_local_both": true
+      },
+      "direct_scan_finding": "The scan directly confirms both relation surfaces and the named pair. The adjacent source text does not select one deterministic binding for 见 or define the composition of 见 + 同会.",
+      "relation_gap": {
+        "presence_operator": "FOUR_DIRECTIONS_VISIBILITY",
+        "presence_allowed_geometry": [
+          "SAME_PALACE",
+          "TRINE_ASPECT",
+          "OPPOSITION"
+        ],
+        "presence_binding": "UNRESOLVED",
+        "meeting_operator": "MEETING_GENERIC",
+        "meeting_geometry": "UNSPECIFIED",
+        "composition": "UNRESOLVED"
+      },
+      "disposition": "RETAINED_UNRESOLVED",
+      "condition_ir_artifact": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "product_consumable": false
+    },
+    {
+      "gap_id": "P09-REL-SCOPE-GAP-003",
+      "source_rule_id": "CA07-699",
+      "source_location": "事业宫 printed p150 / PDF physical p75",
+      "source_span_id": "ZZ003-P150",
+      "source_condition_text": "巳亥巨门同会文昌文曲",
+      "printed_source_excerpt": "巳亥宫巨门，亦主先有社会地位，然后财富始随名誉而来。故以同会文昌、文曲为贵。唯不喜昌曲化忌，则其社会地位终有限度。",
+      "relation_surfaces": [
+        "同会"
+      ],
+      "preserved_local_semantics": {
+        "explicit_named_members": [
+          "文昌",
+          "文曲"
+        ],
+        "source_clause_local_both": true
+      },
+      "direct_scan_finding": "The scan confirms the generic 同会 wording and named pair, but does not define the palace geometry or member-placement relation.",
+      "relation_gap": {
+        "operator": "MEETING_GENERIC",
+        "canonical_geometry": "UNSPECIFIED",
+        "allowed_geometry": null,
+        "relation_binding": "UNRESOLVED"
+      },
+      "disposition": "RETAINED_UNRESOLVED",
+      "condition_ir_artifact": null,
+      "condition_compiled": false,
+      "execution_unlocked": false,
+      "product_consumable": false
+    }
+  ],
+  "guardrails": {
+    "do_not_infer_same_palace": true,
+    "do_not_infer_trine_or_opposition_for_generic_meeting": true,
+    "do_not_globalize_local_pair_semantics": true,
+    "do_not_invent_any_all_or_pair_defaults_beyond_source_local_facts": true,
+    "no_shared_core_semantics_changed": true,
+    "no_product_or_runtime_authorization": true,
+    "accepted_888_rule_corpus_reextracted": false,
+    "remaining_11_dependency_effective_underdetermined_rows_reopened": false
+  }
+}
