@@ -34,9 +34,9 @@
 - 太阳 exact head `bb7d4a25551438c2a519a906e12e86dbb392d1d3` 的 repository-quality-gate Run #40159112167 已通过：pytest、Product JS adapter、确定性 P0 与 Repository Governance v1 均成功。太阴新提交尚待新的 exact-head CI。
 - Product 回归：由当前路径过滤与 CI 实际结果决定；不预先宣称通过。
 
-## 下一步
+## 当前下一步
 
-太阳检查点已通过 exact-head CI。当前继续太阴：检验收敛最优区域、OR 条件、昌曲门控、跨星/跨宫关系与下游结果能否在不引入新共享枚举的情况下被保存；新 head 必须重新通过 exact-head CI 后再进入天相。
+太阳、太阴、天相三个有界试点与跨星方法比较已形成；下一步是等待 PR #763 当前 exact-head 质量门完成，并由 PI 决定是否接受该研究方法进入阶段 B。当前不扩展剩余十一星，不进行 canonicalization，也不授权 Product 消费。
 
 
 ## Main synchronization after the Taiyin pilot update
