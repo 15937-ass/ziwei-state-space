@@ -3,7 +3,7 @@
 - Lane/shard: KNOWLEDGE_ONLY / P05 财帛宫.
 - Work unit: KB-P05-SOURCE-FIRST-TIANXIANG-P87-P88.
 - Branch: `knowledge/p05-746-source-first-tianxiang-p87-p88-r4`.
-- Replacement PR: pending creation on current main; prior PR #751 passed its exact-head checks but is now stale-base and must not be merged. PR #749 is also superseded.
+- Active draft PR: [#756](https://github.com/15937-ass/ziwei-state-space/pull/756), based on current main. PR #751 passed its prior exact-head checks but is stale-base and must not be merged; PR #749 is also superseded.
 - Source: SRC-ZZ-003《中州派紫微斗数深造讲义（下册）》.
 - Source SHA-256: `6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c`.
 - Scope: printed p87 heading 11 天相 through the final 天相 sentence before printed p88 heading 12 天梁.
