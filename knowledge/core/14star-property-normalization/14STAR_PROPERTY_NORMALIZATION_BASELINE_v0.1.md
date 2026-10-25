@@ -3,7 +3,7 @@
 **当前状态：** `B_TIANJI_CHECKPOINT_COMPLETED_READY_FOR_WUQU` / `PROPOSAL_ONLY_NOT_CANONICAL`
 **跟踪 Issue：** [#757](https://github.com/15937-ass/ziwei-state-space/issues/757)
 **本轮基线 main：** `74864f572cdd04407c241c483f3a34c646f69d3a`
-**执行分支：** `knowledge/core-757-14star-property-normalization`
+**执行分支：** `knowledge/core-757-14star-property-normalization-main-sync`
 
 > 太阳、太阴、天相三个有界试点已形成候选卡与逐目标审核记录；阶段B首轮紫微检查点也已完成。本文件仍是候选研究基线，不代表十四主星研究完成，不是正式本体变更，也不授权 Product 消费。
 
