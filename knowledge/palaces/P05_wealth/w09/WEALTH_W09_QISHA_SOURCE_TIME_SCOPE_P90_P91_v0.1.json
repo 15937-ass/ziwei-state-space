@@ -1,0 +1,150 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P05-WEALTH-W09-QISHA-SOURCE-TIME-SCOPE-P90-P91-v0.1",
+  "issue": 765,
+  "source_id": "SRC-ZZ-003",
+  "scope": "W09-845..888 plus W09-901..904 / printed pp90–91, section 13 七杀 only",
+  "counts": {
+    "non_natal_rows": 0,
+    "year": 0,
+    "decade": 0,
+    "path_dependent_gate_rows": 6,
+    "source_time_phrase_rows": 2,
+    "source_life_course_qualifier_rows": 3,
+    "source_condition_qualifier_rows": 0
+  },
+  "exact_non_natal_ids": [],
+  "decade_ids": [],
+  "year_ids": [],
+  "path_dependent_gate_ids": [
+    "W09-852",
+    "W09-855",
+    "W09-871",
+    "W09-878",
+    "W09-886",
+    "W09-888"
+  ],
+  "policy": [
+    "No sentence in this bounded section unambiguously assigns a standalone DECADE or YEAR trigger; do not manufacture one.",
+    "Preserve `于运限吉时` on W09-885 and `但运限一过` on W09-886 as source-explicit fortune-period phrases whose granularity is not disambiguated; do not force them into DECADE or YEAR.",
+    "Setback/recovery, major-change, and favorable-period/stagnation sequences remain path-dependent annotations, not fixed durations.",
+    "Life-course wording such as `一生必有一次波折`, `一生必至少有一次事业上的重大改变`, and `一生常得意外财` remains source qualifiers, not a new time scale.",
+    "No duration, probability, weight, threshold, frequency, persistence, or decay parameter is inferred."
+  ],
+  "records": [],
+  "source_time_phrase_records": [
+    {
+      "projection_rule_id": "W09-885",
+      "source_location": "财帛宫printed_p91",
+      "time_layer": "NATAL",
+      "source_time_phrase": "于运限吉时",
+      "scope_status": "SOURCE_EXPLICIT_FORTUNE_PERIOD_NOT_DISAMBIGUATED",
+      "canonical_promotion": true,
+      "note": "The natal configuration remains the base; no decade/year layer is assigned."
+    },
+    {
+      "projection_rule_id": "W09-886",
+      "source_location": "财帛宫printed_p91",
+      "time_layer": "NATAL",
+      "source_time_phrase": "但运限一过",
+      "scope_status": "SOURCE_EXPLICIT_FORTUNE_PERIOD_NOT_DISAMBIGUATED",
+      "canonical_promotion": true,
+      "note": "The ordered change is preserved; no fixed duration is inferred."
+    }
+  ],
+  "path_records": [
+    {
+      "projection_rule_id": "W09-852",
+      "source_location": "财帛宫printed_p90",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "七杀守财帛宫",
+      "canonical_target": "risk_event_then_wealth",
+      "source_phrase": "一生必有一次波折。故必须经历风险而成富。",
+      "no_numeric_generalization": true,
+      "canonical_promotion": true
+    },
+    {
+      "projection_rule_id": "W09-855",
+      "source_location": "财帛宫printed_p90",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "七杀有禄且见吉曜无煞；经历风险后",
+      "canonical_target": "setback_then_friend_assisted_comeback",
+      "source_phrase": "能在友人帮助下东山复起。",
+      "no_numeric_generalization": true,
+      "canonical_promotion": true
+    },
+    {
+      "projection_rule_id": "W09-871",
+      "source_location": "财帛宫printed_p90",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "子午七杀；武曲化忌；破败后",
+      "canonical_target": "breakdown_then_slow_rebuild",
+      "source_phrase": "破败后只能慢慢培养元气，稍急躁即环境更劣。",
+      "no_numeric_generalization": true,
+      "canonical_promotion": true
+    },
+    {
+      "projection_rule_id": "W09-878",
+      "source_location": "财帛宫printed_p90",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "寅申七杀见禄马交驰；前述重大改变",
+      "canonical_target": "major_change_then_favorable_transition",
+      "source_phrase": "此改变且倾向于良好的转变。",
+      "no_numeric_generalization": true,
+      "canonical_promotion": true
+    },
+    {
+      "projection_rule_id": "W09-886",
+      "source_location": "财帛宫printed_p91",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "辰戌七杀会贪狼化禄；运限吉时且运限一过",
+      "canonical_target": "favorable_period_gain_then_stagnation",
+      "source_phrase": "但运限一过，便立即呈胶着状态。",
+      "no_numeric_generalization": true,
+      "canonical_promotion": true
+    },
+    {
+      "projection_rule_id": "W09-888",
+      "source_location": "财帛宫printed_p91",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "前述胶着期仍妄求发越",
+      "canonical_target": "stagnation_then_overreach_then_breakdown",
+      "source_phrase": "不可妄求发越，否则反主破败。",
+      "no_numeric_generalization": true,
+      "canonical_promotion": true
+    }
+  ],
+  "source_life_course_qualifier_ids": [
+    "W09-852",
+    "W09-877",
+    "W09-883"
+  ],
+  "source_life_course_qualifier_records": [
+    {
+      "projection_rule_id": "W09-852",
+      "source_location": "财帛宫printed_p90",
+      "source_phrase": "一生必有一次波折",
+      "treatment": "SOURCE_LIFE_COURSE_QUALIFIER_ONLY"
+    },
+    {
+      "projection_rule_id": "W09-877",
+      "source_location": "财帛宫printed_p90",
+      "source_phrase": "主一生必至少有一次事业上的重大改变",
+      "treatment": "SOURCE_LIFE_COURSE_QUALIFIER_ONLY"
+    },
+    {
+      "projection_rule_id": "W09-883",
+      "source_location": "财帛宫printed_p91",
+      "source_phrase": "则一生常得意外财",
+      "treatment": "SOURCE_LIFE_COURSE_QUALIFIER_ONLY"
+    }
+  ],
+  "source_condition_qualifier_ids": [],
+  "source_condition_qualifier_records": []
+}
