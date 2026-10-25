@@ -103,8 +103,8 @@ def test_time_scope_and_cumulative_summary_reconcile():
 def test_p05_state_cache_tracks_tianxiang_and_preserves_historical_w05_gap():
     state = STATE.read_text(encoding="utf-8")
     assert 'status: "ACTIVE"' in state
-    assert "active_issue: 746" in state
-    assert 'active_branch: "knowledge/p05-746-source-first-tianxiang-p87-p88-r4"' in state
+    assert "active_issue: 759" in state
+    assert 'active_branch: "knowledge/p05-759-source-first-tianliang-p88-p89"' in state
     assert "W05_401_500_SOURCE_FIRST_MERGED" in state
     assert "Post-merge P05 total is 563 canonical reusable rules." in state
     assert "source_gap_supplement_record_count: 4" in state

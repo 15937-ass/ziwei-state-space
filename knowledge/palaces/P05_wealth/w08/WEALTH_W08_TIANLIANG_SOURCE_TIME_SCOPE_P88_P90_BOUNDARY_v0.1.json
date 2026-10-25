@@ -1,0 +1,163 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P05-WEALTH-W08-TIANLIANG-SOURCE-TIME-SCOPE-P88-P90-BOUNDARY-v0.1",
+  "issue": 759,
+  "source_id": "SRC-ZZ-003",
+  "scope": "W08-788…W08-826 / printed p88 through final Tianliang boundary line on printed p90",
+  "counts": {
+    "non_natal_rows": 1,
+    "year": 0,
+    "decade": 0,
+    "path_dependent_gate_rows": 6,
+    "source_age_qualifier_rows": 1,
+    "qualitative_duration_rows": 1
+  },
+  "exact_non_natal_ids": [
+    "W08-805"
+  ],
+  "decade_ids": [],
+  "year_ids": [],
+  "path_dependent_gate_ids": [
+    "W08-799",
+    "W08-805",
+    "W08-815",
+    "W08-820",
+    "W08-823",
+    "W08-825"
+  ],
+  "source_age_qualifier_ids": [
+    "W08-823"
+  ],
+  "dependent_outcome_ids": [
+    "W08-805",
+    "W08-815",
+    "W08-820",
+    "W08-823",
+    "W08-825"
+  ],
+  "policy": [
+    "W08-805 preserves 交入不佳岁运 as a source-explicit fortune-cycle condition; do not infer a fixed decade or year layer.",
+    "W08-804 preserves 一时之富 as a qualitative temporal qualifier; do not assign a duration.",
+    "W08-823 preserves 早年以至中年 as a qualitative age range; do not infer numerical age cutoffs.",
+    "W08-815 preserves the source sequence 建立商业后…即立生破败.",
+    "W08-820 preserves 得财后必有破耗随来 as a dependent outcome, not a standalone trigger.",
+    "W08-825 preserves 先名后利 as a source-stated sequence and not a numeric timeline.",
+    "W08-821 remains unpromoted because 丑来天梁 is textually unresolved.",
+    "No duration, probability, weight, threshold, frequency, persistence or decay parameter is inferred."
+  ],
+  "records": [
+    {
+      "projection_rule_id": "W08-805",
+      "source_location": "财帛宫printed_p89",
+      "archived_time_layer": null,
+      "time_layer": "NATAL",
+      "source_time_scope": [
+        "FORTUNE_CYCLE"
+      ],
+      "source_time_phrase": "交入不佳岁运",
+      "scope_status": "SOURCE_EXPLICIT_FORTUNE_CYCLE_TERM_NOT_MAPPED_TO_DECADE_OR_YEAR",
+      "canonical_promotion": true
+    },
+    {
+      "projection_rule_id": "W08-804",
+      "source_location": "财帛宫printed_p89",
+      "time_layer": "NATAL",
+      "source_time_scope": [
+        "QUALITATIVE_DURATION"
+      ],
+      "source_time_phrase": "一时之富",
+      "scope_status": "SOURCE_QUALITATIVE_TEMPORAL_QUALIFIER_NO_DURATION_ASSIGNED",
+      "canonical_promotion": true
+    },
+    {
+      "projection_rule_id": "W08-823",
+      "source_location": "财帛宫printed_p89",
+      "time_layer": "NATAL",
+      "source_time_scope": [
+        "QUALITATIVE_AGE_RANGE"
+      ],
+      "source_time_phrase": "早年以至中年",
+      "scope_status": "SOURCE_QUALITATIVE_AGE_RANGE_NO_NUMERIC_CUTOFF",
+      "canonical_promotion": true
+    }
+  ],
+  "path_records": [
+    {
+      "projection_rule_id": "W08-799",
+      "source_location": "财帛宫printed_p89",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "天梁守财帛宫",
+      "canonical_target": "fame_then_profit",
+      "source_phrase": "天梁守财帛宫，亦先名后利。",
+      "no_numeric_generalization": true,
+      "canonical_promotion": true
+    },
+    {
+      "projection_rule_id": "W08-805",
+      "source_location": "财帛宫printed_p89",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "天梁在财帛宫化禄或叠禄，且交入不佳岁运",
+      "canonical_target": "immediate_disputes_and_trouble_in_unfavorable_fortune_cycle",
+      "source_phrase": "交入不佳岁运，立时惹起是非困扰。",
+      "no_numeric_generalization": true,
+      "canonical_promotion": true
+    },
+    {
+      "projection_rule_id": "W08-815",
+      "source_location": "财帛宫printed_p89",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "天梁财帛宫经商，建立商业后妄自尊大",
+      "canonical_target": "ruin_or_major_trouble_after_arrogance",
+      "source_phrase": "若建立商业后即妄自尊大，即立生破败，或引起重大风波。",
+      "no_numeric_generalization": true,
+      "canonical_promotion": true
+    },
+    {
+      "projection_rule_id": "W08-820",
+      "source_location": "财帛宫printed_p89",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "丑未天梁在是非纠纷困扰中进财",
+      "canonical_target": "loss_after_gain",
+      "source_phrase": "但仍主在是非纠纷困扰中进财。且得财后必有破耗随来。",
+      "no_numeric_generalization": true,
+      "canonical_promotion": true
+    },
+    {
+      "projection_rule_id": "W08-823",
+      "source_location": "财帛宫printed_p89",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "巳亥天梁受天同影响；早年以至中年",
+      "canonical_target": "wealth_hard_to_accumulate_early_to_midlife_unless_left_right_in_命宫_and_财帛宫",
+      "source_phrase": "主早年以至中年财帛难聚。",
+      "no_numeric_generalization": true,
+      "canonical_promotion": true
+    },
+    {
+      "projection_rule_id": "W08-825",
+      "source_location": "财帛宫printed_p89",
+      "time_layer": "NATAL",
+      "history_feedback": "PATH_DEPENDENT_GATE",
+      "canonical_condition": "巳亥天梁且先名后利",
+      "canonical_target": "fame_first_profit_later_mitigates_stated_weakness",
+      "source_phrase": "巳亥天梁若先名后利者，对上述缺点即可弥补。",
+      "no_numeric_generalization": true,
+      "canonical_promotion": true
+    }
+  ],
+  "source_age_qualifier_records": [
+    {
+      "projection_rule_id": "W08-823",
+      "source_location": "财帛宫printed_p89",
+      "source_phrase": "早年以至中年",
+      "classification": "SOURCE_QUALITATIVE_AGE_RANGE_NO_NUMERIC_CUTOFF",
+      "time_layer": "NATAL",
+      "no_numeric_generalization": true,
+      "canonical_promotion": true
+    }
+  ]
+}
