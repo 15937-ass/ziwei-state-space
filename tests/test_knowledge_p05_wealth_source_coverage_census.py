@@ -65,9 +65,10 @@ def test_lianzheng_tail_is_accounted_with_explicit_residual_ambiguities():
     assert disposition["uncovered_source_spans"] == 0
     assert disposition["total_open_coverage_items"] == 26
     assert disposition["next_palace_ready"] is True
+    assert "After PR #780 is accepted and merged" in disposition["next_step"]
     gap = data["uncovered_source_spans"][0]
     assert gap["gap_id"] == "P05-COV-GAP-001"
-    assert gap["status"] == "CLOSED_BY_SOURCE_FIRST_REVIEW_ON_CURRENT_PR_HEAD"
+    assert gap["status"] == "CLOSED_BY_SOURCE_FIRST_REVIEW"
     assert "W10-923…W10-963" in gap["closure_evidence"]["record_ids"]
     assert "7 天府" in gap["end_boundary"]
 
@@ -88,7 +89,7 @@ def test_w10_source_first_records_and_four_holds_reconcile():
     assert next(r["source_digest"] for r in data["records"] if r["projection_rule_id"] == "W10-944") == "若破军化禄，往往须兼行兼职。"
     assert "破军化禄" in next(r["canonical_condition"] for r in data["records"] if r["projection_rule_id"] == "W10-944")
     assert "二者任一化禄" in next(r["canonical_condition"] for r in data["records"] if r["projection_rule_id"] == "W10-956")
-    assert "与火铃同度" in next(r["canonical_condition"] for r in data["records"] if r["projection_rule_id"] == "W10-955")
+    assert "与火铃同度" in next(r["canonical_condition"] for r in data["records"] if r["projection_rule_id"] == "W10-956")
     assert data["summary"]["cumulative_reusable_projection_rules_after_merge"] == 831
 
 def test_w10_time_scope_preserves_only_the_explicit_year_condition():
