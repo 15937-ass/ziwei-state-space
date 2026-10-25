@@ -27,7 +27,7 @@ def test_p05_state_cache_tracks_active_lianzheng_tail_audit_and_historical_check
     assert "W08_701_742_JUMEN_P86_P87_SOURCE_FIRST_42_PROMOTED" in state
     assert "P05 canonical reusable rule count after this checkpoint is 642" in state
     assert "W05-SG-002 remains PARTIALLY_RESOLVED" in state
-    assert "do not advance to P09 until accepted" in state
+    assert "Do not activate P09 before #777 merges" in state
     assert "No Product/runtime authorization is implied" in state
 
 def test_w05_accepted_batch_summary_reconciles():
