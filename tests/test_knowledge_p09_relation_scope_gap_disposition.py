@@ -61,6 +61,6 @@ def test_p09_state_points_to_the_bounded_active_gap_issue_without_unlocking_runt
     assert 'status: "ACTIVE"' in state
     assert "active_issue: 785" in state
     assert 'active_branch: "knowledge/p09-785-relation-gap-source-recheck"' in state
-    assert "active_pr: null" in state
+    assert "active_pr: 786" in state
     assert "No accepted 888-rule corpus re-extraction" in state
     assert "P09 stage is not closed" in state

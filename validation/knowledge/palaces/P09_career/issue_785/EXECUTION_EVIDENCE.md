@@ -2,6 +2,7 @@
 
 - Work unit: P09 three-row relation-scope gap recheck
 - Issue: #785
+- Draft PR: #786
 - Lane/shard: `KNOWLEDGE_ONLY / P09`
 - Branch: `knowledge/p09-785-relation-gap-source-recheck`
 - Base commit: `e2d550b8fbc9893560c0c93957f30cae8ce21f71`
@@ -16,5 +17,5 @@ All three source spans were visually rechecked. The generic `会/同会` geometr
 
 ## Validation
 
-Exact final-head repository gate: pending.
+Exact final-head repository gate: pending on replacement PR #786; historical #784 checks do not validate this head.
 Required before merge: full repository pytest, Product JS adapter/syntax, deterministic P0 audit, Repository Governance v1, and P09 write-set validation.
