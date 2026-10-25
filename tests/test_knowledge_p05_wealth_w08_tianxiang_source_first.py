@@ -41,16 +41,18 @@ def test_ambiguities_and_prior_gaps():
  assert g["gap_count"]==2 and g["core_gap_count"]==0
  assert {x["gap_id"] for x in g["gaps"]}=={"W08-SG-001","W08-SG-002"}
  assert g["summary"]["unresolved_prior_gap_ids"]==sorted(PRIOR)
-def test_state_and_handoff_counts():
+def test_state_and_handoff_counts_track_current_tianliang_and_preserve_tianxiang_artifact():
  s=STATE.read_text(encoding="utf-8")
- assert 'status: "ACTIVE"' in s and "active_issue: 746" in s
- assert 'active_branch: "knowledge/p05-746-source-first-tianxiang-p87-p88-r4"' in s
- assert "active_pr: 756" in s
- assert "merged_rule_count: 642" in s and "current_batch_rule_count: 42" in s
- assert "source_first_records_added_current_batch: 45" in s and "source_uncertainty_count_current_batch: 3" in s
- assert "source_coverage_gap_count_current_batch: 2" in s and "source_coverage_gaps_remaining: 8" in s
+ assert 'status: "ACTIVE"' in s and "active_issue: 760" in s
+ assert 'active_branch: "knowledge/p05-760-source-first-tianliang-p88-p90"' in s
+ assert "active_pr: 762" in s
+ assert "merged_rule_count: 684" in s and "current_batch_rule_count: 37" in s
+ assert "source_first_records_added_current_batch: 38" in s and "source_uncertainty_count_current_batch: 3" in s
+ assert "source_coverage_gap_count_current_batch: 3" in s and "source_coverage_gaps_remaining: 11" in s
  assert "W05-SG-002 remains PARTIALLY_RESOLVED" in s and all(g in s for g in PRIOR)
- assert "12 天梁" in s and "Issue #746" in SUMMARY.read_text(encoding="utf-8")
-def test_previous_jumen_artifact_is_immutable():
- j=load(BASE/"WEALTH_W08_SOURCE_READJUDICATION_P86_P87_v0.1.json")
- assert len(j["records"])==42 and j["summary"]["cumulative_canonical_records_after_merge"]==642
+ historical=load(SOURCE)
+ assert historical["issue"]==746
+ assert len(historical["records"])==45
+ assert historical["summary"]["canonical_promotions"]==42
+ assert historical["summary"]["cumulative_canonical_records_after_merge"]==684
+ assert {r["projection_rule_id"] for r in historical["records"] if not r["canonical_promotion"]}=={"W08-761","W08-766","W08-767"}
