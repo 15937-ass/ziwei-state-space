@@ -9,7 +9,7 @@ from tools.knowledge_core_mapping_review_schema import validate_mapping_review_c
 ROOT = Path(__file__).resolve().parents[1]
 BASELINE = ROOT / "knowledge/core/14star-property-normalization/14STAR_PROPERTY_NORMALIZATION_BASELINE_v0.1.json"
 CANONICAL_RULES = ROOT / "knowledge/rules/stars/major_stars_canonical_v0.1.csv"
-SOURCE_REVIEW = ROOT / "knowledge/core/direct-star-source-review/DIRECT_STAR_SOURCE_REVIEW_BATCH_01_v0.1.csv"
+SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TAIYIN_SOURCE_SPAN_REVIEW_v0.1.csv"
 
 
 def load_baseline():
@@ -144,6 +144,8 @@ def test_taiyin_visual_source_review_does_not_mutate_canonical_source_flags():
         assert row["proposal_status"] == "PROPOSAL_ONLY_NOT_CANONICAL"
         assert row["normalization_epistemic_after"] == "UNRESOLVED"
         assert row["canonical_source_span_verified_after"] == "false"
+        assert row["claim_role"] in {"INTRINSIC", "RELATIONAL", "CONDITIONAL", "UNRESOLVED_OTHER"}
+        assert row["proposed_evidence_tier"] in {"DIRECT_STAR", "SAME_STAR_MODIFIER", "SYSTEM_CONTEXT"}
 
     with CANONICAL_RULES.open(encoding="utf-8", newline="") as stream:
         canonical = {row["rule_id"]: row for row in csv.DictReader(stream)}
