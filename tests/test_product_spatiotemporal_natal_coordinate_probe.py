@@ -51,6 +51,17 @@ def test_branch_indexed_view_is_invariant_to_artifact_array_order():
         assert rows == reversed_rows
 
 
+def test_occupancy_view_preserves_palace_identity_and_star_payload():
+    artifact, _, branch_order, _ = _load_inputs()
+    for case in artifact["cases"]:
+        columns, rows = _occupancy_matrix(case["chart"]["palaces"], branch_order)
+        assert len(columns) == 80
+        identity_columns = [index for index, column in enumerate(columns) if column.startswith("palace_identity:")]
+        assert len(identity_columns) == 12
+        for row in rows:
+            assert sum(row[index] for index in identity_columns) == 1
+
+
 def test_permutation_matrices_are_one_hot_for_all_twelve_offsets():
     for offset in range(12):
         matrix = _permutation_matrix(offset)
