@@ -43,11 +43,11 @@ def test_ambiguities_and_prior_gaps():
  assert g["summary"]["unresolved_prior_gap_ids"]==sorted(PRIOR)
 def test_state_and_handoff_counts_track_current_tianliang_and_preserve_tianxiang_artifact():
  s=STATE.read_text(encoding="utf-8")
- assert 'status: "ACTIVE"' in s and "active_issue: 765" in s
- assert 'active_branch: "knowledge/p05-765-source-first-qisha-p90-p91"' in s
- assert "merged_rule_count: 721" in s and "current_batch_rule_count: 44" in s
- assert "source_first_records_added_current_batch: 48" in s and "source_uncertainty_count_current_batch: 10" in s
- assert "source_coverage_gap_count_current_batch: 9" in s and "source_coverage_gaps_remaining: 20" in s
+ assert 'status: "ACTIVE"' in s and "active_issue: 770" in s
+ assert 'active_branch: "knowledge/p05-770-source-first-pojun-p91-p92"' in s
+ assert "merged_rule_count: 765" in s and "current_batch_rule_count: 29" in s
+ assert "source_first_records_added_current_batch: 30" in s and "source_uncertainty_count_current_batch: 2" in s
+ assert "source_coverage_gap_count_current_batch: 2" in s and "source_coverage_gaps_remaining: 22" in s
  assert "W05-SG-002 remains PARTIALLY_RESOLVED" in s and all(g in s for g in PRIOR)
  historical=load(SOURCE)
  assert historical["issue"]==746
