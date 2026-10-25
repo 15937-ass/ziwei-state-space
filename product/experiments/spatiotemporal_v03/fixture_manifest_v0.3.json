@@ -1,0 +1,40 @@
+{
+  "schema_version": "0.3",
+  "fixture_path": "product/experiments/spatiotemporal_v03/fixtures/full_snapshot_projection_v0.3.json",
+  "fixture_sha256": "f2cea083717685fbacf2911ed5fe2e15ba3692122519708ac606943c45684450",
+  "fixture_role": "REDUCED_ENGINE_GENERATED_TEST_PROJECTION_NOT_SOURCE_TRUTH",
+  "producer": {
+    "workflow_run_id": 40161980768,
+    "artifact_id": 12586873751,
+    "artifact_digest": "sha256:730158ea500b26b458ca836091a23bf209363e8121437bf0296f374dc5936a8f",
+    "artifact_member": "p1_iztro_js.jsonl",
+    "producer_head": "88a25f4265ce7c81cbbdab37c143b7168ab00595",
+    "seed_csv_blob": "afc97cb78f11e081b10ab9e6deb327892c606fdc",
+    "target_manifest_blob": "5cb12000aa2b88fe35457e5aa9ffe553ad15e7d0",
+    "exporter_blob": "c8d783774e49a2454b3bc1bff4933e17a40a1539"
+  },
+  "selection": {
+    "case_ids": [
+      "CR-001",
+      "CR-031"
+    ],
+    "target_ids": [
+      "T1_LEAP_LATE_ZI",
+      "T3_DAYTIME"
+    ],
+    "full_target_snapshots": 4,
+    "temporal_scope_instances": 24,
+    "natal_palace_records": 24
+  },
+  "source_row_sha256": {
+    "CR-001": "e6214601ed514d5bc2ea0ff4119e024aa0a6ef77dffd597ef628df25586f6f45",
+    "CR-031": "d8ac1dd713d2953f6f5b7d442670b068712cc703706c14bcac54dbff375d371b"
+  },
+  "projection_omissions": [
+    "birth input",
+    "natal date metadata",
+    "natal star brightness/mutagen metadata",
+    "yearly_dec_stars"
+  ],
+  "note": "Palace names are stored as indices into the fixture vocabulary. This is a fixture compression only; probe.py expands the names before using the existing adapter."
+}
