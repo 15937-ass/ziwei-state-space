@@ -2,6 +2,9 @@
 
 ## 当前检查点
 
+- 太阳检查点已通过 exact-head CI；太阴 exact-head 9e0f886dbde89278fc761ee3c2c85474150a6549 的质量门 Run #40161943905 已通过。两者仍为研究候选，非 canonical。
+- 当前进入天相试点：PDF 扫描页 13 / 印刷页 25–26；ZZ-TX-009/ZZ-TX-010 因定位于相关星系而不在本次页范围内。
+
 - Lane / shard：`KNOWLEDGE_ONLY / CORE`
 - Work unit：`KB-CORE-14STAR-PROPERTY-NORMALIZATION-BASELINE-01`
 - 状态：`IN_PROGRESS_STAGE_A_TAIYIN_PILOT`
@@ -40,3 +43,15 @@
 - Latest main at synchronization: `cb48ac8fe6316eb9644448c99c596b72d72776c3` (P05 source-first Tianliang audit merge).
 - The Core branch was synchronized with this main through a two-parent merge commit; P05 changes are retained from main and are not part of the Core semantic change set.
 - The previous exact-head checks do not transfer to the post-sync head. The post-sync Taiyin exact-head quality gate must complete before the next pilot.
+
+
+## Tianxiang pilot source-first checkpoint
+
+- Source: SRC-ZZ-002, 《中州派紫微斗数深造讲义（上）》.
+- SHA-256: 1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a, matches sources/source_index.csv.
+- Visually inspected PDF scan page 13, which displays printed pages 25–26.
+- The dedicated TIANXIANG_SOURCE_SPAN_REVIEW_v0.1.csv records 25 canonical rows on that spread. ZZ-TX-009 and ZZ-TX-010 point to related star-system material and are explicitly not adjudicated here.
+- Added 19 grouped source claims, 19 target-specific mapping-review records, Tianxiang gap/PI observations, and regression tests.
+- Key finding: the source's direct emphasis is on contextual dependence and clamp/relational structure; it does not directly establish a fixed intrinsic QI-02 softness baseline. Some existing canonical targets (notably the softness/ability transformations and specific TianTong/JuMen HuaJi outcomes) remain source-span mismatches or unresolved in this bounded pass.
+- All candidate claims remain PROPOSAL_ONLY_NOT_CANONICAL; no canonical source flag, normalization epistemic status, ontology ID, Product/runtime, KIB lock, or consumer permission is changed.
+- The new Tianxiang exact-head quality gate must pass before the next step. The prior Sun/Taiyin green runs do not transfer to this new head.

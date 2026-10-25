@@ -3,7 +3,7 @@
   "artifact_id": "KB-CORE-14STAR-PROPERTY-NORMALIZATION-BASELINE-01",
   "issue": 757,
   "status": "PROPOSAL_ONLY_NOT_CANONICAL",
-  "checkpoint_status": "IN_PROGRESS_STAGE_A_TAIYIN_PILOT",
+  "checkpoint_status": "IN_PROGRESS_STAGE_A_TIANXIANG_PILOT",
   "activation_main_sha": "74864f572cdd04407c241c483f3a34c646f69d3a",
   "execution_branch": "knowledge/core-757-14star-property-normalization",
   "source_policy": {
@@ -44,6 +44,13 @@
           19,
           20
         ]
+      },
+      "tianxiang": {
+        "pdf_scan_page": 13,
+        "printed_pages": [
+          25,
+          26
+        ]
       }
     },
     "taiyin_review_rule_ids": [
@@ -73,16 +80,48 @@
       "ZZ-TYI-Y04",
       "ZZ-TYI-Y05"
     ],
-    "taiyin_review_path": "knowledge/core/14star-property-normalization/TAIYIN_SOURCE_SPAN_REVIEW_v0.1.csv"
+    "taiyin_review_path": "knowledge/core/14star-property-normalization/TAIYIN_SOURCE_SPAN_REVIEW_v0.1.csv",
+    "tianxiang_review_rule_ids": [
+      "ZZ-TX-001",
+      "ZZ-TX-002",
+      "ZZ-TX-003",
+      "ZZ-TX-004",
+      "ZZ-TX-005",
+      "ZZ-TX-006",
+      "ZZ-TX-007",
+      "ZZ-TX-008",
+      "ZZ-TX-X01",
+      "ZZ-TX-X02",
+      "ZZ-TX-X03",
+      "ZZ-TX-X04",
+      "ZZ-TX-X05",
+      "ZZ-TX-X06",
+      "ZZ-TX-X07",
+      "ZZ-TX-X08",
+      "ZZ-TX-X09",
+      "ZZ-TX-X10",
+      "ZZ-TX-X11",
+      "ZZ-TX-Y01",
+      "ZZ-TX-Y02",
+      "ZZ-TX-Y03",
+      "ZZ-TX-Y04",
+      "ZZ-TX-Y05",
+      "ZZ-TX-Y06"
+    ],
+    "tianxiang_review_path": "knowledge/core/14star-property-normalization/TIANXIANG_SOURCE_SPAN_REVIEW_v0.1.csv",
+    "tianxiang_out_of_scope_rule_ids": [
+      "ZZ-TX-009",
+      "ZZ-TX-010"
+    ],
+    "tianxiang_out_of_scope_note": "These two canonical rows point to related star-system material rather than the printed pages 25–26 span. They are not adjudicated by the current page-13 pilot."
   },
   "progress": {
-    "stage": "A_TAIYIN_PILOT",
+    "stage": "A_TIANXIANG_PILOT",
     "completed_pilot_cards": [
-      "太阳"
+      "太阳",
+      "太阴"
     ],
-    "remaining_pilot_cards": [
-      "天相"
-    ],
+    "remaining_pilot_cards": [],
     "remaining_expansion_stars_in_existing_order": [
       "紫微",
       "天机",
@@ -96,11 +135,12 @@
       "七杀",
       "破军"
     ],
-    "coverage_warning": "The solar pilot passed exact-head CI and remains non-canonical. The Taiyin pilot is in progress and reviews the 25 canonical rule rows on printed pages 19–20 only; ZZ-TYI-010 on printed page 42 and the full 26-rule Taiyin corpus are not adjudicated. This is not a complete fourteen-star baseline.",
-    "active_pilot_card": "太阴",
+    "coverage_warning": "The Sun and Taiyin bounded pilot checkpoints passed exact-head CI and remain non-canonical. The active Tianxiang pilot visually reviews the 25 canonical rows tied to printed pages 25–26 (PDF scan page 13); ZZ-TX-009 and ZZ-TX-010 point to related star-system material and are explicitly out of scope. This is not a complete fourteen-star baseline.",
+    "active_pilot_card": "天相",
     "draft_pilot_cards": [
       "太阳",
-      "太阴"
+      "太阴",
+      "天相"
     ]
   },
   "method_guardrails": {
@@ -417,7 +457,7 @@
     {
       "star_id": "STAR-TYI",
       "name": "太阴",
-      "status": "PILOT_CHECKPOINT_IN_PROGRESS",
+      "status": "PILOT_CHECKPOINT_COMPLETED_NOT_FINAL",
       "source_claims": [
         {
           "claim_key": "TYI-L0-SUBSTRATE",
@@ -842,6 +882,514 @@
         "Do not promote Sun compensation or Ming/Fude cross-palace dependency to an unconditional Taiyin intrinsic property.",
         "Keep wealth, kinship, and traditional health statements in conditional downstream layers; no modern medical or real-world predictive validity is implied."
       ]
+    },
+    {
+      "star_id": "STAR-TX",
+      "name": "天相",
+      "status": "PILOT_CHECKPOINT_IN_PROGRESS",
+      "source_claims": [
+        {
+          "claim_key": "TX-L0-SUBSTRATE",
+          "source_rule_ids": [
+            "ZZ-FULL-TX-001"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 13,
+            "printed_page": 25
+          },
+          "source_excerpt": "属阳水",
+          "claim_layer": "L0_STRUCTURE_METADATA",
+          "claim_summary": "阳水是结构底座元数据，不直接转换成 L1 的 QI 值。",
+          "candidate_target_ref": "STAR-TX.substrate:yang_water",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P13:printed-p25:substrate",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TX-L2-ENVIRONMENT-DEPENDENCE",
+          "source_rule_ids": [
+            "ZZ-TX-001",
+            "ZZ-TX-X02"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 13,
+            "printed_page": 25
+          },
+          "source_excerpt": "见善则善，遇恶则恶",
+          "claim_layer": "L2_RELATIONAL_OR_CONTEXTUAL_DEPENDENCY",
+          "claim_summary": "来源直接强调天相缺乏固定特质、性质随环境和夹宫结构改变；它更支持上下文敏感性，而非固定的 QI-02 柔和/软弱内在基线。",
+          "candidate_target_ref": "STAR-TX.contextual_sensitivity",
+          "conditions_to_preserve": [
+            "夹宫/邻宫结构",
+            "同会星曜",
+            "见善/遇恶的相对语境"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P13:printed-p25:environment-dependence",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TX-SYMBOLIC-AUTHORITY",
+          "source_rule_ids": [
+            "ZZ-TX-X01",
+            "ZZ-TX-Y01"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 13,
+            "printed_page": 25
+          },
+          "source_excerpt": "化气为印",
+          "claim_layer": "L2_SYMBOLIC_ROLE_OR_RELATIONAL_FUNCTION",
+          "claim_summary": "印绶/掌印官是权威的象征；来源同时说明象征权力不等于天相自身拥有实际权力，不可提升为自主支配或现实领导力。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "制度/授权象征",
+            "与实际主导权区分"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P13:printed-p25:authority-symbol",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TX-CLAMP-PRIORITY",
+          "source_rule_ids": [
+            "ZZ-TX-X03"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 13,
+            "printed_page": 25
+          },
+          "source_excerpt": "必须先看夹宫",
+          "claim_layer": "INTERPRETIVE_METHOD_OR_STRUCTURAL_RULE",
+          "claim_summary": "来源明确要求推断天相时先看夹宫，再看三方四正；这是解释顺序规则，不是天相内在性质。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "先检查夹宫",
+            "再检查三方四正"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P13:printed-p25:clamp-priority",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TX-CAIYIN-STRUCTURE",
+          "source_rule_ids": [
+            "ZZ-TX-X04",
+            "ZZ-TX-X05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 13,
+            "printed_page": 25
+          },
+          "source_excerpt": "财荫夹印",
+          "claim_layer": "CONDITIONAL_RELATIONAL_MODIFIER",
+          "claim_summary": "财荫夹印依巨门与天梁夹持及化禄条件构成；禄存与天梁相夹并非自动成格，原文明确指出擎羊同度会破格。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "巨门化禄为正格路径",
+            "替代禄星路径较次",
+            "禄存与天梁夹持的破格分支"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P13:printed-p25:caiyin-clamp",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TX-CAIYIN-SOFTNESS-INFERENCE",
+          "source_rule_ids": [
+            "ZZ-TX-002",
+            "ZZ-TX-003"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 13,
+            "printed_page": 25
+          },
+          "source_excerpt": "财荫夹印的正格",
+          "claim_layer": "CONDITIONAL_STATE_CHANGE_CANDIDATE",
+          "claim_summary": "现有规则把财荫夹映射为软弱下降/能力化，但本页主要定义夹局与禄源，并未逐字证明这条精确的内在能力变化；其中 ZZ-TX-003 的天府得禄/辅佐条件也与本页列举的禄源不同。",
+          "candidate_target_ref": "STAR-TX.conditional_signature:QI-02",
+          "conditions_to_preserve": [
+            "夹局结构",
+            "来源列举的化禄主体",
+            "软弱/能力变化仍为待审推论"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P13:printed-p25:caiyin-clamp",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TARGET_INFERENCE_NOT_DIRECTLY_SUPPORTED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TX-XINGJI-CLAMP",
+          "source_rule_ids": [
+            "ZZ-TX-004",
+            "ZZ-TX-X06"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 13,
+            "printed_page": 25
+          },
+          "source_excerpt": "刑忌夹印",
+          "claim_layer": "CONDITIONAL_RELATIONAL_MODIFIER",
+          "claim_summary": "来源定义刑忌夹印及其相邻宫条件；软弱性增加属于现有归一化解释，不能与夹局定义本身混为同一条直接内在证据。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "擎羊与化忌分别在相邻宫",
+            "另有天梁可充当刑星的分支"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P13:printed-p25:xingji-clamp",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TX-HUAJI-SPECIFIC-OUTCOMES",
+          "source_rule_ids": [
+            "ZZ-TX-005",
+            "ZZ-TX-006"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 13,
+            "printed_page": [
+              25,
+              26
+            ]
+          },
+          "source_excerpt": "必须看是什么星曜化忌",
+          "claim_layer": "L3_PROJECTION_OR_OUTCOME",
+          "claim_summary": "本页只明确要求识别化忌主体后再推具体吉凶；天同化忌的情绪/感情结果与巨门化忌的是非怨尤结果未在该跨度逐项出现，不在本轮补写或视为已验证。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "化忌主体依赖",
+            "具体下游结果需要直接来源"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P13:printed-p25-26:hua-ji-subject",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TX-XINGJI-RELIEF-GATE",
+          "source_rule_ids": [
+            "ZZ-TX-X07"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 13,
+            "printed_page": 26
+          },
+          "source_excerpt": "天梁化科",
+          "claim_layer": "CONDITIONAL_INTERACTION",
+          "claim_summary": "刑忌夹印的化解有多重门控：天梁化科、三方四正不见煞曜且会魁钺、辅弼、昌曲等吉曜；不能把化禄、化权、化科分支混为一谈。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "天梁化科",
+            "三方四正不见煞曜",
+            "会魁钺/辅弼/昌曲等吉曜"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P13:printed-p26:xingji-relief",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TX-STAR-SPECIFIC-HUA",
+          "source_rule_ids": [
+            "ZZ-TX-X08"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 13,
+            "printed_page": 26
+          },
+          "source_excerpt": "必须看是什么星曜化禄",
+          "claim_layer": "RELATIONAL_AND_CONDITIONAL_DEPENDENCY",
+          "claim_summary": "财荫夹印须辨识具体化禄主体，刑忌夹印须辨识具体化忌主体；这是一条条件解析规则，不是固定吉凶标签。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "财荫夹印检查化禄主体",
+            "刑忌夹印检查化忌主体"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P13:printed-p26:hua-subject",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TX-SECONDARY-SHEEP-DARA-CLAMP",
+          "source_rule_ids": [
+            "ZZ-TX-Y02"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 13,
+            "printed_page": 26
+          },
+          "source_excerpt": "羊陀相夹之时",
+          "claim_layer": "CONDITIONAL_RELATIONAL_MODIFIER",
+          "claim_summary": "羊陀夹时禄存与天相同度；只有三方四正再见煞忌刑曜时，来源才描述为次级不利结构。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "羊陀相夹",
+            "禄存与天相同度",
+            "三方四正再见煞忌刑曜"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P13:printed-p26:yangtuo-clamp",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TX-PALACE-STABILITY-ALTERNATIVES",
+          "source_rule_ids": [
+            "ZZ-TX-007",
+            "ZZ-TX-Y05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 13,
+            "printed_page": 26
+          },
+          "source_excerpt": "巳亥宫的天相独坐较为安定",
+          "claim_layer": "CONDITIONAL_COMPARATIVE_CONTEXT",
+          "claim_summary": "来源以一般情形限定巳亥独坐较安定，并列天梁入庙夹持、天府入庙会合的平衡条件；天府在丑宫或未宫是替代分支。",
+          "candidate_target_ref": "STAR-TX.contextual_sensitivity",
+          "conditions_to_preserve": [
+            "巳亥天相独坐",
+            "天梁在子入庙来夹",
+            "天府在丑宫或未宫入庙会合（二选一）"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P13:printed-p26:palace-stability",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TX-FIREBELL-GATE",
+          "source_rule_ids": [
+            "ZZ-TX-008",
+            "ZZ-TX-Y06"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 13,
+            "printed_page": 26
+          },
+          "source_excerpt": "唯畏火星铃星",
+          "claim_layer": "CONDITIONAL_STATE_CHANGE_CANDIDATE",
+          "claim_summary": "来源把火铃列为天相特别敏感的煞曜，并提及火贪冲破后的传统不耐久结果；同句重复引用只算一个来源跨度。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L4",
+          "conditions_to_preserve": [
+            "火星/铃星条件",
+            "与一般煞曜区别",
+            "下游传统应象与内在性质分层"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P13:printed-p26:firebell",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TX-POJUN-OPPOSITE-GATE",
+          "source_rule_ids": [
+            "ZZ-TX-X09",
+            "ZZ-TX-X10",
+            "ZZ-TX-Y03"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 13,
+            "printed_page": 26
+          },
+          "source_excerpt": "必与破军相对",
+          "claim_layer": "L2_CROSS_STAR_INTERACTION",
+          "claim_summary": "天相固定与破军对宫；来源给出两种不同组合分支：破军化禄/权且天相刑忌夹，和破军合宫见煞忌且天相财荫夹。不得把两支合并。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "破军化禄/权 AND 天相刑忌夹",
+            "或破军合宫见煞忌 AND 天相财荫夹"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P13:printed-p26:pojun-opposition",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TX-STAR-FAMILY-STRUCTURE",
+          "source_rule_ids": [
+            "ZZ-TX-Y04"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 13,
+            "printed_page": 26
+          },
+          "source_excerpt": "廉贞、武曲、紫微三曜",
+          "claim_layer": "L2_STAR_FAMILY_STRUCTURE",
+          "claim_summary": "来源将天相放在廉贞、武曲、紫微及破军的同度/对照星系中；这些是组合结构和宫位关系，不是天相单星的固定内在性质。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "廉破相组合",
+            "紫破相组合",
+            "武破相组合",
+            "同度/对照与宫位条件"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P13:printed-p26:star-family",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TX-LIANWU-HUAJI-GATE",
+          "source_rule_ids": [
+            "ZZ-TX-X11"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 13,
+            "printed_page": 26
+          },
+          "source_excerpt": "廉贞或武曲化忌",
+          "claim_layer": "CONDITIONAL_RELATIONAL_MODIFIER",
+          "claim_summary": "来源明确给出廉贞或武曲化忌、同度或拱照的负面门控；性质变差与凭技艺谋生应分成条件状态与下游投影。",
+          "candidate_target_ref": "STAR-TX.conditional_signature:QI-02",
+          "conditions_to_preserve": [
+            "廉贞或武曲化忌",
+            "同度或拱照"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P13:printed-p26:lianwu-hua-ji",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TX-L3-MIGRATION-PROJECTION",
+          "source_rule_ids": [
+            "ZZ-TX-X09"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 13,
+            "printed_page": 26
+          },
+          "source_excerpt": "宜离开出生地发展",
+          "claim_layer": "L3_TRADITIONAL_DOWNSTREAM_OUTCOME",
+          "claim_summary": "离乡发展是破军化禄/权与天相刑忌夹组合下的传统下游投影；不作为天相的内在性质或现实迁移预测。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "破军化禄/权",
+            "天相刑忌夹"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P13:printed-p26:pojun-migration",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TX-L3-HOLD-PROJECTION",
+          "source_rule_ids": [
+            "ZZ-TX-X10"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 13,
+            "printed_page": 26
+          },
+          "source_excerpt": "只宜株守家园",
+          "claim_layer": "L3_TRADITIONAL_DOWNSTREAM_OUTCOME",
+          "claim_summary": "守成是破军合宫见煞忌且天相财荫夹时的相反传统投影；不与离乡发展分支合并，也不当作现实预测。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "破军合宫见煞忌",
+            "天相财荫夹"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P13:printed-p26:pojun-hold",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "TX-L3-CRAFT-PROJECTION",
+          "source_rule_ids": [
+            "ZZ-TX-X11"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 13,
+            "printed_page": 26
+          },
+          "source_excerpt": "只宜凭技艺谋生",
+          "claim_layer": "L3_TRADITIONAL_DOWNSTREAM_OUTCOME",
+          "claim_summary": "技艺谋生是廉贞/武曲化忌同度或拱照语境下的传统职业投影；不是天相无条件的职业倾向或现实就业证据。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "廉贞或武曲化忌",
+            "同度或拱照"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P13:printed-p26:lianwu-craft",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        }
+      ],
+      "candidate_properties": [
+        {
+          "candidate_key": "PILOT-TX-01",
+          "layer": "L2_CONTEXTUAL_SENSITIVITY",
+          "candidate_label": "高环境依赖/上下文敏感性",
+          "target_ref": "STAR-TX.contextual_sensitivity",
+          "source_rule_ids": [
+            "ZZ-TX-001",
+            "ZZ-TX-X02"
+          ],
+          "mapping_review_record_id": "MR-TX-CONTEXTUAL-SENSITIVITY-003",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PILOT-TX-02",
+          "layer": "L2_RELATIONAL_STRUCTURE",
+          "candidate_label": "夹宫优先及对宫/星系关系门控",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TX-X03",
+            "ZZ-TX-X08",
+            "ZZ-TX-Y03",
+            "ZZ-TX-Y04"
+          ],
+          "mapping_review_record_id": "MR-TX-CLAMP-PRIORITY-005",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PILOT-TX-03",
+          "layer": "CONDITIONAL_RELATIONAL_MODIFIER",
+          "candidate_label": "财荫夹/刑忌夹的条件分支",
+          "target_ref": "STAR-TX.conditional_signature:QI-02",
+          "source_rule_ids": [
+            "ZZ-TX-002",
+            "ZZ-TX-003",
+            "ZZ-TX-004",
+            "ZZ-TX-X04",
+            "ZZ-TX-X05",
+            "ZZ-TX-X06",
+            "ZZ-TX-X07",
+            "ZZ-TX-Y02"
+          ],
+          "mapping_review_record_id": "MR-TX-CAIYIN-SOFTNESS-006",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        }
+      ],
+      "non_promotion_guards": [
+        "Do not infer a fixed intrinsic QI-02 softness pole from source statements that Tianxiang lacks fixed traits and is environment-dependent.",
+        "Do not treat the seal/authority symbol as actual independent power, agency, leadership, or a numeric capacity.",
+        "Do not treat clamp structure itself as direct evidence for a fixed intrinsic softness/weakness value; separate structure from the model's inferred effect.",
+        "Preserve the source's alternatives: Tianfu in Chou OR Wei for the balanced palace example; identify the specific star transforming Lu/Ji.",
+        "Preserve the distinct Po Jun branches: Po Jun Hua Lu/Quan plus Tianxiang Xing-Ji clamp versus Po Jun meeting Sha/Ji plus Tianxiang Cai-Yin clamp.",
+        "Do not promote migration, holding home, craft livelihood, fame, or traditional health outcomes to unconditional intrinsic properties or real-world predictive claims.",
+        "ZZ-TX-009 and ZZ-TX-010 refer to related star-system material and were not adjudicated by scan page 13; do not mark them source-verified.",
+        "Repeated source spans such as ZZ-TX-001/ZZ-TX-X02 and ZZ-TX-008/ZZ-TX-Y06 are not independent evidence."
+      ]
     }
   ],
   "mapping_review_records": [
@@ -1209,6 +1757,378 @@
       "evidence_role": {
         "state": "KNOWN",
         "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TX-L0-SUBSTRATE-001",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=25#ZZ-FULL-TX-001"
+      ],
+      "target_ref": "STAR-TX.substrate:yang_water",
+      "rationale": "来源明确写天相属阳水；这只支持 L0 结构底座元数据，不支持将阴阳五行标签转成 L1 QI 值。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TX-QI02-INTRINSIC-002",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=25#ZZ-TX-001",
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=25#ZZ-TX-X02"
+      ],
+      "target_ref": "STAR-TX.intrinsic_signature:QI-02",
+      "rationale": "来源强调缺乏固定特质且受环境支配，与现有柔和端且存在软弱风险的固定 intrinsic QI-02 表述不等价；不支持把该原文直接当作 QI-02 基础证据。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TX-CONTEXTUAL-SENSITIVITY-003",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=25#ZZ-TX-001",
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=25#ZZ-TX-X02"
+      ],
+      "target_ref": "STAR-TX.contextual_sensitivity",
+      "rationale": "同段原文支持天相的高上下文依赖；ZZ-TX-001 与 ZZ-TX-X02 共享来源跨度，不计为两份独立证据。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TX-AUTHORITY-SYMBOL-004",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=25#ZZ-TX-X01",
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=25#ZZ-TX-Y01"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "印绶/掌印官是权威象征而非实际权力来源，适合保留为符号性/关系性角色；不支持直接映射到自主能力。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TX-CLAMP-PRIORITY-005",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=25#ZZ-TX-X03"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "来源明确要求推断天相先看夹宫、再看三方四正；这是结构/解释规则，不是单星 intrinsic property。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TX-CAIYIN-SOFTNESS-006",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=25#ZZ-TX-002",
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=25#ZZ-TX-003"
+      ],
+      "target_ref": "STAR-TX.conditional_signature:QI-02",
+      "rationale": "本页直接支持财荫夹印结构及特定化禄替代分支，但没有逐字证明软弱下降/能力化，且 ZZ-TX-003 的天府得禄/辅佐条件与本页列举条件存在差异。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TX-CAIYIN-STRUCTURE-007",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=25#ZZ-TX-X04",
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=25#ZZ-TX-X05"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "财荫夹印是条件化结构；禄存与天梁夹持并不自动成格，擎羊同度会破格。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TX-XINGJI-CLAMP-008",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=25#ZZ-TX-004",
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=25#ZZ-TX-X06"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "来源支持刑忌夹印结构，但将其归一化为固定软弱增量并非同一层次；保留为条件/关系候选。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TX-HUAJI-OUTCOMES-009",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=25-26#ZZ-TX-005",
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=25-26#ZZ-TX-006"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "本页只要求识别具体化忌主体后再判断应象，没有逐项支持天同化忌情绪波动或巨门化忌是非怨尤的细分结果；需要其他直接来源。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TX-XINGJI-RELIEF-010",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=26#ZZ-TX-X07"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "来源要求天梁化科、三方四正无煞并会吉曜等条件同时成立；不能把天梁化禄、化权、化科的不同分支折叠。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TX-STAR-SPECIFIC-HUA-011",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=26#ZZ-TX-X08"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "夹局的具体克应依赖哪颗星化禄/化忌；保留四化主体依赖而不做无条件吉凶映射。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TX-PALACE-STABILITY-012",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=26#ZZ-TX-007",
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=26#ZZ-TX-Y05"
+      ],
+      "target_ref": "STAR-TX.contextual_sensitivity",
+      "rationale": "巳亥独坐较安定属于宫位比较，进一步平衡依赖梁府夹会；天府在丑或未是替代分支，两个 rule ID 不算独立来源。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TX-FIREBELL-013",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=26#ZZ-TX-008",
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=26#ZZ-TX-Y06"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L4",
+      "rationale": "火铃为来源明确列举的特殊风险条件，但不直接决定一个无条件 QI 轴值；ZZ-TX-008 与 Y06 同句重叠。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TX-POJUN-INTERACTION-014",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=26#ZZ-TX-X09",
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=26#ZZ-TX-X10",
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=26#ZZ-TX-Y03"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "天相固定与破军对宫，并依破军状态和天相夹局出现不同结果分支；这是跨星互动，不是天相独立性质。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TX-STAR-FAMILY-015",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=26#ZZ-TX-Y04"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "天相与廉贞、武曲、紫微及破军的同度/对照关系属于星系结构上下文。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TX-LIANWU-HUAJI-016",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=26#ZZ-TX-X11"
+      ],
+      "target_ref": "STAR-TX.conditional_signature:QI-02",
+      "rationale": "廉贞或武曲化忌且同度/拱照是明确条件修饰；其对内在 QI-02 的确切方向及强度未被本页定量化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TX-L3-MIGRATION-017",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=26#ZZ-TX-X09"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "离乡发展是破军化禄/权与天相刑忌夹下的传统下游投影；不归入天相基础性质，也不证明现实预测有效。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TX-L3-HOLD-018",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=26#ZZ-TX-X10"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "守成是破军合宫见煞忌且天相财荫夹的传统下游投影，与离乡发展分支不同。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TX-L3-CRAFT-019",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=26#ZZ-TX-X11"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "凭技艺谋生是廉贞/武曲化忌同度或拱照语境下的传统职业投影，不是天相无条件职业倾向。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
         "conflict_ref": null
       },
       "mapping_disposition": {

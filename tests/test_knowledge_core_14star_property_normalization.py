@@ -9,21 +9,22 @@ from tools.knowledge_core_mapping_review_schema import validate_mapping_review_c
 ROOT = Path(__file__).resolve().parents[1]
 BASELINE = ROOT / "knowledge/core/14star-property-normalization/14STAR_PROPERTY_NORMALIZATION_BASELINE_v0.1.json"
 CANONICAL_RULES = ROOT / "knowledge/rules/stars/major_stars_canonical_v0.1.csv"
-SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TAIYIN_SOURCE_SPAN_REVIEW_v0.1.csv"
+TAIYIN_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TAIYIN_SOURCE_SPAN_REVIEW_v0.1.csv"
+TIANXIANG_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TIANXIANG_SOURCE_SPAN_REVIEW_v0.1.csv"
 
 
 def load_baseline():
     return json.loads(BASELINE.read_text(encoding="utf-8"))
 
 
-def test_solar_and_taiyin_pilots_are_explicitly_noncanonical_and_source_bounded():
+def test_solar_taiyin_and_tianxiang_pilots_are_explicitly_noncanonical_and_source_bounded():
     data = load_baseline()
     assert data["status"] == "PROPOSAL_ONLY_NOT_CANONICAL"
-    assert data["checkpoint_status"] == "IN_PROGRESS_STAGE_A_TAIYIN_PILOT"
-    assert data["progress"]["completed_pilot_cards"] == ["太阳"]
-    assert data["progress"]["active_pilot_card"] == "太阴"
-    assert data["progress"]["draft_pilot_cards"] == ["太阳", "太阴"]
-    assert data["progress"]["remaining_pilot_cards"] == ["天相"]
+    assert data["checkpoint_status"] == "IN_PROGRESS_STAGE_A_TIANXIANG_PILOT"
+    assert data["progress"]["completed_pilot_cards"] == ["太阳", "太阴"]
+    assert data["progress"]["active_pilot_card"] == "天相"
+    assert data["progress"]["draft_pilot_cards"] == ["太阳", "太阴", "天相"]
+    assert data["progress"]["remaining_pilot_cards"] == []
     assert data["source_policy"]["source_id"] == "SRC-ZZ-002"
     assert data["source_policy"]["source_sha256"] == (
         "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a"
@@ -31,11 +32,13 @@ def test_solar_and_taiyin_pilots_are_explicitly_noncanonical_and_source_bounded(
     assert data["method_guardrails"]["candidate_canonicalization_authorized"] is False
     assert data["method_guardrails"]["product_consumption_authorized"] is False
     assert data["method_guardrails"]["normalization_epistemic"] == "UNRESOLVED"
-    assert len(data["stars"]) == 2
+    assert len(data["stars"]) == 3
     assert data["stars"][0]["name"] == "太阳"
     assert data["stars"][0]["status"] == "PILOT_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert data["stars"][1]["name"] == "太阴"
-    assert data["stars"][1]["status"] == "PILOT_CHECKPOINT_IN_PROGRESS"
+    assert data["stars"][1]["status"] == "PILOT_CHECKPOINT_COMPLETED_NOT_FINAL"
+    assert data["stars"][2]["name"] == "天相"
+    assert data["stars"][2]["status"] == "PILOT_CHECKPOINT_IN_PROGRESS"
 
 
 def test_solar_mapping_review_records_validate_against_accepted_v01_contract():
@@ -134,7 +137,7 @@ def test_taiyin_baseline_and_condition_branches_are_preserved():
 def test_taiyin_visual_source_review_does_not_mutate_canonical_source_flags():
     data = load_baseline()
     expected_ids = set(data["source_policy"]["taiyin_review_rule_ids"])
-    with SOURCE_REVIEW.open(encoding="utf-8", newline="") as stream:
+    with TAIYIN_SOURCE_REVIEW.open(encoding="utf-8", newline="") as stream:
         review_rows = {row["rule_id"]: row for row in csv.DictReader(stream)}
     assert len(expected_ids) == 25
     for rule_id in expected_ids:
@@ -152,3 +155,52 @@ def test_taiyin_visual_source_review_does_not_mutate_canonical_source_flags():
     for rule_id in expected_ids:
         assert canonical[rule_id]["source_span_verified"] == "false"
         assert canonical[rule_id]["normalization_epistemic"] == "UNRESOLVED"
+
+
+def test_tianxiang_source_review_is_bounded_and_canonical_rows_stay_unresolved():
+    data = load_baseline()
+    expected_ids = set(data["source_policy"]["tianxiang_review_rule_ids"])
+    assert len(expected_ids) == 25
+    assert data["source_policy"]["tianxiang_out_of_scope_rule_ids"] == ["ZZ-TX-009", "ZZ-TX-010"]
+
+    with TIANXIANG_SOURCE_REVIEW.open(encoding="utf-8", newline="") as stream:
+        review_rows = list(csv.DictReader(stream))
+    assert len(review_rows) == 25
+    assert {row["rule_id"] for row in review_rows} == expected_ids
+    assert len({row["rule_id"] for row in review_rows}) == 25
+
+    with CANONICAL_RULES.open(encoding="utf-8", newline="") as stream:
+        canonical = {row["rule_id"]: row for row in csv.DictReader(stream)}
+    for row in review_rows:
+        rule_id = row["rule_id"]
+        assert row["star"] == "天相"
+        assert row["source_pdf_page"] == "13"
+        assert row["source_span_status"] == "VERIFIED_VISUAL_SCAN"
+        assert row["literal_source_span"].strip()
+        assert row["proposal_status"] == "PROPOSAL_ONLY_NOT_CANONICAL"
+        assert row["normalization_epistemic_before"] == "UNRESOLVED"
+        assert row["normalization_epistemic_after"] == "UNRESOLVED"
+        assert row["canonical_source_span_verified_before"] == "false"
+        assert row["canonical_source_span_verified_after"] == "false"
+        assert row["claim_role"] in {"INTRINSIC", "RELATIONAL", "CONDITIONAL", "UNRESOLVED_OTHER"}
+        assert row["proposed_evidence_tier"] in {"DIRECT_STAR", "SAME_STAR_MODIFIER", "SYSTEM_CONTEXT"}
+        assert canonical[rule_id]["source_span_verified"] == "false"
+        assert canonical[rule_id]["normalization_epistemic"] == "UNRESOLVED"
+    assert "ZZ-TX-009" not in expected_ids and "ZZ-TX-010" not in expected_ids
+
+
+def test_tianxiang_context_and_clamp_branches_are_not_promoted_to_intrinsic_qi02():
+    data = load_baseline()
+    tianxiang = next(star for star in data["stars"] if star["name"] == "天相")
+    claims = {row["claim_key"]: row for row in tianxiang["source_claims"]}
+    context = claims["TX-L2-ENVIRONMENT-DEPENDENCE"]
+    assert set(context["source_rule_ids"]) == {"ZZ-TX-001", "ZZ-TX-X02"}
+    assert context["candidate_target_ref"] == "STAR-TX.contextual_sensitivity"
+    softness = claims["TX-CAIYIN-SOFTNESS-INFERENCE"]
+    assert "未" in softness["claim_summary"]
+    assert softness["row_adjudication_status"].startswith("VISUAL_SOURCE_REVIEWED")
+    palace = claims["TX-PALACE-STABILITY-ALTERNATIVES"]
+    assert "天府在丑宫或未宫入庙会合（二选一）" in palace["conditions_to_preserve"]
+    firebell = claims["TX-FIREBELL-GATE"]
+    assert set(firebell["source_rule_ids"]) == {"ZZ-TX-008", "ZZ-TX-Y06"}
+    assert all(prop["canonicalization_authorized"] is False and prop["numeric_strength_assigned"] is False for prop in tianxiang["candidate_properties"])
