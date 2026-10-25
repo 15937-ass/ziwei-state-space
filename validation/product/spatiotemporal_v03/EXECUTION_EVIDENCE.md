@@ -6,7 +6,8 @@ Status: **PENDING exact-head repository validation** until the linked Draft PR c
 
 - Producer workflow run: `40161980768`.
 - Producer artifact: `12586873751`, digest `sha256:730158ea500b26b458ca836091a23bf209363e8121437bf0296f374dc5936a8f`.
-- Reduced fixture SHA-256: `f2cea083717685fbacf2911ed5fe2e15ba3692122519708ac606943c45684450`.
+- Reduced fixture SHA-256: `05f1dd790faae77ce0caf34af259e0b85c597056f3e18ac207a8e581ee1d2524`.
+- Source-row hashes are computed from exact UTF-8 CSV row text, excluding line terminators, and verified against `validation/product_chart_regression/regression_inputs_v0.1.csv`.
 - Main activation base at issue creation: `20c5716a6bf609fc86e1b6668595a10f84ccc934`; recheck current main before PR validation.
 
 ## Validation policy
