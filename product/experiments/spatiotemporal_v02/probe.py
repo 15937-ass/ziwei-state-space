@@ -123,7 +123,11 @@ def _occupancy_matrix(
     tokens_by_branch: list[list[str]] = []
     for branch in branch_order:
         palace = by_branch[branch]
-        tokens: list[str] = []
+        tokens: list[str] = [
+            "palace_identity:" + json.dumps(
+                {"name": palace.get("name")}, ensure_ascii=False, sort_keys=True, separators=(",", ":")
+            )
+        ]
         for field in STAR_FIELDS:
             stars = palace.get(field)
             if not isinstance(stars, list):
@@ -236,7 +240,7 @@ def _validate_case(
 
     columns, rows = _occupancy_matrix(palaces, branch_order)
     star_objects = sum(len(palace[field]) for palace in palaces for field in STAR_FIELDS)
-    if star_objects != 68 or len(columns) != 68:
+    if star_objects != 68 or len(columns) != 80:
         raise ValueError(f"{case_id}: pinned chart occupancy shape changed")
     return (
         {
