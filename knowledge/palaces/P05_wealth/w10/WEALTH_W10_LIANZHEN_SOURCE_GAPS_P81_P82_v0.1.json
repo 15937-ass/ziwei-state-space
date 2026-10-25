@@ -1,0 +1,104 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P05-WEALTH-W10-LIANZHEN-SOURCE-GAPS-P81-P82-v0.1",
+  "issue": 777,
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "P05",
+  "palace": "财帛宫",
+  "source_basis": {
+    "source_id": "SRC-ZZ-003",
+    "printed_pages": "printed p81 bottom through printed p82, section 6 廉贞; stop before 7 天府",
+    "physical_pdf_page": "physical PDF p41 left/right halves",
+    "sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c"
+  },
+  "gap_count": 4,
+  "core_gap_count": 0,
+  "summary": {
+    "new_local_source_ambiguities": 4,
+    "open_local_source_ambiguities": 4,
+    "closed_local_source_ambiguities": 0,
+    "canonical_source_gap_supplement_records": 0,
+    "shared_semantic_gaps": [],
+    "unresolved_prior_gap_ids": [
+      "W05-SG-002",
+      "W06-SG-001",
+      "W06-SG-002",
+      "W06-SG-003",
+      "W06-SG-004",
+      "W06-SG-005",
+      "W08-SG-001",
+      "W08-SG-002",
+      "W08-SG-003",
+      "W08-SG-004",
+      "W08-SG-005",
+      "W09-SG-006",
+      "W09-SG-007",
+      "W09-SG-008",
+      "W09-SG-009",
+      "W09-SG-010",
+      "W09-SG-011",
+      "W09-SG-012",
+      "W09-SG-013",
+      "W09-SG-014",
+      "W09-SG-015",
+      "W09-SG-016"
+    ]
+  },
+  "source_image_checks": [
+    "The source SHA-256 matches the approved PDF.",
+    "Physical PDF p41 was inspected at full-page and enlarged crop resolution.",
+    "The visible page-break phrase is preserved as `唯财源不如在未宫之畅顺耳。`.",
+    "The visible wording `为浮华性质至少之星系` is preserved literally.",
+    "The final covered sentence is before the visible `7 天府` heading."
+  ],
+  "gaps": [
+    {
+      "gap_id": "W10-SG-001",
+      "source_location": "财帛宫printed_p81",
+      "source_claim": "唯财源不如在未宫之畅顺耳。",
+      "rule_ids": [
+        "W10-925"
+      ],
+      "status": "OPEN",
+      "core_gap": false,
+      "reason": "The enlarged physical p41 page image visibly reads `畅顺耳`. The earlier `易顺耳` was a locator/transcription error, not source text; the intended phrasing remains unresolved and is not emended.",
+      "resolution_requirements": "Preserve the printed literal `畅顺耳`; resolve only from an authoritative alternate edition or explicit source-owner decision."
+    },
+    {
+      "gap_id": "W10-SG-002",
+      "source_location": "财帛宫printed_p82",
+      "source_claim": "『廉贞七杀』在财帛宫，为浮华性质至少之星系。",
+      "rule_ids": [
+        "W10-926"
+      ],
+      "status": "OPEN",
+      "core_gap": false,
+      "reason": "The physical page image visibly reads `至少`. The intended reading of `浮华性质至少之星系` is unclear from this source alone.",
+      "resolution_requirements": "Preserve `至少` literally. Do not normalize to `最少` or another phrase without authoritative source evidence."
+    },
+    {
+      "gap_id": "W10-SG-003",
+      "source_location": "财帛宫printed_p82",
+      "source_claim": "『廉贞七杀』有昌曲同度，则主同情心强，化忌则不宜代人负债。",
+      "rule_ids": [
+        "W10-929"
+      ],
+      "status": "OPEN",
+      "core_gap": false,
+      "reason": "The debt clause follows the Chang Qu sentence but does not explicitly identify which star's Hua Ji is meant or state its full scope. No specific star is inferred.",
+      "resolution_requirements": "Retain the clause as unresolved; resolve only with an authoritative alternate edition or explicit source-owner decision."
+    },
+    {
+      "gap_id": "W10-SG-004",
+      "source_location": "财帛宫printed_p82",
+      "source_claim": "若廉贞化禄或命宫有禄存，若事业宫有禄存（登禄者更佳），则为富格。",
+      "rule_ids": [
+        "W10-953"
+      ],
+      "status": "OPEN",
+      "core_gap": false,
+      "reason": "The source gives two `若` condition clauses but does not fully establish their logical relation. Treating the career-palace Lu Cun as mandatory for both first alternatives would be an inference.",
+      "resolution_requirements": "Preserve the full literal condition and do not infer conjunction/disjunction; resolve only with an authoritative alternate edition or explicit source-owner decision."
+    }
+  ]
+}

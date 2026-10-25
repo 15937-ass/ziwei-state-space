@@ -59,7 +59,7 @@ def test_prior_tianliang_and_tianxiang_artifacts_remain_immutable_and_counts_rec
  assert "14 破军" in SUMMARY.read_text(encoding="utf-8")
 def test_state_preserves_qisha_gap_handoff_without_pinning_old_active_batch():
     state = STATE.read_text(encoding="utf-8")
-    assert "source_coverage_gaps_remaining: 23" in state
+    assert "source_coverage_gaps_remaining: 26" in state
     assert "P05-COV-GAP-001" in state
     assert all(g in state for g in PRIOR_GAPS)
     assert "No Product/runtime authorization is implied" in state

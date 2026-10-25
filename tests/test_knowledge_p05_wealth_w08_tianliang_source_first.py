@@ -88,7 +88,7 @@ def test_prior_tianxiang_artifact_is_immutable_and_cumulative_counts_reconcile()
 
 def test_state_preserves_tianliang_gap_handoff_without_pinning_old_active_batch():
     state = STATE.read_text(encoding="utf-8")
-    assert "source_coverage_gaps_remaining: 23" in state
+    assert "source_coverage_gaps_remaining: 26" in state
     assert "P05-COV-GAP-001" in state
     assert "W05-SG-002 remains PARTIALLY_RESOLVED" in state
     assert all(g in state for g in {"W06-SG-001", "W06-SG-005", "W08-SG-001", "W08-SG-005", "W09-SG-006", "W09-SG-016"})
