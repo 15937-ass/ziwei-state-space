@@ -43,6 +43,7 @@ def test_state_and_handoff_counts():
  s=STATE.read_text(encoding="utf-8")
  assert 'status: "ACTIVE"' in s and "active_issue: 746" in s
  assert 'active_branch: "knowledge/p05-746-source-first-tianxiang-p87-p88-r3"' in s
+ assert "active_pr: 751" in s
  assert "merged_rule_count: 642" in s and "current_batch_rule_count: 42" in s
  assert "source_first_records_added_current_batch: 45" in s and "source_uncertainty_count_current_batch: 3" in s
  assert "source_coverage_gap_count_current_batch: 2" in s and "source_coverage_gaps_remaining: 8" in s
