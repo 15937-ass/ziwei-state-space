@@ -1,0 +1,91 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P05-WEALTH-W08-TIANLIANG-SOURCE-GAPS-P88-P90-v0.1",
+  "issue": 760,
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "P05",
+  "palace": "财帛宫",
+  "source_basis": {
+    "source_id": "SRC-ZZ-003",
+    "work": "中州派紫微斗数深造讲义（下册）",
+    "chapter": "下篇·宫垣论·财帛宫",
+    "printed_pages": "88–90 (section 12 天梁 only; stops before section 13 七杀)",
+    "sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+    "page_image_map": "physical p44 right half = printed p88; physical p45 left half = printed p89; physical p45 right half top line = printed p90",
+    "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION"
+  },
+  "gap_count": 3,
+  "core_gap_count": 0,
+  "summary": {
+    "new_local_source_ambiguities": 3,
+    "open_local_source_ambiguities": 3,
+    "closed_local_source_ambiguities": 0,
+    "canonical_source_gap_supplement_records": 0,
+    "shared_semantic_gaps": [],
+    "unresolved_prior_gap_ids": [
+      "W05-SG-002",
+      "W06-SG-001",
+      "W06-SG-002",
+      "W06-SG-003",
+      "W06-SG-004",
+      "W06-SG-005",
+      "W08-SG-001",
+      "W08-SG-002"
+    ]
+  },
+  "source_image_checks": [
+    {
+      "source_location": "physical p44 right half / printed p88",
+      "result": "VERIFIED",
+      "note": "Verified heading 12 天梁 and opening commercial/self-operation, 化禄, management and 荫星 passages."
+    },
+    {
+      "source_location": "physical p45 left half / printed p89",
+      "result": "VERIFIED_WITH_THREE_LITERAL_ANOMALIES",
+      "note": "Verified the 子午、丑未、巳亥 branches; retained three literal anomalies instead of emending them."
+    },
+    {
+      "source_location": "physical p45 right half top line / printed p90",
+      "result": "VERIFIED",
+      "note": "The final Tianliang sentence is 若会天同化忌，只宜专业人士，或零售业亦可。; heading 13 七杀 immediately follows and is excluded."
+    }
+  ],
+  "gaps": [
+    {
+      "gap_id": "W08-SG-003",
+      "source_location": "财帛宫printed_p89",
+      "source_claim": "为本星生活费居财帛宫的最大缺点",
+      "rule_ids": [
+        "W08-823"
+      ],
+      "status": "OPEN",
+      "core_gap": false,
+      "reason": "The approved page image visibly prints this phrase, but its intended reading cannot be resolved confidently from this source. The promoted target includes only the clear preceding clauses and excludes this phrase.",
+      "resolution_requirements": "Resolve only against an authoritative alternate edition or explicit source-owner decision; do not silently substitute a plausible reading."
+    },
+    {
+      "gap_id": "W08-SG-004",
+      "source_location": "财帛宫printed_p89",
+      "source_claim": "子午宫天梁，。亦可成『阳梁昌禄』之局",
+      "rule_ids": [
+        "W08-812"
+      ],
+      "status": "OPEN",
+      "core_gap": false,
+      "reason": "The approved image appears to contain a dot-like full stop immediately after the comma following 天梁. The following Yangliang Changlu claim is legible and is promoted separately; punctuation is retained literally.",
+      "resolution_requirements": "Check an authoritative alternate edition or source-owner decision; do not silently emend punctuation."
+    },
+    {
+      "gap_id": "W08-SG-005",
+      "source_location": "财帛宫printed_p89",
+      "source_claim": "丑来天梁，见太阴化科",
+      "rule_ids": [
+        "W08-820"
+      ],
+      "status": "OPEN",
+      "core_gap": false,
+      "reason": "The approved page image visibly prints 丑来天梁. The intended reading/branch gate cannot be resolved confidently from this source; the source-first record keeps the literal and does not normalize it to 丑宫天梁.",
+      "resolution_requirements": "Resolve only against an authoritative alternate edition or explicit source-owner decision; do not silently correct the printed phrase."
+    }
+  ]
+}
