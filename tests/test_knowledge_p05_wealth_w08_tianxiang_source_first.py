@@ -25,6 +25,8 @@ def test_financial_seal_branches():
  assert "财荫夹印" in row(d,"W08-745")["canonical_condition"]
  assert "刑忌夹、火铃夹、空劫夹" in row(d,"W08-747")["canonical_condition"]
  assert "有煞同度又会煞" in row(d,"W08-747")["canonical_condition"] and "空劫同度会煞" in row(d,"W08-747")["canonical_condition"]
+ assert row(d,"W08-749")["source_digest"]=="煞忌重重者，或且倾家。"
+ assert "『紫微破军』" in row(d,"W08-780")["source_digest"] and "[武破]" in row(d,"W08-781")["source_digest"]
 def test_temporal_scope_and_paths():
  d=load(SOURCE); t=load(TIME)
  assert t["counts"]=={"non_natal_rows":4,"year":2,"decade":2,"path_dependent_gate_rows":4,"source_age_qualifier_rows":1}
