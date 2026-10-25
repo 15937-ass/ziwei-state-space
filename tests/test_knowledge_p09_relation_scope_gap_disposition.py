@@ -56,11 +56,12 @@ def test_p09_relation_scope_recheck_preserves_source_gaps_and_fail_closed_status
     assert payload["guardrails"]["remaining_11_dependency_effective_underdetermined_rows_reopened"] is False
 
 
-def test_p09_state_points_to_the_bounded_active_gap_issue_without_unlocking_runtime():
+def test_p09_state_clears_finished_work_pointers_without_unlocking_runtime():
     state = STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE"' in state
-    assert "active_issue: 785" in state
-    assert 'active_branch: "knowledge/p09-785-relation-gap-source-recheck"' in state
-    assert "active_pr: 786" in state
+    assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
+    assert "active_issue: null" in state
+    assert "active_branch: null" in state
+    assert "active_pr: null" in state
+    assert "Issue #785 / PR #786" in state
     assert "No accepted 888-rule corpus re-extraction" in state
     assert "P09 stage is not closed" in state
