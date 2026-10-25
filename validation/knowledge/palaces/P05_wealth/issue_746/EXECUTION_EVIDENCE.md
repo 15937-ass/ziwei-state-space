@@ -19,12 +19,17 @@
 - Proposed cumulative reusable rules after merge: 684. Current main remains at 642 until merge.
 - No Product, Governance, shared Core, other-palace or historical candidate files are modified.
 
-## Validation
-- Exact-head full pytest on replacement head: PENDING.
-- Product JS adapter checks: PENDING.
-- Deterministic P0 gate: PENDING.
-- Repository Governance v1 and P05 shard/write-set validation: PENDING.
-- Final base/head SHAs and Actions run reference must be recorded after exact-head validation.
+## Validation history
+- Previous exact-head snapshot: head `1017bcdb79a11ab29a74cee25f73496733278ab5`, base `3611e5e73654ca3015910314edf92fc0ca612a8b`, [Actions run #2558](https://github.com/15937-ass/ziwei-state-space/actions/runs/40155390972).
+- That snapshot passed: 2,718 tests and 132 subtests; Product JS adapter checks; deterministic P0 gate; Repository Governance v1 including P05 shard/write-set validation.
+- This evidence-file update creates a new PR head. The prior green run is historical evidence only and is not sufficient to merge the new head.
+
+## Current exact-head validation
+- Full pytest: PENDING on the head produced by this evidence update.
+- Product JS adapter checks: PENDING on the new head.
+- Deterministic P0 gate: PENDING on the new head.
+- Repository Governance v1 and P05 shard/write-set validation: PENDING on the new head.
+- The live Issue #746 and PR #756 record the final base/head SHAs and final Actions run after the new exact-head gate completes.
 
 ## Handoff
 - Next source anchor: printed p88 heading 12 天梁.
