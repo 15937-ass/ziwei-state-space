@@ -5,7 +5,6 @@ ROOT = Path(__file__).resolve().parents[1]
 DECISION = ROOT / "knowledge/core/qi-qr-overlap-audit/QI_QR_OVERLAP_PI_DECISION_PACKAGE_v0.1.md"
 CONTRACT = ROOT / "knowledge/core/wp06b/OPTION_C_METADATA_CONTRACT_PROPOSAL_v0.2.md"
 AUDIT = ROOT / "knowledge/core/qi-qr-overlap-audit/QI_QR_OVERLAP_PAIR_AUDIT_v0.1.md"
-CORE_STATE = ROOT / "knowledge/states/CORE_STATE.yaml"
 
 
 def test_decision_package_covers_exactly_eight_overlap_pairs():
@@ -55,12 +54,14 @@ def test_no_canonical_change_is_authorized_by_this_package():
     assert "Product adapter" in contract
 
 
-def test_core_recovery_cache_matches_active_issue_and_pr():
-    text = CORE_STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE"' in text
-    assert "active_issue: 735" in text
-    assert 'active_branch: "knowledge/core-735-qi-qr-pi-decision-package-r2"' in text
-    assert "active_pr: 743" in text
+def test_historical_package_records_pi_decision_without_pinning_mutable_core_cache():
+    text = CONTRACT.read_text(encoding="utf-8")
+    decision = DECISION.read_text(encoding="utf-8")
+    assert "PI 审议结果（2026-10-24）" in text
+    assert "六项全部接受" in text
+    assert "PROPOSAL_ONLY_NOT_CANONICAL" in text
+    assert "QI-17-CAND / QI-18-CAND" in decision
+    assert "不分配正式 ID" in decision
 
 
 def test_original_audit_remains_the_research_source():

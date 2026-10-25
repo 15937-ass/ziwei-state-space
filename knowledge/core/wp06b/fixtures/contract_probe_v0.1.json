@@ -1,0 +1,129 @@
+{
+  "status": "PROBE_ONLY_NOT_CANONICAL",
+  "purpose": "All PROBE-* IDs are synthetic; every row is a probe-only illustration, not a real source quotation, canonical rule, or formal ontology ID.",
+  "schema_under_test": {
+    "review_schema": "knowledge/REVIEW_SCHEMA_v0.3.md",
+    "knowledge_base_schema": "knowledge/KB_SCHEMA.md"
+  },
+  "source_claims": [
+    {
+      "probe_source_id": "PROBE-SRC-001",
+      "literal_text": "PROBE ONLY — alternative A OR alternative B; not a real source quotation.",
+      "source_epistemic": "UNRESOLVED_SOURCE",
+      "normalization_epistemic": "UNRESOLVED",
+      "review_status": "MODEL_SELF_REVIEWED",
+      "reviewer_type": "model",
+      "reviewer_id": "contract-probe-fixture",
+      "reviewed_at": "2026-10-24T00:00:00Z",
+      "source_span_verified": false,
+      "normalization_verified": false,
+      "condition": [
+        "alternative A OR alternative B"
+      ],
+      "provenance": [
+        "PROBE-SRC-001"
+      ]
+    }
+  ],
+  "target_mappings": [
+    {
+      "probe_mapping_id": "PROBE-MAP-001",
+      "probe_source_id": "PROBE-SRC-001",
+      "probe_target_label": "QI-15-PROBE",
+      "target_type": "qi_state",
+      "operator": "condition",
+      "condition": [
+        "alternative A OR alternative B"
+      ],
+      "provenance": [
+        "PROBE-SRC-001"
+      ],
+      "normalization_rationale": "Probe-only rationale for the QI-15 function/modifier interpretation; keep separate from the second target rationale.",
+      "probe_only_evidence_role": "external_modifier",
+      "probe_only_mapping_disposition": "candidate_only",
+      "probe_only_semantic_roles": {
+        "bearer_agent": "probe actor",
+        "target": "probe affected object",
+        "condition": "alternative A OR alternative B",
+        "effect_kind": "external_modifier"
+      }
+    },
+    {
+      "probe_mapping_id": "PROBE-MAP-002",
+      "probe_source_id": "PROBE-SRC-001",
+      "probe_target_label": "QR-04-PROBE",
+      "target_type": "relational_state",
+      "operator": "condition",
+      "condition": [
+        "alternative A OR alternative B"
+      ],
+      "provenance": [
+        "PROBE-SRC-001"
+      ],
+      "normalization_rationale": "Probe-only rationale for the QR-04 resource interpretation; this is a separate target-specific rationale, not independent source evidence.",
+      "probe_only_evidence_role": "resource_availability",
+      "probe_only_mapping_disposition": "candidate_only",
+      "probe_only_semantic_roles": {
+        "bearer_agent": "probe provider",
+        "target": "probe recipient/resource",
+        "condition": "alternative A OR alternative B",
+        "effect_kind": "interaction"
+      }
+    }
+  ],
+  "qi15_role_probe": {
+    "required_roles": [
+      "bearer_agent",
+      "target",
+      "condition"
+    ],
+    "effect_kinds": [
+      "state_change",
+      "external_modifier",
+      "interaction"
+    ]
+  },
+  "qr04_resource_state_probe": [
+    {
+      "probe_only_resource_state": "existence",
+      "description": "A resource exists."
+    },
+    {
+      "probe_only_resource_state": "availability",
+      "description": "A resource is available for use."
+    },
+    {
+      "probe_only_resource_state": "realized_support",
+      "description": "Support was actually provided or realized."
+    }
+  ],
+  "uncertainty_state_probe": {
+    "distinct_states": [
+      "UNKNOWN",
+      "MISSING",
+      "CONFLICT",
+      "NOT_APPLICABLE"
+    ],
+    "conflict_object": {
+      "conflict_id": "PROBE-CF-001",
+      "rules": [
+        "PROBE-MAP-001",
+        "PROBE-MAP-002"
+      ],
+      "type": "conditional",
+      "status": "unresolved",
+      "resolution": null,
+      "human_required": true
+    }
+  },
+  "candidate_gate_probe": {
+    "candidate_labels": [
+      "QI-17-CAND",
+      "QI-18-CAND"
+    ],
+    "probe_only_mapping_disposition": "candidate_only",
+    "probe_only_canonical_approval": "not_requested",
+    "probe_only_consumer_readiness": "not_authorized"
+  },
+  "axis_guardrail": "Do not encode QI/QR mapping disposition, semantic role, or ontology hierarchy into output_kind, event_specificity, or source_epistemic."
+}
