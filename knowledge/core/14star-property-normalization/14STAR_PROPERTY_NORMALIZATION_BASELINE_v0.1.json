@@ -3,7 +3,7 @@
   "artifact_id": "KB-CORE-14STAR-PROPERTY-NORMALIZATION-BASELINE-01",
   "issue": 757,
   "status": "PROPOSAL_ONLY_NOT_CANONICAL",
-  "checkpoint_status": "IN_PROGRESS_STAGE_A_TIANXIANG_PILOT",
+  "checkpoint_status": "READY_FOR_PI_METHOD_DECISION_STAGE_A_COMPLETE",
   "activation_main_sha": "74864f572cdd04407c241c483f3a34c646f69d3a",
   "execution_branch": "knowledge/core-757-14star-property-normalization",
   "source_policy": {
@@ -134,10 +134,11 @@
     "tianxiang_out_of_scope_note": "ZZ-TX-009 and ZZ-TX-010 point to related star-system material on printed p47. A locator lead was observed during source reconnaissance, but the current page-13 pilot does not adjudicate their rule content."
   },
   "progress": {
-    "stage": "A_TIANXIANG_PILOT",
+    "stage": "A_PILOT_COMPLETE_AWAITING_PI_METHOD_DECISION",
     "completed_pilot_cards": [
       "太阳",
-      "太阴"
+      "太阴",
+      "天相"
     ],
     "remaining_pilot_cards": [],
     "remaining_expansion_stars_in_existing_order": [
@@ -153,8 +154,8 @@
       "七杀",
       "破军"
     ],
-    "coverage_warning": "The solar checkpoint passed exact-head CI and remains non-canonical. The Taiyin page 19–20 review (25 rows) passed exact-head CI; ZZ-TYI-010 on printed page 42 and the full 26-rule Taiyin corpus remain unaudited. The Tianxiang pilot reviews 25 in-scope rows on printed pages 25–26; source-location correction for ZZ-TX-005/006 is documented against printed p46 in the research sidecar. ZZ-TX-009/010 on p47 remain out of scope. All outputs remain proposal-only; this is not a complete fourteen-star baseline.",
-    "active_pilot_card": "天相",
+    "coverage_warning": "All three bounded pilot cards (太阳、太阴、天相) are now recorded and the pilot checkpoint head 9e0364015758a387c3351a6516183cad0e7a54d7 passed exact-head repository quality gate Run #40169844516. This completes only Stage A pilot checkpoints, not the fourteen-star baseline. Solar source review reuses seven prior rows and does not re-review all 40 Sun rules; Taiyin review covers 25 rules on printed pp19–20 while ZZ-TYI-010 on p42 remains unaudited; Tianxiang review covers 25 in-scope IDs, with ZZ-TX-009/010 on p47 out of scope. The cross-star comparison is proposal-only, does not authorize canonicalization or Product consumption, and Stage B remains pending PI method decision.",
+    "active_pilot_card": null,
     "draft_pilot_cards": [
       "太阳",
       "太阴",
@@ -904,7 +905,7 @@
     {
       "star_id": "STAR-TX",
       "name": "天相",
-      "status": "PILOT_CHECKPOINT_IN_PROGRESS",
+      "status": "PILOT_CHECKPOINT_COMPLETED_NOT_FINAL",
       "source_claims": [
         {
           "claim_key": "TX-L0-SUBSTRATE",
@@ -2154,5 +2155,100 @@
         "conflict_ref": null
       }
     }
-  ]
+  ],
+  "pilot_checkpoint_validation": {
+    "validated_head": "9e0364015758a387c3351a6516183cad0e7a54d7",
+    "run_id": 40169844516,
+    "run_url": "https://github.com/15937-ass/ziwei-state-space/actions/runs/40169844516",
+    "conclusion": "success",
+    "checks": [
+      "full pytest",
+      "Product JS adapter syntax check",
+      "deterministic P0 repository gate",
+      "Repository Governance v1"
+    ],
+    "boundary": "This run validates the three-star pilot checkpoint before the cross-star comparison update. The comparison update must be checked at its own exact head; prior green runs do not transfer."
+  },
+  "cross_star_comparison": {
+    "status": "COMPLETED_RESEARCH_COMPARISON_NOT_PI_APPROVED",
+    "scope": [
+      "太阳",
+      "太阴",
+      "天相"
+    ],
+    "comparison_axes": [
+      {
+        "axis_id": "L0_STRUCTURE_METADATA",
+        "finding": "太阳的阴阳五行、太阴的阴水、天相的阳水均先作为结构元数据保留，不直接转换成 QI 轴值或数值强度。",
+        "evidence_star_ids": [
+          "STAR-TY",
+          "STAR-TYI",
+          "STAR-TX"
+        ],
+        "method_result": "KEEP_SUBSTRATE_METADATA_SEPARATE_FROM_QI"
+      },
+      {
+        "axis_id": "L1_INTRINSIC_BASELINE_CANDIDATES",
+        "finding": "太阳的向外发射与太阴的潜藏/收敛可作为既有 QI-01 两个相反方向的候选；两者均不等于已接受映射，太阴还明确要求保留适度收敛的最优区域。天相来源更直接支持环境依赖/关系门控，不支持仅凭已审跨度确认固定的 QI-02 柔和/软弱内在基线。",
+        "evidence_star_ids": [
+          "STAR-TY",
+          "STAR-TYI",
+          "STAR-TX"
+        ],
+        "method_result": "DIRECTIONAL_CANDIDATES_ONLY; NO_NUMERIC_OR_CANONICAL_PROMOTION"
+      },
+      {
+        "axis_id": "CONDITIONS_AND_STATE_CHANGE",
+        "finding": "太阳过度发射需保留入庙与过多发射星曜的联合条件；太阴过度收敛的替代分支保留 OR，太阳补偿与过度发射保留条件门控；天相夹宫/刑忌夹/财荫夹和化解分支保留具体化禄或化忌主体及 AND/OR 条件。",
+        "evidence_star_ids": [
+          "STAR-TY",
+          "STAR-TYI",
+          "STAR-TX"
+        ],
+        "method_result": "CONDITIONS_RETAINED_IN_RESEARCH_CARDS; NOT_REDUCED_TO_UNCONDITIONAL_TRAITS"
+      },
+      {
+        "axis_id": "L2_RELATIONSHIP_AND_CONTEXT",
+        "finding": "太阳的财富/贵显表现依赖其他星曜会合；太阴涉及太阳补偿、昌曲分支与福德宫依赖；天相涉及夹宫优先、对宫破军和星系家族。它们均应按关系/上下文处理，而非重复记作单星内在证据。",
+        "evidence_star_ids": [
+          "STAR-TY",
+          "STAR-TYI",
+          "STAR-TX"
+        ],
+        "method_result": "RELATIONAL_AND_CONTEXTUAL_CLAIMS_REMAIN_DISTINCT"
+      },
+      {
+        "axis_id": "L3_PROJECTION_OR_OUTCOME",
+        "finding": "声名、贵显、财富、六亲、传统健康、离乡发展、守成和技艺谋生均按带条件的传统下游主张保留，不作为单星内在向量，也不作为现实预测有效性的证据。",
+        "evidence_star_ids": [
+          "STAR-TY",
+          "STAR-TYI",
+          "STAR-TX"
+        ],
+        "method_result": "OUTCOME_PROJECTION_NOT_INTRINSIC_PROPERTY"
+      },
+      {
+        "axis_id": "PROVENANCE_AND_EPISTEMIC_BOUNDARY",
+        "finding": "重复规则引用同一原文跨度时保留规则差异但不重复计证；原文来源状态与 normalization_epistemic 分开；太阴书页42规则、天相书页47相关星系规则和太阳全量40条审查仍有明确覆盖边界；天相 p46 扫描字面与 canonical target 的差异保持未决。",
+        "evidence_star_ids": [
+          "STAR-TY",
+          "STAR-TYI",
+          "STAR-TX"
+        ],
+        "method_result": "UNKNOWN_AND_SCOPE_LIMITS_PRESERVED"
+      }
+    ],
+    "method_adequacy": {
+      "accepted_v01_mapping_review_schema_sufficient_for_pilot_record_shape": true,
+      "shared_schema_extension_required_for_this_pilot": false,
+      "research_sidecar_required": true,
+      "manual_semantic_review_required": true,
+      "machine_validation_limitations": [
+        "结构验证可检查逐目标审核记录和受控值域，但不能自动证明来源解释正确。",
+        "OR/AND、比较范围、语气和跨星/跨宫条件仍须在来源主张卡中显式记录并人工核对；不得把测试通过视为语义接受。"
+      ]
+    },
+    "pi_method_recommendation": "ACCEPT_METHOD_FOR_STAGE_B_WITHOUT_CANONICALIZATION",
+    "pi_method_decision_required_before_expansion": true
+  }
 }
