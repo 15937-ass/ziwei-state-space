@@ -2,7 +2,8 @@
 
 **状态：** `READY_FOR_PI_METHOD_DECISION_NOT_FINAL_CANONICAL` / `PROPOSAL_ONLY_NOT_CANONICAL`  
 **Issue：** #757  
-**范围：** 太阳、太阴、天相三个有界试点及其横向方法比较；不是最终十四星审议包，也不请求候选映射的 canonical 批准。
+**范围：** 太阳、太阴、天相三个有界试点及其横向方法比较；不是最终十四星审议包，也不请求候选映射的 canonical 批准。  
+**详细中文审议说明：** [PI 决策说明书 v0.1](14STAR_PROPERTY_NORMALIZATION_PI_DECISION_MEMO_v0.1.md)。建议先读决策说明书，再看本文件中的技术观察与待决项。
 
 ## 目前观察
 
