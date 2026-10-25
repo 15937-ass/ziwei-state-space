@@ -15,8 +15,8 @@ def load(path):
 def test_p05_state_cache_tracks_live_tianxiang_work_and_preserves_historical_checkpoints():
     state = STATE.read_text(encoding="utf-8")
     assert 'status: "ACTIVE"' in state
-    assert "active_issue: 746" in state
-    assert 'active_branch: "knowledge/p05-746-source-first-tianxiang-p87-p88-r4"' in state
+    assert "active_issue: 759" in state
+    assert 'active_branch: "knowledge/p05-759-source-first-tianliang-p88-p89"' in state
     assert "W05_401_500_SOURCE_FIRST_MERGED" in state
     assert "main commit 7bf664fc87db20bfe02ef0020785b91dd62cbbdf" in state
     assert "current main commit 74087c97afffc5afa4821f8edb21ff42aea6eb6b" in state
