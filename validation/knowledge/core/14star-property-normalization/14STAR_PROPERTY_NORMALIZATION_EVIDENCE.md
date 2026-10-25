@@ -1,3 +1,18 @@
+# 当前检查点 — 阶段 B 首轮紫微候选研究（2026-10-25）
+
+- Lane/shard/Issue/PR：KNOWLEDGE_ONLY / CORE / #757 / Draft #763。
+- Base main：`0c9210855d874045f577914e8ec27e909438ecf4`；本轮接手head：`db42f5ffd8cdf5e2b8fa87e9360a55c701c16d54`；分支：`knowledge/core-757-14star-property-normalization`。
+- 本轮来源：`SRC-ZZ-002`，《中州派紫微斗数深造讲义（上）》；源文件SHA-256 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a` 与 `sources/source_index.csv` 一致。
+- 已对PDF扫描页3（印刷页5–6）做视觉复核；当前canonical文件中的43条 `ZZ-ZW` 规则全部出现在 `ZIWEI_SOURCE_SPAN_REVIEW_v0.1.csv` 中。既有DIRECT_STAR Batch 01的4条紫微行被复用，不重复计证。
+- 更新baseline JSON、Core恢复缓存、专用来源审查CSV和Core测试；新增12条逐目标mapping_review记录。全部候选仍 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`。
+- 研究发现：帝座/君主是符号性主导角色候选，不是现实领导能力；具体性质依赖同度/会合；在野孤君必须保留“落陷且无百官朝拱”前提及空曜/煞忌分支；运限领导力不等于本命人格。
+- 未修改正式星核、本体、canonical源规则、共享schema、正式ID、Product/runtime、KIB或消费权限。canonical `source_span_verified` 保持 false。
+- 本次提交后的exact-head完整质量门禁：PENDING；必须以最终PR head自己的运行结果为准，历史绿色结果不转移。
+
+---
+
+以下为此前上下文方法检查点的历史证据；等待PI方法决定的停止点已被阶段B授权取代。
+
 # 当前补充检查点 — 上下文方法审查（2026-10-25）
 
 - Lane/shard/Issue/PR：KNOWLEDGE_ONLY / CORE / #757 / Draft #763。

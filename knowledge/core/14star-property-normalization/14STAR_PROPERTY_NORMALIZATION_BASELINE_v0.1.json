@@ -3,7 +3,7 @@
   "artifact_id": "KB-CORE-14STAR-PROPERTY-NORMALIZATION-BASELINE-01",
   "issue": 757,
   "status": "PROPOSAL_ONLY_NOT_CANONICAL",
-  "checkpoint_status": "CONTEXT_METHOD_CHECK_COMPLETE_STAGE_B_AUTHORIZED",
+  "checkpoint_status": "STAGE_B_ZIWEI_CHECKPOINT_COMPLETED_NOT_FINAL",
   "activation_main_sha": "74864f572cdd04407c241c483f3a34c646f69d3a",
   "execution_branch": "knowledge/core-757-14star-property-normalization",
   "source_policy": {
@@ -131,10 +131,68 @@
       "ZZ-TX-009",
       "ZZ-TX-010"
     ],
-    "tianxiang_out_of_scope_note": "ZZ-TX-009 and ZZ-TX-010 point to related star-system material on printed p47. A locator lead was observed during source reconnaissance, but the current page-13 pilot does not adjudicate their rule content."
+    "tianxiang_out_of_scope_note": "ZZ-TX-009 and ZZ-TX-010 point to related star-system material on printed p47. A locator lead was observed during source reconnaissance, but the current page-13 pilot does not adjudicate their rule content.",
+    "ziwei_review_rule_ids": [
+      "ZZ-ZW-001",
+      "ZZ-ZW-002",
+      "ZZ-ZW-003",
+      "ZZ-ZW-004",
+      "ZZ-ZW-005",
+      "ZZ-ZW-006",
+      "ZZ-ZW-007",
+      "ZZ-ZW-008",
+      "ZZ-ZW-009",
+      "ZZ-ZW-010",
+      "ZZ-ZW-011",
+      "ZZ-ZW-012",
+      "ZZ-ZW-013",
+      "ZZ-ZW-014",
+      "ZZ-ZW-015",
+      "ZZ-ZW-016",
+      "ZZ-ZW-017",
+      "ZZ-ZW-018",
+      "ZZ-ZW-019",
+      "ZZ-ZW-020",
+      "ZZ-ZW-021",
+      "ZZ-ZW-022",
+      "ZZ-ZW-023",
+      "ZZ-ZW-024",
+      "ZZ-ZW-025",
+      "ZZ-ZW-X01",
+      "ZZ-ZW-X02",
+      "ZZ-ZW-X03",
+      "ZZ-ZW-X04",
+      "ZZ-ZW-X05",
+      "ZZ-ZW-X06",
+      "ZZ-ZW-X07",
+      "ZZ-ZW-X08",
+      "ZZ-ZW-X09",
+      "ZZ-ZW-X10",
+      "ZZ-ZW-X11",
+      "ZZ-ZW-X12",
+      "ZZ-ZW-Y01",
+      "ZZ-ZW-Y02",
+      "ZZ-ZW-Y03",
+      "ZZ-ZW-Y04",
+      "ZZ-ZW-Y05",
+      "ZZ-ZW-Y06"
+    ],
+    "ziwei_review_path": "knowledge/core/14star-property-normalization/ZIWEI_SOURCE_SPAN_REVIEW_v0.1.csv",
+    "ziwei_source_locator": {
+      "source_id": "SRC-ZZ-002",
+      "source_work": "《中州派紫微斗数深造讲义（上）》",
+      "source_sha256": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a",
+      "pdf_scan_page": 3,
+      "printed_pages": [
+        5,
+        6
+      ],
+      "verification": "VISUAL_SOURCE_REVIEWED; SHA256_MATCHES_SOURCES_INDEX",
+      "canonical_source_span_verified_mutated": false
+    }
   },
   "progress": {
-    "stage": "A_CONTEXT_CHECK_COMPLETE_READY_FOR_B",
+    "stage": "B_ZIWEI_CHECKPOINT_COMPLETED_READY_FOR_TIANJI",
     "completed_pilot_cards": [
       "太阳",
       "太阴",
@@ -142,7 +200,6 @@
     ],
     "remaining_pilot_cards": [],
     "remaining_expansion_stars_in_existing_order": [
-      "紫微",
       "天机",
       "武曲",
       "天同",
@@ -154,12 +211,38 @@
       "七杀",
       "破军"
     ],
-    "coverage_warning": "All three bounded pilot cards (太阳、太阴、天相) are now recorded and the pilot checkpoint head 9e0364015758a387c3351a6516183cad0e7a54d7 passed exact-head repository quality gate Run #40169844516. This completes only Stage A pilot checkpoints, not the fourteen-star baseline. Solar source review reuses seven prior rows and does not re-review all 40 Sun rules; Taiyin review covers 25 rules on printed pp19–20 while ZZ-TYI-010 on p42 remains unaudited; Tianxiang review covers 25 in-scope IDs, with ZZ-TX-009/010 on p47 out of scope. The cross-star comparison is proposal-only, does not authorize canonicalization or Product consumption, PI accepted the bounded context-check recommendation on 2026-10-25; its research exit conditions are met. Stage B is authorized for a later bounded turn, without canonicalization or Product consumption.",
+    "coverage_warning": "Stage A pilots 太阳、太阴、天相 remain completed research checkpoints, not final canonical mappings. Stage B first bounded 紫微 checkpoint: 43 canonical ZZ-ZW rows on SRC-ZZ-002 printed pp5–6 (PDF scan page 3) visually reviewed. Canonical source_span_verified remains false and normalization_epistemic remains UNRESOLVED. Scope does not include the full sixty-star-system chapter or all Ziwei-related rules elsewhere. All mappings remain proposal-only; next star is 天机.",
     "active_pilot_card": null,
     "draft_pilot_cards": [
       "太阳",
       "太阴",
       "天相"
+    ],
+    "completed_expansion_stars": [
+      "紫微"
+    ],
+    "active_expansion_star": null,
+    "draft_expansion_stars": [
+      "紫微"
+    ],
+    "expansion_checkpoint_history": [
+      {
+        "star": "紫微",
+        "status": "CHECKPOINT_COMPLETED_NOT_FINAL",
+        "source_id": "SRC-ZZ-002",
+        "pdf_scan_page": 3,
+        "printed_pages": [
+          5,
+          6
+        ],
+        "canonical_rule_rows_reviewed": 43,
+        "source_review_rows": 43,
+        "mapping_review_records_added": 12,
+        "normalization_epistemic": "UNRESOLVED",
+        "canonicalization_authorized": false,
+        "product_consumption_authorized": false,
+        "next_star": "天机"
+      }
     ]
   },
   "method_guardrails": {
@@ -1408,6 +1491,712 @@
         "ZZ-TX-009 and ZZ-TX-010 refer to related star-system material and were not adjudicated by scan page 13; do not mark them source-verified.",
         "Repeated source spans such as ZZ-TX-001/ZZ-TX-X02 and ZZ-TX-008/ZZ-TX-Y06 are not independent evidence."
       ]
+    },
+    {
+      "star_id": "STAR-ZW",
+      "name": "紫微",
+      "status": "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL",
+      "source_claims": [
+        {
+          "claim_key": "ZW-L0-SUBSTRATE",
+          "source_rule_ids": [
+            "ZZ-ZW-001"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 5
+          },
+          "source_excerpt": "紫微为北斗主星，属阴土。",
+          "claim_layer": "L0_STRUCTURE_METADATA",
+          "claim_summary": "阴土与北斗主星身份是传统结构元数据，不直接转换成QI轴值。",
+          "candidate_target_ref": "STAR-ZW.substrate:yin_earth",
+          "conditions_to_preserve": [
+            "保留原始阴土标签",
+            "不从五行标签推出QI方向、强度或效应"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p5:substrate",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "ZW-L1-ROLE-METAPHOR",
+          "source_rule_ids": [
+            "ZZ-ZW-002"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 5
+          },
+          "source_excerpt": "紫微至尊至贵，所以古人喻之为[帝座]，即是以紫微喻为一国之君。",
+          "claim_layer": "L2_SYMBOLIC_ROLE_OR_RELATIONAL_FUNCTION",
+          "claim_summary": "帝座/君主是象征性角色候选，不证明现实领导能力、执行力或固定人格；同段上下文依赖另行记录，不新造canonical rule ID。",
+          "candidate_target_ref": "STAR-ZW.relational_signature:QR-02",
+          "conditions_to_preserve": [
+            "象征性君主角色",
+            "角色位置不等于领导能力/自主性",
+            "与同段上下文依赖句分开审议"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p5:imperial-metaphor",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "ZW-L2-CONTEXT-DEPENDENCE",
+          "source_rule_ids": [
+            "ZZ-ZW-002"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 5
+          },
+          "source_excerpt": "便需要根据其所会合或同度的星曜而定。",
+          "claim_layer": "L2_RELATIONAL_OR_CONTEXTUAL_DEPENDENCY",
+          "claim_summary": "原文直接要求依据同度/会合星曜判断紫微性质，支持高上下文依赖候选。",
+          "candidate_target_ref": "STAR-ZW.contextual_sensitivity",
+          "conditions_to_preserve": [
+            "同度星曜",
+            "会合星曜",
+            "不把具体性质视为无条件固定值"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p5:context-dependence",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "ZW-L2-BAIGUAN-AND-VALIDITY",
+          "source_rule_ids": [
+            "ZZ-ZW-003",
+            "ZZ-ZW-004",
+            "ZZ-ZW-005"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 5
+          },
+          "source_excerpt": "紫微不宜为[孤君]，所以最喜[百官朝拱]；朝拱紫微的正曜，须天府天相始为合格。",
+          "claim_layer": "L2_RELATIONAL_STRUCTURE_AND_GATE",
+          "claim_summary": "百官朝拱是多星支持结构；正曜朝拱另有天府、天相的具体合格条件。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "孤君/百官朝拱为结构对照",
+            "正曜朝拱需天府、天相",
+            "不把任意吉曜等同百官朝拱"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p5:baiguan-gate",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "ZW-L2-FUXIANG-CONDITIONS",
+          "source_rule_ids": [
+            "ZZ-ZW-006",
+            "ZZ-ZW-007",
+            "ZZ-ZW-008",
+            "ZZ-ZW-009",
+            "ZZ-ZW-010",
+            "ZZ-ZW-011"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 5
+          },
+          "source_excerpt": "天府见禄与空库；天相另有财荫夹印、刑忌夹印与羊陀夹条件。",
+          "claim_layer": "CONDITIONAL_RELATIONAL_MODIFIER",
+          "claim_summary": "天府禄源/空库与天相夹局属于不同主体、不同条件，不能合并为紫微统一内在性质。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "禄源顺序只在朝拱天府见禄语境成立",
+            "空库条件绑定天府与空曜",
+            "财荫夹印、刑忌夹印及羊陀夹分开保留"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p5:fuxiang-gates",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "ZW-L2-SUPPORT-NETWORK",
+          "source_rule_ids": [
+            "ZZ-ZW-012",
+            "ZZ-ZW-013",
+            "ZZ-ZW-014",
+            "ZZ-ZW-015",
+            "ZZ-ZW-016"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 5
+          },
+          "source_excerpt": "左右夹紫破限定丑未；三方会合主助力/属下；魁钺会合可增强领导力与机遇。",
+          "claim_layer": "L2_EXTERNAL_SUPPORT_AND_RELATIONAL_MODIFIERS",
+          "claim_summary": "支持资源、组织规模、领导力修饰和机遇是不同条件性主张。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "左右夹紫破限定丑/未宫",
+            "左右三方会合与魁钺会合是不同条件",
+            "领导力增强不等于无条件QI-08行动驱动"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p5:support-network",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "ZW-CHANGQU-MODIFIER",
+          "source_rule_ids": [
+            "ZZ-ZW-017",
+            "ZZ-ZW-018"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 5
+          },
+          "source_excerpt": "文昌文曲可以增加思想优雅，部分抵消紫微独断、自高的缺点。",
+          "claim_layer": "CONDITIONAL_SAME_STAR_MODIFIER",
+          "claim_summary": "昌曲作用有条件；同一连续来源段的两条规则不作为两份独立来源证据。",
+          "candidate_target_ref": "STAR-ZW.conditional_signature:QI-07",
+          "conditions_to_preserve": [
+            "文昌文曲会合",
+            "思想优雅与抵消作用并列保留",
+            "同一连续来源段不重复计证"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p5:changqu-passage",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "ZW-CHANGQU-ZITAN-EXCEPTION",
+          "source_rule_ids": [
+            "ZZ-ZW-019"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 5
+          },
+          "source_excerpt": "唯紫贪见昌曲，则加强了桃花色彩。",
+          "claim_layer": "L2_STAR_SYSTEM_EXCEPTION_AND_L3_PROJECTION",
+          "claim_summary": "紫贪是明确星系例外；桃花色彩是该组合下的传统投影。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "紫微贪狼组合",
+            "文昌文曲会合",
+            "保留例外语气"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p5:ziwei-tanlang-exception",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "ZW-LUCUN-TIANMA-TRADEOFF",
+          "source_rule_ids": [
+            "ZZ-ZW-020"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 5
+          },
+          "source_excerpt": "禄存天马可以中和其求名不求利，甚至求气不求财的缺点。",
+          "claim_layer": "CONDITIONAL_STATE_MODIFIER_AND_TRADEOFF",
+          "claim_summary": "禄马的中和作用依特定会合条件；不转为紫微恒定名利偏好量值。",
+          "candidate_target_ref": "STAR-ZW.conditional_signature:modifier",
+          "conditions_to_preserve": [
+            "禄存与天马会合",
+            "中和作用有条件",
+            "不生成名利数值或固定人格值"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p5:lucun-tianma-tradeoff",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "ZW-MISC-STATUS-PROJECTIONS",
+          "source_rule_ids": [
+            "ZZ-ZW-021",
+            "ZZ-ZW-022",
+            "ZZ-ZW-023"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 5
+          },
+          "source_excerpt": "三台八座能增加地位；恩光天贵能增加名誉；台辅封诰能增加声价。",
+          "claim_layer": "L3_TRADITIONAL_DOWNSTREAM_OUTCOMES",
+          "claim_summary": "地位、名誉、声价是不同杂曜条件后的传统结果，不是紫微基础内在性质。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "三台八座—地位",
+            "恩光天贵—名誉",
+            "台辅封诰—声价"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p5:misc-status-projections",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 3
+        },
+        {
+          "claim_key": "ZW-MISC-SKILL-AND-OPENNESS",
+          "source_rule_ids": [
+            "ZZ-ZW-024",
+            "ZZ-ZW-025"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 5
+          },
+          "source_excerpt": "龙池凤阁能增加灵巧；天福天寿能增加通达。",
+          "claim_layer": "CONDITIONAL_SAME_STAR_MODIFIER",
+          "claim_summary": "灵巧与通达由不同杂曜组合修饰；是否精确映射到现有QI目标仍未解决。",
+          "candidate_target_ref": "STAR-ZW.conditional_signature:QI-07",
+          "conditions_to_preserve": [
+            "龙池凤阁与灵巧/才艺",
+            "天福天寿与通达",
+            "不自动接受QI-07映射"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p5:misc-skill-modifiers",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "ZW-INYE-STATE-GATE",
+          "source_rule_ids": [
+            "ZZ-ZW-X01"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_pages": [
+              5,
+              6
+            ]
+          },
+          "source_excerpt": "紫微入朝，无[百官朝拱]尚可，若落陷又无[百官朝拱]，则为[在野孤君]。",
+          "claim_layer": "CONDITIONAL_STATE_CHANGE",
+          "claim_summary": "只有落陷且无百官朝拱才形成在野孤君，须保留入朝无朝拱尚可的对照。",
+          "candidate_target_ref": "STAR-ZW.conditional_signature:QR-01",
+          "conditions_to_preserve": [
+            "入朝且无百官朝拱：尚可",
+            "落陷且无百官朝拱：在野孤君",
+            "不得静默改成OR"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p5-6:inye-state-gate",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "ZW-INYE-VOID-STATE",
+          "source_rule_ids": [
+            "ZZ-ZW-X02"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 5
+          },
+          "source_excerpt": "见空曜，则主其人虽成见甚深，但思想超脱。",
+          "claim_layer": "CONDITIONAL_STATE_CHANGE",
+          "claim_summary": "见空曜分支只在先有在野孤君状态时成立；保留虽/但并存描述。",
+          "candidate_target_ref": "STAR-ZW.conditional_signature:QR-01",
+          "conditions_to_preserve": [
+            "先满足在野孤君",
+            "见空曜分支",
+            "保留原文“虽…但…”"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p5:inye-void-state",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "ZW-INYE-VOID-RESEARCH-PROJECTION",
+          "source_rule_ids": [
+            "ZZ-ZW-X03"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_pages": [
+              5,
+              6
+            ]
+          },
+          "source_excerpt": "再见华盖、天刑，则可能倾向于哲理或宗教方面的研究。",
+          "claim_layer": "L3_CONDITIONAL_TRADITIONAL_PROJECTION",
+          "claim_summary": "哲理/宗教研究是先见空曜、再见华盖天刑的条件性投影；“可能倾向”不等于必然职业。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "在野孤君",
+            "见空曜",
+            "再见华盖、天刑",
+            "保留“可能倾向”"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p5-6:inye-void-research",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "ZW-INYE-NONVOID-BRANCH",
+          "source_rule_ids": [
+            "ZZ-ZW-X04"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 6
+          },
+          "source_excerpt": "不见空曜，则其人可能进退失据，既不能命，又不能令，可是却不肯低头服小。",
+          "claim_layer": "CONDITIONAL_STATE_CHANGE",
+          "claim_summary": "不见空曜是独立分支；保留“可能”语气，不与见空曜分支合并。",
+          "candidate_target_ref": "STAR-ZW.conditional_signature:QR-01",
+          "conditions_to_preserve": [
+            "先满足在野孤君",
+            "不见空曜分支",
+            "保留可能性语气"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p6:inye-nonvoid-branch",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "ZW-INYE-SHAJI-BRANCHES",
+          "source_rule_ids": [
+            "ZZ-ZW-X05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 6
+          },
+          "source_excerpt": "见空曜者见煞、忌，主人六亲无靠；不见空曜者见煞、忌，则一生多是非纷扰。",
+          "claim_layer": "CONDITIONAL_RELATIONAL_OUTCOME_BRANCHES",
+          "claim_summary": "煞忌下的两种结果依赖见空曜/不见空曜分支；不能合并为无条件孤离/冲突性质。",
+          "candidate_target_ref": "STAR-ZW.conditional_signature:QR-01",
+          "conditions_to_preserve": [
+            "在野孤君前提",
+            "见空曜+煞忌：六亲无靠（传统表述）",
+            "不见空曜+煞忌：是非纷扰",
+            "两类结果分开"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p6:inye-shaji-branches",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "ZW-TEMPORAL-TRADITIONAL-OUTCOME",
+          "source_rule_ids": [
+            "ZZ-ZW-X06"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 6
+          },
+          "source_excerpt": "运限逢之，亦主词讼或手术开刀。",
+          "claim_layer": "L3_TEMPORAL_TRADITIONAL_OUTCOME",
+          "claim_summary": "这是条件与运限范围内的传统应象，不是本命基础性质或现代法律/医学因果主张。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "明确的运限范围",
+            "在野孤君与煞忌前提",
+            "传统应象边界"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p6:temporal-traditional-outcome",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "ZW-GENERAL-NONCANCELLATION",
+          "source_rule_ids": [
+            "ZZ-ZW-X07"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 6
+          },
+          "source_excerpt": "推算时宜详各星曜的性质作个别推断，不能将之抵消。",
+          "claim_layer": "GENERAL_INTERPRETIVE_METHOD",
+          "claim_summary": "这是通用解释方法，不是紫微自身的调和/缓冲能力，也不支持简单正负抵消算法。",
+          "candidate_target_ref": "STAR-ZW.intrinsic_signature:QI-15",
+          "conditions_to_preserve": [
+            "吉凶交集",
+            "逐曜个别推断",
+            "不得静默抵消"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p6:general-noncancellation",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "ZW-MALEFIC-EXTREME",
+          "source_rule_ids": [
+            "ZZ-ZW-X08"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 6
+          },
+          "source_excerpt": "四煞并照，则紫微成为暴君。",
+          "claim_layer": "CONDITIONAL_SYSTEM_MODE",
+          "claim_summary": "“暴君”式主导失衡依四煞并照条件；不能提升为无条件人格。",
+          "candidate_target_ref": "STAR-ZW.conditional_signature:system_context",
+          "conditions_to_preserve": [
+            "四煞并照",
+            "与一般主导角色分开",
+            "不生成固定负面强度"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p6:four-malefics-extreme",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "ZW-MALEFIC-CLAMP-DIFFERENCES",
+          "source_rule_ids": [
+            "ZZ-ZW-X09",
+            "ZZ-ZW-X10"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 6
+          },
+          "source_excerpt": "若为羊陀相夹，则主易于招怨；火铃夹仅主辛劳，二者皆主事事亲力亲为。",
+          "claim_layer": "CONDITIONAL_RELATIONAL_AND_WORKLOAD_EFFECTS",
+          "claim_summary": "羊陀夹与火铃夹的传统效果不同，不合成一个统一煞曜强度。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "羊陀夹—易招怨",
+            "火铃夹—辛劳",
+            "保留两种夹制的区别"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p6:malefic-clamp-differences",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "ZW-TEMPORAL-ROLE",
+          "source_rule_ids": [
+            "ZZ-ZW-X11",
+            "ZZ-ZW-X12"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 6
+          },
+          "source_excerpt": "大限流年的命宫，紫微虽无独断独行等基本性格，但却亦为发挥领导力的表示。",
+          "claim_layer": "TEMPORAL_REACTION_OR_PROJECTION",
+          "claim_summary": "原文明示大限/流年命宫与本命人格不同；吉星咸集时独当一面是带条件的运程投影。",
+          "candidate_target_ref": "STAR-ZW.temporal_signature:QR-02",
+          "conditions_to_preserve": [
+            "大限/流年范围",
+            "不等同本命人格",
+            "吉星咸集是附加条件",
+            "保留“往往”"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p6:temporal-role",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "ZW-HUA-LU-QUAN-KE",
+          "source_rule_ids": [
+            "ZZ-ZW-Y01"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 6
+          },
+          "source_excerpt": "化禄、化权、化科，则不称为朝拱，仅主运势方面的改善。",
+          "claim_layer": "TEMPORAL_OR_INTERPRETIVE_SCOPE",
+          "claim_summary": "禄权科与百官朝拱概念分开；此处仅说明运势改善，不归入紫微固定内在性质。",
+          "candidate_target_ref": "STAR-ZW.temporal_signature:fortune_context",
+          "conditions_to_preserve": [
+            "化禄/化权/化科",
+            "与百官朝拱分开",
+            "仅保留运势改善范围"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p6:hua-lu-quan-ke",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "ZW-OUTCOME-PROJECTIONS",
+          "source_rule_ids": [
+            "ZZ-ZW-Y02",
+            "ZZ-ZW-Y03"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 6
+          },
+          "source_excerpt": "吉凶星曜交集时，见禄仍利于经商；见昌曲而有煞忌会合，则可成专业人才。",
+          "claim_layer": "L3_CONDITIONAL_TRADITIONAL_OUTCOMES",
+          "claim_summary": "经商与专业人才是不同组合条件下的传统结果，不构成现实成功保证。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "见禄与吉凶交集",
+            "昌曲与煞忌会合",
+            "两类下游结果分开"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p6:outcome-projections",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "ZW-MALEFIC-SENSITIVITY",
+          "source_rule_ids": [
+            "ZZ-ZW-Y04",
+            "ZZ-ZW-Y05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 6
+          },
+          "source_excerpt": "紫微唯畏擎羊陀罗，不畏火铃；但亦不喜羊陀与火铃同时会合。",
+          "claim_layer": "COMPARATIVE_RELATIONAL_SENSITIVITY",
+          "claim_summary": "原文比较不同煞曜作用并另指出叠加条件；不推导通用强度排序或数值敏感性。",
+          "candidate_target_ref": "STAR-ZW.conditional_signature:malefic_sensitivity",
+          "conditions_to_preserve": [
+            "羊陀与单独火铃的比较",
+            "羊陀与火铃同时会合的条件",
+            "比较不转为绝对QI值"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p6:malefic-sensitivity",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        },
+        {
+          "claim_key": "ZW-STAR-FAMILY-STRUCTURE",
+          "source_rule_ids": [
+            "ZZ-ZW-Y06"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 3,
+            "printed_page": 6
+          },
+          "source_excerpt": "紫微分布于十二宫，可以分成[独坐]、[紫破]、[紫府]、[紫贪]、[紫相]、[紫杀]六个结构。",
+          "claim_layer": "STAR_FAMILY_STRUCTURE",
+          "claim_summary": "六类结构是星系分类，不是单星内在性质向量；同段比较描述不自动成为绝对排名。",
+          "candidate_target_ref": "STAR-ZW.system_context:star_family_structure",
+          "conditions_to_preserve": [
+            "六类结构逐项保留",
+            "星系分类与相对适配比较分开",
+            "不建立绝对排名"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "SRC-ZZ-002:P3:printed-p6:star-family-structure",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL"
+        }
+      ],
+      "candidate_properties": [
+        {
+          "candidate_key": "EXP-ZW-01",
+          "layer": "L2_SYMBOLIC_ROLE_OR_RELATIONAL_FUNCTION",
+          "candidate_label": "帝座/君主的符号性主导角色（非能力量值）",
+          "target_ref": "STAR-ZW.relational_signature:QR-02",
+          "source_rule_ids": [
+            "ZZ-ZW-002"
+          ],
+          "mapping_review_record_id": "MR-ZW-QR02-ROLE-002",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-ZW-02",
+          "layer": "L2_CONTEXTUAL_DEPENDENCY",
+          "candidate_label": "高上下文依赖：同度/会合与百官朝拱结构影响性质判断",
+          "target_ref": "STAR-ZW.contextual_sensitivity",
+          "source_rule_ids": [
+            "ZZ-ZW-002",
+            "ZZ-ZW-003",
+            "ZZ-ZW-004",
+            "ZZ-ZW-005"
+          ],
+          "mapping_review_record_id": "MR-ZW-CONTEXT-SENSITIVITY-003",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-ZW-03",
+          "layer": "L2_CONDITIONAL_RELATIONAL_STATE",
+          "candidate_label": "在野孤君仅为落陷且无百官朝拱后的条件化状态",
+          "target_ref": "STAR-ZW.conditional_signature:QR-01",
+          "source_rule_ids": [
+            "ZZ-ZW-X01",
+            "ZZ-ZW-X02",
+            "ZZ-ZW-X04",
+            "ZZ-ZW-X05"
+          ],
+          "mapping_review_record_id": "MR-ZW-QR01-CONDITIONAL-007",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-ZW-04",
+          "layer": "CONDITIONAL_SAME_STAR_MODIFIER",
+          "candidate_label": "昌曲/龙凤等修饰只在具体会合结构下出现",
+          "target_ref": "STAR-ZW.conditional_signature:QI-07",
+          "source_rule_ids": [
+            "ZZ-ZW-017",
+            "ZZ-ZW-018",
+            "ZZ-ZW-024"
+          ],
+          "mapping_review_record_id": "MR-ZW-QI07-MODIFIER-008",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-ZW-05",
+          "layer": "TEMPORAL_RESPONSE",
+          "candidate_label": "运限紫微的阶段性主导作用",
+          "target_ref": "STAR-ZW.temporal_signature:QR-02",
+          "source_rule_ids": [
+            "ZZ-ZW-X11",
+            "ZZ-ZW-X12"
+          ],
+          "mapping_review_record_id": "MR-ZW-TEMPORAL-QR02-009",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        }
+      ],
+      "non_promotion_guards": [
+        "Do not turn 阴土 into a QI direction, numeric strength, or unproved five-element effect.",
+        "Do not promote the 帝座/一国之君 metaphor to actual leadership skill, autonomy, action drive, or fixed personality.",
+        "Do not infer an unconditional intrinsic QR-01 isolation value: 在野孤君 requires 落陷且无百官朝拱 and then branches on 空曜/煞忌.",
+        "Preserve 入朝无百官朝拱尚可 versus 落陷且无百官朝拱才形成在野孤君.",
+        "Preserve distinct 见空曜/不见空曜 branches and the separate traditional outcomes.",
+        "Treat ZZ-ZW-X06 as a time-scoped traditional outcome, not modern legal/medical causation.",
+        "Treat ZZ-ZW-X11/X12 as 大限/流年 activation, not natal personality.",
+        "Treat ZZ-ZW-X07 as a general interpretation method, not intrinsic moderation capacity; do not simply cancel favorable and unfavorable effects.",
+        "Do not promote status, reputation, business, professional or other traditional outcomes into unconditional intrinsic properties or real-world predictive-validity claims.",
+        "ZZ-ZW-017/018 belong to one continuous source passage and are not two independent source spans.",
+        "Scope is limited to SRC-ZZ-002 printed pp5–6 (PDF scan page 3), not the full sixty-star-system chapter or every Ziwei rule elsewhere.",
+        "All candidates remain PROPOSAL_ONLY_NOT_CANONICAL; no canonicalization, formal ID, numeric weight, Product/runtime/KIB consumption, or consumer permission is authorized."
+      ]
     }
   ],
   "mapping_review_records": [
@@ -2152,6 +2941,254 @@
       "mapping_disposition": {
         "state": "KNOWN",
         "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-ZW-L0-SUBSTRATE-001",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-001"
+      ],
+      "target_ref": "STAR-ZW.substrate:yin_earth",
+      "rationale": "原文明确紫微为北斗主星、属阴土；只支持L0结构底座，不支持将阴阳五行转成QI轴值或数值强度。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-ZW-QR02-ROLE-002",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-002#source_subclaim=imperial_metaphor"
+      ],
+      "target_ref": "STAR-ZW.relational_signature:QR-02",
+      "rationale": "同段帝座/一国之君是象征性主导角色，与QR-02关系位置有可解释对应；但不证明现实领导能力、行动驱动、独立自主或固定人格。该子主张无新增canonical rule ID。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-ZW-CONTEXT-SENSITIVITY-003",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-002",
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-003",
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-005"
+      ],
+      "target_ref": "STAR-ZW.contextual_sensitivity",
+      "rationale": "原文明确性质依同度/会合星曜，百官朝拱也有具体条件；支持高上下文依赖候选，不自动接受L2/QR映射。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-ZW-QI08-INTRINSIC-004",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-002",
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-015",
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=6#ZZ-ZW-X11"
+      ],
+      "target_ref": "STAR-ZW.intrinsic_signature:QI-08",
+      "rationale": "君主比喻、魁钺条件下领导力增强与运限领导力发挥，不足以证明无条件固定QI-08；条件和时间层必须分开。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-ZW-QI02-INTRINSIC-005",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=6#ZZ-ZW-X08",
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=6#ZZ-ZW-Y05"
+      ],
+      "target_ref": "STAR-ZW.intrinsic_signature:QI-02",
+      "rationale": "四煞并照或羊陀火铃叠加只支持条件化主导失衡，不能设定固定刚柔内在极性。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-ZW-QR01-INTRINSIC-006",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5-6#ZZ-ZW-X01",
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=6#ZZ-ZW-X05"
+      ],
+      "target_ref": "STAR-ZW.intrinsic_signature:QR-01",
+      "rationale": "在野孤君需落陷且无百官朝拱；煞忌结果还按空曜分支，故不支持无条件关系孤离值。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-ZW-QR01-CONDITIONAL-007",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5-6#ZZ-ZW-X01",
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-X02",
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=6#ZZ-ZW-X04",
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=6#ZZ-ZW-X05"
+      ],
+      "target_ref": "STAR-ZW.conditional_signature:QR-01",
+      "rationale": "支持条件化在野孤君/关系状态候选，但须保留入朝与落陷对照、空曜分支及不同传统结果；仍非canonical。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-ZW-QI07-MODIFIER-008",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-017",
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-018",
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-024"
+      ],
+      "target_ref": "STAR-ZW.conditional_signature:QI-07",
+      "rationale": "昌曲思想修饰/抵消与龙池凤阁灵巧是条件性修饰；能否精确对应QI-07仍需目标特定审议。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-ZW-TEMPORAL-QR02-009",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=6#ZZ-ZW-X11",
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=6#ZZ-ZW-X12"
+      ],
+      "target_ref": "STAR-ZW.temporal_signature:QR-02",
+      "rationale": "运限命宫紫微不等同本命人格，而是时间性领导力发挥；不能回写为本命固定QI或人格。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "state_change",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-ZW-L3-PROJECTION-010",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-013",
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-014",
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-016",
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-021",
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-022",
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-023",
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=6#ZZ-ZW-Y02",
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=6#ZZ-ZW-Y03"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "助力、属下、机遇、地位、名誉、声价、经商与专业人才是不同条件下的传统下游投影，不倒推成内在性质或现实预测有效性。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-ZW-QI15-METHOD-011",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=6#ZZ-ZW-X07"
+      ],
+      "target_ref": "STAR-ZW.intrinsic_signature:QI-15",
+      "rationale": "吉凶交集不能抵消是通用推断方法，不证明紫微自身有缓冲/调和能力或固定QI-15值。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-ZW-QI01-INTRINSIC-012",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-001",
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-002"
+      ],
+      "target_ref": "STAR-ZW.intrinsic_signature:QI-01",
+      "rationale": "本页未直接描述发射—收敛方向；阴土元数据和帝座比喻不足以支持QI-01固定方向，保留为空。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
         "conflict_ref": null
       }
     }
