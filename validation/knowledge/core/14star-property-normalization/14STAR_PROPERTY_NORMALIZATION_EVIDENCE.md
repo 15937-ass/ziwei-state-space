@@ -10,10 +10,10 @@
 
 - Lane / shard：`KNOWLEDGE_ONLY / CORE`
 - Work unit：`KB-CORE-14STAR-PROPERTY-NORMALIZATION-BASELINE-01`
-- 状态：`IN_PROGRESS_STAGE_A_TAIYIN_PILOT`
-- Activation base main：`74864f572cdd04407c241c483f3a34c646f69d3a`
+- 状态：`READY_FOR_PI_METHOD_DECISION_STAGE_A_COMPLETE`
+- Activation base main：`74864f572cdd04407c241c483f3a34c646f69d3a`（历史启动基线）
 - Working branch：`knowledge/core-757-14star-property-normalization`
-- 当前检查点范围：太阳已通过 exact-head CI 的候选卡与太阴当前候选卡/逐目标映射审核；不代表完整十四星交付。
+- 当前检查点范围：太阳、太阴、天相三个有界试点与跨星方法比较已形成；不代表完整十四星交付。当前详细审议入口见 `knowledge/core/14star-property-normalization/14STAR_PROPERTY_NORMALIZATION_PI_DECISION_MEMO_v0.1.md`。
 
 ## 输入与来源
 
@@ -32,8 +32,7 @@
 
 ## 验证
 
-- 当前提交前：结构/枚举预检将与 #755 实际合入的 validator 对照。
-- 太阳 exact head `bb7d4a25551438c2a519a906e12e86dbb392d1d3` 的 repository-quality-gate Run #40159112167 已通过：pytest、Product JS adapter、确定性 P0 与 Repository Governance v1 均成功。太阴新提交尚待新的 exact-head CI。
+- 历史检查点：太阳 exact head `bb7d4a25551438c2a519a906e12e86dbb392d1d3` 的 Run #40159112167 曾通过；该结果不替代当前跨星比较提交的 exact-head 检查。当前权威质量门以 PR #763 的最新 head 与其关联 Actions run 为准。
 - Product 回归：由当前路径过滤与 CI 实际结果决定；不预先宣称通过。
 
 ## 当前下一步
@@ -45,7 +44,7 @@
 
 - Latest main at synchronization: `cb48ac8fe6316eb9644448c99c596b72d72776c3` (P05 source-first Tianliang audit merge).
 - The Core branch was synchronized with this main through a two-parent merge commit; P05 changes are retained from main and are not part of the Core semantic change set.
-- The previous exact-head checks do not transfer to the post-sync head. The post-sync Taiyin exact-head quality gate must complete before the next pilot.
+- This was a historical handoff note. The Taiyin and Tianxiang pilot checkpoints and the cross-star comparison have since been completed; the current gate is the latest exact-head run linked from PR #763.
 
 
 ## Tianxiang pilot source-first checkpoint
