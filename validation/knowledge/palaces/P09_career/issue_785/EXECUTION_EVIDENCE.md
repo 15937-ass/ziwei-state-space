@@ -17,5 +17,4 @@ All three source spans were visually rechecked. The generic `会/同会` geometr
 
 ## Validation
 
-Exact final-head repository gate: pending on replacement PR #786; historical #784 checks do not validate this head.
-Required before merge: full repository pytest, Product JS adapter/syntax, deterministic P0 audit, Repository Governance v1, and P09 write-set validation.
+The exact final-head run and its result are recorded on PR #786 and Issue #785 after CI. Historical #784 results do not validate this branch. Before merge, require full repository pytest, Product JS adapter/syntax, deterministic P0 audit, Repository Governance v1, and P09 write-set validation against current main.
