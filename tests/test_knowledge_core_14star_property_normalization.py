@@ -174,7 +174,11 @@ def test_tianxiang_source_review_is_bounded_and_canonical_rows_stay_unresolved()
     for row in review_rows:
         rule_id = row["rule_id"]
         assert row["star"] == "天相"
-        assert row["source_pdf_page"] == "13"
+        if rule_id in {"ZZ-TX-005", "ZZ-TX-006"}:
+            assert row["source_pdf_page"] == "24"
+            assert row["source_printed_page"] == "46"
+        else:
+            assert row["source_pdf_page"] == "13"
         assert row["source_span_status"] == "VERIFIED_VISUAL_SCAN"
         assert row["literal_source_span"].strip()
         assert row["proposal_status"] == "PROPOSAL_ONLY_NOT_CANONICAL"
@@ -187,6 +191,11 @@ def test_tianxiang_source_review_is_bounded_and_canonical_rows_stay_unresolved()
         assert canonical[rule_id]["source_span_verified"] == "false"
         assert canonical[rule_id]["normalization_epistemic"] == "UNRESOLVED"
     assert "ZZ-TX-009" not in expected_ids and "ZZ-TX-010" not in expected_ids
+    assert review_rows["ZZ-TX-X09"]["source_printed_page"] == "25"
+    assert review_rows["ZZ-TX-X10"]["source_printed_page"] == "25"
+    assert review_rows["ZZ-TX-Y03"]["source_printed_page"] == "25"
+    assert "是非尤的徵兆" in review_rows["ZZ-TX-006"]["literal_source_span"]
+    assert "是非怨尤" in review_rows["ZZ-TX-006"]["modality_scope_ambiguity"]
 
 
 def test_tianxiang_context_and_clamp_branches_are_not_promoted_to_intrinsic_qi02():
