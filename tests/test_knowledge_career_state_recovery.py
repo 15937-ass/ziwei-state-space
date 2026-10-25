@@ -17,24 +17,22 @@ def load(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def test_p09_state_cache_matches_accepted_v016_checkpoint():
+def test_p09_state_cache_tracks_active_gap_audit_without_changing_accepted_baseline():
     state = STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
-    assert "active_issue: null" in state
-    assert "active_branch: null" in state
-    assert "active_pr: null" in state
+    assert 'status: "ACTIVE"' in state
+    assert "active_issue: 785" in state
+    assert 'active_branch: "knowledge/p09-785-relation-gap-source-recheck"' in state
+    assert "active_pr: 786" in state
     assert (
         'canonical_checkpoint: "CAREER_CANONICAL_888_OF_888_SOURCE_REVIEWED; '
         'CLOSURE_251_V0_16; COMPILER_READINESS_CENSUS_26; '
         'KNOWLEDGE_CONDITION_IR_READY_12_OF_26; DEPENDENCY_IR_3_OF_3"'
     ) in state
-    assert "Issue #510 / PR #511" in state
-    assert "12/26 are Knowledge condition-IR-ready" in state
-    assert "14 stay fail-closed" in state
-    assert "conditions_compiled=0" in state
-    assert "execution_unlocked=0" in state
-    assert "Future work must be gap-driven" in state
-
+    assert "888/888 Career source rules reviewed" in state
+    assert "11 inherited dependency-effective-underdetermined rows remain outside this batch" in state
+    assert "condition compilation" in state
+    assert "execution unlock" in state
+    assert "P09 stage is not closed" in state
 
 def test_career_source_id_coverage_remains_888_of_888():
     audit = load(SOURCE_AUDIT)

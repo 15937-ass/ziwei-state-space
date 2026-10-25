@@ -37,7 +37,7 @@ def test_p09_relation_scope_recheck_preserves_source_gaps_and_fail_closed_status
         assert row["condition_compiled"] is False
         assert row["execution_unlocked"] is False
         assert row["product_consumable"] is False
-        assert row["relation_gap"]["canonical_geometry"] == "UNSPECIFIED" or row["relation_gap"].get("meeting_geometry") == "UNSPECIFIED"
+        assert row["relation_gap"].get("canonical_geometry") == "UNSPECIFIED" or row["relation_gap"].get("meeting_geometry") == "UNSPECIFIED"
         assert row["direct_scan_finding"]
 
     by_id = {row["source_rule_id"]: row for row in records}
