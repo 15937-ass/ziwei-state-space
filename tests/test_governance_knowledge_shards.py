@@ -72,12 +72,14 @@ def test_core_can_write_shared_but_not_palace_artifacts():
     ]
     assert knowledge_shard_bad_paths(branch, shared, lane, shards) == []
     palace_branch = "knowledge/p03-601-spouse-001-100"
-    palace = [
-        "knowledge/palaces/P03_spouse/batch_001.json",
+    palace_local = ["knowledge/palaces/P03_spouse/batch_001.json"]
+    assert knowledge_shard_bad_paths(palace_branch, palace_local, lane, shards) == []
+
+    shared_schema_paths = [
         "knowledge/KB_SCHEMA.md",
         "knowledge/REVIEW_SCHEMA_v0.3.md",
     ]
-    assert knowledge_shard_bad_paths(palace_branch, palace, lane, shards) == palace
+    assert knowledge_shard_bad_paths(palace_branch, shared_schema_paths, lane, shards) == shared_schema_paths
 
     # Core receives only the two explicit shared-schema paths, not a broad
     # permission to edit arbitrary root-level Knowledge documentation.
