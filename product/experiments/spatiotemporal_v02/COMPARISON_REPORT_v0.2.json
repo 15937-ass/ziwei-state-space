@@ -1,0 +1,281 @@
+{
+  "schema_version": "0.2",
+  "status": "TEST_ONLY_NOT_CANONICAL",
+  "experiment_id": "PRODUCT_SPATIOTEMPORAL_NATAL_COORDINATE_PROBE_V0_2",
+  "input_pins": [
+    {
+      "path": "product/expert_cases/wang_tingzhi/FULL_CHART_MATERIALIZATION_V0_1B.json",
+      "git_blob_sha": "3778e5f3d66c1e5ab44461360b6d9f71b3f8be56",
+      "sha256": "402e607e7b563f2fe12de7d0c4cc8c5bec11f26bcee7c6b4a6f9c2243b1dfff1"
+    },
+    {
+      "path": "knowledge/relation/RELATION_SEMANTICS_v0.1.json",
+      "git_blob_sha": "26e6984b386954e18604f83de038a623365c85b6",
+      "sha256": "a4192ff3c5b3d8be41ead79db2b447cc134fe499859d626b025c94ba77576b1c"
+    },
+    {
+      "path": "src/product/structure_primitives.py",
+      "git_blob_sha": "e4d0645b42c44fb737ee234960114253af23bd41",
+      "sha256": "eeb8ade67e500e6d795912c05ad6058cce9e375cab790aaeedc1a3c615fe060c"
+    },
+    {
+      "path": "src/product/wang_full_chart_materialization.py",
+      "git_blob_sha": "58b6ebdaf5b1e364798cec0361817dbe981d743a",
+      "sha256": "8e9543c8a0d46f9bd0568cfa2497e356b28fb8dc947fe4ebae04d6e8d9b586a0"
+    }
+  ],
+  "fixture_summary": {
+    "artifact_id": "WANG_FULL_CHART_MATERIALIZATION_V0_1B",
+    "materialization_level": "SOURCE_INPUT_RECONSTRUCTED_TARGET_ANCHOR_VERIFIED",
+    "source_cases_total": 24,
+    "full_chart_materialized": 11,
+    "not_materialized": 13,
+    "charts_checked": 11,
+    "palaces_per_chart": 12,
+    "target_anchor_reconfirmed": 11,
+    "full_source_chart_equivalence_verified": 0,
+    "temporal_scopes_present": false
+  },
+  "coordinate_contract": {
+    "model_id": "PALACE_RELATION_Z12_OFFSET",
+    "branch_order": [
+      "子",
+      "丑",
+      "寅",
+      "卯",
+      "辰",
+      "巳",
+      "午",
+      "未",
+      "申",
+      "酉",
+      "戌",
+      "亥"
+    ],
+    "delta_formula": "delta=(p_object-p_subject) mod 12",
+    "allowed_offsets": {
+      "SAME_PALACE": [
+        0
+      ],
+      "OPPOSITION": [
+        6
+      ],
+      "TRINE_ASPECT": [
+        4,
+        8
+      ],
+      "FOUR_DIRECTIONS_VISIBILITY": [
+        0,
+        4,
+        6,
+        8
+      ],
+      "THREE_DIRECTIONS_SCOPE": [
+        0,
+        4,
+        8
+      ],
+      "FLANKING": [
+        1,
+        11
+      ]
+    }
+  },
+  "checks": {
+    "input_hashes_match": true,
+    "case_ids_match": true,
+    "all_cases_have_12_unique_branches": true,
+    "all_cases_have_12_unique_palace_names": true,
+    "target_anchor_identities_reconfirmed": true,
+    "full_source_chart_equivalence_claimed": false,
+    "temporal_scopes_present": false,
+    "input_array_order_invariant": true,
+    "all_offsets_index_matrix_equivalent": true,
+    "all_offsets_invertible": true,
+    "all_compositions_match_mod_12": true,
+    "z12_geometry_offsets_match_contract": true,
+    "canonical_accepted": false,
+    "runtime_effect_allowed": false
+  },
+  "counts": {
+    "charts": 11,
+    "palace_records": 132,
+    "star_objects": 748,
+    "occupancy_cells": 8976,
+    "index_matrix_offset_checks": 132,
+    "inverse_checks": 132,
+    "composition_checks": 1584,
+    "input_array_order_invariance_checks": 11,
+    "target_anchor_identity_checks": 11,
+    "same_palace_geometry_checks": 132,
+    "opposition_geometry_checks": 132,
+    "trine_geometry_checks": 132,
+    "four_directions_visibility_checks": 132,
+    "three_directions_scope_checks": 132,
+    "flanking_geometry_checks": 132
+  },
+  "case_results": [
+    {
+      "case_id": "WANG-CASE-001",
+      "palace_records": 12,
+      "unique_branches": 12,
+      "unique_palace_names": 12,
+      "target_anchor_reconfirmed": true,
+      "full_source_chart_equivalence_verified": false,
+      "star_objects": 68,
+      "occupancy_columns": 68,
+      "index_matrix_offset_checks": 12,
+      "inverse_checks": 12,
+      "composition_checks": 144,
+      "input_array_order_invariant": true
+    },
+    {
+      "case_id": "WANG-CASE-003",
+      "palace_records": 12,
+      "unique_branches": 12,
+      "unique_palace_names": 12,
+      "target_anchor_reconfirmed": true,
+      "full_source_chart_equivalence_verified": false,
+      "star_objects": 68,
+      "occupancy_columns": 68,
+      "index_matrix_offset_checks": 12,
+      "inverse_checks": 12,
+      "composition_checks": 144,
+      "input_array_order_invariant": true
+    },
+    {
+      "case_id": "WANG-CASE-006",
+      "palace_records": 12,
+      "unique_branches": 12,
+      "unique_palace_names": 12,
+      "target_anchor_reconfirmed": true,
+      "full_source_chart_equivalence_verified": false,
+      "star_objects": 68,
+      "occupancy_columns": 68,
+      "index_matrix_offset_checks": 12,
+      "inverse_checks": 12,
+      "composition_checks": 144,
+      "input_array_order_invariant": true
+    },
+    {
+      "case_id": "WANG-CASE-009",
+      "palace_records": 12,
+      "unique_branches": 12,
+      "unique_palace_names": 12,
+      "target_anchor_reconfirmed": true,
+      "full_source_chart_equivalence_verified": false,
+      "star_objects": 68,
+      "occupancy_columns": 68,
+      "index_matrix_offset_checks": 12,
+      "inverse_checks": 12,
+      "composition_checks": 144,
+      "input_array_order_invariant": true
+    },
+    {
+      "case_id": "WANG-CASE-010",
+      "palace_records": 12,
+      "unique_branches": 12,
+      "unique_palace_names": 12,
+      "target_anchor_reconfirmed": true,
+      "full_source_chart_equivalence_verified": false,
+      "star_objects": 68,
+      "occupancy_columns": 68,
+      "index_matrix_offset_checks": 12,
+      "inverse_checks": 12,
+      "composition_checks": 144,
+      "input_array_order_invariant": true
+    },
+    {
+      "case_id": "WANG-CASE-012",
+      "palace_records": 12,
+      "unique_branches": 12,
+      "unique_palace_names": 12,
+      "target_anchor_reconfirmed": true,
+      "full_source_chart_equivalence_verified": false,
+      "star_objects": 68,
+      "occupancy_columns": 68,
+      "index_matrix_offset_checks": 12,
+      "inverse_checks": 12,
+      "composition_checks": 144,
+      "input_array_order_invariant": true
+    },
+    {
+      "case_id": "WANG-CASE-013",
+      "palace_records": 12,
+      "unique_branches": 12,
+      "unique_palace_names": 12,
+      "target_anchor_reconfirmed": true,
+      "full_source_chart_equivalence_verified": false,
+      "star_objects": 68,
+      "occupancy_columns": 68,
+      "index_matrix_offset_checks": 12,
+      "inverse_checks": 12,
+      "composition_checks": 144,
+      "input_array_order_invariant": true
+    },
+    {
+      "case_id": "WANG-CASE-015",
+      "palace_records": 12,
+      "unique_branches": 12,
+      "unique_palace_names": 12,
+      "target_anchor_reconfirmed": true,
+      "full_source_chart_equivalence_verified": false,
+      "star_objects": 68,
+      "occupancy_columns": 68,
+      "index_matrix_offset_checks": 12,
+      "inverse_checks": 12,
+      "composition_checks": 144,
+      "input_array_order_invariant": true
+    },
+    {
+      "case_id": "WANG-CASE-019",
+      "palace_records": 12,
+      "unique_branches": 12,
+      "unique_palace_names": 12,
+      "target_anchor_reconfirmed": true,
+      "full_source_chart_equivalence_verified": false,
+      "star_objects": 68,
+      "occupancy_columns": 68,
+      "index_matrix_offset_checks": 12,
+      "inverse_checks": 12,
+      "composition_checks": 144,
+      "input_array_order_invariant": true
+    },
+    {
+      "case_id": "WANG-CASE-021",
+      "palace_records": 12,
+      "unique_branches": 12,
+      "unique_palace_names": 12,
+      "target_anchor_reconfirmed": true,
+      "full_source_chart_equivalence_verified": false,
+      "star_objects": 68,
+      "occupancy_columns": 68,
+      "index_matrix_offset_checks": 12,
+      "inverse_checks": 12,
+      "composition_checks": 144,
+      "input_array_order_invariant": true
+    },
+    {
+      "case_id": "WANG-CASE-023",
+      "palace_records": 12,
+      "unique_branches": 12,
+      "unique_palace_names": 12,
+      "target_anchor_reconfirmed": true,
+      "full_source_chart_equivalence_verified": false,
+      "star_objects": 68,
+      "occupancy_columns": 68,
+      "index_matrix_offset_checks": 12,
+      "inverse_checks": 12,
+      "composition_checks": 144,
+      "input_array_order_invariant": true
+    }
+  ],
+  "decision": "KEEP_INDEX_BASELINE; index and permutation-matrix views agree under the declared Z12 coordinate encoding on this pinned engine-materialized natal fixture set; no production migration benefit is demonstrated.",
+  "not_evaluated": [
+    "full source-chart equivalence",
+    "six-layer PL1 temporal snapshot mapping",
+    "cross-layer traditional reaction semantics",
+    "runtime performance advantage",
+    "predictive validity or probability calibration"
+  ]
+}
