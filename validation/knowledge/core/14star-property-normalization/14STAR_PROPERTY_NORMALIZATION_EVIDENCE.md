@@ -99,3 +99,15 @@
 - 方法结论：现有 #755 v0.1 mapping-review 契约可记录本轮逐目标审核形状；目前没有必须新增共享 schema 的阻塞。研究卡仍须承载来源层次、条件/OR/AND、比较范围、关系与 L3 投影，因为结构校验不能自动证明语义解释正确。
 - 建议：请 PI 先决定是否接受该方法进入阶段 B。未获决定前，不扩展剩余十一星；不修改正式星核、本体、canonical rule rows、Product/runtime 或消费者权限。
 - 已通过的 pilot checkpoint exact head/run 是本节所列历史验证；跨星比较修改后的 head 以 PR #763 的最新 exact-head check 为准。
+
+
+## 阶段 B 第二轮 — 天机来源与候选检查点（2026-10-25）
+
+- Issue / PR：#757 / Draft #763；分支 `knowledge/core-757-14star-property-normalization`。
+- 起始 head：`500415d6b5bb61aa3d798fa5464de8ebe0c968a6`；当前 main 基线：`0c9210855d874045f577914e8ec27e909438ecf4`。本次提交后的 exact head 与对应质量门由 PR #763 的实时执行记录确定；不沿用旧 head 的绿色结果。
+- 来源：`SRC-ZZ-002`《中州派紫微斗数深造讲义（上）》，SHA-256 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a`；PDF扫描页4，印刷页7–8。源文件哈希与 `sources/source_index.csv` 一致。
+- 对当前 canonical 文件中的39条 `ZZ-TJ` 规则逐行视觉核对并新增 `TIANJI_SOURCE_SPAN_REVIEW_v0.1.csv`；复用 DIRECT_STAR Batch 01 中3条既有天机记录，不将复用行算作独立来源证据。
+- 新增天机候选卡、17条逐目标 mapping-review 记录、天机缺口与回归测试。全部候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`。
+- 研究重点：谋士/军师与认知机敏是描述候选，但固定高 QI-07 仍需目标特定复审；近贵/天阙是关系门控；本命与运限变化分层；四化与不同煞曜的条件效应不合并。
+- 未修改 `star_cores.yaml`、`star_systems.yaml`、`qi_ontology.yaml`、canonical rule rows、共享 schema、正式 ID、Product/runtime、KIB 或消费者权限。canonical `source_span_verified` 继续为 false。
+- 当前阶段停止在天机候选检查点；下一颗为武曲，不在同一轮自动展开下一星。
