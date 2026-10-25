@@ -100,11 +100,11 @@ def test_time_scope_and_cumulative_summary_reconcile():
     assert summary["human_gate_required"] is False
 
 
-def test_p05_state_cache_tracks_tianliang_and_preserves_historical_w05_gap():
+def test_p05_state_cache_tracks_qisha_and_preserves_historical_w05_gap():
     state = STATE.read_text(encoding="utf-8")
     assert 'status: "ACTIVE"' in state
-    assert "active_issue: 760" in state
-    assert 'active_branch: "knowledge/p05-760-source-first-tianliang-p88-p90"' in state
+    assert "active_issue: 765" in state
+    assert 'active_branch: "knowledge/p05-765-source-first-qisha-p90-p91"' in state
     assert "W05_401_500_SOURCE_FIRST_MERGED" in state
     assert "Post-merge P05 total is 563 canonical reusable rules." in state
     assert "source_gap_supplement_record_count: 4" in state
@@ -113,4 +113,5 @@ def test_p05_state_cache_tracks_tianliang_and_preserves_historical_w05_gap():
     assert "W06-SG-001" in state and "W06-SG-004" in state and "W06-SG-005" in state
     assert "W05-SG-002 remains PARTIALLY_RESOLVED" in state
     assert "12 天梁" in state
+    assert "13 七杀" in state and "14 破军" in state
     assert "No Product/runtime authorization is implied" in state

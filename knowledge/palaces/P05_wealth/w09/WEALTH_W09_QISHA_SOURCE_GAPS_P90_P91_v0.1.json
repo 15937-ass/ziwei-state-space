@@ -1,0 +1,163 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP05-P05-WEALTH-W09-QISHA-SOURCE-GAPS-P90-P91-v0.1",
+  "issue": 765,
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "P05",
+  "palace": "财帛宫",
+  "source_basis": {
+    "source_id": "SRC-ZZ-003",
+    "work": "中州派紫微斗数深造讲义（下册）",
+    "chapter": "下篇·宫垣论·财帛宫",
+    "printed_pages": "90–91 (section 13 七杀 only; stops before section 14 破军)",
+    "sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+    "page_image_map": "physical p45 right half = printed p90; physical p46 left half = printed p91",
+    "method": "DIRECT_PDF_PAGE_IMAGE_INSPECTION"
+  },
+  "gap_count": 9,
+  "core_gap_count": 0,
+  "summary": {
+    "new_local_source_ambiguities": 9,
+    "open_local_source_ambiguities": 9,
+    "closed_local_source_ambiguities": 0,
+    "canonical_source_gap_supplement_records": 0,
+    "shared_semantic_gaps": [],
+    "unresolved_prior_gap_ids": [
+      "W05-SG-002",
+      "W06-SG-001",
+      "W06-SG-002",
+      "W06-SG-003",
+      "W06-SG-004",
+      "W06-SG-005",
+      "W08-SG-001",
+      "W08-SG-002",
+      "W08-SG-003",
+      "W08-SG-004",
+      "W08-SG-005"
+    ]
+  },
+  "source_image_checks": [
+    {
+      "source_location": "physical p45 right half / printed p90",
+      "result": "VERIFIED_WITH_LITERAL_ANOMALIES",
+      "note": "Verified heading 13 七杀, source song, financial-authority statements, branch conditions and cross-palace/property conditions; literal issues are retained."
+    },
+    {
+      "source_location": "physical p46 left half / printed p91",
+      "result": "VERIFIED_WITH_LITERAL_ANOMALIES",
+      "note": "Verified the Chen/Xu branch through the final 七杀 sentence. Heading 14 破军 immediately follows and is excluded."
+    }
+  ],
+  "gaps": [
+    {
+      "gap_id": "W09-SG-006",
+      "source_location": "财帛宫printed_p90",
+      "source_claim": "主攻者亦有守势。主攻者亦有守势。",
+      "rule_ids": [
+        "W09-847"
+      ],
+      "status": "OPEN",
+      "core_gap": false,
+      "reason": "The original page image visibly repeats the clause. The mutual-influence target is supported by clear surrounding clauses; repetition is retained and not deduplicated.",
+      "resolution_requirements": "Resolve only against an authoritative alternate edition or source-owner decision."
+    },
+    {
+      "gap_id": "W09-SG-007",
+      "source_location": "财帛宫printed_p90",
+      "source_claim": "坟本不喜七杀坐财帛宫",
+      "rule_ids": [
+        "W09-848",
+        "W09-901"
+      ],
+      "status": "OPEN",
+      "core_gap": false,
+      "reason": "The page image visibly prints `坟本不喜`. Its leading phrase cannot be resolved confidently. Targets use the clear source song/refutation and do not repair that phrase.",
+      "resolution_requirements": "Resolve only against an authoritative alternate edition or explicit source-owner decision."
+    },
+    {
+      "gap_id": "W09-SG-008",
+      "source_location": "财帛宫printed_p90",
+      "source_claim": "投机荷且主一蹶不振",
+      "rule_ids": [
+        "W09-856"
+      ],
+      "status": "OPEN",
+      "core_gap": false,
+      "reason": "The page image visibly prints `投机荷且`; the intended phrase is unresolved. The promoted target uses only the clear preceding recovery statement.",
+      "resolution_requirements": "Resolve only against an authoritative alternate edition or explicit source-owner decision."
+    },
+    {
+      "gap_id": "W09-SG-009",
+      "source_location": "财帛宫printed_p90",
+      "source_claim": "火铃遭到度",
+      "rule_ids": [
+        "W09-865"
+      ],
+      "status": "OPEN",
+      "core_gap": false,
+      "reason": "The printed condition cannot be confidently normalized. Because it is part of the conjunctive condition for the fire/disaster claim, W09-865 remains unpromoted.",
+      "resolution_requirements": "Do not normalize to `火铃同度` or another phrase without authoritative evidence."
+    },
+    {
+      "gap_id": "W09-SG-010",
+      "source_location": "财帛宫printed_p90",
+      "source_claim": "躔火铃则丰横发横破",
+      "rule_ids": [
+        "W09-862"
+      ],
+      "status": "OPEN",
+      "core_gap": false,
+      "reason": "The character in `则丰` is retained literally. The target is restricted to the clear `横发横破` outcome.",
+      "resolution_requirements": "Check an authoritative alternate edition; do not silently emend the printed character."
+    },
+    {
+      "gap_id": "W09-SG-011",
+      "source_location": "财帛宫printed_p91",
+      "source_claim": "且擅长于以财和再",
+      "rule_ids": [
+        "W09-879"
+      ],
+      "status": "OPEN",
+      "core_gap": false,
+      "reason": "The printed phrase is unclear. W09-879 promotes only the clear adjacent claim `若见吉化吉曜，亦主富裕。`",
+      "resolution_requirements": "Do not infer the intended phrase from context."
+    },
+    {
+      "gap_id": "W09-SG-012",
+      "source_location": "财帛宫printed_p91",
+      "source_claim": "辰戌七杀会谦贞化禄",
+      "rule_ids": [
+        "W09-881",
+        "W09-882"
+      ],
+      "status": "OPEN",
+      "core_gap": false,
+      "reason": "The page image visibly prints `谦贞化禄`. It is not normalized to `廉贞化禄`; both the branch and its mitigation remain unpromoted.",
+      "resolution_requirements": "Do not silently replace 谦 with 廉."
+    },
+    {
+      "gap_id": "W09-SG-013",
+      "source_location": "财帛宫printed_p91",
+      "source_claim": "或人口不安，’或常遭盗贼",
+      "rule_ids": [
+        "W09-881"
+      ],
+      "status": "OPEN",
+      "core_gap": false,
+      "reason": "The scan shows an unusual apostrophe-like mark after the comma. It is retained literally.",
+      "resolution_requirements": "Check an authoritative alternate edition or source-owner decision."
+    },
+    {
+      "gap_id": "W09-SG-014",
+      "source_location": "财帛宫printed_p90",
+      "source_claim": "丑未积财巳亥多",
+      "rule_ids": [
+        "W09-904"
+      ],
+      "status": "OPEN",
+      "core_gap": false,
+      "reason": "The compact song phrase `巳亥多` does not state what is numerous; no target is promoted.",
+      "resolution_requirements": "Do not infer the referent of 多."
+    }
+  ]
+}
