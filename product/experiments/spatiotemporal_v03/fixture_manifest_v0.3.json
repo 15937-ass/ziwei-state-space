@@ -36,5 +36,29 @@
     "natal star brightness/mutagen metadata",
     "yearly_dec_stars"
   ],
-  "note": "Palace names are stored as indices into the fixture vocabulary. This is a fixture compression only; probe.py expands the names before using the existing adapter."
+  "note": "Palace names are stored as indices into the fixture vocabulary. This is a fixture compression only; probe.py expands the names before using the existing adapter.",
+  "upstream_type_contract": {
+    "repository": "SylarLong/iztro",
+    "tag": "v2.6.1",
+    "horoscope_item_mutagen": {
+      "type": "StarName[]",
+      "path": "src/data/types/astro.ts",
+      "blob": "2d692b84e9a28c6786c804078f06d34c4388125f"
+    },
+    "mutagen": {
+      "type": "four-transformation label",
+      "path": "src/i18n/types/mutagen.ts",
+      "blob": "268d2440e3ea024a07673942cbe313bfe752fca3"
+    },
+    "mutagen_zh_cn": {
+      "values": [
+        "禄",
+        "权",
+        "科",
+        "忌"
+      ],
+      "path": "src/i18n/locales/zh-CN/mutagen.ts",
+      "blob": "7bb0325767a33ffc0c2e9c5952e3ac43c1978e80"
+    }
+  }
 }
