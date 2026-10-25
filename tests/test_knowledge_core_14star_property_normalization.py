@@ -321,7 +321,7 @@ def test_branch_groups_and_element_labels_do_not_create_unproved_effect_rules():
     assert audit["runtime_contract_complete"] is False
 
 
-def test_method_permission_has_advanced_without_expanding_stars_or_semantic_permissions():
+def test_method_permission_and_progress_metadata_remain_consistent():
     data = load_baseline()
     audit = data["context_method_audit"]
     assert audit["authorization"]["stage_b_authorized_after_exit_conditions"] is True
@@ -329,9 +329,9 @@ def test_method_permission_has_advanced_without_expanding_stars_or_semantic_perm
     assert audit["authorization"]["product_consumption_authorized"] is False
     assert audit["research_disposition"] == "CONTINUE_STAGE_B_CANDIDATE_RESEARCH_NEXT_BOUNDED_TURN"
     assert audit["next_star"] == "紫微"  # Historical method-exit handoff; this star has now been researched.
-    assert data["progress"]["completed_expansion_stars"] == ["紫微", "天机"]
-    assert data["progress"]["remaining_expansion_stars_in_existing_order"][0] == "武曲"
-    assert len(data["stars"]) == 5 and len(data["progress"]["remaining_expansion_stars_in_existing_order"]) == 9
+    assert data["progress"]["completed_expansion_stars"] == ["紫微", "天机", "武曲"]
+    assert data["progress"]["remaining_expansion_stars_in_existing_order"][0] == "天同"
+    assert len(data["stars"]) == 6 and len(data["progress"]["remaining_expansion_stars_in_existing_order"]) == 8
     assert audit["exit_conditions"]["shared_schema_extension_required_for_current_research_records"] is False
     assert audit["exit_conditions"]["canonical_artifacts_changed"] is False
 
