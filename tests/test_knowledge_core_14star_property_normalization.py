@@ -11,6 +11,7 @@ BASELINE = ROOT / "knowledge/core/14star-property-normalization/14STAR_PROPERTY_
 CANONICAL_RULES = ROOT / "knowledge/rules/stars/major_stars_canonical_v0.1.csv"
 TAIYIN_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TAIYIN_SOURCE_SPAN_REVIEW_v0.1.csv"
 TIANXIANG_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TIANXIANG_SOURCE_SPAN_REVIEW_v0.1.csv"
+TIANJI_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TIANJI_SOURCE_SPAN_REVIEW_v0.1.csv"
 ZIWEI_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/ZIWEI_SOURCE_SPAN_REVIEW_v0.1.csv"
 
 
@@ -21,7 +22,7 @@ def load_baseline():
 def test_solar_taiyin_and_tianxiang_pilots_are_explicitly_noncanonical_and_source_bounded():
     data = load_baseline()
     assert data["status"] == "PROPOSAL_ONLY_NOT_CANONICAL"
-    assert data["checkpoint_status"] == "STAGE_B_ZIWEI_CHECKPOINT_COMPLETED_NOT_FINAL"
+    assert data["checkpoint_status"] == "STAGE_B_TIANJI_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert data["progress"]["completed_pilot_cards"] == ["太阳", "太阴", "天相"]
     assert data["progress"]["active_pilot_card"] is None
     assert data["progress"]["draft_pilot_cards"] == ["太阳", "太阴", "天相"]
@@ -34,7 +35,7 @@ def test_solar_taiyin_and_tianxiang_pilots_are_explicitly_noncanonical_and_sourc
     assert data["method_guardrails"]["product_consumption_authorized"] is False
     assert data["method_guardrails"]["normalization_epistemic"] == "UNRESOLVED"
     assert len([star for star in data["stars"] if star["name"] in {"太阳", "太阴", "天相"}]) == 3
-    assert len(data["stars"]) == 4
+    assert len(data["stars"]) == 5
     assert data["stars"][0]["name"] == "太阳"
     assert data["stars"][0]["status"] == "PILOT_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert data["stars"][1]["name"] == "太阴"
@@ -323,9 +324,9 @@ def test_method_permission_has_advanced_without_expanding_stars_or_semantic_perm
     assert audit["authorization"]["product_consumption_authorized"] is False
     assert audit["research_disposition"] == "CONTINUE_STAGE_B_CANDIDATE_RESEARCH_NEXT_BOUNDED_TURN"
     assert audit["next_star"] == "紫微"  # Historical method-exit handoff; this star has now been researched.
-    assert data["progress"]["completed_expansion_stars"] == ["紫微"]
-    assert data["progress"]["remaining_expansion_stars_in_existing_order"][0] == "天机"
-    assert len(data["stars"]) == 4 and len(data["progress"]["remaining_expansion_stars_in_existing_order"]) == 10
+    assert data["progress"]["completed_expansion_stars"] == ["紫微", "天机"]
+    assert data["progress"]["remaining_expansion_stars_in_existing_order"][0] == "武曲"
+    assert len(data["stars"]) == 5 and len(data["progress"]["remaining_expansion_stars_in_existing_order"]) == 9
     assert audit["exit_conditions"]["shared_schema_extension_required_for_current_research_records"] is False
     assert audit["exit_conditions"]["canonical_artifacts_changed"] is False
 
@@ -333,8 +334,8 @@ def test_method_permission_has_advanced_without_expanding_stars_or_semantic_perm
 def test_ziwei_stage_b_candidate_card_preserves_role_context_conditions_and_time():
     data = load_baseline()
     ziwei = next(star for star in data["stars"] if star["name"] == "紫微")
-    assert data["checkpoint_status"] == "STAGE_B_ZIWEI_CHECKPOINT_COMPLETED_NOT_FINAL"
-    assert data["progress"]["stage"] == "B_ZIWEI_CHECKPOINT_COMPLETED_READY_FOR_TIANJI"
+    assert data["checkpoint_status"] == "STAGE_B_TIANJI_CHECKPOINT_COMPLETED_NOT_FINAL"
+    assert data["progress"]["stage"] == "B_TIANJI_CHECKPOINT_COMPLETED_READY_FOR_WUQU"
     assert ziwei["status"] == "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert len(ziwei["source_claims"]) >= 15
     assert len(ziwei["candidate_properties"]) == 5
@@ -386,3 +387,57 @@ def test_ziwei_visual_review_covers_exact_canonical_rows_without_mutating_them()
         assert canonical[row["rule_id"]]["normalization_epistemic"] == "UNRESOLVED"
     assert data["source_policy"]["ziwei_source_locator"]["source_sha256"] == data["source_policy"]["source_sha256"]
     assert data["source_policy"]["ziwei_source_locator"]["canonical_source_span_verified_mutated"] is False
+
+
+
+def test_tianji_stage_b_candidate_card_preserves_context_time_and_conditional_branches():
+    data = load_baseline()
+    tianji = next(star for star in data["stars"] if star["name"] == "天机")
+    assert data["checkpoint_status"] == "STAGE_B_TIANJI_CHECKPOINT_COMPLETED_NOT_FINAL"
+    assert data["progress"]["stage"] == "B_TIANJI_CHECKPOINT_COMPLETED_READY_FOR_WUQU"
+    assert tianji["status"] == "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL"
+    assert len(tianji["source_claims"]) >= 14
+    assert len(tianji["candidate_properties"]) >= 8
+    assert all(item["canonicalization_authorized"] is False for item in tianji["candidate_properties"])
+    assert all(item["numeric_strength_assigned"] is False for item in tianji["candidate_properties"])
+    claims = {row["claim_key"]: row for row in tianji["source_claims"]}
+    assert "阴木" in claims["TJ-L0-SUBSTRATE"]["source_excerpt"]
+    assert "谋士或军师" in claims["TJ-STRATEGIC-ROLE-METAPHOR"]["source_excerpt"]
+    assert "昌曲" in claims["TJ-COGNITIVE-SUPPORT-GATE"]["source_excerpt"]
+    assert claims["TJ-TEMPORAL-NATAL-VS-LUCK"]["claim_layer"] == "TEMPORAL_REACTION_OR_SCOPE"
+    assert "本命" in claims["TJ-TEMPORAL-NATAL-VS-LUCK"]["conditions_to_preserve"][0]
+    assert "天阙" in claims["TJ-TIANQUE-RELATIONAL-GATE"]["source_excerpt"]
+    assert "同度" in claims["TJ-SYSTEM-FAMILY-STRUCTURE"]["conditions_to_preserve"][0]
+    records = {row["review_record_id"]: row for row in data["mapping_review_records"]}
+    assert records["MR-TJ-QI07-BASELINE-002"]["mapping_disposition"]["value"] == "needs_review"
+    assert records["MR-TJ-CONTEXT-DEPENDENCE-003"]["mapping_disposition"]["value"] == "supported_candidate"
+    assert records["MR-TJ-TIME-SEPARATION-008"]["mapping_disposition"]["value"] == "not_supported_for_target"
+    assert records["MR-TJ-QI08-HUAQUAN-010"]["mapping_disposition"]["value"] == "not_supported_for_target"
+    assert validate_mapping_review_collection(data["mapping_review_records"]) == []
+
+
+def test_tianji_visual_review_covers_exact_canonical_rows_without_mutating_them():
+    data = load_baseline()
+    expected_ids = set(data["source_policy"]["tianji_review_rule_ids"])
+    assert len(expected_ids) == 39
+    with CANONICAL_RULES.open(encoding="utf-8", newline="") as stream:
+        canonical = {row["rule_id"]: row for row in csv.DictReader(stream) if row["rule_id"].startswith("ZZ-TJ")}
+    with TIANJI_SOURCE_REVIEW.open(encoding="utf-8", newline="") as stream:
+        review_rows = list(csv.DictReader(stream))
+    assert len(review_rows) == 39
+    assert {row["rule_id"] for row in review_rows} == expected_ids == set(canonical)
+    assert len({row["rule_id"] for row in review_rows}) == len(review_rows)
+    for row in review_rows:
+        assert row["source_id"] == "SRC-ZZ-002"
+        assert row["source_pdf_page"] == "4"
+        assert row["source_printed_page"] in {"7", "8", "7-8"}
+        assert row["source_span_status"] == "VERIFIED_VISUAL_SCAN"
+        assert row["proposal_status"] == "PROPOSAL_ONLY_NOT_CANONICAL"
+        assert row["normalization_epistemic_after"] == "UNRESOLVED"
+        assert row["canonical_source_span_verified_after"] == "false"
+        assert row["claim_role"] in {"INTRINSIC", "RELATIONAL", "CONDITIONAL", "UNRESOLVED_OTHER"}
+        assert row["proposed_evidence_tier"] in {"DIRECT_STAR", "SAME_STAR_MODIFIER", "SYSTEM_CONTEXT"}
+        assert canonical[row["rule_id"]]["source_span_verified"] == "false"
+        assert canonical[row["rule_id"]]["normalization_epistemic"] == "UNRESOLVED"
+    assert data["source_policy"]["tianji_source_locator"]["source_sha256"] == data["source_policy"]["source_sha256"]
+    assert data["source_policy"]["tianji_source_locator"]["canonical_source_span_verified_mutated"] is False
