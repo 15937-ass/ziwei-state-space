@@ -18,7 +18,7 @@ def test_p05_state_cache_tracks_active_lianzheng_tail_audit_and_historical_check
     assert "active_issue: 777" in state
     assert 'active_branch: "knowledge/p05-777-source-first-lianzhen-tail-p81-p82"' in state
     assert "merged_rule_count: 794" in state
-    assert "reviewed_rule_count: 843" in state
+    assert "reviewed_rule_count: 844" in state
     assert "source_coverage_gaps_remaining: 26" in state
     assert "P05-COV-GAP-001" in state
     assert "source_coverage_census_status: \"SOURCE_SPAN_ACCOUNTED_PENDING_ACCEPTANCE\"" in state
