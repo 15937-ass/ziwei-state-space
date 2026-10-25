@@ -86,17 +86,11 @@ def test_prior_tianxiang_artifact_is_immutable_and_cumulative_counts_reconcile()
     assert data["summary"]["cumulative_canonical_records_after_merge"] == 684 + data["summary"]["canonical_promotions"]
     assert "13 七杀" in SUMMARY.read_text(encoding="utf-8")
 
-def test_state_cache_tracks_active_qisha_work_and_inherited_gaps():
+def test_state_preserves_tianliang_gap_handoff_without_pinning_old_active_batch():
     state = STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE"' in state
-    assert "active_issue: 770" in state
-    assert 'active_branch: "knowledge/p05-770-source-first-pojun-p91-p92"' in state
-    assert "merged_rule_count: 765" in state
-    assert "current_batch_rule_count: 29" in state
-    assert "source_first_records_added_current_batch: 30" in state
-    assert "source_uncertainty_count_current_batch: 2" in state
-    assert "source_coverage_gaps_remaining: 22" in state
-    assert "W08-SG-003" in state and "W08-SG-004" in state and "W08-SG-005" in state
+    assert "source_coverage_gaps_remaining: 23" in state
+    assert "P05-COV-GAP-001" in state
     assert "W05-SG-002 remains PARTIALLY_RESOLVED" in state
-    assert "12 天梁" in state and "13 七杀" in state
+    assert all(g in state for g in {"W06-SG-001", "W06-SG-005", "W08-SG-001", "W08-SG-005", "W09-SG-006", "W09-SG-016"})
     assert "No Product/runtime authorization is implied" in state
+
