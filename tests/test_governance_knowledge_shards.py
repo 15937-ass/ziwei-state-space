@@ -63,14 +63,29 @@ def test_core_can_write_shared_but_not_palace_artifacts():
     branch = "knowledge/core-602-relation-semantics"
     shared = [
         "knowledge/core/relation_semantics_v2.json",
+        "knowledge/KB_SCHEMA.md",
+        "knowledge/REVIEW_SCHEMA_v0.3.md",
         "knowledge/KNOWLEDGE_STATE.yaml",
         "knowledge/states/CORE_STATE.yaml",
         "validation/knowledge/core/issue_602/evidence.md",
         "tests/test_knowledge_core_relation.py",
     ]
     assert knowledge_shard_bad_paths(branch, shared, lane, shards) == []
-    palace = ["knowledge/palaces/P03_spouse/batch_001.json"]
-    assert knowledge_shard_bad_paths(branch, palace, lane, shards) == palace
+    palace_branch = "knowledge/p03-601-spouse-001-100"
+    palace_local = ["knowledge/palaces/P03_spouse/batch_001.json"]
+    assert knowledge_shard_bad_paths(palace_branch, palace_local, lane, shards) == []
+
+    shared_schema_paths = [
+        "knowledge/KB_SCHEMA.md",
+        "knowledge/REVIEW_SCHEMA_v0.3.md",
+    ]
+    assert knowledge_shard_bad_paths(palace_branch, shared_schema_paths, lane, shards) == shared_schema_paths
+
+    # Core receives only the two explicit shared-schema paths, not a broad
+    # permission to edit arbitrary root-level Knowledge documentation.
+    assert knowledge_shard_bad_paths(
+        branch, ["knowledge/UNRELATED_SCHEMA.md"], lane, shards
+    ) == ["knowledge/UNRELATED_SCHEMA.md"]
 
 
 def test_established_property_and_career_roots_remain_shard_local():
