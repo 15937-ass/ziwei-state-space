@@ -13,7 +13,7 @@ The input charts are not source-transcribed ground truth. The materialization ar
 - The Z12 coordinate model in knowledge/relation/RELATION_SEMANTICS_v0.1.json.
 - The pinned materializer's expected eligible case IDs.
 
-The probe checks Git blob and SHA-256 pins before using the data. It orders palace records by the explicit earthly-branch order, never by the artifact's array order.
+The probe checks Git blob and SHA-256 pins before using the data. It orders palace records by the explicit earthly-branch order, never by the artifact's array order. Each occupancy row includes the palace-name identity token and the star objects from all three star fields.
 
 ## Reproduce
 
