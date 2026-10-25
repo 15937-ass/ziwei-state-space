@@ -23,12 +23,11 @@
 
 The probe enforces twelve unique natal palace identities per chart, six distinct temporal scope labels per target, twelve unique palace-name positions per scope, and target-dependent temporal signatures without rebuilding the natal projection.
 
-## Contract-review finding
+## Source-grounded scope-mutagen finding
 
-The pinned full exporter’s scope-level `mutagen` array contains star names such as 天梁、紫微、左辅、武曲. The earlier toy temporal fixture used glyph-like values such as 科. The current adapter preserves each raw entry as `TRANSFORMATION_PRESENT(mutagen=<raw value>)`.
+The pinned upstream **iztro v2.6.1** type defines `HoroscopeItem.mutagen: StarName[]` ([exact-tag type](https://github.com/SylarLong/iztro/blob/v2.6.1/src/data/types/astro.ts), blob `2d692b84e9a28c6786c804078f06d34c4388125f`). The separate `Mutagen` type is the four transformation labels; the simplified-Chinese mapping is 禄、权、科、忌 ([exact-tag type](https://github.com/SylarLong/iztro/blob/v2.6.1/src/i18n/types/mutagen.ts), blob `268d2440e3ea024a07673942cbe313bfe752fca3`; [locale values](https://github.com/SylarLong/iztro/blob/v2.6.1/src/i18n/locales/zh-CN/mutagen.ts), blob `7bb0325767a33ffc0c2e9c5952e3ac43c1978e80`).
 
-This is a **representation-domain difference requiring contract review**, not an authorized production fix. v0.3 preserves the raw values and tests the derived facts without silently converting star names into glyphs.
-
+In the pinned projection, all 96 scope-level entries are star names, and all occur in the corresponding natal star inventory. Therefore, the earlier toy fixture's glyph-like scope values do not match the pinned upstream type. The current adapter preserves the names but emits `TRANSFORMATION_PRESENT(mutagen=<star name>)`. This is a **semantic-mapping gap**, not a reason to reinterpret the raw values: the scope-level list does not by itself bind each named star to a particular glyph (禄、权、科、忌). This probe records the issue and deliberately does not modify production code.
 ## Engineering decision
 
 **KEEP_INDEX_BASELINE.** No production migration benefit has been demonstrated. Continue the isolated TEST_ONLY guarded-temporal experiment, but do not promote canonical reaction semantics until the mutagen value-domain contract is resolved.
