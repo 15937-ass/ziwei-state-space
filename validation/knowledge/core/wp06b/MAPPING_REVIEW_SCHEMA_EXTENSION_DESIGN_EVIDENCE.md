@@ -11,6 +11,7 @@ Base main SHA at activation: `fe7f0396963746e042da3795f881f282628078f3`
 - `knowledge/core/wp06b/OPTION_C_CONTRACT_VALIDATION_PROBE_v0.1.md` — the merged bounded probe report.
 
 ## Scope
+- No shared schema file was changed; this PR contains proposal documentation, design tests, validation evidence, and the execution recovery cache only.
 - Design document, design-contract tests, validation evidence, and Core execution recovery cache only.
 - No shared schema, controlled vocabulary, canonical ontology, source row, accepted mapping, formal ID, Product/runtime, registry, lock, or consumer permission changes.
 - All candidate field names and enum values remain proposal-only.

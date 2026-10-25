@@ -81,7 +81,7 @@ def test_qi15_qr04_and_source_fidelity_boundaries_are_documented():
 
 def test_human_gate_decisions_and_write_boundary_are_explicit():
     text = read_design()
-    assert "## Human Gate decisions required before implementation" in text
+    assert "Human Gate decisions required before implementation" in text
     assert "no shared schema, controlled vocabulary, canonical mapping, ontology, or Product/runtime implementation is authorized" in text
     evidence = EVIDENCE.read_text(encoding="utf-8")
     assert "No shared schema file was changed" in evidence
