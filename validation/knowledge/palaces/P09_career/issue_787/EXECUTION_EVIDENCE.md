@@ -2,6 +2,7 @@
 
 - Work unit: `KB-P09-INHERITED-DEPENDENCY-SOURCE-AUDIT-11`
 - Issue: #787
+- PR: #788
 - Lane/shard: `KNOWLEDGE_ONLY / P09`
 - Branch: `knowledge/p09-787-inherited-dependency-source-audit`
 - Base commit at admission: `14acf5b812f3919c922690a8de47d5fce3c12838`
@@ -14,6 +15,6 @@
 
 All 11 target rows were reviewed against the original scan and the accepted dependency/closure evidence. The direct source supports the existing explicit-reference edges but does not resolve the inherited group-membership, activation, closed-world absence, list-quantifier, or compound-composition blockers. All 11 remain explicitly retained and fail-closed. No antecedent edge, accepted source row, condition IR, shared semantics, or Product/runtime permission changed.
 
-## Validation
+## Exact-head validation record
 
-Exact-head full repository pytest, Product JavaScript syntax, deterministic P0 audit, Repository Governance v1, P09 write-set validation, and current-main/base/head identity are required on the final PR head. Record the actual final-head run and SHA here before merging; no earlier run may substitute for a changed head.
+The authoritative final base/head identity and exact-head repository-quality-gate run are recorded in the live metadata/checks for [PR #788](https://github.com/15937-ass/ziwei-state-space/pull/788). Issue #787 will record the final run URL, base SHA, head SHA and actual outcome after the run completes. Only a successful run whose head matches the live PR head and whose base matches the then-current `main` is acceptance evidence; a previous-head run does not carry over.
