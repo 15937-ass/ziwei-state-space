@@ -177,7 +177,7 @@ def test_temporal_guard_rejects_cross_layer_atom():
         compile_temporal_reaction_registry(document)
 
 
-def test_raw_mutagen_domain_is_preserved_and_not_rewritten_as_glyphs():
+def test_scope_mutagen_raw_serialization_is_not_a_glyph_or_star_binding():
     record = _fixture()["records"][0]
     bundle = adapt_target_from_full_snapshot(
         _expanded_record(record),
@@ -190,6 +190,33 @@ def test_raw_mutagen_domain_is_preserved_and_not_rewritten_as_glyphs():
     assert fact_from_atom(
         "TRANSFORMATION_PRESENT", layer="YEAR", mutagen="科"
     ) not in facts
+    assert fact_from_atom(
+        "TRANSFORMATION_PRESENT",
+        layer="YEAR",
+        palace_name="福德",
+        star="紫微",
+        mutagen="科",
+    ) not in facts
+
+
+def test_scope_mutagen_values_follow_pinned_star_name_domain():
+    fixture = _fixture()
+    for record in fixture["records"]:
+        natal_star_names = {
+            star
+            for row in record["natal"].values()
+            for group in row[1:]
+            for star in group
+        }
+        scope_values = [
+            value
+            for target in record["temporal"]
+            for scope in target["scopes"].values()
+            for value in scope["mu"]
+        ]
+        assert scope_values
+        assert all(value in natal_star_names for value in scope_values)
+        assert all(value not in {"禄", "权", "科", "忌"} for value in scope_values)
 
 
 def test_missing_temporal_scope_fails_closed():
