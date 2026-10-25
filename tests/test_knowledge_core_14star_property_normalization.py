@@ -441,3 +441,16 @@ def test_tianji_visual_review_covers_exact_canonical_rows_without_mutating_them(
         assert canonical[row["rule_id"]]["normalization_epistemic"] == "UNRESOLVED"
     assert data["source_policy"]["tianji_source_locator"]["source_sha256"] == data["source_policy"]["source_sha256"]
     assert data["source_policy"]["tianji_source_locator"]["canonical_source_span_verified_mutated"] is False
+
+
+def test_tianji_source_review_literals_are_transcribed_from_the_visual_source():
+    with TIANJI_SOURCE_REVIEW.open(encoding="utf-8", newline="") as stream:
+        rows = {row["rule_id"]: row for row in csv.DictReader(stream)}
+    assert rows["ZZ-TJ-001"]["literal_source_span"] == "天机为南斗第一星，属阴木。"
+    assert rows["ZZ-TJ-002"]["literal_source_span"].startswith("但却需要带聪明才艺性质的星曜会合。")
+    assert rows["ZZ-TJ-018"]["literal_source_span"] == "流年或大运遇天机，与本命遇天机不同"
+    assert rows["ZZ-TJ-025"]["literal_source_span"] == "空动令人的变动易流为空想；"
+    assert rows["ZZ-TJ-X07"]["literal_source_span"].startswith("在十二星系中，天机永远与太阴、巨门、天梁同宫或相对")
+    assert rows["ZZ-TJ-X08"]["literal_source_span"] == "一般情形下，最喜卯宫的天机巨门。"
+    assert rows["ZZ-TJ-X09"]["literal_source_span"] == "于天机独坐的情形下，较不喜巳亥二宫。"
+    assert rows["ZZ-TJ-Y05"]["literal_source_span"].startswith("在子午两宫，天机巨门相对；在卯酉两宫，[天机巨门]同度。")
