@@ -21,7 +21,7 @@ The original PDF's SHA-256 was recomputed locally and matched the approved pin. 
 - 0 deduplications; 0 history-feedback items; 0 new primitives, shared semantics, weights, probabilities or decay.
 - Reconciled prior source gaps P03-SP01-GAP-002/003/004 using SP02-101, SP02-102/103, and corrected SP02-104 respectively. P03-SP01-GAP-001 remains open.
 - Added three source-coverage gaps for printed p37 clauses not represented independently by SP02-196…200.
-- Carried forward the two prior temporal-scope residuals and added nine grouped residuals for this batch.
+- Carried forward the two prior temporal-scope residuals and added ten grouped residuals for this batch.
 
 ## Required final exact-head gate
 
