@@ -3,9 +3,9 @@
   "artifact_id": "KB-CORE-14STAR-PROPERTY-NORMALIZATION-BASELINE-01",
   "issue": 757,
   "status": "PROPOSAL_ONLY_NOT_CANONICAL",
-  "checkpoint_status": "STAGE_B_TIANTONG_CHECKPOINT_COMPLETED_NOT_FINAL",
+  "checkpoint_status": "STAGE_B_LIANZHEN_CHECKPOINT_COMPLETED_NOT_FINAL",
   "activation_main_sha": "74864f572cdd04407c241c483f3a34c646f69d3a",
-  "execution_branch": "knowledge/core-757-14star-property-normalization",
+  "execution_branch": "knowledge/core-757-14star-property-normalization-main-sync2",
   "source_policy": {
     "allowed_school": "中州派",
     "source_id": "SRC-ZZ-002",
@@ -353,7 +353,7 @@
     ]
   },
   "progress": {
-    "stage": "B_TIANTONG_CHECKPOINT_COMPLETED_READY_FOR_LIANZHEN",
+    "stage": "B_LIANZHEN_CHECKPOINT_COMPLETED_READY_FOR_TIANFU",
     "completed_pilot_cards": [
       "太阳",
       "太阴",
@@ -361,7 +361,6 @@
     ],
     "remaining_pilot_cards": [],
     "remaining_expansion_stars_in_existing_order": [
-      "廉贞",
       "天府",
       "贪狼",
       "巨门",
@@ -369,7 +368,7 @@
       "七杀",
       "破军"
     ],
-    "coverage_warning": "Stage A pilots 太阳、太阴、天相 remain completed research checkpoints, not final canonical mappings. Stage B has completed bounded candidate checkpoints for 紫微 (43 rows), 天机 (39 rows), 武曲 (41 rows), and 天同 (25 rows across printed pp13–14, p87, p23, p146, p178, p228; ZZ-TT-010 remains quarantined as a confirmed source mismatch). All canonical source_span_verified flags remain false and normalization_epistemic remains UNRESOLVED. Next star is 廉贞.",
+    "coverage_warning": "Stage A pilots 太阳、太阴、天相 remain completed research checkpoints, not final canonical mappings. Stage B has completed bounded candidate checkpoints for 紫微 (43 rows), 天机 (39 rows), 武曲 (41 rows), 天同 (25 rows), and 廉贞 (27 existing canonical rows). The Lian Zhen checkpoint visually reviewed SRC-ZZ-002 scan p8/printed pp15–16 and the specific locators for its other canonical rows; source-label disagreement on ZZ-LZ-001 and scope questions on ZZ-LZ-003/004 and ZZ-LZ-008..010 remain unresolved. The separate 44-row ZZ-FULL-LZ extraction inventory is not counted as 44 additional canonical rules. All canonical source_span_verified flags remain false and normalization_epistemic remains UNRESOLVED. Next star is 天府.",
     "active_pilot_card": null,
     "draft_pilot_cards": [
       "太阳",
@@ -380,14 +379,16 @@
       "紫微",
       "天机",
       "武曲",
-      "天同"
+      "天同",
+      "廉贞"
     ],
     "active_expansion_star": null,
     "draft_expansion_stars": [
       "紫微",
       "天机",
       "武曲",
-      "天同"
+      "天同",
+      "廉贞"
     ],
     "expansion_checkpoint_history": [
       {
@@ -513,6 +514,100 @@
         "canonicalization_authorized": false,
         "product_consumption_authorized": false,
         "next_star": "廉贞"
+      },
+      {
+        "star": "廉贞",
+        "status": "CHECKPOINT_COMPLETED_NOT_FINAL",
+        "source_id": "SRC-ZZ-002",
+        "source_ids_used": [
+          "SRC-ZZ-001",
+          "SRC-ZZ-002"
+        ],
+        "pdf_scan_page": 8,
+        "printed_pages": [
+          15,
+          16
+        ],
+        "canonical_rule_rows_reviewed": 27,
+        "source_review_rows": 27,
+        "prior_visual_review_rows_reused": 2,
+        "mapping_review_records_added": 20,
+        "additional_source_locators": [
+          {
+            "source_id": "SRC-ZZ-001",
+            "source_sha256": "7ebafc8e3477430e2f8e69c6925ecc373d3c28966955f7035078c4949b7475a2",
+            "pdf_scan_page": 44,
+            "printed_page": 87,
+            "rule_ids": [
+              "ZZ-LZ-001",
+              "ZZ-LZ-002"
+            ],
+            "status": "VISUAL_SOURCE_REVIEWED"
+          },
+          {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 90,
+            "printed_page": 179,
+            "rule_ids": [
+              "ZZ-LZ-003",
+              "ZZ-LZ-004",
+              "ZZ-LZ-005",
+              "ZZ-LZ-006",
+              "ZZ-LZ-007"
+            ],
+            "status": "HUA_LU_HEADING_SCOPE_RETAINED"
+          },
+          {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 20,
+            "printed_pages": [
+              38,
+              39
+            ],
+            "rule_ids": [
+              "ZZ-LZ-008"
+            ],
+            "status": "SYSTEM_CONTEXT_RETAINED"
+          },
+          {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 42,
+            "printed_pages": [
+              82,
+              83
+            ],
+            "rule_ids": [
+              "ZZ-LZ-009"
+            ],
+            "status": "SYSTEM_CONTEXT_RETAINED"
+          },
+          {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 75,
+            "printed_pages": [
+              148,
+              149
+            ],
+            "rule_ids": [
+              "ZZ-LZ-010"
+            ],
+            "status": "SYSTEM_CONTEXT_RETAINED"
+          }
+        ],
+        "source_disagreement_rule_ids": [
+          "ZZ-LZ-001"
+        ],
+        "scope_mismatch_candidate_rule_ids": [
+          "ZZ-LZ-003",
+          "ZZ-LZ-004",
+          "ZZ-LZ-008",
+          "ZZ-LZ-009",
+          "ZZ-LZ-010"
+        ],
+        "normalization_epistemic": "UNRESOLVED",
+        "canonicalization_authorized": false,
+        "product_consumption_authorized": false,
+        "next_star": "天府"
       }
     ]
   },
@@ -4128,6 +4223,824 @@
         "ZZ-TT-010来源错配已确认，继续quarantine。",
         "所有候选保持PROPOSAL_ONLY_NOT_CANONICAL，不修改正式星核/本体/规则/共享Schema/Product权限。"
       ]
+    },
+    {
+      "star_id": "STAR-LZ",
+      "name": "廉贞",
+      "status": "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL",
+      "source_claims": [
+        {
+          "claim_key": "LZ-L0-SUBSTRATE-SOURCE-DISAGREEMENT",
+          "source_rule_ids": [
+            "ZZ-LZ-001"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-001",
+            "pdf_scan_page": 44,
+            "printed_page": 87
+          },
+          "source_excerpt": "初级讲义的星曜表采用复合五行标签；深造讲义上册本星段使用不同标签。",
+          "claim_layer": "L0_STRUCTURE_METADATA",
+          "claim_summary": "保留两个中州派来源的元数据差异；只记录标签，不推导QI方向、强度或生克效应。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+          "conditions_to_preserve": [
+            "SRC-ZZ-001扫描页44/印刷页87",
+            "SRC-ZZ-002扫描页8/印刷页15-16",
+            "不在本轮裁决标签差异"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "LZ:substrate:cross-source",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TARGET_INFERENCE_NOT_DIRECTLY_SUPPORTED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 2
+        },
+        {
+          "claim_key": "LZ-L0-TRADITIONAL-LABELS",
+          "source_rule_ids": [
+            "ZZ-LZ-002"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-001",
+            "pdf_scan_page": 44,
+            "printed_page": 87
+          },
+          "source_excerpt": "初级讲义将化囚与次桃花作为传统星曜标签列示。",
+          "claim_layer": "L0_STRUCTURE_METADATA",
+          "claim_summary": "传统标签仅作来源元数据；不转译为现代人格、性行为或现实关系预测。",
+          "candidate_target_ref": "STAR-LZ.symbolic_descriptor:traditional_labels",
+          "conditions_to_preserve": [
+            "保留原始标签",
+            "不转换为QI值或现代诊断"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "LZ:initial:p44:labels",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "LZ-L1-DUALITY-TENSION",
+          "source_rule_ids": [
+            "ZZ-LZ-X01",
+            "ZZ-LZ-X02"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 8,
+            "printed_pages": [
+              15,
+              16
+            ]
+          },
+          "source_excerpt": "本星段描述廉贞的阴柔与阳刚两面，并说明星系结构可能放大两面冲突。",
+          "claim_layer": "L1_DESCRIPTIVE_CANDIDATE_WITH_COMPARISON_LIMIT",
+          "claim_summary": "可保留双态/张力候选；冲突增强是条件性分支，不等于单一固定方向或数值强度。",
+          "candidate_target_ref": "STAR-LZ.intrinsic_signature:QI-11",
+          "conditions_to_preserve": [
+            "保留两面并存",
+            "保留星系增强条件",
+            "不赋数值强度"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "LZ:p8:duality",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "LZ-L1-BALANCE-CONDITION",
+          "source_rule_ids": [
+            "ZZ-LZ-Y01"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 8,
+            "printed_pages": [
+              15,
+              16
+            ]
+          },
+          "source_excerpt": "来源把理智与感情的协调作为条件性判断，冲突时另有后果分支。",
+          "claim_layer": "CONDITIONAL_BALANCE_OR_OPTIMAL_REGION",
+          "claim_summary": "协调不是廉贞始终处于的默认状态；须与冲突分支分开记录。",
+          "candidate_target_ref": "STAR-LZ.conditional_signature",
+          "conditions_to_preserve": [
+            "调和/冲突两分支分开",
+            "不把条件性评价变成恒定内在性质"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "LZ:p8:balance",
+          "row_adjudication_status": "REUSED_EXISTING_SOURCE_FIRST_REVIEW_ROW",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "LZ-MODIFIER-ZIWEI-QISHA",
+          "source_rule_ids": [
+            "ZZ-LZ-X03"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 8,
+            "printed_pages": [
+              15,
+              16
+            ]
+          },
+          "source_excerpt": "紫微或七杀会合被描述为加强廉贞的阳刚侧。",
+          "claim_layer": "CONDITIONAL_SAME_STAR_MODIFIER",
+          "claim_summary": "属于有明确星曜前提的关系修饰，不直接改变无条件基线。",
+          "candidate_target_ref": "STAR-LZ.conditional_signature",
+          "conditions_to_preserve": [
+            "紫微或七杀条件保留",
+            "不折算为绝对QI值"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "LZ:p8:ziwei-qisha",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "LZ-MODIFIER-LUCUN-CHANGQU",
+          "source_rule_ids": [
+            "ZZ-LZ-X04"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 8,
+            "printed_pages": [
+              15,
+              16
+            ]
+          },
+          "source_excerpt": "禄存或昌曲会合被描述为加强廉贞的阴柔侧。",
+          "claim_layer": "CONDITIONAL_SAME_STAR_MODIFIER",
+          "claim_summary": "保留来源列出的替代关系条件，不把它们合并为无条件性质。",
+          "candidate_target_ref": "STAR-LZ.conditional_signature",
+          "conditions_to_preserve": [
+            "禄存或昌曲条件保留",
+            "不与其他修饰静默合并"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "LZ:p8:lucun-changqu",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "LZ-MODIFIER-TIANFU-LU",
+          "source_rule_ids": [
+            "ZZ-LZ-X05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 8,
+            "printed_pages": [
+              15,
+              16
+            ]
+          },
+          "source_excerpt": "天府得禄时，来源描述廉贞的情感侧进一步加深。",
+          "claim_layer": "CONDITIONAL_SAME_STAR_MODIFIER",
+          "claim_summary": "是带天府及禄条件的关系修饰；不直接支持普遍感性强度。",
+          "candidate_target_ref": "STAR-LZ.conditional_signature",
+          "conditions_to_preserve": [
+            "天府得禄条件保留",
+            "不赋数值强度"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "LZ:p8:tianfu-lu",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "LZ-MODIFIER-TIANXIANG",
+          "source_rule_ids": [
+            "ZZ-LZ-X06"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 8,
+            "printed_pages": [
+              15,
+              16
+            ]
+          },
+          "source_excerpt": "天相被描述为使廉贞的阳刚表现内敛、不外露。",
+          "claim_layer": "CONDITIONAL_SAME_STAR_MODIFIER",
+          "claim_summary": "关系改变的是表现方式；不能据此断言所有廉贞天相组合都更和缓。",
+          "candidate_target_ref": "STAR-LZ.conditional_signature",
+          "conditions_to_preserve": [
+            "天相条件保留",
+            "结合廉相星系段落复核"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "LZ:p8:tianxiang",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "LZ-MODIFIER-POJUN",
+          "source_rule_ids": [
+            "ZZ-LZ-X07"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 8,
+            "printed_pages": [
+              15,
+              16
+            ]
+          },
+          "source_excerpt": "破军被描述为加强廉贞的阳刚侧，并使行为趋于决绝。",
+          "claim_layer": "CONDITIONAL_SAME_STAR_MODIFIER",
+          "claim_summary": "这是廉破关系修饰；不把归纳性用语当成廉贞单星无条件属性。",
+          "candidate_target_ref": "STAR-LZ.conditional_signature",
+          "conditions_to_preserve": [
+            "破军同度条件保留",
+            "与廉破星系页148-149对照"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "LZ:p8:pojun",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "LZ-MODIFIER-WUQU",
+          "source_rule_ids": [
+            "ZZ-LZ-X08"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 8,
+            "printed_pages": [
+              15,
+              16
+            ]
+          },
+          "source_excerpt": "武曲会合被描述为增加廉贞的物欲与自利色彩。",
+          "claim_layer": "CONDITIONAL_SAME_STAR_MODIFIER",
+          "claim_summary": "保留武曲条件；传统评价词不转译为现代人格诊断。",
+          "candidate_target_ref": "STAR-LZ.conditional_signature",
+          "conditions_to_preserve": [
+            "武曲条件保留",
+            "不作现代道德/人格诊断"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "LZ:p8:wuqu",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "LZ-KONGJIE-BRANCHES",
+          "source_rule_ids": [
+            "ZZ-LZ-X09",
+            "ZZ-LZ-X10"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 8,
+            "printed_pages": [
+              15,
+              16
+            ]
+          },
+          "source_excerpt": "空劫作用依是否有禄分为不同分支：一支偏理想化，另一支偏盲动或固执。",
+          "claim_layer": "CONDITIONAL_TRANSFORMATION_BRANCHES",
+          "claim_summary": "两支条件互斥或分支关系须保留；不能把相反结果合并为单一效果。",
+          "candidate_target_ref": "STAR-LZ.conditional_signature",
+          "conditions_to_preserve": [
+            "有禄/无禄分支分开",
+            "不静默合并为AND",
+            "不转为数值加减"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "LZ:p8:kongjie",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "LZ-SHAJI-GATE",
+          "source_rule_ids": [
+            "ZZ-LZ-X11"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 8,
+            "printed_pages": [
+              15,
+              16
+            ]
+          },
+          "source_excerpt": "来源不鼓励煞曜加强廉贞两面冲突，但同页还列有特定吉化组合的例外。",
+          "claim_layer": "CONDITIONAL_MODIFIER_WITH_GATING",
+          "claim_summary": "煞曜作用不是独立、单调的负向分数；需保留例外与其他条件。",
+          "candidate_target_ref": "STAR-LZ.conditional_signature",
+          "conditions_to_preserve": [
+            "见煞条件保留",
+            "与吉化/禄及星系条件一起审查",
+            "不设统一煞曜强度"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "LZ:p8:shaji",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "LZ-STRUCTURAL-FAMILIES",
+          "source_rule_ids": [
+            "ZZ-LZ-Y02",
+            "ZZ-LZ-Y03",
+            "ZZ-LZ-Y04"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 8,
+            "printed_pages": [
+              15,
+              16
+            ]
+          },
+          "source_excerpt": "廉破相与廉杀府被作为不同星系家族讨论，煞与文禄类条件会改变其阴柔/阳刚侧。",
+          "claim_layer": "L2_STAR_FAMILY_STRUCTURE",
+          "claim_summary": "这是星系结构及条件修饰，不是每个组合都共享的单星基线。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "廉破相/廉杀府分开",
+            "煞与文禄条件分开",
+            "不回写单星内在值"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "LZ:p8:star-families",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "LZ-LIANTAN-TRIPLE",
+          "source_rule_ids": [
+            "ZZ-LZ-Y05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 8,
+            "printed_pages": [
+              15,
+              16
+            ]
+          },
+          "source_excerpt": "廉贪对拱时，阳刚、决绝与孤克描述依三方结构条件而变化。",
+          "claim_layer": "CONDITIONAL_INTERACTION",
+          "claim_summary": "该判断依赖廉贪对拱及其他星系/禄煞条件，不是廉贞单星的普遍结果。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "廉贪对拱保留",
+            "武府无禄、紫相带煞等条件保留"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "LZ:p8:liantan",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "LZ-XIONGSU-QIANYUAN-GATE",
+          "source_rule_ids": [
+            "ZZ-LZ-Y06"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 8,
+            "printed_pages": [
+              15,
+              16
+            ]
+          },
+          "source_excerpt": "雄宿乾元被描述为廉贞七杀在特定吉化且无煞忌冲会条件下成立的格局。",
+          "claim_layer": "L2_STRUCTURAL_RELATION",
+          "claim_summary": "这是带严格前提的格局门控，不是廉贞固定的吉性或强度。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "廉杀位置条件保留",
+            "禄权科前提保留",
+            "无煞忌冲会前提保留"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "LZ:p8:xiongsu",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "LZ-HUALU-SCOPE",
+          "source_rule_ids": [
+            "ZZ-LZ-003",
+            "ZZ-LZ-004",
+            "ZZ-LZ-005",
+            "ZZ-LZ-006",
+            "ZZ-LZ-007"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 90,
+            "printed_page": 179
+          },
+          "source_excerpt": "化禄章节把感性、物欲、精神享受、手段及煞刑下的传统结果放在同一化禄语境内。",
+          "claim_layer": "CONDITIONAL_SUMMARY_WITH_NORMALIZATION_BOUNDARY",
+          "claim_summary": "ZZ-LZ-003/004的canonical条件目前为无，但来源小节标题具化禄语境；需保留范围疑点。005-007的化禄及凶煞刑条件不能省略。",
+          "candidate_target_ref": "STAR-LZ.conditional_signature",
+          "conditions_to_preserve": [
+            "化禄小节语境保留",
+            "003/004不直接升格为无条件基线",
+            "005-007条件原样保留"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "LZ:p90:p179:hualu",
+          "row_adjudication_status": "REUSED_EXISTING_SOURCE_FIRST_REVIEW_ROW",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "LZ-LIANFU-CONTEXT",
+          "source_rule_ids": [
+            "ZZ-LZ-008"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 20,
+            "printed_pages": [
+              38,
+              39
+            ]
+          },
+          "source_excerpt": "廉贞天府星系段落讨论感情与理智的张力；即使文字指向廉贞本身，也不能丢掉段落范围。",
+          "claim_layer": "L2_STAR_SYSTEM_STRUCTURE",
+          "claim_summary": "该行的定位应精确到廉贞天府坐辰戌；不能把星系语境直接泛化为单星无条件属性。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "廉府星系范围保留",
+            "不自动升格为单星intrinsic"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "LZ:p20:p38-39:lianfu",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "LZ-LIANXIANG-CONTEXT",
+          "source_rule_ids": [
+            "ZZ-LZ-009"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 42,
+            "printed_pages": [
+              82,
+              83
+            ]
+          },
+          "source_excerpt": "廉贞天相星系强调感情色彩与三方物质性之间的冲突，并带有刚毅等条件。",
+          "claim_layer": "L2_STAR_SYSTEM_STRUCTURE",
+          "claim_summary": "现有“气较和”是对照性归纳而非逐字原文；必须保留廉相结构、三方与刚毅条件。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "廉相条件保留",
+            "三方物质星曜语境保留",
+            "不把和缓写成无条件"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "LZ:p42:p82-83:lianxiang",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "LZ-LIANPO-CONTEXT",
+          "source_rule_ids": [
+            "ZZ-LZ-010"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 75,
+            "printed_pages": [
+              148,
+              149
+            ]
+          },
+          "source_excerpt": "廉贞破军星系同时包含开创/冲击与不安定的描述；直星段另有破军加强阳刚的说明。",
+          "claim_layer": "L2_STAR_SYSTEM_STRUCTURE",
+          "claim_summary": "“气躁决”是规范化归纳而非逐字原文；只在廉破组合内保留候选，不反推为廉贞单星属性。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "廉破同度条件保留",
+            "与十四正曜段落对照",
+            "不推广为单星绝对值"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "LZ:p75:p148-149:lianpo",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        }
+      ],
+      "candidate_properties": [
+        {
+          "candidate_key": "EXP-LZ-01",
+          "layer": "L0",
+          "candidate_label": "传统五行底座标签存在跨来源差异",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+          "source_rule_ids": [
+            "ZZ-LZ-001"
+          ],
+          "mapping_review_record_id": "MR-LZ-L0-SOURCE-DISAGREEMENT-001",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-LZ-02",
+          "layer": "L0",
+          "candidate_label": "化囚/次桃花传统符号标签",
+          "target_ref": "STAR-LZ.symbolic_descriptor:traditional_labels",
+          "source_rule_ids": [
+            "ZZ-LZ-002"
+          ],
+          "mapping_review_record_id": "MR-LZ-SYMBOLIC-ROLE-002",
+          "mapping_disposition": "not_supported_for_target",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-LZ-03",
+          "layer": "L1",
+          "candidate_label": "阴柔与阳刚两面并存的张力候选",
+          "target_ref": "STAR-LZ.intrinsic_signature:QI-11",
+          "source_rule_ids": [
+            "ZZ-LZ-X01",
+            "ZZ-LZ-X02"
+          ],
+          "mapping_review_record_id": "MR-LZ-DUALITY-TENSION-003",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-LZ-04",
+          "layer": "CONDITIONAL_RESPONSE",
+          "candidate_label": "理智与感情协调的条件规则",
+          "target_ref": "STAR-LZ.conditional_signature",
+          "source_rule_ids": [
+            "ZZ-LZ-Y01"
+          ],
+          "mapping_review_record_id": "MR-LZ-BALANCE-CONDITION-004",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-LZ-05",
+          "layer": "L2_CONTEXTUAL_SENSITIVITY",
+          "candidate_label": "化禄语境中的感性/精神享受/手段分支",
+          "target_ref": "STAR-LZ.conditional_signature",
+          "source_rule_ids": [
+            "ZZ-LZ-003",
+            "ZZ-LZ-004",
+            "ZZ-LZ-005",
+            "ZZ-LZ-006",
+            "ZZ-LZ-007"
+          ],
+          "mapping_review_record_id": "MR-LZ-HUALU-SCOPE-005",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-LZ-06",
+          "layer": "L2_CONTEXTUAL_SENSITIVITY",
+          "candidate_label": "性质对星系组合与条件高度敏感",
+          "target_ref": "STAR-LZ.contextual_sensitivity",
+          "source_rule_ids": [
+            "ZZ-LZ-X01",
+            "ZZ-LZ-008",
+            "ZZ-LZ-009",
+            "ZZ-LZ-010"
+          ],
+          "mapping_review_record_id": "MR-LZ-CONTEXT-SENSITIVITY-006",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-LZ-07",
+          "layer": "CONDITIONAL_RELATIONAL_MODIFIER",
+          "candidate_label": "紫微/七杀会合时阳刚侧增强",
+          "target_ref": "STAR-LZ.conditional_signature",
+          "source_rule_ids": [
+            "ZZ-LZ-X03"
+          ],
+          "mapping_review_record_id": "MR-LZ-ZIWEI-QISHA-007",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-LZ-08",
+          "layer": "CONDITIONAL_RELATIONAL_MODIFIER",
+          "candidate_label": "禄存/昌曲会合时阴柔侧增强",
+          "target_ref": "STAR-LZ.conditional_signature",
+          "source_rule_ids": [
+            "ZZ-LZ-X04"
+          ],
+          "mapping_review_record_id": "MR-LZ-LUCUN-CHANGQU-008",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-LZ-09",
+          "layer": "CONDITIONAL_RELATIONAL_MODIFIER",
+          "candidate_label": "天府得禄时情感侧加深",
+          "target_ref": "STAR-LZ.conditional_signature",
+          "source_rule_ids": [
+            "ZZ-LZ-X05"
+          ],
+          "mapping_review_record_id": "MR-LZ-TIANFU-LU-009",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-LZ-10",
+          "layer": "CONDITIONAL_RELATIONAL_MODIFIER",
+          "candidate_label": "天相对阳刚侧的内蕴/调和修饰",
+          "target_ref": "STAR-LZ.conditional_signature",
+          "source_rule_ids": [
+            "ZZ-LZ-X06",
+            "ZZ-LZ-009"
+          ],
+          "mapping_review_record_id": "MR-LZ-TIANXIANG-010",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-LZ-11",
+          "layer": "CONDITIONAL_RELATIONAL_MODIFIER",
+          "candidate_label": "破军对阳刚与决绝侧的修饰",
+          "target_ref": "STAR-LZ.conditional_signature",
+          "source_rule_ids": [
+            "ZZ-LZ-X07",
+            "ZZ-LZ-010"
+          ],
+          "mapping_review_record_id": "MR-LZ-POJUN-011",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-LZ-12",
+          "layer": "CONDITIONAL_RELATIONAL_MODIFIER",
+          "candidate_label": "武曲会合时物欲/自利侧增强",
+          "target_ref": "STAR-LZ.conditional_signature",
+          "source_rule_ids": [
+            "ZZ-LZ-X08"
+          ],
+          "mapping_review_record_id": "MR-LZ-WUQU-012",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-LZ-13",
+          "layer": "CONDITIONAL_STATE_CHANGE",
+          "candidate_label": "空劫在有禄/无禄下的相反分支",
+          "target_ref": "STAR-LZ.conditional_signature",
+          "source_rule_ids": [
+            "ZZ-LZ-X09",
+            "ZZ-LZ-X10"
+          ],
+          "mapping_review_record_id": "MR-LZ-KONGJIE-BRANCHES-013",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-LZ-14",
+          "layer": "CONDITIONAL_MODIFIER",
+          "candidate_label": "煞曜扰动与吉化格局例外",
+          "target_ref": "STAR-LZ.conditional_signature",
+          "source_rule_ids": [
+            "ZZ-LZ-X11",
+            "ZZ-LZ-Y06"
+          ],
+          "mapping_review_record_id": "MR-LZ-SHAJI-GATE-014",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-LZ-15",
+          "layer": "L2_STAR_SYSTEM_RELATION",
+          "candidate_label": "廉破相/廉杀府的星系家族结构",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-LZ-Y02",
+            "ZZ-LZ-Y03",
+            "ZZ-LZ-Y04"
+          ],
+          "mapping_review_record_id": "MR-LZ-SYSTEM-FAMILY-015",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-LZ-16",
+          "layer": "CONDITIONAL_INTERACTION",
+          "candidate_label": "廉贪对拱下的三方结构门控",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-LZ-Y05"
+          ],
+          "mapping_review_record_id": "MR-LZ-LIANTAN-GATE-016",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-LZ-17",
+          "layer": "L2_STAR_SYSTEM_RELATION",
+          "candidate_label": "雄宿乾元的严格格局门控",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-LZ-Y06"
+          ],
+          "mapping_review_record_id": "MR-LZ-XIONGSU-GATE-017",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-LZ-18",
+          "layer": "L2_CONTEXTUAL_DEPENDENCY",
+          "candidate_label": "廉府星系中的感情/理智张力",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-LZ-008"
+          ],
+          "mapping_review_record_id": "MR-LZ-LIANFU-CONTEXT-018",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-LZ-19",
+          "layer": "L2_CONTEXTUAL_DEPENDENCY",
+          "candidate_label": "廉相星系的内外冲突与刚毅条件",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-LZ-009"
+          ],
+          "mapping_review_record_id": "MR-LZ-LIANXIANG-CONTEXT-019",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-LZ-20",
+          "layer": "L2_CONTEXTUAL_DEPENDENCY",
+          "candidate_label": "廉破星系的开创/不安定双面描述",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-LZ-010"
+          ],
+          "mapping_review_record_id": "MR-LZ-LIANPO-CONTEXT-020",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        }
+      ],
+      "non_promotion_guards": [
+        "初级讲义与深造讲义上册的传统五行标签差异必须保留；不静默裁决，不从标签推导QI方向、强度或生克。",
+        "化囚/次桃花是传统符号标签，不转译成现代性格、性行为或现实关系预测。",
+        "双态/感情理智张力只作描述性候选；不赋固定数值强度。",
+        "ZZ-LZ-003/004位于化禄小节，canonical条件字段虽为无，范围疑点必须保留。",
+        "化禄、凶煞刑、禄与其他星曜条件不得删去或合并。",
+        "紫微/七杀、禄存/昌曲、天府得禄、天相、破军、武曲分别作为不同条件修饰。",
+        "空劫有禄与无禄是不同分支，不能压成统一作用。",
+        "廉破相、廉杀府、廉府、廉相、廉破、廉贪与雄宿乾元均保留星系/格局门控。",
+        "传统健康、血光及自伤相关断语仅作为历史文本范围；不作现实医学预测，不进入Product候选性质。",
+        "44条ZZ-FULL-LZ全文提取记录与27条现有ZZ-LZ canonical行是不同覆盖集；本轮不把两者相加或重复计证。",
+        "所有候选保持PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED；不修改正式星核、本体、canonical规则、共享Schema或Product权限。"
+      ]
     }
   ],
   "mapping_review_records": [
@@ -6160,6 +7073,401 @@
       ],
       "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
       "rationale": "同阴/同巨/同梁、寅申同梁平稳和反背配置各有条件，不合并成统一QI值。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-LZ-L0-SOURCE-DISAGREEMENT-001",
+      "source_refs": [
+        "SRC-ZZ-001#pdf_scan_page=44#printed_page=87#ZZ-LZ-001",
+        "SRC-ZZ-002#pdf_scan_page=8#printed_page=15-16#ZZ-LZ-001"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+      "rationale": "两份中州派来源的传统五行标签存在差异；保留来源归属，不从任一标签推导QI方向/强度。",
+      "evidence_role": {
+        "state": "UNKNOWN",
+        "value": null,
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-LZ-SYMBOLIC-ROLE-002",
+      "source_refs": [
+        "SRC-ZZ-001#pdf_scan_page=44#printed_page=87#ZZ-LZ-002"
+      ],
+      "target_ref": "STAR-LZ.symbolic_descriptor:traditional_labels",
+      "rationale": "化囚/次桃花属于传统标签；当前目标不是现代人格、性行为或现实关系变量。",
+      "evidence_role": {
+        "state": "UNKNOWN",
+        "value": null,
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-LZ-DUALITY-TENSION-003",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=8#printed_page=15-16#ZZ-LZ-X01",
+        "SRC-ZZ-002#pdf_scan_page=8#printed_page=15-16#ZZ-LZ-X02"
+      ],
+      "target_ref": "STAR-LZ.intrinsic_signature:QI-11",
+      "rationale": "来源支持双面张力的描述性候选，但冲突强度、条件与现代QI-11目标仍需人工语义复审。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-LZ-BALANCE-CONDITION-004",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=8#printed_page=15-16#ZZ-LZ-Y01"
+      ],
+      "target_ref": "STAR-LZ.conditional_signature",
+      "rationale": "理智/感情调和是条件判断，不等于廉贞恒定处于调和状态。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-LZ-HUALU-SCOPE-005",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=90#printed_page=179#ZZ-LZ-003",
+        "SRC-ZZ-002#pdf_scan_page=90#printed_page=179#ZZ-LZ-004",
+        "SRC-ZZ-002#pdf_scan_page=90#printed_page=179#ZZ-LZ-005",
+        "SRC-ZZ-002#pdf_scan_page=90#printed_page=179#ZZ-LZ-006",
+        "SRC-ZZ-002#pdf_scan_page=90#printed_page=179#ZZ-LZ-007"
+      ],
+      "target_ref": "STAR-LZ.conditional_signature",
+      "rationale": "感性/不代表物欲的描述位于化禄小节；003/004的无条件字段与章节范围存在疑点，暂不修canonical行。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-LZ-CONTEXT-SENSITIVITY-006",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=8#printed_page=15-16#ZZ-LZ-X01",
+        "SRC-ZZ-002#pdf_scan_page=20#printed_page=38-39#ZZ-LZ-008",
+        "SRC-ZZ-002#pdf_scan_page=42#printed_page=82-83#ZZ-LZ-009",
+        "SRC-ZZ-002#pdf_scan_page=75#printed_page=148-149#ZZ-LZ-010"
+      ],
+      "target_ref": "STAR-LZ.contextual_sensitivity",
+      "rationale": "已审跨度显示廉贞性质高度依赖组合与条件；此处仅是候选上下文特征，不构成正式本体字段或消费权限。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-LZ-ZIWEI-QISHA-007",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=8#printed_page=15-16#ZZ-LZ-X03"
+      ],
+      "target_ref": "STAR-LZ.conditional_signature",
+      "rationale": "阳刚侧修饰有紫微或七杀前提，不作为无条件基线。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-LZ-LUCUN-CHANGQU-008",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=8#printed_page=15-16#ZZ-LZ-X04"
+      ],
+      "target_ref": "STAR-LZ.conditional_signature",
+      "rationale": "阴柔侧修饰有禄存或昌曲前提，保留来源列出的替代条件。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-LZ-TIANFU-LU-009",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=8#printed_page=15-16#ZZ-LZ-X05"
+      ],
+      "target_ref": "STAR-LZ.conditional_signature",
+      "rationale": "情感加深描述依天府得禄条件成立，不推广为一般廉贞性质。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-LZ-TIANXIANG-010",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=8#printed_page=15-16#ZZ-LZ-X06",
+        "SRC-ZZ-002#pdf_scan_page=42#printed_page=82-83#ZZ-LZ-009"
+      ],
+      "target_ref": "STAR-LZ.conditional_signature",
+      "rationale": "天相的调和/内蕴效果需结合廉相星系文本，不可只凭单一方向修饰。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-LZ-POJUN-011",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=8#printed_page=15-16#ZZ-LZ-X07",
+        "SRC-ZZ-002#pdf_scan_page=75#printed_page=148-149#ZZ-LZ-010"
+      ],
+      "target_ref": "STAR-LZ.conditional_signature",
+      "rationale": "破军相关的决绝/开创描述属于廉破关系与系统语境。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-LZ-WUQU-012",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=8#printed_page=15-16#ZZ-LZ-X08"
+      ],
+      "target_ref": "STAR-LZ.conditional_signature",
+      "rationale": "物欲/自利描述依武曲会合；传统评价词不等同现代人格诊断。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-LZ-KONGJIE-BRANCHES-013",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=8#printed_page=15-16#ZZ-LZ-X09",
+        "SRC-ZZ-002#pdf_scan_page=8#printed_page=15-16#ZZ-LZ-X10"
+      ],
+      "target_ref": "STAR-LZ.conditional_signature",
+      "rationale": "空劫且有禄与空劫且无禄是不同分支，不能合并成同一效果或单一分数。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-LZ-SHAJI-GATE-014",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=8#printed_page=15-16#ZZ-LZ-X11",
+        "SRC-ZZ-002#pdf_scan_page=8#printed_page=15-16#ZZ-LZ-Y06"
+      ],
+      "target_ref": "STAR-LZ.conditional_signature",
+      "rationale": "煞曜修饰与特定吉化无煞格局并存，须保留例外和多重门控。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-LZ-SYSTEM-FAMILY-015",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=8#printed_page=15-16#ZZ-LZ-Y02",
+        "SRC-ZZ-002#pdf_scan_page=8#printed_page=15-16#ZZ-LZ-Y03",
+        "SRC-ZZ-002#pdf_scan_page=8#printed_page=15-16#ZZ-LZ-Y04"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "廉破相与廉杀府是星系家族，不将其冲突和煞/文禄修饰压成单星内在值。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-LZ-LIANTAN-GATE-016",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=8#printed_page=15-16#ZZ-LZ-Y05"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "廉贪结构的阳刚/决绝/孤克描述依三方星系条件，不构成无条件单星特性。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-LZ-XIONGSU-GATE-017",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=8#printed_page=15-16#ZZ-LZ-Y06"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "格局成立须满足位置、吉化及无煞忌冲会等前提，不能简化成廉贞恒定吉性。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-LZ-LIANFU-CONTEXT-018",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=20#printed_page=38-39#ZZ-LZ-008"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "廉府段落虽讨论廉贞本身，但段落主体仍是廉贞天府系统；保留范围。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-LZ-LIANXIANG-CONTEXT-019",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=42#printed_page=82-83#ZZ-LZ-009"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "廉相段落强调三方物质星曜、内在感情与外部环境冲突及刚毅条件；“气较和”是归纳。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-LZ-LIANPO-CONTEXT-020",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=75#printed_page=148-149#ZZ-LZ-010"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "廉破段落兼有开创与不安定；“气躁决”不是逐字原文，不能泛化为廉贞单星性质。",
       "evidence_role": {
         "state": "KNOWN",
         "value": "interaction",

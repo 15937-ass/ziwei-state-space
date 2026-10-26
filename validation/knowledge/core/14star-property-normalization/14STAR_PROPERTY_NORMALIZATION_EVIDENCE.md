@@ -1,11 +1,11 @@
-# 断言修复检查点 — 天同进度与质量门（2026-10-26）
+# 当前执行证据 — 廉贞候选检查点（2026-10-26）
 
-- 继续现有 Core #757 / Draft PR #783；执行分支 `knowledge/core-757-14star-property-normalization-main-sync2`。
-- 修复前 head：`0930b8a0ad8633c5f8018f834f0329edc3c3ddd6`。失败 Run #40259683999：4 failed、2780 passed、132 subtests passed；四个失败测试均为过时的完成列表/武曲全局检查点要求。
-- 同步当前 main `ee80d86033e7995635b17834a8ba7d155ae5ae28`，保留已接受的 P09 交接；Core 自有修改限现有测试、Core 恢复缓存与本证据文件。
-- 当前进度校验覆盖三颗试点、四颗扩展星、剩余七星的精确顺序、卡片/历史检查点一致性、无重复/交叠及下一颗廉贞。紫微、天机、武曲的单星测试检查各自仍已完成，而不把整个研究锁死在旧全局阶段；单星内容、来源、条件和非 canonical 校验保留。
-- 本轮未改候选语义、来源审查或 canonical 内容；归一化仍 `UNRESOLVED`，候选仍 `PROPOSAL_ONLY_NOT_CANONICAL`，PR 保持 Draft/未合并。
-- 新提交的完整质量门为 PENDING，最终 exact base/head、命令、测试计数和 Actions run 在 PR #783 / Issue #757 最新交接记录；不将旧绿灯用于本提交，也不在本轮开展廉贞研究。
+- Lane/shard/Issue/PR：KNOWLEDGE_ONLY / CORE / #757 / Draft PR #783；分支 `knowledge/core-757-14star-property-normalization-main-sync2`。
+- 最新 main 基线：`0b372a188f2edf1bef3544c30c94388b6a88a131`。同步提交 `8529aa90119c973ea979037d1d834fef63d9cb34` 的 exact-head GitHub Actions Run #40291659130 已通过；该运行只验证同步提交，不转移到本次廉贞研究提交。
+- 本轮来源范围：27条现有 `ZZ-LZ` canonical 行；视觉核对扫描页8/印刷页15–16，并补核扫描页44、90、20、42、75。新增19条分组source claims、20条mapping-review记录与独立来源审查CSV。
+- 关键未决：初级讲义与深造讲义上册的五行标签存在来源差异；`ZZ-LZ-003/004` 的化禄章节范围与canonical无条件字段不一致；`ZZ-LZ-008/009/010` 保留具体星系上下文。所有候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`。
+- 未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限；所有canonical `source_span_verified` 继续为 false。
+- 本文件是候选提交的范围与历史验证快照；本次候选提交的最终 exact-head 结果以 Issue #757 / PR #783 的实时检查记录为准。同步提交的 PASS 不替代候选提交的验证，也不为填写run结果再制造额外未验收提交。
 
 ---
 
@@ -147,12 +147,3 @@
 - 前一检查点 Tianji exact-head gate（head `67bec2c3dbbd4d462333735fbd2b959306ce61cf`）通过：Run [#40194363706](https://github.com/15937-ass/ziwei-state-space/actions/runs/40194363706)，2772 passed + 132 subtests；JS adapter、P0 audit、Repository Governance v1 均通过。该结果不替代新增武曲内容后的 exact-head gate。
 - 本文件不从历史绿色结果推断新提交通过；以本提交对应的 GitHub Actions exact-head 运行和 Issue #757 最新交接为准。
 
-
----
-
-## 最新 main 同步检查点（2026-10-26）
-
-- 当前 main：`0b372a188f2edf1bef3544c30c94388b6a88a131`。
-- 上一轮 PASS Run #40263289530 验证的是旧 base `ee80d86033e7995635b17834a8ba7d155ae5ae28` 与旧 head `51d759e03c790514a1a34dbd4ae5067ad3f05e04`；该结果保留为历史证据，不可作为最新 main 上的验收。
-- 本次同步仅把当前 main 树与本 Core 分支已授权的 14 个路径合并；没有更改候选来源、星性解释或 canonical 知识。
-- 新同步 head 的完整质量门状态：**PENDING**。必须由当前 PR 对新 head 重新执行 full pytest、Product JS adapter 语法、确定性 P0 审计、Repository Governance v1 / Core write-set 校验；旧 PASS 不转移。
