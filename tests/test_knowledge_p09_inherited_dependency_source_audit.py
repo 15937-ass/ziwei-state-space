@@ -75,4 +75,4 @@ def test_p09_state_records_completed_gap_audit_without_unlocking_execution():
     assert "11 inherited dependency-effective-underdetermined rows" in state
     assert "conditions_compiled=0" in state
     assert "execution_unlocked=0" in state
-    assert "P09 stage is not closed" in state
+    assert 'source_audit_status: "COMPLETE_WITH_EXPLICIT_RESIDUALS"' in state

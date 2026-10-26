@@ -1,3 +1,14 @@
+# 断言修复检查点 — 天同进度与质量门（2026-10-26）
+
+- 继续现有 Core #757 / Draft PR #783；执行分支 `knowledge/core-757-14star-property-normalization-main-sync2`。
+- 修复前 head：`0930b8a0ad8633c5f8018f834f0329edc3c3ddd6`。失败 Run #40259683999：4 failed、2780 passed、132 subtests passed；四个失败测试均为过时的完成列表/武曲全局检查点要求。
+- 同步当前 main `ee80d86033e7995635b17834a8ba7d155ae5ae28`，保留已接受的 P09 交接；Core 自有修改限现有测试、Core 恢复缓存与本证据文件。
+- 当前进度校验覆盖三颗试点、四颗扩展星、剩余七星的精确顺序、卡片/历史检查点一致性、无重复/交叠及下一颗廉贞。紫微、天机、武曲的单星测试检查各自仍已完成，而不把整个研究锁死在旧全局阶段；单星内容、来源、条件和非 canonical 校验保留。
+- 本轮未改候选语义、来源审查或 canonical 内容；归一化仍 `UNRESOLVED`，候选仍 `PROPOSAL_ONLY_NOT_CANONICAL`，PR 保持 Draft/未合并。
+- 新提交的完整质量门为 PENDING，最终 exact base/head、命令、测试计数和 Actions run 在 PR #783 / Issue #757 最新交接记录；不将旧绿灯用于本提交，也不在本轮开展廉贞研究。
+
+---
+
 # 当前检查点 — 阶段 B 第四轮天同候选研究（2026-10-26）
 
 - Lane/shard/Issue/PR：KNOWLEDGE_ONLY / CORE / #757 / Draft #783。

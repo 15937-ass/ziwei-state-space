@@ -1,0 +1,201 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-P09-STAGE-HANDOFF-CENSUS-EXPLICIT-RESIDUALS-v0.1",
+  "status": "SOURCE_AUDIT_COMPLETE_WITH_EXPLICIT_RESIDUALS",
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "P09",
+  "issue": 789,
+  "census_date": "2026-10-26",
+  "baseline_main_sha": "6b0828b5b722c4c71053b9da7f5ad89ac8022360",
+  "decision": {
+    "source_audit_stage": "COMPLETE_WITH_EXPLICIT_RESIDUALS",
+    "next_palace": "P07",
+    "next_issue": 669,
+    "disposition_basis": "Governance #676 exit rule: source-ID coverage reconciled, blocked source rows reviewed, and all residuals have explicit source dispositions. Residual uncertainty is preserved rather than promoted to execution.",
+    "does_not_mean": [
+      "all Career meanings are resolved",
+      "all 888 rules are executable",
+      "P09 ontology mapping is unblocked",
+      "Product/runtime consumption is authorized"
+    ]
+  },
+  "input_artifacts": {
+    "knowledge/wp07a/CAREER_888_CLOSURE_AUDIT_v0.1.json": "6aa105c83a54086c0f4f4925a130ed4aa5507132",
+    "knowledge/wp07a/CAREER_FINAL36_CLOSURE_v0.1.json": "44b94a46d6378d3c38eca245e7aaff345d0da0d8",
+    "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.16.json": "d413669303375d7fc36624c33fde9c02f6ae8306",
+    "knowledge/wp08/CAREER_COMPILER_READINESS_CENSUS_26_v0.1.json": "71317dec9356b4b53601d123744c2f009af0e972",
+    "knowledge/wp08/CAREER_ANTECEDENT_DEPENDENCY_GRAPH_65_v0.1.json": "72a043ccfbe1fcdac1732ecd13ca833d01a9e6b7",
+    "knowledge/palaces/P09_career/gaps/P09_RELATION_SCOPE_GAP_DISPOSITION_3_v0.1.json": "14d63f467eb063939d8a63302384bb13a4f9a9c8",
+    "knowledge/palaces/P09_career/gaps/P09_INHERITED_DEPENDENCY_SOURCE_AUDIT_11_v0.1.json": "9a6c8839f7e14056b78f976fa1728e3d030ab436"
+  },
+  "source_coverage": {
+    "canonical_source_rules": 888,
+    "structured_unique_ids_expected": 888,
+    "strict_review_disposition_rows": 836,
+    "pre_hundred_batch_specialized_structured_ids": 52,
+    "structured_id_partition_sum": 888,
+    "all_canonical_ids_have_structured_disposition": true,
+    "all_rules_executable": false,
+    "final_tail_source_rules_rechecked": 36,
+    "final_tail_complete_condition_mappings": 7,
+    "final_tail_methodology_or_context_only": 2,
+    "final_tail_blocked_outcome_mappings": 27,
+    "new_production_executable_rules": 0
+  },
+  "contextual_activation_closure": {
+    "total_rows": 251,
+    "unique_source_rule_ids": 251,
+    "complete": true,
+    "readiness_class_counts": {
+      "SOURCE_UNDERDETERMINED": 157,
+      "MULTI_CLASS_BLOCKED": 44,
+      "DEPENDENCY_COMPILER_GATED": 24,
+      "LOCAL_STRUCTURE_READY": 26
+    },
+    "source_underdetermined_rows": 201,
+    "source_underdetermined_partition": {
+      "SOURCE_UNDERDETERMINED": 157,
+      "MULTI_CLASS_BLOCKED": 44
+    },
+    "blocked_rows_deep_source_reviewed": 228,
+    "blocked_rows_without_deep_source_review": 0,
+    "all_rows_have_canonical_source_disposition": true,
+    "canonical_source_disposition_counts": {
+      "STRUCTURE_PRESERVED_NO_PRODUCT_EXECUTION_CLAIM": 48,
+      "SOURCE_REFINED_FAIL_CLOSED_NO_PRODUCT_EXECUTION_CLAIM": 44,
+      "OPEN_CATEGORY_GENERIC_REFINED_FAIL_CLOSED_NO_PRODUCT_EXECUTION_CLAIM": 53,
+      "THIRD_LAYER_CLASSIFIED_FAIL_CLOSED_NO_PRODUCT_EXECUTION_CLAIM": 92,
+      "SOURCE_LOCAL_RESOLVED_NO_PRODUCT_EXECUTION_CLAIM": 2,
+      "SOURCE_REPAIRED_FAIL_CLOSED_NO_PRODUCT_EXECUTION_CLAIM": 4,
+      "KEEP_UNKNOWN_UNTIL_SOURCE_EXPLICIT": 1,
+      "KEEP_UNKNOWN_OR_NO_UNIVERSAL_RULE_UNTIL_SOURCE_EXPLICIT": 2,
+      "SOURCE_LOCAL_SEMANTICS_RESOLVED_NO_PRODUCT_EXECUTION_CLAIM": 3,
+      "SOURCE_RECHECK_RESOLVED_NO_PRODUCT_EXECUTION_CLAIM": 1,
+      "CONTEXTUAL_GROUP_ACTIVATION_PRESERVED_NO_DEFAULT": 1
+    },
+    "source_resolution_changes": 45,
+    "source_condition_repairs": 13,
+    "dependency_scope_corrections": 3
+  },
+  "antecedent_graph": {
+    "explicit_reference_nodes": 65,
+    "explicit_edges": 66,
+    "cycles": 0,
+    "unresolved_parent_ids": 0,
+    "compiler_gated_reference_nodes": 50,
+    "already_reference_resolved_nodes": 15,
+    "dependency_only_parent_underdetermined_rows": 24,
+    "rows_with_transitive_inherited_blockers": 38,
+    "parent_edges_outside_contextual_closure": 25,
+    "unique_parent_ids_outside_contextual_closure": 23
+  },
+  "local_structure_ready_reconciliation": {
+    "total_rows": 26,
+    "knowledge_condition_ir_ready": 12,
+    "not_condition_ir_ready": 14,
+    "not_ready_partition": {
+      "inherited_dependency_rows": 11,
+      "relation_or_composition_rows": 3
+    },
+    "inherited_dependency_rule_ids": [
+      "CA01-058",
+      "CA01-060",
+      "CA02-108",
+      "CA02-134",
+      "CA02-157",
+      "CA02-167",
+      "CA02-168",
+      "CA02-170",
+      "CA02-171",
+      "CA02-199",
+      "CA03-235"
+    ],
+    "relation_or_composition_rule_ids": [
+      "CA05-484",
+      "CA06-582",
+      "CA07-699"
+    ],
+    "all_14_have_direct_source_disposition": true,
+    "all_14_remain_fail_closed": true
+  },
+  "targeted_gap_dispositions": {
+    "relation_or_composition": {
+      "issue": 785,
+      "artifact": "knowledge/palaces/P09_career/gaps/P09_RELATION_SCOPE_GAP_DISPOSITION_3_v0.1.json",
+      "rows": 3,
+      "rule_ids": [
+        "CA05-484",
+        "CA06-582",
+        "CA07-699"
+      ],
+      "disposition": "RETAINED_UNRESOLVED",
+      "source_supported_new_geometry": 0,
+      "canonical_rule_changes": 0,
+      "condition_ir_changes": 0
+    },
+    "inherited_dependencies": {
+      "issue": 787,
+      "artifact": "knowledge/palaces/P09_career/gaps/P09_INHERITED_DEPENDENCY_SOURCE_AUDIT_11_v0.1.json",
+      "rows": 11,
+      "rule_ids": [
+        "CA01-058",
+        "CA01-060",
+        "CA02-108",
+        "CA02-134",
+        "CA02-157",
+        "CA02-167",
+        "CA02-168",
+        "CA02-170",
+        "CA02-171",
+        "CA02-199",
+        "CA03-235"
+      ],
+      "disposition": "RETAINED_UNRESOLVED",
+      "inherited_blockers_removed": 0,
+      "antecedent_edges_changed": 0,
+      "canonical_source_rows_changed": 0
+    }
+  },
+  "execution_boundary": {
+    "conditions_compiled": 0,
+    "execution_unlocked": 0,
+    "product_runtime_authorized": false,
+    "shared_core_semantics_changed": false,
+    "canonical_source_rows_changed_in_targeted_audits": 0,
+    "accepted_888_rule_corpus_reextracted": false
+  },
+  "live_handoff_census": {
+    "current_main_sha": "6b0828b5b722c4c71053b9da7f5ad89ac8022360",
+    "p01_state_before_admission": "ACTIVE_NO_ACTIVE_WORK",
+    "p05_state_before_admission": "ACTIVE_NO_ACTIVE_WORK",
+    "p09_state_before_admission": "ACTIVE_NO_ACTIVE_WORK",
+    "active_palace_workers_before_admission": 0,
+    "next_palace_issue_669": "WAITING_SEQUENCE",
+    "later_palace_issue_773": "WAITING_SEQUENCE",
+    "core_issue_757": "OPEN_SEPARATE_CORE_SLOT",
+    "core_draft_pr_783": "OPEN_DRAFT_SEPARATE_CORE_SLOT",
+    "stale_p05_pr_761": {
+      "status": "OPEN_DRAFT_NOT_ACTIVE_WORK",
+      "related_issue_760": "CLOSED",
+      "overlapping_scope_merged_pr_762": "MERGED",
+      "unique_legacy_named_candidate_files_not_in_pr_762": [
+        "knowledge/palaces/P05_wealth/w08/WEALTH_W08_TIANLIANG_SOURCE_GAPS_P88_P90_BOUNDARY_v0.1.json",
+        "knowledge/palaces/P05_wealth/w08/WEALTH_W08_TIANLIANG_SOURCE_READJUDICATION_P88_P90_BOUNDARY_v0.1.json",
+        "knowledge/palaces/P05_wealth/w08/WEALTH_W08_TIANLIANG_SOURCE_TIME_SCOPE_P88_P90_BOUNDARY_v0.1.json"
+      ],
+      "disposition": "PRESERVE_FOR_P05_OWNER_EQUIVALENCE_RECONCILIATION; DO_NOT_MERGE_FROM_P09; NOT_COUNTED_AS_ACTIVE_PALACE_WORKER"
+    }
+  },
+  "guardrails": {
+    "no_source_reextraction": true,
+    "no_source_truth_rewrite_without_evidence": true,
+    "no_universal_all_any_n_of_default": true,
+    "no_closed_world_absence_default": true,
+    "no_numeric_thresholds_or_probabilities": true,
+    "no_shared_core_or_ontology_changes": true,
+    "no_product_or_runtime_changes": true,
+    "no_condition_compilation": true,
+    "no_execution_unlock": true,
+    "next_palace_not_activated_by_this_artifact_alone": true
+  }
+}

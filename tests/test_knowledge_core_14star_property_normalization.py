@@ -334,9 +334,25 @@ def test_method_permission_and_progress_metadata_remain_consistent():
     assert audit["authorization"]["product_consumption_authorized"] is False
     assert audit["research_disposition"] == "CONTINUE_STAGE_B_CANDIDATE_RESEARCH_NEXT_BOUNDED_TURN"
     assert audit["next_star"] == "紫微"  # Historical method-exit handoff; this star has now been researched.
-    assert data["progress"]["completed_expansion_stars"] == ["紫微", "天机", "武曲"]
-    assert data["progress"]["remaining_expansion_stars_in_existing_order"][0] == "天同"
-    assert len(data["stars"]) == 6 and len(data["progress"]["remaining_expansion_stars_in_existing_order"]) == 8
+    progress = data["progress"]
+    assert progress["completed_expansion_stars"] == ["紫微", "天机", "武曲", "天同"]
+    assert progress["remaining_expansion_stars_in_existing_order"] == [
+        "廉贞", "天府", "贪狼", "巨门", "天梁", "七杀", "破军"
+    ]
+    # Current progress must reconcile with the cards and historical checkpoints.
+    card_names = [star["name"] for star in data["stars"]]
+    completed = progress["completed_pilot_cards"] + progress["completed_expansion_stars"]
+    remaining = progress["remaining_expansion_stars_in_existing_order"]
+    assert card_names == completed
+    assert len(card_names) == len(set(card_names)) == 7
+    assert len(remaining) == len(set(remaining)) == 7
+    assert set(completed).isdisjoint(remaining)
+    assert len(set(completed + remaining)) == 14
+    history = progress["expansion_checkpoint_history"]
+    assert [entry["star"] for entry in history] == progress["completed_expansion_stars"]
+    assert history[-1]["next_star"] == remaining[0]
+    assert progress["active_expansion_star"] is None
+    assert progress["draft_expansion_stars"] == progress["completed_expansion_stars"]
     assert audit["exit_conditions"]["shared_schema_extension_required_for_current_research_records"] is False
     assert audit["exit_conditions"]["canonical_artifacts_changed"] is False
 
@@ -344,8 +360,7 @@ def test_method_permission_and_progress_metadata_remain_consistent():
 def test_ziwei_stage_b_candidate_card_preserves_role_context_conditions_and_time():
     data = load_baseline()
     ziwei = next(star for star in data["stars"] if star["name"] == "紫微")
-    assert data["checkpoint_status"] == "STAGE_B_WUQU_CHECKPOINT_COMPLETED_NOT_FINAL"
-    assert data["progress"]["stage"] == "B_WUQU_CHECKPOINT_COMPLETED_READY_FOR_TONG"
+    assert "紫微" in data["progress"]["completed_expansion_stars"]
     assert ziwei["status"] == "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert len(ziwei["source_claims"]) >= 15
     assert len(ziwei["candidate_properties"]) == 5
@@ -403,8 +418,7 @@ def test_ziwei_visual_review_covers_exact_canonical_rows_without_mutating_them()
 def test_tianji_stage_b_candidate_card_preserves_context_time_and_conditional_branches():
     data = load_baseline()
     tianji = next(star for star in data["stars"] if star["name"] == "天机")
-    assert data["checkpoint_status"] == "STAGE_B_WUQU_CHECKPOINT_COMPLETED_NOT_FINAL"
-    assert data["progress"]["stage"] == "B_WUQU_CHECKPOINT_COMPLETED_READY_FOR_TONG"
+    assert "天机" in data["progress"]["completed_expansion_stars"]
     assert tianji["status"] == "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert len(tianji["source_claims"]) >= 14
     assert len(tianji["candidate_properties"]) >= 8
@@ -470,8 +484,7 @@ def test_tianji_source_review_literals_are_transcribed_from_the_visual_source():
 def test_wuqu_stage_b_candidate_card_preserves_comparison_palace_gates_and_interactions():
     data = load_baseline()
     wuqu = next(star for star in data["stars"] if star["name"] == "武曲")
-    assert data["checkpoint_status"] == "STAGE_B_WUQU_CHECKPOINT_COMPLETED_NOT_FINAL"
-    assert data["progress"]["stage"] == "B_WUQU_CHECKPOINT_COMPLETED_READY_FOR_TONG"
+    assert "武曲" in data["progress"]["completed_expansion_stars"]
     assert wuqu["status"] == "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert len(wuqu["source_claims"]) == 15
     assert len(wuqu["candidate_properties"]) >= 10
