@@ -25,7 +25,7 @@ The original PDF's SHA-256 was recomputed locally and matched the approved pin. 
 
 ## Required final exact-head gate
 
-This evidence is source-review evidence, not a claim that repository CI has passed. The final PR head SHA and the workflow run tied to that exact head must be taken from the live PR/Actions records after the final evidence commit. Do not merge unless all of the following pass on the same final head and current main:
+This evidence is source-review evidence, not a claim that repository CI has passed. The final PR head SHA and the workflow run tied to that exact head must be taken from the live PR/Actions records after all audit files, including this evidence file, are committed. Any later file change invalidates prior exact-head validation. Do not merge unless all of the following pass on the same final head and current main:
 
 1. `python -m pytest -q`
 2. Product JS adapter syntax check
