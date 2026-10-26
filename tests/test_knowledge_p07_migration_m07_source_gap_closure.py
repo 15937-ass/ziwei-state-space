@@ -60,6 +60,21 @@ def test_m07_new_records_are_source_bounded_and_count_reconciles():
     assert all(row["canonical_promotion"] is True for row in records)
     assert all(row["source_resolution_changed"] is True for row in records)
     assert all(row["source_location"] and row["source_span_id"] and row["source_literal_claim"] for row in records)
+    expected_pages = {
+        "M07-591": (115, 58),
+        "M07-592": (118, 59), "M07-593": (118, 59),
+        "M07-594": (118, 59), "M07-595": (118, 59),
+        "M07-596": (118, 59), "M07-597": (118, 59),
+        "M07-598": (118, 59), "M07-599": (118, 59),
+        "M07-600": (118, 59), "M07-601": (118, 59),
+        "M07-602": (118, 59), "M07-603": (118, 59),
+        "M07-604": (118, 59), "M07-605": (118, 59),
+        "M07-606": (118, 59), "M07-607": (118, 59),
+    }
+    for row in records:
+        page, physical = expected_pages[row["projection_rule_id"]]
+        assert row["source_location"] == f"SRC-ZZ-003 printed p{page} / PDF physical p{physical}"
+        assert row["source_span_id"] == f"ZZ003-P{page}"
     assert all(row["primary_time_layer"] == "NATAL" for row in records)
     assert sum(row["case_support_only"] is True for row in records) == 1
     assert sum(row["case_support_only"] is False for row in records) == 16
