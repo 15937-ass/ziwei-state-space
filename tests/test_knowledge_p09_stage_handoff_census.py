@@ -153,6 +153,6 @@ def test_p09_stage_handoff_state_keeps_residuals_explicit_and_execution_locked()
     assert "active_pr: null" in state
     assert 'source_audit_status: "COMPLETE_WITH_EXPLICIT_RESIDUALS"' in state
     assert "P07 #669" in state
-    assert "future P09 ontology mapping remains a separate Core/Human-Gate-gated work unit" in state
+    assert "Future P09 ontology mapping remains a separate Core/Human-Gate-gated work unit" in state
     assert "conditions_compiled: 0" in state
     assert "execution_unlocked: 0" in state
