@@ -136,9 +136,9 @@ def test_p03_state_cache_records_accepted_batch_and_next_anchor():
     assert "active_pr: null" in state
     assert "SP01_001_100_SOURCE_FIRST_MERGED" in state
     assert "historical_candidate_rows_reviewed: 100" in state
-    assert "90 source records" in state
-    assert "75 reusable projection/method records" in state
-    assert "15 CASE_SUPPORT_ONLY" in state
+    assert "source_records_added: 90" in state
+    assert "reusable_projection_method_records_added: 75" in state
+    assert "case_support_only_records_added: 15" in state
     assert "candidates_held: 9" in state
     assert "candidates_deduplicated: 2" in state
     assert "P03-SP01-GAP-001" in state
