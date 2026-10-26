@@ -108,7 +108,7 @@ def test_gap_branches_and_source_qualifiers_are_preserved():
     assert "OR" not in rec["P03S-104"]["canonical_condition"] or "或" in rec["P03S-104"]["canonical_condition"]
     assert "无煞" in rec["P03S-108"]["canonical_condition"]
     assert "尚可" in rec["P03S-108"]["source_literal_claim"]
-    assert "没有明确要求" in rec["P03S-121"]["source_condition_uncertainty"]
+    assert "未明确编码为全部 AND" in rec["P03S-121"]["source_condition_uncertainty"]
     assert "大限夫妻宫" in rec["P03S-140"]["canonical_condition"]
     assert "不重" in rec["P03S-199"]["canonical_condition"]
     assert rec["P03S-192"]["canonical_projection_target"] == "sun_moon_in_wei_relatively_more_favorable_for_female_chart_than_chou_branch"
