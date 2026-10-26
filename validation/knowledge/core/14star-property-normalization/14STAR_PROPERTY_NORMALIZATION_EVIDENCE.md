@@ -1,3 +1,16 @@
+# 当前检查点 — 阶段 B 第四轮天同候选研究（2026-10-26）
+
+- Lane/shard/Issue/PR：KNOWLEDGE_ONLY / CORE / #757 / Draft #783。
+- 当前base main：6b0828b5b722c4c71053b9da7f5ad89ac8022360；父提交：b8c9c12859f4bd40cd3e1a764eb8eab0a8b811a6。最终head与exact-head质量门以PR #783/Issue #757实时记录为准；父提交绿灯不替代本次内容提交验收。
+- 主来源`SRC-ZZ-002` SHA-256 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a`，扫描页7/印刷页13–14；另核对初级讲义印刷页87及上册印刷页23、146、178、228。
+- `TIANTONG_SOURCE_SPAN_REVIEW_v0.1.csv`覆盖25条canonical行，复用6条既有审查，不重复计证。canonical source_span_verified仍为false，normalization_epistemic仍为UNRESOLVED。
+- 关键发现：和气为比较性描述；化福不自动等于QI-15；享受与主动争取分开；煞忌有禄/昌曲门控；两类反背不可合并；页146同阴描述受紫杀行运主体限制。
+- `ZZ-TT-010`不经心文字属于文昌化忌，继续隔离。
+- 候选仍为PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED；未修改正式星核、本体、规则、共享Schema、Product/runtime、KIB或消费者权限。
+- 本提交后的exact-head质量门在GitHub Actions完成前为PENDING。下一颗：廉贞。
+
+---
+
 # 当前检查点 — 阶段 B 首轮紫微候选研究（2026-10-25）
 
 - Lane/shard/Issue/PR：KNOWLEDGE_ONLY / CORE / #757 / Draft #763。

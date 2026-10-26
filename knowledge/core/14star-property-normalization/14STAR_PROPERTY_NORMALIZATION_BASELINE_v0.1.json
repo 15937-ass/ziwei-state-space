@@ -3,7 +3,7 @@
   "artifact_id": "KB-CORE-14STAR-PROPERTY-NORMALIZATION-BASELINE-01",
   "issue": 757,
   "status": "PROPOSAL_ONLY_NOT_CANONICAL",
-  "checkpoint_status": "STAGE_B_WUQU_CHECKPOINT_COMPLETED_NOT_FINAL",
+  "checkpoint_status": "STAGE_B_TIANTONG_CHECKPOINT_COMPLETED_NOT_FINAL",
   "activation_main_sha": "74864f572cdd04407c241c483f3a34c646f69d3a",
   "execution_branch": "knowledge/core-757-14star-property-normalization",
   "source_policy": {
@@ -314,10 +314,46 @@
       ],
       "verification": "VISUAL_SOURCE_REVIEWED; SHA256_MATCHES_SOURCES_INDEX",
       "canonical_source_span_verified_mutated": false
-    }
+    },
+    "tiantong_review_rule_ids": [
+      "ZZ-TT-001",
+      "ZZ-TT-002",
+      "ZZ-TT-003",
+      "ZZ-TT-004",
+      "ZZ-TT-005",
+      "ZZ-TT-006",
+      "ZZ-TT-007",
+      "ZZ-TT-008",
+      "ZZ-TT-009",
+      "ZZ-TT-010",
+      "ZZ-TT-X01",
+      "ZZ-TT-X02",
+      "ZZ-TT-X03",
+      "ZZ-TT-X04",
+      "ZZ-TT-X05",
+      "ZZ-TT-X06",
+      "ZZ-TT-X07",
+      "ZZ-TT-X08",
+      "ZZ-TT-X09",
+      "ZZ-TT-X10",
+      "ZZ-TT-Y01",
+      "ZZ-TT-Y02",
+      "ZZ-TT-Y03",
+      "ZZ-TT-Y04",
+      "ZZ-TT-Y05"
+    ],
+    "tiantong_review_path": "knowledge/core/14star-property-normalization/TIANTONG_SOURCE_SPAN_REVIEW_v0.1.csv",
+    "tiantong_prior_review_rule_ids": [
+      "ZZ-TT-002",
+      "ZZ-TT-004",
+      "ZZ-TT-005",
+      "ZZ-TT-006",
+      "ZZ-TT-X01",
+      "ZZ-TT-X02"
+    ]
   },
   "progress": {
-    "stage": "B_WUQU_CHECKPOINT_COMPLETED_READY_FOR_TONG",
+    "stage": "B_TIANTONG_CHECKPOINT_COMPLETED_READY_FOR_LIANZHEN",
     "completed_pilot_cards": [
       "太阳",
       "太阴",
@@ -325,7 +361,6 @@
     ],
     "remaining_pilot_cards": [],
     "remaining_expansion_stars_in_existing_order": [
-      "天同",
       "廉贞",
       "天府",
       "贪狼",
@@ -334,7 +369,7 @@
       "七杀",
       "破军"
     ],
-    "coverage_warning": "Stage A pilots 太阳、太阴、天相 remain completed research checkpoints, not final canonical mappings. Stage B has completed bounded candidate checkpoints for 紫微 (43 canonical ZZ-ZW rows, printed pp5–6 / PDF scan p3), 天机 (39 canonical ZZ-TJ rows, printed pp7–8 / PDF scan p4), and 武曲 (41 canonical ZZ-WQ rows including X/Y sidecar rows, printed pp11–12 / PDF scan p6). All canonical source_span_verified flags remain false and normalization_epistemic remains UNRESOLVED. Scope does not include the full sixty-star-system chapter or all related rules elsewhere. All mappings remain proposal-only; next star is 天同.",
+    "coverage_warning": "Stage A pilots 太阳、太阴、天相 remain completed research checkpoints, not final canonical mappings. Stage B has completed bounded candidate checkpoints for 紫微 (43 rows), 天机 (39 rows), 武曲 (41 rows), and 天同 (25 rows across printed pp13–14, p87, p23, p146, p178, p228; ZZ-TT-010 remains quarantined as a confirmed source mismatch). All canonical source_span_verified flags remain false and normalization_epistemic remains UNRESOLVED. Next star is 廉贞.",
     "active_pilot_card": null,
     "draft_pilot_cards": [
       "太阳",
@@ -344,13 +379,15 @@
     "completed_expansion_stars": [
       "紫微",
       "天机",
-      "武曲"
+      "武曲",
+      "天同"
     ],
     "active_expansion_star": null,
     "draft_expansion_stars": [
       "紫微",
       "天机",
-      "武曲"
+      "武曲",
+      "天同"
     ],
     "expansion_checkpoint_history": [
       {
@@ -409,6 +446,73 @@
         "canonicalization_authorized": false,
         "product_consumption_authorized": false,
         "next_star": "天同"
+      },
+      {
+        "star": "天同",
+        "status": "CHECKPOINT_COMPLETED_NOT_FINAL",
+        "source_id": "SRC-ZZ-002",
+        "pdf_scan_page": 7,
+        "printed_pages": [
+          13,
+          14
+        ],
+        "canonical_rule_rows_reviewed": 25,
+        "source_review_rows": 25,
+        "prior_visual_review_rows_reused": 6,
+        "additional_source_locators": [
+          {
+            "source_id": "SRC-ZZ-001",
+            "pdf_scan_page": 44,
+            "printed_page": 87,
+            "rule_ids": [
+              "ZZ-TT-004",
+              "ZZ-TT-005",
+              "ZZ-TT-006"
+            ]
+          },
+          {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 12,
+            "printed_page": 23,
+            "rule_ids": [
+              "ZZ-TT-008"
+            ]
+          },
+          {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 74,
+            "printed_page": 146,
+            "rule_ids": [
+              "ZZ-TT-009"
+            ],
+            "status": "SCOPE_MISMATCH_CANDIDATE"
+          },
+          {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 90,
+            "printed_page": 178,
+            "rule_ids": [
+              "ZZ-TT-007"
+            ]
+          },
+          {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 115,
+            "printed_page": 228,
+            "rule_ids": [
+              "ZZ-TT-010"
+            ],
+            "status": "SOURCE_MISMATCH_CONFIRMED_QUARANTINED"
+          }
+        ],
+        "historical_source_mismatch_rule_ids": [
+          "ZZ-TT-010"
+        ],
+        "mapping_review_records_added": 18,
+        "normalization_epistemic": "UNRESOLVED",
+        "canonicalization_authorized": false,
+        "product_consumption_authorized": false,
+        "next_star": "廉贞"
       }
     ]
   },
@@ -3504,6 +3608,526 @@
           "numeric_strength_assigned": false
         }
       ]
+    },
+    {
+      "star_id": "STAR-TT",
+      "name": "天同",
+      "status": "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL",
+      "source_claims": [
+        {
+          "claim_key": "TT-L0-SUBSTRATE",
+          "source_rule_ids": [
+            "ZZ-TT-001"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 7,
+            "printed_page": 13
+          },
+          "source_excerpt": "天同为南斗第四星，属阳水。",
+          "claim_layer": "L0_STRUCTURE_METADATA",
+          "claim_summary": "阳水是传统元数据，不直接转换为QI值。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+          "conditions_to_preserve": [
+            "保留阳水标签",
+            "不推导QI方向/强度"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TT:p7:p13:substrate",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TT-L1-HARMONY-COMPARISON",
+          "source_rule_ids": [
+            "ZZ-TT-002"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 7,
+            "printed_page": 13
+          },
+          "source_excerpt": "天同为南斗之星，而且还是南斗中最和气的一颗星曜",
+          "claim_layer": "L1_COMPARATIVE_DESCRIPTIVE_CANDIDATE",
+          "claim_summary": "“最和气”是比较性描述，不可脱离比较对象成为绝对QI-02值。",
+          "candidate_target_ref": "STAR-TT.intrinsic_signature:QI-02",
+          "conditions_to_preserve": [
+            "保留南斗比较范围",
+            "不推导绝对QI强度"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TT:p7:p13:harmony",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TT-L1-FU-AND-SETBACK",
+          "source_rule_ids": [
+            "ZZ-TT-003",
+            "ZZ-TT-X01",
+            "ZZ-TT-Y01",
+            "ZZ-TT-Y05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 7,
+            "printed_pages": [
+              13,
+              14
+            ]
+          },
+          "source_excerpt": "化气为福……往往经挫折后得安定与享受……见煞忌时，即使良格亦必先历艰危然后发福。",
+          "claim_layer": "L1_TRADITIONAL_FUNCTION_WITH_CONDITIONAL_PROCESS",
+          "claim_summary": "化气为福是传统功能；过程描述分别带“往往”语气或见煞忌条件，不可压成人人必然先苦后福。",
+          "candidate_target_ref": "STAR-TT.conditional_signature",
+          "conditions_to_preserve": [
+            "化福不等同QI-15定义",
+            "保留往往",
+            "Y05保留见煞忌条件",
+            "Y01不另计证"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TT:p7:p13-14:fu",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 3
+        },
+        {
+          "claim_key": "TT-L1-ENJOYMENT",
+          "source_rule_ids": [
+            "ZZ-TT-004",
+            "ZZ-TT-X02"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 7,
+            "printed_pages": [
+              13,
+              14
+            ]
+          },
+          "source_excerpt": "天同的另一特质便是享受……天梁重精神、天同重物质……不像贪狼那样主动争取。",
+          "claim_layer": "L1_DESCRIPTIVE_CANDIDATE_WITH_COMPARISON_LIMIT",
+          "claim_summary": "来源支持享受倾向；与天梁/贪狼比较需保留，享受与主动争取不是同一维度。",
+          "candidate_target_ref": "STAR-TT.intrinsic_signature:QI-09",
+          "conditions_to_preserve": [
+            "保留天梁/贪狼比较",
+            "不推导绝对低QI-08",
+            "吉则享受是条件摘要"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TT:p7:p13-14:enjoyment",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 2
+        },
+        {
+          "claim_key": "TT-INITIAL-SUMMARY",
+          "source_rule_ids": [
+            "ZZ-TT-004",
+            "ZZ-TT-005",
+            "ZZ-TT-006"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-001",
+            "pdf_scan_page": 44,
+            "printed_page": 87
+          },
+          "source_excerpt": "吉则享受，凶则软弱。善化凶。",
+          "claim_layer": "CONDITIONAL_SUMMARY_WITH_NORMALIZATION_BOUNDARY",
+          "claim_summary": "初级讲义只给吉/凶摘要；canonical更细条件不能冒充原文，善化凶与QI-15等价未定。",
+          "candidate_target_ref": "STAR-TT.conditional_signature",
+          "conditions_to_preserve": [
+            "保留吉则/凶则/善化凶",
+            "同一摘要不重复计证"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TT:initial:p44:p87",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TT-L2-SHAJI-GATES",
+          "source_rule_ids": [
+            "ZZ-TT-X03",
+            "ZZ-TT-X04",
+            "ZZ-TT-X05",
+            "ZZ-TT-X06"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 7,
+            "printed_pages": [
+              13,
+              14
+            ]
+          },
+          "source_excerpt": "适当情形下见煞/化忌可激发；带禄不怕煞；四煞并照不为美格；昌曲见煞有特定作用。",
+          "claim_layer": "CONDITIONAL_MODIFIER_WITH_GATING",
+          "claim_summary": "天同对煞忌反应非单调且强条件化；“若不化禄见禄”字面疑点不自行校改。",
+          "candidate_target_ref": "STAR-TT.conditional_signature",
+          "conditions_to_preserve": [
+            "适当情形门控",
+            "带禄/化禄条件",
+            "四煞分支",
+            "昌曲组合",
+            "原文疑点不自行校改"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TT:p7:p13-14:shaji",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 3
+        },
+        {
+          "claim_key": "TT-L2-SUPPORT-DEPENDENCY",
+          "source_rule_ids": [
+            "ZZ-TT-X07"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 7,
+            "printed_page": 14
+          },
+          "source_excerpt": "左辅右弼同会，虽多助力，反而可增加其依赖性。",
+          "claim_layer": "L2_SUPPORT_DEPENDENCY_COUPLING",
+          "claim_summary": "外部支持和依赖增加并存。",
+          "candidate_target_ref": "STAR-TT.relational_signature:QR-04",
+          "conditions_to_preserve": [
+            "左辅右弼同会",
+            "助力与依赖并列"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TT:p7:p14:support",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TT-L2-SYSTEM-INTERACTIONS",
+          "source_rule_ids": [
+            "ZZ-TT-X08",
+            "ZZ-TT-X09",
+            "ZZ-TT-X10",
+            "ZZ-TT-Y04"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 7,
+            "printed_page": 14
+          },
+          "source_excerpt": "同梁遇天马、火铃与天同优柔冲突、寅申同梁见吉化或禄存平稳、同阴/同巨/同梁按宫位划分。",
+          "claim_layer": "L2_STAR_SYSTEM_AND_CONDITIONAL_INTERACTION",
+          "claim_summary": "天马、火铃与三组星系均有组合/宫位条件，不升格为天同单星固定向量。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "同梁与天马条件",
+            "火铃冲突",
+            "寅申同梁吉化或禄存",
+            "保留星系宫位"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TT:p7:p14:systems",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 3
+        },
+        {
+          "claim_key": "TT-L2-REVERSE-CONFIGURATION",
+          "source_rule_ids": [
+            "ZZ-TT-Y02",
+            "ZZ-TT-Y03"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 7,
+            "printed_page": 14
+          },
+          "source_excerpt": "天同戌宫化权、太阴化禄、天机化科；对宫巨门化忌来冲。",
+          "claim_layer": "L2_NONMONOTONIC_CONDITIONAL_CONFIGURATION",
+          "claim_summary": "特定戌宫、丁年及四化主体组成反背结构，不可统一处理为加减分。",
+          "candidate_target_ref": "STAR-TT.conditional_signature",
+          "conditions_to_preserve": [
+            "天同戌宫化权",
+            "太阴化禄、天机化科",
+            "对宫巨门化忌"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TT:p7:p14:fanbei",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TT-L2-REVERSE-HUAJI",
+          "source_rule_ids": [
+            "ZZ-TT-007"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 90,
+            "printed_page": 178
+          },
+          "source_excerpt": "天同在戌宫化忌，巨门在辰宫化忌，均有反背之格，宜参阅前述推断。",
+          "claim_layer": "CONDITIONAL_REFERENCE_TO_PRIOR_CONFIGURATION",
+          "claim_summary": "页178的反背引用与页14戌宫化权/三吉化配置不同，不得合并。",
+          "candidate_target_ref": "STAR-TT.conditional_signature",
+          "conditions_to_preserve": [
+            "保留页178化忌条件",
+            "保留参阅前文",
+            "与页14配置分开"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TT:p90:p178:reverse",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TT-L2-JUMEN",
+          "source_rule_ids": [
+            "ZZ-TT-008"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 12,
+            "printed_page": 23
+          },
+          "source_excerpt": "天同则能和巨门之气，但却能使巨门的阴暗深藏于情绪",
+          "claim_layer": "L2_RELATIONAL_INTERACTION",
+          "claim_summary": "这是天同与巨门的双向交互，不单独归为天同内在QI-15。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "巨门为关系主体",
+            "保留双向描述"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TT:p12:p23:jumen",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TT-L2-SAMEYIN-SCOPE",
+          "source_rule_ids": [
+            "ZZ-TT-009"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 74,
+            "printed_page": 146
+          },
+          "source_excerpt": "同阴宫垣为紫杀所喜……得同阴则可得宁静……唯不宜天同化忌。",
+          "claim_layer": "L2_TEMPORAL_AND_SYSTEM_CONTEXT",
+          "claim_summary": "页146属于紫杀行运遇同阴的上下文，并有天同化忌例外；canonical范围过宽。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "紫杀行运主体",
+            "同阴宫垣",
+            "天同化忌例外"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TT:p74:p146:sameyin",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TT-010-SOURCE-MISMATCH",
+          "source_rule_ids": [
+            "ZZ-TT-010"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 115,
+            "printed_page": 228
+          },
+          "source_excerpt": "文昌化忌、落陷、为办事不经心，常常因大意而生波折。",
+          "claim_layer": "SOURCE_MISMATCH_QUARANTINE_NOT_TIANTONG_EVIDENCE",
+          "claim_summary": "该措辞属于文昌化忌段而非天同；继续排除出天同证据。",
+          "candidate_target_ref": "knowledge/review/quarantine_v0.1.csv#ZZ-TT-010",
+          "conditions_to_preserve": [
+            "保持MISMATCHED与QUARANTINED",
+            "不得作为天同性质或Product输入"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TT:p115:p228:wenchang",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 0
+        }
+      ],
+      "candidate_properties": [
+        {
+          "candidate_key": "EXP-TT-01",
+          "layer": "L0",
+          "candidate_label": "阳水/南斗第四星元数据（不映射QI）",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+          "source_rule_ids": [
+            "ZZ-TT-001"
+          ],
+          "mapping_review_record_id": "MR-TT-L0-METADATA-001",
+          "mapping_disposition": "not_supported_for_target",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TT-02",
+          "layer": "L1",
+          "candidate_label": "和气/柔和端比较性候选",
+          "target_ref": "STAR-TT.intrinsic_signature:QI-02",
+          "source_rule_ids": [
+            "ZZ-TT-002"
+          ],
+          "mapping_review_record_id": "MR-TT-QI02-COMPARATIVE-HARMONY-002",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TT-03",
+          "layer": "L1",
+          "candidate_label": "享受倾向候选",
+          "target_ref": "STAR-TT.intrinsic_signature:QI-09",
+          "source_rule_ids": [
+            "ZZ-TT-004",
+            "ZZ-TT-X02"
+          ],
+          "mapping_review_record_id": "MR-TT-QI09-ENJOYMENT-004",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TT-04",
+          "layer": "L1",
+          "candidate_label": "软弱表现（保留吉/凶条件）",
+          "target_ref": "STAR-TT.intrinsic_signature:QI-02",
+          "source_rule_ids": [
+            "ZZ-TT-005",
+            "ZZ-TT-X02"
+          ],
+          "mapping_review_record_id": "MR-TT-QI02-SOFTNESS-005",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TT-05",
+          "layer": "L1",
+          "candidate_label": "化气为福/善化凶的传统功能描述",
+          "target_ref": "STAR-TT.intrinsic_signature:QI-15",
+          "source_rule_ids": [
+            "ZZ-TT-003",
+            "ZZ-TT-006",
+            "ZZ-TT-X01"
+          ],
+          "mapping_review_record_id": "MR-TT-QI15-FU-AND-TRANSFORM-003",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TT-06",
+          "layer": "L2",
+          "candidate_label": "煞忌激发条件门控",
+          "target_ref": "STAR-TT.conditional_signature",
+          "source_rule_ids": [
+            "ZZ-TT-X03",
+            "ZZ-TT-X04",
+            "ZZ-TT-X05"
+          ],
+          "mapping_review_record_id": "MR-TT-SHAJI-GATE-013",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TT-07",
+          "layer": "L2",
+          "candidate_label": "辅弼助力与依赖增加耦合",
+          "target_ref": "STAR-TT.relational_signature:QR-04",
+          "source_rule_ids": [
+            "ZZ-TT-X07"
+          ],
+          "mapping_review_record_id": "MR-TT-SUPPORT-DEPENDENCY-015",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TT-08",
+          "layer": "L2",
+          "candidate_label": "同阴/同巨/同梁与其他星曜的结构依赖",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TT-008",
+            "ZZ-TT-009",
+            "ZZ-TT-X08",
+            "ZZ-TT-X09",
+            "ZZ-TT-X10",
+            "ZZ-TT-Y04"
+          ],
+          "mapping_review_record_id": "MR-TT-SYSTEM-STABILITY-018",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TT-09",
+          "layer": "L3",
+          "candidate_label": "挫折后得福的条件化传统过程描述",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "source_rule_ids": [
+            "ZZ-TT-X01",
+            "ZZ-TT-Y05"
+          ],
+          "mapping_review_record_id": "MR-TT-SETBACK-PROCESS-011",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TT-10",
+          "layer": "L2",
+          "candidate_label": "天同戌宫化忌与反背格的条件引用",
+          "target_ref": "STAR-TT.conditional_signature",
+          "source_rule_ids": [
+            "ZZ-TT-007"
+          ],
+          "mapping_review_record_id": "MR-TT-REVERSE-HUAJI-010",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TT-11",
+          "layer": "L2",
+          "candidate_label": "紫杀行运遇同阴的宁静/享受描述（范围未决）",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TT-009"
+          ],
+          "mapping_review_record_id": "MR-TT-SAMEYIN-SCOPE-008",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        }
+      ],
+      "non_promotion_guards": [
+        "阳水只作L0元数据，不转换为QI方向或强度。",
+        "“南斗中最和气”保留比较对象，不推导绝对QI-02值。",
+        "“化气为福/善化凶”不自动等同QI-15现代缓冲能力。",
+        "享受与主动争取分开；不推导绝对低QI-08。",
+        "初级讲义吉/凶摘要与canonical更具体条件分开。",
+        "煞忌非一律有利；禄、昌曲、宫位与星系门控须保留。",
+        "左辅右弼助力与依赖并存。",
+        "页14与页178两类反背配置分开。",
+        "ZZ-TT-009不得脱离紫杀行运主体一般化。",
+        "ZZ-TT-010来源错配已确认，继续quarantine。",
+        "所有候选保持PROPOSAL_ONLY_NOT_CANONICAL，不修改正式星核/本体/规则/共享Schema/Product权限。"
+      ]
     }
   ],
   "mapping_review_records": [
@@ -5191,6 +5815,359 @@
       "mapping_disposition": {
         "state": "KNOWN",
         "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TT-L0-METADATA-001",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=13#ZZ-TT-001"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+      "rationale": "阳水与南斗第四星是L0元数据，不直接映射QI方向、强度或五行计算规则。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TT-QI02-COMPARATIVE-HARMONY-002",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=13#ZZ-TT-002"
+      ],
+      "target_ref": "STAR-TT.intrinsic_signature:QI-02",
+      "rationale": "“南斗中最和气”保留比较范围，不支持无条件固定QI-02值。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TT-QI15-FU-AND-TRANSFORM-003",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=13#ZZ-TT-003",
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=13#ZZ-TT-X01"
+      ],
+      "target_ref": "STAR-TT.intrinsic_signature:QI-15",
+      "rationale": "“化气为福”与挫折后得安定/享受是传统功能和过程描述，不自动等价现代QI-15；“往往”不保证事件。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TT-QI09-ENJOYMENT-004",
+      "source_refs": [
+        "SRC-ZZ-001#pdf_scan_page=44#printed_page=87#ZZ-TT-004",
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=13#ZZ-TT-X02"
+      ],
+      "target_ref": "STAR-TT.intrinsic_signature:QI-09",
+      "rationale": "主享受有直接描述；保留天梁/贪狼比较，初级讲义“吉则享受”仅为条件摘要。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TT-QI02-SOFTNESS-005",
+      "source_refs": [
+        "SRC-ZZ-001#pdf_scan_page=44#printed_page=87#ZZ-TT-005",
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=13#ZZ-TT-X02"
+      ],
+      "target_ref": "STAR-TT.intrinsic_signature:QI-02",
+      "rationale": "“凶则软弱”是条件摘要；与贪狼比较不能变成无条件软弱值。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TT-INITIAL-SUMMARY-006",
+      "source_refs": [
+        "SRC-ZZ-001#pdf_scan_page=44#printed_page=87#ZZ-TT-004",
+        "SRC-ZZ-001#pdf_scan_page=44#printed_page=87#ZZ-TT-005",
+        "SRC-ZZ-001#pdf_scan_page=44#printed_page=87#ZZ-TT-006"
+      ],
+      "target_ref": "STAR-TT.conditional_signature",
+      "rationale": "初级讲义原文只有“吉则享受，凶则软弱，善化凶”；canonical条件更具体，须与来源分开。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "state_change",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TT-L2-JUMEN-INTERACTION-007",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-TT-008"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "天同与巨门交互同时有和气与阴暗深藏于情绪两面，不支持单星无条件缓冲能力。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TT-SAMEYIN-SCOPE-008",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=74#printed_page=146#ZZ-TT-009"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "页146谈紫杀行运遇同阴宫垣，并有天同化忌例外；canonical一般化范围未被完整支持。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TT-SOURCE-MISMATCH-009",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=115#printed_page=228#ZZ-TT-010"
+      ],
+      "target_ref": "STAR-TT.intrinsic_signature:QI-02",
+      "rationale": "“不经心”属于文昌化忌段而非天同；继续quarantine并排除。",
+      "evidence_role": {
+        "state": "UNKNOWN",
+        "value": null,
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TT-REVERSE-HUAJI-010",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=90#printed_page=178#ZZ-TT-007"
+      ],
+      "target_ref": "STAR-TT.conditional_signature",
+      "rationale": "天同戌宫化忌与反背格相关，但原文要求参阅前文；不支持无条件内在性质。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "state_change",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TT-SETBACK-PROCESS-011",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=13#ZZ-TT-X01",
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=14#ZZ-TT-Y05"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "挫折后得福是传统过程描述，X01有“往往”，Y05受见煞忌条件约束。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TT-QI08-COMPARISON-012",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=13#ZZ-TT-X02"
+      ],
+      "target_ref": "STAR-TT.intrinsic_signature:QI-08",
+      "rationale": "“不像贪狼主动争取”是比较性描述，不支持绝对低QI-08。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TT-SHAJI-GATE-013",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=13#ZZ-TT-X03",
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=14#ZZ-TT-X04",
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=14#ZZ-TT-X05"
+      ],
+      "target_ref": "STAR-TT.conditional_signature",
+      "rationale": "原文要求适当条件，带禄/化禄是门槛；四煞分支及“若不化禄见禄”疑点保留。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TT-CHANGQU-TRIGGER-014",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=14#ZZ-TT-X06"
+      ],
+      "target_ref": "STAR-TT.conditional_signature:QI-07",
+      "rationale": "昌曲增加聪明才智后见煞是条件组合，不是一律正向。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TT-SUPPORT-DEPENDENCY-015",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=14#ZZ-TT-X07"
+      ],
+      "target_ref": "STAR-TT.relational_signature:QR-04",
+      "rationale": "左辅右弼助力与依赖增加并存，支持关系耦合候选。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "realized_support",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TT-TIANMA-SYSTEM-016",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=14#ZZ-TT-X08"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "浮荡无根依赖同梁与天马条件，不升格为单星属性。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TT-FIREBELL-CONFLICT-017",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=14#ZZ-TT-X09"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "火铃与天同优柔冲突是条件性描述；“多主逆境”不保证现实事件。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TT-SYSTEM-STABILITY-018",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=14#ZZ-TT-X10",
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=14#ZZ-TT-Y04",
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=14#ZZ-TT-Y02",
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=14#ZZ-TT-Y03"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "同阴/同巨/同梁、寅申同梁平稳和反背配置各有条件，不合并成统一QI值。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
         "conflict_ref": null
       }
     }

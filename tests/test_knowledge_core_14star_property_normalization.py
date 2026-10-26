@@ -13,6 +13,7 @@ TAIYIN_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TAIY
 TIANXIANG_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TIANXIANG_SOURCE_SPAN_REVIEW_v0.1.csv"
 TIANJI_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TIANJI_SOURCE_SPAN_REVIEW_v0.1.csv"
 WUQU_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/WUQU_SOURCE_SPAN_REVIEW_v0.1.csv"
+TIANTONG_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TIANTONG_SOURCE_SPAN_REVIEW_v0.1.csv"
 ZIWEI_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/ZIWEI_SOURCE_SPAN_REVIEW_v0.1.csv"
 
 
@@ -23,7 +24,7 @@ def load_baseline():
 def test_solar_taiyin_and_tianxiang_pilots_are_explicitly_noncanonical_and_source_bounded():
     data = load_baseline()
     assert data["status"] == "PROPOSAL_ONLY_NOT_CANONICAL"
-    assert data["checkpoint_status"] == "STAGE_B_WUQU_CHECKPOINT_COMPLETED_NOT_FINAL"
+    assert data["checkpoint_status"] == "STAGE_B_TIANTONG_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert data["progress"]["completed_pilot_cards"] == ["太阳", "太阴", "天相"]
     assert data["progress"]["active_pilot_card"] is None
     assert data["progress"]["draft_pilot_cards"] == ["太阳", "太阴", "天相"]
@@ -36,8 +37,11 @@ def test_solar_taiyin_and_tianxiang_pilots_are_explicitly_noncanonical_and_sourc
     assert data["method_guardrails"]["product_consumption_authorized"] is False
     assert data["method_guardrails"]["normalization_epistemic"] == "UNRESOLVED"
     assert len([star for star in data["stars"] if star["name"] in {"太阳", "太阴", "天相"}]) == 3
-    assert len(data["stars"]) == 6
+    assert len(data["stars"]) == 7
     assert data["stars"][5]["name"] == "武曲"
+    assert data["stars"][6]["name"] == "天同"
+    assert data["progress"]["stage"] == "B_TIANTONG_CHECKPOINT_COMPLETED_READY_FOR_LIANZHEN"
+    assert data["progress"]["remaining_expansion_stars_in_existing_order"][0] == "廉贞"
     assert data["stars"][0]["name"] == "太阳"
     assert data["stars"][0]["status"] == "PILOT_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert data["stars"][1]["name"] == "太阴"
@@ -264,10 +268,11 @@ def test_context_audit_refs_existing_source_claims_without_growing_canonical_evi
         assert row["source_locator"]["source_id"] == "SRC-ZZ-002"
         assert row["normalization_epistemic"] == "UNRESOLVED"
         assert row["canonical_accepted"] is row["executable"] is False
-    assert len(data["mapping_review_records"]) == 84
-    assert sum(not record["review_record_id"].startswith(("MR-TJ-", "MR-WQ-")) for record in data["mapping_review_records"]) == 50
+    assert len(data["mapping_review_records"]) == 102
+    assert sum(not record["review_record_id"].startswith(("MR-TJ-", "MR-WQ-", "MR-TT-")) for record in data["mapping_review_records"]) == 50
     assert sum(record["review_record_id"].startswith("MR-TJ-") for record in data["mapping_review_records"]) == 17
     assert sum(record["review_record_id"].startswith("MR-WQ-") for record in data["mapping_review_records"]) == 17
+    assert sum(record["review_record_id"].startswith("MR-TT-") for record in data["mapping_review_records"]) == 18
     assert validate_mapping_review_collection(data["mapping_review_records"]) == []
     assert all("context_method_audit" not in record for record in data["mapping_review_records"])
 
@@ -526,3 +531,50 @@ def test_wuqu_source_review_literals_preserve_exact_text_and_context_boundaries(
     assert rows["ZZ-WQ-X11"]["source_printed_page"] == "12"
     assert "文昌、文曲" in rows["ZZ-WQ-X06"]["literal_source_span"]
     assert "躁决" in rows["ZZ-WQ-024"]["literal_source_span"]
+
+
+def test_tiantong_source_review_covers_all_canonical_rows_and_preserves_quarantine():
+    data = load_baseline()
+    expected_ids = set(data["source_policy"]["tiantong_review_rule_ids"])
+    assert len(expected_ids) == 25
+    with TIANTONG_SOURCE_REVIEW.open(encoding="utf-8", newline="") as stream:
+        review_rows = list(csv.DictReader(stream))
+    assert len(review_rows) == 25
+    assert {row["rule_id"] for row in review_rows} == expected_ids
+    with CANONICAL_RULES.open(encoding="utf-8", newline="") as stream:
+        canonical = {row["rule_id"]: row for row in csv.DictReader(stream)}
+    for row in review_rows:
+        assert row["star"] == "天同"
+        assert row["proposal_status"] == "PROPOSAL_ONLY_NOT_CANONICAL"
+        assert row["normalization_epistemic_before"] == row["normalization_epistemic_after"] == "UNRESOLVED"
+        assert row["canonical_source_span_verified_before"] == row["canonical_source_span_verified_after"] == "false"
+        assert canonical[row["rule_id"]]["source_span_verified"] == "false"
+        if row["rule_id"] == "ZZ-TT-010":
+            assert row["source_span_status"] == "SOURCE_MISMATCH_CONFIRMED"
+            assert row["subject_alignment"] == "MISMATCHED"
+            assert row["source_pdf_page"] == "115" and row["source_printed_page"] == "228"
+        else:
+            assert row["source_span_status"] == "VERIFIED_VISUAL_SCAN"
+            assert row["subject_alignment"] == "MATCHED"
+    with (ROOT / "knowledge/review/quarantine_v0.1.csv").open(encoding="utf-8", newline="") as stream:
+        quarantine = {row["record_id"]: row for row in csv.DictReader(stream)}
+    assert quarantine["ZZ-TT-010"]["effective_status"] == "QUARANTINED"
+    assert quarantine["ZZ-TT-010"]["reason_code"] == "SOURCE_MISMATCH_CONFIRMED"
+
+
+def test_tiantong_candidate_and_mapping_review_stay_noncanonical():
+    data = load_baseline()
+    tt = next(star for star in data["stars"] if star["name"] == "天同")
+    claims = {row["claim_key"]: row for row in tt["source_claims"]}
+    assert "比较性描述" in claims["TT-L1-HARMONY-COMPARISON"]["claim_summary"]
+    assert claims["TT-L2-REVERSE-CONFIGURATION"]["source_locator"]["printed_page"] == 14
+    assert claims["TT-L2-REVERSE-HUAJI"]["source_locator"]["printed_page"] == 178
+    assert "紫杀行运" in claims["TT-L2-SAMEYIN-SCOPE"]["claim_summary"]
+    assert "属于文昌化忌" in claims["TT-010-SOURCE-MISMATCH"]["claim_summary"]
+    assert all(p["canonicalization_authorized"] is False and p["numeric_strength_assigned"] is False for p in tt["candidate_properties"])
+    tt_records = [r for r in data["mapping_review_records"] if r["review_record_id"].startswith("MR-TT-")]
+    assert len(tt_records) == 18
+    assert validate_mapping_review_collection(data["mapping_review_records"]) == []
+    mismatch = next(r for r in tt_records if r["review_record_id"] == "MR-TT-SOURCE-MISMATCH-009")
+    assert mismatch["evidence_role"]["state"] == "UNKNOWN" and mismatch["evidence_role"]["value"] is None
+    assert mismatch["mapping_disposition"]["value"] == "not_supported_for_target"
