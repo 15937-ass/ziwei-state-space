@@ -2,7 +2,7 @@
 
 **当前状态：** `B_TIANTONG_CHECKPOINT_COMPLETED_READY_FOR_LIANZHEN` / `PROPOSAL_ONLY_NOT_CANONICAL`
 **跟踪 Issue：** [#757](https://github.com/15937-ass/ziwei-state-space/issues/757)
-**当前检查点基线 main：** `6b0828b5b722c4c71053b9da7f5ad89ac8022360`
+**当前检查点基线 main：** `0b372a188f2edf1bef3544c30c94388b6a88a131`
 **执行分支：** `knowledge/core-757-14star-property-normalization-main-sync2`
 
 > 太阳、太阴、天相三个有界试点与阶段B紫微、天机、武曲、天同四个检查点均已形成候选卡与逐目标审核记录。本文件仍是候选研究基线，不代表十四主星研究完成，不是正式本体变更，也不授权 Product 消费。

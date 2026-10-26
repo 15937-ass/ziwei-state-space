@@ -146,3 +146,13 @@
 - 既有 DIRECT_STAR Batch 01 中 6 条武曲审查记录均交叉核对；ZZ-WQ-005 的历史 literal_source_span 与原页不符。新侧车保留实际原文并记录差异，未修改历史审查 CSV 或 canonical 规则。
 - 前一检查点 Tianji exact-head gate（head `67bec2c3dbbd4d462333735fbd2b959306ce61cf`）通过：Run [#40194363706](https://github.com/15937-ass/ziwei-state-space/actions/runs/40194363706)，2772 passed + 132 subtests；JS adapter、P0 audit、Repository Governance v1 均通过。该结果不替代新增武曲内容后的 exact-head gate。
 - 本文件不从历史绿色结果推断新提交通过；以本提交对应的 GitHub Actions exact-head 运行和 Issue #757 最新交接为准。
+
+
+---
+
+## 最新 main 同步检查点（2026-10-26）
+
+- 当前 main：`0b372a188f2edf1bef3544c30c94388b6a88a131`。
+- 上一轮 PASS Run #40263289530 验证的是旧 base `ee80d86033e7995635b17834a8ba7d155ae5ae28` 与旧 head `51d759e03c790514a1a34dbd4ae5067ad3f05e04`；该结果保留为历史证据，不可作为最新 main 上的验收。
+- 本次同步仅把当前 main 树与本 Core 分支已授权的 14 个路径合并；没有更改候选来源、星性解释或 canonical 知识。
+- 新同步 head 的完整质量门状态：**PENDING**。必须由当前 PR 对新 head 重新执行 full pytest、Product JS adapter 语法、确定性 P0 审计、Repository Governance v1 / Core write-set 校验；旧 PASS 不转移。
