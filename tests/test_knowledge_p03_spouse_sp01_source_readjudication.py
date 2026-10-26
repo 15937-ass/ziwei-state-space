@@ -110,7 +110,7 @@ def test_source_coverage_gaps_and_temporal_residuals_remain_explicit():
     }
     assert all(g["status"] == "CARRIED_FORWARD" for g in gaps)
     claim_text = " ".join(g["source_literal_claim"] for g in gaps)
-    for phrase in ["煞忌空劫", "见煞忌则主破碎", "禄权科会", "巨门化忌", "丑未天机独坐"]:
+    for phrase in ["此等宫垣，见煞忌空劫，则更为生变之兆", "见煞忌亦主离异", "禄权科会", "巨门化忌", "丑未天机独坐"]:
         assert phrase in claim_text
     residuals = d["temporal_scope_residuals"]
     assert len(residuals) == 2
