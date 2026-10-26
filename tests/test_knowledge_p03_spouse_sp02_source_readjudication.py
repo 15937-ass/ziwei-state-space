@@ -112,6 +112,10 @@ def test_gap_branches_and_source_qualifiers_are_preserved():
     assert "大限夫妻宫" in rec["P03S-140"]["canonical_condition"]
     assert "不重" in rec["P03S-199"]["canonical_condition"]
     assert rec["P03S-192"]["canonical_projection_target"] == "sun_moon_in_wei_relatively_more_favorable_for_female_chart_than_chou_branch"
+    assert rec["P03S-118"]["canonical_projection_target"] == "wife_beauty_and_support"
+    assert rec["P03S-136"]["canonical_projection_target"] == "late_marriage_or_premarital_turbulence_otherwise_separation"
+    assert rec["P03S-150"]["canonical_projection_target"] == "spouse_refined_and_career_capable"
+    assert rec["P03S-189"]["canonical_projection_target"] == "support_from_wifes_family_and_general_spousal_support"
 
 
 def test_source_coverage_gaps_are_explicit_and_prior_gaps_reconciled():
