@@ -11,11 +11,11 @@ def load(path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def test_p07_state_cache_matches_accepted_m06_checkpoint():
+def test_p07_state_cache_matches_accepted_m06_and_m07_handoff_checkpoint():
     state = STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE"' in state
-    assert "active_issue: 669" in state
-    assert 'active_branch: "knowledge/p07-669-migration-residual-gaps-114-118"' in state
+    assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
+    assert "active_issue: null" in state
+    assert "active_branch: null" in state
     assert "active_pr: null" in state
     assert "M06_501_590_SOURCE_FIRST_MERGED" in state
     assert "Issue #645 / PR #656" in state
@@ -30,6 +30,12 @@ def test_p07_state_cache_matches_accepted_m06_checkpoint():
     assert all(gap_id in state for gap_id in residual_gap_ids)
     assert "printed pp114–118" in state
     assert "No Product runtime authorization is implied" in state
+    assert "M07_591_607_RESIDUAL_SOURCE_GAP_CLOSURE" in state
+    assert "607 cumulative candidates reviewed" in state
+    assert "536 reusable projection/method records" in state
+    assert "71 CASE_SUPPORT_ONLY" in state
+    assert "Five coverage gaps closed" in state
+    assert "P07-M03-GAP-012 remains explicitly unresolved" in state
 
 
 def test_p07_m05_accepted_batch_counts_and_gaps_remain_immutable():
