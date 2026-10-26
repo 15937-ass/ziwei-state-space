@@ -135,7 +135,7 @@ def test_p03_state_cache_records_accepted_batch_and_next_anchor():
     assert "active_branch: null" in state
     assert "active_pr: null" in state
     assert "SP01_001_100_SOURCE_FIRST_MERGED" in state
-    assert "This batch reviewed 100 historical candidate rows" in state
+    assert "historical_candidate_rows_reviewed: 100" in state
     assert "90 source records" in state
     assert "75 reusable projection/method records" in state
     assert "15 CASE_SUPPORT_ONLY" in state
