@@ -34,6 +34,8 @@ All 100 historical IDs have an explicit disposition and reason. A held row does 
 - **SP02-101:** directly confirms `见煞忌亦主离异`; this is separate from the earlier 火铃 and 禄马 branches.
 - **SP02-102 / SP02-103:** record `禄权科会` and the simultaneous `巨门化忌` qualification separately. The latter remains source-stated guidance; the grammatical subject of `自我克制` is not invented.
 - **SP02-104–106:** retain the 对宫天梁 prerequisite, the source's early-marriage/divorce OR delayed-marriage/premarital-setbacks branches, and `见空劫者尤然` as an intensifier.
+- **SP02-118 / SP02-150 / SP02-189:** correct targets to preserve all source-stated outcomes: wife beauty plus support, spouse refinement plus career capability, and wife's-family support plus general spousal support.
+- **SP02-136:** restore the source's `否则生离` branch instead of truncating the historical target to late marriage/premarital turbulence.
 - **SP02-108 / SP02-111:** narrow `尚可` and `为佳`; neither is upgraded into a strong guarantee of marital stability.
 - **SP02-121:** the source says `易空劫、阴煞、天虚、大耗等曜`; the historical `及` could overstate an all-required AND. The list quantifier remains explicitly unresolved.
 - **SP02-137–141:** preserve the age-difference qualification and the explicit `大限夫妻宫` conditions.
