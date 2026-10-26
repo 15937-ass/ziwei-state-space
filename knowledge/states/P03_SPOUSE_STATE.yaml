@@ -12,7 +12,7 @@ execution:
   active_issue: null
   active_branch: null
   active_pr: null
-  canonical_checkpoint: "SP02_101_200_SOURCE_FIRST_REVIEW_COMPLETE__200_CANDIDATES_REVIEWED__166_CANDIDATES_PROMOTED__167_SOURCE_RECORDS__140_REUSABLE__27_CASE_ONLY__32_HELD__2_DEDUPED__FOUR_OPEN_SOURCE_GAPS__11_TEMPORAL_RESIDUAL_GROUPS"
+  canonical_checkpoint: "SP02_101_200_SOURCE_FIRST_REVIEW_COMPLETE__200_CANDIDATES_REVIEWED__166_CANDIDATES_PROMOTED__167_SOURCE_RECORDS__135_REUSABLE__32_CASE_ONLY__32_HELD__2_DEDUPED__SIX_OPEN_SOURCE_GAPS__12_TEMPORAL_RESIDUAL_GROUPS"
   note: >-
     P03 source-first checkpoint for Issue #794. The original SRC-ZZ-003 scan
     SHA-256 6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c
@@ -20,15 +20,15 @@ execution:
     SP02-101…SP02-200 were re-adjudicated against the original scan; the
     historical CSV remains read-only and its SOURCE_SPAN_VERIFIED flags are
     not proof. This batch promotes 77 candidate rows into 77 source records
-    (65 reusable projection/method records; 12 CASE_SUPPORT_ONLY), holds 23
+    (60 reusable projection/method records; 17 CASE_SUPPORT_ONLY), holds 23
     historical YEAR assignments because the source does not specify YEAR
     versus DECADE, and deduplicates 0 rows. The previous P03 batch reviewed
     100 candidates and produced 90 records (75 reusable, 15 case-only), held
     9 and deduplicated 2. Cumulative P03 totals are 200 reviewed, 166
-    candidate rows promoted, 167 source records, 140 reusable, 27 case-only,
-    32 held, and 2 deduplicated. P03-SP01-GAP-001 remains open; three new
-    printed-p37 source-coverage gaps are carried forward. Prior temporal
-    residuals remain open and nine additional temporal residual groups were
+    candidate rows promoted, 167 source records, 135 reusable, 32 case-only,
+    32 held, and 2 deduplicated. P03-SP01-GAP-001 remains open; five new
+    printed-pp35–37 source-coverage gaps are carried forward. Prior temporal
+    residuals remain open and ten additional temporal residual groups were
     recorded. The full spouse-palace audit is not complete.
     No Product/runtime authorization is implied; conditions_compiled=0 and
     execution_unlocked=0.
@@ -40,18 +40,18 @@ progress:
   historical_candidate_rows_reviewed: 200
   candidate_rows_promoted: 166
   source_records_added: 167
-  reusable_projection_method_records_added: 140
-  case_support_only_records_added: 27
+  reusable_projection_method_records_added: 135
+  case_support_only_records_added: 32
   candidates_held: 32
   candidates_deduplicated: 2
-  source_coverage_residuals_carried: 4
-  source_coverage_residuals_total_recorded: 7
+  source_coverage_residuals_carried: 6
+  source_coverage_residuals_total_recorded: 9
   temporal_scope_residuals: 12
   temporal_scope_candidate_rows: 27
   history_feedback: 0
   conditions_compiled: 0
   execution_unlocked: 0
-  next_source_anchor: "Printed p37: inspect SP03-201…300 directly, reconcile P03-SP02-GAP-001…003 against the original scan, then continue the next source span; the SP03 index is read-only only."
+  next_source_anchor: "Printed p37: inspect SP03-201…300 directly, reconcile P03-SP02-GAP-001…005 (including p35/p36 carry-forward and unresolved scan glyph 机录像) against the original scan, then continue the next source span; the SP03 index is read-only only."
 
 integrity:
   source_first: true

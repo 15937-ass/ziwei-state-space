@@ -20,8 +20,8 @@ The historical index `validation/wp05/SP02_spouse_projection_review_101_200.csv`
 | Historical candidate rows directly reviewed | 100 |
 | Candidate rows promoted as source-grounded records | 77 |
 | Source records produced | 77 |
-| Reusable projection/method records | 65 |
-| `CASE_SUPPORT_ONLY` records | 12 |
+| Reusable projection/method records | 60 |
+| `CASE_SUPPORT_ONLY` records | 17 |
 | Held for unsupported time-layer specificity | 23 |
 | Deduplicated rows | 0 |
 | Historical feedback | 0 |
@@ -66,7 +66,7 @@ Prior temporal residuals SP01-091…092 and SP01-097…098 remain open; the curr
 - **P03-SP01-GAP-002 (printed p35):** resolved by SP02-101.
 - **P03-SP01-GAP-003 (printed p35):** resolved by separate SP02-102 and SP02-103 records.
 - **P03-SP01-GAP-004 (printed p35):** resolved by the narrowed SP02-104 record.
-- **P03-SP02-GAP-001 (printed p37):** carry forward the `[太阳巨门]` no-Sha / transit-to-`[机梁紫破]`, 刑忌夹天相 and 同阴 palace clause. The scan wording is retained as transcribed; the transit layer remains unresolved.
+- **P03-SP02-GAP-001 (printed p37):** carry forward the `[太阳巨门]` no-Sha / transit-to-`[机录像]`, 刑忌夹天相 and 同阴 palace clause. The scan wording is retained as transcribed; the transit layer remains unresolved.
 - **P03-SP02-GAP-002 (printed p37):** carry forward the `[太阳巨门]` auspicious-transformation + 福德宫不吉 clause, with its sex-specific outcomes.
 - **P03-SP02-GAP-003 (printed p37):** carry forward the `[太阳巨门]` auxiliary-auspicious-stars clause, with its sex-specific outcomes.
 
@@ -76,4 +76,33 @@ The index range SP03-201…236 is only a pointer for the next batch; it has not 
 
 - `conditions_compiled=0`; `execution_unlocked=0`.
 - No Product/runtime authorization, shared Core semantic change, other-palace write, history-feedback promotion, new qi/memory/time primitive, numeric weight, probability, or decay.
-- P03 is **not complete** after this batch. The next P03 batch must inspect SP03-201…300 from the original scan and reconcile the three printed-p37 source gaps before the palace stage can be closed.
+- P03 is **not complete** after this batch. The next P03 batch must inspect SP03-201…300 from the original scan and reconcile the five printed-pp35–37 source gaps before the palace stage can be closed.
+
+## Duplicate-delivery recovery and repair — 2026-10-26
+
+PR #796 is the single recovery implementation for Issue #794. PR #795 remains
+historical comparison evidence, not a second accepted batch. The two deliveries
+must never be added together.
+
+Direct reinspection of original physical pp18–19 confirms the relevant source
+clauses. Keep #796's 77-record representation, including the complete compound
+P03S-190 health/heavy-sha/separation clause as one CASE_SUPPORT_ONLY record.
+#795 split that same clause into three records; this accounts for its 79 versus
+77 records and does not identify two additional independent source clauses.
+Retain #795's conservative CASE_SUPPORT_ONLY boundary for P03S-132/145/151/152/183.
+The reconciled partition is therefore 60 reusable and 17 case-only; cumulative
+SP01 + SP02 totals are 167 records = 135 reusable + 32 case-only, with 32 held
+candidate rows and 2 deduplications across 200 reviewed candidates.
+
+Keep #796 GAP-001…003 and append #795's p35 female-chart complete-condition gap
+as GAP-004 and p36 general Tianji baseline gap as GAP-005. The p37 申宫/寅宫
+comparison is already explicit in GAP-001. There are nine gap entries: three
+resolved and six open (including the p33 carry-forward); all remain traceable.
+The anomalous printed-p37 string is visibly `机录像`; its interpretation is
+UNRESOLVED. The former `机梁紫破` substitution is withdrawn, not accepted as source.
+
+The obsolete SP01 state test now reconciles exact cumulative counters from all
+source-review batch ledgers and rejects duplicate candidate IDs. SP01-specific
+source, condition, temporal and boundary tests remain pinned to its own artifact.
+The state typo is corrected to 12 temporal residual groups (two prior plus ten
+new). No historical CSV, shared Core semantics, or Product/runtime is changed.

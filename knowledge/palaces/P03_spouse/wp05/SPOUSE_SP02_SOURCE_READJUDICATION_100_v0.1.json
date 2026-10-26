@@ -839,7 +839,7 @@
         "canonical_record_ids": [
           "P03S-132"
         ],
-        "reason": "直接目视复核原扫描页，原文明确支持该候选的条件/结果。保留原文限定，不把历史 CSV 的 SOURCE_SPAN_VERIFIED 标记当作证明。"
+        "reason": "直接目视复核原扫描页，原文明确支持该候选的条件/结果。保留原文限定，不把历史 CSV 的 SOURCE_SPAN_VERIFIED 标记当作证明。 具体事件断语按 CASE_SUPPORT_ONLY 保留。"
       },
       {
         "historical_candidate_id": "SP02-133",
@@ -1045,7 +1045,7 @@
         "canonical_record_ids": [
           "P03S-145"
         ],
-        "reason": "原文明确说“化吉而见桃花，亦主夫妻伦常有变”；target 改为保留该特定条件与“伦常有变”的原文含义。"
+        "reason": "原文明确说“化吉而见桃花，亦主夫妻伦常有变”；target 改为保留该特定条件与“伦常有变”的原文含义。 具体事件断语按 CASE_SUPPORT_ONLY 保留。"
       },
       {
         "historical_candidate_id": "SP02-146",
@@ -1141,7 +1141,7 @@
         "canonical_record_ids": [
           "P03S-151"
         ],
-        "reason": "直接目视复核原扫描页，原文明确支持该候选的条件/结果。保留原文限定，不把历史 CSV 的 SOURCE_SPAN_VERIFIED 标记当作证明。"
+        "reason": "直接目视复核原扫描页，原文明确支持该候选的条件/结果。保留原文限定，不把历史 CSV 的 SOURCE_SPAN_VERIFIED 标记当作证明。 具体事件断语按 CASE_SUPPORT_ONLY 保留。"
       },
       {
         "historical_candidate_id": "SP02-152",
@@ -1157,7 +1157,7 @@
         "canonical_record_ids": [
           "P03S-152"
         ],
-        "reason": "直接目视复核原扫描页，原文明确支持该候选的条件/结果。保留原文限定，不把历史 CSV 的 SOURCE_SPAN_VERIFIED 标记当作证明。"
+        "reason": "直接目视复核原扫描页，原文明确支持该候选的条件/结果。保留原文限定，不把历史 CSV 的 SOURCE_SPAN_VERIFIED 标记当作证明。 具体事件断语按 CASE_SUPPORT_ONLY 保留。"
       },
       {
         "historical_candidate_id": "SP02-153",
@@ -1637,7 +1637,7 @@
         "canonical_record_ids": [
           "P03S-183"
         ],
-        "reason": "原文分轻重为“因妻破家”与“轻则主因妻破财”，并附夜生人尤甚；修正历史笼统 target 以保留严重程度分支。"
+        "reason": "原文分轻重为“因妻破家”与“轻则主因妻破财”，并附夜生人尤甚；修正历史笼统 target 以保留严重程度分支。 具体事件断语按 CASE_SUPPORT_ONLY 保留。"
       },
       {
         "historical_candidate_id": "SP02-184",
@@ -1911,16 +1911,21 @@
     "reviewed": 100,
     "canonical_promoted": 77,
     "canonical_record_count": 77,
-    "reusable_projection_rules": 65,
-    "case_support_only": 12,
+    "reusable_projection_rules": 60,
+    "case_support_only": 17,
     "case_support_only_ids": [
       "P03S-110",
+      "P03S-132",
       "P03S-134",
       "P03S-138",
+      "P03S-145",
       "P03S-146",
       "P03S-147",
+      "P03S-151",
+      "P03S-152",
       "P03S-162",
       "P03S-163",
+      "P03S-183",
       "P03S-186",
       "P03S-188",
       "P03S-190",
@@ -1933,8 +1938,8 @@
     "source_condition_normalization_count": 77,
     "history_feedback": 0,
     "path_dependent_gate_ids": [],
-    "source_coverage_gap_count": 7,
-    "open_source_coverage_gap_count": 4,
+    "source_coverage_gap_count": 9,
+    "open_source_coverage_gap_count": 6,
     "temporal_scope_residual_count": 12,
     "temporal_scope_candidate_row_count": 27,
     "new_primitive_qi": 0,
@@ -2706,21 +2711,21 @@
       "archived_projection_target": "attraction_to_attached_person",
       "canonical_projection_target": "attraction_to_attached_person",
       "archived_projection_mode": "RELATIONAL_PROJECTION",
-      "projection_mode": "RELATIONAL_PROJECTION",
+      "projection_mode": "EVENT_CANDIDATE",
       "archived_history_feedback": null,
       "history_feedback": null,
       "path_dependent_gate_reclassified": false,
       "source_sequence_not_history_gate": false,
       "archived_case_support_only": false,
-      "case_support_only": false,
-      "case_support_reason": null,
+      "case_support_only": true,
+      "case_support_reason": "源文明确涉及与有家室者恋爱或婚后移情别恋；保留为 CASE_SUPPORT_ONLY，不作概率或现实确定性预测。",
       "source_literal_claim": "若天机化忌，主易与有家室的人恋爱。",
-      "source_note": "直接目视检查原扫描图：SRC-ZZ-003 printed p35 / PDF physical p18。文字提取仅用于定位；原扫描图是来源依据。此记录只表示来源审计结果，不授权条件编译或产品执行。",
+      "source_note": "直接目视检查原扫描图：SRC-ZZ-003 printed p35 / PDF physical p18。文字提取仅用于定位；原扫描图是来源依据。此记录只表示来源审计结果，不授权条件编译或产品执行。 本轮对照 PR #795 的保守事件分类并直接复核原扫描，保留具体事件边界；不提升为可执行或经验有效规则。",
       "disposition": "PROMOTE_SOURCE_GROUNDED",
       "source_resolution_changed": false,
       "canonical_promotion": true,
       "source_overlap_group": "TIANJI_MAO_YOU_JUMEN",
-      "source_overlap_role": "SOURCE_PROJECTION",
+      "source_overlap_role": "CASE_SUPPORT_ONLY_EVENT_CANDIDATE",
       "source_condition_membership_status": "SOURCE_NATIVE_CONDITION_EXPLICIT",
       "source_condition_uncertainty": null
     },
@@ -3150,21 +3155,21 @@
       "archived_projection_target": "normative_boundary_change",
       "canonical_projection_target": "marital_norms_change_under_auspicious_transformation_plus_peach_blossom",
       "archived_projection_mode": "CROSS_PALACE_CONSTRAINT",
-      "projection_mode": "CROSS_PALACE_CONSTRAINT",
+      "projection_mode": "EVENT_CANDIDATE",
       "archived_history_feedback": null,
       "history_feedback": null,
       "path_dependent_gate_reclassified": false,
       "source_sequence_not_history_gate": false,
       "archived_case_support_only": false,
-      "case_support_only": false,
-      "case_support_reason": null,
+      "case_support_only": true,
+      "case_support_reason": "源文使用“夫妻伦常有变”的具体传统婚姻事件表述；保留为 CASE_SUPPORT_ONLY，不将其解释为原文未说明的具体行为。",
       "source_literal_claim": "化吉而见桃花，亦主夫妻伦常有变。",
-      "source_note": "直接目视检查原扫描图：SRC-ZZ-003 printed p35 / PDF physical p18。文字提取仅用于定位；原扫描图是来源依据。此记录只表示来源审计结果，不授权条件编译或产品执行。",
+      "source_note": "直接目视检查原扫描图：SRC-ZZ-003 printed p35 / PDF physical p18。文字提取仅用于定位；原扫描图是来源依据。此记录只表示来源审计结果，不授权条件编译或产品执行。 本轮对照 PR #795 的保守事件分类并直接复核原扫描，保留具体事件边界；不提升为可执行或经验有效规则。",
       "disposition": "SOURCE_TARGET_CORRECTED",
       "source_resolution_changed": true,
       "canonical_promotion": true,
       "source_overlap_group": "TIANJI_CHEN_XU_TIANLIANG",
-      "source_overlap_role": "CROSS_PALACE_CONSTRAINT",
+      "source_overlap_role": "CASE_SUPPORT_ONLY_EVENT_CANDIDATE",
       "source_condition_membership_status": "SOURCE_NATIVE_CONDITION_EXPLICIT",
       "source_condition_uncertainty": null
     },
@@ -3372,21 +3377,21 @@
       "archived_projection_target": "self_extramarital_attention_after_marriage",
       "canonical_projection_target": "self_extramarital_attention_after_marriage",
       "archived_projection_mode": "RELATIONAL_PROJECTION",
-      "projection_mode": "RELATIONAL_PROJECTION",
+      "projection_mode": "EVENT_CANDIDATE",
       "archived_history_feedback": null,
       "history_feedback": null,
       "path_dependent_gate_reclassified": false,
       "source_sequence_not_history_gate": false,
       "archived_case_support_only": false,
-      "case_support_only": false,
-      "case_support_reason": null,
+      "case_support_only": true,
+      "case_support_reason": "源文明确涉及与有家室者恋爱或婚后移情别恋；保留为 CASE_SUPPORT_ONLY，不作概率或现实确定性预测。",
       "source_literal_claim": "巳亥天机若会天同化禄，巨门化忌，则自己于婚后易移情别恋。",
-      "source_note": "直接目视检查原扫描图：SRC-ZZ-003 printed p36 / PDF physical p18。文字提取仅用于定位；原扫描图是来源依据。此记录只表示来源审计结果，不授权条件编译或产品执行。",
+      "source_note": "直接目视检查原扫描图：SRC-ZZ-003 printed p36 / PDF physical p18。文字提取仅用于定位；原扫描图是来源依据。此记录只表示来源审计结果，不授权条件编译或产品执行。 本轮对照 PR #795 的保守事件分类并直接复核原扫描，保留具体事件边界；不提升为可执行或经验有效规则。",
       "disposition": "PROMOTE_SOURCE_GROUNDED",
       "source_resolution_changed": false,
       "canonical_promotion": true,
       "source_overlap_group": "TIANJI_SI_HAI",
-      "source_overlap_role": "SOURCE_PROJECTION",
+      "source_overlap_role": "CASE_SUPPORT_ONLY_EVENT_CANDIDATE",
       "source_condition_membership_status": "SOURCE_NATIVE_CONDITION_EXPLICIT",
       "source_condition_uncertainty": null
     },
@@ -3409,21 +3414,21 @@
       "archived_projection_target": "spousal_separation",
       "canonical_projection_target": "spousal_separation",
       "archived_projection_mode": "RELATIONAL_PROJECTION",
-      "projection_mode": "RELATIONAL_PROJECTION",
+      "projection_mode": "EVENT_CANDIDATE",
       "archived_history_feedback": null,
       "history_feedback": null,
       "path_dependent_gate_reclassified": false,
       "source_sequence_not_history_gate": false,
       "archived_case_support_only": false,
-      "case_support_only": false,
-      "case_support_reason": null,
+      "case_support_only": true,
+      "case_support_reason": "源文给出具体传统分离、刑克或生离死别判断；保留为 CASE_SUPPORT_ONLY，不作概率或现实确定性预测。",
       "source_literal_claim": "女命，会太阳化忌，见煞，主与配偶生离。",
-      "source_note": "直接目视检查原扫描图：SRC-ZZ-003 printed p36 / PDF physical p18。文字提取仅用于定位；原扫描图是来源依据。此记录只表示来源审计结果，不授权条件编译或产品执行。",
+      "source_note": "直接目视检查原扫描图：SRC-ZZ-003 printed p36 / PDF physical p18。文字提取仅用于定位；原扫描图是来源依据。此记录只表示来源审计结果，不授权条件编译或产品执行。 本轮对照 PR #795 的保守事件分类并直接复核原扫描，保留具体事件边界；不提升为可执行或经验有效规则。",
       "disposition": "PROMOTE_SOURCE_GROUNDED",
       "source_resolution_changed": false,
       "canonical_promotion": true,
       "source_overlap_group": "TIANJI_SI_HAI",
-      "source_overlap_role": "SOURCE_PROJECTION",
+      "source_overlap_role": "CASE_SUPPORT_ONLY_EVENT_CANDIDATE",
       "source_condition_membership_status": "SOURCE_NATIVE_CONDITION_EXPLICIT",
       "source_condition_uncertainty": null
     },
@@ -4260,21 +4265,21 @@
       "archived_projection_target": "loss_through_spouse",
       "canonical_projection_target": "household_ruin_or_financial_loss_through_wife",
       "archived_projection_mode": "RELATIONAL_PROJECTION",
-      "projection_mode": "RELATIONAL_PROJECTION",
+      "projection_mode": "EVENT_CANDIDATE",
       "archived_history_feedback": null,
       "history_feedback": null,
       "path_dependent_gate_reclassified": false,
       "source_sequence_not_history_gate": false,
       "archived_case_support_only": false,
-      "case_support_only": false,
-      "case_support_reason": null,
+      "case_support_only": true,
+      "case_support_reason": "源文给出因配偶破家或破财的具体物质损失判断；保留为 CASE_SUPPORT_ONLY，不作概率或现实确定性预测。",
       "source_literal_claim": "若见煞忌刑同会，则因妻破家，轻则主因妻破财，亦夜生人尤甚。",
-      "source_note": "直接目视检查原扫描图：SRC-ZZ-003 printed p36 / PDF physical p18。文字提取仅用于定位；原扫描图是来源依据。此记录只表示来源审计结果，不授权条件编译或产品执行。",
+      "source_note": "直接目视检查原扫描图：SRC-ZZ-003 printed p36 / PDF physical p18。文字提取仅用于定位；原扫描图是来源依据。此记录只表示来源审计结果，不授权条件编译或产品执行。 本轮对照 PR #795 的保守事件分类并直接复核原扫描，保留具体事件边界；不提升为可执行或经验有效规则。",
       "disposition": "SOURCE_TARGET_CORRECTED",
       "source_resolution_changed": true,
       "canonical_promotion": true,
       "source_overlap_group": "SUN_MOON_CHOU_WEI",
-      "source_overlap_role": "SOURCE_PROJECTION",
+      "source_overlap_role": "CASE_SUPPORT_ONLY_EVENT_CANDIDATE",
       "source_condition_membership_status": "SOURCE_NATIVE_CONDITION_EXPLICIT",
       "source_condition_uncertainty": null
     },
@@ -4855,12 +4860,12 @@
       "printed_page": 37,
       "pdf_physical_page": 19,
       "kind": "SOURCE_COVERAGE_GAP",
-      "source_literal_claim": "[太阳巨门]以不见煞为佳，否则经行至[机梁紫破]、刑忌夹的天相、[同阴]各垣，均易生事端。申宫又劣于寅宫。",
+      "source_literal_claim": "[太阳巨门]以不见煞为佳，否则经行至[机录像]、刑忌夹的天相、[同阴]各垣，均易生事端。申宫又劣于寅宫。",
       "related_candidate_ids": [
         "SP03-201…SP03-236"
       ],
       "status": "CARRIED_FORWARD",
-      "reason": "直接扫描页可见此分支，但 SP02-196…200 历史索引没有独立表示该跨宫/行运条件；SP03-201…236 仅作为下一批只读索引范围，尚未审计。原文“经行至”未指定 YEAR/DECADE，相关时间层级继续未决。"
+      "reason": "直接扫描页可见此分支，但 SP02-196…200 历史索引没有独立表示该跨宫/行运条件；SP03-201…236 仅作为下一批只读索引范围，尚未审计。原文“经行至”未指定 YEAR/DECADE，相关时间层级继续未决。 本轮直接复核扫描字样为“机录像”；不擅自展开或校正为星组，“机梁紫破”为被撤销的解释性替换。异常字样待来源澄清。"
     },
     {
       "gap_id": "P03-SP02-GAP-002",
@@ -4885,6 +4890,31 @@
       ],
       "status": "CARRIED_FORWARD",
       "reason": "该句在原扫描页上明确存在，但 SP02-196…200 未独立表示辅佐诸吉及男女不同条件；后续需直接审计相关历史候选，不能从异族通婚分支或见煞分支代推。"
+    },
+    {
+      "gap_id": "P03-SP02-GAP-004",
+      "printed_page": 35,
+      "pdf_physical_page": 18,
+      "kind": "SOURCE_COVERAGE_GAP",
+      "source_literal_claim": "女命夫妻宫不宜『机巨』。古人说，『天机巨门为破荡』，虽指命宫，在夫妻宫者亦然。见火铃或陀罗与天同同躔，即非一婚之命。",
+      "related_candidate_ids": [
+        "SP02-127",
+        "SP02-134"
+      ],
+      "status": "CARRIED_FORWARD",
+      "reason": "SP02-127 与 SP02-134 分别记录火铃破格及“见煞主二婚”，但没有独立保留该女命前提与“火铃或陀罗与天同同躔”的完整条件；不得把两条历史规则视为已完全覆盖。 本轮直接复核扫描并从 PR #795 保留此独立残项；编号以本 PR 的合并清单为准。"
+    },
+    {
+      "gap_id": "P03-SP02-GAP-005",
+      "printed_page": 36,
+      "pdf_physical_page": 18,
+      "kind": "SOURCE_COVERAGE_GAP",
+      "source_literal_claim": "天机在夫妻宫者，基本上不利。",
+      "related_candidate_ids": [
+        "SP02-156"
+      ],
+      "status": "CARRIED_FORWARD",
+      "reason": "SP02-156 记录了太阴同度/相对且见吉曜时的谐美分支，但历史索引没有单独表示源文的一般性不利基线；本批未把基线静默合并进正向分支。 本轮直接复核扫描并从 PR #795 保留此独立残项；编号以本 PR 的合并清单为准。"
     }
   ],
   "temporal_scope_residuals": [
@@ -5009,5 +5039,24 @@
     "other_palace_changed": false,
     "history_feedback": 0,
     "no_new_primitives_or_quantitative_claims": true
+  },
+  "repair_reconciliation": {
+    "primary_pr": 796,
+    "superseded_pr": 795,
+    "source_rechecked_pdf_physical_pages": [
+      18,
+      19
+    ],
+    "case_only_boundary_ids": [
+      "P03S-132",
+      "P03S-145",
+      "P03S-151",
+      "P03S-152",
+      "P03S-183"
+    ],
+    "retained_compound_record": "P03S-190 retains all health/heavy-sha/separation alternatives as one CASE_SUPPORT_ONLY source record; #795 split the same clause into three. No clause is dropped.",
+    "gap_id_policy": "Keep #796 SP02-GAP-001…003; append #795 p35/p36 residuals as SP02-GAP-004…005; #795 separate 申宫 comparison is already explicit within #796 GAP-001.",
+    "anomalous_scan_literal": "机录像",
+    "anomalous_scan_interpretation": "UNRESOLVED; do not substitute 机梁紫破"
   }
 }

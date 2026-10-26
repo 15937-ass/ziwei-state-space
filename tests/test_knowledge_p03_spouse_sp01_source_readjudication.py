@@ -128,20 +128,36 @@ def test_source_coverage_gaps_and_temporal_residuals_remain_explicit():
         assert d["summary"][key] == 0
 
 
-def test_p03_state_cache_records_accepted_batch_and_next_anchor():
+def test_p03_state_cache_reconciles_all_source_review_batches():
+    # Batch-specific source assertions above remain pinned to SP01. The shared
+    # state advances as later batches arrive; reconcile it with every ledger
+    # instead of requiring it to remain frozen at the first checkpoint.
     state = STATE.read_text(encoding="utf-8")
     assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
     assert "active_issue: null" in state
     assert "active_branch: null" in state
     assert "active_pr: null" in state
-    assert "SP01_001_100_SOURCE_FIRST_MERGED" in state
-    assert "historical_candidate_rows_reviewed: 100" in state
-    assert "source_records_added: 90" in state
-    assert "reusable_projection_method_records_added: 75" in state
-    assert "case_support_only_records_added: 15" in state
-    assert "candidates_held: 9" in state
-    assert "candidates_deduplicated: 2" in state
+    batches = [load(path) for path in sorted(READJ.parent.glob(
+        "SPOUSE_SP*_SOURCE_READJUDICATION_100_v0.1.json"
+    ))]
+    assert batches
+    candidates = [row["historical_candidate_id"] for batch in batches
+                  for row in batch["candidate_batch"]["candidate_dispositions"]]
+    assert len(candidates) == len(set(candidates))
+    fields = {
+        "historical_candidate_rows_reviewed": "reviewed",
+        "candidate_rows_promoted": "canonical_promoted",
+        "source_records_added": "canonical_record_count",
+        "reusable_projection_method_records_added": "reusable_projection_rules",
+        "case_support_only_records_added": "case_support_only",
+        "candidates_held": "held",
+        "candidates_deduplicated": "deduplicated",
+    }
+    lines = set(state.splitlines())
+    for field, summary_key in fields.items():
+        total = sum(batch["summary"][summary_key] for batch in batches)
+        assert f"  {field}: {total}" in lines
+    assert len(candidates) == sum(batch["summary"]["reviewed"] for batch in batches)
     assert "P03-SP01-GAP-001" in state
     assert "conditions_compiled=0" in state
     assert "execution_unlocked=0" in state
-    assert "SP02-101" in state

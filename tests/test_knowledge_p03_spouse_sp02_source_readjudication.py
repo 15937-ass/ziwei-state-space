@@ -61,12 +61,12 @@ def test_all_candidates_have_dispositions_and_counts_reconcile():
     assert s["canonical_promoted"] == 77
     assert s["canonical_record_count"] == len(records) == 77
     assert len({r["projection_rule_id"] for r in records}) == 77
-    assert s["reusable_projection_rules"] == 65
-    assert s["case_support_only"] == 12
+    assert s["reusable_projection_rules"] == 60
+    assert s["case_support_only"] == 17
     assert s["held"] == 23
     assert s["deduplicated"] == 0
-    assert sum(r["case_support_only"] is True for r in records) == 12
-    assert sum(r["case_support_only"] is False for r in records) == 65
+    assert sum(r["case_support_only"] is True for r in records) == 17
+    assert sum(r["case_support_only"] is False for r in records) == 60
     known = set(r["projection_rule_id"] for r in records)
     for row in disp:
         assert set(row["canonical_record_ids"]).issubset(known)
@@ -121,7 +121,7 @@ def test_gap_branches_and_source_qualifiers_are_preserved():
 def test_source_coverage_gaps_are_explicit_and_prior_gaps_reconciled():
     d = load(READJ)
     gaps = {g["gap_id"]: g for g in d["source_coverage_gaps"]}
-    assert len(gaps) == 7
+    assert len(gaps) == 9
     assert gaps["P03-SP01-GAP-001"]["status"] == "CARRIED_FORWARD"
     assert gaps["P03-SP01-GAP-002"]["status"] == "RESOLVED_BY_SP02-101"
     assert gaps["P03-SP01-GAP-003"]["status"] == "RESOLVED_BY_SEPARATE_SP02-102_AND_SP02-103"
@@ -157,9 +157,32 @@ def test_execution_boundary_and_cumulative_state_are_fail_closed():
     assert "SP02_101_200_SOURCE_FIRST_REVIEW_COMPLETE" in state
     assert "historical_candidate_rows_reviewed: 200" in state
     assert "source_records_added: 167" in state
-    assert "reusable_projection_method_records_added: 140" in state
-    assert "case_support_only_records_added: 27" in state
+    assert "reusable_projection_method_records_added: 135" in state
+    assert "case_support_only_records_added: 32" in state
     assert "candidates_held: 32" in state
     assert "candidates_deduplicated: 2" in state
     assert "conditions_compiled=0" in state
     assert "execution_unlocked=0" in state
+
+
+def test_duplicate_delivery_reconciliation_keeps_source_and_event_boundaries():
+    d = load(READJ)
+    records = records_by_id()
+    expected = {"P03S-110", "P03S-132", "P03S-134", "P03S-138",
+                "P03S-145", "P03S-146", "P03S-147", "P03S-151", "P03S-152",
+                "P03S-162", "P03S-163", "P03S-183", "P03S-186", "P03S-188",
+                "P03S-190", "P03S-191", "P03S-200"}
+    assert set(d["summary"]["case_support_only_ids"]) == expected
+    assert {key for key, row in records.items() if row["case_support_only"]} == expected
+    for key in d["repair_reconciliation"]["case_only_boundary_ids"]:
+        assert records[key]["projection_mode"] == "EVENT_CANDIDATE"
+        assert records[key]["case_support_reason"]
+    gaps = {g["gap_id"]: g for g in d["source_coverage_gaps"]}
+    assert "机录像" in gaps["P03-SP02-GAP-001"]["source_literal_claim"]
+    assert "机梁紫破" not in gaps["P03-SP02-GAP-001"]["source_literal_claim"]
+    assert gaps["P03-SP02-GAP-004"]["printed_page"] == 35
+    assert gaps["P03-SP02-GAP-005"]["printed_page"] == 36
+    assert all(gaps[key]["status"] == "CARRIED_FORWARD" for key in
+               ["P03-SP02-GAP-004", "P03-SP02-GAP-005"])
+    assert d["summary"]["open_source_coverage_gap_count"] == 6
+    assert len(d["temporal_scope_residuals"]) == 12
