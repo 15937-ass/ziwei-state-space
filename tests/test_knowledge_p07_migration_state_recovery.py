@@ -13,9 +13,9 @@ def load(path):
 
 def test_p07_state_cache_matches_accepted_m06_checkpoint():
     state = STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
-    assert "active_issue: null" in state
-    assert "active_branch: null" in state
+    assert 'status: "ACTIVE"' in state
+    assert "active_issue: 669" in state
+    assert 'active_branch: "knowledge/p07-669-migration-residual-gaps-114-118"' in state
     assert "active_pr: null" in state
     assert "M06_501_590_SOURCE_FIRST_MERGED" in state
     assert "Issue #645 / PR #656" in state
