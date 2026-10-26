@@ -64,4 +64,4 @@ def test_p09_state_clears_finished_work_pointers_without_unlocking_runtime():
     assert "active_pr: null" in state
     assert "Issue #785 / PR #786" in state
     assert "No accepted 888-rule corpus re-extraction" in state
-    assert "P09 stage is not closed" in state
+    assert 'source_audit_status: "COMPLETE_WITH_EXPLICIT_RESIDUALS"' in state
