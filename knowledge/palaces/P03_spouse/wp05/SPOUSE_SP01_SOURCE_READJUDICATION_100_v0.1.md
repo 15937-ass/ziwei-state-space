@@ -52,8 +52,8 @@ Every one of the 100 historical IDs has an explicit disposition and reason in th
 
 ## Explicit residuals carried forward
 
-1. **Printed p33:** the source adds `此等宫垣，见煞忌空劫则更为生变之兆` to the 寅申紫府 condition. The historical index does not represent this intensifier as a distinct source branch. Its trigger quantifier remains unspecified.
-2. **Printed p35:** the 子午天机 / 同梁 source continues with `见煞忌则主破碎`; this branch is absent from `SP01-099…100`.
+1. **Printed p33:** the source adds `此等宫垣，见煞忌空劫，则更为生变之兆` to the 寅申紫府 condition. The historical index does not represent this intensifier as a distinct source branch. Its trigger quantifier remains unspecified.
+2. **Printed p35:** the 子午天机 / 同梁 source continues with `见煞忌亦主离异`; this branch is absent from `SP01-099…100`.
 3. **Printed p35:** the same source continues with `若见禄权科会，则夫妻可以白头。但若同时见巨门化忌，则仍须自我克制`; these two conditions are absent from `SP01-099…100`.
 4. **Next batch anchor, printed p35:** continue with `丑未天机独坐，对宫为天梁，于夫妻宫有所不宜`. Use `SP02-101…200` only as an index and inspect the remaining source text directly.
 
