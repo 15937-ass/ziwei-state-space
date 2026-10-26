@@ -82,7 +82,7 @@ def test_m07_new_records_are_source_bounded_and_count_reconciles():
     by_id = {row["projection_rule_id"]: row for row in records}
     assert by_id["M07-591"]["source_literal_claim"] == "太阴与辅弼同度，不外得人助。"
     assert by_id["M07-593"]["case_support_only"] is True
-    assert "ALL/ANY/N_OF" in by_id["M07-593"]["source_condition_uncertainty"]
+    assert "ALL/ANY relation" in by_id["M07-593"]["source_condition_uncertainty"]
     assert "六吉夹" in by_id["M07-596"]["source_literal_claim"]
     assert "魁钺夹、辅弼夹、昌曲夹、禄权科夹、紫府夹、日月夹" in by_id["M07-596"]["source_literal_claim"]
     assert by_id["M07-604"]["source_condition_membership_status"] == "OPEN_SOURCE_NATIVE_CATEGORY"
