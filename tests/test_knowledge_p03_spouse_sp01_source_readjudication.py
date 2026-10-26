@@ -139,8 +139,8 @@ def test_p03_state_cache_records_accepted_batch_and_next_anchor():
     assert "90 source records" in state
     assert "75 reusable projection/method records" in state
     assert "15 CASE_SUPPORT_ONLY" in state
-    assert "9 held" in state
-    assert "2 deduplicated" in state
+    assert "candidates_held: 9" in state
+    assert "candidates_deduplicated: 2" in state
     assert "P03-SP01-GAP-001" in state
     assert "conditions_compiled=0" in state
     assert "execution_unlocked=0" in state
