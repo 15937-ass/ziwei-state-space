@@ -33,7 +33,7 @@ def test_p09_state_cache_retains_gap_audit_handoff_without_changing_accepted_bas
     assert "Follow-up Issue #787 visually rechecked the original scan for all 11 inherited dependency-effective-underdetermined rows on printed pp133–137" in state
     assert "condition compilation" in state
     assert "execution unlock" in state
-    assert "P09 stage is not closed" in state
+    assert 'source_audit_status: "COMPLETE_WITH_EXPLICIT_RESIDUALS"' in state
 
 def test_career_source_id_coverage_remains_888_of_888():
     audit = load(SOURCE_AUDIT)
