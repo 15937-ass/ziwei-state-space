@@ -6,6 +6,7 @@
 - Approved source SHA-256: `6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c`
 - Direct scan: printed pp41–43 / PDF physical pp21–22
 - Candidate accounting: 100 reviewed = 64 promoted + 35 held + 1 deduplicated
+- Each of the 100 candidate dispositions records its source literal and verified source location/span, including held and deduplicated rows
 - Source records: 66 = 46 reusable + 20 CASE_SUPPORT_ONLY
 - Temporal residuals after cumulative reconciliation: 37 groups / 106 candidate rows
 - Source coverage gaps: 11 tracked, 4 open/partial
