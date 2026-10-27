@@ -33,6 +33,7 @@ ACCEPTED_REVIEW_STATUSES = frozenset(
         "HUMAN_VERIFIED",
         "REVIEWED",
         "SOURCE_REVIEWED",
+        "SOURCE_SPAN_VERIFIED",
     }
 )
 NAMESPACES = frozenset({"CANONICAL", "TEMPORAL", "CASE"})
@@ -80,6 +81,7 @@ class QuickReadScopeSlot:
     temporal_layer: str
     capability_kind: str
     required_namespaces: tuple[str, ...] = ("CANONICAL",)
+    case_scope: str | None = None
 
     def __post_init__(self) -> None:
         for field_name in ("slot_id", "domain", "temporal_layer", "capability_kind"):
@@ -93,6 +95,12 @@ class QuickReadScopeSlot:
             raise ValueError("required_namespaces contains an unsupported namespace")
         if layer != "NATAL" and "TEMPORAL" not in namespaces:
             raise ValueError("non-NATAL scope slots must require TEMPORAL evidence")
+        case_scope = str(self.case_scope or "").strip() or None
+        if "CASE" in namespaces and not case_scope:
+            raise ValueError("CASE namespace requires an explicit case_scope")
+        if case_scope and "CASE" not in namespaces:
+            raise ValueError("case_scope requires CASE in required_namespaces")
+        object.__setattr__(self, "case_scope", case_scope)
         kind = self.capability_kind.upper()
         if layer != "NATAL" and any(
             marker in kind for marker in ("RESPONSE", "MANIFESTATION")
@@ -109,6 +117,7 @@ class QuickReadScopeSlot:
             "temporal_layer": self.temporal_layer,
             "capability_kind": self.capability_kind,
             "required_namespaces": list(self.required_namespaces),
+            "case_scope": self.case_scope,
         }
 
 
@@ -136,6 +145,10 @@ class EvidenceSourceRef:
             raise ValueError(f"unsupported evidence namespace: {self.namespace}")
         if self.namespace == "TEMPORAL" and not self.time_layer:
             raise ValueError("TEMPORAL source references require time_layer")
+        if self.namespace == "CASE" and self.allowed_use != "CASE_SUPPORT_ONLY":
+            raise ValueError("CASE namespace requires CASE_SUPPORT_ONLY allowed_use")
+        if self.allowed_use == "CASE_SUPPORT_ONLY" and self.namespace != "CASE":
+            raise ValueError("CASE_SUPPORT_ONLY allowed_use requires CASE namespace")
         if self.review_status not in ACCEPTED_REVIEW_STATUSES:
             raise ValueError(
                 f"source reference is not accepted/reviewed: {self.review_status}"
@@ -170,6 +183,7 @@ class CapabilityRecord:
     runtime_status: str = "NOT_AVAILABLE"
     source_status: str = "NOT_AVAILABLE"
     runtime_rule_ids: tuple[str, ...] = ()
+    runtime_source_refs: tuple[EvidenceSourceRef, ...] = ()
     source_refs: tuple[EvidenceSourceRef, ...] = ()
     reason: str = ""
 
@@ -186,13 +200,25 @@ class CapabilityRecord:
         if len(set(rule_ids)) != len(rule_ids):
             raise ValueError("runtime_rule_ids must be unique")
         object.__setattr__(self, "runtime_rule_ids", rule_ids)
+        runtime_refs = tuple(self.runtime_source_refs)
+        if not all(isinstance(item, EvidenceSourceRef) for item in runtime_refs):
+            raise ValueError("runtime_source_refs must contain EvidenceSourceRef values")
+        object.__setattr__(self, "runtime_source_refs", runtime_refs)
         refs = tuple(self.source_refs)
         if not all(isinstance(item, EvidenceSourceRef) for item in refs):
             raise ValueError("source_refs must contain EvidenceSourceRef values")
         object.__setattr__(self, "source_refs", refs)
         object.__setattr__(self, "reason", str(self.reason or "").strip())
-        if runtime_status in AVAILABLE and not rule_ids:
-            raise ValueError("available runtime capability requires runtime_rule_ids")
+        if runtime_status in AVAILABLE:
+            if not rule_ids:
+                raise ValueError("available runtime capability requires runtime_rule_ids")
+            if not runtime_refs:
+                raise ValueError("available runtime capability requires runtime_source_refs")
+            for ref in runtime_refs:
+                if ref.allowed_use != "EXECUTABLE" or ref.namespace == "CASE":
+                    raise ValueError(
+                        "runtime_source_refs must be executable and non-case-scoped"
+                    )
         if source_status in AVAILABLE:
             if not refs:
                 raise ValueError("available source capability requires source_refs")
@@ -208,6 +234,7 @@ class CapabilityRecord:
             "runtime_status": self.runtime_status,
             "source_status": self.source_status,
             "runtime_rule_ids": list(self.runtime_rule_ids),
+            "runtime_source_refs": [item.to_dict() for item in self.runtime_source_refs],
             "source_refs": [item.to_dict() for item in self.source_refs],
             "reason": self.reason,
         }
@@ -297,6 +324,11 @@ class QuickReadEvidenceItem:
     epistemic_label: str = ""
     uncertainty: str = ""
     case_scope: str | None = None
+    target_id: str | None = None
+    execution_id: str | None = None
+    runtime_version: str | None = None
+    main_sha: str | None = None
+    knowledge_version: str | None = None
 
     def __post_init__(self) -> None:
         for field_name in ("evidence_id", "slot_id", "claim"):
@@ -315,6 +347,8 @@ class QuickReadEvidenceItem:
         object.__setattr__(self, "source_refs", refs)
 
         if lane == "RUNTIME":
+            for name in ("target_id", "execution_id", "runtime_version", "main_sha", "knowledge_version"):
+                _text(getattr(self, name), f"runtime evidence {name}")
             if not self.rule_id or not refs:
                 raise ValueError("runtime evidence requires rule_id and source_refs")
             if self.epistemic_label not in {"CANONICAL_RUNTIME", "TEMPORAL_RUNTIME"}:
@@ -326,6 +360,8 @@ class QuickReadEvidenceItem:
             if self.case_scope:
                 raise ValueError("runtime evidence may not carry case_scope")
         elif lane == "SOURCE":
+            if any(getattr(self, name) is not None for name in ("target_id", "execution_id", "runtime_version", "main_sha", "knowledge_version")):
+                raise ValueError("source-only evidence cannot claim runtime execution provenance")
             if not refs:
                 raise ValueError("source evidence requires source_refs")
             if any(ref.allowed_use not in SOURCE_ALLOWED_USES for ref in refs):
@@ -341,6 +377,8 @@ class QuickReadEvidenceItem:
             if self.case_scope and not has_case_only:
                 raise ValueError("case_scope is only valid for CASE_SUPPORT_ONLY evidence")
         else:
+            if any(getattr(self, name) is not None for name in ("target_id", "execution_id", "runtime_version", "main_sha", "knowledge_version")):
+                raise ValueError("model supplements cannot claim runtime execution provenance")
             if self.rule_id or refs:
                 raise ValueError("model supplements may not invent rule_id or source_refs")
             if self.epistemic_label != "MODEL_SUPPLEMENT":
@@ -361,6 +399,11 @@ class QuickReadEvidenceItem:
             "epistemic_label": self.epistemic_label,
             "uncertainty": self.uncertainty,
             "case_scope": self.case_scope,
+            "target_id": self.target_id,
+            "execution_id": self.execution_id,
+            "runtime_version": self.runtime_version,
+            "main_sha": self.main_sha,
+            "knowledge_version": self.knowledge_version,
         }
 
 
@@ -481,6 +524,8 @@ def _validate_item_against_manifest(
     item: QuickReadEvidenceItem,
     slot: QuickReadScopeSlot,
     record: CapabilityRecord | None,
+    request: QuickReadRequest,
+    manifest: CapabilityManifest,
 ) -> None:
     if item.lane == "MODEL_SUPPLEMENT":
         return
@@ -491,12 +536,31 @@ def _validate_item_against_manifest(
             raise ValueError(f"{slot.slot_id}: runtime evidence supplied while runtime is unavailable")
         if item.rule_id not in record.runtime_rule_ids:
             raise ValueError(f"{slot.slot_id}: rule_id is not listed in the capability manifest")
+        if item.target_id != request.target_id:
+            raise ValueError(f"{slot.slot_id}: runtime target_id does not match request")
+        if item.execution_id is None or not item.execution_id.strip():
+            raise ValueError(f"{slot.slot_id}: runtime execution_id is required")
+        if item.main_sha != manifest.main_sha:
+            raise ValueError(f"{slot.slot_id}: runtime main_sha does not match manifest")
+        if item.knowledge_version != manifest.knowledge_version:
+            raise ValueError(f"{slot.slot_id}: runtime knowledge_version does not match manifest")
+        if item.runtime_version != manifest.runtime_version:
+            raise ValueError(f"{slot.slot_id}: runtime_version does not match manifest")
+        expected_label = "CANONICAL_RUNTIME" if slot.temporal_layer == "NATAL" else "TEMPORAL_RUNTIME"
+        if item.epistemic_label != expected_label:
+            raise ValueError(f"{slot.slot_id}: runtime epistemic label does not match requested layer")
+        allowed_refs = {ref.identity() for ref in record.runtime_source_refs}
+        if any(ref.identity() not in allowed_refs for ref in item.source_refs):
+            raise ValueError(f"{slot.slot_id}: runtime source ref is absent from the capability manifest")
     else:
         if record.source_status not in AVAILABLE:
             raise ValueError(f"{slot.slot_id}: source evidence supplied while source is unavailable")
         allowed_refs = {ref.identity() for ref in record.source_refs}
         if any(ref.identity() not in allowed_refs for ref in item.source_refs):
             raise ValueError(f"{slot.slot_id}: source evidence ref is absent from the capability manifest")
+        if any(ref.allowed_use == "CASE_SUPPORT_ONLY" for ref in item.source_refs):
+            if item.case_scope != slot.case_scope:
+                raise ValueError(f"{slot.slot_id}: case_scope does not match requested scope")
     _validate_required_namespaces(slot, item.source_refs)
 
 
@@ -633,7 +697,7 @@ def build_quickread_payload(
         slot = requested.get(item.slot_id)
         if slot is None:
             raise ValueError(f"evidence item is outside requested scope: {item.slot_id}")
-        _validate_item_against_manifest(item, slot, records.get(item.slot_id))
+        _validate_item_against_manifest(item, slot, records.get(item.slot_id), request, manifest)
 
     lanes = _included_lanes(request.mode)
     selected = tuple(item for item in items if item.lane in lanes)
