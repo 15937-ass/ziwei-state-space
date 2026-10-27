@@ -86,6 +86,7 @@ def test_temporal_hold_set_and_fail_closed_behavior():
     held_temporal = {k for k, v in disp.items() if v["direct_scan_disposition"] == "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED"}
     assert held_temporal == TEMPORAL_HELD
     assert all(disp[k]["canonical_record_ids"] == [] for k in held_temporal)
+    assert "再婚克应之期" in disp["SP05-405"]["source_literal_claim"]
     residual_ids = {candidate for residual in d["temporal_scope_residuals"] for candidate in residual["candidate_ids"]}
     assert held_temporal.issubset(residual_ids)
     assert len(d["temporal_scope_residuals"]) == 37
@@ -100,8 +101,10 @@ def test_semantic_corrections_and_ambiguities_are_preserved():
     rec = records_by_id(d)
     assert disp["SP05-465"]["direct_scan_disposition"] == "HOLD_SOURCE_SEMANTIC_AMBIGUITY"
     assert disp["SP05-465"]["canonical_record_ids"] == []
+    assert "唯府库『空露』则减其不利程度" in disp["SP05-465"]["source_literal_claim"]
     assert disp["SP05-500"]["direct_scan_disposition"] == "DEDUPLICATED_SOURCE_OVERLAP"
     assert disp["SP05-500"]["canonical_record_ids"] == ["P03S-464"]
+    assert "printed p42" in disp["SP05-500"]["verified_source_location"]
     assert rec["P03S-459"]["canonical_projection_target"] == "not_prone_to_separation_or_bereavement"
     assert "不主生离，不主死别" in rec["P03S-459"]["source_literal_claim"]
     assert "辅佐单星" in rec["P03S-450"]["canonical_condition"]
@@ -121,6 +124,7 @@ def test_supplemental_source_atoms_and_gap_reconciliation():
     assert "P03S-SP05-SUP-001" in rec
     assert "P03S-SP05-SUP-002" in rec
     assert "煞忌刑曜始为不良" in rec["P03S-SP05-SUP-001"]["source_literal_claim"]
+    assert "煞忌刑曜始为不良" not in rec["P03S-461"]["source_literal_claim"]
     assert "男命宜配年少之妻" in rec["P03S-SP05-SUP-002"]["source_literal_claim"]
     assert len(d["source_coverage_gaps"]) == 11
     assert d["summary"]["source_coverage_gap_count"] == 11
