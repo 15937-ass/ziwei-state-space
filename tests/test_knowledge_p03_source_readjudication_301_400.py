@@ -99,6 +99,8 @@ def test_temporal_layers_fail_closed_and_source_branches_preserved():
     assert "年限运限" in disp["SP04-399"]["reason"]
     assert rec["P03S-355"]["source_condition_membership_status"] == "SOURCE_COMPOUND_MEMBERSHIP_UNSPECIFIED"
     assert rec["P03S-367"]["source_condition_membership_status"] == "SOURCE_COMPOUND_MEMBERSHIP_UNSPECIFIED"
+    assert rec["P03S-358"]["source_condition_membership_status"] == "SOURCE_LITERAL_ANOMALY_PRESERVED"
+    assert "不擅自替换为“则主”" in rec["P03S-358"]["source_condition_uncertainty"]
 
 
 def test_source_gaps_execution_boundary_and_state_reconcile():
