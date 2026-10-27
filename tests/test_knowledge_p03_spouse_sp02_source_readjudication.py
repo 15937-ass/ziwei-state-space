@@ -154,7 +154,7 @@ def test_execution_boundary_and_cumulative_state_are_fail_closed():
         assert s[key] == 0
     state = STATE.read_text(encoding="utf-8")
     assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
-    assert "SP04_301_400_SOURCE_FIRST_REVIEW_COMPLETE" in state
+    assert "SOURCE_FIRST_REVIEW_COMPLETE" in state
     batches = [load(path) for path in sorted(READJ.parent.glob(
         "SPOUSE_SP*_SOURCE_READJUDICATION_100_v0.1.json"
     ))]
