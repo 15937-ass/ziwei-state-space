@@ -87,13 +87,14 @@ def test_temporal_layers_fail_closed_and_source_branches_preserved():
     assert len(d["temporal_scope_residuals"]) == 27
     assert d["summary"]["temporal_scope_candidate_row_count"] == 72
     assert "年限运限" in d["temporal_scope_residuals"][-1]["source_expression"]
+    assert "克勤克俭应之期" in d["temporal_scope_residuals"][-1]["source_expression"]
     assert "贪狼火星或铃星" in rec["P03S-306"]["source_literal_claim"]
     assert "男命" in rec["P03S-322"]["canonical_condition"]
     assert "女命" in rec["P03S-323"]["canonical_condition"]
     assert "见化忌或化禄" in rec["P03S-347"]["canonical_condition"]
     assert "或" in rec["P03S-366"]["canonical_condition"]
     assert "OR" in rec["P03S-360"]["canonical_projection_target"]
-    assert "或" in rec["P03S-379"]["canonical_projection_target"]
+    assert "OR" in rec["P03S-379"]["canonical_projection_target"]
     assert "或" in rec["P03S-393"]["canonical_condition"]
     assert "年限运限" in disp["SP04-399"]["reason"]
     assert rec["P03S-355"]["source_condition_membership_status"] == "SOURCE_COMPOUND_MEMBERSHIP_UNSPECIFIED"
