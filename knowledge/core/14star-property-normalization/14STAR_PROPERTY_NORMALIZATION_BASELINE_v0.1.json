@@ -3,8 +3,8 @@
   "artifact_id": "KB-CORE-14STAR-PROPERTY-NORMALIZATION-BASELINE-01",
   "issue": 757,
   "status": "PROPOSAL_ONLY_NOT_CANONICAL",
-  "checkpoint_status": "STAGE_B_TIANFU_CHECKPOINT_COMPLETED_NOT_FINAL",
-  "activation_main_sha": "74864f572cdd04407c241c483f3a34c646f69d3a",
+  "checkpoint_status": "STAGE_B_TANLANG_CHECKPOINT_COMPLETED_NOT_FINAL",
+  "activation_main_sha": "d45e2cfd6c0dc59fb80ec2210f7e729c53391c4f",
   "execution_branch": "knowledge/core-757-14star-property-normalization-main-sync2",
   "source_policy": {
     "allowed_school": "中州派",
@@ -403,10 +403,95 @@
     "tianfu_locator_gap_rule_ids": [
       "ZZ-TF-009"
     ],
-    "tianfu_locator_gap_note": "视觉核对的空库引文位于印刷页17；canonical ZZ-TF-009 的 source_location 仍指向书页18。侧车记录此不一致，不修改canonical行。"
+    "tianfu_locator_gap_note": "视觉核对的空库引文位于印刷页17；canonical ZZ-TF-009 的 source_location 仍指向书页18。侧车记录此不一致，不修改canonical行。",
+    "tanlang_review_rule_ids": [
+      "ZZ-TL-001",
+      "ZZ-TL-002",
+      "ZZ-TL-003",
+      "ZZ-TL-004",
+      "ZZ-TL-005",
+      "ZZ-TL-006",
+      "ZZ-TL-007",
+      "ZZ-TL-008",
+      "ZZ-TL-009",
+      "ZZ-TL-010",
+      "ZZ-TL-X01",
+      "ZZ-TL-X02",
+      "ZZ-TL-X03",
+      "ZZ-TL-X04",
+      "ZZ-TL-X05",
+      "ZZ-TL-X06",
+      "ZZ-TL-X07",
+      "ZZ-TL-X08",
+      "ZZ-TL-X09",
+      "ZZ-TL-X10",
+      "ZZ-TL-X11",
+      "ZZ-TL-X12",
+      "ZZ-TL-X13",
+      "ZZ-TL-X14",
+      "ZZ-TL-Y01",
+      "ZZ-TL-Y02",
+      "ZZ-TL-Y03",
+      "ZZ-TL-Y04",
+      "ZZ-TL-Y05"
+    ],
+    "tanlang_review_path": "knowledge/core/14star-property-normalization/TANLANG_SOURCE_SPAN_REVIEW_v0.1.csv",
+    "tanlang_source_locator": {
+      "source_id": "SRC-ZZ-002",
+      "source_work": "《中州派紫微斗数深造讲义（上）》",
+      "source_sha256": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a",
+      "pdf_scan_page": 11,
+      "printed_pages": [
+        21,
+        22
+      ],
+      "verification": "VISUAL_SOURCE_REVIEWED; SHA256_MATCHES_SOURCES_INDEX",
+      "prior_visual_review_rows_reused": 0,
+      "canonical_source_span_verified_mutated": false
+    },
+    "tanlang_additional_source_locators": [
+      {
+        "source_id": "SRC-ZZ-002",
+        "source_sha256": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a",
+        "pdf_scan_page": 51,
+        "printed_pages": [
+          100,
+          101
+        ],
+        "rule_ids": [
+          "ZZ-TL-003",
+          "ZZ-TL-004",
+          "ZZ-TL-005"
+        ],
+        "status": "VISUAL_SOURCE_REVIEWED; SYSTEM_CONTEXT_ONLY"
+      },
+      {
+        "source_id": "SRC-ZZ-002",
+        "source_sha256": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a",
+        "pdf_scan_page": 93,
+        "printed_pages": [
+          184,
+          185
+        ],
+        "rule_ids": [
+          "ZZ-TL-009"
+        ],
+        "status": "PARTIALLY_VERIFIED_VISUAL_SCAN; HUA_LU_BRANCH_ONLY"
+      }
+    ],
+    "tanlang_held_rule_ids": [
+      "ZZ-TL-006",
+      "ZZ-TL-007",
+      "ZZ-TL-008",
+      "ZZ-TL-010"
+    ],
+    "tanlang_partial_rule_ids": [
+      "ZZ-TL-009"
+    ],
+    "tanlang_scope_note": "本轮只使用SRC-ZZ-002上册、GitHub现有canonical/审查记录及验收契约；不读取SRC-ZZ-001初级讲义。29条canonical行均在侧车中给出审查处置：24条完整视觉核对、ZZ-TL-009部分核对、4条保持未核实。"
   },
   "progress": {
-    "stage": "B_TIANFU_CHECKPOINT_COMPLETED_READY_FOR_TANLANG",
+    "stage": "B_TANLANG_CHECKPOINT_COMPLETED_READY_FOR_JUMEN",
     "completed_pilot_cards": [
       "太阳",
       "太阴",
@@ -414,13 +499,12 @@
     ],
     "remaining_pilot_cards": [],
     "remaining_expansion_stars_in_existing_order": [
-      "贪狼",
       "巨门",
       "天梁",
       "七杀",
       "破军"
     ],
-    "coverage_warning": "Stage A pilots 太阳、太阴、天相 are completed research checkpoints, not final canonical mappings. Stage B has completed bounded candidate checkpoints for 紫微 (43 rows), 天机 (39 rows), 武曲 (41 rows), 天同 (25 rows), 廉贞 (27 rows), and 天府 (25 rows). Tianfu was visually reviewed on SRC-ZZ-002 scan p9/printed pp17–18; five prior DIRECT_STAR rows were reused and rechecked without double-counting. Preserve the financial-store metaphor versus resource generation, comparative guard/leadership language, distinct 空库/露库 conditions, Tianxiang-mediated authority, Ziwei hierarchy, Qisha/system context, and natal-vs-temporal boundary. All candidates remain PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED; canonical source_span_verified remains false. Next star is 贪狼. Source-locator audit note: ZZ-TF-009's quoted empty-vault span is on printed p17 although its canonical locator points to p18; this mismatch is documented in the sidecar and remains unresolved at canonical level.",
+    "coverage_warning": "Stage A pilots 太阳、太阴、天相 are completed research checkpoints, not final canonical mappings. Stage B has completed bounded candidate checkpoints for 紫微、天机、武曲、天同、廉贞、天府、贪狼. For 贪狼, all 29 canonical rows have explicit review dispositions: 24 full visual confirmations, one partial confirmation (ZZ-TL-009; 化禄 branch only), and four held rows (ZZ-TL-006/007/008/010). Source is SRC-ZZ-002 upper volume only; canonical source flags remain false and normalization remains UNRESOLVED. Next star is 巨门.",
     "active_pilot_card": null,
     "draft_pilot_cards": [
       "太阳",
@@ -433,7 +517,8 @@
       "武曲",
       "天同",
       "廉贞",
-      "天府"
+      "天府",
+      "贪狼"
     ],
     "active_expansion_star": null,
     "draft_expansion_stars": [
@@ -442,7 +527,8 @@
       "武曲",
       "天同",
       "廉贞",
-      "天府"
+      "天府",
+      "贪狼"
     ],
     "expansion_checkpoint_history": [
       {
@@ -686,6 +772,70 @@
           "ZZ-TF-009"
         ],
         "source_locator_gap_note": "The quoted empty-vault span was visually confirmed on printed p17, while canonical ZZ-TF-009 points to p18; sidecar records the mismatch, canonical row unchanged."
+      },
+      {
+        "star": "贪狼",
+        "status": "CHECKPOINT_COMPLETED_NOT_FINAL",
+        "source_id": "SRC-ZZ-002",
+        "source_ids_used": [
+          "SRC-ZZ-002"
+        ],
+        "pdf_scan_page": 11,
+        "printed_pages": [
+          21,
+          22
+        ],
+        "canonical_rule_rows_reviewed": 29,
+        "source_review_rows": 29,
+        "fully_verified_rows": 24,
+        "partially_verified_rows": 1,
+        "held_rows": 4,
+        "prior_visual_review_rows_reused": 0,
+        "additional_source_locators": [
+          {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 51,
+            "printed_pages": [
+              100,
+              101
+            ],
+            "rule_ids": [
+              "ZZ-TL-003",
+              "ZZ-TL-004",
+              "ZZ-TL-005"
+            ],
+            "status": "VISUAL_SOURCE_REVIEWED; SYSTEM_CONTEXT_ONLY"
+          },
+          {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 93,
+            "printed_pages": [
+              184,
+              185
+            ],
+            "rule_ids": [
+              "ZZ-TL-009"
+            ],
+            "status": "PARTIALLY_VERIFIED_VISUAL_SCAN; HUA_LU_BRANCH_ONLY"
+          }
+        ],
+        "mapping_review_records_added": 20,
+        "source_claims_added": 20,
+        "candidate_properties_added": 20,
+        "held_rule_ids": [
+          "ZZ-TL-006",
+          "ZZ-TL-007",
+          "ZZ-TL-008",
+          "ZZ-TL-010"
+        ],
+        "partial_rule_ids": [
+          "ZZ-TL-009"
+        ],
+        "normalization_epistemic": "UNRESOLVED",
+        "canonicalization_authorized": false,
+        "product_consumption_authorized": false,
+        "next_star": "巨门",
+        "source_locator_note": "ZZ-TL-001/002在上册p21得到补充核对但canonical原始来源登记不改；ZZ-TL-003..005补核上册p100–101；ZZ-TL-009仅核实化禄分支。"
       }
     ]
   },
@@ -5798,6 +5948,802 @@
         "禄存与化禄可充盈财库，不等于提高生财能力或现实财富保证。",
         "所有候选均为PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED；不改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限。"
       ]
+    },
+    {
+      "star_id": "STAR-TL",
+      "name": "贪狼",
+      "status": "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL",
+      "source_claims": [
+        {
+          "claim_key": "TL-L0-SUBSTRATE",
+          "source_rule_ids": [
+            "ZZ-TL-001"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 11,
+            "printed_page": 21
+          },
+          "source_excerpt": "贪狼身份为传统结构元数据。",
+          "claim_layer": "L0_STRUCTURE_METADATA",
+          "claim_summary": "贪狼身份为传统结构元数据。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+          "conditions_to_preserve": [
+            "阳木",
+            "气属水",
+            "不推导QI"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TL:p11:p21:substrate",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; METADATA_ONLY; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TL-L1-DUAL-DESIRE",
+          "source_rule_ids": [
+            "ZZ-TL-002",
+            "ZZ-TL-X01"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 11,
+            "printed_page": 21
+          },
+          "source_excerpt": "来源并列描述物质欲求与情欲追求，要求区分欲望对象。",
+          "claim_layer": "L1_BASELINE_CANDIDATE",
+          "claim_summary": "来源并列描述物质欲求与情欲追求，要求区分欲望对象。",
+          "candidate_target_ref": "STAR-TL.intrinsic_signature:QI-09",
+          "conditions_to_preserve": [
+            "物欲与情欲分开",
+            "欲望类型不等于欲望强度"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TL:p11:p21:dual-desire",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TARGET_MAPPING_UNRESOLVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TL-L1-DESIRE-DRIVEN-CHANGE",
+          "source_rule_ids": [
+            "ZZ-TL-X02"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 11,
+            "printed_page": 21
+          },
+          "source_excerpt": "贪狼变化动机与欲望追求相关，与七杀、破军机制有别。",
+          "claim_layer": "L1_MOTIVATION_CANDIDATE",
+          "claim_summary": "贪狼变化动机与欲望追求相关，与七杀、破军机制有别。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L1",
+          "conditions_to_preserve": [
+            "变化动机",
+            "物欲/情欲",
+            "与七杀破军区别"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TL:p11:p21:change-motive",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TARGET_MAPPING_UNRESOLVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TL-L2-UNFAVORABLE-CHANGE",
+          "source_rule_ids": [
+            "ZZ-TL-X03"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 11,
+            "printed_page": 21
+          },
+          "source_excerpt": "星系不佳且物欲过深时，变化可表现为趋利的关系转换。",
+          "claim_layer": "L2_CONDITIONAL_RESPONSE",
+          "claim_summary": "星系不佳且物欲过深时，变化可表现为趋利的关系转换。",
+          "candidate_target_ref": "STAR-TL.conditional_signature:QI-09",
+          "conditions_to_preserve": [
+            "星系不佳",
+            "物欲过深",
+            "关系转换"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TL:p11:p21:poor-structure",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TARGET_MAPPING_UNRESOLVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TL-L2-FAVORABLE-CHANGE",
+          "source_rule_ids": [
+            "ZZ-TL-X04"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 11,
+            "printed_page": 21
+          },
+          "source_excerpt": "结构良好时，变化可表现为建设性调整与才艺发挥。",
+          "claim_layer": "L2_CONDITIONAL_RESPONSE",
+          "claim_summary": "结构良好时，变化可表现为建设性调整与才艺发挥。",
+          "candidate_target_ref": "STAR-TL.conditional_signature:QI-09",
+          "conditions_to_preserve": [
+            "星系结构良好",
+            "建设性变化",
+            "才艺表达"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TL:p11:p21:good-structure",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TARGET_MAPPING_UNRESOLVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TL-L2-FOUR-WANG-CONDITION",
+          "source_rule_ids": [
+            "ZZ-TL-X05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 11,
+            "printed_page": 21
+          },
+          "source_excerpt": "四旺宫判断需要宫位与出生年支条件合取；一项对应需复核，按扫描保留。",
+          "claim_layer": "L2_POSITION_AND_BIRTH_BRANCH_GATE",
+          "claim_summary": "四旺宫判断需要宫位与出生年支条件合取；一项对应需复核，按扫描保留。",
+          "candidate_target_ref": "STAR-TL.conditional_signature:QI-09",
+          "conditions_to_preserve": [
+            "四旺宫",
+            "年支与命宫条件",
+            "保留原文异常映射"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TL:p11:p21:four-wang-gate",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TARGET_MAPPING_UNRESOLVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TL-L2-FOUR-WANG-ALTERNATIVE",
+          "source_rule_ids": [
+            "ZZ-TL-X05",
+            "ZZ-TL-Y02"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 11,
+            "printed_page": 21
+          },
+          "source_excerpt": "条件不满足时转向桃花犯主及情欲结构分支。",
+          "claim_layer": "L2_ALTERNATIVE_BRANCH",
+          "claim_summary": "条件不满足时转向桃花犯主及情欲结构分支。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "条件分支",
+            "物欲/情欲分离"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TL:p11:p21:four-wang-alternative",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TARGET_MAPPING_UNRESOLVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TL-L2-ZIWEI-WOLF-SYSTEM",
+          "source_rule_ids": [
+            "ZZ-TL-003"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 51,
+            "printed_page": 100
+          },
+          "source_excerpt": "紫贪同度属于特定星系上下文，不是贪狼单星无条件性质。",
+          "claim_layer": "L2_SYSTEM_CONTEXT",
+          "claim_summary": "紫贪同度属于特定星系上下文，不是贪狼单星无条件性质。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "紫贪同度",
+            "系统语境"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TL:p51:p100:ziwei-wolf",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TARGET_MAPPING_UNRESOLVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TL-L2-ZIWEI-WOLF-CONTROL",
+          "source_rule_ids": [
+            "ZZ-TL-004",
+            "ZZ-TL-005"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 51,
+            "printed_page": 100
+          },
+          "source_excerpt": "天刑/空曜条件下的自律不等于物欲完全消失。",
+          "claim_layer": "L2_CONDITIONAL_CONTROL",
+          "claim_summary": "天刑/空曜条件下的自律不等于物欲完全消失。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "天刑/空曜门控",
+            "情欲与物欲分开"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TL:p51:p100:ziwei-wolf-control",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TARGET_MAPPING_UNRESOLVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TL-L2-WU-TAN-MODIFIERS",
+          "source_rule_ids": [
+            "ZZ-TL-X06",
+            "ZZ-TL-X07",
+            "ZZ-TL-X08",
+            "ZZ-TL-X09"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 11,
+            "printed_page": 21
+          },
+          "source_excerpt": "武贪偏向物欲；禄存、化禄与火铃承担不同条件作用。",
+          "claim_layer": "L2_RELATIONAL_MODIFIER",
+          "claim_summary": "武贪偏向物欲；禄存、化禄与火铃承担不同条件作用。",
+          "candidate_target_ref": "STAR-TL.conditional_signature:QI-09",
+          "conditions_to_preserve": [
+            "武贪",
+            "禄存",
+            "化禄",
+            "火铃"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TL:p11:p21:wu-tan",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TARGET_MAPPING_UNRESOLVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TL-L2-LIAN-TAN",
+          "source_rule_ids": [
+            "ZZ-TL-X10"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 11,
+            "printed_page": 22
+          },
+          "source_excerpt": "廉贪指定宫位同度偏向情欲结构，桃花星曜为进一步条件。",
+          "claim_layer": "L2_RELATIONAL_MODIFIER",
+          "claim_summary": "廉贪指定宫位同度偏向情欲结构，桃花星曜为进一步条件。",
+          "candidate_target_ref": "STAR-TL.conditional_signature:QI-09",
+          "conditions_to_preserve": [
+            "巳亥廉贪同度",
+            "桃花诸曜"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TL:p11:p22:lian-tan",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TARGET_MAPPING_UNRESOLVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TL-L2-SHEEP-TUO-HIERARCHY",
+          "source_rule_ids": [
+            "ZZ-TL-X11"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 11,
+            "printed_page": 22
+          },
+          "source_excerpt": "羊陀加深情欲倾向；火铃有修饰作用但不支持数值权重。",
+          "claim_layer": "L2_RELATIONAL_MODIFIER",
+          "claim_summary": "羊陀加深情欲倾向；火铃有修饰作用但不支持数值权重。",
+          "candidate_target_ref": "STAR-TL.conditional_signature:QI-09",
+          "conditions_to_preserve": [
+            "羊陀",
+            "火铃相对次序",
+            "不数值化"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TL:p11:p22:sheep-tuo",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TARGET_MAPPING_UNRESOLVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TL-L2-RESTRAINT",
+          "source_rule_ids": [
+            "ZZ-TL-X12",
+            "ZZ-TL-Y03"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 11,
+            "printed_page": 22
+          },
+          "source_excerpt": "天刑与空曜是制化欲望的重要条件，须绑定当前星系和欲望类型。",
+          "claim_layer": "L2_CONDITIONAL_RESTRAINT",
+          "claim_summary": "天刑与空曜是制化欲望的重要条件，须绑定当前星系和欲望类型。",
+          "candidate_target_ref": "STAR-TL.conditional_signature:QI-10",
+          "conditions_to_preserve": [
+            "天刑/空曜",
+            "星系条件",
+            "欲望类型"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TL:p11:p22:restraint",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TARGET_MAPPING_UNRESOLVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TL-L3-FIRE-BELL-WOLF",
+          "source_rule_ids": [
+            "ZZ-TL-Y01"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 11,
+            "printed_page": 22
+          },
+          "source_excerpt": "火贪/铃贪属于传统横发格语境，不是现实收益概率。",
+          "claim_layer": "L3_TRADITIONAL_PATTERN_PROJECTION",
+          "claim_summary": "火贪/铃贪属于传统横发格语境，不是现实收益概率。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "火贪/铃贪",
+            "不作现实收益保证"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TL:p11:p22:fire-bell-wolf",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TARGET_MAPPING_UNRESOLVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TL-L2-TAOHUA-FANZHU",
+          "source_rule_ids": [
+            "ZZ-TL-Y02"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 11,
+            "printed_page": 22
+          },
+          "source_excerpt": "桃花犯主的正次格取决于紫贪关系及制化条件。",
+          "claim_layer": "L2_SYSTEM_GATE",
+          "claim_summary": "桃花犯主的正次格取决于紫贪关系及制化条件。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "紫贪同度/相拱",
+            "天刑/空曜"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TL:p11:p22:taohua-fanzhu",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TARGET_MAPPING_UNRESOLVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TL-L2-SPECIAL-PATTERNS",
+          "source_rule_ids": [
+            "ZZ-TL-Y04"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 11,
+            "printed_page": 22
+          },
+          "source_excerpt": "特殊格局依赖宫位与煞曜条件，不转换为单星属性。",
+          "claim_layer": "L2_POSITION_AND_SHA_GATE",
+          "claim_summary": "特殊格局依赖宫位与煞曜条件，不转换为单星属性。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "午宫",
+            "申宫",
+            "子/亥宫",
+            "寅宫"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TL:p11:p22:special-patterns",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TARGET_MAPPING_UNRESOLVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TL-L2-CHANGQU",
+          "source_rule_ids": [
+            "ZZ-TL-X13"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 11,
+            "printed_page": 22
+          },
+          "source_excerpt": "昌曲/化科的负面描述与聪明才智叠加有关，不转为现代人格诊断。",
+          "claim_layer": "L2_RELATIONAL_MODIFIER",
+          "claim_summary": "昌曲/化科的负面描述与聪明才智叠加有关，不转为现代人格诊断。",
+          "candidate_target_ref": "STAR-TL.conditional_signature:QI-09",
+          "conditions_to_preserve": [
+            "文昌/文曲",
+            "化科"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TL:p11:p22:changqu",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TARGET_MAPPING_UNRESOLVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TL-L2-MINGSHEN-BOUNDARY",
+          "source_rule_ids": [
+            "ZZ-TL-X14"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 11,
+            "printed_page": 22
+          },
+          "source_excerpt": "贪狼守命时需要兼看身宫，这是联合判断要求。",
+          "claim_layer": "L2_CROSS_PALACE_CONTEXT",
+          "claim_summary": "贪狼守命时需要兼看身宫，这是联合判断要求。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "命宫",
+            "身宫"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TL:p11:p22:mingshen",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TARGET_MAPPING_UNRESOLVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TL-L2-MINGSHEN-MIXED-DESIRE",
+          "source_rule_ids": [
+            "ZZ-TL-Y05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 11,
+            "printed_page": 22
+          },
+          "source_excerpt": "贪狼命与七杀/破军身并会煞构成复合结构，需保留空刑/昌曲条件。",
+          "claim_layer": "L2_CROSS_PALACE_GATE",
+          "claim_summary": "贪狼命与七杀/破军身并会煞构成复合结构，需保留空刑/昌曲条件。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "贪狼命",
+            "七杀/破军身",
+            "煞曜",
+            "空刑/昌曲"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TL:p11:p22:mingshen-mixed",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TARGET_MAPPING_UNRESOLVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TL-L3-HUALU-SPECULATION",
+          "source_rule_ids": [
+            "ZZ-TL-009"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 93,
+            "printed_page": 184
+          },
+          "source_excerpt": "扫描页93支持化禄条件下的投机倾向，但化权扩展未由该页段单独证实。",
+          "claim_layer": "L3_CONDITIONAL_TRADITIONAL_PROJECTION",
+          "claim_summary": "扫描页93支持化禄条件下的投机倾向，但化权扩展未由该页段单独证实。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "化禄",
+            "火铃",
+            "羊陀",
+            "运限",
+            "化权仍未决"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TL:p93:p184-185:hualu-speculation",
+          "row_adjudication_status": "PARTIAL_SOURCE_SCOPE_CONFIRMED; HUA_LU_BRANCH_ONLY; CANONICAL_ROW_UNCHANGED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        }
+      ],
+      "candidate_properties": [
+        {
+          "candidate_key": "EXP-TL-01",
+          "layer": "L0",
+          "candidate_label": "阳木/水气传统结构元数据（不映射QI）",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+          "source_rule_ids": [
+            "ZZ-TL-001"
+          ],
+          "mapping_review_record_id": "MR-TL-L0-SUBSTRATE-001",
+          "mapping_disposition": "not_supported_for_target",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TL-02",
+          "layer": "L1",
+          "candidate_label": "欲望驱动及物欲/情欲类型分化",
+          "target_ref": "STAR-TL.intrinsic_signature:QI-09",
+          "source_rule_ids": [
+            "ZZ-TL-002",
+            "ZZ-TL-X01"
+          ],
+          "mapping_review_record_id": "MR-TL-QI09-DUAL-DESIRE-002",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TL-03",
+          "layer": "L1",
+          "candidate_label": "变化动机与欲望追求相关",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L1",
+          "source_rule_ids": [
+            "ZZ-TL-X02"
+          ],
+          "mapping_review_record_id": "MR-TL-L1-DESIRE-CHANGE-003",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TL-04",
+          "layer": "L2",
+          "candidate_label": "不良星系与物欲过深下的趋利关系转换",
+          "target_ref": "STAR-TL.conditional_signature:QI-09",
+          "source_rule_ids": [
+            "ZZ-TL-X03"
+          ],
+          "mapping_review_record_id": "MR-TL-L2-POOR-STRUCTURE-004",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TL-05",
+          "layer": "L2",
+          "candidate_label": "良好结构下的建设性变化与才艺表达",
+          "target_ref": "STAR-TL.conditional_signature:QI-09",
+          "source_rule_ids": [
+            "ZZ-TL-X04"
+          ],
+          "mapping_review_record_id": "MR-TL-L2-GOOD-STRUCTURE-005",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TL-06",
+          "layer": "L2",
+          "candidate_label": "四旺宫物欲判断的年支—命宫合取门控",
+          "target_ref": "STAR-TL.conditional_signature:QI-09",
+          "source_rule_ids": [
+            "ZZ-TL-X05"
+          ],
+          "mapping_review_record_id": "MR-TL-L2-FOUR-WANG-GATE-006",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TL-07",
+          "layer": "L2",
+          "candidate_label": "四旺宫条件不满足时转入情欲/桃花犯主分支",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TL-X05",
+            "ZZ-TL-Y02"
+          ],
+          "mapping_review_record_id": "MR-TL-L2-FOUR-WANG-ALTERNATIVE-007",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TL-08",
+          "layer": "L2",
+          "candidate_label": "紫贪星系中的系统性欲望描述",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TL-003",
+            "ZZ-TL-Y02"
+          ],
+          "mapping_review_record_id": "MR-TL-L2-ZIWOLF-SYSTEM-008",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TL-09",
+          "layer": "L2",
+          "candidate_label": "紫贪自律条件与物欲残留的分离",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TL-004",
+            "ZZ-TL-005",
+            "ZZ-TL-Y03"
+          ],
+          "mapping_review_record_id": "MR-TL-L2-ZIWOLF-CONTROL-009",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TL-10",
+          "layer": "L2",
+          "candidate_label": "武贪的物欲倾向及禄存/化禄/火铃差异门控",
+          "target_ref": "STAR-TL.conditional_signature:QI-09",
+          "source_rule_ids": [
+            "ZZ-TL-X06",
+            "ZZ-TL-X07",
+            "ZZ-TL-X08",
+            "ZZ-TL-X09"
+          ],
+          "mapping_review_record_id": "MR-TL-L2-WUTAN-MODIFIERS-010",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TL-11",
+          "layer": "L2",
+          "candidate_label": "廉贪同度时的情欲型系统条件",
+          "target_ref": "STAR-TL.conditional_signature:QI-09",
+          "source_rule_ids": [
+            "ZZ-TL-X10"
+          ],
+          "mapping_review_record_id": "MR-TL-L2-LIANTAN-011",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TL-12",
+          "layer": "L2",
+          "candidate_label": "羊陀与火铃对情欲倾向的相对修饰",
+          "target_ref": "STAR-TL.conditional_signature:QI-09",
+          "source_rule_ids": [
+            "ZZ-TL-X11"
+          ],
+          "mapping_review_record_id": "MR-TL-L2-SHEEP-TUO-012",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TL-13",
+          "layer": "L2",
+          "candidate_label": "天刑/空曜的条件性欲望制化",
+          "target_ref": "STAR-TL.conditional_signature:QI-10",
+          "source_rule_ids": [
+            "ZZ-TL-X12",
+            "ZZ-TL-Y03"
+          ],
+          "mapping_review_record_id": "MR-TL-QI10-RESTRAINT-013",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TL-14",
+          "layer": "L3",
+          "candidate_label": "火贪/铃贪传统横发格及武贪比较序",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "source_rule_ids": [
+            "ZZ-TL-Y01"
+          ],
+          "mapping_review_record_id": "MR-TL-L3-FIRE-TAN-014",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TL-15",
+          "layer": "L2",
+          "candidate_label": "桃花犯主的正次格与清白门控",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TL-Y02",
+            "ZZ-TL-Y03"
+          ],
+          "mapping_review_record_id": "MR-TL-L2-TAOHUA-FANZHU-015",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TL-16",
+          "layer": "L2",
+          "candidate_label": "木火通明/木逢金制/泛水桃花/风流采杖的条件集合",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TL-Y04"
+          ],
+          "mapping_review_record_id": "MR-TL-L2-SPECIAL-PATTERNS-016",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TL-17",
+          "layer": "L2",
+          "candidate_label": "昌曲/化科对贪狼的条件性修饰",
+          "target_ref": "STAR-TL.conditional_signature:QI-09",
+          "source_rule_ids": [
+            "ZZ-TL-X13"
+          ],
+          "mapping_review_record_id": "MR-TL-L2-CHANGQU-017",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TL-18",
+          "layer": "L2",
+          "candidate_label": "贪狼守命时的命身联合判断要求",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TL-X14"
+          ],
+          "mapping_review_record_id": "MR-TL-L2-MINGSHEN-018",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TL-19",
+          "layer": "L2",
+          "candidate_label": "贪狼命与七杀/破军身并会煞的复合门控",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TL-Y05"
+          ],
+          "mapping_review_record_id": "MR-TL-L2-MINGSHEN-MIX-019",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TL-20",
+          "layer": "L3",
+          "candidate_label": "贪狼化禄投机倾向的条件性传统投影",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "source_rule_ids": [
+            "ZZ-TL-009"
+          ],
+          "mapping_review_record_id": "MR-TL-L3-HUALU-SPECULATION-020",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        }
+      ],
+      "held_canonical_rule_ids": [
+        "ZZ-TL-006",
+        "ZZ-TL-007",
+        "ZZ-TL-008",
+        "ZZ-TL-010"
+      ],
+      "non_promotion_guards": [
+        "本卡全部候选均为PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED；不修改正式星核、本体或canonical规则。",
+        "物欲/情欲类型与欲望强度分离；不把桃花当作全部性质，也不推导数值权重。",
+        "四旺宫年支—命宫对应中存在待复核的原文异常；必须保留扫描文本，不自行校正。",
+        "紫贪、武贪、廉贪及命身结构均保留为系统/条件层，不提升为贪狼单星常量。",
+        "传统格局的横发、清白、桃花等语气不等同现实概率、道德诊断或投资建议。",
+        "ZZ-TL-006/007/008与ZZ-TL-010本轮未核实；ZZ-TL-009仅部分核实，canonical source flags保持不变。"
+      ]
     }
   ],
   "mapping_review_records": [
@@ -8575,6 +9521,396 @@
       ],
       "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
       "rationale": "运限无禄见煞忌与空劫并照的结果不回写为本命人格。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TL-L0-SUBSTRATE-001",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=21#ZZ-TL-001"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+      "rationale": "阳木与水气属于传统结构元数据；不推导QI方向、强度或生克。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TL-QI09-DUAL-DESIRE-002",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=21#ZZ-TL-002",
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=21#ZZ-TL-X01"
+      ],
+      "target_ref": "STAR-TL.intrinsic_signature:QI-09",
+      "rationale": "来源支持欲望驱动并区分物欲与情欲；QI-09映射仍是候选。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TL-L1-DESIRE-CHANGE-003",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=21#ZZ-TL-X02"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L1",
+      "rationale": "来源把变化动机与欲望追求联系起来，并与七杀、破军区分。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "state_change",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TL-L2-POOR-STRUCTURE-004",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=21#ZZ-TL-X03"
+      ],
+      "target_ref": "STAR-TL.conditional_signature:QI-09",
+      "rationale": "该表现依赖星系不佳和物欲过深。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "state_change",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TL-L2-GOOD-STRUCTURE-005",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=21#ZZ-TL-X04"
+      ],
+      "target_ref": "STAR-TL.conditional_signature:QI-09",
+      "rationale": "良好结构下的适应性变化与才艺发挥仍是条件性描述。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "state_change",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TL-L2-FOUR-WANG-GATE-006",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=21#ZZ-TL-X05"
+      ],
+      "target_ref": "STAR-TL.conditional_signature:QI-09",
+      "rationale": "年支与命宫配对中有一项显得异常，须保留原文并复核。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TL-L2-FOUR-WANG-ALTERNATIVE-007",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=21#ZZ-TL-X05",
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=22#ZZ-TL-Y02"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "条件不满足时不能沿用物欲型解释。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TL-L2-ZIWOLF-SYSTEM-008",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=51#printed_page=100#ZZ-TL-003",
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=22#ZZ-TL-Y02"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "紫贪属于系统上下文，不是贪狼单星无条件性质。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TL-L2-ZIWOLF-CONTROL-009",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=51#printed_page=100#ZZ-TL-004",
+        "SRC-ZZ-002#pdf_scan_page=51#printed_page=100#ZZ-TL-005",
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=22#ZZ-TL-Y03"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "自律不等于物欲完全消失。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TL-L2-WUTAN-MODIFIERS-010",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=21#ZZ-TL-X06",
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=21#ZZ-TL-X07",
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=21#ZZ-TL-X08",
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=21#ZZ-TL-X09"
+      ],
+      "target_ref": "STAR-TL.conditional_signature:QI-09",
+      "rationale": "武贪、禄存、化禄和火铃承担不同条件角色。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TL-L2-LIANTAN-011",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=22#ZZ-TL-X10"
+      ],
+      "target_ref": "STAR-TL.conditional_signature:QI-09",
+      "rationale": "廉贪指定宫位同度是关系结构。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TL-L2-SHEEP-TUO-012",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=22#ZZ-TL-X11"
+      ],
+      "target_ref": "STAR-TL.conditional_signature:QI-09",
+      "rationale": "只保留羊陀与火铃的相对次序，不推导数值强度。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TL-QI10-RESTRAINT-013",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=22#ZZ-TL-X12",
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=22#ZZ-TL-Y03"
+      ],
+      "target_ref": "STAR-TL.conditional_signature:QI-10",
+      "rationale": "制化须绑定当前星系及欲望类型。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TL-L3-FIRE-TAN-014",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=22#ZZ-TL-Y01"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "传统格局语气不等同现实财富概率。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TL-L2-TAOHUA-FANZHU-015",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=22#ZZ-TL-Y02",
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=22#ZZ-TL-Y03"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "正次格与清白条件均有系统及制化前提。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TL-L2-SPECIAL-PATTERNS-016",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=22#ZZ-TL-Y04"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "特殊结构由宫位与煞曜条件定义。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TL-L2-CHANGQU-017",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=22#ZZ-TL-X13"
+      ],
+      "target_ref": "STAR-TL.conditional_signature:QI-09",
+      "rationale": "不把传统道德化描述转为现代人格诊断。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TL-L2-MINGSHEN-018",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=22#ZZ-TL-X14"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "跨宫观察要求不是新的单星QI轴。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TL-L2-MINGSHEN-MIX-019",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=11#printed_page=22#ZZ-TL-Y05"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "命身、煞曜与空刑/昌曲分支共同决定传统描述。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TL-L3-HUALU-SPECULATION-020",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=93#printed_page=184#ZZ-TL-009"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "化禄条件有来源支持，但化权扩展未由该页段单独证实。",
       "evidence_role": {
         "state": "KNOWN",
         "value": "projection_outcome",

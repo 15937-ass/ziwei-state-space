@@ -1,13 +1,13 @@
-# 当前执行证据 — 天府候选检查点（2026-10-27）
+# 当前执行证据 — 贪狼候选检查点（2026-10-27）
 
 - Lane/shard/Issue/PR：KNOWLEDGE_ONLY / CORE / #757 / Draft PR #783；分支 `knowledge/core-757-14star-property-normalization-main-sync2`。
-- 本次基线 main：`bacc582403efa5ac573d4a63009b032c61e64e65`；分支将 main 的 P03 接受提交作为第二父提交纳入，保留其独立文件变更；Core 研究写集与 P03 写集无路径重叠。
-- 来源：`SRC-ZZ-002`《中州派紫微斗数深造讲义（上）》；SHA-256 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a`；视觉核对扫描页9/印刷页17–18。
-- 本轮覆盖25条现有 `ZZ-TF` canonical 行；专用来源审查 CSV 记录25条。DIRECT_STAR Batch 01 中 `ZZ-TF-002..006` 五条既有审查被复用并重新核对，不重复计证。
-- 新增16条分组 source claims、18条 mapping-review records、18项候选性质；新增测试覆盖精确规则ID集合、来源页、进度衔接、mapping-review契约与非晋升边界。
-- 主要边界：财库不是财星；资源运用/储藏与生财能力分开；守成/领导力为相对紫微的比较；空库/露库条件分开；“逢府看相”与七杀/星系为关系结构；本命与运限严格分层。另发现 `ZZ-TF-009` canonical locator 指向书页18，但该条空库引文实际位于书页17；已在侧车和测试中记录，不修改 canonical 行。
+- 本轮写入前 main head：`d45e2cfd6c0dc59fb80ec2210f7e729c53391c4f`；写入前分支 head：`61ef9f4bfef4d95f7143da735aa71dda6652f8ad`。本文件先于本轮 exact-head 质量门提交；最终结果以 Issue #757 / PR #783 对应提交的实时 workflow 记录为准，不作自引用证据提交。
+- 来源：`SRC-ZZ-002`《中州派紫微斗数深造讲义（上）》；SHA-256 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a`，与 `sources/source_index.csv` 一致。主跨度为扫描页11/印刷页21–22；另核扫描页51/印刷页100–101，以及扫描页93/印刷页184–185。
+- `TANLANG_SOURCE_SPAN_REVIEW_v0.1.csv` 对29条既有canonical行逐条登记处置：24条完整视觉核对、`ZZ-TL-009` 部分核对、`ZZ-TL-006/007/008/010` 保持未核实；未复用既有DIRECT_STAR贪狼视觉审查行。
+- 新增20条source-claim卡、20条mapping-review记录、20项候选性质及贪狼专用测试。测试覆盖精确规则ID集合、主/附来源定位、部分核对与未核实行、候选映射契约、进度顺序及非晋升边界。
+- 主要边界：欲望强度与物欲/情欲类型分开；四旺宫异常映射按原文保留；紫贪/武贪/廉贪与命身结构保持条件化；煞曜作用不数值化；传统格局不转为现实结果保证；`ZZ-TL-009` 仅核实化禄分支。
 - 未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限；所有候选仍 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`，canonical `source_span_verified=false` 保持不变。
-- 本次提交后的 exact-head 完整质量门以 Issue #757 / PR #783 的实时记录为准；本文件不为自引用 commit SHA 再制造证据提交。测试通过与否以该精确 head 的实际 workflow 结果为准。
+
 
 ---
 
