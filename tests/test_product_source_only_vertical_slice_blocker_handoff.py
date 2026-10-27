@@ -191,12 +191,17 @@ def test_product_recovery_state_is_snapshot_metadata_not_a_mutable_pinned_input(
 def test_product_recovery_state_cache_tracks_main_freshness_and_product_checkpoint():
     state = (ROOT / "product" / "PRODUCT_STATE.yaml").read_text(encoding="utf-8")
 
-    assert 'state_cache_as_of_main_commit: "3407150866a5ace99552daa674356b92610f080e"' in state
+    # This is the proposed post-merge checkpoint. Until merge, the live Issue/PR
+    # remains execution truth and overrides this branch-local recovery snapshot.
+    assert 'state_cache_as_of_main_commit: "bdcbf24ef85959d7a7b35014e82708bbedb329bf"' in state
     assert 'state_cache_as_of_product_merge: "085e65c509fc5f9fed8230d00d2fc07a0e01b79b"' in state
-    assert 'state_cache_snapshot_date: "2026-10-23"' in state
+    assert 'state_cache_snapshot_date: "2026-10-24"' in state
     assert 'next_work_unit: "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"' in state
-    assert "last_completed_product_issue: 696" in state
-    assert "last_completed_product_pr: 698" in state
+    assert "last_completed_product_issue: 715" in state
+    assert "last_completed_product_pr: 718" in state
+    assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
+    assert "active_issue: null" in state
+    assert "active_pr: null" in state
 
 def test_all_recovery_state_caches_are_snapshotted_not_pinned_as_sources():
     report = _report()
