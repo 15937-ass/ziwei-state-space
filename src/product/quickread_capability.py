@@ -9,7 +9,7 @@ capability coverage.
 from __future__ import annotations
 
 import json
-from dataclasses import asdict, dataclass
+from dataclasses import dataclass
 from enum import Enum
 from typing import Any, Mapping, Sequence
 
@@ -117,13 +117,9 @@ class EvidenceSourceRef:
     time_layer: str = "NATAL"
 
     def __post_init__(self) -> None:
-        for field_name in (
-            "source_id",
-            "source_location",
-            "review_status",
-            "allowed_use",
-            "namespace",
-        ):
+        for field_name in ("source_id", "source_location"):
+            object.__setattr__(self, field_name, _text(getattr(self, field_name), field_name))
+        for field_name in ("review_status", "allowed_use", "namespace"):
             value = _text(getattr(self, field_name), field_name)
             object.__setattr__(self, field_name, value.upper())
         object.__setattr__(self, "time_layer", str(self.time_layer or "").strip().upper())
