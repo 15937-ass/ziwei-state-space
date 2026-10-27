@@ -33,7 +33,7 @@ The historical rows `SP03-211…213`, `SP03-224…226`, `SP03-258…261`, and `S
 
 - `SP03-201/202`: preserve the separate female/male branches; the male branch retains “妻子有独立事业，否则便多是非”.
 - `SP03-204/205`: direct scan states a general age-gap relation and that 天寿 makes the difference larger. These are treated as source-grounded relational projections, not automatically copied from the historical case-only flag; no numeric age threshold is inferred.
-- `SP03-207/209/210`: preserve alternatives (premarital setbacks OR reunion with a former partner; and premarital setbacks OR a period of separation after marriage).
+- `SP03-207/209/210`: preserve alternatives (premarital setbacks或reunion with a former partner; and premarital setbacks或a period of separation after marriage).
 - `SP03-215/217/241`: where the original sentence omits the subject of “化禄/化忌”, the record explicitly preserves the ellipsis instead of adding an unstated star subject.
 - `SP03-250/251`: retain the parent context of 子午武府, the male-chart condition and the antecedent 武曲化禄 where required; do not treat the subordinate clauses as context-free rules.
 - `SP03-267/275/285/291/293/299`: preserve source alternatives as OR; do not turn them into all-required AND. The repeated wording in the printed accident clause for `SP03-285` is preserved rather than silently rewritten.
