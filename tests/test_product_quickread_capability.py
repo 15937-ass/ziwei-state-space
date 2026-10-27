@@ -23,7 +23,7 @@ FIXTURE_PATH = (
 )
 
 
-def _slot(slot_id, domain, layer="NATAL", kind="NATAL_STRUCTURE", namespaces=None):
+def _slot(slot_id, domain, layer="NATAL", kind="NATAL_STRUCTURE", namespaces=None, case_scope=None):
     if namespaces is None:
         namespaces = ("CANONICAL",) if layer == "NATAL" else ("CANONICAL", "TEMPORAL")
     return QuickReadScopeSlot(
@@ -32,6 +32,7 @@ def _slot(slot_id, domain, layer="NATAL", kind="NATAL_STRUCTURE", namespaces=Non
         temporal_layer=layer,
         capability_kind=kind,
         required_namespaces=tuple(namespaces),
+        case_scope=case_scope,
     )
 
 
@@ -76,6 +77,22 @@ def _fixture_objects(mode="HYBRID"):
         layer="YEAR",
         location="synthetic year source p.3",
     )
+    career_natal_runtime_source = _ref(
+        "SRC-CAREER-001", allowed_use="EXECUTABLE", location="synthetic source p.1"
+    )
+    career_year_natal_runtime_source = _ref(
+        "SRC-CAREER-NATAL-002",
+        allowed_use="EXECUTABLE",
+        location="synthetic natal source p.2",
+        review="SOURCE_REVIEWED",
+    )
+    career_year_temporal_runtime_source = _ref(
+        "SRC-CAREER-YEAR-003",
+        allowed_use="EXECUTABLE",
+        namespace="TEMPORAL",
+        layer="YEAR",
+        location="synthetic year source p.3",
+    )
     manifest = CapabilityManifest(
         main_sha=fixture["versions"]["main_sha"],
         knowledge_version=fixture["versions"]["knowledge_version"],
@@ -86,6 +103,7 @@ def _fixture_objects(mode="HYBRID"):
                 runtime_status="AVAILABLE",
                 source_status="AVAILABLE",
                 runtime_rule_ids=("RULE-CAREER-NATAL-001",),
+                runtime_source_refs=(career_natal_runtime_source,),
                 source_refs=(career_natal_source,),
                 reason="Synthetic example only.",
             ),
@@ -94,6 +112,7 @@ def _fixture_objects(mode="HYBRID"):
                 runtime_status="PARTIAL",
                 source_status="PARTIAL",
                 runtime_rule_ids=("RULE-CAREER-YEAR-001",),
+                runtime_source_refs=(career_year_natal_runtime_source, career_year_temporal_runtime_source),
                 source_refs=(career_year_natal_source, career_year_temporal_source),
                 reason="Synthetic partial temporal capability.",
             ),
@@ -114,6 +133,11 @@ def _fixture_objects(mode="HYBRID"):
                 ),
             ),
             epistemic_label="CANONICAL_RUNTIME",
+            target_id=request.target_id,
+            execution_id="RUN-SYNTHETIC-001",
+            runtime_version=manifest.runtime_version,
+            main_sha=manifest.main_sha,
+            knowledge_version=manifest.knowledge_version,
         ),
         QuickReadEvidenceItem(
             evidence_id="EV-SOURCE-001",
@@ -441,3 +465,86 @@ def test_chart_context_rejects_non_json_values():
             items,
             chart_context={"bad": {1, 2, 3}},
         )
+
+
+def test_runtime_evidence_must_match_target_and_exact_versions():
+    _, request, manifest, items = _fixture_objects()
+    wrong_target = replace(items[0], target_id="DIFFERENT-CHART")
+    with pytest.raises(ValueError, match="target_id does not match"):
+        build_quickread_payload(
+            request,
+            manifest,
+            (wrong_target, items[1], items[2]),
+            chart_context={"normalized_chart": {"synthetic": True}},
+        )
+
+    wrong_version = replace(items[0], runtime_version="RUNTIME-OLD")
+    with pytest.raises(ValueError, match="runtime_version does not match"):
+        build_quickread_payload(
+            request,
+            manifest,
+            (wrong_version, items[1], items[2]),
+            chart_context={"normalized_chart": {"synthetic": True}},
+        )
+
+
+def test_runtime_source_refs_must_be_declared_in_manifest():
+    _, request, manifest, items = _fixture_objects()
+    forged_ref = _ref(
+        "SRC-FAKE-001",
+        allowed_use="EXECUTABLE",
+        location="invented source location",
+    )
+    forged_runtime = replace(items[0], source_refs=(forged_ref,))
+    with pytest.raises(ValueError, match="runtime source ref is absent"):
+        build_quickread_payload(
+            request,
+            manifest,
+            (forged_runtime, items[1], items[2]),
+            chart_context={"normalized_chart": {"synthetic": True}},
+        )
+
+
+def test_case_only_source_must_match_the_requested_case_scope():
+    slot = _slot(
+        "case_slot",
+        "career",
+        namespaces=("CASE",),
+        case_scope="CASE-001",
+    )
+    ref = _ref(
+        "SRC-CASE-001",
+        allowed_use="CASE_SUPPORT_ONLY",
+        namespace="CASE",
+        location="synthetic case paragraph",
+    )
+    request = QuickReadRequest(
+        question="review a single source case",
+        target_id="SYNTHETIC-CASE-CHART",
+        requested_slots=(slot,),
+        mode="SOURCE_FIRST",
+    )
+    manifest = CapabilityManifest(
+        main_sha="SYNTHETIC-MAIN-SHA",
+        knowledge_version="KB-SYNTHETIC-1",
+        runtime_version="RUNTIME-SYNTHETIC-1",
+        records=(
+            CapabilityRecord(
+                slot=slot,
+                source_status="AVAILABLE",
+                source_refs=(ref,),
+                reason="Synthetic case-scoped fixture.",
+            ),
+        ),
+    )
+    wrong_scope = QuickReadEvidenceItem(
+        evidence_id="EV-CASE-WRONG-SCOPE",
+        slot_id="case_slot",
+        lane="SOURCE",
+        claim="a case-scoped observation",
+        source_refs=(ref,),
+        epistemic_label="CASE_SUPPORT_ONLY",
+        case_scope="CASE-OTHER",
+    )
+    with pytest.raises(ValueError, match="case_scope does not match"):
+        build_quickread_payload(request, manifest, (wrong_scope,))
