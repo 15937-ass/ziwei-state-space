@@ -154,13 +154,23 @@ def test_execution_boundary_and_cumulative_state_are_fail_closed():
         assert s[key] == 0
     state = STATE.read_text(encoding="utf-8")
     assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
-    assert "SP02_101_200_SOURCE_FIRST_REVIEW_COMPLETE" in state
-    assert "historical_candidate_rows_reviewed: 200" in state
-    assert "source_records_added: 167" in state
-    assert "reusable_projection_method_records_added: 135" in state
-    assert "case_support_only_records_added: 32" in state
-    assert "candidates_held: 32" in state
-    assert "candidates_deduplicated: 2" in state
+    assert "SP03_201_300_SOURCE_FIRST_REVIEW_COMPLETE" in state
+    batches = [load(path) for path in sorted(READJ.parent.glob(
+        "SPOUSE_SP*_SOURCE_READJUDICATION_100_v0.1.json"
+    ))]
+    fields = {
+        "historical_candidate_rows_reviewed": "reviewed",
+        "candidate_rows_promoted": "canonical_promoted",
+        "source_records_added": "canonical_record_count",
+        "reusable_projection_method_records_added": "reusable_projection_rules",
+        "case_support_only_records_added": "case_support_only",
+        "candidates_held": "held",
+        "candidates_deduplicated": "deduplicated",
+    }
+    state_lines = set(state.splitlines())
+    for field, summary_key in fields.items():
+        total = sum(batch["summary"][summary_key] for batch in batches)
+        assert f"  {field}: {total}" in state_lines
     assert "conditions_compiled=0" in state
     assert "execution_unlocked=0" in state
 

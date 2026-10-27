@@ -12,46 +12,47 @@ execution:
   active_issue: null
   active_branch: null
   active_pr: null
-  canonical_checkpoint: "SP02_101_200_SOURCE_FIRST_REVIEW_COMPLETE__200_CANDIDATES_REVIEWED__166_CANDIDATES_PROMOTED__167_SOURCE_RECORDS__135_REUSABLE__32_CASE_ONLY__32_HELD__2_DEDUPED__SIX_OPEN_SOURCE_GAPS__12_TEMPORAL_RESIDUAL_GROUPS"
+  canonical_checkpoint: "SP03_201_300_SOURCE_FIRST_REVIEW_COMPLETE__300_CANDIDATES_REVIEWED__253_CANDIDATES_PROMOTED__258_SOURCE_RECORDS__205_REUSABLE__53_CASE_ONLY__45_HELD__2_DEDUPED__FOUR_OPEN_OR_PARTIAL_SOURCE_GAPS__16_TEMPORAL_RESIDUAL_GROUPS"
   note: >-
-    P03 source-first checkpoint for Issue #794. The original SRC-ZZ-003 scan
-    SHA-256 6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c
-    was directly inspected for printed pp35–37 / PDF physical pp18–19. Exactly
-    SP02-101…SP02-200 were re-adjudicated against the original scan; the
-    historical CSV remains read-only and its SOURCE_SPAN_VERIFIED flags are
-    not proof. This batch promotes 77 candidate rows into 77 source records
-    (60 reusable projection/method records; 17 CASE_SUPPORT_ONLY), holds 23
-    historical YEAR assignments because the source does not specify YEAR
-    versus DECADE, and deduplicates 0 rows. The previous P03 batch reviewed
-    100 candidates and produced 90 records (75 reusable, 15 case-only), held
-    9 and deduplicated 2. Cumulative P03 totals are 200 reviewed, 166
-    candidate rows promoted, 167 source records, 135 reusable, 32 case-only,
-    32 held, and 2 deduplicated. P03-SP01-GAP-001 remains open; five new
-    printed-pp35–37 source-coverage gaps are carried forward. Prior temporal
-    residuals remain open and ten additional temporal residual groups were
-    recorded. The full spouse-palace audit is not complete.
-    No Product/runtime authorization is implied; conditions_compiled=0 and
-    execution_unlocked=0.
+    Accepted P03 source-first ledgers now cover SP01-001…100, SP02-101…200,
+    and SP03-201…300. The latest batch directly inspected approved SRC-ZZ-003
+    physical pp19–20 / printed pp37–39; the historical SP03 report and CSV
+    remain read-only acceleration artifacts and their old verification flags
+    are not proof. SP03 reviewed 100 candidate rows: 87 were promoted into
+    source-grounded candidate records, 13 were held because historical YEAR
+    assignments exceeded or conflicted with the source's temporal granularity,
+    and 0 were deduplicated. Four supplemental records captured unindexed
+    source claims, giving 91 source records in this batch (72 reusable,
+    19 CASE_SUPPORT_ONLY). Cumulative totals across SP01+SP02+SP03 are 300
+    reviewed, 253 candidate rows promoted, 258 source records, 205 reusable,
+    53 case-only, 45 held and 2 deduplicated. P03-SP01-GAP-001 remains open;
+    P03-SP02-GAP-001 is only partially resolved because the literal “机录像”
+    and its transit layer remain unresolved; P03-SP02-GAP-002/003 are resolved
+    with source-traceable records; P03-SP02-GAP-004/005 remain open outside
+    the batch span. Nine source-gap entries remain tracked, with four open or
+    partially open. Temporal residuals total 16 groups / 40 candidate rows.
+    P03 is not complete. No Product/runtime authorization is implied;
+    conditions_compiled=0 and execution_unlocked=0.
 
 progress:
   full_source_section_printed_pages: "33–51"
   full_source_section_pdf_physical_pages: "17–26"
   historical_candidate_rows_in_inventory: 836
-  historical_candidate_rows_reviewed: 200
-  candidate_rows_promoted: 166
-  source_records_added: 167
-  reusable_projection_method_records_added: 135
-  case_support_only_records_added: 32
-  candidates_held: 32
+  historical_candidate_rows_reviewed: 300
+  candidate_rows_promoted: 253
+  source_records_added: 258
+  reusable_projection_method_records_added: 205
+  case_support_only_records_added: 53
+  candidates_held: 45
   candidates_deduplicated: 2
-  source_coverage_residuals_carried: 6
+  source_coverage_residuals_carried: 4
   source_coverage_residuals_total_recorded: 9
-  temporal_scope_residuals: 12
-  temporal_scope_candidate_rows: 27
+  temporal_scope_residuals: 16
+  temporal_scope_candidate_rows: 40
   history_feedback: 0
   conditions_compiled: 0
   execution_unlocked: 0
-  next_source_anchor: "Printed p37: inspect SP03-201…300 directly, reconcile P03-SP02-GAP-001…005 (including p35/p36 carry-forward and unresolved scan glyph 机录像) against the original scan, then continue the next source span; the SP03 index is read-only only."
+  next_source_anchor: "Printed p39 / PDF physical p20: start SP04-301…400, directly re-adjudicate remaining Wuqu Chen-Xu / Si-Hai and Tian Tong/Lianzhen material from the original scan. The SP04 historical index is read-only only; do not treat archived SOURCE_SPAN_VERIFIED flags as proof."
 
 integrity:
   source_first: true
