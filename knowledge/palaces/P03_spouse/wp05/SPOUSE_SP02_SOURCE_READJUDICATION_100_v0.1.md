@@ -1,6 +1,6 @@
 # P03 SP02 — source-first re-adjudication of spouse candidates 101–200
 
-**Status:** source review complete; exact-head repository validation pending.  
+**Status:** source review complete. Exact-head validation status is authoritative in the live [PR #796](https://github.com/15937-ass/ziwei-state-space/pull/796) and its matching GitHub Actions run; this file does not claim CI status.  
 **Issue:** #794  
 **Lane / shard:** `KNOWLEDGE_ONLY / P03 夫妻宫`  
 **Source:** `SRC-ZZ-003`, 《中州派紫微斗数深造讲义（下册）》, 下篇·宫垣论·夫妻宫  

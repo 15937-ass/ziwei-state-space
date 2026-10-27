@@ -66,5 +66,5 @@ expiry. No platform trace, HAR or tool-timeout log is available. Recover one
 existing PR and its run identity; do not recreate the same 100-item audit or
 start redundant identical CI on an unchanged validation identity.
 
-Validation remains pending until the final exact-head gate completes. All
+Historical status note: when this recovery checkpoint was drafted, final validation had not yet completed. This records that historical point only. For current acceptance, use the live PR head and its matching GitHub Actions run; this file is not a live status cache and does not claim that any later head passed. All
 source residuals remain explicit; no execution or empirical-validity upgrade.
