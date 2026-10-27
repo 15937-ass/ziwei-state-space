@@ -66,6 +66,7 @@ def test_all_candidate_dispositions_and_counts_reconcile():
     assert sum(r["case_support_only"] is True for r in records) == 21
     assert sum(r["case_support_only"] is False for r in records) == 47
     assert len({r["projection_rule_id"] for r in records}) == 68
+    assert s["source_resolution_change_count"] == sum(r["source_resolution_changed"] is True for r in records)
     held = {k for k, v in by_id().items() if v["direct_scan_disposition"] == "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED"}
     assert held == {f"SP04-{n}" for n in [311,312,313,314,325,326,327,328,344,345,346,352,353,361,362,369,370,371,372,374,375,376,377,381,382,383,388,394,395,396,397,399]}
     known = set(records_by_id())
