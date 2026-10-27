@@ -12,21 +12,24 @@ execution:
   active_issue: null
   active_branch: null
   active_pr: null
-  canonical_checkpoint: "SP01_001_100_SOURCE_FIRST_MERGED__89_CANDIDATES_PROMOTED__90_RECORDS__75_REUSABLE__15_CASE_ONLY__9_HELD__2_DEDUPED__FOUR_RESIDUALS_CARRIED"
+  canonical_checkpoint: "SP02_101_200_SOURCE_FIRST_REVIEW_COMPLETE__200_CANDIDATES_REVIEWED__166_CANDIDATES_PROMOTED__167_SOURCE_RECORDS__135_REUSABLE__32_CASE_ONLY__32_HELD__2_DEDUPED__SIX_OPEN_SOURCE_GAPS__12_TEMPORAL_RESIDUAL_GROUPS"
   note: >-
-    P03 source-first checkpoint for Issue #792. The original SRC-ZZ-003 scan
+    P03 source-first checkpoint for Issue #794. The original SRC-ZZ-003 scan
     SHA-256 6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c
-    was visually inspected for the full P03 section boundary (printed pp33–51,
-    PDF physical pp17–26); SP01-001…SP01-100 were directly re-adjudicated on
-    printed pp33–35 (physical pp17–18). The nine historical candidate CSVs
-    remain read-only and noncanonical. This batch reviewed 100 historical
-    candidate rows, promoted 89 candidate rows into 90 source records (75
-    reusable projection/method records; 15 CASE_SUPPORT_ONLY), held 9 rows
-    with explicit reasons, and deduplicated 2 rows. Four source-coverage /
-    continuation residuals (P03-SP01-GAP-001…004) and two temporal-scope residuals (SP01-091…092; SP01-097…098) remain explicit.
-    The full spouse-palace audit is not complete. Continue P03 at printed p35
-    using SP02-101…200 only as an index; inspect the original source and finish
-    the missing 子午天机 branches before continuing the next source span.
+    was directly inspected for printed pp35–37 / PDF physical pp18–19. Exactly
+    SP02-101…SP02-200 were re-adjudicated against the original scan; the
+    historical CSV remains read-only and its SOURCE_SPAN_VERIFIED flags are
+    not proof. This batch promotes 77 candidate rows into 77 source records
+    (60 reusable projection/method records; 17 CASE_SUPPORT_ONLY), holds 23
+    historical YEAR assignments because the source does not specify YEAR
+    versus DECADE, and deduplicates 0 rows. The previous P03 batch reviewed
+    100 candidates and produced 90 records (75 reusable, 15 case-only), held
+    9 and deduplicated 2. Cumulative P03 totals are 200 reviewed, 166
+    candidate rows promoted, 167 source records, 135 reusable, 32 case-only,
+    32 held, and 2 deduplicated. P03-SP01-GAP-001 remains open; five new
+    printed-pp35–37 source-coverage gaps are carried forward. Prior temporal
+    residuals remain open and ten additional temporal residual groups were
+    recorded. The full spouse-palace audit is not complete.
     No Product/runtime authorization is implied; conditions_compiled=0 and
     execution_unlocked=0.
 
@@ -34,19 +37,21 @@ progress:
   full_source_section_printed_pages: "33–51"
   full_source_section_pdf_physical_pages: "17–26"
   historical_candidate_rows_in_inventory: 836
-  historical_candidate_rows_reviewed: 100
-  candidate_rows_promoted: 89
-  source_records_added: 90
-  reusable_projection_method_records_added: 75
-  case_support_only_records_added: 15
-  candidates_held: 9
+  historical_candidate_rows_reviewed: 200
+  candidate_rows_promoted: 166
+  source_records_added: 167
+  reusable_projection_method_records_added: 135
+  case_support_only_records_added: 32
+  candidates_held: 32
   candidates_deduplicated: 2
-  source_coverage_residuals_carried: 4
-  temporal_scope_residuals: 2
+  source_coverage_residuals_carried: 6
+  source_coverage_residuals_total_recorded: 9
+  temporal_scope_residuals: 12
+  temporal_scope_candidate_rows: 27
   history_feedback: 0
   conditions_compiled: 0
   execution_unlocked: 0
-  next_source_anchor: "Printed p35 continuation: missing 子午天机 煞忌 / 禄权科 / 巨门化忌 branches, then 丑未天机独坐; next read-only candidate index SP02-101…200."
+  next_source_anchor: "Printed p37: inspect SP03-201…300 directly, reconcile P03-SP02-GAP-001…005 (including p35/p36 carry-forward and unresolved scan glyph 机录像) against the original scan, then continue the next source span; the SP03 index is read-only only."
 
 integrity:
   source_first: true
