@@ -16,6 +16,7 @@ WUQU_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/WUQU_S
 TIANTONG_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TIANTONG_SOURCE_SPAN_REVIEW_v0.1.csv"
 ZIWEI_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/ZIWEI_SOURCE_SPAN_REVIEW_v0.1.csv"
 LIANZHEN_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/LIANZHEN_SOURCE_SPAN_REVIEW_v0.1.csv"
+TIANFU_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TIANFU_SOURCE_SPAN_REVIEW_v0.1.csv"
 
 
 def load_baseline():
@@ -25,7 +26,7 @@ def load_baseline():
 def test_solar_taiyin_and_tianxiang_pilots_are_explicitly_noncanonical_and_source_bounded():
     data = load_baseline()
     assert data["status"] == "PROPOSAL_ONLY_NOT_CANONICAL"
-    assert data["checkpoint_status"] == "STAGE_B_LIANZHEN_CHECKPOINT_COMPLETED_NOT_FINAL"
+    assert data["checkpoint_status"] == "STAGE_B_TIANFU_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert data["progress"]["completed_pilot_cards"] == ["太阳", "太阴", "天相"]
     assert data["progress"]["active_pilot_card"] is None
     assert data["progress"]["draft_pilot_cards"] == ["太阳", "太阴", "天相"]
@@ -38,12 +39,13 @@ def test_solar_taiyin_and_tianxiang_pilots_are_explicitly_noncanonical_and_sourc
     assert data["method_guardrails"]["product_consumption_authorized"] is False
     assert data["method_guardrails"]["normalization_epistemic"] == "UNRESOLVED"
     assert len([star for star in data["stars"] if star["name"] in {"太阳", "太阴", "天相"}]) == 3
-    assert len(data["stars"]) == 8
+    assert len(data["stars"]) == 9
     assert data["stars"][5]["name"] == "武曲"
     assert data["stars"][6]["name"] == "天同"
     assert data["stars"][7]["name"] == "廉贞"
-    assert data["progress"]["stage"] == "B_LIANZHEN_CHECKPOINT_COMPLETED_READY_FOR_TIANFU"
-    assert data["progress"]["remaining_expansion_stars_in_existing_order"][0] == "天府"
+    assert data["stars"][8]["name"] == "天府"
+    assert data["progress"]["stage"] == "B_TIANFU_CHECKPOINT_COMPLETED_READY_FOR_TANLANG"
+    assert data["progress"]["remaining_expansion_stars_in_existing_order"][0] == "贪狼"
     assert data["stars"][0]["name"] == "太阳"
     assert data["stars"][0]["status"] == "PILOT_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert data["stars"][1]["name"] == "太阴"
@@ -338,17 +340,17 @@ def test_method_permission_and_progress_metadata_remain_consistent():
     assert audit["research_disposition"] == "CONTINUE_STAGE_B_CANDIDATE_RESEARCH_NEXT_BOUNDED_TURN"
     assert audit["next_star"] == "紫微"  # Historical method-exit handoff; this star has now been researched.
     progress = data["progress"]
-    assert progress["completed_expansion_stars"] == ["紫微", "天机", "武曲", "天同", "廉贞"]
+    assert progress["completed_expansion_stars"] == ["紫微", "天机", "武曲", "天同", "廉贞", "天府"]
     assert progress["remaining_expansion_stars_in_existing_order"] == [
-        "天府", "贪狼", "巨门", "天梁", "七杀", "破军"
+        "贪狼", "巨门", "天梁", "七杀", "破军"
     ]
     # Current progress must reconcile with the cards and historical checkpoints.
     card_names = [star["name"] for star in data["stars"]]
     completed = progress["completed_pilot_cards"] + progress["completed_expansion_stars"]
     remaining = progress["remaining_expansion_stars_in_existing_order"]
     assert card_names == completed
-    assert len(card_names) == len(set(card_names)) == 8
-    assert len(remaining) == len(set(remaining)) == 6
+    assert len(card_names) == len(set(card_names)) == 9
+    assert len(remaining) == len(set(remaining)) == 5
     assert set(completed).isdisjoint(remaining)
     assert len(set(completed + remaining)) == 14
     history = progress["expansion_checkpoint_history"]
@@ -605,7 +607,7 @@ def test_lianzhen_candidate_checkpoint_keeps_source_disagreement_and_scope_unres
     assert all(prop["normalization_epistemic"] == "UNRESOLVED" for prop in lz["candidate_properties"])
     assert all(prop["canonicalization_authorized"] is False for prop in lz["candidate_properties"])
     assert all(prop["numeric_strength_assigned"] is False for prop in lz["candidate_properties"])
-    assert data["progress"]["remaining_expansion_stars_in_existing_order"] == ["天府", "贪狼", "巨门", "天梁", "七杀", "破军"]
+    assert data["progress"]["remaining_expansion_stars_in_existing_order"] == ["贪狼", "巨门", "天梁", "七杀", "破军"]
 
     claims = {claim["claim_key"]: claim for claim in lz["source_claims"]}
     assert claims["LZ-L0-SUBSTRATE-SOURCE-DISAGREEMENT"]["source_locator"]["source_id"] == "SRC-ZZ-001"
@@ -642,3 +644,55 @@ def test_lianzhen_candidate_checkpoint_keeps_source_disagreement_and_scope_unres
     assert by_id["ZZ-LZ-008"]["source_pdf_page"] == "20"
     assert by_id["ZZ-LZ-009"]["source_pdf_page"] == "42"
     assert by_id["ZZ-LZ-010"]["source_pdf_page"] == "75"
+
+
+def test_tianfu_candidate_checkpoint_is_source_bounded_and_noncanonical():
+    data = load_baseline()
+    tf = next(star for star in data["stars"] if star["name"] == "天府")
+    assert tf["star_id"] == "STAR-TF"
+    assert tf["status"] == "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL"
+    assert len(tf["source_claims"]) == 16
+    assert len(tf["candidate_properties"]) == 18
+    assert all(prop["canonicalization_authorized"] is False for prop in tf["candidate_properties"])
+    assert all(prop["numeric_strength_assigned"] is False for prop in tf["candidate_properties"])
+    assert all(prop["normalization_epistemic"] == "UNRESOLVED" for prop in tf["candidate_properties"])
+    assert data["source_policy"]["tianfu_source_locator"]["pdf_scan_page"] == 9
+    assert data["source_policy"]["tianfu_source_locator"]["printed_pages"] == [17, 18]
+    assert data["source_policy"]["tianfu_source_locator"]["prior_visual_review_rows_reused"] == 5
+    assert data["progress"]["completed_expansion_stars"] == ["紫微", "天机", "武曲", "天同", "廉贞", "天府"]
+    assert data["progress"]["remaining_expansion_stars_in_existing_order"] == ["贪狼", "巨门", "天梁", "七杀", "破军"]
+    assert data["progress"]["expansion_checkpoint_history"][-1]["next_star"] == "贪狼"
+    assert data["progress"]["expansion_checkpoint_history"][-1]["prior_visual_review_rows_reused"] == 5
+    records = {record["review_record_id"]: record for record in data["mapping_review_records"]}
+    tf_records = {key: record for key, record in records.items() if key.startswith("MR-TF-")}
+    assert len(tf_records) == 18
+    assert all(prop["mapping_review_record_id"] in records for prop in tf["candidate_properties"])
+    assert validate_mapping_review_collection(data["mapping_review_records"]) == []
+    with TIANFU_SOURCE_REVIEW.open(encoding="utf-8", newline="") as handle:
+        review_rows = list(csv.DictReader(handle))
+    with CANONICAL_RULES.open(encoding="utf-8", newline="") as handle:
+        canonical_rows = list(csv.DictReader(handle))
+    expected_ids = {row["rule_id"] for row in canonical_rows if row["rule_id"].startswith("ZZ-TF-")}
+    assert len(review_rows) == 25
+    assert {row["rule_id"] for row in review_rows} == expected_ids
+    assert len({row["rule_id"] for row in review_rows}) == len(review_rows)
+    assert all(row["source_span_status"] == "VERIFIED_VISUAL_SCAN" for row in review_rows)
+    assert all(row["proposal_status"] == "PROPOSAL_ONLY_NOT_CANONICAL" for row in review_rows)
+    assert all(row["normalization_epistemic_after"] == "UNRESOLVED" for row in review_rows)
+    assert all(row["canonical_source_span_verified_after"] == "false" for row in review_rows)
+    assert all(row["source_pdf_page"] == "9" for row in review_rows)
+    by_id = {row["rule_id"]: row for row in review_rows}
+    assert by_id["ZZ-TF-002"]["source_printed_page"] == "17"
+    assert "不重复计为独立证据" in by_id["ZZ-TF-002"]["core_use_assessment"]
+    assert by_id["ZZ-TF-007"]["source_printed_page"] == "17-18"
+    assert "空库" in by_id["ZZ-TF-007"]["literal_source_span"]
+    assert "露库" in by_id["ZZ-TF-008"]["literal_source_span"]
+    assert by_id["ZZ-TF-010"]["source_printed_page"] == "18"
+    assert "运限" in by_id["ZZ-TF-010"]["condition_scope_assessment"]
+    assert "财星" in by_id["ZZ-TF-002"]["modality_scope_ambiguity"]
+    with CANONICAL_RULES.open(encoding="utf-8", newline="") as handle:
+        rows = {row["rule_id"]: row for row in csv.DictReader(handle)}
+    for rule_id in expected_ids:
+        assert rows[rule_id]["source_epistemic"] == "EXPLICIT"
+        assert rows[rule_id]["normalization_epistemic"] == "UNRESOLVED"
+        assert rows[rule_id]["source_span_verified"] == "false"

@@ -3,7 +3,7 @@
   "artifact_id": "KB-CORE-14STAR-PROPERTY-NORMALIZATION-BASELINE-01",
   "issue": 757,
   "status": "PROPOSAL_ONLY_NOT_CANONICAL",
-  "checkpoint_status": "STAGE_B_LIANZHEN_CHECKPOINT_COMPLETED_NOT_FINAL",
+  "checkpoint_status": "STAGE_B_TIANFU_CHECKPOINT_COMPLETED_NOT_FINAL",
   "activation_main_sha": "74864f572cdd04407c241c483f3a34c646f69d3a",
   "execution_branch": "knowledge/core-757-14star-property-normalization-main-sync2",
   "source_policy": {
@@ -350,10 +350,59 @@
       "ZZ-TT-006",
       "ZZ-TT-X01",
       "ZZ-TT-X02"
-    ]
+    ],
+    "tianfu_review_rule_ids": [
+      "ZZ-TF-001",
+      "ZZ-TF-002",
+      "ZZ-TF-003",
+      "ZZ-TF-004",
+      "ZZ-TF-005",
+      "ZZ-TF-006",
+      "ZZ-TF-007",
+      "ZZ-TF-008",
+      "ZZ-TF-009",
+      "ZZ-TF-010",
+      "ZZ-TF-X01",
+      "ZZ-TF-X02",
+      "ZZ-TF-X03",
+      "ZZ-TF-X04",
+      "ZZ-TF-X05",
+      "ZZ-TF-X06",
+      "ZZ-TF-X07",
+      "ZZ-TF-X08",
+      "ZZ-TF-X09",
+      "ZZ-TF-X10",
+      "ZZ-TF-Y01",
+      "ZZ-TF-Y02",
+      "ZZ-TF-Y03",
+      "ZZ-TF-Y04",
+      "ZZ-TF-Y05"
+    ],
+    "tianfu_review_path": "knowledge/core/14star-property-normalization/TIANFU_SOURCE_SPAN_REVIEW_v0.1.csv",
+    "tianfu_prior_review_rule_ids": [
+      "ZZ-TF-002",
+      "ZZ-TF-003",
+      "ZZ-TF-004",
+      "ZZ-TF-005",
+      "ZZ-TF-006"
+    ],
+    "tianfu_prior_review_path": "knowledge/core/direct-star-source-review/DIRECT_STAR_SOURCE_REVIEW_BATCH_01_v0.1.csv",
+    "tianfu_source_locator": {
+      "source_id": "SRC-ZZ-002",
+      "source_work": "《中州派紫微斗数深造讲义（上）》",
+      "source_sha256": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a",
+      "pdf_scan_page": 9,
+      "printed_pages": [
+        17,
+        18
+      ],
+      "verification": "VISUAL_SOURCE_REVIEWED; SHA256_MATCHES_SOURCES_INDEX",
+      "prior_visual_review_rows_reused": 5,
+      "canonical_source_span_verified_mutated": false
+    }
   },
   "progress": {
-    "stage": "B_LIANZHEN_CHECKPOINT_COMPLETED_READY_FOR_TIANFU",
+    "stage": "B_TIANFU_CHECKPOINT_COMPLETED_READY_FOR_TANLANG",
     "completed_pilot_cards": [
       "太阳",
       "太阴",
@@ -361,14 +410,13 @@
     ],
     "remaining_pilot_cards": [],
     "remaining_expansion_stars_in_existing_order": [
-      "天府",
       "贪狼",
       "巨门",
       "天梁",
       "七杀",
       "破军"
     ],
-    "coverage_warning": "Stage A pilots 太阳、太阴、天相 remain completed research checkpoints, not final canonical mappings. Stage B has completed bounded candidate checkpoints for 紫微 (43 rows), 天机 (39 rows), 武曲 (41 rows), 天同 (25 rows), and 廉贞 (27 existing canonical rows). The Lian Zhen checkpoint visually reviewed SRC-ZZ-002 scan p8/printed pp15–16 and the specific locators for its other canonical rows; source-label disagreement on ZZ-LZ-001 and scope questions on ZZ-LZ-003/004 and ZZ-LZ-008..010 remain unresolved. The separate 44-row ZZ-FULL-LZ extraction inventory is not counted as 44 additional canonical rules. All canonical source_span_verified flags remain false and normalization_epistemic remains UNRESOLVED. Next star is 天府.",
+    "coverage_warning": "Stage A pilots 太阳、太阴、天相 are completed research checkpoints, not final canonical mappings. Stage B has completed bounded candidate checkpoints for 紫微 (43 rows), 天机 (39 rows), 武曲 (41 rows), 天同 (25 rows), 廉贞 (27 rows), and 天府 (25 rows). Tianfu was visually reviewed on SRC-ZZ-002 scan p9/printed pp17–18; five prior DIRECT_STAR rows were reused and rechecked without double-counting. Preserve the financial-store metaphor versus resource generation, comparative guard/leadership language, distinct 空库/露库 conditions, Tianxiang-mediated authority, Ziwei hierarchy, Qisha/system context, and natal-vs-temporal boundary. All candidates remain PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED; canonical source_span_verified remains false. Next star is 贪狼.",
     "active_pilot_card": null,
     "draft_pilot_cards": [
       "太阳",
@@ -380,7 +428,8 @@
       "天机",
       "武曲",
       "天同",
-      "廉贞"
+      "廉贞",
+      "天府"
     ],
     "active_expansion_star": null,
     "draft_expansion_stars": [
@@ -388,7 +437,8 @@
       "天机",
       "武曲",
       "天同",
-      "廉贞"
+      "廉贞",
+      "天府"
     ],
     "expansion_checkpoint_history": [
       {
@@ -608,6 +658,26 @@
         "canonicalization_authorized": false,
         "product_consumption_authorized": false,
         "next_star": "天府"
+      },
+      {
+        "star": "天府",
+        "status": "CHECKPOINT_COMPLETED_NOT_FINAL",
+        "source_id": "SRC-ZZ-002",
+        "pdf_scan_page": 9,
+        "printed_pages": [
+          17,
+          18
+        ],
+        "canonical_rule_rows_reviewed": 25,
+        "source_review_rows": 25,
+        "prior_visual_review_rows_reused": 5,
+        "mapping_review_records_added": 18,
+        "source_claims_added": 16,
+        "candidate_properties_added": 18,
+        "normalization_epistemic": "UNRESOLVED",
+        "canonicalization_authorized": false,
+        "product_consumption_authorized": false,
+        "next_star": "贪狼"
       }
     ]
   },
@@ -5041,6 +5111,682 @@
         "44条ZZ-FULL-LZ全文提取记录与27条现有ZZ-LZ canonical行是不同覆盖集；本轮不把两者相加或重复计证。",
         "所有候选保持PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED；不修改正式星核、本体、canonical规则、共享Schema或Product权限。"
       ]
+    },
+    {
+      "star_id": "STAR-TF",
+      "name": "天府",
+      "status": "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL",
+      "source_claims": [
+        {
+          "claim_key": "TF-L0-SUBSTRATE",
+          "source_rule_ids": [
+            "ZZ-TF-001"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 9,
+            "printed_page": 17
+          },
+          "source_excerpt": "天府为南斗主星，属阳土。",
+          "claim_layer": "L0_STRUCTURE_METADATA",
+          "claim_summary": "阳土与南斗主星仅作L0元数据，不支持QI方向、强度或五行计算。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+          "conditions_to_preserve": [
+            "南斗主星",
+            "阳土",
+            "不推导QI"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TF:p9:p17:substrate",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TARGET_INFERENCE_NOT_DIRECTLY_SUPPORTED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TF-L1-RESOURCE-ROLE",
+          "source_rule_ids": [
+            "ZZ-TF-002"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 9,
+            "printed_page": 17
+          },
+          "source_excerpt": "天府所执掌的是财权，本身并不是财星，古人譬喻之为财库；即如今日之中央银行行长。",
+          "claim_layer": "L1_RESOURCE_ROLE",
+          "claim_summary": "财库是资源管理/储藏的比喻；原文明言天府本身并非财星。",
+          "candidate_target_ref": "STAR-TF.intrinsic_signature:QI-12",
+          "conditions_to_preserve": [
+            "财权而非财星",
+            "财库为比喻",
+            "不预测现实财富"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TF:p9:p17:resource-role",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TF-L1-MANAGEMENT-VS-GENERATION",
+          "source_rule_ids": [
+            "ZZ-TF-003",
+            "ZZ-TF-004"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 9,
+            "printed_page": 17
+          },
+          "source_excerpt": "只有运用财帛、储藏财帛的能力，而缺乏生财的能力。",
+          "claim_layer": "L1_RESOURCE_MANAGEMENT_VS_GENERATION",
+          "claim_summary": "资源运用/储藏与资源生成能力被明确区分；同一原文跨度只计一次。",
+          "candidate_target_ref": "STAR-TF.intrinsic_signature:QI-12",
+          "conditions_to_preserve": [
+            "运用与储藏",
+            "缺乏生财能力",
+            "不合并为单一资源强度"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TF:p9:p17:resource-capacity",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TF-L1-GUARD-VS-CREATION",
+          "source_rule_ids": [
+            "ZZ-TF-005",
+            "ZZ-TF-X03",
+            "ZZ-TF-X04"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 9,
+            "printed_page": 17
+          },
+          "source_excerpt": "紫微可以开创，天府却利于守成；天府宜安定，不宜在逆境中打开局面。",
+          "claim_layer": "L1_COMPARATIVE_GUARD_AND_STABILITY",
+          "claim_summary": "守成是相对紫微的比较，安定/逆境与见煞后的奔波是不同层次。",
+          "candidate_target_ref": "STAR-TF.intrinsic_signature:QI-04",
+          "conditions_to_preserve": [
+            "与紫微比较",
+            "守成与开创",
+            "见煞为条件修饰"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TF:p9:p17:guard-stability",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 2
+        },
+        {
+          "claim_key": "TF-L1-RELATIVE-LEADERSHIP",
+          "source_rule_ids": [
+            "ZZ-TF-006",
+            "ZZ-TF-X01"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 9,
+            "printed_page": 17
+          },
+          "source_excerpt": "天府的决断力、领导力便也逊于紫微；天府亦只是紫微的臣佐而已。",
+          "claim_layer": "L1_RELATIVE_LEADERSHIP",
+          "claim_summary": "原文以紫微为比较对象，臣佐是传统结构比喻，不等于现代领导力测量。",
+          "candidate_target_ref": "STAR-TF.relational_signature:QR-02",
+          "conditions_to_preserve": [
+            "保留紫微比较对象",
+            "臣佐为传统比喻",
+            "不作绝对排名"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TF:p9:p17:leadership",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TF-L2-KONGKU-LUKU-CONDITIONS",
+          "source_rule_ids": [
+            "ZZ-TF-007",
+            "ZZ-TF-008"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 9,
+            "printed_page": 17
+          },
+          "source_excerpt": "无禄同会或与地空、天空同躔称为空库；天相不吉带煞或四煞刑忌交会称为露库。",
+          "claim_layer": "L2_DISTINCT_KONGKU_LUKU_GATES",
+          "claim_summary": "空库与露库有不同来源条件，不能合并成一般负向状态。",
+          "candidate_target_ref": "STAR-TF.conditional_signature",
+          "conditions_to_preserve": [
+            "无禄/地空天空可为空库",
+            "天相不吉带煞/四煞刑忌可为露库"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TF:p9:p17-18:treasury-gates",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TF-L2-KONGKU-TRADITIONAL-OUTCOME",
+          "source_rule_ids": [
+            "ZZ-TF-009",
+            "ZZ-TF-Y03"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 9,
+            "printed_page": 18
+          },
+          "source_excerpt": "[空库]使天府发展为巧取豪夺，有如一个政府的库房空虚，便必税吏横行，税法苛难，因此天府的性质便变得善用手段，外表圆融，而内心则多权术，究竟成为孤立。",
+          "claim_layer": "L2_KONGKU_TRADITIONAL_OUTCOME",
+          "claim_summary": "空库后的道德化描述不转为现代人格诊断或现实行为预测。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "空库前提",
+            "保留原文语气",
+            "不作现代诊断"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TF:p9:p18:kongku-outcome",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TF-L2-LUKU-DEFECT",
+          "source_rule_ids": [
+            "ZZ-TF-Y04"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 9,
+            "printed_page": 18
+          },
+          "source_excerpt": "[露库]使天府平添许多困扰，必须设法弥缝暴露出来的缺陷。有如一家中央银行缺点暴露，便非由财政要员出来表示信心不可。",
+          "claim_layer": "L2_LUKU_DEFECT_RESPONSE",
+          "claim_summary": "露库强调缺陷暴露后的困扰与弥缝，与空库后果不同。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "露库前提",
+            "暴露缺陷",
+            "弥缝"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TF:p9:p18:luku-outcome",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TF-L2-TIANYIANG-POWER",
+          "source_rule_ids": [
+            "ZZ-TF-X06",
+            "ZZ-TF-X07"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 9,
+            "printed_page": 17
+          },
+          "source_excerpt": "天相永远跟天府在三方会合；天相吉可使天府权力得以发挥，刑忌夹或四煞刑忌冲破则使其受制。",
+          "claim_layer": "L2_TIANYIANG_MEDIATED_AUTHORITY",
+          "claim_summary": "“逢府看相”是关系门控，正反分支必须同时保留。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "天相三方会合",
+            "财荫夹/辅佐",
+            "刑忌夹/四煞刑忌冲破"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TF:p9:p17-18:tiantian-authority",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TF-L2-BAIGUAN-JUNCHEN",
+          "source_rule_ids": [
+            "ZZ-TF-Y01",
+            "ZZ-TF-X02",
+            "ZZ-TF-Y02"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 9,
+            "printed_page": 17
+          },
+          "source_excerpt": "天府亦喜百官朝拱；紫府同度并辅佐会照称君臣庆会，君主仍是紫微。",
+          "claim_layer": "L2_BAIGUAN_AND_JUNCHEN_STRUCTURE",
+          "claim_summary": "百官朝拱与君臣庆会有不同边界；不能把天府抬为君主。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "百官朝拱",
+            "紫府同度及辅佐会照",
+            "君主仍是紫微"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TF:p9:p17:baiguan-junchen",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 2
+        },
+        {
+          "claim_key": "TF-L2-STABILITY-SHA",
+          "source_rule_ids": [
+            "ZZ-TF-X03",
+            "ZZ-TF-X04"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 9,
+            "printed_page": 17
+          },
+          "source_excerpt": "天府宜安定；煞曜增加奔波劳碌、带来逆境。",
+          "claim_layer": "L2_STABILITY_AND_SHA_MODIFIER",
+          "claim_summary": "安定描述与见煞后的逆境是基础描述和条件修饰，不是固定负向值。",
+          "candidate_target_ref": "STAR-TF.intrinsic_signature:QI-04",
+          "conditions_to_preserve": [
+            "宜安定",
+            "见煞后奔波逆境",
+            "不作单调负分"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TF:p9:p17:stability-sha",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 2
+        },
+        {
+          "claim_key": "TF-L2-LU-RESOURCE",
+          "source_rule_ids": [
+            "ZZ-TF-X05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 9,
+            "printed_page": 17
+          },
+          "source_excerpt": "由于天府只是财库，所以最宜见禄，禄存与化禄均可。有禄则财库充盈，能够发挥其运用财权的能力。",
+          "claim_layer": "L2_LU_RESOURCE_AVAILABILITY",
+          "claim_summary": "禄存与化禄是资源充盈分支，不证明资源生成或现实财运。",
+          "candidate_target_ref": "STAR-TF.intrinsic_signature:QI-12",
+          "conditions_to_preserve": [
+            "禄存与化禄",
+            "财库充盈"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TF:p9:p17:lu-resource",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TF-L2-QISHA-ACTIVATION",
+          "source_rule_ids": [
+            "ZZ-TF-X10"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 9,
+            "printed_page": 18
+          },
+          "source_excerpt": "天府在十二宫中的分布，必与七杀相对，此为天府激发力的源头。若七杀会合的星曜不吉，如会见刑忌之星，且各见天虚、阴煞同度，则对天府的激发力不足。这时候，假如天府又为空库，便易产生人生空幻的感觉。这是经过一番营谋而仍无所得的心理状态，偏向于消极，跟佛家之所谓[空]绝不相同。",
+          "claim_layer": "L2_QISHA_OPPOSITION_AND_ACTIVATION",
+          "claim_summary": "天府激发力依赖对宫七杀及其会合条件；空库叠加才引出空幻/消极。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "天府与七杀相对",
+            "七杀会合不吉",
+            "天府又为空库"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TF:p9:p18:qisha-gate",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TF-L2-SYSTEM-POSITIONS",
+          "source_rule_ids": [
+            "ZZ-TF-Y05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 9,
+            "printed_page": 18
+          },
+          "source_excerpt": "在子午宫，[武曲天府]同度；在卯酉宫，则天府独坐，对[武曲七杀]，构成[武府杀]的星系。在丑未宫，天府独坐，对宫为[廉贞七杀]；在辰戌宫，[廉贞天府]同度，构成[廉府杀]的星系。在寅申宫，[紫微天府]同度；在巳亥宫，天府独坐，对宫为[紫微七杀]。",
+          "claim_layer": "L2_STAR_SYSTEM_POSITIONAL_CONTEXT",
+          "claim_summary": "星系与宫位分布是关系结构，不归为天府单星性质。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "武府杀/廉府杀/紫杀府",
+            "保留各宫位分支"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TF:p9:p18:system-positions",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 2
+        },
+        {
+          "claim_key": "TF-L3-NATAL-TEMPORAL-BOUNDARY",
+          "source_rule_ids": [
+            "ZZ-TF-010"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 9,
+            "printed_page": 18
+          },
+          "source_excerpt": "以上所论为天府的本质；大限流年天府躔度时，无空库、露库之说。",
+          "claim_layer": "L3_NATAL_VS_TEMPORAL_SCOPE",
+          "claim_summary": "本命空库/露库的本质判定不能直接套用于大限流年天府坐命。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "本命本质",
+            "大限流年天府",
+            "不回写人格"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TF:p9:p18:natal-temporal",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TF-L3-TEMPORAL-OUTCOMES",
+          "source_rule_ids": [
+            "ZZ-TF-X08",
+            "ZZ-TF-X09"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 9,
+            "printed_page": 18
+          },
+          "source_excerpt": "运限无禄而见四煞刑忌仅主困难挫折，不主宫非词讼；空劫并照则孤立转寂寞空虚。",
+          "claim_layer": "L3_TEMPORAL_CONDITIONAL_OUTCOMES",
+          "claim_summary": "运限条件下的困难/寂寞结果与本命性质分开，不扩写为现实事件预测。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "无禄+四煞刑忌",
+            "困难不等于官非",
+            "空劫并照",
+            "孤立转寂寞空虚"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TF:p9:p18:temporal-outcomes",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        }
+      ],
+      "candidate_properties": [
+        {
+          "candidate_key": "EXP-TF-01",
+          "layer": "L0",
+          "candidate_label": "阳土/南斗主星结构元数据（不映射QI）",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+          "source_rule_ids": [
+            "ZZ-TF-001"
+          ],
+          "mapping_review_record_id": "MR-TF-L0-SUBSTRATE-001",
+          "mapping_disposition": "not_supported_for_target",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TF-02",
+          "layer": "L1",
+          "candidate_label": "财库隐喻与资源角色（非财星）",
+          "target_ref": "STAR-TF.intrinsic_signature:QI-12",
+          "source_rule_ids": [
+            "ZZ-TF-002"
+          ],
+          "mapping_review_record_id": "MR-TF-RESOURCE-STORE-002",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TF-03",
+          "layer": "L1",
+          "candidate_label": "资源运用与储藏能力候选",
+          "target_ref": "STAR-TF.intrinsic_signature:QI-12",
+          "source_rule_ids": [
+            "ZZ-TF-003"
+          ],
+          "mapping_review_record_id": "MR-TF-RESOURCE-MANAGEMENT-003",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TF-04",
+          "layer": "L1",
+          "candidate_label": "资源管理与资源生成能力分离",
+          "target_ref": "STAR-TF.intrinsic_signature:QI-12",
+          "source_rule_ids": [
+            "ZZ-TF-003",
+            "ZZ-TF-004"
+          ],
+          "mapping_review_record_id": "MR-TF-RESOURCE-GENERATION-004",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TF-05",
+          "layer": "L1",
+          "candidate_label": "守成与开创的比较性候选",
+          "target_ref": "STAR-TF.intrinsic_signature:QI-04",
+          "source_rule_ids": [
+            "ZZ-TF-005",
+            "ZZ-TF-X03"
+          ],
+          "mapping_review_record_id": "MR-TF-QI04-GUARD-005",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TF-06",
+          "layer": "L1",
+          "candidate_label": "相对紫微的决断/领导比较",
+          "target_ref": "STAR-TF.relational_signature:QR-02",
+          "source_rule_ids": [
+            "ZZ-TF-006",
+            "ZZ-TF-X01"
+          ],
+          "mapping_review_record_id": "MR-TF-RELATIVE-LEADERSHIP-006",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TF-07",
+          "layer": "L2",
+          "candidate_label": "空库/露库的不同条件分支",
+          "target_ref": "STAR-TF.conditional_signature",
+          "source_rule_ids": [
+            "ZZ-TF-007",
+            "ZZ-TF-008"
+          ],
+          "mapping_review_record_id": "MR-TF-KONGKU-LUKU-007",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TF-08",
+          "layer": "L2",
+          "candidate_label": "空库后的传统手段/权术/孤立描述",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TF-009",
+            "ZZ-TF-Y03"
+          ],
+          "mapping_review_record_id": "MR-TF-KONGKU-CONSEQUENCE-008",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TF-09",
+          "layer": "L2",
+          "candidate_label": "露库后的困扰与弥缝缺陷描述",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TF-Y04"
+          ],
+          "mapping_review_record_id": "MR-TF-LUKU-CONSEQUENCE-009",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TF-10",
+          "layer": "L3",
+          "candidate_label": "本命空库/露库与运限天府严格分层",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "source_rule_ids": [
+            "ZZ-TF-010"
+          ],
+          "mapping_review_record_id": "MR-TF-NATAL-TEMPORAL-010",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TF-11",
+          "layer": "L2",
+          "candidate_label": "紫微为君、天府为臣佐的层级结构",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TF-X01",
+            "ZZ-TF-X02"
+          ],
+          "mapping_review_record_id": "MR-TF-ZIWEI-HIERARCHY-011",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TF-12",
+          "layer": "L2",
+          "candidate_label": "百官朝拱与君臣庆会结构边界",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TF-Y01",
+            "ZZ-TF-Y02"
+          ],
+          "mapping_review_record_id": "MR-TF-BAIGUAN-012",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TF-13",
+          "layer": "L2",
+          "candidate_label": "安定/守成与见煞奔波逆境的条件关系",
+          "target_ref": "STAR-TF.intrinsic_signature:QI-04",
+          "source_rule_ids": [
+            "ZZ-TF-X03",
+            "ZZ-TF-X04"
+          ],
+          "mapping_review_record_id": "MR-TF-STABILITY-SHA-013",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TF-14",
+          "layer": "L2",
+          "candidate_label": "见禄对财库充盈与资源运用的条件性影响",
+          "target_ref": "STAR-TF.intrinsic_signature:QI-12",
+          "source_rule_ids": [
+            "ZZ-TF-X05"
+          ],
+          "mapping_review_record_id": "MR-TF-LU-RESOURCE-014",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TF-15",
+          "layer": "L2",
+          "candidate_label": "天相对天府财权发挥的关系门控",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TF-X06",
+            "ZZ-TF-X07"
+          ],
+          "mapping_review_record_id": "MR-TF-TIANYIANG-POWER-015",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TF-16",
+          "layer": "L2",
+          "candidate_label": "天府—七杀相对及激发条件",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TF-X10"
+          ],
+          "mapping_review_record_id": "MR-TF-QISHA-ACTIVATION-016",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TF-17",
+          "layer": "L2",
+          "candidate_label": "武府杀/廉府杀/紫杀府系统及宫位分支",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TF-Y05"
+          ],
+          "mapping_review_record_id": "MR-TF-SYSTEM-POSITIONS-017",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TF-18",
+          "layer": "L3",
+          "candidate_label": "运限见煞忌与空劫的结果范围",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "source_rule_ids": [
+            "ZZ-TF-X08",
+            "ZZ-TF-X09"
+          ],
+          "mapping_review_record_id": "MR-TF-TEMPORAL-RESULT-018",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        }
+      ],
+      "non_promotion_guards": [
+        "阳土/南斗主星只作L0传统结构元数据，不推导QI方向、强度或五行生克。",
+        "天府被譬喻为财库，但原文明言其本身并非财星；资源运用/储藏与资源生成能力必须分开。",
+        "“守成”与“开创”、决断力/领导力均以紫微为比较对象，不转为绝对人格排名。",
+        "空库与露库是不同条件分支；无禄/地空天空、天相状态与四煞刑忌不能合并为单一负值。",
+        "空库后的“巧取豪夺/权术/孤立”等属于历史文本措辞，不作现代人格诊断或现实行为预测。",
+        "本命空库/露库与大限流年天府明确分层；运限困难、宫非词讼、寂寞空虚不回写本命人格。",
+        "“逢府看相”是天相状态对天府财权发挥的关系门控；正反分支都保留。",
+        "百官朝拱、君臣庆会与武府杀/廉府杀/紫杀府是结构/系统语境，不泛化为天府单星属性。",
+        "禄存与化禄可充盈财库，不等于提高生财能力或现实财富保证。",
+        "所有候选均为PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED；不改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限。"
+      ]
     }
   ],
   "mapping_review_records": [
@@ -7471,6 +8217,356 @@
       "evidence_role": {
         "state": "KNOWN",
         "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TF-L0-SUBSTRATE-001",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17#ZZ-TF-001"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+      "rationale": "阳土与南斗主星是传统结构元数据；不由五行标签推导QI方向、强度或生克。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TF-RESOURCE-STORE-002",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17#ZZ-TF-002"
+      ],
+      "target_ref": "STAR-TF.intrinsic_signature:QI-12",
+      "rationale": "原文明确天府执掌财权但本身并非财星，财库是比喻；不作为现实财富保证。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "resource_availability",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TF-RESOURCE-MANAGEMENT-003",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17#ZZ-TF-003"
+      ],
+      "target_ref": "STAR-TF.intrinsic_signature:QI-12",
+      "rationale": "原文支持资源运用/储藏描述，但不等于资源生成或现实财富结果。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "resource_availability",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TF-RESOURCE-GENERATION-004",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17#ZZ-TF-004"
+      ],
+      "target_ref": "STAR-TF.intrinsic_signature:QI-12",
+      "rationale": "“缺乏生财能力”与资源运用/储藏不同，不合并为单一资源强度。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "resource_existence",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TF-QI04-GUARD-005",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17#ZZ-TF-005"
+      ],
+      "target_ref": "STAR-TF.intrinsic_signature:QI-04",
+      "rationale": "守成与紫微开创构成比较，且原文限制逆境开局；映射仍需目标特定审议。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TF-RELATIVE-LEADERSHIP-006",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17#ZZ-TF-006",
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17#ZZ-TF-X01"
+      ],
+      "target_ref": "STAR-TF.relational_signature:QR-02",
+      "rationale": "决断/领导力逊于紫微与臣佐比喻均有比较对象，不转为绝对领导力排名。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TF-KONGKU-LUKU-007",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17-18#ZZ-TF-007",
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17-18#ZZ-TF-008"
+      ],
+      "target_ref": "STAR-TF.conditional_signature",
+      "rationale": "空库与露库条件不同，不合并成一般负向值；保留禄曜、空曜、天相与煞忌条件。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TF-KONGKU-CONSEQUENCE-008",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=18#ZZ-TF-009",
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=18#ZZ-TF-Y03"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "空库后的传统道德措辞不转为现代人格诊断或现实行为预测。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "state_change",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TF-LUKU-CONSEQUENCE-009",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=18#ZZ-TF-Y04"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "露库强调暴露缺陷后的困扰与弥缝，与空库结果不同。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "state_change",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TF-NATAL-TEMPORAL-010",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=18#ZZ-TF-010"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "空库/露库属天府本质，大限流年天府坐命不能据此判定人格改变。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TF-ZIWEI-HIERARCHY-011",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17#ZZ-TF-X01",
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17#ZZ-TF-X02"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "臣佐、紫府同度与君臣庆会保留紫微为君的层级关系。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TF-BAIGUAN-012",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17#ZZ-TF-Y01",
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17#ZZ-TF-Y02"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "百官朝拱与君臣庆会有各自边界；不能把天相出现自动算作朝拱。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TF-STABILITY-SHA-013",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17#ZZ-TF-X03",
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17#ZZ-TF-X04"
+      ],
+      "target_ref": "STAR-TF.intrinsic_signature:QI-04",
+      "rationale": "安定/守成与见煞后的奔波逆境是基线比较和条件修饰，不设固定数值。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TF-LU-RESOURCE-014",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17#ZZ-TF-X05"
+      ],
+      "target_ref": "STAR-TF.intrinsic_signature:QI-12",
+      "rationale": "禄存/化禄可使财库充盈，但不证明生财能力或现实财富结果。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "resource_availability",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TF-TIANYIANG-POWER-015",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17-18#ZZ-TF-X06",
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17-18#ZZ-TF-X07"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "逢府看相把权力发挥绑定天相状态，正反条件均保留。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TF-QISHA-ACTIVATION-016",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=18#ZZ-TF-X10"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "天府激发力依赖对宫七杀及其会合条件，空库叠加才引出空幻/消极。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TF-SYSTEM-POSITIONS-017",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=18#ZZ-TF-Y05"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "武府杀、廉府杀、紫杀府及宫位组合属于系统层结构，不泛化为天府单星性质。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-TF-TEMPORAL-RESULT-018",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=18#ZZ-TF-X08",
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=18#ZZ-TF-X09"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "运限无禄见煞忌与空劫并照的结果不回写为本命人格。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
         "conflict_ref": null
       },
       "mapping_disposition": {

@@ -1,11 +1,13 @@
-# 当前执行证据 — 廉贞候选检查点（2026-10-26）
+# 当前执行证据 — 天府候选检查点（2026-10-27）
 
 - Lane/shard/Issue/PR：KNOWLEDGE_ONLY / CORE / #757 / Draft PR #783；分支 `knowledge/core-757-14star-property-normalization-main-sync2`。
-- 最新 main 基线：`0b372a188f2edf1bef3544c30c94388b6a88a131`。同步提交 `8529aa90119c973ea979037d1d834fef63d9cb34` 的 exact-head GitHub Actions Run #40291659130 已通过；该运行只验证同步提交，不转移到本次廉贞研究提交。
-- 本轮来源范围：27条现有 `ZZ-LZ` canonical 行；视觉核对扫描页8/印刷页15–16，并补核扫描页44、90、20、42、75。新增19条分组source claims、20条mapping-review记录与独立来源审查CSV。
-- 关键未决：初级讲义与深造讲义上册的五行标签存在来源差异；`ZZ-LZ-003/004` 的化禄章节范围与canonical无条件字段不一致；`ZZ-LZ-008/009/010` 保留具体星系上下文。所有候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`。
-- 未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限；所有canonical `source_span_verified` 继续为 false。
-- 本文件是候选提交的范围与历史验证快照；本次候选提交的最终 exact-head 结果以 Issue #757 / PR #783 的实时检查记录为准。同步提交的 PASS 不替代候选提交的验证，也不为填写run结果再制造额外未验收提交。
+- 本次基线 main：`bacc582403efa5ac573d4a63009b032c61e64e65`；分支将 main 的 P03 接受提交作为第二父提交纳入，保留其独立文件变更；Core 研究写集与 P03 写集无路径重叠。
+- 来源：`SRC-ZZ-002`《中州派紫微斗数深造讲义（上）》；SHA-256 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a`；视觉核对扫描页9/印刷页17–18。
+- 本轮覆盖25条现有 `ZZ-TF` canonical 行；专用来源审查 CSV 记录25条。DIRECT_STAR Batch 01 中 `ZZ-TF-002..006` 五条既有审查被复用并重新核对，不重复计证。
+- 新增16条分组 source claims、18条 mapping-review records、18项候选性质；新增测试覆盖精确规则ID集合、来源页、进度衔接、mapping-review契约与非晋升边界。
+- 主要边界：财库不是财星；资源运用/储藏与生财能力分开；守成/领导力为相对紫微的比较；空库/露库条件分开；“逢府看相”与七杀/星系为关系结构；本命与运限严格分层。
+- 未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限；所有候选仍 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`，canonical `source_span_verified=false` 保持不变。
+- 本次提交后的 exact-head 完整质量门以 Issue #757 / PR #783 的实时记录为准；本文件不为自引用 commit SHA 再制造证据提交。测试通过与否以该精确 head 的实际 workflow 结果为准。
 
 ---
 
