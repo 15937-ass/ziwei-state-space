@@ -272,12 +272,26 @@ def test_context_audit_refs_existing_source_claims_without_growing_canonical_evi
         assert row["source_locator"]["source_id"] in {"SRC-ZZ-001", "SRC-ZZ-002"}
         assert row["normalization_epistemic"] == "UNRESOLVED"
         assert row["canonical_accepted"] is row["executable"] is False
-    assert len(data["mapping_review_records"]) == 140  # 18 Tianfu research-only mapping records; canonical evidence unchanged
-    assert sum(not record["review_record_id"].startswith(("MR-TJ-", "MR-WQ-", "MR-TT-")) for record in data["mapping_review_records"]) == 70
-    assert sum(record["review_record_id"].startswith("MR-TJ-") for record in data["mapping_review_records"]) == 17
-    assert sum(record["review_record_id"].startswith("MR-WQ-") for record in data["mapping_review_records"]) == 17
-    assert sum(record["review_record_id"].startswith("MR-TT-") for record in data["mapping_review_records"]) == 18
-    assert sum(record["review_record_id"].startswith("MR-LZ-") for record in data["mapping_review_records"]) == 20
+    expected_prefix_counts = {
+        "MR-TY-": 5,
+        "MR-TYI-": 14,
+        "MR-TX-": 19,
+        "MR-ZW-": 12,
+        "MR-TJ-": 17,
+        "MR-WQ-": 17,
+        "MR-TT-": 18,
+        "MR-LZ-": 20,
+        "MR-TF-": 18,
+    }
+    actual_prefix_counts = {
+        prefix: sum(
+            record["review_record_id"].startswith(prefix)
+            for record in data["mapping_review_records"]
+        )
+        for prefix in expected_prefix_counts
+    }
+    assert actual_prefix_counts == expected_prefix_counts
+    assert len(data["mapping_review_records"]) == sum(expected_prefix_counts.values())
     assert validate_mapping_review_collection(data["mapping_review_records"]) == []
     assert all("context_method_audit" not in record for record in data["mapping_review_records"])
 
