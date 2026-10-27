@@ -272,7 +272,7 @@ def test_context_audit_refs_existing_source_claims_without_growing_canonical_evi
         assert row["source_locator"]["source_id"] in {"SRC-ZZ-001", "SRC-ZZ-002"}
         assert row["normalization_epistemic"] == "UNRESOLVED"
         assert row["canonical_accepted"] is row["executable"] is False
-    assert len(data["mapping_review_records"]) == 122
+    assert len(data["mapping_review_records"]) == 140  # 18 Tianfu research-only mapping records; canonical evidence unchanged
     assert sum(not record["review_record_id"].startswith(("MR-TJ-", "MR-WQ-", "MR-TT-")) for record in data["mapping_review_records"]) == 70
     assert sum(record["review_record_id"].startswith("MR-TJ-") for record in data["mapping_review_records"]) == 17
     assert sum(record["review_record_id"].startswith("MR-WQ-") for record in data["mapping_review_records"]) == 17
@@ -684,11 +684,18 @@ def test_tianfu_candidate_checkpoint_is_source_bounded_and_noncanonical():
     by_id = {row["rule_id"]: row for row in review_rows}
     assert by_id["ZZ-TF-002"]["source_printed_page"] == "17"
     assert "不重复计为独立证据" in by_id["ZZ-TF-002"]["core_use_assessment"]
-    assert by_id["ZZ-TF-007"]["source_printed_page"] == "17-18"
+    assert by_id["ZZ-TF-007"]["source_printed_page"] == "17"
     assert "空库" in by_id["ZZ-TF-007"]["literal_source_span"]
     assert "露库" in by_id["ZZ-TF-008"]["literal_source_span"]
+    assert by_id["ZZ-TF-008"]["source_printed_page"] == "17"
+    assert by_id["ZZ-TF-009"]["source_printed_page"] == "17"
+    assert "究竟成为孤立" in by_id["ZZ-TF-009"]["literal_source_span"]
+    assert "canonical ZZ-TF-009" in by_id["ZZ-TF-009"]["modality_scope_ambiguity"]
+    assert by_id["ZZ-TF-Y03"]["source_printed_page"] == "17"
+    assert by_id["ZZ-TF-Y03"]["literal_source_span"] == by_id["ZZ-TF-009"]["literal_source_span"]
+    assert by_id["ZZ-TF-Y04"]["source_printed_page"] == "17-18"
     assert by_id["ZZ-TF-010"]["source_printed_page"] == "18"
-    assert "运限" in by_id["ZZ-TF-010"]["condition_scope_assessment"]
+    assert "大限/流年" in by_id["ZZ-TF-010"]["condition_scope_assessment"]
     assert "财星" in by_id["ZZ-TF-002"]["modality_scope_ambiguity"]
     with CANONICAL_RULES.open(encoding="utf-8", newline="") as handle:
         rows = {row["rule_id"]: row for row in csv.DictReader(handle)}

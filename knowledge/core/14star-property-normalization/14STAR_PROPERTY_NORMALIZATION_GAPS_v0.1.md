@@ -211,3 +211,11 @@
 | GAP-TF-09 | 覆盖与重复计证 | 25条 `ZZ-TF` canonical 行覆盖印刷页17–18；其中5条复用既有DIRECT_STAR视觉审查。 | 复用记录不重复计证；本轮不声称审完六十星系章节所有天府内容。 |
 
 本轮未发现必须扩展共享 schema 才能记录当前天府候选的阻塞。所有候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`。
+
+## 天府新增来源定位缺口（2026-10-27）
+
+| ID | 缺口 | 当前证据与处理 | 后续边界 |
+|---|---|---|---|
+| GAP-TF-10 | ZZ-TF-009 canonical locator 与实际引文页不一致 | canonical `source_location` 指向书页18；视觉核对的空库引文“……内心则多权术，究竟成为孤立”位于书页17。侧车记录实际页码17。 | 不改 canonical 行、不将侧车核验等同 `source_span_verified=true`；如需修订正式定位，应另走审议。 |
+
+该定位缺口不阻塞其他天府候选的来源整理，但应在任何 canonical 合并前解决。

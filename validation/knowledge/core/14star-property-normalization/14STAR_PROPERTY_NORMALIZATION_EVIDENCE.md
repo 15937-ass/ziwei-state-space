@@ -5,7 +5,7 @@
 - 来源：`SRC-ZZ-002`《中州派紫微斗数深造讲义（上）》；SHA-256 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a`；视觉核对扫描页9/印刷页17–18。
 - 本轮覆盖25条现有 `ZZ-TF` canonical 行；专用来源审查 CSV 记录25条。DIRECT_STAR Batch 01 中 `ZZ-TF-002..006` 五条既有审查被复用并重新核对，不重复计证。
 - 新增16条分组 source claims、18条 mapping-review records、18项候选性质；新增测试覆盖精确规则ID集合、来源页、进度衔接、mapping-review契约与非晋升边界。
-- 主要边界：财库不是财星；资源运用/储藏与生财能力分开；守成/领导力为相对紫微的比较；空库/露库条件分开；“逢府看相”与七杀/星系为关系结构；本命与运限严格分层。
+- 主要边界：财库不是财星；资源运用/储藏与生财能力分开；守成/领导力为相对紫微的比较；空库/露库条件分开；“逢府看相”与七杀/星系为关系结构；本命与运限严格分层。另发现 `ZZ-TF-009` canonical locator 指向书页18，但该条空库引文实际位于书页17；已在侧车和测试中记录，不修改 canonical 行。
 - 未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限；所有候选仍 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`，canonical `source_span_verified=false` 保持不变。
 - 本次提交后的 exact-head 完整质量门以 Issue #757 / PR #783 的实时记录为准；本文件不为自引用 commit SHA 再制造证据提交。测试通过与否以该精确 head 的实际 workflow 结果为准。
 
