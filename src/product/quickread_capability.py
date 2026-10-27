@@ -509,11 +509,15 @@ def _validate_required_namespaces(
         raise ValueError(
             f"{slot.slot_id}: evidence missing required namespaces {sorted(missing)}"
         )
+    temporal_refs = [ref for ref in refs if ref.namespace == "TEMPORAL"]
+    mismatched_layers = [ref.time_layer for ref in temporal_refs if ref.time_layer != slot.temporal_layer]
+    if mismatched_layers:
+        raise ValueError(
+            f"{slot.slot_id}: temporal source layer(s) {sorted(set(mismatched_layers))} "
+            f"do not match requested layer {slot.temporal_layer}"
+        )
     if "TEMPORAL" in slot.required_namespaces:
-        if not any(
-            ref.namespace == "TEMPORAL" and ref.time_layer == slot.temporal_layer
-            for ref in refs
-        ):
+        if not temporal_refs:
             raise ValueError(
                 f"{slot.slot_id}: evidence requires TEMPORAL source for "
                 f"{slot.temporal_layer}"
@@ -581,16 +585,24 @@ def build_coverage_report(
 ) -> QuickReadCoverageReport:
     """Report capability availability and actual evidence separately."""
 
-    lanes = included_lanes or _included_lanes(request.mode)
+    lanes = _included_lanes(request.mode) if included_lanes is None else included_lanes
     requested = _slot_index(request.requested_slots)
     records = _record_index(manifest)
     runtime_counts = {slot_id: 0 for slot_id in requested}
     source_counts = {slot_id: 0 for slot_id in requested}
     model_counts = {slot_id: 0 for slot_id in requested}
+    seen_ids: set[str] = set()
 
     for item in evidence_items:
-        if item.slot_id not in requested:
+        if not isinstance(item, QuickReadEvidenceItem):
+            raise ValueError("evidence_items must contain QuickReadEvidenceItem values")
+        if item.evidence_id in seen_ids:
+            raise ValueError(f"duplicate evidence_id: {item.evidence_id}")
+        seen_ids.add(item.evidence_id)
+        slot = requested.get(item.slot_id)
+        if slot is None:
             raise ValueError(f"evidence item is outside requested scope: {item.slot_id}")
+        _validate_item_against_manifest(item, slot, records.get(item.slot_id), request, manifest)
         if item.lane not in lanes:
             continue
         if item.lane == "RUNTIME":
