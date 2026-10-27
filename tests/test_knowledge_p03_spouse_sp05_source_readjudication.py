@@ -71,10 +71,10 @@ def test_candidate_accounting_and_source_record_counts_reconcile():
     assert s["deduplicated"] == 1
     assert s["canonical_promoted"] + s["held"] + s["deduplicated"] == s["reviewed"]
     assert s["canonical_record_count"] == len(records) == 66
-    assert s["reusable_projection_rules"] == 47
-    assert s["case_support_only"] == 19
-    assert sum(r["case_support_only"] is True for r in records) == 19
-    assert sum(r["case_support_only"] is False for r in records) == 47
+    assert s["reusable_projection_rules"] == 46
+    assert s["case_support_only"] == 20
+    assert sum(r["case_support_only"] is True for r in records) == 20
+    assert sum(r["case_support_only"] is False for r in records) == 46
     assert len({r["projection_rule_id"] for r in records}) == 66
     assert s["source_resolution_change_count"] == sum(r["source_resolution_changed"] is True for r in records)
     assert s["source_condition_normalization_count"] == sum(r["source_condition_normalized"] is True for r in records)
@@ -105,6 +105,7 @@ def test_semantic_corrections_and_ambiguities_are_preserved():
     assert rec["P03S-459"]["canonical_projection_target"] == "not_prone_to_separation_or_bereavement"
     assert "不主生离，不主死别" in rec["P03S-459"]["source_literal_claim"]
     assert "辅佐单星" in rec["P03S-450"]["canonical_condition"]
+    assert rec["P03S-450"]["case_support_only"] is True
     assert "借星安宫" in rec["P03S-451"]["source_literal_claim"]
     assert rec["P03S-448"]["canonical_projection_target"] == "nominal_union_OR_surface_harmony_with_hidden_distance"
     assert rec["P03S-494"]["canonical_projection_target"] == "self_generated_worry"
