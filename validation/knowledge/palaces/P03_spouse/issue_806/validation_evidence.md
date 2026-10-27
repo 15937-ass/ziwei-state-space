@@ -1,4 +1,4 @@
-# Issue #806 — SP05 exact-head validation evidence
+# Issue #806 — SP05 exact-head validation contract
 
 ## Source audit checkpoint
 
@@ -12,18 +12,17 @@
 - Semantic hold: SP05-465; duplicate: SP05-500 → P03S-464
 - Supplemental source records: P03S-SP05-SUP-001 and P03S-SP05-SUP-002
 
-## Exact-head gate
+## Required exact-head gate
 
-This evidence file is part of the PR and must be completed against the **final exact PR head**. Do not copy a PASS from a prior head or stale main.
+Before merge, the current PR head and current `main` must be re-read. Require all of:
+1. Full pytest
+2. Product JS adapter/syntax check
+3. Deterministic P0 repository gate
+4. Repository Governance v1
+5. P03 shard/write-set validation
+6. Base/head/run identity check against the latest `main`
 
-- Base/main SHA at work-unit admission: `d45e2cfd6c0dc59fb80ec2210f7e729c53391c4f`
-- Final PR head: pending PR creation
-- Full pytest: pending
-- Product JS adapter/syntax: pending
-- Deterministic P0: pending
-- Repository Governance v1: pending
-- P03 shard/write-set: pending
-- Merge authorization: only after current main/base/head/run identities are rechecked and every required gate passes.
+The final exact PR head SHA and matching workflow run IDs/statuses are to be recorded in the final Issue #806 disposition (or PR thread), not cached here. Any commit added after a gate run changes the head and requires the exact-head gate to run again.
 
 ## Execution boundary
 
