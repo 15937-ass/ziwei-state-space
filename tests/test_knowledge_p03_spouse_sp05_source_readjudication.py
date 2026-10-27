@@ -136,8 +136,8 @@ def test_cumulative_state_and_execution_boundary_reconcile():
     assert "historical_candidate_rows_reviewed: 500" in state
     assert "candidate_rows_promoted: 385" in state
     assert "source_records_added: 392" in state
-    assert "reusable_projection_method_records_added: 299" in state
-    assert "case_support_only_records_added: 93" in state
+    assert "reusable_projection_method_records_added: 298" in state
+    assert "case_support_only_records_added: 94" in state
     assert "candidates_held: 112" in state
     assert "candidates_deduplicated: 3" in state
     assert "temporal_scope_residuals: 37" in state
