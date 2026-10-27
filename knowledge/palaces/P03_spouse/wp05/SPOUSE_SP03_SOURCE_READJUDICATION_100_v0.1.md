@@ -20,8 +20,8 @@ The historical index `validation/wp05/SP03_spouse_projection_review_201_300.csv`
 | Historical candidate rows directly reviewed | 100 |
 | Candidate rows promoted as source-grounded records | 87 |
 | Source records produced, including four unindexed gap claims | 91 |
-| Reusable projection/method records | 72 |
-| `CASE_SUPPORT_ONLY` records | 19 |
+| Reusable projection/method records | 70 |
+| `CASE_SUPPORT_ONLY` records | 21 |
 | Held for unsupported/over-specific temporal layer | 13 |
 | Deduplicated rows | 0 |
 | Historical feedback | 0 |
@@ -32,7 +32,7 @@ The historical rows `SP03-211…213`, `SP03-224…226`, `SP03-258…261`, and `S
 ## Important source-first corrections
 
 - `SP03-201/202`: preserve the separate female/male branches; the male branch retains “妻子有独立事业，否则便多是非”.
-- `SP03-204/205`: direct scan states a general age-gap relation and that 天寿 makes the difference larger. These are treated as source-grounded relational projections, not automatically copied from the historical case-only flag; no numeric age threshold is inferred.
+- `SP03-204/205`: direct scan states a general age-gap relation and that 天寿 makes the difference larger. Following the accepted P03 boundary for specific age-gap/age-direction claims (SP02 P03S-110/P03S-138), retain CASE_SUPPORT_ONLY; no numeric age threshold is inferred.
 - `SP03-207/209/210`: preserve alternatives (premarital setbacks或reunion with a former partner; and premarital setbacks或a period of separation after marriage).
 - `SP03-215/217/241`: where the original sentence omits the subject of “化禄/化忌”, the record explicitly preserves the ellipsis instead of adding an unstated star subject.
 - `SP03-250/251`: retain the parent context of 子午武府, the male-chart condition and the antecedent 武曲化禄 where required; do not treat the subordinate clauses as context-free rules.
@@ -55,7 +55,7 @@ Nine historical gap entries remain tracked; four are open or partially open. Fou
 Across SP01, SP02 and SP03:
 - 300 candidate rows reviewed.
 - 253 candidate rows promoted; 45 held; 2 deduplicated.
-- 258 source records (207 reusable; 51 `CASE_SUPPORT_ONLY`).
+- 258 source records (205 reusable; 53 `CASE_SUPPORT_ONLY`).
 - 4 source-coverage gaps remain open/partially open; 9 gap entries are tracked.
 - 16 temporal residual groups / 40 candidate rows remain explicit.
 

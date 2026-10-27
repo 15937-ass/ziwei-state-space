@@ -413,7 +413,7 @@
         "canonical_record_ids": [
           "P03S-204"
         ],
-        "reason": "直接扫描页明确写出年龄差、妻子年长及见天寿时差距尤大；历史 CASE_SUPPORT_ONLY 标记不构成证据，按原文一般性条件保留为来源投影，不将其扩展成量化年龄阈值。"
+        "reason": "直接扫描页明确写出夫妻年龄差、妻子可能年长及见天寿时差距尤大；遵循已接受 P03 对具体年龄差/年龄方向断语的边界（SP02 P03S-110/P03S-138），保留 CASE_SUPPORT_ONLY，不把历史索引标记当证明，也不推导量化年龄阈值。"
       },
       {
         "historical_candidate_id": "SP03-205",
@@ -429,7 +429,7 @@
         "canonical_record_ids": [
           "P03S-205"
         ],
-        "reason": "直接扫描页明确写出年龄差、妻子年长及见天寿时差距尤大；历史 CASE_SUPPORT_ONLY 标记不构成证据，按原文一般性条件保留为来源投影，不将其扩展成量化年龄阈值。"
+        "reason": "直接扫描页明确写出夫妻年龄差、妻子可能年长及见天寿时差距尤大；遵循已接受 P03 对具体年龄差/年龄方向断语的边界（SP02 P03S-110/P03S-138），保留 CASE_SUPPORT_ONLY，不把历史索引标记当证明，也不推导量化年龄阈值。"
       },
       {
         "historical_candidate_id": "SP03-206",
@@ -1931,9 +1931,11 @@
     "reviewed": 100,
     "canonical_promoted": 87,
     "canonical_record_count": 91,
-    "reusable_projection_rules": 72,
-    "case_support_only": 19,
+    "reusable_projection_rules": 70,
+    "case_support_only": 21,
     "case_support_only_ids": [
+      "P03S-204",
+      "P03S-205",
       "P03S-208",
       "P03S-218",
       "P03S-229",
@@ -2110,15 +2112,15 @@
       "path_dependent_gate_reclassified": false,
       "source_sequence_not_history_gate": false,
       "archived_case_support_only": true,
-      "case_support_only": false,
-      "case_support_reason": null,
+      "case_support_only": true,
+      "case_support_reason": "原文涉及具体配偶年龄差/年龄方向；遵循已接受 P03 边界（SP02 的 P03S-110/P03S-138）保留为 CASE_SUPPORT_ONLY，不引入量化年龄阈值。",
       "source_literal_claim": "[太阳天梁]见吉，主夫妻年龄有差距。或主妻子长于丈夫。见天寿，差距尤大。",
       "source_note": "直接目视核对批准原扫描图：SRC-ZZ-003 printed p37 / PDF physical p19；本地 SHA-256 与批准 pin 一致，文字提取仅用于定位。此记录只表示来源审计，不授权条件编译或 Product/runtime。",
       "disposition": "SOURCE_TARGET_CORRECTED",
       "source_resolution_changed": true,
       "canonical_promotion": true,
       "source_overlap_group": "SOLAR_TIANLIANG",
-      "source_overlap_role": "SOURCE_PROJECTION",
+      "source_overlap_role": "CASE_SUPPORT_ONLY_EVENT_CANDIDATE",
       "source_condition_membership_status": "SOURCE_NATIVE_CONDITION_EXPLICIT",
       "source_condition_uncertainty": null
     },
@@ -2147,15 +2149,15 @@
       "path_dependent_gate_reclassified": false,
       "source_sequence_not_history_gate": false,
       "archived_case_support_only": true,
-      "case_support_only": false,
-      "case_support_reason": null,
+      "case_support_only": true,
+      "case_support_reason": "原文涉及具体配偶年龄差/年龄方向；遵循已接受 P03 边界（SP02 的 P03S-110/P03S-138）保留为 CASE_SUPPORT_ONLY，不引入量化年龄阈值。",
       "source_literal_claim": "[太阳天梁]见吉，主夫妻年龄有差距。或主妻子长于丈夫。见天寿，差距尤大。",
       "source_note": "直接目视核对批准原扫描图：SRC-ZZ-003 printed p37 / PDF physical p19；本地 SHA-256 与批准 pin 一致，文字提取仅用于定位。此记录只表示来源审计，不授权条件编译或 Product/runtime。",
       "disposition": "SOURCE_TARGET_CORRECTED",
       "source_resolution_changed": true,
       "canonical_promotion": true,
       "source_overlap_group": "SOLAR_TIANLIANG",
-      "source_overlap_role": "SOURCE_PROJECTION",
+      "source_overlap_role": "CASE_SUPPORT_ONLY_EVENT_CANDIDATE",
       "source_condition_membership_status": "SOURCE_NATIVE_CONDITION_EXPLICIT",
       "source_condition_uncertainty": null
     },

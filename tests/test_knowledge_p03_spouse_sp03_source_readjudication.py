@@ -63,10 +63,10 @@ def test_all_candidate_dispositions_and_counts_reconcile():
     assert s["canonical_promoted"] + s["held"] + s["deduplicated"] == s["reviewed"]
     assert s["canonical_record_count"] == len(records) == 91
     assert len({r["projection_rule_id"] for r in records}) == 91
-    assert s["reusable_projection_rules"] == 72
-    assert s["case_support_only"] == 19
-    assert sum(r["case_support_only"] is True for r in records) == 19
-    assert sum(r["case_support_only"] is False for r in records) == 72
+    assert s["reusable_projection_rules"] == 70
+    assert s["case_support_only"] == 21
+    assert sum(r["case_support_only"] is True for r in records) == 21
+    assert sum(r["case_support_only"] is False for r in records) == 70
     expected_held = {
         "SP03-211", "SP03-212", "SP03-213",
         "SP03-224", "SP03-225", "SP03-226",
