@@ -372,3 +372,72 @@ def test_duplicate_evidence_ids_are_rejected():
             (items[0], duplicate, items[2]),
             chart_context={"normalized_chart": {"synthetic": True}},
         )
+
+
+
+def test_hybrid_requests_model_supplement_for_uncovered_slot():
+    _, request, manifest, items = _fixture_objects()
+    payload = build_quickread_payload(
+        request,
+        manifest,
+        items[:2],
+        chart_context={"normalized_chart": {"synthetic": True}},
+    )
+    assert payload["model_supplement_request"]["enabled"] is True
+    assert payload["model_supplement_request"]["slot_ids"] == ["relationship_natal"]
+    assert payload["gaps"][-1]["model_supplement_requested"] is True
+
+
+def test_temporal_response_slot_must_require_natal_and_temporal_evidence():
+    with pytest.raises(ValueError, match="must require CANONICAL and TEMPORAL"):
+        _slot(
+            "year_response",
+            "career",
+            "YEAR",
+            "TEMPORAL_RESPONSE",
+            namespaces=("TEMPORAL",),
+        )
+
+
+def test_source_evidence_reference_must_be_in_manifest():
+    _, request, manifest, items = _fixture_objects()
+    fake_source_item = replace(
+        items[1],
+        source_refs=(
+            _ref(
+                "SRC-NOT-IN-MANIFEST",
+                location="synthetic missing source p.99",
+            ),
+            items[1].source_refs[1],
+        ),
+    )
+    with pytest.raises(ValueError, match="absent from the capability manifest"):
+        build_quickread_payload(
+            request,
+            manifest,
+            (items[0], fake_source_item, items[2]),
+            chart_context={"normalized_chart": {"synthetic": True}},
+        )
+
+
+def test_runtime_rule_must_be_listed_as_executable_for_the_scope_slot():
+    _, request, manifest, items = _fixture_objects()
+    fake_runtime_item = replace(items[0], rule_id="RULE-NOT-IN-MANIFEST")
+    with pytest.raises(ValueError, match="rule_id is not listed"):
+        build_quickread_payload(
+            request,
+            manifest,
+            (fake_runtime_item, items[1], items[2]),
+            chart_context={"normalized_chart": {"synthetic": True}},
+        )
+
+
+def test_chart_context_rejects_non_json_values():
+    _, request, manifest, items = _fixture_objects()
+    with pytest.raises(ValueError, match="JSON-compatible"):
+        build_quickread_payload(
+            request,
+            manifest,
+            items,
+            chart_context={"bad": {1, 2, 3}},
+        )
