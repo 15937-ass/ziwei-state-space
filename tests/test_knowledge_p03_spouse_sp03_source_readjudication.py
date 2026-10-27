@@ -109,7 +109,7 @@ def test_temporal_layers_fail_closed_and_source_conditions_preserved():
     assert rec["P03S-285"]["source_literal_claim"].count("或因配偶遭逢意外") == 1
     assert rec["P03S-300"]["case_support_only"] is True
     assert "肺病" in rec["P03S-300"]["source_literal_claim"]
-    assert "现代医学" in rec["P03S-300"]["source_note"] or "现代医学" in rec["P03S-300"]["case_support_reason"]
+    assert "现代临床预测" in rec["P03S-300"]["case_support_reason"]
 
 
 def test_prior_source_gaps_reconciled_without_guessing():
