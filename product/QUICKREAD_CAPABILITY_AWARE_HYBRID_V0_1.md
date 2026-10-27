@@ -12,17 +12,17 @@ It is not a second rule engine, a second knowledge registry, a chart calculator,
 
 A request names the question, target chart identifier, output length, mode, and a finite list of scope slots. A slot identifies one domain, target time layer, capability kind, and the evidence namespaces required to support a claim. Only requested slots form the coverage denominator.
 
-For example, a natal career slot may require CANONICAL evidence. A specific-year response slot must require both CANONICAL and TEMPORAL namespaces, with a TEMPORAL source reference whose time layer matches the requested year layer. This prevents a natal-only rule from being relabeled as a specific-year result.
+For example, a natal career slot may require CANONICAL evidence. A specific-year response/manifestation slot must require both CANONICAL and TEMPORAL namespaces, and every TEMPORAL reference must match the requested year layer. This prevents a natal-only rule or a different time layer from being relabeled as a specific-year result. CASE_SUPPORT_ONLY slots must declare a case scope and match it exactly.
 
 ## Three evidence lanes
 
 | Lane | What it means | Requirements | Coverage effect |
 | --- | --- | --- | --- |
-| RUNTIME | A result actually produced by an accepted runtime | Rule ID listed in the capability manifest; reviewed source references marked EXECUTABLE; required namespaces present | Counts only toward runtime evidence coverage |
+| RUNTIME | A result actually produced by an accepted runtime | Rule ID listed in the capability manifest; explicit execution ID; exact target ID; main, knowledge and runtime versions matching the manifest; executable source references listed in the manifest; required namespaces present | Counts only toward runtime evidence coverage |
 | SOURCE | An interpretation grounded in accepted material that is not represented as an executed runtime result | Reviewed source ID and location; allowed use is RETRIEVAL_ONLY, SEMANTIC_ONLY, or CASE_SUPPORT_ONLY; required namespaces present | Counts only toward source evidence coverage |
 | MODEL_SUPPLEMENT | Additional interpretation proposed by the LLM to fill a gap | No rule ID or source reference; explicit MODEL_SUPPLEMENT label and uncertainty note | Counts only as model supplementation; never increases runtime or source coverage |
 
-CASE_SUPPORT_ONLY material must name its case scope and may not be generalized into a canonical rule. Blocked, unknown, unreviewed, or untraceable evidence is not silently promoted.
+CASE_SUPPORT_ONLY material must name a case scope, match the requested slot's case scope, and may not be generalized into a canonical rule. Runtime evidence is rejected if its target, execution identifier, versions, rule ID, or executable source references do not match the manifest. Temporal references for other layers are rejected rather than mixed into the current target. Blocked, unknown, unreviewed, or untraceable evidence is not silently promoted.
 
 ## Modes
 
@@ -55,7 +55,7 @@ In v0.1, manifest construction is an explicit input contract. This module does n
 
 The payload contains the request, version identifiers, scoped evidence grouped by lane, coverage, unresolved slots, normalized chart context, and concise verbalizer instructions. The caller should pass normalized chart facts rather than raw birth records or personal identity.
 
-The verbalizer must not invent rule IDs, source IDs, source locations, or runtime execution. A model-only addition remains a model-only addition. For non-NATAL slots, the supplied evidence must contain the requested temporal layer before a claim may be described as runtime/source-supported.
+The verbalizer must not invent rule IDs, source IDs, source locations, execution IDs, or runtime execution. Runtime evidence carries the exact target and version identity of the run that produced it. A model-only addition remains a model-only addition. For non-NATAL slots, the supplied evidence must contain the requested temporal layer, and no mismatched temporal reference may be mixed in, before a claim may be described as runtime/source-supported.
 
 ## Non-goals
 
