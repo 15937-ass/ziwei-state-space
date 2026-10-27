@@ -93,6 +93,13 @@ class QuickReadScopeSlot:
             raise ValueError("required_namespaces contains an unsupported namespace")
         if layer != "NATAL" and "TEMPORAL" not in namespaces:
             raise ValueError("non-NATAL scope slots must require TEMPORAL evidence")
+        kind = self.capability_kind.upper()
+        if layer != "NATAL" and any(
+            marker in kind for marker in ("RESPONSE", "MANIFESTATION")
+        ) and "CANONICAL" not in namespaces:
+            raise ValueError(
+                "temporal response/manifestation slots must require CANONICAL and TEMPORAL evidence"
+            )
         object.__setattr__(self, "required_namespaces", namespaces)
 
     def to_dict(self) -> dict[str, Any]:
@@ -314,6 +321,8 @@ class QuickReadEvidenceItem:
                 raise ValueError("runtime evidence requires an explicit runtime epistemic label")
             if any(ref.allowed_use != "EXECUTABLE" for ref in refs):
                 raise ValueError("runtime evidence refs must have EXECUTABLE allowed_use")
+            if any(ref.namespace == "CASE" for ref in refs):
+                raise ValueError("runtime evidence may not use case-only source refs")
             if self.case_scope:
                 raise ValueError("runtime evidence may not carry case_scope")
         elif lane == "SOURCE":
