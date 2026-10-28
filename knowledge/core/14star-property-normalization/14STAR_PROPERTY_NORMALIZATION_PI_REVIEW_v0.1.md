@@ -1,3 +1,12 @@
+# 当前权威状态（2026-10-28；十四主星研究结项后）
+
+- Issue [#757](https://github.com/15937-ass/ziwei-state-space/issues/757) 已关闭；PR [#783](https://github.com/15937-ass/ziwei-state-space/pull/783) 已合入 main，merge commit：`f377319b54ba26d39ef184f95a208fe9e2eb7ec1`。
+- 最终 exact-head 质量门 [Run #40666043215](https://github.com/15937-ass/ziwei-state-space/actions/runs/40666043215) 通过：2,868 tests、132 subtests；Product JS adapters、deterministic P0、Repository Governance v1 与 Core 写集均 PASS。
+- 当前研究状态：`COMPLETED_ACCEPTED_CANDIDATE_RESEARCH`；所有候选映射仍为 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`，未开放 Product/runtime/KIB 消费权限，也没有自动后继任务。
+- 本文件下方的阶段性“当前恢复”“下一颗/下一轮”与旧进度均为历史记录，不能覆盖本结项状态。
+
+---
+
 ## 十四主星候选研究结项（2026-10-28）
 
 本节为 #757 / PR #783 的最终研究范围与退出处置；下方逐星检查点、旧进度及“下一颗/待PI”文字均为历史记录，不用于恢复。结项在本修订通过完整质量门并合入 main 后生效，实时验收以 Issue #757 / PR #783 为准。
@@ -34,7 +43,7 @@
 - 十四主星候选检查点：14/14；241条 mapping-review 记录、182项候选性质。
 - 来源覆盖：430条 canonical 规则均有侧车；423条完整视觉核对、5条部分核对、1条未核实、1条来源错配。
 - PI 已明确选择 **1A、2B、3B**；结构化记录见基线 JSON 的 `pi_decision_record`。
-- 当前工作状态：`PI_DECISIONS_RECORDED`；完整质量门的实时状态以 PR #783 最新 exact-head Checks 为准，文档不自报本提交的验收结果。
+- 当前工作状态：十四主星候选研究已结项；最终 exact-head 质量门 Run #40666043215 已通过。后续新提交须通过各自的 exact-head CI。
 
 ## PI 决定记录
 
@@ -95,7 +104,7 @@
 - 哪些项应保留为 UNKNOWN、MISSING、CONFLICT 或 NOT_APPLICABLE，而不是强行填满十四星同质向量？
 - 哪些归一化选择需要 PI 语义裁决，哪些仅是机械审核？
 
-太阳、太阴、天相三个试点现已完成有界检查点并通过最新 pilot checkpoint exact-head CI；跨星比较显示现有审核契约可承载本轮记录，但语义正确性仍需人工审查。PI于2026-10-25接受补充上下文检查建议；当前有界检查已满足研究退出条件，下一轮可继续剩余十一星。最终十四星材料仍须把有支持的候选、未决项、反例与不能推出的结论分开呈现。
+（历史阶段记录）当时太阳、太阴、天相三个试点已完成有界检查点，跨星比较显示现有审核契约可承载候选记录。PI于2026-10-25接受补充上下文检查建议；该阶段曾允许继续剩余十一星，现该研究序列已全部完成并由本文件顶部的最终结项状态取代。候选、未决项、反例与不能推出的结论仍须分开呈现。
 
 
 ## 太阴试点新增观察（仍未请求 PI 正式裁决）
