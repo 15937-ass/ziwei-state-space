@@ -1,5 +1,6 @@
 import csv
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -153,7 +154,58 @@ def test_execution_boundary_and_cumulative_state_are_fail_closed():
                 "product_runtime_change"]:
         assert s[key] == 0
     state = STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
+    assert 'status: "ACTIVE"' in state or 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
+    if 'status: "ACTIVE"' in state:
+        issue_match = re.search(r"(?m)^  active_issue: (\\d+)$", state)
+        branch_match = re.search(r'(?m)^  active_branch: "([^"]+)"
+    batches = [load(path) for path in sorted(READJ.parent.glob(
+        "SPOUSE_SP*_SOURCE_READJUDICATION_*.json"
+    ))]
+    fields = {
+        "historical_candidate_rows_reviewed": "reviewed",
+        "candidate_rows_promoted": "canonical_promoted",
+        "source_records_added": "canonical_record_count",
+        "reusable_projection_method_records_added": "reusable_projection_rules",
+        "case_support_only_records_added": "case_support_only",
+        "candidates_held": "held",
+        "candidates_deduplicated": "deduplicated",
+    }
+    state_lines = set(state.splitlines())
+    for field, summary_key in fields.items():
+        total = sum(batch["summary"][summary_key] for batch in batches)
+        assert f"  {field}: {total}" in state_lines
+    assert "conditions_compiled=0" in state
+    assert "execution_unlocked=0" in state
+
+
+def test_duplicate_delivery_reconciliation_keeps_source_and_event_boundaries():
+    d = load(READJ)
+    records = records_by_id()
+    expected = {"P03S-110", "P03S-132", "P03S-134", "P03S-138",
+                "P03S-145", "P03S-146", "P03S-147", "P03S-151", "P03S-152",
+                "P03S-162", "P03S-163", "P03S-183", "P03S-186", "P03S-188",
+                "P03S-190", "P03S-191", "P03S-200"}
+    assert set(d["summary"]["case_support_only_ids"]) == expected
+    assert {key for key, row in records.items() if row["case_support_only"]} == expected
+    for key in d["repair_reconciliation"]["case_only_boundary_ids"]:
+        assert records[key]["projection_mode"] == "EVENT_CANDIDATE"
+        assert records[key]["case_support_reason"]
+    gaps = {g["gap_id"]: g for g in d["source_coverage_gaps"]}
+    assert "机录像" in gaps["P03-SP02-GAP-001"]["source_literal_claim"]
+    assert "机梁紫破" not in gaps["P03-SP02-GAP-001"]["source_literal_claim"]
+    assert gaps["P03-SP02-GAP-004"]["printed_page"] == 35
+    assert gaps["P03-SP02-GAP-005"]["printed_page"] == 36
+    assert all(gaps[key]["status"] == "CARRIED_FORWARD" for key in
+               ["P03-SP02-GAP-004", "P03-SP02-GAP-005"])
+    assert d["summary"]["open_source_coverage_gap_count"] == 6
+    assert len(d["temporal_scope_residuals"]) == 12
+, state)
+        assert issue_match and branch_match
+        assert f"p03-{issue_match.group(1)}-" in branch_match.group(1)
+    else:
+        assert "active_issue: null" in state
+        assert "active_branch: null" in state
+        assert "active_pr: null" in state
     assert "SOURCE_FIRST_REVIEW_COMPLETE" in state
     batches = [load(path) for path in sorted(READJ.parent.glob(
         "SPOUSE_SP*_SOURCE_READJUDICATION_*.json"
