@@ -834,6 +834,7 @@ def test_jumen_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
     assert jm_checkpoint["partially_verified_rows"] == 4
     assert jm_checkpoint["held_rows"] == 0
     assert jm_checkpoint["held_rule_ids"] == []
+    assert any("ZZ-JM-005" in guard and "已在SRC-ZZ-001" in guard for guard in jm["non_promotion_guards"])
 
     records = {record["review_record_id"]: record for record in data["mapping_review_records"]}
     jm_records = {key: record for key, record in records.items() if key.startswith("MR-JM-")}
@@ -934,6 +935,7 @@ def test_tianliang_candidate_checkpoint_preserves_source_scope_and_nonpromotion(
     assert by_id["ZZ-TLIA-010"]["source_span_status"] == "VERIFIED_VISUAL_SCAN"
     assert by_id["ZZ-TLIA-010"]["source_pdf_page"] == "80"
     assert by_id["ZZ-TLIA-010"]["source_printed_page"] == "159"
+    assert any("ZZ-TLIA-010" in guard and "已在扫描页80/印刷页159" in guard for guard in tianliang["non_promotion_guards"])
 
 
 def test_qisha_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
@@ -1038,6 +1040,7 @@ def test_pojun_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
     pj_held_claim = next(c for c in pojun["source_claims"] if c["claim_key"] == "PJ-HELD")
     assert pj_held_claim["source_locator"]["status"].startswith("VERIFIED_VISUAL_SCAN")
     assert "目标映射" in pj_held_claim["claim_summary"]
+    assert any("ZZ-PJ-006..010" in guard and "已在扫描页96–97/印刷页191–193" in guard for guard in pojun["non_promotion_guards"])
     assert by_id["ZZ-PJ-006"]["source_pdf_page"] == "96"
     assert by_id["ZZ-PJ-007"]["source_pdf_page"] == "97"
 
@@ -1112,6 +1115,8 @@ def test_pre_pi_source_audit_followup_covers_all_canonical_rules_without_promoti
     assert all(row["source_span_verified"] == "false" for row in canonical_rows)
     held = {row["rule_id"] for row in all_rows if row["source_span_status"] in {"NOT_VERIFIED_IN_REVIEWED_SPANS", "SOURCE_MISMATCH_CONFIRMED"}}
     assert held == {"ZZ-TL-010", "ZZ-TT-010"}
+    assert data["pre_pi_gates"]["source_coverage"]["status_counts"] == counts
+    assert data["progress"]["stage"] == "PI_DECISION_CARDS_READY_PENDING_PI_DECISIONS"
 
 
 def test_pre_pi_mapping_review_audit_counts_are_consistent():
