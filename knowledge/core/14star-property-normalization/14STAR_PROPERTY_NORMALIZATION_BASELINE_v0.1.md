@@ -35,7 +35,7 @@
 - 2B：采用定义驱动的 QI-05 严格审核门槛，不自动接受任何具体候选。
 - 3B：廉贞 QI-11 保留候选、继续 `UNRESOLVED`。
 - 最终 exact-head 质量门 Run #40666043215 已通过：2,868 tests、132 subtests，以及 Product JS adapters、deterministic P0、Repository Governance v1 和 Core 写集均 PASS。此结果验证的是 PR #783 的已合并 head；任何后续提交仍须通过自己的 exact-head CI。所有 canonical、共享 Schema、Product/runtime 与 KIB 安全边界保持不变。
-**主分支同步：** 最新 main `4713367b4d0c33f23d63a323b557f7d7ea7db713` 已通过同步 PR [#827](https://github.com/15937-ass/ziwei-state-space/pull/827) 合入 Core 工作分支，合并提交 `649f3daf0f2910737d755ca7ae4c6ba42dbf5c3e`。  
+**历史同步基线：** PR [#827](https://github.com/15937-ass/ziwei-state-space/pull/827) 曾将 main `4713367b4d0c33f23d63a323b557f7d7ea7db713` 同步到原 Core 工作分支，合并提交 `649f3daf0f2910737d755ca7ae4c6ba42dbf5c3e`。该 SHA 不是当前 main；十四主星研究结项提交为 `f377319b54ba26d39ef184f95a208fe9e2eb7ec1`。  
 **质量门：** 本次结项的最终验收记录为 [Run #40666043215（SUCCESS）](https://github.com/15937-ass/ziwei-state-space/actions/runs/40666043215)。后续新提交须重新通过各自的 exact-head CI；文档状态不代替 CI 验收。  
 **来源覆盖：** 14份侧车覆盖430条 canonical 规则ID；423条完整视觉核对、5条部分核对、1条未核实、1条来源错配。  
 **Mapping-review：** 241条记录、182项候选性质；58 supported_candidate、57 candidate_only、100 needs_review、26 not_supported_for_target。100条 needs_review 是记录状态，不是 PI 待办数。  
@@ -46,10 +46,10 @@
 
 # 十四主星基础性质归一化基线 v0.1
 
-**当前状态：** `PI_DECISIONS_RECORDED` / `PROPOSAL_ONLY_NOT_CANONICAL`
+**当前研究状态：** `COMPLETED_ACCEPTED_CANDIDATE_RESEARCH` / `PROPOSAL_ONLY_NOT_CANONICAL`
 **跟踪 Issue：** [#757](https://github.com/15937-ass/ziwei-state-space/issues/757)
-**已同步 main：** `4713367b4d0c33f23d63a323b557f7d7ea7db713`（通过同步 PR [#827](https://github.com/15937-ass/ziwei-state-space/pull/827) 合入，合并提交 `649f3daf0f2910737d755ca7ae4c6ba42dbf5c3e`）
-**执行分支：** `knowledge/core-757-14star-property-normalization-main-sync2`
+**历史同步基线：** `4713367b4d0c33f23d63a323b557f7d7ea7db713`（通过同步 PR [#827](https://github.com/15937-ass/ziwei-state-space/pull/827) 合入原 Core 工作分支，合并提交 `649f3daf0f2910737d755ca7ae4c6ba42dbf5c3e`）；当前 main 为 `f377319b54ba26d39ef184f95a208fe9e2eb7ec1`。
+**历史执行分支：** `knowledge/core-757-14star-property-normalization-main-sync2`
 
 > 太阳、太阴、天相三个有界试点与阶段B十一颗扩展星均已形成候选卡与逐目标审核记录。来源审查侧车现覆盖全部430条canonical规则，但这仍是候选研究基线，不是正式本体变更，也不授权 Product 消费。
 
@@ -100,22 +100,22 @@
 5. **一般解释方法不等于单星能力：** `ZZ-TY-018` 不自动支持太阳的 QI-15 映射。
 6. **未知仍可保留：** 没有给性质强度、概率、持续时间或现实个体事件添加数值。
 
-## 4. 当前缺口与未完成事项
+## 4. 试点阶段的缺口与未完成事项（历史记录）
 
 - QI-01 是现有最有依据的基础候选，但正式归一化仍为 `UNRESOLVED`。
 - QI-05 与原文对「空虚/欠沉实」的描述是否一一对应，需要目标特定审议。
 - QI-15 现有引用是否应从太阳的条件签名移除，或改作一般解释规则，仍待后续统一审议；本轮只记录证据边界，不修改正式气核。
 - L3 的「声名/贵显」尚无专用、已接受的输出变量；不新造本体 ID。
-- 本轮未逐行裁定太阳其余 canonical 规则，也未完成太阴、天相试点或其余十一星。
+- （截至该试点检查点的历史范围声明）当时未逐行裁定太阳其余 canonical 规则，且尚未完成太阴、天相试点或其余十一星；这些工作随后已在本研究工单中完成。
 
-## 5. 当前交付状态
+## 5. 试点阶段交付状态（历史记录）
 
 - 本文件与 JSON 均为候选研究材料。
 - 不修改 `knowledge/star_cores.yaml`、`knowledge/star_systems.yaml`、`knowledge/qi_ontology.yaml`、canonical 规则行或 Product/runtime。
-- 本段关于“下一步进入阶段B”的内容是方法授权时的历史交接。阶段B首轮紫微已完成；当前恢复位置见第13节，下一颗为武曲。
+- 阶段B开始前的“下一步”内容是历史交接。紫微及其余十星的候选研究均已完成；当前不再存在“下一颗”执行任务，状态以本文开头与 `CORE_STATE.yaml` 为准。
 
 
-## 6. 太阴试点性质卡（当前检查点）
+## 6. 太阴试点性质卡（历史检查点）
 
 ### 来源与覆盖边界
 
@@ -158,10 +158,10 @@
 
 - 太阳检查点与太阴印刷页 19–20 的有界来源审查均曾分别通过 exact-head CI；其候选仍非 canonical。
 - 太阴本轮审查 25 条规则；书页 42 的 ZZ-TYI-010 仍未审，不能声称 26 条规则全量审结。
-- 后续天相试点及三星彩跨星比较已推进，当前状态以第 9、10 节和 PR #763 的最新 exact-head 检查为准。
+- 后续天相试点及三星彩跨星比较属于阶段性历史记录；最终十四主星研究状态与验收依据见本文开头及 PR #783 的最终质量门。
 
 
-## 8. 天相试点性质卡（当前检查点）
+## 8. 天相试点性质卡（历史检查点）
 
 ### 来源与覆盖边界
 - 使用 SRC-ZZ-002：《中州派紫微斗数深造讲义（上）》；源文件 SHA-256 与 sources/source_index.csv 一致。
@@ -218,14 +218,14 @@
 3. 三颗星构成有意义的反例组合：太阳与太阴提供相反方向的基础性质候选；天相则说明“来源直接谈到某星”不等于“来源支持固定内在 QI 极性”。
 4. 本结论只建议把同一方法用于下一阶段候选研究；不批准任何 QI 映射、不新增 ontology ID、不改 canonical 资料，也不授权 Product 消费。
 
-### 当前停止点
+### 历史停止点
 
 阶段 A 三星试点与跨星方法比较已完成。此处原为PI方法停止点；2026-10-25 PI已接受补充上下文检查建议，当前授权与检查结果见第11节。 其余语义项仍保持候选或未决，不在本轮自动裁决。
 
 
-## 11. 有界上下文方法检查（2026-10-25，当前恢复入口）
+## 11. 有界上下文方法检查（2026-10-25，历史阶段记录）
 
-**结论：当前研究记录方法可继续，下一独立轮次进入阶段B，从紫微开始。** PI已明确接受“先补一次有界检查、检查通过后继续”的建议。授权仅覆盖候选研究，不接受具体映射、不改变共享Schema或生产消费。机器记录见JSON的`context_method_audit`；该对象仅是本研究的局部sidecar，不是新共享条件语言。
+**历史结论（2026-10-25）：** PI接受研究记录方法继续，并据此启动阶段B，从紫微开始。阶段B的十四主星候选研究现已全部完成；本节不再是当前恢复入口。授权仅覆盖候选研究，不接受具体映射、不改变共享Schema或生产消费。机器记录见JSON的`context_method_audit`；该对象仅是本研究的局部sidecar，不是新共享条件语言。
 
 ### 本次复核与具体修正
 
@@ -249,7 +249,7 @@
 
 当前已满足：原文与归一化分开；主体、位置、层级和条件可追溯；未知/冲突及原有字面争议保留；无需扩展#755共享Schema即可记录研究。具体QI-01/QI-02/QI-05/QI-15映射继续UNRESOLVED，未修改正式星核、本体、源规则、Product或KIB。
 
-**下一轮：紫微候选研究。** 先按实时Issue/PR、当前main与有效检查恢复，只推进一个有界检查点，不重复申请已获方法授权，也不在本轮自动展开十一星。
+**历史交接（已完成）：** 紫微及后续十一星候选研究均已完成。当前没有自动后继任务；任何新研究都须根据实时 Issue/PR 另行建立有界工单。
 
 
 ## 12. 阶段 B 首轮：紫微候选研究（2026-10-25）
