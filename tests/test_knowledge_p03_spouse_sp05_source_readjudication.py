@@ -136,17 +136,35 @@ def test_cumulative_state_and_execution_boundary_reconcile():
     d = load(READJ)
     boundary = d["execution_boundary"]
     state = STATE.read_text(encoding="utf-8")
-    assert "SP05_401_500_SOURCE_FIRST_REVIEW_COMPLETE" in state
-    assert "historical_candidate_rows_reviewed: 500" in state
-    assert "candidate_rows_promoted: 385" in state
-    assert "source_records_added: 392" in state
-    assert "reusable_projection_method_records_added: 298" in state
-    assert "case_support_only_records_added: 94" in state
-    assert "candidates_held: 112" in state
-    assert "candidates_deduplicated: 3" in state
-    assert "temporal_scope_residuals: 37" in state
-    assert "temporal_scope_candidate_rows: 106" in state
-    assert "source_coverage_residuals_total_recorded: 11" in state
+    # This ledger remains batch-specific, but the shared P03 state advances as
+    # later accepted batches merge. Assert that its cumulative checkpoint is
+    # at least as advanced as the SP05 handoff rather than freezing old counts.
+    assert "SOURCE_FIRST_REVIEW_COMPLETE" in state
+    state_values = {}
+    for field in (
+        "historical_candidate_rows_reviewed",
+        "candidate_rows_promoted",
+        "source_records_added",
+        "reusable_projection_method_records_added",
+        "case_support_only_records_added",
+        "candidates_held",
+        "candidates_deduplicated",
+        "temporal_scope_residuals",
+        "temporal_scope_candidate_rows",
+        "source_coverage_residuals_total_recorded",
+    ):
+        line = next(line for line in state.splitlines() if line.strip().startswith(f"{field}:"))
+        state_values[field] = int(line.split(":", 1)[1].strip())
+    assert state_values["historical_candidate_rows_reviewed"] >= 500
+    assert state_values["candidate_rows_promoted"] >= 385
+    assert state_values["source_records_added"] >= 392
+    assert state_values["reusable_projection_method_records_added"] >= 298
+    assert state_values["case_support_only_records_added"] >= 94
+    assert state_values["candidates_held"] >= 112
+    assert state_values["candidates_deduplicated"] >= 3
+    assert state_values["temporal_scope_residuals"] >= 37
+    assert state_values["temporal_scope_candidate_rows"] >= 106
+    assert state_values["source_coverage_residuals_total_recorded"] >= 11
     assert "conditions_compiled=0" in state
     assert "execution_unlocked=0" in state
     assert boundary["canonical_promotion_is_source_only"] is True
