@@ -13,9 +13,9 @@
 
 # 十四主星基础性质归一化基线 v0.1
 
-**当前状态：** `PRE_PI_SOURCE_AUDIT_COMPLETED_PENDING_EXACT_HEAD_QUALITY_GATE` / `PROPOSAL_ONLY_NOT_CANONICAL`
+**当前状态：** `PI_DECISION_CARDS_READY_PENDING_PI_DECISIONS` / `PROPOSAL_ONLY_NOT_CANONICAL`
 **跟踪 Issue：** [#757](https://github.com/15937-ass/ziwei-state-space/issues/757)
-**已同步 main：** `4cc89ead106c315d451d2d39b72e33ccc73398b5`（同步提交 `cd11b672058e82efbdc08ee69a61f153aacb4a81`）
+**已同步 main：** `f77227ec0b67d422bce4e1dde2f4a1a39491d29f`（通过同步 PR #821 合入，合并提交 `9a4aa970d4f9b9ac95729ff827b17f38dcb9499d`）
 **执行分支：** `knowledge/core-757-14star-property-normalization-main-sync2`
 
 > 太阳、太阴、天相三个有界试点与阶段B十一颗扩展星均已形成候选卡与逐目标审核记录。来源审查侧车现覆盖全部430条canonical规则，但这仍是候选研究基线，不是正式本体变更，也不授权 Product 消费。
