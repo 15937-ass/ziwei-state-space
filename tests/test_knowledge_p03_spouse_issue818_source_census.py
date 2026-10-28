@@ -176,12 +176,18 @@ def test_cumulative_checkpoint_and_fail_closed_execution_boundary():
     assert handoff["execution_boundary"]["no_product_runtime"] is True
     assert handoff["execution_boundary"]["no_shared_core_semantics"] is True
     assert handoff["handoff"]["p11_admission_blocked"] is True
-    # The census/handoff PR is accepted with the P03 slot released.
-    # The queued follow-up may acquire the slot only in its own activation PR.
-    assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
-    assert "active_issue: null" in state
-    assert "active_branch: null" in state
-    assert "active_pr: null" in state
+    # After the census handoff, the slot stays released until the queued successor's own activation PR.
+    # This is the only permitted transition back to ACTIVE for this P03 checkpoint.
+    if 'status: "ACTIVE_NO_ACTIVE_WORK"' in state:
+        assert "active_issue: null" in state
+        assert "active_branch: null" in state
+        assert "active_pr: null" in state
+    else:
+        assert 'status: "ACTIVE"' in state
+        assert "active_issue: 824" in state
+        assert 'active_branch: "knowledge/p03-824-p37-residual"' in state
+        assert "active_pr: null" in state
+        assert "Issue #824" in state
     assert "P03_SOURCE_COVERAGE_CENSUS_AND_TEMPORAL_HANDOFF_ACCEPTED" in state
     for gap_id in (
         "P03-SP01-GAP-001",
