@@ -1068,7 +1068,7 @@ def test_pi_decisions_1a_2b_3b_are_recorded_without_canonical_promotion():
     record = data["pi_decision_record"]
     assert record["record_id"] == "PI-DECISION-CORE-757-2026-10-28"
     assert record["record_status"] == "PI_DECISIONS_RECORDED"
-    assert record["quality_gate_status"] == "PENDING_EXACT_HEAD_QUALITY_GATE"
+    assert record["quality_gate_status"] == "REQUIRED_PER_EXACT_HEAD_CI"
     assert record["response_literal"] == "1A，2B，3B"
     decisions = {item["card_id"]: item for item in record["decisions"]}
     assert {key: item["choice"] for key, item in decisions.items()} == {1: "A", 2: "B", 3: "B"}
@@ -1084,7 +1084,7 @@ def test_pi_decisions_1a_2b_3b_are_recorded_without_canonical_promotion():
     assert decisions[3]["decision_code"] == "RETAIN_LIANZHEN_QI11_CANDIDATE_UNRESOLVED"
     assert decisions[3]["affected_candidates"][0]["candidate_key"] == "EXP-LZ-03"
     assert decisions[3]["normalization_epistemic"] == "UNRESOLVED"
-    assert data["pre_pi_status"] == "PI_DECISIONS_RECORDED_PENDING_EXACT_HEAD_QUALITY_GATE"
+    assert data["pre_pi_status"] == "PI_DECISIONS_RECORDED"
     assert data["progress"]["stage"] == data["pre_pi_status"]
     assert data["pre_pi_gates"]["formal_mapping_approval"] is False
     assert data["pre_pi_gates"]["product_consumption_authorized"] is False
@@ -1118,7 +1118,7 @@ def test_pre_pi_source_audit_followup_covers_all_canonical_rules_without_promoti
     assert data["pre_pi_gates"]["pi_review_authorized"] is True
     assert data["pre_pi_gates"]["formal_mapping_approval"] is False
     followup = data["source_audit_followup"]
-    assert followup["status"] == "PI_DECISIONS_RECORDED_PENDING_EXACT_HEAD_QUALITY_GATE"
+    assert followup["status"] == "PI_DECISIONS_RECORDED"
     cards_path = ROOT / data["pre_pi_gates"]["decision_cards_path"]
     assert cards_path.exists()
     cards_text = cards_path.read_text(encoding="utf-8")
@@ -1166,7 +1166,7 @@ def test_pre_pi_source_audit_followup_covers_all_canonical_rules_without_promoti
     held = {row["rule_id"] for row in all_rows if row["source_span_status"] in {"NOT_VERIFIED_IN_REVIEWED_SPANS", "SOURCE_MISMATCH_CONFIRMED"}}
     assert held == {"ZZ-TL-010", "ZZ-TT-010"}
     assert data["pre_pi_gates"]["source_coverage"]["status_counts"] == counts
-    assert data["progress"]["stage"] == "PI_DECISIONS_RECORDED_PENDING_EXACT_HEAD_QUALITY_GATE"
+    assert data["progress"]["stage"] == "PI_DECISIONS_RECORDED"
 
 
 def test_pre_pi_mapping_review_audit_counts_are_consistent():
