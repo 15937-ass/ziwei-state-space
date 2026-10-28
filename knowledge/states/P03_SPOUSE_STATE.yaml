@@ -8,10 +8,10 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "ACTIVE"
-  active_issue: 818
-  active_branch: "knowledge/p03-818-spouse-coverage-census"
-  active_pr: 820
+  status: "ACTIVE_NO_ACTIVE_WORK"
+  active_issue: null
+  active_branch: null
+  active_pr: null
   canonical_checkpoint: "SP09_801_836_SOURCE_FIRST_REVIEW_COMPLETE__836_CANDIDATES_REVIEWED__648_CANDIDATES_PROMOTED__664_SOURCE_RECORDS__462_REUSABLE__202_CASE_ONLY__183_HELD__5_DEDUPED__17_SOURCE_GAPS__4_OPEN_OR_PARTIAL__63_TEMPORAL_RESIDUAL_GROUPS"
   note: >-
     Accepted source-first batches through SP08-701…800 are on main. SP09-801…836 has now
@@ -23,8 +23,7 @@ execution:
     sequence is not empirical history feedback. The bounded SP09 batch was accepted by
     PR #817, merged into main at f77227ec0b67d422bce4e1dde2f4a1a39491d29f; exact-head
     quality gate #40645097894 passed (2,818 tests, 132 subtests; Product JS, deterministic
-    P0, and Repository Governance v1). The full P03 source-coverage census and temporal-
-    residual handoff are active under Issue #818. Cumulative P03 totals: 836 candidates reviewed, 648 promoted, 664 source
+    P0, and Repository Governance v1). The full P03 source-coverage census and temporal-residual handoff are prepared in PR #820; upon acceptance, this census checkpoint is recorded and the single P03 slot is released. The next bounded P03 work unit is queued Issue #819, which may activate only after PR #820 is accepted. Cumulative P03 totals: 836 candidates reviewed, 648 promoted, 664 source
     records, 462 reusable, 202 CASE_SUPPORT_ONLY, 183 held, 5 deduplicated; 17 source gaps
     remain recorded, with 4 open or partially open: P03-SP01-GAP-001 (printed p33),
     P03-SP02-GAP-001 (partially resolved, printed p37), P03-SP02-GAP-004 (printed p35),
@@ -52,7 +51,7 @@ progress:
   history_feedback: 0
   conditions_compiled: 0
   execution_unlocked: 0
-  next_source_anchor: "Finish exact-head validation and merge PR #820. Then hand off the single P03 slot to queued Issue #819 for the three clear unindexed atoms; preserve the p37 “机录像” literal and unresolved time scope. Do not advance to P11 until Issue #819 and all residual handoffs are accepted."
+  next_source_anchor: "After PR #820 is accepted with active pointers cleared, activate queued Issue #819 for the three clear unindexed source atoms (printed pp33, 35–36). Preserve the p37 “机录像” literal and unresolved YEAR/DECADE scope. Do not advance to P11 until Issue #819 and all residual handoffs are accepted."
 
 integrity:
   source_first: true
