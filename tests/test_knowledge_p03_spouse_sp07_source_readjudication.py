@@ -105,7 +105,27 @@ def test_supplements_gaps_and_execution_boundary():
 
 def test_cumulative_state_checkpoint_reconciles():
     d=load(READJ); state=STATE.read_text(encoding="utf-8")
-    assert "SP07_601_700_SOURCE_FIRST_REVIEW_COMPLETE" in state
-    for field,value in {"historical_candidate_rows_reviewed":700,"candidate_rows_promoted":538,"source_records_added":551,"reusable_projection_method_records_added":397,"case_support_only_records_added":154,"candidates_held":157,"candidates_deduplicated":5,"source_coverage_residuals_total_recorded":17,"temporal_scope_residuals":53,"temporal_scope_candidate_rows":149}.items(): assert f"{field}: {value}" in state
+    # The palace state is a moving cumulative checkpoint: later accepted batches
+    # must not make an earlier batch's regression test require the stale SP07 snapshot.
+    assert (
+        "SP07_601_700_SOURCE_FIRST_REVIEW_COMPLETE" in state
+        or "SP08_701_800_SOURCE_FIRST_REVIEW_COMPLETE" in state
+    )
+    minimums = {
+        "historical_candidate_rows_reviewed": 700,
+        "candidate_rows_promoted": 538,
+        "source_records_added": 551,
+        "reusable_projection_method_records_added": 397,
+        "case_support_only_records_added": 154,
+        "candidates_held": 157,
+        "candidates_deduplicated": 5,
+        "source_coverage_residuals_total_recorded": 17,
+        "temporal_scope_residuals": 53,
+        "temporal_scope_candidate_rows": 149,
+    }
+    for field, minimum in minimums.items():
+        line = next(line for line in state.splitlines() if line.strip().startswith(field + ":"))
+        actual = int(line.split(":", 1)[1].strip())
+        assert actual >= minimum, (field, actual, minimum)
     assert "conditions_compiled=0" in state and "execution_unlocked=0" in state
 
