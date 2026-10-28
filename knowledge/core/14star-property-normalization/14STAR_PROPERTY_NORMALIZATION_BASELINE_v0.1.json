@@ -3,7 +3,7 @@
   "artifact_id": "KB-CORE-14STAR-PROPERTY-NORMALIZATION-BASELINE-01",
   "issue": 757,
   "status": "PROPOSAL_ONLY_NOT_CANONICAL",
-  "checkpoint_status": "STAGE_B_QISHA_CHECKPOINT_COMPLETED_NOT_FINAL",
+  "checkpoint_status": "STAGE_B_POJUN_CHECKPOINT_COMPLETED_NOT_FINAL",
   "activation_main_sha": "d45e2cfd6c0dc59fb80ec2210f7e729c53391c4f",
   "execution_branch": "knowledge/core-757-14star-property-normalization-main-sync2",
   "source_policy": {
@@ -634,20 +634,75 @@
       "prior_visual_review_rows_reused": 0,
       "canonical_source_span_verified_mutated": false
     },
-    "qisha_scope_note": "本轮仅视觉核对上册扫描页15/印刷页29–30。26条canonical行均有处置：25条完整视觉核对、ZZ-QS-005因扫描字面“廉洁”与canonical evidence_text概括不同而部分核对，无规则被整体留置。未修改canonical来源标记。"
+    "qisha_scope_note": "本轮仅视觉核对上册扫描页15/印刷页29–30。26条canonical行均有处置：25条完整视觉核对、ZZ-QS-005因扫描字面“廉洁”与canonical evidence_text概括不同而部分核对，无规则被整体留置。未修改canonical来源标记。",
+    "pojun_review_rule_ids": [
+      "ZZ-PJ-001",
+      "ZZ-PJ-002",
+      "ZZ-PJ-003",
+      "ZZ-PJ-004",
+      "ZZ-PJ-005",
+      "ZZ-PJ-006",
+      "ZZ-PJ-007",
+      "ZZ-PJ-008",
+      "ZZ-PJ-009",
+      "ZZ-PJ-010",
+      "ZZ-PJ-X01",
+      "ZZ-PJ-X02",
+      "ZZ-PJ-X03",
+      "ZZ-PJ-X04",
+      "ZZ-PJ-X05",
+      "ZZ-PJ-X06",
+      "ZZ-PJ-X07",
+      "ZZ-PJ-X08",
+      "ZZ-PJ-X09",
+      "ZZ-PJ-X10",
+      "ZZ-PJ-X11",
+      "ZZ-PJ-X12",
+      "ZZ-PJ-X13",
+      "ZZ-PJ-X14",
+      "ZZ-PJ-Y01",
+      "ZZ-PJ-Y02",
+      "ZZ-PJ-Y03",
+      "ZZ-PJ-Y04",
+      "ZZ-PJ-Y05",
+      "ZZ-PJ-Y06"
+    ],
+    "pojun_review_path": "knowledge/core/14star-property-normalization/POJUN_SOURCE_SPAN_REVIEW_v0.1.csv",
+    "pojun_held_rule_ids": [
+      "ZZ-PJ-006",
+      "ZZ-PJ-007",
+      "ZZ-PJ-008",
+      "ZZ-PJ-009",
+      "ZZ-PJ-010"
+    ],
+    "pojun_partial_rule_ids": [],
+    "pojun_source_locator": {
+      "source_id": "SRC-ZZ-002",
+      "source_work": "《中州派紫微斗数深造讲义（上）》",
+      "source_sha256": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a",
+      "pdf_scan_pages": [
+        15,
+        16
+      ],
+      "printed_pages": [
+        29,
+        32
+      ],
+      "verification": "VISUAL_SOURCE_REVIEWED; SHA256_MATCHES_SOURCES_INDEX",
+      "canonical_source_span_verified_mutated": false
+    },
+    "pojun_scope_note": "30条canonical行均有处置：25条完整视觉核对，ZZ-PJ-006..010因独立四化章节未核验而保持未核实。未修改canonical来源标记。"
   },
   "progress": {
-    "stage": "B_QISHA_CHECKPOINT_COMPLETED_READY_FOR_POJUN",
+    "stage": "B_POJUN_CHECKPOINT_COMPLETED_READY_FOR_FINAL_REVIEW",
     "completed_pilot_cards": [
       "太阳",
       "太阴",
       "天相"
     ],
     "remaining_pilot_cards": [],
-    "remaining_expansion_stars_in_existing_order": [
-      "破军"
-    ],
-    "coverage_warning": "Stage A pilots 太阳、太阴、天相 are completed research checkpoints, not final canonical mappings. Stage B has completed bounded candidate checkpoints for 紫微、天机、武曲、天同、廉贞、天府、贪狼、巨门、天梁、七杀. For 七杀, all 26 canonical rows have explicit dispositions: 25 full visual confirmations on scan page 15 / printed pp29–30, and ZZ-QS-005 is partial because the visible wording says “化杀为权的廉洁” while canonical evidence_text summarizes “有化杀为权之意”. Next star is 破军.",
+    "remaining_expansion_stars_in_existing_order": [],
+    "coverage_warning": "All Stage B bounded candidate checkpoints for 紫微、天机、武曲、天同、廉贞、天府、贪狼、巨门、天梁、七杀、破军 are recorded. Pojun: 25 of 30 canonical rows visually checked on scan pages 15–16 / printed pp29–32; ZZ-PJ-006..010 held because separate 四化 locators were not reviewed. This completes candidate checkpoints, not final canonical mapping.",
     "active_pilot_card": null,
     "draft_pilot_cards": [
       "太阳",
@@ -664,7 +719,8 @@
       "贪狼",
       "巨门",
       "天梁",
-      "七杀"
+      "七杀",
+      "破军"
     ],
     "active_expansion_star": null,
     "draft_expansion_stars": [
@@ -1080,6 +1136,40 @@
           "ZZ-QS-005"
         ],
         "source_locator_note": "《中州派紫微斗数深造讲义（上）》扫描页15/印刷页29–30；ZZ-QS-005保留可见字面“化杀为权的廉洁”，不静默修正canonical摘录差异。"
+      },
+      {
+        "star": "破军",
+        "status": "CHECKPOINT_COMPLETED_NOT_FINAL",
+        "source_id": "SRC-ZZ-002",
+        "pdf_scan_pages": [
+          15,
+          16
+        ],
+        "printed_pages": [
+          29,
+          32
+        ],
+        "canonical_rule_rows_reviewed": 30,
+        "source_review_rows": 30,
+        "fully_verified_rows": 25,
+        "partially_verified_rows": 0,
+        "held_rows": 5,
+        "prior_visual_review_rows_reused": 0,
+        "mapping_review_records_added": 20,
+        "source_claims_added": 20,
+        "candidate_properties_added": 20,
+        "normalization_epistemic": "UNRESOLVED",
+        "canonicalization_authorized": false,
+        "product_consumption_authorized": false,
+        "next_star": null,
+        "held_rule_ids": [
+          "ZZ-PJ-006",
+          "ZZ-PJ-007",
+          "ZZ-PJ-008",
+          "ZZ-PJ-009",
+          "ZZ-PJ-010"
+        ],
+        "source_locator_note": "基础性质使用扫描页16/印刷页31–32；七杀/破军比较补充扫描页15/印刷页29。ZZ-PJ-006..010独立四化章节未逐条核验。"
       }
     ]
   },
@@ -9394,6 +9484,697 @@
         "武职、利器、外科手术、机械工程及技艺均是传统职业/结果投影，不作为现代职业建议或能力测评。",
         "所有候选保持PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED；不改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限。"
       ]
+    },
+    {
+      "star_id": "STAR-PJ",
+      "name": "破军",
+      "status": "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL",
+      "source_claims": [
+        {
+          "claim_key": "PJ-L0",
+          "source_rule_ids": [
+            "ZZ-PJ-001"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 16,
+            "printed_page": "31"
+          },
+          "claim_layer": "L0_STRUCTURE_METADATA",
+          "claim_summary": "阳水仅作为传统结构元数据，不推导QI方向或数值。",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "PJ:16:31:PJ-L0",
+          "independent_source_span_count": 1,
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "source_excerpt": "破军为北斗第七星，属阳水。"
+        },
+        {
+          "claim_key": "PJ-DIRECTION",
+          "source_rule_ids": [
+            "ZZ-PJ-002",
+            "ZZ-PJ-003",
+            "ZZ-PJ-X01"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 16,
+            "printed_page": "31"
+          },
+          "claim_layer": "L1_INTRINSIC_BASELINE_CANDIDATE",
+          "claim_summary": "先锋、冲锋而不主退守可作描述性候选，不等同现代执行力或攻击性。",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "PJ:16:31:PJ-DIRECTION",
+          "independent_source_span_count": 1,
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "source_excerpt": "破军在斗数中为先锋，所以便只主冲锋，而不主退守。"
+        },
+        {
+          "claim_key": "PJ-QISHA",
+          "source_rule_ids": [
+            "ZZ-PJ-004",
+            "ZZ-PJ-005",
+            "ZZ-PJ-X02"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 15,
+            "printed_page": "29"
+          },
+          "claim_layer": "L2_RELATION_OR_SYSTEM",
+          "claim_summary": "劳心/劳力与受命关系须保留七杀比较语境，不折算为能力分数。",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "PJ:15:29:PJ-QISHA",
+          "independent_source_span_count": 1,
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "source_excerpt": "七杀较为劳心，破军则较为劳力；破军则仍有顾忌，必须受命于主帅。"
+        },
+        {
+          "claim_key": "PJ-TASK",
+          "source_rule_ids": [
+            "ZZ-PJ-X03"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 16,
+            "printed_page": "31"
+          },
+          "claim_layer": "CONDITIONAL_STATE_OR_CONTEXT",
+          "claim_summary": "困难任务与调派属于传统处境描述，不升格为恒定人格或职业预测。",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "PJ:16:31:PJ-TASK",
+          "independent_source_span_count": 1,
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "source_excerpt": "破军守命的人一定不能安定，常承担困难任务，解决后又另行派调。"
+        },
+        {
+          "claim_key": "PJ-LU",
+          "source_rule_ids": [
+            "ZZ-PJ-X04"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 16,
+            "printed_page": "31"
+          },
+          "claim_layer": "CONDITIONAL_RESPONSE_OR_EXTERNAL_MODIFIER",
+          "claim_summary": "见禄时开创实益的描述须保留条件。",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "PJ:16:31:PJ-LU",
+          "independent_source_span_count": 1,
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "source_excerpt": "破军最喜见禄存及化禄，尤喜自身化禄；得禄则主开创有收获。"
+        },
+        {
+          "claim_key": "PJ-QUAN",
+          "source_rule_ids": [
+            "ZZ-PJ-X05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 16,
+            "printed_page": "31"
+          },
+          "claim_layer": "CONDITIONAL_RESPONSE_OR_EXTERNAL_MODIFIER",
+          "claim_summary": "化权较化禄更辛劳而声势更显，不能视为实益简单升级。",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "PJ:16:31:PJ-QUAN",
+          "independent_source_span_count": 1,
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "source_excerpt": "破军化权比化禄远为辛劳，只不过声势更为显赫。"
+        },
+        {
+          "claim_key": "PJ-SHA",
+          "source_rule_ids": [
+            "ZZ-PJ-X06"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 16,
+            "printed_page": "31"
+          },
+          "claim_layer": "CONDITIONAL_STATE_CHANGE_CANDIDATE",
+          "claim_summary": "缺少吉化辅佐且见煞忌是联合条件，不是无条件破坏性。",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "PJ:16:31:PJ-SHA",
+          "independent_source_span_count": 1,
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "source_excerpt": "不见吉化与辅佐、反见煞忌交侵，则一生只能破坏，欠缺开创。"
+        },
+        {
+          "claim_key": "PJ-CHANGQU",
+          "source_rule_ids": [
+            "ZZ-PJ-X07"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 16,
+            "printed_page": "31"
+          },
+          "claim_layer": "CONDITIONAL_RELATION",
+          "claim_summary": "不喜昌曲须保留寅宫独坐且有吉曜的例外。",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "PJ:16:31:PJ-CHANGQU",
+          "independent_source_span_count": 1,
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "source_excerpt": "破军不喜文昌文曲；唯寅宫独坐有吉曜时喜见昌曲。"
+        },
+        {
+          "claim_key": "PJ-TIANMA",
+          "source_rule_ids": [
+            "ZZ-PJ-X08"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 16,
+            "printed_page": "31"
+          },
+          "claim_layer": "CONDITIONAL_RESPONSE_OR_EXTERNAL_MODIFIER",
+          "claim_summary": "天马与不安定语境构成互动，不归因于破军单星。",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "PJ:16:31:PJ-TIANMA",
+          "independent_source_span_count": 1,
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "source_excerpt": "破军更见天马，则主人意志不定、流离浪荡。"
+        },
+        {
+          "claim_key": "PJ-SPL",
+          "source_rule_ids": [
+            "ZZ-PJ-X09",
+            "ZZ-PJ-X10",
+            "ZZ-PJ-Y04"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 16,
+            "printed_page": "31-32"
+          },
+          "claim_layer": "L2_RELATION_OR_SYSTEM",
+          "claim_summary": "杀破狼三者变化机制不同，不合并为同一种变化强度。",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "PJ:16:31-32:PJ-SPL",
+          "independent_source_span_count": 1,
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "source_excerpt": "贪狼变化柔和，七杀变化突如其来，破军变化则必为旧事创新。"
+        },
+        {
+          "claim_key": "PJ-OLDNEW",
+          "source_rule_ids": [
+            "ZZ-PJ-X10"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 16,
+            "printed_page": "31-32"
+          },
+          "claim_layer": "L1_INTRINSIC_BASELINE_CANDIDATE",
+          "claim_summary": "旧事创新、先破后建是传统描述候选，不推断现代创新能力。",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "PJ:16:31-32:PJ-OLDNEW",
+          "independent_source_span_count": 1,
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "source_excerpt": "贪狼变化柔和，七杀变化突如其来，破军变化则必为旧事创新。"
+        },
+        {
+          "claim_key": "PJ-FUDE",
+          "source_rule_ids": [
+            "ZZ-PJ-X11"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 16,
+            "printed_page": "32"
+          },
+          "claim_layer": "CONDITIONAL_RELATION",
+          "claim_summary": "守成苦闷带有福德宫限定，不泛化至所有场景。",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "PJ:16:32:PJ-FUDE",
+          "independent_source_span_count": 1,
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "source_excerpt": "破军主攻不主守，守成反为苦闷，居福德宫者尤其如此。"
+        },
+        {
+          "claim_key": "PJ-YINGXING",
+          "source_rule_ids": [
+            "ZZ-PJ-X12"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 16,
+            "printed_page": "32"
+          },
+          "claim_layer": "CONDITIONAL_RELATION",
+          "claim_summary": "能攻能守仅在英星入庙完整条件结构下成立。",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "PJ:16:32:PJ-YINGXING",
+          "independent_source_span_count": 1,
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "source_excerpt": "破军只有在一种星系组合下主能攻能守，即所谓英星入庙格。",
+          "conditions_to_preserve": [
+            "破军独坐子午宫",
+            "破军化权",
+            "对宫廉贞化禄",
+            "辅佐会合",
+            "无煞忌诸曜会照"
+          ]
+        },
+        {
+          "claim_key": "PJ-ANXIAO",
+          "source_rule_ids": [
+            "ZZ-PJ-X13"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 16,
+            "printed_page": "32"
+          },
+          "claim_layer": "CONDITIONAL_RESPONSE_OR_EXTERNAL_MODIFIER",
+          "claim_summary": "水中按来源解释为水宫困滞，而非水厄。",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "PJ:16:32:PJ-ANXIAO",
+          "independent_source_span_count": 1,
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "source_excerpt": "破军暗曜在亥子丑三宫主困滞，并不指意外。"
+        },
+        {
+          "claim_key": "PJ-TIANGXIANG",
+          "source_rule_ids": [
+            "ZZ-PJ-X14"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 16,
+            "printed_page": "32"
+          },
+          "claim_layer": "L2_RELATION_OR_SYSTEM",
+          "claim_summary": "天相对宫与夹局属于关系门控，不是破军固定内在性质。",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "PJ:16:32:PJ-TIANGXIANG",
+          "independent_source_span_count": 1,
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "source_excerpt": "破军永与天相对拱；廉贞破军、紫微破军、武曲破军形成不同星系。"
+        },
+        {
+          "claim_key": "PJ-AUX",
+          "source_rule_ids": [
+            "ZZ-PJ-Y02"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 16,
+            "printed_page": "31"
+          },
+          "claim_layer": "CONDITIONAL_RESPONSE_OR_EXTERNAL_MODIFIER",
+          "claim_summary": "无禄权时辅弼可提供助力，是条件性资源关系。",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "PJ:16:31:PJ-AUX",
+          "independent_source_span_count": 1,
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "source_excerpt": "不见禄权而见左辅右弼，可减少辛劳与忧患。"
+        },
+        {
+          "claim_key": "PJ-RISK",
+          "source_rule_ids": [
+            "ZZ-PJ-Y03"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 16,
+            "printed_page": "31"
+          },
+          "claim_layer": "L3_PROJECTION_OR_OUTCOME",
+          "claim_summary": "煞曜相关传统应象是下游投影，不作为现代医学或事故预测。",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "PJ:16:31:PJ-RISK",
+          "independent_source_span_count": 1,
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "source_excerpt": "火铃、羊陀、刑忌等分支伴随奔波、争端、伤残等传统应象。"
+        },
+        {
+          "claim_key": "PJ-FAMILY",
+          "source_rule_ids": [
+            "ZZ-PJ-Y05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 16,
+            "printed_page": "32"
+          },
+          "claim_layer": "L2_RELATION_OR_SYSTEM",
+          "claim_summary": "破军与天相及廉贞/紫微/武曲的组合属于星系结构。",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "PJ:16:32:PJ-FAMILY",
+          "independent_source_span_count": 1,
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "source_excerpt": "破军永与天相对拱；廉贞破军、紫微破军、武曲破军形成不同星系。"
+        },
+        {
+          "claim_key": "PJ-PALACE",
+          "source_rule_ids": [
+            "ZZ-PJ-Y06"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 16,
+            "printed_page": "32"
+          },
+          "claim_layer": "COMPARATIVE_CONTEXT",
+          "claim_summary": "巳亥武破与寅申独坐属于宫位结构比较，不是绝对等级。",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "PJ:16:32:PJ-PALACE",
+          "independent_source_span_count": 1,
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "source_excerpt": "巳亥武破较佳；寅申破军独坐陷地，较为不利。"
+        },
+        {
+          "claim_key": "PJ-HELD",
+          "source_rule_ids": [
+            "ZZ-PJ-006",
+            "ZZ-PJ-007",
+            "ZZ-PJ-008",
+            "ZZ-PJ-009",
+            "ZZ-PJ-010"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "status": "NOT_VERIFIED_IN_CURRENT_SCOPE"
+          },
+          "claim_layer": "SOURCE_SCOPE_GAP",
+          "claim_summary": "五条四化章节规则未在本轮独立核验，不用其他段落替代其来源跨度。",
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "PJ:OUT_OF_SCOPE:four-transformations",
+          "independent_source_span_count": 1,
+          "row_adjudication_status": "OUT_OF_SCOPE_SOURCE_NOT_VERIFIED; PROPOSAL_ONLY_NOT_CANONICAL"
+        }
+      ],
+      "candidate_properties": [
+        {
+          "candidate_key": "PJ-01",
+          "layer": "L0",
+          "candidate_label": "阳水仅作为传统结构元数据，不推导QI方向或数值。",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+          "source_rule_ids": [
+            "ZZ-PJ-001"
+          ],
+          "mapping_review_record_id": "MR-PJ-L0-001",
+          "mapping_disposition": "not_supported_for_target",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PJ-02",
+          "layer": "L1",
+          "candidate_label": "先锋、冲锋而不主退守可作描述性候选，不等同现代执行力或攻击性。",
+          "target_ref": "STAR-PJ.intrinsic_signature",
+          "source_rule_ids": [
+            "ZZ-PJ-002",
+            "ZZ-PJ-003",
+            "ZZ-PJ-X01"
+          ],
+          "mapping_review_record_id": "MR-PJ-DIRECTION-002",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PJ-03",
+          "layer": "L2",
+          "candidate_label": "劳心/劳力与受命关系须保留七杀比较语境，不折算为能力分数。",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-PJ-004",
+            "ZZ-PJ-005",
+            "ZZ-PJ-X02"
+          ],
+          "mapping_review_record_id": "MR-PJ-QISHA-003",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PJ-04",
+          "layer": "L2",
+          "candidate_label": "困难任务与调派属于传统处境描述，不升格为恒定人格或职业预测。",
+          "target_ref": "STAR-PJ.relational_signature",
+          "source_rule_ids": [
+            "ZZ-PJ-X03"
+          ],
+          "mapping_review_record_id": "MR-PJ-TASK-004",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PJ-05",
+          "layer": "CONDITIONAL_RESPONSE",
+          "candidate_label": "见禄时开创实益的描述须保留条件。",
+          "target_ref": "STAR-PJ.conditional_signature",
+          "source_rule_ids": [
+            "ZZ-PJ-X04"
+          ],
+          "mapping_review_record_id": "MR-PJ-LU-005",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PJ-06",
+          "layer": "CONDITIONAL_RESPONSE",
+          "candidate_label": "化权较化禄更辛劳而声势更显，不能视为实益简单升级。",
+          "target_ref": "STAR-PJ.conditional_signature",
+          "source_rule_ids": [
+            "ZZ-PJ-X05"
+          ],
+          "mapping_review_record_id": "MR-PJ-QUAN-006",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PJ-07",
+          "layer": "CONDITIONAL_RESPONSE",
+          "candidate_label": "缺少吉化辅佐且见煞忌是联合条件，不是无条件破坏性。",
+          "target_ref": "STAR-PJ.conditional_signature",
+          "source_rule_ids": [
+            "ZZ-PJ-X06"
+          ],
+          "mapping_review_record_id": "MR-PJ-SHA-007",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PJ-08",
+          "layer": "L2",
+          "candidate_label": "不喜昌曲须保留寅宫独坐且有吉曜的例外。",
+          "target_ref": "STAR-PJ.relational_signature",
+          "source_rule_ids": [
+            "ZZ-PJ-X07"
+          ],
+          "mapping_review_record_id": "MR-PJ-CHANGQU-008",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PJ-09",
+          "layer": "CONDITIONAL_RESPONSE",
+          "candidate_label": "天马与不安定语境构成互动，不归因于破军单星。",
+          "target_ref": "STAR-PJ.conditional_signature",
+          "source_rule_ids": [
+            "ZZ-PJ-X08"
+          ],
+          "mapping_review_record_id": "MR-PJ-TIANMA-009",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PJ-10",
+          "layer": "L2",
+          "candidate_label": "杀破狼三者变化机制不同，不合并为同一种变化强度。",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-PJ-X09",
+            "ZZ-PJ-X10",
+            "ZZ-PJ-Y04"
+          ],
+          "mapping_review_record_id": "MR-PJ-SPL-010",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PJ-11",
+          "layer": "L1",
+          "candidate_label": "旧事创新、先破后建是传统描述候选，不推断现代创新能力。",
+          "target_ref": "STAR-PJ.intrinsic_signature",
+          "source_rule_ids": [
+            "ZZ-PJ-X10"
+          ],
+          "mapping_review_record_id": "MR-PJ-OLDNEW-011",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PJ-12",
+          "layer": "CONDITIONAL_RESPONSE",
+          "candidate_label": "守成苦闷带有福德宫限定，不泛化至所有场景。",
+          "target_ref": "STAR-PJ.conditional_signature",
+          "source_rule_ids": [
+            "ZZ-PJ-X11"
+          ],
+          "mapping_review_record_id": "MR-PJ-FUDE-012",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PJ-13",
+          "layer": "CONDITIONAL_RESPONSE",
+          "candidate_label": "能攻能守仅在英星入庙完整条件结构下成立。",
+          "target_ref": "STAR-PJ.conditional_signature",
+          "source_rule_ids": [
+            "ZZ-PJ-X12"
+          ],
+          "mapping_review_record_id": "MR-PJ-YINGXING-013",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PJ-14",
+          "layer": "CONDITIONAL_RESPONSE",
+          "candidate_label": "水中按来源解释为水宫困滞，而非水厄。",
+          "target_ref": "STAR-PJ.conditional_signature",
+          "source_rule_ids": [
+            "ZZ-PJ-X13"
+          ],
+          "mapping_review_record_id": "MR-PJ-ANXIAO-014",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PJ-15",
+          "layer": "L2",
+          "candidate_label": "天相对宫与夹局属于关系门控，不是破军固定内在性质。",
+          "target_ref": "STAR-PJ.relational_signature",
+          "source_rule_ids": [
+            "ZZ-PJ-X14"
+          ],
+          "mapping_review_record_id": "MR-PJ-TIANGXIANG-015",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PJ-16",
+          "layer": "CONDITIONAL_RESPONSE",
+          "candidate_label": "无禄权时辅弼可提供助力，是条件性资源关系。",
+          "target_ref": "STAR-PJ.conditional_signature",
+          "source_rule_ids": [
+            "ZZ-PJ-Y02"
+          ],
+          "mapping_review_record_id": "MR-PJ-AUX-016",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PJ-17",
+          "layer": "L3",
+          "candidate_label": "煞曜相关传统应象是下游投影，不作为现代医学或事故预测。",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "source_rule_ids": [
+            "ZZ-PJ-Y03"
+          ],
+          "mapping_review_record_id": "MR-PJ-RISK-017",
+          "mapping_disposition": "not_supported_for_target",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PJ-18",
+          "layer": "L2",
+          "candidate_label": "破军与天相及廉贞/紫微/武曲的组合属于星系结构。",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-PJ-Y05"
+          ],
+          "mapping_review_record_id": "MR-PJ-FAMILY-018",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PJ-19",
+          "layer": "L2",
+          "candidate_label": "巳亥武破与寅申独坐属于宫位结构比较，不是绝对等级。",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-PJ-Y06"
+          ],
+          "mapping_review_record_id": "MR-PJ-PALACE-019",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "PJ-20",
+          "layer": "UNRESOLVED",
+          "candidate_label": "五条四化章节规则未在本轮独立核验，不用其他段落替代其来源跨度。",
+          "target_ref": "UNRESOLVED",
+          "source_rule_ids": [
+            "ZZ-PJ-006",
+            "ZZ-PJ-007",
+            "ZZ-PJ-008",
+            "ZZ-PJ-009",
+            "ZZ-PJ-010"
+          ],
+          "mapping_review_record_id": "MR-PJ-HELD-020",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        }
+      ],
+      "held_canonical_rule_ids": [
+        "ZZ-PJ-006",
+        "ZZ-PJ-007",
+        "ZZ-PJ-008",
+        "ZZ-PJ-009",
+        "ZZ-PJ-010"
+      ],
+      "non_promotion_guards": [
+        "阳水只作传统结构元数据，不推导QI方向或数值。",
+        "先锋/冲锋、不主退守与旧事创新是传统描述，不等同现代能力测量。",
+        "禄、权、辅佐、煞忌、天马及英星入庙均保留条件。",
+        "昌曲规则保留寅宫独坐且有吉曜的例外。",
+        "天相对宫、星系家族和宫位差异属于关系/上下文层。",
+        "传统风险应象不作为现代医学或现实事件预测。",
+        "ZZ-PJ-006..010独立四化章节未核验，保持未决。",
+        "所有候选仍为PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED；不改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限。"
+      ]
     }
   ],
   "mapping_review_records": [
@@ -13736,6 +14517,396 @@
       "mapping_disposition": {
         "state": "KNOWN",
         "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-PJ-L0-001",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=16#printed_page=31#ZZ-PJ-001"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+      "rationale": "阳水仅作为传统结构元数据，不推导QI方向或数值。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-PJ-DIRECTION-002",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=16#printed_page=31#ZZ-PJ-002",
+        "SRC-ZZ-002#pdf_scan_page=16#printed_page=31#ZZ-PJ-003",
+        "SRC-ZZ-002#pdf_scan_page=16#printed_page=31#ZZ-PJ-X01"
+      ],
+      "target_ref": "STAR-PJ.intrinsic_signature",
+      "rationale": "先锋、冲锋而不主退守可作描述性候选，不等同现代执行力或攻击性。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-PJ-QISHA-003",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=29#ZZ-PJ-004",
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=29#ZZ-PJ-005",
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=29#ZZ-PJ-X02"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "劳心/劳力与受命关系须保留七杀比较语境，不折算为能力分数。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-PJ-TASK-004",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=16#printed_page=31#ZZ-PJ-X03"
+      ],
+      "target_ref": "STAR-PJ.relational_signature",
+      "rationale": "困难任务与调派属于传统处境描述，不升格为恒定人格或职业预测。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-PJ-LU-005",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=16#printed_page=31#ZZ-PJ-X04"
+      ],
+      "target_ref": "STAR-PJ.conditional_signature",
+      "rationale": "见禄时开创实益的描述须保留条件。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-PJ-QUAN-006",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=16#printed_page=31#ZZ-PJ-X05"
+      ],
+      "target_ref": "STAR-PJ.conditional_signature",
+      "rationale": "化权较化禄更辛劳而声势更显，不能视为实益简单升级。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-PJ-SHA-007",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=16#printed_page=31#ZZ-PJ-X06"
+      ],
+      "target_ref": "STAR-PJ.conditional_signature",
+      "rationale": "缺少吉化辅佐且见煞忌是联合条件，不是无条件破坏性。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-PJ-CHANGQU-008",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=16#printed_page=31#ZZ-PJ-X07"
+      ],
+      "target_ref": "STAR-PJ.relational_signature",
+      "rationale": "不喜昌曲须保留寅宫独坐且有吉曜的例外。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-PJ-TIANMA-009",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=16#printed_page=31#ZZ-PJ-X08"
+      ],
+      "target_ref": "STAR-PJ.conditional_signature",
+      "rationale": "天马与不安定语境构成互动，不归因于破军单星。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-PJ-SPL-010",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=16#printed_page=31-32#ZZ-PJ-X09",
+        "SRC-ZZ-002#pdf_scan_page=16#printed_page=31-32#ZZ-PJ-X10",
+        "SRC-ZZ-002#pdf_scan_page=16#printed_page=31-32#ZZ-PJ-Y04"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "杀破狼三者变化机制不同，不合并为同一种变化强度。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-PJ-OLDNEW-011",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=16#printed_page=31-32#ZZ-PJ-X10"
+      ],
+      "target_ref": "STAR-PJ.intrinsic_signature",
+      "rationale": "旧事创新、先破后建是传统描述候选，不推断现代创新能力。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-PJ-FUDE-012",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=16#printed_page=32#ZZ-PJ-X11"
+      ],
+      "target_ref": "STAR-PJ.conditional_signature",
+      "rationale": "守成苦闷带有福德宫限定，不泛化至所有场景。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-PJ-YINGXING-013",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=16#printed_page=32#ZZ-PJ-X12"
+      ],
+      "target_ref": "STAR-PJ.conditional_signature",
+      "rationale": "能攻能守仅在英星入庙完整条件结构下成立。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-PJ-ANXIAO-014",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=16#printed_page=32#ZZ-PJ-X13"
+      ],
+      "target_ref": "STAR-PJ.conditional_signature",
+      "rationale": "水中按来源解释为水宫困滞，而非水厄。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-PJ-TIANGXIANG-015",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=16#printed_page=32#ZZ-PJ-X14"
+      ],
+      "target_ref": "STAR-PJ.relational_signature",
+      "rationale": "天相对宫与夹局属于关系门控，不是破军固定内在性质。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-PJ-AUX-016",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=16#printed_page=31#ZZ-PJ-Y02"
+      ],
+      "target_ref": "STAR-PJ.conditional_signature",
+      "rationale": "无禄权时辅弼可提供助力，是条件性资源关系。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-PJ-RISK-017",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=16#printed_page=31#ZZ-PJ-Y03"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "煞曜相关传统应象是下游投影，不作为现代医学或事故预测。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-PJ-FAMILY-018",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=16#printed_page=32#ZZ-PJ-Y05"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "破军与天相及廉贞/紫微/武曲的组合属于星系结构。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-PJ-PALACE-019",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=16#printed_page=32#ZZ-PJ-Y06"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "巳亥武破与寅申独坐属于宫位结构比较，不是绝对等级。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-PJ-HELD-020",
+      "source_refs": [
+        "SRC-ZZ-002#source_locator=not_verified#ZZ-PJ-006",
+        "SRC-ZZ-002#source_locator=not_verified#ZZ-PJ-007",
+        "SRC-ZZ-002#source_locator=not_verified#ZZ-PJ-008",
+        "SRC-ZZ-002#source_locator=not_verified#ZZ-PJ-009",
+        "SRC-ZZ-002#source_locator=not_verified#ZZ-PJ-010"
+      ],
+      "target_ref": "UNRESOLVED",
+      "rationale": "五条四化章节规则未在本轮独立核验，不用其他段落替代其来源跨度。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
         "conflict_ref": null
       }
     }
