@@ -1,5 +1,6 @@
 import csv
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -133,10 +134,42 @@ def test_p03_state_cache_reconciles_all_source_review_batches():
     # state advances as later batches arrive; reconcile it with every ledger
     # instead of requiring it to remain frozen at the first checkpoint.
     state = STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
-    assert "active_issue: null" in state
-    assert "active_branch: null" in state
-    assert "active_pr: null" in state
+    if 'status: "ACTIVE"' in state:
+        issue_match = re.search(r"(?m)^  active_issue: (\\d+)$", state)
+        branch_match = re.search(r'(?m)^  active_branch: "([^"]+)"
+    batches = [load(path) for path in sorted(READJ.parent.glob(
+        "SPOUSE_SP*_SOURCE_READJUDICATION_*.json"
+    ))]
+    assert batches
+    candidates = [row["historical_candidate_id"] for batch in batches
+                  for row in batch["candidate_batch"]["candidate_dispositions"]]
+    assert len(candidates) == len(set(candidates))
+    fields = {
+        "historical_candidate_rows_reviewed": "reviewed",
+        "candidate_rows_promoted": "canonical_promoted",
+        "source_records_added": "canonical_record_count",
+        "reusable_projection_method_records_added": "reusable_projection_rules",
+        "case_support_only_records_added": "case_support_only",
+        "candidates_held": "held",
+        "candidates_deduplicated": "deduplicated",
+    }
+    lines = set(state.splitlines())
+    for field, summary_key in fields.items():
+        total = sum(batch["summary"][summary_key] for batch in batches)
+        assert f"  {field}: {total}" in lines
+    assert len(candidates) == sum(batch["summary"]["reviewed"] for batch in batches)
+    assert "P03-SP01-GAP-001" in state
+    assert "conditions_compiled=0" in state
+    assert "execution_unlocked=0" in state
+, state)
+        assert issue_match and branch_match
+        assert f"p03-{issue_match.group(1)}-" in branch_match.group(1)
+        assert re.search(r"(?m)^  active_pr: (?:\\d+|null)$", state)
+    else:
+        assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
+        assert "active_issue: null" in state
+        assert "active_branch: null" in state
+        assert "active_pr: null" in state
     batches = [load(path) for path in sorted(READJ.parent.glob(
         "SPOUSE_SP*_SOURCE_READJUDICATION_*.json"
     ))]
