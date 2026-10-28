@@ -101,7 +101,7 @@ def test_temporal_scope_and_condition_membership_fail_closed():
     d = load(READJ)
     disp = dispositions_by_id(d)
     assert {k for k, v in disp.items() if v["direct_scan_disposition"] == "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED"} == TEMPORAL_HELD
-    assert {k for k, v in disp.items() if v["direct_scan_disposition"] == "HOLD_SOURCE_CONDITION_MEMBERSHIP_UNRESOLVED"} == CONDITION_HELD
+    assert {k for k, v in disp.items() if v["direct_scan_disposition"] == "HOLD_SOURCE_SEMANTIC_AMBIGUITY"} == CONDITION_HELD
     assert "大限流年" in disp["SP06-520"]["source_literal_claim"]
     assert "大限流年" in disp["SP06-540"]["source_literal_claim"]
     assert "克应之期" in disp["SP06-525"]["source_literal_claim"]
