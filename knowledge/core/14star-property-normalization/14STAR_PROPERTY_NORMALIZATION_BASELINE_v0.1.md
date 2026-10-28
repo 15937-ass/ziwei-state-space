@@ -1,19 +1,25 @@
 ## 当前 PI 审计状态与来源裁决汇总（2026-10-28）
 
-**当前状态：** `PI_DECISION_CARDS_READY_PENDING_PI_DECISIONS` / `PROPOSAL_ONLY_NOT_CANONICAL`  
+**当前状态：** `PI_DECISIONS_RECORDED_PENDING_EXACT_HEAD_QUALITY_GATE` / `PROPOSAL_ONLY_NOT_CANONICAL`  
 **Issue / PR：** [#757](https://github.com/15937-ass/ziwei-state-space/issues/757) / [#783（Draft，未合并）](https://github.com/15937-ass/ziwei-state-space/pull/783)  
+
+**PI决定记录（2026-10-28）：** `1A，2B，3B`；详见 [PI 决策卡](14STAR_PROPERTY_NORMALIZATION_PI_DECISION_CARDS_v0.1.md) 与基线 JSON 的 `pi_decision_record`。
+- 1A：接受太阳发射端／太阴收敛端的有限方向性对应，仅属候选研究层，不触发 canonical 晋升。
+- 2B：采用定义驱动的 QI-05 严格审核门槛，不自动接受任何具体候选。
+- 3B：廉贞 QI-11 保留候选、继续 `UNRESOLVED`。
+- 当前等待新 head 的完整 exact-head 质量门；所有 canonical、共享 Schema、Product/runtime 与 KIB 安全边界保持不变。
 **主分支同步：** main `46df5401745136fe16e8ff49de10620bd5a0ae55` 已通过同步 PR [#822](https://github.com/15937-ass/ziwei-state-space/pull/822) 合入 Core 工作分支，合并提交 `229e8a5504dfaaf08c2f48112ecdd541ce272d05`。  
 **质量门：** 每个新提交均须通过自己的 exact-head CI；最新结果以 [PR #783 的 Checks](https://github.com/15937-ass/ziwei-state-space/pull/783) 为准。文档状态不代替 CI 验收。  
 **来源覆盖：** 14份侧车覆盖430条 canonical 规则ID；423条完整视觉核对、5条部分核对、1条未核实、1条来源错配。  
 **Mapping-review：** 241条记录、182项候选性质；58 supported_candidate、57 candidate_only、100 needs_review、26 not_supported_for_target。100条 needs_review 是记录状态，不是 PI 待办数。  
 **引用去重：** 428次来源引用使用、360个唯一来源引用；59组精确引用复用，共127次使用；复用不增加独立证据权重。  
 **来源范围差异：** 原始13项/26个 rule ID 已逐项处理；唯一保留项 `EXP-WQ-06 / ZZ-WQ-X06` 为与 `ZZ-WQ-018/019` 重叠的摘要，不重复计证。  
-**PI决策入口：** [3张 PI 决策卡 v0.1](14STAR_PROPERTY_NORMALIZATION_PI_DECISION_CARDS_v0.1.md)。  
-**正式规则边界：** 所有候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`；canonical source flags仍为false；未批准正式映射、未修改正式星核/本体/共享Schema/Product/runtime/KIB或消费者权限。
+**PI决策记录：** [PI 决策卡与选择结果](14STAR_PROPERTY_NORMALIZATION_PI_DECISION_CARDS_v0.1.md)，当前选择为 1A、2B、3B。  
+**正式规则边界：** 所有候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`；canonical source flags仍为false；未批准 canonical 正式映射、未修改正式星核/本体/共享Schema/Product/runtime/KIB或消费者权限。
 
 # 十四主星基础性质归一化基线 v0.1
 
-**当前状态：** `PI_DECISION_CARDS_READY_PENDING_PI_DECISIONS` / `PROPOSAL_ONLY_NOT_CANONICAL`
+**当前状态：** `PI_DECISIONS_RECORDED_PENDING_EXACT_HEAD_QUALITY_GATE` / `PROPOSAL_ONLY_NOT_CANONICAL`
 **跟踪 Issue：** [#757](https://github.com/15937-ass/ziwei-state-space/issues/757)
 **已同步 main：** `46df5401745136fe16e8ff49de10620bd5a0ae55`（通过同步 PR [#822](https://github.com/15937-ass/ziwei-state-space/pull/822) 合入，合并提交 `229e8a5504dfaaf08c2f48112ecdd541ce272d05`）
 **执行分支：** `knowledge/core-757-14star-property-normalization-main-sync2`
