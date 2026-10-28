@@ -2,7 +2,7 @@
 
 **状态：** `B_POJUN_CHECKPOINT_COMPLETED_READY_FOR_FINAL_REVIEW` / `PROPOSAL_ONLY_NOT_CANONICAL`
 **Issue：** #757
-**范围限制：** 本文件合并太阳、太阴、天相三个有界试点的缺口及横向方法问题；太阳 40 条规则未全审，太阴书页 42 的 ZZ-TYI-010 未审，天相书页 47 的 ZZ-TX-009/010 未审，均不代表十四星穷尽审计。
+**当前范围状态（2026-10-28）：** 来源审查侧车现覆盖全部430条canonical规则ID。太阳40条已完成跨度核对；ZZ-TYI-010与ZZ-TX-009/010已补核。下方旧缺口条目保留历史审计轨迹；最新状态以文末“预PI补核结果”为准。
 
 ## 太阳试点缺口
 
@@ -303,3 +303,23 @@
 | GAP-PJ-06 | 天相对宫与星系家族 | 天相夹局、廉破/紫破/武破与宫位差异属于关系证据。 | 保留L2关系，不填充固定intrinsic向量。 |
 
 所有候选仍为 PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED；未授权正式归一化或Product消费。
+
+
+## 预 PI 补核结果（2026-10-28）
+
+- 14份来源审查侧车覆盖430/430条canonical规则ID，无缺失、无重复。
+- 当前处置：421条 `VERIFIED_VISUAL_SCAN`；7条 `PARTIALLY_VERIFIED_VISUAL_SCAN`；1条 `NOT_VERIFIED_IN_REVIEWED_SPANS`；1条 `SOURCE_MISMATCH_CONFIRMED`。
+- 新增太阳40条来源跨度审查；补核太阴 `ZZ-TYI-010`、天相 `ZZ-TX-009/010`、贪狼 `ZZ-TL-006/007/008`、巨门 `ZZ-JM-005`、天梁 `ZZ-TLIA-010`、破军 `ZZ-PJ-006..010`。具体原文、页码与边界见各自来源审查CSV。
+
+### 当前仍保留的来源缺口
+
+| 规则 | 当前状态 | 处理边界 |
+|---|---|---|
+| `ZZ-TL-010` | `NOT_VERIFIED_IN_REVIEWED_SPANS` | 尚未找到直接支持“性急”的精确跨度；不以相近的“躁进/突发”代替。 |
+| `ZZ-TT-010` | `SOURCE_MISMATCH_CONFIRMED` | 当前所引原文涉及文昌化忌，而非该条天同主张；继续隔离，不晋升。 |
+| `ZZ-TL-009` | 部分核对 | 仅核到化禄分支。 |
+| `ZZ-JM-003/004/006/007` | 部分核对 | 原文跨度或字面范围不足以支持完整canonical概括。 |
+| `ZZ-TLIA-001` | 部分核对 | 扫描字面“第三得”与canonical“第三星”不一致，保留差异。 |
+| `ZZ-QS-005` | 部分核对 | 扫描字面“廉洁”与canonical概括存在差异，保留差异。 |
+
+本节只更新来源跨度核对状态，不改变canonical规则、source flags、归一化认知状态或Product消费权限。PI审议前仍须保留上述未决项并分别裁定。
