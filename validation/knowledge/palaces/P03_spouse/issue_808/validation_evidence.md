@@ -7,7 +7,7 @@
 - Direct scan: printed pp43–45 / PDF physical pp22–23
 - Candidate accounting: 100 reviewed = 75 promoted + 25 held + 0 deduplicated
 - Source records: 78 = 46 reusable + 32 CASE_SUPPORT_ONLY
-- Temporal residuals added: 9 groups / 23 candidate rows; cumulative P03 residuals: 46 groups / 129 rows
+- Temporal residuals added: 10 groups / 23 candidate rows; cumulative P03 residuals: 47 groups / 129 rows
 - Source coverage gaps: 14 tracked, 4 open/partial
 - Condition-membership holds: SP06-508 and SP06-509
 - Supplemental records: P03S-SP06-SUP-001, P03S-SP06-SUP-002, P03S-SP06-SUP-003
