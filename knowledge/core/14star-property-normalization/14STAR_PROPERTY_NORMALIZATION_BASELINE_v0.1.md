@@ -1,11 +1,41 @@
+## 当前预 PI 状态与来源审计汇总（2026-10-28）
+
+**当前状态：** `PRE_PI_SOURCE_AUDIT_COMPLETED_PENDING_EXACT_HEAD_QUALITY_GATE`  
+**主分支同步：** 已将 main `4cc89ead106c315d451d2d39b72e33ccc73398b5` 纳入 Core 工作分支；同步合并提交 `cd11b672058e82efbdc08ee69a61f153aacb4a81`。该操作仅同步分支，PR #783 仍保持 Draft / 未合并。  
+**来源覆盖：** 14 份来源审查侧车覆盖全部 430 条 canonical 规则 ID；来源状态为 421 条 `VERIFIED_VISUAL_SCAN`、7 条 `PARTIALLY_VERIFIED_VISUAL_SCAN`、1 条 `NOT_VERIFIED_IN_REVIEWED_SPANS`、1 条 `SOURCE_MISMATCH_CONFIRMED`。  
+**正式规则边界：** 所有 canonical 行仍保持 `source_span_verified=false` 与 `normalization_epistemic=UNRESOLVED`；来源侧车只证明文本跨度审查状态，不批准现代 QI 映射。
+
+### 本轮已完成的来源补核
+
+- 新增 `SUN_SOURCE_SPAN_REVIEW_v0.1.csv`，覆盖太阳 40/40 条规则，核对来源为 SRC-ZZ-002 扫描页 5 / 印刷页 9–10。
+- 太阴 `ZZ-TYI-010` 已在扫描页 21 / 印刷页 41 找到原文；canonical 定位写书页 42，保留一页定位差异，不改 canonical。
+- 天相 `ZZ-TX-009/010` 已在扫描页 24 / 印刷页 47 核对，保留武曲天相与破军四化的组合条件。
+- 贪狼 `ZZ-TL-006/007/008` 与巨门 `ZZ-JM-005` 已在 SRC-ZZ-001《中州派紫微斗数初级讲义》对应扫描页核对。
+- 天梁 `ZZ-TLIA-010` 已定位至扫描页 80 / 印刷页 159。
+- 破军 `ZZ-PJ-006` 已定位至扫描页 96 / 印刷页 191；`ZZ-PJ-007..010` 已定位至扫描页 97 / 印刷页 193。
+
+### 保留的来源未决项
+
+- `ZZ-TL-010`：仍未找到能直接支持 canonical 目标“性急”的精确跨度；不以“躁进”或“突发”等近义描述替代。
+- `ZZ-TT-010`：已确认原侧车所引段落涉及文昌化忌/办事不经心，而非该条天同主张；继续隔离，不晋升、不改写 canonical。
+- 7 条部分核对：`ZZ-TL-009`、`ZZ-JM-003/004/006/007`、`ZZ-TLIA-001`、`ZZ-QS-005`。保留原文与 canonical 字面差异，不静默修正。
+
+### 映射审议范围
+
+当前 240 条 mapping-review 记录处置分布仍为：58 条 `supported_candidate`、56 条 `candidate_only`、100 条 `needs_review`、26 条 `not_supported_for_target`。这只是候选研究处置，不是批准清单。PI 需独立审议语义层级、条件、反例及是否接受；本轮未改正式星核、本体、canonical 规则、共享 schema、Product/runtime、KIB 或消费者权限。
+
+**质量门状态：** 本次来源审计和测试断言更新后，必须等待最新 exact-head 的完整质量门通过，方可标记技术验收完成。以下早期检查点记录作为历史记录保留；如其中的“当前未审”状态与本节冲突，以本节的后续补核记录为准。
+
+---
+
 # 十四主星基础性质归一化基线 v0.1
 
-**当前状态：** `B_POJUN_CHECKPOINT_COMPLETED_READY_FOR_FINAL_REVIEW` / `PROPOSAL_ONLY_NOT_CANONICAL`
+**当前状态：** `PRE_PI_SOURCE_AUDIT_COMPLETED_PENDING_EXACT_HEAD_QUALITY_GATE` / `PROPOSAL_ONLY_NOT_CANONICAL`
 **跟踪 Issue：** [#757](https://github.com/15937-ass/ziwei-state-space/issues/757)
-**当前检查点基线 main：** `cd082859267f0e57c85298bf267004418f8cdfb2`
+**已同步 main：** `4cc89ead106c315d451d2d39b72e33ccc73398b5`（同步提交 `cd11b672058e82efbdc08ee69a61f153aacb4a81`）
 **执行分支：** `knowledge/core-757-14star-property-normalization-main-sync2`
 
-> 太阳、太阴、天相三个有界试点与阶段B紫微、天机、武曲、天同、廉贞、天府、贪狼、巨门、天梁、七杀、破军十一个检查点均已形成候选卡与逐目标审核记录。本文件仍是候选研究基线，不代表十四主星研究完成，不是正式本体变更，也不授权 Product 消费。
+> 太阳、太阴、天相三个有界试点与阶段B十一颗扩展星均已形成候选卡与逐目标审核记录。来源审查侧车现覆盖全部430条canonical规则，但这仍是候选研究基线，不是正式本体变更，也不授权 Product 消费。
 
 ## 1. 本轮来源与复用边界
 
