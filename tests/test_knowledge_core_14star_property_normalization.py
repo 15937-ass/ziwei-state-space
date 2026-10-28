@@ -1127,7 +1127,7 @@ def test_pre_pi_candidate_source_scope_mismatches_are_explicitly_audited():
             directly_cited = {
                 rule_id
                 for source_ref in review.get("source_refs", [])
-                for rule_id in re.findall(r"ZZ-[A-Z]+-(?:\\d{3}|X\\d{2}|Y\\d{2})", source_ref)
+                for rule_id in re.findall(r"ZZ-[A-Z]+-(?:[0-9]{3}|X[0-9]{2}|Y[0-9]{2})", source_ref)
             }
             missing = set(prop.get("source_rule_ids", [])) - directly_cited
             if missing:
