@@ -32,3 +32,8 @@
 ## 不变更项
 
 本审计不修改 canonical 规则、正式星核、QI 本体、共享 Schema、Product/runtime、KIB 或消费者权限；不批准任何候选映射，也不为重复来源引用增加权重。
+
+
+## 详细复用清单
+
+47组精确来源引用及其被引用的mapping-review记录已逐项列入 `MAPPING_REVIEW_SOURCE_REF_REUSE_AUDIT_v0.1.md`。清单仅用于去重和审议，不改变既有处置，也不增加证据权重。
