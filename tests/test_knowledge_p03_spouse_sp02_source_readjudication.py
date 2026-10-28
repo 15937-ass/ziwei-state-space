@@ -153,7 +153,19 @@ def test_execution_boundary_and_cumulative_state_are_fail_closed():
                 "product_runtime_change"]:
         assert s[key] == 0
     state = STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
+    assert 'status: "ACTIVE"' in state or 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
+    if 'status: "ACTIVE"' in state:
+        issue_line = next((line for line in state.splitlines() if line.strip().startswith("active_issue:")), "")
+        branch_line = next((line for line in state.splitlines() if line.strip().startswith("active_branch:")), "")
+        assert issue_line and branch_line
+        issue_id = issue_line.split(":", 1)[1].strip()
+        active_branch = branch_line.strip().split('"')[1]
+        assert issue_id.isdigit()
+        assert f"p03-{issue_id}-" in active_branch
+    else:
+        assert "active_issue: null" in state
+        assert "active_branch: null" in state
+        assert "active_pr: null" in state
     assert "SOURCE_FIRST_REVIEW_COMPLETE" in state
     batches = [load(path) for path in sorted(READJ.parent.glob(
         "SPOUSE_SP*_SOURCE_READJUDICATION_*.json"

@@ -1,0 +1,4388 @@
+{
+  "schema_version": 1,
+  "artifact_id": "P03_TEMPORAL_RESIDUAL_HANDOFF_ISSUE818_V0_1",
+  "issue": 818,
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "P03",
+  "palace": "夫妻宫",
+  "status": "RECONCILED_DRAFT_PENDING_EXACT_HEAD_VALIDATION_AND_PI_ACCEPTANCE",
+  "source_basis": {
+    "source_id": "SRC-ZZ-003",
+    "work": "《中州派紫微斗数深造讲义（下册）》",
+    "approved_pdf_sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+    "printed_pages": [
+      33,
+      51
+    ],
+    "pdf_physical_pages": [
+      17,
+      26
+    ]
+  },
+  "reconciliation": {
+    "accepted_ledger_count": 9,
+    "expected_group_count": 63,
+    "actual_group_count": 63,
+    "expected_candidate_row_refs": 175,
+    "actual_candidate_row_refs": 175,
+    "unique_candidate_row_refs": 175,
+    "duplicate_candidate_row_refs": [],
+    "missing_candidate_disposition_refs": [],
+    "all_candidate_refs_resolve": true,
+    "cumulative_by_ledger": [
+      {
+        "ledger": "SPOUSE_SP01_SOURCE_READJUDICATION_100_v0.1.json",
+        "temporal_residual_groups": 2,
+        "temporal_candidate_row_refs": 4
+      },
+      {
+        "ledger": "SPOUSE_SP02_SOURCE_READJUDICATION_100_v0.1.json",
+        "temporal_residual_groups": 12,
+        "temporal_candidate_row_refs": 27
+      },
+      {
+        "ledger": "SPOUSE_SP03_SOURCE_READJUDICATION_100_v0.1.json",
+        "temporal_residual_groups": 16,
+        "temporal_candidate_row_refs": 40
+      },
+      {
+        "ledger": "SPOUSE_SP04_SOURCE_READJUDICATION_100_v0.1.json",
+        "temporal_residual_groups": 27,
+        "temporal_candidate_row_refs": 72
+      },
+      {
+        "ledger": "SPOUSE_SP05_SOURCE_READJUDICATION_100_v0.1.json",
+        "temporal_residual_groups": 37,
+        "temporal_candidate_row_refs": 106
+      },
+      {
+        "ledger": "SPOUSE_SP06_SOURCE_READJUDICATION_100_v0.1.json",
+        "temporal_residual_groups": 47,
+        "temporal_candidate_row_refs": 129
+      },
+      {
+        "ledger": "SPOUSE_SP07_SOURCE_READJUDICATION_100_v0.1.json",
+        "temporal_residual_groups": 53,
+        "temporal_candidate_row_refs": 149
+      },
+      {
+        "ledger": "SPOUSE_SP08_SOURCE_READJUDICATION_100_v0.1.json",
+        "temporal_residual_groups": 61,
+        "temporal_candidate_row_refs": 170
+      },
+      {
+        "ledger": "SPOUSE_SP09_SOURCE_READJUDICATION_36_v0.1.json",
+        "temporal_residual_groups": 63,
+        "temporal_candidate_row_refs": 175
+      }
+    ]
+  },
+  "time_scope_policy": "No forced closure. Explicit source phrases such as “大运或流年” are preserved as source-native alternatives where a single-layer schema cannot represent them without loss. “限”“枢纽”“克应之期” do not by themselves authorize a YEAR/DECADE assignment. Historical candidate time-layer labels are not source proof.",
+  "residual_groups": [
+    {
+      "residual_id": "P03-TEMP-001",
+      "candidate_row_count": 2,
+      "candidate_ids": [
+        "SP01-091",
+        "SP01-092"
+      ],
+      "source_expression": "于[同梁]或[廉贪]宫度发生事端",
+      "source_reason_as_recorded": "Source does not specify YEAR versus DECADE; historical YEAR layer held.",
+      "latest_ledger_status": "CARRIED_FORWARD",
+      "printed_pages": [
+        34
+      ],
+      "pdf_physical_pages": [
+        17
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP01-091",
+          "historical_source_location": "夫妻宫printed_p34",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            34
+          ],
+          "pdf_physical_pages": [
+            17
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "The source says 于同梁或廉贪宫度发生事端 but does not specify YEAR versus DECADE. The historical YEAR assignment is too specific."
+        },
+        {
+          "historical_candidate_id": "SP01-092",
+          "historical_source_location": "夫妻宫printed_p34",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            34
+          ],
+          "pdf_physical_pages": [
+            17
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "The source says 于同梁或廉贪宫度发生事端 but does not specify YEAR versus DECADE. The historical YEAR assignment is too specific."
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-002",
+      "candidate_row_count": 2,
+      "candidate_ids": [
+        "SP01-097",
+        "SP01-098"
+      ],
+      "source_expression": "行太阳、太阴限",
+      "source_reason_as_recorded": "Source says 限 but does not explicitly specify 大限/DECADE; historical DECADE layer held.",
+      "latest_ledger_status": "CARRIED_FORWARD",
+      "printed_pages": [
+        34
+      ],
+      "pdf_physical_pages": [
+        17
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP01-097",
+          "historical_source_location": "夫妻宫printed_p34",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            34
+          ],
+          "pdf_physical_pages": [
+            17
+          ],
+          "historical_time_layer": "DECADE",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "The scan says 行太阳、太阴限; it does not explicitly say 大限/DECADE. Preserve the native phrase rather than silently narrowing it."
+        },
+        {
+          "historical_candidate_id": "SP01-098",
+          "historical_source_location": "夫妻宫printed_p34",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            34
+          ],
+          "pdf_physical_pages": [
+            17
+          ],
+          "historical_time_layer": "DECADE",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "The scan says 行太阳、太阴限; it does not explicitly say 大限/DECADE. Preserve the native phrase rather than silently narrowing it."
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-003",
+      "candidate_row_count": 2,
+      "candidate_ids": [
+        "SP02-113",
+        "SP02-114"
+      ],
+      "source_expression": "丑未天机“不宜经行宫垣见太阳化忌，太阴化忌”",
+      "source_reason_as_recorded": "原文未指明 YEAR 或 DECADE；历史 YEAR 层级过窄。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        35
+      ],
+      "pdf_physical_pages": [
+        18
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP02-113",
+          "historical_source_location": "夫妻宫printed_p35",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            35
+          ],
+          "pdf_physical_pages": [
+            18
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文说“经行宫垣见太阳化忌、太阴化忌”，但没有说明 YEAR 与 DECADE 的层级；历史索引的 YEAR 赋值过窄，保留为未决，不晋升为时间规则。"
+        },
+        {
+          "historical_candidate_id": "SP02-114",
+          "historical_source_location": "夫妻宫printed_p35",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            35
+          ],
+          "pdf_physical_pages": [
+            18
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文说“经行宫垣见太阳化忌、太阴化忌”，但没有说明 YEAR 与 DECADE 的层级；历史索引的 YEAR 赋值过窄，保留为未决，不晋升为时间规则。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-004",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP02-115",
+        "SP02-116",
+        "SP02-117"
+      ],
+      "source_expression": "以[廉相]、巨门、天同各宫垣为吉凶枢纽",
+      "source_reason_as_recorded": "原文没有明确时间层级，也没有把这些宫垣单独定义为 YEAR 触发器。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        35
+      ],
+      "pdf_physical_pages": [
+        18
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP02-115",
+          "historical_source_location": "夫妻宫printed_p35",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            35
+          ],
+          "pdf_physical_pages": [
+            18
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅称[廉相]、巨门、天同各宫垣为“吉凶枢纽”，没有给出 YEAR 层级，也没有把这些宫垣明确定义为独立时间触发器；保留原文，不编译。"
+        },
+        {
+          "historical_candidate_id": "SP02-116",
+          "historical_source_location": "夫妻宫printed_p35",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            35
+          ],
+          "pdf_physical_pages": [
+            18
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅称[廉相]、巨门、天同各宫垣为“吉凶枢纽”，没有给出 YEAR 层级，也没有把这些宫垣明确定义为独立时间触发器；保留原文，不编译。"
+        },
+        {
+          "historical_candidate_id": "SP02-117",
+          "historical_source_location": "夫妻宫printed_p35",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            35
+          ],
+          "pdf_physical_pages": [
+            18
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅称[廉相]、巨门、天同各宫垣为“吉凶枢纽”，没有给出 YEAR 层级，也没有把这些宫垣明确定义为独立时间触发器；保留原文，不编译。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-005",
+      "candidate_row_count": 4,
+      "candidate_ids": [
+        "SP02-122",
+        "SP02-123",
+        "SP02-124",
+        "SP02-125"
+      ],
+      "source_expression": "寅申机月以太阳、天梁、天同、巨门四垣为吉凶之枢纽",
+      "source_reason_as_recorded": "枢纽关系本身不能证明历史 YEAR/TIMING_TRIGGER 赋值。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        35
+      ],
+      "pdf_physical_pages": [
+        18
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP02-122",
+          "historical_source_location": "夫妻宫printed_p35",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            35
+          ],
+          "pdf_physical_pages": [
+            18
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅称太阳、天梁、天同、巨门四垣为“吉凶之枢纽”，没有指明 YEAR/DECADE 或明确的时间触发关系；历史 YEAR/TIMING_TRIGGER 赋值未获原文支持。"
+        },
+        {
+          "historical_candidate_id": "SP02-123",
+          "historical_source_location": "夫妻宫printed_p35",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            35
+          ],
+          "pdf_physical_pages": [
+            18
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅称太阳、天梁、天同、巨门四垣为“吉凶之枢纽”，没有指明 YEAR/DECADE 或明确的时间触发关系；历史 YEAR/TIMING_TRIGGER 赋值未获原文支持。"
+        },
+        {
+          "historical_candidate_id": "SP02-124",
+          "historical_source_location": "夫妻宫printed_p35",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            35
+          ],
+          "pdf_physical_pages": [
+            18
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅称太阳、天梁、天同、巨门四垣为“吉凶之枢纽”，没有指明 YEAR/DECADE 或明确的时间触发关系；历史 YEAR/TIMING_TRIGGER 赋值未获原文支持。"
+        },
+        {
+          "historical_candidate_id": "SP02-125",
+          "historical_source_location": "夫妻宫printed_p35",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            35
+          ],
+          "pdf_physical_pages": [
+            18
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅称太阳、天梁、天同、巨门四垣为“吉凶之枢纽”，没有指明 YEAR/DECADE 或明确的时间触发关系；历史 YEAR/TIMING_TRIGGER 赋值未获原文支持。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-006",
+      "candidate_row_count": 2,
+      "candidate_ids": [
+        "SP02-128",
+        "SP02-129"
+      ],
+      "source_expression": "以天同、天梁宫垣为克应之期",
+      "source_reason_as_recorded": "“期”没有唯一指定 YEAR 或 DECADE。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        35
+      ],
+      "pdf_physical_pages": [
+        18
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP02-128",
+          "historical_source_location": "夫妻宫printed_p35",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            35
+          ],
+          "pdf_physical_pages": [
+            18
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文称天同、天梁宫垣为“克应之期”，但没有明确具体时间层级；不得把“期”静默窄化为 YEAR。"
+        },
+        {
+          "historical_candidate_id": "SP02-129",
+          "historical_source_location": "夫妻宫printed_p35",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            35
+          ],
+          "pdf_physical_pages": [
+            18
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文称天同、天梁宫垣为“克应之期”，但没有明确具体时间层级；不得把“期”静默窄化为 YEAR。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-007",
+      "candidate_row_count": 1,
+      "candidate_ids": [
+        "SP02-135"
+      ],
+      "source_expression": "常以[武曲天府]限为关键",
+      "source_reason_as_recorded": "原文“限”未唯一指定为 DECADE。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        35
+      ],
+      "pdf_physical_pages": [
+        18
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP02-135",
+          "historical_source_location": "夫妻宫printed_p35",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            35
+          ],
+          "pdf_physical_pages": [
+            18
+          ],
+          "historical_time_layer": "DECADE",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文使用“[武曲天府]限为关键”，没有明确此处的“限”可唯一映射为 DECADE；保留原生时间表达，不接受历史 DECADE 的具体化。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-008",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP02-153",
+        "SP02-154",
+        "SP02-155"
+      ],
+      "source_expression": "巳亥天机以[太阳天梁]、[天同巨门]、破军诸垣为吉凶克应之枢纽",
+      "source_reason_as_recorded": "原文未指定 YEAR 层级；保留为源生枢纽描述，不晋升为 YEAR 时间触发器。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        36
+      ],
+      "pdf_physical_pages": [
+        18
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP02-153",
+          "historical_source_location": "夫妻宫printed_p36",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            36
+          ],
+          "pdf_physical_pages": [
+            18
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文列举[太阳天梁]、[天同巨门]、破军诸垣为吉凶克应枢纽，但没有指定 YEAR 层级；历史 YEAR/TIMING_TRIGGER 不予晋升。"
+        },
+        {
+          "historical_candidate_id": "SP02-154",
+          "historical_source_location": "夫妻宫printed_p36",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            36
+          ],
+          "pdf_physical_pages": [
+            18
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文列举[太阳天梁]、[天同巨门]、破军诸垣为吉凶克应枢纽，但没有指定 YEAR 层级；历史 YEAR/TIMING_TRIGGER 不予晋升。"
+        },
+        {
+          "historical_candidate_id": "SP02-155",
+          "historical_source_location": "夫妻宫printed_p36",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            36
+          ],
+          "pdf_physical_pages": [
+            18
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文列举[太阳天梁]、[天同巨门]、破军诸垣为吉凶克应枢纽，但没有指定 YEAR 层级；历史 YEAR/TIMING_TRIGGER 不予晋升。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-009",
+      "candidate_row_count": 2,
+      "candidate_ids": [
+        "SP02-169",
+        "SP02-170"
+      ],
+      "source_expression": "太阳在子一般不宜行巨门、[武破]二垣",
+      "source_reason_as_recorded": "原文未指定 YEAR/DECADE。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        36
+      ],
+      "pdf_physical_pages": [
+        18
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP02-169",
+          "historical_source_location": "夫妻宫printed_p36",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            36
+          ],
+          "pdf_physical_pages": [
+            18
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文说“不宜行巨门、[武破]二垣”，未明确 YEAR/DECADE；保留未决时间层级。"
+        },
+        {
+          "historical_candidate_id": "SP02-170",
+          "historical_source_location": "夫妻宫printed_p36",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            36
+          ],
+          "pdf_physical_pages": [
+            18
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文说“不宜行巨门、[武破]二垣”，未明确 YEAR/DECADE；保留未决时间层级。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-010",
+      "candidate_row_count": 1,
+      "candidate_ids": [
+        "SP02-175"
+      ],
+      "source_expression": "夫妻宫行至天同坐守之垣时亦主姻缘在于异域",
+      "source_reason_as_recorded": "原文没有指明此“行至”属于 YEAR 还是 DECADE。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        36
+      ],
+      "pdf_physical_pages": [
+        18
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP02-175",
+          "historical_source_location": "夫妻宫printed_p36",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            36
+          ],
+          "pdf_physical_pages": [
+            18
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文说夫妻宫“行至天同坐守之垣时”应异域姻缘，但没有说明对应 YEAR 或 DECADE；不将其固定为 YEAR。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-011",
+      "candidate_row_count": 2,
+      "candidate_ids": [
+        "SP02-180",
+        "SP02-181"
+      ],
+      "source_expression": "太阳在午一般不喜行天同、[廉杀]二垣",
+      "source_reason_as_recorded": "原文未指定 YEAR/DECADE。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        36
+      ],
+      "pdf_physical_pages": [
+        18
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP02-180",
+          "historical_source_location": "夫妻宫printed_p36",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            36
+          ],
+          "pdf_physical_pages": [
+            18
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文说“不喜行天同、[廉杀]二垣”，没有明确 YEAR/DECADE；保留未决，不编译为 YEAR 触发器。"
+        },
+        {
+          "historical_candidate_id": "SP02-181",
+          "historical_source_location": "夫妻宫printed_p36",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            36
+          ],
+          "pdf_physical_pages": [
+            18
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文说“不喜行天同、[廉杀]二垣”，没有明确 YEAR/DECADE；保留未决，不编译为 YEAR 触发器。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-012",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP02-193",
+        "SP02-194",
+        "SP02-195"
+      ],
+      "source_expression": "丑未宫阴阳以天同、天梁、天机巨门宫垣为吉凶克应枢纽",
+      "source_reason_as_recorded": "原文未指定 YEAR 层级；不得仅凭“枢纽”将其具体化。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        37
+      ],
+      "pdf_physical_pages": [
+        19
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP02-193",
+          "historical_source_location": "夫妻宫printed_p37",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            37
+          ],
+          "pdf_physical_pages": [
+            19
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文称相关宫垣为“吉凶克应的枢纽”，没有给出 YEAR 层级；保留源生表达，拒绝历史 YEAR 的过度具体化。"
+        },
+        {
+          "historical_candidate_id": "SP02-194",
+          "historical_source_location": "夫妻宫printed_p37",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            37
+          ],
+          "pdf_physical_pages": [
+            19
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文称相关宫垣为“吉凶克应的枢纽”，没有给出 YEAR 层级；保留源生表达，拒绝历史 YEAR 的过度具体化。"
+        },
+        {
+          "historical_candidate_id": "SP02-195",
+          "historical_source_location": "夫妻宫printed_p37",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            37
+          ],
+          "pdf_physical_pages": [
+            19
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文称相关宫垣为“吉凶克应的枢纽”，没有给出 YEAR 层级；保留源生表达，拒绝历史 YEAR 的过度具体化。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-013",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP03-211",
+        "SP03-212",
+        "SP03-213"
+      ],
+      "source_expression": "以[天同巨门]、贪狼、[阳梁]各垣为“流年大运的枢纽”",
+      "source_reason_as_recorded": "原文明确并列流年与大运；历史候选仅赋 YEAR。当前单层字段不能静默折叠或擅自拆分，保留未决。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        37
+      ],
+      "pdf_physical_pages": [
+        19
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP03-211",
+          "historical_source_location": "夫妻宫printed_p37",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            37
+          ],
+          "pdf_physical_pages": [
+            19
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅称“流年大运的枢纽”，明确涉及流年与大运两个层级；历史索引只赋 YEAR，不能静默折叠成 YEAR 或擅自拆分成两条可执行触发器，故暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP03-212",
+          "historical_source_location": "夫妻宫printed_p37",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            37
+          ],
+          "pdf_physical_pages": [
+            19
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅称“流年大运的枢纽”，明确涉及流年与大运两个层级；历史索引只赋 YEAR，不能静默折叠成 YEAR 或擅自拆分成两条可执行触发器，故暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP03-213",
+          "historical_source_location": "夫妻宫printed_p37",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            37
+          ],
+          "pdf_physical_pages": [
+            19
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅称“流年大运的枢纽”，明确涉及流年与大运两个层级；历史索引只赋 YEAR，不能静默折叠成 YEAR 或擅自拆分成两条可执行触发器，故暂挂。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-014",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP03-224",
+        "SP03-225",
+        "SP03-226"
+      ],
+      "source_expression": "以巨门、天机、[天同天梁]各垣为“吉凶克应之枢纽”",
+      "source_reason_as_recorded": "原文未指定 YEAR 或 DECADE，也未将宫垣枢纽明确写成独立时间触发器；历史 YEAR 层暂挂。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        37
+      ],
+      "pdf_physical_pages": [
+        19
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP03-224",
+          "historical_source_location": "夫妻宫printed_p37",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            37
+          ],
+          "pdf_physical_pages": [
+            19
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只称各宫垣为“吉凶克应之枢纽”，没有指定 YEAR 或 DECADE；历史索引的 YEAR 赋值没有直接来源支持，暂挂且不编译。"
+        },
+        {
+          "historical_candidate_id": "SP03-225",
+          "historical_source_location": "夫妻宫printed_p37",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            37
+          ],
+          "pdf_physical_pages": [
+            19
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只称各宫垣为“吉凶克应之枢纽”，没有指定 YEAR 或 DECADE；历史索引的 YEAR 赋值没有直接来源支持，暂挂且不编译。"
+        },
+        {
+          "historical_candidate_id": "SP03-226",
+          "historical_source_location": "夫妻宫printed_p37",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            37
+          ],
+          "pdf_physical_pages": [
+            19
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只称各宫垣为“吉凶克应之枢纽”，没有指定 YEAR 或 DECADE；历史索引的 YEAR 赋值没有直接来源支持，暂挂且不编译。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-015",
+      "candidate_row_count": 4,
+      "candidate_ids": [
+        "SP03-258",
+        "SP03-259",
+        "SP03-260",
+        "SP03-261"
+      ],
+      "source_expression": "以破军、[紫相]、天同、[机巨]等宫垣为“吉凶克应的枢纽”",
+      "source_reason_as_recorded": "原文未指定 YEAR 或 DECADE；不将“枢纽”擅自编译为 YEAR。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        38
+      ],
+      "pdf_physical_pages": [
+        19
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP03-258",
+          "historical_source_location": "夫妻宫printed_p38",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            38
+          ],
+          "pdf_physical_pages": [
+            19
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只称各宫垣为“吉凶克应之枢纽”，没有指定 YEAR 或 DECADE；历史索引的 YEAR 赋值没有直接来源支持，暂挂且不编译。"
+        },
+        {
+          "historical_candidate_id": "SP03-259",
+          "historical_source_location": "夫妻宫printed_p38",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            38
+          ],
+          "pdf_physical_pages": [
+            19
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只称各宫垣为“吉凶克应之枢纽”，没有指定 YEAR 或 DECADE；历史索引的 YEAR 赋值没有直接来源支持，暂挂且不编译。"
+        },
+        {
+          "historical_candidate_id": "SP03-260",
+          "historical_source_location": "夫妻宫printed_p38",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            38
+          ],
+          "pdf_physical_pages": [
+            19
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只称各宫垣为“吉凶克应之枢纽”，没有指定 YEAR 或 DECADE；历史索引的 YEAR 赋值没有直接来源支持，暂挂且不编译。"
+        },
+        {
+          "historical_candidate_id": "SP03-261",
+          "historical_source_location": "夫妻宫printed_p38",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            38
+          ],
+          "pdf_physical_pages": [
+            19
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只称各宫垣为“吉凶克应之枢纽”，没有指定 YEAR 或 DECADE；历史索引的 YEAR 赋值没有直接来源支持，暂挂且不编译。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-016",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP03-280",
+        "SP03-281",
+        "SP03-282"
+      ],
+      "source_expression": "以[太阳天梁]、[天同巨门]及[武相]本身各宫为“吉凶之枢纽”",
+      "source_reason_as_recorded": "原文未指定 YEAR 或 DECADE；历史 YEAR 赋值无直接依据，保留未决。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        38
+      ],
+      "pdf_physical_pages": [
+        19
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP03-280",
+          "historical_source_location": "夫妻宫printed_p38",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            38
+          ],
+          "pdf_physical_pages": [
+            19
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只称各宫垣为“吉凶克应之枢纽”，没有指定 YEAR 或 DECADE；历史索引的 YEAR 赋值没有直接来源支持，暂挂且不编译。"
+        },
+        {
+          "historical_candidate_id": "SP03-281",
+          "historical_source_location": "夫妻宫printed_p38",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            38
+          ],
+          "pdf_physical_pages": [
+            19
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只称各宫垣为“吉凶克应之枢纽”，没有指定 YEAR 或 DECADE；历史索引的 YEAR 赋值没有直接来源支持，暂挂且不编译。"
+        },
+        {
+          "historical_candidate_id": "SP03-282",
+          "historical_source_location": "夫妻宫printed_p38",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            38
+          ],
+          "pdf_physical_pages": [
+            19
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只称各宫垣为“吉凶克应之枢纽”，没有指定 YEAR 或 DECADE；历史索引的 YEAR 赋值没有直接来源支持，暂挂且不编译。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-017",
+      "candidate_row_count": 4,
+      "candidate_ids": [
+        "SP04-311",
+        "SP04-312",
+        "SP04-313",
+        "SP04-314"
+      ],
+      "source_expression": "辰戌武曲，以破军、七杀、天梁、巨门各垣为吉凶克应之枢纽。",
+      "source_reason_as_recorded": "原文只将破军、七杀、天梁、巨门各宫垣列为吉凶克应枢纽，没有指定 YEAR 或 DECADE；历史索引赋 YEAR 过细，暂不折叠为年度触发器。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        39
+      ],
+      "pdf_physical_pages": [
+        20
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP04-311",
+          "historical_source_location": "夫妻宫printed_p39",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            39
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只将破军、七杀、天梁、巨门各宫垣列为吉凶克应枢纽，没有指定 YEAR 或 DECADE；历史索引赋 YEAR 过细，暂不折叠为年度触发器。"
+        },
+        {
+          "historical_candidate_id": "SP04-312",
+          "historical_source_location": "夫妻宫printed_p39",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            39
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只将破军、七杀、天梁、巨门各宫垣列为吉凶克应枢纽，没有指定 YEAR 或 DECADE；历史索引赋 YEAR 过细，暂不折叠为年度触发器。"
+        },
+        {
+          "historical_candidate_id": "SP04-313",
+          "historical_source_location": "夫妻宫printed_p39",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            39
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只将破军、七杀、天梁、巨门各宫垣列为吉凶克应枢纽，没有指定 YEAR 或 DECADE；历史索引赋 YEAR 过细，暂不折叠为年度触发器。"
+        },
+        {
+          "historical_candidate_id": "SP04-314",
+          "historical_source_location": "夫妻宫printed_p39",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            39
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只将破军、七杀、天梁、巨门各宫垣列为吉凶克应枢纽，没有指定 YEAR 或 DECADE；历史索引赋 YEAR 过细，暂不折叠为年度触发器。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-018",
+      "candidate_row_count": 4,
+      "candidate_ids": [
+        "SP04-325",
+        "SP04-326",
+        "SP04-327",
+        "SP04-328"
+      ],
+      "source_expression": "巳亥[武破]，以天同、巨门、天梁、太阳各宫垣，为吉凶克应之枢纽。",
+      "source_reason_as_recorded": "原文只列吉凶克应枢纽，没有指定 YEAR 或 DECADE；历史 YEAR 层缺少直接来源依据，暂挂。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        39
+      ],
+      "pdf_physical_pages": [
+        20
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP04-325",
+          "historical_source_location": "夫妻宫printed_p39",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            39
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只列吉凶克应枢纽，没有指定 YEAR 或 DECADE；历史 YEAR 层缺少直接来源依据，暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP04-326",
+          "historical_source_location": "夫妻宫printed_p39",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            39
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只列吉凶克应枢纽，没有指定 YEAR 或 DECADE；历史 YEAR 层缺少直接来源依据，暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP04-327",
+          "historical_source_location": "夫妻宫printed_p39",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            39
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只列吉凶克应枢纽，没有指定 YEAR 或 DECADE；历史 YEAR 层缺少直接来源依据，暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP04-328",
+          "historical_source_location": "夫妻宫printed_p39",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            39
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只列吉凶克应枢纽，没有指定 YEAR 或 DECADE；历史 YEAR 层缺少直接来源依据，暂挂。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-019",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP04-344",
+        "SP04-345",
+        "SP04-346"
+      ],
+      "source_expression": "以【太阳巨门】、[廉贞破军]、[天机天梁]三垣，为吉凶克应的枢纽。",
+      "source_reason_as_recorded": "原文仅称相关宫垣为吉凶克应枢纽，未指定 YEAR 或 DECADE；不将“枢纽”擅自编译为年度触发器。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        40
+      ],
+      "pdf_physical_pages": [
+        20
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP04-344",
+          "historical_source_location": "夫妻宫printed_p40",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            40
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅称相关宫垣为吉凶克应枢纽，未指定 YEAR 或 DECADE；不将“枢纽”擅自编译为年度触发器。"
+        },
+        {
+          "historical_candidate_id": "SP04-345",
+          "historical_source_location": "夫妻宫printed_p40",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            40
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅称相关宫垣为吉凶克应枢纽，未指定 YEAR 或 DECADE；不将“枢纽”擅自编译为年度触发器。"
+        },
+        {
+          "historical_candidate_id": "SP04-346",
+          "historical_source_location": "夫妻宫printed_p40",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            40
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅称相关宫垣为吉凶克应枢纽，未指定 YEAR 或 DECADE；不将“枢纽”擅自编译为年度触发器。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-020",
+      "candidate_row_count": 2,
+      "candidate_ids": [
+        "SP04-352",
+        "SP04-353"
+      ],
+      "source_expression": "丑未同巨，于经行至『廉府』及[武相]会合的各宫垣，主与已婚的人恋爱。视桃花诸曜，或科文诸曜在何宫垣，即可确定。",
+      "source_reason_as_recorded": "原文“经行至……各宫垣”未明确该行限属于 YEAR 还是 DECADE；保留时间层级未决。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        40
+      ],
+      "pdf_physical_pages": [
+        20
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP04-352",
+          "historical_source_location": "夫妻宫printed_p40",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            40
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文“经行至……各宫垣”未明确该行限属于 YEAR 还是 DECADE；保留时间层级未决。"
+        },
+        {
+          "historical_candidate_id": "SP04-353",
+          "historical_source_location": "夫妻宫printed_p40",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            40
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文“经行至……各宫垣”未明确该行限属于 YEAR 还是 DECADE；保留时间层级未决。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-021",
+      "candidate_row_count": 2,
+      "candidate_ids": [
+        "SP04-361",
+        "SP04-362"
+      ],
+      "source_expression": "于廉贞化忌会武曲化忌的宫垣，克应配偶灾难丧祸；于太阳化忌会太阴化忌的宫垣，克应配偶生离。",
+      "source_reason_as_recorded": "原文以特定宫垣会合描述克应，未指定 YEAR 或 DECADE；历史 YEAR 层无直接依据，暂挂。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        40
+      ],
+      "pdf_physical_pages": [
+        20
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP04-361",
+          "historical_source_location": "夫妻宫printed_p40",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            40
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文以特定宫垣会合描述克应，未指定 YEAR 或 DECADE；历史 YEAR 层无直接依据，暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP04-362",
+          "historical_source_location": "夫妻宫printed_p40",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            40
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文以特定宫垣会合描述克应，未指定 YEAR 或 DECADE；历史 YEAR 层无直接依据，暂挂。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-022",
+      "candidate_row_count": 4,
+      "candidate_ids": [
+        "SP04-369",
+        "SP04-370",
+        "SP04-371",
+        "SP04-372"
+      ],
+      "source_expression": "卯酉天同，以巨门、天梁、破军、[廉贞天相]为枢纽。",
+      "source_reason_as_recorded": "原文仅列吉凶枢纽宫垣，未指定 YEAR 或 DECADE；不将枢纽列表直接转成年度触发器。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        40
+      ],
+      "pdf_physical_pages": [
+        20
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP04-369",
+          "historical_source_location": "夫妻宫printed_p40",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            40
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅列吉凶枢纽宫垣，未指定 YEAR 或 DECADE；不将枢纽列表直接转成年度触发器。"
+        },
+        {
+          "historical_candidate_id": "SP04-370",
+          "historical_source_location": "夫妻宫printed_p40",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            40
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅列吉凶枢纽宫垣，未指定 YEAR 或 DECADE；不将枢纽列表直接转成年度触发器。"
+        },
+        {
+          "historical_candidate_id": "SP04-371",
+          "historical_source_location": "夫妻宫printed_p40",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            40
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅列吉凶枢纽宫垣，未指定 YEAR 或 DECADE；不将枢纽列表直接转成年度触发器。"
+        },
+        {
+          "historical_candidate_id": "SP04-372",
+          "historical_source_location": "夫妻宫printed_p40",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            40
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅列吉凶枢纽宫垣，未指定 YEAR 或 DECADE；不将枢纽列表直接转成年度触发器。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-023",
+      "candidate_row_count": 4,
+      "candidate_ids": [
+        "SP04-374",
+        "SP04-375",
+        "SP04-376",
+        "SP04-377"
+      ],
+      "source_expression": "以天同、巨门宫垣，及天相、[廉杀]诸垣，为吉凶克应的枢纽。",
+      "source_reason_as_recorded": "原文只给出吉凶克应枢纽，没有明确 YEAR 或 DECADE；历史 YEAR 层暂挂。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        40
+      ],
+      "pdf_physical_pages": [
+        20
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP04-374",
+          "historical_source_location": "夫妻宫printed_p40",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            40
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出吉凶克应枢纽，没有明确 YEAR 或 DECADE；历史 YEAR 层暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP04-375",
+          "historical_source_location": "夫妻宫printed_p40",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            40
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出吉凶克应枢纽，没有明确 YEAR 或 DECADE；历史 YEAR 层暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP04-376",
+          "historical_source_location": "夫妻宫printed_p40",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            40
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出吉凶克应枢纽，没有明确 YEAR 或 DECADE；历史 YEAR 层暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP04-377",
+          "historical_source_location": "夫妻宫printed_p40",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            40
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出吉凶克应枢纽，没有明确 YEAR 或 DECADE；历史 YEAR 层暂挂。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-024",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP04-381",
+        "SP04-382",
+        "SP04-383"
+      ],
+      "source_expression": "以[武曲天府]、[太阴太阳]、廉贞各垣，为吉凶克应的枢纽。",
+      "source_reason_as_recorded": "原文只列吉凶克应枢纽宫垣，未指定 YEAR 或 DECADE；不静默赋予年度层级。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        40
+      ],
+      "pdf_physical_pages": [
+        20
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP04-381",
+          "historical_source_location": "夫妻宫printed_p40",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            40
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只列吉凶克应枢纽宫垣，未指定 YEAR 或 DECADE；不静默赋予年度层级。"
+        },
+        {
+          "historical_candidate_id": "SP04-382",
+          "historical_source_location": "夫妻宫printed_p40",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            40
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只列吉凶克应枢纽宫垣，未指定 YEAR 或 DECADE；不静默赋予年度层级。"
+        },
+        {
+          "historical_candidate_id": "SP04-383",
+          "historical_source_location": "夫妻宫printed_p40",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            40
+          ],
+          "pdf_physical_pages": [
+            20
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只列吉凶克应枢纽宫垣，未指定 YEAR 或 DECADE；不静默赋予年度层级。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-025",
+      "candidate_row_count": 1,
+      "candidate_ids": [
+        "SP04-388"
+      ],
+      "source_expression": "若廉贞化忌，又叠其他正曜化忌，更见煞曜凑合，往往即为生离死别克应之期。",
+      "source_reason_as_recorded": "原文说“克应之期”，但没有将其明确限定为 YEAR；保留来源断语，不升级为年度事件触发器。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        41
+      ],
+      "pdf_physical_pages": [
+        21
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP04-388",
+          "historical_source_location": "夫妻宫printed_p41",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            41
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文说“克应之期”，但没有将其明确限定为 YEAR；保留来源断语，不升级为年度事件触发器。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-026",
+      "candidate_row_count": 4,
+      "candidate_ids": [
+        "SP04-394",
+        "SP04-395",
+        "SP04-396",
+        "SP04-397"
+      ],
+      "source_expression": "以七杀、[紫府]、破军、贪狼诸宫垣为克应之期。",
+      "source_reason_as_recorded": "原文仅说明相关宫垣为克应之期，没有明确 YEAR 或 DECADE；历史 YEAR 赋值过细，暂挂。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        41
+      ],
+      "pdf_physical_pages": [
+        21
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP04-394",
+          "historical_source_location": "夫妻宫printed_p41",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            41
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅说明相关宫垣为克应之期，没有明确 YEAR 或 DECADE；历史 YEAR 赋值过细，暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP04-395",
+          "historical_source_location": "夫妻宫printed_p41",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            41
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅说明相关宫垣为克应之期，没有明确 YEAR 或 DECADE；历史 YEAR 赋值过细，暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP04-396",
+          "historical_source_location": "夫妻宫printed_p41",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            41
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅说明相关宫垣为克应之期，没有明确 YEAR 或 DECADE；历史 YEAR 赋值过细，暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP04-397",
+          "historical_source_location": "夫妻宫printed_p41",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            41
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅说明相关宫垣为克应之期，没有明确 YEAR 或 DECADE；历史 YEAR 赋值过细，暂挂。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-027",
+      "candidate_row_count": 1,
+      "candidate_ids": [
+        "SP04-399"
+      ],
+      "source_expression": "克勤克俭应之期，往往在昌曲化忌之年限运限。",
+      "source_reason_as_recorded": "扫描字面可见“克勤克俭应之期”，语义异常；不擅自改写成“克应之期”。原文同时写“年限运限”，包含的时间范围不止历史候选的 YEAR 单层；不静默缩窄为 YEAR，也不新增未经批准的时间层，暂挂。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        41
+      ],
+      "pdf_physical_pages": [
+        21
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP04-399",
+          "historical_source_location": "夫妻宫printed_p41",
+          "verified_source_location": null,
+          "verified_source_span_id": null,
+          "printed_pages": [
+            41
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": null,
+          "canonical_record_ids": [],
+          "candidate_reason": "原文同时写“年限运限”，包含的时间范围不止历史候选的 YEAR 单层；不静默缩窄为 YEAR，也不新增未经批准的时间层，暂挂。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-028",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP05-405",
+        "SP05-406",
+        "SP05-407"
+      ],
+      "source_expression": "再婚克应之期，视天同、巨门、『武曲破军』诸宫垣",
+      "source_reason_as_recorded": "原文只写“再婚克应之期”并列宫垣枢纽，未指定 YEAR 或 DECADE；历史索引的 YEAR 层过细，暂不折叠为年度触发器。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        41
+      ],
+      "pdf_physical_pages": [
+        21
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP05-405",
+          "historical_source_location": "夫妻宫printed_p41",
+          "verified_source_location": "SRC-ZZ-003 printed p41 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P41",
+          "printed_pages": [
+            41
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "再婚克应之期，视天同、巨门、『武曲破军』诸宫垣。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只写“再婚克应之期”并列宫垣枢纽，未指定 YEAR 或 DECADE；历史索引的 YEAR 层过细，暂不折叠为年度触发器。"
+        },
+        {
+          "historical_candidate_id": "SP05-406",
+          "historical_source_location": "夫妻宫printed_p41",
+          "verified_source_location": "SRC-ZZ-003 printed p41 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P41",
+          "printed_pages": [
+            41
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "再婚克应之期，视天同、巨门、『武曲破军』诸宫垣。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只写“再婚克应之期”并列宫垣枢纽，未指定 YEAR 或 DECADE；历史索引的 YEAR 层过细，暂不折叠为年度触发器。"
+        },
+        {
+          "historical_candidate_id": "SP05-407",
+          "historical_source_location": "夫妻宫printed_p41",
+          "verified_source_location": "SRC-ZZ-003 printed p41 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P41",
+          "printed_pages": [
+            41
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "再婚克应之期，视天同、巨门、『武曲破军』诸宫垣。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只写“再婚克应之期”并列宫垣枢纽，未指定 YEAR 或 DECADE；历史索引的 YEAR 层过细，暂不折叠为年度触发器。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-029",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP05-408",
+        "SP05-409",
+        "SP05-410"
+      ],
+      "source_expression": "刑克之克应，则以[廉杀]叠冲化忌，在夫妻宫或田宅宫、或福德宫之期为准",
+      "source_reason_as_recorded": "原文以“之期为准”表述，未指定 YEAR 或 DECADE；保留夫妻宫/田宅宫/福德宫分支，不新增时间层。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        41
+      ],
+      "pdf_physical_pages": [
+        21
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP05-408",
+          "historical_source_location": "夫妻宫printed_p41",
+          "verified_source_location": "SRC-ZZ-003 printed p41 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P41",
+          "printed_pages": [
+            41
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "刑克之克应，则以[廉杀]叠冲化忌，在夫妻宫或田宅宫、或福德宫之期为准。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文以“之期为准”表述，未指定 YEAR 或 DECADE；保留夫妻宫/田宅宫/福德宫分支，不新增时间层。"
+        },
+        {
+          "historical_candidate_id": "SP05-409",
+          "historical_source_location": "夫妻宫printed_p41",
+          "verified_source_location": "SRC-ZZ-003 printed p41 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P41",
+          "printed_pages": [
+            41
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "刑克之克应，则以[廉杀]叠冲化忌，在夫妻宫或田宅宫、或福德宫之期为准。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文以“之期为准”表述，未指定 YEAR 或 DECADE；保留夫妻宫/田宅宫/福德宫分支，不新增时间层。"
+        },
+        {
+          "historical_candidate_id": "SP05-410",
+          "historical_source_location": "夫妻宫printed_p41",
+          "verified_source_location": "SRC-ZZ-003 printed p41 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P41",
+          "printed_pages": [
+            41
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "刑克之克应，则以[廉杀]叠冲化忌，在夫妻宫或田宅宫、或福德宫之期为准。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文以“之期为准”表述，未指定 YEAR 或 DECADE；保留夫妻宫/田宅宫/福德宫分支，不新增时间层。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-030",
+      "candidate_row_count": 1,
+      "candidate_ids": [
+        "SP05-418"
+      ],
+      "source_expression": "以会[武曲天府]宫垣，且见桃花、昌曲者，为克应之期",
+      "source_reason_as_recorded": "原文只写“为克应之期”，未指定 YEAR 或 DECADE；历史索引 YEAR 暂挂。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        41
+      ],
+      "pdf_physical_pages": [
+        21
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP05-418",
+          "historical_source_location": "夫妻宫printed_p41",
+          "verified_source_location": "SRC-ZZ-003 printed p41 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P41",
+          "printed_pages": [
+            41
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "寅申廉贞，每主与有家室者恋爱：以会[武曲天府]宫垣，且见桃花、昌曲者，为克应之期。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只写“为克应之期”，未指定 YEAR 或 DECADE；历史索引 YEAR 暂挂。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-031",
+      "candidate_row_count": 4,
+      "candidate_ids": [
+        "SP05-419",
+        "SP05-420",
+        "SP05-421",
+        "SP05-422"
+      ],
+      "source_expression": "以破军、贪狼、巳宫的天梁、巳宫的天同为吉凶克应的枢纽",
+      "source_reason_as_recorded": "“枢纽”描述应参照的宫垣关系，不等同唯一年度触发；历史索引 YEAR 不获原文支持。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        41
+      ],
+      "pdf_physical_pages": [
+        21
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP05-419",
+          "historical_source_location": "夫妻宫printed_p41",
+          "verified_source_location": "SRC-ZZ-003 printed p41 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P41",
+          "printed_pages": [
+            41
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "寅申廉贞，以破军、贪狼、巳宫的天梁、巳宫的天同为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "“枢纽”描述应参照的宫垣关系，不等同唯一年度触发；历史索引 YEAR 不获原文支持。"
+        },
+        {
+          "historical_candidate_id": "SP05-420",
+          "historical_source_location": "夫妻宫printed_p41",
+          "verified_source_location": "SRC-ZZ-003 printed p41 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P41",
+          "printed_pages": [
+            41
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "寅申廉贞，以破军、贪狼、巳宫的天梁、巳宫的天同为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "“枢纽”描述应参照的宫垣关系，不等同唯一年度触发；历史索引 YEAR 不获原文支持。"
+        },
+        {
+          "historical_candidate_id": "SP05-421",
+          "historical_source_location": "夫妻宫printed_p41",
+          "verified_source_location": "SRC-ZZ-003 printed p41 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P41",
+          "printed_pages": [
+            41
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "寅申廉贞，以破军、贪狼、巳宫的天梁、巳宫的天同为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "“枢纽”描述应参照的宫垣关系，不等同唯一年度触发；历史索引 YEAR 不获原文支持。"
+        },
+        {
+          "historical_candidate_id": "SP05-422",
+          "historical_source_location": "夫妻宫printed_p41",
+          "verified_source_location": "SRC-ZZ-003 printed p41 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P41",
+          "printed_pages": [
+            41
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "寅申廉贞，以破军、贪狼、巳宫的天梁、巳宫的天同为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "“枢纽”描述应参照的宫垣关系，不等同唯一年度触发；历史索引 YEAR 不获原文支持。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-032",
+      "candidate_row_count": 4,
+      "candidate_ids": [
+        "SP05-430",
+        "SP05-431",
+        "SP05-432",
+        "SP05-433"
+      ],
+      "source_expression": "以『武曲贪狼』、[天同太阴]、『天机天梁』、天相各垣，为吉凶克应的枢纽",
+      "source_reason_as_recorded": "原文为“枢纽”而未指定流年或大限；不将其自动编译为 YEAR。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        42
+      ],
+      "pdf_physical_pages": [
+        21
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP05-430",
+          "historical_source_location": "夫妻宫printed_p42",
+          "verified_source_location": "SRC-ZZ-003 printed p42 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P42",
+          "printed_pages": [
+            42
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "卯酉[廉破]，以『武曲贪狼』、[天同太阴]、『天机天梁』、天相各垣，为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文为“枢纽”而未指定流年或大限；不将其自动编译为 YEAR。"
+        },
+        {
+          "historical_candidate_id": "SP05-431",
+          "historical_source_location": "夫妻宫printed_p42",
+          "verified_source_location": "SRC-ZZ-003 printed p42 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P42",
+          "printed_pages": [
+            42
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "卯酉[廉破]，以『武曲贪狼』、[天同太阴]、『天机天梁』、天相各垣，为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文为“枢纽”而未指定流年或大限；不将其自动编译为 YEAR。"
+        },
+        {
+          "historical_candidate_id": "SP05-432",
+          "historical_source_location": "夫妻宫printed_p42",
+          "verified_source_location": "SRC-ZZ-003 printed p42 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P42",
+          "printed_pages": [
+            42
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "卯酉[廉破]，以『武曲贪狼』、[天同太阴]、『天机天梁』、天相各垣，为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文为“枢纽”而未指定流年或大限；不将其自动编译为 YEAR。"
+        },
+        {
+          "historical_candidate_id": "SP05-433",
+          "historical_source_location": "夫妻宫printed_p42",
+          "verified_source_location": "SRC-ZZ-003 printed p42 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P42",
+          "printed_pages": [
+            42
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "卯酉[廉破]，以『武曲贪狼』、[天同太阴]、『天机天梁』、天相各垣，为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文为“枢纽”而未指定流年或大限；不将其自动编译为 YEAR。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-033",
+      "candidate_row_count": 4,
+      "candidate_ids": [
+        "SP05-441",
+        "SP05-442",
+        "SP05-443",
+        "SP05-444"
+      ],
+      "source_expression": "以本宫及『太阳天梁』、『武曲天相』、[天同巨门]各垣为枢纽",
+      "source_reason_as_recorded": "原文只列推断枢纽，没有给出 YEAR/DECADE 单层时间限定；保留未决。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        42
+      ],
+      "pdf_physical_pages": [
+        21
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP05-441",
+          "historical_source_location": "夫妻宫printed_p42",
+          "verified_source_location": "SRC-ZZ-003 printed p42 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P42",
+          "printed_pages": [
+            42
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "辰戌『廉府』，以本宫及『太阳天梁』、『武曲天相』、[天同巨门]各垣为枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只列推断枢纽，没有给出 YEAR/DECADE 单层时间限定；保留未决。"
+        },
+        {
+          "historical_candidate_id": "SP05-442",
+          "historical_source_location": "夫妻宫printed_p42",
+          "verified_source_location": "SRC-ZZ-003 printed p42 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P42",
+          "printed_pages": [
+            42
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "辰戌『廉府』，以本宫及『太阳天梁』、『武曲天相』、[天同巨门]各垣为枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只列推断枢纽，没有给出 YEAR/DECADE 单层时间限定；保留未决。"
+        },
+        {
+          "historical_candidate_id": "SP05-443",
+          "historical_source_location": "夫妻宫printed_p42",
+          "verified_source_location": "SRC-ZZ-003 printed p42 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P42",
+          "printed_pages": [
+            42
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "辰戌『廉府』，以本宫及『太阳天梁』、『武曲天相』、[天同巨门]各垣为枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只列推断枢纽，没有给出 YEAR/DECADE 单层时间限定；保留未决。"
+        },
+        {
+          "historical_candidate_id": "SP05-444",
+          "historical_source_location": "夫妻宫printed_p42",
+          "verified_source_location": "SRC-ZZ-003 printed p42 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P42",
+          "printed_pages": [
+            42
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "辰戌『廉府』，以本宫及『太阳天梁』、『武曲天相』、[天同巨门]各垣为枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只列推断枢纽，没有给出 YEAR/DECADE 单层时间限定；保留未决。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-034",
+      "candidate_row_count": 4,
+      "candidate_ids": [
+        "SP05-455",
+        "SP05-456",
+        "SP05-457",
+        "SP05-458"
+      ],
+      "source_expression": "以『紫微破军』、[武曲七杀]、[天同天梁]、巨门各垣，为退限年之枢纽",
+      "source_reason_as_recorded": "扫描字面“退限年之枢纽”照录；其时间术语/层级未被本任务授权归一化，不能直接等同 YEAR。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        42
+      ],
+      "pdf_physical_pages": [
+        21
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP05-455",
+          "historical_source_location": "夫妻宫printed_p42",
+          "verified_source_location": "SRC-ZZ-003 printed p42 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P42",
+          "printed_pages": [
+            42
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "巳亥[廉贪]，以『紫微破军』、[武曲七杀]、[天同天梁]、巨门各垣，为退限年之枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "扫描字面“退限年之枢纽”照录；其时间术语/层级未被本任务授权归一化，不能直接等同 YEAR。"
+        },
+        {
+          "historical_candidate_id": "SP05-456",
+          "historical_source_location": "夫妻宫printed_p42",
+          "verified_source_location": "SRC-ZZ-003 printed p42 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P42",
+          "printed_pages": [
+            42
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "巳亥[廉贪]，以『紫微破军』、[武曲七杀]、[天同天梁]、巨门各垣，为退限年之枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "扫描字面“退限年之枢纽”照录；其时间术语/层级未被本任务授权归一化，不能直接等同 YEAR。"
+        },
+        {
+          "historical_candidate_id": "SP05-457",
+          "historical_source_location": "夫妻宫printed_p42",
+          "verified_source_location": "SRC-ZZ-003 printed p42 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P42",
+          "printed_pages": [
+            42
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "巳亥[廉贪]，以『紫微破军』、[武曲七杀]、[天同天梁]、巨门各垣，为退限年之枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "扫描字面“退限年之枢纽”照录；其时间术语/层级未被本任务授权归一化，不能直接等同 YEAR。"
+        },
+        {
+          "historical_candidate_id": "SP05-458",
+          "historical_source_location": "夫妻宫printed_p42",
+          "verified_source_location": "SRC-ZZ-003 printed p42 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P42",
+          "printed_pages": [
+            42
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "巳亥[廉贪]，以『紫微破军』、[武曲七杀]、[天同天梁]、巨门各垣，为退限年之枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "扫描字面“退限年之枢纽”照录；其时间术语/层级未被本任务授权归一化，不能直接等同 YEAR。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-035",
+      "candidate_row_count": 5,
+      "candidate_ids": [
+        "SP05-472",
+        "SP05-473",
+        "SP05-474",
+        "SP05-475",
+        "SP05-476"
+      ],
+      "source_expression": "以『武破』、天同、巨门、太阳、天梁各垣，为吉凶克应之期",
+      "source_reason_as_recorded": "原文“克应之期”没有指定 YEAR 或 DECADE；历史索引 YEAR 过细，暂挂。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        42
+      ],
+      "pdf_physical_pages": [
+        21
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP05-472",
+          "historical_source_location": "夫妻宫printed_p42",
+          "verified_source_location": "SRC-ZZ-003 printed p42 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P42",
+          "printed_pages": [
+            42
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "丑未天府，以『武破』、天同、巨门、太阳、天梁各垣，为吉凶克应之期。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文“克应之期”没有指定 YEAR 或 DECADE；历史索引 YEAR 过细，暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP05-473",
+          "historical_source_location": "夫妻宫printed_p42",
+          "verified_source_location": "SRC-ZZ-003 printed p42 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P42",
+          "printed_pages": [
+            42
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "丑未天府，以『武破』、天同、巨门、太阳、天梁各垣，为吉凶克应之期。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文“克应之期”没有指定 YEAR 或 DECADE；历史索引 YEAR 过细，暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP05-474",
+          "historical_source_location": "夫妻宫printed_p42",
+          "verified_source_location": "SRC-ZZ-003 printed p42 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P42",
+          "printed_pages": [
+            42
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "丑未天府，以『武破』、天同、巨门、太阳、天梁各垣，为吉凶克应之期。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文“克应之期”没有指定 YEAR 或 DECADE；历史索引 YEAR 过细，暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP05-475",
+          "historical_source_location": "夫妻宫printed_p42",
+          "verified_source_location": "SRC-ZZ-003 printed p42 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P42",
+          "printed_pages": [
+            42
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "丑未天府，以『武破』、天同、巨门、太阳、天梁各垣，为吉凶克应之期。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文“克应之期”没有指定 YEAR 或 DECADE；历史索引 YEAR 过细，暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP05-476",
+          "historical_source_location": "夫妻宫printed_p42",
+          "verified_source_location": "SRC-ZZ-003 printed p42 / PDF physical p21",
+          "verified_source_span_id": "ZZ003-P42",
+          "printed_pages": [
+            42
+          ],
+          "pdf_physical_pages": [
+            21
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "丑未天府，以『武破』、天同、巨门、太阳、天梁各垣，为吉凶克应之期。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文“克应之期”没有指定 YEAR 或 DECADE；历史索引 YEAR 过细，暂挂。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-036",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP05-485",
+        "SP05-486",
+        "SP05-487"
+      ],
+      "source_expression": "以『紫破』、『廉贪』、天相各垣，为吉凶克应的枢纽",
+      "source_reason_as_recorded": "原文只列“枢纽”，不等于年度触发；保留时间层未知。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        43
+      ],
+      "pdf_physical_pages": [
+        22
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP05-485",
+          "historical_source_location": "夫妻宫printed_p43",
+          "verified_source_location": "SRC-ZZ-003 printed p43 / PDF physical p22",
+          "verified_source_span_id": "ZZ003-P43",
+          "printed_pages": [
+            43
+          ],
+          "pdf_physical_pages": [
+            22
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "卯酉宫天府，以『紫破』、『廉贪』、天相各垣，为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只列“枢纽”，不等于年度触发；保留时间层未知。"
+        },
+        {
+          "historical_candidate_id": "SP05-486",
+          "historical_source_location": "夫妻宫printed_p43",
+          "verified_source_location": "SRC-ZZ-003 printed p43 / PDF physical p22",
+          "verified_source_span_id": "ZZ003-P43",
+          "printed_pages": [
+            43
+          ],
+          "pdf_physical_pages": [
+            22
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "卯酉宫天府，以『紫破』、『廉贪』、天相各垣，为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只列“枢纽”，不等于年度触发；保留时间层未知。"
+        },
+        {
+          "historical_candidate_id": "SP05-487",
+          "historical_source_location": "夫妻宫printed_p43",
+          "verified_source_location": "SRC-ZZ-003 printed p43 / PDF physical p22",
+          "verified_source_span_id": "ZZ003-P43",
+          "printed_pages": [
+            43
+          ],
+          "pdf_physical_pages": [
+            22
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "卯酉宫天府，以『紫破』、『廉贪』、天相各垣，为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只列“枢纽”，不等于年度触发；保留时间层未知。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-037",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP05-497",
+        "SP05-498",
+        "SP05-499"
+      ],
+      "source_expression": "以[太阳巨门]、[天同太阴]、天相各宫垣，为吉凶克应的运限年限",
+      "source_reason_as_recorded": "原文明确是宽泛“运限年限”，比历史索引 YEAR 更宽；不静默缩窄为流年。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        43
+      ],
+      "pdf_physical_pages": [
+        22
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP05-497",
+          "historical_source_location": "夫妻宫printed_p43",
+          "verified_source_location": "SRC-ZZ-003 printed p43 / PDF physical p22",
+          "verified_source_span_id": "ZZ003-P43",
+          "printed_pages": [
+            43
+          ],
+          "pdf_physical_pages": [
+            22
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "巳亥天府，以[太阳巨门]、[天同太阴]、天相各宫垣，为吉凶克应的运限年限。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文明确是宽泛“运限年限”，比历史索引 YEAR 更宽；不静默缩窄为流年。"
+        },
+        {
+          "historical_candidate_id": "SP05-498",
+          "historical_source_location": "夫妻宫printed_p43",
+          "verified_source_location": "SRC-ZZ-003 printed p43 / PDF physical p22",
+          "verified_source_span_id": "ZZ003-P43",
+          "printed_pages": [
+            43
+          ],
+          "pdf_physical_pages": [
+            22
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "巳亥天府，以[太阳巨门]、[天同太阴]、天相各宫垣，为吉凶克应的运限年限。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文明确是宽泛“运限年限”，比历史索引 YEAR 更宽；不静默缩窄为流年。"
+        },
+        {
+          "historical_candidate_id": "SP05-499",
+          "historical_source_location": "夫妻宫printed_p43",
+          "verified_source_location": "SRC-ZZ-003 printed p43 / PDF physical p22",
+          "verified_source_span_id": "ZZ003-P43",
+          "printed_pages": [
+            43
+          ],
+          "pdf_physical_pages": [
+            22
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "巳亥天府，以[太阳巨门]、[天同太阴]、天相各宫垣，为吉凶克应的运限年限。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文明确是宽泛“运限年限”，比历史索引 YEAR 更宽；不静默缩窄为流年。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-038",
+      "candidate_row_count": 1,
+      "candidate_ids": [
+        "SP06-520"
+      ],
+      "source_expression": "大限流年逢太阳化忌，冲起太阴化忌",
+      "source_reason_as_recorded": "历史候选仅标 YEAR；原文明确写“大限流年”，不能静默缩窄为流年。原候选对太阳化忌冲起太阴化忌的条件方向也需按原文保留。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        43
+      ],
+      "pdf_physical_pages": [
+        22
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP06-520",
+          "historical_source_location": "夫妻宫printed_p43",
+          "verified_source_location": "SRC-ZZ-003 printed p43 / PDF physical p22",
+          "verified_source_span_id": "ZZ003-P43",
+          "printed_pages": [
+            43
+          ],
+          "pdf_physical_pages": [
+            22
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "若于大限流年逢太阳化忌，冲起太阴化忌，则程度最重。",
+          "canonical_record_ids": [],
+          "candidate_reason": "历史候选仅标 YEAR；原文明确写“大限流年”，不能静默缩窄为流年。原候选对太阳化忌冲起太阴化忌的条件方向也需按原文保留。 原候选目标仍可作为索引，但不晋升该历史 YEAR 断语。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-039",
+      "candidate_row_count": 2,
+      "candidate_ids": [
+        "SP06-525",
+        "SP06-526"
+      ],
+      "source_expression": "以太阳、天梁两垣为克应之期",
+      "source_reason_as_recorded": "原文只列出克应宫垣，没有明确 YEAR 或 DECADE；历史索引的 YEAR 过细。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        43
+      ],
+      "pdf_physical_pages": [
+        22
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP06-525",
+          "historical_source_location": "夫妻宫printed_p43",
+          "verified_source_location": "SRC-ZZ-003 printed p43 / PDF physical p22",
+          "verified_source_span_id": "ZZ003-P43",
+          "printed_pages": [
+            43
+          ],
+          "pdf_physical_pages": [
+            22
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "以太阳、天梁两垣为克应之期。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只列出克应宫垣，没有明确 YEAR 或 DECADE；历史索引的 YEAR 过细。"
+        },
+        {
+          "historical_candidate_id": "SP06-526",
+          "historical_source_location": "夫妻宫printed_p43",
+          "verified_source_location": "SRC-ZZ-003 printed p43 / PDF physical p22",
+          "verified_source_span_id": "ZZ003-P43",
+          "printed_pages": [
+            43
+          ],
+          "pdf_physical_pages": [
+            22
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "以太阳、天梁两垣为克应之期。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只列出克应宫垣，没有明确 YEAR 或 DECADE；历史索引的 YEAR 过细。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-040",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP06-528",
+        "SP06-529",
+        "SP06-530"
+      ],
+      "source_expression": "卯酉太阴，以『廉相』、破军、巨门诸垣为吉凶之枢纽",
+      "source_reason_as_recorded": "原文只把相关宫垣列为吉凶枢纽，没有明确 YEAR 或 DECADE；历史索引的 YEAR 过细。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        43
+      ],
+      "pdf_physical_pages": [
+        22
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP06-528",
+          "historical_source_location": "夫妻宫printed_p43",
+          "verified_source_location": "SRC-ZZ-003 printed p43 / PDF physical p22",
+          "verified_source_span_id": "ZZ003-P43",
+          "printed_pages": [
+            43
+          ],
+          "pdf_physical_pages": [
+            22
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "卯酉太阴，以『廉相』、破军、巨门诸垣为吉凶之枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只把“廉相”、破军、巨门诸垣列为吉凶枢纽，没有明确 YEAR/DECADE；历史索引的 YEAR 过细，故暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP06-529",
+          "historical_source_location": "夫妻宫printed_p43",
+          "verified_source_location": "SRC-ZZ-003 printed p43 / PDF physical p22",
+          "verified_source_span_id": "ZZ003-P43",
+          "printed_pages": [
+            43
+          ],
+          "pdf_physical_pages": [
+            22
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "卯酉太阴，以『廉相』、破军、巨门诸垣为吉凶之枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只把“廉相”、破军、巨门诸垣列为吉凶枢纽，没有明确 YEAR/DECADE；历史索引的 YEAR 过细，故暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP06-530",
+          "historical_source_location": "夫妻宫printed_p43",
+          "verified_source_location": "SRC-ZZ-003 printed p43 / PDF physical p22",
+          "verified_source_span_id": "ZZ003-P43",
+          "printed_pages": [
+            43
+          ],
+          "pdf_physical_pages": [
+            22
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "卯酉太阴，以『廉相』、破军、巨门诸垣为吉凶之枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只把“廉相”、破军、巨门诸垣列为吉凶枢纽，没有明确 YEAR/DECADE；历史索引的 YEAR 过细，故暂挂。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-041",
+      "candidate_row_count": 1,
+      "candidate_ids": [
+        "SP06-540"
+      ],
+      "source_expression": "大限流年命宫行至太阴宫垣",
+      "source_reason_as_recorded": "历史候选只标 DECADE，原文同时写“大限流年”；并且“否则”承接不宜早婚的条件，不能删去该条件后直接晋升。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        44
+      ],
+      "pdf_physical_pages": [
+        22
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP06-540",
+          "historical_source_location": "夫妻宫printed_p44",
+          "verified_source_location": "SRC-ZZ-003 printed p44 / PDF physical p22",
+          "verified_source_span_id": "ZZ003-P44",
+          "printed_pages": [
+            44
+          ],
+          "pdf_physical_pages": [
+            22
+          ],
+          "historical_time_layer": "DECADE",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "否则于大限流年命宫行至太阴宫垣，主易结成怨偶，以致离异。",
+          "canonical_record_ids": [],
+          "candidate_reason": "历史候选只标 DECADE，原文同时写“大限流年”；并且“否则”承接不宜早婚的条件，不能删去该条件后直接晋升。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-042",
+      "candidate_row_count": 4,
+      "candidate_ids": [
+        "SP06-541",
+        "SP06-542",
+        "SP06-543",
+        "SP06-544"
+      ],
+      "source_expression": "以天同天梁、巨门、太阳、太阴各宫垣，为吉凶克应之期",
+      "source_reason_as_recorded": "“克应之期”未唯一指定流年或大限；不沿用历史 YEAR 标签。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        44
+      ],
+      "pdf_physical_pages": [
+        22
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP06-541",
+          "historical_source_location": "夫妻宫printed_p44",
+          "verified_source_location": "SRC-ZZ-003 printed p44 / PDF physical p22",
+          "verified_source_span_id": "ZZ003-P44",
+          "printed_pages": [
+            44
+          ],
+          "pdf_physical_pages": [
+            22
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "辰戌太阴，以天同天梁、巨门、太阳、太阴各宫垣，为吉凶克应之期。",
+          "canonical_record_ids": [],
+          "candidate_reason": "“克应之期”未唯一指定流年或大限；不沿用历史 YEAR 标签。"
+        },
+        {
+          "historical_candidate_id": "SP06-542",
+          "historical_source_location": "夫妻宫printed_p44",
+          "verified_source_location": "SRC-ZZ-003 printed p44 / PDF physical p22",
+          "verified_source_span_id": "ZZ003-P44",
+          "printed_pages": [
+            44
+          ],
+          "pdf_physical_pages": [
+            22
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "辰戌太阴，以天同天梁、巨门、太阳、太阴各宫垣，为吉凶克应之期。",
+          "canonical_record_ids": [],
+          "candidate_reason": "“克应之期”未唯一指定流年或大限；不沿用历史 YEAR 标签。"
+        },
+        {
+          "historical_candidate_id": "SP06-543",
+          "historical_source_location": "夫妻宫printed_p44",
+          "verified_source_location": "SRC-ZZ-003 printed p44 / PDF physical p22",
+          "verified_source_span_id": "ZZ003-P44",
+          "printed_pages": [
+            44
+          ],
+          "pdf_physical_pages": [
+            22
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "辰戌太阴，以天同天梁、巨门、太阳、太阴各宫垣，为吉凶克应之期。",
+          "canonical_record_ids": [],
+          "candidate_reason": "“克应之期”未唯一指定流年或大限；不沿用历史 YEAR 标签。"
+        },
+        {
+          "historical_candidate_id": "SP06-544",
+          "historical_source_location": "夫妻宫printed_p44",
+          "verified_source_location": "SRC-ZZ-003 printed p44 / PDF physical p22",
+          "verified_source_span_id": "ZZ003-P44",
+          "printed_pages": [
+            44
+          ],
+          "pdf_physical_pages": [
+            22
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "辰戌太阴，以天同天梁、巨门、太阳、太阴各宫垣，为吉凶克应之期。",
+          "canonical_record_ids": [],
+          "candidate_reason": "“克应之期”未唯一指定流年或大限；不沿用历史 YEAR 标签。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-043",
+      "candidate_row_count": 2,
+      "candidate_ids": [
+        "SP06-552",
+        "SP06-553"
+      ],
+      "source_expression": "于武曲天相或破军坐守宫垣之时，夫妻合作创业",
+      "source_reason_as_recorded": "原文“之时”未说明具体时间层级；历史 YEAR 标签没有足够来源支持。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        44
+      ],
+      "pdf_physical_pages": [
+        22
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP06-552",
+          "historical_source_location": "夫妻宫printed_p44",
+          "verified_source_location": "SRC-ZZ-003 printed p44 / PDF physical p22",
+          "verified_source_span_id": "ZZ003-P44",
+          "printed_pages": [
+            44
+          ],
+          "pdf_physical_pages": [
+            22
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "亦主于武曲天相坐守宫垣之时，夫妻合作创业。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文“之时”未说明具体时间层级；历史 YEAR 标签没有足够来源支持。"
+        },
+        {
+          "historical_candidate_id": "SP06-553",
+          "historical_source_location": "夫妻宫printed_p44",
+          "verified_source_location": "SRC-ZZ-003 printed p44 / PDF physical p22",
+          "verified_source_span_id": "ZZ003-P44",
+          "printed_pages": [
+            44
+          ],
+          "pdf_physical_pages": [
+            22
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "或破军坐守宫垣之时，夫妻合作创业。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文“之时”未说明具体时间层级；历史 YEAR 标签没有足够来源支持。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-044",
+      "candidate_row_count": 2,
+      "candidate_ids": [
+        "SP06-556",
+        "SP06-557"
+      ],
+      "source_expression": "以天同巨门、太阳天梁两宫垣为运限之枢纽",
+      "source_reason_as_recorded": "原文写宽泛“运限之枢纽”，历史 YEAR 标签过细，须暂挂。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        44
+      ],
+      "pdf_physical_pages": [
+        22
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP06-556",
+          "historical_source_location": "夫妻宫printed_p44",
+          "verified_source_location": "SRC-ZZ-003 printed p44 / PDF physical p22",
+          "verified_source_span_id": "ZZ003-P44",
+          "printed_pages": [
+            44
+          ],
+          "pdf_physical_pages": [
+            22
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "巳亥太阴，以天同巨门、太阳天梁两宫垣为运限之枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文写宽泛“运限之枢纽”，历史 YEAR 标签过细，须暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP06-557",
+          "historical_source_location": "夫妻宫printed_p44",
+          "verified_source_location": "SRC-ZZ-003 printed p44 / PDF physical p22",
+          "verified_source_span_id": "ZZ003-P44",
+          "printed_pages": [
+            44
+          ],
+          "pdf_physical_pages": [
+            22
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "巳亥太阴，以天同巨门、太阳天梁两宫垣为运限之枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文写宽泛“运限之枢纽”，历史 YEAR 标签过细，须暂挂。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-045",
+      "candidate_row_count": 4,
+      "candidate_ids": [
+        "SP06-581",
+        "SP06-582",
+        "SP06-583",
+        "SP06-584"
+      ],
+      "source_expression": "以廉府、武相、同巨、阳梁各垣，为吉凶克应的枢纽",
+      "source_reason_as_recorded": "“枢纽”描述相关宫垣，但没有指定流年；不把宫垣触发条件编成 YEAR。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        45
+      ],
+      "pdf_physical_pages": [
+        23
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP06-581",
+          "historical_source_location": "夫妻宫printed_p45",
+          "verified_source_location": "SRC-ZZ-003 printed p45 / PDF physical p23",
+          "verified_source_span_id": "ZZ003-P45",
+          "printed_pages": [
+            45
+          ],
+          "pdf_physical_pages": [
+            23
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "子午贪狼，以廉府、武相、同巨、阳梁各垣，为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "“枢纽”描述相关宫垣，但没有指定流年；不把宫垣触发条件编成 YEAR。"
+        },
+        {
+          "historical_candidate_id": "SP06-582",
+          "historical_source_location": "夫妻宫printed_p45",
+          "verified_source_location": "SRC-ZZ-003 printed p45 / PDF physical p23",
+          "verified_source_span_id": "ZZ003-P45",
+          "printed_pages": [
+            45
+          ],
+          "pdf_physical_pages": [
+            23
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "子午贪狼，以廉府、武相、同巨、阳梁各垣，为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "“枢纽”描述相关宫垣，但没有指定流年；不把宫垣触发条件编成 YEAR。"
+        },
+        {
+          "historical_candidate_id": "SP06-583",
+          "historical_source_location": "夫妻宫printed_p45",
+          "verified_source_location": "SRC-ZZ-003 printed p45 / PDF physical p23",
+          "verified_source_span_id": "ZZ003-P45",
+          "printed_pages": [
+            45
+          ],
+          "pdf_physical_pages": [
+            23
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "子午贪狼，以廉府、武相、同巨、阳梁各垣，为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "“枢纽”描述相关宫垣，但没有指定流年；不把宫垣触发条件编成 YEAR。"
+        },
+        {
+          "historical_candidate_id": "SP06-584",
+          "historical_source_location": "夫妻宫printed_p45",
+          "verified_source_location": "SRC-ZZ-003 printed p45 / PDF physical p23",
+          "verified_source_span_id": "ZZ003-P45",
+          "printed_pages": [
+            45
+          ],
+          "pdf_physical_pages": [
+            23
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "子午贪狼，以廉府、武相、同巨、阳梁各垣，为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "“枢纽”描述相关宫垣，但没有指定流年；不把宫垣触发条件编成 YEAR。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-046",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP06-590",
+        "SP06-591",
+        "SP06-592"
+      ],
+      "source_expression": "以武府、紫相、廉贞诸垣，为克应之期",
+      "source_reason_as_recorded": "“克应之期”没有唯一的 YEAR/DECADE 解释，历史 YEAR 标签不予沿用。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        45
+      ],
+      "pdf_physical_pages": [
+        23
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP06-590",
+          "historical_source_location": "夫妻宫printed_p45",
+          "verified_source_location": "SRC-ZZ-003 printed p45 / PDF physical p23",
+          "verified_source_span_id": "ZZ003-P45",
+          "printed_pages": [
+            45
+          ],
+          "pdf_physical_pages": [
+            23
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "寅申贪狼，以武府、紫相、廉贞诸垣，为克应之期。",
+          "canonical_record_ids": [],
+          "candidate_reason": "“克应之期”没有唯一的 YEAR/DECADE 解释，历史 YEAR 标签不予沿用。"
+        },
+        {
+          "historical_candidate_id": "SP06-591",
+          "historical_source_location": "夫妻宫printed_p45",
+          "verified_source_location": "SRC-ZZ-003 printed p45 / PDF physical p23",
+          "verified_source_span_id": "ZZ003-P45",
+          "printed_pages": [
+            45
+          ],
+          "pdf_physical_pages": [
+            23
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "寅申贪狼，以武府、紫相、廉贞诸垣，为克应之期。",
+          "canonical_record_ids": [],
+          "candidate_reason": "“克应之期”没有唯一的 YEAR/DECADE 解释，历史 YEAR 标签不予沿用。"
+        },
+        {
+          "historical_candidate_id": "SP06-592",
+          "historical_source_location": "夫妻宫printed_p45",
+          "verified_source_location": "SRC-ZZ-003 printed p45 / PDF physical p23",
+          "verified_source_span_id": "ZZ003-P45",
+          "printed_pages": [
+            45
+          ],
+          "pdf_physical_pages": [
+            23
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "寅申贪狼，以武府、紫相、廉贞诸垣，为克应之期。",
+          "canonical_record_ids": [],
+          "candidate_reason": "“克应之期”没有唯一的 YEAR/DECADE 解释，历史 YEAR 标签不予沿用。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-047",
+      "candidate_row_count": 1,
+      "candidate_ids": [
+        "SP06-600"
+      ],
+      "source_expression": "以紫府、巨门、武曲等垣为吉凶克应的枢纽",
+      "source_reason_as_recorded": "原文只写“枢纽”，未指定流年；历史 YEAR 标签过细。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        45
+      ],
+      "pdf_physical_pages": [
+        23
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP06-600",
+          "historical_source_location": "夫妻宫printed_p45",
+          "verified_source_location": "SRC-ZZ-003 printed p45 / PDF physical p23",
+          "verified_source_span_id": "ZZ003-P45",
+          "printed_pages": [
+            45
+          ],
+          "pdf_physical_pages": [
+            23
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "辰戌贪狼，以紫府、巨门、武曲等垣为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只写“枢纽”，未指定流年；历史 YEAR 标签过细。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-048",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP07-631",
+        "SP07-632",
+        "SP07-633"
+      ],
+      "source_expression": "子午巨门，以“武杀”、“紫破”、太阳宫垣为吉凶克应的枢纽。",
+      "source_reason_as_recorded": "“枢纽”没有指定 YEAR 或 DECADE；历史 YEAR 标签不能由原文推出。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        46
+      ],
+      "pdf_physical_pages": [
+        23
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP07-631",
+          "historical_source_location": "夫妻宫printed_p46",
+          "verified_source_location": "SRC-ZZ-003 printed p46 / PDF physical p23",
+          "verified_source_span_id": "ZZ003-P46",
+          "printed_pages": [
+            46
+          ],
+          "pdf_physical_pages": [
+            23
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "子午巨门，以“武杀”、“紫破”、太阳宫垣，为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出“枢纽”或“运限年限”表达，不能唯一确定 YEAR/DECADE；历史时间层过细，故暂挂，不猜测、不编译。"
+        },
+        {
+          "historical_candidate_id": "SP07-632",
+          "historical_source_location": "夫妻宫printed_p46",
+          "verified_source_location": "SRC-ZZ-003 printed p46 / PDF physical p23",
+          "verified_source_span_id": "ZZ003-P46",
+          "printed_pages": [
+            46
+          ],
+          "pdf_physical_pages": [
+            23
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "子午巨门，以“武杀”、“紫破”、太阳宫垣，为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出“枢纽”或“运限年限”表达，不能唯一确定 YEAR/DECADE；历史时间层过细，故暂挂，不猜测、不编译。"
+        },
+        {
+          "historical_candidate_id": "SP07-633",
+          "historical_source_location": "夫妻宫printed_p46",
+          "verified_source_location": "SRC-ZZ-003 printed p46 / PDF physical p23",
+          "verified_source_span_id": "ZZ003-P46",
+          "printed_pages": [
+            46
+          ],
+          "pdf_physical_pages": [
+            23
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "子午巨门，以“武杀”、“紫破”、太阳宫垣，为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出“枢纽”或“运限年限”表达，不能唯一确定 YEAR/DECADE；历史时间层过细，故暂挂，不猜测、不编译。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-049",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP07-637",
+        "SP07-638",
+        "SP07-639"
+      ],
+      "source_expression": "辰戌巨门，以太阳、天梁、天同诸垣为吉凶克应的枢纽。",
+      "source_reason_as_recorded": "原文只说“枢纽”，未指定具体时间层；历史 YEAR 标签暂挂。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        46
+      ],
+      "pdf_physical_pages": [
+        23
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP07-637",
+          "historical_source_location": "夫妻宫printed_p46",
+          "verified_source_location": "SRC-ZZ-003 printed p46 / PDF physical p23",
+          "verified_source_span_id": "ZZ003-P46",
+          "printed_pages": [
+            46
+          ],
+          "pdf_physical_pages": [
+            23
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "辰戌巨门，以太阳、天梁、天同诸垣为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出“枢纽”或“运限年限”表达，不能唯一确定 YEAR/DECADE；历史时间层过细，故暂挂，不猜测、不编译。"
+        },
+        {
+          "historical_candidate_id": "SP07-638",
+          "historical_source_location": "夫妻宫printed_p46",
+          "verified_source_location": "SRC-ZZ-003 printed p46 / PDF physical p23",
+          "verified_source_span_id": "ZZ003-P46",
+          "printed_pages": [
+            46
+          ],
+          "pdf_physical_pages": [
+            23
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "辰戌巨门，以太阳、天梁、天同诸垣为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出“枢纽”或“运限年限”表达，不能唯一确定 YEAR/DECADE；历史时间层过细，故暂挂，不猜测、不编译。"
+        },
+        {
+          "historical_candidate_id": "SP07-639",
+          "historical_source_location": "夫妻宫printed_p46",
+          "verified_source_location": "SRC-ZZ-003 printed p46 / PDF physical p23",
+          "verified_source_span_id": "ZZ003-P46",
+          "printed_pages": [
+            46
+          ],
+          "pdf_physical_pages": [
+            23
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "辰戌巨门，以太阳、天梁、天同诸垣为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出“枢纽”或“运限年限”表达，不能唯一确定 YEAR/DECADE；历史时间层过细，故暂挂，不猜测、不编译。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-050",
+      "candidate_row_count": 4,
+      "candidate_ids": [
+        "SP07-644",
+        "SP07-645",
+        "SP07-646",
+        "SP07-647"
+      ],
+      "source_expression": "巳亥巨门，以太阳、天同、武曲、天梁诸垣为运限年限的吉凶克应枢纽。",
+      "source_reason_as_recorded": "“运限年限”同时包含不同时间层，不能强行收窄为 YEAR 或 DECADE。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        46
+      ],
+      "pdf_physical_pages": [
+        23
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP07-644",
+          "historical_source_location": "夫妻宫printed_p46",
+          "verified_source_location": "SRC-ZZ-003 printed p46 / PDF physical p23",
+          "verified_source_span_id": "ZZ003-P46",
+          "printed_pages": [
+            46
+          ],
+          "pdf_physical_pages": [
+            23
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "巳亥巨门，以太阳、天同、武曲、天梁诸垣为运限年限的吉凶克应枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出“枢纽”或“运限年限”表达，不能唯一确定 YEAR/DECADE；历史时间层过细，故暂挂，不猜测、不编译。"
+        },
+        {
+          "historical_candidate_id": "SP07-645",
+          "historical_source_location": "夫妻宫printed_p46",
+          "verified_source_location": "SRC-ZZ-003 printed p46 / PDF physical p23",
+          "verified_source_span_id": "ZZ003-P46",
+          "printed_pages": [
+            46
+          ],
+          "pdf_physical_pages": [
+            23
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "巳亥巨门，以太阳、天同、武曲、天梁诸垣为运限年限的吉凶克应枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出“枢纽”或“运限年限”表达，不能唯一确定 YEAR/DECADE；历史时间层过细，故暂挂，不猜测、不编译。"
+        },
+        {
+          "historical_candidate_id": "SP07-646",
+          "historical_source_location": "夫妻宫printed_p46",
+          "verified_source_location": "SRC-ZZ-003 printed p46 / PDF physical p23",
+          "verified_source_span_id": "ZZ003-P46",
+          "printed_pages": [
+            46
+          ],
+          "pdf_physical_pages": [
+            23
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "巳亥巨门，以太阳、天同、武曲、天梁诸垣为运限年限的吉凶克应枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出“枢纽”或“运限年限”表达，不能唯一确定 YEAR/DECADE；历史时间层过细，故暂挂，不猜测、不编译。"
+        },
+        {
+          "historical_candidate_id": "SP07-647",
+          "historical_source_location": "夫妻宫printed_p46",
+          "verified_source_location": "SRC-ZZ-003 printed p46 / PDF physical p23",
+          "verified_source_span_id": "ZZ003-P46",
+          "printed_pages": [
+            46
+          ],
+          "pdf_physical_pages": [
+            23
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "巳亥巨门，以太阳、天同、武曲、天梁诸垣为运限年限的吉凶克应枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出“枢纽”或“运限年限”表达，不能唯一确定 YEAR/DECADE；历史时间层过细，故暂挂，不猜测、不编译。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-051",
+      "candidate_row_count": 4,
+      "candidate_ids": [
+        "SP07-672",
+        "SP07-673",
+        "SP07-674",
+        "SP07-675"
+      ],
+      "source_expression": "丑未天相，以天机、巨门、太阳、“同梁”诸宫垣，为运限年限吉凶克应的枢纽。",
+      "source_reason_as_recorded": "“运限年限”未唯一指定 YEAR 或 DECADE；保留时间粒度残项。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        47
+      ],
+      "pdf_physical_pages": [
+        24
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP07-672",
+          "historical_source_location": "夫妻宫printed_p47",
+          "verified_source_location": "SRC-ZZ-003 printed p47 / PDF physical p24",
+          "verified_source_span_id": "ZZ003-P47",
+          "printed_pages": [
+            47
+          ],
+          "pdf_physical_pages": [
+            24
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "丑未天相，以天机、巨门、太阳、“同梁”诸宫垣，为运限年限吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出“枢纽”或“运限年限”表达，不能唯一确定 YEAR/DECADE；历史时间层过细，故暂挂，不猜测、不编译。"
+        },
+        {
+          "historical_candidate_id": "SP07-673",
+          "historical_source_location": "夫妻宫printed_p47",
+          "verified_source_location": "SRC-ZZ-003 printed p47 / PDF physical p24",
+          "verified_source_span_id": "ZZ003-P47",
+          "printed_pages": [
+            47
+          ],
+          "pdf_physical_pages": [
+            24
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "丑未天相，以天机、巨门、太阳、“同梁”诸宫垣，为运限年限吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出“枢纽”或“运限年限”表达，不能唯一确定 YEAR/DECADE；历史时间层过细，故暂挂，不猜测、不编译。"
+        },
+        {
+          "historical_candidate_id": "SP07-674",
+          "historical_source_location": "夫妻宫printed_p47",
+          "verified_source_location": "SRC-ZZ-003 printed p47 / PDF physical p24",
+          "verified_source_span_id": "ZZ003-P47",
+          "printed_pages": [
+            47
+          ],
+          "pdf_physical_pages": [
+            24
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "丑未天相，以天机、巨门、太阳、“同梁”诸宫垣，为运限年限吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出“枢纽”或“运限年限”表达，不能唯一确定 YEAR/DECADE；历史时间层过细，故暂挂，不猜测、不编译。"
+        },
+        {
+          "historical_candidate_id": "SP07-675",
+          "historical_source_location": "夫妻宫printed_p47",
+          "verified_source_location": "SRC-ZZ-003 printed p47 / PDF physical p24",
+          "verified_source_span_id": "ZZ003-P47",
+          "printed_pages": [
+            47
+          ],
+          "pdf_physical_pages": [
+            24
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "丑未天相，以天机、巨门、太阳、“同梁”诸宫垣，为运限年限吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出“枢纽”或“运限年限”表达，不能唯一确定 YEAR/DECADE；历史时间层过细，故暂挂，不猜测、不编译。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-052",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP07-680",
+        "SP07-681",
+        "SP07-682"
+      ],
+      "source_expression": "卯酉天相以“太阳巨门”、“天机天梁”、“天同太阴”诸垣，为吉凶克应的枢纽。",
+      "source_reason_as_recorded": "原文没有明确时间尺度；历史 YEAR 标签不作为证据。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        47
+      ],
+      "pdf_physical_pages": [
+        24
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP07-680",
+          "historical_source_location": "夫妻宫printed_p47",
+          "verified_source_location": "SRC-ZZ-003 printed p47 / PDF physical p24",
+          "verified_source_span_id": "ZZ003-P47",
+          "printed_pages": [
+            47
+          ],
+          "pdf_physical_pages": [
+            24
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "卯酉天相以“太阳巨门”、“天机天梁”、“天同太阴”诸垣，为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出“枢纽”或“运限年限”表达，不能唯一确定 YEAR/DECADE；历史时间层过细，故暂挂，不猜测、不编译。"
+        },
+        {
+          "historical_candidate_id": "SP07-681",
+          "historical_source_location": "夫妻宫printed_p47",
+          "verified_source_location": "SRC-ZZ-003 printed p47 / PDF physical p24",
+          "verified_source_span_id": "ZZ003-P47",
+          "printed_pages": [
+            47
+          ],
+          "pdf_physical_pages": [
+            24
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "卯酉天相以“太阳巨门”、“天机天梁”、“天同太阴”诸垣，为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出“枢纽”或“运限年限”表达，不能唯一确定 YEAR/DECADE；历史时间层过细，故暂挂，不猜测、不编译。"
+        },
+        {
+          "historical_candidate_id": "SP07-682",
+          "historical_source_location": "夫妻宫printed_p47",
+          "verified_source_location": "SRC-ZZ-003 printed p47 / PDF physical p24",
+          "verified_source_span_id": "ZZ003-P47",
+          "printed_pages": [
+            47
+          ],
+          "pdf_physical_pages": [
+            24
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "卯酉天相以“太阳巨门”、“天机天梁”、“天同太阴”诸垣，为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出“枢纽”或“运限年限”表达，不能唯一确定 YEAR/DECADE；历史时间层过细，故暂挂，不猜测、不编译。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-053",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP07-688",
+        "SP07-689",
+        "SP07-690"
+      ],
+      "source_expression": "巳亥天相，以“廉贞七杀”、天梁、巨门各垣，为吉凶克应之枢纽。",
+      "source_reason_as_recorded": "原文只列“枢纽”，没有指定 YEAR/DECADE；历史 YEAR 标签暂挂。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        48
+      ],
+      "pdf_physical_pages": [
+        24
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP07-688",
+          "historical_source_location": "夫妻宫printed_p48",
+          "verified_source_location": "SRC-ZZ-003 printed p48 / PDF physical p24",
+          "verified_source_span_id": "ZZ003-P48",
+          "printed_pages": [
+            48
+          ],
+          "pdf_physical_pages": [
+            24
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "巳亥天相，以“廉贞七杀”、天梁、巨门各垣，为吉凶克应之枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出“枢纽”或“运限年限”表达，不能唯一确定 YEAR/DECADE；历史时间层过细，故暂挂，不猜测、不编译。"
+        },
+        {
+          "historical_candidate_id": "SP07-689",
+          "historical_source_location": "夫妻宫printed_p48",
+          "verified_source_location": "SRC-ZZ-003 printed p48 / PDF physical p24",
+          "verified_source_span_id": "ZZ003-P48",
+          "printed_pages": [
+            48
+          ],
+          "pdf_physical_pages": [
+            24
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "巳亥天相，以“廉贞七杀”、天梁、巨门各垣，为吉凶克应之枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出“枢纽”或“运限年限”表达，不能唯一确定 YEAR/DECADE；历史时间层过细，故暂挂，不猜测、不编译。"
+        },
+        {
+          "historical_candidate_id": "SP07-690",
+          "historical_source_location": "夫妻宫printed_p48",
+          "verified_source_location": "SRC-ZZ-003 printed p48 / PDF physical p24",
+          "verified_source_span_id": "ZZ003-P48",
+          "printed_pages": [
+            48
+          ],
+          "pdf_physical_pages": [
+            24
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "巳亥天相，以“廉贞七杀”、天梁、巨门各垣，为吉凶克应之枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只给出“枢纽”或“运限年限”表达，不能唯一确定 YEAR/DECADE；历史时间层过细，故暂挂，不猜测、不编译。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-054",
+      "candidate_row_count": 1,
+      "candidate_ids": [
+        "SP08-701"
+      ],
+      "source_expression": "行至夫妻宫入“吉限”",
+      "source_reason_as_recorded": "原文只称“吉限”，没有唯一指定 YEAR 或 DECADE；保留“因环境分散—入吉限—破镜重圆”的来源顺序，但不静默编译为时间触发器，也不改写成历史反馈门。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        48
+      ],
+      "pdf_physical_pages": [
+        24
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP08-701",
+          "historical_source_location": "夫妻宫printed_p48",
+          "verified_source_location": "SRC-ZZ-003 printed p48 / PDF physical p24",
+          "verified_source_span_id": "ZZ003-P48",
+          "printed_pages": [
+            48
+          ],
+          "pdf_physical_pages": [
+            24
+          ],
+          "historical_time_layer": "DECADE",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "天梁与天马同躔，主夫妻因环境所逼而致分散。行至夫妻宫入吉限，则破镜重圆。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只称“吉限”，没有唯一指定 YEAR 或 DECADE；保留“因环境分散—入吉限—破镜重圆”的来源顺序，但不静默编译为时间触发器，也不改写成历史反馈门。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-055",
+      "candidate_row_count": 1,
+      "candidate_ids": [
+        "SP08-706"
+      ],
+      "source_expression": "于夫妻宫行至武曲化忌的“火运”",
+      "source_reason_as_recorded": "原文使用“火运”，未能从本批来源契约中唯一映射到 YEAR 或 DECADE；保留原文，不猜测、不编译。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        48
+      ],
+      "pdf_physical_pages": [
+        24
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP08-706",
+          "historical_source_location": "夫妻宫printed_p48",
+          "verified_source_location": "SRC-ZZ-003 printed p48 / PDF physical p24",
+          "verified_source_span_id": "ZZ003-P48",
+          "printed_pages": [
+            48
+          ],
+          "pdf_physical_pages": [
+            24
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "天梁与铃星同躔，于夫妻宫行至武曲化忌的火运，常主婚姻生活中断。究竟因何致此，须视实际星曜组合而定。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文使用“火运”，未能从本批来源契约中唯一映射到 YEAR 或 DECADE；保留原文，不猜测、不编译。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-056",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP08-720",
+        "SP08-721",
+        "SP08-722"
+      ],
+      "source_expression": "子午天梁，以巨门、天同、【机月】诸垣为吉凶的枢纽。",
+      "source_reason_as_recorded": "原文仅列“枢纽”，未指定具体时间层；历史 YEAR 标签不作为证据。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        48
+      ],
+      "pdf_physical_pages": [
+        24
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP08-720",
+          "historical_source_location": "夫妻宫printed_p48",
+          "verified_source_location": "SRC-ZZ-003 printed p48 / PDF physical p24",
+          "verified_source_span_id": "ZZ003-P48",
+          "printed_pages": [
+            48
+          ],
+          "pdf_physical_pages": [
+            24
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "子午天梁，以巨门、天同、【机月】诸垣为吉凶的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅列“枢纽”，未指定 YEAR/DECADE；历史 YEAR 标签不是来源证据。"
+        },
+        {
+          "historical_candidate_id": "SP08-721",
+          "historical_source_location": "夫妻宫printed_p48",
+          "verified_source_location": "SRC-ZZ-003 printed p48 / PDF physical p24",
+          "verified_source_span_id": "ZZ003-P48",
+          "printed_pages": [
+            48
+          ],
+          "pdf_physical_pages": [
+            24
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "子午天梁，以巨门、天同、【机月】诸垣为吉凶的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅列“枢纽”，未指定 YEAR/DECADE；历史 YEAR 标签不是来源证据。"
+        },
+        {
+          "historical_candidate_id": "SP08-722",
+          "historical_source_location": "夫妻宫printed_p48",
+          "verified_source_location": "SRC-ZZ-003 printed p48 / PDF physical p24",
+          "verified_source_span_id": "ZZ003-P48",
+          "printed_pages": [
+            48
+          ],
+          "pdf_physical_pages": [
+            24
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "子午天梁，以巨门、天同、【机月】诸垣为吉凶的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅列“枢纽”，未指定 YEAR/DECADE；历史 YEAR 标签不是来源证据。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-057",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP08-731",
+        "SP08-732",
+        "SP08-733"
+      ],
+      "source_expression": "丑未天梁，以武曲、天同、巨门诸宫垣为吉凶克应之枢纽。",
+      "source_reason_as_recorded": "原文仅列“枢纽”，未指定具体时间层；历史 YEAR 标签不作为证据。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        49
+      ],
+      "pdf_physical_pages": [
+        25
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP08-731",
+          "historical_source_location": "夫妻宫printed_p49",
+          "verified_source_location": "SRC-ZZ-003 printed p49 / PDF physical p25",
+          "verified_source_span_id": "ZZ003-P49",
+          "printed_pages": [
+            49
+          ],
+          "pdf_physical_pages": [
+            25
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "丑未天梁，以武曲、天同、巨门诸宫垣为吉凶克应之枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅列“枢纽”，未指定 YEAR/DECADE；历史 YEAR 标签不是来源证据。"
+        },
+        {
+          "historical_candidate_id": "SP08-732",
+          "historical_source_location": "夫妻宫printed_p49",
+          "verified_source_location": "SRC-ZZ-003 printed p49 / PDF physical p25",
+          "verified_source_span_id": "ZZ003-P49",
+          "printed_pages": [
+            49
+          ],
+          "pdf_physical_pages": [
+            25
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "丑未天梁，以武曲、天同、巨门诸宫垣为吉凶克应之枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅列“枢纽”，未指定 YEAR/DECADE；历史 YEAR 标签不是来源证据。"
+        },
+        {
+          "historical_candidate_id": "SP08-733",
+          "historical_source_location": "夫妻宫printed_p49",
+          "verified_source_location": "SRC-ZZ-003 printed p49 / PDF physical p25",
+          "verified_source_span_id": "ZZ003-P49",
+          "printed_pages": [
+            49
+          ],
+          "pdf_physical_pages": [
+            25
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "丑未天梁，以武曲、天同、巨门诸宫垣为吉凶克应之枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅列“枢纽”，未指定 YEAR/DECADE；历史 YEAR 标签不是来源证据。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-058",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP08-741",
+        "SP08-742",
+        "SP08-743"
+      ],
+      "source_expression": "巳亥天梁以【天机巨门】、太阴太阳、武曲天府诸垣为“六运流年”吉凶克应的枢纽。",
+      "source_reason_as_recorded": "批准扫描字面读作“六运流年”；不得擅自校改为“大运流年”。该表达未唯一指定 YEAR/DECADE，故暂挂。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        49
+      ],
+      "pdf_physical_pages": [
+        25
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP08-741",
+          "historical_source_location": "夫妻宫printed_p49",
+          "verified_source_location": "SRC-ZZ-003 printed p49 / PDF physical p25",
+          "verified_source_span_id": "ZZ003-P49",
+          "printed_pages": [
+            49
+          ],
+          "pdf_physical_pages": [
+            25
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "巳亥天梁以【天机巨门】、太阴太阳、武曲天府诸垣为“六运流年”吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "批准扫描字面读作“六运流年”；不擅自改成“大运流年”，也不沿用历史 YEAR 单层标签。"
+        },
+        {
+          "historical_candidate_id": "SP08-742",
+          "historical_source_location": "夫妻宫printed_p49",
+          "verified_source_location": "SRC-ZZ-003 printed p49 / PDF physical p25",
+          "verified_source_span_id": "ZZ003-P49",
+          "printed_pages": [
+            49
+          ],
+          "pdf_physical_pages": [
+            25
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "巳亥天梁以【天机巨门】、太阴太阳、武曲天府诸垣为“六运流年”吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "批准扫描字面读作“六运流年”；不擅自改成“大运流年”，也不沿用历史 YEAR 单层标签。"
+        },
+        {
+          "historical_candidate_id": "SP08-743",
+          "historical_source_location": "夫妻宫printed_p49",
+          "verified_source_location": "SRC-ZZ-003 printed p49 / PDF physical p25",
+          "verified_source_span_id": "ZZ003-P49",
+          "printed_pages": [
+            49
+          ],
+          "pdf_physical_pages": [
+            25
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "巳亥天梁以【天机巨门】、太阴太阳、武曲天府诸垣为“六运流年”吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "批准扫描字面读作“六运流年”；不擅自改成“大运流年”，也不沿用历史 YEAR 单层标签。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-059",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP08-768",
+        "SP08-769",
+        "SP08-770"
+      ],
+      "source_expression": "子午七杀以【紫微天相】、【天机巨门】、天同各垣为吉凶克应的枢纽。",
+      "source_reason_as_recorded": "原文仅列“枢纽”，未指定具体时间层；历史 YEAR 标签不作为证据。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        50
+      ],
+      "pdf_physical_pages": [
+        25
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP08-768",
+          "historical_source_location": "夫妻宫printed_p50",
+          "verified_source_location": "SRC-ZZ-003 printed p50 / PDF physical p25",
+          "verified_source_span_id": "ZZ003-P50",
+          "printed_pages": [
+            50
+          ],
+          "pdf_physical_pages": [
+            25
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "子午七杀以【紫微天相】、【天机巨门】、天同各垣为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅列“枢纽”，未指定 YEAR/DECADE；历史 YEAR 标签不是来源证据。"
+        },
+        {
+          "historical_candidate_id": "SP08-769",
+          "historical_source_location": "夫妻宫printed_p50",
+          "verified_source_location": "SRC-ZZ-003 printed p50 / PDF physical p25",
+          "verified_source_span_id": "ZZ003-P50",
+          "printed_pages": [
+            50
+          ],
+          "pdf_physical_pages": [
+            25
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "子午七杀以【紫微天相】、【天机巨门】、天同各垣为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅列“枢纽”，未指定 YEAR/DECADE；历史 YEAR 标签不是来源证据。"
+        },
+        {
+          "historical_candidate_id": "SP08-770",
+          "historical_source_location": "夫妻宫printed_p50",
+          "verified_source_location": "SRC-ZZ-003 printed p50 / PDF physical p25",
+          "verified_source_span_id": "ZZ003-P50",
+          "printed_pages": [
+            50
+          ],
+          "pdf_physical_pages": [
+            25
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "子午七杀以【紫微天相】、【天机巨门】、天同各垣为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅列“枢纽”，未指定 YEAR/DECADE；历史 YEAR 标签不是来源证据。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-060",
+      "candidate_row_count": 4,
+      "candidate_ids": [
+        "SP08-775",
+        "SP08-776",
+        "SP08-777",
+        "SP08-778"
+      ],
+      "source_expression": "寅申七杀，以武曲、巨门、天同、天梁各垣，为大运或流年吉凶克应的枢纽。",
+      "source_reason_as_recorded": "原文明列“大运或流年”；当前单层字段不能静默折叠或擅自拆分，暂挂。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        50
+      ],
+      "pdf_physical_pages": [
+        25
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP08-775",
+          "historical_source_location": "夫妻宫printed_p50",
+          "verified_source_location": "SRC-ZZ-003 printed p50 / PDF physical p25",
+          "verified_source_span_id": "ZZ003-P50",
+          "printed_pages": [
+            50
+          ],
+          "pdf_physical_pages": [
+            25
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "寅申七杀，以武曲、巨门、天同、天梁各垣，为大运或流年吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文明列“大运或流年”；当前单层字段不能静默折叠或擅自拆分，暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP08-776",
+          "historical_source_location": "夫妻宫printed_p50",
+          "verified_source_location": "SRC-ZZ-003 printed p50 / PDF physical p25",
+          "verified_source_span_id": "ZZ003-P50",
+          "printed_pages": [
+            50
+          ],
+          "pdf_physical_pages": [
+            25
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "寅申七杀，以武曲、巨门、天同、天梁各垣，为大运或流年吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文明列“大运或流年”；当前单层字段不能静默折叠或擅自拆分，暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP08-777",
+          "historical_source_location": "夫妻宫printed_p50",
+          "verified_source_location": "SRC-ZZ-003 printed p50 / PDF physical p25",
+          "verified_source_span_id": "ZZ003-P50",
+          "printed_pages": [
+            50
+          ],
+          "pdf_physical_pages": [
+            25
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "寅申七杀，以武曲、巨门、天同、天梁各垣，为大运或流年吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文明列“大运或流年”；当前单层字段不能静默折叠或擅自拆分，暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP08-778",
+          "historical_source_location": "夫妻宫printed_p50",
+          "verified_source_location": "SRC-ZZ-003 printed p50 / PDF physical p25",
+          "verified_source_span_id": "ZZ003-P50",
+          "printed_pages": [
+            50
+          ],
+          "pdf_physical_pages": [
+            25
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "寅申七杀，以武曲、巨门、天同、天梁各垣，为大运或流年吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文明列“大运或流年”；当前单层字段不能静默折叠或擅自拆分，暂挂。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-061",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP08-787",
+        "SP08-788",
+        "SP08-789"
+      ],
+      "source_expression": "辰戌七杀，以【太阳天梁】、【天同巨门】、紫微诸垣为吉凶克应的枢纽。",
+      "source_reason_as_recorded": "原文仅列“枢纽”，未指定具体时间层；历史 YEAR 标签不作为证据。",
+      "latest_ledger_status": "HELD_UNRESOLVED",
+      "printed_pages": [
+        50
+      ],
+      "pdf_physical_pages": [
+        25
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP08-787",
+          "historical_source_location": "夫妻宫printed_p50",
+          "verified_source_location": "SRC-ZZ-003 printed p50 / PDF physical p25",
+          "verified_source_span_id": "ZZ003-P50",
+          "printed_pages": [
+            50
+          ],
+          "pdf_physical_pages": [
+            25
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "辰戌七杀，以【太阳天梁】、【天同巨门】、紫微诸垣为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅列“枢纽”，未指定 YEAR/DECADE；历史 YEAR 标签不是来源证据。"
+        },
+        {
+          "historical_candidate_id": "SP08-788",
+          "historical_source_location": "夫妻宫printed_p50",
+          "verified_source_location": "SRC-ZZ-003 printed p50 / PDF physical p25",
+          "verified_source_span_id": "ZZ003-P50",
+          "printed_pages": [
+            50
+          ],
+          "pdf_physical_pages": [
+            25
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "辰戌七杀，以【太阳天梁】、【天同巨门】、紫微诸垣为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅列“枢纽”，未指定 YEAR/DECADE；历史 YEAR 标签不是来源证据。"
+        },
+        {
+          "historical_candidate_id": "SP08-789",
+          "historical_source_location": "夫妻宫printed_p50",
+          "verified_source_location": "SRC-ZZ-003 printed p50 / PDF physical p25",
+          "verified_source_span_id": "ZZ003-P50",
+          "printed_pages": [
+            50
+          ],
+          "pdf_physical_pages": [
+            25
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "辰戌七杀，以【太阳天梁】、【天同巨门】、紫微诸垣为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文仅列“枢纽”，未指定 YEAR/DECADE；历史 YEAR 标签不是来源证据。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-062",
+      "candidate_row_count": 3,
+      "candidate_ids": [
+        "SP09-816",
+        "SP09-817",
+        "SP09-818"
+      ],
+      "source_expression": "子午破军以太阳、巨门、天同诸宫垣为吉凶克应的枢纽",
+      "source_reason_as_recorded": "原文仅称“吉凶克应的枢纽”，未指定 YEAR 或 DECADE；历史 YEAR 标签不是来源证据，保留为未决时间层。",
+      "latest_ledger_status": "CARRIED_FORWARD",
+      "printed_pages": [
+        51
+      ],
+      "pdf_physical_pages": [
+        26
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP09-816",
+          "historical_source_location": "夫妻宫printed_p51",
+          "verified_source_location": "SRC-ZZ-003 printed p51 / PDF physical p26",
+          "verified_source_span_id": "ZZ003-P51",
+          "printed_pages": [
+            51
+          ],
+          "pdf_physical_pages": [
+            26
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "子午破军以太阳、巨门、天同诸宫垣为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "扫描只称“吉凶克应的枢纽”，没有明确指定 YEAR 或 DECADE。历史 YEAR 标签不足以证明流年专属，暂挂时间粒度。"
+        },
+        {
+          "historical_candidate_id": "SP09-817",
+          "historical_source_location": "夫妻宫printed_p51",
+          "verified_source_location": "SRC-ZZ-003 printed p51 / PDF physical p26",
+          "verified_source_span_id": "ZZ003-P51",
+          "printed_pages": [
+            51
+          ],
+          "pdf_physical_pages": [
+            26
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "子午破军以太阳、巨门、天同诸宫垣为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "与 SP09-816 来自同一句，但不能因历史索引拆分就推定每个宫垣只属于 YEAR；源文未指定 YEAR/DECADE，暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP09-818",
+          "historical_source_location": "夫妻宫printed_p51",
+          "verified_source_location": "SRC-ZZ-003 printed p51 / PDF physical p26",
+          "verified_source_span_id": "ZZ003-P51",
+          "printed_pages": [
+            51
+          ],
+          "pdf_physical_pages": [
+            26
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "子午破军以太阳、巨门、天同诸宫垣为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "与 SP09-816/817 来自同一句；源文未指定 YEAR/DECADE，暂挂，不新增独立时间尺度。"
+        }
+      ]
+    },
+    {
+      "residual_id": "P03-TEMP-063",
+      "candidate_row_count": 2,
+      "candidate_ids": [
+        "SP09-824",
+        "SP09-825"
+      ],
+      "source_expression": "寅申破军以天同巨门、太阳天梁宫垣为吉凶克应的枢纽",
+      "source_reason_as_recorded": "原文仅称“吉凶克应的枢纽”，未指定 YEAR 或 DECADE；不把历史 YEAR 标签升级为来源明确的流年范围。",
+      "latest_ledger_status": "CARRIED_FORWARD",
+      "printed_pages": [
+        51
+      ],
+      "pdf_physical_pages": [
+        26
+      ],
+      "time_granularity_disposition": "UNRESOLVED_FAIL_CLOSED; do not infer YEAR or DECADE from historical labels; preserve source-native wording",
+      "candidate_rows": [
+        {
+          "historical_candidate_id": "SP09-824",
+          "historical_source_location": "夫妻宫printed_p51",
+          "verified_source_location": "SRC-ZZ-003 printed p51 / PDF physical p26",
+          "verified_source_span_id": "ZZ003-P51",
+          "printed_pages": [
+            51
+          ],
+          "pdf_physical_pages": [
+            26
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "寅申破军以[天同巨门]、[太阳天梁]宫垣为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "原文只称“吉凶克应的枢纽”，未明示 YEAR 或 DECADE；历史 YEAR 标签不作为证据，暂挂。"
+        },
+        {
+          "historical_candidate_id": "SP09-825",
+          "historical_source_location": "夫妻宫printed_p51",
+          "verified_source_location": "SRC-ZZ-003 printed p51 / PDF physical p26",
+          "verified_source_span_id": "ZZ003-P51",
+          "printed_pages": [
+            51
+          ],
+          "pdf_physical_pages": [
+            26
+          ],
+          "historical_time_layer": "YEAR",
+          "direct_scan_disposition": "HOLD_TEMPORAL_GRANULARITY_UNRESOLVED",
+          "source_literal_claim": "寅申破军以[天同巨门]、[太阳天梁]宫垣为吉凶克应的枢纽。",
+          "canonical_record_ids": [],
+          "candidate_reason": "与 SP09-824 来自同一句；原文未指定时间层级，暂挂，不将“枢纽”自行改写为流年。"
+        }
+      ]
+    }
+  ],
+  "execution_boundary": {
+    "history_feedback": 0,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0,
+    "new_independent_time_scale": 0,
+    "no_product_runtime": true,
+    "no_shared_core_semantics": true,
+    "accepted_ledgers_read_only": true,
+    "historical_candidate_csvs_read_only": true
+  },
+  "handoff": {
+    "source_coverage_gap_ids_still_open_or_partial": [
+      "P03-SP01-GAP-001",
+      "P03-SP02-GAP-001",
+      "P03-SP02-GAP-004",
+      "P03-SP02-GAP-005"
+    ],
+    "clear_unindexed_source_atoms_followup_issue": 819,
+    "ambiguous_p37_wording": "机录像",
+    "p11_admission_blocked": true
+  }
+}
