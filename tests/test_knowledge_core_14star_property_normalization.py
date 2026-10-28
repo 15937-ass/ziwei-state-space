@@ -1166,7 +1166,7 @@ def test_pre_pi_source_audit_followup_covers_all_canonical_rules_without_promoti
     held = {row["rule_id"] for row in all_rows if row["source_span_status"] in {"NOT_VERIFIED_IN_REVIEWED_SPANS", "SOURCE_MISMATCH_CONFIRMED"}}
     assert held == {"ZZ-TL-010", "ZZ-TT-010"}
     assert data["pre_pi_gates"]["source_coverage"]["status_counts"] == counts
-    assert data["progress"]["stage"] == "PI_DECISION_CARDS_READY_PENDING_PI_DECISIONS"
+    assert data["progress"]["stage"] == "PI_DECISIONS_RECORDED_PENDING_EXACT_HEAD_QUALITY_GATE"
 
 
 def test_pre_pi_mapping_review_audit_counts_are_consistent():
