@@ -1,7 +1,7 @@
 # 当前 PI 裁决与审计交接（2026-10-28）
 
 - 工作线：KNOWLEDGE_ONLY / CORE / Issue #757 / Draft PR #783；当前分支 `knowledge/core-757-14star-property-normalization-main-sync2`。
-- 最新main `46df5401745136fe16e8ff49de10620bd5a0ae55` 已通过同步 PR [#822](https://github.com/15937-ass/ziwei-state-space/pull/822) 合入Core分支，合并提交 `229e8a5504dfaaf08c2f48112ecdd541ce272d05`。本轮只同步main到Core分支，不把Core合入main。
+- 最新main `b42512b7e96b513a8ad65c08d6903b1791e244a7` 已通过同步 PR [#826](https://github.com/15937-ass/ziwei-state-space/pull/826) 合入Core分支，合并提交 `5b6dc02a65970a4f2287648341bde4b94fc58ad3`。本轮只同步main到Core分支，不把Core合入main。
 - PI已裁定：`ZZ-TLIA-001`“第三得”是“第三星”的印刷错误；`ZZ-QS-005`“廉洁”是“廉贞”的印刷错误。原始扫描字面保留，正式canonical行与`source_span_verified=false`不变。
 - PI映射语义决定（2026-10-28）：**1A、2B、3B**。1A接受太阳发射端／太阴收敛端的有限方向性对应，仅限候选研究层；2B采用定义驱动的QI-05严格审核门槛，不自动接受具体候选；3B将廉贞QI-11保留为未决候选。
 - 以上决定不构成canonical晋升授权；候选仍为`PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`，canonical行、正式星核、本体、共享Schema未改，Product/runtime与KIB未获消费权限。
