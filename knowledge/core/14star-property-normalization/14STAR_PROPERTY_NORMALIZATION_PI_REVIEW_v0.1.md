@@ -6,35 +6,22 @@
 
 - 十四主星候选检查点：14/14；241条 mapping-review 记录、182项候选性质。
 - 来源覆盖：430条 canonical 规则均有侧车；423条完整视觉核对、5条部分核对、1条未核实、1条来源错配。
-- 逐星补核状态：贪狼27条完整/1条部分/1条未核实；巨门22条完整/4条部分/0条未核实；天梁26条完整；七杀26条完整；破军30条完整。来源跨度核对不等于目标映射批准，canonical source flags仍为false。
-- 每个新提交均须通过自己的 exact-head CI；最新结果以 [PR #783 的 Checks](https://github.com/15937-ass/ziwei-state-space/pull/783) 为准。决策卡文档与审计数据的状态不代替 CI 验收。
-- 当前只保留3张 PI 决策卡，见 [PI 决策卡 v0.1](14STAR_PROPERTY_NORMALIZATION_PI_DECISION_CARDS_v0.1.md)。100条 `needs_review` 是审核记录状态，不等于100项 PI 任务。
+- PI 已明确选择 **1A、2B、3B**；结构化记录见基线 JSON 的 `pi_decision_record`。
+- 当前工作状态：`PI_DECISIONS_RECORDED_PENDING_EXACT_HEAD_QUALITY_GATE`；当前 head 必须通过自己的完整 exact-head 质量门后才可验收。
 
-## 自动审计结果
+## PI 决定记录
 
-- 241条 mapping-review ID 全部唯一；182项候选均关联有效审核记录；未发现引用不存在的 canonical 规则。
-- 处置分布：58 `supported_candidate`、57 `candidate_only`、100 `needs_review`、26 `not_supported_for_target`。
-- 来源引用428次使用、360个唯一引用；59组精确引用复用，共127次使用。重复引用不增加独立证据权重。
-- 13项候选/26个 rule ID 的来源范围差异已逐项处理；仅保留 `EXP-WQ-06 / ZZ-WQ-X06` 作为与 `ZZ-WQ-018/019` 重叠的摘要，不重复计证。
-- 原4条 `evidence_role=UNKNOWN` 中3条已按现有 schema 得到有依据的处置；`MR-LZ-SYMBOLIC-ROLE-002` 继续 UNKNOWN，避免错误归类。
-- PI既有裁决：`ZZ-TLIA-001`“第三得”按“第三星”理解；`ZZ-QS-005`“廉洁”按“廉贞”理解。原始扫描字面保留，canonical 行不改。
+1. **1A — 太阳/太阴 QI-01：** 接受太阳对应发射端、太阴对应收敛端的有限方向性对应，仅限候选研究层。太阴的适度收敛最优区域与条件分支保留；不赋数值强度、不等同吉凶。
+2. **2B — QI-05：** 采用定义驱动的严格审核门槛。只有来源直接支持意图、计划或行动能否落实时才允许提出映射；不自动接受任何具体候选。
+3. **3B — 廉贞 QI-11：** 保留双面张力候选，继续 `UNRESOLVED`；不以一般双面性或星系互动替代感性—理性张力的直接证据。
 
-## 自动保留、无需 PI 逐项决定的事项
+## 继续有效的安全边界
 
-- `ZZ-TL-010` 精确跨度未找到：继续保持未核实，不补造来源。
-- `ZZ-TT-010` 来源错配：继续隔离，不进入正式映射或消费者。
-- `ZZ-TL-009` 与 `ZZ-JM-003/004/006/007`：保持部分核对，只使用已核实范围。
-- 廉贞来源的 L0 五行标签冲突：保留各自来源与冲突状态，不择一、不推导 QI。
-- `MR-LZ-SYMBOLIC-ROLE-002`：保留 UNKNOWN；目前没有必要为了消除一个未知值而扩展共享 schema。
+- 所有候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL`；候选 `normalization_epistemic` 仍为 `UNRESOLVED`，未修改候选数值强度或 canonicalization 标记。
+- 未批准 canonical 正式映射；未修改正式星核、本体、canonical 规则或共享 Schema。
+- Product/runtime、KIB 与消费者权限均未开放；没有新增数值权重、概率或现实预测有效性主张。
+- 自动审计状态仍按来源侧车和 mapping-review ledger 记录；100条 `needs_review` 不是100项 PI 待办。
 
-## PI 决策入口
-
-请只审阅 [3张 PI 决策卡](14STAR_PROPERTY_NORMALIZATION_PI_DECISION_CARDS_v0.1.md)：
-1. 太阳/太阴的 QI-01 方向性映射；
-2. QI-05「现实化—空泛」的映射门槛；
-3. 廉贞双面张力与 QI-11 的对应。
-
-未被 PI 明确选择的项目继续保持当前候选/未决状态。所有候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`；本轮未批准正式映射、未修改正式星核/本体/canonical规则/共享 schema，也未开放 Product/runtime、KIB 或消费者权限。
 
 ---
 
