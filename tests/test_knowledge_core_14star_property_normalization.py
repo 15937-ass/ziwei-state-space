@@ -1049,6 +1049,8 @@ def test_sun_source_review_covers_all_canonical_rows_without_promoting_them():
 
 def test_pre_pi_source_audit_followup_covers_all_canonical_rules_without_promotion():
     data = load_baseline()
+    assert data["pre_pi_gates"]["pi_review_authorized"] is True
+    assert data["pre_pi_gates"]["formal_mapping_approval"] is False
     followup = data["source_audit_followup"]
     assert followup["status"] == "PI_DECISION_CARDS_READY_PENDING_PI_DECISIONS"
     cards_path = ROOT / data["pre_pi_gates"]["decision_cards_path"]
