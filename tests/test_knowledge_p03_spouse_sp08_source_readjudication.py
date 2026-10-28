@@ -158,21 +158,45 @@ def test_gaps_and_execution_boundary_are_preserved():
     assert b["no_new_primitives_or_quantitative_claims"] is True
 
 def test_cumulative_state_checkpoint_reconciles():
-    d = load(READJ)
     state = STATE.read_text(encoding="utf-8")
-    assert "SP08_701_800_SOURCE_FIRST_REVIEW_COMPLETE" in state
-    for field, value in {
-        "historical_candidate_rows_reviewed": 800,
-        "candidate_rows_promoted": 617,
-        "source_records_added": 630,
-        "reusable_projection_method_records_added": 444,
-        "case_support_only_records_added": 186,
-        "candidates_held": 178,
-        "candidates_deduplicated": 5,
+    # The shared palace state is a moving cumulative checkpoint. Batch-specific
+    # assertions above remain pinned to SP08; cumulative totals must reconcile
+    # across all accepted source-review ledgers plus the current SP09 candidate.
+    assert any(marker in state for marker in (
+        "SP08_701_800_SOURCE_FIRST_REVIEW_COMPLETE",
+        "SP09_801_836_SOURCE_FIRST_REVIEW_COMPLETE",
+    ))
+    batches = [load(path) for path in sorted(READJ.parent.glob(
+        "SPOUSE_SP*_SOURCE_READJUDICATION_*.json"
+    ))]
+    assert batches
+    candidates = [
+        row["historical_candidate_id"]
+        for batch in batches
+        for row in batch["candidate_batch"]["candidate_dispositions"]
+    ]
+    assert len(candidates) == len(set(candidates)) == 836
+    fields = {
+        "historical_candidate_rows_reviewed": "reviewed",
+        "candidate_rows_promoted": "canonical_promoted",
+        "source_records_added": "canonical_record_count",
+        "reusable_projection_method_records_added": "reusable_projection_rules",
+        "case_support_only_records_added": "case_support_only",
+        "candidates_held": "held",
+        "candidates_deduplicated": "deduplicated",
+    }
+    state_lines = set(state.splitlines())
+    for field, summary_key in fields.items():
+        total = sum(batch["summary"][summary_key] for batch in batches)
+        assert f"  {field}: {total}" in state_lines
+    assert len(candidates) == sum(batch["summary"]["reviewed"] for batch in batches)
+    minimums = {
         "source_coverage_residuals_total_recorded": 17,
         "temporal_scope_residuals": 61,
         "temporal_scope_candidate_rows": 170,
-    }.items():
-        assert f"{field}: {value}" in state
+    }
+    for field, minimum in minimums.items():
+        line = next(line for line in state.splitlines() if line.strip().startswith(field + ":"))
+        actual = int(line.split(":", 1)[1].strip())
+        assert actual >= minimum, (field, actual, minimum)
     assert "conditions_compiled=0" in state and "execution_unlocked=0" in state
-    assert "SP09-801" in state
