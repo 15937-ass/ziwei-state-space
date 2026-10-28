@@ -1089,3 +1089,21 @@ def test_pre_pi_source_audit_followup_covers_all_canonical_rules_without_promoti
     assert all(row["source_span_verified"] == "false" for row in canonical_rows)
     held = {row["rule_id"] for row in all_rows if row["source_span_status"] in {"NOT_VERIFIED_IN_REVIEWED_SPANS", "SOURCE_MISMATCH_CONFIRMED"}}
     assert held == {"ZZ-TL-010", "ZZ-TT-010"}
+
+
+def test_pre_pi_mapping_review_audit_counts_are_consistent():
+    data = load_baseline()
+    audit = data["pre_pi_gates"]["mapping_review_audit"]
+    assert audit["mapping_review_records"] == audit["unique_review_ids"] == 240
+    assert audit["candidate_properties"] == audit["properties_with_valid_review_links"] == 182
+    assert audit["canonical_rules"] == 430
+    assert audit["missing_canonical_rule_refs"] == 0
+    assert audit["unique_target_refs"] == 81
+    assert audit["source_ref_uses"] == 412
+    assert audit["unique_source_refs"] == 356
+    assert audit["duplicated_exact_source_ref_groups"] == 47
+    assert audit["uses_in_duplicated_ref_groups"] == 103
+    assert audit["candidate_canonicalization_authorized"] == 0
+    assert audit["candidate_numeric_strength_assigned"] == 0
+    assert audit["all_candidate_normalization_states"] == "UNRESOLVED"
+    assert len(audit["unknown_evidence_role_review_record_ids"]) == 4
