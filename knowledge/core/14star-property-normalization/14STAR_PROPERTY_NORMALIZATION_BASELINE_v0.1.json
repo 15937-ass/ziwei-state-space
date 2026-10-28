@@ -3,7 +3,7 @@
   "artifact_id": "KB-CORE-14STAR-PROPERTY-NORMALIZATION-BASELINE-01",
   "issue": 757,
   "status": "PROPOSAL_ONLY_NOT_CANONICAL",
-  "checkpoint_status": "STAGE_B_TIANLIANG_CHECKPOINT_COMPLETED_NOT_FINAL",
+  "checkpoint_status": "STAGE_B_QISHA_CHECKPOINT_COMPLETED_NOT_FINAL",
   "activation_main_sha": "d45e2cfd6c0dc59fb80ec2210f7e729c53391c4f",
   "execution_branch": "knowledge/core-757-14star-property-normalization-main-sync2",
   "source_policy": {
@@ -587,10 +587,57 @@
       "prior_visual_review_rows_reused": 0,
       "canonical_source_span_verified_mutated": false
     },
-    "tianliang_scope_note": "本轮仅视觉核对上册扫描页14/印刷页27–28。26条canonical行均有处置：24条完整视觉核对、ZZ-TLIA-001因“第三得”与canonical“第三星”字面差异而部分核对、ZZ-TLIA-010因六十星系来源定位不具体而未核实。未修改canonical来源标记。"
+    "tianliang_scope_note": "本轮仅视觉核对上册扫描页14/印刷页27–28。26条canonical行均有处置：24条完整视觉核对、ZZ-TLIA-001因“第三得”与canonical“第三星”字面差异而部分核对、ZZ-TLIA-010因六十星系来源定位不具体而未核实。未修改canonical来源标记。",
+    "qisha_review_rule_ids": [
+      "ZZ-QS-001",
+      "ZZ-QS-002",
+      "ZZ-QS-003",
+      "ZZ-QS-004",
+      "ZZ-QS-005",
+      "ZZ-QS-006",
+      "ZZ-QS-007",
+      "ZZ-QS-008",
+      "ZZ-QS-009",
+      "ZZ-QS-010",
+      "ZZ-QS-X01",
+      "ZZ-QS-X02",
+      "ZZ-QS-X03",
+      "ZZ-QS-X04",
+      "ZZ-QS-X05",
+      "ZZ-QS-X06",
+      "ZZ-QS-X07",
+      "ZZ-QS-X08",
+      "ZZ-QS-X09",
+      "ZZ-QS-X10",
+      "ZZ-QS-Y01",
+      "ZZ-QS-Y02",
+      "ZZ-QS-Y03",
+      "ZZ-QS-Y04",
+      "ZZ-QS-Y05",
+      "ZZ-QS-Y06"
+    ],
+    "qisha_review_path": "knowledge/core/14star-property-normalization/QISHA_SOURCE_SPAN_REVIEW_v0.1.csv",
+    "qisha_held_rule_ids": [],
+    "qisha_partial_rule_ids": [
+      "ZZ-QS-005"
+    ],
+    "qisha_source_locator": {
+      "source_id": "SRC-ZZ-002",
+      "source_work": "《中州派紫微斗数深造讲义（上）》",
+      "source_sha256": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a",
+      "pdf_scan_page": 15,
+      "printed_pages": [
+        29,
+        30
+      ],
+      "verification": "VISUAL_SOURCE_REVIEWED; SHA256_MATCHES_SOURCES_INDEX",
+      "prior_visual_review_rows_reused": 0,
+      "canonical_source_span_verified_mutated": false
+    },
+    "qisha_scope_note": "本轮仅视觉核对上册扫描页15/印刷页29–30。26条canonical行均有处置：25条完整视觉核对、ZZ-QS-005因扫描字面“廉洁”与canonical evidence_text概括不同而部分核对，无规则被整体留置。未修改canonical来源标记。"
   },
   "progress": {
-    "stage": "B_TIANLIANG_CHECKPOINT_COMPLETED_READY_FOR_QISHA",
+    "stage": "B_QISHA_CHECKPOINT_COMPLETED_READY_FOR_POJUN",
     "completed_pilot_cards": [
       "太阳",
       "太阴",
@@ -598,10 +645,9 @@
     ],
     "remaining_pilot_cards": [],
     "remaining_expansion_stars_in_existing_order": [
-      "七杀",
       "破军"
     ],
-    "coverage_warning": "Stage A pilots 太阳、太阴、天相 are completed research checkpoints, not final canonical mappings. Stage B has completed bounded candidate checkpoints for 紫微、天机、武曲、天同、廉贞、天府、贪狼、巨门、天梁. For 天梁, 26 canonical rows have explicit dispositions: 24 full visual confirmations on scan page 14 / printed pp27–28, ZZ-TLIA-001 is partial because the visible literal reads “第三得” while canonical evidence_text says “第三星”, and ZZ-TLIA-010 remains held because its six-system source locator is not page-specific and was not reviewed in this batch. Next star is 七杀.",
+    "coverage_warning": "Stage A pilots 太阳、太阴、天相 are completed research checkpoints, not final canonical mappings. Stage B has completed bounded candidate checkpoints for 紫微、天机、武曲、天同、廉贞、天府、贪狼、巨门、天梁、七杀. For 七杀, all 26 canonical rows have explicit dispositions: 25 full visual confirmations on scan page 15 / printed pp29–30, and ZZ-QS-005 is partial because the visible wording says “化杀为权的廉洁” while canonical evidence_text summarizes “有化杀为权之意”. Next star is 破军.",
     "active_pilot_card": null,
     "draft_pilot_cards": [
       "太阳",
@@ -617,7 +663,8 @@
       "天府",
       "贪狼",
       "巨门",
-      "天梁"
+      "天梁",
+      "七杀"
     ],
     "active_expansion_star": null,
     "draft_expansion_stars": [
@@ -629,7 +676,8 @@
       "天府",
       "贪狼",
       "巨门",
-      "天梁"
+      "天梁",
+      "七杀"
     ],
     "expansion_checkpoint_history": [
       {
@@ -1004,6 +1052,34 @@
           "ZZ-TLIA-001"
         ],
         "source_locator_note": "扫描页14/印刷页27–28；ZZ-TLIA-001视觉字面为“第三得”，与canonical摘录“第三星”不一致；ZZ-TLIA-010具体六十星系页码未核实。"
+      },
+      {
+        "star": "七杀",
+        "status": "CHECKPOINT_COMPLETED_NOT_FINAL",
+        "source_id": "SRC-ZZ-002",
+        "pdf_scan_page": 15,
+        "printed_pages": [
+          29,
+          30
+        ],
+        "canonical_rule_rows_reviewed": 26,
+        "source_review_rows": 26,
+        "fully_verified_rows": 25,
+        "partially_verified_rows": 1,
+        "held_rows": 0,
+        "prior_visual_review_rows_reused": 0,
+        "mapping_review_records_added": 20,
+        "source_claims_added": 20,
+        "candidate_properties_added": 20,
+        "normalization_epistemic": "UNRESOLVED",
+        "canonicalization_authorized": false,
+        "product_consumption_authorized": false,
+        "next_star": "破军",
+        "held_rule_ids": [],
+        "partial_rule_ids": [
+          "ZZ-QS-005"
+        ],
+        "source_locator_note": "《中州派紫微斗数深造讲义（上）》扫描页15/印刷页29–30；ZZ-QS-005保留可见字面“化杀为权的廉洁”，不静默修正canonical摘录差异。"
       }
     ]
   },
@@ -8521,6 +8597,803 @@
         "ZZ-TLIA-010的六十星系来源定位尚未核实；不得以印刷页27–28替代该规则的具体来源。",
         "所有候选保持PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED；不改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限。"
       ]
+    },
+    {
+      "star_id": "STAR-QS",
+      "name": "七杀",
+      "status": "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL",
+      "source_claims": [
+        {
+          "claim_key": "QS-L0-SUBSTRATE",
+          "source_rule_ids": [
+            "ZZ-QS-001"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 15,
+            "printed_page": 29
+          },
+          "source_excerpt": "七杀为南斗第五星，属阴金。",
+          "claim_layer": "L0_STRUCTURE_METADATA",
+          "claim_summary": "阴金仅保留为传统结构标签，不由此推导现代QI方向、强度或五行计算。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+          "conditions_to_preserve": [
+            "南斗第五星",
+            "阴金",
+            "不推导QI方向、强度或五行生克"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "QS:p15:p29:substrate",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; METADATA_ONLY; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "QS-STAR-ROLE",
+          "source_rule_ids": [
+            "ZZ-QS-002"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 15,
+            "printed_page": 29
+          },
+          "source_excerpt": "在斗数中，七杀为将星。",
+          "claim_layer": "L2_RELATION_OR_SYSTEM",
+          "claim_summary": "将星是来源中的角色称谓，可作为统帅/主帅意象上下文，但不是现实领导能力保证。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "保留将星的传统角色语境",
+            "不推导现实职位、管理绩效或人格诊断"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "QS:p15:p29:star-role",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; ROLE_METAPHOR; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "QS-QISHA-POJUN-COMPARISON",
+          "source_rule_ids": [
+            "ZZ-QS-003",
+            "ZZ-QS-X02"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 15,
+            "printed_page": 29
+          },
+          "source_excerpt": "但七杀与破军却有不同的特性，前人譬喻破军为军中的先锋，七杀则为军中主帅。所以两相比较，七杀较为劳心，破军则较为劳力。",
+          "claim_layer": "L2_RELATION_OR_SYSTEM",
+          "claim_summary": "七杀较劳心、破军较劳力是两星比较语境；不可转成智力、执行力或工作表现单一分数。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "保留七杀/破军比较对象",
+            "劳心/劳力不是能力测验",
+            "不抹平两星差异"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "QS:p15:p29:qisha-pojun-comparison",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; COMPARATIVE_CONTEXT; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "QS-INDEPENDENT-ACTION",
+          "source_rule_ids": [
+            "ZZ-QS-004",
+            "ZZ-QS-X02"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 15,
+            "printed_page": 29
+          },
+          "source_excerpt": "然而七杀则可掉臂独行，破军则仍有顾忌，必须受命于主帅。",
+          "claim_layer": "L1_INTRINSIC_CANDIDATE",
+          "claim_summary": "来源描述七杀可掉臂独行，与破军仍有顾忌、须受命形成对比；不等于现实独立性测验。",
+          "candidate_target_ref": "STAR-QS.intrinsic_signature:QI-08",
+          "conditions_to_preserve": [
+            "保留与破军对比",
+            "独行是传统描述",
+            "不推导现实自主性或行为结果"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "QS:p15:p29:independent-action",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; DESCRIPTIVE_CANDIDATE; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "QS-ZIWEI-AUTHORITY",
+          "source_rule_ids": [
+            "ZZ-QS-005",
+            "ZZ-QS-X03",
+            "ZZ-QS-Y01"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 15,
+            "printed_page": 29
+          },
+          "source_excerpt": "七杀则不然，当[紫微七杀]同度之时，七杀受命于君王，权力更大，因此便有[化杀为权]的廉洁。 古人说：[七杀守命，庙旺，有谋略。见紫微加见诸吉，必为大将。]",
+          "claim_layer": "L2_CONDITIONAL_MODIFIER",
+          "claim_summary": "紫微同度、庙旺及诸吉是权威/统帅投影的不同条件分支；保留“廉洁”字面异常，不压成无条件领导性质。",
+          "candidate_target_ref": "STAR-QS.relational_signature:QR-02",
+          "conditions_to_preserve": [
+            "紫微同度与庙旺/诸吉分支分别保留",
+            "原文“廉洁”字面保留",
+            "不作现实权力、职位或领导能力预测"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "QS:p15:p29:ziwei-authority",
+          "row_adjudication_status": "PARTIALLY_VERIFIED_VISUAL_SCAN; LITERAL_ANOMALY_PRESERVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "QS-GANGKE",
+          "source_rule_ids": [
+            "ZZ-QS-006"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 15,
+            "printed_page": 29
+          },
+          "source_excerpt": "然而七杀刚克之性，却成为他的特色。",
+          "claim_layer": "L1_INTRINSIC_CANDIDATE",
+          "claim_summary": "刚克被来源直接称为七杀特色；不把它等同于现实攻击性、暴力或竞争力。",
+          "candidate_target_ref": "STAR-QS.intrinsic_signature:QI-02",
+          "conditions_to_preserve": [
+            "保留传统“刚克”术语",
+            "不等同现代攻击性/暴力指标",
+            "不赋数值强度"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "QS:p15:p29:gangke",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; DESCRIPTIVE_CANDIDATE; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "QS-CHANGQU-INCOMPATIBILITY",
+          "source_rule_ids": [
+            "ZZ-QS-007",
+            "ZZ-QS-X04"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 15,
+            "printed_page": 29
+          },
+          "source_excerpt": "由于刚克，即不喜文昌文曲，彼此气质不投。",
+          "claim_layer": "L2_CONDITIONAL_MODIFIER",
+          "claim_summary": "昌曲与七杀刚克气质不投，但辅弼/魁钺同时嘉会可改变判断；不能写成绝对排斥规则。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "保留昌曲不喜的条件语境",
+            "辅弼/魁钺例外单独记录",
+            "不合并为固定加减分"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "QS:p15:p29:changqu-compatibility",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; CONDITIONAL_COMPATIBILITY; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "QS-AUXILIARY-EXCEPTION",
+          "source_rule_ids": [
+            "ZZ-QS-008"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 15,
+            "printed_page": 29
+          },
+          "source_excerpt": "除非是左辅、右弼，或天魁、天钺同时嘉会。特别是[紫杀]同宫时，辅佐诸吉朝拱紫微则易成为大局。",
+          "claim_layer": "L2_CONDITIONAL_MODIFIER",
+          "claim_summary": "左辅右弼或天魁天钺同时嘉会，特别是紫杀结构下，可作为传统辅助条件；不泛化为任何单颗吉曜都足够。",
+          "candidate_target_ref": "STAR-QS.conditional_signature:QR-04",
+          "conditions_to_preserve": [
+            "保留“同时嘉会”",
+            "紫杀结构另作门控",
+            "不推导现实资源必然到位"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "QS:p15:p29:auxiliary-exception",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; CONDITIONAL_SUPPORT; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "QS-SHA-JI-XING-AMPLIFY",
+          "source_rule_ids": [
+            "ZZ-QS-009",
+            "ZZ-QS-X05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 15,
+            "printed_page": 29
+          },
+          "source_excerpt": "若七杀更见煞忌刑诸曜，则更加强了他的刚克之性，因此就加强了人生际遇的艰难。",
+          "claim_layer": "L2_CONDITIONAL_MODIFIER",
+          "claim_summary": "煞、忌、刑曜会合被描述为进一步加强刚克及困难；属性修饰与传统人生投影分开，不增加数值惩罚。",
+          "candidate_target_ref": "STAR-QS.conditional_signature:QI-02",
+          "conditions_to_preserve": [
+            "保留煞/忌/刑曜条件",
+            "刚克强化与困难投影分开",
+            "不设数值权重"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "QS:p15:p29:sha-ji-xing",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; CONDITIONAL_MODIFIER; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "QS-TIANFU-OPPOSITION",
+          "source_rule_ids": [
+            "ZZ-QS-010",
+            "ZZ-QS-X10"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 15,
+            "printed_page": 30
+          },
+          "source_excerpt": "七杀在十二宫中的组合，必与天府相对，天府之稳重与七杀的冲刺，形成冲突。在推算时必须详其互相的影响。",
+          "claim_layer": "L2_RELATION_OR_SYSTEM",
+          "claim_summary": "七杀与天府相对，来源将天府稳重与七杀冲刺描述为张力；这是系统关系，不回写为任一单星固定值。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "保留七杀/天府相对关系",
+            "稳重/冲刺是关系描述",
+            "不将结构张力压成单一正负值"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "QS:p15:p30:tianfu-opposition",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; SYSTEM_RELATION; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "QS-TRIAD-COUPLING",
+          "source_rule_ids": [
+            "ZZ-QS-X01"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 15,
+            "printed_page": 29
+          },
+          "source_excerpt": "斗数中的将星有二，七杀与破军皆是，且永远在三方相会，彼此加强声势。",
+          "claim_layer": "L2_RELATION_OR_SYSTEM",
+          "claim_summary": "七杀与破军三方相会并彼此加强声势，是结构耦合描述，不等同现实合作关系。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "保留三方相会结构",
+            "保留彼此加强声势",
+            "不推导现实关系结果"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "QS:p15:p29:triad-coupling",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; STRUCTURAL_RELATION; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "QS-TEMPORAL-SHA",
+          "source_rule_ids": [
+            "ZZ-QS-X06"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 15,
+            "printed_page": 29
+          },
+          "source_excerpt": "甚至当大限流年见流煞之时，亦主不吉。古人说：[七杀流羊遇官符，离乡遭配。]又说：[七杀临身命，流年羊陀，主灾伤。]又说：[七杀羊铃，流年白虎，刑戮灾边。]最凶险的结构是[七煞守照岁限擎羊，午生人安卯酉宫，主凶亡。]是谓[羊陀迭并]。",
+          "claim_layer": "L3_TEMPORAL_PROJECTION",
+          "claim_summary": "流煞、官符、白虎等属于来源中的传统运限风险语句；不转为现代事故、健康、法律结果预测。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "区分大限/流年与本命性质",
+            "保留羊陀/官符/白虎触发条件",
+            "不作现实事故或法律预测"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "QS:p15:p29:temporal-sha",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TEMPORAL_TRADITIONAL_PROJECTION; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "QS-DOU-CHAO-PATTERN",
+          "source_rule_ids": [
+            "ZZ-QS-X07"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 15,
+            "printed_page": 30
+          },
+          "source_excerpt": "当七杀在寅宫独坐，对宫为[紫微天府]，则为[七杀仰斗]；若七杀在申宫独坐，对宫[紫微天府]，则会[七杀朝斗]。主一生多机遇。且其人的管理能力甚强。见吉化，及诸吉，主大贵；若同时见煞，则可从事工业，或管理才能得以发挥的行业。",
+          "claim_layer": "L2_SPECIAL_PATTERN",
+          "claim_summary": "七杀仰斗/朝斗依赖寅申独坐并对紫微天府；机遇、管理及工业投影保留为带条件的传统格局解释。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "寅宫仰斗与申宫朝斗分开",
+            "对宫紫微天府为必要条件",
+            "吉化/诸吉与见煞分支分开"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "QS:p15:p30:dou-chao-pattern",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; CONDITIONAL_PATTERN; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "QS-INDEPENDENT-WAVES",
+          "source_rule_ids": [
+            "ZZ-QS-X08"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 15,
+            "printed_page": 30
+          },
+          "source_excerpt": "但无论入不入格，七杀独坐守命的人，一生波折必重，即使与其他正曜同度，亦必有一个时期的困难，若见煞曜，波折困难更重，所以必须脚踏实地稳守，不宜投机侥幸。",
+          "claim_layer": "L3_PROJECTION",
+          "claim_summary": "独坐守命的波折与困难是来源中的传统人生投影；不转成现实命运、风险或职业预测。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "保留独坐/见煞条件",
+            "传统人生投影与内在性质分开",
+            "不作现实命运预测"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "QS:p15:p30:independent-waves",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TRADITIONAL_PROJECTION_ONLY; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "QS-SUPPORT-RESOURCES",
+          "source_rule_ids": [
+            "ZZ-QS-X09"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 15,
+            "printed_page": 30
+          },
+          "source_excerpt": "若见左辅右弼、天魁天钺、禄存化禄，则主一生友人助力，可以因此渡过难关。",
+          "claim_layer": "L2_CONDITIONAL_MODIFIER",
+          "claim_summary": "辅弼、魁钺、禄存化禄被描述为渡过难关的支持条件；不等于现实资源必然获得。",
+          "candidate_target_ref": "STAR-QS.conditional_signature:QR-04",
+          "conditions_to_preserve": [
+            "保留辅弼/魁钺/禄存化禄",
+            "支持资源是条件修饰",
+            "不推导现实人际或经济保证"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "QS:p15:p30:support-resources",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; CONDITIONAL_SUPPORT; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "QS-YANGTUO-ABSOLUTE",
+          "source_rule_ids": [
+            "ZZ-QS-Y02"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 15,
+            "printed_page": 30
+          },
+          "source_excerpt": "七杀最忌羊陀，亦不喜居绝地、陷地。所谓[杀临绝地，会羊陀，天年天似颜回。]其所指的[绝地]，即五行长生十二神中绝曜所临之位。这说法虽未免太严重，但却主人一生多忧患灾病。",
+          "claim_layer": "L3_PROJECTION",
+          "claim_summary": "绝地/陷地与羊陀的传统不利断语带有明确条件；保留古文异常字面，不转为现代医学或寿命预测。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "保留绝地/陷地与羊陀条件",
+            "保留“天年天似颜回”字面",
+            "不作现代医学或寿命预测"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "QS:p15:p30:yangtuo-absolute",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TRADITIONAL_PROJECTION; LITERAL_PRESERVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "QS-TECHNICAL-SKILL",
+          "source_rule_ids": [
+            "ZZ-QS-Y03"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 15,
+            "printed_page": 30
+          },
+          "source_excerpt": "古人说：[七杀陷地，巧艺谋生。]这时便宜见文昌文曲、龙池凤阁、天才等曜，可增加入技艺上的聪明才智。",
+          "claim_layer": "L3_PROJECTION",
+          "claim_summary": "陷地七杀与文昌文曲、龙池凤阁、天才的组合被投影为技艺聪明；保留原文字面，不转为现代技能测评。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "保留陷地条件",
+            "保留文昌文曲/龙池凤阁/天才门控",
+            "不作现代能力测评"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "QS:p15:p30:technical-skill",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; CONDITIONAL_TRADITIONAL_PROJECTION; LITERAL_PRESERVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "QS-SHA-INDUSTRY",
+          "source_rule_ids": [
+            "ZZ-QS-Y04"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 15,
+            "printed_page": 30
+          },
+          "source_excerpt": "若见煞，则宜从事武职，或带[杀气]的行业，即以金属利器为谋生工具的行业。",
+          "claim_layer": "L3_PROJECTION",
+          "claim_summary": "见煞时的武职或利器行业属于传统职业投影；不作为现代职业推荐或行业适配证据。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "保留见煞条件",
+            "武职/利器行业归入传统投影",
+            "不作现代职业建议"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "QS:p15:p30:sha-industry",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TRADITIONAL_PROFESSION_PROJECTION; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "QS-TECHNICAL-PROFESSION",
+          "source_rule_ids": [
+            "ZZ-QS-Y05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 15,
+            "printed_page": 30
+          },
+          "source_excerpt": "但如果见文昌、文曲；化禄、化权、化科，则其人社会地位高尚，可以从事外科手术或以机械工程立业。",
+          "claim_layer": "L3_PROJECTION",
+          "claim_summary": "文昌文曲与禄权科被投影为外科手术或机械工程路线；保留传统语境，不作为现代职业适配建议。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "保留文昌文曲与禄权科条件",
+            "传统职业投影与单星性质分开",
+            "不作现代就业预测"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "QS:p15:p30:technical-profession",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; CONDITIONAL_PROFESSION_PROJECTION; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "QS-SYSTEM-FAMILIES",
+          "source_rule_ids": [
+            "ZZ-QS-Y06"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 15,
+            "printed_page": 30
+          },
+          "source_excerpt": "在子午二宫，七杀独坐，对拱[武曲天府]，在卯酉二宫，[武曲七杀]同度，故子午卯酉四垣，为[武杀府]的组合。在辰戌二宫，七杀独坐，对拱[廉贞天府]；在丑未二宫，[廉贞七杀]同度，故辰戌丑未四垣，为[廉杀府]的组合。在寅申二宫，七杀独坐，对拱[紫微天府]，在巳亥二宫，[紫微七杀]同度，故寅申巳亥四宫，为[紫杀府]的组合。",
+          "claim_layer": "L2_RELATION_OR_SYSTEM",
+          "claim_summary": "武杀府、廉杀府、紫杀府依赖不同宫位中的同度/对拱关系；归入星系结构层，不反推为七杀单星常量。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "子午卯酉：武杀府",
+            "辰戌丑未：廉杀府",
+            "寅申巳亥：紫杀府",
+            "保留同度/对拱关系"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "QS:p15:p30:system-families",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; STRUCTURAL_RELATION; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        }
+      ],
+      "candidate_properties": [
+        {
+          "candidate_key": "EXP-QS-01",
+          "layer": "L0",
+          "candidate_label": "阴金传统结构元数据，不映射QI",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+          "source_rule_ids": [
+            "ZZ-QS-001"
+          ],
+          "mapping_review_record_id": "MR-QS-L0-SUBSTRATE-001",
+          "mapping_disposition": "not_supported_for_target",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-QS-02",
+          "layer": "L2",
+          "candidate_label": "将星的传统角色意象",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-QS-002"
+          ],
+          "mapping_review_record_id": "MR-QS-STAR-ROLE-002",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-QS-03",
+          "layer": "L2",
+          "candidate_label": "七杀与破军的比较性差异",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-QS-003",
+            "ZZ-QS-X02"
+          ],
+          "mapping_review_record_id": "MR-QS-COMPARISON-003",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-QS-04",
+          "layer": "L1",
+          "candidate_label": "独立行动倾向候选",
+          "target_ref": "STAR-QS.intrinsic_signature:QI-08",
+          "source_rule_ids": [
+            "ZZ-QS-004",
+            "ZZ-QS-X02"
+          ],
+          "mapping_review_record_id": "MR-QS-INDEPENDENT-004",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-QS-05",
+          "layer": "L2",
+          "candidate_label": "紫微条件下的权威投影",
+          "target_ref": "STAR-QS.relational_signature:QR-02",
+          "source_rule_ids": [
+            "ZZ-QS-005",
+            "ZZ-QS-X03",
+            "ZZ-QS-Y01"
+          ],
+          "mapping_review_record_id": "MR-QS-ZIWEI-AUTHORITY-005",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-QS-06",
+          "layer": "L1",
+          "candidate_label": "刚克性质候选",
+          "target_ref": "STAR-QS.intrinsic_signature:QI-02",
+          "source_rule_ids": [
+            "ZZ-QS-006"
+          ],
+          "mapping_review_record_id": "MR-QS-GANGKE-006",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-QS-07",
+          "layer": "L2",
+          "candidate_label": "昌曲与刚克的条件兼容性",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-QS-007",
+            "ZZ-QS-X04"
+          ],
+          "mapping_review_record_id": "MR-QS-CHANGQU-007",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-QS-08",
+          "layer": "L2",
+          "candidate_label": "辅弼魁钺的条件性支持",
+          "target_ref": "STAR-QS.conditional_signature:QR-04",
+          "source_rule_ids": [
+            "ZZ-QS-008"
+          ],
+          "mapping_review_record_id": "MR-QS-AUXILIARY-008",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-QS-09",
+          "layer": "L2",
+          "candidate_label": "煞忌刑对刚克的条件强化",
+          "target_ref": "STAR-QS.conditional_signature:QI-02",
+          "source_rule_ids": [
+            "ZZ-QS-009",
+            "ZZ-QS-X05"
+          ],
+          "mapping_review_record_id": "MR-QS-SHA-009",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-QS-10",
+          "layer": "L2",
+          "candidate_label": "七杀与天府的守成—冲刺张力",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-QS-010",
+            "ZZ-QS-X10"
+          ],
+          "mapping_review_record_id": "MR-QS-TIANFU-010",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-QS-11",
+          "layer": "L2",
+          "candidate_label": "七杀与破军的三方耦合",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-QS-X01"
+          ],
+          "mapping_review_record_id": "MR-QS-TRIAD-011",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-QS-12",
+          "layer": "L3",
+          "candidate_label": "运限流煞的传统投影",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "source_rule_ids": [
+            "ZZ-QS-X06"
+          ],
+          "mapping_review_record_id": "MR-QS-TEMPORAL-012",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-QS-13",
+          "layer": "L2",
+          "candidate_label": "七杀仰斗/朝斗的条件格局",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-QS-X07"
+          ],
+          "mapping_review_record_id": "MR-QS-DOU-CHAO-013",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-QS-14",
+          "layer": "L3",
+          "candidate_label": "独坐七杀的传统波折投影",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "source_rule_ids": [
+            "ZZ-QS-X08"
+          ],
+          "mapping_review_record_id": "MR-QS-WAVES-014",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-QS-15",
+          "layer": "L2",
+          "candidate_label": "辅助星与禄的支持条件",
+          "target_ref": "STAR-QS.conditional_signature:QR-04",
+          "source_rule_ids": [
+            "ZZ-QS-X09"
+          ],
+          "mapping_review_record_id": "MR-QS-SUPPORT-015",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-QS-16",
+          "layer": "L3",
+          "candidate_label": "绝地羊陀的传统断语",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "source_rule_ids": [
+            "ZZ-QS-Y02"
+          ],
+          "mapping_review_record_id": "MR-QS-YANGTUO-016",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-QS-17",
+          "layer": "L3",
+          "candidate_label": "陷地七杀的传统技艺投影",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "source_rule_ids": [
+            "ZZ-QS-Y03"
+          ],
+          "mapping_review_record_id": "MR-QS-TECH-SKILL-017",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-QS-18",
+          "layer": "L3",
+          "candidate_label": "见煞时的传统行业投影",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "source_rule_ids": [
+            "ZZ-QS-Y04"
+          ],
+          "mapping_review_record_id": "MR-QS-SHA-INDUSTRY-018",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-QS-19",
+          "layer": "L3",
+          "candidate_label": "文曜吉化的传统专业化投影",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "source_rule_ids": [
+            "ZZ-QS-Y05"
+          ],
+          "mapping_review_record_id": "MR-QS-TECH-PROFESSION-019",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-QS-20",
+          "layer": "L2",
+          "candidate_label": "武杀府/廉杀府/紫杀府系统家族",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-QS-Y06"
+          ],
+          "mapping_review_record_id": "MR-QS-SYSTEM-020",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        }
+      ],
+      "held_canonical_rule_ids": [],
+      "non_promotion_guards": [
+        "阴金仅保留为传统结构元数据，不推导QI方向、强度或五行生克。",
+        "将星/主帅是来源中的角色意象，不保证现实领导职位、管理绩效或权力。",
+        "七杀与破军的劳心/劳力比较保留对比语境，不折算为智力或工作表现分数。",
+        "独行与刚克是传统描述，不等同现实攻击性、暴力或竞争能力。",
+        "紫微同度及庙旺/诸吉是条件分支；原文“化杀为权的廉洁”保留字面异常，不静默修订。",
+        "昌曲不喜与辅弼/魁钺同时嘉会的例外必须同时保留。",
+        "煞忌刑强化刚克及传统风险断语不数值化、不作为现代预测。",
+        "七杀与天府相对、七杀与破军三方会合及武杀府/廉杀府/紫杀府均归入结构关系层。",
+        "七杀仰斗/朝斗保留寅申独坐、对宫紫微天府及吉化/见煞分支。",
+        "武职、利器、外科手术、机械工程及技艺均是传统职业/结果投影，不作为现代职业建议或能力测评。",
+        "所有候选保持PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED；不改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限。"
+      ]
     }
   ],
   "mapping_review_records": [
@@ -12476,6 +13349,393 @@
       "mapping_disposition": {
         "state": "KNOWN",
         "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-QS-L0-SUBSTRATE-001",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=29#ZZ-QS-001"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+      "rationale": "阴金仅保留为传统结构标签，不由此推导现代QI方向、强度或五行计算。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-QS-STAR-ROLE-002",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=29#ZZ-QS-002"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "将星是来源中的角色称谓，可作为统帅/主帅意象上下文，但不是现实领导能力保证。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-QS-COMPARISON-003",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=29#ZZ-QS-003",
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=29#ZZ-QS-X02"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "七杀较劳心、破军较劳力是两星比较语境；不可转成智力、执行力或工作表现单一分数。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-QS-INDEPENDENT-004",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=29#ZZ-QS-004",
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=29#ZZ-QS-X02"
+      ],
+      "target_ref": "STAR-QS.intrinsic_signature:QI-08",
+      "rationale": "来源描述七杀可掉臂独行，与破军仍有顾忌、须受命形成对比；不等于现实独立性测验。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-QS-ZIWEI-AUTHORITY-005",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=29#ZZ-QS-005",
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=29#ZZ-QS-X03",
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=29#ZZ-QS-Y01"
+      ],
+      "target_ref": "STAR-QS.relational_signature:QR-02",
+      "rationale": "紫微同度、庙旺及诸吉是权威/统帅投影的不同条件分支；保留“廉洁”字面异常，不压成无条件领导性质。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-QS-GANGKE-006",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=29#ZZ-QS-006"
+      ],
+      "target_ref": "STAR-QS.intrinsic_signature:QI-02",
+      "rationale": "刚克被来源直接称为七杀特色；不把它等同于现实攻击性、暴力或竞争力。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-QS-CHANGQU-007",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=29#ZZ-QS-007",
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=29#ZZ-QS-X04"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "昌曲与七杀刚克气质不投，但辅弼/魁钺同时嘉会可改变判断；不能写成绝对排斥规则。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-QS-AUXILIARY-008",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=29#ZZ-QS-008"
+      ],
+      "target_ref": "STAR-QS.conditional_signature:QR-04",
+      "rationale": "左辅右弼或天魁天钺同时嘉会，特别是紫杀结构下，可作为传统辅助条件；不泛化为任何单颗吉曜都足够。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-QS-SHA-009",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=29#ZZ-QS-009",
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=29#ZZ-QS-X05"
+      ],
+      "target_ref": "STAR-QS.conditional_signature:QI-02",
+      "rationale": "煞、忌、刑曜会合被描述为进一步加强刚克及困难；属性修饰与传统人生投影分开，不增加数值惩罚。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-QS-TIANFU-010",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=30#ZZ-QS-010",
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=30#ZZ-QS-X10"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "七杀与天府相对，来源将天府稳重与七杀冲刺描述为张力；这是系统关系，不回写为任一单星固定值。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-QS-TRIAD-011",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=29#ZZ-QS-X01"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "七杀与破军三方相会并彼此加强声势，是结构耦合描述，不等同现实合作关系。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-QS-TEMPORAL-012",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=29#ZZ-QS-X06"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "流煞、官符、白虎等属于来源中的传统运限风险语句；不转为现代事故、健康、法律结果预测。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-QS-DOU-CHAO-013",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=30#ZZ-QS-X07"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "七杀仰斗/朝斗依赖寅申独坐并对紫微天府；机遇、管理及工业投影保留为带条件的传统格局解释。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-QS-WAVES-014",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=30#ZZ-QS-X08"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "独坐守命的波折与困难是来源中的传统人生投影；不转成现实命运、风险或职业预测。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-QS-SUPPORT-015",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=30#ZZ-QS-X09"
+      ],
+      "target_ref": "STAR-QS.conditional_signature:QR-04",
+      "rationale": "辅弼、魁钺、禄存化禄被描述为渡过难关的支持条件；不等于现实资源必然获得。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-QS-YANGTUO-016",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=30#ZZ-QS-Y02"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "绝地/陷地与羊陀的传统不利断语带有明确条件；保留古文异常字面，不转为现代医学或寿命预测。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-QS-TECH-SKILL-017",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=30#ZZ-QS-Y03"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "陷地七杀与文昌文曲、龙池凤阁、天才的组合被投影为技艺聪明；保留原文字面，不转为现代技能测评。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-QS-SHA-INDUSTRY-018",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=30#ZZ-QS-Y04"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "见煞时的武职或利器行业属于传统职业投影；不作为现代职业推荐或行业适配证据。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-QS-TECH-PROFESSION-019",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=30#ZZ-QS-Y05"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "文昌文曲与禄权科被投影为外科手术或机械工程路线；保留传统语境，不作为现代职业适配建议。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-QS-SYSTEM-020",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=15#printed_page=30#ZZ-QS-Y06"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "武杀府、廉杀府、紫杀府依赖不同宫位中的同度/对拱关系；归入星系结构层，不反推为七杀单星常量。 保留来源条件与层级；映射仍为候选，normalization_epistemic=UNRESOLVED，未授权canonical化。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
         "conflict_ref": null
       }
     }

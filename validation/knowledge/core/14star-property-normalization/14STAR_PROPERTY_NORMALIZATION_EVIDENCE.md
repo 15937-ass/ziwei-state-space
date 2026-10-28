@@ -1,3 +1,15 @@
+# 当前执行证据 — 七杀候选检查点（2026-10-28）
+
+- Lane/shard/Issue/PR：KNOWLEDGE_ONLY / CORE / #757 / Draft PR #783；分支 `knowledge/core-757-14star-property-normalization-main-sync2`。
+- 天梁检查点在合并最新 main 的 head `02e63bec0e41e99e6481837ac02c72a883bad430` 上通过 [Run #40622883672](https://github.com/15937-ass/ziwei-state-space/actions/runs/40622883672)：2,833 passed、132 subtests passed；产品 JS adapters、deterministic P0 与 Repository Governance v1 均成功。
+- 七杀来源为 `SRC-ZZ-002`《中州派紫微斗数深造讲义（上）》；SHA-256 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a` 与 `sources/source_index.csv` 一致。直接视觉核对扫描页15/印刷页29–30。
+- 新增 `QISHA_SOURCE_SPAN_REVIEW_v0.1.csv`，对26条 `ZZ-QS` canonical行逐一登记：25条完整视觉核对、`ZZ-QS-005`部分核对。新增20条source-claim卡、20项候选性质、20条mapping-review记录和专用回归测试。
+- 字面缺口：扫描字面“化杀为权的廉洁”与canonical evidence_text概括不同；保留差异，不修改canonical来源标记。
+- 七杀新提交的 exact-head 完整质量门须在 PR #783 同步事件运行后确认；在关联运行成功前，不声称七杀新提交已通过。
+- 未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限；所有候选保持 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`，canonical `source_span_verified=false` 保持不变。
+
+---
+
 # 当前执行证据 — 天梁候选检查点（2026-10-28）
 
 - Lane/shard/Issue/PR：KNOWLEDGE_ONLY / CORE / #757 / Draft PR #783；分支 `knowledge/core-757-14star-property-normalization-main-sync2`。

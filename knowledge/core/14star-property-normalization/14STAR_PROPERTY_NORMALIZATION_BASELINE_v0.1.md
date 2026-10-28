@@ -1,11 +1,11 @@
 # 十四主星基础性质归一化基线 v0.1
 
-**当前状态：** `B_TIANLIANG_CHECKPOINT_COMPLETED_READY_FOR_QISHA` / `PROPOSAL_ONLY_NOT_CANONICAL`
+**当前状态：** `B_QISHA_CHECKPOINT_COMPLETED_READY_FOR_POJUN` / `PROPOSAL_ONLY_NOT_CANONICAL`
 **跟踪 Issue：** [#757](https://github.com/15937-ass/ziwei-state-space/issues/757)
 **当前检查点基线 main：** `cd082859267f0e57c85298bf267004418f8cdfb2`
 **执行分支：** `knowledge/core-757-14star-property-normalization-main-sync2`
 
-> 太阳、太阴、天相三个有界试点与阶段B紫微、天机、武曲、天同、廉贞、天府、贪狼、巨门、天梁九个检查点均已形成候选卡与逐目标审核记录。本文件仍是候选研究基线，不代表十四主星研究完成，不是正式本体变更，也不授权 Product 消费。
+> 太阳、太阴、天相三个有界试点与阶段B紫微、天机、武曲、天同、廉贞、天府、贪狼、巨门、天梁、七杀十个检查点均已形成候选卡与逐目标审核记录。本文件仍是候选研究基线，不代表十四主星研究完成，不是正式本体变更，也不授权 Product 消费。
 
 ## 1. 本轮来源与复用边界
 
@@ -497,3 +497,33 @@
 - `ZZ-TLIA-001` 部分核对；`ZZ-TLIA-010` 未核实。所有候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`。
 - 未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限；未新增数值权重、概率或现实预测主张。
 - 下一颗为**七杀**。本轮停在天梁候选检查点，不自动展开七杀。
+
+
+## 22. 阶段 B 第十轮：七杀候选研究（2026-10-28）
+
+### 来源与覆盖边界
+- 主来源：`SRC-ZZ-002`《中州派紫微斗数深造讲义（上）》；SHA-256 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a`，与 `sources/source_index.csv` 一致。
+- 直接视觉核对 PDF 扫描页15 / 印刷页29–30；`QISHA_SOURCE_SPAN_REVIEW_v0.1.csv` 对26条既有 `ZZ-QS` canonical行逐条登记：25条完整视觉核对、`ZZ-QS-005`部分核对。
+- `ZZ-QS-005` 的扫描字面为“化杀为权的廉洁”，而 canonical `evidence_text` 将其概括为“有化杀为权之意”；保留差异，不静默修正。
+- 本轮不读取其他流派材料，也不修改 canonical `source_span_verified=false` 或 `normalization_epistemic=UNRESOLVED`。
+
+### L0：传统结构元数据
+七杀的阴金标签只作传统结构信息，不从阴金推导现代 QI 方向、强度或五行计算。
+
+### L1：刚克与独立行动
+- 来源直接把刚克称为七杀特色，并描述其可掉臂独行；不把传统术语等同于现代攻击性、暴力或竞争力。
+- 七杀与破军的劳心/劳力、主帅/先锋对比必须保留比较对象，不能压成能力分数。
+
+### L2：条件、关系与星系结构
+- 紫微同度、庙旺、诸吉以及辅弼/魁钺同时嘉会属于不同条件分支；“化杀为权”的原文异常字面保持未裁定。
+- 昌曲与刚克气质不投，但辅弼/魁钺同时嘉会可改变结构判断；煞忌刑强化刚克属于条件修饰，不数值化。
+- 七杀与天府相对，七杀与破军三方会合；武杀府、廉杀府、紫杀府及七杀仰斗/朝斗都依赖具体宫位、同度/对拱和吉煞条件。
+
+### L3：传统投影边界
+流煞灾伤、绝地羊陀、人生波折、武职/利器行业、外科手术、机械工程与技艺等均保留为来源中的传统运限、人生或职业投影，不转成现代医学、事故、寿命、职业适配或能力测评。
+
+### 当前候选处置与停止点
+- 新增20条 source-claim 卡、20项候选性质、20条 mapping-review 记录和26行来源审查表。
+- `ZZ-QS-005` 部分核对；其余25条完整视觉核对；无规则被整体留置。所有候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`。
+- 未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限；未新增数值权重、概率或现实预测主张。
+- 下一颗为**破军**。本轮停在七杀候选检查点，不自动展开破军。
