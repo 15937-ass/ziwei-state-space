@@ -1,14 +1,14 @@
 # 当前 PI 裁决与审计交接（2026-10-28）
 
 - 工作线：KNOWLEDGE_ONLY / CORE / Issue #757 / Draft PR #783；当前分支 `knowledge/core-757-14star-property-normalization-main-sync2`。
-- 最新main `f77227ec0b67d422bce4e1dde2f4a1a39491d29f` 已通过同步PR #821合入Core分支，合并提交 `9a4aa970d4f9b9ac95729ff827b17f38dcb9499d`。本轮只同步main到Core分支，不把Core合入main。
+- 最新main `46df5401745136fe16e8ff49de10620bd5a0ae55` 已通过同步 PR [#822](https://github.com/15937-ass/ziwei-state-space/pull/822) 合入Core分支，合并提交 `229e8a5504dfaaf08c2f48112ecdd541ce272d05`。本轮只同步main到Core分支，不把Core合入main。
 - PI已裁定：`ZZ-TLIA-001`“第三得”是“第三星”的印刷错误；`ZZ-QS-005`“廉洁”是“廉贞”的印刷错误。原始扫描字面保留，正式canonical行与`source_span_verified=false`不变。
 - 来源状态现为423条完整视觉核对、5条部分核对、1条未核实（`ZZ-TL-010`）、1条错配（`ZZ-TT-010`）。
 - Mapping-review记录增至241条；处置分布为58 supported_candidate、57 candidate_only、100 needs_review、26 not_supported_for_target。候选性质182项全部链接有效。
 - 原13项候选来源范围差异已逐项处理；当前仅保留`EXP-WQ-06 / ZZ-WQ-X06`一个与WQ-018/019重叠的摘要，不重复作为独立直接证据。`EXP-WQ-10`已对齐到L3候选审核；QI-05不支持记录保留。
 - 原4条`evidence_role=UNKNOWN`中3条按既有schema处理，`MR-LZ-SYMBOLIC-ROLE-002`继续UNKNOWN，因为现有枚举无法准确表示传统象征标签。
 - 引用复用统计已按更新后的mapping-review ledger重算：428次使用、360个唯一引用、59组精确引用复用；复用不增加独立证据权重。
-- **质量门状态：PENDING。** 本轮全部提交后的当前exact-head必须重新通过完整pytest、Product JS adapter、确定性P0、Repository Governance v1/Core写集检查；父提交绿色运行不替代当前head验收。
+- **质量门验收原则：** 每次源文件、测试或审计文档更新后，均以 PR #783 的最新 exact-head Checks 为准；本文件不写入自身提交的验收结论，避免自引用。父提交绿色运行不能替代最终head验收。
 - 未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限；未批准正式映射。
 
 ---
@@ -17,7 +17,7 @@
 
 - 执行分支：`knowledge/core-757-14star-property-normalization-main-sync2`；本轮接续七杀检查点，不回退、不重复审查已完成星曜。
 - 来源：`SRC-ZZ-002`《中州派紫微斗数深造讲义（上）》；SHA-256 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a`与来源索引一致。基础性质主跨度为扫描页16/印刷页31–32；七杀/破军比较补充扫描页15/印刷页29。
-- 新增 `POJUN_SOURCE_SPAN_REVIEW_v0.1.csv`，覆盖30条 `ZZ-PJ` canonical行：25条完整视觉核对，5条（`ZZ-PJ-006..010`）因独立四化章节未在本轮核验而保持未核实。canonical `source_span_verified=false` 与 `normalization_epistemic=UNRESOLVED` 均保持不变。
+- `POJUN_SOURCE_SPAN_REVIEW_v0.1.csv` 覆盖30条 `ZZ-PJ` canonical行，30/30条均完成来源跨度视觉核对。`ZZ-PJ-006`位于扫描页96/印刷页191，`ZZ-PJ-007..010`位于扫描页97/印刷页193；五条四化规则未在本轮逐条扩展目标映射审核。canonical `source_span_verified=false` 与 `normalization_epistemic=UNRESOLVED` 均保持不变。
 - 新增20条source-claim、20项candidate property、20条mapping-review记录和专用回归测试。
 - 关键边界：破军“先锋/只攻不守”与“旧事创新”仅作传统描述候选；禄/权区别、英星入庙条件、昌曲例外、天马互动、天相对宫及星系结构保留分层；传统风险应象不作为现代预测。
 - 全部候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`；未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限。
@@ -30,8 +30,8 @@
 - Lane/shard/Issue/PR：KNOWLEDGE_ONLY / CORE / #757 / Draft PR #783；分支 `knowledge/core-757-14star-property-normalization-main-sync2`。
 - 天梁检查点在合并最新 main 的 head `02e63bec0e41e99e6481837ac02c72a883bad430` 上通过 [Run #40622883672](https://github.com/15937-ass/ziwei-state-space/actions/runs/40622883672)：2,833 passed、132 subtests passed；产品 JS adapters、deterministic P0 与 Repository Governance v1 均成功。
 - 七杀来源为 `SRC-ZZ-002`《中州派紫微斗数深造讲义（上）》；SHA-256 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a` 与 `sources/source_index.csv` 一致。直接视觉核对扫描页15/印刷页29–30。
-- 新增 `QISHA_SOURCE_SPAN_REVIEW_v0.1.csv`，对26条 `ZZ-QS` canonical行逐一登记：25条完整视觉核对、`ZZ-QS-005`部分核对。新增20条source-claim卡、20项候选性质、20条mapping-review记录和专用回归测试。
-- 字面缺口：扫描字面“化杀为权的廉洁”与canonical evidence_text概括不同；保留差异，不修改canonical来源标记。
+- `QISHA_SOURCE_SPAN_REVIEW_v0.1.csv` 对26条 `ZZ-QS` canonical行逐一登记：26条完整视觉核对。`ZZ-QS-005`的“廉洁”按PI裁决理解为“廉贞”的印刷误字，原始literal保留。新增20条source-claim卡、20项候选性质、20条mapping-review记录和专用回归测试。
+- 字面裁决：扫描字面“化杀为权的廉洁”按PI裁决理解为“化杀为权的廉贞”之印刷误字；保留扫描literal，不修改canonical来源标记或映射状态。
 - 七杀新提交的 exact-head 完整质量门须在 PR #783 同步事件运行后确认；在关联运行成功前，不声称七杀新提交已通过。
 - 未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限；所有候选保持 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`，canonical `source_span_verified=false` 保持不变。
 
@@ -43,8 +43,8 @@
 - 天梁研究开始前 main/base 为 `5f697a5a02812e9781acf8d78e0f28d5087bd6ce`，研究开始前分支 head 为 `98f144b3acd69ab1bdf272e6557df674eda94306`。
 - 研究开始前的 [Run #40616682474](https://github.com/15937-ass/ziwei-state-space/actions/runs/40616682474) 已在该父检查点的 PR merge ref 上通过：2,818 passed、132 subtests passed；JS adapter、deterministic P0 与 Repository Governance/Core write-set 步骤成功。该运行仅验证研究开始前的父检查点，不替代本轮新提交的 exact-head gate。
 - 来源为 `SRC-ZZ-002`《中州派紫微斗数深造讲义（上）》；SHA-256 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a` 与 `sources/source_index.csv` 一致。直接视觉核对扫描页14/印刷页27–28。
-- 新增 `TIANLIANG_SOURCE_SPAN_REVIEW_v0.1.csv`，对26条 `ZZ-TLIA` canonical行逐一登记：24条完整视觉核对、`ZZ-TLIA-001`部分核对、`ZZ-TLIA-010`未核实。新增20条source-claim卡、20项候选性质、20条mapping-review记录和专用回归测试。
-- 字面/范围缺口：扫描字面“第三得”与canonical摘录“第三星”不一致；`ZZ-TLIA-010`的六十星系来源未给具体页码，本轮未替代核对。
+- `TIANLIANG_SOURCE_SPAN_REVIEW_v0.1.csv` 对26条 `ZZ-TLIA` canonical行逐一登记：26条完整视觉核对。`ZZ-TLIA-001`的“第三得”按PI裁决理解为“第三星”的印刷误字；`ZZ-TLIA-010`已在扫描页80/印刷页159补核。新增20条source-claim卡、20项候选性质、20条mapping-review记录和专用回归测试。
+- 来源复核：`ZZ-TLIA-001`的字面差异已按PI裁决登记为印刷误字，literal保留；`ZZ-TLIA-010`已在扫描页80/印刷页159补核。两项来源跨度现均完成视觉核对，目标映射仍未决。
 - Run #40621879283（head `91b17359e52b40728d13a284df58fce9b76170ca`）完成但未通过：`test_context_audit_refs_existing_source_claims_without_growing_canonical_evidence` 的前缀库存仍只统计原有11组映射记录，导致总数断言仍期待180；实际200条中新增的20条 `MR-TLIA-` 记录已通过映射校验。结果为1 failed、2,825 passed、132 subtests passed。
 - 本次修正测试中的前缀库存，将 `MR-TLIA-` 纳入并把期望总数更新为200；修正后的新提交必须再通过完整质量门，才能认定本轮验收完成。
 - 未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限；所有候选保持 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`，canonical `source_span_verified=false` 保持不变。
@@ -56,7 +56,7 @@
 - Lane/shard/Issue/PR：KNOWLEDGE_ONLY / CORE / #757 / Draft PR #783；分支 `knowledge/core-757-14star-property-normalization-main-sync2`。
 - 本轮写入前 main head：`d45e2cfd6c0dc59fb80ec2210f7e729c53391c4f`；写入前分支 head：`61ef9f4bfef4d95f7143da735aa71dda6652f8ad`。本文件先于本轮 exact-head 质量门提交；最终结果以 Issue #757 / PR #783 对应提交的实时 workflow 记录为准，不作自引用证据提交。
 - 来源：`SRC-ZZ-002`《中州派紫微斗数深造讲义（上）》；SHA-256 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a`，与 `sources/source_index.csv` 一致。主跨度为扫描页11/印刷页21–22；另核扫描页51/印刷页100–101，以及扫描页93/印刷页184–185。
-- `TANLANG_SOURCE_SPAN_REVIEW_v0.1.csv` 对29条既有canonical行逐条登记处置：24条完整视觉核对、`ZZ-TL-009` 部分核对、`ZZ-TL-006/007/008/010` 保持未核实；未复用既有DIRECT_STAR贪狼视觉审查行。
+- `TANLANG_SOURCE_SPAN_REVIEW_v0.1.csv` 对29条既有canonical行逐条登记处置：27条完整视觉核对、`ZZ-TL-009` 部分核对、`ZZ-TL-010`未核实；`ZZ-TL-006/007/008`已在`SRC-ZZ-001`扫描页41–42/印刷页81–83补核。未复用既有DIRECT_STAR贪狼视觉审查行。
 - 新增20条source-claim卡、20条mapping-review记录、20项候选性质及贪狼专用测试。测试覆盖精确规则ID集合、主/附来源定位、部分核对与未核实行、候选映射契约、进度顺序及非晋升边界。
 - 主要边界：欲望强度与物欲/情欲类型分开；四旺宫异常映射按原文保留；紫贪/武贪/廉贪与命身结构保持条件化；煞曜作用不数值化；传统格局不转为现实结果保证；`ZZ-TL-009` 仅核实化禄分支。
 - 未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限；所有候选仍 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`，canonical `source_span_verified=false` 保持不变。
@@ -210,7 +210,7 @@
 - The prior Tanlang checkpoint head 63aae8d57af0533e6491ab6d49349c8d7c222105 failed one test because the prefix-count assertion still expected 140 mapping-review records after the 20 MR-TL records had been added; actual total was 160. No source/candidate semantics were changed by that repair.
 - Recovery/test repair head 287bdd52c40b911d9fea72a1c2e733fd5e60fab9 passed exact-head Run #40612148716: 2817 tests passed, 132 subtests passed; Product JS adapter, deterministic P0 and Repository Governance v1/Core write-set checks all passed. This run validates the recovery/test repair before the 巨门 additions.
 - 巨门 source: SRC-ZZ-002, 《中州派紫微斗数深造讲义（上）》，SHA-256 1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a, visually inspected PDF scan page 12 / printed pp23–24.
-- The 巨门 checkpoint adds 20 source claims, 20 candidate properties, 20 mapping-review records, and JUMEN_SOURCE_SPAN_REVIEW_v0.1.csv for all 26 existing ZZ-JM canonical rows. Disposition: 21 full visual confirmations, four partial confirmations (ZZ-JM-003/004/006/007), one held row (ZZ-JM-005). All candidates remain PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED; canonical source flags remain false.
+- The 巨门 checkpoint adds 20 source claims, 20 candidate properties, 20 mapping-review records, and JUMEN_SOURCE_SPAN_REVIEW_v0.1.csv for all 26 existing ZZ-JM canonical rows. Current sidecar disposition: 22 full visual confirmations, four partial confirmations (ZZ-JM-003/004/006/007), and zero unverified rows; ZZ-JM-005 was additionally checked in SRC-ZZ-001, scan page 42 / printed page 83. All candidates remain PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED; canonical source flags remain false.
 - Exact-head Jumen research gate: head 0505d04c74f936f39ab5d4cd1e28d4380269c110, Run #40615055215 — PASS. Full pytest: 2818 passed, 132 subtests passed (413.85 seconds); Product JS adapters, deterministic P0 repository audit, and Repository Governance v1/Core write-set validation all passed.
 - The evidence-only commit that adds this checkpoint record and strengthens the Jumen recovery locator/test assertions must itself pass the full exact-head quality gate. The final head/run will be recorded in the latest Issue #757 / PR #783 handoff comment. Do not make another source/candidate change after final validation.
 
@@ -229,7 +229,7 @@
 - 两份本地来源PDF的SHA-256均与 `sources/source_index.csv` 一致：SRC-ZZ-001 `7ebafc8e3477430e2f8e69c6925ecc373d3c28966955f7035078c4949b7475a2`；SRC-ZZ-002 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a`。
 - 新增 `SUN_SOURCE_SPAN_REVIEW_v0.1.csv`，覆盖40条太阳canonical规则；来源跨度为扫描页5/印刷页9–10。
 - 已补核太阴 `ZZ-TYI-010`（扫描页21/印刷页41；canonical定位页42的一页差异已记录）、天相 `ZZ-TX-009/010`（扫描页24/印刷页47）、贪狼 `ZZ-TL-006/007/008`（SRC-ZZ-001扫描页41–42/印刷页81–83）、巨门 `ZZ-JM-005`（SRC-ZZ-001扫描页42/印刷页83）、天梁 `ZZ-TLIA-010`（扫描页80/印刷页159）、破军 `ZZ-PJ-006..010`（扫描页96–97/印刷页191–193）。
-- 14份侧车覆盖全部430条canonical规则ID：421条完整视觉核对、7条部分核对、1条来源未核实（`ZZ-TL-010`）、1条来源错配（`ZZ-TT-010`）。部分核对为 `ZZ-TL-009`、`ZZ-JM-003/004/006/007`、`ZZ-TLIA-001`、`ZZ-QS-005`。
+- 14份侧车覆盖全部430条canonical规则ID：423条完整视觉核对、5条部分核对、1条来源未核实（`ZZ-TL-010`）、1条来源错配（`ZZ-TT-010`）。当前部分核对仅为 `ZZ-TL-009` 与 `ZZ-JM-003/004/006/007`；`ZZ-TLIA-001`和`ZZ-QS-005`的印刷误字已按PI裁决处理，来源跨度均为完整视觉核对。
 - 所有canonical行仍保持 `source_span_verified=false` 与 `normalization_epistemic=UNRESOLVED`；没有canonical化或Product消费授权。
 - 最新源审计及测试变更之后的exact-head完整质量门尚待确认；不能复用此前head的绿色运行作为本次最终验收。
 
@@ -237,14 +237,14 @@
 
 ## Mapping-review 预 PI 审计补充（2026-10-28）
 
-- 240条mapping-review记录ID全部唯一；182项候选性质均关联到有效审核记录；未发现指向不存在canonical规则的引用。
-- 412次来源引用使用、356个唯一来源引用；47组精确来源引用在多条审核记录中复用，共103次使用。引用复用不构成独立证据倍增。
-- 4条 `evidence_role=UNKNOWN`：`MR-TY-QI15-METHOD-RULE-005`、`MR-TT-SOURCE-MISMATCH-009`、`MR-LZ-L0-SOURCE-DISAGREEMENT-001`、`MR-LZ-SYMBOLIC-ROLE-002`。其处置与理由见 `MAPPING_REVIEW_PRE_PI_AUDIT_v0.1.md`。
+- 241条mapping-review记录ID全部唯一；182项候选性质均关联到有效审核记录；未发现指向不存在canonical规则的引用。
+- 428次来源引用使用、360个唯一来源引用；59组精确来源引用在多条审核记录中复用，共127次使用。引用复用不构成独立证据倍增。
+- `evidence_role=UNKNOWN`当前仅1条：`MR-LZ-SYMBOLIC-ROLE-002`。其余原UNKNOWN记录已按现有schema得到有依据的处置；细节见 `MAPPING_REVIEW_PRE_PI_AUDIT_v0.1.md`。
 - 候选属性仍为182项，所有映射链接有效；canonicalization授权为0、数值强度赋值为0、normalization epistemic全部为UNRESOLVED。
 
 
 ## 候选来源范围审计补充（2026-10-28）
 
-- 交叉核对候选性质 `source_rule_ids` 与对应mapping-review记录 `source_refs` 后，发现13项候选、26个规则ID未在该记录的直接引用列表中出现。
-- 所有相关规则ID均存在于canonical规则集；该差异反映候选来源范围可能比审核记录的直接引用范围更宽，不能直接视为规则错误，也不能自动补引。
-- 逐项记录在 `MAPPING_REVIEW_CANDIDATE_SOURCE_SCOPE_AUDIT_v0.1.md`，并已纳入PI审议前待裁定事项。未修改canonical规则、正式本体或消费者权限。
+- 交叉核对候选性质 `source_rule_ids` 与对应mapping-review记录 `source_refs` 后，初始发现13项候选、26个规则ID未在该记录的直接引用列表中出现。
+- 逐项处置后，12项候选/25个规则ID已补充有依据的直接引用或缩窄范围；仅保留 `EXP-WQ-06 / ZZ-WQ-X06` 作为与 `ZZ-WQ-018/019` 重叠的摘要，不重复计证。
+- 详细裁决见 `MAPPING_REVIEW_CANDIDATE_SOURCE_SCOPE_AUDIT_v0.1.md`。该剩余项不是缺失的独立证据，也不阻塞三张PI决策卡；未修改canonical规则、正式本体或消费者权限。
