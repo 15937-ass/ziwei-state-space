@@ -759,9 +759,10 @@ def test_tanlang_candidate_checkpoint_preserves_source_scope_conditions_and_nonp
     assert "贪狼" in data["progress"]["completed_expansion_stars"]
     tl_checkpoint = next(entry for entry in data["progress"]["expansion_checkpoint_history"] if entry["star"] == "贪狼")
     assert tl_checkpoint["next_star"] == "巨门"
-    assert tl_checkpoint["fully_verified_rows"] == 24
+    assert tl_checkpoint["fully_verified_rows"] == 27
     assert tl_checkpoint["partially_verified_rows"] == 1
-    assert tl_checkpoint["held_rows"] == 4
+    assert tl_checkpoint["held_rows"] == 1
+    assert tl_checkpoint["held_rule_ids"] == ["ZZ-TL-010"]
     records = {record["review_record_id"]: record for record in data["mapping_review_records"]}
     tl_records = {key: record for key, record in records.items() if key.startswith("MR-TL-")}
     assert len(tl_records) == 20
@@ -829,9 +830,10 @@ def test_jumen_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
     jm_checkpoint = next(entry for entry in data["progress"]["expansion_checkpoint_history"] if entry["star"] == "巨门")
     assert jm_checkpoint["star"] == "巨门"
     assert jm_checkpoint["next_star"] == "天梁"
-    assert jm_checkpoint["fully_verified_rows"] == 21
+    assert jm_checkpoint["fully_verified_rows"] == 22
     assert jm_checkpoint["partially_verified_rows"] == 4
-    assert jm_checkpoint["held_rows"] == 1
+    assert jm_checkpoint["held_rows"] == 0
+    assert jm_checkpoint["held_rule_ids"] == []
 
     records = {record["review_record_id"]: record for record in data["mapping_review_records"]}
     jm_records = {key: record for key, record in records.items() if key.startswith("MR-JM-")}
@@ -852,7 +854,7 @@ def test_jumen_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
     assert all(row["normalization_epistemic_after"] == "UNRESOLVED" for row in review_rows)
     assert all(row["canonical_source_span_verified_after"] == "false" for row in review_rows)
     by_id = {row["rule_id"]: row for row in review_rows}
-    fully_verified = {"ZZ-JM-001", "ZZ-JM-002", "ZZ-JM-008", "ZZ-JM-009", "ZZ-JM-010"} | {f"ZZ-JM-X{i:02d}" for i in range(1, 12)} | {f"ZZ-JM-Y{i:02d}" for i in range(1, 6)}
+    fully_verified = {"ZZ-JM-001", "ZZ-JM-002", "ZZ-JM-005", "ZZ-JM-008", "ZZ-JM-009", "ZZ-JM-010"} | {f"ZZ-JM-X{i:02d}" for i in range(1, 12)} | {f"ZZ-JM-Y{i:02d}" for i in range(1, 6)}
     partial = {"ZZ-JM-003", "ZZ-JM-004", "ZZ-JM-006", "ZZ-JM-007"}
     held = set()
     assert all(by_id[rule_id]["source_span_status"] == "VERIFIED_VISUAL_SCAN" for rule_id in fully_verified)
@@ -1005,7 +1007,10 @@ def test_pojun_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
     assert data["progress"]["remaining_expansion_stars_in_existing_order"] == []
     checkpoint = data["progress"]["expansion_checkpoint_history"][-1]
     assert checkpoint["star"] == "破军" and checkpoint["next_star"] is None
-    assert (checkpoint["fully_verified_rows"], checkpoint["partially_verified_rows"], checkpoint["held_rows"]) == (25, 0, 5)
+    assert (checkpoint["fully_verified_rows"], checkpoint["partially_verified_rows"], checkpoint["held_rows"]) == (30, 0, 0)
+    assert checkpoint["held_rule_ids"] == []
+    assert checkpoint["additional_source_locators"][0]["pdf_scan_pages"] == [96, 97]
+    assert checkpoint["additional_source_locators"][0]["printed_pages"] == [191, 193]
     records = {r["review_record_id"]: r for r in data["mapping_review_records"]}
     pj_records = {k:v for k,v in records.items() if k.startswith("MR-PJ-")}
     assert len(pj_records) == 20
@@ -1025,6 +1030,14 @@ def test_pojun_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
     by_id = {r["rule_id"]: r for r in review_rows}
     assert sum(r["source_span_status"] == "VERIFIED_VISUAL_SCAN" for r in review_rows) == 30
     assert all(by_id[f"ZZ-PJ-{n:03d}"]["source_span_status"] == "VERIFIED_VISUAL_SCAN" for n in range(6, 11))
+    assert data["source_policy"]["pojun_huaquan_source_locator"]["pdf_scan_pages"] == [96, 97]
+    assert data["source_policy"]["pojun_huaquan_source_locator"]["printed_pages"] == [191, 193]
+    pj_held_review = next(r for r in data["mapping_review_records"] if r["review_record_id"] == "MR-PJ-HELD-020")
+    assert all("not_verified" not in ref for ref in pj_held_review["source_refs"])
+    assert pj_held_review["mapping_disposition"]["value"] == "needs_review"
+    pj_held_claim = next(c for c in pojun["source_claims"] if c["claim_key"] == "PJ-HELD")
+    assert pj_held_claim["source_locator"]["status"].startswith("VERIFIED_VISUAL_SCAN")
+    assert "目标映射" in pj_held_claim["claim_summary"]
     assert by_id["ZZ-PJ-006"]["source_pdf_page"] == "96"
     assert by_id["ZZ-PJ-007"]["source_pdf_page"] == "97"
 
