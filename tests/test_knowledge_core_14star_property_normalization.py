@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import json
+import re
 from pathlib import Path
 
 from tools.knowledge_core_mapping_review_schema import validate_mapping_review_collection
@@ -1113,3 +1114,28 @@ def test_pre_pi_mapping_review_audit_counts_are_consistent():
         reuse_report = handle.read()
     assert "47组" in reuse_report
     assert "shared_span:" in reuse_report
+
+
+def test_pre_pi_candidate_source_scope_mismatches_are_explicitly_audited():
+    data = load_baseline()
+    audit = data["pre_pi_gates"]["mapping_review_audit"]["candidate_source_scope_audit"]
+    records = {row["review_record_id"]: row for row in data["mapping_review_records"]}
+    mismatches = []
+    for star in data["stars"]:
+        for prop in star.get("candidate_properties", []):
+            review = records[prop["mapping_review_record_id"]]
+            directly_cited = {
+                rule_id
+                for source_ref in review.get("source_refs", [])
+                for rule_id in re.findall(r"ZZ-[A-Z]+-(?:\\d{3}|X\\d{2}|Y\\d{2})", source_ref)
+            }
+            missing = set(prop.get("source_rule_ids", [])) - directly_cited
+            if missing:
+                mismatches.append((prop["candidate_key"], missing))
+    assert len(mismatches) == audit["properties_with_source_scope_mismatch"] == 13
+    assert sum(len(missing) for _, missing in mismatches) == audit["candidate_source_rule_ids_not_directly_cited"] == 26
+    assert set(key for key, _ in mismatches) == set(audit["candidate_keys"])
+    report_path = ROOT / audit["path"]
+    report = report_path.read_text(encoding="utf-8")
+    assert "不应机械地把缺少的 ID 全部添加到审核记录" in report
+    assert "不授予正式映射批准" in report
