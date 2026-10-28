@@ -592,9 +592,7 @@
     ],
     "tianliang_review_path": "knowledge/core/14star-property-normalization/TIANLIANG_SOURCE_SPAN_REVIEW_v0.1.csv",
     "tianliang_held_rule_ids": [],
-    "tianliang_partial_rule_ids": [
-      "ZZ-TLIA-001"
-    ],
+    "tianliang_partial_rule_ids": [],
     "tianliang_source_locator": {
       "source_id": "SRC-ZZ-002",
       "source_work": "《中州派紫微斗数深造讲义（上）》",
@@ -639,9 +637,7 @@
     ],
     "qisha_review_path": "knowledge/core/14star-property-normalization/QISHA_SOURCE_SPAN_REVIEW_v0.1.csv",
     "qisha_held_rule_ids": [],
-    "qisha_partial_rule_ids": [
-      "ZZ-QS-005"
-    ],
+    "qisha_partial_rule_ids": [],
     "qisha_source_locator": {
       "source_id": "SRC-ZZ-002",
       "source_work": "《中州派紫微斗数深造讲义（上）》",
@@ -1218,9 +1214,9 @@
         ],
         "canonical_rule_rows_reviewed": 26,
         "source_review_rows": 26,
-        "fully_verified_rows": 24,
-        "partially_verified_rows": 1,
-        "held_rows": 1,
+        "fully_verified_rows": 26,
+        "partially_verified_rows": 0,
+        "held_rows": 0,
         "prior_visual_review_rows_reused": 0,
         "mapping_review_records_added": 20,
         "source_claims_added": 20,
@@ -1229,13 +1225,9 @@
         "canonicalization_authorized": false,
         "product_consumption_authorized": false,
         "next_star": "七杀",
-        "held_rule_ids": [
-          "ZZ-TLIA-010"
-        ],
-        "partial_rule_ids": [
-          "ZZ-TLIA-001"
-        ],
-        "source_locator_note": "扫描页14/印刷页27–28；ZZ-TLIA-001视觉字面为“第三得”，与canonical摘录“第三星”不一致；ZZ-TLIA-010具体六十星系页码未核实。"
+        "held_rule_ids": [],
+        "partial_rule_ids": [],
+        "source_locator_note": "扫描页14/印刷页27–28；PI裁定“第三得”为“第三星”的印刷误字，原始literal保留；ZZ-TLIA-010已在扫描页80/印刷页159补核。"
       },
       {
         "star": "七杀",
@@ -1248,8 +1240,8 @@
         ],
         "canonical_rule_rows_reviewed": 26,
         "source_review_rows": 26,
-        "fully_verified_rows": 25,
-        "partially_verified_rows": 1,
+        "fully_verified_rows": 26,
+        "partially_verified_rows": 0,
         "held_rows": 0,
         "prior_visual_review_rows_reused": 0,
         "mapping_review_records_added": 20,
@@ -1260,10 +1252,8 @@
         "product_consumption_authorized": false,
         "next_star": "破军",
         "held_rule_ids": [],
-        "partial_rule_ids": [
-          "ZZ-QS-005"
-        ],
-        "source_locator_note": "《中州派紫微斗数深造讲义（上）》扫描页15/印刷页29–30；ZZ-QS-005保留可见字面“化杀为权的廉洁”，不静默修正canonical摘录差异。"
+        "partial_rule_ids": [],
+        "source_locator_note": "《中州派紫微斗数深造讲义（上）》扫描页15/印刷页29–30；PI裁定“廉洁”为“廉贞”的印刷误字，原始literal保留；不推导现实权力或领导能力。"
       },
       {
         "star": "破军",
@@ -2518,17 +2508,11 @@
         {
           "candidate_key": "PILOT-TX-03",
           "layer": "CONDITIONAL_RELATIONAL_MODIFIER",
-          "candidate_label": "财荫夹/刑忌夹的条件分支",
+          "candidate_label": "财荫夹印结构及特定化禄替代分支（QI-02效应未获直接支持）",
           "target_ref": "STAR-TX.conditional_signature:QI-02",
           "source_rule_ids": [
             "ZZ-TX-002",
-            "ZZ-TX-003",
-            "ZZ-TX-004",
-            "ZZ-TX-X04",
-            "ZZ-TX-X05",
-            "ZZ-TX-X06",
-            "ZZ-TX-X07",
-            "ZZ-TX-Y02"
+            "ZZ-TX-003"
           ],
           "mapping_review_record_id": "MR-TX-CAIYIN-SOFTNESS-006",
           "mapping_disposition": "needs_review",
@@ -3758,12 +3742,10 @@
         {
           "candidate_key": "EXP-TJ-07",
           "layer": "CONDITIONAL_MODIFIER",
-          "candidate_label": "火铃等条件下的计划/决策受阻候选",
+          "candidate_label": "火铃条件下的计划/决策受阻候选",
           "target_ref": "STAR-TJ.conditional_signature:QI-06",
           "source_rule_ids": [
             "ZZ-TJ-006",
-            "ZZ-TJ-024",
-            "ZZ-TJ-X05",
             "ZZ-TJ-Y04"
           ],
           "mapping_review_record_id": "MR-TJ-QI06-FIREBELL-011",
@@ -4366,13 +4348,10 @@
           "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
           "source_rule_ids": [
             "ZZ-WQ-002",
-            "ZZ-WQ-X01",
-            "ZZ-WQ-015",
-            "ZZ-WQ-016",
-            "ZZ-WQ-017"
+            "ZZ-WQ-X01"
           ],
-          "mapping_review_record_id": "MR-WQ-FINANCIAL-ROLE-002",
-          "mapping_disposition": "not_supported_for_target",
+          "mapping_review_record_id": "MR-WQ-L3-FINANCIAL-ROLE-016",
+          "mapping_disposition": "candidate_only",
           "normalization_epistemic": "UNRESOLVED",
           "canonicalization_authorized": false,
           "numeric_strength_assigned": false
@@ -10378,9 +10357,9 @@
         "SRC-ZZ-002#pdf_scan_page=5#printed_page=9-10#ZZ-TY-018"
       ],
       "target_ref": "STAR-TY.conditional_signature:QI-15",
-      "rationale": "The source's moderation instruction applies to interpretation of both natal and time-limited charts; it does not by itself establish a Sun-specific buffering/mediation capacity. Do not use this general method rule as evidence for the target mapping without separate star-specific support.",
+      "rationale": "The source's moderation instruction applies to interpretation of both natal and time-limited charts; it does not by itself establish a Sun-specific buffering/mediation capacity. Do not use this general method rule as evidence for the target mapping without separate star-specific support. Evidence role is NOT_APPLICABLE to a star-specific target because this is a general interpretive method rule, not a Sun-specific source claim.",
       "evidence_role": {
-        "state": "UNKNOWN",
+        "state": "NOT_APPLICABLE",
         "value": null,
         "conflict_ref": null
       },
@@ -10748,10 +10727,13 @@
       "schema_version": "0.1",
       "review_record_id": "MR-TX-CLAMP-PRIORITY-005",
       "source_refs": [
-        "SRC-ZZ-002#pdf_scan_page=13#printed_page=25#ZZ-TX-X03"
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=25#ZZ-TX-X03",
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=26#ZZ-TX-X08",
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=25#ZZ-TX-Y03",
+        "SRC-ZZ-002#pdf_scan_page=13#printed_page=26#ZZ-TX-Y04"
       ],
       "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
-      "rationale": "来源明确要求推断天相先看夹宫、再看三方四正；这是结构/解释规则，不是单星 intrinsic property。",
+      "rationale": "ZZ-TX-X03直接支持先看夹宫、再看三方四正的推断顺序；ZZ-TX-X08要求区分实际化禄/化忌主体；ZZ-TX-Y03/Y04补足对宫破军及廉贞、武曲、紫微星系关系。共同支持L2关系/解释结构，不是天相无条件的intrinsic性质，也不增加独立证据权重。",
       "evidence_role": {
         "state": "KNOWN",
         "value": "interaction",
@@ -11081,10 +11063,11 @@
       "source_refs": [
         "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-002",
         "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-003",
-        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-005"
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-005",
+        "SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-004"
       ],
       "target_ref": "STAR-ZW.contextual_sensitivity",
-      "rationale": "原文明确性质依同度/会合星曜，百官朝拱也有具体条件；支持高上下文依赖候选，不自动接受L2/QR映射。",
+      "rationale": "原文明确性质依同度/会合星曜；ZZ-ZW-004直接支持“紫微最喜百官朝拱”的多星支持结构，百官朝拱也有具体条件。支持高上下文依赖候选，不自动接受L2/QR映射。",
       "evidence_role": {
         "state": "KNOWN",
         "value": "interaction",
@@ -11415,10 +11398,11 @@
       "source_refs": [
         "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-018",
         "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-020",
-        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7-8#ZZ-TJ-X04"
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7-8#ZZ-TJ-X04",
+        "SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-019"
       ],
       "target_ref": "STAR-TJ.conditional_signature:QI-03",
-      "rationale": "来源明确区分本命天机与大限/流年遇天机：前者谈本质，后者主要表示际遇与变化。可保留运限变化性的候选，但不能回写本命固定人格。",
+      "rationale": "来源明确区分本命天机与大限/流年遇天机：前者谈本质，后者主要表示际遇与变化；ZZ-TJ-019进一步直接说明流魁/流钺冲起原局魁钺时，才在该运限内发挥才智。保留运限变化性候选，但不能回写本命固定人格。",
       "evidence_role": {
         "state": "KNOWN",
         "value": "state_change",
@@ -11738,10 +11722,11 @@
       "source_refs": [
         "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-006",
         "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-007",
-        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-008"
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-008",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-Y01"
       ],
       "target_ref": "STAR-WQ.relational_signature:QR-01",
-      "rationale": "来源把孤克与六亲关系相连，同时按宫位区分评价；仅支持带宫位门控的关系候选。",
+      "rationale": "来源把孤克与六亲关系相连，并按宫位区分评价；ZZ-WQ-Y01直接呈现宫位评价反转。仅支持带宫位门控的关系候选，不推导现实六亲结果；该综合行不因重复引用而额外增加证据权重。",
       "evidence_role": {
         "state": "KNOWN",
         "value": "projection_outcome",
@@ -11924,10 +11909,11 @@
       "source_refs": [
         "SRC-ZZ-002#pdf_scan_page=6#printed_page=12#ZZ-WQ-024",
         "SRC-ZZ-002#pdf_scan_page=6#printed_page=12#ZZ-WQ-025",
-        "SRC-ZZ-002#pdf_scan_page=6#printed_page=12#ZZ-WQ-Y03"
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=12#ZZ-WQ-Y03",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=12#ZZ-WQ-Y04"
       ],
       "target_ref": "STAR-WQ.conditional_signature:QI-06",
-      "rationale": "躁决与冲动失败被限定在武破相系统；目标特定交互解释可保留为候选，但不作为武曲固定基线。",
+      "rationale": "躁决与冲动失败被限定在武破相系统；ZZ-WQ-Y04直接界定武府杀、武破相、武贪的宫位系统分组。目标特定交互解释可保留为候选，但不作为武曲固定基线。",
       "evidence_role": {
         "state": "KNOWN",
         "value": "interaction",
@@ -12023,10 +12009,11 @@
       "review_record_id": "MR-TT-QI15-FU-AND-TRANSFORM-003",
       "source_refs": [
         "SRC-ZZ-002#pdf_scan_page=7#printed_page=13#ZZ-TT-003",
-        "SRC-ZZ-002#pdf_scan_page=7#printed_page=13#ZZ-TT-X01"
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=13#ZZ-TT-X01",
+        "SRC-ZZ-001#pdf_scan_page=44#printed_page=87#ZZ-TT-006"
       ],
       "target_ref": "STAR-TT.intrinsic_signature:QI-15",
-      "rationale": "“化气为福”与挫折后得安定/享受是传统功能和过程描述，不自动等价现代QI-15；“往往”不保证事件。",
+      "rationale": "“化气为福”与“善化凶”均有传统功能描述来源；另有挫折后得安定/享受的过程描述。但这些传统标签与过程不自动等价现代QI-15；“往往”不保证事件，映射仍需审议。",
       "evidence_role": {
         "state": "KNOWN",
         "value": "projection_outcome",
@@ -12144,9 +12131,9 @@
         "SRC-ZZ-002#pdf_scan_page=115#printed_page=228#ZZ-TT-010"
       ],
       "target_ref": "STAR-TT.intrinsic_signature:QI-02",
-      "rationale": "“不经心”属于文昌化忌段而非天同；继续quarantine并排除。",
+      "rationale": "“不经心”属于文昌化忌段而非天同；继续quarantine并排除。 Evidence role is NOT_APPLICABLE to the Tian Tong target because the cited source is a confirmed Wen Chang source mismatch and remains quarantined.",
       "evidence_role": {
-        "state": "UNKNOWN",
+        "state": "NOT_APPLICABLE",
         "value": null,
         "conflict_ref": null
       },
@@ -12318,10 +12305,14 @@
         "SRC-ZZ-002#pdf_scan_page=7#printed_page=14#ZZ-TT-X10",
         "SRC-ZZ-002#pdf_scan_page=7#printed_page=14#ZZ-TT-Y04",
         "SRC-ZZ-002#pdf_scan_page=7#printed_page=14#ZZ-TT-Y02",
-        "SRC-ZZ-002#pdf_scan_page=7#printed_page=14#ZZ-TT-Y03"
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=14#ZZ-TT-Y03",
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-TT-008",
+        "SRC-ZZ-002#pdf_scan_page=74#printed_page=146#ZZ-TT-009",
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=14#ZZ-TT-X08",
+        "SRC-ZZ-002#pdf_scan_page=7#printed_page=14#ZZ-TT-X09"
       ],
       "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
-      "rationale": "同阴/同巨/同梁、寅申同梁平稳和反背配置各有条件，不合并成统一QI值。",
+      "rationale": "同巨、紫杀行运遇同阴、同梁见天马以及火铃与天同气质冲突均有各自来源跨度。各星系与条件须分别保留，不合并成统一QI值；传统“多主逆境”不等于现实事件保证。",
       "evidence_role": {
         "state": "KNOWN",
         "value": "interaction",
@@ -12341,10 +12332,10 @@
         "SRC-ZZ-002#pdf_scan_page=8#printed_page=15-16#ZZ-LZ-001"
       ],
       "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
-      "rationale": "两份中州派来源的传统五行标签存在差异；保留来源归属，不从任一标签推导QI方向/强度。",
+      "rationale": "两份中州派来源的传统五行标签存在差异；保留来源归属，不从任一标签推导QI方向/强度。 Evidence role is direct_state because both sources directly state traditional substrate labels; the value disagreement itself remains unresolved and neither source is selected as canonical.",
       "evidence_role": {
-        "state": "UNKNOWN",
-        "value": null,
+        "state": "KNOWN",
+        "value": "direct_state",
         "conflict_ref": null
       },
       "mapping_disposition": {
@@ -12360,7 +12351,7 @@
         "SRC-ZZ-001#pdf_scan_page=44#printed_page=87#ZZ-LZ-002"
       ],
       "target_ref": "STAR-LZ.symbolic_descriptor:traditional_labels",
-      "rationale": "化囚/次桃花属于传统标签；当前目标不是现代人格、性行为或现实关系变量。",
+      "rationale": "化囚/次桃花属于传统标签；当前目标不是现代人格、性行为或现实关系变量。 Evidence role remains UNKNOWN: the accepted enum has no symbolic-traditional-label role, and forcing direct_state or projection_outcome would misclassify the evidence. The current target remains not supported.",
       "evidence_role": {
         "state": "UNKNOWN",
         "value": null,
@@ -12789,10 +12780,11 @@
       "schema_version": "0.1",
       "review_record_id": "MR-TF-RESOURCE-GENERATION-004",
       "source_refs": [
-        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17#ZZ-TF-004"
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17#ZZ-TF-004",
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17#ZZ-TF-003"
       ],
       "target_ref": "STAR-TF.intrinsic_signature:QI-12",
-      "rationale": "“缺乏生财能力”与资源运用/储藏不同，不合并为单一资源强度。",
+      "rationale": "ZZ-TF-003直接描述资源运用/储藏能力，ZZ-TF-004描述生财能力的限制；两条共同用于区分资源管理与资源生成，而非合并为单一资源强度。",
       "evidence_role": {
         "state": "KNOWN",
         "value": "resource_existence",
@@ -12808,10 +12800,11 @@
       "schema_version": "0.1",
       "review_record_id": "MR-TF-QI04-GUARD-005",
       "source_refs": [
-        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17#ZZ-TF-005"
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17#ZZ-TF-005",
+        "SRC-ZZ-002#pdf_scan_page=9#printed_page=17-18#ZZ-TF-X03"
       ],
       "target_ref": "STAR-TF.intrinsic_signature:QI-04",
-      "rationale": "守成与紫微开创构成比较，且原文限制逆境开局；映射仍需目标特定审议。",
+      "rationale": "ZZ-TF-X03直接将天府守成与紫微开创作比较，并保留现成局面/逆境开局语境；该比较只支持候选描述，不等于无条件稳定值或正式QI-04映射。",
       "evidence_role": {
         "state": "KNOWN",
         "value": "direct_state",
@@ -15024,6 +15017,26 @@
         "value": "needs_review",
         "conflict_ref": null
       }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-WQ-L3-FINANCIAL-ROLE-016",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-002",
+        "SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-X01"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "本记录审查的是L3传统财星角色/结果投影候选：来源中的财星角色与相关描述可保留为传统投影候选，但不等于现实财富结果，也不支持固定QI-05内在值。ZZ-WQ-015/016/017属于火铃条件下的其他传统不利投影，已从该候选的直接来源范围中移出；不推导现实犯罪行为。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
     }
   ],
   "pilot_checkpoint_validation": {
@@ -15633,7 +15646,7 @@
   },
   "source_audit_followup": {
     "as_of": "2026-10-28",
-    "status": "SOURCE_SPAN_FOLLOWUP_COMPLETED_NOT_CANONICAL_APPROVAL",
+    "status": "PI_SOURCE_ADJUDICATIONS_RECORDED_PENDING_EXACT_HEAD_QUALITY_GATE",
     "verified_source_files": {
       "SRC-ZZ-001": "7ebafc8e3477430e2f8e69c6925ecc373d3c28966955f7035078c4949b7475a2",
       "SRC-ZZ-002": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a"
@@ -15643,13 +15656,17 @@
       "Added the missing Taiyin rule ZZ-TYI-010; recorded the one-page canonical locator discrepancy.",
       "Added Tianxiang rules ZZ-TX-009/010 from the Wuqu-Tianxiang / Pojun system discussion.",
       "Resolved source spans for Tanlang ZZ-TL-006/007/008 and Jumen ZZ-JM-005 using SRC-ZZ-001.",
-      "Resolved Tianliang ZZ-TLIA-010 and Pojun ZZ-PJ-006..010 using exact printed-page locators."
+      "Resolved Tianliang ZZ-TLIA-010 and Pojun ZZ-PJ-006..010 using exact printed-page locators.",
+      "PI adjudication 2026-10-28: ZZ-TLIA-001 printed “第三得” is treated as a printing error for “第三星”; literal scan text remains preserved in the source-review sidecar.",
+      "PI adjudication 2026-10-28: ZZ-QS-005 printed “廉洁” is treated as a printing error for “廉贞”; literal scan text remains preserved in the source-review sidecar.",
+      "Reconciled 12 of the 13 candidate source-scope discrepancies by adding direct references where justified or narrowing candidate scope; one overlapping Chang-Qu summary remains intentionally not repeated as a direct citation.",
+      "Resolved three evidence_role UNKNOWN values using existing schema values; MR-LZ-SYMBOLIC-ROLE-002 remains UNKNOWN because no accepted role captures a symbolic traditional label without misclassification.",
+      "Added MR-WQ-L3-FINANCIAL-ROLE-016 so EXP-WQ-10 is reviewed against its actual L3 target; the separate QI-05 rejection remains unchanged."
     ],
     "outstanding": [
-      "ZZ-TL-010 remains unverified: the cited deep-lecture source does not currently provide an exact span supporting the canonical target '性急'; nearby descriptions of '躁进' or '突发' are not substituted.",
-      "ZZ-TT-010 remains quarantined as SOURCE_MISMATCH_CONFIRMED: the cited span concerns 文昌化忌/办事不经心, not the canonical 天同 claim.",
-      "ZZ-TLIA-001 and ZZ-QS-005 remain partial because source text and canonical wording differ.",
-      "The 40 solar source spans are visually located on the registered source page, but this does not validate modern QI normalization or downstream predictions."
+      "ZZ-TL-010 remains unverified: no exact source span directly supports the canonical target “性急”; do not substitute “躁进” or “突发”.",
+      "ZZ-TT-010 remains SOURCE_MISMATCH_CONFIRMED and quarantined; the cited span concerns 文昌化忌, not 天同.",
+      "Five partial rows remain: ZZ-TL-009 (化禄 branch only; 化权 extension unverified), ZZ-JM-003 (broader projection not fully supported), ZZ-JM-004 (talent-conditioned wording does not support an unconditional capacity claim), ZZ-JM-006 (化禄 gate and 司仪 special case unverified), ZZ-JM-007 (化科 condition unverified)."
     ],
     "guardrails": {
       "canonical_source_span_verified_mutated": false,
@@ -15657,23 +15674,43 @@
       "canonical_rules_mutated": false,
       "formal_mapping_approval": false,
       "product_consumption_authorized": false
-    }
+    },
+    "pi_adjudications": [
+      {
+        "rule_id": "ZZ-TLIA-001",
+        "decision": "PRINTED_TYPO_ADJUDICATED",
+        "literal_source_span": "天梁为南斗第三得，属阳土。",
+        "intended_reading": "天梁为南斗第三星，属阳土。",
+        "decided_by": "PI",
+        "date": "2026-10-28",
+        "canonical_rule_mutated": false
+      },
+      {
+        "rule_id": "ZZ-QS-005",
+        "decision": "PRINTED_TYPO_ADJUDICATED",
+        "literal_source_span": "化杀为权的廉洁",
+        "intended_reading": "化杀为权的廉贞",
+        "decided_by": "PI",
+        "date": "2026-10-28",
+        "canonical_rule_mutated": false
+      }
+    ]
   },
   "pre_pi_status": "PRE_PI_SOURCE_AUDIT_COMPLETED_PENDING_EXACT_HEAD_QUALITY_GATE",
   "pre_pi_gates": {
     "main_sync": {
       "status": "MERGED_INTO_CORE_BRANCH_NOT_PR_MERGED",
-      "main_sha": "4cc89ead106c315d451d2d39b72e33ccc73398b5",
-      "merge_commit_sha": "cd11b672058e82efbdc08ee69a61f153aacb4a81",
-      "merge_base_before_sync": "cd082859267f0e57c85298bf267004418f8cdfb2",
+      "main_sha": "f77227ec0b67d422bce4e1dde2f4a1a39491d29f",
+      "merge_commit_sha": "9a4aa970d4f9b9ac95729ff827b17f38dcb9499d",
+      "merge_base_before_sync": "4cc89ead106c315d451d2d39b72e33ccc73398b5",
       "branch_contains_main": true
     },
     "source_coverage": {
       "canonical_rule_rows": 430,
       "source_review_rows": 430,
       "status_counts": {
-        "VERIFIED_VISUAL_SCAN": 421,
-        "PARTIALLY_VERIFIED_VISUAL_SCAN": 7,
+        "VERIFIED_VISUAL_SCAN": 423,
+        "PARTIALLY_VERIFIED_VISUAL_SCAN": 5,
         "NOT_VERIFIED_IN_REVIEWED_SPANS": 1,
         "SOURCE_MISMATCH_CONFIRMED": 1
       }
@@ -15681,91 +15718,54 @@
     "remaining_source_issues": [
       "ZZ-TL-010: exact source span still not located for canonical target 性急",
       "ZZ-TT-010: source mismatch confirmed; quarantined, not promoted",
-      "Seven partial rows: ZZ-TL-009; ZZ-JM-003/004/006/007; ZZ-TLIA-001; ZZ-QS-005"
+      "Five partial rows remain: ZZ-TL-009 and ZZ-JM-003/004/006/007; each has a narrower missing branch/scope, recorded in the source-span sidecars."
     ],
-    "exact_head_quality_gate": "PENDING_AFTER_PRE_PI_AUDIT_CHANGES",
+    "exact_head_quality_gate": "PENDING_AFTER_PI_SOURCE_AND_MAPPING_AUDIT_DECISIONS",
     "pi_review_authorized": false,
     "formal_mapping_approval": false,
     "product_consumption_authorized": false,
     "mapping_review_audit": {
-      "path": "knowledge/core/14star-property-normalization/MAPPING_REVIEW_PRE_PI_AUDIT_v0.1.md",
-      "mapping_review_records": 240,
-      "unique_review_ids": 240,
+      "mapping_review_records": 241,
+      "unique_review_ids": 241,
       "candidate_properties": 182,
       "properties_with_valid_review_links": 182,
       "canonical_rules": 430,
       "missing_canonical_rule_refs": 0,
       "unique_target_refs": 81,
-      "source_ref_uses": 412,
-      "unique_source_refs": 356,
-      "duplicated_exact_source_ref_groups": 47,
-      "uses_in_duplicated_ref_groups": 103,
+      "source_ref_uses": 428,
+      "unique_source_refs": 360,
+      "duplicated_exact_source_ref_groups": 59,
+      "uses_in_duplicated_ref_groups": 127,
       "mapping_dispositions": {
         "supported_candidate": 58,
-        "candidate_only": 56,
         "needs_review": 100,
-        "not_supported_for_target": 26
+        "not_supported_for_target": 26,
+        "candidate_only": 57
       },
       "candidate_canonicalization_authorized": 0,
       "candidate_numeric_strength_assigned": 0,
       "all_candidate_normalization_states": "UNRESOLVED",
       "unknown_evidence_role_review_record_ids": [
-        "MR-TY-QI15-METHOD-RULE-005",
-        "MR-TT-SOURCE-MISMATCH-009",
-        "MR-LZ-L0-SOURCE-DISAGREEMENT-001",
         "MR-LZ-SYMBOLIC-ROLE-002"
       ],
       "source_ref_reuse_ledger_path": "knowledge/core/14star-property-normalization/MAPPING_REVIEW_SOURCE_REF_REUSE_AUDIT_v0.1.md",
       "candidate_source_scope_audit": {
         "path": "knowledge/core/14star-property-normalization/MAPPING_REVIEW_CANDIDATE_SOURCE_SCOPE_AUDIT_v0.1.md",
         "candidate_properties": 182,
-        "properties_with_source_scope_mismatch": 13,
-        "candidate_source_rule_ids_not_directly_cited": 26,
-        "status": "DOCUMENTED_REQUIRES_SCOPE_RECONCILIATION_NOT_AUTOMATIC_FAILURE",
+        "properties_with_source_scope_mismatch": 1,
+        "candidate_source_rule_ids_not_directly_cited": 1,
+        "status": "RECONCILED_12_OF_13; ONE_OVERLAPPING_SUMMARY_RETAINED_WITHOUT_DUPLICATE_DIRECT_CITATION",
         "candidate_keys": [
-          "PILOT-TX-02",
-          "PILOT-TX-03",
-          "EXP-ZW-02",
-          "EXP-TJ-05",
-          "EXP-TJ-07",
-          "EXP-WQ-04",
-          "EXP-WQ-06",
-          "EXP-WQ-09",
-          "EXP-WQ-10",
-          "EXP-TT-05",
-          "EXP-TT-08",
-          "EXP-TF-04",
-          "EXP-TF-05"
+          "EXP-WQ-06"
         ],
         "rule_ids": [
-          "ZZ-TX-X08",
-          "ZZ-TX-Y03",
-          "ZZ-TX-Y04",
-          "ZZ-TX-004",
-          "ZZ-TX-X04",
-          "ZZ-TX-X05",
-          "ZZ-TX-X06",
-          "ZZ-TX-X07",
-          "ZZ-TX-Y02",
-          "ZZ-ZW-004",
-          "ZZ-TJ-019",
-          "ZZ-TJ-024",
-          "ZZ-TJ-X05",
-          "ZZ-WQ-Y01",
-          "ZZ-WQ-X06",
-          "ZZ-WQ-Y04",
-          "ZZ-WQ-015",
-          "ZZ-WQ-016",
-          "ZZ-WQ-017",
-          "ZZ-TT-006",
-          "ZZ-TT-008",
-          "ZZ-TT-009",
-          "ZZ-TT-X08",
-          "ZZ-TT-X09",
-          "ZZ-TF-003",
-          "ZZ-TF-X03"
+          "ZZ-WQ-X06"
         ],
-        "direct_source_ref_semantics": "mapping-review source_refs record the directly cited scope; candidate source_rule_ids may include broader related context. This audit does not assume those sets must be identical."
+        "original_properties_reviewed": 13,
+        "original_missing_rule_ids_reviewed": 26,
+        "reconciled_properties": 12,
+        "reconciled_rule_ids": 25,
+        "direct_source_ref_semantics": "mapping-review source_refs record directly cited scope; candidate source_rule_ids may include broader context or overlapping summary. Remaining mismatch is an intentional overlapping Chang-Qu summary, not a missing independent evidence source."
       }
     }
   }
