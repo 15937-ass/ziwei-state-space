@@ -12,47 +12,42 @@ execution:
   active_issue: null
   active_branch: null
   active_pr: null
-  canonical_checkpoint: "SP06_501_600_SOURCE_FIRST_REVIEW_COMPLETE__600_CANDIDATES_REVIEWED__460_CANDIDATES_PROMOTED__470_SOURCE_RECORDS__344_REUSABLE__126_CASE_ONLY__137_HELD__3_DEDUPED__14_SOURCE_GAPS__4_OPEN_OR_PARTIAL__47_TEMPORAL_RESIDUAL_GROUPS"
+  canonical_checkpoint: "SP07_601_700_SOURCE_FIRST_REVIEW_COMPLETE__700_CANDIDATES_REVIEWED__538_CANDIDATES_PROMOTED__551_SOURCE_RECORDS__397_REUSABLE__154_CASE_ONLY__157_HELD__5_DEDUPED__17_SOURCE_GAPS__4_OPEN_OR_PARTIAL__53_TEMPORAL_RESIDUAL_GROUPS"
   note: >-
-    Accepted P03 source-first ledgers now cover SP01-001…100, SP02-101…200,
-    SP03-201…300, SP04-301…400, SP05-401…500, and SP06-501…600. SP05 directly inspected
-    approved SRC-ZZ-003 physical pp21–22 / printed pp41–43; historical reports
-    and CSVs remain read-only acceleration artifacts and their old verification
-    flags are not proof. SP05 reviewed 100 candidate rows: 64 were promoted,
-    35 were held (34 because YEAR exceeded source temporal granularity and one
-    because the Tianfu empty-vault sentence has unresolved semantic direction),
-    and one historical candidate was deduplicated against an existing source
-    record. Two unindexed source claims were added as P03-local supplements.
-    SP05 added 66 source records (46 reusable, 20 CASE_SUPPORT_ONLY). SP06 directly re-adjudicated 100 rows: 75 promoted, 25 held, 0 deduplicated; it adds 78 source records (46 reusable, 32 CASE_SUPPORT_ONLY), including three source-gap supplements.
-    Cumulative SP01–SP06 totals are 600 candidate rows reviewed, 460 promoted,
-    470 source records, 344 reusable, 126 case-only, 137 held and 3 deduplicated.
-    SP06 added three source-gap supplements; 14 gaps are tracked overall, with four still open or partially open. P03-SP01-GAP-001
-    remains explicitly carried forward pending the full P03 source-coverage census. Temporal residuals total 47 groups / 129 candidate rows. SP05-459 was corrected
-    because the historical target contradicted the scan; SP05-450 was narrowed
-    to the original-placement/single-auxiliary-star context; SP05-465 remains
-    fail-closed; SP05-500 was relocated to printed p42 and deduplicated against
-    SP05-464. SP06-501…600 completed source-first review under Issue #808 and is proposed in PR #810; the prior SP06 report remains historical navigation only and was not accepted as source proof. This batch held 23 time-layer rows in ten residual groups and held SP06-508/509 because the scan does not uniquely define the membership of “火铃、空劫”. P03 is not complete. No Product/runtime authorization is implied;
-    conditions_compiled=0 and execution_unlocked=0.
+    Accepted P03 source-first ledgers cover SP01-001…100, SP02-101…200, SP03-201…300,
+    SP04-301…400, SP05-401…500, SP06-501…600, and SP07-601…700. The approved SRC-ZZ-003
+    scan was directly inspected for every accepted batch; historical reports and CSV flags
+    remain read-only navigation aids, not proof. SP07 reviewed 100 rows: 78 promoted, 20
+    held for unresolved YEAR/DECADE granularity, and 2 deduplicated against the full OR
+    condition preserved in P03S-667. Three P03-local source supplements preserve the
+    Tianxiang negative branch, traditional female-role advice, and the auxiliary-pair
+    comparison baseline. Cumulative totals are 700 candidates reviewed, 538 promoted, 551
+    source records, 397 reusable, 154 CASE_SUPPORT_ONLY, 157 held and 5 deduplicated.
+    Seventeen source gaps are recorded, with four still open or partially open. P03-SP01-GAP-001 remains explicitly carried forward pending the full P03 source-coverage census. Temporal
+    residuals total 53 groups / 149 rows. P03 is not complete; next is SP08-701…800 at
+    printed p48 / PDF physical p24, beginning with “行至夫妻宫入吉限，则破镜重圆” after
+    the SP07-700 boundary. No Product/runtime authorization is implied; conditions_compiled=0
+    and execution_unlocked=0.
 
 progress:
   full_source_section_printed_pages: "33–51"
   full_source_section_pdf_physical_pages: "17–26"
   historical_candidate_rows_in_inventory: 836
-  historical_candidate_rows_reviewed: 600
-  candidate_rows_promoted: 460
-  source_records_added: 470
-  reusable_projection_method_records_added: 344
-  case_support_only_records_added: 126
-  candidates_held: 137
-  candidates_deduplicated: 3
+  historical_candidate_rows_reviewed: 700
+  candidate_rows_promoted: 538
+  source_records_added: 551
+  reusable_projection_method_records_added: 397
+  case_support_only_records_added: 154
+  candidates_held: 157
+  candidates_deduplicated: 5
   source_coverage_residuals_carried: 4
-  source_coverage_residuals_total_recorded: 14
-  temporal_scope_residuals: 47
-  temporal_scope_candidate_rows: 129
+  source_coverage_residuals_total_recorded: 17
+  temporal_scope_residuals: 53
+  temporal_scope_candidate_rows: 149
   history_feedback: 0
   conditions_compiled: 0
   execution_unlocked: 0
-  next_source_anchor: "Printed p45 / PDF physical p23: start SP07-601…700 at the “10 巨门” heading. Directly re-adjudicate from the approved scan; do not reuse historical SOURCE_SPAN_VERIFIED flags. Do not advance to P11 until the full P03 source coverage census and residual handoff are accepted."
+  next_source_anchor: "Printed p48 / PDF physical p24: begin SP08-701…800 immediately after SP07-700 at “行至夫妻宫入吉限，则破镜重圆”; directly re-adjudicate from the approved scan, not historical SOURCE_SPAN_VERIFIED flags. Do not advance to P11 until the full P03 source coverage census and residual handoff are accepted."
 
 integrity:
   source_first: true
