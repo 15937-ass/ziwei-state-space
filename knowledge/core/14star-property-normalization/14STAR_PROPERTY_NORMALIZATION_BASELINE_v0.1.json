@@ -3,7 +3,7 @@
   "artifact_id": "KB-CORE-14STAR-PROPERTY-NORMALIZATION-BASELINE-01",
   "issue": 757,
   "status": "PROPOSAL_ONLY_NOT_CANONICAL",
-  "checkpoint_status": "STAGE_B_TANLANG_CHECKPOINT_COMPLETED_NOT_FINAL",
+  "checkpoint_status": "STAGE_B_JUMEN_CHECKPOINT_COMPLETED_NOT_FINAL",
   "activation_main_sha": "d45e2cfd6c0dc59fb80ec2210f7e729c53391c4f",
   "execution_branch": "knowledge/core-757-14star-property-normalization-main-sync2",
   "source_policy": {
@@ -488,10 +488,19 @@
     "tanlang_partial_rule_ids": [
       "ZZ-TL-009"
     ],
-    "tanlang_scope_note": "本轮只使用SRC-ZZ-002上册、GitHub现有canonical/审查记录及验收契约；不读取SRC-ZZ-001初级讲义。29条canonical行均在侧车中给出审查处置：24条完整视觉核对、ZZ-TL-009部分核对、4条保持未核实。"
+    "tanlang_scope_note": "本轮只使用SRC-ZZ-002上册、GitHub现有canonical/审查记录及验收契约；不读取SRC-ZZ-001初级讲义。29条canonical行均在侧车中给出审查处置：24条完整视觉核对、ZZ-TL-009部分核对、4条保持未核实。",
+    "jumen_source_locator": {
+      "pdf_scan_page": 12,
+      "printed_pages": [
+        23,
+        24
+      ],
+      "source_sha256": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a",
+      "prior_visual_review_rows_reused": 0
+    }
   },
   "progress": {
-    "stage": "B_TANLANG_CHECKPOINT_COMPLETED_READY_FOR_JUMEN",
+    "stage": "B_JUMEN_CHECKPOINT_COMPLETED_READY_FOR_TIANLIANG",
     "completed_pilot_cards": [
       "太阳",
       "太阴",
@@ -499,12 +508,11 @@
     ],
     "remaining_pilot_cards": [],
     "remaining_expansion_stars_in_existing_order": [
-      "巨门",
       "天梁",
       "七杀",
       "破军"
     ],
-    "coverage_warning": "Stage A pilots 太阳、太阴、天相 are completed research checkpoints, not final canonical mappings. Stage B has completed bounded candidate checkpoints for 紫微、天机、武曲、天同、廉贞、天府、贪狼. For 贪狼, all 29 canonical rows have explicit review dispositions: 24 full visual confirmations, one partial confirmation (ZZ-TL-009; 化禄 branch only), and four held rows (ZZ-TL-006/007/008/010). Source is SRC-ZZ-002 upper volume only; canonical source flags remain false and normalization remains UNRESOLVED. Next star is 巨门.",
+    "coverage_warning": "Stage A pilots 太阳、太阴、天相 are completed research checkpoints, not final canonical mappings. Stage B has completed bounded candidate checkpoints for 紫微、天机、武曲、天同、廉贞、天府、贪狼、巨门. For 巨门, all 26 canonical rows have explicit dispositions: 21 full visual confirmations, four partial confirmations (ZZ-JM-003/004/006/007), and one held row (ZZ-JM-005). Source is SRC-ZZ-002 upper volume only; canonical source flags remain false and normalization remains UNRESOLVED. Next star is 天梁.",
     "active_pilot_card": null,
     "draft_pilot_cards": [
       "太阳",
@@ -518,7 +526,8 @@
       "天同",
       "廉贞",
       "天府",
-      "贪狼"
+      "贪狼",
+      "巨门"
     ],
     "active_expansion_star": null,
     "draft_expansion_stars": [
@@ -528,7 +537,8 @@
       "天同",
       "廉贞",
       "天府",
-      "贪狼"
+      "贪狼",
+      "巨门"
     ],
     "expansion_checkpoint_history": [
       {
@@ -836,6 +846,43 @@
         "product_consumption_authorized": false,
         "next_star": "巨门",
         "source_locator_note": "ZZ-TL-001/002在上册p21得到补充核对但canonical原始来源登记不改；ZZ-TL-003..005补核上册p100–101；ZZ-TL-009仅核实化禄分支。"
+      },
+      {
+        "star": "巨门",
+        "status": "CHECKPOINT_COMPLETED_NOT_FINAL",
+        "source_id": "SRC-ZZ-002",
+        "pdf_scan_page": 12,
+        "printed_pages": [
+          23,
+          24
+        ],
+        "canonical_rule_rows_reviewed": 26,
+        "source_review_rows": 26,
+        "fully_verified_rows": 21,
+        "partially_verified_rows": 4,
+        "held_rows": 1,
+        "prior_visual_review_rows_reused": 0,
+        "mapping_review_records_added": 20,
+        "source_claims_added": 20,
+        "candidate_properties_added": 20,
+        "normalization_epistemic": "UNRESOLVED",
+        "canonicalization_authorized": false,
+        "product_consumption_authorized": false,
+        "next_star": "天梁",
+        "held_rule_ids": [
+          "ZZ-JM-005"
+        ],
+        "partial_rule_ids": [
+          "ZZ-JM-003",
+          "ZZ-JM-004",
+          "ZZ-JM-006",
+          "ZZ-JM-007"
+        ],
+        "source_literal_anomalies": [
+          "调各",
+          "双能"
+        ],
+        "source_locator_note": "SRC-ZZ-002扫描页12/印刷页23–24；未读取初级讲义。扫描页24的“调各”“双能”按可见字面保留。"
       }
     ]
   },
@@ -6744,6 +6791,819 @@
         "传统格局的横发、清白、桃花等语气不等同现实概率、道德诊断或投资建议。",
         "ZZ-TL-006/007/008与ZZ-TL-010本轮未核实；ZZ-TL-009仅部分核实，canonical source flags保持不变。"
       ]
+    },
+    {
+      "star_id": "STAR-JM",
+      "name": "巨门",
+      "status": "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL",
+      "source_claims": [
+        {
+          "claim_key": "JM-L0-SUBSTRATE",
+          "source_rule_ids": [
+            "ZZ-JM-001"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 12,
+            "printed_page": 23
+          },
+          "source_excerpt": "巨门为北斗第二星，属阴土，其气则属阴金。",
+          "claim_layer": "L0_STRUCTURE_METADATA",
+          "claim_summary": "阴土与阴金只保留为传统结构标签，不由此推导现代QI方向、强度或五行计算。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+          "conditions_to_preserve": [
+            "北斗第二星",
+            "阴土",
+            "气属阴金",
+            "不推导QI方向/强度/五行计算"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "JM:p12:p23:substrate",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; METADATA_ONLY; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "JM-DARK-RELATIONAL-MECHANISM",
+          "source_rule_ids": [
+            "ZZ-JM-002",
+            "ZZ-JM-X01"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 12,
+            "printed_page": 23
+          },
+          "source_excerpt": "巨门为暗曜……善于遮蔽别人的光辉。",
+          "claim_layer": "L2_RELATION_OR_SYSTEM",
+          "claim_summary": "原文解释“暗”是遮蔽别人的光辉，而非巨门自身没有光辉；保留关系对象与遮蔽机制。",
+          "candidate_target_ref": "STAR-JM.intrinsic_signature:QI-14",
+          "conditions_to_preserve": [
+            "遮蔽对象是别人/他曜的光辉",
+            "不等于自身无光",
+            "不抬升为无条件单星强度"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "JM:p12:p23:dark-mask",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; RELATIONAL_MECHANISM; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "JM-TALKATIVENESS",
+          "source_rule_ids": [
+            "ZZ-JM-X01",
+            "ZZ-JM-004"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 12,
+            "printed_page": 23
+          },
+          "source_excerpt": "遮蔽别人的光辉，最大的特色是多言。",
+          "claim_layer": "L1_INTRINSIC_CANDIDATE",
+          "claim_summary": "来源直接描述多言与自我表现，但多言的数量不等于表达能力或善辩水平。",
+          "candidate_target_ref": "STAR-JM.intrinsic_signature:QI-13",
+          "conditions_to_preserve": [
+            "区分多言/自我表现与表达能力",
+            "善辩属于条件转化结果",
+            "不把初级讲义来源当作本轮已核事实"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "JM:p12:p23:talk",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TARGET_INFERENCE_REQUIRES_REVIEW; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "JM-SUSPICION",
+          "source_rule_ids": [
+            "ZZ-JM-X02"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 12,
+            "printed_page": 23
+          },
+          "source_excerpt": "巨门的另一特色是多疑。",
+          "claim_layer": "L1_INTRINSIC_CANDIDATE",
+          "claim_summary": "多疑是原文描述倾向；本轮不将其自动映射为认知机变、心理诊断或固定强度。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L1",
+          "conditions_to_preserve": [
+            "保留描述性语气",
+            "不推导QI-07能力高低",
+            "不作现代心理诊断"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "JM:p12:p23:suspicion",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; DESCRIPTIVE_ONLY; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "JM-NEGATIVE-INFORMATION-ATTENTION",
+          "source_rule_ids": [
+            "ZZ-JM-X02",
+            "ZZ-JM-X07"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 12,
+            "printed_page": 23
+          },
+          "source_excerpt": "巨门对人的评价，多着重于阴暗面，既专看人的一面，自然多所疑猜。",
+          "claim_layer": "L2_RELATION_OR_SYSTEM",
+          "claim_summary": "原文把多疑与评价偏向阴暗面联系起来；此处属于描述机制，不等于通用认知能力指标。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "保留评价对象和信息偏向",
+            "不把多疑简化成QI-07",
+            "不把不同修饰作用合并"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "JM:p12:p23:negative-attention",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; MECHANISM_ONLY; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "JM-RELATIONSHIP-PROJECTION",
+          "source_rule_ids": [
+            "ZZ-JM-X03",
+            "ZZ-JM-003"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 12,
+            "printed_page": 23
+          },
+          "source_excerpt": "六亲寡合，交人初善终恶。",
+          "claim_layer": "L3_PROJECTION",
+          "claim_summary": "关系不佳属于来源所述的传统下游投影，不作为本命必然结果或现实关系预测。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "原文以多言与多疑为背景",
+            "保留传统投影层",
+            "不推导现实必然性"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "JM:p12:p23:relationship-projection",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PROJECTION_ONLY; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "JM-MODIFIER-INTERPRETIVE-PRINCIPLE",
+          "source_rule_ids": [
+            "ZZ-JM-X01",
+            "ZZ-JM-X02"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 12,
+            "printed_page": 23
+          },
+          "source_excerpt": "所会合的星曜，是加强这两种特性，还是削减……抑或能将这两种特性转化。",
+          "claim_layer": "INTERPRETIVE_METHOD",
+          "claim_summary": "来源要求分别判断多言与多疑被会合星曜加强、削减或转化；这是解释方法，不是巨门固有状态。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "多言与多疑分开判断",
+            "加强/削减/转化为不同机制",
+            "不将一般推断原则变成单星性质"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "JM:p12:p23:modifier-principle",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; METHOD_PRINCIPLE_NOT_INTRINSIC; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "JM-SUN-RELIEF",
+          "source_rule_ids": [
+            "ZZ-JM-X04",
+            "ZZ-JM-Y01"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 12,
+            "printed_page": 23
+          },
+          "source_excerpt": "最能化解巨门阴暗的星曜，是居庙旺宫的太阳。",
+          "claim_layer": "L2_CONDITIONAL_MODIFIER",
+          "claim_summary": "太阳解暗具有庙旺和日巨宫位结构门控，不能改写成无条件的遮蔽下降。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/core_intrinsic_dimensions/QI-14",
+          "conditions_to_preserve": [
+            "太阳庙旺",
+            "日巨结构与宫位条件",
+            "只作条件修饰，不抹去本体特征"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "JM:p12:p23:sun-relief",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; CONDITIONAL_MODIFIER; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "JM-HUALU-SMOOTHING",
+          "source_rule_ids": [
+            "ZZ-JM-X05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 12,
+            "printed_page": 23
+          },
+          "source_excerpt": "巨门化禄之后，其气质变得圆滑。",
+          "claim_layer": "L2_CONDITIONAL_MODIFIER",
+          "claim_summary": "化禄后的圆滑是特定四化条件下的描述，不自动等同表达能力或总体缓冲能力提升。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/core_intrinsic_dimensions/QI-13",
+          "conditions_to_preserve": [
+            "绑定巨门化禄条件",
+            "不与化权合并",
+            "不推导无条件表达能力"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "JM:p12:p23:hualu",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; CONDITIONAL_MODIFIER; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "JM-HUAQUAN-SUSPICION",
+          "source_rule_ids": [
+            "ZZ-JM-X06"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 12,
+            "printed_page": 23
+          },
+          "source_excerpt": "化权之后，减少了疑忌之心。",
+          "claim_layer": "L2_CONDITIONAL_MODIFIER",
+          "claim_summary": "化权减少疑忌与“言谈具权威性”是不同命题；本来源只直接支持前者。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/core_intrinsic_dimensions/QI-15",
+          "conditions_to_preserve": [
+            "绑定巨门化权条件",
+            "保留“减少疑忌”原意",
+            "不替代未核实的言谈权威断语"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "JM:p12:p23:huaquan",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; CONDITIONAL_MODIFIER; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "JM-TIANJI-INTERACTION",
+          "source_rule_ids": [
+            "ZZ-JM-X07"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 12,
+            "printed_page": 23
+          },
+          "source_excerpt": "天机同度或对拱，则加强了巨门的缺点……增加了他多疑的特性。",
+          "claim_layer": "L2_RELATION_OR_SYSTEM",
+          "claim_summary": "天机同度/对拱引入浮滑、多疑与背面是非的关系修饰，不回写为巨门单星常量。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "天机同度或对拱",
+            "分别保留浮滑、多疑、言词取信等作用",
+            "不合成单一负值"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "JM:p12:p23:tianji-interaction",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; SYSTEM_INTERACTION; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "JM-FUBI-SUPPORT",
+          "source_rule_ids": [
+            "ZZ-JM-008",
+            "ZZ-JM-X08"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 12,
+            "printed_page": 23
+          },
+          "source_excerpt": "当得到助力之后，亦应减少了一些疑忌之心，且可将疑忌转化为有益的思虑。",
+          "claim_layer": "L2_CONDITIONAL_MODIFIER",
+          "claim_summary": "辅弼助力可使疑忌减少并转化为有益思虑；这是外部支持与条件转换，不是巨门固有缓冲值。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/core_intrinsic_dimensions/QI-15",
+          "conditions_to_preserve": [
+            "左辅右弼助力条件",
+            "疑忌减少与转为有益思虑分开记录",
+            "不抬升为单星无条件能力"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "JM:p12:p23:fubi",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; EXTERNAL_SUPPORT_CONDITION; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "JM-CHANGQU-ELOQUENCE",
+          "source_rule_ids": [
+            "ZZ-JM-009",
+            "ZZ-JM-X09"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 12,
+            "printed_page": 23
+          },
+          "source_excerpt": "将多言转化为善辩。",
+          "claim_layer": "L2_CONDITIONAL_MODIFIER",
+          "claim_summary": "昌曲/才华把多言转成善辩，是条件性转化，不能反证巨门无条件表达能力很高。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/core_intrinsic_dimensions/QI-13",
+          "conditions_to_preserve": [
+            "保留文昌文曲/才华门控",
+            "区分多言与善辩",
+            "不删去条件"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "JM:p12:p23:changqu",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; CONDITIONAL_STATE_CHANGE; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "JM-SHA-DIGNITY",
+          "source_rule_ids": [
+            "ZZ-JM-010"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 12,
+            "printed_page": 23
+          },
+          "source_excerpt": "凡煞曜亦能增巨门的不良特性。辰戌陷地尤甚。",
+          "claim_layer": "L4_CONTEXTUAL_EVALUATION",
+          "claim_summary": "煞曜与辰戌陷地是不同条件修饰，不合并为统一数值惩罚。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L4",
+          "conditions_to_preserve": [
+            "保留煞曜条件",
+            "辰戌陷地尤甚",
+            "不将传统吉凶转为现代风险概率"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "JM:p12:p23:sha",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; CONDITIONAL_EVALUATION; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "JM-STAR-SYSTEM-FAMILIES",
+          "source_rule_ids": [
+            "ZZ-JM-Y05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 12,
+            "printed_page": 24
+          },
+          "source_excerpt": "子午卯酉为机巨；辰戌丑未为同巨；寅申巳亥为日巨。",
+          "claim_layer": "L2_RELATION_OR_SYSTEM",
+          "claim_summary": "机巨、同巨、日巨是宫位与同度/对拱关系结构族，不属于巨门单星无条件内在性质。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "子午卯酉：机巨",
+            "辰戌丑未：同巨",
+            "寅申巳亥：日巨"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "JM:p12:p24:system-families",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; SYSTEM_CONTEXT; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "JM-TRIAD-COMPARISON",
+          "source_rule_ids": [
+            "ZZ-JM-X07",
+            "ZZ-JM-Y05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 12,
+            "printed_page": 24
+          },
+          "source_excerpt": "天机浮滑，对巨门不利；天同则能和巨门之气……太阳则能藉其光华解巨门的暗蔽。",
+          "claim_layer": "L2_RELATION_OR_SYSTEM",
+          "claim_summary": "天机、天同、太阳对巨门的作用不同；“一般而言”日巨较佳是比较性判断，不是绝对排名。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "天机：浮滑/多疑风险",
+            "天同：和气但阴暗可藏于情绪",
+            "太阳：光华解暗",
+            "保留“一般而言”及变格"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "JM:p12:p24:triad-comparison",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; COMPARATIVE_SYSTEM_CONTEXT; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "JM-SHI-ZHONG-YU",
+          "source_rule_ids": [
+            "ZZ-JM-Y02"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 12,
+            "printed_page": 24
+          },
+          "source_excerpt": "巨门独坐子午、化禄、化权，称为[石中隐玉]。",
+          "claim_layer": "L2_SPECIAL_PATTERN",
+          "claim_summary": "石中隐玉须保留子午独坐与化禄、化权的组合条件，不作为巨门单星性质。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "巨门独坐子宫或午宫",
+            "化禄",
+            "化权",
+            "条件合取"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "JM:p12:p24:shi-zhong-yu",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; SPECIAL_PATTERN; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "JM-CHEN-EXCEPTIONAL-PATTERN",
+          "source_rule_ids": [
+            "ZZ-JM-Y03"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 12,
+            "printed_page": 24
+          },
+          "source_excerpt": "巨门独坐辰宫，化禄，得文昌化忌同躔，对宫天同，且会太阳化权。",
+          "claim_layer": "L2_SPECIAL_PATTERN",
+          "claim_summary": "辰宫反奇格保留原文列出的合取条件；扫描字面“调各”“双能”原样记录，不擅自改字。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "巨门独坐辰宫",
+            "巨门化禄",
+            "文昌化忌同躔",
+            "对宫天同",
+            "会太阳化权",
+            "条件合取；原文“调各”“双能”保留"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "JM:p12:p24:chen-exceptional-pattern",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; SOURCE_LITERAL_ANOMALY_PRESERVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "JM-JI-JU-TONGLIN",
+          "source_rule_ids": [
+            "ZZ-JM-Y04"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 12,
+            "printed_page": 24
+          },
+          "source_excerpt": "天机巨门在卯宫，化禄，会禄存，无煞曜加临，更得辅弼、昌曲、魁钺会照，名[机巨同临格]。",
+          "claim_layer": "L2_SPECIAL_PATTERN",
+          "claim_summary": "机巨同临是多条件格局；无煞、禄、辅弼昌曲魁钺等门控不可压缩。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "卯宫机巨",
+            "化禄",
+            "会禄存",
+            "无煞曜加临",
+            "辅弼/昌曲/魁钺会照",
+            "保留条件合取"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "JM:p12:p24:ji-ju-tonglin",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; SPECIAL_PATTERN; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "JM-TEMPORAL-BOUNDARY",
+          "source_rule_ids": [
+            "ZZ-JM-X10",
+            "ZZ-JM-X11"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 12,
+            "printed_page": 24
+          },
+          "source_excerpt": "大限流年命宫逢巨门，不主有巨门的特性，但却主为巨门暗蔽人生的一段际遇。",
+          "claim_layer": "L3_TEMPORAL_PROJECTION",
+          "claim_summary": "大限/流年巨门表示阶段性暗蔽，具体传统不利判断还受太阳、禄权与煞忌条件限制，不回写本命人格。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "区分本命与大限/流年",
+            "无庙旺太阳、无权禄且见煞忌才进入相应不利分支",
+            "不作现实官非预测"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "JM:p12:p24:temporal-boundary",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TEMPORAL_ONLY; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        }
+      ],
+      "candidate_properties": [
+        {
+          "candidate_key": "EXP-JM-01",
+          "layer": "L0",
+          "candidate_label": "阴土/阴金传统结构元数据（不映射QI）",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+          "source_rule_ids": [
+            "ZZ-JM-001"
+          ],
+          "mapping_review_record_id": "MR-JM-L0-SUBSTRATE-001",
+          "mapping_disposition": "not_supported_for_target",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-JM-02",
+          "layer": "L2",
+          "candidate_label": "暗曜作为遮蔽他曜光辉的关系机制",
+          "target_ref": "STAR-JM.intrinsic_signature:QI-14",
+          "source_rule_ids": [
+            "ZZ-JM-002",
+            "ZZ-JM-X01"
+          ],
+          "mapping_review_record_id": "MR-JM-QI14-MASKING-002",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-JM-03",
+          "layer": "L1",
+          "candidate_label": "多言/自我表现与表达能力的区分",
+          "target_ref": "STAR-JM.intrinsic_signature:QI-13",
+          "source_rule_ids": [
+            "ZZ-JM-X01",
+            "ZZ-JM-004"
+          ],
+          "mapping_review_record_id": "MR-JM-QI13-VERBAL-003",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-JM-04",
+          "layer": "L1",
+          "candidate_label": "多疑的描述性倾向（不等于认知机变）",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L1",
+          "source_rule_ids": [
+            "ZZ-JM-X02"
+          ],
+          "mapping_review_record_id": "MR-JM-SUSPICION-004",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-JM-05",
+          "layer": "L2",
+          "candidate_label": "偏看阴暗面的评价机制与关系语境",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-JM-X02",
+            "ZZ-JM-X07"
+          ],
+          "mapping_review_record_id": "MR-JM-NEGATIVE-INFO-005",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-JM-06",
+          "layer": "L3",
+          "candidate_label": "多言与多疑相关的人际关系下游投影",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "source_rule_ids": [
+            "ZZ-JM-X03",
+            "ZZ-JM-003"
+          ],
+          "mapping_review_record_id": "MR-JM-RELATION-PROJECTION-006",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-JM-07",
+          "layer": "L2",
+          "candidate_label": "会合星曜对多言/多疑的加强、削减、转化原则",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-JM-X01",
+            "ZZ-JM-X02"
+          ],
+          "mapping_review_record_id": "MR-JM-INTERPRETIVE-GATE-007",
+          "mapping_disposition": "not_supported_for_target",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-JM-08",
+          "layer": "L2",
+          "candidate_label": "庙旺太阳对巨门遮蔽的条件性缓解",
+          "target_ref": "STAR-JM.conditional_signature:QI-14",
+          "source_rule_ids": [
+            "ZZ-JM-X04",
+            "ZZ-JM-Y01"
+          ],
+          "mapping_review_record_id": "MR-JM-SUN-RELIEF-008",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-JM-09",
+          "layer": "L2",
+          "candidate_label": "化禄后的圆滑表现（不自动等于表达能力增强）",
+          "target_ref": "knowledge/qi_ontology.yaml#/core_intrinsic_dimensions/QI-13",
+          "source_rule_ids": [
+            "ZZ-JM-X05"
+          ],
+          "mapping_review_record_id": "MR-JM-HUALU-SMOOTHING-009",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-JM-10",
+          "layer": "L2",
+          "candidate_label": "化权减少疑忌（与言谈权威区分）",
+          "target_ref": "knowledge/qi_ontology.yaml#/core_intrinsic_dimensions/QI-15",
+          "source_rule_ids": [
+            "ZZ-JM-X06"
+          ],
+          "mapping_review_record_id": "MR-JM-HUAQUAN-SUSPICION-010",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-JM-11",
+          "layer": "L2",
+          "candidate_label": "天机同度/对拱对巨门的系统性修饰",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-JM-X07"
+          ],
+          "mapping_review_record_id": "MR-JM-TIANJI-INTERACTION-011",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-JM-12",
+          "layer": "L2",
+          "candidate_label": "辅弼助力使疑忌转为有益思虑",
+          "target_ref": "knowledge/qi_ontology.yaml#/core_intrinsic_dimensions/QI-15",
+          "source_rule_ids": [
+            "ZZ-JM-008",
+            "ZZ-JM-X08"
+          ],
+          "mapping_review_record_id": "MR-JM-FUBI-THOUGHT-012",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-JM-13",
+          "layer": "L2",
+          "candidate_label": "昌曲/才华把多言转化为善辩",
+          "target_ref": "knowledge/qi_ontology.yaml#/core_intrinsic_dimensions/QI-13",
+          "source_rule_ids": [
+            "ZZ-JM-009",
+            "ZZ-JM-X09"
+          ],
+          "mapping_review_record_id": "MR-JM-CHANGQU-ELOQUENCE-013",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-JM-14",
+          "layer": "L4",
+          "candidate_label": "煞曜与辰戌陷地的条件性评价",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L4",
+          "source_rule_ids": [
+            "ZZ-JM-010"
+          ],
+          "mapping_review_record_id": "MR-JM-SHA-MODIFIER-014",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-JM-15",
+          "layer": "L2",
+          "candidate_label": "机巨、同巨、日巨三类宫位结构族",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-JM-Y05"
+          ],
+          "mapping_review_record_id": "MR-JM-STAR-SYSTEM-FAMILY-015",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-JM-16",
+          "layer": "L2",
+          "candidate_label": "天机、天同、太阳的比较性作用差异",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-JM-X07",
+            "ZZ-JM-Y05"
+          ],
+          "mapping_review_record_id": "MR-JM-TRIAD-COMPARISON-016",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-JM-17",
+          "layer": "L2",
+          "candidate_label": "石中隐玉的宫位与四化合取门控",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-JM-Y02"
+          ],
+          "mapping_review_record_id": "MR-JM-SHI-ZHONG-YU-017",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-JM-18",
+          "layer": "L2",
+          "candidate_label": "辰宫巨门反奇格的多条件组合",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-JM-Y03"
+          ],
+          "mapping_review_record_id": "MR-JM-CHEN-EXCEPTIONAL-018",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-JM-19",
+          "layer": "L2",
+          "candidate_label": "机巨同临格的多条件门控",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-JM-Y04"
+          ],
+          "mapping_review_record_id": "MR-JM-JI-JU-TONGLIN-019",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-JM-20",
+          "layer": "L3",
+          "candidate_label": "大限/流年巨门的阶段性遮蔽与条件性下游投影",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "source_rule_ids": [
+            "ZZ-JM-X10",
+            "ZZ-JM-X11"
+          ],
+          "mapping_review_record_id": "MR-JM-TEMPORAL-BOUNDARY-020",
+          "mapping_disposition": "supported_candidate",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        }
+      ],
+      "held_canonical_rule_ids": [
+        "ZZ-JM-005"
+      ],
+      "non_promotion_guards": [
+        "阴土/阴金只作L0传统结构元数据，不推导QI方向、强度或五行生克。",
+        "“暗曜”原文指遮蔽别人光辉，不等于巨门自身没有光；QI-14映射须保留关系对象与上下文。",
+        "多言/自我表现不等于表达能力或善辩；善辩是才华/昌曲条件下的转化。",
+        "多疑是传统描述，不作现代心理诊断，也不直接映射为认知机变能力。",
+        "太阳、天机、天同、煞曜、辅弼、昌曲与四化的不同作用保持分支，不合成单一加减分。",
+        "机巨、同巨、日巨及石中隐玉、辰宫反奇格、机巨同临均保留宫位、同度/对拱、四化与煞曜条件。",
+        "运限巨门只表示阶段性暗蔽，不回写本命人格；传统官非/是非断语不作为现实预测。",
+        "ZZ-JM-003/004/006/007只获得部分来源支持；ZZ-JM-005本轮保持未核实，不用相近语句替代原断语。",
+        "扫描页24的“调各”“双能”按可见字面保留，不自行校正或推导额外语义。",
+        "所有候选保持PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED；不改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限。"
+      ]
     }
   ],
   "mapping_review_records": [
@@ -9919,6 +10779,396 @@
       "mapping_disposition": {
         "state": "KNOWN",
         "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-JM-L0-SUBSTRATE-001",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-JM-001"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+      "rationale": "阴土/阴金是传统结构标签；来源不支持把五行标签直接转换为QI方向、强度或生克计算。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-JM-QI14-MASKING-002",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-JM-002",
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-JM-X01"
+      ],
+      "target_ref": "STAR-JM.intrinsic_signature:QI-14",
+      "rationale": "原文明确“暗”不是自身无光，而是遮蔽别人光辉；与QI-14的遮蔽概念相容，但需审议其关系性与单星内在映射边界。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-JM-QI13-VERBAL-003",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-JM-X01",
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-JM-004"
+      ],
+      "target_ref": "STAR-JM.intrinsic_signature:QI-13",
+      "rationale": "本来源直接支持多言与自我表现；“善辩”是在才华/昌曲条件下的转化，不能把话多直接等同高表达能力。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-JM-SUSPICION-004",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-JM-X02"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L1",
+      "rationale": "来源支持多疑这一描述，但没有据此建立独立QI维度，也不支持把疑虑直接当作QI-07认知能力。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-JM-NEGATIVE-INFO-005",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-JM-X02",
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-JM-X07"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "来源将多疑与对他人阴暗面的注意联系起来；这是描述机制，尚不能直接归入现有单一QI轴。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-JM-RELATION-PROJECTION-006",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-JM-X03",
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-JM-003"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "原文直接列出关系投影，但它属于传统下游结果，不能被当作巨门本命人格或现实关系必然性。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-JM-INTERPRETIVE-GATE-007",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-JM-X01",
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-JM-X02"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "该段是一般解释原则而非巨门单星状态；适合作为研究方法边界，不支持直接映射为QI属性。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-JM-SUN-RELIEF-008",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-JM-X04",
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-JM-Y01"
+      ],
+      "target_ref": "STAR-JM.conditional_signature:QI-14",
+      "rationale": "来源支持庙旺太阳及日巨结构下的解暗作用；这属于条件修饰，不是无条件减弱巨门遮蔽。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-JM-HUALU-SMOOTHING-009",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-JM-X05"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/core_intrinsic_dimensions/QI-13",
+      "rationale": "化禄后圆滑是原文直接描述，但与表达/传播能力的关系仍需目标特定审议，不能由“圆滑”自动推导QI-13增加。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "state_change",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-JM-HUAQUAN-SUSPICION-010",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-JM-X06"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/core_intrinsic_dimensions/QI-15",
+      "rationale": "本来源支持化权减少疑忌，不支持以此替代“言谈具权威性”或直接证明一般缓冲/调和能力。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "state_change",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "needs_review",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-JM-TIANJI-INTERACTION-011",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-JM-X07"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "浮滑、多疑、背面是非更能取信他人是不同效应；保留天机同度/对拱条件，不合成一个数值负向值。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-JM-FUBI-THOUGHT-012",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-JM-008",
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-JM-X08"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/core_intrinsic_dimensions/QI-15",
+      "rationale": "来源支持辅弼助力后的疑忌减少与思虑转化；该证据属于外部支持条件，不能升为巨门无条件内在缓冲能力。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-JM-CHANGQU-ELOQUENCE-013",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-JM-009",
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-JM-X09"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/core_intrinsic_dimensions/QI-13",
+      "rationale": "来源直接支持条件性表达转化；必须保留文昌文曲/才华条件，不反推无条件表达能力显著。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "state_change",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-JM-SHA-MODIFIER-014",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=23#ZZ-JM-010"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L4",
+      "rationale": "来源说明煞曜会增加不良特性、辰戌陷地尤甚；不支持统一数值惩罚，也不把传统吉凶直接转成现实风险概率。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-JM-STAR-SYSTEM-FAMILY-015",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=24#ZZ-JM-Y05"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "三类结构由同度/对拱与宫位分布定义；它们是星系关系，不是巨门单星内在性质。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-JM-TRIAD-COMPARISON-016",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=24#ZZ-JM-X07",
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=24#ZZ-JM-Y05"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "来源使用“一般而言”比较日巨并指出变格；比较对象、结构条件和相反分支均保留，不形成绝对排名。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-JM-SHI-ZHONG-YU-017",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=24#ZZ-JM-Y02"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "石中隐玉要求巨门独坐子午且化禄、化权；这是传统格局门控，不是无条件星性或现实结果保证。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-JM-CHEN-EXCEPTIONAL-018",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=24#ZZ-JM-Y03"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "辰宫、巨门化禄、文昌化忌同躔、对宫天同、会太阳化权按原文合取保留；扫描字面异常不擅自修正。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-JM-JI-JU-TONGLIN-019",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=24#ZZ-JM-Y04"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+      "rationale": "卯宫机巨、化禄、会禄存、无煞与辅弼昌曲魁钺会照须共同保留；不能简化为巨门单星性质。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "candidate_only",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-JM-TEMPORAL-BOUNDARY-020",
+      "source_refs": [
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=24#ZZ-JM-X10",
+        "SRC-ZZ-002#pdf_scan_page=12#printed_page=24#ZZ-JM-X11"
+      ],
+      "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+      "rationale": "来源明确区分运限巨门与本命特性；不利分支还受庙旺太阳、权禄及煞忌条件限制，不回写本命人格或现实官非概率。",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
         "conflict_ref": null
       }
     }
