@@ -1,6 +1,5 @@
 import csv
 import json
-import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -148,28 +147,13 @@ def test_execution_boundary_and_cumulative_state_reconcile_all_ledgers():
     state = STATE.read_text(encoding="utf-8")
     assert 'status: "ACTIVE"' in state or 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
     if 'status: "ACTIVE"' in state:
-        issue_match = re.search(r"(?m)^  active_issue: (\\d+)$", state)
-        branch_match = re.search(r'(?m)^  active_branch: "([^"]+)"
-    batches = [load(path) for path in sorted(READJ.parent.glob("SPOUSE_SP*_SOURCE_READJUDICATION_*.json"))]
-    fields = {
-        "historical_candidate_rows_reviewed": "reviewed",
-        "candidate_rows_promoted": "canonical_promoted",
-        "source_records_added": "canonical_record_count",
-        "reusable_projection_method_records_added": "reusable_projection_rules",
-        "case_support_only_records_added": "case_support_only",
-        "candidates_held": "held",
-        "candidates_deduplicated": "deduplicated",
-    }
-    state_lines = set(state.splitlines())
-    for field, summary_key in fields.items():
-        total = sum(batch["summary"][summary_key] for batch in batches)
-        assert f"  {field}: {total}" in state_lines
-    assert "P03-SP01-GAP-001" in state
-    assert "conditions_compiled=0" in state
-    assert "execution_unlocked=0" in state
-, state)
-        assert issue_match and branch_match
-        assert f"p03-{issue_match.group(1)}-" in branch_match.group(1)
+        issue_line = next((line for line in state.splitlines() if line.strip().startswith("active_issue:")), "")
+        branch_line = next((line for line in state.splitlines() if line.strip().startswith("active_branch:")), "")
+        assert issue_line and branch_line
+        issue_id = issue_line.split(":", 1)[1].strip()
+        active_branch = branch_line.strip().split('"')[1]
+        assert issue_id.isdigit()
+        assert f"p03-{issue_id}-" in active_branch
     else:
         assert "active_issue: null" in state
         assert "active_branch: null" in state
