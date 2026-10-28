@@ -103,12 +103,15 @@ def test_p37_literal_and_time_scope_remain_fail_closed():
     assert boundary["decay"] == 0
 
 
-def test_active_p03_state_and_handoff_report_are_consistent():
+def test_post_acceptance_p03_state_and_handoff_report_are_consistent():
     d = load(FOLLOWUP)
     state = STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE"' in state
-    assert "active_issue: 819" in state
-    assert 'active_branch: "knowledge/p03-819-spouse-source-atoms"' in state
+    # This file is the post-acceptance handoff snapshot; live Issue/PR state governs while open.
+    assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
+    assert "active_issue: null" in state
+    assert "active_branch: null" in state
+    assert "active_pr: null" in state
+    assert "Issue #824" in state
     assert "P03_SOURCE_COVERAGE_CENSUS_AND_TEMPORAL_HANDOFF_ACCEPTED" in state
     assert "P03-SP01-GAP-001" in state
     assert "P03-SP02-GAP-001" in state
