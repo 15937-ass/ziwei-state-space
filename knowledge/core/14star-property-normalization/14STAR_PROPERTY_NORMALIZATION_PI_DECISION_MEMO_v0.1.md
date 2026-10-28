@@ -1,10 +1,20 @@
 # PI 决策备忘录：来源与映射审计裁决（2026-10-28）
 
+## 已记录的 PI 决定（2026-10-28）
+
+PI 已明确选择 **1A、2B、3B**；结构化记录见基线 JSON 的 `pi_decision_record`。
+
+1. **1A — 太阳/太阴 QI-01：** 接受有限方向性对应（太阳发射端、太阴收敛端），仅限候选研究层；保留条件分支，不赋数值强度，不等同吉凶。
+2. **2B — QI-05：** 采用定义驱动的严格审核门槛；这是一项审核政策，不自动接受任何具体 QI-05 候选。
+3. **3B — 廉贞 QI-11：** 保留双面张力候选为 `UNRESOLVED`，暂不建立该映射。
+
+**未授权事项：** 未批准 canonical 正式映射；未修改正式星核、本体、canonical 规则或共享 Schema；未开放 Product/runtime、KIB 或消费者权限。所有候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL`，既有候选的 `normalization_epistemic=UNRESOLVED`、数值强度与 canonicalization 标记均不变。
+
 ## 当前状态
 
 - 十四主星候选检查点14/14；mapping-review记录241条，候选性质182项。
 - 来源覆盖430/430条 canonical 规则均有侧车：423条完整视觉核对、5条部分核对、1条未核实、1条来源错配。
-- 审计数据完整性、候选链接、来源引用复用与候选来源范围差异已自动核对；只有3个语义议题留给 PI，详见 [PI 决策卡 v0.1](14STAR_PROPERTY_NORMALIZATION_PI_DECISION_CARDS_v0.1.md)。
+- 审计数据完整性、候选链接、来源引用复用与候选来源范围差异已自动核对；原三项语义议题现已由 PI 选择 1A、2B、3B，详见 [PI 决策卡与决定记录](14STAR_PROPERTY_NORMALIZATION_PI_DECISION_CARDS_v0.1.md)。
 - 每个新提交均须通过自己的 exact-head CI；最新结果以 [PR #783 的 Checks](https://github.com/15937-ass/ziwei-state-space/pull/783) 为准。决策卡文档与审计数据的状态不代替 CI 验收。
 
 ## 当前处置边界
@@ -13,9 +23,9 @@
 
 **继续安全未决：** `ZZ-TL-010` 未找到精确跨度；`ZZ-TT-010` 错配并隔离；5条来源保持部分核对；`MR-LZ-SYMBOLIC-ROLE-002` 保留 UNKNOWN。以上均不要求 PI 逐项处理，也不阻塞无关候选研究。
 
-**尚未授权：** 没有批准任何正式 QI/QR 映射；没有修改正式星核、本体、canonical 规则或共享 schema；没有开放 Product/runtime、KIB 或其他消费者权限；PR #783 保持 Draft / 未合并。
+**尚未授权：** 没有批准 canonical 正式 QI/QR 映射；没有修改正式星核、本体、canonical 规则或共享 Schema；没有开放 Product/runtime、KIB 或其他消费者权限；PR #783 保持 Draft / 未合并。
 
-**PI 只需审阅：** 决策卡1（太阳/太阴 QI-01）、决策卡2（QI-05 映射门槛）、决策卡3（廉贞 QI-11）。未明确选择的项目保持候选/未决，不视为默示批准。
+**PI 决定已记录：** 1A（有限方向性对应，仅候选研究层）、2B（QI-05严格审核门槛）、3B（廉贞QI-11保留候选未决）。未纳入上述决定的具体映射仍保持候选/未决，不视为默示批准。
 
 ---
 
