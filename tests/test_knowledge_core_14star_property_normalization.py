@@ -1010,7 +1010,7 @@ def test_pojun_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
     pj_records = {k:v for k,v in records.items() if k.startswith("MR-PJ-")}
     assert len(pj_records) == 20
     assert all(p["mapping_review_record_id"] in records for p in pojun["candidate_properties"])
-    assert len(data["mapping_review_records"]) == 240
+    assert len(data["mapping_review_records"]) == 241
     assert validate_mapping_review_collection(data["mapping_review_records"]) == []
     with POJUN_SOURCE_REVIEW.open(encoding="utf-8", newline="") as handle:
         review_rows = list(csv.DictReader(handle))
@@ -1050,7 +1050,7 @@ def test_sun_source_review_covers_all_canonical_rows_without_promoting_them():
 def test_pre_pi_source_audit_followup_covers_all_canonical_rules_without_promotion():
     data = load_baseline()
     followup = data["source_audit_followup"]
-    assert followup["status"] == "SOURCE_SPAN_FOLLOWUP_COMPLETED_NOT_CANONICAL_APPROVAL"
+    assert followup["status"] == "PI_SOURCE_ADJUDICATIONS_RECORDED_PENDING_EXACT_HEAD_QUALITY_GATE"
     assert followup["guardrails"]["canonical_rules_mutated"] is False
     assert followup["guardrails"]["formal_mapping_approval"] is False
     assert followup["guardrails"]["product_consumption_authorized"] is False
