@@ -24,6 +24,8 @@
 
 当前 240 条 mapping-review 记录处置分布仍为：58 条 `supported_candidate`、56 条 `candidate_only`、100 条 `needs_review`、26 条 `not_supported_for_target`。这只是候选研究处置，不是批准清单。PI 需独立审议语义层级、条件、反例及是否接受；本轮未改正式星核、本体、canonical 规则、共享 schema、Product/runtime、KIB 或消费者权限。
 
+另完成 mapping-review 预审计：240 条记录 ID 全部唯一，182 项候选性质全部链接到现有审核记录，未发现指向不存在 canonical 规则的引用；81 种目标引用、412 次来源引用使用、356 个唯一来源引用。47 组精确来源引用在多条审核记录中复用（共103次使用），必须视为引用复用而非独立证据倍增。4 条 evidence_role 仍为 UNKNOWN，已列入 `MAPPING_REVIEW_PRE_PI_AUDIT_v0.1.md`。
+
 **质量门状态：** 本次来源审计和测试断言更新后，必须等待最新 exact-head 的完整质量门通过，方可标记技术验收完成。以下早期检查点记录作为历史记录保留；如其中的“当前未审”状态与本节冲突，以本节的后续补核记录为准。
 
 ---
