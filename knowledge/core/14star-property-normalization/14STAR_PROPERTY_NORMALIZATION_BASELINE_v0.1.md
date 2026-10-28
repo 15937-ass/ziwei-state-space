@@ -1,13 +1,13 @@
 ## 当前 PI 审计状态与来源裁决汇总（2026-10-28）
 
-**当前状态：** `PI_DECISIONS_RECORDED_PENDING_EXACT_HEAD_QUALITY_GATE` / `PROPOSAL_ONLY_NOT_CANONICAL`  
+**当前状态：** `PI_DECISIONS_RECORDED` / `PROPOSAL_ONLY_NOT_CANONICAL`  
 **Issue / PR：** [#757](https://github.com/15937-ass/ziwei-state-space/issues/757) / [#783（Draft，未合并）](https://github.com/15937-ass/ziwei-state-space/pull/783)  
 
 **PI决定记录（2026-10-28）：** `1A，2B，3B`；详见 [PI 决策卡](14STAR_PROPERTY_NORMALIZATION_PI_DECISION_CARDS_v0.1.md) 与基线 JSON 的 `pi_decision_record`。
 - 1A：接受太阳发射端／太阴收敛端的有限方向性对应，仅属候选研究层，不触发 canonical 晋升。
 - 2B：采用定义驱动的 QI-05 严格审核门槛，不自动接受任何具体候选。
 - 3B：廉贞 QI-11 保留候选、继续 `UNRESOLVED`。
-- 当前等待新 head 的完整 exact-head 质量门；所有 canonical、共享 Schema、Product/runtime 与 KIB 安全边界保持不变。
+- 完整质量门的实时结果以 PR #783 最新 exact-head Checks 为准；本基线不自报本提交的验收结论。所有 canonical、共享 Schema、Product/runtime 与 KIB 安全边界保持不变。
 **主分支同步：** main `46df5401745136fe16e8ff49de10620bd5a0ae55` 已通过同步 PR [#822](https://github.com/15937-ass/ziwei-state-space/pull/822) 合入 Core 工作分支，合并提交 `229e8a5504dfaaf08c2f48112ecdd541ce272d05`。  
 **质量门：** 每个新提交均须通过自己的 exact-head CI；最新结果以 [PR #783 的 Checks](https://github.com/15937-ass/ziwei-state-space/pull/783) 为准。文档状态不代替 CI 验收。  
 **来源覆盖：** 14份侧车覆盖430条 canonical 规则ID；423条完整视觉核对、5条部分核对、1条未核实、1条来源错配。  
@@ -19,7 +19,7 @@
 
 # 十四主星基础性质归一化基线 v0.1
 
-**当前状态：** `PI_DECISIONS_RECORDED_PENDING_EXACT_HEAD_QUALITY_GATE` / `PROPOSAL_ONLY_NOT_CANONICAL`
+**当前状态：** `PI_DECISIONS_RECORDED` / `PROPOSAL_ONLY_NOT_CANONICAL`
 **跟踪 Issue：** [#757](https://github.com/15937-ass/ziwei-state-space/issues/757)
 **已同步 main：** `46df5401745136fe16e8ff49de10620bd5a0ae55`（通过同步 PR [#822](https://github.com/15937-ass/ziwei-state-space/pull/822) 合入，合并提交 `229e8a5504dfaaf08c2f48112ecdd541ce272d05`）
 **执行分支：** `knowledge/core-757-14star-property-normalization-main-sync2`
