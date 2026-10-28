@@ -1166,14 +1166,17 @@ def test_pre_pi_source_audit_followup_covers_all_canonical_rules_without_promoti
     held = {row["rule_id"] for row in all_rows if row["source_span_status"] in {"NOT_VERIFIED_IN_REVIEWED_SPANS", "SOURCE_MISMATCH_CONFIRMED"}}
     assert held == {"ZZ-TL-010", "ZZ-TT-010"}
     assert data["pre_pi_gates"]["source_coverage"]["status_counts"] == counts
-    assert data["progress"]["stage"] == "PI_DECISIONS_RECORDED"
+    assert data["progress"]["stage"] == "B_POJUN_CHECKPOINT_COMPLETED_READY_FOR_FINAL_REVIEW"
+    assert data["pre_pi_status"] == "PI_DECISIONS_RECORDED"
+    assert data["source_audit_followup"]["status"] == "PI_DECISIONS_RECORDED"
 
 
 def test_pre_pi_mapping_review_audit_counts_are_consistent():
     data = load_baseline()
     main_sync = data["pre_pi_gates"]["main_sync"]
-    assert main_sync["main_sha"] == "46df5401745136fe16e8ff49de10620bd5a0ae55"
-    assert main_sync["merge_commit_sha"] == "229e8a5504dfaaf08c2f48112ecdd541ce272d05"
+    assert main_sync["main_sha"] == "4713367b4d0c33f23d63a323b557f7d7ea7db713"
+    assert main_sync["merge_commit_sha"] == "649f3daf0f2910737d755ca7ae4c6ba42dbf5c3e"
+    assert main_sync["sync_pr_number"] == 827
     assert main_sync["branch_contains_main"] is True
     audit = data["pre_pi_gates"]["mapping_review_audit"]
     assert audit["mapping_review_records"] == audit["unique_review_ids"] == 241
