@@ -3,7 +3,7 @@
 **当前状态：** `PI_DECISION_CARDS_READY_PENDING_PI_DECISIONS` / `PROPOSAL_ONLY_NOT_CANONICAL`  
 **Issue / PR：** [#757](https://github.com/15937-ass/ziwei-state-space/issues/757) / [#783（Draft，未合并）](https://github.com/15937-ass/ziwei-state-space/pull/783)  
 **主分支同步：** main `f77227ec0b67d422bce4e1dde2f4a1a39491d29f` 已通过同步PR #821合入 Core 工作分支。  
-**质量门：** 前一审核提交 `4bf138b188bb08dd9ce4339fcf717ce33686970a` 的 Run [#40651331271](https://github.com/15937-ass/ziwei-state-space/actions/runs/40651331271) 通过，2855 tests passed、132 subtests passed；该记录只证明对应提交通过，新提交仍须有自己的 exact-head CI。  
+**质量门：** 每个新提交均须通过自己的 exact-head CI；最新结果以 [PR #783 的 Checks](https://github.com/15937-ass/ziwei-state-space/pull/783) 为准。文档状态不代替 CI 验收。  
 **来源覆盖：** 14份侧车覆盖430条 canonical 规则ID；423条完整视觉核对、5条部分核对、1条未核实、1条来源错配。  
 **Mapping-review：** 241条记录、182项候选性质；58 supported_candidate、57 candidate_only、100 needs_review、26 not_supported_for_target。100条 needs_review 是记录状态，不是 PI 待办数。  
 **引用去重：** 428次来源引用使用、360个唯一来源引用；59组精确引用复用，共127次使用；复用不增加独立证据权重。  

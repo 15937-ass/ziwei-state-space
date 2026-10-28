@@ -1050,7 +1050,11 @@ def test_sun_source_review_covers_all_canonical_rows_without_promoting_them():
 def test_pre_pi_source_audit_followup_covers_all_canonical_rules_without_promotion():
     data = load_baseline()
     followup = data["source_audit_followup"]
-    assert followup["status"] == "PI_SOURCE_ADJUDICATIONS_RECORDED_PENDING_EXACT_HEAD_QUALITY_GATE"
+    assert followup["status"] == "PI_DECISION_CARDS_READY_PENDING_PI_DECISIONS"
+    cards_path = ROOT / data["pre_pi_gates"]["decision_cards_path"]
+    assert cards_path.exists()
+    cards_text = cards_path.read_text(encoding="utf-8")
+    assert cards_text.count("## 决策卡 ") == 3
     assert followup["guardrails"]["canonical_rules_mutated"] is False
     assert followup["guardrails"]["formal_mapping_approval"] is False
     assert followup["guardrails"]["product_consumption_authorized"] is False

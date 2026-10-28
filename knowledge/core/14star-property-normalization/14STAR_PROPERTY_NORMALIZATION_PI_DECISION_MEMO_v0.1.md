@@ -5,7 +5,7 @@
 - 十四主星候选检查点14/14；mapping-review记录241条，候选性质182项。
 - 来源覆盖430/430条 canonical 规则均有侧车：423条完整视觉核对、5条部分核对、1条未核实、1条来源错配。
 - 审计数据完整性、候选链接、来源引用复用与候选来源范围差异已自动核对；只有3个语义议题留给 PI，详见 [PI 决策卡 v0.1](14STAR_PROPERTY_NORMALIZATION_PI_DECISION_CARDS_v0.1.md)。
-- 最新已确认的前一审核提交 `4bf138b188bb08dd9ce4339fcf717ce33686970a` 的质量门通过：Run [#40651331271](https://github.com/15937-ass/ziwei-state-space/actions/runs/40651331271)，2855 tests passed、132 subtests passed；Product JS adapters、P0和Repository Governance均通过。每次新提交仍需检查自己的 exact-head CI。
+- 每个新提交均须通过自己的 exact-head CI；最新结果以 [PR #783 的 Checks](https://github.com/15937-ass/ziwei-state-space/pull/783) 为准。决策卡文档与审计数据的状态不代替 CI 验收。
 
 ## 当前处置边界
 
