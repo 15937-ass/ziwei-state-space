@@ -33,7 +33,7 @@ def load_baseline():
 def test_solar_taiyin_and_tianxiang_pilots_are_explicitly_noncanonical_and_source_bounded():
     data = load_baseline()
     assert data["status"] == "PROPOSAL_ONLY_NOT_CANONICAL"
-    assert data["checkpoint_status"] == "STAGE_B_POJUN_CHECKPOINT_COMPLETED_NOT_FINAL"
+    assert data["checkpoint_status"] == "CANDIDATE_RESEARCH_COMPLETE_NOT_CANONICAL"
     assert data["progress"]["completed_pilot_cards"] == ["太阳", "太阴", "天相"]
     assert data["progress"]["active_pilot_card"] is None
     assert data["progress"]["draft_pilot_cards"] == ["太阳", "太阴", "天相"]
@@ -53,7 +53,7 @@ def test_solar_taiyin_and_tianxiang_pilots_are_explicitly_noncanonical_and_sourc
     assert data["stars"][8]["name"] == "天府"
     assert data["stars"][9]["name"] == "贪狼"
     assert data["stars"][10]["name"] == "巨门"
-    assert data["progress"]["stage"] == "B_POJUN_CHECKPOINT_COMPLETED_READY_FOR_FINAL_REVIEW"
+    assert data["progress"]["stage"] == "CANDIDATE_RESEARCH_COMPLETE_NO_AUTOMATIC_SUCCESSOR"
     assert data["progress"]["remaining_expansion_stars_in_existing_order"] == []
     assert data["stars"][0]["name"] == "太阳"
     assert data["stars"][0]["status"] == "PILOT_CHECKPOINT_COMPLETED_NOT_FINAL"
@@ -1063,6 +1063,45 @@ def test_sun_source_review_covers_all_canonical_rows_without_promoting_them():
     assert all(canonical_by_id[r["rule_id"]]["source_span_verified"] == "false" for r in review_rows)
 
 
+def test_research_closure_metadata_matches_merged_pr_and_final_quality_gate():
+    data = load_baseline()
+    closure = data["research_closure"]
+    assert data["checkpoint_status"] == "CANDIDATE_RESEARCH_COMPLETE_NOT_CANONICAL"
+    assert data["progress"]["stage"] == "CANDIDATE_RESEARCH_COMPLETE_NO_AUTOMATIC_SUCCESSOR"
+    assert closure["status"] == "COMPLETED_ACCEPTED_CANDIDATE_RESEARCH"
+    assert closure["effective_on"] == "PR_783_MERGED_TO_MAIN"
+    assert closure["pending_pi_questions"] == 0
+    assert closure["stars_completed"] == 14
+    assert closure["automatic_successor_authorized"] is False
+    assert closure["canonical_mapping_approved"] is False
+    assert closure["product_consumption_authorized"] is False
+    assert closure["final_validation"] == "PASSED_EXACT_HEAD_CI_RUN_40666043215"
+    gate = closure["final_validation_details"]
+    assert gate["status"] == "PASSED"
+    assert gate["run_id"] == 40666043215
+    assert gate["validated_pr"] == 783
+    assert gate["validated_head_sha"] == "8752d2f09b1e275f6f15420fd38f26622acbd3e8"
+    assert gate["merged_main_sha"] == "f377319b54ba26d39ef184f95a208fe9e2eb7ec1"
+    assert gate["tests_passed"] == 2868
+    assert gate["subtests_passed"] == 132
+    cards_path = ROOT / "knowledge/core/14star-property-normalization/14STAR_PROPERTY_NORMALIZATION_PI_DECISION_CARDS_v0.1.md"
+    cards_text = cards_path.read_text(encoding="utf-8")
+    assert "[#783（已合并）]" in cards_text
+    assert "Draft，未合并" not in cards_text
+    baseline_md_path = ROOT / "knowledge/core/14star-property-normalization/14STAR_PROPERTY_NORMALIZATION_BASELINE_v0.1.md"
+    baseline_md = baseline_md_path.read_text(encoding="utf-8")
+    assert "[#783（已合并）]" in baseline_md
+    assert "最新 main `4713367b4d0c33f23d63a323b557f7d7ea7db713`" not in baseline_md
+    pi_review_path = ROOT / "knowledge/core/14star-property-normalization/14STAR_PROPERTY_NORMALIZATION_PI_REVIEW_v0.1.md"
+    pi_review = pi_review_path.read_text(encoding="utf-8")
+    assert pi_review.startswith("# 当前权威状态")
+    assert "已合入 main" in pi_review[:1200]
+    gaps_path = ROOT / "knowledge/core/14star-property-normalization/14STAR_PROPERTY_NORMALIZATION_GAPS_v0.1.md"
+    gaps_text = gaps_path.read_text(encoding="utf-8")
+    assert "COMPLETED_ACCEPTED_CANDIDATE_RESEARCH" in gaps_text
+    assert "exact-head质量门仍待本轮变更后重新验证" not in gaps_text
+
+
 def test_pi_decisions_1a_2b_3b_are_recorded_without_canonical_promotion():
     data = load_baseline()
     record = data["pi_decision_record"]
@@ -1085,7 +1124,7 @@ def test_pi_decisions_1a_2b_3b_are_recorded_without_canonical_promotion():
     assert decisions[3]["affected_candidates"][0]["candidate_key"] == "EXP-LZ-03"
     assert decisions[3]["normalization_epistemic"] == "UNRESOLVED"
     assert data["pre_pi_status"] == "PI_DECISIONS_RECORDED"
-    assert data["progress"]["stage"] == "B_POJUN_CHECKPOINT_COMPLETED_READY_FOR_FINAL_REVIEW"
+    assert data["progress"]["stage"] == "CANDIDATE_RESEARCH_COMPLETE_NO_AUTOMATIC_SUCCESSOR"
     assert data["pre_pi_gates"]["formal_mapping_approval"] is False
     assert data["pre_pi_gates"]["product_consumption_authorized"] is False
     assert record["guardrails"] == {
@@ -1166,7 +1205,7 @@ def test_pre_pi_source_audit_followup_covers_all_canonical_rules_without_promoti
     held = {row["rule_id"] for row in all_rows if row["source_span_status"] in {"NOT_VERIFIED_IN_REVIEWED_SPANS", "SOURCE_MISMATCH_CONFIRMED"}}
     assert held == {"ZZ-TL-010", "ZZ-TT-010"}
     assert data["pre_pi_gates"]["source_coverage"]["status_counts"] == counts
-    assert data["progress"]["stage"] == "B_POJUN_CHECKPOINT_COMPLETED_READY_FOR_FINAL_REVIEW"
+    assert data["progress"]["stage"] == "CANDIDATE_RESEARCH_COMPLETE_NO_AUTOMATIC_SUCCESSOR"
     assert data["pre_pi_status"] == "PI_DECISIONS_RECORDED"
     assert data["source_audit_followup"]["status"] == "PI_DECISIONS_RECORDED"
 

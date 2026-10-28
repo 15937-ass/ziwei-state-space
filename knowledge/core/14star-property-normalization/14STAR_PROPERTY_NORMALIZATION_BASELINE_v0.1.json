@@ -3,7 +3,7 @@
   "artifact_id": "KB-CORE-14STAR-PROPERTY-NORMALIZATION-BASELINE-01",
   "issue": 757,
   "status": "PROPOSAL_ONLY_NOT_CANONICAL",
-  "checkpoint_status": "STAGE_B_POJUN_CHECKPOINT_COMPLETED_NOT_FINAL",
+  "checkpoint_status": "CANDIDATE_RESEARCH_COMPLETE_NOT_CANONICAL",
   "activation_main_sha": "d45e2cfd6c0dc59fb80ec2210f7e729c53391c4f",
   "execution_branch": "knowledge/core-757-14star-property-normalization-main-sync2",
   "source_policy": {
@@ -817,7 +817,7 @@
     "lianzheng_review_path": "knowledge/core/14star-property-normalization/LIANZHEN_SOURCE_SPAN_REVIEW_v0.1.csv"
   },
   "progress": {
-    "stage": "B_POJUN_CHECKPOINT_COMPLETED_READY_FOR_FINAL_REVIEW",
+    "stage": "CANDIDATE_RESEARCH_COMPLETE_NO_AUTOMATIC_SUCCESSOR",
     "completed_pilot_cards": [
       "太阳",
       "太阴",
@@ -15910,7 +15910,7 @@
     }
   },
   "research_closure": {
-    "status": "BOUNDED_RESEARCH_COMPLETE_PENDING_FINAL_GATE_AND_MERGE",
+    "status": "COMPLETED_ACCEPTED_CANDIDATE_RESEARCH",
     "effective_on": "PR_783_MERGED_TO_MAIN",
     "issue": 757,
     "pr": 783,
@@ -15944,7 +15944,23 @@
     "canonical_mapping_approved": false,
     "product_consumption_authorized": false,
     "automatic_successor_authorized": false,
-    "final_validation": "REQUIRED_PER_EXACT_BASE_HEAD_CI_AND_LIVE_ISSUE_PR",
-    "closure_document": "14STAR_PROPERTY_NORMALIZATION_BASELINE_v0.1.md"
+    "final_validation": "PASSED_EXACT_HEAD_CI_RUN_40666043215",
+    "closure_document": "14STAR_PROPERTY_NORMALIZATION_BASELINE_v0.1.md",
+    "final_validation_details": {
+      "status": "PASSED",
+      "run_id": 40666043215,
+      "run_url": "https://github.com/15937-ass/ziwei-state-space/actions/runs/40666043215",
+      "validated_pr": 783,
+      "validated_head_sha": "8752d2f09b1e275f6f15420fd38f26622acbd3e8",
+      "validated_base_sha": "4713367b4d0c33f23d63a323b557f7d7ea7db713",
+      "merged_main_sha": "f377319b54ba26d39ef184f95a208fe9e2eb7ec1",
+      "tests_passed": 2868,
+      "subtests_passed": 132,
+      "product_js_adapters": "PASS",
+      "deterministic_p0": "PASS",
+      "repository_governance_v1": "PASS",
+      "core_write_set": "PASS"
+    },
+    "closure_note": "Issue #757 is closed and PR #783 is merged. This bounded candidate-research task is complete; no automatic successor is authorized. Candidate mappings remain non-canonical/unresolved and Product/KIB consumption remains unauthorized."
   }
 }
