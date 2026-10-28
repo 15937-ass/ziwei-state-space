@@ -8,14 +8,14 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "ACTIVE"
-  active_issue: 808
-  active_branch: "knowledge/p03-808-spouse-sp06-501-600"
+  status: "ACTIVE_NO_ACTIVE_WORK"
+  active_issue: null
+  active_branch: null
   active_pr: null
-  canonical_checkpoint: "SP05_401_500_ACCEPTED__SP06_501_600_SOURCE_FIRST_AUDIT_ACTIVE"
+  canonical_checkpoint: "SP06_501_600_SOURCE_FIRST_REVIEW_COMPLETE__600_CANDIDATES_REVIEWED__460_CANDIDATES_PROMOTED__469_SOURCE_RECORDS__344_REUSABLE__125_CASE_ONLY__137_HELD__3_DEDUPED__14_SOURCE_GAPS__4_OPEN_OR_PARTIAL__46_TEMPORAL_RESIDUAL_GROUPS"
   note: >-
     Accepted P03 source-first ledgers now cover SP01-001…100, SP02-101…200,
-    SP03-201…300, SP04-301…400, and SP05-401…500. SP05 directly inspected
+    SP03-201…300, SP04-301…400, SP05-401…500, and SP06-501…600. SP05 directly inspected
     approved SRC-ZZ-003 physical pp21–22 / printed pp41–43; historical reports
     and CSVs remain read-only acceleration artifacts and their old verification
     flags are not proof. SP05 reviewed 100 candidate rows: 64 were promoted,
@@ -23,13 +23,11 @@ execution:
     because the Tianfu empty-vault sentence has unresolved semantic direction),
     and one historical candidate was deduplicated against an existing source
     record. Two unindexed source claims were added as P03-local supplements.
-    SP05 therefore adds 66 source records (46 reusable, 20 CASE_SUPPORT_ONLY).
-    Cumulative SP01–SP05 totals are 500 candidate rows reviewed, 385 promoted,
-    392 source records, 298 reusable, 94 case-only, 112 held and 3 deduplicated.
-    Two new source gaps were found and covered by explicit supplements; 11 gaps
-    are tracked overall, with four still open or partially open. P03-SP01-GAP-001
-    remains explicitly carried forward pending the full P03 source-coverage census. Temporal
-    residuals total 37 groups / 106 candidate rows. SP05-459 was corrected
+    SP05 added 66 source records (46 reusable, 20 CASE_SUPPORT_ONLY). SP06 directly re-adjudicated 100 rows: 75 promoted, 25 held, 0 deduplicated; it adds 78 source records (46 reusable, 32 CASE_SUPPORT_ONLY), including three source-gap supplements.
+    Cumulative SP01–SP06 totals are 600 candidate rows reviewed, 460 promoted,
+    469 source records, 344 reusable, 125 case-only, 137 held and 3 deduplicated.
+    SP06 added three source-gap supplements; 14 gaps are tracked overall, with four still open or partially open. P03-SP01-GAP-001
+    remains explicitly carried forward pending the full P03 source-coverage census. Temporal residuals total 46 groups / 129 candidate rows. SP05-459 was corrected
     because the historical target contradicted the scan; SP05-450 was narrowed
     to the original-placement/single-auxiliary-star context; SP05-465 remains
     fail-closed; SP05-500 was relocated to printed p42 and deduplicated against
@@ -40,21 +38,21 @@ progress:
   full_source_section_printed_pages: "33–51"
   full_source_section_pdf_physical_pages: "17–26"
   historical_candidate_rows_in_inventory: 836
-  historical_candidate_rows_reviewed: 500
-  candidate_rows_promoted: 385
-  source_records_added: 392
-  reusable_projection_method_records_added: 298
-  case_support_only_records_added: 94
-  candidates_held: 112
+  historical_candidate_rows_reviewed: 600
+  candidate_rows_promoted: 460
+  source_records_added: 469
+  reusable_projection_method_records_added: 344
+  case_support_only_records_added: 125
+  candidates_held: 137
   candidates_deduplicated: 3
   source_coverage_residuals_carried: 4
-  source_coverage_residuals_total_recorded: 11
-  temporal_scope_residuals: 37
-  temporal_scope_candidate_rows: 106
+  source_coverage_residuals_total_recorded: 14
+  temporal_scope_residuals: 46
+  temporal_scope_candidate_rows: 129
   history_feedback: 0
   conditions_compiled: 0
   execution_unlocked: 0
-  next_source_anchor: "Active: Issue #808, SP06-501…600, printed pp43–45 / PDF physical pp22–23. Start at “8 太阴”; stop immediately before “10 巨门”. Re-adjudicate all rows from the original scan; do not reuse historical SOURCE_SPAN_VERIFIED flags. Do not advance to P11 until the full P03 source coverage census and residual handoff are accepted."
+  next_source_anchor: "Printed p45 / PDF physical p23: start SP07-601…700 at the “10 巨门” heading. Directly re-adjudicate from the approved scan; do not reuse historical SOURCE_SPAN_VERIFIED flags. Do not advance to P11 until the full P03 source coverage census and residual handoff are accepted."
 
 integrity:
   source_first: true
