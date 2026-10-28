@@ -2,7 +2,7 @@
 
 **当前状态：** `B_TIANLIANG_CHECKPOINT_COMPLETED_READY_FOR_QISHA` / `PROPOSAL_ONLY_NOT_CANONICAL`
 **跟踪 Issue：** [#757](https://github.com/15937-ass/ziwei-state-space/issues/757)
-**当前检查点基线 main：** `5f697a5a02812e9781acf8d78e0f28d5087bd6ce`
+**当前检查点基线 main：** `cd082859267f0e57c85298bf267004418f8cdfb2`
 **执行分支：** `knowledge/core-757-14star-property-normalization-main-sync2`
 
 > 太阳、太阴、天相三个有界试点与阶段B紫微、天机、武曲、天同、廉贞、天府、贪狼、巨门、天梁九个检查点均已形成候选卡与逐目标审核记录。本文件仍是候选研究基线，不代表十四主星研究完成，不是正式本体变更，也不授权 Product 消费。
