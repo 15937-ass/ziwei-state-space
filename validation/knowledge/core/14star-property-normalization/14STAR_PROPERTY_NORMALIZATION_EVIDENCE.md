@@ -6,7 +6,8 @@
 - 来源为 `SRC-ZZ-002`《中州派紫微斗数深造讲义（上）》；SHA-256 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a` 与 `sources/source_index.csv` 一致。直接视觉核对扫描页14/印刷页27–28。
 - 新增 `TIANLIANG_SOURCE_SPAN_REVIEW_v0.1.csv`，对26条 `ZZ-TLIA` canonical行逐一登记：24条完整视觉核对、`ZZ-TLIA-001`部分核对、`ZZ-TLIA-010`未核实。新增20条source-claim卡、20项候选性质、20条mapping-review记录和专用回归测试。
 - 字面/范围缺口：扫描字面“第三得”与canonical摘录“第三星”不一致；`ZZ-TLIA-010`的六十星系来源未给具体页码，本轮未替代核对。
-- 本轮新提交的 exact-head 完整质量门须在 PR #783 同步事件运行后确认；关联运行成功前，不声称本轮新提交已通过。
+- Run #40621879283（head `91b17359e52b40728d13a284df58fce9b76170ca`）完成但未通过：`test_context_audit_refs_existing_source_claims_without_growing_canonical_evidence` 的前缀库存仍只统计原有11组映射记录，导致总数断言仍期待180；实际200条中新增的20条 `MR-TLIA-` 记录已通过映射校验。结果为1 failed、2,825 passed、132 subtests passed。
+- 本次修正测试中的前缀库存，将 `MR-TLIA-` 纳入并把期望总数更新为200；修正后的新提交必须再通过完整质量门，才能认定本轮验收完成。
 - 未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限；所有候选保持 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`，canonical `source_span_verified=false` 保持不变。
 
 ---
