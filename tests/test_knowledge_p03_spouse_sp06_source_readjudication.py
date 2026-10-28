@@ -105,8 +105,9 @@ def test_temporal_scope_and_condition_membership_fail_closed():
     assert "大限流年" in disp["SP06-520"]["source_literal_claim"]
     assert "大限流年" in disp["SP06-540"]["source_literal_claim"]
     assert "克应之期" in disp["SP06-525"]["source_literal_claim"]
-    assert len(d["temporal_scope_residuals"]) == 46
-    assert d["summary"]["temporal_scope_residual_count"] == 46
+    assert "吉凶之枢纽" in disp["SP06-528"]["source_literal_claim"]
+    assert len(d["temporal_scope_residuals"]) == 47
+    assert d["summary"]["temporal_scope_residual_count"] == 47
     assert d["summary"]["temporal_scope_candidate_row_count"] == 129
     assert len({candidate for residual in d["temporal_scope_residuals"] for candidate in residual["candidate_ids"]}) == 129
     assert "ANY" in disp["SP06-508"]["reason"] or "ALL/ANY" in disp["SP06-508"]["reason"]
