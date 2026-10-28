@@ -166,9 +166,9 @@ def test_cumulative_state_and_execution_boundary_reconcile():
     assert "SP06_501_600_SOURCE_FIRST_REVIEW_COMPLETE" in state
     assert "historical_candidate_rows_reviewed: 600" in state
     assert "candidate_rows_promoted: 460" in state
-    assert "source_records_added: 469" in state
+    assert "source_records_added: 470" in state
     assert "reusable_projection_method_records_added: 344" in state
-    assert "case_support_only_records_added: 125" in state
+    assert "case_support_only_records_added: 126" in state
     assert "candidates_held: 137" in state
     assert "candidates_deduplicated: 3" in state
     assert "temporal_scope_residuals: 47" in state
