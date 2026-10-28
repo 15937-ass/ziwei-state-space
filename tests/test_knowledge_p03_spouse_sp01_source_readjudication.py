@@ -138,7 +138,7 @@ def test_p03_state_cache_reconciles_all_source_review_batches():
     assert "active_branch: null" in state
     assert "active_pr: null" in state
     batches = [load(path) for path in sorted(READJ.parent.glob(
-        "SPOUSE_SP*_SOURCE_READJUDICATION_100_v0.1.json"
+        "SPOUSE_SP*_SOURCE_READJUDICATION_*.json"
     ))]
     assert batches
     candidates = [row["historical_candidate_id"] for batch in batches
