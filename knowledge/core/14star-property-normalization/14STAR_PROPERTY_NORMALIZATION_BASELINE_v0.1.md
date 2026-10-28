@@ -1,15 +1,15 @@
 ## 当前 PI 审计状态与来源裁决汇总（2026-10-28）
 
-**当前状态：** `PI_SOURCE_AND_MAPPING_AUDIT_DECISIONS_RECORDED_PENDING_EXACT_HEAD_QUALITY_GATE`  
-**主分支同步：** main `f77227ec0b67d422bce4e1dde2f4a1a39491d29f` 已通过同步PR #821合入Core工作分支；PR #783仍保持Draft / 未合并。  
-**来源覆盖：** 14份侧车覆盖430条canonical规则ID；423条完整视觉核对、5条部分核对、1条未核实、1条来源错配。  
-**PI印刷误字裁决：** `ZZ-TLIA-001`“第三得”按“第三星”理解；`ZZ-QS-005`“廉洁”按“廉贞”理解。原始扫描字面保留，canonical行和正式source flags不变。  
-**剩余来源问题：** `ZZ-TL-010`缺少直接支持“性急”的精确跨度；`ZZ-TT-010`确认错配并隔离；5条部分核对为`ZZ-TL-009`、`ZZ-JM-003/004/006/007`。  
-**Mapping-review：** 241条记录、182项候选性质；处置分布为58 supported_candidate、57 candidate_only、100 needs_review、26 not_supported_for_target。  
-**引用去重：** 428次来源引用使用、360个唯一来源引用；59组精确引用复用，共127次使用。重复引用与同跨度不同rule ID均不增加独立证据权重。  
-**来源范围差异：** 原始13项/26个rule ID已逐项审查；12项/25个ID已补入直接引用或缩窄范围。剩余`EXP-WQ-06 / ZZ-WQ-X06`是与`ZZ-WQ-018/019`重叠的摘要，不重复引用。  
-**UNKNOWN角色：** 原4条中3条已按现有schema作出有依据的处置；`MR-LZ-SYMBOLIC-ROLE-002`仍UNKNOWN，因为现有枚举无法准确表达传统象征标签。  
-**正式规则边界：** 所有canonical行仍保持`source_span_verified=false`与`normalization_epistemic=UNRESOLVED`；候选仍为`PROPOSAL_ONLY_NOT_CANONICAL`。来源核对与PI文字裁决不批准现代QI映射。
+**当前状态：** `PI_DECISION_CARDS_READY_PENDING_PI_DECISIONS` / `PROPOSAL_ONLY_NOT_CANONICAL`  
+**Issue / PR：** [#757](https://github.com/15937-ass/ziwei-state-space/issues/757) / [#783（Draft，未合并）](https://github.com/15937-ass/ziwei-state-space/pull/783)  
+**主分支同步：** main `f77227ec0b67d422bce4e1dde2f4a1a39491d29f` 已通过同步PR #821合入 Core 工作分支。  
+**质量门：** 前一审核提交 `4bf138b188bb08dd9ce4339fcf717ce33686970a` 的 Run [#40651331271](https://github.com/15937-ass/ziwei-state-space/actions/runs/40651331271) 通过，2855 tests passed、132 subtests passed；该记录只证明对应提交通过，新提交仍须有自己的 exact-head CI。  
+**来源覆盖：** 14份侧车覆盖430条 canonical 规则ID；423条完整视觉核对、5条部分核对、1条未核实、1条来源错配。  
+**Mapping-review：** 241条记录、182项候选性质；58 supported_candidate、57 candidate_only、100 needs_review、26 not_supported_for_target。100条 needs_review 是记录状态，不是 PI 待办数。  
+**引用去重：** 428次来源引用使用、360个唯一来源引用；59组精确引用复用，共127次使用；复用不增加独立证据权重。  
+**来源范围差异：** 原始13项/26个 rule ID 已逐项处理；唯一保留项 `EXP-WQ-06 / ZZ-WQ-X06` 为与 `ZZ-WQ-018/019` 重叠的摘要，不重复计证。  
+**PI决策入口：** [3张 PI 决策卡 v0.1](14STAR_PROPERTY_NORMALIZATION_PI_DECISION_CARDS_v0.1.md)。  
+**正式规则边界：** 所有候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`；canonical source flags仍为false；未批准正式映射、未修改正式星核/本体/共享Schema/Product/runtime/KIB或消费者权限。
 
 # 十四主星基础性质归一化基线 v0.1
 

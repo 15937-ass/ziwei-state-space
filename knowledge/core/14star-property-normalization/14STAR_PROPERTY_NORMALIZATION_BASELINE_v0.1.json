@@ -15696,7 +15696,7 @@
       }
     ]
   },
-  "pre_pi_status": "PRE_PI_SOURCE_AUDIT_COMPLETED_PENDING_EXACT_HEAD_QUALITY_GATE",
+  "pre_pi_status": "PI_DECISION_CARDS_READY_PENDING_PI_DECISIONS",
   "pre_pi_gates": {
     "main_sync": {
       "status": "MERGED_INTO_CORE_BRANCH_NOT_PR_MERGED",
@@ -15720,7 +15720,7 @@
       "ZZ-TT-010: source mismatch confirmed; quarantined, not promoted",
       "Five partial rows remain: ZZ-TL-009 and ZZ-JM-003/004/006/007; each has a narrower missing branch/scope, recorded in the source-span sidecars."
     ],
-    "exact_head_quality_gate": "PENDING_AFTER_PI_SOURCE_AND_MAPPING_AUDIT_DECISIONS",
+    "exact_head_quality_gate": "REQUIRED_PER_EXACT_HEAD_CI",
     "pi_review_authorized": false,
     "formal_mapping_approval": false,
     "product_consumption_authorized": false,
@@ -15767,6 +15767,13 @@
         "reconciled_rule_ids": 25,
         "direct_source_ref_semantics": "mapping-review source_refs record directly cited scope; candidate source_rule_ids may include broader context or overlapping summary. Remaining mismatch is an intentional overlapping Chang-Qu summary, not a missing independent evidence source."
       }
+    },
+    "decision_cards_path": "knowledge/core/14star-property-normalization/14STAR_PROPERTY_NORMALIZATION_PI_DECISION_CARDS_v0.1.md",
+    "last_verified_quality_gate": {
+      "head_sha": "4bf138b188bb08dd9ce4339fcf717ce33686970a",
+      "run_id": 40651331271,
+      "result": "success",
+      "summary": "2855 passed, 132 subtests passed; Product JS adapters, deterministic P0 gate, and Repository Governance v1 passed. This check was for the preceding head; each subsequent head requires its own CI result."
     }
   }
 }

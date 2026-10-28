@@ -2,40 +2,38 @@
 
 本节为当前有效状态；其后的历史交接保留作轨迹，不覆盖本节。
 
-## 来源证据缺口
+## 当前状态
 
-- 430/430条canonical规则均有来源审查侧车。
-- 当前来源状态：423条`VERIFIED_VISUAL_SCAN`、5条`PARTIALLY_VERIFIED_VISUAL_SCAN`、1条`NOT_VERIFIED_IN_REVIEWED_SPANS`、1条`SOURCE_MISMATCH_CONFIRMED`。
-- PI已裁定两处印刷误字：`ZZ-TLIA-001`“第三得”按“第三星”理解；`ZZ-QS-005`“廉洁”按“廉贞”理解。原始literal保留，canonical源行与映射状态不变。
-- 仍未决：`ZZ-TL-010`缺少直接支持“性急”的精确跨度；`ZZ-TT-010`为已确认错配并继续隔离；5条部分核对为`ZZ-TL-009`、`ZZ-JM-003/004/006/007`。
+- 十四主星候选检查点：14/14；241条 mapping-review 记录、182项候选性质。
+- 来源覆盖：430条 canonical 规则均有侧车；423条完整视觉核对、5条部分核对、1条未核实、1条来源错配。
+- 当前 exact-head 质量门已在前一审核提交 `4bf138b188bb08dd9ce4339fcf717ce33686970a` 通过：Run [#40651331271](https://github.com/15937-ass/ziwei-state-space/actions/runs/40651331271)，2855 tests passed、132 subtests passed，Product JS adapters、P0与Repository Governance均通过。后续每个新提交仍须通过自己的 exact-head CI。
+- 当前只保留3张 PI 决策卡，见 [PI 决策卡 v0.1](14STAR_PROPERTY_NORMALIZATION_PI_DECISION_CARDS_v0.1.md)。100条 `needs_review` 是审核记录状态，不等于100项 PI 任务。
 
-## Mapping-review审计
+## 自动审计结果
 
-- mapping-review记录：241；ID唯一：241；候选性质182项均关联到有效审核记录。
+- 241条 mapping-review ID 全部唯一；182项候选均关联有效审核记录；未发现引用不存在的 canonical 规则。
 - 处置分布：58 `supported_candidate`、57 `candidate_only`、100 `needs_review`、26 `not_supported_for_target`。
-- 来源引用：428次使用、360个唯一引用；59组精确来源引用复用，共127次使用。重复引用不增加独立证据权重。
-- 13项候选/26个rule ID的来源范围差异已逐项处置；当前只保留`EXP-WQ-06 / ZZ-WQ-X06`一个因重叠摘要而不重复直接引用的项目。
-- 4条原`evidence_role=UNKNOWN`中，3条已按现有schema作出可解释处置；`MR-LZ-SYMBOLIC-ROLE-002`继续UNKNOWN，因为现有枚举没有准确表达传统象征标签的角色。
+- 来源引用428次使用、360个唯一引用；59组精确引用复用，共127次使用。重复引用不增加独立证据权重。
+- 13项候选/26个 rule ID 的来源范围差异已逐项处理；仅保留 `EXP-WQ-06 / ZZ-WQ-X06` 作为与 `ZZ-WQ-018/019` 重叠的摘要，不重复计证。
+- 原4条 `evidence_role=UNKNOWN` 中3条已按现有 schema 得到有依据的处置；`MR-LZ-SYMBOLIC-ROLE-002` 继续 UNKNOWN，避免错误归类。
+- PI既有裁决：`ZZ-TLIA-001`“第三得”按“第三星”理解；`ZZ-QS-005`“廉洁”按“廉贞”理解。原始扫描字面保留，canonical 行不改。
 
-## PI裁决记录
+## 自动保留、无需 PI 逐项决定的事项
 
-1. `ZZ-TLIA-001`：“第三得”是“第三星”的印刷错误。保留扫描字面，记录PI裁决，不改canonical行。
-2. `ZZ-QS-005`：“廉洁”是“廉贞”的印刷错误。保留扫描字面，记录PI裁决，不改canonical行。
-3. 其余来源缺口按逐项补证、缩窄范围或保留未决处理；`ZZ-TT-010`继续隔离。
-4. 对直接来源范围不一致，仅在确实支持对应目标时补充`source_refs`；其余缩窄候选范围或保留为上下文/重叠跨度。
-5. `EXP-WQ-10`与QI-05审核目标原先不一致，现新增L3候选审核`MR-WQ-L3-FINANCIAL-ROLE-016`并保持`candidate_only`；原QI-05不支持记录仍然保留。
-6. 三条`evidence_role`按现有枚举分别处理；对无法诚实归类的象征标签不强填。
+- `ZZ-TL-010` 精确跨度未找到：继续保持未核实，不补造来源。
+- `ZZ-TT-010` 来源错配：继续隔离，不进入正式映射或消费者。
+- `ZZ-TL-009` 与 `ZZ-JM-003/004/006/007`：保持部分核对，只使用已核实范围。
+- 廉贞来源的 L0 五行标签冲突：保留各自来源与冲突状态，不择一、不推导 QI。
+- `MR-LZ-SYMBOLIC-ROLE-002`：保留 UNKNOWN；目前没有必要为了消除一个未知值而扩展共享 schema。
 
-**边界：** 所有候选仍为`PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`。canonical source flags仍为false；未批准正式映射，未修改正式星核、本体、共享Schema、Product/runtime、KIB或消费者权限。最新完整exact-head质量门仍须通过。
- 
-## PI 需作出的独立判断
+## PI 决策入口
 
-1. 候选性质应归入 L0 传统结构、L1 单星描述、L2 关系/星系/上下文、条件响应还是 L3 传统下游投影。
-2. 哪些候选在定义、条件、反例与证据层级上足够清晰，可以进入下一轮正式映射提案。
-3. 对来源错配、部分核对与未核实项，采取补证、降级、排除还是保留待定。
-4. 是否批准任何特定映射；必须逐项列出批准理由和边界，不以全局通过率代替裁定。
+请只审阅 [3张 PI 决策卡](14STAR_PROPERTY_NORMALIZATION_PI_DECISION_CARDS_v0.1.md)：
+1. 太阳/太阴的 QI-01 方向性映射；
+2. QI-05「现实化—空泛」的映射门槛；
+3. 廉贞双面张力与 QI-11 的对应。
 
-**本交接不请求自动批准、不授权canonical化、不授权修改正式星核/本体/共享Schema/Product/runtime/KIB，也不授权合并PR。** 最新提交的完整 exact-head 质量门仍需在本轮文档和测试更新后重新确认。
+未被 PI 明确选择的项目继续保持当前候选/未决状态。所有候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`；本轮未批准正式映射、未修改正式星核/本体/canonical规则/共享 schema，也未开放 Product/runtime、KIB 或消费者权限。
 
 ---
 
