@@ -978,7 +978,7 @@ def test_qisha_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
     assert sum(r["source_span_status"] == "VERIFIED_VISUAL_SCAN" for r in review_rows) == 26
     assert by_id["ZZ-QS-005"]["source_span_status"] == "VERIFIED_VISUAL_SCAN"
     assert "廉洁" in by_id["ZZ-QS-005"]["literal_source_span"]
-    assert "之意" in by_id["ZZ-QS-005"]["modality_scope_ambiguity"]
+    assert "PI裁定" in by_id["ZZ-QS-005"]["modality_scope_ambiguity"]
     assert "PI裁定" in by_id["ZZ-QS-005"]["core_use_assessment"]
     assert "廉贞" in by_id["ZZ-QS-005"]["modality_scope_ambiguity"]
     assert all(r["source_span_status"] != "OUT_OF_SCOPE_SOURCE_NOT_VERIFIED" for r in review_rows)
