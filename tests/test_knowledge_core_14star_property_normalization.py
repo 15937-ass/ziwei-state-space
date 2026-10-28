@@ -852,6 +852,15 @@ def test_jumen_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
     assert "调各" in by_id["ZZ-JM-Y03"]["modality_scope_ambiguity"]
     assert "双能" in by_id["ZZ-JM-Y03"]["modality_scope_ambiguity"]
     assert "遮蔽别人的光辉" in by_id["ZZ-JM-002"]["literal_source_span"]
+    assert by_id["ZZ-JM-002"]["literal_source_span"] == "在斗数中，巨门为暗曜。所谓[暗曜]，并不是说巨门自己本身没有光辉，而是他善于遮蔽别人的光辉，故称为[暗]。"
+    assert by_id["ZZ-JM-004"]["literal_source_span"] == "当有了才华之后。其言词虽多，亦不会专事对别人遮蔽；"
+    assert by_id["ZZ-JM-008"]["literal_source_span"] == "当得到助力之后，亦应减少了一些疑忌之心，且可将疑忌化为有益的思虑。"
+    assert "……" not in by_id["ZZ-JM-002"]["literal_source_span"]
+    assert "……" not in by_id["ZZ-JM-X07"]["literal_source_span"]
+    assert by_id["ZZ-JM-X07"]["literal_source_span"].endswith("因言词的机变更能取信于他人。")
+    assert "调各" in by_id["ZZ-JM-Y03"]["literal_source_span"]
+    assert "双能" in by_id["ZZ-JM-Y03"]["literal_source_span"]
+    assert "在子午卯酉四垣，为[机巨]的结构" in by_id["ZZ-JM-Y05"]["literal_source_span"]
     assert "decade" in by_id["ZZ-JM-X10"]["canonical_time_scope"]
     with CANONICAL_RULES.open(encoding="utf-8", newline="") as handle:
         canonical_by_id = {row["rule_id"]: row for row in csv.DictReader(handle)}

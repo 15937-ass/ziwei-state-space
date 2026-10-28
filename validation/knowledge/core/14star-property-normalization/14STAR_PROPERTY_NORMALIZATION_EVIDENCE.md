@@ -160,3 +160,11 @@
 - The 巨门 checkpoint adds 20 source claims, 20 candidate properties, 20 mapping-review records, and JUMEN_SOURCE_SPAN_REVIEW_v0.1.csv for all 26 existing ZZ-JM canonical rows. Disposition: 21 full visual confirmations, four partial confirmations (ZZ-JM-003/004/006/007), one held row (ZZ-JM-005). All candidates remain PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED; canonical source flags remain false.
 - Exact-head Jumen research gate: head 0505d04c74f936f39ab5d4cd1e28d4380269c110, Run #40615055215 — PASS. Full pytest: 2818 passed, 132 subtests passed (413.85 seconds); Product JS adapters, deterministic P0 repository audit, and Repository Governance v1/Core write-set validation all passed.
 - The evidence-only commit that adds this checkpoint record and strengthens the Jumen recovery locator/test assertions must itself pass the full exact-head quality gate. The final head/run will be recorded in the latest Issue #757 / PR #783 handoff comment. Do not make another source/candidate change after final validation.
+
+
+## 巨门来源引文精确性复核 — 2026-10-28
+
+- 复核基线：Core head c736fb2bdd8185fc9bd143268ac54d6cfcb9585c，exact-head Run #40615965406 — PASS：2818 tests passed，132 subtests passed（370.75秒）；Product JS adapters、确定性P0审计及Repository Governance v1/Core写集检查全部通过。
+- 逐页对照SRC-ZZ-002扫描页12/印刷页23–24后，发现若干研究摘录曾用省略号压缩非连续文字，或把连续原文的逗号改成句号。本次将source_excerpt与literal_source_span改为连续、逐字的原文片段；补充回归断言，防止再次把省略号占位当作原文。
+- 扫描页24的“调各”“双能”继续按可见字面保留；本次只修复引文精确性，不改变候选语义、映射处置、来源状态或任何canonical字段。
+- 本次修订后的精确head为待提交版本；必须再次通过完整exact-head质量门后，才能将巨门检查点正式交接。最终head/run将记录在Issue #757 / Draft PR #783最新交接评论中。此后不再修改来源/候选文件。
