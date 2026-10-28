@@ -8,7 +8,7 @@
 - 2B：采用定义驱动的 QI-05 严格审核门槛，不自动接受任何具体候选。
 - 3B：廉贞 QI-11 保留候选、继续 `UNRESOLVED`。
 - 完整质量门的实时结果以 PR #783 最新 exact-head Checks 为准；本基线不自报本提交的验收结论。所有 canonical、共享 Schema、Product/runtime 与 KIB 安全边界保持不变。
-**主分支同步：** 最新 main `b42512b7e96b513a8ad65c08d6903b1791e244a7` 已通过同步 PR [#826](https://github.com/15937-ass/ziwei-state-space/pull/826) 合入 Core 工作分支，合并提交 `5b6dc02a65970a4f2287648341bde4b94fc58ad3`。  
+**主分支同步：** 最新 main `4713367b4d0c33f23d63a323b557f7d7ea7db713` 已通过同步 PR [#827](https://github.com/15937-ass/ziwei-state-space/pull/827) 合入 Core 工作分支，合并提交 `649f3daf0f2910737d755ca7ae4c6ba42dbf5c3e`。  
 **质量门：** 每个新提交均须通过自己的 exact-head CI；最新结果以 [PR #783 的 Checks](https://github.com/15937-ass/ziwei-state-space/pull/783) 为准。文档状态不代替 CI 验收。  
 **来源覆盖：** 14份侧车覆盖430条 canonical 规则ID；423条完整视觉核对、5条部分核对、1条未核实、1条来源错配。  
 **Mapping-review：** 241条记录、182项候选性质；58 supported_candidate、57 candidate_only、100 needs_review、26 not_supported_for_target。100条 needs_review 是记录状态，不是 PI 待办数。  
@@ -21,7 +21,7 @@
 
 **当前状态：** `PI_DECISIONS_RECORDED` / `PROPOSAL_ONLY_NOT_CANONICAL`
 **跟踪 Issue：** [#757](https://github.com/15937-ass/ziwei-state-space/issues/757)
-**已同步 main：** `b42512b7e96b513a8ad65c08d6903b1791e244a7`（通过同步 PR [#826](https://github.com/15937-ass/ziwei-state-space/pull/826) 合入，合并提交 `5b6dc02a65970a4f2287648341bde4b94fc58ad3`）
+**已同步 main：** `4713367b4d0c33f23d63a323b557f7d7ea7db713`（通过同步 PR [#827](https://github.com/15937-ass/ziwei-state-space/pull/827) 合入，合并提交 `649f3daf0f2910737d755ca7ae4c6ba42dbf5c3e`）
 **执行分支：** `knowledge/core-757-14star-property-normalization-main-sync2`
 
 > 太阳、太阴、天相三个有界试点与阶段B十一颗扩展星均已形成候选卡与逐目标审核记录。来源审查侧车现覆盖全部430条canonical规则，但这仍是候选研究基线，不是正式本体变更，也不授权 Product 消费。
