@@ -1088,6 +1088,14 @@ def test_research_closure_metadata_matches_merged_pr_and_final_quality_gate():
     cards_text = cards_path.read_text(encoding="utf-8")
     assert "[#783（已合并）]" in cards_text
     assert "Draft，未合并" not in cards_text
+    baseline_md_path = ROOT / "knowledge/core/14star-property-normalization/14STAR_PROPERTY_NORMALIZATION_BASELINE_v0.1.md"
+    baseline_md = baseline_md_path.read_text(encoding="utf-8")
+    assert "[#783（已合并）]" in baseline_md
+    assert "最新 main `4713367b4d0c33f23d63a323b557f7d7ea7db713`" not in baseline_md
+    pi_review_path = ROOT / "knowledge/core/14star-property-normalization/14STAR_PROPERTY_NORMALIZATION_PI_REVIEW_v0.1.md"
+    pi_review = pi_review_path.read_text(encoding="utf-8")
+    assert pi_review.startswith("# 当前权威状态")
+    assert "已合入 main" in pi_review[:1200]
     gaps_path = ROOT / "knowledge/core/14star-property-normalization/14STAR_PROPERTY_NORMALIZATION_GAPS_v0.1.md"
     gaps_text = gaps_path.read_text(encoding="utf-8")
     assert "COMPLETED_ACCEPTED_CANDIDATE_RESEARCH" in gaps_text
