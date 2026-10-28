@@ -817,7 +817,7 @@
     "lianzheng_review_path": "knowledge/core/14star-property-normalization/LIANZHEN_SOURCE_SPAN_REVIEW_v0.1.csv"
   },
   "progress": {
-    "stage": "PI_DECISION_CARDS_READY_PENDING_PI_DECISIONS",
+    "stage": "PI_DECISIONS_RECORDED_PENDING_EXACT_HEAD_QUALITY_GATE",
     "completed_pilot_cards": [
       "太阳",
       "太阴",
@@ -15666,7 +15666,7 @@
   },
   "source_audit_followup": {
     "as_of": "2026-10-28",
-    "status": "PI_DECISION_CARDS_READY_PENDING_PI_DECISIONS",
+    "status": "PI_DECISIONS_RECORDED_PENDING_EXACT_HEAD_QUALITY_GATE",
     "verified_source_files": {
       "SRC-ZZ-001": "7ebafc8e3477430e2f8e69c6925ecc373d3c28966955f7035078c4949b7475a2",
       "SRC-ZZ-002": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a"
@@ -15714,9 +15714,12 @@
         "date": "2026-10-28",
         "canonical_rule_mutated": false
       }
-    ]
+    ],
+    "pi_decisions_recorded": true,
+    "pi_decision_record_id": "PI-DECISION-CORE-757-2026-10-28",
+    "pi_decision_response": "1A，2B，3B"
   },
-  "pre_pi_status": "PI_DECISION_CARDS_READY_PENDING_PI_DECISIONS",
+  "pre_pi_status": "PI_DECISIONS_RECORDED_PENDING_EXACT_HEAD_QUALITY_GATE",
   "pre_pi_gates": {
     "main_sync": {
       "status": "MERGED_INTO_CORE_BRANCH_NOT_PR_MERGED",
@@ -15794,6 +15797,114 @@
       "run_id": 40651331271,
       "result": "success",
       "summary": "Pre-decision-card audit checkpoint: 2855 tests passed, 132 subtests passed; Product JS adapters, deterministic P0 gate, and Repository Governance v1 passed. The decision-card documentation revision is validated separately by its own exact-head CI."
+    },
+    "pi_decision_recorded": true,
+    "pi_decision_record_id": "PI-DECISION-CORE-757-2026-10-28"
+  },
+  "pi_decision_record": {
+    "record_id": "PI-DECISION-CORE-757-2026-10-28",
+    "record_status": "PI_DECISIONS_RECORDED",
+    "quality_gate_status": "PENDING_EXACT_HEAD_QUALITY_GATE",
+    "date": "2026-10-28",
+    "recorded_by": "PI",
+    "response_literal": "1A，2B，3B",
+    "decisions": [
+      {
+        "card_id": 1,
+        "choice": "A",
+        "topic": "太阳/太阴 QI-01 方向性映射",
+        "decision_code": "ACCEPT_LIMITED_DIRECTIONAL_MAPPING_AT_PROPOSAL_LEVEL",
+        "decision": "接受太阳对应 QI-01 发射端、太阴对应 QI-01 收敛端的有限方向性对应，限于候选研究层；保留太阴适度收敛的最优区域和来源条件分支。",
+        "affected_candidates": [
+          {
+            "star": "太阳",
+            "candidate_key": "PILOT-TY-01",
+            "target_ref": "QI-01",
+            "mapping_review_record_id": "MR-TY-QI01-BASELINE-001"
+          },
+          {
+            "star": "太阴",
+            "candidate_key": "PILOT-TYI-01",
+            "target_ref": "QI-01",
+            "mapping_review_record_id": "MR-TYI-QI01-BASELINE-001"
+          }
+        ],
+        "proposal_level_semantic_choice_accepted": true,
+        "candidate_normalization_epistemic_changed": false,
+        "canonical_mapping_approved": false,
+        "canonical_rules_mutated": false,
+        "numeric_strength_assigned": false,
+        "valence_equivalence_asserted": false
+      },
+      {
+        "card_id": 2,
+        "choice": "B",
+        "topic": "QI-05 现实化—空泛映射门槛",
+        "decision_code": "ADOPT_DEFINITION_DRIVEN_QI05_REVIEW_GATE",
+        "decision": "采用定义驱动的严格门槛；只有来源直接支持意图、计划或行动能否落实的语义时，才允许提出 QI-05 映射。单独出现结果词、关系条件或条件性反应不足以自动成立。",
+        "affected_candidates": [
+          {
+            "star": "太阳",
+            "candidate_key": "PILOT-TY-02",
+            "target_ref": "QI-05",
+            "mapping_review_record_id": "MR-TY-QI05-OVEREMISSION-003"
+          },
+          {
+            "star": "太阴",
+            "candidate_key": "PILOT-TYI-03",
+            "target_ref": "QI-05",
+            "mapping_review_record_id": "MR-TYI-QI05-EMISSION-OVERSHOOT-005"
+          },
+          {
+            "star": "天机",
+            "candidate_key": "EXP-TJ-08",
+            "target_ref": "STAR-TJ.conditional_signature:QI-05",
+            "mapping_review_record_id": "MR-TJ-QI05-KONGJIE-012"
+          },
+          {
+            "star": "武曲",
+            "candidate_key": "EXP-WQ-01",
+            "target_ref": "STAR-WQ.intrinsic_signature:QI-05",
+            "mapping_review_record_id": "MR-WQ-QI05-ACTION-003"
+          }
+        ],
+        "review_policy_accepted": true,
+        "automatic_candidate_approval": false,
+        "candidate_mapping_dispositions_changed": false,
+        "canonical_mapping_approved": false,
+        "canonical_rules_mutated": false
+      },
+      {
+        "card_id": 3,
+        "choice": "B",
+        "topic": "廉贞双面张力与 QI-11",
+        "decision_code": "RETAIN_LIANZHEN_QI11_CANDIDATE_UNRESOLVED",
+        "decision": "保留廉贞双面张力候选，暂不映射为 QI-11；等待直接证据区分感性—理性张力与一般双面性、刚柔或星系互动。",
+        "affected_candidates": [
+          {
+            "star": "廉贞",
+            "candidate_key": "EXP-LZ-03",
+            "target_ref": "STAR-LZ.intrinsic_signature:QI-11",
+            "mapping_review_record_id": "MR-LZ-DUALITY-TENSION-003"
+          }
+        ],
+        "candidate_retained": true,
+        "normalization_epistemic": "UNRESOLVED",
+        "canonical_mapping_approved": false,
+        "canonical_rules_mutated": false
+      }
+    ],
+    "guardrails": {
+      "canonical_rules_mutated": false,
+      "canonical_star_cores_modified": false,
+      "ontology_modified": false,
+      "shared_schema_modified": false,
+      "product_runtime_modified": false,
+      "product_consumption_authorized": false,
+      "kib_consumption_authorized": false,
+      "canonical_mapping_approval": false,
+      "candidate_normalization_epistemic_changed": false,
+      "numeric_weights_or_probabilities_added": false
     }
   }
 }
