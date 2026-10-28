@@ -67,7 +67,8 @@
             "ZZ-TX-009",
             "ZZ-TX-010"
           ],
-          "status": "LOCATOR_LEAD_ONLY_NOT_ADJUDICATED"
+          "status": "VERIFIED_IN_FOLLOWUP_SOURCE_REVIEW",
+          "verification": "VISUAL_SOURCE_REVIEWED; SHA256_MATCHES_SOURCES_INDEX"
         }
       }
     },
@@ -96,7 +97,8 @@
       "ZZ-TYI-Y02",
       "ZZ-TYI-Y03",
       "ZZ-TYI-Y04",
-      "ZZ-TYI-Y05"
+      "ZZ-TYI-Y05",
+      "ZZ-TYI-010"
     ],
     "taiyin_review_path": "knowledge/core/14star-property-normalization/TAIYIN_SOURCE_SPAN_REVIEW_v0.1.csv",
     "tianxiang_review_rule_ids": [
@@ -124,14 +126,13 @@
       "ZZ-TX-Y03",
       "ZZ-TX-Y04",
       "ZZ-TX-Y05",
-      "ZZ-TX-Y06"
-    ],
-    "tianxiang_review_path": "knowledge/core/14star-property-normalization/TIANXIANG_SOURCE_SPAN_REVIEW_v0.1.csv",
-    "tianxiang_out_of_scope_rule_ids": [
+      "ZZ-TX-Y06",
       "ZZ-TX-009",
       "ZZ-TX-010"
     ],
-    "tianxiang_out_of_scope_note": "ZZ-TX-009 and ZZ-TX-010 point to related star-system material on printed p47. A locator lead was observed during source reconnaissance, but the current page-13 pilot does not adjudicate their rule content.",
+    "tianxiang_review_path": "knowledge/core/14star-property-normalization/TIANXIANG_SOURCE_SPAN_REVIEW_v0.1.csv",
+    "tianxiang_out_of_scope_rule_ids": [],
+    "tianxiang_out_of_scope_note": "ZZ-TX-009/010 were initially outside the bounded page-13 pilot; follow-up source review located both claims on scan page 24 / printed page 47. Their star-system conditions remain explicit and canonical fields remain unchanged.",
     "ziwei_review_rule_ids": [
       "ZZ-ZW-001",
       "ZZ-ZW-002",
@@ -477,18 +478,42 @@
           "ZZ-TL-009"
         ],
         "status": "PARTIALLY_VERIFIED_VISUAL_SCAN; HUA_LU_BRANCH_ONLY"
+      },
+      {
+        "source_id": "SRC-ZZ-001",
+        "source_sha256": "7ebafc8e3477430e2f8e69c6925ecc373d3c28966955f7035078c4949b7475a2",
+        "pdf_scan_page": 41,
+        "printed_pages": [
+          80,
+          81
+        ],
+        "rule_ids": [
+          "ZZ-TL-006"
+        ],
+        "status": "VERIFIED_VISUAL_SCAN"
+      },
+      {
+        "source_id": "SRC-ZZ-001",
+        "source_sha256": "7ebafc8e3477430e2f8e69c6925ecc373d3c28966955f7035078c4949b7475a2",
+        "pdf_scan_page": 42,
+        "printed_pages": [
+          82,
+          83
+        ],
+        "rule_ids": [
+          "ZZ-TL-007",
+          "ZZ-TL-008"
+        ],
+        "status": "VERIFIED_VISUAL_SCAN"
       }
     ],
     "tanlang_held_rule_ids": [
-      "ZZ-TL-006",
-      "ZZ-TL-007",
-      "ZZ-TL-008",
       "ZZ-TL-010"
     ],
     "tanlang_partial_rule_ids": [
       "ZZ-TL-009"
     ],
-    "tanlang_scope_note": "本轮只使用SRC-ZZ-002上册、GitHub现有canonical/审查记录及验收契约；不读取SRC-ZZ-001初级讲义。29条canonical行均在侧车中给出审查处置：24条完整视觉核对、ZZ-TL-009部分核对、4条保持未核实。",
+    "tanlang_scope_note": "29条贪狼规则现有来源审查处置为27条完整视觉核对、ZZ-TL-009部分核对、ZZ-TL-010仍未核实。ZZ-TL-006..008已在SRC-ZZ-001初级讲义扫描页41–42/印刷页81–83补核。所有canonical source_span_verified仍为false；不修改canonical字段。",
     "jumen_source_locator": {
       "pdf_scan_page": 12,
       "printed_pages": [
@@ -529,16 +554,14 @@
       "ZZ-JM-Y05"
     ],
     "jumen_review_path": "knowledge/core/14star-property-normalization/JUMEN_SOURCE_SPAN_REVIEW_v0.1.csv",
-    "jumen_held_rule_ids": [
-      "ZZ-JM-005"
-    ],
+    "jumen_held_rule_ids": [],
     "jumen_partial_rule_ids": [
       "ZZ-JM-003",
       "ZZ-JM-004",
       "ZZ-JM-006",
       "ZZ-JM-007"
     ],
-    "jumen_scope_note": "本轮只使用SRC-ZZ-002上册及当前canonical/审查记录；不读取SRC-ZZ-001初级讲义。26条ZZ-JM行全部有明确处置，canonical source_span_verified保持false。",
+    "jumen_scope_note": "26条巨门规则现有来源审查处置为22条完整视觉核对、4条部分核对、0条来源未核实。ZZ-JM-005已在SRC-ZZ-001初级讲义扫描页42/印刷页83补核。来源核对不代表映射批准；canonical source_span_verified仍为false。",
     "tianliang_review_rule_ids": [
       "ZZ-TLIA-001",
       "ZZ-TLIA-002",
@@ -568,9 +591,7 @@
       "ZZ-TLIA-Y05"
     ],
     "tianliang_review_path": "knowledge/core/14star-property-normalization/TIANLIANG_SOURCE_SPAN_REVIEW_v0.1.csv",
-    "tianliang_held_rule_ids": [
-      "ZZ-TLIA-010"
-    ],
+    "tianliang_held_rule_ids": [],
     "tianliang_partial_rule_ids": [
       "ZZ-TLIA-001"
     ],
@@ -587,7 +608,7 @@
       "prior_visual_review_rows_reused": 0,
       "canonical_source_span_verified_mutated": false
     },
-    "tianliang_scope_note": "本轮仅视觉核对上册扫描页14/印刷页27–28。26条canonical行均有处置：24条完整视觉核对、ZZ-TLIA-001因“第三得”与canonical“第三星”字面差异而部分核对、ZZ-TLIA-010因六十星系来源定位不具体而未核实。未修改canonical来源标记。",
+    "tianliang_scope_note": "26条天梁规则现有来源审查处置为25条完整视觉核对、ZZ-TLIA-001部分核对、0条来源未核实。ZZ-TLIA-010已定位至扫描页80/印刷页159。canonical source_span_verified仍为false，映射仍待PI审议。",
     "qisha_review_rule_ids": [
       "ZZ-QS-001",
       "ZZ-QS-002",
@@ -668,13 +689,7 @@
       "ZZ-PJ-Y06"
     ],
     "pojun_review_path": "knowledge/core/14star-property-normalization/POJUN_SOURCE_SPAN_REVIEW_v0.1.csv",
-    "pojun_held_rule_ids": [
-      "ZZ-PJ-006",
-      "ZZ-PJ-007",
-      "ZZ-PJ-008",
-      "ZZ-PJ-009",
-      "ZZ-PJ-010"
-    ],
+    "pojun_held_rule_ids": [],
     "pojun_partial_rule_ids": [],
     "pojun_source_locator": {
       "source_id": "SRC-ZZ-002",
@@ -691,7 +706,118 @@
       "verification": "VISUAL_SOURCE_REVIEWED; SHA256_MATCHES_SOURCES_INDEX",
       "canonical_source_span_verified_mutated": false
     },
-    "pojun_scope_note": "30条canonical行均有处置：25条完整视觉核对，ZZ-PJ-006..010因独立四化章节未核验而保持未核实。未修改canonical来源标记。"
+    "pojun_scope_note": "30条破军规则现有来源审查处置为30条完整视觉核对、0条部分核对、0条来源未核实。ZZ-PJ-006在扫描页96/印刷页191补核；ZZ-PJ-007..010在扫描页97/印刷页193补核。canonical source_span_verified仍为false，映射仍待PI审议。",
+    "solar_review_rule_ids": [
+      "ZZ-TY-001",
+      "ZZ-TY-002",
+      "ZZ-TY-003",
+      "ZZ-TY-004",
+      "ZZ-TY-005",
+      "ZZ-TY-006",
+      "ZZ-TY-007",
+      "ZZ-TY-008",
+      "ZZ-TY-009",
+      "ZZ-TY-010",
+      "ZZ-TY-011",
+      "ZZ-TY-012",
+      "ZZ-TY-013",
+      "ZZ-TY-014",
+      "ZZ-TY-015",
+      "ZZ-TY-016",
+      "ZZ-TY-017",
+      "ZZ-TY-018",
+      "ZZ-TY-019",
+      "ZZ-TY-020",
+      "ZZ-TY-021",
+      "ZZ-TY-022",
+      "ZZ-TY-023",
+      "ZZ-TY-024",
+      "ZZ-TY-025",
+      "ZZ-TY-X01",
+      "ZZ-TY-X02",
+      "ZZ-TY-X03",
+      "ZZ-TY-X04",
+      "ZZ-TY-X05",
+      "ZZ-TY-X06",
+      "ZZ-TY-X07",
+      "ZZ-TY-X08",
+      "ZZ-TY-X09",
+      "ZZ-TY-X10",
+      "ZZ-TY-Y01",
+      "ZZ-TY-Y02",
+      "ZZ-TY-Y03",
+      "ZZ-TY-Y04",
+      "ZZ-TY-Y05"
+    ],
+    "solar_review_path": "knowledge/core/14star-property-normalization/SUN_SOURCE_SPAN_REVIEW_v0.1.csv",
+    "solar_source_locator": {
+      "source_id": "SRC-ZZ-002",
+      "source_work": "《中州派紫微斗数深造讲义（上）》",
+      "source_sha256": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a",
+      "pdf_scan_page": 5,
+      "printed_pages": [
+        9,
+        10
+      ],
+      "verification": "VISUAL_SOURCE_REVIEWED; SHA256_MATCHES_SOURCES_INDEX",
+      "review_rows": 40,
+      "canonical_source_span_verified_mutated": false
+    },
+    "taiyin_additional_source_locator": {
+      "source_id": "SRC-ZZ-002",
+      "source_sha256": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a",
+      "pdf_scan_page": 21,
+      "printed_page": 41,
+      "rule_ids": [
+        "ZZ-TYI-010"
+      ],
+      "verification": "VERIFIED_VISUAL_SCAN; CANONICAL_LOCATOR_PAGE_MISMATCH_RECORDED",
+      "canonical_source_span_verified_mutated": false
+    },
+    "jumen_additional_source_locator": {
+      "source_id": "SRC-ZZ-001",
+      "source_work": "王亭之《中州派紫微斗数初级讲义》",
+      "source_sha256": "7ebafc8e3477430e2f8e69c6925ecc373d3c28966955f7035078c4949b7475a2",
+      "pdf_scan_page": 42,
+      "printed_page": 83,
+      "rule_ids": [
+        "ZZ-JM-005"
+      ],
+      "verification": "VERIFIED_VISUAL_SCAN",
+      "canonical_source_span_verified_mutated": false
+    },
+    "tianliang_additional_source_locator": {
+      "source_id": "SRC-ZZ-002",
+      "source_sha256": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a",
+      "pdf_scan_page": 80,
+      "printed_page": 159,
+      "rule_ids": [
+        "ZZ-TLIA-010"
+      ],
+      "verification": "VERIFIED_VISUAL_SCAN",
+      "canonical_source_span_verified_mutated": false
+    },
+    "pojun_huaquan_source_locator": {
+      "source_id": "SRC-ZZ-002",
+      "source_sha256": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a",
+      "pdf_scan_pages": [
+        96,
+        97
+      ],
+      "printed_pages": [
+        191,
+        193
+      ],
+      "rule_ids": [
+        "ZZ-PJ-006",
+        "ZZ-PJ-007",
+        "ZZ-PJ-008",
+        "ZZ-PJ-009",
+        "ZZ-PJ-010"
+      ],
+      "verification": "VERIFIED_VISUAL_SCAN",
+      "canonical_source_span_verified_mutated": false
+    }
   },
   "progress": {
     "stage": "B_POJUN_CHECKPOINT_COMPLETED_READY_FOR_FINAL_REVIEW",
@@ -7066,9 +7192,6 @@
         }
       ],
       "held_canonical_rule_ids": [
-        "ZZ-TL-006",
-        "ZZ-TL-007",
-        "ZZ-TL-008",
         "ZZ-TL-010"
       ],
       "non_promotion_guards": [
@@ -7875,9 +7998,7 @@
           "numeric_strength_assigned": false
         }
       ],
-      "held_canonical_rule_ids": [
-        "ZZ-JM-005"
-      ],
+      "held_canonical_rule_ids": [],
       "non_promotion_guards": [
         "阴土/阴金只作L0传统结构元数据，不推导QI方向、强度或五行生克。",
         "“暗曜”原文指遮蔽别人光辉，不等于巨门自身没有光；QI-14映射须保留关系对象与上下文。",
@@ -8672,9 +8793,7 @@
           "numeric_strength_assigned": false
         }
       ],
-      "held_canonical_rule_ids": [
-        "ZZ-TLIA-010"
-      ],
+      "held_canonical_rule_ids": [],
       "non_promotion_guards": [
         "阳土仅保留为传统结构元数据，不推导QI方向、强度或五行生克。",
         "扫描原文“第三得”与canonical摘录“第三星”存在字面差异；保留原字，不静默校正。",
@@ -10159,13 +10278,7 @@
           "numeric_strength_assigned": false
         }
       ],
-      "held_canonical_rule_ids": [
-        "ZZ-PJ-006",
-        "ZZ-PJ-007",
-        "ZZ-PJ-008",
-        "ZZ-PJ-009",
-        "ZZ-PJ-010"
-      ],
+      "held_canonical_rule_ids": [],
       "non_promotion_guards": [
         "阳水只作传统结构元数据，不推导QI方向或数值。",
         "先锋/冲锋、不主退守与旧事创新是传统描述，不等同现代能力测量。",
@@ -15516,5 +15629,33 @@
     "research_disposition": "CONTINUE_STAGE_B_CANDIDATE_RESEARCH_NEXT_BOUNDED_TURN",
     "next_star": "紫微",
     "runtime_contract_complete": false
+  },
+  "source_audit_followup": {
+    "as_of": "2026-10-28",
+    "status": "SOURCE_SPAN_FOLLOWUP_COMPLETED_NOT_CANONICAL_APPROVAL",
+    "verified_source_files": {
+      "SRC-ZZ-001": "7ebafc8e3477430e2f8e69c6925ecc373d3c28966955f7035078c4949b7475a2",
+      "SRC-ZZ-002": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a"
+    },
+    "changes": [
+      "Added SUN_SOURCE_SPAN_REVIEW_v0.1.csv covering 40/40 solar canonical rows.",
+      "Added the missing Taiyin rule ZZ-TYI-010; recorded the one-page canonical locator discrepancy.",
+      "Added Tianxiang rules ZZ-TX-009/010 from the Wuqu-Tianxiang / Pojun system discussion.",
+      "Resolved source spans for Tanlang ZZ-TL-006/007/008 and Jumen ZZ-JM-005 using SRC-ZZ-001.",
+      "Resolved Tianliang ZZ-TLIA-010 and Pojun ZZ-PJ-006..010 using exact printed-page locators."
+    ],
+    "outstanding": [
+      "ZZ-TL-010 remains unverified: the cited deep-lecture source does not currently provide an exact span supporting the canonical target '性急'; nearby descriptions of '躁进' or '突发' are not substituted.",
+      "ZZ-TT-010 remains quarantined as SOURCE_MISMATCH_CONFIRMED: the cited span concerns 文昌化忌/办事不经心, not the canonical 天同 claim.",
+      "ZZ-TLIA-001 and ZZ-QS-005 remain partial because source text and canonical wording differ.",
+      "The 40 solar source spans are visually located on the registered source page, but this does not validate modern QI normalization or downstream predictions."
+    ],
+    "guardrails": {
+      "canonical_source_span_verified_mutated": false,
+      "canonical_normalization_epistemic_mutated": false,
+      "canonical_rules_mutated": false,
+      "formal_mapping_approval": false,
+      "product_consumption_authorized": false
+    }
   }
 }
