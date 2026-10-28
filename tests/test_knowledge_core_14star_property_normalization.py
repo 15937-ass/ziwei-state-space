@@ -1063,12 +1063,62 @@ def test_sun_source_review_covers_all_canonical_rows_without_promoting_them():
     assert all(canonical_by_id[r["rule_id"]]["source_span_verified"] == "false" for r in review_rows)
 
 
+def test_pi_decisions_1a_2b_3b_are_recorded_without_canonical_promotion():
+    data = load_baseline()
+    record = data["pi_decision_record"]
+    assert record["record_id"] == "PI-DECISION-CORE-757-2026-10-28"
+    assert record["record_status"] == "PI_DECISIONS_RECORDED"
+    assert record["quality_gate_status"] == "PENDING_EXACT_HEAD_QUALITY_GATE"
+    assert record["response_literal"] == "1A，2B，3B"
+    decisions = {item["card_id"]: item for item in record["decisions"]}
+    assert {key: item["choice"] for key, item in decisions.items()} == {1: "A", 2: "B", 3: "B"}
+    assert decisions[1]["decision_code"] == "ACCEPT_LIMITED_DIRECTIONAL_MAPPING_AT_PROPOSAL_LEVEL"
+    assert [item["candidate_key"] for item in decisions[1]["affected_candidates"]] == [
+        "PILOT-TY-01", "PILOT-TYI-01"
+    ]
+    assert decisions[1]["canonical_mapping_approved"] is False
+    assert decisions[1]["numeric_strength_assigned"] is False
+    assert decisions[2]["decision_code"] == "ADOPT_DEFINITION_DRIVEN_QI05_REVIEW_GATE"
+    assert decisions[2]["automatic_candidate_approval"] is False
+    assert decisions[2]["candidate_mapping_dispositions_changed"] is False
+    assert decisions[3]["decision_code"] == "RETAIN_LIANZHEN_QI11_CANDIDATE_UNRESOLVED"
+    assert decisions[3]["affected_candidates"][0]["candidate_key"] == "EXP-LZ-03"
+    assert decisions[3]["normalization_epistemic"] == "UNRESOLVED"
+    assert data["pre_pi_status"] == "PI_DECISIONS_RECORDED_PENDING_EXACT_HEAD_QUALITY_GATE"
+    assert data["progress"]["stage"] == data["pre_pi_status"]
+    assert data["pre_pi_gates"]["formal_mapping_approval"] is False
+    assert data["pre_pi_gates"]["product_consumption_authorized"] is False
+    assert record["guardrails"] == {
+        "canonical_rules_mutated": False,
+        "canonical_star_cores_modified": False,
+        "ontology_modified": False,
+        "shared_schema_modified": False,
+        "product_runtime_modified": False,
+        "product_consumption_authorized": False,
+        "kib_consumption_authorized": False,
+        "canonical_mapping_approval": False,
+        "candidate_normalization_epistemic_changed": False,
+        "numeric_weights_or_probabilities_added": False,
+    }
+    assert all(
+        candidate["canonicalization_authorized"] is False
+        and candidate["normalization_epistemic"] == "UNRESOLVED"
+        and candidate["numeric_strength_assigned"] is False
+        for star in data["stars"]
+        for candidate in star["candidate_properties"]
+    )
+    cards_path = ROOT / data["pre_pi_gates"]["decision_cards_path"]
+    cards_text = cards_path.read_text(encoding="utf-8")
+    assert "1A，2B，3B" in cards_text
+    assert "PI 已选择，2026-10-28" in cards_text
+
+
 def test_pre_pi_source_audit_followup_covers_all_canonical_rules_without_promotion():
     data = load_baseline()
     assert data["pre_pi_gates"]["pi_review_authorized"] is True
     assert data["pre_pi_gates"]["formal_mapping_approval"] is False
     followup = data["source_audit_followup"]
-    assert followup["status"] == "PI_DECISION_CARDS_READY_PENDING_PI_DECISIONS"
+    assert followup["status"] == "PI_DECISIONS_RECORDED_PENDING_EXACT_HEAD_QUALITY_GATE"
     cards_path = ROOT / data["pre_pi_gates"]["decision_cards_path"]
     assert cards_path.exists()
     cards_text = cards_path.read_text(encoding="utf-8")
