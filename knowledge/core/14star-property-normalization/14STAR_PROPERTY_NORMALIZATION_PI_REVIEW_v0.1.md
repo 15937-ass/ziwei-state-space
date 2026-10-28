@@ -1,3 +1,27 @@
+# PI 审议前最新状态（2026-10-28）
+
+本节是当前有效的交接入口；后续按日期记录的旧检查点均保留为历史轨迹。旧记录中的“未审”描述若与本节冲突，以后续补核状态为准。
+
+## 审议前技术与来源准备
+
+- Core 研究检查点：14/14；mapping-review 共240条，处置分布为58 `supported_candidate`、56 `candidate_only`、100 `needs_review`、26 `not_supported_for_target`。
+- 分支同步：main `4cc89ead106c315d451d2d39b72e33ccc73398b5` 已纳入 Core 分支，合并提交 `cd11b672058e82efbdc08ee69a61f153aacb4a81`；PR #783 仍为 Draft / 未合并。
+- 来源覆盖：14份来源审查侧车覆盖430条canonical规则ID；421条完整视觉核对、7条部分核对、1条来源未核实、1条来源错配。
+- 新增太阳40条来源跨度审查；补核太阴 `ZZ-TYI-010`、天相 `ZZ-TX-009/010`、贪狼 `ZZ-TL-006/007/008`、巨门 `ZZ-JM-005`、天梁 `ZZ-TLIA-010`、破军 `ZZ-PJ-006..010`。
+- 仍需明确保留：`ZZ-TL-010` 精确跨度未核实；`ZZ-TT-010` 来源错配并继续隔离；7条部分核对为 `ZZ-TL-009`、`ZZ-JM-003/004/006/007`、`ZZ-TLIA-001`、`ZZ-QS-005`。
+- 所有canonical规则仍保持 `source_span_verified=false`、`normalization_epistemic=UNRESOLVED`；候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL`。来源跨度核对不等于语义映射批准。
+
+## PI 需作出的独立判断
+
+1. 候选性质应归入 L0 传统结构、L1 单星描述、L2 关系/星系/上下文、条件响应还是 L3 传统下游投影。
+2. 哪些候选在定义、条件、反例与证据层级上足够清晰，可以进入下一轮正式映射提案。
+3. 对来源错配、部分核对与未核实项，采取补证、降级、排除还是保留待定。
+4. 是否批准任何特定映射；必须逐项列出批准理由和边界，不以全局通过率代替裁定。
+
+**本交接不请求自动批准、不授权canonical化、不授权修改正式星核/本体/共享Schema/Product/runtime/KIB，也不授权合并PR。** 最新提交的完整 exact-head 质量门仍需在本轮文档和测试更新后重新确认。
+
+---
+
 > 当前恢复入口（2026-10-28）：破军候选研究检查点已完成。30条canonical行均有处置：25条完整视觉核对，ZZ-PJ-006..010因独立四化章节未核验而保持未核实。新增20条source-claim、20项候选性质、20条mapping-review记录。所有候选仍为PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED。阶段B候选检查点序列已完成，下一步统一复核缺口与PI审议材料，不自动批准正式映射。
 
 > 当前补充（2026-10-28）：七杀候选研究检查点已完成。26条canonical行均有处置：25条完整视觉核对、ZZ-QS-005因“化杀为权的廉洁”与canonical概括存在字面差异而部分核对。所有候选仍为PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED。下一颗为破军。
