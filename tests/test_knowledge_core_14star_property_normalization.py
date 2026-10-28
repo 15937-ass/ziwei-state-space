@@ -123,7 +123,7 @@ def test_general_moderation_rule_is_not_promoted_to_solar_intrinsic_capacity():
         row for row in data["mapping_review_records"]
         if row["review_record_id"] == "MR-TY-QI15-METHOD-RULE-005"
     )
-    assert record["evidence_role"]["state"] == "UNKNOWN"
+    assert record["evidence_role"]["state"] == "NOT_APPLICABLE"
     assert record["mapping_disposition"]["value"] == "not_supported_for_target"
     assert record["mapping_disposition"]["state"] == "KNOWN"
 
@@ -626,7 +626,7 @@ def test_tiantong_candidate_and_mapping_review_stay_noncanonical():
     assert len(tt_records) == 18
     assert validate_mapping_review_collection(data["mapping_review_records"]) == []
     mismatch = next(r for r in tt_records if r["review_record_id"] == "MR-TT-SOURCE-MISMATCH-009")
-    assert mismatch["evidence_role"]["state"] == "UNKNOWN" and mismatch["evidence_role"]["value"] is None
+    assert mismatch["evidence_role"]["state"] == "NOT_APPLICABLE" and mismatch["evidence_role"]["value"] is None
     assert mismatch["mapping_disposition"]["value"] == "not_supported_for_target"
 
 
@@ -902,12 +902,12 @@ def test_tianliang_candidate_checkpoint_preserves_source_scope_and_nonpromotion(
     assert loc["canonical_source_span_verified_mutated"] is False
     assert len(data["source_policy"]["tianliang_review_rule_ids"]) == 26
     assert data["source_policy"]["tianliang_held_rule_ids"] == []
-    assert data["source_policy"]["tianliang_partial_rule_ids"] == ["ZZ-TLIA-001"]
+    assert data["source_policy"]["tianliang_partial_rule_ids"] == []
     assert "天梁" in data["progress"]["completed_expansion_stars"]
     assert data["progress"]["remaining_expansion_stars_in_existing_order"] == []
     checkpoint = next(entry for entry in data["progress"]["expansion_checkpoint_history"] if entry["star"] == "天梁")
     assert checkpoint["star"] == "天梁" and checkpoint["next_star"] == "七杀"
-    assert (checkpoint["fully_verified_rows"], checkpoint["partially_verified_rows"], checkpoint["held_rows"]) == (24, 1, 1)
+    assert (checkpoint["fully_verified_rows"], checkpoint["partially_verified_rows"], checkpoint["held_rows"]) == (26, 0, 0)
     records = {r["review_record_id"]: r for r in data["mapping_review_records"]}
     tlia_records = {k:v for k,v in records.items() if k.startswith("MR-TLIA-")}
     assert len(tlia_records) == 20
@@ -924,10 +924,11 @@ def test_tianliang_candidate_checkpoint_preserves_source_scope_and_nonpromotion(
     assert all(r["normalization_epistemic_after"] == "UNRESOLVED" for r in review_rows)
     assert all(r["canonical_source_span_verified_after"] == "false" for r in review_rows)
     by_id = {r["rule_id"]:r for r in review_rows}
-    assert sum(r["source_span_status"] == "VERIFIED_VISUAL_SCAN" for r in review_rows) == 25
-    assert by_id["ZZ-TLIA-001"]["source_span_status"] == "PARTIALLY_VERIFIED_VISUAL_SCAN"
+    assert sum(r["source_span_status"] == "VERIFIED_VISUAL_SCAN" for r in review_rows) == 26
+    assert by_id["ZZ-TLIA-001"]["source_span_status"] == "VERIFIED_VISUAL_SCAN"
     assert "第三得" in by_id["ZZ-TLIA-001"]["literal_source_span"]
     assert "第三星" in by_id["ZZ-TLIA-001"]["modality_scope_ambiguity"]
+    assert "PI裁定" in by_id["ZZ-TLIA-001"]["core_use_assessment"]
     assert by_id["ZZ-TLIA-010"]["source_span_status"] == "VERIFIED_VISUAL_SCAN"
     assert by_id["ZZ-TLIA-010"]["source_pdf_page"] == "80"
     assert by_id["ZZ-TLIA-010"]["source_printed_page"] == "159"
@@ -950,17 +951,17 @@ def test_qisha_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
     assert loc["canonical_source_span_verified_mutated"] is False
     assert len(data["source_policy"]["qisha_review_rule_ids"]) == 26
     assert data["source_policy"]["qisha_held_rule_ids"] == []
-    assert data["source_policy"]["qisha_partial_rule_ids"] == ["ZZ-QS-005"]
+    assert data["source_policy"]["qisha_partial_rule_ids"] == []
     assert data["progress"]["completed_expansion_stars"] == ["紫微", "天机", "武曲", "天同", "廉贞", "天府", "贪狼", "巨门", "天梁", "七杀", "破军"]
     assert data["progress"]["remaining_expansion_stars_in_existing_order"] == []
     checkpoint = next(entry for entry in data["progress"]["expansion_checkpoint_history"] if entry["star"] == "七杀")
     assert checkpoint["star"] == "七杀" and checkpoint["next_star"] == "破军"
-    assert (checkpoint["fully_verified_rows"], checkpoint["partially_verified_rows"], checkpoint["held_rows"]) == (25, 1, 0)
+    assert (checkpoint["fully_verified_rows"], checkpoint["partially_verified_rows"], checkpoint["held_rows"]) == (26, 0, 0)
     records = {r["review_record_id"]: r for r in data["mapping_review_records"]}
     qs_records = {k:v for k,v in records.items() if k.startswith("MR-QS-")}
     assert len(qs_records) == 20
     assert all(p["mapping_review_record_id"] in records for p in qisha["candidate_properties"])
-    assert len(data["mapping_review_records"]) == 240
+    assert len(data["mapping_review_records"]) == 241
     assert validate_mapping_review_collection(data["mapping_review_records"]) == []
     with QISHA_SOURCE_REVIEW.open(encoding="utf-8", newline="") as handle:
         review_rows = list(csv.DictReader(handle))
@@ -974,10 +975,12 @@ def test_qisha_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
     assert all(r["normalization_epistemic_after"] == "UNRESOLVED" for r in review_rows)
     assert all(r["canonical_source_span_verified_after"] == "false" for r in review_rows)
     by_id = {r["rule_id"]:r for r in review_rows}
-    assert sum(r["source_span_status"] == "VERIFIED_VISUAL_SCAN" for r in review_rows) == 25
-    assert by_id["ZZ-QS-005"]["source_span_status"] == "PARTIALLY_VERIFIED_VISUAL_SCAN"
+    assert sum(r["source_span_status"] == "VERIFIED_VISUAL_SCAN" for r in review_rows) == 26
+    assert by_id["ZZ-QS-005"]["source_span_status"] == "VERIFIED_VISUAL_SCAN"
     assert "廉洁" in by_id["ZZ-QS-005"]["literal_source_span"]
     assert "之意" in by_id["ZZ-QS-005"]["modality_scope_ambiguity"]
+    assert "PI裁定" in by_id["ZZ-QS-005"]["core_use_assessment"]
+    assert "廉贞" in by_id["ZZ-QS-005"]["modality_scope_ambiguity"]
     assert all(r["source_span_status"] != "OUT_OF_SCOPE_SOURCE_NOT_VERIFIED" for r in review_rows)
     with CANONICAL_RULES.open(encoding="utf-8", newline="") as handle:
         canonical_by_id = {r["rule_id"]:r for r in csv.DictReader(handle)}
@@ -1081,8 +1084,8 @@ def test_pre_pi_source_audit_followup_covers_all_canonical_rules_without_promoti
     for row in all_rows:
         counts[row["source_span_status"]] = counts.get(row["source_span_status"], 0) + 1
     assert counts == {
-        "VERIFIED_VISUAL_SCAN": 421,
-        "PARTIALLY_VERIFIED_VISUAL_SCAN": 7,
+        "VERIFIED_VISUAL_SCAN": 423,
+        "PARTIALLY_VERIFIED_VISUAL_SCAN": 5,
         "NOT_VERIFIED_IN_REVIEWED_SPANS": 1,
         "SOURCE_MISMATCH_CONFIRMED": 1,
     }
@@ -1095,25 +1098,42 @@ def test_pre_pi_source_audit_followup_covers_all_canonical_rules_without_promoti
 def test_pre_pi_mapping_review_audit_counts_are_consistent():
     data = load_baseline()
     audit = data["pre_pi_gates"]["mapping_review_audit"]
-    assert audit["mapping_review_records"] == audit["unique_review_ids"] == 240
+    assert audit["mapping_review_records"] == audit["unique_review_ids"] == 241
     assert audit["candidate_properties"] == audit["properties_with_valid_review_links"] == 182
     assert audit["canonical_rules"] == 430
     assert audit["missing_canonical_rule_refs"] == 0
     assert audit["unique_target_refs"] == 81
-    assert audit["source_ref_uses"] == 412
-    assert audit["unique_source_refs"] == 356
-    assert audit["duplicated_exact_source_ref_groups"] == 47
-    assert audit["uses_in_duplicated_ref_groups"] == 103
+    assert audit["source_ref_uses"] == 428
+    assert audit["unique_source_refs"] == 360
+    assert audit["duplicated_exact_source_ref_groups"] == 59
+    assert audit["uses_in_duplicated_ref_groups"] == 127
     assert audit["candidate_canonicalization_authorized"] == 0
     assert audit["candidate_numeric_strength_assigned"] == 0
     assert audit["all_candidate_normalization_states"] == "UNRESOLVED"
-    assert len(audit["unknown_evidence_role_review_record_ids"]) == 4
+    assert len(audit["unknown_evidence_role_review_record_ids"]) == 1
+    assert audit["unknown_evidence_role_review_record_ids"] == ["MR-LZ-SYMBOLIC-ROLE-002"]
     reuse_path = ROOT / audit["source_ref_reuse_ledger_path"]
     assert reuse_path.exists()
     with reuse_path.open(encoding="utf-8") as handle:
         reuse_report = handle.read()
-    assert "47组" in reuse_report
+    assert f"{audit['duplicated_exact_source_ref_groups']}组" in reuse_report
     assert "shared_span:" in reuse_report
+
+
+def test_wuqu_financial_role_candidate_is_reviewed_against_l3_not_qi05():
+    data = load_baseline()
+    wuqu = next(star for star in data["stars"] if star["name"] == "武曲")
+    prop = next(p for p in wuqu["candidate_properties"] if p["candidate_key"] == "EXP-WQ-10")
+    records = {r["review_record_id"]: r for r in data["mapping_review_records"]}
+    review = records[prop["mapping_review_record_id"]]
+    assert prop["target_ref"] == "knowledge/qi_ontology.yaml#/architecture/layers/L3"
+    assert prop["mapping_review_record_id"] == "MR-WQ-L3-FINANCIAL-ROLE-016"
+    assert review["target_ref"] == prop["target_ref"]
+    assert prop["mapping_disposition"] == "candidate_only"
+    assert set(prop["source_rule_ids"]) == {"ZZ-WQ-002", "ZZ-WQ-X01"}
+    rejected_qi05 = records["MR-WQ-FINANCIAL-ROLE-002"]
+    assert rejected_qi05["target_ref"] == "STAR-WQ.intrinsic_signature:QI-05"
+    assert rejected_qi05["mapping_disposition"]["value"] == "not_supported_for_target"
 
 
 def test_pre_pi_candidate_source_scope_mismatches_are_explicitly_audited():
@@ -1132,9 +1152,10 @@ def test_pre_pi_candidate_source_scope_mismatches_are_explicitly_audited():
             missing = set(prop.get("source_rule_ids", [])) - directly_cited
             if missing:
                 mismatches.append((prop["candidate_key"], missing))
-    assert len(mismatches) == audit["properties_with_source_scope_mismatch"] == 13
-    assert sum(len(missing) for _, missing in mismatches) == audit["candidate_source_rule_ids_not_directly_cited"] == 26
+    assert len(mismatches) == audit["properties_with_source_scope_mismatch"] == 1
+    assert sum(len(missing) for _, missing in mismatches) == audit["candidate_source_rule_ids_not_directly_cited"] == 1
     assert set(key for key, _ in mismatches) == set(audit["candidate_keys"])
+    assert mismatches == [("EXP-WQ-06", {"ZZ-WQ-X06"})]
     report_path = ROOT / audit["path"]
     report = report_path.read_text(encoding="utf-8")
     assert "不应机械地把缺少的 ID 全部添加到审核记录" in report
