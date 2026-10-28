@@ -206,3 +206,15 @@
 - 逐页对照SRC-ZZ-002扫描页12/印刷页23–24后，发现若干研究摘录曾用省略号压缩非连续文字，或把连续原文的逗号改成句号。本次将source_excerpt与literal_source_span改为连续、逐字的原文片段；补充回归断言，防止再次把省略号占位当作原文。
 - 扫描页24的“调各”“双能”继续按可见字面保留；本次只修复引文精确性，不改变候选语义、映射处置、来源状态或任何canonical字段。
 - 本次修订后的精确head为待提交版本；必须再次通过完整exact-head质量门后，才能将巨门检查点正式交接。最终head/run将记录在Issue #757 / Draft PR #783最新交接评论中。此后不再修改来源/候选文件。
+
+
+## 预 PI 来源审计与分支同步（2026-10-28）
+
+- 已将 main `4cc89ead106c315d451d2d39b72e33ccc73398b5` 同步进入 Core 分支，合并提交 `cd11b672058e82efbdc08ee69a61f153aacb4a81`；PR #783 仍保持 Draft/unmerged。
+- 两份本地来源PDF的SHA-256均与 `sources/source_index.csv` 一致：SRC-ZZ-001 `7ebafc8e3477430e2f8e69c6925ecc373d3c28966955f7035078c4949b7475a2`；SRC-ZZ-002 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a`。
+- 新增 `SUN_SOURCE_SPAN_REVIEW_v0.1.csv`，覆盖40条太阳canonical规则；来源跨度为扫描页5/印刷页9–10。
+- 已补核太阴 `ZZ-TYI-010`（扫描页21/印刷页41；canonical定位页42的一页差异已记录）、天相 `ZZ-TX-009/010`（扫描页24/印刷页47）、贪狼 `ZZ-TL-006/007/008`（SRC-ZZ-001扫描页41–42/印刷页81–83）、巨门 `ZZ-JM-005`（SRC-ZZ-001扫描页42/印刷页83）、天梁 `ZZ-TLIA-010`（扫描页80/印刷页159）、破军 `ZZ-PJ-006..010`（扫描页96–97/印刷页191–193）。
+- 14份侧车覆盖全部430条canonical规则ID：421条完整视觉核对、7条部分核对、1条来源未核实（`ZZ-TL-010`）、1条来源错配（`ZZ-TT-010`）。部分核对为 `ZZ-TL-009`、`ZZ-JM-003/004/006/007`、`ZZ-TLIA-001`、`ZZ-QS-005`。
+- 所有canonical行仍保持 `source_span_verified=false` 与 `normalization_epistemic=UNRESOLVED`；没有canonical化或Product消费授权。
+- 最新源审计及测试变更之后的exact-head完整质量门尚待确认；不能复用此前head的绿色运行作为本次最终验收。
+
