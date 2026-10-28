@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 BASELINE = ROOT / "knowledge/core/14star-property-normalization/14STAR_PROPERTY_NORMALIZATION_BASELINE_v0.1.json"
 CANONICAL_RULES = ROOT / "knowledge/rules/stars/major_stars_canonical_v0.1.csv"
 TAIYIN_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TAIYIN_SOURCE_SPAN_REVIEW_v0.1.csv"
+SUN_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/SUN_SOURCE_SPAN_REVIEW_v0.1.csv"
 TIANXIANG_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TIANXIANG_SOURCE_SPAN_REVIEW_v0.1.csv"
 TIANJI_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TIANJI_SOURCE_SPAN_REVIEW_v0.1.csv"
 WUQU_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/WUQU_SOURCE_SPAN_REVIEW_v0.1.csv"
@@ -159,7 +160,7 @@ def test_taiyin_visual_source_review_does_not_mutate_canonical_source_flags():
     expected_ids = set(data["source_policy"]["taiyin_review_rule_ids"])
     with TAIYIN_SOURCE_REVIEW.open(encoding="utf-8", newline="") as stream:
         review_rows = {row["rule_id"]: row for row in csv.DictReader(stream)}
-    assert len(expected_ids) == 25
+    assert len(expected_ids) == 26
     for rule_id in expected_ids:
         row = review_rows[rule_id]
         assert row["star"] == "太阴"
@@ -172,6 +173,9 @@ def test_taiyin_visual_source_review_does_not_mutate_canonical_source_flags():
 
     with CANONICAL_RULES.open(encoding="utf-8", newline="") as stream:
         canonical = {row["rule_id"]: row for row in csv.DictReader(stream)}
+    assert review_rows["ZZ-TYI-010"]["source_pdf_page"] == "21"
+    assert review_rows["ZZ-TYI-010"]["source_printed_page"] == "41"
+    assert "页码差异" in review_rows["ZZ-TYI-010"]["modality_scope_ambiguity"]
     for rule_id in expected_ids:
         assert canonical[rule_id]["source_span_verified"] == "false"
         assert canonical[rule_id]["normalization_epistemic"] == "UNRESOLVED"
@@ -180,14 +184,14 @@ def test_taiyin_visual_source_review_does_not_mutate_canonical_source_flags():
 def test_tianxiang_source_review_is_bounded_and_canonical_rows_stay_unresolved():
     data = load_baseline()
     expected_ids = set(data["source_policy"]["tianxiang_review_rule_ids"])
-    assert len(expected_ids) == 25
-    assert data["source_policy"]["tianxiang_out_of_scope_rule_ids"] == ["ZZ-TX-009", "ZZ-TX-010"]
+    assert len(expected_ids) == 27
+    assert data["source_policy"]["tianxiang_out_of_scope_rule_ids"] == []
 
     with TIANXIANG_SOURCE_REVIEW.open(encoding="utf-8", newline="") as stream:
         review_rows = list(csv.DictReader(stream))
-    assert len(review_rows) == 25
+    assert len(review_rows) == 27
     assert {row["rule_id"] for row in review_rows} == expected_ids
-    assert len({row["rule_id"] for row in review_rows}) == 25
+    assert len({row["rule_id"] for row in review_rows}) == 27
 
     with CANONICAL_RULES.open(encoding="utf-8", newline="") as stream:
         canonical = {row["rule_id"]: row for row in csv.DictReader(stream)}
@@ -197,6 +201,9 @@ def test_tianxiang_source_review_is_bounded_and_canonical_rows_stay_unresolved()
         if rule_id in {"ZZ-TX-005", "ZZ-TX-006"}:
             assert row["source_pdf_page"] == "24"
             assert row["source_printed_page"] == "46"
+        elif rule_id in {"ZZ-TX-009", "ZZ-TX-010"}:
+            assert row["source_pdf_page"] == "24"
+            assert row["source_printed_page"] == "47"
         else:
             assert row["source_pdf_page"] == "13"
         assert row["source_span_status"] == "VERIFIED_VISUAL_SCAN"
@@ -210,7 +217,7 @@ def test_tianxiang_source_review_is_bounded_and_canonical_rows_stay_unresolved()
         assert row["proposed_evidence_tier"] in {"DIRECT_STAR", "SAME_STAR_MODIFIER", "SYSTEM_CONTEXT"}
         assert canonical[rule_id]["source_span_verified"] == "false"
         assert canonical[rule_id]["normalization_epistemic"] == "UNRESOLVED"
-    assert "ZZ-TX-009" not in expected_ids and "ZZ-TX-010" not in expected_ids
+    assert "ZZ-TX-009" in expected_ids and "ZZ-TX-010" in expected_ids
     review_by_id = {row["rule_id"]: row for row in review_rows}
     assert review_by_id["ZZ-TX-X09"]["source_printed_page"] == "25"
     assert review_by_id["ZZ-TX-X10"]["source_printed_page"] == "25"
@@ -738,7 +745,7 @@ def test_tanlang_candidate_checkpoint_preserves_source_scope_conditions_and_nonp
     assert tl["status"] == "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert len(tl["source_claims"]) == 20
     assert len(tl["candidate_properties"]) == 20
-    assert tl["held_canonical_rule_ids"] == ["ZZ-TL-006", "ZZ-TL-007", "ZZ-TL-008", "ZZ-TL-010"]
+    assert tl["held_canonical_rule_ids"] == ["ZZ-TL-010"]
     assert all(prop["canonicalization_authorized"] is False for prop in tl["candidate_properties"])
     assert all(prop["numeric_strength_assigned"] is False for prop in tl["candidate_properties"])
     assert all(prop["normalization_epistemic"] == "UNRESOLVED" for prop in tl["candidate_properties"])
@@ -769,18 +776,21 @@ def test_tanlang_candidate_checkpoint_preserves_source_scope_conditions_and_nonp
     assert {row["rule_id"] for row in review_rows} == expected_ids
     assert len({row["rule_id"] for row in review_rows}) == len(review_rows)
     by_id = {row["rule_id"]: row for row in review_rows}
-    fully_verified = {f"ZZ-TL-{i:03d}" for i in range(1, 6)} | {f"ZZ-TL-X{i:02d}" for i in range(1, 15)} | {f"ZZ-TL-Y{i:02d}" for i in range(1, 6)}
+    fully_verified = {f"ZZ-TL-{i:03d}" for i in range(1, 9)} | {f"ZZ-TL-X{i:02d}" for i in range(1, 15)} | {f"ZZ-TL-Y{i:02d}" for i in range(1, 6)}
     assert all(by_id[rule_id]["source_span_status"] == "VERIFIED_VISUAL_SCAN" for rule_id in fully_verified)
     assert by_id["ZZ-TL-009"]["source_span_status"] == "PARTIALLY_VERIFIED_VISUAL_SCAN"
     assert by_id["ZZ-TL-009"]["source_pdf_page"] == "93"
     assert by_id["ZZ-TL-009"]["source_printed_page"] == "184-185"
-    held = {"ZZ-TL-006", "ZZ-TL-007", "ZZ-TL-008", "ZZ-TL-010"}
+    held = {"ZZ-TL-010"}
     assert all(by_id[rule_id]["source_span_status"] in {"OUT_OF_SCOPE_SOURCE_NOT_VERIFIED", "NOT_VERIFIED_IN_REVIEWED_SPANS"} for rule_id in held)
     assert by_id["ZZ-TL-001"]["source_id"] == "SRC-ZZ-002"
     assert by_id["ZZ-TL-001"]["source_pdf_page"] == "11"
     assert by_id["ZZ-TL-003"]["source_pdf_page"] == "51"
     assert by_id["ZZ-TL-003"]["source_printed_page"] == "100"
-    assert by_id["ZZ-TL-006"]["source_pdf_page"] == ""
+    assert by_id["ZZ-TL-006"]["source_pdf_page"] == "41"
+    assert by_id["ZZ-TL-006"]["source_id"] == "SRC-ZZ-001"
+    assert by_id["ZZ-TL-007"]["source_pdf_page"] == "42"
+    assert by_id["ZZ-TL-008"]["source_pdf_page"] == "42"
     assert by_id["ZZ-TL-010"]["source_pdf_page"] == ""
     assert all(row["normalization_epistemic_after"] == "UNRESOLVED" for row in review_rows)
     assert all(row["canonical_source_span_verified_after"] == "false" for row in review_rows)
@@ -799,7 +809,7 @@ def test_jumen_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
     assert jm["status"] == "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert len(jm["source_claims"]) == 20
     assert len(jm["candidate_properties"]) == 20
-    assert jm["held_canonical_rule_ids"] == ["ZZ-JM-005"]
+    assert jm["held_canonical_rule_ids"] == []
     assert all(prop["canonicalization_authorized"] is False for prop in jm["candidate_properties"])
     assert all(prop["numeric_strength_assigned"] is False for prop in jm["candidate_properties"])
     assert all(prop["normalization_epistemic"] == "UNRESOLVED" for prop in jm["candidate_properties"])
@@ -811,7 +821,7 @@ def test_jumen_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
     assert data["source_policy"]["jumen_source_locator"]["canonical_source_span_verified_mutated"] is False
     assert data["source_policy"]["jumen_review_path"] == "knowledge/core/14star-property-normalization/JUMEN_SOURCE_SPAN_REVIEW_v0.1.csv"
     assert len(data["source_policy"]["jumen_review_rule_ids"]) == 26
-    assert data["source_policy"]["jumen_held_rule_ids"] == ["ZZ-JM-005"]
+    assert data["source_policy"]["jumen_held_rule_ids"] == []
     assert data["source_policy"]["jumen_partial_rule_ids"] == ["ZZ-JM-003", "ZZ-JM-004", "ZZ-JM-006", "ZZ-JM-007"]
     assert data["progress"]["completed_expansion_stars"] == ["紫微", "天机", "武曲", "天同", "廉贞", "天府", "贪狼", "巨门", "天梁", "七杀", "破军"]
     assert data["progress"]["remaining_expansion_stars_in_existing_order"] == []
@@ -843,12 +853,14 @@ def test_jumen_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
     by_id = {row["rule_id"]: row for row in review_rows}
     fully_verified = {"ZZ-JM-001", "ZZ-JM-002", "ZZ-JM-008", "ZZ-JM-009", "ZZ-JM-010"} | {f"ZZ-JM-X{i:02d}" for i in range(1, 12)} | {f"ZZ-JM-Y{i:02d}" for i in range(1, 6)}
     partial = {"ZZ-JM-003", "ZZ-JM-004", "ZZ-JM-006", "ZZ-JM-007"}
-    held = {"ZZ-JM-005"}
+    held = set()
     assert all(by_id[rule_id]["source_span_status"] == "VERIFIED_VISUAL_SCAN" for rule_id in fully_verified)
     assert all(by_id[rule_id]["source_span_status"] == "PARTIALLY_VERIFIED_VISUAL_SCAN" for rule_id in partial)
     assert all(by_id[rule_id]["source_span_status"] == "OUT_OF_SCOPE_SOURCE_NOT_VERIFIED" for rule_id in held)
     assert by_id["ZZ-JM-005"]["source_id"] == "SRC-ZZ-001"
-    assert by_id["ZZ-JM-005"]["source_pdf_page"] == ""
+    assert by_id["ZZ-JM-005"]["source_span_status"] == "VERIFIED_VISUAL_SCAN"
+    assert by_id["ZZ-JM-005"]["source_pdf_page"] == "42"
+    assert by_id["ZZ-JM-005"]["source_printed_page"] == "83"
     assert by_id["ZZ-JM-003"]["source_pdf_page"] == "12"
     assert "多言" in by_id["ZZ-JM-004"]["modality_scope_ambiguity"]
     assert "调各" in by_id["ZZ-JM-Y03"]["modality_scope_ambiguity"]
@@ -879,7 +891,7 @@ def test_tianliang_candidate_checkpoint_preserves_source_scope_and_nonpromotion(
     assert tianliang["status"] == "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert len(tianliang["source_claims"]) == 20
     assert len(tianliang["candidate_properties"]) == 20
-    assert tianliang["held_canonical_rule_ids"] == ["ZZ-TLIA-010"]
+    assert tianliang["held_canonical_rule_ids"] == []
     assert all(p["canonicalization_authorized"] is False for p in tianliang["candidate_properties"])
     assert all(p["numeric_strength_assigned"] is False for p in tianliang["candidate_properties"])
     assert all(p["normalization_epistemic"] == "UNRESOLVED" for p in tianliang["candidate_properties"])
@@ -888,7 +900,7 @@ def test_tianliang_candidate_checkpoint_preserves_source_scope_and_nonpromotion(
     assert loc["source_sha256"] == data["source_policy"]["source_sha256"]
     assert loc["canonical_source_span_verified_mutated"] is False
     assert len(data["source_policy"]["tianliang_review_rule_ids"]) == 26
-    assert data["source_policy"]["tianliang_held_rule_ids"] == ["ZZ-TLIA-010"]
+    assert data["source_policy"]["tianliang_held_rule_ids"] == []
     assert data["source_policy"]["tianliang_partial_rule_ids"] == ["ZZ-TLIA-001"]
     assert "天梁" in data["progress"]["completed_expansion_stars"]
     assert data["progress"]["remaining_expansion_stars_in_existing_order"] == []
@@ -911,12 +923,13 @@ def test_tianliang_candidate_checkpoint_preserves_source_scope_and_nonpromotion(
     assert all(r["normalization_epistemic_after"] == "UNRESOLVED" for r in review_rows)
     assert all(r["canonical_source_span_verified_after"] == "false" for r in review_rows)
     by_id = {r["rule_id"]:r for r in review_rows}
-    assert sum(r["source_span_status"] == "VERIFIED_VISUAL_SCAN" for r in review_rows) == 24
+    assert sum(r["source_span_status"] == "VERIFIED_VISUAL_SCAN" for r in review_rows) == 25
     assert by_id["ZZ-TLIA-001"]["source_span_status"] == "PARTIALLY_VERIFIED_VISUAL_SCAN"
     assert "第三得" in by_id["ZZ-TLIA-001"]["literal_source_span"]
     assert "第三星" in by_id["ZZ-TLIA-001"]["modality_scope_ambiguity"]
-    assert by_id["ZZ-TLIA-010"]["source_span_status"] == "OUT_OF_SCOPE_SOURCE_NOT_VERIFIED"
-    assert by_id["ZZ-TLIA-010"]["source_pdf_page"] == ""
+    assert by_id["ZZ-TLIA-010"]["source_span_status"] == "VERIFIED_VISUAL_SCAN"
+    assert by_id["ZZ-TLIA-010"]["source_pdf_page"] == "80"
+    assert by_id["ZZ-TLIA-010"]["source_printed_page"] == "159"
 
 
 def test_qisha_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
@@ -980,7 +993,7 @@ def test_pojun_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
     assert pojun["status"] == "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert len(pojun["source_claims"]) == 20
     assert len(pojun["candidate_properties"]) == 20
-    assert pojun["held_canonical_rule_ids"] == ["ZZ-PJ-006", "ZZ-PJ-007", "ZZ-PJ-008", "ZZ-PJ-009", "ZZ-PJ-010"]
+    assert pojun["held_canonical_rule_ids"] == []
     assert all(p["canonicalization_authorized"] is False for p in pojun["candidate_properties"])
     assert all(p["numeric_strength_assigned"] is False for p in pojun["candidate_properties"])
     assert all(p["normalization_epistemic"] == "UNRESOLVED" for p in pojun["candidate_properties"])
@@ -1006,5 +1019,25 @@ def test_pojun_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
     assert all(r["normalization_epistemic_after"] == "UNRESOLVED" for r in review_rows)
     assert all(r["canonical_source_span_verified_after"] == "false" for r in review_rows)
     by_id = {r["rule_id"]: r for r in review_rows}
-    assert sum(r["source_span_status"] == "VERIFIED_VISUAL_SCAN" for r in review_rows) == 25
-    assert all(by_id[f"ZZ-PJ-{n:03d}"]["source_span_status"] == "OUT_OF_SCOPE_SOURCE_NOT_VERIFIED" for n in range(6, 11))
+    assert sum(r["source_span_status"] == "VERIFIED_VISUAL_SCAN" for r in review_rows) == 30
+    assert all(by_id[f"ZZ-PJ-{n:03d}"]["source_span_status"] == "VERIFIED_VISUAL_SCAN" for n in range(6, 11))
+    assert by_id["ZZ-PJ-006"]["source_pdf_page"] == "96"
+    assert by_id["ZZ-PJ-007"]["source_pdf_page"] == "97"
+
+
+def test_sun_source_review_covers_all_canonical_rows_without_promoting_them():
+    with SUN_SOURCE_REVIEW.open(encoding="utf-8", newline="") as handle:
+        review_rows = list(csv.DictReader(handle))
+    with CANONICAL_RULES.open(encoding="utf-8", newline="") as handle:
+        canonical_rows = list(csv.DictReader(handle))
+    expected = {r["rule_id"] for r in canonical_rows if r["subject"] == "太阳"}
+    assert len(expected) == len(review_rows) == 40
+    assert {r["rule_id"] for r in review_rows} == expected
+    assert all(r["source_id"] == "SRC-ZZ-002" for r in review_rows)
+    assert all(r["source_pdf_page"] == "5" for r in review_rows)
+    assert all(r["source_span_status"] == "VERIFIED_VISUAL_SCAN" for r in review_rows)
+    assert all(r["proposal_status"] == "PROPOSAL_ONLY_NOT_CANONICAL" for r in review_rows)
+    assert all(r["normalization_epistemic_after"] == "UNRESOLVED" for r in review_rows)
+    assert all(r["canonical_source_span_verified_after"] == "false" for r in review_rows)
+    canonical_by_id = {r["rule_id"]: r for r in canonical_rows}
+    assert all(canonical_by_id[r["rule_id"]]["source_span_verified"] == "false" for r in review_rows)
