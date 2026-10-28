@@ -1,3 +1,15 @@
+# 当前执行证据 — 破军候选检查点（2026-10-28）
+
+- 执行分支：`knowledge/core-757-14star-property-normalization-main-sync2`；本轮接续七杀检查点，不回退、不重复审查已完成星曜。
+- 来源：`SRC-ZZ-002`《中州派紫微斗数深造讲义（上）》；SHA-256 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a`与来源索引一致。基础性质主跨度为扫描页16/印刷页31–32；七杀/破军比较补充扫描页15/印刷页29。
+- 新增 `POJUN_SOURCE_SPAN_REVIEW_v0.1.csv`，覆盖30条 `ZZ-PJ` canonical行：25条完整视觉核对，5条（`ZZ-PJ-006..010`）因独立四化章节未在本轮核验而保持未核实。canonical `source_span_verified=false` 与 `normalization_epistemic=UNRESOLVED` 均保持不变。
+- 新增20条source-claim、20项candidate property、20条mapping-review记录和专用回归测试。
+- 关键边界：破军“先锋/只攻不守”与“旧事创新”仅作传统描述候选；禄/权区别、英星入庙条件、昌曲例外、天马互动、天相对宫及星系结构保留分层；传统风险应象不作为现代预测。
+- 全部候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`；未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限。
+- 本提交后的完整exact-head质量门须通过后才可记录最终验收；父检查点的绿色运行不替代本次验收。
+
+---
+
 # 当前执行证据 — 七杀候选检查点（2026-10-28）
 
 - Lane/shard/Issue/PR：KNOWLEDGE_ONLY / CORE / #757 / Draft PR #783；分支 `knowledge/core-757-14star-property-normalization-main-sync2`。
