@@ -11,7 +11,7 @@
 - 原4条`evidence_role=UNKNOWN`中3条按既有schema处理，`MR-LZ-SYMBOLIC-ROLE-002`继续UNKNOWN，因为现有枚举无法准确表示传统象征标签。
 - 引用复用统计已按更新后的mapping-review ledger重算：428次使用、360个唯一引用、59组精确引用复用；复用不增加独立证据权重。
 - **质量门验收原则：** 每次源文件、测试或审计文档更新后，均以 PR #783 的最新 exact-head Checks 为准；本文件不写入自身提交的验收结论，避免自引用。父提交绿色运行不能替代最终head验收。
-- 未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限；未批准正式映射。
+- 未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限；未批准 canonical 正式映射。
 
 ---
 
