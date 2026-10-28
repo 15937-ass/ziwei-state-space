@@ -8,9 +8,9 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "ACTIVE_NO_ACTIVE_WORK"
-  active_issue: null
-  active_branch: null
+  status: "ACTIVE"
+  active_issue: 819
+  active_branch: "knowledge/p03-819-spouse-source-atoms"
   active_pr: null
   canonical_checkpoint: "P03_SOURCE_COVERAGE_CENSUS_AND_TEMPORAL_HANDOFF_ACCEPTED__19_PRINTED_PAGES__836_CANDIDATES__648_PROMOTED__664_SOURCE_RECORDS__17_GAPS__4_OPEN_OR_PARTIAL__63_TEMPORAL_GROUPS__175_REFS__ISSUE819_REQUIRED_BEFORE_P11"
   note: >-
@@ -26,7 +26,7 @@ execution:
     P0, and Repository Governance v1). The prior accepted cumulative source-first checkpoint
     remains SP09_801_836_SOURCE_FIRST_REVIEW_COMPLETE in the lineage; the current checkpoint
     advances to the full source-coverage census and temporal-residual handoff. The full P03
-    source-coverage census and temporal-residual handoff were accepted by PR #820. The single P03 slot is released. The next bounded P03 work unit is queued Issue #819; it must be explicitly activated as the next P03 owner. Cumulative P03 totals: 836 candidates reviewed, 648 promoted, 664 source
+    source-coverage census and temporal-residual handoff were accepted by PR #820. The single P03 slot is now owned by Issue #819 for the bounded source-atom follow-up. Cumulative P03 totals: 836 candidates reviewed, 648 promoted, 664 source
     records, 462 reusable, 202 CASE_SUPPORT_ONLY, 183 held, 5 deduplicated; 17 source gaps
     remain recorded, with 4 open or partially open: P03-SP01-GAP-001 (printed p33),
     P03-SP02-GAP-001 (partially resolved, printed p37), P03-SP02-GAP-004 (printed p35),
@@ -54,7 +54,7 @@ progress:
   history_feedback: 0
   conditions_compiled: 0
   execution_unlocked: 0
-  next_source_anchor: "Activate queued Issue #819 for the three clear unindexed source atoms (printed pp33, 35–36). Preserve the p37 “机录像” literal and unresolved YEAR/DECADE scope. Do not advance to P11 until Issue #819 and all residual handoffs are accepted."
+  next_source_anchor: "Continue active Issue #819: directly verify and record the three clear unindexed source atoms (printed pp33, 35–36) against the approved scan. Preserve the p37 “机录像” literal and unresolved YEAR/DECADE scope. Do not advance to P11 until Issue #819 and all residual handoffs are accepted."
 
 integrity:
   source_first: true
