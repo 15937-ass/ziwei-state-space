@@ -7,7 +7,7 @@
 - 十四主星候选检查点：14/14；241条 mapping-review 记录、182项候选性质。
 - 来源覆盖：430条 canonical 规则均有侧车；423条完整视觉核对、5条部分核对、1条未核实、1条来源错配。
 - PI 已明确选择 **1A、2B、3B**；结构化记录见基线 JSON 的 `pi_decision_record`。
-- 当前工作状态：`PI_DECISIONS_RECORDED_PENDING_EXACT_HEAD_QUALITY_GATE`；当前 head 必须通过自己的完整 exact-head 质量门后才可验收。
+- 当前工作状态：`PI_DECISIONS_RECORDED`；完整质量门的实时状态以 PR #783 最新 exact-head Checks 为准，文档不自报本提交的验收结果。
 
 ## PI 决定记录
 
