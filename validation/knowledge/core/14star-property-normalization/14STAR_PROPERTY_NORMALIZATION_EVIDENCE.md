@@ -218,3 +218,11 @@
 - 所有canonical行仍保持 `source_span_verified=false` 与 `normalization_epistemic=UNRESOLVED`；没有canonical化或Product消费授权。
 - 最新源审计及测试变更之后的exact-head完整质量门尚待确认；不能复用此前head的绿色运行作为本次最终验收。
 
+
+
+## Mapping-review 预 PI 审计补充（2026-10-28）
+
+- 240条mapping-review记录ID全部唯一；182项候选性质均关联到有效审核记录；未发现指向不存在canonical规则的引用。
+- 412次来源引用使用、356个唯一来源引用；47组精确来源引用在多条审核记录中复用，共103次使用。引用复用不构成独立证据倍增。
+- 4条 `evidence_role=UNKNOWN`：`MR-TY-QI15-METHOD-RULE-005`、`MR-TT-SOURCE-MISMATCH-009`、`MR-LZ-L0-SOURCE-DISAGREEMENT-001`、`MR-LZ-SYMBOLIC-ROLE-002`。其处置与理由见 `MAPPING_REVIEW_PRE_PI_AUDIT_v0.1.md`。
+- 候选属性仍为182项，所有映射链接有效；canonicalization授权为0、数值强度赋值为0、normalization epistemic全部为UNRESOLVED。
