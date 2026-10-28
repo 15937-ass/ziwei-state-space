@@ -813,8 +813,8 @@ def test_jumen_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
     assert len(data["source_policy"]["jumen_review_rule_ids"]) == 26
     assert data["source_policy"]["jumen_held_rule_ids"] == ["ZZ-JM-005"]
     assert data["source_policy"]["jumen_partial_rule_ids"] == ["ZZ-JM-003", "ZZ-JM-004", "ZZ-JM-006", "ZZ-JM-007"]
-    assert data["progress"]["completed_expansion_stars"] == ["紫微", "天机", "武曲", "天同", "廉贞", "天府", "贪狼", "巨门", "天梁", "七杀"]
-    assert data["progress"]["remaining_expansion_stars_in_existing_order"] == ["破军"]
+    assert data["progress"]["completed_expansion_stars"] == ["紫微", "天机", "武曲", "天同", "廉贞", "天府", "贪狼", "巨门", "天梁", "七杀", "破军"]
+    assert data["progress"]["remaining_expansion_stars_in_existing_order"] == []
     jm_checkpoint = next(entry for entry in data["progress"]["expansion_checkpoint_history"] if entry["star"] == "巨门")
     assert jm_checkpoint["star"] == "巨门"
     assert jm_checkpoint["next_star"] == "天梁"
@@ -891,7 +891,7 @@ def test_tianliang_candidate_checkpoint_preserves_source_scope_and_nonpromotion(
     assert data["source_policy"]["tianliang_held_rule_ids"] == ["ZZ-TLIA-010"]
     assert data["source_policy"]["tianliang_partial_rule_ids"] == ["ZZ-TLIA-001"]
     assert "天梁" in data["progress"]["completed_expansion_stars"]
-    assert data["progress"]["remaining_expansion_stars_in_existing_order"] == ["破军"]
+    assert data["progress"]["remaining_expansion_stars_in_existing_order"] == []
     checkpoint = next(entry for entry in data["progress"]["expansion_checkpoint_history"] if entry["star"] == "天梁")
     assert checkpoint["star"] == "天梁" and checkpoint["next_star"] == "七杀"
     assert (checkpoint["fully_verified_rows"], checkpoint["partially_verified_rows"], checkpoint["held_rows"]) == (24, 1, 1)
@@ -937,8 +937,8 @@ def test_qisha_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
     assert len(data["source_policy"]["qisha_review_rule_ids"]) == 26
     assert data["source_policy"]["qisha_held_rule_ids"] == []
     assert data["source_policy"]["qisha_partial_rule_ids"] == ["ZZ-QS-005"]
-    assert data["progress"]["completed_expansion_stars"] == ["紫微", "天机", "武曲", "天同", "廉贞", "天府", "贪狼", "巨门", "天梁", "七杀"]
-    assert data["progress"]["remaining_expansion_stars_in_existing_order"] == ["破军"]
+    assert data["progress"]["completed_expansion_stars"] == ["紫微", "天机", "武曲", "天同", "廉贞", "天府", "贪狼", "巨门", "天梁", "七杀", "破军"]
+    assert data["progress"]["remaining_expansion_stars_in_existing_order"] == []
     checkpoint = next(entry for entry in data["progress"]["expansion_checkpoint_history"] if entry["star"] == "七杀")
     assert checkpoint["star"] == "七杀" and checkpoint["next_star"] == "破军"
     assert (checkpoint["fully_verified_rows"], checkpoint["partially_verified_rows"], checkpoint["held_rows"]) == (25, 1, 0)
