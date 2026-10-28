@@ -1,11 +1,11 @@
 # 十四主星基础性质归一化基线 v0.1
 
-**当前状态：** `B_QISHA_CHECKPOINT_COMPLETED_READY_FOR_POJUN` / `PROPOSAL_ONLY_NOT_CANONICAL`
+**当前状态：** `B_POJUN_CHECKPOINT_COMPLETED_READY_FOR_FINAL_REVIEW` / `PROPOSAL_ONLY_NOT_CANONICAL`
 **跟踪 Issue：** [#757](https://github.com/15937-ass/ziwei-state-space/issues/757)
 **当前检查点基线 main：** `cd082859267f0e57c85298bf267004418f8cdfb2`
 **执行分支：** `knowledge/core-757-14star-property-normalization-main-sync2`
 
-> 太阳、太阴、天相三个有界试点与阶段B紫微、天机、武曲、天同、廉贞、天府、贪狼、巨门、天梁、七杀十个检查点均已形成候选卡与逐目标审核记录。本文件仍是候选研究基线，不代表十四主星研究完成，不是正式本体变更，也不授权 Product 消费。
+> 太阳、太阴、天相三个有界试点与阶段B紫微、天机、武曲、天同、廉贞、天府、贪狼、巨门、天梁、七杀、破军十一个检查点均已形成候选卡与逐目标审核记录。本文件仍是候选研究基线，不代表十四主星研究完成，不是正式本体变更，也不授权 Product 消费。
 
 ## 1. 本轮来源与复用边界
 
@@ -527,3 +527,13 @@
 - `ZZ-QS-005` 部分核对；其余25条完整视觉核对；无规则被整体留置。所有候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`。
 - 未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限；未新增数值权重、概率或现实预测主张。
 - 下一颗为**破军**。本轮停在七杀候选检查点，不自动展开破军。
+
+
+## 23. 阶段 B 第十一轮：破军候选研究（2026-10-28）
+
+- 来源：`SRC-ZZ-002`《中州派紫微斗数深造讲义（上）》；扫描页15–16 / 印刷页29–32，SHA-256与来源索引一致。
+- `POJUN_SOURCE_SPAN_REVIEW_v0.1.csv`覆盖全部30条 `ZZ-PJ` canonical行：25条完整视觉核对，`ZZ-PJ-006..010`因独立四化章节未在本轮核验而保持未核实；无部分核对项。
+- 新增20条source-claim、20项候选性质、20条mapping-review记录及专用回归测试。
+- “先锋/冲锋不主退守”与“旧事创新”只作描述性候选，不等同现代执行力或创新能力测量；禄/权、昌曲例外、天马、英星入庙、天相对宫与星系结构均保留各自条件和层级；传统风险应象不升级为现实预测。
+- 所有候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`；未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限。
+- 阶段B候选检查点序列已完成。下一步为统一复核覆盖边界、重复证据、未决项与PI审议材料，不自动批准正式映射。
