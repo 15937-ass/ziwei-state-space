@@ -118,7 +118,8 @@ def test_semantic_corrections_case_only_reclassification_and_source_locations():
     rec = records_by_id(d)
     assert rec["P03S-501"]["canonical_projection_target"] == "husband_benefits_from_wife_status"
     assert "现代已未必克应" in rec["P03S-502"]["source_literal_claim"]
-    assert "行业为宜" in rec["P03S-507"]["source_condition_uncertainty"]
+    assert "行业为宜" in rec["P03S-507"]["canonical_condition"]
+    assert "现代就业决策" in rec["P03S-507"]["source_condition_uncertainty"]
     assert rec["P03S-531"]["case_support_only"] is True
     assert "printed p43" in rec["P03S-531"]["source_location"]
     assert "printed p43" in rec["P03S-533"]["source_location"]
