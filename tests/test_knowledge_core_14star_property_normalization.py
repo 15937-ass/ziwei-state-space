@@ -20,6 +20,7 @@ TIANFU_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TIAN
 TANLANG_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TANLANG_SOURCE_SPAN_REVIEW_v0.1.csv"
 JUMEN_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/JUMEN_SOURCE_SPAN_REVIEW_v0.1.csv"
 QISHA_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/QISHA_SOURCE_SPAN_REVIEW_v0.1.csv"
+POJUN_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/POJUN_SOURCE_SPAN_REVIEW_v0.1.csv"
 TIANLIANG_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TIANLIANG_SOURCE_SPAN_REVIEW_v0.1.csv"
 
 
@@ -30,7 +31,7 @@ def load_baseline():
 def test_solar_taiyin_and_tianxiang_pilots_are_explicitly_noncanonical_and_source_bounded():
     data = load_baseline()
     assert data["status"] == "PROPOSAL_ONLY_NOT_CANONICAL"
-    assert data["checkpoint_status"] == "STAGE_B_QISHA_CHECKPOINT_COMPLETED_NOT_FINAL"
+    assert data["checkpoint_status"] == "STAGE_B_POJUN_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert data["progress"]["completed_pilot_cards"] == ["太阳", "太阴", "天相"]
     assert data["progress"]["active_pilot_card"] is None
     assert data["progress"]["draft_pilot_cards"] == ["太阳", "太阴", "天相"]
@@ -43,15 +44,15 @@ def test_solar_taiyin_and_tianxiang_pilots_are_explicitly_noncanonical_and_sourc
     assert data["method_guardrails"]["product_consumption_authorized"] is False
     assert data["method_guardrails"]["normalization_epistemic"] == "UNRESOLVED"
     assert len([star for star in data["stars"] if star["name"] in {"太阳", "太阴", "天相"}]) == 3
-    assert len(data["stars"]) == 13
+    assert len(data["stars"]) == 14
     assert data["stars"][5]["name"] == "武曲"
     assert data["stars"][6]["name"] == "天同"
     assert data["stars"][7]["name"] == "廉贞"
     assert data["stars"][8]["name"] == "天府"
     assert data["stars"][9]["name"] == "贪狼"
     assert data["stars"][10]["name"] == "巨门"
-    assert data["progress"]["stage"] == "B_QISHA_CHECKPOINT_COMPLETED_READY_FOR_POJUN"
-    assert data["progress"]["remaining_expansion_stars_in_existing_order"][0] == "破军"
+    assert data["progress"]["stage"] == "B_POJUN_CHECKPOINT_COMPLETED_READY_FOR_FINAL_REVIEW"
+    assert data["progress"]["remaining_expansion_stars_in_existing_order"] == []
     assert data["stars"][0]["name"] == "太阳"
     assert data["stars"][0]["status"] == "PILOT_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert data["stars"][1]["name"] == "太阴"
@@ -292,6 +293,7 @@ def test_context_audit_refs_existing_source_claims_without_growing_canonical_evi
         "MR-JM-": 20,
         "MR-TLIA-": 20,
         "MR-QS-": 20,
+        "MR-PJ-": 20,
     }
     actual_prefix_counts = {
         prefix: sum(
@@ -364,15 +366,15 @@ def test_method_permission_and_progress_metadata_remain_consistent():
     assert audit["research_disposition"] == "CONTINUE_STAGE_B_CANDIDATE_RESEARCH_NEXT_BOUNDED_TURN"
     assert audit["next_star"] == "紫微"  # Historical method-exit handoff; this star has now been researched.
     progress = data["progress"]
-    assert progress["completed_expansion_stars"] == ["紫微", "天机", "武曲", "天同", "廉贞", "天府", "贪狼", "巨门", "天梁", "七杀"]
-    assert progress["remaining_expansion_stars_in_existing_order"] == ["破军"]
+    assert progress["completed_expansion_stars"] == ["紫微", "天机", "武曲", "天同", "廉贞", "天府", "贪狼", "巨门", "天梁", "七杀", "破军"]
+    assert progress["remaining_expansion_stars_in_existing_order"] == []
     # Current progress must reconcile with the cards and historical checkpoints.
     card_names = [star["name"] for star in data["stars"]]
     completed = progress["completed_pilot_cards"] + progress["completed_expansion_stars"]
     remaining = progress["remaining_expansion_stars_in_existing_order"]
     assert card_names == completed
-    assert len(card_names) == len(set(card_names)) == 13
-    assert len(remaining) == len(set(remaining)) == 1
+    assert len(card_names) == len(set(card_names)) == 14
+    assert len(remaining) == len(set(remaining)) == 0
     assert set(completed).isdisjoint(remaining)
     assert len(set(completed + remaining)) == 14
     history = progress["expansion_checkpoint_history"]
@@ -937,14 +939,14 @@ def test_qisha_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
     assert data["source_policy"]["qisha_partial_rule_ids"] == ["ZZ-QS-005"]
     assert data["progress"]["completed_expansion_stars"] == ["紫微", "天机", "武曲", "天同", "廉贞", "天府", "贪狼", "巨门", "天梁", "七杀"]
     assert data["progress"]["remaining_expansion_stars_in_existing_order"] == ["破军"]
-    checkpoint = data["progress"]["expansion_checkpoint_history"][-1]
+    checkpoint = next(entry for entry in data["progress"]["expansion_checkpoint_history"] if entry["star"] == "七杀")
     assert checkpoint["star"] == "七杀" and checkpoint["next_star"] == "破军"
     assert (checkpoint["fully_verified_rows"], checkpoint["partially_verified_rows"], checkpoint["held_rows"]) == (25, 1, 0)
     records = {r["review_record_id"]: r for r in data["mapping_review_records"]}
     qs_records = {k:v for k,v in records.items() if k.startswith("MR-QS-")}
     assert len(qs_records) == 20
     assert all(p["mapping_review_record_id"] in records for p in qisha["candidate_properties"])
-    assert len(data["mapping_review_records"]) == 220
+    assert len(data["mapping_review_records"]) == 240
     assert validate_mapping_review_collection(data["mapping_review_records"]) == []
     with QISHA_SOURCE_REVIEW.open(encoding="utf-8", newline="") as handle:
         review_rows = list(csv.DictReader(handle))
@@ -969,3 +971,40 @@ def test_qisha_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
         assert canonical_by_id[rule_id]["source_epistemic"] == "EXPLICIT"
         assert canonical_by_id[rule_id]["normalization_epistemic"] == "UNRESOLVED"
         assert canonical_by_id[rule_id]["source_span_verified"] == "false"
+
+
+def test_pojun_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
+    data = load_baseline()
+    pojun = next(star for star in data["stars"] if star["name"] == "破军")
+    assert pojun["star_id"] == "STAR-PJ"
+    assert pojun["status"] == "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL"
+    assert len(pojun["source_claims"]) == 20
+    assert len(pojun["candidate_properties"]) == 20
+    assert pojun["held_canonical_rule_ids"] == ["ZZ-PJ-006", "ZZ-PJ-007", "ZZ-PJ-008", "ZZ-PJ-009", "ZZ-PJ-010"]
+    assert all(p["canonicalization_authorized"] is False for p in pojun["candidate_properties"])
+    assert all(p["numeric_strength_assigned"] is False for p in pojun["candidate_properties"])
+    assert all(p["normalization_epistemic"] == "UNRESOLVED" for p in pojun["candidate_properties"])
+    assert data["progress"]["completed_expansion_stars"][-1] == "破军"
+    assert data["progress"]["remaining_expansion_stars_in_existing_order"] == []
+    checkpoint = data["progress"]["expansion_checkpoint_history"][-1]
+    assert checkpoint["star"] == "破军" and checkpoint["next_star"] is None
+    assert (checkpoint["fully_verified_rows"], checkpoint["partially_verified_rows"], checkpoint["held_rows"]) == (25, 0, 5)
+    records = {r["review_record_id"]: r for r in data["mapping_review_records"]}
+    pj_records = {k:v for k,v in records.items() if k.startswith("MR-PJ-")}
+    assert len(pj_records) == 20
+    assert all(p["mapping_review_record_id"] in records for p in pojun["candidate_properties"])
+    assert len(data["mapping_review_records"]) == 240
+    assert validate_mapping_review_collection(data["mapping_review_records"]) == []
+    with POJUN_SOURCE_REVIEW.open(encoding="utf-8", newline="") as handle:
+        review_rows = list(csv.DictReader(handle))
+    with CANONICAL_RULES.open(encoding="utf-8", newline="") as handle:
+        canonical_rows = list(csv.DictReader(handle))
+    expected = {r["rule_id"] for r in canonical_rows if r["rule_id"].startswith("ZZ-PJ-")}
+    assert len(expected) == len(review_rows) == 30
+    assert {r["rule_id"] for r in review_rows} == expected
+    assert all(r["proposal_status"] == "PROPOSAL_ONLY_NOT_CANONICAL" for r in review_rows)
+    assert all(r["normalization_epistemic_after"] == "UNRESOLVED" for r in review_rows)
+    assert all(r["canonical_source_span_verified_after"] == "false" for r in review_rows)
+    by_id = {r["rule_id"]: r for r in review_rows}
+    assert sum(r["source_span_status"] == "VERIFIED_VISUAL_SCAN" for r in review_rows) == 25
+    assert all(by_id[f"ZZ-PJ-{n:03d}"]["source_span_status"] == "OUT_OF_SCOPE_SOURCE_NOT_VERIFIED" for n in range(6, 11))
