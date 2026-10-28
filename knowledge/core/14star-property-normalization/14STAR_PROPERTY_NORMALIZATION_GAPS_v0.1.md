@@ -1,8 +1,16 @@
 # 十四主星性质归一化缺口 v0.1
 
-**状态：** `B_POJUN_CHECKPOINT_COMPLETED_READY_FOR_FINAL_REVIEW` / `PROPOSAL_ONLY_NOT_CANONICAL`
+**状态：** `PI_SOURCE_AND_MAPPING_AUDIT_DECISIONS_RECORDED_PENDING_EXACT_HEAD_QUALITY_GATE` / `PROPOSAL_ONLY_NOT_CANONICAL`
 **Issue：** #757
-**当前范围状态（2026-10-28）：** 来源审查侧车现覆盖全部430条canonical规则ID。太阳40条已完成跨度核对；ZZ-TYI-010与ZZ-TX-009/010已补核。下方旧缺口条目保留历史审计轨迹；最新状态以文末“预PI补核结果”为准。
+**当前范围状态（2026-10-28，PI裁决后）：** 侧车覆盖全部430条canonical规则ID；当前423条完整视觉核对、5条部分核对、1条未核实、1条错配。PI已裁定ZZ-TLIA-001“第三得”为“第三星”的印刷误字、ZZ-QS-005“廉洁”为“廉贞”的印刷误字；原始literal保留，正式canonical状态不变。旧缺口条目保留历史轨迹，当前未决以本节为准。
+
+## 当前 PI 裁决与剩余缺口（2026-10-28）
+
+- 已解决的文字差异：`ZZ-TLIA-001`“第三得”按“第三星”理解；`ZZ-QS-005`“廉洁”按“廉贞”理解。扫描字面不覆盖，canonical规则不改。
+- 仍需补证或隔离：`ZZ-TL-010`缺少支持“性急”的精确跨度；`ZZ-TT-010`来源错配，继续隔离；`ZZ-TL-009`只核实化禄分支；`ZZ-JM-003/004/006/007`分别保留语义范围、才华条件、化禄/司仪门控、化科条件缺口。
+- 映射来源范围：原13项/26个rule ID已逐项审查，12项/25个ID已补引或缩窄；唯一保留的范围差异是`EXP-WQ-06 / ZZ-WQ-X06`，因其与已直接引用的WQ-018/019为重叠摘要，不重复计证。
+- 四条原`evidence_role=UNKNOWN`中，三条已按现有schema处理；`MR-LZ-SYMBOLIC-ROLE-002`继续UNKNOWN，避免将传统象征标签误归入现有证据角色。
+- 所有候选继续`PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`；不改正式星核、本体、canonical规则、共享Schema、Product/runtime或KIB。exact-head质量门仍待本轮变更后重新验证。
 
 ## 太阳试点缺口
 
