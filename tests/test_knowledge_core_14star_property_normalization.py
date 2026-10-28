@@ -1121,6 +1121,10 @@ def test_pre_pi_source_audit_followup_covers_all_canonical_rules_without_promoti
 
 def test_pre_pi_mapping_review_audit_counts_are_consistent():
     data = load_baseline()
+    main_sync = data["pre_pi_gates"]["main_sync"]
+    assert main_sync["main_sha"] == "46df5401745136fe16e8ff49de10620bd5a0ae55"
+    assert main_sync["merge_commit_sha"] == "229e8a5504dfaaf08c2f48112ecdd541ce272d05"
+    assert main_sync["branch_contains_main"] is True
     audit = data["pre_pi_gates"]["mapping_review_audit"]
     assert audit["mapping_review_records"] == audit["unique_review_ids"] == 241
     assert audit["candidate_properties"] == audit["properties_with_valid_review_links"] == 182
