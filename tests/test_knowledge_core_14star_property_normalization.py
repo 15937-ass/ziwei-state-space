@@ -1107,3 +1107,9 @@ def test_pre_pi_mapping_review_audit_counts_are_consistent():
     assert audit["candidate_numeric_strength_assigned"] == 0
     assert audit["all_candidate_normalization_states"] == "UNRESOLVED"
     assert len(audit["unknown_evidence_role_review_record_ids"]) == 4
+    reuse_path = ROOT / audit["source_ref_reuse_ledger_path"]
+    assert reuse_path.exists()
+    with reuse_path.open(encoding="utf-8") as handle:
+        reuse_report = handle.read()
+    assert "47组" in reuse_report
+    assert "shared_span:" in reuse_report
