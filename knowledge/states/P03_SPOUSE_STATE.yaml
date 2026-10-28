@@ -8,11 +8,11 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "ACTIVE_NO_ACTIVE_WORK"
-  active_issue: null
-  active_branch: null
+  status: "ACTIVE"
+  active_issue: 824
+  active_branch: "knowledge/p03-824-p37-residual"
   active_pr: null
-  canonical_checkpoint: "P03_SOURCE_COVERAGE_CENSUS_AND_TEMPORAL_HANDOFF_ACCEPTED__ISSUE819_THREE_SOURCE_ATOMS_SUPPLEMENTED__P37_GAP001_OPEN__ISSUE824_QUEUED__P11_BLOCKED"
+  canonical_checkpoint: "P03_SOURCE_COVERAGE_CENSUS_AND_TEMPORAL_HANDOFF_ACCEPTED__ISSUE819_THREE_SOURCE_ATOMS_SUPPLEMENTED__ISSUE824_ACTIVE_P37_GAP001_OPEN__P11_BLOCKED"
   note: >-
     Accepted source-first batches through SP08-701…800 are on main. SP09-801…836 has now
     been directly re-adjudicated against the approved SRC-ZZ-003 scan, printed pp50–51 /
@@ -26,11 +26,11 @@ execution:
     P0, and Repository Governance v1). The prior accepted cumulative source-first checkpoint
     remains SP09_801_836_SOURCE_FIRST_REVIEW_COMPLETE in the lineage; the current checkpoint
     advances to the full source-coverage census and temporal-residual handoff. The full P03
-    source-coverage census and temporal-residual handoff were accepted by PR #820. The bounded source-atom follow-up is recorded in PR #823: three supplemental source atoms cover the previously incomplete p33, p35, and p36 source spans without editing accepted SP01–SP09 ledgers or historical candidate CSVs. This is the post-acceptance handoff snapshot, so the P03 slot is released here. Issue #824 is queued, not active, for the remaining p37 residual; it must not be activated until Issue #819 is accepted and closed. Cumulative P03 totals: 836 candidates reviewed, 648 promoted, 664 source
+    source-coverage census and temporal-residual handoff were accepted by PR #820. The bounded source-atom follow-up was accepted by PR #823 at main commit b42512b7e96b513a8ad65c08d6903b1791e244a7 and Issue #819 is closed. This activation checkpoint assigns the P03 slot to Issue #824 for the sole remaining p37 residual. The activation PR itself does not resolve the source literal or YEAR/DECADE scope; direct source adjudication begins only after activation is accepted. The p37 residual remains open and P11 remains blocked. Cumulative P03 totals: 836 candidates reviewed, 648 promoted, 664 source
     records, 462 reusable, 202 CASE_SUPPORT_ONLY, 183 held, 5 deduplicated; 17 source gaps
     remain recorded; the three supplemental records in PR #823 address P03-SP01-GAP-001 (printed p33), P03-SP02-GAP-004 (printed p35), and P03-SP02-GAP-005 (printed p36). The sole remaining open source gap is P03-SP02-GAP-001 (printed p37; literal “机录像” and YEAR/DECADE scope unresolved). The accepted census and ledgers remain unchanged. Temporal residuals total 63 groups / 175 rows. P03 is not
     complete: the source-coverage census is accepted, but the p37 residual remains open
-    under queued Issue #824 and must receive an accepted disposition before P11. No Product/runtime authorization; conditions_compiled=0 and
+    under Issue #824 and must receive an accepted disposition before P11. No Product/runtime authorization; conditions_compiled=0 and
     execution_unlocked=0.
 
 progress:
@@ -51,7 +51,7 @@ progress:
   history_feedback: 0
   conditions_compiled: 0
   execution_unlocked: 0
-  next_source_anchor: "Activate queued Issue #824 for P03-SP02-GAP-001 at printed p37 / PDF physical p19 only after Issue #819 is accepted/closed and the P03 slot is released. Preserve “机录像” as unresolved and do not force YEAR/DECADE. P11 remains blocked until the residual receives an accepted disposition."
+  next_source_anchor: "After Issue #824 activation is accepted, directly inspect P03-SP02-GAP-001 at printed p37 / PDF physical p19. Preserve “机录像” if unreadable; do not force YEAR/DECADE. P11 remains blocked until the residual receives an accepted disposition."
 
 integrity:
   source_first: true
