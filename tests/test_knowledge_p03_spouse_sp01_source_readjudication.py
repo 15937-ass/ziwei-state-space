@@ -1,6 +1,5 @@
 import csv
 import json
-import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -135,8 +134,21 @@ def test_p03_state_cache_reconciles_all_source_review_batches():
     # instead of requiring it to remain frozen at the first checkpoint.
     state = STATE.read_text(encoding="utf-8")
     if 'status: "ACTIVE"' in state:
-        issue_match = re.search(r"(?m)^  active_issue: (\\d+)$", state)
-        branch_match = re.search(r'(?m)^  active_branch: "([^"]+)"
+        issue_line = next((line for line in state.splitlines() if line.strip().startswith("active_issue:")), "")
+        branch_line = next((line for line in state.splitlines() if line.strip().startswith("active_branch:")), "")
+        pr_line = next((line for line in state.splitlines() if line.strip().startswith("active_pr:")), "")
+        assert issue_line and branch_line and pr_line
+        issue_id = issue_line.split(":", 1)[1].strip()
+        active_branch = branch_line.strip().split('"')[1]
+        active_pr = pr_line.split(":", 1)[1].strip()
+        assert issue_id.isdigit()
+        assert f"p03-{issue_id}-" in active_branch
+        assert active_pr == "null" or active_pr.isdigit()
+    else:
+        assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
+        assert "active_issue: null" in state
+        assert "active_branch: null" in state
+        assert "active_pr: null" in state
     batches = [load(path) for path in sorted(READJ.parent.glob(
         "SPOUSE_SP*_SOURCE_READJUDICATION_*.json"
     ))]
