@@ -379,7 +379,7 @@ def test_method_permission_and_progress_metadata_remain_consistent():
     assert len(set(completed + remaining)) == 14
     history = progress["expansion_checkpoint_history"]
     assert [entry["star"] for entry in history] == progress["completed_expansion_stars"]
-    assert history[-1]["next_star"] == remaining[0]
+    assert history[-1]["next_star"] is None if not remaining else history[-1]["next_star"] == remaining[0]
     assert progress["active_expansion_star"] is None
     assert progress["draft_expansion_stars"] == progress["completed_expansion_stars"]
     assert audit["exit_conditions"]["shared_schema_extension_required_for_current_research_records"] is False
