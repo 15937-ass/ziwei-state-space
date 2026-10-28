@@ -1,0 +1,359 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-CORE-WP06B-OPTION-C-MINIMAL-CONTRACT-CLOSURE-REVIEW",
+  "version": "0.1",
+  "status": "PROPOSAL_ONLY_NOT_CANONICAL",
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "CORE",
+  "work_unit": "KB-CORE-WP06B-OPTION-C-MINIMAL-CONTRACT-CLOSURE-01",
+  "activation_main_sha": "a65e8c3c58e30fda0a04d6123c23141de346a5f2",
+  "architecture_direction": {
+    "option": "OPTION-C",
+    "decision": "SOURCE_NATIVE_FOREST_WITH_ORTHOGONAL_AXES",
+    "status": "PI_DIRECTION_ACCEPTED",
+    "detailed_contract_frozen": false,
+    "canonical_root_selected": false,
+    "canonical_ids_assigned": false
+  },
+  "source_basis": [
+    {
+      "path": "knowledge/core/wp06b/OPTION_C_METADATA_CONTRACT_PROPOSAL_v0.1.json",
+      "blob_sha": "ab2784c2ad0a2a7a28da9e9f394a5a66ddd05f25",
+      "role": "original proposal and candidate value definitions"
+    },
+    {
+      "path": "knowledge/core/wp06b/OPTION_C_METADATA_CONTRACT_PROPOSAL_v0.2.md",
+      "blob_sha": "fe5f37996392b3a22a3cd2455837a919311207a0",
+      "role": "PI-approved research design inputs and mapping boundary"
+    },
+    {
+      "path": "knowledge/core/wp06b/OPTION_C_CONTRACT_VALIDATION_PROBE_v0.1.md",
+      "blob_sha": "8e9cddb60005f68c1736ffb47e46a9a9f68cade1",
+      "role": "typed-schema capability probe; proposal-only"
+    },
+    {
+      "path": "knowledge/core/wp06b/MAPPING_REVIEW_SCHEMA_v0.1.json",
+      "blob_sha": "10769226bf2933571657a0c67c2c49e2403bc4be",
+      "role": "accepted typed per-target mapping-review schema; not the semantic form taxonomy"
+    },
+    {
+      "path": "knowledge/core/wp06b/MANIFESTATION_ROOT_DECISION_PACKET_v0.1.json",
+      "blob_sha": "eec122c1ad9c7ce779ab848e63505bed53ec7fe3",
+      "role": "accepted source evidence boundary and Option C direction"
+    },
+    {
+      "path": "knowledge/core/14star-property-matrix/14STAR_PROPERTY_MATRIX_QIQR_AUDIT_v0.1.json",
+      "blob_sha": "af2db6305475e919a6a49b2bc3b797c86c5ac18a",
+      "role": "research-only taxonomy and crosswalk audit"
+    },
+    {
+      "path": "knowledge/REVIEW_SCHEMA_v0.3.md",
+      "blob_sha": "7210e516218245383724c9552c29bee073c629a5",
+      "role": "source epistemic, normalization epistemic, and review status boundaries"
+    },
+    {
+      "path": "knowledge/KB_SCHEMA.md",
+      "blob_sha": "dc0495ee585c0b4830432e3b1ee70ac9e2f26f0b",
+      "role": "current rule schema and existing relation/operator semantics"
+    },
+    {
+      "path": "knowledge/rules/stars/major_stars_canonical_v0.1.csv",
+      "blob_sha": "df9645ab1a8c08411821b8701af85d86bfdaa277",
+      "role": "accepted source-rule corpus; no edits authorized"
+    }
+  ],
+  "findings": {
+    "output_kind": {
+      "source_audit_action": "SPLIT",
+      "recommendation_status": "RESEARCH_RECOMMENDATION_ONLY_NOT_CANONICAL",
+      "problem": "Candidate values mix semantic form with condition, relation, boundary, and temporal-scope roles.",
+      "current_value_gaps": [
+        "No explicit general state/property descriptor",
+        "ACTION_CONDITIONED_OUTCOME mixes prerequisite and outcome",
+        "Projection mode is an operation and not a scene or ontology type",
+        "Valence/evaluation and causal explanation must not be inferred from output form"
+      ],
+      "proposed_semantic_form_candidates": [
+        "STATE_OR_PROPERTY_DESCRIPTOR",
+        "PROCESS_PATTERN",
+        "SCENE_OR_CONTEXT",
+        "DIRECTIONAL_AXIS",
+        "OUTCOME_DESCRIPTOR",
+        "EVENT_CANDIDATE"
+      ],
+      "proposed_relation_constraint_candidates": [
+        "ACTION_PREREQUISITE",
+        "STRUCTURAL_CONSTRAINT",
+        "TEMPORAL_SCOPE",
+        "CROSS_PALACE_CONSTRAINT",
+        "DOMAIN_SEMANTIC_BOUNDARY",
+        "CAUSAL_OR_EXPLANATORY_RELATION"
+      ],
+      "exact_fields_and_values_frozen": false
+    },
+    "event_specificity": {
+      "source_audit_action": "SPLIT_AND_RENAME",
+      "recommendation_status": "RESEARCH_RECOMMENDATION_ONLY_NOT_CANONICAL",
+      "problem": "Current candidates mix process/scene/conditional-outcome semantics, event granularity, and occurrence/observation status; they are not one ordinal specificity scale.",
+      "proposed_conceptual_dimensions": [
+        {
+          "candidate_name": "event_relation_or_manifestation_kind",
+          "purpose": "Describe how a claim relates to event/manifestation semantics; exact name/value set remains unresolved."
+        },
+        {
+          "candidate_name": "event_granularity",
+          "purpose": "Distinguish event-class candidate from specific-event candidate only where an event candidate applies."
+        },
+        {
+          "candidate_name": "observation_status",
+          "purpose": "Keep real-world occurrence/observation separate; Core source claims do not populate it automatically."
+        }
+      ],
+      "not_applicable_is_axis_applicability_status": true,
+      "exact_fields_and_values_frozen": false
+    },
+    "epistemic_and_approval_boundaries": {
+      "recommendation": "KEEP_SEPARATE",
+      "source_epistemic_values": [
+        "EXPLICIT",
+        "INFERRED_FROM_SOURCE",
+        "UNRESOLVED_SOURCE"
+      ],
+      "normalization_epistemic_values": [
+        "SOURCE_PRESERVING",
+        "INFERRED",
+        "IMPLEMENTATION",
+        "HYPOTHESIS",
+        "UNRESOLVED"
+      ],
+      "review_status_is_distinct": true,
+      "mapping_disposition_is_per_target_review_only": true,
+      "canonical_approval_is_separate": true,
+      "consumer_readiness_is_separate": true,
+      "absent_legacy_mapping_review_envelope_means": "NOT_YET_REVIEWED_UNDER_THIS_CONTRACT_NOT_MISSING"
+    }
+  },
+  "boundary_cases": [
+    {
+      "case_id": "CA01-035",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "printed p.133 / PDF p.67 / ZZ003-P133",
+      "evidence_status": "directly rechecked in prior WP06B packet; reused here",
+      "semantic_form": "PROCESS_PATTERN",
+      "relation_constraint_role": null,
+      "event_relation_or_manifestation_kind": "PROCESS_SEQUENCE_NOT_SINGLE_EVENT",
+      "event_granularity": {
+        "state": "NOT_APPLICABLE",
+        "value": null
+      },
+      "occurrence_status": "NOT_ESTABLISHED_BY_SOURCE",
+      "prohibited_inference": "Do not erase source modality such as 往往 or convert a process into a necessary single event."
+    },
+    {
+      "case_id": "CA01-045",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "printed p.133 / PDF p.67 / ZZ003-P133",
+      "evidence_status": "directly rechecked in prior WP06B packet; reused here",
+      "semantic_form": "OUTCOME_DESCRIPTOR",
+      "relation_constraint_role": "ACTION_PREREQUISITE",
+      "event_relation_or_manifestation_kind": "CONDITIONAL_OUTCOME_NOT_OBSERVED",
+      "event_granularity": {
+        "state": "NOT_APPLICABLE",
+        "value": null
+      },
+      "occurrence_status": "NOT_ESTABLISHED_BY_SOURCE",
+      "prerequisite_refs": [
+        "CA01-042",
+        "CA01-044"
+      ],
+      "prohibited_inference": "Do not treat the real-world action 勉强求变 as a chart fact; do not drop prerequisite rules."
+    },
+    {
+      "case_id": "CA05-469",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "printed p.144 / PDF p.72 / ZZ003-P144",
+      "evidence_status": "directly rechecked in prior WP06B packet; reused here",
+      "semantic_form": "SCENE_OR_CONTEXT",
+      "relation_constraint_role": null,
+      "event_relation_or_manifestation_kind": "SCENE_NOT_OBSERVED_EVENT",
+      "event_granularity": {
+        "state": "NOT_APPLICABLE",
+        "value": null
+      },
+      "occurrence_status": "NOT_ESTABLISHED_BY_SOURCE",
+      "prohibited_inference": "Do not turn an industry/vocational scene into a personal injury or illness event."
+    },
+    {
+      "case_id": "M01-006",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "printed p.109 / ZZ003-P109",
+      "evidence_status": "reuses accepted direct-source readjudication",
+      "semantic_form": "DIRECTIONAL_AXIS",
+      "relation_constraint_role": null,
+      "event_relation_or_manifestation_kind": {
+        "state": "NOT_APPLICABLE",
+        "value": null
+      },
+      "event_granularity": {
+        "state": "NOT_APPLICABLE",
+        "value": null
+      },
+      "occurrence_status": "NOT_ESTABLISHED_BY_SOURCE",
+      "prohibited_inference": "Do not infer that migration or completed movement occurred."
+    },
+    {
+      "case_id": "CA01-005",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "printed p.132 / ZZ003-P132",
+      "evidence_status": "reuses accepted SOURCE_SPAN_VERIFIED row; not freshly rechecked in this unit",
+      "semantic_form": null,
+      "relation_constraint_role": "CROSS_PALACE_CONSTRAINT",
+      "event_relation_or_manifestation_kind": {
+        "state": "NOT_APPLICABLE",
+        "value": null
+      },
+      "event_granularity": {
+        "state": "NOT_APPLICABLE",
+        "value": null
+      },
+      "occurrence_status": "NOT_ESTABLISHED_BY_SOURCE",
+      "prohibited_inference": "Do not force a cross-palace inference prerequisite into an independent manifestation node."
+    },
+    {
+      "case_id": "CA01-007",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "printed p.132 / ZZ003-P132",
+      "evidence_status": "reuses accepted SOURCE_SPAN_VERIFIED row; not freshly rechecked in this unit",
+      "semantic_form": null,
+      "relation_constraint_role": "CROSS_PALACE_CONSTRAINT",
+      "event_relation_or_manifestation_kind": {
+        "state": "NOT_APPLICABLE",
+        "value": null
+      },
+      "event_granularity": {
+        "state": "NOT_APPLICABLE",
+        "value": null
+      },
+      "occurrence_status": "NOT_ESTABLISHED_BY_SOURCE",
+      "prohibited_inference": "Do not infer a completed marriage event from a cross-palace interpretive relation."
+    },
+    {
+      "case_id": "W01-002",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "printed p.69",
+      "evidence_status": "reuses accepted SOURCE_SPAN_VERIFIED row; not freshly rechecked in this unit",
+      "semantic_form": null,
+      "relation_constraint_role": "DOMAIN_SEMANTIC_BOUNDARY",
+      "event_relation_or_manifestation_kind": {
+        "state": "NOT_APPLICABLE",
+        "value": null
+      },
+      "event_granularity": {
+        "state": "NOT_APPLICABLE",
+        "value": null
+      },
+      "occurrence_status": "NOT_ESTABLISHED_BY_SOURCE",
+      "prohibited_inference": "Do not classify a palace/domain interpretation boundary as an event."
+    },
+    {
+      "case_id": "CA09-809",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "printed p.153",
+      "evidence_status": "case_support_only negative control; reused from accepted packet",
+      "semantic_form": "EVENT_CANDIDATE",
+      "relation_constraint_role": null,
+      "event_relation_or_manifestation_kind": {
+        "state": "UNKNOWN",
+        "value": null
+      },
+      "event_granularity": {
+        "state": "KNOWN",
+        "value": "SPECIFIC_EVENT_CANDIDATE"
+      },
+      "occurrence_status": "NOT_ESTABLISHED_BY_SOURCE",
+      "mapping_disposition": "candidate_only",
+      "prohibited_inference": "Do not promote case-only support to a universal mapping, an observed event, or a probability."
+    }
+  ],
+  "qi_qr_counterexamples": [
+    {
+      "id": "QI01_QI14",
+      "boundary": "emission/convergence vs information/state visibility",
+      "prohibited_inference": "hidden/convergent does not automatically mean obscured; outward emission does not automatically mean visible"
+    },
+    {
+      "id": "QI02_QI15",
+      "boundary": "state/property vs buffering/modification/interaction",
+      "prohibited_inference": "a modified target state does not establish an intrinsic buffering capacity in the modifier"
+    },
+    {
+      "id": "QI08_QI06",
+      "boundary": "action drive vs decision activation",
+      "prohibited_inference": "fast decision does not imply strong execution"
+    },
+    {
+      "id": "QI04_QI16",
+      "boundary": "structure preservation/breakthrough vs goal organization",
+      "prohibited_inference": "constructive result does not establish goal clarity"
+    },
+    {
+      "id": "QR01_QR04",
+      "boundary": "relationship integration vs support resources",
+      "prohibited_inference": "resource existence does not imply availability or realized support"
+    },
+    {
+      "id": "ZZ-PJ-X06",
+      "boundary": "unresolved source condition mismatch",
+      "prohibited_inference": "do not strengthen source OR into AND"
+    }
+  ],
+  "pi_decision_card": [
+    {
+      "id": "PI-C1",
+      "question": "是否接受把主张语义形态与关系/约束职责在概念上分离？",
+      "recommendation": "接受拆分原则；不冻结当前 output_kind 九值平面枚举。",
+      "choices": [
+        "ACCEPT_SPLIT_PRINCIPLE_ONLY",
+        "KEEP_CURRENT_ENUM_PROVISIONAL",
+        "DEFER"
+      ],
+      "default": "ACCEPT_SPLIT_PRINCIPLE_ONLY",
+      "gate_effect": "No canonical field/value change is authorized by this choice alone."
+    },
+    {
+      "id": "PI-C2",
+      "question": "是否接受把 event_specificity 拆分为事件关系/表现形态、事件粒度与独立发生/观察状态？",
+      "recommendation": "接受拆分原则；精确字段名和值域继续保持 proposal-only，发生状态不得由传统来源自动填充。",
+      "choices": [
+        "ACCEPT_CONCEPTUAL_SPLIT_ONLY",
+        "KEEP_EVENT_SPECIFICITY_PROVISIONAL",
+        "DEFER"
+      ],
+      "default": "ACCEPT_CONCEPTUAL_SPLIT_ONLY",
+      "gate_effect": "No canonical field/value change is authorized by this choice alone."
+    },
+    {
+      "id": "PI-C3",
+      "question": "是否继续维持认识论、映射处置、canonical 批准与消费者准备度分离？",
+      "recommendation": "维持现有边界；不新增替代字段。",
+      "choices": [
+        "KEEP_SEPARATE",
+        "REQUEST_BOUNDED_COUNTEREXAMPLE_REVIEW"
+      ],
+      "default": "KEEP_SEPARATE",
+      "gate_effect": "Existing schema meanings remain unchanged."
+    }
+  ],
+  "canonicalization": {
+    "canonical_ids_assigned": false,
+    "canonical_mapping_accepted": false,
+    "production_output_kind_values_frozen": false,
+    "production_event_specificity_values_frozen": false,
+    "source_rows_modified": false,
+    "star_cores_or_systems_modified": false,
+    "product_or_runtime_modified": false,
+    "product_consumption_authorized": false,
+    "empirical_validity_claim": false,
+    "rollback": "Mark this proposal superseded; no production migration exists."
+  }
+}
