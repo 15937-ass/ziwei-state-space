@@ -37,3 +37,8 @@
 ## 详细复用清单
 
 47组精确来源引用及其被引用的mapping-review记录已逐项列入 `MAPPING_REVIEW_SOURCE_REF_REUSE_AUDIT_v0.1.md`。清单仅用于去重和审议，不改变既有处置，也不增加证据权重。
+
+
+## 候选性质来源范围核对（2026-10-28）
+
+另发现候选性质 `source_rule_ids` 与其关联审核记录 `source_refs` 的直接引用范围有13项候选、26个规则ID不完全一致。所有相关规则ID均存在于canonical规则集；这不是缺失canonical ID，而是候选来源范围与审核记录直接引用范围之间的口径差异。已逐项列入 `MAPPING_REVIEW_CANDIDATE_SOURCE_SCOPE_AUDIT_v0.1.md`。不机械补引、不视为独立证据，也不自动批准映射。
