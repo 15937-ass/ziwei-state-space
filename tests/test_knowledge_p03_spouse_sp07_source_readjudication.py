@@ -59,7 +59,8 @@ def test_every_candidate_has_scan_evidence_and_valid_record_links():
     assert {x["historical_candidate_id"] for x in disp if x["direct_scan_disposition"].startswith("HOLD_")}==HELD
     assert {x["historical_candidate_id"] for x in disp if x["direct_scan_disposition"]=="DEDUPLICATED"}=={"SP07-668","SP07-669"}
     assert {r["historical_candidate_id"] for r in rec if r["source_span_changed"]}=={"SP07-601","SP07-602","SP07-603","SP07-683","SP07-684","SP07-685","SP07-686","SP07-687"}
-    assert disp["SP07-604"]["verified_source_location"]=="SRC-ZZ-003 printed pp45–46 / PDF physical p23"
+    dispositions = dispositions_by_id(d)
+    assert dispositions["SP07-604"]["verified_source_location"]=="SRC-ZZ-003 printed pp45–46 / PDF physical p23"
     assert records_by_id(d)["P03S-604"]["source_span_id"]=="ZZ003-P45-P46"
 
 def test_temporal_scope_fail_closed_and_or_branch_preserved():
