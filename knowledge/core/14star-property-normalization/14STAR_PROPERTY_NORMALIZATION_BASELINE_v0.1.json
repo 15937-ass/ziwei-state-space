@@ -606,7 +606,7 @@
       "prior_visual_review_rows_reused": 0,
       "canonical_source_span_verified_mutated": false
     },
-    "tianliang_scope_note": "26条天梁规则现有来源审查处置为25条完整视觉核对、ZZ-TLIA-001部分核对、0条来源未核实。ZZ-TLIA-010已定位至扫描页80/印刷页159。canonical source_span_verified仍为false，映射仍待PI审议。",
+    "tianliang_scope_note": "PI裁定ZZ-TLIA-001的“第三得”为“第三星”印刷误字；literal原貌保留。ZZ-TLIA-010已在扫描页80/印刷页159补核。所有canonical flags仍不变。",
     "qisha_review_rule_ids": [
       "ZZ-QS-001",
       "ZZ-QS-002",
@@ -651,7 +651,7 @@
       "prior_visual_review_rows_reused": 0,
       "canonical_source_span_verified_mutated": false
     },
-    "qisha_scope_note": "本轮仅视觉核对上册扫描页15/印刷页29–30。26条canonical行均有处置：25条完整视觉核对、ZZ-QS-005因扫描字面“廉洁”与canonical evidence_text概括不同而部分核对，无规则被整体留置。未修改canonical来源标记。",
+    "qisha_scope_note": "PI裁定ZZ-QS-005的“廉洁”为“廉贞”印刷误字；literal原貌保留。该文字裁决不等于批准QR-02或其他正式映射。",
     "pojun_review_rule_ids": [
       "ZZ-PJ-001",
       "ZZ-PJ-002",
@@ -8009,16 +8009,16 @@
           },
           "source_excerpt": "天梁为南斗第三得，属阳土。",
           "claim_layer": "L0_STRUCTURE_METADATA",
-          "claim_summary": "阳土仅保留为传统结构标签，不从五行标签推导现代QI方向或强度；保留扫描字面与canonical文本差异。",
+          "claim_summary": "阳土仅保留为传统结构标签；PI裁定原文“第三得”为“第三星”的印刷误字，原始扫描字面保留，不从五行标签推导现代QI方向或强度。",
           "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
           "conditions_to_preserve": [
-            "扫描字面“第三得”与canonical evidence_text“第三星”不一致",
+            "PI裁定“第三得”为“第三星”的印刷误字；source_excerpt保留扫描原貌",
             "阳土只作L0元数据",
             "不推导QI方向、强度或五行生克"
           ],
           "normalization_epistemic": "UNRESOLVED",
           "source_span_group": "TLIA:p14:p27:substrate",
-          "row_adjudication_status": "PARTIALLY_VERIFIED_VISUAL_SCAN; LITERAL_MISMATCH_PRESERVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PI_PRINTING_TYPO_ADJUDICATED; LITERAL_PRESERVED; PROPOSAL_ONLY_NOT_CANONICAL",
           "independent_source_span_count": 1
         },
         {
@@ -8904,16 +8904,16 @@
           },
           "source_excerpt": "七杀则不然，当[紫微七杀]同度之时，七杀受命于君王，权力更大，因此便有[化杀为权]的廉洁。 古人说：[七杀守命，庙旺，有谋略。见紫微加见诸吉，必为大将。]",
           "claim_layer": "L2_CONDITIONAL_MODIFIER",
-          "claim_summary": "紫微同度、庙旺及诸吉是权威/统帅投影的不同条件分支；保留“廉洁”字面异常，不压成无条件领导性质。",
+          "claim_summary": "紫微同度、庙旺及诸吉是权威/统帅投影的不同条件分支；PI裁定“廉洁”为“廉贞”的印刷误字，保留原始扫描字面，不压成无条件领导性质。",
           "candidate_target_ref": "STAR-QS.relational_signature:QR-02",
           "conditions_to_preserve": [
             "紫微同度与庙旺/诸吉分支分别保留",
-            "原文“廉洁”字面保留",
+            "PI裁定原文“廉洁”为“廉贞”的印刷误字；source_excerpt保留扫描原貌",
             "不作现实权力、职位或领导能力预测"
           ],
           "normalization_epistemic": "UNRESOLVED",
           "source_span_group": "QS:p15:p29:ziwei-authority",
-          "row_adjudication_status": "PARTIALLY_VERIFIED_VISUAL_SCAN; LITERAL_ANOMALY_PRESERVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; PI_PRINTING_TYPO_ADJUDICATED; LITERAL_PRESERVED; PROPOSAL_ONLY_NOT_CANONICAL",
           "independent_source_span_count": 1
         },
         {
