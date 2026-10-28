@@ -12,6 +12,12 @@
 - mapping-review预审计：240条记录ID唯一；182项候选性质全部链接到有效审核记录；未发现不存在的canonical规则引用。412次来源引用使用中包含47组被复用的精确引用（103次使用），不得重复计为独立证据。4条 `evidence_role=UNKNOWN` 已列为待审材料。详见 `MAPPING_REVIEW_PRE_PI_AUDIT_v0.1.md`。
 - main已同步至Core分支，合并提交 `cd11b672058e82efbdc08ee69a61f153aacb4a81`。PR #783仍为Draft，未合并。最新提交的完整质量门须在本轮变更后重跑并通过。
 
+## 新增待裁定事项：候选来源范围（2026-10-28）
+
+有13项候选性质的 `source_rule_ids` 共26个ID未出现在其关联 mapping-review 的 `source_refs` 中。所有规则ID都存在于canonical规则集，因此这是直接引用范围/上下文来源的对齐问题，不应误报成canonical ID缺失。
+
+**建议：** PI逐项判定其用途是直接证据还是相关上下文；必要时补引用或缩窄候选来源清单。不得自动把所有ID补进审核记录，也不得据此提高映射支持度。逐项清单见 `MAPPING_REVIEW_CANDIDATE_SOURCE_SCOPE_AUDIT_v0.1.md`。
+
 ## 建议的 PI 决策边界
 
 **建议接受：**
