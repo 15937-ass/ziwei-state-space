@@ -110,6 +110,7 @@ def test_cumulative_state_checkpoint_reconciles():
     assert (
         "SP07_601_700_SOURCE_FIRST_REVIEW_COMPLETE" in state
         or "SP08_701_800_SOURCE_FIRST_REVIEW_COMPLETE" in state
+        or "SP09_801_836_SOURCE_FIRST_REVIEW_COMPLETE" in state
     )
     minimums = {
         "historical_candidate_rows_reviewed": 700,

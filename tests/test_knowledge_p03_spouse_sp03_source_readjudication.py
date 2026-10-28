@@ -147,7 +147,7 @@ def test_execution_boundary_and_cumulative_state_reconcile_all_ledgers():
     state = STATE.read_text(encoding="utf-8")
     assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
     assert "SOURCE_FIRST_REVIEW_COMPLETE" in state
-    batches = [load(path) for path in sorted(READJ.parent.glob("SPOUSE_SP*_SOURCE_READJUDICATION_100_v0.1.json"))]
+    batches = [load(path) for path in sorted(READJ.parent.glob("SPOUSE_SP*_SOURCE_READJUDICATION_*.json"))]
     fields = {
         "historical_candidate_rows_reviewed": "reviewed",
         "candidate_rows_promoted": "canonical_promoted",
