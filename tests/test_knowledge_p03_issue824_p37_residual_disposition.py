@@ -68,13 +68,18 @@ def test_prior_accepted_followup_is_preserved_as_historical_snapshot():
     assert prior["summary"]["historical_candidate_csvs_modified"] == 0
 
 
-def test_no_canonical_or_runtime_promotion_and_p03_slot_remains_owned():
+def test_no_canonical_or_runtime_promotion_and_p03_slot_releases_at_handoff():
     d = load(DISPOSITION)
     boundary = d["execution_boundary"]
     state = STATE.read_text(encoding="utf-8")
 
-    assert 'status: "ACTIVE"' in state
-    assert "active_issue: 824" in state
+    # This state is the post-acceptance handoff snapshot; live Issue/PR governs while open.
+    assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
+    assert "active_issue: null" in state
+    assert "active_branch: null" in state
+    assert "active_pr: null" in state
+    assert "ISSUE824_P37_LITERAL_VERIFIED_MEANING_AND_TIME_SCOPE_HELD_ACCEPTED" in state
+    assert "P11 is the next scheduled palace" in state
     assert boundary["history_feedback"] == 0
     assert boundary["conditions_compiled"] == 0
     assert boundary["execution_unlocked"] == 0
