@@ -10,6 +10,7 @@
 - 新增太阳40条来源跨度审查；补核太阴 `ZZ-TYI-010`、天相 `ZZ-TX-009/010`、贪狼 `ZZ-TL-006/007/008`、巨门 `ZZ-JM-005`、天梁 `ZZ-TLIA-010`、破军 `ZZ-PJ-006..010`。
 - 仍需明确保留：`ZZ-TL-010` 精确跨度未核实；`ZZ-TT-010` 来源错配并继续隔离；7条部分核对为 `ZZ-TL-009`、`ZZ-JM-003/004/006/007`、`ZZ-TLIA-001`、`ZZ-QS-005`。
 - 所有canonical规则仍保持 `source_span_verified=false`、`normalization_epistemic=UNRESOLVED`；候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL`。来源跨度核对不等于语义映射批准。
+- mapping-review预审计确认：240条记录ID唯一、182项候选性质全部有有效审核链接、未发现指向不存在canonical规则的引用；47组来源引用在多条审核记录中复用，共103次引用使用，不能按独立证据重复计数。4条 `evidence_role=UNKNOWN` 记录已列入专门审计材料。
 
 ## PI 需作出的独立判断
 
