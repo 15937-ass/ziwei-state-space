@@ -1,3 +1,16 @@
+# 当前执行证据 — 天梁候选检查点（2026-10-28）
+
+- Lane/shard/Issue/PR：KNOWLEDGE_ONLY / CORE / #757 / Draft PR #783；分支 `knowledge/core-757-14star-property-normalization-main-sync2`。
+- 天梁研究开始前 main/base 为 `5f697a5a02812e9781acf8d78e0f28d5087bd6ce`，研究开始前分支 head 为 `98f144b3acd69ab1bdf272e6557df674eda94306`。
+- 研究开始前的 [Run #40616682474](https://github.com/15937-ass/ziwei-state-space/actions/runs/40616682474) 已在该父检查点的 PR merge ref 上通过：2,818 passed、132 subtests passed；JS adapter、deterministic P0 与 Repository Governance/Core write-set 步骤成功。该运行仅验证研究开始前的父检查点，不替代本轮新提交的 exact-head gate。
+- 来源为 `SRC-ZZ-002`《中州派紫微斗数深造讲义（上）》；SHA-256 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a` 与 `sources/source_index.csv` 一致。直接视觉核对扫描页14/印刷页27–28。
+- 新增 `TIANLIANG_SOURCE_SPAN_REVIEW_v0.1.csv`，对26条 `ZZ-TLIA` canonical行逐一登记：24条完整视觉核对、`ZZ-TLIA-001`部分核对、`ZZ-TLIA-010`未核实。新增20条source-claim卡、20项候选性质、20条mapping-review记录和专用回归测试。
+- 字面/范围缺口：扫描字面“第三得”与canonical摘录“第三星”不一致；`ZZ-TLIA-010`的六十星系来源未给具体页码，本轮未替代核对。
+- 本轮新提交的 exact-head 完整质量门须在 PR #783 同步事件运行后确认；关联运行成功前，不声称本轮新提交已通过。
+- 未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限；所有候选保持 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`，canonical `source_span_verified=false` 保持不变。
+
+---
+
 # 当前执行证据 — 贪狼候选检查点（2026-10-27）
 
 - Lane/shard/Issue/PR：KNOWLEDGE_ONLY / CORE / #757 / Draft PR #783；分支 `knowledge/core-757-14star-property-normalization-main-sync2`。

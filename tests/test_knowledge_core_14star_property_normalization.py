@@ -19,6 +19,7 @@ LIANZHEN_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/LI
 TIANFU_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TIANFU_SOURCE_SPAN_REVIEW_v0.1.csv"
 TANLANG_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TANLANG_SOURCE_SPAN_REVIEW_v0.1.csv"
 JUMEN_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/JUMEN_SOURCE_SPAN_REVIEW_v0.1.csv"
+TIANLIANG_SOURCE_REVIEW = ROOT / "knowledge/core/14star-property-normalization/TIANLIANG_SOURCE_SPAN_REVIEW_v0.1.csv"
 
 
 def load_baseline():
@@ -28,7 +29,7 @@ def load_baseline():
 def test_solar_taiyin_and_tianxiang_pilots_are_explicitly_noncanonical_and_source_bounded():
     data = load_baseline()
     assert data["status"] == "PROPOSAL_ONLY_NOT_CANONICAL"
-    assert data["checkpoint_status"] == "STAGE_B_JUMEN_CHECKPOINT_COMPLETED_NOT_FINAL"
+    assert data["checkpoint_status"] == "STAGE_B_TIANLIANG_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert data["progress"]["completed_pilot_cards"] == ["太阳", "太阴", "天相"]
     assert data["progress"]["active_pilot_card"] is None
     assert data["progress"]["draft_pilot_cards"] == ["太阳", "太阴", "天相"]
@@ -41,15 +42,15 @@ def test_solar_taiyin_and_tianxiang_pilots_are_explicitly_noncanonical_and_sourc
     assert data["method_guardrails"]["product_consumption_authorized"] is False
     assert data["method_guardrails"]["normalization_epistemic"] == "UNRESOLVED"
     assert len([star for star in data["stars"] if star["name"] in {"太阳", "太阴", "天相"}]) == 3
-    assert len(data["stars"]) == 11
+    assert len(data["stars"]) == 12
     assert data["stars"][5]["name"] == "武曲"
     assert data["stars"][6]["name"] == "天同"
     assert data["stars"][7]["name"] == "廉贞"
     assert data["stars"][8]["name"] == "天府"
     assert data["stars"][9]["name"] == "贪狼"
     assert data["stars"][10]["name"] == "巨门"
-    assert data["progress"]["stage"] == "B_JUMEN_CHECKPOINT_COMPLETED_READY_FOR_TIANLIANG"
-    assert data["progress"]["remaining_expansion_stars_in_existing_order"][0] == "天梁"
+    assert data["progress"]["stage"] == "B_TIANLIANG_CHECKPOINT_COMPLETED_READY_FOR_QISHA"
+    assert data["progress"]["remaining_expansion_stars_in_existing_order"][0] == "七杀"
     assert data["stars"][0]["name"] == "太阳"
     assert data["stars"][0]["status"] == "PILOT_CHECKPOINT_COMPLETED_NOT_FINAL"
     assert data["stars"][1]["name"] == "太阴"
@@ -360,17 +361,15 @@ def test_method_permission_and_progress_metadata_remain_consistent():
     assert audit["research_disposition"] == "CONTINUE_STAGE_B_CANDIDATE_RESEARCH_NEXT_BOUNDED_TURN"
     assert audit["next_star"] == "紫微"  # Historical method-exit handoff; this star has now been researched.
     progress = data["progress"]
-    assert progress["completed_expansion_stars"] == ["紫微", "天机", "武曲", "天同", "廉贞", "天府", "贪狼", "巨门"]
-    assert progress["remaining_expansion_stars_in_existing_order"] == [
-        "天梁", "七杀", "破军"
-    ]
+    assert progress["completed_expansion_stars"] == ["紫微", "天机", "武曲", "天同", "廉贞", "天府", "贪狼", "巨门", "天梁"]
+    assert progress["remaining_expansion_stars_in_existing_order"] == ["七杀", "破军"]
     # Current progress must reconcile with the cards and historical checkpoints.
     card_names = [star["name"] for star in data["stars"]]
     completed = progress["completed_pilot_cards"] + progress["completed_expansion_stars"]
     remaining = progress["remaining_expansion_stars_in_existing_order"]
     assert card_names == completed
-    assert len(card_names) == len(set(card_names)) == 11
-    assert len(remaining) == len(set(remaining)) == 3
+    assert len(card_names) == len(set(card_names)) == 12
+    assert len(remaining) == len(set(remaining)) == 2
     assert set(completed).isdisjoint(remaining)
     assert len(set(completed + remaining)) == 14
     history = progress["expansion_checkpoint_history"]
@@ -627,7 +626,7 @@ def test_lianzhen_candidate_checkpoint_keeps_source_disagreement_and_scope_unres
     assert all(prop["normalization_epistemic"] == "UNRESOLVED" for prop in lz["candidate_properties"])
     assert all(prop["canonicalization_authorized"] is False for prop in lz["candidate_properties"])
     assert all(prop["numeric_strength_assigned"] is False for prop in lz["candidate_properties"])
-    assert data["progress"]["remaining_expansion_stars_in_existing_order"] == ["天梁", "七杀", "破军"]
+    assert "廉贞" in data["progress"]["completed_expansion_stars"]
     lz_checkpoint = next(entry for entry in data["progress"]["expansion_checkpoint_history"] if entry["star"] == "廉贞")
     assert lz_checkpoint["next_star"] == "天府"
 
@@ -681,8 +680,7 @@ def test_tianfu_candidate_checkpoint_is_source_bounded_and_noncanonical():
     assert data["source_policy"]["tianfu_source_locator"]["pdf_scan_page"] == 9
     assert data["source_policy"]["tianfu_source_locator"]["printed_pages"] == [17, 18]
     assert data["source_policy"]["tianfu_source_locator"]["prior_visual_review_rows_reused"] == 5
-    assert data["progress"]["completed_expansion_stars"] == ["紫微", "天机", "武曲", "天同", "廉贞", "天府", "贪狼", "巨门"]
-    assert data["progress"]["remaining_expansion_stars_in_existing_order"] == ["天梁", "七杀", "破军"]
+    assert "天府" in data["progress"]["completed_expansion_stars"]
     tf_checkpoint = next(entry for entry in data["progress"]["expansion_checkpoint_history"] if entry["star"] == "天府")
     assert tf_checkpoint["next_star"] == "贪狼"
     assert tf_checkpoint["prior_visual_review_rows_reused"] == 5
@@ -745,8 +743,7 @@ def test_tanlang_candidate_checkpoint_preserves_source_scope_conditions_and_nonp
     assert data["source_policy"]["tanlang_source_locator"]["prior_visual_review_rows_reused"] == 0
     assert data["source_policy"]["tanlang_additional_source_locators"][0]["pdf_scan_page"] == 51
     assert data["source_policy"]["tanlang_additional_source_locators"][1]["pdf_scan_page"] == 93
-    assert data["progress"]["completed_expansion_stars"] == ["紫微", "天机", "武曲", "天同", "廉贞", "天府", "贪狼", "巨门"]
-    assert data["progress"]["remaining_expansion_stars_in_existing_order"] == ["天梁", "七杀", "破军"]
+    assert "贪狼" in data["progress"]["completed_expansion_stars"]
     tl_checkpoint = next(entry for entry in data["progress"]["expansion_checkpoint_history"] if entry["star"] == "贪狼")
     assert tl_checkpoint["next_star"] == "巨门"
     assert tl_checkpoint["fully_verified_rows"] == 24
@@ -811,9 +808,9 @@ def test_jumen_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
     assert len(data["source_policy"]["jumen_review_rule_ids"]) == 26
     assert data["source_policy"]["jumen_held_rule_ids"] == ["ZZ-JM-005"]
     assert data["source_policy"]["jumen_partial_rule_ids"] == ["ZZ-JM-003", "ZZ-JM-004", "ZZ-JM-006", "ZZ-JM-007"]
-    assert data["progress"]["completed_expansion_stars"] == ["紫微", "天机", "武曲", "天同", "廉贞", "天府", "贪狼", "巨门"]
-    assert data["progress"]["remaining_expansion_stars_in_existing_order"] == ["天梁", "七杀", "破军"]
-    jm_checkpoint = data["progress"]["expansion_checkpoint_history"][-1]
+    assert data["progress"]["completed_expansion_stars"] == ["紫微", "天机", "武曲", "天同", "廉贞", "天府", "贪狼", "巨门", "天梁"]
+    assert data["progress"]["remaining_expansion_stars_in_existing_order"] == ["七杀", "破军"]
+    jm_checkpoint = next(entry for entry in data["progress"]["expansion_checkpoint_history"] if entry["star"] == "巨门")
     assert jm_checkpoint["star"] == "巨门"
     assert jm_checkpoint["next_star"] == "天梁"
     assert jm_checkpoint["fully_verified_rows"] == 21
@@ -868,3 +865,50 @@ def test_jumen_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
         assert canonical_by_id[rule_id]["source_epistemic"] == "EXPLICIT"
         assert canonical_by_id[rule_id]["normalization_epistemic"] == "UNRESOLVED"
         assert canonical_by_id[rule_id]["source_span_verified"] == "false"
+
+
+def test_tianliang_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
+    data = load_baseline()
+    tianliang = next(star for star in data["stars"] if star["name"] == "天梁")
+    assert tianliang["star_id"] == "STAR-TLIA"
+    assert tianliang["status"] == "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL"
+    assert len(tianliang["source_claims"]) == 20
+    assert len(tianliang["candidate_properties"]) == 20
+    assert tianliang["held_canonical_rule_ids"] == ["ZZ-TLIA-010"]
+    assert all(p["canonicalization_authorized"] is False for p in tianliang["candidate_properties"])
+    assert all(p["numeric_strength_assigned"] is False for p in tianliang["candidate_properties"])
+    assert all(p["normalization_epistemic"] == "UNRESOLVED" for p in tianliang["candidate_properties"])
+    loc = data["source_policy"]["tianliang_source_locator"]
+    assert loc["pdf_scan_page"] == 14 and loc["printed_pages"] == [27, 28]
+    assert loc["source_sha256"] == data["source_policy"]["source_sha256"]
+    assert loc["canonical_source_span_verified_mutated"] is False
+    assert len(data["source_policy"]["tianliang_review_rule_ids"]) == 26
+    assert data["source_policy"]["tianliang_held_rule_ids"] == ["ZZ-TLIA-010"]
+    assert data["source_policy"]["tianliang_partial_rule_ids"] == ["ZZ-TLIA-001"]
+    assert data["progress"]["completed_expansion_stars"][-1] == "天梁"
+    assert data["progress"]["remaining_expansion_stars_in_existing_order"] == ["七杀", "破军"]
+    checkpoint = data["progress"]["expansion_checkpoint_history"][-1]
+    assert checkpoint["star"] == "天梁" and checkpoint["next_star"] == "七杀"
+    assert (checkpoint["fully_verified_rows"], checkpoint["partially_verified_rows"], checkpoint["held_rows"]) == (24, 1, 1)
+    records = {r["review_record_id"]: r for r in data["mapping_review_records"]}
+    tlia_records = {k:v for k,v in records.items() if k.startswith("MR-TLIA-")}
+    assert len(tlia_records) == 20
+    assert all(p["mapping_review_record_id"] in records for p in tianliang["candidate_properties"])
+    assert validate_mapping_review_collection(data["mapping_review_records"]) == []
+    with TIANLIANG_SOURCE_REVIEW.open(encoding="utf-8", newline="") as handle:
+        review_rows = list(csv.DictReader(handle))
+    with CANONICAL_RULES.open(encoding="utf-8", newline="") as handle:
+        canonical_rows = list(csv.DictReader(handle))
+    expected = {r["rule_id"] for r in canonical_rows if r["rule_id"].startswith("ZZ-TLIA-")}
+    assert len(expected) == len(review_rows) == 26
+    assert {r["rule_id"] for r in review_rows} == expected
+    assert all(r["proposal_status"] == "PROPOSAL_ONLY_NOT_CANONICAL" for r in review_rows)
+    assert all(r["normalization_epistemic_after"] == "UNRESOLVED" for r in review_rows)
+    assert all(r["canonical_source_span_verified_after"] == "false" for r in review_rows)
+    by_id = {r["rule_id"]:r for r in review_rows}
+    assert sum(r["source_span_status"] == "VERIFIED_VISUAL_SCAN" for r in review_rows) == 24
+    assert by_id["ZZ-TLIA-001"]["source_span_status"] == "PARTIALLY_VERIFIED_VISUAL_SCAN"
+    assert "第三得" in by_id["ZZ-TLIA-001"]["literal_source_span"]
+    assert "第三星" in by_id["ZZ-TLIA-001"]["modality_scope_ambiguity"]
+    assert by_id["ZZ-TLIA-010"]["source_span_status"] == "OUT_OF_SCOPE_SOURCE_NOT_VERIFIED"
+    assert by_id["ZZ-TLIA-010"]["source_pdf_page"] == ""

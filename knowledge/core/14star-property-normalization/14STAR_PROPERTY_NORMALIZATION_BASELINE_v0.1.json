@@ -3,7 +3,7 @@
   "artifact_id": "KB-CORE-14STAR-PROPERTY-NORMALIZATION-BASELINE-01",
   "issue": 757,
   "status": "PROPOSAL_ONLY_NOT_CANONICAL",
-  "checkpoint_status": "STAGE_B_JUMEN_CHECKPOINT_COMPLETED_NOT_FINAL",
+  "checkpoint_status": "STAGE_B_TIANLIANG_CHECKPOINT_COMPLETED_NOT_FINAL",
   "activation_main_sha": "d45e2cfd6c0dc59fb80ec2210f7e729c53391c4f",
   "execution_branch": "knowledge/core-757-14star-property-normalization-main-sync2",
   "source_policy": {
@@ -538,10 +538,59 @@
       "ZZ-JM-006",
       "ZZ-JM-007"
     ],
-    "jumen_scope_note": "本轮只使用SRC-ZZ-002上册及当前canonical/审查记录；不读取SRC-ZZ-001初级讲义。26条ZZ-JM行全部有明确处置，canonical source_span_verified保持false。"
+    "jumen_scope_note": "本轮只使用SRC-ZZ-002上册及当前canonical/审查记录；不读取SRC-ZZ-001初级讲义。26条ZZ-JM行全部有明确处置，canonical source_span_verified保持false。",
+    "tianliang_review_rule_ids": [
+      "ZZ-TLIA-001",
+      "ZZ-TLIA-002",
+      "ZZ-TLIA-003",
+      "ZZ-TLIA-004",
+      "ZZ-TLIA-005",
+      "ZZ-TLIA-006",
+      "ZZ-TLIA-007",
+      "ZZ-TLIA-008",
+      "ZZ-TLIA-009",
+      "ZZ-TLIA-010",
+      "ZZ-TLIA-X01",
+      "ZZ-TLIA-X02",
+      "ZZ-TLIA-X03",
+      "ZZ-TLIA-X04",
+      "ZZ-TLIA-X05",
+      "ZZ-TLIA-X06",
+      "ZZ-TLIA-X07",
+      "ZZ-TLIA-X08",
+      "ZZ-TLIA-X09",
+      "ZZ-TLIA-X10",
+      "ZZ-TLIA-X11",
+      "ZZ-TLIA-Y01",
+      "ZZ-TLIA-Y02",
+      "ZZ-TLIA-Y03",
+      "ZZ-TLIA-Y04",
+      "ZZ-TLIA-Y05"
+    ],
+    "tianliang_review_path": "knowledge/core/14star-property-normalization/TIANLIANG_SOURCE_SPAN_REVIEW_v0.1.csv",
+    "tianliang_held_rule_ids": [
+      "ZZ-TLIA-010"
+    ],
+    "tianliang_partial_rule_ids": [
+      "ZZ-TLIA-001"
+    ],
+    "tianliang_source_locator": {
+      "source_id": "SRC-ZZ-002",
+      "source_work": "《中州派紫微斗数深造讲义（上）》",
+      "source_sha256": "1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a",
+      "pdf_scan_page": 14,
+      "printed_pages": [
+        27,
+        28
+      ],
+      "verification": "VISUAL_SOURCE_REVIEWED; SHA256_MATCHES_SOURCES_INDEX",
+      "prior_visual_review_rows_reused": 0,
+      "canonical_source_span_verified_mutated": false
+    },
+    "tianliang_scope_note": "本轮仅视觉核对上册扫描页14/印刷页27–28。26条canonical行均有处置：24条完整视觉核对、ZZ-TLIA-001因“第三得”与canonical“第三星”字面差异而部分核对、ZZ-TLIA-010因六十星系来源定位不具体而未核实。未修改canonical来源标记。"
   },
   "progress": {
-    "stage": "B_JUMEN_CHECKPOINT_COMPLETED_READY_FOR_TIANLIANG",
+    "stage": "B_TIANLIANG_CHECKPOINT_COMPLETED_READY_FOR_QISHA",
     "completed_pilot_cards": [
       "太阳",
       "太阴",
@@ -549,11 +598,10 @@
     ],
     "remaining_pilot_cards": [],
     "remaining_expansion_stars_in_existing_order": [
-      "天梁",
       "七杀",
       "破军"
     ],
-    "coverage_warning": "Stage A pilots 太阳、太阴、天相 are completed research checkpoints, not final canonical mappings. Stage B has completed bounded candidate checkpoints for 紫微、天机、武曲、天同、廉贞、天府、贪狼、巨门. For 巨门, all 26 canonical rows have explicit dispositions: 21 full visual confirmations, four partial confirmations (ZZ-JM-003/004/006/007), and one held row (ZZ-JM-005). Source is SRC-ZZ-002 upper volume only; canonical source flags remain false and normalization remains UNRESOLVED. Next star is 天梁.",
+    "coverage_warning": "Stage A pilots 太阳、太阴、天相 are completed research checkpoints, not final canonical mappings. Stage B has completed bounded candidate checkpoints for 紫微、天机、武曲、天同、廉贞、天府、贪狼、巨门、天梁. For 天梁, 26 canonical rows have explicit dispositions: 24 full visual confirmations on scan page 14 / printed pp27–28, ZZ-TLIA-001 is partial because the visible literal reads “第三得” while canonical evidence_text says “第三星”, and ZZ-TLIA-010 remains held because its six-system source locator is not page-specific and was not reviewed in this batch. Next star is 七杀.",
     "active_pilot_card": null,
     "draft_pilot_cards": [
       "太阳",
@@ -568,7 +616,8 @@
       "廉贞",
       "天府",
       "贪狼",
-      "巨门"
+      "巨门",
+      "天梁"
     ],
     "active_expansion_star": null,
     "draft_expansion_stars": [
@@ -579,7 +628,8 @@
       "廉贞",
       "天府",
       "贪狼",
-      "巨门"
+      "巨门",
+      "天梁"
     ],
     "expansion_checkpoint_history": [
       {
@@ -924,6 +974,36 @@
           "双能"
         ],
         "source_locator_note": "SRC-ZZ-002扫描页12/印刷页23–24；未读取初级讲义。扫描页24的“调各”“双能”按可见字面保留。"
+      },
+      {
+        "star": "天梁",
+        "status": "CHECKPOINT_COMPLETED_NOT_FINAL",
+        "source_id": "SRC-ZZ-002",
+        "pdf_scan_page": 14,
+        "printed_pages": [
+          27,
+          28
+        ],
+        "canonical_rule_rows_reviewed": 26,
+        "source_review_rows": 26,
+        "fully_verified_rows": 24,
+        "partially_verified_rows": 1,
+        "held_rows": 1,
+        "prior_visual_review_rows_reused": 0,
+        "mapping_review_records_added": 20,
+        "source_claims_added": 20,
+        "candidate_properties_added": 20,
+        "normalization_epistemic": "UNRESOLVED",
+        "canonicalization_authorized": false,
+        "product_consumption_authorized": false,
+        "next_star": "七杀",
+        "held_rule_ids": [
+          "ZZ-TLIA-010"
+        ],
+        "partial_rule_ids": [
+          "ZZ-TLIA-001"
+        ],
+        "source_locator_note": "扫描页14/印刷页27–28；ZZ-TLIA-001视觉字面为“第三得”，与canonical摘录“第三星”不一致；ZZ-TLIA-010具体六十星系页码未核实。"
       }
     ]
   },
@@ -7641,6 +7721,804 @@
         "运限巨门只表示阶段性暗蔽，不回写本命人格；传统官非/是非断语不作为现实预测。",
         "ZZ-JM-003/004/006/007只获得部分来源支持；ZZ-JM-005本轮保持未核实，不用相近语句替代原断语。",
         "扫描页24的“调各”“双能”按可见字面保留，不自行校正或推导额外语义。",
+        "所有候选保持PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED；不改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限。"
+      ]
+    },
+    {
+      "star_id": "STAR-TLIA",
+      "name": "天梁",
+      "status": "STAGE_B_CHECKPOINT_COMPLETED_NOT_FINAL",
+      "source_claims": [
+        {
+          "claim_key": "TLIA-L0-SUBSTRATE",
+          "source_rule_ids": [
+            "ZZ-TLIA-001"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 14,
+            "printed_page": 27
+          },
+          "source_excerpt": "天梁为南斗第三得，属阳土。",
+          "claim_layer": "L0_STRUCTURE_METADATA",
+          "claim_summary": "阳土仅保留为传统结构标签，不从五行标签推导现代QI方向或强度；保留扫描字面与canonical文本差异。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+          "conditions_to_preserve": [
+            "扫描字面“第三得”与canonical evidence_text“第三星”不一致",
+            "阳土只作L0元数据",
+            "不推导QI方向、强度或五行生克"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TLIA:p14:p27:substrate",
+          "row_adjudication_status": "PARTIALLY_VERIFIED_VISUAL_SCAN; LITERAL_MISMATCH_PRESERVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TLIA-INSPECTOR-METAPHOR",
+          "source_rule_ids": [
+            "ZZ-TLIA-002"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 14,
+            "printed_page": 27
+          },
+          "source_excerpt": "在斗数中，天梁被喻为监察御史。",
+          "claim_layer": "L2_RELATION_OR_SYSTEM",
+          "claim_summary": "监察御史是来源使用的角色比喻，不是现实职业、执法权限或人格诊断。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "保留比喻性质",
+            "不作职业或法律行为预测"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TLIA:p14:p27:inspector",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; METAPHOR_ONLY; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TLIA-PRINCIPLE-DISCIPLINE",
+          "source_rule_ids": [
+            "ZZ-TLIA-003",
+            "ZZ-TLIA-X01"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 14,
+            "printed_page": 27
+          },
+          "source_excerpt": "虽不主管刑法，而实际上则带刑法，纪律，原则的意味。",
+          "claim_layer": "L1_INTRINSIC_CANDIDATE",
+          "claim_summary": "来源将刑法、纪律、原则意味联系于天梁；不等于现实守法程度。",
+          "candidate_target_ref": "STAR-TLIA.intrinsic_signature:QI-10",
+          "conditions_to_preserve": [
+            "保留“虽不主管刑法”的限定",
+            "不转换为现实守法/职业表现"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TLIA:p14:p27:principle",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; DESCRIPTIVE_CANDIDATE; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TLIA-ISOLATION-INDEPENDENCE",
+          "source_rule_ids": [
+            "ZZ-TLIA-004",
+            "ZZ-TLIA-005",
+            "ZZ-TLIA-X01"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 14,
+            "printed_page": 27
+          },
+          "source_excerpt": "所以天梁虽称为[荫星]，本质上却带孤忌。掉臂独行，个性强烈，原则性强，是孤忌的一面；",
+          "claim_layer": "L1_INTRINSIC_CANDIDATE",
+          "claim_summary": "原则性、掉臂独行与孤忌并存，不压成单一负向人格分数。",
+          "candidate_target_ref": "STAR-TLIA.relational_signature:QR-01",
+          "conditions_to_preserve": [
+            "原则性与孤忌同时保留",
+            "不推为现实孤独必然性"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TLIA:p14:p27:isolation",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; MULTI_FACET_DESCRIPTION; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TLIA-DISPUTE-ARBITRATION",
+          "source_rule_ids": [
+            "ZZ-TLIA-006"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 14,
+            "printed_page": 27
+          },
+          "source_excerpt": "另一方面，则是喜欢根据自己的原则去排解纠纷，判定是非，因此常常卷入困难的漩涡之中，以致不得安全。",
+          "claim_layer": "L1_INTRINSIC_CANDIDATE",
+          "claim_summary": "来源描述按原则排解纠纷、判定是非；不等于现实调解能力验证。",
+          "candidate_target_ref": "STAR-TLIA.intrinsic_signature:QI-15",
+          "conditions_to_preserve": [
+            "保留“根据自己的原则”",
+            "调处倾向与困难结果分开"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TLIA:p14:p27:arbitration",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; DESCRIPTIVE_CANDIDATE; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TLIA-PROFESSION-PROJECTION",
+          "source_rule_ids": [
+            "ZZ-TLIA-006"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 14,
+            "printed_page": 27
+          },
+          "source_excerpt": "凡天梁坐命的人，最宜从事医药、保险、社会工作。称之为[荫]，亦与此有关。",
+          "claim_layer": "L3_PROJECTION",
+          "claim_summary": "医药、保险、社会工作是传统职业应象，不作为现代职业推荐。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "保留传统论命语境",
+            "不转成现代职业推荐"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TLIA:p14:p27:profession",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TRADITIONAL_PROJECTION_ONLY; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TLIA-LU-MONEY-CONFLICT",
+          "source_rule_ids": [
+            "ZZ-TLIA-007",
+            "ZZ-TLIA-X03",
+            "ZZ-TLIA-Y01"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 14,
+            "printed_page": 27
+          },
+          "source_excerpt": "天梁不喜化禄，或与禄存同度。否则主因财而受妒忌，由是惹生是非。或其财纯粹由于化解困难而来。所以只适宜其职业本身即带排难解纷色彩的人。同样是天梁化禄，对医生来说是吉曜，对商人来说则不甚吉，因为替病人[排难]，是医生的职责，商人则主必须经历困难然后得财。",
+          "claim_layer": "L3_PROJECTION",
+          "claim_summary": "带禄与财禄/是非依赖职业条件；医生与商人分支不同，不能一概判吉凶。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "保留化禄/禄存条件",
+            "保留医生/商人语境",
+            "不推导现实财富结果"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TLIA:p14:p27:lu-money",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; CONDITIONAL_PROJECTION; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TLIA-LU-STYLE",
+          "source_rule_ids": [
+            "ZZ-TLIA-X02",
+            "ZZ-TLIA-Y02"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 14,
+            "printed_page": 27
+          },
+          "source_excerpt": "不过无论如何，天梁一带禄，就必然推动他那种个性强烈的本质。所以[天同天梁]本来主个人有特殊风格，见禄则易随波逐流。",
+          "claim_layer": "L2_CONDITIONAL_MODIFIER",
+          "claim_summary": "带禄推动原有倾向；同梁见禄又可能改变特殊风格，不推成固定强度。",
+          "candidate_target_ref": "STAR-TLIA.intrinsic_signature:QI-10",
+          "conditions_to_preserve": [
+            "保留带禄条件",
+            "同梁组合单独保留",
+            "不赋数值强度"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TLIA:p14:p27:lu-style",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; CONDITIONAL_MODIFIER; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TLIA-INTERPRETIVE-METHOD",
+          "source_rule_ids": [
+            "ZZ-TLIA-004",
+            "ZZ-TLIA-X05",
+            "ZZ-TLIA-X06"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 14,
+            "printed_page": 27
+          },
+          "source_excerpt": "是故推断天梁，须从两方面来观察——（一）星曜会合，如何影响其孤忌之性，是加强抑或削弱？（二）天梁的个性，因星曜会合，其变化如何？",
+          "claim_layer": "INTERPRETIVE_METHOD",
+          "claim_summary": "作者要求分开检查孤忌的加强/削弱与个性的变化；这是解释方法而非固定星性。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "加强、削弱、转化分开",
+            "不归为intrinsic"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TLIA:p14:p27:method",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; METHOD_PRINCIPLE_NOT_INTRINSIC; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TLIA-JIYUE-HETEROGENEITY",
+          "source_rule_ids": [
+            "ZZ-TLIA-X04"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 14,
+            "printed_page": 27
+          },
+          "source_excerpt": "但是，[天同天梁]同度、[天机天梁]同度、天梁独坐、天同独坐、[天机太阴]同度……命宫种种情形的[机月同梁]实际上仍有分别。",
+          "claim_layer": "L2_RELATION_OR_SYSTEM",
+          "claim_summary": "机月同梁内部仍有不同情形，不可将格局名当作统一规则。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "保留同度/独坐结构差异",
+            "不归一为同一性质"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TLIA:p14:p27:jiyue",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; SYSTEM_CONTEXT; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TLIA-SHA-MODULATION",
+          "source_rule_ids": [
+            "ZZ-TLIA-X05",
+            "ZZ-TLIA-X06"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 14,
+            "printed_page": 27
+          },
+          "source_excerpt": "然而无论如何，[机月同梁]的组合，天梁必有孤忌之性，逢四煞，则孤忌愈甚，必须会文昌文曲然后才能调和。",
+          "claim_layer": "L2_CONDITIONAL_MODIFIER",
+          "claim_summary": "四煞使孤忌加重，昌曲为调和条件；作用相反且有上下文。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "四煞与昌曲分开记录",
+            "保留机月同梁语境",
+            "不合成数值加减分"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TLIA:p14:p27:sha-changqu",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; CONDITIONAL_INTERACTION; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TLIA-TIANMA-DRIFT",
+          "source_rule_ids": [
+            "ZZ-TLIA-X07"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 14,
+            "printed_page": 27
+          },
+          "source_excerpt": "天梁本有掉臂独行的色彩，见天马便变成不羁、浪荡。古人说：[天梁天马陷，飘荡无疑。]",
+          "claim_layer": "L2_CONDITIONAL_MODIFIER",
+          "claim_summary": "天马把掉臂独行转成不羁/浪荡，古诀带“陷”条件。",
+          "candidate_target_ref": "STAR-TLIA.conditional_signature:QI-03",
+          "conditions_to_preserve": [
+            "保留天马与“陷”条件",
+            "不推为无条件不稳定"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TLIA:p14:p27:tianma",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; CONDITIONAL_MODIFIER; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TLIA-KONGJIE-IDEALISM",
+          "source_rule_ids": [
+            "ZZ-TLIA-X08"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 14,
+            "printed_page": 27
+          },
+          "source_excerpt": "凡地空地劫在命宫，本来已有疏狂、不羁、理想主义，不肯和光同庆的色彩，若天梁与之同度，则其人之思想便更难为巨人所理解。",
+          "claim_layer": "L2_CONDITIONAL_MODIFIER",
+          "claim_summary": "空劫在命宫且与天梁同度时，描述疏狂、理想主义及较难被理解。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "地空地劫在命宫",
+            "天梁与之同度",
+            "保留“巨人”字面",
+            "不作心理诊断"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TLIA:p14:p27:kongjie",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; CONDITIONAL_INTERACTION; LITERAL_PRESERVED; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TLIA-TIANXING-RIGIDITY",
+          "source_rule_ids": [
+            "ZZ-TLIA-X09",
+            "ZZ-TLIA-X10"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 14,
+            "printed_page": 27
+          },
+          "source_excerpt": "天刑同度，则加强了天梁的原则，有时可变为其心如铁，更见擎羊，其性愈孤。",
+          "claim_layer": "L2_CONDITIONAL_MODIFIER",
+          "claim_summary": "天刑同度加强原则性，再见擎羊则孤性更强。",
+          "candidate_target_ref": "STAR-TLIA.conditional_signature:QI-10",
+          "conditions_to_preserve": [
+            "天刑同度为第一层",
+            "再见擎羊为额外条件",
+            "不数值化"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TLIA:p14:p27:tianxing-yang",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; NESTED_CONDITIONS; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TLIA-YANGLIANG-CHANG-LU",
+          "source_rule_ids": [
+            "ZZ-TLIA-X11"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 14,
+            "printed_page": 28
+          },
+          "source_excerpt": "当[太阳天梁]同度，更有文昌、禄存同会之时，则为著名的[阳梁昌禄]格。",
+          "claim_layer": "L2_RELATION_OR_SYSTEM",
+          "claim_summary": "阳梁昌禄需太阳天梁同度并见文昌、禄存同会。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "太阳天梁同度",
+            "文昌与禄存同会",
+            "保留格局合取"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TLIA:p14:p28:yangliang",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; SYSTEM_CONTEXT; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TLIA-SCHOLARLY-SHA-TRADEOFF",
+          "source_rule_ids": [
+            "ZZ-TLIA-Y03",
+            "ZZ-TLIA-Y04"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 14,
+            "printed_page": 28
+          },
+          "source_excerpt": "学术研究要讲究[自讼]，即是自己跟自己过不去，不断否定自己的结论，然后才有学术进步，所以不畏刑煞同度，但如果从竞争的顺逆来着眼，则刑煞有所不宜。",
+          "claim_layer": "L2_RELATION_OR_SYSTEM",
+          "claim_summary": "学术自我批判语境可容刑煞，但竞争评价仍不宜。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "保留阳梁昌禄",
+            "学术与竞争为不同评价目标",
+            "不作绝对吉凶"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TLIA:p14:p28:scholarly-sha",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; MULTI_OBJECTIVE_CONTEXT; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TLIA-SHA-OUTCOMES",
+          "source_rule_ids": [
+            "ZZ-TLIA-008"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 14,
+            "printed_page": 28
+          },
+          "source_excerpt": "一般情形下，天梁不利于见煞。古人说[若四煞冲破则苗而不秀。][天梁陷地见羊陀，伤风败俗。][天梁陷地遇火羊破局，下贱孤寡夭折。]",
+          "claim_layer": "L3_PROJECTION",
+          "claim_summary": "煞曜古诀带陷地、羊陀、火羊等条件，属传统投影。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "保留煞曜/陷地条件",
+            "不作医学或寿命预测",
+            "不统一惩罚"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TLIA:p14:p28:sha-projection",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; TRADITIONAL_PROJECTION_ONLY; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TLIA-AUXILIARY-SUPPORT",
+          "source_rule_ids": [
+            "ZZ-TLIA-009"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 14,
+            "printed_page": 28
+          },
+          "source_excerpt": "喜见左辅右弼、文昌、文曲，所谓[昌曲左右嘉会，出将入相。]",
+          "claim_layer": "L3_PROJECTION",
+          "claim_summary": "辅弼昌曲为喜见条件；出将入相是古诀，不保证现实地位。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "conditions_to_preserve": [
+            "保留左辅右弼/文昌文曲",
+            "不推现实职位结果"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TLIA:p14:p28:auxiliary",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; CONDITIONAL_TRADITIONAL_PROJECTION; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TLIA-SYSTEM-FAMILIES",
+          "source_rule_ids": [
+            "ZZ-TLIA-Y05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 14,
+            "printed_page": 28
+          },
+          "source_excerpt": "在十二宫中的分布，天梁跟天同、太阳、天机三曜，或同度，或相对，关系深切。",
+          "claim_layer": "L2_RELATION_OR_SYSTEM",
+          "claim_summary": "天梁与天同、太阳、天机的同度/相对关系属于结构层。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "保留同度/相对区别",
+            "阳梁、机梁、同梁分别记录"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TLIA:p14:p28:families",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; STRUCTURAL_RELATION; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        },
+        {
+          "claim_key": "TLIA-PALACE-COMPARISON",
+          "source_rule_ids": [
+            "ZZ-TLIA-Y05"
+          ],
+          "source_locator": {
+            "source_id": "SRC-ZZ-002",
+            "pdf_scan_page": 14,
+            "printed_page": 28
+          },
+          "source_excerpt": "一般而言，以丑、午二宫的天梁独坐较易构成美格；而巳亥二宫的天梁独坐则易成破格。此将于后文详述。",
+          "claim_layer": "L2_RELATION_OR_SYSTEM",
+          "claim_summary": "宫位比较被限定为“一般而言”且提示后文详述，不视为已穷尽规则。",
+          "candidate_target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "conditions_to_preserve": [
+            "保留“一般而言”",
+            "保留独坐及指定宫位",
+            "后文论证未在本批范围内"
+          ],
+          "normalization_epistemic": "UNRESOLVED",
+          "source_span_group": "TLIA:p14:p28:palace",
+          "row_adjudication_status": "VISUAL_SOURCE_REVIEWED; LIMITED_CONTEXT; PROPOSAL_ONLY_NOT_CANONICAL",
+          "independent_source_span_count": 1
+        }
+      ],
+      "candidate_properties": [
+        {
+          "candidate_key": "EXP-TLIA-01",
+          "layer": "L0",
+          "candidate_label": "阳土传统结构元数据，不映射QI",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L0",
+          "source_rule_ids": [
+            "ZZ-TLIA-001"
+          ],
+          "mapping_review_record_id": "MR-TLIA-L0-SUBSTRATE-001",
+          "mapping_disposition": "not_supported_for_target",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TLIA-02",
+          "layer": "L2",
+          "candidate_label": "监察御史的角色比喻",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TLIA-002"
+          ],
+          "mapping_review_record_id": "MR-TLIA-INSPECTOR-002",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TLIA-03",
+          "layer": "L1",
+          "candidate_label": "原则与规范性描述候选",
+          "target_ref": "STAR-TLIA.intrinsic_signature:QI-10",
+          "source_rule_ids": [
+            "ZZ-TLIA-003",
+            "ZZ-TLIA-X01"
+          ],
+          "mapping_review_record_id": "MR-TLIA-PRINCIPLE-003",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TLIA-04",
+          "layer": "L1",
+          "candidate_label": "原则性与孤忌并存",
+          "target_ref": "STAR-TLIA.relational_signature:QR-01",
+          "source_rule_ids": [
+            "ZZ-TLIA-004",
+            "ZZ-TLIA-005",
+            "ZZ-TLIA-X01"
+          ],
+          "mapping_review_record_id": "MR-TLIA-ISOLATION-004",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TLIA-05",
+          "layer": "L1",
+          "candidate_label": "按原则排解纠纷的描述",
+          "target_ref": "STAR-TLIA.intrinsic_signature:QI-15",
+          "source_rule_ids": [
+            "ZZ-TLIA-006"
+          ],
+          "mapping_review_record_id": "MR-TLIA-ARBITRATION-005",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TLIA-06",
+          "layer": "L3",
+          "candidate_label": "传统职业应象投影",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "source_rule_ids": [
+            "ZZ-TLIA-006"
+          ],
+          "mapping_review_record_id": "MR-TLIA-PROFESSION-006",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TLIA-07",
+          "layer": "L3",
+          "candidate_label": "带禄与财禄冲突的条件投影",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "source_rule_ids": [
+            "ZZ-TLIA-007",
+            "ZZ-TLIA-X03",
+            "ZZ-TLIA-Y01"
+          ],
+          "mapping_review_record_id": "MR-TLIA-LU-MONEY-007",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TLIA-08",
+          "layer": "L2",
+          "candidate_label": "带禄对性格的条件修饰",
+          "target_ref": "STAR-TLIA.intrinsic_signature:QI-10",
+          "source_rule_ids": [
+            "ZZ-TLIA-X02",
+            "ZZ-TLIA-Y02"
+          ],
+          "mapping_review_record_id": "MR-TLIA-LU-STYLE-008",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TLIA-09",
+          "layer": "L2",
+          "candidate_label": "会合影响的双轴解释方法",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TLIA-004",
+            "ZZ-TLIA-X05",
+            "ZZ-TLIA-X06"
+          ],
+          "mapping_review_record_id": "MR-TLIA-METHOD-009",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TLIA-10",
+          "layer": "L2",
+          "candidate_label": "机月同梁内部异质性",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TLIA-X04"
+          ],
+          "mapping_review_record_id": "MR-TLIA-JIYUE-010",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TLIA-11",
+          "layer": "L2",
+          "candidate_label": "四煞加强与昌曲调和",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TLIA-X05",
+            "ZZ-TLIA-X06"
+          ],
+          "mapping_review_record_id": "MR-TLIA-SHA-011",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TLIA-12",
+          "layer": "L2",
+          "candidate_label": "天马条件下的不羁变化",
+          "target_ref": "STAR-TLIA.conditional_signature:QI-03",
+          "source_rule_ids": [
+            "ZZ-TLIA-X07"
+          ],
+          "mapping_review_record_id": "MR-TLIA-TIANMA-012",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TLIA-13",
+          "layer": "L2",
+          "candidate_label": "空劫同度的理想主义描述",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TLIA-X08"
+          ],
+          "mapping_review_record_id": "MR-TLIA-KONGJIE-013",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TLIA-14",
+          "layer": "L2",
+          "candidate_label": "天刑与擎羊的层叠条件",
+          "target_ref": "STAR-TLIA.conditional_signature:QI-10",
+          "source_rule_ids": [
+            "ZZ-TLIA-X09",
+            "ZZ-TLIA-X10"
+          ],
+          "mapping_review_record_id": "MR-TLIA-TIANXING-014",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TLIA-15",
+          "layer": "L2",
+          "candidate_label": "阳梁昌禄的系统条件",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TLIA-X11"
+          ],
+          "mapping_review_record_id": "MR-TLIA-YANGLIANG-015",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TLIA-16",
+          "layer": "L2",
+          "candidate_label": "学术原则与竞争评价分离",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TLIA-Y03",
+            "ZZ-TLIA-Y04"
+          ],
+          "mapping_review_record_id": "MR-TLIA-SCHOLARLY-016",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TLIA-17",
+          "layer": "L3",
+          "candidate_label": "带条件的传统煞曜断语",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "source_rule_ids": [
+            "ZZ-TLIA-008"
+          ],
+          "mapping_review_record_id": "MR-TLIA-SHA-017",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TLIA-18",
+          "layer": "L3",
+          "candidate_label": "辅佐会合与传统成就投影",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L3",
+          "source_rule_ids": [
+            "ZZ-TLIA-009"
+          ],
+          "mapping_review_record_id": "MR-TLIA-AUXILIARY-018",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TLIA-19",
+          "layer": "L2",
+          "candidate_label": "阳梁/机梁/同梁系统关系",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TLIA-Y05"
+          ],
+          "mapping_review_record_id": "MR-TLIA-FAMILIES-019",
+          "mapping_disposition": "candidate_only",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        },
+        {
+          "candidate_key": "EXP-TLIA-20",
+          "layer": "L2",
+          "candidate_label": "天梁独坐的宫位比较",
+          "target_ref": "knowledge/qi_ontology.yaml#/architecture/layers/L2",
+          "source_rule_ids": [
+            "ZZ-TLIA-Y05"
+          ],
+          "mapping_review_record_id": "MR-TLIA-PALACE-020",
+          "mapping_disposition": "needs_review",
+          "normalization_epistemic": "UNRESOLVED",
+          "canonicalization_authorized": false,
+          "numeric_strength_assigned": false
+        }
+      ],
+      "held_canonical_rule_ids": [
+        "ZZ-TLIA-010"
+      ],
+      "non_promotion_guards": [
+        "阳土仅保留为传统结构元数据，不推导QI方向、强度或五行生克。",
+        "扫描原文“第三得”与canonical摘录“第三星”存在字面差异；保留原字，不静默校正。",
+        "监察御史为来源中的角色比喻，不等同现实执法权、职业适配或人格诊断。",
+        "原则性、孤忌、排解纠纷并存；不得压缩为单一正负值或现实人际关系必然性。",
+        "医药、保险、社会工作及传统煞曜断语属于传统投影，不作为现代职业建议、医学或寿命预测。",
+        "化禄/禄存的作用须保留职业语境；医生与商人分支不可合并为无条件吉凶。",
+        "机月同梁内部异质；阳梁、机梁、同梁及具体宫位同度/相对关系必须保留。",
+        "四煞加强孤忌、昌曲调和、天马改变状态、空劫增加疏离、天刑与擎羊递进均为条件修饰，不添加数值权重。",
+        "阳梁昌禄的学术研究解释依赖太阳、文昌、禄存等结构；学术评价与竞争评价分开。",
+        "ZZ-TLIA-010的六十星系来源定位尚未核实；不得以印刷页27–28替代该规则的具体来源。",
         "所有候选保持PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED；不改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限。"
       ]
     }
