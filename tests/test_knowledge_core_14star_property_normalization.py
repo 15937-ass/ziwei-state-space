@@ -362,7 +362,7 @@ def test_method_permission_and_progress_metadata_remain_consistent():
     progress = data["progress"]
     assert progress["completed_expansion_stars"] == ["紫微", "天机", "武曲", "天同", "廉贞", "天府", "贪狼", "巨门"]
     assert progress["remaining_expansion_stars_in_existing_order"] == [
-        "巨门", "天梁", "七杀", "破军"
+        "天梁", "七杀", "破军"
     ]
     # Current progress must reconcile with the cards and historical checkpoints.
     card_names = [star["name"] for star in data["stars"]]
