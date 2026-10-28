@@ -1,40 +1,15 @@
-## 当前预 PI 状态与来源审计汇总（2026-10-28）
+## 当前 PI 审计状态与来源裁决汇总（2026-10-28）
 
-**当前状态：** `PRE_PI_SOURCE_AUDIT_COMPLETED_PENDING_EXACT_HEAD_QUALITY_GATE`  
-**主分支同步：** 已将 main `4cc89ead106c315d451d2d39b72e33ccc73398b5` 纳入 Core 工作分支；同步合并提交 `cd11b672058e82efbdc08ee69a61f153aacb4a81`。该操作仅同步分支，PR #783 仍保持 Draft / 未合并。  
-**来源覆盖：** 14 份来源审查侧车覆盖全部 430 条 canonical 规则 ID；来源状态为 421 条 `VERIFIED_VISUAL_SCAN`、7 条 `PARTIALLY_VERIFIED_VISUAL_SCAN`、1 条 `NOT_VERIFIED_IN_REVIEWED_SPANS`、1 条 `SOURCE_MISMATCH_CONFIRMED`。  
-**正式规则边界：** 所有 canonical 行仍保持 `source_span_verified=false` 与 `normalization_epistemic=UNRESOLVED`；来源侧车只证明文本跨度审查状态，不批准现代 QI 映射。
-
-### 本轮已完成的来源补核
-
-- 新增 `SUN_SOURCE_SPAN_REVIEW_v0.1.csv`，覆盖太阳 40/40 条规则，核对来源为 SRC-ZZ-002 扫描页 5 / 印刷页 9–10。
-- 太阴 `ZZ-TYI-010` 已在扫描页 21 / 印刷页 41 找到原文；canonical 定位写书页 42，保留一页定位差异，不改 canonical。
-- 天相 `ZZ-TX-009/010` 已在扫描页 24 / 印刷页 47 核对，保留武曲天相与破军四化的组合条件。
-- 贪狼 `ZZ-TL-006/007/008` 与巨门 `ZZ-JM-005` 已在 SRC-ZZ-001《中州派紫微斗数初级讲义》对应扫描页核对。
-- 天梁 `ZZ-TLIA-010` 已定位至扫描页 80 / 印刷页 159。
-- 破军 `ZZ-PJ-006` 已定位至扫描页 96 / 印刷页 191；`ZZ-PJ-007..010` 已定位至扫描页 97 / 印刷页 193。
-
-### 保留的来源未决项
-
-- `ZZ-TL-010`：仍未找到能直接支持 canonical 目标“性急”的精确跨度；不以“躁进”或“突发”等近义描述替代。
-- `ZZ-TT-010`：已确认原侧车所引段落涉及文昌化忌/办事不经心，而非该条天同主张；继续隔离，不晋升、不改写 canonical。
-- 7 条部分核对：`ZZ-TL-009`、`ZZ-JM-003/004/006/007`、`ZZ-TLIA-001`、`ZZ-QS-005`。保留原文与 canonical 字面差异，不静默修正。
-
-### 候选来源范围核对（2026-10-28）
-
-- 182项候选性质均关联到有效mapping-review记录，但另有13项候选的 `source_rule_ids` 共26个ID未出现在对应记录的 `source_refs` 直接引用中。
-- 该差异不等于规则ID不存在，也不代表候选映射已获支持。已新增逐项报告 `MAPPING_REVIEW_CANDIDATE_SOURCE_SCOPE_AUDIT_v0.1.md`；需在PI审议时区分直接证据与相关上下文。
-- 不机械补引，不增加证据权重，不改变canonical状态。
-
-### 映射审议范围
-
-当前 240 条 mapping-review 记录处置分布仍为：58 条 `supported_candidate`、56 条 `candidate_only`、100 条 `needs_review`、26 条 `not_supported_for_target`。这只是候选研究处置，不是批准清单。PI 需独立审议语义层级、条件、反例及是否接受；本轮未改正式星核、本体、canonical 规则、共享 schema、Product/runtime、KIB 或消费者权限。
-
-另完成 mapping-review 预审计：240 条记录 ID 全部唯一，182 项候选性质全部链接到现有审核记录，未发现指向不存在 canonical 规则的引用；81 种目标引用、412 次来源引用使用、356 个唯一来源引用。47 组精确来源引用在多条审核记录中复用（共103次使用），必须视为引用复用而非独立证据倍增。4 条 evidence_role 仍为 UNKNOWN，已列入 `MAPPING_REVIEW_PRE_PI_AUDIT_v0.1.md`。
-
-**质量门状态：** 本次来源审计和测试断言更新后，必须等待最新 exact-head 的完整质量门通过，方可标记技术验收完成。以下早期检查点记录作为历史记录保留；如其中的“当前未审”状态与本节冲突，以本节的后续补核记录为准。
-
----
+**当前状态：** `PI_SOURCE_AND_MAPPING_AUDIT_DECISIONS_RECORDED_PENDING_EXACT_HEAD_QUALITY_GATE`  
+**主分支同步：** main `f77227ec0b67d422bce4e1dde2f4a1a39491d29f` 已通过同步PR #821合入Core工作分支；PR #783仍保持Draft / 未合并。  
+**来源覆盖：** 14份侧车覆盖430条canonical规则ID；423条完整视觉核对、5条部分核对、1条未核实、1条来源错配。  
+**PI印刷误字裁决：** `ZZ-TLIA-001`“第三得”按“第三星”理解；`ZZ-QS-005`“廉洁”按“廉贞”理解。原始扫描字面保留，canonical行和正式source flags不变。  
+**剩余来源问题：** `ZZ-TL-010`缺少直接支持“性急”的精确跨度；`ZZ-TT-010`确认错配并隔离；5条部分核对为`ZZ-TL-009`、`ZZ-JM-003/004/006/007`。  
+**Mapping-review：** 241条记录、182项候选性质；处置分布为58 supported_candidate、57 candidate_only、100 needs_review、26 not_supported_for_target。  
+**引用去重：** 428次来源引用使用、360个唯一来源引用；59组精确引用复用，共127次使用。重复引用与同跨度不同rule ID均不增加独立证据权重。  
+**来源范围差异：** 原始13项/26个rule ID已逐项审查；12项/25个ID已补入直接引用或缩窄范围。剩余`EXP-WQ-06 / ZZ-WQ-X06`是与`ZZ-WQ-018/019`重叠的摘要，不重复引用。  
+**UNKNOWN角色：** 原4条中3条已按现有schema作出有依据的处置；`MR-LZ-SYMBOLIC-ROLE-002`仍UNKNOWN，因为现有枚举无法准确表达传统象征标签。  
+**正式规则边界：** 所有canonical行仍保持`source_span_verified=false`与`normalization_epistemic=UNRESOLVED`；候选仍为`PROPOSAL_ONLY_NOT_CANONICAL`。来源核对与PI文字裁决不批准现代QI映射。
 
 # 十四主星基础性质归一化基线 v0.1
 
