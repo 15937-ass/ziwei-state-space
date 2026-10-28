@@ -1085,7 +1085,7 @@ def test_pi_decisions_1a_2b_3b_are_recorded_without_canonical_promotion():
     assert decisions[3]["affected_candidates"][0]["candidate_key"] == "EXP-LZ-03"
     assert decisions[3]["normalization_epistemic"] == "UNRESOLVED"
     assert data["pre_pi_status"] == "PI_DECISIONS_RECORDED"
-    assert data["progress"]["stage"] == data["pre_pi_status"]
+    assert data["progress"]["stage"] == "B_POJUN_CHECKPOINT_COMPLETED_READY_FOR_FINAL_REVIEW"
     assert data["pre_pi_gates"]["formal_mapping_approval"] is False
     assert data["pre_pi_gates"]["product_consumption_authorized"] is False
     assert record["guardrails"] == {
