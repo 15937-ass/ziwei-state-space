@@ -1,44 +1,40 @@
-# Mapping-review 预 PI 审计（2026-10-28）
+# Mapping-review 预 PI 审计（PI处置后，2026-10-28）
 
 ## 完整性检查
 
-- mapping-review 记录：240；唯一 ID：240。
-- 候选性质：182；所有 182 项均关联到现有 mapping-review 记录。
-- canonical 规则：430；mapping-review 中未发现引用不存在的 canonical 规则 ID。
-- 目标引用：81 种。
-- 来源引用：412 次使用、356 个唯一来源引用。
-- 被多个 mapping-review 记录复用的精确来源引用：47 组，共涉及 103 次引用。复用只表示同一来源定位被多个目标/论证引用，不应重复计为独立证据。
-- 4 项 evidence_role 仍为 UNKNOWN，已单独列入待审清单。
-- 候选性质中，canonicalization_authorized=true 为 0；numeric_strength_assigned=true 为 0；normalization_epistemic 全部为 UNRESOLVED。
+- mapping-review记录：241；唯一ID：241。
+- 候选性质：182；所有候选均关联到有效审核记录。
+- canonical规则：430；未发现引用不存在的canonical规则ID。
+- 目标引用：81种。
+- 来源引用：428次使用、360个唯一来源引用。
+- 被多个mapping-review记录复用的精确来源引用：59组，共涉及127次引用使用。复用不等于独立证据。
+- evidence_role仍为UNKNOWN：1条，当前仅为MR-LZ-SYMBOLIC-ROLE-002。
+- 候选性质中canonicalization_authorized=true为0；numeric_strength_assigned=true为0；normalization_epistemic全部为UNRESOLVED。
 
-## Mapping-review 处置
+## Mapping-review处置
 
 | 处置 | 数量 |
 |---|---:|
 | supported_candidate | 58 |
-| candidate_only | 56 |
+| candidate_only | 57 |
 | needs_review | 100 |
 | not_supported_for_target | 26 |
-| 合计 | 240 |
+| 合计 | 241 |
 
-## 仍需 PI 留意
+## 四条原UNKNOWN记录的处置
 
-1. 复用来源引用不得自动产生独立证据权重；跨目标复用必须按原文跨度、条件与目标层级分别审议。
-2. `MR-TY-QI15-METHOD-RULE-005` 的 evidence_role 为 UNKNOWN，且处置为 `not_supported_for_target`：一般方法规则不能直接支撑太阳专属映射。
-3. `MR-TT-SOURCE-MISMATCH-009` 的 evidence_role 为 UNKNOWN，且处置为 `not_supported_for_target`：与 `ZZ-TT-010` 来源错配问题保持一致，继续隔离。
-4. `MR-LZ-L0-SOURCE-DISAGREEMENT-001` 的 evidence_role 为 UNKNOWN，处置为 `needs_review`：两份中州派来源存在传统五行标签差异，需保留来源归属，不推导 QI 数值。
-5. `MR-LZ-SYMBOLIC-ROLE-002` 的 evidence_role 为 UNKNOWN，处置为 `not_supported_for_target`：传统象征标签不直接转为现代人格/关系变量。
+1. `MR-TY-QI15-METHOD-RULE-005`：改为`NOT_APPLICABLE`。一般解释方法不直接扮演太阳专属性质证据；`not_supported_for_target`保持不变。
+2. `MR-TT-SOURCE-MISMATCH-009`：改为`NOT_APPLICABLE`。来源已确认错配并继续隔离；`not_supported_for_target`保持不变。
+3. `MR-LZ-L0-SOURCE-DISAGREEMENT-001`：证据角色改为`direct_state`，因为两份来源均直接陈述传统底座标签；来源值冲突仍未解决，不选定任一标签。
+4. `MR-LZ-SYMBOLIC-ROLE-002`：继续`UNKNOWN`。现有枚举没有“传统象征标签”角色，强行归入直接状态或下游投影会误分类；当前目标不支持的处置保持不变。
+
+## 来源范围审计
+
+- 原始差异13项候选、26个rule ID已逐项审查。
+- 12项候选、25个rule ID通过补入有依据的直接引用或缩窄候选范围得到处理。
+- 只保留`EXP-WQ-06` / `ZZ-WQ-X06`一个有意不重复引用的重叠摘要；详见`MAPPING_REVIEW_CANDIDATE_SOURCE_SCOPE_AUDIT_v0.1.md`。
+- `EXP-WQ-10`现在关联L3候选审核记录`MR-WQ-L3-FINANCIAL-ROLE-016`；原`MR-WQ-FINANCIAL-ROLE-002`继续拒绝QI-05映射。
 
 ## 不变更项
 
-本审计不修改 canonical 规则、正式星核、QI 本体、共享 Schema、Product/runtime、KIB 或消费者权限；不批准任何候选映射，也不为重复来源引用增加权重。
-
-
-## 详细复用清单
-
-47组精确来源引用及其被引用的mapping-review记录已逐项列入 `MAPPING_REVIEW_SOURCE_REF_REUSE_AUDIT_v0.1.md`。清单仅用于去重和审议，不改变既有处置，也不增加证据权重。
-
-
-## 候选性质来源范围核对（2026-10-28）
-
-另发现候选性质 `source_rule_ids` 与其关联审核记录 `source_refs` 的直接引用范围有13项候选、26个规则ID不完全一致。所有相关规则ID均存在于canonical规则集；这不是缺失canonical ID，而是候选来源范围与审核记录直接引用范围之间的口径差异。已逐项列入 `MAPPING_REVIEW_CANDIDATE_SOURCE_SCOPE_AUDIT_v0.1.md`。不机械补引、不视为独立证据，也不自动批准映射。
+本审计不修改canonical规则、正式星核、QI本体、共享Schema、Product/runtime、KIB或消费者权限；不批准任何正式映射，不因重复来源引用增加权重。
