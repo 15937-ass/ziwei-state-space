@@ -7,17 +7,17 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "IDLE"
-  active_issue: null
-  active_branch: null
+  status: "ACTIVE"
+  active_issue: 841
+  active_branch: "knowledge/core-841-option-c-minimal-contract-closure"
   active_pr: null
-  base_main_sha: null
-  stage: "BOUNDED_RESEARCH_COMPLETED_NO_AUTOMATIC_SUCCESSOR"
+  base_main_sha: "a65e8c3c58e30fda0a04d6123c23141de346a5f2"
+  stage: "OPTION_C_MINIMAL_CONTRACT_CLOSURE_RESEARCH"
   last_completed_issue: 757
   last_completed_pr: 783
   closure_effective_on: "PR_783_MERGED_TO_MAIN"
-  resume_entry: "Issue #757 is closed after candidate-research acceptance. Read its final handoff and research_closure before any new Core task. Live main is authoritative; base_main_sha stays null while execution.status is IDLE and is set only when a new active work unit is created. Residual source gaps and QI/QR candidates remain unresolved/held; no automatic canonical mapping or Product consumption."
-  next_work_unit: null
+  resume_entry: "Active work unit #841 prepares a proposal-only Option C minimal semantic contract closure review. Reuse current main artifacts; do not repeat Issue #757 source research. Do not freeze production values, accept canonical mappings, modify Product/runtime, or authorize consumer readiness before explicit PI review. Recheck live main and linked PR before validation/merge."
+  next_work_unit: "KB-CORE-WP06B-OPTION-C-MINIMAL-CONTRACT-CLOSURE-01"
 
 integrity:
   shared_semantics_core_only: true
