@@ -1,39 +1,42 @@
-# 候选性质与 Mapping-review 直接来源范围核对（2026-10-28）
+# 候选性质与 Mapping-review 直接来源范围核对（PI处置 2026-10-28）
 
-## 审计目的
+## 当前结果
 
-核对每项候选性质的 `source_rule_ids` 与其关联 mapping-review 记录的 `source_refs` 是否一致。此检查只核对直接引用范围，不推断候选映射正确性。
+- 原始差异：13项候选、26个规则ID未在对应审核记录的 `source_refs` 中直接出现。
+- PI逐项处置后：12项候选、25个规则ID已通过补充有依据的直接引用或缩窄候选范围得到处理。
+- 当前剩余：**1项候选 / 1个规则ID**：`EXP-WQ-06` / `ZZ-WQ-X06`。该规则与审核记录已直接引用的 `ZZ-WQ-018/019` 属同一昌曲调柔/优柔寡断重叠跨度；保留为候选范围中的摘要/重叠材料，但不再次加入直接引用，不增加独立证据计数。
+- 所有涉及的规则ID均存在于canonical规则集；本次审计不是canonical ID缺失检查，也不批准正式映射。
 
-## 结果
+## 逐项处置
 
-- 候选性质总数：182。
-- 关联 mapping-review 记录：全部有效。
-- 发现候选 `source_rule_ids` 中有规则未在对应审核记录的 `source_refs` 中直接出现：**26处，涉及13项候选性质**。
-- 这些规则 ID 本身均存在于 canonical 规则集；本次发现是“候选性质所列来源范围”与“该条审核记录的直接引用范围”不完全一致，不代表 canonical ID 不存在，也不能直接断定为内容错误。
-- 不应机械地把缺少的 ID 全部添加到审核记录：部分 mapping-review rationale 明确限定直接支持范围或指出目标不受支持。需要 PI 前逐项决定是（a）候选的来源清单是上下文材料，应明确区分直接证据/相关上下文；（b）审核记录应补充直接来源引用；或（c）候选来源清单应缩窄。
+| 星曜 | 候选键 | 原未直接引用的规则 | PI处置 | 当前边界 |
+|---|---|---|---|---|
+| 天相 | `PILOT-TX-02` | `ZZ-TX-X08`, `ZZ-TX-Y03`, `ZZ-TX-Y04` | **补充直接引用** | X08补充化禄/化忌主体门控，Y03/Y04补充对宫破军及星系关系；仅支持L2关系结构，不转为单星内在值。 |
+| 天相 | `PILOT-TX-03` | `ZZ-TX-004`, `ZZ-TX-X04`, `ZZ-TX-X05`, `ZZ-TX-X06`, `ZZ-TX-X07`, `ZZ-TX-Y02` | **缩窄候选范围** | 该QI-02审核只保留直接引用的TX-002/003，标签缩窄为财荫夹印及特定化禄替代分支；刑忌夹、化解路径和羊陀条件不冒充该目标的直接证据。 |
+| 紫微 | `EXP-ZW-02` | `ZZ-ZW-004` | **补充直接引用** | 百官朝拱直接支持多星支持结构；不等于紫微独立能力。 |
+| 天机 | `EXP-TJ-05` | `ZZ-TJ-019` | **补充直接引用** | 明确运限内才智发挥的时间条件；不回写本命。 |
+| 天机 | `EXP-TJ-07` | `ZZ-TJ-024`, `ZZ-TJ-X05` | **缩窄候选范围** | 当前审核明确针对火铃；仅保留火铃直接来源ZZ-TJ-006/Y04。陀罗与天刑属于不同修饰分支，不能混成火铃证据。 |
+| 武曲 | `EXP-WQ-04` | `ZZ-WQ-Y01` | **补充直接引用** | 加入宫位评价反转的直接来源；关系结论仍保留宫位门控。 |
+| 武曲 | `EXP-WQ-06` | `ZZ-WQ-X06` | **保留重叠摘要，不重复引用** | WQ-X06与WQ-018/019指向同一昌曲双向代价跨度；已有直接引用足够，X06不作为第二份独立证据。它是唯一保留的来源范围差异。 |
+| 武曲 | `EXP-WQ-09` | `ZZ-WQ-Y04` | **补充直接引用** | 明确武府杀/武破相/武贪系统家族，支持组合上下文，不支持武曲固定基线。 |
+| 武曲 | `EXP-WQ-10` | `ZZ-WQ-015`, `ZZ-WQ-016`, `ZZ-WQ-017` | **缩窄候选并修正审核关联** | 这些规则属于火铃条件下其他传统不利投影，不属于财星角色候选的直接来源范围。候选仅保留WQ-002/X01，并改关联到L3审核记录 `MR-WQ-L3-FINANCIAL-ROLE-016`（`candidate_only`）；原 `MR-WQ-FINANCIAL-ROLE-002` 仍明确拒绝将其映射到QI-05。 |
+| 天同 | `EXP-TT-05` | `ZZ-TT-006` | **补充直接引用** | “善化凶”直接支持传统功能描述，但不等于现代QI-15。 |
+| 天同 | `EXP-TT-08` | `ZZ-TT-008`, `ZZ-TT-009`, `ZZ-TT-X08`, `ZZ-TT-X09` | **补充直接引用** | 同巨、紫杀行运遇同阴、同梁见天马及火铃分支分别引用，仍不合并成统一QI值。 |
+| 天府 | `EXP-TF-04` | `ZZ-TF-003` | **补充直接引用** | 直接区分资源运用/储藏与资源生成。 |
+| 天府 | `EXP-TF-05` | `ZZ-TF-X03` | **补充直接引用** | 直接支持天府守成与紫微开创的比较语境，不推导无条件稳定值。 |
 
-## 待核对清单
+## 当前机器核对结果
 
-| 星曜 | 候选键 | 未在对应审核记录中直接引用的规则 | Mapping-review ID | 当前处置 | 审核记录现有直接引用 |
-|---|---|---|---|---|---|
-| 天相 | `PILOT-TX-02` | `ZZ-TX-X08`, `ZZ-TX-Y03`, `ZZ-TX-Y04` | `MR-TX-CLAMP-PRIORITY-005` | supported_candidate | `SRC-ZZ-002#pdf_scan_page=13#printed_page=25#ZZ-TX-X03` |
-| 天相 | `PILOT-TX-03` | `ZZ-TX-004`, `ZZ-TX-X04`, `ZZ-TX-X05`, `ZZ-TX-X06`, `ZZ-TX-X07`, `ZZ-TX-Y02` | `MR-TX-CAIYIN-SOFTNESS-006` | needs_review | `SRC-ZZ-002#pdf_scan_page=13#printed_page=25#ZZ-TX-002`<br>`SRC-ZZ-002#pdf_scan_page=13#printed_page=25#ZZ-TX-003` |
-| 紫微 | `EXP-ZW-02` | `ZZ-ZW-004` | `MR-ZW-CONTEXT-SENSITIVITY-003` | supported_candidate | `SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-002`<br>`SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-003`<br>`SRC-ZZ-002#pdf_scan_page=3#printed_page=5#ZZ-ZW-005` |
-| 天机 | `EXP-TJ-05` | `ZZ-TJ-019` | `MR-TJ-QI03-TEMPORAL-007` | supported_candidate | `SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-018`<br>`SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-020`<br>`SRC-ZZ-002#pdf_scan_page=4#printed_page=7-8#ZZ-TJ-X04` |
-| 天机 | `EXP-TJ-07` | `ZZ-TJ-024`, `ZZ-TJ-X05` | `MR-TJ-QI06-FIREBELL-011` | needs_review | `SRC-ZZ-002#pdf_scan_page=4#printed_page=7#ZZ-TJ-006`<br>`SRC-ZZ-002#pdf_scan_page=4#printed_page=7-8#ZZ-TJ-Y04` |
-| 武曲 | `EXP-WQ-04` | `ZZ-WQ-Y01` | `MR-WQ-QR01-KINSHIP-006` | needs_review | `SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-006`<br>`SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-007`<br>`SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-008` |
-| 武曲 | `EXP-WQ-06` | `ZZ-WQ-X06` | `MR-WQ-QI06-CHANGQU-010` | needs_review | `SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-018`<br>`SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-019` |
-| 武曲 | `EXP-WQ-09` | `ZZ-WQ-Y04` | `MR-WQ-QI06-WUPO-015` | needs_review | `SRC-ZZ-002#pdf_scan_page=6#printed_page=12#ZZ-WQ-024`<br>`SRC-ZZ-002#pdf_scan_page=6#printed_page=12#ZZ-WQ-025`<br>`SRC-ZZ-002#pdf_scan_page=6#printed_page=12#ZZ-WQ-Y03` |
-| 武曲 | `EXP-WQ-10` | `ZZ-WQ-015`, `ZZ-WQ-016`, `ZZ-WQ-017` | `MR-WQ-FINANCIAL-ROLE-002` | not_supported_for_target | `SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-002`<br>`SRC-ZZ-002#pdf_scan_page=6#printed_page=11#ZZ-WQ-X01` |
-| 天同 | `EXP-TT-05` | `ZZ-TT-006` | `MR-TT-QI15-FU-AND-TRANSFORM-003` | needs_review | `SRC-ZZ-002#pdf_scan_page=7#printed_page=13#ZZ-TT-003`<br>`SRC-ZZ-002#pdf_scan_page=7#printed_page=13#ZZ-TT-X01` |
-| 天同 | `EXP-TT-08` | `ZZ-TT-008`, `ZZ-TT-009`, `ZZ-TT-X08`, `ZZ-TT-X09` | `MR-TT-SYSTEM-STABILITY-018` | needs_review | `SRC-ZZ-002#pdf_scan_page=7#printed_page=14#ZZ-TT-X10`<br>`SRC-ZZ-002#pdf_scan_page=7#printed_page=14#ZZ-TT-Y04`<br>`SRC-ZZ-002#pdf_scan_page=7#printed_page=14#ZZ-TT-Y02`<br>`SRC-ZZ-002#pdf_scan_page=7#printed_page=14#ZZ-TT-Y03` |
-| 天府 | `EXP-TF-04` | `ZZ-TF-003` | `MR-TF-RESOURCE-GENERATION-004` | needs_review | `SRC-ZZ-002#pdf_scan_page=9#printed_page=17#ZZ-TF-004` |
-| 天府 | `EXP-TF-05` | `ZZ-TF-X03` | `MR-TF-QI04-GUARD-005` | needs_review | `SRC-ZZ-002#pdf_scan_page=9#printed_page=17#ZZ-TF-005` |
+- 候选性质：182；关联审核记录均有效。
+- 仍未直接引用的候选范围差异：1项 / 1个规则ID。
+- 当前剩余清单：`EXP-WQ-06` → `ZZ-WQ-X06`。
+- `EXP-WQ-10` 的候选目标与审核目标已对齐：候选L3投影由新记录审议，原QI-05不支持记录保留。
+- 不应机械地把缺少的ID全部添加到审核记录；仅在直接支持当前目标时补引。上下文、重叠摘要与不支持当前目标的材料应分别标记。
+- 不因引用列表更长而增加证据权重；不自动批准canonical映射。
 
 ## 处理边界
 
-- 不自动改写 canonical 规则。
-- 不自动把候选性质来源 ID 视为直接证据。
-- 不因引用列表更长而增加证据权重。
-- 每项决定应保留来源范围、适用条件与映射目标之间的边界。
-- 本审计是 PI 前的透明度/交叉引用核对，不授予正式映射批准，也不授权 Product 消费。
+- 不自动改写canonical规则。
+- 不自动把候选性质来源ID视为直接证据。
+- 同一原文跨度只计一个独立证据单元。
+- 本审计是PI前的透明度/交叉引用核对，不授予正式映射批准，也不授权Product消费。
