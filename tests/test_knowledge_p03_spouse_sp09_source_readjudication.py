@@ -50,6 +50,7 @@ def test_exact_inventory_source_pin_and_page_mapping():
     assert d["source_basis"]["page_mapping"]["51"] == 26
     assert "子女宫" in d["source_basis"]["boundary_note"]
     assert d["historical_candidate_inventory"]["total_rows"] == 836
+    assert "躔桃花诸曜" in records_by_id(d)["P03S-811"]["source_literal_claim"]
     assert d["repair_reconciliation"]["historical_report_counts_reused"] is False
 
 
