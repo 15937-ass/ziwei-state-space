@@ -21,6 +21,7 @@ def test_fortune_atoms_reconcile_with_source_dispositions_and_v03_provenance():
     assert sum(not r["case_support_only"] for r in accepted) == 53
     assert len(rows) + len(d["source_section_inventory"]) + len(d["source_coverage_gaps"]) + len(d["temporal_scope_residuals"]) == d["summary"]["durable_review_object_count"] == 100
     for r in rows:
+        assert r["scene_id"] == "mental_enjoyment"
         assert r["source_id"] == "SRC-ZZ-003"
         assert r["source_epistemic"] in {"EXPLICIT", "INFERRED_FROM_SOURCE", "UNRESOLVED_SOURCE"}
         assert r["review_status"] == "SOURCE_SPAN_VERIFIED"

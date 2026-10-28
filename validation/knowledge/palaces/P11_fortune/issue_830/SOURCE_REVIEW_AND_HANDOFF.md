@@ -32,6 +32,7 @@
 - 其他保留包括：命宫宽泛转用句（Core gap）、“大野”“受憎之心”“紫破天府”“有利忌夹”“紫相七杀”、紫微化科句末异常字形、“关陀”。不静默改字或猜星系。
 - GAP-004保留吉曜／无吉／再见煞的三个结果分支，但不把异常星系名规范成紫微天府。
 - 本地条件是源文文本，不是布尔IR；所有记录 `executable=false`、`canonical_mapping_approved=false`。源码中的方法语句不升级成共享Core分类。
+- 场景标识复用已接受 `palace_ontology_v0.1.csv` 的 P11 `mental_enjoyment`，不新增共享场景类别。
 
 ## 验证和后续
 
