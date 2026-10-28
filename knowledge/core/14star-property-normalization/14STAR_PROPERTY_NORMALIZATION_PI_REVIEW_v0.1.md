@@ -12,6 +12,11 @@
 - 所有canonical规则仍保持 `source_span_verified=false`、`normalization_epistemic=UNRESOLVED`；候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL`。来源跨度核对不等于语义映射批准。
 - mapping-review预审计确认：240条记录ID唯一、182项候选性质全部有有效审核链接、未发现指向不存在canonical规则的引用；47组来源引用在多条审核记录中复用，共103次引用使用，不能按独立证据重复计数。4条 `evidence_role=UNKNOWN` 记录已列入专门审计材料。
 
+### 新增来源范围核对（2026-10-28）
+
+- 候选性质的 `source_rule_ids` 与其关联 mapping-review 记录的 `source_refs` 直接引用范围有13项候选、26个规则ID不完全一致。所有ID均存在于canonical规则集；这是“候选来源清单”与“审核记录直接引用范围”的口径差异，不等同于规则本身错误。
+- 逐项明细见 `MAPPING_REVIEW_CANDIDATE_SOURCE_SCOPE_AUDIT_v0.1.md`。PI需决定每个ID是相关上下文、应补入直接来源引用，还是候选来源清单应缩窄。不得机械补引或按更长引用清单增加证据权重。
+
 ## PI 需作出的独立判断
 
 1. 候选性质应归入 L0 传统结构、L1 单星描述、L2 关系/星系/上下文、条件响应还是 L3 传统下游投影。
