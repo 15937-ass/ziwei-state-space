@@ -149,3 +149,14 @@
 - 前一检查点 Tianji exact-head gate（head `67bec2c3dbbd4d462333735fbd2b959306ce61cf`）通过：Run [#40194363706](https://github.com/15937-ass/ziwei-state-space/actions/runs/40194363706)，2772 passed + 132 subtests；JS adapter、P0 audit、Repository Governance v1 均通过。该结果不替代新增武曲内容后的 exact-head gate。
 - 本文件不从历史绿色结果推断新提交通过；以本提交对应的 GitHub Actions exact-head 运行和 Issue #757 最新交接为准。
 
+
+
+## Core #757 recovery and 巨门 checkpoint — 2026-10-28
+
+- Main synchronization: recovery-only PR #809 merged the latest accepted main commit 5f697a5a02812e9781acf8d78e0f28d5087bd6ce into the Core working branch. The P03 SP05 files were disjoint from the Core write set. Core PR #783 remains Draft and unmerged.
+- The prior Tanlang checkpoint head 63aae8d57af0533e6491ab6d49349c8d7c222105 failed one test because the prefix-count assertion still expected 140 mapping-review records after the 20 MR-TL records had been added; actual total was 160. No source/candidate semantics were changed by that repair.
+- Recovery/test repair head 287bdd52c40b911d9fea72a1c2e733fd5e60fab9 passed exact-head Run #40612148716: 2817 tests passed, 132 subtests passed; Product JS adapter, deterministic P0 and Repository Governance v1/Core write-set checks all passed. This run validates the recovery/test repair before the 巨门 additions.
+- 巨门 source: SRC-ZZ-002, 《中州派紫微斗数深造讲义（上）》，SHA-256 1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a, visually inspected PDF scan page 12 / printed pp23–24.
+- The 巨门 checkpoint adds 20 source claims, 20 candidate properties, 20 mapping-review records, and JUMEN_SOURCE_SPAN_REVIEW_v0.1.csv for all 26 existing ZZ-JM canonical rows. Disposition: 21 full visual confirmations, four partial confirmations (ZZ-JM-003/004/006/007), one held row (ZZ-JM-005). All candidates remain PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED; canonical source flags remain false.
+- Exact-head Jumen research gate: head 0505d04c74f936f39ab5d4cd1e28d4380269c110, Run #40615055215 — PASS. Full pytest: 2818 passed, 132 subtests passed (413.85 seconds); Product JS adapters, deterministic P0 repository audit, and Repository Governance v1/Core write-set validation all passed.
+- The evidence-only commit that adds this checkpoint record and strengthens the Jumen recovery locator/test assertions must itself pass the full exact-head quality gate. The final head/run will be recorded in the latest Issue #757 / PR #783 handoff comment. Do not make another source/candidate change after final validation.

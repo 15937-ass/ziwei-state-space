@@ -805,6 +805,12 @@ def test_jumen_candidate_checkpoint_preserves_source_scope_and_nonpromotion():
     assert data["source_policy"]["jumen_source_locator"]["printed_pages"] == [23, 24]
     assert data["source_policy"]["jumen_source_locator"]["source_sha256"] == data["source_policy"]["source_sha256"]
     assert data["source_policy"]["jumen_source_locator"]["prior_visual_review_rows_reused"] == 0
+    assert data["source_policy"]["jumen_source_locator"]["verification"] == "VISUAL_SOURCE_REVIEWED; SHA256_MATCHES_SOURCES_INDEX"
+    assert data["source_policy"]["jumen_source_locator"]["canonical_source_span_verified_mutated"] is False
+    assert data["source_policy"]["jumen_review_path"] == "knowledge/core/14star-property-normalization/JUMEN_SOURCE_SPAN_REVIEW_v0.1.csv"
+    assert len(data["source_policy"]["jumen_review_rule_ids"]) == 26
+    assert data["source_policy"]["jumen_held_rule_ids"] == ["ZZ-JM-005"]
+    assert data["source_policy"]["jumen_partial_rule_ids"] == ["ZZ-JM-003", "ZZ-JM-004", "ZZ-JM-006", "ZZ-JM-007"]
     assert data["progress"]["completed_expansion_stars"] == ["紫微", "天机", "武曲", "天同", "廉贞", "天府", "贪狼", "巨门"]
     assert data["progress"]["remaining_expansion_stars_in_existing_order"] == ["天梁", "七杀", "破军"]
     jm_checkpoint = data["progress"]["expansion_checkpoint_history"][-1]
