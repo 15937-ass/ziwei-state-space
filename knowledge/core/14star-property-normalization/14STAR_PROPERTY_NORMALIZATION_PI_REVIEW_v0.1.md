@@ -6,6 +6,7 @@
 
 - 十四主星候选检查点：14/14；241条 mapping-review 记录、182项候选性质。
 - 来源覆盖：430条 canonical 规则均有侧车；423条完整视觉核对、5条部分核对、1条未核实、1条来源错配。
+- 逐星补核状态：贪狼27条完整/1条部分/1条未核实；巨门22条完整/4条部分/0条未核实；天梁26条完整；七杀26条完整；破军30条完整。来源跨度核对不等于目标映射批准，canonical source flags仍为false。
 - 每个新提交均须通过自己的 exact-head CI；最新结果以 [PR #783 的 Checks](https://github.com/15937-ass/ziwei-state-space/pull/783) 为准。决策卡文档与审计数据的状态不代替 CI 验收。
 - 当前只保留3张 PI 决策卡，见 [PI 决策卡 v0.1](14STAR_PROPERTY_NORMALIZATION_PI_DECISION_CARDS_v0.1.md)。100条 `needs_review` 是审核记录状态，不等于100项 PI 任务。
 
