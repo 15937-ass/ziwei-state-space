@@ -1075,6 +1075,15 @@ def test_research_closure_metadata_matches_merged_pr_and_final_quality_gate():
     assert closure["automatic_successor_authorized"] is False
     assert closure["canonical_mapping_approved"] is False
     assert closure["product_consumption_authorized"] is False
+    core_state_path = ROOT / "knowledge/states/CORE_STATE.yaml"
+    core_state = core_state_path.read_text(encoding="utf-8")
+    assert 'status: "IDLE"' in core_state
+    assert "active_issue: null" in core_state
+    assert "active_branch: null" in core_state
+    assert "active_pr: null" in core_state
+    assert "base_main_sha: null" in core_state
+    assert "next_work_unit: null" in core_state
+    assert "Live main is authoritative" in core_state
     assert closure["final_validation"] == "PASSED_EXACT_HEAD_CI_RUN_40666043215"
     gate = closure["final_validation_details"]
     assert gate["status"] == "PASSED"
