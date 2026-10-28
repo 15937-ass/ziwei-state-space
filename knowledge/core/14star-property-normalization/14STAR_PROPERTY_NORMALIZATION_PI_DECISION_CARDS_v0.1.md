@@ -1,6 +1,6 @@
 # PI 决策卡：十四主星基础性质归一化（v0.1）
 
-**状态：** `PI_DECISIONS_RECORDED_PENDING_EXACT_HEAD_QUALITY_GATE` / `PROPOSAL_ONLY_NOT_CANONICAL`  
+**状态：** `PI_DECISIONS_RECORDED` / `PROPOSAL_ONLY_NOT_CANONICAL`  
 **Issue：** [#757](https://github.com/15937-ass/ziwei-state-space/issues/757)  
 **PR：** [#783（Draft，未合并）](https://github.com/15937-ass/ziwei-state-space/pull/783)
 
