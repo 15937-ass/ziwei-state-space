@@ -1,22 +1,33 @@
-# PI 审议前最新状态（2026-10-28）
+# PI 审议状态与已裁决事项（2026-10-28）
 
-本节是当前有效的交接入口；后续按日期记录的旧检查点均保留为历史轨迹。旧记录中的“未审”描述若与本节冲突，以后续补核状态为准。
+本节为当前有效状态；其后的历史交接保留作轨迹，不覆盖本节。
 
-## 审议前技术与来源准备
+## 来源证据缺口
 
-- Core 研究检查点：14/14；mapping-review 共240条，处置分布为58 `supported_candidate`、56 `candidate_only`、100 `needs_review`、26 `not_supported_for_target`。
-- 分支同步：main `4cc89ead106c315d451d2d39b72e33ccc73398b5` 已纳入 Core 分支，合并提交 `cd11b672058e82efbdc08ee69a61f153aacb4a81`；PR #783 仍为 Draft / 未合并。
-- 来源覆盖：14份来源审查侧车覆盖430条canonical规则ID；421条完整视觉核对、7条部分核对、1条来源未核实、1条来源错配。
-- 新增太阳40条来源跨度审查；补核太阴 `ZZ-TYI-010`、天相 `ZZ-TX-009/010`、贪狼 `ZZ-TL-006/007/008`、巨门 `ZZ-JM-005`、天梁 `ZZ-TLIA-010`、破军 `ZZ-PJ-006..010`。
-- 仍需明确保留：`ZZ-TL-010` 精确跨度未核实；`ZZ-TT-010` 来源错配并继续隔离；7条部分核对为 `ZZ-TL-009`、`ZZ-JM-003/004/006/007`、`ZZ-TLIA-001`、`ZZ-QS-005`。
-- 所有canonical规则仍保持 `source_span_verified=false`、`normalization_epistemic=UNRESOLVED`；候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL`。来源跨度核对不等于语义映射批准。
-- mapping-review预审计确认：240条记录ID唯一、182项候选性质全部有有效审核链接、未发现指向不存在canonical规则的引用；47组来源引用在多条审核记录中复用，共103次引用使用，不能按独立证据重复计数。4条 `evidence_role=UNKNOWN` 记录已列入专门审计材料。
+- 430/430条canonical规则均有来源审查侧车。
+- 当前来源状态：423条`VERIFIED_VISUAL_SCAN`、5条`PARTIALLY_VERIFIED_VISUAL_SCAN`、1条`NOT_VERIFIED_IN_REVIEWED_SPANS`、1条`SOURCE_MISMATCH_CONFIRMED`。
+- PI已裁定两处印刷误字：`ZZ-TLIA-001`“第三得”按“第三星”理解；`ZZ-QS-005`“廉洁”按“廉贞”理解。原始literal保留，canonical源行与映射状态不变。
+- 仍未决：`ZZ-TL-010`缺少直接支持“性急”的精确跨度；`ZZ-TT-010`为已确认错配并继续隔离；5条部分核对为`ZZ-TL-009`、`ZZ-JM-003/004/006/007`。
 
-### 新增来源范围核对（2026-10-28）
+## Mapping-review审计
 
-- 候选性质的 `source_rule_ids` 与其关联 mapping-review 记录的 `source_refs` 直接引用范围有13项候选、26个规则ID不完全一致。所有ID均存在于canonical规则集；这是“候选来源清单”与“审核记录直接引用范围”的口径差异，不等同于规则本身错误。
-- 逐项明细见 `MAPPING_REVIEW_CANDIDATE_SOURCE_SCOPE_AUDIT_v0.1.md`。PI需决定每个ID是相关上下文、应补入直接来源引用，还是候选来源清单应缩窄。不得机械补引或按更长引用清单增加证据权重。
+- mapping-review记录：241；ID唯一：241；候选性质182项均关联到有效审核记录。
+- 处置分布：58 `supported_candidate`、57 `candidate_only`、100 `needs_review`、26 `not_supported_for_target`。
+- 来源引用：428次使用、360个唯一引用；59组精确来源引用复用，共127次使用。重复引用不增加独立证据权重。
+- 13项候选/26个rule ID的来源范围差异已逐项处置；当前只保留`EXP-WQ-06 / ZZ-WQ-X06`一个因重叠摘要而不重复直接引用的项目。
+- 4条原`evidence_role=UNKNOWN`中，3条已按现有schema作出可解释处置；`MR-LZ-SYMBOLIC-ROLE-002`继续UNKNOWN，因为现有枚举没有准确表达传统象征标签的角色。
 
+## PI裁决记录
+
+1. `ZZ-TLIA-001`：“第三得”是“第三星”的印刷错误。保留扫描字面，记录PI裁决，不改canonical行。
+2. `ZZ-QS-005`：“廉洁”是“廉贞”的印刷错误。保留扫描字面，记录PI裁决，不改canonical行。
+3. 其余来源缺口按逐项补证、缩窄范围或保留未决处理；`ZZ-TT-010`继续隔离。
+4. 对直接来源范围不一致，仅在确实支持对应目标时补充`source_refs`；其余缩窄候选范围或保留为上下文/重叠跨度。
+5. `EXP-WQ-10`与QI-05审核目标原先不一致，现新增L3候选审核`MR-WQ-L3-FINANCIAL-ROLE-016`并保持`candidate_only`；原QI-05不支持记录仍然保留。
+6. 三条`evidence_role`按现有枚举分别处理；对无法诚实归类的象征标签不强填。
+
+**边界：** 所有候选仍为`PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`。canonical source flags仍为false；未批准正式映射，未修改正式星核、本体、共享Schema、Product/runtime、KIB或消费者权限。最新完整exact-head质量门仍须通过。
+ 
 ## PI 需作出的独立判断
 
 1. 候选性质应归入 L0 传统结构、L1 单星描述、L2 关系/星系/上下文、条件响应还是 L3 传统下游投影。
