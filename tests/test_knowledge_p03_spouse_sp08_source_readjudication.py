@@ -96,6 +96,10 @@ def test_every_candidate_has_direct_scan_evidence_and_valid_record_links():
     assert by_id["SP08-765"]["verified_source_location"] == "SRC-ZZ-003 printed p49 / PDF physical p25"
     assert records_by_id(d)["P03S-765"]["source_span_id"] == "ZZ003-P49"
     assert by_id["SP08-800"]["source_literal_claim"].endswith("见煞即易分离。")
+    assert {r["historical_candidate_id"] for r in rec if r["source_span_changed"]} == {
+        "SP08-723", "SP08-724", "SP08-725", "SP08-726",
+        "SP08-765", "SP08-766", "SP08-767",
+    }
     assert by_id["SP08-707"]["source_literal_claim"].startswith("夫妻宫住酉")
     assert records_by_id(d)["P03S-707"]["canonical_condition"].startswith("夫妻宫住酉")
     assert "回除天马外" in by_id["SP08-702"]["source_literal_claim"]
