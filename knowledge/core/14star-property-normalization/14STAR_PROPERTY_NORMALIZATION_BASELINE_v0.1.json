@@ -15657,5 +15657,34 @@
       "formal_mapping_approval": false,
       "product_consumption_authorized": false
     }
+  },
+  "pre_pi_status": "PRE_PI_SOURCE_AUDIT_COMPLETED_PENDING_EXACT_HEAD_QUALITY_GATE",
+  "pre_pi_gates": {
+    "main_sync": {
+      "status": "MERGED_INTO_CORE_BRANCH_NOT_PR_MERGED",
+      "main_sha": "4cc89ead106c315d451d2d39b72e33ccc73398b5",
+      "merge_commit_sha": "cd11b672058e82efbdc08ee69a61f153aacb4a81",
+      "merge_base_before_sync": "cd082859267f0e57c85298bf267004418f8cdfb2",
+      "branch_contains_main": true
+    },
+    "source_coverage": {
+      "canonical_rule_rows": 430,
+      "source_review_rows": 430,
+      "status_counts": {
+        "VERIFIED_VISUAL_SCAN": 421,
+        "PARTIALLY_VERIFIED_VISUAL_SCAN": 7,
+        "NOT_VERIFIED_IN_REVIEWED_SPANS": 1,
+        "SOURCE_MISMATCH_CONFIRMED": 1
+      }
+    },
+    "remaining_source_issues": [
+      "ZZ-TL-010: exact source span still not located for canonical target 性急",
+      "ZZ-TT-010: source mismatch confirmed; quarantined, not promoted",
+      "Seven partial rows: ZZ-TL-009; ZZ-JM-003/004/006/007; ZZ-TLIA-001; ZZ-QS-005"
+    ],
+    "exact_head_quality_gate": "PENDING_AFTER_PRE_PI_AUDIT_CHANGES",
+    "pi_review_authorized": false,
+    "formal_mapping_approval": false,
+    "product_consumption_authorized": false
   }
 }
