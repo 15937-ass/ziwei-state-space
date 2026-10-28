@@ -1096,6 +1096,12 @@ def test_research_closure_metadata_matches_merged_pr_and_final_quality_gate():
     pi_review = pi_review_path.read_text(encoding="utf-8")
     assert pi_review.startswith("# 当前权威状态")
     assert "已合入 main" in pi_review[:1200]
+    assert "## 本轮 PI 决策清单" not in pi_review
+    assert "下一轮从紫微继续" not in pi_review
+    memo_path = ROOT / "knowledge/core/14star-property-normalization/14STAR_PROPERTY_NORMALIZATION_PI_DECISION_MEMO_v0.1.md"
+    memo_text = memo_path.read_text(encoding="utf-8")
+    assert "## 11. 阶段 B 当前恢复点" not in memo_text
+    assert "下一轮从天机开始。" not in memo_text
     gaps_path = ROOT / "knowledge/core/14star-property-normalization/14STAR_PROPERTY_NORMALIZATION_GAPS_v0.1.md"
     gaps_text = gaps_path.read_text(encoding="utf-8")
     assert "COMPLETED_ACCEPTED_CANDIDATE_RESEARCH" in gaps_text
