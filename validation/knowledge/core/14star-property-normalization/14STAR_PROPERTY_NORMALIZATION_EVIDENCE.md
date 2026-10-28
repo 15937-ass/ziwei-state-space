@@ -226,3 +226,10 @@
 - 412次来源引用使用、356个唯一来源引用；47组精确来源引用在多条审核记录中复用，共103次使用。引用复用不构成独立证据倍增。
 - 4条 `evidence_role=UNKNOWN`：`MR-TY-QI15-METHOD-RULE-005`、`MR-TT-SOURCE-MISMATCH-009`、`MR-LZ-L0-SOURCE-DISAGREEMENT-001`、`MR-LZ-SYMBOLIC-ROLE-002`。其处置与理由见 `MAPPING_REVIEW_PRE_PI_AUDIT_v0.1.md`。
 - 候选属性仍为182项，所有映射链接有效；canonicalization授权为0、数值强度赋值为0、normalization epistemic全部为UNRESOLVED。
+
+
+## 候选来源范围审计补充（2026-10-28）
+
+- 交叉核对候选性质 `source_rule_ids` 与对应mapping-review记录 `source_refs` 后，发现13项候选、26个规则ID未在该记录的直接引用列表中出现。
+- 所有相关规则ID均存在于canonical规则集；该差异反映候选来源范围可能比审核记录的直接引用范围更宽，不能直接视为规则错误，也不能自动补引。
+- 逐项记录在 `MAPPING_REVIEW_CANDIDATE_SOURCE_SCOPE_AUDIT_v0.1.md`，并已纳入PI审议前待裁定事项。未修改canonical规则、正式本体或消费者权限。
