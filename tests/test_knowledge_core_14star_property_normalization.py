@@ -175,7 +175,7 @@ def test_taiyin_visual_source_review_does_not_mutate_canonical_source_flags():
         canonical = {row["rule_id"]: row for row in csv.DictReader(stream)}
     assert review_rows["ZZ-TYI-010"]["source_pdf_page"] == "21"
     assert review_rows["ZZ-TYI-010"]["source_printed_page"] == "41"
-    assert "页码差异" in review_rows["ZZ-TYI-010"]["modality_scope_ambiguity"]
+    assert "一页定位差异" in review_rows["ZZ-TYI-010"]["modality_scope_ambiguity"]
     for rule_id in expected_ids:
         assert canonical[rule_id]["source_span_verified"] == "false"
         assert canonical[rule_id]["normalization_epistemic"] == "UNRESOLVED"
