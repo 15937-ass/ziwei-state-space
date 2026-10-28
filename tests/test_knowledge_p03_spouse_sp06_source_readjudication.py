@@ -171,7 +171,7 @@ def test_cumulative_state_and_execution_boundary_reconcile():
     assert "case_support_only_records_added: 125" in state
     assert "candidates_held: 137" in state
     assert "candidates_deduplicated: 3" in state
-    assert "temporal_scope_residuals: 46" in state
+    assert "temporal_scope_residuals: 47" in state
     assert "temporal_scope_candidate_rows: 129" in state
     assert "source_coverage_residuals_total_recorded: 14" in state
     assert "conditions_compiled=0" in state
