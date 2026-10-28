@@ -3,6 +3,8 @@
 - 工作线：KNOWLEDGE_ONLY / CORE / Issue #757 / Draft PR #783；当前分支 `knowledge/core-757-14star-property-normalization-main-sync2`。
 - 最新main `46df5401745136fe16e8ff49de10620bd5a0ae55` 已通过同步 PR [#822](https://github.com/15937-ass/ziwei-state-space/pull/822) 合入Core分支，合并提交 `229e8a5504dfaaf08c2f48112ecdd541ce272d05`。本轮只同步main到Core分支，不把Core合入main。
 - PI已裁定：`ZZ-TLIA-001`“第三得”是“第三星”的印刷错误；`ZZ-QS-005`“廉洁”是“廉贞”的印刷错误。原始扫描字面保留，正式canonical行与`source_span_verified=false`不变。
+- PI映射语义决定（2026-10-28）：**1A、2B、3B**。1A接受太阳发射端／太阴收敛端的有限方向性对应，仅限候选研究层；2B采用定义驱动的QI-05严格审核门槛，不自动接受具体候选；3B将廉贞QI-11保留为未决候选。
+- 以上决定不构成canonical晋升授权；候选仍为`PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`，canonical行、正式星核、本体、共享Schema未改，Product/runtime与KIB未获消费权限。
 - 来源状态现为423条完整视觉核对、5条部分核对、1条未核实（`ZZ-TL-010`）、1条错配（`ZZ-TT-010`）。
 - Mapping-review记录增至241条；处置分布为58 supported_candidate、57 candidate_only、100 needs_review、26 not_supported_for_target。候选性质182项全部链接有效。
 - 原13项候选来源范围差异已逐项处理；当前仅保留`EXP-WQ-06 / ZZ-WQ-X06`一个与WQ-018/019重叠的摘要，不重复作为独立直接证据。`EXP-WQ-10`已对齐到L3候选审核；QI-05不支持记录保留。
