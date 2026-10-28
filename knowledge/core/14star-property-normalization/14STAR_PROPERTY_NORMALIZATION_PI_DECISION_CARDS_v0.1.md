@@ -1,8 +1,10 @@
 # PI 决策卡：十四主星基础性质归一化（v0.1）
 
-**状态：** `PI_DECISIONS_RECORDED` / `PROPOSAL_ONLY_NOT_CANONICAL`  
+**研究状态：** `COMPLETED_ACCEPTED_CANDIDATE_RESEARCH`  
+**映射状态：** `PROPOSAL_ONLY_NOT_CANONICAL`  
 **Issue：** [#757](https://github.com/15937-ass/ziwei-state-space/issues/757)  
-**PR：** [#783（Draft，未合并）](https://github.com/15937-ass/ziwei-state-space/pull/783)
+**结项依据：** [Issue #757 已关闭](https://github.com/15937-ass/ziwei-state-space/issues/757)；最终 exact-head 质量门 [Run #40666043215 已通过](https://github.com/15937-ass/ziwei-state-space/actions/runs/40666043215)。当前无待回答的本轮 PI 问题，无自动后继任务。  
+**PR：** [#783（已合并）](https://github.com/15937-ass/ziwei-state-space/pull/783)
 
 ## PI 决定已记录（2026-10-28）
 
