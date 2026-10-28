@@ -20,6 +20,12 @@
 - `ZZ-TT-010`：已确认原侧车所引段落涉及文昌化忌/办事不经心，而非该条天同主张；继续隔离，不晋升、不改写 canonical。
 - 7 条部分核对：`ZZ-TL-009`、`ZZ-JM-003/004/006/007`、`ZZ-TLIA-001`、`ZZ-QS-005`。保留原文与 canonical 字面差异，不静默修正。
 
+### 候选来源范围核对（2026-10-28）
+
+- 182项候选性质均关联到有效mapping-review记录，但另有13项候选的 `source_rule_ids` 共26个ID未出现在对应记录的 `source_refs` 直接引用中。
+- 该差异不等于规则ID不存在，也不代表候选映射已获支持。已新增逐项报告 `MAPPING_REVIEW_CANDIDATE_SOURCE_SCOPE_AUDIT_v0.1.md`；需在PI审议时区分直接证据与相关上下文。
+- 不机械补引，不增加证据权重，不改变canonical状态。
+
 ### 映射审议范围
 
 当前 240 条 mapping-review 记录处置分布仍为：58 条 `supported_candidate`、56 条 `candidate_only`、100 条 `needs_review`、26 条 `not_supported_for_target`。这只是候选研究处置，不是批准清单。PI 需独立审议语义层级、条件、反例及是否接受；本轮未改正式星核、本体、canonical 规则、共享 schema、Product/runtime、KIB 或消费者权限。
