@@ -1,6 +1,6 @@
 # 十四主星性质归一化缺口 v0.1
 
-**状态：** `B_QISHA_CHECKPOINT_COMPLETED_READY_FOR_POJUN` / `PROPOSAL_ONLY_NOT_CANONICAL`
+**状态：** `B_POJUN_CHECKPOINT_COMPLETED_READY_FOR_FINAL_REVIEW` / `PROPOSAL_ONLY_NOT_CANONICAL`
 **Issue：** #757
 **范围限制：** 本文件合并太阳、太阴、天相三个有界试点的缺口及横向方法问题；太阳 40 条规则未全审，太阴书页 42 的 ZZ-TYI-010 未审，天相书页 47 的 ZZ-TX-009/010 未审，均不代表十四星穷尽审计。
 
@@ -289,3 +289,17 @@
 | GAP-QS-10 | 来源核对不等于映射获批 | 20项候选和20条mapping-review记录保持UNRESOLVED。 | 不自动canonicalize，不开放Product/runtime或KIB消费。 |
 
 本轮未发现必须扩展共享schema才能记录七杀候选的阻塞。所有候选仍为 PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED；下一颗为**破军**。
+
+
+## 破军检查点缺口（2026-10-28）
+
+| ID | 缺口 | 当前证据与处理 | 后续边界 |
+|---|---|---|---|
+| GAP-PJ-01 | 基础性质到QI维度的归一化 | “先锋/冲锋不主退守”与“旧事创新”未被证明与现代QI维度等价。 | 只保留描述性候选；统一PI审议时比较维度定义和反例，不赋数值。 |
+| GAP-PJ-02 | 四化章节来源跨度 | ZZ-PJ-006..010指向独立四化章节，本轮未逐条核验。 | 后续按canonical locator逐条复核精确原文跨度。 |
+| GAP-PJ-03 | 禄与权的差异 | 来源分别描述开创实益与声势/辛劳。 | 保留分支，不合并为单一增强轴。 |
+| GAP-PJ-04 | 英星入庙门控 | 需要子午宫、破军化权、对宫廉贞化禄、辅佐会合且无煞忌。 | 保留完整联合条件，不归为无条件星性。 |
+| GAP-PJ-05 | 传统风险应象 | 火铃、羊陀、刑忌伴随传统风险描述。 | 不转为现代医学、事故或现实预测。 |
+| GAP-PJ-06 | 天相对宫与星系家族 | 天相夹局、廉破/紫破/武破与宫位差异属于关系证据。 | 保留L2关系，不填充固定intrinsic向量。 |
+
+所有候选仍为 PROPOSAL_ONLY_NOT_CANONICAL / UNRESOLVED；未授权正式归一化或Product消费。
