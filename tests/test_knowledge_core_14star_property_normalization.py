@@ -284,6 +284,7 @@ def test_context_audit_refs_existing_source_claims_without_growing_canonical_evi
         "MR-TT-": 18,
         "MR-LZ-": 20,
         "MR-TF-": 18,
+        "MR-TL-": 20,
     }
     actual_prefix_counts = {
         prefix: sum(
