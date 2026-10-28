@@ -1090,7 +1090,7 @@ def test_research_closure_metadata_matches_merged_pr_and_final_quality_gate():
     assert "Draft，未合并" not in cards_text
     gaps_path = ROOT / "knowledge/core/14star-property-normalization/14STAR_PROPERTY_NORMALIZATION_GAPS_v0.1.md"
     gaps_text = gaps_path.read_text(encoding="utf-8")
-    assert "RESEARCH_CLOSED_RESIDUALS_HELD" in gaps_text
+    assert "COMPLETED_ACCEPTED_CANDIDATE_RESEARCH" in gaps_text
     assert "exact-head质量门仍待本轮变更后重新验证" not in gaps_text
 
 
