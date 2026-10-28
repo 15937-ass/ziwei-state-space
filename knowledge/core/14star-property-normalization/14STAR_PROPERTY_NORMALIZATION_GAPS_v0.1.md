@@ -1,6 +1,6 @@
 ## 十四主星候选研究结项（2026-10-28）
 
-本节为 #757 / PR #783 的最终研究范围与退出处置；下方逐星检查点、旧进度及“下一颗/待PI”文字均为历史记录，不用于恢复。结项在本修订通过完整质量门并合入 main 后生效，实时验收以 Issue #757 / PR #783 为准。
+本节是 #757 / PR #783 的最终研究范围与退出处置。Issue #757 已关闭，PR #783 已于 2026-10-28 合入 main（merge commit `f377319b54ba26d39ef184f95a208fe9e2eb7ec1`）；最终 exact-head 质量门 [Run #40666043215](https://github.com/15937-ass/ziwei-state-space/actions/runs/40666043215) 已通过。下方逐星检查点、旧进度及“下一颗/待PI”文字均为历史记录，不用于恢复。
 
 - 三星试点及十一星扩展均完成，14/14 星有候选卡与来源/逐目标审查；182项候选、241条审核记录已交付。
 - 430条现有规则均有来源侧车：423条完整、5条部分、1条未核实、1条错配。来源覆盖不等于目标语义已获支持。
@@ -27,7 +27,7 @@
 
 # 十四主星性质归一化缺口 v0.1
 
-**状态：** `PI_DECISION_CARDS_READY_PENDING_PI_DECISIONS` / `PROPOSAL_ONLY_NOT_CANONICAL`
+**研究状态：** `COMPLETED_ACCEPTED_CANDIDATE_RESEARCH` / `PROPOSAL_ONLY_NOT_CANONICAL`
 **Issue：** #757
 **当前范围状态（2026-10-28，PI裁决后）：** 侧车覆盖全部430条canonical规则ID；当前423条完整视觉核对、5条部分核对、1条未核实、1条错配。PI已裁定ZZ-TLIA-001“第三得”为“第三星”的印刷误字、ZZ-QS-005“廉洁”为“廉贞”的印刷误字；原始literal保留，正式canonical状态不变。旧缺口条目保留历史轨迹，当前未决以本节为准。
 
@@ -37,7 +37,7 @@
 - 仍需补证或隔离：`ZZ-TL-010`缺少支持“性急”的精确跨度；`ZZ-TT-010`来源错配，继续隔离；`ZZ-TL-009`只核实化禄分支；`ZZ-JM-003/004/006/007`分别保留语义范围、才华条件、化禄/司仪门控、化科条件缺口。
 - 映射来源范围：原13项/26个rule ID已逐项审查，12项/25个ID已补引或缩窄；唯一保留的范围差异是`EXP-WQ-06 / ZZ-WQ-X06`，因其与已直接引用的WQ-018/019为重叠摘要，不重复计证。
 - 四条原`evidence_role=UNKNOWN`中，三条已按现有schema处理；`MR-LZ-SYMBOLIC-ROLE-002`继续UNKNOWN，避免将传统象征标签误归入现有证据角色。
-- 所有候选继续`PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`；不改正式星核、本体、canonical规则、共享Schema、Product/runtime或KIB。exact-head质量门仍待本轮变更后重新验证。
+- 所有候选继续`PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`；不改正式星核、本体、canonical规则、共享Schema、Product/runtime或KIB。最终质量门 Run #40666043215 已通过；此后任何新变更均须独立通过 exact-head CI。
 
 ## 太阳试点缺口
 
