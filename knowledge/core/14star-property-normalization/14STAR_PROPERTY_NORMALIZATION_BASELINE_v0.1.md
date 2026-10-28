@@ -2,7 +2,7 @@
 
 **当前状态：** `PI_DECISION_CARDS_READY_PENDING_PI_DECISIONS` / `PROPOSAL_ONLY_NOT_CANONICAL`  
 **Issue / PR：** [#757](https://github.com/15937-ass/ziwei-state-space/issues/757) / [#783（Draft，未合并）](https://github.com/15937-ass/ziwei-state-space/pull/783)  
-**主分支同步：** main `f77227ec0b67d422bce4e1dde2f4a1a39491d29f` 已通过同步PR #821合入 Core 工作分支。  
+**主分支同步：** main `46df5401745136fe16e8ff49de10620bd5a0ae55` 已通过同步 PR [#822](https://github.com/15937-ass/ziwei-state-space/pull/822) 合入 Core 工作分支，合并提交 `229e8a5504dfaaf08c2f48112ecdd541ce272d05`。  
 **质量门：** 每个新提交均须通过自己的 exact-head CI；最新结果以 [PR #783 的 Checks](https://github.com/15937-ass/ziwei-state-space/pull/783) 为准。文档状态不代替 CI 验收。  
 **来源覆盖：** 14份侧车覆盖430条 canonical 规则ID；423条完整视觉核对、5条部分核对、1条未核实、1条来源错配。  
 **Mapping-review：** 241条记录、182项候选性质；58 supported_candidate、57 candidate_only、100 needs_review、26 not_supported_for_target。100条 needs_review 是记录状态，不是 PI 待办数。  
@@ -15,7 +15,7 @@
 
 **当前状态：** `PI_DECISION_CARDS_READY_PENDING_PI_DECISIONS` / `PROPOSAL_ONLY_NOT_CANONICAL`
 **跟踪 Issue：** [#757](https://github.com/15937-ass/ziwei-state-space/issues/757)
-**已同步 main：** `f77227ec0b67d422bce4e1dde2f4a1a39491d29f`（通过同步 PR #821 合入，合并提交 `9a4aa970d4f9b9ac95729ff827b17f38dcb9499d`）
+**已同步 main：** `46df5401745136fe16e8ff49de10620bd5a0ae55`（通过同步 PR [#822](https://github.com/15937-ass/ziwei-state-space/pull/822) 合入，合并提交 `229e8a5504dfaaf08c2f48112ecdd541ce272d05`）
 **执行分支：** `knowledge/core-757-14star-property-normalization-main-sync2`
 
 > 太阳、太阴、天相三个有界试点与阶段B十一颗扩展星均已形成候选卡与逐目标审核记录。来源审查侧车现覆盖全部430条canonical规则，但这仍是候选研究基线，不是正式本体变更，也不授权 Product 消费。
@@ -28,7 +28,7 @@
 - 本轮核对所附 PDF 的 SHA-256 与 `sources/source_index.csv` 一致；太阴第 10 个 PDF 页面对应书内印刷页 19–20。
 - 复用 [DIRECT_STAR 第一批来源审查](https://github.com/15937-ass/ziwei-state-space/blob/main/knowledge/core/direct-star-source-review/DIRECT_STAR_SOURCE_REVIEW_BATCH_01_v0.1.csv) 中太阳的七条既有行级审查记录；本轮在同目录独立的 `TAIYIN_SOURCE_SPAN_REVIEW_v0.1.csv` 中记录太阴印刷页 19–20 对应的 25 条行级来源审查；不改写 #720 的 Batch 01 固定覆盖表。canonical 规则行未修改。
 - 直接来源审查记录为研究草案。研究表中的 `VERIFIED_VISUAL_SCAN` 不会自动改写 canonical CSV 的 `source_span_verified=false`，也不把 `normalization_epistemic=UNRESOLVED` 升级。
-- 太阳检查点**没有**逐条重审太阳全部 40 条规则。太阴本轮逐项核对印刷页 19–20 的 25 条既有规则；太阴另有一条规则定位于印刷页 42，本轮未审，因此不声称完成全部 26 条太阴规则。
+- 初始试点时太阳尚未逐行复核全量40条；随后预PI来源审计已在 `SUN_SOURCE_SPAN_REVIEW_v0.1.csv` 完成40/40条来源跨度视觉核对。太阴原有25条主跨度之外，`ZZ-TYI-010` 已在扫描页21/印刷页41补核，现26/26条均有侧车；这些审查不修改canonical `source_span_verified=false`。
 
 ## 2. 太阳试点性质卡
 
@@ -417,7 +417,7 @@
 ### 来源与覆盖边界
 - 主来源为 `SRC-ZZ-002`《中州派紫微斗数深造讲义（上）》，SHA-256 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a`；扫描页11对应印刷页21–22。
 - 为核对已有 canonical 行的实际定位，另视觉核对同一上册扫描页51/印刷页100–101（`ZZ-TL-003/004/005`）及扫描页93/印刷页184–185（`ZZ-TL-009`）。
-- 专用 `TANLANG_SOURCE_SPAN_REVIEW_v0.1.csv` 为29条现有 `ZZ-TL` canonical 行逐一记录处置：24条完整视觉核对、`ZZ-TL-009` 仅部分核对、`ZZ-TL-006/007/008/010` 保持未核实。DIRECT_STAR Batch 01 中没有可复用的贪狼视觉审查行。
+- 专用 `TANLANG_SOURCE_SPAN_REVIEW_v0.1.csv` 为29条现有 `ZZ-TL` canonical 行逐一记录处置：27条完整视觉核对、`ZZ-TL-009` 部分核对、`ZZ-TL-010` 未核实。`ZZ-TL-006/007/008` 已在 `SRC-ZZ-001` 扫描页41–42/印刷页81–83补核。DIRECT_STAR Batch 01 中没有可复用的贪狼视觉审查行。
 - `ZZ-TL-001/002` 的既有 canonical 来源登记指向初级讲义；本轮仅以同一上册印刷页21的相应内容作补充来源核对，不改写 canonical 原始来源字段。按本轮来源边界，不读取初级讲义。
 
 ### L0：传统结构元数据
@@ -450,7 +450,7 @@
 
 ### 来源与覆盖边界
 - 主来源为 SRC-ZZ-002《中州派紫微斗数深造讲义（上）》，SHA-256 为 1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a；PDF 扫描页12对应印刷页23–24，哈希与 sources/source_index.csv 一致。
-- JUMEN_SOURCE_SPAN_REVIEW_v0.1.csv 对26条现有 ZZ-JM canonical 行逐一记录处置：21条完整视觉核对、4条部分核对（ZZ-JM-003/004/006/007）、1条未核实（ZZ-JM-005）。本轮未读取初级讲义。
+- `JUMEN_SOURCE_SPAN_REVIEW_v0.1.csv` 对26条现有 `ZZ-JM` canonical 行逐一记录处置：22条完整视觉核对、4条部分核对（`ZZ-JM-003/004/006/007`）、0条未核实。`ZZ-JM-005` 已在 `SRC-ZZ-001` 扫描页42/印刷页83补核；来源核对不代表映射批准。
 - 印刷页24的“调各”“双能”按扫描可见字面保留；不擅自校正为其他字词，也不从疑似字面推导额外语义。
 - 全文抽取库存 ZZ-FULL-JM-001…044 与26条现有 canonical 行不是同一覆盖集；不相加、不重复计证。
 
@@ -483,8 +483,8 @@
 
 ### 来源与覆盖边界
 - 主来源：`SRC-ZZ-002`《中州派紫微斗数深造讲义（上）》；SHA-256 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a`，与 `sources/source_index.csv` 一致。
-- 直接视觉核对 PDF 扫描页14 / 印刷页27–28；`TIANLIANG_SOURCE_SPAN_REVIEW_v0.1.csv` 对26条现有 `ZZ-TLIA` canonical 行逐条登记处置：24条完整视觉核对、`ZZ-TLIA-001` 部分核对、`ZZ-TLIA-010` 保持未核实。
-- `ZZ-TLIA-001` 的扫描字面为“南斗第三得”，而 canonical `evidence_text` 写“南斗第三星”；保留字面差异，不静默修正。 `ZZ-TLIA-010` 仅标注“六十星系·太阳天梁相关”，本轮未核实具体页码，不以本页的阳梁昌禄段落替代。
+- 直接视觉核对 PDF 扫描页14 / 印刷页27–28；`TIANLIANG_SOURCE_SPAN_REVIEW_v0.1.csv` 对26条现有 `ZZ-TLIA` canonical 行逐条登记处置：26条完整视觉核对、0条部分核对、0条未核实。`ZZ-TLIA-010` 已在扫描页80/印刷页159补核。
+- `ZZ-TLIA-001` 的扫描字面“南斗第三得”与canonical `evidence_text`“南斗第三星”存在差异；PI已裁定为印刷误字，保留原始literal且不改canonical行。`ZZ-TLIA-010` 已在扫描页80/印刷页159补核；来源跨度已核对不代表目标映射获批。
 - 本轮不读取其他流派材料，也不修改 canonical `source_span_verified=false` 或 `normalization_epistemic=UNRESOLVED`。
 
 ### L0：传统结构元数据
@@ -507,7 +507,7 @@
 
 ### 当前候选处置与停止点
 - 新增20条 source-claim 卡、20项候选性质、20条 mapping-review 记录和26行来源审查表。
-- `ZZ-TLIA-001` 部分核对；`ZZ-TLIA-010` 未核实。所有候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`。
+- `ZZ-TLIA-001` 与 `ZZ-TLIA-010` 的来源跨度均为完整视觉核对；印刷误字裁决保留在侧车中，所有候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`。
 - 未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限；未新增数值权重、概率或现实预测主张。
 - 下一颗为**七杀**。本轮停在天梁候选检查点，不自动展开七杀。
 
@@ -516,7 +516,7 @@
 
 ### 来源与覆盖边界
 - 主来源：`SRC-ZZ-002`《中州派紫微斗数深造讲义（上）》；SHA-256 `1cd57c205297f78004c0d59db7cb77b05ecad53313757e55d8f1c78600609e9a`，与 `sources/source_index.csv` 一致。
-- 直接视觉核对 PDF 扫描页15 / 印刷页29–30；`QISHA_SOURCE_SPAN_REVIEW_v0.1.csv` 对26条既有 `ZZ-QS` canonical行逐条登记：25条完整视觉核对、`ZZ-QS-005`部分核对。
+- 直接视觉核对 PDF 扫描页15 / 印刷页29–30；`QISHA_SOURCE_SPAN_REVIEW_v0.1.csv` 对26条既有 `ZZ-QS` canonical行逐条登记：26条完整视觉核对。`ZZ-QS-005` 的“廉洁”已按PI裁定理解为“廉贞”的印刷误字，原始literal保留。
 - `ZZ-QS-005` 的扫描字面为“化杀为权的廉洁”，而 canonical `evidence_text` 将其概括为“有化杀为权之意”；保留差异，不静默修正。
 - 本轮不读取其他流派材料，也不修改 canonical `source_span_verified=false` 或 `normalization_epistemic=UNRESOLVED`。
 
@@ -537,7 +537,7 @@
 
 ### 当前候选处置与停止点
 - 新增20条 source-claim 卡、20项候选性质、20条 mapping-review 记录和26行来源审查表。
-- `ZZ-QS-005` 部分核对；其余25条完整视觉核对；无规则被整体留置。所有候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`。
+- `ZZ-QS-005` 与其余25条均为完整视觉核对；印刷误字裁决已记录但不改canonical行。所有候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`。
 - 未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限；未新增数值权重、概率或现实预测主张。
 - 下一颗为**破军**。本轮停在七杀候选检查点，不自动展开破军。
 
@@ -545,7 +545,7 @@
 ## 23. 阶段 B 第十一轮：破军候选研究（2026-10-28）
 
 - 来源：`SRC-ZZ-002`《中州派紫微斗数深造讲义（上）》；扫描页15–16 / 印刷页29–32，SHA-256与来源索引一致。
-- `POJUN_SOURCE_SPAN_REVIEW_v0.1.csv`覆盖全部30条 `ZZ-PJ` canonical行：25条完整视觉核对，`ZZ-PJ-006..010`因独立四化章节未在本轮核验而保持未核实；无部分核对项。
+- `POJUN_SOURCE_SPAN_REVIEW_v0.1.csv`覆盖全部30条 `ZZ-PJ` canonical行，30条均完成来源跨度视觉核对。`ZZ-PJ-006`位于扫描页96/印刷页191；`ZZ-PJ-007..010`位于扫描页97/印刷页193。五条四化规则尚未逐条扩展为目标映射审核记录；映射仍为UNRESOLVED。
 - 新增20条source-claim、20项候选性质、20条mapping-review记录及专用回归测试。
 - “先锋/冲锋不主退守”与“旧事创新”只作描述性候选，不等同现代执行力或创新能力测量；禄/权、昌曲例外、天马、英星入庙、天相对宫与星系结构均保留各自条件和层级；传统风险应象不升级为现实预测。
 - 所有候选仍为 `PROPOSAL_ONLY_NOT_CANONICAL` / `UNRESOLVED`；未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限。
@@ -556,18 +556,18 @@
 
 ### 覆盖与结构
 - 三个试点（太阳、太阴、天相）与阶段B十一颗扩展星（紫微、天机、武曲、天同、廉贞、天府、贪狼、巨门、天梁、七杀、破军）的候选检查点序列已完成。
-- 当前候选基线包含14颗星、240条mapping-review记录。审核记录处置分布为：58条 `supported_candidate`、56条 `candidate_only`、100条 `needs_review`、26条 `not_supported_for_target`。这些是特定目标的研究处置，不是14星正式归一化结果。
+- 当前候选基线包含14颗星、241条mapping-review记录。审核记录处置分布为：58条 `supported_candidate`、57条 `candidate_only`、100条 `needs_review`、26条 `not_supported_for_target`。这些是特定目标的研究处置，不是14星正式归一化结果。
 - 当前材料把L0传统结构标签、L1单星描述候选、L2关系/星系/上下文、条件响应及L3传统下游投影分开记录；不强制每颗星填满同一QI向量，也不从来源推导数值强度或概率。
 
 ### 仍然有效的来源覆盖边界
-- 太阳：40条canonical规则未全量逐行复审；既有来源审查记录只覆盖部分规则。
-- 太阴：当前专用检查点覆盖书页19–20的25条规则；`ZZ-TYI-010`所指书页42未在该轮核验。
-- 天相：当前主跨度覆盖25条规则；`ZZ-TX-009/010`指向书页47相关星系材料，未在试点轮中裁定。
-- 贪狼：29条规则中24条完整核对、1条部分核对、4条保持未核实。
-- 巨门：26条规则中21条完整核对、4条部分核对、1条保持未核实。
-- 天梁：26条规则中24条完整核对、1条部分核对、1条保持未核实。
-- 七杀：26条规则中25条完整核对，`ZZ-QS-005`部分核对，保留“化杀为权的廉洁”与canonical概括之间的字面差异。
-- 破军：30条规则中25条完整核对；`ZZ-PJ-006..010`指向独立四化章节，本轮保持未核实。
+- 太阳：40/40条canonical规则均有来源跨度视觉核对；canonical `source_span_verified`仍保持false。
+- 太阴：26/26条规则均有来源跨度视觉核对；`ZZ-TYI-010`已在扫描页21/印刷页41补核，canonical定位页差异记录于侧车。
+- 天相：28/28条规则均有来源跨度视觉核对；`ZZ-TX-009/010`已在扫描页24/印刷页47补核，canonical源字段不改。
+- 贪狼：29条规则中27条完整核对、`ZZ-TL-009`部分核对、`ZZ-TL-010`未核实。
+- 巨门：26条规则中22条完整核对、4条部分核对、0条未核实。
+- 天梁：26条规则均完成来源跨度视觉核对；`ZZ-TLIA-001`的印刷误字裁决已记录，`ZZ-TLIA-010`已补核。
+- 七杀：26条规则均完成来源跨度视觉核对；`ZZ-QS-005` 的“廉洁”按PI裁定理解为“廉贞”的印刷误字，原始literal保留。
+- 破军：30条规则均完成来源跨度视觉核对；`ZZ-PJ-006..010`的来源已补核，但本轮未逐条扩展目标映射审核。
 - 其他已完成检查点的来源侧车、条件分支与历史字面差异仍以各自记录为准；本节是汇总，不替代逐条原文审计，也不宣称所有canonical来源跨度都已验证。
 
 ### 统一语义边界
