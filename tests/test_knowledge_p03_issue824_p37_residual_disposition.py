@@ -32,8 +32,8 @@ def test_p37_literal_is_visually_verified_without_semantic_normalization():
     assert residual["source_span_id"] == "ZZ003-P37-ISSUE824-RESIDUAL-001"
     assert residual["exact_target_literal"] == "机录像"
     assert residual["literal_visual_status"] == "VERIFIED_VISUAL_SCAN"
-    assert "第二字符" in residual["literal_visual_note"]
-    assert "不是 禄" in residual["literal_visual_note"]
+    assert "second character" in residual["literal_visual_note"]
+    assert "not 禄" in residual["literal_visual_note"]
     assert "【机录像】" in residual["source_context_literal"]
     assert "申宫又劣于寅宫" in residual["source_context_literal"]
 
