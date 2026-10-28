@@ -1,3 +1,18 @@
+# 当前 PI 裁决与审计交接（2026-10-28）
+
+- 工作线：KNOWLEDGE_ONLY / CORE / Issue #757 / Draft PR #783；当前分支 `knowledge/core-757-14star-property-normalization-main-sync2`。
+- 最新main `f77227ec0b67d422bce4e1dde2f4a1a39491d29f` 已通过同步PR #821合入Core分支，合并提交 `9a4aa970d4f9b9ac95729ff827b17f38dcb9499d`。本轮只同步main到Core分支，不把Core合入main。
+- PI已裁定：`ZZ-TLIA-001`“第三得”是“第三星”的印刷错误；`ZZ-QS-005`“廉洁”是“廉贞”的印刷错误。原始扫描字面保留，正式canonical行与`source_span_verified=false`不变。
+- 来源状态现为423条完整视觉核对、5条部分核对、1条未核实（`ZZ-TL-010`）、1条错配（`ZZ-TT-010`）。
+- Mapping-review记录增至241条；处置分布为58 supported_candidate、57 candidate_only、100 needs_review、26 not_supported_for_target。候选性质182项全部链接有效。
+- 原13项候选来源范围差异已逐项处理；当前仅保留`EXP-WQ-06 / ZZ-WQ-X06`一个与WQ-018/019重叠的摘要，不重复作为独立直接证据。`EXP-WQ-10`已对齐到L3候选审核；QI-05不支持记录保留。
+- 原4条`evidence_role=UNKNOWN`中3条按既有schema处理，`MR-LZ-SYMBOLIC-ROLE-002`继续UNKNOWN，因为现有枚举无法准确表示传统象征标签。
+- 引用复用统计已按更新后的mapping-review ledger重算：428次使用、360个唯一引用、59组精确引用复用；复用不增加独立证据权重。
+- **质量门状态：PENDING。** 本轮全部提交后的当前exact-head必须重新通过完整pytest、Product JS adapter、确定性P0、Repository Governance v1/Core写集检查；父提交绿色运行不替代当前head验收。
+- 未修改正式星核、本体、canonical规则、共享Schema、Product/runtime、KIB或消费者权限；未批准正式映射。
+
+---
+
 # 当前执行证据 — 破军候选检查点（2026-10-28）
 
 - 执行分支：`knowledge/core-757-14star-property-normalization-main-sync2`；本轮接续七杀检查点，不回退、不重复审查已完成星曜。
