@@ -1041,3 +1041,51 @@ def test_sun_source_review_covers_all_canonical_rows_without_promoting_them():
     assert all(r["canonical_source_span_verified_after"] == "false" for r in review_rows)
     canonical_by_id = {r["rule_id"]: r for r in canonical_rows}
     assert all(canonical_by_id[r["rule_id"]]["source_span_verified"] == "false" for r in review_rows)
+
+
+def test_pre_pi_source_audit_followup_covers_all_canonical_rules_without_promotion():
+    data = load_baseline()
+    followup = data["source_audit_followup"]
+    assert followup["status"] == "SOURCE_SPAN_FOLLOWUP_COMPLETED_NOT_CANONICAL_APPROVAL"
+    assert followup["guardrails"]["canonical_rules_mutated"] is False
+    assert followup["guardrails"]["formal_mapping_approval"] is False
+    assert followup["guardrails"]["product_consumption_authorized"] is False
+    review_paths = [
+        ROOT / data["source_policy"]["solar_review_path"],
+        ROOT / data["source_policy"]["taiyin_review_path"],
+        ROOT / data["source_policy"]["tianxiang_review_path"],
+        ROOT / data["source_policy"]["tianji_review_path"],
+        ROOT / data["source_policy"]["wuqu_review_path"],
+        ROOT / data["source_policy"]["tiantong_review_path"],
+        ROOT / data["source_policy"]["ziwei_review_path"],
+        ROOT / data["source_policy"]["lianzheng_review_path"],
+        ROOT / data["source_policy"]["tianfu_review_path"],
+        ROOT / data["source_policy"]["tanlang_review_path"],
+        ROOT / data["source_policy"]["jumen_review_path"],
+        ROOT / data["source_policy"]["tianliang_review_path"],
+        ROOT / data["source_policy"]["qisha_review_path"],
+        ROOT / data["source_policy"]["pojun_review_path"],
+    ]
+    with CANONICAL_RULES.open(encoding="utf-8", newline="") as handle:
+        canonical_rows = list(csv.DictReader(handle))
+    canonical_ids = {row["rule_id"] for row in canonical_rows}
+    all_rows = []
+    for review_path in review_paths:
+        with review_path.open(encoding="utf-8", newline="") as handle:
+            all_rows.extend(csv.DictReader(handle))
+    assert len(all_rows) == len(canonical_rows) == 430
+    assert {row["rule_id"] for row in all_rows} == canonical_ids
+    assert len({row["rule_id"] for row in all_rows}) == len(all_rows)
+    counts = {}
+    for row in all_rows:
+        counts[row["source_span_status"]] = counts.get(row["source_span_status"], 0) + 1
+    assert counts == {
+        "VERIFIED_VISUAL_SCAN": 421,
+        "PARTIALLY_VERIFIED_VISUAL_SCAN": 7,
+        "NOT_VERIFIED_IN_REVIEWED_SPANS": 1,
+        "SOURCE_MISMATCH_CONFIRMED": 1,
+    }
+    assert all(row["normalization_epistemic"] == "UNRESOLVED" for row in canonical_rows)
+    assert all(row["source_span_verified"] == "false" for row in canonical_rows)
+    held = {row["rule_id"] for row in all_rows if row["source_span_status"] in {"NOT_VERIFIED_IN_REVIEWED_SPANS", "SOURCE_MISMATCH_CONFIRMED"}}
+    assert held == {"ZZ-TL-010", "ZZ-TT-010"}
