@@ -1,6 +1,6 @@
 # Product #897 — Manifestation Knowledge→Product Crosswalk Pilot v0.1
 
-Status: **ACTIVE_BUILD — P1 analysis complete, validation pending**
+Status: **P1 RESULT READY FOR INTEGRATION — production promotion remains blocked**
 
 ## 1. Scope
 
@@ -149,4 +149,4 @@ It verifies:
 - production registries remain empty;
 - probability/predictive claims remain prohibited.
 
-Final acceptance still requires repository CI and the #888 Integration Lease before merge.
+Build validation run #40851314906 passed repository pytest, Product JS adapter checks, deterministic P0, and Governance validation. Final merge authorization still requires the #888 Integration Lease and a fresh exact-head final gate.
