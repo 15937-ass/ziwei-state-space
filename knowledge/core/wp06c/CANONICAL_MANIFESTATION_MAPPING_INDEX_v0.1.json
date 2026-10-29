@@ -5,16 +5,16 @@
   "status": "PARTIAL_CANONICAL_KNOWLEDGE",
   "lane": "KNOWLEDGE_ONLY",
   "shard": "CORE",
-  "work_unit": "KB_CORE_WP06BC_CANONICAL_MAPPING_EXPANSION_DIVERSITY_01",
-  "issue": 898,
+  "work_unit": "KB_CORE_WP06BC_CANONICAL_MAPPING_EXPANSION_DIVERSITY_02",
+  "issue": 907,
   "schema_ref": "knowledge/core/wp06c/CANONICAL_MANIFESTATION_MAPPING_SCHEMA_v0.1.json",
   "id_policy_ref": "knowledge/core/wp06c/CANONICAL_MANIFESTATION_MAPPING_ID_POLICY_v0.1.json",
-  "authority_ref": "PI-AUTH-CORE-898-2026-10-29",
+  "authority_ref": "PI-AUTH-CORE-907-2026-10-29",
   "coverage": {
-    "scope": "accepted first checkpoint plus semantic-diversity batch 1",
+    "scope": "accepted checkpoints through semantic-diversity batch 2",
     "complete": false,
-    "canonical_mapping_count": 9,
-    "next_allocatable_id": "KMM-000010"
+    "canonical_mapping_count": 15,
+    "next_allocatable_id": "KMM-000016"
   },
   "mappings": [
     {
@@ -106,10 +106,70 @@
       "executable": false,
       "product_consumable": false,
       "probability_status": "UNKNOWN"
+    },
+    {
+      "mapping_id": "KMM-000010",
+      "path": "knowledge/core/wp06c/canonical_mappings/KMM-000010.json",
+      "primary_source_rule_id": "P01-SG-169",
+      "manifestation_id": "KMN-000010",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "executable": false,
+      "product_consumable": false,
+      "probability_status": "UNKNOWN"
+    },
+    {
+      "mapping_id": "KMM-000011",
+      "path": "knowledge/core/wp06c/canonical_mappings/KMM-000011.json",
+      "primary_source_rule_id": "P01-SG-175",
+      "manifestation_id": "KMN-000011",
+      "execution_readiness": "BLOCKED_SEMANTIC",
+      "executable": false,
+      "product_consumable": false,
+      "probability_status": "UNKNOWN"
+    },
+    {
+      "mapping_id": "KMM-000012",
+      "path": "knowledge/core/wp06c/canonical_mappings/KMM-000012.json",
+      "primary_source_rule_id": "P01-SG-180",
+      "manifestation_id": "KMN-000012",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "executable": false,
+      "product_consumable": false,
+      "probability_status": "UNKNOWN"
+    },
+    {
+      "mapping_id": "KMM-000013",
+      "path": "knowledge/core/wp06c/canonical_mappings/KMM-000013.json",
+      "primary_source_rule_id": "P01-SG-190",
+      "manifestation_id": "KMN-000013",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "executable": false,
+      "product_consumable": false,
+      "probability_status": "UNKNOWN"
+    },
+    {
+      "mapping_id": "KMM-000014",
+      "path": "knowledge/core/wp06c/canonical_mappings/KMM-000014.json",
+      "primary_source_rule_id": "P02S-137",
+      "manifestation_id": "KMN-000014",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "executable": false,
+      "product_consumable": false,
+      "probability_status": "UNKNOWN"
+    },
+    {
+      "mapping_id": "KMM-000015",
+      "path": "knowledge/core/wp06c/canonical_mappings/KMM-000015.json",
+      "primary_source_rule_id": "P02S-169",
+      "manifestation_id": "KMN-000015",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "executable": false,
+      "product_consumable": false,
+      "probability_status": "UNKNOWN"
     }
   ],
   "invariants": {
-    "canonical_mapping_promotions": 9,
+    "canonical_mapping_promotions": 15,
     "executable_mappings": 0,
     "product_registry_modified": false,
     "product_consumption_authorized": false,
