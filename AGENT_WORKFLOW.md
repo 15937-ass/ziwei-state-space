@@ -234,6 +234,12 @@ Stacked PRs are exceptional and limited to two levels.
 
 ## 13. Mandatory PI-facing Chinese progress and cross-lane closeout report
 
+Protocol marker: `PI_CLOSEOUT_FINAL_GATE_REQUIRED`.
+
+This section is a **hard final-response gate** for every repository-work conversation. Before sending the final answer, the assistant must complete the live read-only three-stream census required below and include all six default Chinese report sections. If that gate is incomplete, the repository-work final answer must not be sent. Brevity, successful completion, read-only review, validation waiting, a blocked/paused unit, or the user's failure to ask again are not exemptions.
+
+The only exemption is an ordinary end-user QuickRead/fortune-reading turn that performs no repository implementation, review, governance, status recovery, or other repository work. If repository work occurs anywhere in the same turn, the mandatory closeout applies. This reporting gate does not authorize writes in another lane, consume unmerged artifacts, or broaden the active Issue.
+
 The PI-facing report is domain- and project-oriented, not Git-oriented. The PI is expected to judge Ziwei theory, research boundaries, interpretation quality, and major product direction; routine Git mechanics should be hidden unless they block progress or create risk.
 
 At the end of **every repository-work conversation** (including read-only review, completed implementation, validation, or a blocked/paused work unit), perform a lightweight **read-only** live Issue/PR census for the current palace worker, Knowledge Core, and Product. Check accepted `main` where a delivery claim depends on it. Report all three in Chinese even though this turn executes in exactly one lane. Do not open an Issue, change another lane, rerun its tests, or consume an unmerged artifact merely to prepare the report. Live Issue/PR and accepted `main` outrank a stale state cache; if a live check fails, mark that lane **未核实** with the reason and do not recommend a dependent activation as if it were verified.

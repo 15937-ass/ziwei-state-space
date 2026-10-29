@@ -35,6 +35,19 @@
 
 **每次仓库工作对话结束前**（包括只读审查、实施、验证和因阻塞暂停），按 `AGENT_WORKFLOW.md` 第 13 节向 PI 用中文汇报。结束时只读核对实时宫位、Knowledge Core、Product 的 Issue/PR 与已接受的 `main`，分别说明当前状态、下一步可做什么及等待什么；再给出一个优先的集成/决策建议。所选执行 lane 仍然只有一个，不为汇报启动其他 lane 的工作。无法核对的状态须写明“未核实”及原因，不能从旧聊天或状态缓存猜测。
 
+### Final-answer gate（强制，不可省略）
+
+协议标记：`PI_CLOSEOUT_FINAL_GATE_REQUIRED`。
+
+对任何 **repository-work conversation**，在发送最终答复前必须先完成本门槛：
+- 已按 `AGENT_WORKFLOW.md §13` 对实时宫位、Knowledge Core、Product 做轻量只读 census，并在需要时核对已接受的 `main`；
+- 最终答复包含 §13 的六个固定中文区块：【整个项目现在到哪了】、【宫位、Knowledge Core、Product 当前状态】、【这一步刚刚完成了什么】、【下一步准备做什么】、【现在需要 PI 帮助什么】、【需要你特别警惕的风险】；
+- 对 PI 是否需要介入给出明确 YES/NO；无法核实的状态必须明确写“未核实”，不得猜测。
+
+上述条件未满足时，**不得发送仓库工作对话的最终答复**。用户没有再次索要、回答需要简短、工作已经完成、只读审查、验证等待、阻塞/暂停，都不是省略理由。该门槛只能约束最终汇报，不授权启动其他 lane、合并未验收 PR 或扩大当前工作范围。
+
+例外仅限：本轮只是面向终端用户的普通 QuickRead/命理解读，且**没有**发生仓库实现、审查、治理、状态核对或其他 repository work；这种用户侧回答不附加内部项目 PI closeout。只要同一轮实际进行了仓库工作，仍必须执行本门槛。
+
 ## 4. 旧规则与历史文件的处理
 
 - `governance/archive/WORK_CODEX_EXECUTION_PROTOCOL_v0.1_G7_HISTORICAL.md`（G7）是**历史/已被替代**文件，不得作为当前执行政策或新对话启动指令。

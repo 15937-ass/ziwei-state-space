@@ -70,6 +70,27 @@ def test_canonical_chatgpt_bootstrap_prevents_actions_policy_regression():
     assert "chat_is_authoritative:" not in project
 
 
+def test_pi_closeout_is_a_hard_final_answer_gate():
+    bootstrap = (ROOT / "CHATGPT_START_HERE.md").read_text(encoding="utf-8")
+    workflow = (ROOT / "AGENT_WORKFLOW.md").read_text(encoding="utf-8")
+    marker = "PI_CLOSEOUT_FINAL_GATE_REQUIRED"
+    assert marker in bootstrap
+    assert marker in workflow
+    assert "不得发送仓库工作对话的最终答复" in bootstrap
+    assert "hard final-response gate" in workflow
+    assert "ordinary end-user QuickRead" in workflow
+    assert "普通 QuickRead/命理解读" in bootstrap
+    for heading in (
+        "【整个项目现在到哪了】",
+        "【宫位、Knowledge Core、Product 当前状态】",
+        "【这一步刚刚完成了什么】",
+        "【下一步准备做什么】",
+        "【现在需要 PI 帮助什么】",
+        "【需要你特别警惕的风险】",
+    ):
+        assert heading in workflow
+
+
 def test_g7_is_quarantined_and_g8_is_current():
     g7 = (ROOT / "governance/archive/WORK_CODEX_EXECUTION_PROTOCOL_v0.1_G7_HISTORICAL.md").read_text(encoding="utf-8")
     g8 = (ROOT / "governance/PUBLIC_ACTIONS_EXECUTION_PROTOCOL_v0.2.md").read_text(encoding="utf-8")
