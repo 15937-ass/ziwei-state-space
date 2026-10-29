@@ -126,7 +126,7 @@ def test_fixture_must_match_canonical_text_and_does_not_discover_semantics():
     changed["condition"]["dependency_text"] = "紫微天相"
     # The retained dependency must include the source-explicit palace relation,
     # not merely a nearby star label.
-    with pytest.raises(ValueError, match="verbatim"):
+    with pytest.raises(ValueError, match="对宫 relation"):
         compile_manifestation_condition_binding(canonical, changed)
 
 
