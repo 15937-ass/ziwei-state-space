@@ -19,6 +19,7 @@ REQUIRED = [
     "governance/PATH_OWNERSHIP.json",
     "governance/CAPABILITY_READINESS_SCHEMA.md",
     "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md",
+    "governance/INTEGRATION_QUEUE_PROTOCOL_v1.md",
     "governance/KNOWLEDGE_SHARDS.json",
     "PROJECT_STATE.yaml",
     "product/PRODUCT_STATE.yaml",
@@ -160,6 +161,22 @@ def validate_required() -> None:
         fail("PROJECT_STATE must declare GitHub Issues as execution truth")
     if "\n  completed:" in project_state or "\ncompleted:" in project_state:
         fail("PROJECT_STATE must not duplicate completed-history lists")
+    if 'integration_protocol: "governance/INTEGRATION_QUEUE_PROTOCOL_v1.md"' not in project_state:
+        fail("PROJECT_STATE must point to the integration queue protocol")
+    if "integration_ledger_issue: 888" not in project_state:
+        fail("PROJECT_STATE must point to coordination Issue #888")
+
+    integration = (ROOT / "governance/INTEGRATION_QUEUE_PROTOCOL_v1.md").read_text(encoding="utf-8")
+    for marker in [
+        "ACTIVE_BUILD",
+        "READY_TO_INTEGRATE",
+        "INTEGRATING",
+        "Integration Lease",
+        "Issue #888",
+        "exact-head",
+    ]:
+        if marker not in integration:
+            fail(f"integration queue protocol missing required marker: {marker}")
 
     for rel in [
         "product/PRODUCT_STATE.yaml",

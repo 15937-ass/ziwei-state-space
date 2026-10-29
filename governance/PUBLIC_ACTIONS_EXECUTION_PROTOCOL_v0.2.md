@@ -3,7 +3,8 @@
 Status: **ACTIVE — G8 EXECUTION POLICY, G9 REPOSITORY-AUTHORITY AMENDMENT**  
 Tracking Issues: #372 (G8), #374 (G9)  
 Supersedes for routine execution: `governance/archive/WORK_CODEX_EXECUTION_PROTOCOL_v0.1_G7_HISTORICAL.md`  
-Recovery precedence: `governance/RECOVERY_PRECEDENCE_v1.md`
+Recovery precedence: `governance/RECOVERY_PRECEDENCE_v1.md`  
+Final integration: `governance/INTEGRATION_QUEUE_PROTOCOL_v1.md` / coordination Issue #888
 
 ## 1. Purpose
 
@@ -64,6 +65,15 @@ python tools/validate_governance.py \
 
 For manual main validation, `--allow-main` may be used. PR lane validation must use the PR base/head contract.
 
+### Build validation versus final integration validation
+
+Validation has two timing classes; this changes timing, not acceptance quality.
+
+- **ACTIVE_BUILD / READY_TO_INTEGRATE:** run the bounded unit tests, schema/source checks, write-set checks, and relevant regressions needed to develop and review the change. These runs are useful evidence but are not the final merge authorization, and the branch does not repeatedly chase unrelated `main` movement merely to keep a speculative full gate fresh.
+- **INTEGRATING:** only after acquiring the Integration Lease in Issue #888, synchronize the branch once to current `main` and run the complete final gate required by the work unit, including the repository quality gate. The successful run must identify the exact integration head/base intended for immediate merge.
+
+Only one PR may be INTEGRATING globally. Other lanes may continue ACTIVE_BUILD while that lease is held, but they must not merge `main`.
+
 ## 5. Product regression
 
 Existing Product workflows remain executable specifications and routine PR validators when their path filters match:
@@ -79,7 +89,7 @@ A Product PR does not gain empirical validity merely because deterministic engin
 
 ## 6. Knowledge work
 
-At minimum before merge:
+At minimum before merge, and specifically during INTEGRATING after the lease is held:
 - changed-unit deterministic tests;
 - full repository pytest via the repository quality gate unless an Issue explicitly approves a narrower scope;
 - P0 audit;
@@ -90,7 +100,7 @@ Knowledge mapping candidates remain non-production until a Product work unit sep
 
 ## 7. Governance work
 
-At minimum:
+At minimum during INTEGRATING after the lease is held:
 - repository quality gate;
 - governance lane validation;
 - inspection that Product/Knowledge semantics did not change unintentionally.
@@ -105,6 +115,11 @@ Every accepted PR must record, directly or by durable workflow reference:
 Execution runtime: GitHub Actions standard public runner / Work / Codex
 Base commit: <sha>
 Head commit: <sha>
+
+Integration:
+- lease ledger: Issue #888
+- lease acquisition/release comment(s): <references>
+- synchronized main/base: <sha>
 
 Validation:
 - repository quality gate: PASS/FAIL
@@ -126,6 +141,7 @@ Do not report an unexecuted command as passing.
 - A genuine assertion failure must be fixed or escalated; do not weaken a gate merely to obtain green CI.
 - Infrastructure failure is recorded separately from semantic/test failure.
 - Repeated or conceptual failures escalate under the existing risk/Human-Gate rules.
+- If `main` changes after final-gate synchronization and before merge, the final gate is stale. Do not reuse it; re-enter synchronization under the lease and rerun the required exact-head gate.
 
 ## 10. Cost and safety boundary
 

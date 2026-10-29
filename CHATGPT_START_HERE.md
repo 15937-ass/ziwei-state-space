@@ -19,7 +19,7 @@
 - Work/Codex 额度不足，不构成禁止仓库写入或禁止标准公共 Runner 验证的理由。
 - **禁止自动 `push` 触发 ≠ 禁用 GitHub Actions。** 不得把这两者混为一谈。
 
-当前执行协议只使用 `PROJECT_STATE.yaml` 中 `authority.current_execution_protocol` 指向的文件；目前为 `governance/PUBLIC_ACTIONS_EXECUTION_PROTOCOL_v0.2.md`。
+当前执行协议只使用 `PROJECT_STATE.yaml` 中 `authority.current_execution_protocol` 指向的文件；目前为 `governance/PUBLIC_ACTIONS_EXECUTION_PROTOCOL_v0.2.md`。最终合入 `main` 还必须遵守 `authority.integration_protocol` 指向的 `governance/INTEGRATION_QUEUE_PROTOCOL_v1.md`，实时集成协调账本为 Issue #888。
 
 ## 3. 每次新对话/超时恢复的固定顺序
 
@@ -28,8 +28,9 @@
 3. 读取 `governance/RECOVERY_PRECEDENCE_v1.md`。
 4. 读取所选 lane state 作为状态缓存；Knowledge 还须按知识分片规则只选择一个 CORE/P01–P12 分片。
 5. 查询所选 lane 的实时 GitHub Issues，确认当前有界工作单元；读取其关联 PR（如有）。
-6. 只读取当前 Issue/PR 要求的材料，并遵守路径所有权、验证门、Human Gate 和 `Issue -> branch -> PR -> validation -> merge` 流程。
-7. 若 lane state 与实时 Issue/PR 冲突，以实时 GitHub Issue/PR 为准，并记录需要修复的状态缓存。
+6. 只读取当前 Issue/PR 要求的材料，并遵守路径所有权、验证门和 Human Gate。工作期处于 `ACTIVE_BUILD` 时优先做有界/相关验证，不为无关 `main` 变动反复跑最终全量门。
+7. 内容完成后进入 `READY_TO_INTEGRATE`；只有从 Issue #888 取得 Integration Lease 后才进入 `INTEGRATING`，同步一次当前 `main`、运行最终 exact-head 全量门、立即合并并释放 lease。
+8. 若 lane state 与实时 Issue/PR 冲突，以实时 GitHub Issue/PR 为准，并记录需要修复的状态缓存。
 
 恢复后按 `AGENT_WORKFLOW.md` §10.1–10.3 批量读取当前任务所需材料、优先核对版本和变更、复用同一验证身份的有效证据，并留下简洁交接。新会话、版本变化、写入异常、硬检查点和合入前仍必须重新同步；摘要不能代替必要的原文核对，空槽位也不等于自动启动新任务。普通工作无需加载完整优化提案。
 
@@ -82,4 +83,4 @@
 
 当 PI 说“推进宫位线”“推进Core线”“推进产品线”，或询问如何用多个对话按顺序工作时，按第 3 节恢复后读取 [三线推进操作卡](governance/THREE_STREAM_START_HERE.md)，只接续所选线的一个有界单元。卡中保留三段可复制启动指令、既定安排的依赖顺序、同线旧对话交接与停止规则；实时 Issue/PR 和 main 仍是执行与接受依据。不要把打开新对话、空槽位或计划顺序当作新任务/语义授权。
 
-“查看三线状态”仅执行 AGENT_WORKFLOW.md 第 13 节要求的只读三线汇报，不启动新任务。三个入口不改变 Core/Product 各 1、一次一个宫位和正式集成串行的现行约束；普通无关任务无需加载操作卡。
+“查看三线状态”仅执行 AGENT_WORKFLOW.md 第 13 节要求的只读三线汇报，不启动新任务。三个入口不改变 Core/Product 各 1、一次一个宫位和正式集成串行的现行约束；常态运行目标是“1 个宫位 + 1 个 Core + 1 个 Product”并行生产，正式合入通过 Issue #888 的 Integration Lease 串行完成。普通无关任务无需加载操作卡。
