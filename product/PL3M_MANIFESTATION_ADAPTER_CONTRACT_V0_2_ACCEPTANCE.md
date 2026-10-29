@@ -42,7 +42,7 @@ This is retention only. It does not upgrade any item to executable or Product-co
 
 `A_t.actions`
 
-The binding mode is fixed to `EXTERNAL_EXPLICIT_ONLY`.
+The canonical prerequisite `status` is retained alongside its text, and the binding mode is fixed to `EXTERNAL_EXPLICIT_ONLY`.
 
 `chart_inference_allowed=false` is enforced by the dataclass contract, so a chart pattern cannot silently create an action fact.
 
