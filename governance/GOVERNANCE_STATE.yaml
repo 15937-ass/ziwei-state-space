@@ -1,17 +1,16 @@
 schema_version: 1
 lane: "GOVERNANCE_ONLY"
-authoritative_execution: "GITHUB_ISSUE"
-canonical_branch: "main"
-
-execution:
-  status: "ACTIVE"
-  active_issue: 753
-  active_branch: "governance/753-core-schema-path-ownership"
-  active_pr: 754
+authoritative_execution:
+  status: "ACTIVE_NO_ACTIVE_WORK"
+  active_issue: null
+  active_branch: null
+  active_pr: null
   governance_version: "1.1"
-  archive_checkpoint: "governance/archive/2026-10-06-project-checkpoint.md"
-  resumed_at: "2026-10-18"
-  last_resume_issue: 290
+  integration_protocol: "governance/INTEGRATION_QUEUE_PROTOCOL_v1.md"
+  integration_ledger_issue: 888
+  last_completed_issue: 890
+  last_completed_pr: 891
+  resume_entry: "Governance #890 / PR #891 activates parallel ACTIVE_BUILD with serialized final integration through the Integration Lease in coordination Issue #888. Live Issue/PR remains authoritative; this cache assumes #891 is merged. If #891 is still open, treat #890 as ACTIVE_BUILD and the protocol as not yet active on main."
 
 completed:
   repository_governance_v1:
