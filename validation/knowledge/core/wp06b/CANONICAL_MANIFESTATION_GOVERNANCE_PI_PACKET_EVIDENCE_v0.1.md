@@ -1,6 +1,6 @@
 # Core #866 — Canonical manifestation governance PI packet evidence
 
-Status: PACKET_DRAFTED_VALIDATION_PENDING
+Status: READY_FOR_PI_REVIEW
 
 ## Scope
 - Issue: #866
@@ -30,4 +30,11 @@ Status: PACKET_DRAFTED_VALIDATION_PENDING
 `G1A，G2A，G3A`
 
 ## Validation
-Pending exact-head full pytest, Product JS check, deterministic P0 and Governance v1.
+- Run: `40819198859`
+- Validated head before state/evidence recording: `61dec758170c39e668d6d6013147b629206a072e`
+- Base/current main: `be9f55c47c35953ff92912856852ace2af10c62e`
+- Pytest: **2962 passed, 132 subtests passed**
+- Product JS adapters: **PASS**
+- Deterministic P0 repository gate: **PASS**
+- Repository Governance v1: **PASS**
+- The final PR head after this recovery-cache/evidence recording must itself retain a green exact-head pull-request gate before the PI packet is treated as clean.
