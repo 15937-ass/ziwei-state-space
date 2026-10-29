@@ -6,25 +6,25 @@ canonical_branch: "main"
 execution:
   status: "ACTIVE"
   phase: "PL3_METHOD_RESPONSE_VERTICAL_SLICE"
-  active_issue: 906
-  active_pr: 910
+  active_issue: 908
+  active_pr: 913
   continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md"
   plan_pointer_issue: 900
-  next_issue: 906
+  next_issue: 908
   next_work_unit: "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"
-  continuation_next_work_unit: "PRODUCT_MANIFESTATION_CROSSWALK_EXPANDED_CHECKPOINT_P2"
+  continuation_next_work_unit: "PRODUCT_MANIFESTATION_ADAPTER_CONTRACT_HARDENING_V0_2"
   next_work_status: "ACTIVE_BUILD"
-  resume_entry: "Product #906 P2 is ACTIVE_BUILD on product/906-expanded-manifestation-crosswalk-p2, pinned to accepted Core checkpoint 4e41074d351a720a639cb702d2ce100c44aa5ca1 (9 KMN / 9 KMM). Do not consume later unmerged Core. Production registries/KIB/runtime/probability remain fail-closed."
-  state_cache_as_of_main_commit: "4e41074d351a720a639cb702d2ce100c44aa5ca1"
-  state_cache_as_of_product_merge: "085e65c509fc5f9fed8230d00d2fc07a0e01b79b"
+  resume_entry: "Product #908 adapter contract hardening v0.2 is ACTIVE_BUILD on product/908-manifestation-adapter-contract-v0-2 / PR #913. Scope is PG-001..PG-005 only; PG-006/PG-007 remain separate follow-up. Existing production manifestation registries/KIB/runtime/probability remain fail-closed."
+  state_cache_as_of_main_commit: "a10939f14be3f96b2c1612ba1ff4f7e0dddc587b"
+  state_cache_as_of_product_merge: "a10939f14be3f96b2c1612ba1ff4f7e0dddc587b"
   state_cache_snapshot_date: "2026-10-29"
   v04_entry_checkpoint_issue: 416
   v04_entry_checkpoint_pr: 418
-  last_completed_product_issue: 897
-  last_completed_product_pr: 905
+  last_completed_product_issue: 906
+  last_completed_product_pr: 910
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
-  resume_issue: 906
+  resume_issue: 908
   roadmap: "PRODUCT_ROADMAP.md#v0.4"
   execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
 
@@ -186,7 +186,7 @@ capability_snapshot:
 
 critical_path:
   now:
-    - "PRODUCT_MANIFESTATION_CROSSWALK_EXPANDED_CHECKPOINT_P2"
+    - "PRODUCT_MANIFESTATION_ADAPTER_CONTRACT_HARDENING_V0_2"
     - "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"
     - "FORECAST_LEDGER_ACTIVATION"
   future:
