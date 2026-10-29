@@ -1,0 +1,423 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-WP06B-OPTION-C-MINIMAL-CONTRACT-CLOSURE-REVIEW",
+  "version": "0.1",
+  "status": "PI_DECISIONS_RECORDED_MINIMAL_CONTRACT_NOT_CANONICAL",
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "CORE",
+  "work_unit": "KB-CORE-WP06B-OPTION-C-MINIMAL-CONTRACT-CLOSURE-01",
+  "architecture_decision": {
+    "option": "OPTION_C",
+    "decision_scope": "SOURCE_NATIVE_ROOT_FOREST_WITH_ORTHOGONAL_METADATA_AXES",
+    "reopen_architecture_choice": false,
+    "detailed_contract_frozen": false,
+    "minimum_semantic_contract_accepted": true,
+    "production_enum_frozen": false
+  },
+  "provenance": {
+    "main_base_sha": "6b87b904d548ead46bf3d858cc1e50d29cf0cb8e",
+    "source_id": "SRC-ZZ-003",
+    "source_title": "《中州派紫微斗数深造讲义（下）》",
+    "source_attachment_sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+    "source_recheck_scope": {
+      "direct_scan_recheck_existing_records": [
+        {
+          "rule_id": "CA01-035",
+          "pdf_page": 67,
+          "printed_page": 133
+        },
+        {
+          "rule_id": "CA01-045",
+          "pdf_page": 67,
+          "printed_page": 133
+        },
+        {
+          "rule_id": "CA05-469",
+          "pdf_page": 72,
+          "printed_page": 144
+        }
+      ],
+      "reused_accepted_records_without_claim_of_new_scan_review": [
+        "W01-002",
+        "M01-006",
+        "CA01-005",
+        "CA01-007",
+        "CA09-809"
+      ]
+    },
+    "inputs": [
+      "knowledge/core/wp06b/OPTION_C_METADATA_CONTRACT_PROPOSAL_v0.1.md",
+      "knowledge/core/wp06b/OPTION_C_METADATA_CONTRACT_PROPOSAL_v0.2.md",
+      "knowledge/core/wp06b/OPTION_C_CONTRACT_VALIDATION_PROBE_v0.1.md",
+      "knowledge/core/wp06b/MAPPING_REVIEW_SCHEMA_v0.1.json",
+      "knowledge/core/wp06b/MANIFESTATION_ROOT_DECISION_PACKET_v0.1.md",
+      "knowledge/core/14star-property-matrix/14STAR_PROPERTY_MATRIX_QIQR_AUDIT_v0.1.md",
+      "knowledge/palaces/P09_career/wp06c/P09_WP06C_SOURCE_CANDIDATE_INDEX_v0.1.json"
+    ]
+  },
+  "findings": [
+    {
+      "id": "F-01",
+      "axis": "output_kind",
+      "status": "SUPPORTED_AS_CANDIDATE_SET_NOT_EXHAUSTIVE",
+      "finding": "The current candidate set distinguishes observed process, action-conditioned outcome, scene/context, direction axis, domain boundary, cross-palace constraint, structural constraint, temporal condition, and event candidate examples.",
+      "limitation": "The current matrix crosswalk has no stable direct candidate for intrinsic state/property claims, general relational claims, and evaluation claims. This is a coverage gap, not evidence those claim forms do not exist.",
+      "recommendation": "Do not freeze the current list as an exhaustive production enum. Record unclassified forms with axis state UNKNOWN in review artifacts; only propose additions when grounded examples and a target-specific rationale exist."
+    },
+    {
+      "id": "F-02",
+      "axis": "event_specificity",
+      "status": "SUPPORTED_WITH_BOUNDARIES",
+      "finding": "Process, action-conditioned outcome, scene, event-class candidate, and specific-event candidate can be distinguished in review material.",
+      "limitation": "Non-event semantic objects such as directional axes, domain boundaries, and cross-palace constraints do not have event specificity values.",
+      "recommendation": "Represent non-applicability as an axis status in the non-canonical review artifact, not as a new event value. Never add OBSERVED_EVENT as an ontology classification."
+    },
+    {
+      "id": "F-03",
+      "axis": "source_epistemic",
+      "status": "REUSE_EXISTING_ENUM",
+      "finding": "REVIEW_SCHEMA v0.3 defines EXPLICIT, INFERRED_FROM_SOURCE, and UNRESOLVED_SOURCE; adjacent normalization and review fields already have separate meanings.",
+      "recommendation": "Do not extend or infer source_epistemic from review_status, span verification, mapping disposition, canonical approval, or consumer readiness."
+    },
+    {
+      "id": "F-04",
+      "axis": "metadata_axis_status",
+      "status": "DO_NOT_ADD_SHARED_PRIMITIVE_IN_THIS_WORK_UNIT",
+      "finding": "A new generic per-axis status object would be a shared semantic primitive. Current work can record states in a proposal-only review artifact and test the distinctions without production schema migration.",
+      "recommendation": "Defer a shared schema diff unless real WP06C mapping work demonstrates a concrete typed capability gap."
+    },
+    {
+      "id": "F-05",
+      "axis": "approval_boundaries",
+      "status": "KEEP_SEPARATE",
+      "finding": "Source epistemic, normalization epistemic, review status, mapping disposition, canonical approval, and consumer readiness answer different questions.",
+      "recommendation": "Keep each gate independent; no stage implies the next."
+    }
+  ],
+  "candidate_output_kind_values": [
+    "PROCESS_PATTERN",
+    "ACTION_CONDITIONED_OUTCOME",
+    "SCENE_OR_CONTEXT",
+    "DIRECTIONAL_AXIS",
+    "DOMAIN_SEMANTIC_BOUNDARY",
+    "CROSS_PALACE_CONSTRAINT",
+    "STRUCTURAL_CONSTRAINT",
+    "TEMPORAL_CONDITION",
+    "EVENT_CANDIDATE"
+  ],
+  "candidate_event_specificity_values": [
+    "PROCESS_SEQUENCE_NOT_SINGLE_EVENT",
+    "CONDITIONAL_OUTCOME_NOT_OBSERVED",
+    "SCENE_NOT_OBSERVED_EVENT",
+    "EVENT_CLASS_CANDIDATE",
+    "SPECIFIC_EVENT_CANDIDATE"
+  ],
+  "boundary_cases": [
+    {
+      "id": "CA01-035",
+      "source_ref": "SRC-ZZ-003:ZZ003-P133",
+      "output_kind": {
+        "status": "CANDIDATE",
+        "value": "PROCESS_PATTERN"
+      },
+      "event_specificity": {
+        "status": "CANDIDATE",
+        "value": "PROCESS_SEQUENCE_NOT_SINGLE_EVENT"
+      },
+      "preserve": [
+        "source modality '往往'",
+        "unresolved fire/bell shorthand AND/OR"
+      ],
+      "forbidden_inference": [
+        "inevitable outcome",
+        "single observed event",
+        "certain timing"
+      ],
+      "evidence_scope": "Existing direct scan recheck record; no new quotation claimed"
+    },
+    {
+      "id": "CA01-045",
+      "source_ref": "SRC-ZZ-003:ZZ003-P133",
+      "output_kind": {
+        "status": "CANDIDATE",
+        "value": "ACTION_CONDITIONED_OUTCOME"
+      },
+      "event_specificity": {
+        "status": "CANDIDATE",
+        "value": "CONDITIONAL_OUTCOME_NOT_OBSERVED"
+      },
+      "preserve": [
+        "antecedent links CA01-042 and CA01-044",
+        "real-world action prerequisite '勉强求变'"
+      ],
+      "forbidden_inference": [
+        "chart-only assertion that action occurred",
+        "unconditional career difficulty"
+      ],
+      "evidence_scope": "Existing direct scan recheck record; source context remains conditionally incomplete for execution"
+    },
+    {
+      "id": "CA05-469",
+      "source_ref": "SRC-ZZ-003:ZZ003-P144",
+      "output_kind": {
+        "status": "CANDIDATE",
+        "value": "SCENE_OR_CONTEXT"
+      },
+      "event_specificity": {
+        "status": "CANDIDATE",
+        "value": "SCENE_NOT_OBSERVED_EVENT"
+      },
+      "preserve": [
+        "career/industry scene semantics"
+      ],
+      "forbidden_inference": [
+        "personal injury",
+        "illness",
+        "accident event"
+      ],
+      "evidence_scope": "Existing direct scan recheck record"
+    },
+    {
+      "id": "M01-006",
+      "source_ref": "SRC-ZZ-003:ZZ003-P109",
+      "output_kind": {
+        "status": "CANDIDATE",
+        "value": "DIRECTIONAL_AXIS"
+      },
+      "event_specificity": {
+        "status": "NOT_APPLICABLE",
+        "value": null
+      },
+      "preserve": [
+        "direction/development axis"
+      ],
+      "forbidden_inference": [
+        "completed migration"
+      ],
+      "evidence_scope": "Reuse accepted migration readjudication record; no new scan review claimed"
+    },
+    {
+      "id": "W01-002",
+      "source_ref": "SRC-ZZ-003:ZZ003-P69",
+      "output_kind": {
+        "status": "CANDIDATE",
+        "value": "DOMAIN_SEMANTIC_BOUNDARY"
+      },
+      "event_specificity": {
+        "status": "NOT_APPLICABLE",
+        "value": null
+      },
+      "preserve": [
+        "domain/palace semantic boundary"
+      ],
+      "forbidden_inference": [
+        "independent manifestation node"
+      ],
+      "evidence_scope": "Reuse accepted source-span-verified record; no new scan review claimed"
+    },
+    {
+      "id": "CA01-005",
+      "source_ref": "SRC-ZZ-003:ZZ003-P132",
+      "output_kind": {
+        "status": "CANDIDATE",
+        "value": "CROSS_PALACE_CONSTRAINT"
+      },
+      "event_specificity": {
+        "status": "NOT_APPLICABLE",
+        "value": null
+      },
+      "preserve": [
+        "cross-palace prerequisite/interpretive constraint"
+      ],
+      "forbidden_inference": [
+        "independent event node"
+      ],
+      "evidence_scope": "Reuse accepted source-span-verified record; no new scan review claimed"
+    },
+    {
+      "id": "CA01-007",
+      "source_ref": "SRC-ZZ-003:ZZ003-P132",
+      "output_kind": {
+        "status": "CANDIDATE",
+        "value": "CROSS_PALACE_CONSTRAINT"
+      },
+      "event_specificity": {
+        "status": "NOT_APPLICABLE",
+        "value": null
+      },
+      "preserve": [
+        "cross-palace constraint affecting relationship-domain interpretation"
+      ],
+      "forbidden_inference": [
+        "observed marriage event"
+      ],
+      "evidence_scope": "Reuse accepted source-span-verified record; no new scan review claimed"
+    },
+    {
+      "id": "CA09-809",
+      "source_ref": "SRC-ZZ-003:ZZ003-P153",
+      "output_kind": {
+        "status": "CANDIDATE",
+        "value": "EVENT_CANDIDATE"
+      },
+      "event_specificity": {
+        "status": "CANDIDATE",
+        "value": "SPECIFIC_EVENT_CANDIDATE"
+      },
+      "preserve": [
+        "case_support_only=true",
+        "negative-control status"
+      ],
+      "forbidden_inference": [
+        "canonical universal event family",
+        "population frequency",
+        "probability",
+        "Product readiness"
+      ],
+      "evidence_scope": "Accepted case-only negative control; not a positive generalization example"
+    },
+    {
+      "id": "QI-02/QI-15",
+      "source_ref": "knowledge/core/14star-property-matrix/14STAR_PROPERTY_MATRIX_QIQR_AUDIT_v0.1.md",
+      "output_kind": {
+        "status": "UNKNOWN",
+        "value": null
+      },
+      "event_specificity": {
+        "status": "NOT_APPLICABLE",
+        "value": null
+      },
+      "preserve": [
+        "state vs modifier vs interaction",
+        "bearer/agent",
+        "target",
+        "condition",
+        "evidence tier"
+      ],
+      "forbidden_inference": [
+        "moderated state proves intrinsic moderation capacity",
+        "duplicate source reference counted as independent evidence"
+      ],
+      "evidence_scope": "Crosswalk/audit material; not a new source quotation"
+    },
+    {
+      "id": "QR-01/QR-04",
+      "source_ref": "knowledge/core/14star-property-matrix/14STAR_PROPERTY_MATRIX_QIQR_AUDIT_v0.1.md",
+      "output_kind": {
+        "status": "UNKNOWN",
+        "value": null
+      },
+      "event_specificity": {
+        "status": "NOT_APPLICABLE",
+        "value": null
+      },
+      "preserve": [
+        "relationship network state",
+        "resource existence",
+        "resource availability",
+        "realized support"
+      ],
+      "forbidden_inference": [
+        "resource count equals integration",
+        "resource existence proves support realized"
+      ],
+      "evidence_scope": "Crosswalk/audit material; projection evidence remains lower-tier support"
+    },
+    {
+      "id": "QI-04/QI-16:ZZ-PJ-X06",
+      "source_ref": "knowledge/core/qi_ontology.yaml:ZZ-PJ-X06",
+      "output_kind": {
+        "status": "UNKNOWN",
+        "value": null
+      },
+      "event_specificity": {
+        "status": "NOT_APPLICABLE",
+        "value": null
+      },
+      "preserve": [
+        "source OR alternative",
+        "unresolved condition"
+      ],
+      "forbidden_inference": [
+        "rewrite OR as AND",
+        "resolve source ambiguity by normalization"
+      ],
+      "evidence_scope": "Existing QI/QR audit boundary; no new source adjudication"
+    },
+    {
+      "id": "QI-17-CAND/QI-18-CAND",
+      "source_ref": "knowledge/qi_ontology.yaml",
+      "output_kind": {
+        "status": "UNKNOWN",
+        "value": null
+      },
+      "event_specificity": {
+        "status": "NOT_APPLICABLE",
+        "value": null
+      },
+      "preserve": [
+        "candidate identity",
+        "unresolved status"
+      ],
+      "forbidden_inference": [
+        "assign formal IDs",
+        "canonical mapping acceptance"
+      ],
+      "evidence_scope": "Existing candidate-only governance boundary"
+    }
+  ],
+  "status_semantics": {
+    "UNKNOWN": "Reviewed but currently not determinable",
+    "MISSING": "Required information or review record does not yet exist",
+    "CONFLICT": "Incompatible interpretations coexist; preserve both and reference the Conflict record",
+    "NOT_APPLICABLE": "The axis genuinely does not apply to this semantic object",
+    "legacy_absent_mapping_review": "Not yet reviewed under this envelope; not equivalent to field state MISSING"
+  },
+  "pi_decision_card": {
+    "recommended_decisions": {
+      "D1": "Accept the three axes as orthogonal with their existing meanings.",
+      "D2": "Do not freeze the current output_kind candidates as an exhaustive production enum; keep uncovered claim forms at axis state UNKNOWN until source-grounded cases justify changes.",
+      "D3": "Do not add a generic shared metadata_axis_status primitive in this work unit; record states in non-canonical review artifacts.",
+      "D4": "Reuse existing source_epistemic enum; do not infer it from review_status or span verification.",
+      "D5": "Keep canonical mapping acceptance and Product consumer readiness as independent gates."
+    },
+    "requires_explicit_pi_response": false,
+    "canonical_approval": false,
+    "consumer_readiness": false,
+    "decision_status": "PI_ACCEPTED_D1_D5",
+    "decision_date": "2026-10-29",
+    "response_literal": "D1–D5 全部接受，按建议继续。"
+  },
+  "invariants": {
+    "canonical_ontology_ids_assigned": false,
+    "accepted_mappings_created": false,
+    "production_schema_changed": false,
+    "product_runtime_or_kib_changed": false,
+    "probability_status": "UNKNOWN",
+    "empirical_predictive_validity_claimed": false
+  },
+  "pi_decision_record": {
+    "record_id": "PI-DECISION-CORE-841-2026-10-29",
+    "record_status": "PI_DECISIONS_RECORDED",
+    "response_literal": "D1–D5 全部接受，按建议继续。",
+    "decisions": {
+      "D1": "ACCEPT_ORTHOGONAL_AXES",
+      "D2": "ACCEPT_NONEXHAUSTIVE_OUTPUT_KIND_WITH_UNKNOWN_GAPS",
+      "D3": "DEFER_GLOBAL_METADATA_AXIS_STATUS_PRIMITIVE",
+      "D4": "REUSE_SOURCE_EPISTEMIC_ENUM_WITHOUT_INFERENCE",
+      "D5": "KEEP_CANONICAL_MAPPING_AND_CONSUMER_READINESS_AS_SEPARATE_GATES"
+    },
+    "authorizes": {
+      "minimum_review_contract_guidance": true,
+      "wp06c_formal_mapping_review_to_proceed_under_existing_gates": true
+    },
+    "does_not_authorize": {
+      "canonical_ontology_ids": false,
+      "individual_canonical_mappings": false,
+      "production_schema_change": false,
+      "product_kib_runtime_consumption": false,
+      "probabilities_or_numeric_strength": false,
+      "empirical_predictive_validity": false
+    }
+  }
+}
