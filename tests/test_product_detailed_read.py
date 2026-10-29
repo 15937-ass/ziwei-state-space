@@ -8,7 +8,7 @@ from src.product.detailed_read import (
     build_detailed_read_plan,
     continuation_for_detailed_slot,
 )
-from src.product.quickread_main_reader import DOMAIN_PALACE
+from src.product.quickread_main_reader import DOMAIN_PALACE, _normalize_domain, _palace_code
 
 
 MAIN_SHA = "a" * 40
@@ -161,6 +161,12 @@ def test_detailed_read_contract_requires_cross_domain_and_cautious_synthesis():
 def test_children_domain_is_part_of_quickread_reader_discovery_surface():
     assert DOMAIN_PALACE["children"] == ("P04", "children")
     assert DOMAIN_PALACE["子女宫"] == ("P04", "children")
+    assert _normalize_domain("children") == "children"
+    assert _normalize_domain("子女宫") == "children"
+    assert _palace_code("children") == "P04"
+    # Adding P04 must not break normalization/scanning for existing domains.
+    assert _palace_code("wealth") == "P05"
+    assert _palace_code("career") == "P09"
 
 
 def test_plan_serialization_exposes_private_chat_delivery_contract():
