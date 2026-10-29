@@ -271,6 +271,45 @@ class DetailedReadPlan:
     def retrieval_slots(self) -> tuple[QuickReadScopeSlot, ...]:
         return (*self.natal_slots, *self.temporal_slots)
 
+    def retrieval_batches(self) -> tuple[dict[str, Any], ...]:
+        """Return staged, deduplicated retrieval work for private-chat delivery."""
+
+        section_by_id = {item.section_id: item for item in self.sections}
+        natal_by_domain = {item.domain: item for item in self.natal_slots}
+        seen_slot_ids: set[str] = set()
+        batches: list[dict[str, Any]] = []
+        for stage in DELIVERY_STAGES:
+            slot_ids: list[str] = []
+            for section_id in stage["section_ids"]:
+                section = section_by_id.get(section_id)
+                if section is None:
+                    raise ValueError(
+                        f"delivery stage references an unknown section: {section_id}"
+                    )
+                for domain in section.domains:
+                    slot_id = natal_by_domain[domain].slot_id
+                    if slot_id not in seen_slot_ids:
+                        seen_slot_ids.add(slot_id)
+                        slot_ids.append(slot_id)
+            if stage["stage_id"] == "stage_4_environment_health_time":
+                for slot in self.temporal_slots:
+                    if slot.slot_id not in seen_slot_ids:
+                        seen_slot_ids.add(slot.slot_id)
+                        slot_ids.append(slot.slot_id)
+            if slot_ids:
+                batches.append(
+                    {
+                        "stage_id": stage["stage_id"],
+                        "slot_ids": tuple(slot_ids),
+                    }
+                )
+
+        expected = {slot.slot_id for slot in self.retrieval_slots}
+        if seen_slot_ids != expected:
+            missing = sorted(expected - seen_slot_ids)
+            raise ValueError(f"DetailedRead retrieval schedule missed slots: {missing}")
+        return tuple(batches)
+
     def request_for_slot(
         self,
         slot_id: str,
@@ -309,6 +348,13 @@ class DetailedReadPlan:
                 for item in CROSS_DOMAIN_CHECKS
             ],
             "verbalizer_instructions": list(VERBALIZER_INSTRUCTIONS),
+            "retrieval_batches": [
+                {
+                    "stage_id": item["stage_id"],
+                    "slot_ids": list(item["slot_ids"]),
+                }
+                for item in self.retrieval_batches()
+            ],
             "delivery": {
                 "multi_turn_preferred": True,
                 "stages": [
