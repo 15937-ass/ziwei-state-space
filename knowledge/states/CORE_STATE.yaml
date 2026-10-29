@@ -7,17 +7,17 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "IDLE"
-  active_issue: null
-  active_branch: null
-  active_pr: null
-  base_main_sha: null
-  stage: "BOUNDED_RESEARCH_COMPLETED_NO_AUTOMATIC_SUCCESSOR"
+  status: "ACTIVE"
+  active_issue: 841
+  active_branch: "knowledge/core-841-option-c-minimal-contract-closure-resync"
+  active_pr: 847
+  base_main_sha: "73408788df904f3d34e4131739d3d40cfa7c942e"
+  stage: "DRAFT_PR_OPEN_VALIDATION_PENDING_PI_REVIEW"
   last_completed_issue: 757
   last_completed_pr: 783
   closure_effective_on: "PR_783_MERGED_TO_MAIN"
-  resume_entry: "Issue #757 is closed after candidate-research acceptance. Read its final handoff and research_closure before any new Core task. Live main is authoritative; base_main_sha stays null while execution.status is IDLE and is set only when a new active work unit is created. Residual source gaps and QI/QR candidates remain unresolved/held; no automatic canonical mapping or Product consumption."
-  next_work_unit: null
+  resume_entry: "Continue live Issue #841 / PR #847. Draft proposal-only Option C contract review is open; validate the exact PR head and update the evidence record only from observed workflow results. Do not freeze canonical values, accept mappings, alter production schema, or authorize Product consumption. Live Issue/PR override this recovery cache."
+  next_work_unit: "KB-CORE-WP06B-OPTION-C-MINIMAL-CONTRACT-CLOSURE-01"
 
 integrity:
   shared_semantics_core_only: true
