@@ -1,0 +1,70 @@
+{
+  "schema_version": "0.2",
+  "artifact_id": "PRODUCT-MANIFESTATION-ADAPTER-CONTRACT-V0_2",
+  "work_unit": "PRODUCT_MANIFESTATION_ADAPTER_CONTRACT_HARDENING_V0_2",
+  "issue": 908,
+  "status": "BUILD_READY_FOR_VALIDATION",
+  "lane": "PRODUCT_ONLY",
+  "activation_main_commit": "a10939f14be3f96b2c1612ba1ff4f7e0dddc587b",
+  "scope": {
+    "included_gaps": [
+      "PG-001",
+      "PG-002",
+      "PG-003",
+      "PG-004",
+      "PG-005"
+    ],
+    "explicitly_out_of_scope": [
+      "PG-006",
+      "PG-007"
+    ]
+  },
+  "gap_resolution": [
+    {
+      "gap_id": "PG-001",
+      "contract": "CanonicalReviewAxis",
+      "result": "REPRESENTABLE_WITHOUT_AXIS_COLLAPSE",
+      "runtime_authorized": false
+    },
+    {
+      "gap_id": "PG-002",
+      "contract": "NodeAdapterEnvelopeV02 + MappingAdapterEnvelopeV02",
+      "result": "PROVENANCE_REVIEW_IDENTITY_SUPERSESSION_RETAINED",
+      "runtime_authorized": false
+    },
+    {
+      "gap_id": "PG-003",
+      "contract": "ActionPrerequisiteBinding",
+      "result": "BINDS_TO_A_T_ACTIONS_EXTERNAL_EXPLICIT_ONLY",
+      "chart_inference_allowed": false,
+      "runtime_authorized": false
+    },
+    {
+      "gap_id": "PG-004",
+      "contract": "ExecutionBoundaryV02",
+      "result": "READINESS_BLOCKERS_FORBIDDEN_INFERENCES_NEGATIVE_BOUNDARIES_RETAINED",
+      "runtime_authorized": false
+    },
+    {
+      "gap_id": "PG-005",
+      "contract": "separate source_epistemic / normalization_epistemic",
+      "result": "NO_EVIDENCE_TIER_COLLAPSE",
+      "runtime_authorized": false
+    }
+  ],
+  "production_boundary": {
+    "ontology_registry_population_allowed": false,
+    "mapping_registry_population_allowed": false,
+    "active_kib_promotion_allowed": false,
+    "runtime_execution_allowed": false,
+    "probability_claim_allowed": false,
+    "predictive_validity_claim_allowed": false
+  },
+  "implementation": {
+    "module": "src/product/manifestation_adapter_contract_v0_2.py",
+    "tests": "tests/test_product_manifestation_adapter_contract_v0_2.py",
+    "production_router_modified": false,
+    "production_ontology_adapter_modified": false,
+    "existing_v0_1_registry_modified": false
+  }
+}
