@@ -119,16 +119,25 @@ def test_ca05469_is_inferred_career_scene_not_personal_injury_event():
     assert "not evidence" in text or "不是" in text or "excludes" in text
 
 
-def test_node_identity_does_not_promote_mapping_execution_or_product():
+def test_node_identity_remains_non_executable_and_non_product_after_separate_mapping_gate():
     idx = load(INDEX)
-    assert idx["invariants"]["canonical_mapping_promotions"] == 0
+    # #874 established node identity only. #880 is a later, separately PI-authorized
+    # canonical-mapping gate; mapping acceptance must not retroactively imply execution
+    # or Product consumption.
+    assert idx["invariants"]["canonical_mapping_promotions"] == 3
     assert idx["invariants"]["executable_mappings"] == 0
     assert idx["invariants"]["product_registry_modified"] is False
     assert idx["invariants"]["product_consumption_authorized"] is False
     assert idx["invariants"]["universal_root_or_family_created"] is False
     assert idx["invariants"]["probability_status"] == "UNKNOWN"
+    expected_refs = {
+        "KMN-000001": ["KMM-000001"],
+        "KMN-000002": ["KMM-000002"],
+        "KMN-000003": ["KMM-000003"],
+    }
     for item in idx["nodes"]:
-        assert item["canonical_mapping_approved"] is False
+        assert item["canonical_mapping_approved"] is True
+        assert item["canonical_mapping_refs"] == expected_refs[item["manifestation_id"]]
         assert item["executable"] is False
         assert item["product_consumable"] is False
         assert item["probability_status"] == "UNKNOWN"

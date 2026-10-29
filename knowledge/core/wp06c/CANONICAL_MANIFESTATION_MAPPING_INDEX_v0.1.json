@@ -1,0 +1,60 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-CORE-CANONICAL-MANIFESTATION-MAPPING-INDEX",
+  "version": "0.1",
+  "status": "PARTIAL_CANONICAL_KNOWLEDGE",
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "CORE",
+  "work_unit": "KB-CORE-WP06C-P09-FIRST-CANONICAL-MAPPINGS-01",
+  "issue": 880,
+  "schema_ref": "knowledge/core/wp06c/CANONICAL_MANIFESTATION_MAPPING_SCHEMA_v0.1.json",
+  "id_policy_ref": "knowledge/core/wp06c/CANONICAL_MANIFESTATION_MAPPING_ID_POLICY_v0.1.json",
+  "authority_ref": "PI-AUTH-CORE-880-2026-10-29",
+  "coverage": {
+    "scope": "P09 first three source-reviewed + target-reviewed relations",
+    "complete": false,
+    "canonical_mapping_count": 3,
+    "next_allocatable_id": "KMM-000004"
+  },
+  "mappings": [
+    {
+      "mapping_id": "KMM-000001",
+      "path": "knowledge/core/wp06c/canonical_mappings/KMM-000001.json",
+      "primary_source_rule_id": "CA01-035",
+      "manifestation_id": "KMN-000001",
+      "execution_readiness": "BLOCKED_SEMANTIC",
+      "executable": false,
+      "product_consumable": false,
+      "probability_status": "UNKNOWN"
+    },
+    {
+      "mapping_id": "KMM-000002",
+      "path": "knowledge/core/wp06c/canonical_mappings/KMM-000002.json",
+      "primary_source_rule_id": "CA01-045",
+      "manifestation_id": "KMN-000002",
+      "execution_readiness": "BLOCKED_EXTERNAL_PREREQUISITE",
+      "executable": false,
+      "product_consumable": false,
+      "probability_status": "UNKNOWN"
+    },
+    {
+      "mapping_id": "KMM-000003",
+      "path": "knowledge/core/wp06c/canonical_mappings/KMM-000003.json",
+      "primary_source_rule_id": "CA05-469",
+      "manifestation_id": "KMN-000003",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "executable": false,
+      "product_consumable": false,
+      "probability_status": "UNKNOWN"
+    }
+  ],
+  "invariants": {
+    "canonical_mapping_promotions": 3,
+    "executable_mappings": 0,
+    "product_registry_modified": false,
+    "product_consumption_authorized": false,
+    "universal_root_or_family_created": false,
+    "probability_status": "UNKNOWN",
+    "empirical_predictive_validity_claimed": false
+  }
+}
