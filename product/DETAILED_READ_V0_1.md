@@ -39,6 +39,8 @@ career / property / fortune / parents
 
 Retrieval is atomic by domain/time-layer slot. Sections may reuse a domain, but that does not duplicate retrieval identity.
 
+The planner also emits staged retrieval batches aligned to the private-chat delivery order. Stage 1 only needs the domains required for overview/disposition; later stages add previously unseen domains. Optional temporal slots are deferred until the environment/health/time stage. Therefore “full chart” does not mean “fetch all twelve domains before the first reply.”
+
 ## 4. User-facing sections
 
 DetailedRead organizes the private-chat reading as:
