@@ -29,7 +29,9 @@ Therefore **the C1 threshold is reached and the next Core work unit should be C3
 Product #906 may consume only accepted main checkpoints. This branch does not authorize Product to consume 15/15 before merge. Production manifestation registries, active KIB, runtime authority, probability and predictive-validity state remain unchanged.
 
 ## Recovery cache
-This branch also repairs canonical Core recovery cache history to last completed #898 / PR #904 and next nominee #907, while retaining IDLE/READY_TO_ADMIT cache semantics. Live Issue #907 / PR #909 remains execution truth during ACTIVE_BUILD.
+The build gate exposed a repository-ownership conflict: advancing `knowledge/states/CORE_STATE.yaml` requires the existing governance regression `tests/test_governance_core_product_continuation.py` to advance with it, but Core branches are forbidden from modifying that governance-owned test. The attempted cache/test change was therefore reverted byte-for-byte to main.
+
+Live Issue #907 / PR #909 and plan pointer #901 remain execution truth and outrank the stale recovery cache. Cache migration is recorded as a governance-owned follow-up; this Core unit does not bypass write isolation to repair it.
 
 ## Validation identity
 Activation main: `4e41074d351a720a639cb702d2ce100c44aa5ca1`.
