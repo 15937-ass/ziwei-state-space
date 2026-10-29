@@ -1,5 +1,4 @@
 from pathlib import Path
-import re
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -28,17 +27,13 @@ def test_core_product_continuation_plan_is_durable_and_discoverable():
     assert "core_plan_pointer_issue: 901" in project
 
 
-def test_product_state_points_to_advancing_bounded_nominee():
+def test_product_state_points_to_first_bounded_nominee():
     state = (ROOT / "product/PRODUCT_STATE.yaml").read_text(encoding="utf-8")
     assert 'continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md"' in state
     assert "plan_pointer_issue: 900" in state
-
-    issue = re.search(r"^  next_issue:\s*(\d+)$", state, re.M)
-    work = re.search(r'^  continuation_next_work_unit:\s*"([^"]+)"$', state, re.M)
-    status = re.search(r'^  next_work_status:\s*"([^"]+)"$', state, re.M)
-    assert issue and int(issue.group(1)) >= 897
-    assert work and work.group(1).startswith("PRODUCT_MANIFESTATION_")
-    assert status and status.group(1) in {"READY_TO_ADMIT", "ACTIVE_BUILD", "COMPLETED"}
+    assert "next_issue: 897" in state
+    assert 'continuation_next_work_unit: "PRODUCT_MANIFESTATION_CROSSWALK_PILOT_V0_1"' in state
+    assert 'next_work_status: "READY_TO_ADMIT"' in state
 
 
 def test_core_state_is_repaired_and_points_to_first_bounded_nominee():
