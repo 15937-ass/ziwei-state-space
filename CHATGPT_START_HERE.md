@@ -86,3 +86,5 @@
 当 PI 说“推进宫位线”“推进Core线”“推进产品线”，或询问如何用多个对话按顺序工作时，按第 3 节恢复后读取 [三线推进操作卡](governance/THREE_STREAM_START_HERE.md)，只接续所选线的一个有界单元。卡中保留三段可复制启动指令、既定安排的依赖顺序、同线旧对话交接与停止规则；实时 Issue/PR 和 main 仍是执行与接受依据。不要把打开新对话、空槽位或计划顺序当作新任务/语义授权。
 
 “查看三线状态”仅执行 AGENT_WORKFLOW.md 第 13 节要求的只读三线汇报，不启动新任务。三个入口不改变 Core/Product 各 1、一次一个宫位和正式集成串行的现行约束；常态运行目标是“1 个宫位 + 1 个 Core + 1 个 Product”并行生产，正式合入通过 Issue #888 的 Integration Lease 串行完成。普通无关任务无需加载操作卡。
+
+对 **Core / Product** 的持续推进，另有 PI 已批准的 `governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md`：Core plan pointer 为 #901、当前首个 bounded nominee 为 #898；Product plan pointer 为 #900、当前首个 bounded nominee 为 #897。若用户只说“推进Core线/继续Core”或“推进产品线/继续产品线”，恢复实时 Issue/PR 后：有 ACTIVE 单就接续；无 ACTIVE 单且槽位/依赖满足，就直接按相应 plan pointer 领取最早可执行 nominee，不要求用户重述规划。完成当前 bounded unit 后不要在同一回合自动执行下一单，但必须留下下一 nominee/交接，保证下一次“继续”可直接恢复。
