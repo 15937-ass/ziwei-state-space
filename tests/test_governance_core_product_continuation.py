@@ -32,7 +32,7 @@ def test_product_state_points_to_first_bounded_nominee():
     assert 'continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md"' in state
     assert "plan_pointer_issue: 900" in state
     assert "next_issue: 897" in state
-    assert 'next_work_unit: "PRODUCT_MANIFESTATION_CROSSWALK_PILOT_V0_1"' in state
+    assert 'continuation_next_work_unit: "PRODUCT_MANIFESTATION_CROSSWALK_PILOT_V0_1"' in state
     assert 'next_work_status: "READY_TO_ADMIT"' in state
 
 
