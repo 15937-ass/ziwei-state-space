@@ -1,0 +1,319 @@
+{
+  "schema_version": "wp07b_gap006_group_favorability_source_audit_v0.1",
+  "issue": 922,
+  "status": "PROPOSAL_AUDIT_ONLY_NOT_EXECUTABLE",
+  "verdict": "SHARED_DESCRIPTIVE_TAXONOMY_ONLY",
+  "activation_main": "25f69fcac2af901f7898ea2fb2899f26ca5b815c",
+  "governing_semantics": {
+    "proposal": "knowledge/proposals/419-response-semantics-v0.1.md",
+    "decision": "APPROVED_BOUNDED_SCHEMA_ONLY",
+    "invariants": [
+      "GROUP_MEMBERSHIP_SEPARATE_FROM_ACTIVATION",
+      "RELATION_SEPARATE_FROM_GROUP",
+      "INTERACTION_SEPARATE_FROM_GROUP",
+      "UNSPECIFIED_PRESERVED",
+      "NO_GLOBAL_ANY_OR_ALL_DEFAULT",
+      "NO_NUMERIC_MAGNITUDE_OR_PROBABILITY"
+    ]
+  },
+  "taxonomy": [
+    {
+      "id": "CATEGORY_REFERENCE_SCOPE_OR_ACTIVATION",
+      "meaning": "source references a star/transformation category; membership scope and activation cardinality remain separately governed",
+      "executable": false
+    },
+    {
+      "id": "SOURCE_COMPOUND_CATEGORY",
+      "meaning": "source phrase combines category/components but internal AND/OR/cardinality is not invented",
+      "executable": false
+    },
+    {
+      "id": "QUALITATIVE_SEVERITY",
+      "meaning": "source uses qualitative light/heavy or similar modifier without numeric threshold",
+      "executable": false
+    },
+    {
+      "id": "PERIOD_VALENCE_OR_SUPPORT",
+      "meaning": "source evaluates a whole period/context as good/bad/supportive without an independent reusable criterion",
+      "executable": false
+    },
+    {
+      "id": "OPEN_VALENCE_SHORTHAND",
+      "meaning": "plain 吉/凶 is an evaluative shorthand and is not automatically a star-member set",
+      "executable": false
+    }
+  ],
+  "scope_findings": {
+    "career_category_lexicon": "knowledge/category/CATEGORY_OPEN_LEXICON_v0.1.json",
+    "career_scope_only": true,
+    "property_scoped_category_lexicon_found": false,
+    "cross_palace_globalization_authorized": false,
+    "notes": [
+      "Career lexicon treats 吉曜 as OPEN_WORLD.",
+      "Career lexicon can represent 吉化 as a source-supported favorable-transformation class within its accepted scope.",
+      "Career lexicon represents 煞忌 / 吉化吉曜 as source compounds and keeps activation/cardinality unspecified.",
+      "No P10/Property scoped category lexicon was found; #922 does not copy Career closure into Property."
+    ]
+  },
+  "evidence": [
+    {
+      "id": "G006-E01",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫 printed p147",
+      "rule_id": "CA06-580",
+      "source_surface": "前格流年大运良好",
+      "semantic_class": "PERIOD_VALENCE_OR_SUPPORT",
+      "judgement_target": "DECADE_OR_YEAR_CONTEXT",
+      "membership_status": "NOT_APPLICABLE",
+      "activation_status": "NOT_APPLICABLE",
+      "independent_criterion_defined": false,
+      "remaining_blockers": [
+        "FAVORABLE_PERIOD_CRITERION_UNDEFINED",
+        "DECADE_YEAR_SCOPE_NOT_SINGLE_LAYER"
+      ],
+      "executable": false
+    },
+    {
+      "id": "G006-E02",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫 printed p148",
+      "rule_id": "CA06-600",
+      "source_surface": "前格；必须大运或流年配合",
+      "semantic_class": "PERIOD_VALENCE_OR_SUPPORT",
+      "judgement_target": "DECADE_OR_YEAR_SUPPORT_CONTEXT",
+      "membership_status": "NOT_APPLICABLE",
+      "activation_status": "NOT_APPLICABLE",
+      "independent_criterion_defined": false,
+      "remaining_blockers": [
+        "SUPPORT_CRITERION_UNDEFINED",
+        "INHERITED_ANTECEDENT",
+        "DECADE_YEAR_SCOPE_NOT_SINGLE_LAYER"
+      ],
+      "executable": false
+    },
+    {
+      "id": "G006-E03",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "事业宫 printed p155",
+      "rule_id": "CA09-867",
+      "source_surface": "于年限不佳时",
+      "semantic_class": "PERIOD_VALENCE_OR_SUPPORT",
+      "judgement_target": "PERIOD_CONTEXT",
+      "membership_status": "NOT_APPLICABLE",
+      "activation_status": "NOT_APPLICABLE",
+      "independent_criterion_defined": false,
+      "remaining_blockers": [
+        "UNFAVORABLE_PERIOD_CRITERION_UNDEFINED",
+        "OUTCOME_TO_CONDITION_CIRCULARITY_FORBIDDEN"
+      ],
+      "executable": false
+    },
+    {
+      "id": "G006-E04",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "田宅宫 printed p157",
+      "rule_id": "TP01-045",
+      "source_surface": "前格煞重",
+      "semantic_class": "QUALITATIVE_SEVERITY",
+      "judgement_target": "MALEFIC_LOAD_IN_INHERITED_CONTEXT",
+      "membership_status": "CATEGORY_REFERENCE_CONTEXTUAL",
+      "activation_status": "UNSPECIFIED",
+      "threshold_status": "QUALITATIVE_ONLY_NO_NUMERIC_THRESHOLD",
+      "remaining_blockers": [
+        "SEVERITY_THRESHOLD_UNDEFINED",
+        "PARENT_ANTECEDENT_REQUIRED",
+        "DECADE_YEAR_SCOPE"
+      ],
+      "executable": false
+    },
+    {
+      "id": "G006-E05",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "田宅宫 printed p157",
+      "rule_id": "TP01-049",
+      "source_surface": "有吉曜、吉化，见天喜或红鸾，有流昌流曲入度",
+      "semantic_class": "CATEGORY_REFERENCE_SCOPE_OR_ACTIVATION",
+      "judgement_target": "SOURCE_CONDITION",
+      "membership_status": "MIXED_OPEN_AND_SOURCE_SUPPORTED_COMPONENTS",
+      "activation_status": "UNSPECIFIED",
+      "composition_status": "EXPLICIT_MULTI_COMPONENT_CONDITION_PRESERVE_CLAUSE_STRUCTURE",
+      "remaining_blockers": [
+        "吉曜_OPEN",
+        "CATEGORY_ACTIVATION_UNSPECIFIED",
+        "COMPOUND_CONDITION_NOT_EXACT"
+      ],
+      "executable": false
+    },
+    {
+      "id": "G006-E06",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "田宅宫 printed p160",
+      "rule_id": "TP02-165",
+      "source_surface": "流年天同见煞忌",
+      "semantic_class": "SOURCE_COMPOUND_CATEGORY",
+      "judgement_target": "YEAR_CONDITION",
+      "membership_status": "COMPOUND_COMPONENTS_RECOGNIZABLE_NOT_FLATTENED",
+      "activation_status": "UNSPECIFIED",
+      "composition_status": "UNSPECIFIED_SOURCE_BUNDLE",
+      "remaining_blockers": [
+        "COMPOUND_OPERATOR_UNSPECIFIED",
+        "CATEGORY_ACTIVATION_UNSPECIFIED"
+      ],
+      "executable": false
+    },
+    {
+      "id": "G006-E07",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "田宅宫 printed p160",
+      "rule_id": "TP02-166",
+      "source_surface": "流年天同见吉化吉曜",
+      "semantic_class": "SOURCE_COMPOUND_CATEGORY",
+      "judgement_target": "YEAR_CONDITION",
+      "membership_status": "吉化_SOURCE_SUPPORTED_COMPONENT;吉曜_OPEN",
+      "activation_status": "UNSPECIFIED",
+      "composition_status": "SOURCE_COMPOUND_PRESERVED",
+      "remaining_blockers": [
+        "吉曜_OPEN",
+        "CATEGORY_ACTIVATION_UNSPECIFIED",
+        "COMPOUND_CARDINALITY_UNSPECIFIED"
+      ],
+      "executable": false
+    },
+    {
+      "id": "G006-E08",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "田宅宫 printed p161",
+      "rule_id": "TP02-175",
+      "source_surface": "流年及小限吉，又见红鸾、天喜",
+      "semantic_class": "PERIOD_VALENCE_OR_SUPPORT",
+      "judgement_target": "YEAR_AND_SMALL_LIMIT_CONTEXT",
+      "membership_status": "NOT_APPLICABLE_FOR_吉_VALENCE",
+      "activation_status": "NOT_APPLICABLE",
+      "independent_criterion_defined": false,
+      "remaining_blockers": [
+        "YEAR_SMALL_LIMIT_COMPOUND_SCOPE",
+        "GOOD_PERIOD_CRITERION_UNDEFINED"
+      ],
+      "executable": false
+    },
+    {
+      "id": "G006-E09",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "田宅宫 printed p162",
+      "rule_id": "TP03-233",
+      "source_surface": "流年太阴落陷、化忌、见煞",
+      "semantic_class": "CATEGORY_REFERENCE_SCOPE_OR_ACTIVATION",
+      "judgement_target": "YEAR_CONDITION",
+      "membership_status": "SOURCE_CATEGORY_REFERENCE_SCOPE_NOT_GLOBALIZED_BY_THIS_AUDIT",
+      "activation_status": "UNSPECIFIED",
+      "remaining_blockers": [
+        "BRIGHTNESS_FACT_UNAVAILABLE",
+        "CATEGORY_ACTIVATION_UNSPECIFIED"
+      ],
+      "executable": false
+    },
+    {
+      "id": "G006-E10",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "田宅宫 printed p163",
+      "rule_id": "TP03-248",
+      "source_surface": "前格见吉",
+      "semantic_class": "OPEN_VALENCE_SHORTHAND",
+      "judgement_target": "PRECEDING_CASE_CONTEXT",
+      "membership_status": "NOT_A_STAR_MEMBER_LIST",
+      "activation_status": "UNSPECIFIED",
+      "remaining_blockers": [
+        "PARENT_CASE_SUPPORT_ONLY",
+        "PATH_DEPENDENT_GATE",
+        "吉_VALENCE_CRITERION_UNDEFINED"
+      ],
+      "executable": false
+    },
+    {
+      "id": "G006-E11",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "田宅宫 printed p165",
+      "rule_id": "TP04-355",
+      "source_surface": "流年田宅宫见破军入庙，又有吉曜",
+      "semantic_class": "CATEGORY_REFERENCE_SCOPE_OR_ACTIVATION",
+      "judgement_target": "YEAR_CONDITION",
+      "membership_status": "吉曜_OPEN_WORLD",
+      "activation_status": "UNSPECIFIED",
+      "remaining_blockers": [
+        "BRIGHTNESS_FACT_UNAVAILABLE",
+        "吉曜_MEMBERSHIP_OPEN",
+        "CATEGORY_ACTIVATION_UNSPECIFIED"
+      ],
+      "executable": false
+    },
+    {
+      "id": "G006-E12",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "田宅宫 printed p165",
+      "rule_id": "TP04-356",
+      "source_surface": "流年田宅宫破军落陷见煞",
+      "semantic_class": "CATEGORY_REFERENCE_SCOPE_OR_ACTIVATION",
+      "judgement_target": "YEAR_CONDITION",
+      "membership_status": "CATEGORY_REFERENCE_SCOPE_NOT_GLOBALIZED_BY_THIS_AUDIT",
+      "activation_status": "UNSPECIFIED",
+      "remaining_blockers": [
+        "BRIGHTNESS_FACT_UNAVAILABLE",
+        "CATEGORY_ACTIVATION_UNSPECIFIED"
+      ],
+      "executable": false
+    }
+  ],
+  "gap_disposition": {
+    "gap_id": "WP07B-GAP-006-GROUP-OR-FAVORABILITY",
+    "disposition": "DESCRIPTIVE_TAXONOMY_CLARIFIED_EXECUTABLE_HOLD",
+    "impacted_rule_count": 12,
+    "impacted_rule_ids": [
+      "CA06-580",
+      "CA06-600",
+      "CA09-867",
+      "TP01-045",
+      "TP01-049",
+      "TP02-165",
+      "TP02-166",
+      "TP02-175",
+      "TP03-233",
+      "TP03-248",
+      "TP04-355",
+      "TP04-356"
+    ],
+    "runtime_semantics_added": false
+  },
+  "human_gate": {
+    "gate_candidate_id": "HG-WP07B-FAVORABILITY-AND-GROUPS-01",
+    "status": "FUTURE_NOT_PENDING",
+    "required_now": false,
+    "trigger_only_if": [
+      "UNIVERSAL_CLOSED_GROUP_MEMBERSHIP_PROPOSED",
+      "UNIVERSAL_GROUP_ACTIVATION_DEFAULT_PROPOSED",
+      "UNIVERSAL_PERIOD_VALENCE_OR_SUPPORT_PREDICATE_PROPOSED",
+      "NUMERIC_SEVERITY_SCORE_WEIGHT_PROBABILITY_OR_CAUSAL_SEMANTICS_PROPOSED",
+      "PRODUCT_RUNTIME_AUTHORIZATION_PROPOSED"
+    ]
+  },
+  "forbidden_inferences": [
+    "吉曜 has one universal closed member list",
+    "Career-scoped category closure applies automatically to Property/P10",
+    "group membership implies ANY member activation",
+    "group membership implies ALL member activation",
+    "煞重 has a numeric threshold",
+    "吉化吉曜 or 煞忌 has an unstated AND/OR operator",
+    "良好/不佳/吉 defines a reusable period predicate without independent source criteria",
+    "predicted outcome may be reused to define favorable/unfavorable period",
+    "descriptive classification authorizes Product/runtime execution"
+  ],
+  "guardrails": {
+    "product_modified": false,
+    "runtime_modified": false,
+    "canonical_kmn_kmm_modified": false,
+    "probability_added": false,
+    "numeric_score_added": false,
+    "closed_world_negation_added": false,
+    "persistence_clock_added": false,
+    "cross_school_sources_added": false
+  }
+}
