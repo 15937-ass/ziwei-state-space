@@ -506,7 +506,7 @@ def test_source_batch_limit_is_first_pass_budget_and_reports_continuation():
         _request(), fetch_bytes=fetch, source_items_per_slot=5
     )
     assert len(first.evidence_items) == 5
-    assert first.reader_report["aggregate_source_ledger_counts"]["records_selected_pre_limit"] == 15
+    assert first.reader_report["aggregate_source_ledger_counts"]["records_eligible_pre_batch"] == 15
     assert first.reader_report["source_batch_limit_per_slot"] == 5
     assert first.reader_report["source_items_total_eligible_by_slot"]["relationship_natal"] == 15
     assert first.reader_report["source_items_already_seen_by_slot"]["relationship_natal"] == 0
