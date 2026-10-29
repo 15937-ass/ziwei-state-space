@@ -6,25 +6,25 @@ canonical_branch: "main"
 execution:
   status: "ACTIVE"
   phase: "PL3_METHOD_RESPONSE_VERTICAL_SLICE"
-  active_issue: 908
-  active_pr: 913
+  active_issue: 916
+  active_pr: 917
   continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md"
   plan_pointer_issue: 900
-  next_issue: 908
+  next_issue: 916
   next_work_unit: "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"
-  continuation_next_work_unit: "PRODUCT_MANIFESTATION_ADAPTER_CONTRACT_HARDENING_V0_2"
+  continuation_next_work_unit: "PRODUCT_MANIFESTATION_STRUCTURED_CONDITION_TEMPORAL_BINDING_V0_1"
   next_work_status: "ACTIVE_BUILD"
-  resume_entry: "Product #908 adapter contract hardening v0.2 is ACTIVE_BUILD on product/908-manifestation-adapter-contract-v0-2 / PR #913. Scope is PG-001..PG-005 only; PG-006/PG-007 remain separate follow-up. Existing production manifestation registries/KIB/runtime/probability remain fail-closed."
-  state_cache_as_of_main_commit: "a10939f14be3f96b2c1612ba1ff4f7e0dddc587b"
-  state_cache_as_of_product_merge: "a10939f14be3f96b2c1612ba1ff4f7e0dddc587b"
+  resume_entry: "Product #916 structured condition + temporal-layer binding is ACTIVE_BUILD on product/916-structured-condition-temporal-binding-v0-1 / PR #917. Scope is PG-006/PG-007 only: preserve source-explicit OR, opposite-palace dependency and DECADE_YEAR dual-layer binding. Core #912 is unmerged/independent and must not be consumed until accepted main. Production registries/KIB/runtime/probability remain fail-closed."
+  state_cache_as_of_main_commit: "72f668ac33097ad2a58f8ef8cdc0e52271e44e32"
+  state_cache_as_of_product_merge: "72f668ac33097ad2a58f8ef8cdc0e52271e44e32"
   state_cache_snapshot_date: "2026-10-29"
   v04_entry_checkpoint_issue: 416
   v04_entry_checkpoint_pr: 418
-  last_completed_product_issue: 906
-  last_completed_product_pr: 910
+  last_completed_product_issue: 908
+  last_completed_product_pr: 913
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
-  resume_issue: 908
+  resume_issue: 916
   roadmap: "PRODUCT_ROADMAP.md#v0.4"
   execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
 
@@ -186,7 +186,7 @@ capability_snapshot:
 
 critical_path:
   now:
-    - "PRODUCT_MANIFESTATION_ADAPTER_CONTRACT_HARDENING_V0_2"
+    - "PRODUCT_MANIFESTATION_STRUCTURED_CONDITION_TEMPORAL_BINDING_V0_1"
     - "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"
     - "FORECAST_LEDGER_ACTIVATION"
   future:
