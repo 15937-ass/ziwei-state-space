@@ -1,0 +1,82 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "PRODUCT-MANIFESTATION-CONDITION-BINDING-FIXTURES-V0_1",
+  "work_unit": "PRODUCT_MANIFESTATION_STRUCTURED_CONDITION_TEMPORAL_BINDING_V0_1",
+  "issue": 916,
+  "status": "BUILD_FIXTURE",
+  "lane": "PRODUCT_ONLY",
+  "activation_main_commit": "72f668ac33097ad2a58f8ef8cdc0e52271e44e32",
+  "source_policy": "CURATED_EXACT_ACCEPTED_MAPPING_ONLY_NO_FREE_TEXT_DISCOVERY",
+  "fixtures": [
+    {
+      "fixture_id": "MCB-KMM-000007-V01",
+      "mapping_id": "KMM-000007",
+      "source_condition_text": "辰戌宫破军；对宫[紫微天相]",
+      "condition_kind": "CROSS_PALACE_DEPENDENCY",
+      "condition": {
+        "relation": "OPPOSITE_PALACE",
+        "context_text": "辰戌宫破军",
+        "dependency_text": "对宫[紫微天相]"
+      },
+      "temporal_binding": {
+        "source_time_layer": "NATAL",
+        "required_scopes": [
+          "NATAL"
+        ],
+        "binding_mode": "EXACT_DECLARED_SCOPES",
+        "event_outcome_inference_allowed": false
+      },
+      "schema_version": "0.1"
+    },
+    {
+      "fixture_id": "MCB-KMM-000008-V01",
+      "mapping_id": "KMM-000008",
+      "source_condition_text": "子午宫破军；廉贞化忌，或天相为刑忌所夹",
+      "condition_kind": "ALTERNATIVES",
+      "condition": {
+        "operator": "OR",
+        "source_operator_token": "或",
+        "context_text": "子午宫破军",
+        "alternatives": [
+          "廉贞化忌",
+          "天相为刑忌所夹"
+        ]
+      },
+      "temporal_binding": {
+        "source_time_layer": "NATAL",
+        "required_scopes": [
+          "NATAL"
+        ],
+        "binding_mode": "EXACT_DECLARED_SCOPES",
+        "event_outcome_inference_allowed": false
+      },
+      "schema_version": "0.1"
+    },
+    {
+      "fixture_id": "MCB-KMM-000009-V01",
+      "mapping_id": "KMM-000009",
+      "source_condition_text": "辰戌宫破军；七杀、贪狼、[紫相]、[天机巨门]宫垣",
+      "condition_kind": "SOURCE_TEXT_ONLY",
+      "condition": {
+        "source_text": "辰戌宫破军；七杀、贪狼、[紫相]、[天机巨门]宫垣"
+      },
+      "temporal_binding": {
+        "source_time_layer": "DECADE_YEAR",
+        "required_scopes": [
+          "DECADE",
+          "YEAR"
+        ],
+        "binding_mode": "EXACT_DECLARED_SCOPES",
+        "event_outcome_inference_allowed": false
+      },
+      "schema_version": "0.1"
+    }
+  ],
+  "production_boundary": {
+    "production_registry_population_allowed": false,
+    "active_kib_promotion_allowed": false,
+    "runtime_execution_allowed": false,
+    "probability_claim_allowed": false,
+    "predictive_validity_claim_allowed": false
+  }
+}
