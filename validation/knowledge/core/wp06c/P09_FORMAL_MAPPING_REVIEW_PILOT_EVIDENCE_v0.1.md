@@ -1,6 +1,6 @@
 # Core #864 — P09 formal mapping-review pilot execution evidence
 
-Status: REVIEW_COMPLETED_VALIDATION_PENDING
+Status: REVIEW_COMPLETED_VALIDATION_PENDING_AFTER_STALE_HISTORICAL_REGRESSION_REPAIR
 
 ## Scope
 - Issue: #864
@@ -29,5 +29,16 @@ Status: REVIEW_COMPLETED_VALIDATION_PENDING
 ## Next gate
 The pilot can merge as non-canonical reviewed candidate material. Any next step that creates stable shared canonical ontology node identity or promotes an individual mapping to canonical status requires PI/Human Gate.
 
+## First exact-head validation observation
+
+- Run: `40816614824`.
+- Head: `210696ec02ebf3b92b2fb22882325872892409c6`.
+- Result: **FAIL at pytest only** — `2954 passed, 1 failed, 132 subtests passed`.
+- Sole failure: historical #757 closure regression still required `last_completed_issue: 757` in the live Core recovery cache.
+- This is stale after the accepted #841/#847 completion: #757 remains historically closed, while the latest completed Core unit legitimately advances.
+- Repair: keep #757's closure assertions in its immutable research-closure metadata, require that #757/#783 are not reactivated in the live recovery cache, and stop requiring them to remain the latest completed issue/PR.
+- No #864 mapping-review record, source boundary, D1–D5 semantic rule, or Product registry assertion failed.
+- Because pytest failed first, Product JS, P0, and Governance steps were skipped; no pass is claimed from this run.
+
 ## Final validation
-Pending exact current-main base/head full pytest, Product JS check, deterministic P0 and Governance v1.
+A fresh exact current-main base/head full pytest, Product JS check, deterministic P0 and Governance v1 is required after the historical-regression repair.
