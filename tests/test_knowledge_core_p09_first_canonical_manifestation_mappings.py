@@ -7,8 +7,7 @@ SCHEMA = ROOT / "knowledge/core/wp06c/CANONICAL_MANIFESTATION_MAPPING_SCHEMA_v0.
 POLICY = ROOT / "knowledge/core/wp06c/CANONICAL_MANIFESTATION_MAPPING_ID_POLICY_v0.1.json"
 INDEX = ROOT / "knowledge/core/wp06c/CANONICAL_MANIFESTATION_MAPPING_INDEX_v0.1.json"
 NODE_INDEX = ROOT / "knowledge/core/wp06b/CANONICAL_MANIFESTATION_NODE_INDEX_v0.1.json"
-PILOT = ROOT / "knowledge/core/wp06c/P09_FORMAL_MAPPING_REVIEW_PILOT_v0.1.json"
-BATCH_REVIEW_DIR = ROOT / "knowledge/core/wp06c"
+REVIEW_INDEX = ROOT / "knowledge/core/wp06c/CANONICAL_MAPPING_REVIEW_PROVENANCE_INDEX_v0.1.json"
 PRODUCT_MAPPING = ROOT / "product/PL3M_MANIFESTATION_MAPPING_REGISTRY_v0.1.json"
 PRODUCT_ONTOLOGY = ROOT / "product/PL3M_MANIFESTATION_ONTOLOGY_REGISTRY_v0.1.json"
 MAPPING_DIR = ROOT / "knowledge/core/wp06c/canonical_mappings"
@@ -75,13 +74,10 @@ def test_targets_exist_and_node_index_points_back_to_exactly_one_mapping():
 
 def test_review_refs_preserve_positive_and_negative_target_boundaries():
     _, rows = mappings()
-    pilot = load(PILOT)
-    review = {r["review_record_id"]: r for r in pilot["mapping_review_records"]}
-    batch_reviews = sorted(BATCH_REVIEW_DIR.glob("CANONICAL_MAPPING_DIVERSITY_BATCH_*_REVIEW_v0.1.json"))
-    assert batch_reviews
-    for batch_path in batch_reviews:
-        batch = load(batch_path)
-        review.update({r["review_record_id"]: r for r in batch["mapping_review_records"]})
+    provenance = load(REVIEW_INDEX)
+    assert provenance["semantic_authority"] is False
+    review = {r["review_record_id"]: r for r in provenance["entries"]}
+    assert len(review) == provenance["coverage"]["review_record_count"]
 
     for row in rows:
         for ref in row["review_refs"]["positive"]:

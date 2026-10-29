@@ -1,0 +1,594 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-CORE-CANONICAL-MAPPING-REVIEW-PROVENANCE-INDEX",
+  "status": "ACCEPTED_AUXILIARY_INDEX_NON_SEMANTIC",
+  "issue": 912,
+  "generated_from_main": "cadc98070a63cd4f76eaed1ace0f4ae182e75695",
+  "semantic_authority": false,
+  "purpose": "Resolve canonical mapping review_record_id references to their accepted review artifact without changing review meaning, disposition, mapping semantics, or schema.",
+  "generated_from": [
+    "knowledge/core/wp06c/P09_FORMAL_MAPPING_REVIEW_PILOT_v0.1.json",
+    "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_01_REVIEW_v0.1.json",
+    "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_02_REVIEW_v0.1.json"
+  ],
+  "invariants": {
+    "does_not_change_mapping_meaning": true,
+    "does_not_change_review_disposition": true,
+    "does_not_create_shared_semantic_primitive": true,
+    "does_not_authorize_product_or_runtime": true,
+    "probability_status": "UNKNOWN"
+  },
+  "coverage": {
+    "review_record_count": 30,
+    "artifact_count": 3,
+    "complete_for_accepted_kmm_000001_through_000015": true
+  },
+  "entries": [
+    {
+      "review_record_id": "MR-C1B1-P01727-CONDITIONAL-POS",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_01_REVIEW_v0.1.json",
+      "target_ref": "KMN-000008.canonical_target:stability",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=23#P01-727",
+        "knowledge/palaces/P01_life/wp05/LIFE_P08_SOURCE_READJUDICATION_701_800_v0.1.csv#P01-727"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B1-P01727-EVENT-NEG",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_01_REVIEW_v0.1.json",
+      "target_ref": "KMN-000008.rejected_target:specific_observed_failure_event",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=23#P01-727",
+        "knowledge/palaces/P01_life/wp05/LIFE_P08_SOURCE_READJUDICATION_701_800_v0.1.csv#P01-727"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B1-P01745-CROSSPALACE-POS",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_01_REVIEW_v0.1.json",
+      "target_ref": "KMN-000007.canonical_target:status",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=23-24#P01-745",
+        "knowledge/palaces/P01_life/wp05/LIFE_P08_SOURCE_READJUDICATION_701_800_v0.1.csv#P01-745"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B1-P01745-OFFICE-NEG",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_01_REVIEW_v0.1.json",
+      "target_ref": "KMN-000007.rejected_target:specific_office_income_or_authority_fact",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=23-24#P01-745",
+        "knowledge/palaces/P01_life/wp05/LIFE_P08_SOURCE_READJUDICATION_701_800_v0.1.csv#P01-745"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B1-P01750-EVENT-NEG",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_01_REVIEW_v0.1.json",
+      "target_ref": "KMN-000009.rejected_target:specific_event_or_valence_at_hinge",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=24#P01-750",
+        "knowledge/palaces/P01_life/wp05/LIFE_P08_SOURCE_READJUDICATION_701_800_v0.1.csv#P01-750"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B1-P01750-TEMPORAL-POS",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_01_REVIEW_v0.1.json",
+      "target_ref": "KMN-000009.canonical_target:timing",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=24#P01-750",
+        "knowledge/palaces/P01_life/wp05/LIFE_P08_SOURCE_READJUDICATION_701_800_v0.1.csv#P01-750"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B1-P01SG213-MODIFIER-POS",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_01_REVIEW_v0.1.json",
+      "target_ref": "KMN-000006.canonical_target:modifier",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=22#P01-SG-213",
+        "knowledge/palaces/P01_life/wp05/LIFE_P07_SOURCE_GAP_SUPPLEMENT_PP20_22_v0.1.csv#P01-SG-213"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B1-P01SG213-WEIGHT-NEG",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_01_REVIEW_v0.1.json",
+      "target_ref": "KMN-000006.rejected_target:numeric_modifier_weight_or_fixed_direction",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=22#P01-SG-213",
+        "knowledge/palaces/P01_life/wp05/LIFE_P07_SOURCE_GAP_SUPPLEMENT_PP20_22_v0.1.csv#P01-SG-213"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B1-P05SG002-EVENT-NEG",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_01_REVIEW_v0.1.json",
+      "target_ref": "KMN-000004.rejected_target:concrete_litigation_or_dispute_event",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=81#P05-SG-002",
+        "knowledge/palaces/P05_wealth/w05/WEALTH_W05_SOURCE_GAP_SUPPLEMENT_v0.1.csv#P05-SG-002"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B1-P05SG002-RISK-POS",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_01_REVIEW_v0.1.json",
+      "target_ref": "KMN-000004.canonical_target:risk",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=81#P05-SG-002",
+        "knowledge/palaces/P05_wealth/w05/WEALTH_W05_SOURCE_GAP_SUPPLEMENT_v0.1.csv#P05-SG-002"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B1-P05SG003-EVENT-NEG",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_01_REVIEW_v0.1.json",
+      "target_ref": "KMN-000005.rejected_target:guaranteed_poverty_or_fixed_wealth_event",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=81#P05-SG-003",
+        "knowledge/palaces/P05_wealth/w05/WEALTH_W05_SOURCE_GAP_SUPPLEMENT_v0.1.csv#P05-SG-003"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B1-P05SG003-STATE-POS",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_01_REVIEW_v0.1.json",
+      "target_ref": "KMN-000005.canonical_target:retention",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=81#P05-SG-003",
+        "knowledge/palaces/P05_wealth/w05/WEALTH_W05_SOURCE_GAP_SUPPLEMENT_v0.1.csv#P05-SG-003"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B2-P01SG169-EVENT-NEG",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_02_REVIEW_v0.1.json",
+      "target_ref": "KMN-000010.rejected_target:specific_observed_breakthrough_event",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=17#P01-SG-169",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv#P01-SG-169"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B2-P01SG169-TIMING-POS",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_02_REVIEW_v0.1.json",
+      "target_ref": "KMN-000010.canonical_target:timing",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=17#P01-SG-169",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv#P01-SG-169"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B2-P01SG175-CONTEXT-POS",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_02_REVIEW_v0.1.json",
+      "target_ref": "KMN-000011.canonical_target:context_preference",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=17#P01-SG-175",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv#P01-SG-175"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B2-P01SG175-FORCETIME-NEG",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_02_REVIEW_v0.1.json",
+      "target_ref": "KMN-000011.rejected_target:forced_decade_or_year_assignment",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=17#P01-SG-175",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv#P01-SG-175"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B2-P01SG180-EVENT-NEG",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_02_REVIEW_v0.1.json",
+      "target_ref": "KMN-000012.rejected_target:specific_dispute_travel_or_failure_event",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=18#P01-SG-180",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv#P01-SG-180"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B2-P01SG180-PROCESS-POS",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_02_REVIEW_v0.1.json",
+      "target_ref": "KMN-000012.canonical_target:development_process",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=18#P01-SG-180",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv#P01-SG-180"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B2-P01SG190-BRANCHMERGE-NEG",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_02_REVIEW_v0.1.json",
+      "target_ref": "KMN-000013.rejected_target:merged_scene_trigger_or_observed_occupation",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=18#P01-SG-190",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv#P01-SG-190"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B2-P01SG190-SCENE-POS",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_02_REVIEW_v0.1.json",
+      "target_ref": "KMN-000013.canonical_target:career_scene",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=18#P01-SG-190",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv#P01-SG-190"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B2-P02S137-CROSSPALACE-NEG",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_02_REVIEW_v0.1.json",
+      "target_ref": "KMN-000014.rejected_target:support_without_life_palace_exception_or_observed_helper",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=27#P02S-137",
+        "knowledge/palaces/P02_siblings/wp05/SIBLINGS_SB04_WUQU_SOURCE_AUDIT_v0.1.json#P02S-137"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B2-P02S137-RELATION-POS",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_02_REVIEW_v0.1.json",
+      "target_ref": "KMN-000014.canonical_target:relationship_support_exception",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=27#P02S-137",
+        "knowledge/palaces/P02_siblings/wp05/SIBLINGS_SB04_WUQU_SOURCE_AUDIT_v0.1.json#P02S-137"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B2-P02S169-DURABILITY-POS",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_02_REVIEW_v0.1.json",
+      "target_ref": "KMN-000015.canonical_target:relationship_durability",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=28#P02S-169",
+        "knowledge/palaces/P02_siblings/wp05/SIBLINGS_SB04_WUQU_SOURCE_AUDIT_v0.1.json#P02S-169"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-C1B2-P02S169-GUARANTEE-NEG",
+      "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_02_REVIEW_v0.1.json",
+      "target_ref": "KMN-000015.rejected_target:no_cooperation_or_fixed_breakup_duration",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=28#P02S-169",
+        "knowledge/palaces/P02_siblings/wp05/SIBLINGS_SB04_WUQU_SOURCE_AUDIT_v0.1.json#P02S-169"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-P09-CA01035-EVENT-NEG-002",
+      "artifact_path": "knowledge/core/wp06c/P09_FORMAL_MAPPING_REVIEW_PILOT_v0.1.json",
+      "target_ref": "P09-WP06C-CAND-001.rejected_target:single_observed_career_event",
+      "source_refs": [
+        "SRC-ZZ-003#pdf_scan_page=67#printed_page=133#CA01-035"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-P09-CA01035-PROCESS-001",
+      "artifact_path": "knowledge/core/wp06c/P09_FORMAL_MAPPING_REVIEW_PILOT_v0.1.json",
+      "target_ref": "P09-WP06C-CAND-001.projection_target:career_setbacks_before_stabilization",
+      "source_refs": [
+        "SRC-ZZ-003#pdf_scan_page=67#printed_page=133#CA01-035"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-P09-CA01045-CONDITIONAL-001",
+      "artifact_path": "knowledge/core/wp06c/P09_FORMAL_MAPPING_REVIEW_PILOT_v0.1.json",
+      "target_ref": "P09-WP06C-CAND-002.projection_target:forced_change_can_create_career_difficulty",
+      "source_refs": [
+        "SRC-ZZ-003#pdf_scan_page=67#printed_page=133#CA01-045",
+        "knowledge/wp07a/CAREER_CONTEXT_MAP_CA01_035_043_045_v0.1.json#CA01-045"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-P09-CA01045-UNCONDITIONAL-NEG-002",
+      "artifact_path": "knowledge/core/wp06c/P09_FORMAL_MAPPING_REVIEW_PILOT_v0.1.json",
+      "target_ref": "P09-WP06C-CAND-002.rejected_target:unconditional_chart_only_career_difficulty",
+      "source_refs": [
+        "SRC-ZZ-003#pdf_scan_page=67#printed_page=133#CA01-045",
+        "knowledge/wp07a/CAREER_CONTEXT_MAP_CA01_035_043_045_v0.1.json#CA01-045"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-P09-CA05469-INJURY-NEG-002",
+      "artifact_path": "knowledge/core/wp06c/P09_FORMAL_MAPPING_REVIEW_PILOT_v0.1.json",
+      "target_ref": "P09-WP06C-CAND-003.rejected_target:personal_injury_or_illness_event",
+      "source_refs": [
+        "SRC-ZZ-003#pdf_scan_page=72#printed_page=144#CA05-469"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      }
+    },
+    {
+      "review_record_id": "MR-P09-CA05469-SCENE-001",
+      "artifact_path": "knowledge/core/wp06c/P09_FORMAL_MAPPING_REVIEW_PILOT_v0.1.json",
+      "target_ref": "P09-WP06C-CAND-003.projection_target:blood_or_injury_symbolism_related_industry_scene",
+      "source_refs": [
+        "SRC-ZZ-003#pdf_scan_page=72#printed_page=144#CA05-469"
+      ],
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      },
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      }
+    }
+  ]
+}
