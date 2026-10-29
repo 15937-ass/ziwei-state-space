@@ -2,7 +2,7 @@
 
 Issue: [#798](https://github.com/15937-ass/ziwei-state-space/issues/798)  
 PR: [#804](https://github.com/15937-ass/ziwei-state-space/pull/804)  
-Status: earlier code snapshot `0be470daddb6d388474972462bb1985d689f2843` passed all required checks. The current PR additionally implements PI-approved progressive source retrieval: the 12-item default is a first-pass batch budget, later batches use a main-pinned continuation with seen-evidence identities, and stale-main continuation fails closed. Exact-head validation for the amended PR is recorded in the PR conversation after the final code/doc head is fixed.
+Status: earlier code snapshot `0be470daddb6d388474972462bb1985d689f2843` passed all required checks. The current PR additionally implements PI-approved progressive source retrieval: the 20-item default is a first-pass batch budget, later batches use a main-pinned continuation with seen-evidence identities, and stale-main continuation fails closed. Exact-head validation for the amended PR is recorded in the PR conversation after the final code/doc head is fixed.
 
 ## Base and code snapshot
 
