@@ -1,0 +1,340 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-CORE-WP06BC-CANONICAL-MAPPING-DIVERSITY-BATCH-01-REVIEW",
+  "version": "0.1",
+  "status": "TARGET_REVIEW_ACCEPTED_FOR_CANONICAL_BATCH",
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "CORE",
+  "issue": 898,
+  "work_unit": "KB_CORE_WP06BC_CANONICAL_MAPPING_EXPANSION_DIVERSITY_01",
+  "source_policy": "Reuse accepted main source-first records; bounded target review only.",
+  "semantic_diversity": [
+    "state",
+    "explicit_unresolved_semantics",
+    "modifier_interaction",
+    "cross_palace_dependency",
+    "multiple_alternative_antecedents",
+    "temporal_dynamic_condition"
+  ],
+  "cohort": [
+    {
+      "source_rule_id": "P05-SG-002",
+      "manifestation_id": "KMN-000004",
+      "mapping_id": "KMM-000004",
+      "positive_target_review_id": "MR-C1B1-P05SG002-RISK-POS",
+      "negative_target_review_id": "MR-C1B1-P05SG002-EVENT-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=81#P05-SG-002",
+        "knowledge/palaces/P05_wealth/w05/WEALTH_W05_SOURCE_GAP_SUPPLEMENT_v0.1.csv#P05-SG-002"
+      ]
+    },
+    {
+      "source_rule_id": "P05-SG-003",
+      "manifestation_id": "KMN-000005",
+      "mapping_id": "KMM-000005",
+      "positive_target_review_id": "MR-C1B1-P05SG003-STATE-POS",
+      "negative_target_review_id": "MR-C1B1-P05SG003-EVENT-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=81#P05-SG-003",
+        "knowledge/palaces/P05_wealth/w05/WEALTH_W05_SOURCE_GAP_SUPPLEMENT_v0.1.csv#P05-SG-003"
+      ]
+    },
+    {
+      "source_rule_id": "P01-SG-213",
+      "manifestation_id": "KMN-000006",
+      "mapping_id": "KMM-000006",
+      "positive_target_review_id": "MR-C1B1-P01SG213-MODIFIER-POS",
+      "negative_target_review_id": "MR-C1B1-P01SG213-WEIGHT-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=22#P01-SG-213",
+        "knowledge/palaces/P01_life/wp05/LIFE_P07_SOURCE_GAP_SUPPLEMENT_PP20_22_v0.1.csv#P01-SG-213"
+      ]
+    },
+    {
+      "source_rule_id": "P01-745",
+      "manifestation_id": "KMN-000007",
+      "mapping_id": "KMM-000007",
+      "positive_target_review_id": "MR-C1B1-P01745-CROSSPALACE-POS",
+      "negative_target_review_id": "MR-C1B1-P01745-OFFICE-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=23-24#P01-745",
+        "knowledge/palaces/P01_life/wp05/LIFE_P08_SOURCE_READJUDICATION_701_800_v0.1.csv#P01-745"
+      ]
+    },
+    {
+      "source_rule_id": "P01-727",
+      "manifestation_id": "KMN-000008",
+      "mapping_id": "KMM-000008",
+      "positive_target_review_id": "MR-C1B1-P01727-CONDITIONAL-POS",
+      "negative_target_review_id": "MR-C1B1-P01727-EVENT-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=23#P01-727",
+        "knowledge/palaces/P01_life/wp05/LIFE_P08_SOURCE_READJUDICATION_701_800_v0.1.csv#P01-727"
+      ]
+    },
+    {
+      "source_rule_id": "P01-750",
+      "manifestation_id": "KMN-000009",
+      "mapping_id": "KMM-000009",
+      "positive_target_review_id": "MR-C1B1-P01750-TEMPORAL-POS",
+      "negative_target_review_id": "MR-C1B1-P01750-EVENT-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=24#P01-750",
+        "knowledge/palaces/P01_life/wp05/LIFE_P08_SOURCE_READJUDICATION_701_800_v0.1.csv#P01-750"
+      ]
+    }
+  ],
+  "mapping_review_records": [
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B1-P05SG002-RISK-POS",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=81#P05-SG-002",
+        "knowledge/palaces/P05_wealth/w05/WEALTH_W05_SOURCE_GAP_SUPPLEMENT_v0.1.csv#P05-SG-002"
+      ],
+      "target_ref": "KMN-000004.canonical_target:risk",
+      "rationale": "The identity is the source-bounded dispute-risk description attached to the 子午廉贞天相 context with the original 煞曜空劫 wording preserved. It is not a claim that litigation or dispute actually occurred.",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B1-P05SG002-EVENT-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=81#P05-SG-002",
+        "knowledge/palaces/P05_wealth/w05/WEALTH_W05_SOURCE_GAP_SUPPLEMENT_v0.1.csv#P05-SG-002"
+      ],
+      "target_ref": "KMN-000004.rejected_target:concrete_litigation_or_dispute_event",
+      "rationale": "The source supports a traditional risk description only. It does not establish that a concrete litigation/dispute event occurred, and the 煞曜空劫 trigger quantifier remains unresolved.",
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B1-P05SG003-STATE-POS",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=81#P05-SG-003",
+        "knowledge/palaces/P05_wealth/w05/WEALTH_W05_SOURCE_GAP_SUPPLEMENT_v0.1.csv#P05-SG-003"
+      ],
+      "target_ref": "KMN-000005.canonical_target:retention",
+      "rationale": "The identity is the source-bounded wealth-retention difficulty state under the explicit 子午廉贞天相与空劫同度 condition. It does not absorb neighboring litigation,刑煞, or surface-glamour clauses.",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B1-P05SG003-EVENT-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=81#P05-SG-003",
+        "knowledge/palaces/P05_wealth/w05/WEALTH_W05_SOURCE_GAP_SUPPLEMENT_v0.1.csv#P05-SG-003"
+      ],
+      "target_ref": "KMN-000005.rejected_target:guaranteed_poverty_or_fixed_wealth_event",
+      "rationale": "难以积财 is an abstract accumulation-difficulty state, not a guaranteed poverty event, fixed wealth amount, or permanent outcome.",
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B1-P01SG213-MODIFIER-POS",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=22#P01-SG-213",
+        "knowledge/palaces/P01_life/wp05/LIFE_P07_SOURCE_GAP_SUPPLEMENT_PP20_22_v0.1.csv#P01-SG-213"
+      ],
+      "target_ref": "KMN-000006.canonical_target:modifier",
+      "rationale": "The identity is a source-preserved modifier relation: 贪狼及其星系组合 materially affects interpretation of 七杀. The source does not specify a universal direction or numeric weight.",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "external_modifier",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B1-P01SG213-WEIGHT-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=22#P01-SG-213",
+        "knowledge/palaces/P01_life/wp05/LIFE_P07_SOURCE_GAP_SUPPLEMENT_PP20_22_v0.1.csv#P01-SG-213"
+      ],
+      "target_ref": "KMN-000006.rejected_target:numeric_modifier_weight_or_fixed_direction",
+      "rationale": "关系甚大 is qualitative. The source does not supply a numeric weight or a universal favorable/adverse direction.",
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B1-P01745-CROSSPALACE-POS",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=23-24#P01-745",
+        "knowledge/palaces/P01_life/wp05/LIFE_P08_SOURCE_READJUDICATION_701_800_v0.1.csv#P01-745"
+      ],
+      "target_ref": "KMN-000007.canonical_target:status",
+      "rationale": "The identity is the source-preserved cross-palace status pattern linking 辰戌破军 with opposite 紫微天相 and distinguishing reputation from concrete authority or office.",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B1-P01745-OFFICE-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=23-24#P01-745",
+        "knowledge/palaces/P01_life/wp05/LIFE_P08_SOURCE_READJUDICATION_701_800_v0.1.csv#P01-745"
+      ],
+      "target_ref": "KMN-000007.rejected_target:specific_office_income_or_authority_fact",
+      "rationale": "The source distinguishes reputation from authority; it does not establish a specific real-world office, salary, title, or legal authority fact.",
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B1-P01727-CONDITIONAL-POS",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=23#P01-727",
+        "knowledge/palaces/P01_life/wp05/LIFE_P08_SOURCE_READJUDICATION_701_800_v0.1.csv#P01-727"
+      ],
+      "target_ref": "KMN-000008.canonical_target:stability",
+      "rationale": "The source explicitly states two alternative conditions for 子午破军—廉贞化忌 or 天相为刑忌所夹—and identifies the result as a 败局 configuration. Preserving that OR structure is source-supported and does not require an inferred Boolean operator.",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B1-P01727-EVENT-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=23#P01-727",
+        "knowledge/palaces/P01_life/wp05/LIFE_P08_SOURCE_READJUDICATION_701_800_v0.1.csv#P01-727"
+      ],
+      "target_ref": "KMN-000008.rejected_target:specific_observed_failure_event",
+      "rationale": "败局 is retained as a source-bounded configuration judgment. The source does not establish that a particular modern real-world failure, financial loss, dismissal, bankruptcy, or other concrete event occurred.",
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B1-P01750-TEMPORAL-POS",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=24#P01-750",
+        "knowledge/palaces/P01_life/wp05/LIFE_P08_SOURCE_READJUDICATION_701_800_v0.1.csv#P01-750"
+      ],
+      "target_ref": "KMN-000009.canonical_target:timing",
+      "rationale": "The identity is the explicit dual-layer temporal hinge structure for 辰戌破军. It marks relevant 大限/流年 palace groups without asserting what concrete event or valence occurs there.",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B1-P01750-EVENT-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=24#P01-750",
+        "knowledge/palaces/P01_life/wp05/LIFE_P08_SOURCE_READJUDICATION_701_800_v0.1.csv#P01-750"
+      ],
+      "target_ref": "KMN-000009.rejected_target:specific_event_or_valence_at_hinge",
+      "rationale": "The source marks a 大限/流年 hinge structure only; it does not by itself specify a concrete event or favorable/adverse outcome at that hinge.",
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    }
+  ],
+  "invariants": {
+    "source_backed_only": true,
+    "case_support_only_promoted": false,
+    "canonical_nodes_created": 6,
+    "canonical_mappings_created": 6,
+    "executable_mappings": 0,
+    "product_consumption_authorized": false,
+    "probability_status": "UNKNOWN",
+    "universal_root_or_family_created": false,
+    "empirical_predictive_validity_claimed": false
+  }
+}

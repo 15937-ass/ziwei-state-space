@@ -1,0 +1,58 @@
+{
+  "schema_version": "0.1",
+  "mapping_id": "KMM-000007",
+  "primary_source_rule_id": "P01-745",
+  "source_rule_ids": [
+    "P01-745"
+  ],
+  "manifestation_id": "KMN-000007",
+  "source_refs": [
+    "SRC-ZZ-003#printed_page=23-24#P01-745",
+    "knowledge/palaces/P01_life/wp05/LIFE_P08_SOURCE_READJUDICATION_701_800_v0.1.csv#P01-745"
+  ],
+  "review_refs": {
+    "positive": [
+      "MR-C1B1-P01745-CROSSPALACE-POS"
+    ],
+    "negative_boundaries": [
+      "MR-C1B1-P01745-OFFICE-NEG"
+    ]
+  },
+  "source_epistemic": "EXPLICIT",
+  "normalization_epistemic": "SOURCE_PRESERVING",
+  "output_kind": {
+    "state": "KNOWN",
+    "value": "CROSS_PALACE_STATUS_PATTERN"
+  },
+  "event_specificity": {
+    "state": "KNOWN",
+    "value": "ABSTRACT_STATUS_PATTERN_NOT_OBSERVED_EVENT"
+  },
+  "conditions": {
+    "time_layer": "NATAL",
+    "source_condition_text": "辰戌宫破军；对宫[紫微天相]",
+    "antecedent_rule_ids": [],
+    "modality_terms": [],
+    "real_world_prerequisites": [],
+    "unresolved_semantics": []
+  },
+  "canonical_mapping_status": "ACTIVE",
+  "canonical_mapping_approved": true,
+  "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+  "executable": false,
+  "execution_blockers": [
+    "PRODUCT_RUNTIME_NOT_AUTHORIZED"
+  ],
+  "product_consumable": false,
+  "probability_status": "UNKNOWN",
+  "forbidden_inferences": [
+    "Do not infer that the person actually holds or lacks a specific office, title, salary, or legal authority.",
+    "Do not drop the opposite-palace 紫微天相 dependency.",
+    "Do not turn 名大于利 into a numeric ranking or probability."
+  ],
+  "supersession": {
+    "supersedes": [],
+    "superseded_by": [],
+    "reason": null
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schema_version": "0.1",
+  "mapping_id": "KMM-000004",
+  "primary_source_rule_id": "P05-SG-002",
+  "source_rule_ids": [
+    "P05-SG-002"
+  ],
+  "manifestation_id": "KMN-000004",
+  "source_refs": [
+    "SRC-ZZ-003#printed_page=81#P05-SG-002",
+    "knowledge/palaces/P05_wealth/w05/WEALTH_W05_SOURCE_GAP_SUPPLEMENT_v0.1.csv#P05-SG-002"
+  ],
+  "review_refs": {
+    "positive": [
+      "MR-C1B1-P05SG002-RISK-POS"
+    ],
+    "negative_boundaries": [
+      "MR-C1B1-P05SG002-EVENT-NEG"
+    ]
+  },
+  "source_epistemic": "EXPLICIT",
+  "normalization_epistemic": "INFERRED",
+  "output_kind": {
+    "state": "KNOWN",
+    "value": "CONDITIONAL_RISK_STATE"
+  },
+  "event_specificity": {
+    "state": "KNOWN",
+    "value": "ABSTRACT_RISK_NOT_OBSERVED_EVENT"
+  },
+  "conditions": {
+    "time_layer": "NATAL",
+    "source_condition_text": "子午『廉贞天相』；有煞曜空劫",
+    "antecedent_rule_ids": [],
+    "modality_terms": [],
+    "real_world_prerequisites": [],
+    "unresolved_semantics": [
+      "“煞曜空劫”在本句中的组合量词未被来源明确为严格 AND、OR 或其他集合关系；保持原词，不拆分触发。"
+    ]
+  },
+  "canonical_mapping_status": "ACTIVE",
+  "canonical_mapping_approved": true,
+  "execution_readiness": "BLOCKED_SEMANTIC",
+  "executable": false,
+  "execution_blockers": [
+    "UNRESOLVED_SHA_YAO_KONG_JIE_TRIGGER_QUANTIFIER"
+  ],
+  "product_consumable": false,
+  "probability_status": "UNKNOWN",
+  "forbidden_inferences": [
+    "Do not convert the traditional 是非词讼 risk description into a claim that litigation, prosecution, or a concrete dispute occurred.",
+    "Do not split 煞曜空劫 into independent triggers or force AND/OR semantics without a separately accepted source decision.",
+    "Do not assign probability, frequency, severity, or timing."
+  ],
+  "supersession": {
+    "supersedes": [],
+    "superseded_by": [],
+    "reason": null
+  }
+}
