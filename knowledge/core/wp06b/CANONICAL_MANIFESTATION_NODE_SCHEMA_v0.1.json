@@ -1,0 +1,336 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Knowledge Canonical Manifestation Node v0.1",
+  "description": "Knowledge-owned canonical manifestation node record. This contract defines identity/provenance fields only; it does not authorize a mapping or Product consumer.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "manifestation_id",
+    "parent_id",
+    "domain",
+    "abstraction_level",
+    "source_supported_labels",
+    "source_rule_ids",
+    "source_refs",
+    "output_kind",
+    "event_specificity",
+    "source_epistemic",
+    "normalization_epistemic",
+    "review_provenance",
+    "mapping_review_refs",
+    "identity_rationale",
+    "ambiguity_notes",
+    "unresolved_notes",
+    "probability_status",
+    "canonical_identity_status",
+    "supersession"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "manifestation_id": {
+      "type": "string",
+      "pattern": "^KMN-[0-9]{6}$"
+    },
+    "parent_id": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "pattern": "^KMN-[0-9]{6}$"
+        }
+      ]
+    },
+    "domain": {
+      "type": "string",
+      "minLength": 1
+    },
+    "abstraction_level": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Source-native abstraction label. v0.1 intentionally does not freeze an exhaustive abstraction-level vocabulary."
+    },
+    "source_supported_labels": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "source_rule_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "source_refs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "output_kind": {
+      "$ref": "#/$defs/review_axis"
+    },
+    "event_specificity": {
+      "$ref": "#/$defs/review_axis"
+    },
+    "source_epistemic": {
+      "type": "string",
+      "enum": [
+        "EXPLICIT",
+        "INFERRED_FROM_SOURCE"
+      ]
+    },
+    "normalization_epistemic": {
+      "type": "string",
+      "enum": [
+        "SOURCE_PRESERVING",
+        "INFERRED"
+      ]
+    },
+    "review_provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "review_status",
+        "reviewer_type",
+        "reviewer_id",
+        "reviewed_at",
+        "source_span_verified",
+        "normalization_verified"
+      ],
+      "properties": {
+        "review_status": {
+          "type": "string",
+          "enum": [
+            "SOURCE_SPAN_VERIFIED",
+            "HUMAN_VERIFIED"
+          ]
+        },
+        "reviewer_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reviewer_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reviewed_at": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_span_verified": {
+          "const": true
+        },
+        "normalization_verified": {
+          "const": true
+        }
+      }
+    },
+    "mapping_review_refs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "identity_rationale": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ambiguity_notes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "probability_status": {
+      "const": "UNKNOWN"
+    },
+    "canonical_identity_status": {
+      "type": "string",
+      "enum": [
+        "ACTIVE",
+        "SUPERSEDED"
+      ]
+    },
+    "supersession": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "supersedes",
+        "superseded_by",
+        "reason"
+      ],
+      "properties": {
+        "supersedes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^KMN-[0-9]{6}$"
+          }
+        },
+        "superseded_by": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^KMN-[0-9]{6}$"
+          }
+        },
+        "reason": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "unresolved_notes": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "$defs": {
+    "review_axis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "value"
+      ],
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "value": {
+          "oneOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "KNOWN"
+              }
+            },
+            "required": [
+              "state"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "value": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "canonical_identity_status": {
+            "const": "ACTIVE"
+          }
+        },
+        "required": [
+          "canonical_identity_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "supersession": {
+            "properties": {
+              "superseded_by": {
+                "maxItems": 0
+              },
+              "reason": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "canonical_identity_status": {
+            "const": "SUPERSEDED"
+          }
+        },
+        "required": [
+          "canonical_identity_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "supersession": {
+            "properties": {
+              "superseded_by": {
+                "minItems": 1
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
