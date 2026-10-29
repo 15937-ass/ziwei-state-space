@@ -1,7 +1,7 @@
 schema_version: 3
 repository: "15937-ass/ziwei-state-space"
 canonical_branch: "main"
-governance_version: "1.0"
+governance_version: "1.1"
 project_status: "ACTIVE"
 
 authority:
@@ -15,6 +15,8 @@ authority:
   session_bootstrap: "CHATGPT_START_HERE.md"
   current_execution_protocol: "governance/PUBLIC_ACTIONS_EXECUTION_PROTOCOL_v0.2.md"
   recovery_precedence: "governance/RECOVERY_PRECEDENCE_v1.md"
+  integration_protocol: "governance/INTEGRATION_QUEUE_PROTOCOL_v1.md"
+  integration_ledger_issue: 888
   chat_is_project_state_authority: false
   chat_is_repository_operator: true
 
@@ -43,3 +45,4 @@ recovery_order:
   - "Read only Issue-required artifacts after the Issue/PR is identified."
   - "Do not use old chat prompts, README current-phase text, legacy tasks/*.yaml, historical validation next-work sections, archived files, superseded protocols, or old proposal status words as current task selectors."
   - "Use authority.current_execution_protocol for routine execution policy; do not choose a protocol by searching for the word ACTIVE."
+  - "Before final merge, use authority.integration_protocol and live coordination Issue #888: ACTIVE_BUILD may proceed in parallel, but only the Integration Lease holder may synchronize to current main, run the final exact-head full gate, merge, and release."

@@ -62,9 +62,11 @@ All lanes may read the repository. They may only write paths allowed by governan
 
 ## 5. Work lifecycle
 
-Normal work:
+Normal work uses two clocks: parallel build work and serialized canonical integration.
 
-Roadmap/Phase -> GitHub Issue -> short-lived branch -> PR -> CI -> merge -> Issue close.
+Roadmap/Phase -> GitHub Issue -> ACTIVE_BUILD -> READY_TO_INTEGRATE -> INTEGRATING -> merge -> Issue close.
+
+`ACTIVE_BUILD` may proceed on a bounded branch with lane-local/targeted validation without repeatedly chasing every unrelated `main` advance. `READY_TO_INTEGRATE` means content is complete but has not yet claimed the repository-wide integration lease. `INTEGRATING` begins only after the work unit acquires the lease defined by `governance/INTEGRATION_QUEUE_PROTOCOL_v1.md`; only then does it synchronize once to current `main`, run the final exact-head full gate, merge, and release.
 
 Substantial design change:
 
@@ -78,6 +80,9 @@ A PR must implement one primary Issue. Scope discoveries become new Issues or Pr
 - Knowledge Core: at most 1 ACTIVE shared-semantics/ontology work unit.
 - Knowledge palace workers: at most 4 ACTIVE work units total, with at most 1 ACTIVE work unit per palace shard.
 - Governance lane: at most 1 ACTIVE migration/design work unit.
+- Repository final integration: at most 1 `INTEGRATING` work unit globally, enforced by the Integration Lease; the lease is coordination state and does not consume a lane WIP slot.
+
+The normal operating target is one active palace audit + one Knowledge Core unit + one Product unit. The existing hard palace ceiling remains available as an acceleration mode; it is not a target to keep saturated.
 
 Knowledge palace workers may run in separate conversations only when their shard identities and write sets are disjoint. Shared semantics are never parallelized by palace. Backlog items may be recorded but are not executed until promoted to READY/ACTIVE.
 
@@ -137,9 +142,27 @@ The pre-G12 #525 Property branch merged before G12 final integration, so its tem
 
 Branches are short-lived. Stacked PRs are exceptional, maximum two levels, and the child must be rebased to main promptly after the base merges.
 
-For Knowledge, research/PR preparation may be parallel across distinct palaces, but canonical merge is serialized. If another Knowledge PR changes `main` after a shard PR's validation base, that shard PR must update to current `main` and pass the exact-head gate again before merge.
+Research/implementation and PR preparation may be parallel across lanes and, where allowed, across distinct Knowledge palaces. Canonical merge to `main` is globally serialized by `governance/INTEGRATION_QUEUE_PROTOCOL_v1.md`.
+
+A work unit should not spend ACTIVE_BUILD repeatedly rebasing solely to follow unrelated accepted changes. When it reaches READY_TO_INTEGRATE it joins the integration queue. The Integration Lease holder alone enters INTEGRATING, synchronizes to the then-current `main`, runs the final exact-head full gate, merges, and releases the lease. If `main` changes during that final gate, the lease protocol was breached or the run is stale; the work unit must resynchronize and rerun before merge.
 
 main is accepted canonical state, not a workspace.
+
+## 11A. Parallel build, checkpoint dependencies, and Integration Lease
+
+The controlling contract is `governance/INTEGRATION_QUEUE_PROTOCOL_v1.md`; live coordination is recorded in GitHub Issue #888, which is explicitly **not** a lane work unit.
+
+Rules:
+- lanes may remain in ACTIVE_BUILD concurrently when write ownership and lane WIP allow it;
+- cross-lane consumers use accepted, pinned `main` checkpoints, never another lane's unmerged branch as canonical truth;
+- shared semantic or adapter gaps default to fail-closed gap records so unrelated work can continue; only an explicitly recorded hard dependency blocks the consumer;
+- READY_TO_INTEGRATE is a queue state, not permission to merge;
+- only the Integration Lease holder may run the final acceptance gate intended for immediate merge or change `main`;
+- other lanes may continue research, coding, source review, and targeted tests while the lease is held;
+- queue priority is: first a unit that releases a recorded hard blocker for another active lane; otherwise a bounded lower-risk/smaller unit; otherwise FIFO by READY record;
+- final exact-head validation is not weakened or cached across a changed `main`; it is delayed until the lease is held to avoid speculative full-gate churn.
+
+Native GitHub Merge Queue may replace the coordination ledger later only through a separate Governance/admin decision.
 
 ## 12. State-file rule
 

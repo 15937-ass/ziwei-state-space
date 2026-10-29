@@ -13,7 +13,7 @@ Knowledge execution is split into one shared Core plus twelve palace shards.
 - Total active palace workers: **<= 4**
 - Active work units per palace: **<= 1**
 - Research/PR preparation may run in parallel across distinct palaces.
-- Canonical merge to `main` is serialized.
+- Canonical merge to `main` is serialized through the repository Integration Lease in `governance/INTEGRATION_QUEUE_PROTOCOL_v1.md`.
 
 The PI-selected twelve-palace source-audit sequence is recorded in
 `governance/PALACE_AUDIT_SEQUENCE_2026-10-23.md`. During that schedule, admit
@@ -133,16 +133,19 @@ Backlog/READY items do not count as active until explicitly promoted.
 
 ## 9. Canonical integration
 
-Parallel research does not imply parallel canonical merge.
+Parallel research does not imply parallel canonical merge. Knowledge follows the repository-wide `governance/INTEGRATION_QUEUE_PROTOCOL_v1.md`.
+
+During `ACTIVE_BUILD`, a shard may continue source work and bounded validation without rebasing solely because an unrelated lane advanced `main`. When the Knowledge PR is content-complete, it records `READY_TO_INTEGRATE` in Issue #888.
 
 Before a Knowledge PR merges:
-1. its base must be current with latest `main`;
-2. if another Knowledge PR merged after its validation base, update/rebase and re-run the exact-head gate;
-3. shard write validation must pass;
+1. it must acquire the sole Integration Lease and enter `INTEGRATING`;
+2. only then synchronize to the latest `main`;
+3. run shard/write-set validation plus the full exact-head gate on that synchronized head;
 4. unresolved Core gaps must remain explicit;
-5. merge one Knowledge PR at a time.
+5. merge immediately after the green exact-head gate while still holding the lease;
+6. record the merged main SHA and release the lease.
 
-A stale green check is not sufficient after `main` changes.
+A stale green check is never sufficient after `main` changes. The optimization is to delay the final full gate until integration ownership, not to weaken it.
 
 ## 10. Cross-palace dependencies
 
