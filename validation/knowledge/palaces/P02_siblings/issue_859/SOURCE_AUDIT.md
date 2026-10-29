@@ -23,4 +23,6 @@ p25左2天机标题起，接p26右，止3太阳标题前。17段锚点T01–T17�
 
 本宫回归、JS、P0、Governance与完整pytest按当前协议执行；精确base/head及云端run/最终结果在既有Issue/PR记录，未终态不接受。状态缓存明确仅在本PR精确验收合入后生效：累计83审查/55接受（36复用+19 CASE）/28保留/7gap；PR未接受时main仍仅40/27/13/3gap。接受后下一锚p26太阳，接p27止武曲前；全宫覆盖与残余处置尚未进行。
 
-本地使用已有review-venv：8项P02回归通过，JS语法、P0与Governance/P02边界通过。默认Python未装pytest，改用已有测试环境后通过，未修改依赖或质量门。全仓由本PR云端质量门执行；未完成前不宣告PASS。
+本地使用已有review-venv：9项P02回归通过，JS语法、P0与Governance/P02边界通过。默认Python未装pytest，改用已有测试环境后通过，未修改依赖或质量门。全仓由本PR云端质量门执行；未完成前不宣告PASS。
+
+发布后复核发现状态编辑的分段匹配误中了authoritative_execution，立即恢复三个恢复权威字段与独立execution块，并增加恢复边界回归。来源账本和计数未变。旧head/run失效，最终head须重新全量验证。

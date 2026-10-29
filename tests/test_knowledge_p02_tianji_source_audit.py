@@ -75,3 +75,11 @@ def test_subjects_exceptions_and_case_boundaries_cannot_be_silently_normalized()
         assert r['printed_page'] in (25, 26) and r['pdf_physical_page'] == 13
     assert not load()['whole_chapter_complete']
     assert '3 太阳' in load()['next_source_anchor']
+
+
+def test_palace_recovery_keeps_authority_and_execution_separate():
+    state = (ROOT / 'knowledge/states/P02_SIBLINGS_STATE.yaml').read_text()
+    assert 'authoritative_execution: "GITHUB_ISSUE"\n' in state
+    assert 'canonical_branch: "main"\n' in state
+    assert 'contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"\n' in state
+    assert '\nexecution:\n' in state
