@@ -1,8 +1,9 @@
-# Repository Governance v1.0
+# Repository Governance v1.1
 
 Status: **ACTIVE**  
 Tracking: #275  
 Migration implementation: PR #276 merged.  
+Parallel-integration amendment: Governance #890 / PR #891.  
 Recovery routing: `governance/RECOVERY_PRECEDENCE_v1.md`.
 
 ## 1. Purpose
