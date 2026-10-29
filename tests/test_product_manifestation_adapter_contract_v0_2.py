@@ -57,6 +57,7 @@ def test_action_prerequisite_binds_only_to_external_action_namespace():
     assert len(envelope.conditions.action_prerequisites) == 1
     binding = envelope.conditions.action_prerequisites[0]
     assert binding.source_text == "勉强求变"
+    assert binding.source_status == "SOURCE_EXPLICIT_NOT_ESTABLISHED_BY_CHART"
     assert binding.target_namespace == ACTION_BINDING_NAMESPACE
     assert binding.match_mode == "EXTERNAL_EXPLICIT_ONLY"
     assert binding.chart_inference_allowed is False
