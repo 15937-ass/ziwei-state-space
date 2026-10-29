@@ -1,0 +1,89 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "PRODUCT-MANIFESTATION-P3-GAP-CLOSURE-PG008-011-V0_1",
+  "work_unit": "PRODUCT_MANIFESTATION_P3_GAP_CLOSURE_PG008_011_V0_1",
+  "issue": 925,
+  "status": "BUILD_READY_FOR_VALIDATION",
+  "lane": "PRODUCT_ONLY",
+  "activation_main_commit": "e15f284238f5a29c98e998abd961e5c7fea2ea44",
+  "predecessor_audit": {
+    "issue": 918,
+    "verdict": "P3_NOT_READY_NEW_PRODUCT_GAPS"
+  },
+  "scope": {
+    "gaps": ["PG-008", "PG-009", "PG-010", "PG-011"],
+    "canonical_examples": [
+      "KMM-000010",
+      "KMM-000012",
+      "KMM-000013",
+      "KMM-000014",
+      "KMM-000015"
+    ],
+    "explicitly_out_of_scope_holds": [
+      "KMM-000001",
+      "KMM-000004",
+      "KMM-000011"
+    ]
+  },
+  "gap_resolution": [
+    {
+      "gap_id": "PG-008",
+      "contract": "TemporalLayerBindingV02",
+      "result": "DECADE_BINDS_EXACTLY_TO_SINGLE_DECADE_SCOPE",
+      "canonical_example": "KMM-000010",
+      "runtime_authorized": false
+    },
+    {
+      "gap_id": "PG-009",
+      "contract": "ListedVariantSetV02",
+      "result": "SOURCE_LISTED_VARIANTS_RETAINED_WITHOUT_FABRICATED_OR_AND_WITH_CANONICAL_BOUNDARY_EVIDENCE",
+      "canonical_example": "KMM-000012",
+      "runtime_authorized": false
+    },
+    {
+      "gap_id": "PG-010",
+      "contract": "BranchedConditionalV02 + ConditionalOperatorV02 + QualifiedConditionV02 + PalaceScopedExceptionV02",
+      "result": "SOURCE_EXPLICIT_SIMULTANEOUS_UNLESS_EVEN_IF_STRUCTURES_RETAINED_WITHOUT_GENERIC_PARSER",
+      "canonical_examples": ["KMM-000013", "KMM-000014", "KMM-000015"],
+      "runtime_authorized": false
+    },
+    {
+      "gap_id": "PG-011",
+      "contract": "PalaceScopedDependencyV02",
+      "result": "LIFE_PALACE_SCOPE_RETAINED_WITHOUT_OPPOSITE_PALACE_COERCION",
+      "canonical_example": "KMM-000014",
+      "runtime_authorized": false
+    }
+  ],
+  "compiler_policy": {
+    "generic_free_text_parser_allowed": false,
+    "keyword_semantic_discovery_allowed": false,
+    "curated_fixture_required": true,
+    "exact_bounded_mapping_set_required": true,
+    "source_condition_text_must_equal_canonical": true,
+    "retained_source_fragments_must_be_verbatim": true,
+    "structured_operator_must_exist_in_canonical_modality_terms": true,
+    "inferred_structure_must_be_pinned_to_canonical_forbidden_inference_when_required": true,
+    "unresolved_hold_compilation_allowed": false
+  },
+  "backward_compatibility": {
+    "v0_1_modified": false,
+    "v0_1_decade_support_added": false,
+    "v0_1_examples_remain": ["KMM-000007", "KMM-000008", "KMM-000009"],
+    "v0_2_examples": [
+      "KMM-000010",
+      "KMM-000012",
+      "KMM-000013",
+      "KMM-000014",
+      "KMM-000015"
+    ]
+  },
+  "production_boundary": {
+    "production_registry_population_allowed": false,
+    "active_kib_promotion_allowed": false,
+    "runtime_execution_allowed": false,
+    "probability_claim_allowed": false,
+    "predictive_validity_claim_allowed": false
+  },
+  "next_action": "AFTER_ACCEPTANCE_RUN_FRESH_P3_FREEZE_READINESS_REAUDIT"
+}
