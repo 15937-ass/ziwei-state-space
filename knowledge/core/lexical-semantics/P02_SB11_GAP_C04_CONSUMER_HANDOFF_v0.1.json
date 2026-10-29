@@ -1,0 +1,57 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-CORE-P02-SB11-GAP-C04-CONSUMER-HANDOFF-v0.1",
+  "issue": 938,
+  "producer": {
+    "lane": "KNOWLEDGE_ONLY",
+    "shard": "CORE"
+  },
+  "consumer": {
+    "lane": "KNOWLEDGE_ONLY",
+    "shard": "P02"
+  },
+  "accepted_core_contract": "knowledge/core/lexical-semantics/FIRE_BELL_SAME_PALACE_CANONICAL_LEXICAL_CONTRACT_v0.1.json",
+  "upstream_audit": {
+    "issue": 930,
+    "pr": 933,
+    "accepted_main": "e532b8b60220d6b1f722b3aa1ca54889c0cbe4cd"
+  },
+  "human_gate": {
+    "id": "HG-CORE-FIRE-BELL-SAME-PALACE-EITHER-01",
+    "decision": "APPROVED"
+  },
+  "gap": {
+    "gap_id": "P02-SB11-GAP-C04",
+    "prior_type": "SHARED_CONDITION_OPERATOR_AMBIGUITY",
+    "source_expression": "火铃同度更见空劫",
+    "affected_record_ids": [
+      "P02S-414",
+      "P02S-416",
+      "P02S-417"
+    ],
+    "core_disposition": "CORE_SEMANTIC_RESOLVED_PENDING_PALACE_OWNED_MIGRATION",
+    "resolved_dimension": "火铃同度 BOTH_STARS vs EITHER_STAR",
+    "resolved_value": "INCLUSIVE_EITHER__ANY_MEMBER_AT_LEAST_ONE",
+    "unresolved_by_this_handoff": [
+      "all non-C04 source/gap questions",
+      "consumer-local condition compilation",
+      "whether any other component of 更见空劫 requires a separate semantic review",
+      "event/outcome promotion"
+    ]
+  },
+  "consumer_requirements": {
+    "historical_source_audit_read_only": "knowledge/palaces/P02_siblings/wp05/SIBLINGS_SB11_QISHA_POJUN_SOURCE_AUDIT_v0.1.json",
+    "historical_census_read_only": "knowledge/palaces/P02_siblings/census/issue_921/P02_CHAPTER_CENSUS_MANIFEST_v0.1.json",
+    "must_preserve_case_support_only": true,
+    "may_remove_only_c04_fire_bell_quantifier_blocker_after_local_review": true,
+    "may_auto_unlock_execution": false,
+    "may_auto_promote_event_claims": false,
+    "may_rewrite_other_gaps": false
+  },
+  "producer_write_boundary": {
+    "p02_files_changed": false,
+    "historical_core_pair_files_changed": false,
+    "product_files_changed": false,
+    "runtime_changed": false
+  }
+}
