@@ -6,25 +6,25 @@ canonical_branch: "main"
 execution:
   status: "ACTIVE"
   phase: "PL3_METHOD_RESPONSE_VERTICAL_SLICE"
-  active_issue: 918
-  active_pr: 924
+  active_issue: 925
+  active_pr: 931
   continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md"
   plan_pointer_issue: 900
-  next_issue: 925
+  next_issue: 932
   next_work_unit: "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"
-  continuation_next_work_unit: "PRODUCT_MANIFESTATION_P3_GAP_CLOSURE_PG008_011_V0_1"
+  continuation_next_work_unit: "PRODUCT_MANIFESTATION_P3_FREEZE_REAUDIT_V0_2"
   next_work_status: "ACTIVE_BUILD"
-  resume_entry: "Product #918 P3 formal crosswalk freeze readiness audit is ACTIVE_BUILD on product/918-formal-crosswalk-freeze-p3 / PR #924. Current verdict is P3_NOT_READY_NEW_PRODUCT_GAPS: node/mapping metadata envelopes are freeze-ready, but PG-008..PG-011 block structured-condition freeze. Standby successor #925 is bounded to KMM-000010 and KMM-000012..000015. Production registries/KIB/runtime/probability remain fail-closed."
-  state_cache_as_of_main_commit: "bd95dc3e1561c5ace26999d7feaa0ae60cf1056b"
-  state_cache_as_of_product_merge: "bd95dc3e1561c5ace26999d7feaa0ae60cf1056b"
+  resume_entry: "Product #925 PG-008..PG-011 manifestation gap closure is ACTIVE_BUILD on product/925-p3-gap-closure-pg008-011-v0-1 / PR #931. v0.2 is bounded to KMM-000010 and KMM-000012..000015, keeps v0.1 unchanged, and adds DECADE, listed-variant, source-explicit branch/modality, and LIFE_PALACE structures without generic parsing. Standby successor #932 is the fresh P3 freeze re-audit. Core #922 is accepted independently on main; production registries/KIB/runtime/probability remain fail-closed."
+  state_cache_as_of_main_commit: "313938e0856009aed2c9233f3da3ae02dc7ae791"
+  state_cache_as_of_product_merge: "e15f284238f5a29c98e998abd961e5c7fea2ea44"
   state_cache_snapshot_date: "2026-10-29"
   v04_entry_checkpoint_issue: 416
   v04_entry_checkpoint_pr: 418
-  last_completed_product_issue: 916
-  last_completed_product_pr: 917
+  last_completed_product_issue: 918
+  last_completed_product_pr: 924
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
-  resume_issue: 918
+  resume_issue: 925
   roadmap: "PRODUCT_ROADMAP.md#v0.4"
   execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
 
@@ -186,7 +186,7 @@ capability_snapshot:
 
 critical_path:
   now:
-    - "PRODUCT_MANIFESTATION_FORMAL_CROSSWALK_FREEZE_P3"
+    - "PRODUCT_MANIFESTATION_P3_GAP_CLOSURE_PG008_011_V0_1"
     - "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"
     - "FORECAST_LEDGER_ACTIVATION"
   future:
