@@ -30,12 +30,12 @@ A provider file on main is not enough to activate a provider. For example, a Pro
 ## Scope, progressive retrieval, and token-cost controls
 
 - Only requested domains and their supported palace source ledgers are retrieved.
-- The default **first-pass** source budget is 12 items per requested slot. This is a per-call batch size for a brief reading, **not** a session/global cap and not a claim that only 12 relevant records exist.
+- The default **first-pass** source budget is 20 items per requested slot. This is a per-call batch size for a brief reading, **not** a session/global cap and not a claim that only 12 relevant records exist.
 - The report distinguishes total eligible evidence, evidence already seen in earlier batches, evidence selected in the current batch, and evidence remaining after the batch.
 - When more evidence remains, the reader returns a continuation object containing the pinned `main_sha`, requested slot IDs, accumulated `seen_evidence_ids`, and `has_more=true`. A later call may pass that continuation to retrieve the next ranked unseen batch without repeating earlier evidence.
 - Continuation is fail-closed: if GitHub `main` changed, the old continuation is rejected and the caller must begin a fresh first-pass read against the new accepted snapshot. This prevents a detailed follow-up from silently mixing two repository versions.
 - A caller can therefore support **简批 → 追问 → 详细批/理由展开** progressively. It should keep the first response small, continue the same scope only when the conversation needs more depth, and start a fresh first pass for newly introduced scope slots.
-- Each individual batch remains bounded (currently 1–50 source items per slot), while repeated continuation batches have no fixed 12-item session total. The practical ceiling is the caller's answer/token budget plus the reader's per-call byte and integrity limits.
+- Each individual batch remains bounded (currently 1–50 source items per slot), while repeated continuation batches have no fixed 20-item session total. The practical ceiling is the caller's answer/token budget plus the reader's per-call byte and integrity limits.
 - The module returns a compact, traceable payload. It does not send the entire repository corpus to an LLM.
 - It uses Python standard-library HTTP/JSON/CSV/AST utilities only; no new package dependency and no GitHub token are required for this public repository.
 - Each invocation resolves current `main`; there is no stale-cache fallback. A network, schema, size, truncation, or blob-integrity error fails closed.
@@ -72,4 +72,4 @@ The CLI emits the main SHA, discovered providers, the current source-evidence ba
 - Provider discovery does not equal runtime execution; opt-in providers remain opt-in.
 - A missing/unavailable current-main snapshot fails closed instead of silently falling back to stale local knowledge or model memory.
 - Focused tests use a deterministic fake transport; routine CI does not depend on live network availability.
-- The default 12-item first pass is tested as a batch budget, continuation returns only unseen evidence, and a stale-main continuation fails closed.
+- The default 20-item first pass is tested as a batch budget, continuation returns only unseen evidence, and a stale-main continuation fails closed.
