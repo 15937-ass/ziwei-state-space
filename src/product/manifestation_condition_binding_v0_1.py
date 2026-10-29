@@ -78,6 +78,10 @@ class CrossPalaceDependencyV01:
             raise ValueError("v0.1 supports only OPPOSITE_PALACE relation")
         if not self.context_text.strip() or not self.dependency_text.strip():
             raise ValueError("cross-palace context/dependency text is required")
+        if "对宫" not in self.dependency_text:
+            raise ValueError(
+                "OPPOSITE_PALACE dependency must retain the explicit 对宫 relation"
+            )
 
 
 @dataclass(frozen=True)
