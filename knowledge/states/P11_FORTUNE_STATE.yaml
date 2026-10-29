@@ -11,14 +11,15 @@ execution:
   active_issue: null
   active_branch: null
   active_pr: null
-  canonical_checkpoint: FD07_QISHA_POJUN_SOURCE_AUDIT_ACCEPTED__P11_CENSUS_PENDING
-  note: 'Post-acceptance snapshot for Issue #846; live Issue/PR governs while open.
-    FD07 reviews printed pp175–176, physical p88, Qisha and Pojun to chapter end.
-    All six prior ledgers and 30 gaps remain read-only. Source batches are covered
-    but whole-chapter census and residual-gap disposition remain pending. No mapping,
-    executable or empirical authorization.'
+  canonical_checkpoint: FD07_ACCEPTED__CENSUS_A_P166_169_ACCEPTED__CENSUS_B_C_PENDING
+  note: 'Post-acceptance snapshot for Issue #849; live Issue/PR governs while open.
+    Census A visually reconciles printed pp166–169, 73 paragraph/page-slice anchors.
+    No clear unaccounted paragraph found in that bounded span. All seven accepted
+    ledgers and 34 gaps remain byte-identical. Whole-chapter coverage and residual
+    disposition are incomplete; next Census B pp170–173, then C pp174–176 and residual
+    ledger. No other palace admitted; no mapping/runtime/empirical authorization.'
 progress:
-  issue: 846
+  issue: 849
   full_section_printed_pages: 166–176
   full_section_pdf_physical_pages: 83–88
   source_atoms_reviewed: 474
@@ -30,8 +31,8 @@ progress:
   history_feedback: 0
   conditions_compiled: 0
   execution_unlocked: 0
-  next_source_anchor: P11 printed pp166–176 full-chapter coverage census and disposition
-    of all retained gaps; not a new palace admission
+  next_source_anchor: 'Census B: printed pp170–173; then Census C pp174–176 and disposition
+    of all 34 retained gap groups'
 human_gate:
   pending: null
 integrity:
@@ -39,3 +40,12 @@ integrity:
   shared_semantics_must_escalate_to_core: true
   may_write_other_palace: false
   empirical_feedback_may_rewrite_source_truth: false
+coverage_census:
+  completed_printed_pages:
+  - 166
+  - 167
+  - 168
+  - 169
+  paragraph_anchor_slices_reconciled: 73
+  whole_chapter_complete: false
+  residual_disposition_complete: false
