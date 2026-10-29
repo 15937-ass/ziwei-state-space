@@ -1,9 +1,16 @@
 # Proposal #890 — Parallel Work + Serial Integration Queue v1
 
-Status: **APPROVED BY PI / IMPLEMENTATION AUTHORIZED**  
+Status: **IMPLEMENTING — PI APPROVED**  
 Tracking Issue: #890  
+Implementation PR: #891  
 Coordination ledger: #888  
 PI decision date: 2026-10-29
+
+## Status / Tracking Issue
+
+Proposal ID and implementation tracker: GitHub Issue #890.  
+Current proposal state: **IMPLEMENTING**.  
+The design was explicitly approved by the PI before repository implementation began. PR #891 implements this approved scope.
 
 ## Motivation
 
@@ -32,6 +39,12 @@ The design goal is not more simultaneous writers to the same shard. It is to sep
 - No requirement to enable GitHub native Merge Queue.
 - No permission to reuse a final gate after `main` changed.
 
+## Current Problem
+
+The current process serializes too early in practice. Work can be developed independently, but teams often run a full repository gate before they actually own the next merge. If another PR advances `main` while that gate is running, the result becomes stale and the expensive gate must be repeated.
+
+During implementation of this proposal the same failure mode reproduced live: Product #883 synchronized to main `1b6be411...` and started its final quality gate; P02 #885 / PR #886 then merged to `051ad822...` before that Product gate completed. The Product gate therefore became stale for merge even though the two changes were write-isolated. This is validation churn, not semantic conflict.
+
 ## Proposed Design
 
 Two clocks govern repository work.
@@ -49,6 +62,33 @@ Cross-lane dependency classes are:
 - D3 hard dependency requiring a new accepted upstream artifact.
 
 The project should keep normal work in D0–D2 whenever possible. D3 must be explicit.
+
+## Alternatives
+
+1. **Fully serial project execution.** Rejected because it removes validation churn by idling independent Product/Core/palace work and reduces throughput.
+2. **Every lane continuously rebases to latest main.** Rejected because it preserves the current churn and causes repeated full-gate work.
+3. **Allow parallel merges with no serialization.** Rejected because exact-head acceptance can race and canonical `main` loses a single integration order.
+4. **Enable GitHub native Merge Queue immediately.** Deferred. It may be a better future implementation but requires admin/settings work and is unnecessary for the current single-PI scale.
+5. **Shared YAML lock in the repository.** Rejected because acquiring/releasing the lock would itself require changing `main`, creating the synchronization problem it is meant to solve.
+6. **Live GitHub Issue coordination ledger.** Selected because it is non-file state, auditable, available to all execution sessions, and does not mutate Product/Knowledge artifacts.
+
+## Compatibility
+
+The change is backward-compatible with existing lane ownership, branch naming, WIP limits, CI commands, and exact-head acceptance. Existing in-flight Product #882/#883 and P02 #885 retain their ownership and are not retroactively reclassified as having obtained a lease.
+
+The protocol changes when the final full gate is run, not what that gate must prove. Historical accepted PRs remain valid under their original recorded validation.
+
+## Knowledge Impact
+
+No canonical Knowledge content changes. Core and palace ownership remain unchanged. Palace workers still fail closed on shared semantic gaps; Core remains the sole owner of shared semantics.
+
+Knowledge gains scheduling decoupling: source review and Core research may continue while another lane integrates, and a Knowledge PR does not need to chase unrelated `main` movement until it receives the Integration Lease.
+
+## Product Impact
+
+No Product runtime, KIB, adapter, registry, reader, or semantic artifact changes. Product continues to consume Knowledge through accepted pinned checkpoints and its existing lock/candidate/impact/promotion controls.
+
+Product gains the same scheduling decoupling: an active Product work unit may build against its pinned accepted inputs while Core/palace work proceeds, then synchronize once when it actually owns final integration.
 
 ## Risks and Failure Modes
 
@@ -97,3 +137,11 @@ This approval is limited to scheduling/integration governance. It does not autho
 ## Decision
 
 **APPROVED — implement v1 now.** Use parallel build + serialized final integration, with live coordination in Issue #888 and final exact-head acceptance only while holding the Integration Lease.
+
+## Implementation History
+
+- 2026-10-29: PI approved the design in chat.
+- 2026-10-29: coordination Issue #888 created; duplicate #889 closed.
+- 2026-10-29: implementation Issue #890 and Draft PR #891 created.
+- 2026-10-29: protocol, recovery/bootstrap, execution, Knowledge integration, three-stream, Agent workflow, state-cache, validator, and regression-test changes implemented on the Governance branch.
+- Final exact-head integration evidence and merge SHA are intentionally not claimed until the PR obtains the integration window and passes the final gate.
