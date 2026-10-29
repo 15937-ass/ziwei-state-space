@@ -20,6 +20,7 @@ REQUIRED = [
     "governance/CAPABILITY_READINESS_SCHEMA.md",
     "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md",
     "governance/INTEGRATION_QUEUE_PROTOCOL_v1.md",
+    "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md",
     "governance/KNOWLEDGE_SHARDS.json",
     "PROJECT_STATE.yaml",
     "product/PRODUCT_STATE.yaml",
@@ -165,6 +166,28 @@ def validate_required() -> None:
         fail("PROJECT_STATE must point to the integration queue protocol")
     if "integration_ledger_issue: 888" not in project_state:
         fail("PROJECT_STATE must point to coordination Issue #888")
+    if 'core_product_continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md"' not in project_state:
+        fail("PROJECT_STATE must point to the Core/Product continuation plan")
+    if "product_plan_pointer_issue: 900" not in project_state:
+        fail("PROJECT_STATE must point to Product plan pointer #900")
+    if "core_plan_pointer_issue: 901" not in project_state:
+        fail("PROJECT_STATE must point to Core plan pointer #901")
+
+    continuation = (ROOT / "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md").read_text(encoding="utf-8")
+    for marker in [
+        "Issue #900",
+        "Issue #901",
+        "Issue #897",
+        "Issue #898",
+        "15–30",
+        "DIRECT",
+        "LOSSY",
+        "GAP_PRODUCT",
+        "GAP_CORE",
+        "HOLD",
+    ]:
+        if marker not in continuation:
+            fail(f"Core/Product continuation plan missing required marker: {marker}")
 
     integration = (ROOT / "governance/INTEGRATION_QUEUE_PROTOCOL_v1.md").read_text(encoding="utf-8")
     for marker in [

@@ -7,17 +7,20 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "ACTIVE"
-  active_issue: 880
-  active_branch: "knowledge/core-880-p09-first-canonical-mappings"
-  active_pr: 881
-  base_main_sha: "e121d151da8a8078c616149a29d9eb5cd50f66f7"
-  stage: "EXACT_HEAD_VALIDATION_PENDING"
-  last_completed_issue: 874
-  last_completed_pr: 875
-  closure_effective_on: "PR_875_MERGED_TO_MAIN"
-  resume_entry: "Continue live Issue #880. Three bounded P09 canonical mappings KMM-000001..000003 are implemented on the Core branch. Preserve CA01-035 Fire/Bell ambiguity, CA01-045 real-world action prerequisite, and CA05-469 scene-only negative boundary. Work has been rebuilt onto main e121d151. PR #881 is open. Run exact-head validation on the current PR head; Product/runtime stays fail-closed."
-  next_work_unit: "KB-CORE-WP06C-P09-FIRST-CANONICAL-MAPPINGS-01"
+  status: "IDLE"
+  active_issue: null
+  active_branch: null
+  active_pr: null
+  base_main_sha: null
+  stage: "READY_TO_ADMIT"
+  continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md"
+  plan_pointer_issue: 901
+  next_issue: 898
+  last_completed_issue: 880
+  last_completed_pr: 881
+  closure_effective_on: "PR_881_MERGED_TO_MAIN"
+  resume_entry: "PI-authorized continuous Core plan is active. #880/#881 are completed; this cache has been repaired. If no live ACTIVE Core unit exists, read plan pointer #901 and claim the earliest eligible bounded nominee; current first nominee is #898, a 4-8 mapping semantic-diversity expansion batch starting from accepted 3 KMN / 3 KMM and KMM-000004. Product may concurrently consume older accepted checkpoints. Preserve UNKNOWN/conflict, keep executable/product authorization at zero unless separately approved, and stop only at the declared Human Gates. Live Issue/PR overrides this cache."
+  next_work_unit: null
 
 integrity:
   shared_semantics_core_only: true

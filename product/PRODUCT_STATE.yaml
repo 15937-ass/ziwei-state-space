@@ -8,8 +8,13 @@ execution:
   phase: "PL3_METHOD_RESPONSE_VERTICAL_SLICE"
   active_issue: null
   active_pr: null
+  continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md"
+  plan_pointer_issue: 900
+  next_issue: 897
   next_work_unit: "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"
-  resume_entry: "Product #696 / PR #698 completes PL7-Q2 prospective cohort lifecycle management. The next Product unit is PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT; it remains blocked until a new accepted compiler-ready source artifact or an explicit contract change. Active KIB-PRODUCT-20261021-V0_3 and its lock remain unchanged with auto_refresh=false; K_manifest and production temporal-response/manifestation registries remain empty. Forecast Ledger remains gated on an executable source-only N -> E -> tau -> M0 vertical slice. No predictive-validity claim is made."
+  continuation_next_work_unit: "PRODUCT_MANIFESTATION_CROSSWALK_PILOT_V0_1"
+  next_work_status: "READY_TO_ADMIT"
+  resume_entry: "PI-authorized continuous Product plan is active. If no live ACTIVE Product unit exists, read plan pointer #900 and claim the earliest eligible bounded nominee; current first nominee is #897, a Knowledge->Product manifestation adapter/crosswalk pilot pinned to accepted KMN-000001..000003 and KMM-000001..000003. Production manifestation registries remain empty, active KIB/lock does not auto-refresh, runtime/probability/predictive-validity remain unauthorized. Live Issue/PR overrides this cache."
   state_cache_as_of_main_commit: "3407150866a5ace99552daa674356b92610f080e"
   state_cache_as_of_product_merge: "085e65c509fc5f9fed8230d00d2fc07a0e01b79b"
   state_cache_snapshot_date: "2026-10-23"
@@ -19,7 +24,7 @@ execution:
   last_completed_product_pr: 698
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
-  resume_issue: 696
+  resume_issue: 897
   roadmap: "PRODUCT_ROADMAP.md#v0.4"
   execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
 
@@ -176,6 +181,7 @@ capability_snapshot:
 
 critical_path:
   now:
+    - "PRODUCT_MANIFESTATION_CROSSWALK_PILOT_V0_1"
     - "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"
     - "FORECAST_LEDGER_ACTIVATION"
   future:

@@ -13,6 +13,9 @@ execution:
   per_palace_wip_limit: 1
   canonical_merge_policy: "SERIAL_EXACT_HEAD"
   legacy_grandfather_branch: null
+  core_continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md"
+  core_plan_pointer_issue: 901
+  core_next_issue: 898
 
 states:
   core: "knowledge/states/CORE_STATE.yaml"
@@ -35,6 +38,7 @@ recovery:
   - "Read the corresponding state file above as a cache."
   - "Query live GitHub Issues for KNOWLEDGE_ONLY and the selected shard."
   - "Live Issue/linked PR overrides stale state."
+  - "For CORE with no ACTIVE bounded unit, read core plan pointer #901 and admit the earliest eligible nominee; current first nominee is #898."
   - "Do not infer another palace's work from chat history."
   - "Do not use archived twelve-palace candidate material as canonical truth."
 

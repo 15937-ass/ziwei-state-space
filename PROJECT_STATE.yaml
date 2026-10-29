@@ -17,6 +17,9 @@ authority:
   recovery_precedence: "governance/RECOVERY_PRECEDENCE_v1.md"
   integration_protocol: "governance/INTEGRATION_QUEUE_PROTOCOL_v1.md"
   integration_ledger_issue: 888
+  core_product_continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md"
+  product_plan_pointer_issue: 900
+  core_plan_pointer_issue: 901
   chat_is_project_state_authority: false
   chat_is_repository_operator: true
 
@@ -46,3 +49,4 @@ recovery_order:
   - "Do not use old chat prompts, README current-phase text, legacy tasks/*.yaml, historical validation next-work sections, archived files, superseded protocols, or old proposal status words as current task selectors."
   - "Use authority.current_execution_protocol for routine execution policy; do not choose a protocol by searching for the word ACTIVE."
   - "Before final merge, use authority.integration_protocol and live coordination Issue #888: ACTIVE_BUILD may proceed in parallel, but only the Integration Lease holder may synchronize to current main, run the final exact-head full gate, merge, and release."
+  - "For PI commands to continue Core/Product: after live-state recovery, if no ACTIVE unit exists, read authority.core_product_continuation_plan and the lane plan pointer (#901 Core / #900 Product), then admit the earliest eligible bounded nominee without asking the PI to restate the sequence."
