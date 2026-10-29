@@ -30,7 +30,7 @@ A provider file on main is not enough to activate a provider. For example, a Pro
 ## Scope, progressive retrieval, and token-cost controls
 
 - Only requested domains and their supported palace source ledgers are retrieved.
-- The default **first-pass** source budget is 20 items per requested slot. This is a per-call batch size for a brief reading, **not** a session/global cap and not a claim that only 12 relevant records exist.
+- The default **first-pass** source budget is 20 items per requested slot. This is a per-call batch size for a brief reading, **not** a session/global cap and not a claim that only 20 relevant records exist.
 - The report distinguishes total eligible evidence, evidence already seen in earlier batches, evidence selected in the current batch, and evidence remaining after the batch.
 - When more evidence remains, the reader returns a continuation object containing the pinned `main_sha`, requested slot IDs, accumulated `seen_evidence_ids`, and `has_more=true`. A later call may pass that continuation to retrieve the next ranked unseen batch without repeating earlier evidence.
 - Continuation is fail-closed: if GitHub `main` changed, the old continuation is rejected and the caller must begin a fresh first-pass read against the new accepted snapshot. This prevents a detailed follow-up from silently mixing two repository versions.
