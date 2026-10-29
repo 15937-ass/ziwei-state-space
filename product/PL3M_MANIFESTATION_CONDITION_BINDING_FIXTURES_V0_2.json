@@ -1,0 +1,138 @@
+{
+  "schema_version": "0.2",
+  "artifact_id": "PRODUCT-MANIFESTATION-CONDITION-BINDING-FIXTURES-V0_2",
+  "work_unit": "PRODUCT_MANIFESTATION_P3_GAP_CLOSURE_PG008_011_V0_1",
+  "issue": 925,
+  "status": "BUILD_FIXTURE",
+  "lane": "PRODUCT_ONLY",
+  "activation_main_commit": "e15f284238f5a29c98e998abd961e5c7fea2ea44",
+  "source_policy": "CURATED_EXACT_ACCEPTED_MAPPING_ONLY_NO_FREE_TEXT_DISCOVERY",
+  "fixtures": [
+    {
+      "schema_version": "0.2",
+      "fixture_id": "MCB-KMM-000010-V02",
+      "mapping_id": "KMM-000010",
+      "source_condition_text": "辰宫巨门化禄；行至天府宫垣",
+      "condition_kind": "SOURCE_TEXT_ONLY",
+      "condition": {
+        "source_text": "辰宫巨门化禄；行至天府宫垣"
+      },
+      "temporal_binding": {
+        "source_time_layer": "DECADE",
+        "required_scopes": ["DECADE"],
+        "binding_mode": "EXACT_DECLARED_SCOPES",
+        "event_outcome_inference_allowed": false
+      }
+    },
+    {
+      "schema_version": "0.2",
+      "fixture_id": "MCB-KMM-000012-V02",
+      "mapping_id": "KMM-000012",
+      "source_condition_text": "天相最重夹宫；羊陀夹、火铃夹、空劫夹皆不吉",
+      "condition_kind": "LISTED_VARIANT_SET",
+      "condition": {
+        "context_text": "天相最重夹宫",
+        "variants": ["羊陀夹", "火铃夹", "空劫夹"],
+        "combination_semantics": "SEPARATE_VARIANTS_NOT_ALL_REQUIRED",
+        "source_operator_token": null
+      },
+      "temporal_binding": {
+        "source_time_layer": "NATAL",
+        "required_scopes": ["NATAL"],
+        "binding_mode": "EXACT_DECLARED_SCOPES",
+        "event_outcome_inference_allowed": false
+      }
+    },
+    {
+      "schema_version": "0.2",
+      "fixture_id": "MCB-KMM-000013-V02",
+      "mapping_id": "KMM-000013",
+      "source_condition_text": "卯酉天相喜见才艺星，如天才、龙池、凤阁等；见奏书亦吉。若同时又见煞及昌曲化忌，则为清客。",
+      "condition_kind": "BRANCHED_CONDITIONAL",
+      "condition": {
+        "context_text": "卯酉天相",
+        "branches": [
+          {
+            "branch_id": "TALENT_STARS",
+            "source_text": "喜见才艺星，如天才、龙池、凤阁等",
+            "simultaneous_requirements": []
+          },
+          {
+            "branch_id": "ZOUSHU",
+            "source_text": "见奏书亦吉",
+            "simultaneous_requirements": []
+          },
+          {
+            "branch_id": "QINGKE",
+            "source_text": "若同时又见煞及昌曲化忌，则为清客",
+            "operator": {
+              "operator": "SIMULTANEOUS_IF",
+              "source_token": "若同时"
+            },
+            "simultaneous_requirements": ["见煞", "昌曲化忌"]
+          }
+        ]
+      },
+      "temporal_binding": {
+        "source_time_layer": "NATAL",
+        "required_scopes": ["NATAL"],
+        "binding_mode": "EXACT_DECLARED_SCOPES",
+        "event_outcome_inference_allowed": false
+      }
+    },
+    {
+      "schema_version": "0.2",
+      "fixture_id": "MCB-KMM-000014-V02",
+      "mapping_id": "KMM-000014",
+      "source_condition_text": "子午[武府]见吉化；亦不为助力，除非命宫见辅弼，然后始有兄弟友人相助",
+      "condition_kind": "PALACE_SCOPED_EXCEPTION",
+      "condition": {
+        "base_text": "子午[武府]见吉化；亦不为助力",
+        "operator": {
+          "operator": "UNLESS",
+          "source_token": "除非"
+        },
+        "dependency": {
+          "palace_scope": "LIFE_PALACE",
+          "source_palace_token": "命宫",
+          "dependency_text": "命宫见辅弼"
+        },
+        "consequence_text": "然后始有兄弟友人相助"
+      },
+      "temporal_binding": {
+        "source_time_layer": "NATAL",
+        "required_scopes": ["NATAL"],
+        "binding_mode": "EXACT_DECLARED_SCOPES",
+        "event_outcome_inference_allowed": false
+      }
+    },
+    {
+      "schema_version": "0.2",
+      "fixture_id": "MCB-KMM-000015-V02",
+      "mapping_id": "KMM-000015",
+      "source_condition_text": "巳亥[武破]守兄弟宫，即使见吉曜",
+      "condition_kind": "QUALIFIED_CONDITION",
+      "condition": {
+        "context_text": "巳亥[武破]守兄弟宫",
+        "operator": {
+          "operator": "EVEN_IF",
+          "source_token": "即使"
+        },
+        "qualified_text": "见吉曜"
+      },
+      "temporal_binding": {
+        "source_time_layer": "NATAL",
+        "required_scopes": ["NATAL"],
+        "binding_mode": "EXACT_DECLARED_SCOPES",
+        "event_outcome_inference_allowed": false
+      }
+    }
+  ],
+  "production_boundary": {
+    "production_registry_population_allowed": false,
+    "active_kib_promotion_allowed": false,
+    "runtime_execution_allowed": false,
+    "probability_claim_allowed": false,
+    "predictive_validity_claim_allowed": false
+  }
+}
