@@ -7,17 +7,17 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "IDLE"
-  active_issue: null
-  active_branch: null
-  active_pr: null
-  base_main_sha: null
-  stage: "BOUNDED_RESEARCH_COMPLETED_NO_AUTOMATIC_SUCCESSOR"
+  status: "ACTIVE"
+  active_issue: 841
+  active_branch: "knowledge/core-841-option-c-minimal-contract-closure-resync"
+  active_pr: 847
+  base_main_sha: "6b87b904d548ead46bf3d858cc1e50d29cf0cb8e"
+  stage: "PI_DECISIONS_RECORDED_FINAL_VALIDATION_PENDING"
   last_completed_issue: 757
   last_completed_pr: 783
   closure_effective_on: "PR_783_MERGED_TO_MAIN"
-  resume_entry: "Issue #757 is closed after candidate-research acceptance. Read its final handoff and research_closure before any new Core task. Live main is authoritative; base_main_sha stays null while execution.status is IDLE and is set only when a new active work unit is created. Residual source gaps and QI/QR candidates remain unresolved/held; no automatic canonical mapping or Product consumption."
-  next_work_unit: null
+  resume_entry: "PI accepted D1-D5 on 2026-10-29. Finalize Issue #841 / PR #847 only after an exact-head green gate against current main. Approval authorizes the minimum review contract and the next bounded WP06C mapping-review work, but does not authorize individual canonical mappings, production schema change, or Product/KIB/runtime consumption. Live Issue/PR override this recovery cache."
+  next_work_unit: "KB-CORE-WP06B-OPTION-C-MINIMAL-CONTRACT-CLOSURE-01"
 
 integrity:
   shared_semantics_core_only: true
