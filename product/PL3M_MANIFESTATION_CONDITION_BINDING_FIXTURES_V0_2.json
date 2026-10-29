@@ -19,7 +19,9 @@
       },
       "temporal_binding": {
         "source_time_layer": "DECADE",
-        "required_scopes": ["DECADE"],
+        "required_scopes": [
+          "DECADE"
+        ],
         "binding_mode": "EXACT_DECLARED_SCOPES",
         "event_outcome_inference_allowed": false
       }
@@ -32,13 +34,20 @@
       "condition_kind": "LISTED_VARIANT_SET",
       "condition": {
         "context_text": "天相最重夹宫",
-        "variants": ["羊陀夹", "火铃夹", "空劫夹"],
+        "variants": [
+          "羊陀夹",
+          "火铃夹",
+          "空劫夹"
+        ],
         "combination_semantics": "SEPARATE_VARIANTS_NOT_ALL_REQUIRED",
-        "source_operator_token": null
+        "source_operator_token": null,
+        "boundary_evidence_text": "Do not require 羊陀夹、火铃夹、空劫夹 to occur together; the source lists them as separate adverse夹宫 variants."
       },
       "temporal_binding": {
         "source_time_layer": "NATAL",
-        "required_scopes": ["NATAL"],
+        "required_scopes": [
+          "NATAL"
+        ],
         "binding_mode": "EXACT_DECLARED_SCOPES",
         "event_outcome_inference_allowed": false
       }
@@ -69,13 +78,19 @@
               "operator": "SIMULTANEOUS_IF",
               "source_token": "若同时"
             },
-            "simultaneous_requirements": ["见煞", "昌曲化忌"]
+            "simultaneous_requirements": [
+              "见煞",
+              "昌曲化忌"
+            ]
           }
-        ]
+        ],
+        "boundary_evidence_text": "Do not merge the talent-star preference, 奏书 favorable clause, and 清客 clause into one trigger."
       },
       "temporal_binding": {
         "source_time_layer": "NATAL",
-        "required_scopes": ["NATAL"],
+        "required_scopes": [
+          "NATAL"
+        ],
         "binding_mode": "EXACT_DECLARED_SCOPES",
         "event_outcome_inference_allowed": false
       }
@@ -101,7 +116,9 @@
       },
       "temporal_binding": {
         "source_time_layer": "NATAL",
-        "required_scopes": ["NATAL"],
+        "required_scopes": [
+          "NATAL"
+        ],
         "binding_mode": "EXACT_DECLARED_SCOPES",
         "event_outcome_inference_allowed": false
       }
@@ -122,7 +139,9 @@
       },
       "temporal_binding": {
         "source_time_layer": "NATAL",
-        "required_scopes": ["NATAL"],
+        "required_scopes": [
+          "NATAL"
+        ],
         "binding_mode": "EXACT_DECLARED_SCOPES",
         "event_outcome_inference_allowed": false
       }
