@@ -1,6 +1,9 @@
 schema_version: 3
 lane: "PRODUCT_ONLY"
-authoritative_execution:
+authoritative_execution: "GITHUB_ISSUE"
+canonical_branch: "main"
+
+execution:
   status: "ACTIVE_NO_ACTIVE_WORK"
   phase: "PL3_METHOD_RESPONSE_VERTICAL_SLICE"
   active_issue: null
@@ -11,13 +14,13 @@ authoritative_execution:
   next_work_unit: "PRODUCT_MANIFESTATION_CROSSWALK_PILOT_V0_1"
   next_work_status: "READY_TO_ADMIT"
   resume_entry: "PI-authorized continuous Product plan is active. If no live ACTIVE Product unit exists, read plan pointer #900 and claim the earliest eligible bounded nominee; current first nominee is #897, a Knowledge->Product manifestation adapter/crosswalk pilot pinned to accepted KMN-000001..000003 and KMM-000001..000003. Production manifestation registries remain empty, active KIB/lock does not auto-refresh, runtime/probability/predictive-validity remain unauthorized. Live Issue/PR overrides this cache."
-  state_cache_as_of_main_commit: "2969aa6c2f3b9b1c58809a8b0c682e803cddc13f"
-  state_cache_as_of_product_merge: "e9f744f75b3bd6c9d52bb7063f7c65f8ccca95ea"
-  state_cache_snapshot_date: "2026-10-29"
+  state_cache_as_of_main_commit: "3407150866a5ace99552daa674356b92610f080e"
+  state_cache_as_of_product_merge: "085e65c509fc5f9fed8230d00d2fc07a0e01b79b"
+  state_cache_snapshot_date: "2026-10-23"
   v04_entry_checkpoint_issue: 416
   v04_entry_checkpoint_pr: 418
-  last_completed_product_issue: 882
-  last_completed_product_pr: 883
+  last_completed_product_issue: 696
+  last_completed_product_pr: 698
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
   resume_issue: 897
@@ -177,6 +180,7 @@ capability_snapshot:
 
 critical_path:
   now:
+    - "PRODUCT_MANIFESTATION_CROSSWALK_PILOT_V0_1"
     - "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"
     - "FORECAST_LEDGER_ACTIVATION"
   future:
