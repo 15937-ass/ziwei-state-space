@@ -1,0 +1,127 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-CORE-CANONICAL-MANIFESTATION-ID-POLICY",
+  "version": "0.1",
+  "status": "CANONICAL_CONTRACT_FROZEN_NO_PRODUCTION_NODES_ASSIGNED",
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "CORE",
+  "work_unit": "KB-CORE-WP06B-CANONICAL-MANIFESTATION-NODE-CONTRACT-01",
+  "issue": 868,
+  "authority_refs": [
+    "PI-DECISION-CORE-841-2026-10-29",
+    "PI-DECISION-CORE-866-2026-10-29",
+    "KNOWLEDGE_BASE_ROADMAP.md#KB-WP06B",
+    "knowledge/REVIEW_SCHEMA_v0.3.md"
+  ],
+  "id_policy": {
+    "namespace": "KMN",
+    "meaning": "Knowledge Manifestation Node",
+    "regex": "^KMN-[0-9]{6}$",
+    "lexical_example_template": "KMN-NNNNNN",
+    "opaque_semantics_free": true,
+    "embeds_domain": false,
+    "embeds_palace": false,
+    "embeds_star": false,
+    "embeds_rank": false,
+    "embeds_probability": false,
+    "allocation": "MONOTONIC_INTEGER_ON_ACCEPTED_MAIN",
+    "first_allocatable_number": 1,
+    "never_reuse": true,
+    "immutable_after_assignment": true,
+    "concurrent_allocation_rule": "CORE_WIP_ONE_AND_SERIALIZED_KNOWLEDGE_MERGE",
+    "renumber_on_label_or_domain_wording_refinement": false,
+    "identity_change_requires_new_id": true
+  },
+  "parent_policy": {
+    "option_c_source_native_forest": true,
+    "null_parent_allowed": true,
+    "null_parent_semantics": "NO_ACCEPTED_CANONICAL_PARENT_IN_CURRENT_ARTIFACT",
+    "null_parent_does_not_mean_universal_root": true,
+    "non_null_parent_must_resolve_to_same_artifact": true,
+    "universal_family_root_shared_primitive_requires_pi_human_gate": true,
+    "cycles_allowed": false
+  },
+  "canonicalization_gate": {
+    "ordinary_node_per_node_pi_required": false,
+    "source_epistemic_allowed": [
+      "EXPLICIT",
+      "INFERRED_FROM_SOURCE"
+    ],
+    "source_epistemic_blocked": [
+      "UNRESOLVED_SOURCE"
+    ],
+    "normalization_epistemic_allowed": [
+      "SOURCE_PRESERVING",
+      "INFERRED"
+    ],
+    "normalization_epistemic_blocked": [
+      "IMPLEMENTATION",
+      "HYPOTHESIS",
+      "UNRESOLVED"
+    ],
+    "review_status_allowed": [
+      "SOURCE_SPAN_VERIFIED",
+      "HUMAN_VERIFIED"
+    ],
+    "source_span_verified_required": true,
+    "normalization_verified_required": true,
+    "supported_mapping_review_required": true,
+    "unresolved_identity_conflict_allowed": false,
+    "case_support_only_as_sole_support_allowed": false,
+    "hypothesis_as_sole_support_allowed": false,
+    "probability_status_required": "UNKNOWN",
+    "exact_head_validation_required": true,
+    "schema_must_reject_blocked_epistemics": true
+  },
+  "axis_policy": {
+    "output_kind_candidate_values_are_exhaustive": false,
+    "output_kind_value_schema_is_open_string": true,
+    "event_specificity_value_schema_is_open_string": true,
+    "axis_states": [
+      "KNOWN",
+      "UNKNOWN",
+      "MISSING",
+      "CONFLICT",
+      "NOT_APPLICABLE"
+    ],
+    "canonicalization_blocked_axis_states": [
+      "MISSING",
+      "CONFLICT"
+    ],
+    "unknown_allowed_only_when_identity_boundary_is_stable": true,
+    "not_applicable_is_state_not_value": true,
+    "schema_allowed_canonical_axis_states": [
+      "KNOWN",
+      "UNKNOWN",
+      "NOT_APPLICABLE"
+    ],
+    "review_layer_retains_full_state_vocabulary": [
+      "KNOWN",
+      "UNKNOWN",
+      "MISSING",
+      "CONFLICT",
+      "NOT_APPLICABLE"
+    ],
+    "canonical_schema_rejects_missing_and_conflict": true
+  },
+  "supersession_policy": {
+    "ids_never_mutate": true,
+    "ids_never_recycle": true,
+    "split_or_merge_creates_new_ids": true,
+    "old_nodes_marked": "SUPERSEDED",
+    "forward_links_required": true,
+    "backward_links_required": true,
+    "silent_repointing_forbidden": true
+  },
+  "product_boundary": {
+    "knowledge_is_ontology_owner": true,
+    "product_is_adapter_consumer": true,
+    "product_registry_change_authorized": false,
+    "product_consumption_authorized": false,
+    "canonical_node_does_not_imply_product_readiness": true
+  },
+  "assigned_production_ids": [],
+  "production_nodes_created_in_this_work_unit": false,
+  "canonical_mappings_promoted_in_this_work_unit": false,
+  "universal_root_or_family_created": false
+}
