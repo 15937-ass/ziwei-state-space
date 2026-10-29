@@ -49,6 +49,37 @@ def test_delivery_stages_cover_all_named_sections_before_final_synthesis():
     assert staged == {section.section_id for section in plan.sections}
 
 
+def test_retrieval_batches_are_staged_and_cover_every_slot_once():
+    plan = build_detailed_read_plan("详批", "chart-001")
+    batches = plan.retrieval_batches()
+    assert batches[0]["stage_id"] == "stage_1_overview"
+    assert batches[0]["slot_ids"] == (
+        "life_natal",
+        "fortune_natal",
+        "career_natal",
+        "migration_natal",
+    )
+    flattened = [slot_id for batch in batches for slot_id in batch["slot_ids"]]
+    assert len(flattened) == 12
+    assert set(flattened) == {slot.slot_id for slot in plan.natal_slots}
+    assert len(flattened) == len(set(flattened))
+
+
+def test_temporal_retrieval_is_deferred_to_stage_four():
+    plan = build_detailed_read_plan(
+        "详批 2028 年",
+        "chart-001",
+        temporal_layers=("YEAR",),
+        temporal_domains=("career", "relationship"),
+    )
+    stage_four = next(
+        batch for batch in plan.retrieval_batches()
+        if batch["stage_id"] == "stage_4_environment_health_time"
+    )
+    assert "career_year" in stage_four["slot_ids"]
+    assert "relationship_year" in stage_four["slot_ids"]
+
+
 def test_atomic_request_uses_existing_quickread_contract():
     plan = build_detailed_read_plan("详批", "chart-001", mode="SOURCE_FIRST")
     request = plan.request_for_slot("relationship_natal")
@@ -135,6 +166,7 @@ def test_children_domain_is_part_of_quickread_reader_discovery_surface():
 def test_plan_serialization_exposes_private_chat_delivery_contract():
     payload = build_detailed_read_plan("详批", "chart-001").to_dict()
     assert payload["reading_mode"] == "DETAILED_READ"
+    assert payload["retrieval_batches"][0]["stage_id"] == "stage_1_overview"
     assert payload["delivery"]["multi_turn_preferred"] is True
     assert len(payload["delivery"]["stages"]) == 5
     assert payload["delivery"]["stages"][-1]["stage_id"] == "stage_5_synthesis"
