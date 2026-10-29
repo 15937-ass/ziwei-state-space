@@ -2,6 +2,7 @@ import pytest
 
 from src.product.detailed_read import (
     CROSS_DOMAIN_CHECKS,
+    DELIVERY_STAGES,
     NATAL_DOMAIN_ORDER,
     VERBALIZER_INSTRUCTIONS,
     build_detailed_read_plan,
@@ -30,6 +31,22 @@ def test_sections_reuse_domains_but_retrieval_identity_stays_atomic():
     assert section_domains.count("career") > 1
     assert len(plan.retrieval_slots) == 12
     assert len({slot.slot_id for slot in plan.retrieval_slots}) == 12
+
+
+def test_user_facing_sections_cover_all_twelve_domains():
+    plan = build_detailed_read_plan("详批", "chart-001")
+    covered = {domain for section in plan.sections for domain in section.domains}
+    assert covered == set(NATAL_DOMAIN_ORDER)
+
+
+def test_delivery_stages_cover_all_named_sections_before_final_synthesis():
+    plan = build_detailed_read_plan("详批", "chart-001")
+    staged = {
+        section_id
+        for stage in DELIVERY_STAGES
+        for section_id in stage["section_ids"]
+    }
+    assert staged == {section.section_id for section in plan.sections}
 
 
 def test_atomic_request_uses_existing_quickread_contract():
@@ -119,5 +136,7 @@ def test_plan_serialization_exposes_private_chat_delivery_contract():
     payload = build_detailed_read_plan("详批", "chart-001").to_dict()
     assert payload["reading_mode"] == "DETAILED_READ"
     assert payload["delivery"]["multi_turn_preferred"] is True
+    assert len(payload["delivery"]["stages"]) == 5
+    assert payload["delivery"]["stages"][-1]["stage_id"] == "stage_5_synthesis"
     assert payload["delivery"]["mechanical_twelve_palace_output"] is False
     assert payload["delivery"]["final_summary_theme_count"] == {"min": 3, "max": 5}
