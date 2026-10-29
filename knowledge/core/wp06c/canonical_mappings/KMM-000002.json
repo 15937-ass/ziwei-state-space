@@ -1,0 +1,69 @@
+{
+  "schema_version": "0.1",
+  "canonical_mapping_status": "ACTIVE",
+  "canonical_mapping_approved": true,
+  "executable": false,
+  "product_consumable": false,
+  "probability_status": "UNKNOWN",
+  "supersession": {
+    "supersedes": [],
+    "superseded_by": [],
+    "reason": null
+  },
+  "mapping_id": "KMM-000002",
+  "primary_source_rule_id": "CA01-045",
+  "source_rule_ids": [
+    "CA01-042",
+    "CA01-044",
+    "CA01-045"
+  ],
+  "manifestation_id": "KMN-000002",
+  "source_refs": [
+    "SRC-ZZ-003#pdf_scan_page=67#printed_page=133#CA01-045",
+    "knowledge/palaces/P09_career/wp06c/P09_WP06C_SOURCE_CANDIDATE_INDEX_v0.1.json#P09-WP06C-CAND-002",
+    "knowledge/wp07a/CAREER_CONTEXT_MAP_CA01_035_043_045_v0.1.json#CA01-045"
+  ],
+  "review_refs": {
+    "positive": [
+      "MR-P09-CA01045-CONDITIONAL-001"
+    ],
+    "negative_boundaries": [
+      "MR-P09-CA01045-UNCONDITIONAL-NEG-002"
+    ]
+  },
+  "source_epistemic": "EXPLICIT",
+  "normalization_epistemic": "SOURCE_PRESERVING",
+  "output_kind": {
+    "state": "KNOWN",
+    "value": "ACTION_CONDITIONED_OUTCOME"
+  },
+  "event_specificity": {
+    "state": "KNOWN",
+    "value": "CONDITIONAL_OUTCOME_NOT_OBSERVED"
+  },
+  "conditions": {
+    "time_layer": "NATAL",
+    "source_condition_text": "前格勉强求变",
+    "antecedent_rule_ids": [
+      "CA01-042",
+      "CA01-044"
+    ],
+    "modality_terms": [],
+    "real_world_prerequisites": [
+      {
+        "text": "勉强求变",
+        "status": "SOURCE_EXPLICIT_NOT_ESTABLISHED_BY_CHART"
+      }
+    ],
+    "unresolved_semantics": []
+  },
+  "execution_readiness": "BLOCKED_EXTERNAL_PREREQUISITE",
+  "execution_blockers": [
+    "REAL_WORLD_ACTION_PREREQUISITE_INTERFACE_NOT_ACCEPTED"
+  ],
+  "forbidden_inferences": [
+    "Do not remove CA01-042/CA01-044 inherited context.",
+    "Do not infer that 勉强求变 occurred from chart facts alone.",
+    "Do not convert this relation into an unconditional chart-only career-difficulty outcome, probability, or causal estimate."
+  ]
+}

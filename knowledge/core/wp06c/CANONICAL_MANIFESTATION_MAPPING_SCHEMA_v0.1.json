@@ -1,0 +1,383 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Canonical Manifestation Mapping v0.1",
+  "description": "Knowledge-owned canonical source-rule to manifestation relation. Canonical acceptance does not imply execution, Product consumption, probability, or empirical validity.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "mapping_id",
+    "primary_source_rule_id",
+    "source_rule_ids",
+    "manifestation_id",
+    "source_refs",
+    "review_refs",
+    "source_epistemic",
+    "normalization_epistemic",
+    "output_kind",
+    "event_specificity",
+    "conditions",
+    "canonical_mapping_status",
+    "canonical_mapping_approved",
+    "execution_readiness",
+    "executable",
+    "execution_blockers",
+    "product_consumable",
+    "probability_status",
+    "forbidden_inferences",
+    "supersession"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "mapping_id": {
+      "type": "string",
+      "pattern": "^KMM-[0-9]{6}$"
+    },
+    "primary_source_rule_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_rule_ids": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "manifestation_id": {
+      "type": "string",
+      "pattern": "^KMN-[0-9]{6}$"
+    },
+    "source_refs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "review_refs": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "positive",
+        "negative_boundaries"
+      ],
+      "properties": {
+        "positive": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "negative_boundaries": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "source_epistemic": {
+      "type": "string",
+      "enum": [
+        "EXPLICIT",
+        "INFERRED_FROM_SOURCE"
+      ]
+    },
+    "normalization_epistemic": {
+      "type": "string",
+      "enum": [
+        "SOURCE_PRESERVING",
+        "INFERRED"
+      ]
+    },
+    "output_kind": {
+      "$ref": "#/$defs/review_axis"
+    },
+    "event_specificity": {
+      "$ref": "#/$defs/review_axis"
+    },
+    "conditions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "time_layer",
+        "source_condition_text",
+        "antecedent_rule_ids",
+        "modality_terms",
+        "real_world_prerequisites",
+        "unresolved_semantics"
+      ],
+      "properties": {
+        "time_layer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_condition_text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "antecedent_rule_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "modality_terms": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "real_world_prerequisites": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "text",
+              "status"
+            ],
+            "properties": {
+              "text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "SOURCE_EXPLICIT_NOT_ESTABLISHED_BY_CHART",
+                  "ESTABLISHED_BY_ACCEPTED_INTERFACE"
+                ]
+              }
+            }
+          }
+        },
+        "unresolved_semantics": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "canonical_mapping_status": {
+      "type": "string",
+      "enum": [
+        "ACTIVE",
+        "SUPERSEDED"
+      ]
+    },
+    "canonical_mapping_approved": {
+      "const": true
+    },
+    "execution_readiness": {
+      "type": "string",
+      "enum": [
+        "BLOCKED_SEMANTIC",
+        "BLOCKED_EXTERNAL_PREREQUISITE",
+        "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED"
+      ]
+    },
+    "executable": {
+      "type": "boolean"
+    },
+    "execution_blockers": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "product_consumable": {
+      "type": "boolean"
+    },
+    "probability_status": {
+      "const": "UNKNOWN"
+    },
+    "forbidden_inferences": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "supersession": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "supersedes",
+        "superseded_by",
+        "reason"
+      ],
+      "properties": {
+        "supersedes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^KMM-[0-9]{6}$"
+          }
+        },
+        "superseded_by": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^KMM-[0-9]{6}$"
+          }
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  },
+  "$defs": {
+    "review_axis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "value"
+      ],
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": [
+            "KNOWN",
+            "UNKNOWN",
+            "NOT_APPLICABLE"
+          ]
+        },
+        "value": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "const": "KNOWN"
+              }
+            },
+            "required": [
+              "state"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "state": {
+                "enum": [
+                  "UNKNOWN",
+                  "NOT_APPLICABLE"
+                ]
+              }
+            },
+            "required": [
+              "state"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "execution_readiness": {
+            "enum": [
+              "BLOCKED_SEMANTIC",
+              "BLOCKED_EXTERNAL_PREREQUISITE"
+            ]
+          }
+        },
+        "required": [
+          "execution_readiness"
+        ]
+      },
+      "then": {
+        "properties": {
+          "executable": {
+            "const": false
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "canonical_mapping_status": {
+            "const": "SUPERSEDED"
+          }
+        },
+        "required": [
+          "canonical_mapping_status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "supersession": {
+            "properties": {
+              "superseded_by": {
+                "minItems": 1
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
