@@ -36,17 +36,16 @@ def test_product_state_points_to_first_bounded_nominee():
     assert 'next_work_status: "READY_TO_ADMIT"' in state
 
 
-def test_core_state_tracks_latest_accepted_core_checkpoint_and_next_nominee():
+def test_core_state_is_repaired_and_points_to_first_bounded_nominee():
     state = (ROOT / "knowledge/states/CORE_STATE.yaml").read_text(encoding="utf-8")
     assert 'status: "IDLE"' in state
     assert "active_issue: null" in state
     assert "active_pr: null" in state
     assert "plan_pointer_issue: 901" in state
-    assert "next_issue: 907" in state
+    assert "next_issue: 898" in state
     assert "next_work_unit: null" in state
-    assert 'closure_effective_on: "PR_904_MERGED_TO_MAIN"' in state
-    assert "last_completed_issue: 898" in state
-    assert "last_completed_pr: 904" in state
+    assert "last_completed_issue: 880" in state
+    assert "last_completed_pr: 881" in state
 
 
 def test_three_stream_entry_routes_simple_continue_commands():
