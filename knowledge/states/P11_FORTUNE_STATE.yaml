@@ -11,15 +11,14 @@ execution:
   active_issue: null
   active_branch: null
   active_pr: null
-  canonical_checkpoint: FD07_ACCEPTED__CENSUS_A_B_P166_173_RECONCILED__CENSUS_C_PENDING
-  note: 'Post-acceptance snapshot for Issue #851; live Issue/PR governs while open.
-    Census A/B reconcile pp166–173, 157 paragraph/page-slice anchors; B includes the additional L06 continuation slice on p172.
+  canonical_checkpoint: FD07_ACCEPTED__CENSUS_ABC_RECONCILED__R2_STAGE_REVIEW_PENDING
+  note: 'Post-acceptance snapshot for Issue #852; live Issue/PR governs while open.
+    Census A/B/C reconcile pp166–176, 206 paragraph/page-slice anchors and 474 unique records. B corrects the L06 p172 continuation omission in the old 205 estimate.
     No clear unaccounted paragraph found in that bounded span. All seven accepted
-    ledgers and 34 gaps remain byte-identical. Whole-chapter coverage and residual
-    disposition are incomplete; next Census C pp174–176 and residual
-    ledger. No other palace admitted; no mapping/runtime/empirical authorization.'
+    ledgers and 34 gaps remain byte-identical. All 34 gaps/109 held records have explicit retained dispositions. Independent R2
+    stage closure review is still pending; semantic resolution is not claimed. No other palace admitted; no mapping/runtime/empirical authorization.'
 progress:
-  issue: 851
+  issue: 852
   full_section_printed_pages: 166–176
   full_section_pdf_physical_pages: 83–88
   source_atoms_reviewed: 474
@@ -31,8 +30,7 @@ progress:
   history_feedback: 0
   conditions_compiled: 0
   execution_unlocked: 0
-  next_source_anchor: 'Census C: printed pp174–176 and disposition
-    of all 34 retained gap groups'
+  next_source_anchor: 'P11 R2 independent stage review of Census A/B/C and 34 retained gaps; no P02 admission before accepted handoff'
 human_gate:
   pending: null
 integrity:
@@ -50,6 +48,12 @@ coverage_census:
   - 171
   - 172
   - 173
-  paragraph_anchor_slices_reconciled: 157
+  - 174
+  - 175
+  - 176
+  paragraph_anchor_slices_reconciled: 206
+  source_census_complete: true
+  residual_registration_complete: true
+  independent_stage_review_complete: false
   whole_chapter_complete: false
   residual_disposition_complete: false
