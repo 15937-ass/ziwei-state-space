@@ -1,6 +1,6 @@
 # AGENT_WORKFLOW.md
 
-Version: 1.1
+Version: 1.2
 Governance: GOVERNANCE.md
 
 ## 1. Core rule
@@ -56,14 +56,16 @@ Product and Governance retain one ACTIVE work unit each. Knowledge follows `gove
 
 1. recover state;
 2. confirm lane and Issue;
-3. producer pass in the current ChatGPT session, ChatGPT Work, or Codex as available;
-4. critic/red-team pass;
-5. revision;
-6. deterministic validation in an approved execution runtime: GitHub Actions standard public-repository runners, or Work/Codex when available;
-7. record exact validation commands, runtime, workflow/run references when applicable, and results in the Issue/PR;
-8. create/update one PR for the Issue;
+3. work in `ACTIVE_BUILD`: producer pass, critic/red-team pass, revision, and bounded/relevant validation;
+4. create/update one PR for the Issue and record durable checkpoints;
+5. when content is complete, move to `READY_TO_INTEGRATE` and record it in coordination Issue #888;
+6. only after acquiring the sole Integration Lease, enter `INTEGRATING`;
+7. synchronize once to current `main`, run the final exact-head validation required by the work unit, and record exact run identity;
+8. if green and still fresh, merge immediately and release the lease; if stale/failed, do not merge;
 9. report status;
 10. stop.
+
+The controlling integration contract is `governance/INTEGRATION_QUEUE_PROTOCOL_v1.md`. ACTIVE_BUILD may continue in other lanes while one PR is INTEGRATING.
 
 After G8, GitHub Actions on standard public-repository runners is an approved routine deterministic validation runtime. Automatic `pull_request` validation and `workflow_dispatch` are allowed; automatic `push` triggers remain prohibited. This is not a blanket Actions disablement.
 
@@ -168,7 +170,7 @@ The execution context cache is disposable and non-authoritative. On any conflict
 
 Maintain one durable validation record per validation identity: exact PR base/main and head SHAs, relevant source/input/lock versions, check scope and commands, workflow/config/dependency/runtime versions, run attempt and outcome. Reuse an existing successful record only when all these match and every required check completed. Reference its evidence rather than copying a second full report or starting an identical run merely for another progress message. Unknown, skipped, pending, failed or unavailable required evidence is not PASS.
 
-At a hard checkpoint and before merge, recheck live main/head, required check status, inputs and gates. This freshness check is mandatory even when a matching completed run can be reused. A changed base/head, relevant input, dependency, workflow, environment or required scope invalidates the affected result; synchronize safely and perform the required validation again. An unchanged source blob may retain its source-review evidence, but that does not carry forward a stale whole-PR acceptance. Existing full-gate requirements remain controlling; this section grants no narrower scope or validation exemption.
+At a hard checkpoint recheck the work unit's own live head, required inputs and gates. At final merge, first acquire the Integration Lease from Issue #888 and enter INTEGRATING; only then synchronize to current main/head and run the complete exact-head acceptance scope. This freshness check is mandatory even when a matching earlier build-stage run exists. A changed final base/head, relevant input, dependency, workflow, environment or required scope invalidates the affected final result; synchronize safely under the lease and perform the required validation again. An unchanged source blob may retain its source-review evidence, but that does not carry forward a stale whole-PR acceptance. Existing full-gate requirements remain controlling; this section grants no narrower scope or validation exemption.
 
 For one bounded source batch, inspect provenance/source fidelity, IDs/count reconciliation and temporal layers together, but record each verdict separately with evidence and unresolved items. Preserve school boundaries, prerequisites, conflicts and UNKNOWN; aggregate success cannot hide a failed dimension. Keep source fidelity, structural consistency, internal reconstruction and empirical validity distinct. The existing ~50-item reasoning sub-batch / <=100-item durable integration limits still apply.
 
@@ -212,7 +214,7 @@ At each hard checkpoint, run the validation scope required by governance/PUBLIC_
 
 Automatic pull_request triggers are allowed. Automatic push triggers remain prohibited.
 
-Repository capability does not override governance authority. Issue-first execution, lane/path ownership, PR discipline, validation gates, Human Gates, source integrity and maturity boundaries still apply. Normal work remains Issue -> branch -> PR -> validation -> merge; direct-to-main is not routine merely because a connected API could allow it.
+Repository capability does not override governance authority. Issue-first execution, lane/path ownership, PR discipline, validation gates, Human Gates, source integrity and maturity boundaries still apply. Normal work remains Issue -> branch -> PR -> ACTIVE_BUILD -> READY_TO_INTEGRATE -> Integration Lease -> exact-head validation -> merge; direct-to-main is not routine merely because a connected API could allow it.
 
 The connected tool surface is the technical ceiling. If an operation is not exposed by the current connector/tools, report that as a technical interface limitation rather than a governance prohibition.
 
@@ -244,7 +246,7 @@ The PI-facing report is domain- and project-oriented, not Git-oriented. The PI i
 
 At the end of **every repository-work conversation** (including read-only review, completed implementation, validation, or a blocked/paused work unit), perform a lightweight **read-only** live Issue/PR census for the current palace worker, Knowledge Core, and Product. Check accepted `main` where a delivery claim depends on it. Report all three in Chinese even though this turn executes in exactly one lane. Do not open an Issue, change another lane, rerun its tests, or consume an unmerged artifact merely to prepare the report. Live Issue/PR and accepted `main` outrank a stale state cache; if a live check fails, mark that lane **未核实** with the reason and do not recommend a dependent activation as if it were verified.
 
-Batch this census where supported and include its observation time. For each stream, distinguish **occupied/runnable**, **occupied/waiting**, **free/no admitted task** and **unverified**, alongside its Issue/PR, next independent action, blocker and PI gate. Preserve Core WIP 1, Product WIP 1 and the PI's one-palace-at-a-time schedule within the existing palace caps; Governance remains its own one-unit write lane. Respect registered path ownership and cross-lane handoffs. Independent preparation may overlap in separate chats; canonical integration remains serial against current accepted main, ordered by dependencies and validated readiness rather than a fixed Palace -> Core -> Product cycle. Report at most one next integration candidate and its remaining gate. A status report does not launch another task or authorize unmerged Knowledge consumption.
+Batch this census where supported and include its observation time. For each stream, distinguish **occupied/runnable**, **occupied/waiting**, **free/no admitted task** and **unverified**, alongside its Issue/PR, next independent action, blocker and PI gate. Preserve Core WIP 1, Product WIP 1 and the PI's one-palace-at-a-time schedule within the existing palace caps; Governance remains its own one-unit write lane. Respect registered path ownership and cross-lane handoffs. Independent preparation may overlap in separate chats; canonical integration remains serial through the Integration Lease in Issue #888, ordered by dependencies and validated readiness rather than a fixed Palace -> Core -> Product cycle. Report at most one next integration candidate and its remaining gate. A status report does not launch another task or authorize unmerged Knowledge consumption.
 
 Default report order:
 
