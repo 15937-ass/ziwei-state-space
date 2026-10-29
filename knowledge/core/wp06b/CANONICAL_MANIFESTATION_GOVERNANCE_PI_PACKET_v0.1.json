@@ -1,0 +1,181 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-CORE-CANONICAL-MANIFESTATION-GOVERNANCE-PI-PACKET",
+  "version": "0.1",
+  "status": "PI_DECISIONS_RECORDED_CANONICALIZATION_POLICY_NOT_IMPLEMENTED",
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "CORE",
+  "work_unit": "KB-CORE-WP06B06C-CANONICAL-NODE-GOVERNANCE-PI-PACKET-01",
+  "issue": 866,
+  "source_of_authority": {
+    "roadmap": "KNOWLEDGE_BASE_ROADMAP.md",
+    "minimum_contract": "knowledge/core/wp06b/OPTION_C_MINIMAL_CONTRACT_CLOSURE_REVIEW_v0.1.json",
+    "p09_mapping_pilot": "knowledge/core/wp06c/P09_FORMAL_MAPPING_REVIEW_PILOT_v0.1.json",
+    "product_ontology_acceptance": "product/PL3M_MANIFESTATION_ONTOLOGY_ADAPTER_ACCEPTANCE.md",
+    "product_router_acceptance": "product/PL3M_SOURCE_SUPPORTED_POSSIBILITY_ROUTER_ACCEPTANCE.md"
+  },
+  "observed_facts": {
+    "roadmap_ordinary_child_node_human_gate_required": false,
+    "roadmap_universal_manifestation_family_human_gate_required": true,
+    "knowledge_is_ontology_owner": true,
+    "product_is_adapter_consumer": true,
+    "current_product_ontology_registry_status": "EMPTY_PENDING_KB_WP06B",
+    "current_product_mapping_registry_status": "EMPTY_PENDING_KB_WP06C",
+    "product_node_has_output_kind": false,
+    "product_event_specificity_values": [
+      "ABSTRACT",
+      "SCENE_LEVEL",
+      "CONCRETE_EVENT"
+    ],
+    "knowledge_fine_event_specificity_examples": [
+      "PROCESS_SEQUENCE_NOT_SINGLE_EVENT",
+      "CONDITIONAL_OUTCOME_NOT_OBSERVED",
+      "SCENE_NOT_OBSERVED_EVENT"
+    ],
+    "product_router_antecedent_types": [
+      "required_activation_ids",
+      "required_rule_ids"
+    ],
+    "ca01045_real_world_action_prerequisite": "勉强求变",
+    "ca01045_prerequisite_representable_by_current_product_router": false,
+    "production_manifestation_id_convention_frozen": false,
+    "test_fixture_ids_are_not_production_convention": true
+  },
+  "decisions": {
+    "G1": {
+      "title": "Ordinary canonical child-node authorization policy",
+      "recommendation": "A",
+      "options": {
+        "A": {
+          "code": "POLICY_GATED_ORDINARY_CHILD_CANONICALIZATION",
+          "summary": "PI grants a one-time policy authorization: ordinary source-backed child nodes may receive stable Knowledge-owned canonical identities without per-node PI review when all frozen gates pass; universal roots/families/shared primitives still require PI.",
+          "gates": [
+            "source spans and provenance reviewed",
+            "target-specific mapping review supports the concept",
+            "semantic boundary is stable enough for identity",
+            "no unresolved conflict changes the node's identity",
+            "case-only or hypothesis evidence is not sole support",
+            "probability_status remains UNKNOWN",
+            "no universal manifestation family/root/shared primitive is introduced",
+            "no Product/KIB/runtime authorization is implied",
+            "exact-head deterministic validation passes"
+          ],
+          "exact_id_lexical_format_pi_decision_required": false
+        },
+        "B": {
+          "code": "PER_NODE_PI_APPROVAL",
+          "summary": "Every ordinary stable manifestation node ID returns to PI for approval.",
+          "tradeoff": "Maximum manual control but creates a recurring PI bottleneck and is stricter than the roadmap's ordinary-child-node gate."
+        }
+      }
+    },
+    "G2": {
+      "title": "Normalization evidence threshold for ordinary canonical node identity",
+      "recommendation": "A",
+      "options": {
+        "A": {
+          "code": "ALLOW_TRACEABLE_INFERENCE_WITH_EPISTEMIC_PRESERVATION",
+          "summary": "Allow both source-preserving normalization and transparent/traceable inference to support ordinary canonical node identity, provided normalization epistemic is preserved and target review is supported.",
+          "disallowed": [
+            "CASE_SUPPORT_ONLY_AS_SOLE_SUPPORT",
+            "HYPOTHESIS_AS_SOLE_SUPPORT",
+            "SILENT_INFERENCE",
+            "UNRESOLVED_IDENTITY_CONFLICT"
+          ],
+          "implications": {
+            "CA01-035": "eligible after policy gates; source-preserving process concept",
+            "CA01-045": "node identity may be eligible, but mapping/runtime remains held by the real-world action prerequisite",
+            "CA05-469": "career/industry scene concept may be eligible as traceable inferred normalization; person-level event target remains not supported"
+          }
+        },
+        "B": {
+          "code": "SOURCE_PRESERVING_ONLY",
+          "summary": "Only source-preserving normalization may create ordinary canonical nodes; inferred normalization remains candidate-only.",
+          "implications": {
+            "CA01-035": "eligible",
+            "CA01-045": "node identity potentially eligible but runtime held",
+            "CA05-469": "held at candidate level despite positive target-specific review"
+          }
+        }
+      }
+    },
+    "G3": {
+      "title": "Knowledge canonical semantics vs Product compatibility",
+      "recommendation": "A",
+      "options": {
+        "A": {
+          "code": "KNOWLEDGE_SOURCE_NATIVE_AUTHORITY_PRODUCT_ADAPTER_LATER",
+          "summary": "Freeze rich source-native semantics in Knowledge; keep Product fail-closed until a separate adapter/crosswalk work unit can consume them without information loss.",
+          "rationale": [
+            "Product is explicitly an adapter/consumer, not ontology owner",
+            "Product v0.1 has no output_kind field",
+            "Product event specificity is coarser than the PI-accepted Knowledge values",
+            "CA01-045's real-world action prerequisite is not representable by current router antecedents"
+          ],
+          "product_registry_change_now": false
+        },
+        "B": {
+          "code": "FLATTEN_KNOWLEDGE_TO_CURRENT_PRODUCT_CONTRACT",
+          "summary": "Force Knowledge canonical semantics into the current Product node vocabulary.",
+          "recommendation_status": "REJECT",
+          "risk": "Loses or conflates the output_kind and fine-grained event-specificity distinctions accepted under D1-D5."
+        },
+        "C": {
+          "code": "MODIFY_PRODUCT_SCHEMA_FROM_CORE_NOW",
+          "summary": "Change Product schema/runtime directly from the Core work unit.",
+          "recommendation_status": "REJECT",
+          "risk": "Violates lane ownership and mixes ontology governance with consumer implementation."
+        }
+      }
+    }
+  },
+  "non_decision_guardrails": {
+    "ca01045_runtime": "HELD_UNTIL_REAL_WORLD_ACTION_PREREQUISITE_HAS_ACCEPTED_INTERFACE",
+    "canonical_mapping_promotion_authorized": false,
+    "canonical_node_ids_assigned_in_this_packet": false,
+    "universal_root_created": false,
+    "production_schema_changed": false,
+    "product_files_modified": false,
+    "product_consumption_authorized": false,
+    "probability_status": "UNKNOWN",
+    "empirical_predictive_validity_claimed": false
+  },
+  "recommended_pi_response": "APPROVED_G1A_G2A_G3A",
+  "after_recommended_approval": {
+    "next_core_action": "Define and validate a Knowledge-owned canonical manifestation node artifact/ID policy, then canonicalize only ordinary child nodes meeting the approved gates; mapping promotion remains separately gated.",
+    "product_action": "No immediate Product modification. Prepare a later Product-owned adapter/crosswalk work unit after a Knowledge canonical artifact exists.",
+    "per_node_pi_review_for_ordinary_children": false,
+    "universal_family_human_gate_remains": true,
+    "pi_approval_recorded": true,
+    "implementation_started_in_this_packet": false
+  },
+  "pi_decision_record": {
+    "record_id": "PI-DECISION-CORE-866-2026-10-29",
+    "record_status": "PI_DECISIONS_RECORDED",
+    "response_literal": "批准，继续",
+    "accepted_options": {
+      "G1": "A",
+      "G2": "A",
+      "G3": "A"
+    },
+    "accepted_policy_codes": {
+      "G1": "POLICY_GATED_ORDINARY_CHILD_CANONICALIZATION",
+      "G2": "ALLOW_TRACEABLE_INFERENCE_WITH_EPISTEMIC_PRESERVATION",
+      "G3": "KNOWLEDGE_SOURCE_NATIVE_AUTHORITY_PRODUCT_ADAPTER_LATER"
+    },
+    "authorizes": {
+      "define_knowledge_owned_canonical_node_artifact_and_stable_id_policy": true,
+      "ordinary_child_node_canonical_identity_under_frozen_gates": true,
+      "traceable_inference_for_node_identity_with_epistemic_preservation": true,
+      "later_product_owned_adapter_crosswalk_work_unit": true
+    },
+    "does_not_authorize": {
+      "current_three_p09_mappings_auto_promoted": false,
+      "universal_root_or_family": false,
+      "product_registry_activation": false,
+      "product_runtime_change": false,
+      "probability_or_numeric_weight": false,
+      "empirical_predictive_validity": false
+    }
+  }
+}
