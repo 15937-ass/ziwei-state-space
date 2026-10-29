@@ -1,0 +1,699 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-CORE-C3-MANIFESTATION-MAPPING-SCHEMA-STABILITY-REVIEW",
+  "status": "REVIEW_COMPLETE",
+  "issue": 912,
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "CORE",
+  "base_main_sha": "cadc98070a63cd4f76eaed1ace0f4ae182e75695",
+  "predecessor": {
+    "issue": 907,
+    "pr": 909,
+    "accepted_kmn": 15,
+    "accepted_kmm": 15,
+    "next_kmn": "KMN-000016",
+    "next_kmm": "KMM-000016"
+  },
+  "verdict": "STABLE_WITH_BACKWARD_COMPATIBLE_REFINEMENT",
+  "verdict_scope": "Canonical Knowledge preservation and broader diagnostic crosswalk. Does not authorize Product promotion/runtime or probability.",
+  "accepted_architecture_constraints": {
+    "option_c": "SOURCE_NATIVE_ROOT_FOREST_WITH_ORTHOGONAL_METADATA_AXES",
+    "output_kind_nonexhaustive_open": true,
+    "generic_axis_status_primitive_deferred": true,
+    "canonical_acceptance_separate_from_consumer_readiness": true,
+    "universal_root_created": false
+  },
+  "corpus_observations": {
+    "mapping_count": 15,
+    "output_kind_distinct_count": 15,
+    "event_specificity_distinct_count": 14,
+    "output_kind_values": [
+      "PROCESS_PATTERN",
+      "ACTION_CONDITIONED_OUTCOME",
+      "SCENE_OR_CONTEXT",
+      "CONDITIONAL_RISK_STATE",
+      "STATE_OR_TENDENCY",
+      "MODIFIER_CONTEXT",
+      "CROSS_PALACE_STATUS_PATTERN",
+      "CONDITIONAL_CONFIGURATION_STATE",
+      "TEMPORAL_HINGE_STRUCTURE",
+      "DECADE_BREAKTHROUGH_WINDOW",
+      "TEMPORAL_SCOPE_UNSPECIFIED_CONTEXT_PREFERENCE",
+      "MULTI_VARIANT_FRICTION_SETBACK_PATTERN",
+      "CONDITIONAL_SCENE_TRANSLATION",
+      "CROSS_PALACE_RELATIONAL_SUPPORT_EXCEPTION",
+      "RELATIONAL_DURABILITY_LIMIT"
+    ],
+    "event_specificity_values": [
+      "PROCESS_SEQUENCE_NOT_SINGLE_EVENT",
+      "CONDITIONAL_OUTCOME_NOT_OBSERVED",
+      "SCENE_NOT_OBSERVED_EVENT",
+      "ABSTRACT_RISK_NOT_OBSERVED_EVENT",
+      "ABSTRACT_STATE_NOT_OBSERVED_EVENT",
+      "ABSTRACT_INTERPRETIVE_MODIFIER",
+      "ABSTRACT_STATUS_PATTERN_NOT_OBSERVED_EVENT",
+      "ABSTRACT_CONFIGURATION_NOT_OBSERVED_EVENT",
+      "TEMPORAL_WINDOW_NOT_OBSERVED_EVENT",
+      "ABSTRACT_CONTEXT_PREFERENCE_NOT_OBSERVED_EVENT",
+      "ABSTRACT_PROCESS_PATTERN_NOT_OBSERVED_EVENT",
+      "SCENE_LABEL_NOT_OBSERVED_OCCUPATION",
+      "QUALITATIVE_RELATIONAL_PATTERN_NOT_OBSERVED_EVENT",
+      "QUALITATIVE_RELATIONAL_PROCESS_NOT_OBSERVED_EVENT"
+    ],
+    "time_layer_distribution": {
+      "NATAL": 12,
+      "DECADE_YEAR": 1,
+      "DECADE": 1,
+      "SOURCE_TEMPORAL_LAYER_UNSPECIFIED": 1
+    },
+    "execution_readiness_distribution": {
+      "BLOCKED_SEMANTIC": 3,
+      "BLOCKED_EXTERNAL_PREREQUISITE": 1,
+      "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED": 11
+    },
+    "normalization_epistemic_distribution": {
+      "SOURCE_PRESERVING": 12,
+      "INFERRED": 3
+    },
+    "node_observation_from_accepted_index_review": {
+      "accepted_node_count": 15,
+      "domain_distinct_count": 11,
+      "domain_distribution": {
+        "development": 3,
+        "timing": 2,
+        "relationship": 2,
+        "career": 1,
+        "risk": 1,
+        "retention": 1,
+        "modifier": 1,
+        "status": 1,
+        "stability": 1,
+        "structure": 1,
+        "career_scene": 1
+      },
+      "abstraction_level_distribution": {
+        "ORDINARY_TARGET_CONCEPT": 15
+      },
+      "parent_id_null_count": 15,
+      "note": "career vs career_scene is a normalization-review candidate, not evidence for forced migration; null parents do not imply a universal root."
+    }
+  },
+  "stability_matrix": [
+    {
+      "mapping_id": "KMM-000001",
+      "manifestation_id": "KMN-000001",
+      "primary_source_rule_id": "CA01-035",
+      "semantic_structure": "process_with_unresolved_trigger_quantifier",
+      "output_kind": {
+        "state": "KNOWN",
+        "value": "PROCESS_PATTERN"
+      },
+      "event_specificity": {
+        "state": "KNOWN",
+        "value": "PROCESS_SEQUENCE_NOT_SINGLE_EVENT"
+      },
+      "time_layer": "NATAL",
+      "execution_readiness": "BLOCKED_SEMANTIC",
+      "canonical_preservation_verdict": "SUFFICIENT_NO_SCHEMA_CHANGE",
+      "downstream_disposition": "PRESERVE_FAIL_CLOSED_SEMANTIC_HOLD",
+      "evidence": {
+        "antecedent_rule_ids": [],
+        "modality_terms": [
+          "往往"
+        ],
+        "real_world_prerequisites": [],
+        "unresolved_semantics": [
+          "火铃 shorthand remains unresolved between BOTH_STARS and EITHER_STAR; canonical relation is accepted without choosing either trigger interpretation."
+        ],
+        "execution_blockers": [
+          "UNRESOLVED_FIRE_BELL_TRIGGER_QUANTIFIER"
+        ]
+      }
+    },
+    {
+      "mapping_id": "KMM-000002",
+      "manifestation_id": "KMN-000002",
+      "primary_source_rule_id": "CA01-045",
+      "semantic_structure": "action_conditioned_outcome_with_inherited_antecedents",
+      "output_kind": {
+        "state": "KNOWN",
+        "value": "ACTION_CONDITIONED_OUTCOME"
+      },
+      "event_specificity": {
+        "state": "KNOWN",
+        "value": "CONDITIONAL_OUTCOME_NOT_OBSERVED"
+      },
+      "time_layer": "NATAL",
+      "execution_readiness": "BLOCKED_EXTERNAL_PREREQUISITE",
+      "canonical_preservation_verdict": "SUFFICIENT_NO_SCHEMA_CHANGE",
+      "downstream_disposition": "PRESERVE_EXTERNAL_PREREQUISITE_GATE",
+      "evidence": {
+        "antecedent_rule_ids": [
+          "CA01-042",
+          "CA01-044"
+        ],
+        "modality_terms": [],
+        "real_world_prerequisites": [
+          {
+            "text": "勉强求变",
+            "status": "SOURCE_EXPLICIT_NOT_ESTABLISHED_BY_CHART"
+          }
+        ],
+        "unresolved_semantics": [],
+        "execution_blockers": [
+          "REAL_WORLD_ACTION_PREREQUISITE_INTERFACE_NOT_ACCEPTED"
+        ]
+      }
+    },
+    {
+      "mapping_id": "KMM-000003",
+      "manifestation_id": "KMN-000003",
+      "primary_source_rule_id": "CA05-469",
+      "semantic_structure": "scene_context_not_person_event",
+      "output_kind": {
+        "state": "KNOWN",
+        "value": "SCENE_OR_CONTEXT"
+      },
+      "event_specificity": {
+        "state": "KNOWN",
+        "value": "SCENE_NOT_OBSERVED_EVENT"
+      },
+      "time_layer": "NATAL",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "canonical_preservation_verdict": "SUFFICIENT_NO_SCHEMA_CHANGE",
+      "downstream_disposition": "NO_CORE_GAP",
+      "evidence": {
+        "antecedent_rule_ids": [],
+        "modality_terms": [],
+        "real_world_prerequisites": [],
+        "unresolved_semantics": [],
+        "execution_blockers": [
+          "PRODUCT_RUNTIME_NOT_AUTHORIZED"
+        ]
+      }
+    },
+    {
+      "mapping_id": "KMM-000004",
+      "manifestation_id": "KMN-000004",
+      "primary_source_rule_id": "P05-SG-002",
+      "semantic_structure": "risk_state_with_unresolved_trigger_quantifier",
+      "output_kind": {
+        "state": "KNOWN",
+        "value": "CONDITIONAL_RISK_STATE"
+      },
+      "event_specificity": {
+        "state": "KNOWN",
+        "value": "ABSTRACT_RISK_NOT_OBSERVED_EVENT"
+      },
+      "time_layer": "NATAL",
+      "execution_readiness": "BLOCKED_SEMANTIC",
+      "canonical_preservation_verdict": "SUFFICIENT_NO_SCHEMA_CHANGE",
+      "downstream_disposition": "PRESERVE_FAIL_CLOSED_SEMANTIC_HOLD",
+      "evidence": {
+        "antecedent_rule_ids": [],
+        "modality_terms": [],
+        "real_world_prerequisites": [],
+        "unresolved_semantics": [
+          "“煞曜空劫”在本句中的组合量词未被来源明确为严格 AND、OR 或其他集合关系；保持原词，不拆分触发。"
+        ],
+        "execution_blockers": [
+          "UNRESOLVED_SHA_YAO_KONG_JIE_TRIGGER_QUANTIFIER"
+        ]
+      }
+    },
+    {
+      "mapping_id": "KMM-000005",
+      "manifestation_id": "KMN-000005",
+      "primary_source_rule_id": "P05-SG-003",
+      "semantic_structure": "state_or_tendency",
+      "output_kind": {
+        "state": "KNOWN",
+        "value": "STATE_OR_TENDENCY"
+      },
+      "event_specificity": {
+        "state": "KNOWN",
+        "value": "ABSTRACT_STATE_NOT_OBSERVED_EVENT"
+      },
+      "time_layer": "NATAL",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "canonical_preservation_verdict": "SUFFICIENT_NO_SCHEMA_CHANGE",
+      "downstream_disposition": "NO_CORE_GAP",
+      "evidence": {
+        "antecedent_rule_ids": [],
+        "modality_terms": [],
+        "real_world_prerequisites": [],
+        "unresolved_semantics": [],
+        "execution_blockers": [
+          "PRODUCT_RUNTIME_NOT_AUTHORIZED"
+        ]
+      }
+    },
+    {
+      "mapping_id": "KMM-000006",
+      "manifestation_id": "KMN-000006",
+      "primary_source_rule_id": "P01-SG-213",
+      "semantic_structure": "modifier_context_with_modality",
+      "output_kind": {
+        "state": "KNOWN",
+        "value": "MODIFIER_CONTEXT"
+      },
+      "event_specificity": {
+        "state": "KNOWN",
+        "value": "ABSTRACT_INTERPRETIVE_MODIFIER"
+      },
+      "time_layer": "NATAL",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "canonical_preservation_verdict": "SUFFICIENT_NO_SCHEMA_CHANGE",
+      "downstream_disposition": "NO_CORE_GAP",
+      "evidence": {
+        "antecedent_rule_ids": [],
+        "modality_terms": [
+          "往往"
+        ],
+        "real_world_prerequisites": [],
+        "unresolved_semantics": [],
+        "execution_blockers": [
+          "PRODUCT_RUNTIME_NOT_AUTHORIZED"
+        ]
+      }
+    },
+    {
+      "mapping_id": "KMM-000007",
+      "manifestation_id": "KMN-000007",
+      "primary_source_rule_id": "P01-745",
+      "semantic_structure": "cross_palace_status_pattern",
+      "output_kind": {
+        "state": "KNOWN",
+        "value": "CROSS_PALACE_STATUS_PATTERN"
+      },
+      "event_specificity": {
+        "state": "KNOWN",
+        "value": "ABSTRACT_STATUS_PATTERN_NOT_OBSERVED_EVENT"
+      },
+      "time_layer": "NATAL",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "canonical_preservation_verdict": "SUFFICIENT_NO_SCHEMA_CHANGE",
+      "downstream_disposition": "CORE_SEMANTICS_SUFFICIENT_PRODUCT_STRUCTURED_ADAPTER_MAY_BE_REQUIRED",
+      "evidence": {
+        "antecedent_rule_ids": [],
+        "modality_terms": [],
+        "real_world_prerequisites": [],
+        "unresolved_semantics": [],
+        "execution_blockers": [
+          "PRODUCT_RUNTIME_NOT_AUTHORIZED"
+        ]
+      }
+    },
+    {
+      "mapping_id": "KMM-000008",
+      "manifestation_id": "KMN-000008",
+      "primary_source_rule_id": "P01-727",
+      "semantic_structure": "source_explicit_alternative_condition",
+      "output_kind": {
+        "state": "KNOWN",
+        "value": "CONDITIONAL_CONFIGURATION_STATE"
+      },
+      "event_specificity": {
+        "state": "KNOWN",
+        "value": "ABSTRACT_CONFIGURATION_NOT_OBSERVED_EVENT"
+      },
+      "time_layer": "NATAL",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "canonical_preservation_verdict": "SUFFICIENT_NO_SCHEMA_CHANGE",
+      "downstream_disposition": "CORE_SEMANTICS_SUFFICIENT_PRODUCT_STRUCTURED_ADAPTER_MAY_BE_REQUIRED",
+      "evidence": {
+        "antecedent_rule_ids": [],
+        "modality_terms": [
+          "唯若"
+        ],
+        "real_world_prerequisites": [],
+        "unresolved_semantics": [],
+        "execution_blockers": [
+          "PRODUCT_RUNTIME_NOT_AUTHORIZED"
+        ]
+      }
+    },
+    {
+      "mapping_id": "KMM-000009",
+      "manifestation_id": "KMN-000009",
+      "primary_source_rule_id": "P01-750",
+      "semantic_structure": "dual_layer_temporal_hinge",
+      "output_kind": {
+        "state": "KNOWN",
+        "value": "TEMPORAL_HINGE_STRUCTURE"
+      },
+      "event_specificity": {
+        "state": "KNOWN",
+        "value": "TEMPORAL_WINDOW_NOT_OBSERVED_EVENT"
+      },
+      "time_layer": "DECADE_YEAR",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "canonical_preservation_verdict": "SUFFICIENT_NO_SCHEMA_CHANGE",
+      "downstream_disposition": "CORE_SEMANTICS_SUFFICIENT_PRODUCT_STRUCTURED_ADAPTER_MAY_BE_REQUIRED",
+      "evidence": {
+        "antecedent_rule_ids": [],
+        "modality_terms": [],
+        "real_world_prerequisites": [],
+        "unresolved_semantics": [],
+        "execution_blockers": [
+          "PRODUCT_RUNTIME_NOT_AUTHORIZED"
+        ]
+      }
+    },
+    {
+      "mapping_id": "KMM-000010",
+      "manifestation_id": "KMN-000010",
+      "primary_source_rule_id": "P01-SG-169",
+      "semantic_structure": "specific_decade_window",
+      "output_kind": {
+        "state": "KNOWN",
+        "value": "DECADE_BREAKTHROUGH_WINDOW"
+      },
+      "event_specificity": {
+        "state": "KNOWN",
+        "value": "TEMPORAL_WINDOW_NOT_OBSERVED_EVENT"
+      },
+      "time_layer": "DECADE",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "canonical_preservation_verdict": "SUFFICIENT_NO_SCHEMA_CHANGE",
+      "downstream_disposition": "NO_CORE_GAP",
+      "evidence": {
+        "antecedent_rule_ids": [],
+        "modality_terms": [],
+        "real_world_prerequisites": [],
+        "unresolved_semantics": [],
+        "execution_blockers": [
+          "PRODUCT_RUNTIME_NOT_AUTHORIZED"
+        ]
+      }
+    },
+    {
+      "mapping_id": "KMM-000011",
+      "manifestation_id": "KMN-000011",
+      "primary_source_rule_id": "P01-SG-175",
+      "semantic_structure": "unresolved_temporal_layer",
+      "output_kind": {
+        "state": "KNOWN",
+        "value": "TEMPORAL_SCOPE_UNSPECIFIED_CONTEXT_PREFERENCE"
+      },
+      "event_specificity": {
+        "state": "KNOWN",
+        "value": "ABSTRACT_CONTEXT_PREFERENCE_NOT_OBSERVED_EVENT"
+      },
+      "time_layer": "SOURCE_TEMPORAL_LAYER_UNSPECIFIED",
+      "execution_readiness": "BLOCKED_SEMANTIC",
+      "canonical_preservation_verdict": "SUFFICIENT_NO_SCHEMA_CHANGE",
+      "downstream_disposition": "PRESERVE_FAIL_CLOSED_SEMANTIC_HOLD",
+      "evidence": {
+        "antecedent_rule_ids": [],
+        "modality_terms": [],
+        "real_world_prerequisites": [],
+        "unresolved_semantics": [
+          "来源未明说所列宫垣属于大运、流年或其他时间层；不得自动缩窄。"
+        ],
+        "execution_blockers": [
+          "UNRESOLVED_TEMPORAL_LAYER_FOR_PALACE_CONTEXT_PREFERENCE"
+        ]
+      }
+    },
+    {
+      "mapping_id": "KMM-000012",
+      "manifestation_id": "KMN-000012",
+      "primary_source_rule_id": "P01-SG-180",
+      "semantic_structure": "multi_variant_process_pattern",
+      "output_kind": {
+        "state": "KNOWN",
+        "value": "MULTI_VARIANT_FRICTION_SETBACK_PATTERN"
+      },
+      "event_specificity": {
+        "state": "KNOWN",
+        "value": "ABSTRACT_PROCESS_PATTERN_NOT_OBSERVED_EVENT"
+      },
+      "time_layer": "NATAL",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "canonical_preservation_verdict": "SUFFICIENT_NO_SCHEMA_CHANGE",
+      "downstream_disposition": "NO_CORE_GAP",
+      "evidence": {
+        "antecedent_rule_ids": [],
+        "modality_terms": [],
+        "real_world_prerequisites": [],
+        "unresolved_semantics": [],
+        "execution_blockers": [
+          "PRODUCT_RUNTIME_NOT_AUTHORIZED"
+        ]
+      }
+    },
+    {
+      "mapping_id": "KMM-000013",
+      "manifestation_id": "KMN-000013",
+      "primary_source_rule_id": "P01-SG-190",
+      "semantic_structure": "conditional_scene_branch",
+      "output_kind": {
+        "state": "KNOWN",
+        "value": "CONDITIONAL_SCENE_TRANSLATION"
+      },
+      "event_specificity": {
+        "state": "KNOWN",
+        "value": "SCENE_LABEL_NOT_OBSERVED_OCCUPATION"
+      },
+      "time_layer": "NATAL",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "canonical_preservation_verdict": "SUFFICIENT_NO_SCHEMA_CHANGE",
+      "downstream_disposition": "CORE_SEMANTICS_SUFFICIENT_PRODUCT_STRUCTURED_ADAPTER_MAY_BE_REQUIRED",
+      "evidence": {
+        "antecedent_rule_ids": [],
+        "modality_terms": [
+          "若同时"
+        ],
+        "real_world_prerequisites": [],
+        "unresolved_semantics": [],
+        "execution_blockers": [
+          "PRODUCT_RUNTIME_NOT_AUTHORIZED"
+        ]
+      }
+    },
+    {
+      "mapping_id": "KMM-000014",
+      "manifestation_id": "KMN-000014",
+      "primary_source_rule_id": "P02S-137",
+      "semantic_structure": "cross_palace_relational_exception",
+      "output_kind": {
+        "state": "KNOWN",
+        "value": "CROSS_PALACE_RELATIONAL_SUPPORT_EXCEPTION"
+      },
+      "event_specificity": {
+        "state": "KNOWN",
+        "value": "QUALITATIVE_RELATIONAL_PATTERN_NOT_OBSERVED_EVENT"
+      },
+      "time_layer": "NATAL",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "canonical_preservation_verdict": "SUFFICIENT_NO_SCHEMA_CHANGE",
+      "downstream_disposition": "CORE_SEMANTICS_SUFFICIENT_PRODUCT_STRUCTURED_ADAPTER_MAY_BE_REQUIRED",
+      "evidence": {
+        "antecedent_rule_ids": [],
+        "modality_terms": [
+          "除非"
+        ],
+        "real_world_prerequisites": [],
+        "unresolved_semantics": [],
+        "execution_blockers": [
+          "PRODUCT_RUNTIME_NOT_AUTHORIZED"
+        ]
+      }
+    },
+    {
+      "mapping_id": "KMM-000015",
+      "manifestation_id": "KMN-000015",
+      "primary_source_rule_id": "P02S-169",
+      "semantic_structure": "relational_durability_counterexample",
+      "output_kind": {
+        "state": "KNOWN",
+        "value": "RELATIONAL_DURABILITY_LIMIT"
+      },
+      "event_specificity": {
+        "state": "KNOWN",
+        "value": "QUALITATIVE_RELATIONAL_PROCESS_NOT_OBSERVED_EVENT"
+      },
+      "time_layer": "NATAL",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "canonical_preservation_verdict": "SUFFICIENT_NO_SCHEMA_CHANGE",
+      "downstream_disposition": "CORE_SEMANTICS_SUFFICIENT_PRODUCT_STRUCTURED_ADAPTER_MAY_BE_REQUIRED",
+      "evidence": {
+        "antecedent_rule_ids": [],
+        "modality_terms": [
+          "即使"
+        ],
+        "real_world_prerequisites": [],
+        "unresolved_semantics": [],
+        "execution_blockers": [
+          "PRODUCT_RUNTIME_NOT_AUTHORIZED"
+        ]
+      }
+    }
+  ],
+  "field_sufficiency_register": [
+    {
+      "field": "output_kind",
+      "verdict": "SUFFICIENT_OPEN_VOCABULARY",
+      "evidence": "15 distinct values across 15 mappings; accepted #841 D2 says non-exhaustive/open.",
+      "action": "Do not freeze global enum; audit only evidence-backed synonym duplication."
+    },
+    {
+      "field": "event_specificity",
+      "verdict": "SUFFICIENT_OPEN_VOCABULARY",
+      "evidence": "14 distinct values; temporal-window label reused by KMM-000009/000010.",
+      "action": "Do not collapse solely for count reduction."
+    },
+    {
+      "field": "conditions.time_layer",
+      "verdict": "SUFFICIENT_FOR_SOURCE_PRESERVATION",
+      "evidence": "NATAL, DECADE, DECADE_YEAR, SOURCE_TEMPORAL_LAYER_UNSPECIFIED all preserved.",
+      "action": "PG-007 remains Product-owned binding/compilation work."
+    },
+    {
+      "field": "conditions.source_condition_text",
+      "verdict": "SUFFICIENT_NON_EXECUTABLE_SOURCE_PRESERVATION",
+      "evidence": "OR/exception/branch expressions remain literal and no Boolean coercion is claimed.",
+      "action": "Do not turn Core canonical schema into executable Boolean IR merely for Product."
+    },
+    {
+      "field": "conditions.antecedent_rule_ids",
+      "verdict": "SUFFICIENT",
+      "evidence": "KMM-000002 preserves CA01-042/044 inheritance.",
+      "action": "Keep distinct from source-local text and Product required-ID logic."
+    },
+    {
+      "field": "conditions.modality_terms",
+      "verdict": "SUFFICIENT_AS_SOURCE_MARKERS",
+      "evidence": "往往/唯若/若同时/除非/即使 preserved.",
+      "action": "Do not reinterpret as probability or machine Boolean operators."
+    },
+    {
+      "field": "conditions.real_world_prerequisites",
+      "verdict": "SUFFICIENT",
+      "evidence": "KMM-000002 preserves 勉强求变 as SOURCE_EXPLICIT_NOT_ESTABLISHED_BY_CHART.",
+      "action": "PG-003 remains Product-owned action binding."
+    },
+    {
+      "field": "conditions.unresolved_semantics",
+      "verdict": "SUFFICIENT_FAIL_CLOSED",
+      "evidence": "KMM-000001/000004/000011 remain blocked without invented resolution.",
+      "action": "Preserve HOLD."
+    },
+    {
+      "field": "review_refs",
+      "verdict": "SEMANTICALLY_SUFFICIENT_PROVENANCE_DISCOVERY_REFINED",
+      "evidence": "30 unique review records across three accepted artifacts; prior lookup required manual/glob aggregation.",
+      "action": "Add non-semantic CANONICAL_MAPPING_REVIEW_PROVENANCE_INDEX_v0.1.json; no KMM schema bump."
+    },
+    {
+      "field": "source_epistemic+normalization_epistemic",
+      "verdict": "SUFFICIENT_ORTHOGONAL",
+      "evidence": "12 SOURCE_PRESERVING / 3 INFERRED normalization; Product evidence_tier collapse is lossy.",
+      "action": "PG-005 remains Product-owned."
+    },
+    {
+      "field": "execution_readiness+blockers+forbidden_inferences",
+      "verdict": "SUFFICIENT_AND_NECESSARY",
+      "evidence": "11 runtime-not-authorized, 3 semantic-blocked, 1 external-prerequisite-blocked.",
+      "action": "Do not infer executability from canonical acceptance."
+    },
+    {
+      "field": "supersession",
+      "verdict": "STRUCTURALLY_SPECIFIED_NOT_CANONICALLY_EXERCISED",
+      "evidence": "All 15 current KMM ACTIVE; contract tests cover forward-link/reason behavior.",
+      "action": "No migration until a real supersession case exists."
+    },
+    {
+      "field": "KMN.parent_id",
+      "verdict": "STRUCTURALLY_SPECIFIED_NOT_CANONICALLY_EXERCISED",
+      "evidence": "15/15 current parents null; existing contract tests accept valid forest links and reject cycles.",
+      "action": "Do not invent universal root to exercise hierarchy."
+    },
+    {
+      "field": "axis UNKNOWN/NOT_APPLICABLE",
+      "verdict": "SCHEMA_SUPPORTED_NOT_EXERCISED_BY_CURRENT_15_KMM",
+      "evidence": "#841 review has UNKNOWN/NOT_APPLICABLE boundary cases; accepted 15 KMM happen to use KNOWN values.",
+      "action": "Do not overclaim corpus coverage; retain contract behavior."
+    }
+  ],
+  "product_feedback_disposition": [
+    {
+      "gap_id": "PG-001",
+      "owner": "PRODUCT",
+      "core_disposition": "NO_CORE_CHANGE",
+      "reason": "Open axes are intentional and Product must preserve/translate them losslessly."
+    },
+    {
+      "gap_id": "PG-002",
+      "owner": "PRODUCT",
+      "core_disposition": "NO_CORE_CHANGE",
+      "reason": "Core provenance/review/lifecycle metadata already exists; Product retention is adapter design."
+    },
+    {
+      "gap_id": "PG-003",
+      "owner": "PRODUCT",
+      "core_disposition": "NO_CORE_CHANGE",
+      "reason": "Core already distinguishes source-explicit real-world prerequisite from chart facts."
+    },
+    {
+      "gap_id": "PG-004",
+      "owner": "PRODUCT",
+      "core_disposition": "NO_CORE_CHANGE",
+      "reason": "Core already has readiness/blockers/forbidden-inference boundaries."
+    },
+    {
+      "gap_id": "PG-005",
+      "owner": "PRODUCT",
+      "core_disposition": "NO_CORE_CHANGE",
+      "reason": "Core intentionally keeps source and normalization epistemics separate."
+    },
+    {
+      "gap_id": "PG-006",
+      "owner": "PRODUCT",
+      "core_disposition": "NO_CORE_CHANGE",
+      "reason": "Structured executable OR/cross-palace compilation is Product/router work; Core preserves source text and fail-closed semantics."
+    },
+    {
+      "gap_id": "PG-007",
+      "owner": "PRODUCT",
+      "core_disposition": "NO_CORE_CHANGE",
+      "reason": "Core preserves DECADE_YEAR; Product needs a time-layer binding interface."
+    },
+    {
+      "gap_id": "HOLD-CORE-001",
+      "owner": "CORE_SEMANTIC_HOLD",
+      "core_disposition": "PRESERVE_HOLD",
+      "reason": "火铃 quantifier unresolved."
+    },
+    {
+      "gap_id": "HOLD-CORE-002",
+      "owner": "CORE_SEMANTIC_HOLD",
+      "core_disposition": "PRESERVE_HOLD",
+      "reason": "煞曜空劫 quantifier unresolved."
+    }
+  ],
+  "backward_compatible_refinement": {
+    "required": true,
+    "schema_version_bump_required": false,
+    "existing_kmn_or_kmm_rewrite_required": false,
+    "refinement": "Add auxiliary review_record_id -> artifact/path provenance index.",
+    "artifact_path": "knowledge/core/wp06c/CANONICAL_MAPPING_REVIEW_PROVENANCE_INDEX_v0.1.json",
+    "semantic_change": false
+  },
+  "unexercised_contract_branches": [
+    "canonical KMM with output_kind UNKNOWN",
+    "canonical KMM with event_specificity NOT_APPLICABLE",
+    "canonical KMN with non-null parent_id",
+    "canonical KMN/KMM SUPERSEDED lifecycle"
+  ],
+  "human_gate": {
+    "required": false,
+    "reason": "No universal root/shared semantic primitive, irreducible-source resolution, school-meaning change, probability/causal semantics, or Product/runtime authorization is proposed."
+  },
+  "next_step": {
+    "core": "Proceed to C4 highest-real-blocker selection after this C3 review is accepted.",
+    "product": "Broader diagnostic crosswalk may use the stable Core contract, but production promotion remains blocked until Product-owned adapter gaps are resolved.",
+    "no_bulk_mapping_by_default": true
+  }
+}
