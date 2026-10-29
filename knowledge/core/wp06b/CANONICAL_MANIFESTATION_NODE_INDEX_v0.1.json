@@ -5,21 +5,27 @@
   "status": "PARTIAL_CANONICAL_KNOWLEDGE",
   "lane": "KNOWLEDGE_ONLY",
   "shard": "CORE",
-  "work_unit": "KB-CORE-WP06B-P09-FIRST-CANONICAL-NODES-01",
-  "issue": 874,
+  "work_unit": "KB_CORE_WP06BC_CANONICAL_MAPPING_EXPANSION_DIVERSITY_01",
+  "issue": 898,
   "contract_ref": "knowledge/core/wp06b/CANONICAL_MANIFESTATION_NODE_SCHEMA_v0.1.json",
   "id_policy_ref": "knowledge/core/wp06b/CANONICAL_MANIFESTATION_ID_POLICY_v0.1.json",
-  "authority_ref": "PI-DECISION-CORE-866-2026-10-29",
+  "authority_ref": "PI-AUTH-CORE-898-2026-10-29",
   "coverage": {
-    "scope": "P09 first three source-reviewed + target-reviewed ordinary concepts",
+    "scope": "accepted first checkpoint plus semantic-diversity batch 1 across wealth/life source-first records",
     "complete": false,
     "source_rule_ids": [
       "CA01-035",
       "CA01-045",
-      "CA05-469"
+      "CA05-469",
+      "P05-SG-002",
+      "P05-SG-003",
+      "P01-SG-213",
+      "P01-745",
+      "P01-727",
+      "P01-750"
     ],
-    "production_node_count": 3,
-    "next_allocatable_id": "KMN-000004"
+    "production_node_count": 9,
+    "next_allocatable_id": "KMN-000010"
   },
   "forest_semantics": {
     "universal_root_present": false,
@@ -65,10 +71,88 @@
       "canonical_mapping_refs": [
         "KMM-000003"
       ]
+    },
+    {
+      "manifestation_id": "KMN-000004",
+      "path": "knowledge/core/wp06b/canonical_manifestations/KMN-000004.json",
+      "source_rule_id": "P05-SG-002",
+      "canonical_identity_status": "ACTIVE",
+      "canonical_mapping_approved": true,
+      "executable": false,
+      "product_consumable": false,
+      "probability_status": "UNKNOWN",
+      "canonical_mapping_refs": [
+        "KMM-000004"
+      ]
+    },
+    {
+      "manifestation_id": "KMN-000005",
+      "path": "knowledge/core/wp06b/canonical_manifestations/KMN-000005.json",
+      "source_rule_id": "P05-SG-003",
+      "canonical_identity_status": "ACTIVE",
+      "canonical_mapping_approved": true,
+      "executable": false,
+      "product_consumable": false,
+      "probability_status": "UNKNOWN",
+      "canonical_mapping_refs": [
+        "KMM-000005"
+      ]
+    },
+    {
+      "manifestation_id": "KMN-000006",
+      "path": "knowledge/core/wp06b/canonical_manifestations/KMN-000006.json",
+      "source_rule_id": "P01-SG-213",
+      "canonical_identity_status": "ACTIVE",
+      "canonical_mapping_approved": true,
+      "executable": false,
+      "product_consumable": false,
+      "probability_status": "UNKNOWN",
+      "canonical_mapping_refs": [
+        "KMM-000006"
+      ]
+    },
+    {
+      "manifestation_id": "KMN-000007",
+      "path": "knowledge/core/wp06b/canonical_manifestations/KMN-000007.json",
+      "source_rule_id": "P01-745",
+      "canonical_identity_status": "ACTIVE",
+      "canonical_mapping_approved": true,
+      "executable": false,
+      "product_consumable": false,
+      "probability_status": "UNKNOWN",
+      "canonical_mapping_refs": [
+        "KMM-000007"
+      ]
+    },
+    {
+      "manifestation_id": "KMN-000008",
+      "path": "knowledge/core/wp06b/canonical_manifestations/KMN-000008.json",
+      "source_rule_id": "P01-727",
+      "canonical_identity_status": "ACTIVE",
+      "canonical_mapping_approved": true,
+      "executable": false,
+      "product_consumable": false,
+      "probability_status": "UNKNOWN",
+      "canonical_mapping_refs": [
+        "KMM-000008"
+      ]
+    },
+    {
+      "manifestation_id": "KMN-000009",
+      "path": "knowledge/core/wp06b/canonical_manifestations/KMN-000009.json",
+      "source_rule_id": "P01-750",
+      "canonical_identity_status": "ACTIVE",
+      "canonical_mapping_approved": true,
+      "executable": false,
+      "product_consumable": false,
+      "probability_status": "UNKNOWN",
+      "canonical_mapping_refs": [
+        "KMM-000009"
+      ]
     }
   ],
   "invariants": {
-    "canonical_mapping_promotions": 3,
+    "canonical_mapping_promotions": 9,
     "executable_mappings": 0,
     "product_registry_modified": false,
     "product_consumption_authorized": false,

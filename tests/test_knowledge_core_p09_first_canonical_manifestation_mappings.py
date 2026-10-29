@@ -8,6 +8,7 @@ POLICY = ROOT / "knowledge/core/wp06c/CANONICAL_MANIFESTATION_MAPPING_ID_POLICY_
 INDEX = ROOT / "knowledge/core/wp06c/CANONICAL_MANIFESTATION_MAPPING_INDEX_v0.1.json"
 NODE_INDEX = ROOT / "knowledge/core/wp06b/CANONICAL_MANIFESTATION_NODE_INDEX_v0.1.json"
 PILOT = ROOT / "knowledge/core/wp06c/P09_FORMAL_MAPPING_REVIEW_PILOT_v0.1.json"
+BATCH_REVIEW = ROOT / "knowledge/core/wp06c/CANONICAL_MAPPING_DIVERSITY_BATCH_01_REVIEW_v0.1.json"
 PRODUCT_MAPPING = ROOT / "product/PL3M_MANIFESTATION_MAPPING_REGISTRY_v0.1.json"
 PRODUCT_ONTOLOGY = ROOT / "product/PL3M_MANIFESTATION_ONTOLOGY_REGISTRY_v0.1.json"
 MAPPING_DIR = ROOT / "knowledge/core/wp06c/canonical_mappings"
@@ -33,10 +34,10 @@ def test_canonical_mapping_contract_and_ids_are_bounded():
     assert policy["allocation"]["immutable"] is True
     assert policy["allocation"]["reusable_after_supersession"] is False
 
-    assert idx["coverage"]["canonical_mapping_count"] == 3
-    assert idx["coverage"]["next_allocatable_id"] == "KMM-000004"
-    assert [r["mapping_id"] for r in rows] == ["KMM-000001", "KMM-000002", "KMM-000003"]
-    assert len({r["mapping_id"] for r in rows}) == 3
+    assert idx["coverage"]["canonical_mapping_count"] == len(rows)
+    assert idx["coverage"]["next_allocatable_id"] == f"KMM-{len(rows) + 1:06d}"
+    assert [r["mapping_id"] for r in rows][:3] == ["KMM-000001", "KMM-000002", "KMM-000003"]
+    assert len({r["mapping_id"] for r in rows}) == len(rows)
     assert all(re.fullmatch(r"KMM-[0-9]{6}", r["mapping_id"]) for r in rows)
 
     allowed = set(schema["properties"])
@@ -57,7 +58,7 @@ def test_targets_exist_and_node_index_points_back_to_exactly_one_mapping():
     nodes = load(NODE_INDEX)
     node_by_id = {n["manifestation_id"]: n for n in nodes["nodes"]}
 
-    assert {r["manifestation_id"] for r in rows} == {"KMN-000001", "KMN-000002", "KMN-000003"}
+    assert {r["manifestation_id"] for r in rows} >= {"KMN-000001", "KMN-000002", "KMN-000003"}
     assert set(node_by_id) >= {r["manifestation_id"] for r in rows}
 
     for row in rows:
@@ -68,14 +69,16 @@ def test_targets_exist_and_node_index_points_back_to_exactly_one_mapping():
         assert node["product_consumable"] is False
         assert node["probability_status"] == "UNKNOWN"
 
-    assert nodes["invariants"]["canonical_mapping_promotions"] == 3
+    assert nodes["invariants"]["canonical_mapping_promotions"] == len(rows)
     assert nodes["invariants"]["executable_mappings"] == 0
 
 
 def test_review_refs_preserve_positive_and_negative_target_boundaries():
     _, rows = mappings()
     pilot = load(PILOT)
+    batch = load(BATCH_REVIEW)
     review = {r["review_record_id"]: r for r in pilot["mapping_review_records"]}
+    review.update({r["review_record_id"]: r for r in batch["mapping_review_records"]})
 
     for row in rows:
         for ref in row["review_refs"]["positive"]:
@@ -147,7 +150,7 @@ def test_product_registries_remain_empty_fail_closed():
 
 def test_no_probability_or_empirical_promotion_and_no_universal_root():
     idx, rows = mappings()
-    assert idx["invariants"]["canonical_mapping_promotions"] == 3
+    assert idx["invariants"]["canonical_mapping_promotions"] == len(rows)
     assert idx["invariants"]["executable_mappings"] == 0
     assert idx["invariants"]["product_registry_modified"] is False
     assert idx["invariants"]["product_consumption_authorized"] is False
