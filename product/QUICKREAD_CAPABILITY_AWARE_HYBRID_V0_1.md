@@ -51,6 +51,8 @@ The caller supplies a manifest containing the observed main SHA, knowledge versi
 
 The reader resolves `main` to one commit SHA, fetches selected artifacts by that immutable SHA, and verifies their Git blob hashes. It does not infer acceptance from issue text, read unmerged PRs, refresh Product registries by mutation, or change repository state. It fails closed if the main tree is truncated, the network fails, a file exceeds limits, or a blob hash does not match.
 
+The companion reader uses **progressive source retrieval**. Its 12-item default is only the first-pass per-slot batch budget for a brief reading. It reports how much eligible source evidence remains and returns a main-pinned continuation containing already-seen evidence identities. Follow-up questions or a detailed reading can request later unseen batches without repeating the first batch. The continuation is rejected if `main` changed, so a conversation cannot silently mix accepted knowledge from different repository snapshots. Newly introduced scope slots start their own first pass.
+
 ## Payload contract
 
 The payload contains the request, version identifiers, scoped evidence grouped by lane, coverage, unresolved slots, normalized chart context, and concise verbalizer instructions. The caller should pass normalized chart facts rather than raw birth records or personal identity.
