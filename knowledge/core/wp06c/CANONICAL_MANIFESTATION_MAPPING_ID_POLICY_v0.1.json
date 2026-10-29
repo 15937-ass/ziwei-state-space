@@ -1,0 +1,28 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-CORE-CANONICAL-MANIFESTATION-MAPPING-ID-POLICY",
+  "status": "ACCEPTED_IMPLEMENTATION_CONTRACT",
+  "authority": {
+    "issue": 880,
+    "pi_authorization": "继续",
+    "bounded_scope": "P09 first three mappings only"
+  },
+  "lexical_format": "KMM-NNNNNN",
+  "semantics_free": true,
+  "allocation": {
+    "method": "MONOTONIC_ON_ACCEPTED_MAIN",
+    "immutable": true,
+    "reusable_after_supersession": false,
+    "next_initial_id": "KMM-000001"
+  },
+  "forbidden_encodings": [
+    "palace",
+    "star",
+    "domain",
+    "rank",
+    "probability",
+    "empirical_weight",
+    "execution_state"
+  ],
+  "note": "Mapping identity is separate from manifestation-node identity and from Product registry identifiers. Canonical mapping acceptance does not imply execution or Product authorization."
+}
