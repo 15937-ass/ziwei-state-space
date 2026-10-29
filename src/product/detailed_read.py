@@ -174,6 +174,35 @@ CROSS_DOMAIN_CHECKS: tuple[dict[str, Any], ...] = (
 )
 
 
+DELIVERY_STAGES: tuple[dict[str, Any], ...] = (
+    {
+        "stage_id": "stage_1_overview",
+        "section_ids": ("overview", "disposition"),
+        "purpose": "先建立整盘主线与人格/精神底色。",
+    },
+    {
+        "stage_id": "stage_2_work_resources",
+        "section_ids": ("career", "wealth"),
+        "purpose": "展开学业/事业、工作方式与财富资源。",
+    },
+    {
+        "stage_id": "stage_3_relationships",
+        "section_ids": ("relationship", "family", "social"),
+        "purpose": "展开亲密关系、家庭代际和社会合作。",
+    },
+    {
+        "stage_id": "stage_4_environment_health_time",
+        "section_ids": ("migration", "health"),
+        "purpose": "展开外部环境、迁移与身心倾向；显式时间问题在此追加 temporal synthesis。",
+    },
+    {
+        "stage_id": "stage_5_synthesis",
+        "section_ids": (),
+        "purpose": "收束为 3–5 条最强整合主线，并接受用户选择继续深挖。",
+    },
+)
+
+
 VERBALIZER_INSTRUCTIONS: tuple[str, ...] = (
     "DetailedRead is a full inspection, not a promise of strong conclusions in every topic.",
     "Organize the user-facing reading by life themes, not as a mechanical twelve-palace recital.",
@@ -218,12 +247,25 @@ class DetailedReadPlan:
             raise ValueError("DetailedRead slot IDs must be unique")
         if any(slot.temporal_layer == "NATAL" for slot in temporal):
             raise ValueError("temporal_slots may not contain NATAL slots")
+        if any(slot.domain not in NATAL_DOMAIN_ORDER for slot in temporal):
+            raise ValueError("temporal_slots must use a DetailedRead palace domain")
+        if any(slot.temporal_layer not in SUPPORTED_TEMPORAL_LAYERS for slot in temporal):
+            raise ValueError("temporal_slots contain an unsupported time layer")
+        sections = tuple(self.sections)
+        if not sections or not all(isinstance(item, DetailedReadSection) for item in sections):
+            raise ValueError("sections must contain DetailedReadSection values")
+        section_ids = [item.section_id for item in sections]
+        if len(section_ids) != len(set(section_ids)):
+            raise ValueError("DetailedRead section IDs must be unique")
+        covered_domains = {domain for section in sections for domain in section.domains}
+        if covered_domains != set(NATAL_DOMAIN_ORDER):
+            raise ValueError("DetailedRead sections must cover all twelve palace domains")
         object.__setattr__(self, "question", question)
         object.__setattr__(self, "target_id", target_id)
         object.__setattr__(self, "mode", mode)
         object.__setattr__(self, "natal_slots", natal)
         object.__setattr__(self, "temporal_slots", temporal)
-        object.__setattr__(self, "sections", tuple(self.sections))
+        object.__setattr__(self, "sections", sections)
 
     @property
     def retrieval_slots(self) -> tuple[QuickReadScopeSlot, ...]:
@@ -269,6 +311,14 @@ class DetailedReadPlan:
             "verbalizer_instructions": list(VERBALIZER_INSTRUCTIONS),
             "delivery": {
                 "multi_turn_preferred": True,
+                "stages": [
+                    {
+                        "stage_id": item["stage_id"],
+                        "section_ids": list(item["section_ids"]),
+                        "purpose": item["purpose"],
+                    }
+                    for item in DELIVERY_STAGES
+                ],
                 "final_summary_theme_count": {"min": 3, "max": 5},
                 "mechanical_twelve_palace_output": False,
             },
