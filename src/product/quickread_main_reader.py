@@ -182,6 +182,7 @@ def _normalize_domain(value: str) -> str:
             "P01": "life",
             "P02": "siblings",
             "P03": "relationship",
+            "P04": "children",
             "P05": "wealth",
             "P06": "health",
             "P07": "migration",
