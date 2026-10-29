@@ -12,44 +12,43 @@ execution:
   active_issue: null
   active_branch: null
   active_pr: null
-  canonical_checkpoint: "SP04_301_400_SOURCE_FIRST_REVIEW_COMPLETE__400_CANDIDATES_REVIEWED__321_CANDIDATES_PROMOTED__326_SOURCE_RECORDS__252_REUSABLE__74_CASE_ONLY__77_HELD__2_DEDUPED__FOUR_OPEN_OR_PARTIAL_SOURCE_GAPS__27_TEMPORAL_RESIDUAL_GROUPS"
+  canonical_checkpoint: "P03_SOURCE_COVERAGE_CENSUS_AND_TEMPORAL_HANDOFF_ACCEPTED__ISSUE819_THREE_SOURCE_ATOMS_SUPPLEMENTED__ISSUE824_P37_LITERAL_VERIFIED_MEANING_AND_TIME_SCOPE_HELD_ACCEPTED__P03_SLOT_RELEASED__P11_NEXT_PENDING_ADMISSION"
   note: >-
-    Accepted P03 source-first ledgers now cover SP01-001…100, SP02-101…200,
-    SP03-201…300, and SP04-301…400. The latest batch directly inspected
-    approved SRC-ZZ-003 physical pp20–21 / printed pp39–41; historical reports
-    and CSVs remain read-only acceleration artifacts and their old verification
-    flags are not proof. SP03 reviewed 100 candidate rows: 87 were promoted into
-    source-grounded candidate records, 13 were held because historical YEAR
-    assignments exceeded or conflicted with the source's temporal granularity,
-    and 0 were deduplicated. Four supplemental records captured unindexed
-    source claims, giving 91 source records in this batch (70 reusable, 21 CASE_SUPPORT_ONLY). Cumulative totals across SP01+SP02+SP03 are 300 reviewed, 253 candidate rows promoted, 258 source records, 205 reusable, 53 case-only, 45 held and 2 deduplicated. The former 72/19 split was stale; the accepted SP03 ledger/PR and cumulative totals agree on 70/21. P03-SP01-GAP-001 remains open;
-    P03-SP02-GAP-001 is only partially resolved because the literal “机录像”
-    and its transit layer remain unresolved; P03-SP02-GAP-002/003 are resolved
-    with source-traceable records; P03-SP02-GAP-004/005 remain open outside
-    the batch span. Nine source-gap entries remain tracked, with four open or
-    partially open. Temporal residuals total 16 groups / 40 candidate rows.
-    SP04 reviewed 100 candidates: 68 were promoted into source-grounded records, 32 were held because the archived YEAR layer was unsupported or narrower than the source, and 0 were deduplicated. These 68 records comprise 47 reusable projection/method records and 21 CASE_SUPPORT_ONLY records. Cumulative totals across SP01+SP02+SP03+SP04 are 400 reviewed, 321 candidate rows promoted, 326 source records, 252 reusable, 74 case-only, 77 held and 2 deduplicated. Temporal residuals now total 27 groups / 72 candidate rows. P03 is not complete. No Product/runtime authorization is implied;
-    conditions_compiled=0 and execution_unlocked=0.
+    Accepted source-first batches through SP08-701…800 are on main. SP09-801…836 has now
+    been directly re-adjudicated against the approved SRC-ZZ-003 scan, printed pp50–51 /
+    PDF physical pp25–26, with 31 candidate rows promoted into 34 source records, 5 held
+    for unresolved temporal scope, and 0 deduplicated. Three explicit “大运流年” source
+    pivots are preserved as separate DECADE and YEAR records. SP09-821's historical
+    PATH_DEPENDENT_GATE label is removed; the source-native “宜无正式婚礼，否则婚后分散”
+    sequence is not empirical history feedback. The bounded SP09 batch was accepted by
+    PR #817, merged into main at f77227ec0b67d422bce4e1dde2f4a1a39491d29f; exact-head
+    quality gate #40645097894 passed (2,818 tests, 132 subtests; Product JS, deterministic
+    P0, and Repository Governance v1). The prior accepted cumulative source-first checkpoint
+    remains SP09_801_836_SOURCE_FIRST_REVIEW_COMPLETE in the lineage; the current checkpoint
+    advances to the full source-coverage census and temporal-residual handoff. The full P03
+    source-coverage census and temporal-residual handoff were accepted by PR #820. The bounded source-atom follow-up was accepted by PR #823 at main commit b42512b7e96b513a8ad65c08d6903b1791e244a7 and Issue #819 is closed. The p37 residual disposition for Issue #824 was accepted by PR #828: direct visual review confirms the exact printed literal “机录像”; its intended meaning and YEAR/DECADE scope remain explicitly fail-closed. This is an accepted hold, not a semantic correction or canonical rule. This post-acceptance checkpoint releases the P03 slot. The census/handoff, Issue #819 source atoms, and this explicit p37 disposition satisfy the bounded P03 source-audit handoff; P11 is the next scheduled palace but requires its own separate admission and activation. Cumulative P03 totals: 836 candidates reviewed, 648 promoted, 664 source
+    records, 462 reusable, 202 CASE_SUPPORT_ONLY, 183 held, 5 deduplicated; 17 source gaps
+    remain recorded; the three supplemental records in PR #823 address P03-SP01-GAP-001 (printed p33), P03-SP02-GAP-004 (printed p35), and P03-SP02-GAP-005 (printed p36). The accepted census and ledgers remain unchanged. P03-SP02-GAP-001 (printed p37) now has an accepted explicit disposition: the literal is verified as “机录像”; intended meaning and YEAR/DECADE scope remain held fail-closed. It remains a documented semantic/time residual, not an untracked coverage gap. Temporal residuals total 63 groups / 175 rows. P03 source-coverage and temporal-handoff work is complete for scheduling purposes with this accepted hold; the unresolved meaning/time scope must not be compiled or promoted. P11 may be admitted only after this handoff is on main, parent Issue #818 is closed, and a separate P11 activation follows the PI-selected serial sequence. No Product/runtime authorization; conditions_compiled=0 and execution_unlocked=0.
 
 progress:
   full_source_section_printed_pages: "33–51"
   full_source_section_pdf_physical_pages: "17–26"
   historical_candidate_rows_in_inventory: 836
-  historical_candidate_rows_reviewed: 400
-  candidate_rows_promoted: 321
-  source_records_added: 326
-  reusable_projection_method_records_added: 252
-  case_support_only_records_added: 74
-  candidates_held: 77
-  candidates_deduplicated: 2
-  source_coverage_residuals_carried: 4
-  source_coverage_residuals_total_recorded: 9
-  temporal_scope_residuals: 27
-  temporal_scope_candidate_rows: 72
+  historical_candidate_rows_reviewed: 836
+  candidate_rows_promoted: 648
+  source_records_added: 664
+  reusable_projection_method_records_added: 462
+  case_support_only_records_added: 202
+  candidates_held: 183
+  candidates_deduplicated: 5
+  source_coverage_residuals_carried: 1
+  source_coverage_residuals_total_recorded: 17
+  temporal_scope_residuals: 63
+  temporal_scope_candidate_rows: 175
   history_feedback: 0
   conditions_compiled: 0
   execution_unlocked: 0
-  next_source_anchor: "Printed p41 / PDF physical p21: start SP05-401…500 within P03, directly re-adjudicate the next source-bounded span from the original scan. The SP05 historical index is read-only only; do not treat archived SOURCE_SPAN_VERIFIED flags as proof. Do not advance to P11 until the full P03 source coverage census and residual handoff are accepted."
+  next_source_anchor: "P03-SP02-GAP-001 at printed p37 / PDF physical p19 has an accepted explicit disposition: literal “机录像” visually verified, intended meaning and YEAR/DECADE held fail-closed. No active P03 source task remains. P11 is next in the PI-selected serial sequence after this checkpoint merges and Issue #818 closes; it requires a separate bounded admission/activation. Do not compile or promote the unresolved interpretation/time layer."
 
 integrity:
   source_first: true

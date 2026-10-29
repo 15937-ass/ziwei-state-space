@@ -118,15 +118,34 @@ def test_source_gaps_execution_boundary_and_state_reconcile():
     assert boundary["other_palace_changed"] is False
     assert boundary["history_feedback"] == 0
     state = STATE.read_text(encoding="utf-8")
-    assert "SP04_301_400_SOURCE_FIRST_REVIEW_COMPLETE" in state
-    assert "historical_candidate_rows_reviewed: 400" in state
-    assert "candidate_rows_promoted: 321" in state
-    assert "source_records_added: 326" in state
-    assert "reusable_projection_method_records_added: 252" in state
-    assert "case_support_only_records_added: 74" in state
-    assert "candidates_held: 77" in state
-    assert "temporal_scope_residuals: 27" in state
-    assert "temporal_scope_candidate_rows: 72" in state
-    assert "91 source records in this batch (70 reusable, 21 CASE_SUPPORT_ONLY)" in state
+    # The SP04 ledger remains batch-specific, but the shared state cache advances
+    # as later accepted batches are merged. Do not freeze this regression test
+    # at the SP04 cumulative checkpoint.
+    assert "SOURCE_FIRST_REVIEW_COMPLETE" in state
+    state_values = {}
+    for field in (
+        "historical_candidate_rows_reviewed",
+        "candidate_rows_promoted",
+        "source_records_added",
+        "reusable_projection_method_records_added",
+        "case_support_only_records_added",
+        "candidates_held",
+        "candidates_deduplicated",
+        "source_coverage_residuals_total_recorded",
+        "temporal_scope_residuals",
+        "temporal_scope_candidate_rows",
+    ):
+        line = next(line for line in state.splitlines() if line.strip().startswith(f"{field}:"))
+        state_values[field] = int(line.split(":", 1)[1].strip())
+    assert state_values["historical_candidate_rows_reviewed"] >= 400
+    assert state_values["candidate_rows_promoted"] >= 321
+    assert state_values["source_records_added"] >= 326
+    assert state_values["reusable_projection_method_records_added"] >= 252
+    assert state_values["case_support_only_records_added"] >= 74
+    assert state_values["candidates_held"] >= 77
+    assert state_values["candidates_deduplicated"] >= 2
+    assert state_values["source_coverage_residuals_total_recorded"] >= 9
+    assert state_values["temporal_scope_residuals"] >= 27
+    assert state_values["temporal_scope_candidate_rows"] >= 72
     assert "conditions_compiled=0" in state
     assert "execution_unlocked=0" in state
