@@ -1,0 +1,95 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "PRODUCT-MANIFESTATION-P3-READINESS-AUDIT-V0_1",
+  "work_unit": "PRODUCT_MANIFESTATION_FORMAL_CROSSWALK_FREEZE_P3",
+  "issue": 918,
+  "status": "P3_NOT_READY_NEW_PRODUCT_GAPS",
+  "lane": "PRODUCT_ONLY",
+  "accepted_main_commit": "bd95dc3e1561c5ace26999d7feaa0ae60cf1056b",
+  "inputs": {
+    "p1_issue": 897,
+    "p2_issue": 906,
+    "adapter_v0_2_issue": 908,
+    "condition_binding_issue": 916,
+    "core_c3_issue": 912,
+    "accepted_kmn_count": 15,
+    "accepted_kmm_count": 15
+  },
+  "freeze_readiness": {
+    "canonical_node_envelope": "READY_FOR_P3_FREEZE",
+    "canonical_mapping_metadata_envelope": "READY_FOR_P3_FREEZE",
+    "hold_semantics": "READY_FOR_P3_FREEZE_AS_EXPLICIT_HOLD",
+    "structured_condition_binding": "NOT_READY",
+    "formal_crosswalk_freeze": "NOT_READY"
+  },
+  "previous_gap_closure": [
+    {"gap_id": "PG-001", "status": "CLOSED_BY_PRODUCT_908"},
+    {"gap_id": "PG-002", "status": "CLOSED_BY_PRODUCT_908"},
+    {"gap_id": "PG-003", "status": "CLOSED_BY_PRODUCT_908"},
+    {"gap_id": "PG-004", "status": "CLOSED_BY_PRODUCT_908"},
+    {"gap_id": "PG-005", "status": "CLOSED_BY_PRODUCT_908"},
+    {"gap_id": "PG-006", "status": "CLOSED_FOR_ACCEPTED_EXAMPLES_BY_PRODUCT_916"},
+    {"gap_id": "PG-007", "status": "CLOSED_FOR_DECADE_YEAR_BY_PRODUCT_916"}
+  ],
+  "mapping_audit": [
+    {"mapping_id": "KMM-000001", "verdict": "HOLD", "reason": "Accepted unresolved 火铃 quantifier; Product must not choose BOTH_STARS vs EITHER_STAR."},
+    {"mapping_id": "KMM-000002", "verdict": "LOSSLESS_NONEXECUTABLE", "reason": "v0.2 preserves inherited antecedents and external-only action prerequisite with source status."},
+    {"mapping_id": "KMM-000003", "verdict": "LOSSLESS_NONEXECUTABLE", "reason": "v0.2 preserves scene/context axes, separate epistemics, negative boundaries and forbidden inferences."},
+    {"mapping_id": "KMM-000004", "verdict": "HOLD", "reason": "Accepted unresolved 煞曜空劫 quantifier; no AND/OR coercion."},
+    {"mapping_id": "KMM-000005", "verdict": "LOSSLESS_PRESERVATION_ONLY", "reason": "v0.2 preserves open output/event axes, exact source condition, boundaries and NATAL layer."},
+    {"mapping_id": "KMM-000006", "verdict": "LOSSLESS_PRESERVATION_ONLY", "reason": "v0.2 preserves modifier context, 往往 as modality text, and no numeric interpretation."},
+    {"mapping_id": "KMM-000007", "verdict": "LOSSLESS_STRUCTURED_NONEXECUTABLE", "reason": "Product #916 preserves explicit OPPOSITE_PALACE dependency."},
+    {"mapping_id": "KMM-000008", "verdict": "LOSSLESS_STRUCTURED_NONEXECUTABLE", "reason": "Product #916 preserves source-explicit OR and rejects AND collapse."},
+    {"mapping_id": "KMM-000009", "verdict": "LOSSLESS_STRUCTURED_NONEXECUTABLE", "reason": "Product #916 preserves DECADE_YEAR as DECADE + YEAR required scopes."},
+    {"mapping_id": "KMM-000010", "verdict": "GAP_PRODUCT", "gap_ids": ["PG-008"], "reason": "Accepted DECADE layer is preserved by v0.2 but has no governed structured temporal binding in #916."},
+    {"mapping_id": "KMM-000011", "verdict": "HOLD", "reason": "SOURCE_TEMPORAL_LAYER_UNSPECIFIED plus explicit unresolved semantics must remain fail-closed and must not be narrowed."},
+    {"mapping_id": "KMM-000012", "verdict": "GAP_PRODUCT", "gap_ids": ["PG-009"], "reason": "Source lists separate adverse variants without an explicit 或 token; current structured alternative contract cannot represent the non-conjunctive variant set without inventing OR text."},
+    {"mapping_id": "KMM-000013", "verdict": "GAP_PRODUCT", "gap_ids": ["PG-010"], "reason": "Three distinct branches plus a source-explicit simultaneous condition require a governed branch/compound-condition representation."},
+    {"mapping_id": "KMM-000014", "verdict": "GAP_PRODUCT", "gap_ids": ["PG-010", "PG-011"], "reason": "除非 exception plus 命宫-scoped dependency is not representable by the current OPPOSITE_PALACE-only contract."},
+    {"mapping_id": "KMM-000015", "verdict": "GAP_PRODUCT", "gap_ids": ["PG-010"], "reason": "即使 conditional qualifier is retained as text but lacks a governed structured conditional operator."}
+  ],
+  "new_gap_register": [
+    {
+      "gap_id": "PG-008",
+      "owner": "PRODUCT",
+      "severity": "BLOCKING_P3_FREEZE",
+      "summary": "Structured temporal binding supports NATAL and DECADE_YEAR but not accepted single-layer DECADE semantics.",
+      "accepted_example": "KMM-000010"
+    },
+    {
+      "gap_id": "PG-009",
+      "owner": "PRODUCT",
+      "severity": "BLOCKING_P3_FREEZE",
+      "summary": "No governed representation exists for source-listed mutually non-conjunctive variants when the source does not contain an explicit OR token.",
+      "accepted_example": "KMM-000012"
+    },
+    {
+      "gap_id": "PG-010",
+      "owner": "PRODUCT",
+      "severity": "BLOCKING_P3_FREEZE",
+      "summary": "No governed structured branch/conditional-modality contract exists for source-explicit simultaneous, unless, and even-if semantics without free-text inference.",
+      "accepted_examples": ["KMM-000013", "KMM-000014", "KMM-000015"]
+    },
+    {
+      "gap_id": "PG-011",
+      "owner": "PRODUCT",
+      "severity": "BLOCKING_P3_FREEZE",
+      "summary": "Cross-palace structured binding is limited to OPPOSITE_PALACE and cannot represent an explicit LIFE_PALACE-scoped exception/dependency.",
+      "accepted_example": "KMM-000014"
+    }
+  ],
+  "core_disposition": {
+    "schema_change_required": false,
+    "new_core_gap_found": false,
+    "core_c3_verdict": "STABLE_WITH_BACKWARD_COMPATIBLE_REFINEMENT",
+    "notes": "All new blockers are Product-owned representation gaps. Existing Knowledge unresolved semantics remain explicit HOLDs."
+  },
+  "production_boundary": {
+    "production_registry_population_allowed": false,
+    "active_kib_promotion_allowed": false,
+    "runtime_execution_allowed": false,
+    "probability_claim_allowed": false,
+    "predictive_validity_claim_allowed": false
+  },
+  "next_action": "CLOSE_P3_AS_NOT_READY_AND_OPEN_ONE_BOUNDED_PRODUCT_GAP_CLOSURE_UNIT_FOR_PG_008_TO_PG_011"
+}
