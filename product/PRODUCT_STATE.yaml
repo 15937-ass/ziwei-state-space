@@ -4,27 +4,27 @@ authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  status: "ACTIVE_NO_ACTIVE_WORK"
+  status: "ACTIVE_BUILD"
   phase: "PL3_METHOD_RESPONSE_VERTICAL_SLICE"
-  active_issue: null
+  active_issue: 906
   active_pr: null
   continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md"
   plan_pointer_issue: 900
-  next_issue: 897
+  next_issue: 906
   next_work_unit: "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"
-  continuation_next_work_unit: "PRODUCT_MANIFESTATION_CROSSWALK_PILOT_V0_1"
+  continuation_next_work_unit: "PRODUCT_MANIFESTATION_CROSSWALK_EXPANDED_CHECKPOINT_P2"
   next_work_status: "READY_TO_ADMIT"
-  resume_entry: "PI-authorized continuous Product plan is active. If no live ACTIVE Product unit exists, read plan pointer #900 and claim the earliest eligible bounded nominee; current first nominee is #897, a Knowledge->Product manifestation adapter/crosswalk pilot pinned to accepted KMN-000001..000003 and KMM-000001..000003. Production manifestation registries remain empty, active KIB/lock does not auto-refresh, runtime/probability/predictive-validity remain unauthorized. Live Issue/PR overrides this cache."
-  state_cache_as_of_main_commit: "3407150866a5ace99552daa674356b92610f080e"
+  resume_entry: "Product #906 P2 is ACTIVE_BUILD on product/906-expanded-manifestation-crosswalk-p2, pinned to accepted Core checkpoint 4e41074d351a720a639cb702d2ce100c44aa5ca1 (9 KMN / 9 KMM). Do not consume later unmerged Core. Production registries/KIB/runtime/probability remain fail-closed."
+  state_cache_as_of_main_commit: "4e41074d351a720a639cb702d2ce100c44aa5ca1"
   state_cache_as_of_product_merge: "085e65c509fc5f9fed8230d00d2fc07a0e01b79b"
-  state_cache_snapshot_date: "2026-10-23"
+  state_cache_snapshot_date: "2026-10-29"
   v04_entry_checkpoint_issue: 416
   v04_entry_checkpoint_pr: 418
-  last_completed_product_issue: 696
-  last_completed_product_pr: 698
+  last_completed_product_issue: 897
+  last_completed_product_pr: 905
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
-  resume_issue: 897
+  resume_issue: 906
   roadmap: "PRODUCT_ROADMAP.md#v0.4"
   execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
 
@@ -181,7 +181,7 @@ capability_snapshot:
 
 critical_path:
   now:
-    - "PRODUCT_MANIFESTATION_CROSSWALK_PILOT_V0_1"
+    - "PRODUCT_MANIFESTATION_CROSSWALK_EXPANDED_CHECKPOINT_P2"
     - "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"
     - "FORECAST_LEDGER_ACTIVATION"
   future:
