@@ -1,0 +1,60 @@
+{
+  "schema_version": "0.1",
+  "mapping_id": "KMM-000011",
+  "primary_source_rule_id": "P01-SG-175",
+  "source_rule_ids": [
+    "P01-SG-175"
+  ],
+  "manifestation_id": "KMN-000011",
+  "source_refs": [
+    "SRC-ZZ-003#printed_page=17#P01-SG-175",
+    "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv#P01-SG-175"
+  ],
+  "review_refs": {
+    "positive": [
+      "MR-C1B2-P01SG175-CONTEXT-POS"
+    ],
+    "negative_boundaries": [
+      "MR-C1B2-P01SG175-FORCETIME-NEG"
+    ]
+  },
+  "source_epistemic": "EXPLICIT",
+  "normalization_epistemic": "SOURCE_PRESERVING",
+  "output_kind": {
+    "state": "KNOWN",
+    "value": "TEMPORAL_SCOPE_UNSPECIFIED_CONTEXT_PREFERENCE"
+  },
+  "event_specificity": {
+    "state": "KNOWN",
+    "value": "ABSTRACT_CONTEXT_PREFERENCE_NOT_OBSERVED_EVENT"
+  },
+  "conditions": {
+    "time_layer": "SOURCE_TEMPORAL_LAYER_UNSPECIFIED",
+    "source_condition_text": "巳宫巨门；紫微天府、武曲、禄存、化禄等宫垣；与七杀、廉贞天相、贪狼宫垣对照",
+    "antecedent_rule_ids": [],
+    "modality_terms": [],
+    "real_world_prerequisites": [],
+    "unresolved_semantics": [
+      "来源未明说所列宫垣属于大运、流年或其他时间层；不得自动缩窄。"
+    ]
+  },
+  "canonical_mapping_status": "ACTIVE",
+  "canonical_mapping_approved": true,
+  "execution_readiness": "BLOCKED_SEMANTIC",
+  "executable": false,
+  "execution_blockers": [
+    "UNRESOLVED_TEMPORAL_LAYER_FOR_PALACE_CONTEXT_PREFERENCE"
+  ],
+  "product_consumable": false,
+  "probability_status": "UNKNOWN",
+  "forbidden_inferences": [
+    "Do not silently assign the listed palace contexts to DECADE, YEAR, or any other temporal layer.",
+    "Do not convert 喜/不喜 into numeric weights, probabilities, or empirical effect sizes.",
+    "Do not infer a concrete favorable or adverse real-world event from the preference structure alone."
+  ],
+  "supersession": {
+    "supersedes": [],
+    "superseded_by": [],
+    "reason": null
+  }
+}

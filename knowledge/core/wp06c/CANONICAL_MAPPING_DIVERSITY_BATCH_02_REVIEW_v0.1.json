@@ -1,0 +1,361 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-CORE-WP06BC-CANONICAL-MAPPING-DIVERSITY-BATCH-02-REVIEW",
+  "version": "0.1",
+  "status": "TARGET_REVIEW_ACCEPTED_FOR_CANONICAL_BATCH",
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "CORE",
+  "issue": 907,
+  "work_unit": "KB_CORE_WP06BC_CANONICAL_MAPPING_EXPANSION_DIVERSITY_02",
+  "source_policy": "Reuse accepted main source-first records; bounded target review only. CASE_SUPPORT_ONLY and unresolved non-promotable records are excluded.",
+  "semantic_diversity": [
+    "specific_decade_trigger",
+    "explicit_unresolved_temporal_scope",
+    "multi_variant_process_pattern",
+    "conditional_scene_translation",
+    "cross_palace_relationship_exception",
+    "relational_durability_counterexample"
+  ],
+  "cohort": [
+    {
+      "source_rule_id": "P01-SG-169",
+      "manifestation_id": "KMN-000010",
+      "mapping_id": "KMM-000010",
+      "positive_target_review_id": "MR-C1B2-P01SG169-TIMING-POS",
+      "negative_target_review_id": "MR-C1B2-P01SG169-EVENT-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=17#P01-SG-169",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv#P01-SG-169"
+      ]
+    },
+    {
+      "source_rule_id": "P01-SG-175",
+      "manifestation_id": "KMN-000011",
+      "mapping_id": "KMM-000011",
+      "positive_target_review_id": "MR-C1B2-P01SG175-CONTEXT-POS",
+      "negative_target_review_id": "MR-C1B2-P01SG175-FORCETIME-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=17#P01-SG-175",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv#P01-SG-175"
+      ]
+    },
+    {
+      "source_rule_id": "P01-SG-180",
+      "manifestation_id": "KMN-000012",
+      "mapping_id": "KMM-000012",
+      "positive_target_review_id": "MR-C1B2-P01SG180-PROCESS-POS",
+      "negative_target_review_id": "MR-C1B2-P01SG180-EVENT-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=18#P01-SG-180",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv#P01-SG-180"
+      ]
+    },
+    {
+      "source_rule_id": "P01-SG-190",
+      "manifestation_id": "KMN-000013",
+      "mapping_id": "KMM-000013",
+      "positive_target_review_id": "MR-C1B2-P01SG190-SCENE-POS",
+      "negative_target_review_id": "MR-C1B2-P01SG190-BRANCHMERGE-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=18#P01-SG-190",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv#P01-SG-190"
+      ]
+    },
+    {
+      "source_rule_id": "P02S-137",
+      "manifestation_id": "KMN-000014",
+      "mapping_id": "KMM-000014",
+      "positive_target_review_id": "MR-C1B2-P02S137-RELATION-POS",
+      "negative_target_review_id": "MR-C1B2-P02S137-CROSSPALACE-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=27#P02S-137",
+        "knowledge/palaces/P02_siblings/wp05/SIBLINGS_SB04_WUQU_SOURCE_AUDIT_v0.1.json#P02S-137"
+      ]
+    },
+    {
+      "source_rule_id": "P02S-169",
+      "manifestation_id": "KMN-000015",
+      "mapping_id": "KMM-000015",
+      "positive_target_review_id": "MR-C1B2-P02S169-DURABILITY-POS",
+      "negative_target_review_id": "MR-C1B2-P02S169-GUARANTEE-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=28#P02S-169",
+        "knowledge/palaces/P02_siblings/wp05/SIBLINGS_SB04_WUQU_SOURCE_AUDIT_v0.1.json#P02S-169"
+      ]
+    }
+  ],
+  "mapping_review_records": [
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B2-P01SG169-TIMING-POS",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=17#P01-SG-169",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv#P01-SG-169"
+      ],
+      "target_ref": "KMN-000010.canonical_target:timing",
+      "rationale": "The source explicitly identifies a DECADE window: 辰宫巨门化禄 reaches a 天府 palace context and the text calls it 发迹大运. Canonicalization retains the decade window while refusing to treat it as an observed real-world event.",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B2-P01SG169-EVENT-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=17#P01-SG-169",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv#P01-SG-169"
+      ],
+      "target_ref": "KMN-000010.rejected_target:specific_observed_breakthrough_event",
+      "rationale": "A traditional 发迹大运 statement does not establish a specific promotion, wealth gain, career event, age, or empirical success probability.",
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B2-P01SG175-CONTEXT-POS",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=17#P01-SG-175",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv#P01-SG-175"
+      ],
+      "target_ref": "KMN-000011.canonical_target:context_preference",
+      "rationale": "The source directly lists favorable and unfavorable palace contexts for 巳宫巨门. That qualitative context preference is source-supported even though the temporal layer of those palace contexts is not specified.",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B2-P01SG175-FORCETIME-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=17#P01-SG-175",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv#P01-SG-175"
+      ],
+      "target_ref": "KMN-000011.rejected_target:forced_decade_or_year_assignment",
+      "rationale": "The source does not say whether the listed palace contexts are 大运, 流年, or another temporal layer. Any forced time-layer assignment would add semantics absent from the source.",
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B2-P01SG180-PROCESS-POS",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=18#P01-SG-180",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv#P01-SG-180"
+      ],
+      "target_ref": "KMN-000012.canonical_target:development_process",
+      "rationale": "The source lists 羊陀夹、火铃夹、空劫夹 as adverse clamp variants and attaches the qualitative manifestations 是非困扰、劳碌奔波、突生挫折. The canonical target is the bounded friction/setback process pattern.",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B2-P01SG180-EVENT-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=18#P01-SG-180",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv#P01-SG-180"
+      ],
+      "target_ref": "KMN-000012.rejected_target:specific_dispute_travel_or_failure_event",
+      "rationale": "The source expressions are traditional qualitative manifestations, not evidence that a particular dispute, travel episode, job failure, or other concrete event occurred.",
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B2-P01SG190-SCENE-POS",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=18#P01-SG-190",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv#P01-SG-190"
+      ],
+      "target_ref": "KMN-000013.canonical_target:career_scene",
+      "rationale": "The source contains three distinct scene branches: talent-star preference, 奏书亦吉, and a 清客 branch only under simultaneous 煞 plus 昌曲化忌. The canonical target preserves this branching scene translation.",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B2-P01SG190-BRANCHMERGE-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=18#P01-SG-190",
+        "knowledge/palaces/P01_life/wp05/LIFE_P06_SOURCE_GAP_SUPPLEMENT_PP17_20_v0.1.csv#P01-SG-190"
+      ],
+      "target_ref": "KMN-000013.rejected_target:merged_scene_trigger_or_observed_occupation",
+      "rationale": "The three branches must not be collapsed into one trigger, and the historical label 清客 does not establish a real occupation or modern profession.",
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B2-P02S137-RELATION-POS",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=27#P02S-137",
+        "knowledge/palaces/P02_siblings/wp05/SIBLINGS_SB04_WUQU_SOURCE_AUDIT_v0.1.json#P02S-137"
+      ],
+      "target_ref": "KMN-000014.canonical_target:relationship_support_exception",
+      "rationale": "The source explicitly separates 子午武府见吉化 from the exception condition 命宫见辅弼. Only with that cross-palace exception does the text state 兄弟友人相助. This is a source-bounded relational-support pattern.",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "interaction",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B2-P02S137-CROSSPALACE-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=27#P02S-137",
+        "knowledge/palaces/P02_siblings/wp05/SIBLINGS_SB04_WUQU_SOURCE_AUDIT_v0.1.json#P02S-137"
+      ],
+      "target_ref": "KMN-000014.rejected_target:support_without_life_palace_exception_or_observed_helper",
+      "rationale": "The source does not support treating favorable transformation alone as the stated support exception, nor does it identify an actual sibling/friend who provided assistance.",
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B2-P02S169-DURABILITY-POS",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=28#P02S-169",
+        "knowledge/palaces/P02_siblings/wp05/SIBLINGS_SB04_WUQU_SOURCE_AUDIT_v0.1.json#P02S-169"
+      ],
+      "target_ref": "KMN-000015.canonical_target:relationship_durability",
+      "rationale": "The source explicitly states 合作亦不耐久 for 巳亥武破守兄弟宫 even when favorable stars are seen. The supported identity is a qualitative collaboration-durability limit.",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "direct_state",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-C1B2-P02S169-GUARANTEE-NEG",
+      "source_refs": [
+        "SRC-ZZ-003#printed_page=28#P02S-169",
+        "knowledge/palaces/P02_siblings/wp05/SIBLINGS_SB04_WUQU_SOURCE_AUDIT_v0.1.json#P02S-169"
+      ],
+      "target_ref": "KMN-000015.rejected_target:no_cooperation_or_fixed_breakup_duration",
+      "rationale": "不耐久 does not mean cooperation cannot start, must immediately end, or lasts a measurable fixed duration; no breakup probability or duration is supplied.",
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    }
+  ],
+  "c1_milestone_assessment": {
+    "starting_mapping_count": 9,
+    "after_batch_mapping_count": 15,
+    "batch2_new_structures": 6,
+    "cumulative_structure_coverage": [
+      "process",
+      "state",
+      "scene_context",
+      "conditional_outcome",
+      "explicit_unresolved_semantics",
+      "modifier_interaction",
+      "cross_palace_dependency",
+      "multiple_alternative_antecedents",
+      "temporal_dynamic_condition",
+      "relationship"
+    ],
+    "threshold_reached": true,
+    "next_stage": "C3_SCHEMA_STABILITY_REVIEW",
+    "caveat": "Threshold triggers schema review; it does not pre-claim schema stability or Product/runtime readiness."
+  },
+  "invariants": {
+    "source_backed_only": true,
+    "case_support_only_promoted": false,
+    "canonical_nodes_created": 6,
+    "canonical_mappings_created": 6,
+    "accepted_total_after_batch": 15,
+    "executable_mappings": 0,
+    "product_consumption_authorized": false,
+    "probability_status": "UNKNOWN",
+    "universal_root_or_family_created": false,
+    "empirical_predictive_validity_claimed": false
+  }
+}

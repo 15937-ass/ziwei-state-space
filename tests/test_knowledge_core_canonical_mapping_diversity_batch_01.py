@@ -47,12 +47,12 @@ def test_selected_sources_are_already_source_first_and_non_case():
         assert r["canonical_promotion"].lower() == "true"
 
 
-def test_batch_adds_exactly_six_pairs_and_advances_ids_monotonically():
+def test_batch1_historical_six_pairs_remain_accepted_after_later_expansion():
     ni, mi = load(NODE_INDEX), load(MAP_INDEX)
-    assert ni["coverage"]["production_node_count"] == 9
-    assert ni["coverage"]["next_allocatable_id"] == "KMN-000010"
-    assert mi["coverage"]["canonical_mapping_count"] == 9
-    assert mi["coverage"]["next_allocatable_id"] == "KMM-000010"
+    assert ni["coverage"]["production_node_count"] >= 9
+    assert mi["coverage"]["canonical_mapping_count"] >= 9
+    assert int(ni["coverage"]["next_allocatable_id"].split("-")[1]) == ni["coverage"]["production_node_count"] + 1
+    assert int(mi["coverage"]["next_allocatable_id"].split("-")[1]) == mi["coverage"]["canonical_mapping_count"] + 1
     for rule, (nid, mid) in EXPECTED.items():
         n = load(NODE_DIR / f"{nid}.json")
         m = load(MAP_DIR / f"{mid}.json")
