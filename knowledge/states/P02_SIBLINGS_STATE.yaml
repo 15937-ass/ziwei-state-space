@@ -12,8 +12,8 @@ execution:
   active_issue: null
   active_branch: null
   active_pr: null
-  canonical_checkpoint: "SB11_QISHA_POJUN_P31_32_ACCEPTED_SUBJECT_TO_MERGE__FULL_CHAPTER_CENSUS_NEXT"
-  note: "Issue #899: effective only upon exact-head acceptance/merge. Cumulative424 reviewed/284 accepted (180 reusable/104 CASE),140 held/49 gaps. Prior ten source ledgers unchanged; chapter census and independent handoff still required. Producer releases on acceptance; while PR open live Issue/PR retains ownership. No mapping/runtime/empirical authorization."
+  canonical_checkpoint: "CHAPTER_SOURCE_AND_HELD_CENSUS_ACCEPTED_SUBJECT_TO_MERGE__INDEPENDENT_HANDOFF_NEXT"
+  note: "Issue #921: census effective only upon exact-head acceptance/merge. Eleven source ledgers unchanged:424 reviewed/284 accepted(180 reusable/104 CASE)/140 held/49 gaps.151 unique paragraph anchors/155 page slices/14 sections;45 early held nonnull texts remain blocked. Independent stage handoff still required; no P04/mapping/runtime/empirical authorization."
 
 integrity:
   source_first: true
@@ -22,7 +22,9 @@ integrity:
   empirical_feedback_may_rewrite_source_truth: false
 
 progress:
-  accepted_issue: 899
+  accepted_issue: 921
+  accepted_source_issue: 899
+  accepted_census_issue: 921
   full_section_printed_pages: 25–32
   full_section_pdf_physical_pages: 13–16
   source_atoms_reviewed: 424
@@ -34,12 +36,13 @@ progress:
   history_feedback: 0
   conditions_compiled: 0
   execution_unlocked: 0
-  next_source_anchor: 'after #899 accepted: full chapter pp25–32 coverage census, held-to-gap disposition and independent handoff; no P04 activation'
+  next_source_anchor: 'after #921 accepted: independent stage handoff review of census/source/held boundaries; no P04 activation'
 human_gate:
   pending: null
 coverage_census:
-  source_reviewed_section: 'upon #899 merge: source review reaches p32 chapter end; full census and independent review incomplete'
+  source_reviewed_section: 'upon #921 merge: pp25–32 coverage/held census reconciled; independent stage handoff still incomplete'
   source_inventory_complete: true
-  source_census_complete: false
+  source_census_complete: true
   whole_chapter_complete: false
-  residual_disposition_complete: false
+  residual_disposition_complete: true
+  independent_stage_handoff_review_complete: false
