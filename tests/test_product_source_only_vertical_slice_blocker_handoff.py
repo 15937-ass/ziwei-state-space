@@ -196,84 +196,9 @@ def test_product_recovery_state_cache_tracks_main_freshness_and_product_checkpoi
 
     state = (ROOT / "product" / "PRODUCT_STATE.yaml").read_text(encoding="utf-8")
 
-    main_sha = re.search(r'^  state_cache_as_of_main_commit: "([0-9a-f]{40})"
-def test_all_recovery_state_caches_are_snapshotted_not_pinned_as_sources():
-    report = _report()
-    mutable_paths = {
-        "product/PRODUCT_STATE.yaml",
-        "knowledge/KNOWLEDGE_STATE.yaml",
-        "knowledge/states/CORE_STATE.yaml",
-        "knowledge/states/P09_CAREER_STATE.yaml",
-        "knowledge/states/P10_PROPERTY_STATE.yaml",
-    }
-    source_paths = {item["path"] for item in report["source_artifacts"]}
-    assert not mutable_paths.intersection(source_paths)
-
-    snapshot = report["live_knowledge_work_snapshot"]
-    assert snapshot["as_of_date"] == "2026-10-22"
-    assert snapshot["snapshot_main_commit"] == "f10c68a6e22539f352a37dfe817a7889afcbca07"
-    assert snapshot["recovery_state_paths"] == {
-        "coordinator": "knowledge/KNOWLEDGE_STATE.yaml",
-        "shards": {
-            "CORE": "knowledge/states/CORE_STATE.yaml",
-            "P09": "knowledge/states/P09_CAREER_STATE.yaml",
-            "P10": "knowledge/states/P10_PROPERTY_STATE.yaml",
-        },
-    }
-    assert "mutable recovery pointers" in snapshot["recovery_state_note"]
-, state, re.M)
-    product_sha = re.search(r'^  state_cache_as_of_product_merge: "([0-9a-f]{40})"
-def test_all_recovery_state_caches_are_snapshotted_not_pinned_as_sources():
-    report = _report()
-    mutable_paths = {
-        "product/PRODUCT_STATE.yaml",
-        "knowledge/KNOWLEDGE_STATE.yaml",
-        "knowledge/states/CORE_STATE.yaml",
-        "knowledge/states/P09_CAREER_STATE.yaml",
-        "knowledge/states/P10_PROPERTY_STATE.yaml",
-    }
-    source_paths = {item["path"] for item in report["source_artifacts"]}
-    assert not mutable_paths.intersection(source_paths)
-
-    snapshot = report["live_knowledge_work_snapshot"]
-    assert snapshot["as_of_date"] == "2026-10-22"
-    assert snapshot["snapshot_main_commit"] == "f10c68a6e22539f352a37dfe817a7889afcbca07"
-    assert snapshot["recovery_state_paths"] == {
-        "coordinator": "knowledge/KNOWLEDGE_STATE.yaml",
-        "shards": {
-            "CORE": "knowledge/states/CORE_STATE.yaml",
-            "P09": "knowledge/states/P09_CAREER_STATE.yaml",
-            "P10": "knowledge/states/P10_PROPERTY_STATE.yaml",
-        },
-    }
-    assert "mutable recovery pointers" in snapshot["recovery_state_note"]
-, state, re.M)
-    snapshot_date = re.search(r'^  state_cache_snapshot_date: "(\d{4}-\d{2}-\d{2})"
-def test_all_recovery_state_caches_are_snapshotted_not_pinned_as_sources():
-    report = _report()
-    mutable_paths = {
-        "product/PRODUCT_STATE.yaml",
-        "knowledge/KNOWLEDGE_STATE.yaml",
-        "knowledge/states/CORE_STATE.yaml",
-        "knowledge/states/P09_CAREER_STATE.yaml",
-        "knowledge/states/P10_PROPERTY_STATE.yaml",
-    }
-    source_paths = {item["path"] for item in report["source_artifacts"]}
-    assert not mutable_paths.intersection(source_paths)
-
-    snapshot = report["live_knowledge_work_snapshot"]
-    assert snapshot["as_of_date"] == "2026-10-22"
-    assert snapshot["snapshot_main_commit"] == "f10c68a6e22539f352a37dfe817a7889afcbca07"
-    assert snapshot["recovery_state_paths"] == {
-        "coordinator": "knowledge/KNOWLEDGE_STATE.yaml",
-        "shards": {
-            "CORE": "knowledge/states/CORE_STATE.yaml",
-            "P09": "knowledge/states/P09_CAREER_STATE.yaml",
-            "P10": "knowledge/states/P10_PROPERTY_STATE.yaml",
-        },
-    }
-    assert "mutable recovery pointers" in snapshot["recovery_state_note"]
-, state, re.M)
+    main_sha = re.search(r'^  state_cache_as_of_main_commit: "([0-9a-f]{40})"$', state, re.M)
+    product_sha = re.search(r'^  state_cache_as_of_product_merge: "([0-9a-f]{40})"$', state, re.M)
+    snapshot_date = re.search(r'^  state_cache_snapshot_date: "(\d{4}-\d{2}-\d{2})"$', state, re.M)
     last_issue = re.search(r"^  last_completed_product_issue:\s*(\d+)$", state, re.M)
     last_pr = re.search(r"^  last_completed_product_pr:\s*(\d+)$", state, re.M)
 
