@@ -7,8 +7,8 @@
 | 对话名称 | 新对话发什么 | 负责什么 |
 | --- | --- | --- |
 | 宫位线 | 推进宫位线 | 按既定逐宫顺序核对教材、保存条件和疑点 |
-| Core线 | 推进Core线 | 核对共同性质和分类，形成经批准的正式契约，解决共享时间反应缺口 |
-| 产品线 | 推进产品线 | 接续现有程序任务，在知识满足条件后评估和接入 |
+| Core线 | 推进Core线 | 按 #901 / continuation plan 连续扩展 canonical mapping、吸收真实共享语义 gap、再进入 WP07B |
+| 产品线 | 推进产品线 | 按 #900 / continuation plan 从 manifestation crosswalk pilot 开始，消费已接受 Core checkpoint |
 
 三个不同工作线的对话可以同时推进独立工作。常态目标是“1 个宫位 + 1 个 Core + 1 个 Product”三槽并行；正式合入 main 由 Integration Lease 串行控制。不要为了等待别人合并而停止本线的独立研究/开发，也不要在 ACTIVE_BUILD 阶段为了无关 main 变化反复重跑最终全量门。不必每次重新创建对话；同一对话到下一轮时也可以只发“继续”。替换旧对话时先让旧对话停止并保存交接，再让新对话接手；不要让两个对话同时写同一条线。
 
@@ -24,11 +24,11 @@
 
 ### Core线
 
-> 继续 15937-ass/ziwei-state-space 的Core线。先读取 main 上的 CHATGPT_START_HERE.md，按标准恢复顺序读取 governance/THREE_STREAM_START_HERE.md 的Core安排，核对实时任务和旧对话交接。接续一个已获准、可执行的 Core 工作单元，按依赖推进契约和时间反应缺口；每轮完成到可恢复检查点，写回 Issue/PR，遇到真实语义决策先给中文原文依据和例子，结束时汇报三线状态和下次继续的位置。
+> 继续 15937-ass/ziwei-state-space 的Core线。先读取 main 上的 CHATGPT_START_HERE.md，按标准恢复顺序读取 governance/THREE_STREAM_START_HERE.md、governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md 和 Core plan pointer #901，核对实时 Core Issue/PR 与旧对话交接。若已有 ACTIVE Core 单则接续；若 Core 槽位空闲则直接领取计划中最早可执行的 bounded nominee（当前首单 #898），无需让我重述顺序。每轮只推进一个 Core 工作单元，遇到计划规定的真实 Human Gate 才停下来给中文原文依据和例子，结束时汇报三线状态和下次继续的位置。
 
 ### 产品线
 
-> 继续 15937-ass/ziwei-state-space 的产品线。先读取 main 上的 CHATGPT_START_HERE.md，按标准恢复顺序读取 governance/THREE_STREAM_START_HERE.md 的产品安排，核对实时任务和旧对话交接。接续一个已获准、可执行的 Product 工作单元；新知识须在正式接受且满足消费条件后独立评估，不能绕过阻塞。每轮写回 Issue/PR 的可恢复检查点，结束时汇报三线状态和下次继续的位置。
+> 继续 15937-ass/ziwei-state-space 的产品线。先读取 main 上的 CHATGPT_START_HERE.md，按标准恢复顺序读取 governance/THREE_STREAM_START_HERE.md、governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md 和 Product plan pointer #900，核对实时 Product Issue/PR 与旧对话交接。若已有 ACTIVE Product 单则接续；若 Product 槽位空闲则直接领取计划中最早可执行的 bounded nominee（当前首单 #897），无需让我重述顺序。Product 只消费正式接受且 pin 住的 Knowledge/Core checkpoint，不跟随未合并分支；每轮写回可恢复检查点，遇到计划规定的 Human Gate 才停下来，结束时汇报三线状态和下次继续的位置。
 
 若只想看进度，发“查看三线状态”：只读核对实时宫位、Core、Product 及 main，给一个优先建议，不领取新任务。
 
@@ -36,7 +36,7 @@
 
 1. 先按 PROJECT_STATE.yaml -> CHATGPT_START_HERE.md -> governance/RECOVERY_PRECEDENCE_v1.md 恢复，再读所选工作线/分片缓存、实时 Issue、关联 PR 和最近交接。本文中的“先读取启动文件”是入口指路，不改变标准恢复优先级。
 2. 先找已存在的有界任务，不能因 YAML 写着没有活动任务就重复建单。确认原执行者已停止/显式交接；若原对话仍在执行，新对话仅只读报告。交接不明确时不猜测领取写入权，先解决执行归属。Issue 评论、时间戳不是原子锁，也不能保证两个新对话同时领取时自动互斥。
-3. “继续”授权恢复既有安排内的一轮工作，不自动批准新的语义、运行权限或优先级变更。只有槽位空闲、输入/门满足、任务已有授权并符合 Definition of Ready 时，才在独立下一轮显式激活后续单元；否则说明具体等待条件。不要在同一轮完成后自动开启下一个 Issue。
+3. “继续”授权恢复既有安排内的一轮工作，不自动批准新的语义、运行权限或优先级变更。对 Core/Product，PI 已通过 governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md 授权：若该线无 ACTIVE 单且槽位/依赖满足，可在这个新执行回合直接领取 plan pointer #901/#900 中最早可执行的 bounded nominee，无需再次向 PI 询问顺序。完成本轮后仍不要在同一回合自动执行下一个 Issue；先留下下一 nominee/交接，由后续“继续”回合领取。宫位线维持既有逐宫规则。
 4. 只写自己的工作线与已登记分片路径；只读取正式接受的 main 成果作为正式输入。共享语义归 Core，宫位不跨线补定义，Product 不猜造知识。
 5. 各线在 ACTIVE_BUILD 阶段独立准备并运行本线有界/相关检查；内容完成后进入 READY_TO_INTEGRATE，并在 Issue #888 排队。只有取得 Integration Lease 的工作单才进入 INTEGRATING：此时重核 main/base/head、同步一次当前 main、运行最终 exact-head 全量门并立即合入/释放。别的线在 lease 被占用时仍可继续工作，只是不能同时改 main。正式集成按依赖和验证就绪程度选择，不固定为“宫位 -> Core -> 产品”轮转；旧绿灯在 main 变化后仍不能直接沿用。
 6. 停止前按 AGENT_WORKFLOW.md §§10.3、13 在现有 Issue/PR 留下版本、产物、已做/未做、疑点、执行归属、验证和精确下一步。用中文回答三条线各自能做什么、等什么；最多推荐一个近期集成候选。禁止只把关键安排留在聊天中。
@@ -52,24 +52,30 @@
 - WP06C 正式映射同时等待：相关 Core 正式契约与节点 ID 已被接受、来源审查足够、该宫位轮到且槽位空闲。候选索引和正式映射是两种交付。
 - 若希望提前插入事业宫映射，先记录并取得 PI 的优先级调整；不要在财帛宫工作仍准入时另开事业宫任务。
 
-### Core：证据 -> 修订提案 -> 批准 -> 正式契约
+### Core：连续 canonical mapping -> schema stability -> real blocker
 
-- 先收尾当前直接星性来源审查。已登记的前七星/后七星批次分别有界执行；按原安排全部直接证据审查后才考虑 QI/QR 重叠专项。
-- 复用已接受的十四主星矩阵与来源发现，修订最小分类契约。Option C 方向已选定；PR #710 仅是候选/审查层工作契约，#713 仅接受研究审计，二者都不冻结正式值域或映射。
-- 具体核对 output_kind 是否混合表达形式与规则作用、event_specificity 是否需要拆分/重命名，并分别表达 source_epistemic 与 normalization_epistemic。UNKNOWN、缺失、冲突、不适用、案例支持和未解决语义不得互相替代。
-- 先给 PI 一份中文定稿包：原文、分类例子、允许/禁止的解释、值域、未知/冲突处理、来源状态、兼容/迁移/回滚与验收。适用的语义决定接受后，另开有界 W5 实施单元，只实现批准范围。
-- 不把所有 QI/QR 冗余、十四星理论完备性或十二宫全部审查，默认追加成输出契约的硬前提。新增依赖须指出实际受影响字段/来源与证据；不受影响部分可以明确缩小范围交付。
-- WP07B 时间反应是另一项独立依赖，同样使用唯一 Core 槽位。每次选择一个明确阻塞或小组，写清来源规则、缺失契约、所需门和退出条件。不能笼统重复“继续审计”，不能为适应编译器伪造原局前提、时间位置、概率或持续时长。
-- 正式映射交付不代表时间反应 tau 已可执行。Core 在两类工作之间切换必须先完成/显式暂停交接当前单元；不并行两个 Core 任务，也不因本文自动暂停现有研究。
+详细权威顺序见 [Core + Product Continuous Progression Plan v1](CORE_PRODUCT_CONTINUATION_PLAN_v1.md) 与常驻 plan pointer #901；实时 bounded Issue/PR 仍优先。
 
-### 产品：先收尾现有功能，再按新输入变化评估
+- **当前首单：#898。** 从已接受的 3 KMN / 3 KMM 开始，每批通常扩展 4–8 个 source-backed canonical mappings，只创建必要的来源支持 child KMN。
+- **C1 milestone：约 15–30 KMM / 6–10 种语义结构。** 跨批覆盖 process、state、scene/context、relationship、conditional outcome、multiple antecedents、cross-palace dependency、temporal/dynamic、modifier interaction、unresolved semantics；不为凑类别强行晋升材料。
+- Product 可同时消费旧 checkpoint。Product 报 `GAP_PRODUCT` 时 Core 不改；真正 `GAP_CORE` 才转成有界共享语义 gap；source ambiguity 可安全 HOLD 时继续 fail-closed，不强制解释。
+- 达到 C1 milestone 后先做 schema stability/refinement review，不继续盲目堆 mapping。若稳定，再让 Product 扩大 crosswalk。
+- 后续只从真实 blocker 中选择：Product-raised Core gap、宫位 `KNOWLEDGE_CORE_GAP`、真正阻塞 N -> E -> tau -> M0 的 WP07B 时间反应 gap。
+- Core WIP 永远 1。普通来源支持 child node/mapping 可自动推进；universal root/family/shared primitive、不可保留 UNKNOWN 的传统语义冲突、流派/来源意义改变、probability/causal、Product/runtime 授权才停给 PI。
+- 已完成的十四主星基础性质研究不因“继续 Core”自动重开。
 
-- 先接当前有界 Product 任务；ACTIVE_BUILD 阶段读取任务所需的已接受 main/checkpoint，不为无关 main 变化持续追基线。内容完成后进入 READY_TO_INTEGRATE；取得 Integration Lease 后再同步一次最新 main 并完成最终 exact-head 验证。保留现有的“不自动合入”边界；本文不授权合入其他 PR。
-- 数据接收等已授权独立工作可以在推演知识受阻时推进，但不宣称解决了推演缺口；每次仍只占一个 Product 槽位。
-- 已有 #674 的 KIB 候选评估结论为 BLOCKED。相关来源/契约输入未变化时直接引用，不重复创建同输入候选或反复写相同阻塞报告。
-- 新知识必须先被正式接受到 main，并满足具体消费者的输入要求。元数据提案、来源候选索引、零可执行审计都不能冒充可编译规则或正式映射。
-- 有相关新输入后，另做有界候选 KIB、语义影响与必要回归，报告可晋升或仍受阻。候选评估和活动知识包晋升保持独立单元；知识合入不自动刷新活动锁。
-- 近期共同目标：一个来源充分的“命盘/时间事实 -> 条件与反应 -> 允许的输出 -> 完整来源与限制”样例。每一环单独验收；材料不足时交付精确缺口。工程跑通不等于现实预测有效。
+### 产品：crosswalk pilot -> expanded checkpoint -> adapter freeze -> candidate KIB -> separate promotion
+
+详细权威顺序见 [Core + Product Continuous Progression Plan v1](CORE_PRODUCT_CONTINUATION_PLAN_v1.md) 与常驻 plan pointer #900；实时 bounded Issue/PR 仍优先。
+
+- **当前首单：#897。** 固定消费已接受 KMN-000001..000003 / KMM-000001..000003，做 Knowledge -> Product manifestation adapter/crosswalk pilot；不等待 Core 后续扩展。
+- 每个字段只允许标为 `DIRECT / LOSSY / GAP_PRODUCT / GAP_CORE / HOLD`，不能把 UNKNOWN/conflict 偷换成 Product 值。
+- 三个必测边界：KMM-000001 火铃 BOTH/EITHER 未决必须 HOLD；KMM-000002 `勉强求变` 现实前提不能从命盘推断；KMM-000003 只测试 scene/context 安全映射并保留“不是个人伤病/诊断/治疗”的负边界。
+- P1 不填生产 manifestation registry、不 promote active KIB/K_manifest、不授权 runtime、不引入概率或预测有效性。
+- Core 接受更大 checkpoint 后进入 P2 expanded-checkpoint pilot；Product pin 新 accepted checkpoint，而不是实时追 Core 分支。
+- 至少两个 checkpoint 显示字段行为稳定后才进入 P3 正式 adapter/crosswalk freeze；之后 P4 才做 candidate K_manifest/KIB + semantic impact；P5 promotion 必须另开明确 Product 单。
+- Knowledge merge 永远不自动刷新 active Product lock。等待 Core 时只做已经授权且独立的 Product 工作；没有合适工作就空槽，不造 filler。
+- Product WIP 永远 1。重大 Product 架构边界、超出计划的 runtime/promotion、probability/causal 或试图改 canonical Knowledge 才停给 PI。
 
 ## 启动定位快照：只用于找任务
 
