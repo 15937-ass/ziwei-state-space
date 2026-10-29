@@ -1092,12 +1092,6 @@ def test_research_closure_metadata_matches_merged_pr_and_final_quality_gate():
         assert "active_pr: null" in core_state
         assert "base_main_sha: null" in core_state
         assert "next_work_unit: null" in core_state
-    elif 'status: "ACTIVE_NO_ACTIVE_WORK"' in core_state:
-        # Recoverable idle slot with a durable authorized next nominee.
-        assert "active_issue: null" in core_state
-        assert "active_branch: null" in core_state
-        assert "active_pr: null" in core_state
-        assert "next_work_unit: null" not in core_state
     else:
         assert 'status: "ACTIVE"' in core_state
         assert "active_issue: null" not in core_state
