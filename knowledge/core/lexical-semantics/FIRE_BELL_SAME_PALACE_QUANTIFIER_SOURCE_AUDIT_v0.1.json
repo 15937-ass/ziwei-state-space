@@ -1,0 +1,123 @@
+{
+  "schema_version": "fire_bell_same_palace_quantifier_source_audit_v0.1",
+  "issue": 930,
+  "status": "PROPOSAL_AUDIT_ONLY_NOT_EXECUTABLE",
+  "activation_main": "313938e0856009aed2c9233f3da3ae02dc7ae791",
+  "source_verdict": "EXACT_PHRASE_SUPPORTS_EITHER_MEMBER_READING",
+  "migration_verdict": "SHARED_EITHER_QUANTIFIER_CANDIDATE_REQUIRES_HUMAN_GATE",
+  "exact_phrase_contract": {
+    "phrase": "火铃同度",
+    "descriptive_minimum": "EITHER_MEMBER_SAME_PALACE",
+    "members": [
+      "火星同度",
+      "铃星同度"
+    ],
+    "both_required": false,
+    "executable": false,
+    "canonical_migration_authorized": false
+  },
+  "evidence": [
+    {
+      "id": "FB-001",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "中州派深造讲义下·武曲贪狼段·PDF physical p4",
+      "phrase": "火星或铃星同度最吉 -> 武曲贪狼与火铃同度",
+      "evidence_type": "DIRECT_SAME_CONTEXT_EQUIVALENCE",
+      "supports": "EITHER_MEMBER",
+      "strength": "STRONG"
+    },
+    {
+      "id": "FB-002",
+      "source_id": "SRC-ZZ-002",
+      "source_location": "中州派深造讲义上·机巨段·PDF physical p72",
+      "phrase": "不喜火铃同度，铃星同度最坏，火星同度次之",
+      "evidence_type": "UMBRELLA_DECOMPOSITION",
+      "supports": "EITHER_MEMBER",
+      "strength": "STRONG"
+    },
+    {
+      "id": "FB-003",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "中州派深造讲义下·贪狼段·PDF physical p8",
+      "phrase": "贪狼与火铃同度 -> 火贪 / 铃贪",
+      "evidence_type": "NAMED_MEMBER_BRANCHES",
+      "supports": "EITHER_MEMBER",
+      "strength": "STRONG"
+    },
+    {
+      "id": "FB-004",
+      "source_id": "SRC-ZZ-002",
+      "source_location": "中州派深造讲义上·天同/武府反应段·PDF physical p68",
+      "phrase": "天同与火铃同度...若二者分别各安一火、一铃，尤须特别注意",
+      "evidence_type": "SAME_PALACE_VS_SPLIT_PLACEMENT_DISTINCTION",
+      "supports": "EXACT_GEOMETRY_SCOPE",
+      "strength": "MEDIUM_STRONG"
+    },
+    {
+      "id": "FB-005",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "中州派深造讲义下·兄弟宫破军·printed p32 / PDF physical p16",
+      "phrase": "破军守兄弟宫，火铃同度更见空劫",
+      "evidence_type": "TARGET_GAP_USAGE",
+      "supports": "P02_SB11_GAP_C04",
+      "strength": "TARGET"
+    },
+    {
+      "id": "FB-006",
+      "source_id": "SRC-ZZ-003",
+      "source_location": "中州派深造讲义下·父母宫破军·PDF physical p93",
+      "phrase": "破军与火星、铃星同度；火铃二星一居父母宫，一居命宫",
+      "evidence_type": "NEGATIVE_CONTROL_EXPLICIT_TWO_OBJECT_WORDING",
+      "supports": "DO_NOT_READ_COMPACT_PHRASE_AS_BOTH_BY_DEFAULT",
+      "strength": "STRONG_NEGATIVE_CONTROL"
+    }
+  ],
+  "gap_dispositions": [
+    {
+      "gap_id": "P02-SB11-GAP-C04",
+      "source_level_disposition": "SOURCE_QUANTIFIER_CLARIFIED_EITHER_MEMBER",
+      "canonical_migration_status": "PENDING_HUMAN_GATE",
+      "executable": false,
+      "note": "Exact 火铃同度 ambiguity is source-resolved; palace artifact remains unchanged/fail-closed in this audit."
+    },
+    {
+      "gap_id": "KMM-000001",
+      "source_level_disposition": "NO_DISPOSITION",
+      "canonical_migration_status": "REMAINS_HOLD",
+      "executable": false,
+      "note": "KMM-000001 uses bare 见火铃, not exact 火铃同度."
+    }
+  ],
+  "out_of_scope_families": [
+    "bare 火铃",
+    "火铃夹",
+    "火铃同会",
+    "火铃会照",
+    "火铃二星 explicit two-object wording",
+    "各安一火、一铃 split placement",
+    "non-Zhongzhou schools"
+  ],
+  "forbidden_inferences": [
+    "bare 火铃 == EITHER(火星,铃星)",
+    "火铃夹 inherits 火铃同度 quantifier",
+    "火铃同会/会照 inherits 火铃同度 geometry",
+    "火铃同度 requires both 火星 and 铃星 simultaneously",
+    "descriptive exact-phrase finding authorizes canonical migration",
+    "descriptive exact-phrase finding authorizes Product/runtime execution",
+    "traditional outcome wording creates probability or event certainty"
+  ],
+  "human_gate": {
+    "gate_candidate_id": "HG-CORE-FIRE-BELL-SAME-PALACE-EITHER-01",
+    "required_now_for_audit": false,
+    "required_before_migration": true,
+    "proposed_migration": "Exact Zhongzhou phrase 火铃同度 -> EITHER(火星同度, 铃星同度) lexical/canonical shared semantic; no expansion to bare 火铃 or other relation families."
+  },
+  "guardrails": {
+    "product_modified": false,
+    "runtime_modified": false,
+    "palace_ledger_modified": false,
+    "canonical_kmn_kmm_modified": false,
+    "probability_added": false,
+    "cross_school_sources_added": false
+  }
+}
