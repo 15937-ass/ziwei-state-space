@@ -1,0 +1,557 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "PRODUCT-MANIFESTATION-CROSSWALK-PILOT-V0_1",
+  "work_unit": "PRODUCT_MANIFESTATION_CROSSWALK_PILOT_V0_1",
+  "issue": 897,
+  "status": "P1_RESULT_READY_FOR_INTEGRATION",
+  "lane": "PRODUCT_ONLY",
+  "pinned_main_commit": "df66959b126e44eb309507fc5400b82e3af58187",
+  "frozen_knowledge_inputs": [
+    {
+      "path": "knowledge/core/wp06b/CANONICAL_MANIFESTATION_NODE_INDEX_v0.1.json",
+      "git_blob_sha": "b3e067b4e4fc934899aa8c09affeed19be4240e6"
+    },
+    {
+      "path": "knowledge/core/wp06b/canonical_manifestations/KMN-000001.json",
+      "git_blob_sha": "89bca4313d64ce424c33537a54e5590a50a3e9a4"
+    },
+    {
+      "path": "knowledge/core/wp06b/canonical_manifestations/KMN-000002.json",
+      "git_blob_sha": "54ace7f95f5d31ec7a35fd8b8ffc3d5220439542"
+    },
+    {
+      "path": "knowledge/core/wp06b/canonical_manifestations/KMN-000003.json",
+      "git_blob_sha": "b8a501fa78c145e91cf4dabccaef69bdb3a901e0"
+    },
+    {
+      "path": "knowledge/core/wp06c/CANONICAL_MANIFESTATION_MAPPING_INDEX_v0.1.json",
+      "git_blob_sha": "a16f23247ba753df0384392bd8c5320308148258"
+    },
+    {
+      "path": "knowledge/core/wp06c/canonical_mappings/KMM-000001.json",
+      "git_blob_sha": "cbd6acaffb85e33c40368adacfa1e39032c9430c"
+    },
+    {
+      "path": "knowledge/core/wp06c/canonical_mappings/KMM-000002.json",
+      "git_blob_sha": "3eb93c8d9faf1abaec28336f0b75b4707f9ec9f5"
+    },
+    {
+      "path": "knowledge/core/wp06c/canonical_mappings/KMM-000003.json",
+      "git_blob_sha": "abb01429129320e43e9965af04d93bb54fde83dd"
+    }
+  ],
+  "product_interface_snapshot": [
+    {
+      "path": "product/PL3M_MANIFESTATION_ONTOLOGY_ADAPTER_ACCEPTANCE.md",
+      "git_blob_sha": "90b40619ba4fcb6e93f592541841d316cb81ad22"
+    },
+    {
+      "path": "product/PL3M_MANIFESTATION_ONTOLOGY_REGISTRY_v0.1.json",
+      "git_blob_sha": "d1f5f5035ff7e5b51431fc2abc43ac844c84e2bf"
+    },
+    {
+      "path": "product/PL3M_MANIFESTATION_MAPPING_REGISTRY_v0.1.json",
+      "git_blob_sha": "367bc603b33d24bda7c66023c7e386f8cd0528eb"
+    },
+    {
+      "path": "src/product/manifestation_ontology.py",
+      "git_blob_sha": "1576a81cc3b36b5ebb65155dca8a4368dfee79dc"
+    },
+    {
+      "path": "src/product/manifestation_router.py",
+      "git_blob_sha": "08b5341dbb3fd17c28fa0c9681c6a223ec184950"
+    },
+    {
+      "path": "src/product/manifestation_context.py",
+      "git_blob_sha": "52d21febe980a4690e9f02b65cb4cdaf431bee98"
+    }
+  ],
+  "allowed_dispositions": [
+    "DIRECT",
+    "LOSSY",
+    "GAP_PRODUCT",
+    "GAP_CORE",
+    "HOLD"
+  ],
+  "field_crosswalk": {
+    "canonical_node": [
+      {
+        "field": "schema_version",
+        "disposition": "DIRECT",
+        "product_target": "pilot schema gate",
+        "rationale": "Knowledge v0.1 is explicitly pinned; no semantic translation."
+      },
+      {
+        "field": "manifestation_id",
+        "disposition": "DIRECT",
+        "product_target": "ManifestationNode.manifestation_id",
+        "rationale": "Same identifier semantics."
+      },
+      {
+        "field": "parent_id",
+        "disposition": "DIRECT",
+        "product_target": "ManifestationNode.parent_id",
+        "rationale": "Same parent pointer semantics; null remains null."
+      },
+      {
+        "field": "domain",
+        "disposition": "DIRECT",
+        "product_target": "ManifestationNode.domain",
+        "rationale": "Free text domain is preserved."
+      },
+      {
+        "field": "abstraction_level",
+        "disposition": "DIRECT",
+        "product_target": "ManifestationNode.abstraction_level",
+        "rationale": "Free text level is preserved."
+      },
+      {
+        "field": "source_supported_labels",
+        "disposition": "DIRECT",
+        "product_target": "ManifestationNode.source_supported_labels",
+        "rationale": "Labels can be preserved verbatim."
+      },
+      {
+        "field": "source_rule_ids",
+        "disposition": "DIRECT",
+        "product_target": "ManifestationNode.source_rule_ids",
+        "rationale": "Rule IDs can be preserved verbatim."
+      },
+      {
+        "field": "source_refs",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Knowledge stores canonical refs as strings while Product requires structured ManifestationSourceRef; no governed lossless parser exists yet."
+      },
+      {
+        "field": "output_kind.state",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Current Product ontology node has no output_kind review axis."
+      },
+      {
+        "field": "output_kind.value",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "PROCESS_PATTERN / ACTION_CONDITIONED_OUTCOME / SCENE_OR_CONTEXT are not represented as a first-class Product field."
+      },
+      {
+        "field": "event_specificity.state",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Current Product stores only one coarse event_specificity string and loses review-axis state."
+      },
+      {
+        "field": "event_specificity.value",
+        "disposition": "GAP_PRODUCT",
+        "product_target": "ManifestationNode.event_specificity",
+        "rationale": "Current Product vocabulary ABSTRACT/SCENE_LEVEL/CONCRETE_EVENT is not isomorphic to canonical Knowledge values; KMN-000003 has a bounded LOSSY scene-level special case."
+      },
+      {
+        "field": "source_epistemic",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Current Product ontology node has no separate source epistemic field."
+      },
+      {
+        "field": "normalization_epistemic",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Current Product ontology node has no separate normalization epistemic field."
+      },
+      {
+        "field": "review_provenance.review_status",
+        "disposition": "DIRECT",
+        "product_target": "ManifestationSourceRef.review_status",
+        "rationale": "Can be replicated to Product source refs without changing meaning."
+      },
+      {
+        "field": "review_provenance.reviewer_type",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Not represented in current Product source-ref contract."
+      },
+      {
+        "field": "review_provenance.reviewer_id",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Not represented in current Product source-ref contract."
+      },
+      {
+        "field": "review_provenance.reviewed_at",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Not represented in current Product source-ref contract."
+      },
+      {
+        "field": "review_provenance.source_span_verified",
+        "disposition": "DIRECT",
+        "product_target": "ManifestationSourceRef.source_span_verified",
+        "rationale": "Same boolean verification meaning."
+      },
+      {
+        "field": "review_provenance.normalization_verified",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Current Product source-ref contract has no normalization verification field."
+      },
+      {
+        "field": "mapping_review_refs",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "No Product ontology-node field retains mapping review IDs."
+      },
+      {
+        "field": "identity_rationale",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "No Product ontology-node field retains canonical identity rationale."
+      },
+      {
+        "field": "ambiguity_notes",
+        "disposition": "LOSSY",
+        "product_target": "ManifestationNode.ambiguity_notes",
+        "rationale": "Product has one optional string while Knowledge has an array; joining retains text but loses list structure unless a loss marker is retained."
+      },
+      {
+        "field": "unresolved_notes",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "No dedicated unresolved-semantics field exists in Product ontology nodes."
+      },
+      {
+        "field": "probability_status",
+        "disposition": "DIRECT",
+        "product_target": "ManifestationNode.probability_status",
+        "rationale": "Both sides require UNKNOWN."
+      },
+      {
+        "field": "canonical_identity_status",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Current Product node has no per-node ACTIVE/SUPERSEDED lifecycle field."
+      },
+      {
+        "field": "supersession.supersedes",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Supersession lineage is absent from current Product node."
+      },
+      {
+        "field": "supersession.superseded_by",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Supersession lineage is absent from current Product node."
+      },
+      {
+        "field": "supersession.reason",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Supersession rationale is absent from current Product node."
+      }
+    ],
+    "canonical_mapping": [
+      {
+        "field": "schema_version",
+        "disposition": "DIRECT",
+        "product_target": "pilot schema gate",
+        "rationale": "Knowledge v0.1 is explicitly pinned."
+      },
+      {
+        "field": "canonical_mapping_status",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Current Product mapping item has no canonical lifecycle status."
+      },
+      {
+        "field": "canonical_mapping_approved",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Current Product mapping item has no explicit canonical approval flag."
+      },
+      {
+        "field": "executable",
+        "disposition": "HOLD",
+        "product_target": null,
+        "rationale": "Knowledge explicitly says false for all P1 mappings; Product must not infer execution permission."
+      },
+      {
+        "field": "product_consumable",
+        "disposition": "HOLD",
+        "product_target": null,
+        "rationale": "Knowledge explicitly says false for all P1 mappings; crosswalk research does not override it."
+      },
+      {
+        "field": "probability_status",
+        "disposition": "DIRECT",
+        "product_target": "ManifestationMapping.probability_status",
+        "rationale": "Both sides require UNKNOWN."
+      },
+      {
+        "field": "supersession.supersedes",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Supersession lineage is absent from current Product mapping item."
+      },
+      {
+        "field": "supersession.superseded_by",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Supersession lineage is absent from current Product mapping item."
+      },
+      {
+        "field": "supersession.reason",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Supersession rationale is absent from current Product mapping item."
+      },
+      {
+        "field": "mapping_id",
+        "disposition": "DIRECT",
+        "product_target": "ManifestationMapping.mapping_id",
+        "rationale": "Same mapping identifier role."
+      },
+      {
+        "field": "primary_source_rule_id",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Product required_rule_ids are runtime antecedents, not a governed substitute for Knowledge primary-source provenance."
+      },
+      {
+        "field": "source_rule_ids",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Knowledge source_rule_ids mix provenance/context roles; they cannot be silently reinterpreted as Product required_rule_ids."
+      },
+      {
+        "field": "manifestation_id",
+        "disposition": "DIRECT",
+        "product_target": "ManifestationMapping.manifestation_id",
+        "rationale": "Same target node identifier."
+      },
+      {
+        "field": "source_refs",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Knowledge string refs do not match structured Product source refs without a governed adapter."
+      },
+      {
+        "field": "review_refs.positive",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Current Product mapping has no positive mapping-review reference field."
+      },
+      {
+        "field": "review_refs.negative_boundaries",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Current Product mapping has no first-class negative-boundary review reference field."
+      },
+      {
+        "field": "source_epistemic",
+        "disposition": "GAP_PRODUCT",
+        "product_target": "ManifestationMapping.evidence_tier",
+        "rationale": "No accepted translation exists from separate source/normalization epistemics to the single Product evidence_tier."
+      },
+      {
+        "field": "normalization_epistemic",
+        "disposition": "GAP_PRODUCT",
+        "product_target": "ManifestationMapping.evidence_tier",
+        "rationale": "KMM-000003 is source-explicit but normalization-inferred; collapsing both axes would hide information."
+      },
+      {
+        "field": "output_kind.state",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Current Product mapping has no output_kind review axis."
+      },
+      {
+        "field": "output_kind.value",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Current Product mapping has no output_kind field."
+      },
+      {
+        "field": "event_specificity.state",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Current Product mapping has no event-specificity review axis."
+      },
+      {
+        "field": "event_specificity.value",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Event specificity currently lives only on Product ontology nodes and uses a coarser vocabulary."
+      },
+      {
+        "field": "conditions.time_layer",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Current Product ManifestationMapping has no explicit time-layer field."
+      },
+      {
+        "field": "conditions.source_condition_text",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Free-text source condition is not preserved by current Product mapping."
+      },
+      {
+        "field": "conditions.antecedent_rule_ids",
+        "disposition": "DIRECT",
+        "product_target": "ManifestationMapping.required_rule_ids",
+        "rationale": "These explicit antecedent IDs can be represented as one component of Product rule requirements, but do not by themselves make the whole mapping executable."
+      },
+      {
+        "field": "conditions.modality_terms",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Current Product mapping has no modality field; terms such as 往往 must not become probability."
+      },
+      {
+        "field": "conditions.real_world_prerequisites",
+        "disposition": "GAP_PRODUCT",
+        "product_target": "ManifestationRoutingContext.actions",
+        "rationale": "Product has A_t/actions, but the current mapping/router has no governed action-prerequisite predicate binding."
+      },
+      {
+        "field": "conditions.real_world_prerequisites[].text",
+        "disposition": "GAP_PRODUCT",
+        "product_target": "ManifestationRoutingContext.actions[].label",
+        "rationale": "Text can exist in A_t, but matching semantics are not defined."
+      },
+      {
+        "field": "conditions.real_world_prerequisites[].status",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "SOURCE_EXPLICIT_NOT_ESTABLISHED_BY_CHART has no current Product predicate/status counterpart."
+      },
+      {
+        "field": "conditions.unresolved_semantics",
+        "disposition": "HOLD",
+        "product_target": null,
+        "rationale": "Unresolved Knowledge semantics must be preserved as abstention; Product must not choose."
+      },
+      {
+        "field": "execution_readiness",
+        "disposition": "HOLD",
+        "product_target": null,
+        "rationale": "Knowledge readiness is an authoritative gate for this pilot."
+      },
+      {
+        "field": "execution_blockers",
+        "disposition": "HOLD",
+        "product_target": null,
+        "rationale": "Blockers must be retained as reasons for abstention, not dropped."
+      },
+      {
+        "field": "forbidden_inferences",
+        "disposition": "GAP_PRODUCT",
+        "product_target": null,
+        "rationale": "Current Product mapping has no first-class forbidden-inference/negative-boundary field; KMM-000003 therefore remains research-only even though a scene-level crosswalk is possible."
+      }
+    ]
+  },
+  "entity_verdicts": [
+    {
+      "item_id": "KMN-000001",
+      "disposition": "GAP_PRODUCT",
+      "runtime_consumption_allowed": false,
+      "reason": "PROCESS_PATTERN plus PROCESS_SEQUENCE_NOT_SINGLE_EVENT cannot be represented losslessly by the current Product node contract."
+    },
+    {
+      "item_id": "KMN-000002",
+      "disposition": "GAP_PRODUCT",
+      "runtime_consumption_allowed": false,
+      "reason": "ACTION_CONDITIONED_OUTCOME plus CONDITIONAL_OUTCOME_NOT_OBSERVED is not a supported Product node shape."
+    },
+    {
+      "item_id": "KMN-000003",
+      "disposition": "LOSSY",
+      "runtime_consumption_allowed": false,
+      "reason": "A coarse SCENE_LEVEL representation is possible, but SCENE_NOT_OBSERVED_EVENT, INFERRED normalization, and explicit person-injury/illness negative boundaries are not all first-class Product fields."
+    },
+    {
+      "item_id": "KMM-000001",
+      "disposition": "HOLD",
+      "runtime_consumption_allowed": false,
+      "reason": "火铃 BOTH_STARS vs EITHER_STAR remains unresolved. Product must not choose either trigger interpretation."
+    },
+    {
+      "item_id": "KMM-000002",
+      "disposition": "GAP_PRODUCT",
+      "runtime_consumption_allowed": false,
+      "reason": "勉强求变 is a source-explicit real-world action prerequisite. Product has A_t/actions, but manifestation routing lacks a governed action-prerequisite predicate binding."
+    },
+    {
+      "item_id": "KMM-000003",
+      "disposition": "LOSSY",
+      "runtime_consumption_allowed": false,
+      "reason": "Safe scene/context crosswalk is representationally possible only with retained negative-boundary metadata; runtime remains unauthorized and production registries stay empty."
+    }
+  ],
+  "gap_register": [
+    {
+      "gap_id": "PG-001",
+      "owner": "PRODUCT",
+      "severity": "BLOCKING_PROMOTION",
+      "summary": "Product ontology adapter lacks canonical output_kind and full event_specificity review axes."
+    },
+    {
+      "gap_id": "PG-002",
+      "owner": "PRODUCT",
+      "severity": "BLOCKING_PROMOTION",
+      "summary": "Product source/provenance model does not preserve canonical reviewer, normalization verification, mapping-review, identity-rationale, unresolved-note, and supersession metadata."
+    },
+    {
+      "gap_id": "PG-003",
+      "owner": "PRODUCT",
+      "severity": "BLOCKING_KMM-000002",
+      "summary": "A_t/actions exists in ManifestationRoutingContext, but ManifestationMapping/router cannot bind a source-explicit real-world action prerequisite."
+    },
+    {
+      "gap_id": "PG-004",
+      "owner": "PRODUCT",
+      "severity": "BLOCKING_PROMOTION",
+      "summary": "Product mapping contract has no explicit execution_readiness, execution_blockers, forbidden_inferences, or negative-boundary fields."
+    },
+    {
+      "gap_id": "PG-005",
+      "owner": "PRODUCT",
+      "severity": "BLOCKING_PROMOTION",
+      "summary": "No governed translation exists from separate source_epistemic + normalization_epistemic axes to Product evidence_tier."
+    },
+    {
+      "gap_id": "HOLD-CORE-001",
+      "owner": "CORE_SEMANTIC_HOLD",
+      "severity": "SAFE_FAIL_CLOSED",
+      "summary": "KMM-000001 火铃 quantifier remains unresolved; preserve HOLD instead of forcing a Core decision because Product can safely abstain."
+    }
+  ],
+  "lossiness_rules": [
+    "LOSSY never means runtime-safe.",
+    "A lossy crosswalk must retain the original canonical value and an explicit loss rationale outside production registries.",
+    "No UNKNOWN, unresolved semantic, modality term, or forbidden inference may be silently dropped.",
+    "往往 must never be converted to numeric probability/frequency.",
+    "Scene/context must never be promoted to person-level injury, illness, accident, diagnosis, treatment, or medical event."
+  ],
+  "adapter_feasibility": {
+    "verdict": "PILOT_FEASIBLE_PRODUCTION_PROMOTION_BLOCKED",
+    "production_registry_population_allowed": false,
+    "active_kib_promotion_allowed": false,
+    "runtime_execution_allowed": false,
+    "probability_claim_allowed": false,
+    "predictive_validity_claim_allowed": false,
+    "explanation": "The first checkpoint can be audited and partially represented, but the current Product v0.1 ontology/mapping contracts are not lossless enough for canonical promotion. The correct next engineering move is bounded Product schema/crosswalk refinement after P1 acceptance, not a Core rewrite."
+  },
+  "p2_handoff": {
+    "trigger": "Core accepts a materially larger canonical manifestation checkpoint.",
+    "required_recheck": [
+      "field coverage",
+      "node/mapping verdict stability",
+      "new semantic structures",
+      "PG-001..PG-005",
+      "safe HOLD behavior"
+    ],
+    "auto_refresh": false
+  }
+}
