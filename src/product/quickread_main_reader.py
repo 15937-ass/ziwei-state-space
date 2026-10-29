@@ -462,7 +462,7 @@ def _parse_source_ledger(
 ) -> tuple[dict[str, list[tuple[QuickReadEvidenceItem, int]]], dict[str, int]]:
     counters = {
         "records_seen": 0,
-        "records_selected_pre_limit": 0,
+        "records_eligible_pre_batch": 0,
         "excluded_not_promoted": 0,
         "excluded_case_only": 0,
         "excluded_uncertain_or_unverified": 0,
@@ -571,7 +571,7 @@ def _parse_source_ledger(
                 slot_domain=_normalize_domain(slot.domain),
             )
             output[slot.slot_id].append((evidence, score))
-            counters["records_selected_pre_limit"] += 1
+            counters["records_eligible_pre_batch"] += 1
 
     for slot_id, candidates in output.items():
         unique: dict[str, tuple[QuickReadEvidenceItem, int]] = {}
@@ -912,7 +912,7 @@ def load_latest_main_knowledge(
         "ledger_files_discovered": len(ledger_paths),
         "ledger_files_accepted": 0,
         "records_seen": 0,
-        "records_selected_pre_limit": 0,
+        "records_eligible_pre_batch": 0,
         "excluded_not_promoted": 0,
         "excluded_case_only": 0,
         "excluded_uncertain_or_unverified": 0,
