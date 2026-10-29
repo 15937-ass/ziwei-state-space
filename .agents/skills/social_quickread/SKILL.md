@@ -10,6 +10,8 @@ A tiny, manually invoked, read-only helper for concise Zi Wei Dou Shu readings. 
 4. Write the brief reading in natural Chinese. Default to one paragraph of about 120–220 Chinese characters unless the user asks for another length. Select a few of the clearest, most informative supported points; do not mechanically cover every palace or topic.
 5. In follow-ups within the same conversation, treat the user's new focus as a continuation of the same chart unless they indicate a different person/chart. Reuse supported context, and look up new evidence when the new question requires it.
 
+6. If the user explicitly upgrades the request to **详批、完整看盘、全面详解、完整展开** or otherwise asks to cover the chart systematically, hand off to `.agents/skills/social_detailedread/SKILL.md`. Do not keep the QuickRead 120–220-character default after an explicit DetailedRead upgrade.
+
 ## Evidence boundaries
 
 - Use accepted Zhongzhou-school material and current accepted runtime outputs. Do not silently mix in Qintian, Heluo, online口诀, or model memory as if they were Zhongzhou evidence.
