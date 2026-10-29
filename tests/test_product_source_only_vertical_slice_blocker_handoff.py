@@ -1,5 +1,6 @@
 import hashlib
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -191,12 +192,24 @@ def test_product_recovery_state_is_snapshot_metadata_not_a_mutable_pinned_input(
 def test_product_recovery_state_cache_tracks_main_freshness_and_product_checkpoint():
     state = (ROOT / "product" / "PRODUCT_STATE.yaml").read_text(encoding="utf-8")
 
-    assert 'state_cache_as_of_main_commit: "3407150866a5ace99552daa674356b92610f080e"' in state
-    assert 'state_cache_as_of_product_merge: "085e65c509fc5f9fed8230d00d2fc07a0e01b79b"' in state
-    assert 'state_cache_snapshot_date: "2026-10-23"' in state
-    assert 'next_work_unit: "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"' in state
-    assert "last_completed_product_issue: 696" in state
-    assert "last_completed_product_pr: 698" in state
+    # PRODUCT_STATE is a mutable recovery cache, not a historical source artifact.
+    # Require durable freshness/checkpoint fields while allowing them to advance.
+    main_match = re.search(r'state_cache_as_of_main_commit: "([0-9a-f]{40})"', state)
+    merge_match = re.search(r'state_cache_as_of_product_merge: "([0-9a-f]{40})"', state)
+    date_match = re.search(r'state_cache_snapshot_date: "(\d{4}-\d{2}-\d{2})"', state)
+    issue_match = re.search(r"last_completed_product_issue: (\d+)", state)
+    pr_match = re.search(r"last_completed_product_pr: (\d+)", state)
+
+    assert main_match
+    assert merge_match
+    assert date_match
+    assert issue_match and int(issue_match.group(1)) >= 696
+    assert pr_match and int(pr_match.group(1)) >= 698
+
+    assert 'continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md"' in state
+    assert "plan_pointer_issue: 900" in state
+    assert "next_issue: 897" in state
+    assert 'next_work_unit: "PRODUCT_MANIFESTATION_CROSSWALK_PILOT_V0_1"' in state
 
 def test_all_recovery_state_caches_are_snapshotted_not_pinned_as_sources():
     report = _report()
