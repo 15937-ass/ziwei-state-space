@@ -1,0 +1,268 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-CORE-WP06C-P09-FORMAL-MAPPING-REVIEW-PILOT",
+  "version": "0.1",
+  "status": "FORMAL_MAPPING_REVIEW_COMPLETED_NOT_CANONICAL",
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "CORE",
+  "work_unit": "KB-CORE-WP06C-P09-FORMAL-MAPPING-REVIEW-PILOT-01",
+  "source_candidate_index": "knowledge/palaces/P09_career/wp06c/P09_WP06C_SOURCE_CANDIDATE_INDEX_v0.1.json",
+  "contract_ref": "knowledge/core/wp06b/OPTION_C_MINIMAL_CONTRACT_CLOSURE_REVIEW_v0.1.json",
+  "mapping_review_schema_ref": "knowledge/core/wp06b/MAPPING_REVIEW_SCHEMA_v0.1.json",
+  "architecture": {
+    "option": "OPTION_C",
+    "pi_decisions_ref": "PI-DECISION-CORE-841-2026-10-29",
+    "universal_manifestation_root_required": false,
+    "production_enum_frozen": false
+  },
+  "invariants": {
+    "candidate_review_only": true,
+    "canonical_ontology_ids_assigned": false,
+    "canonical_mappings_accepted": false,
+    "production_schema_changed": false,
+    "product_registry_modified": false,
+    "product_consumption_authorized": false,
+    "executable": false,
+    "probability_status": "UNKNOWN",
+    "empirical_predictive_validity_claimed": false
+  },
+  "candidates": [
+    {
+      "candidate_id": "P09-WP06C-CAND-001",
+      "source_rule_id": "CA01-035",
+      "source_refs": [
+        "SRC-ZZ-003#pdf_scan_page=67#printed_page=133#CA01-035",
+        "knowledge/palaces/P09_career/wp06c/P09_WP06C_SOURCE_CANDIDATE_INDEX_v0.1.json#P09-WP06C-CAND-001"
+      ],
+      "source_epistemic": "EXPLICIT",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "output_kind": {
+        "state": "KNOWN",
+        "value": "PROCESS_PATTERN"
+      },
+      "event_specificity": {
+        "state": "KNOWN",
+        "value": "PROCESS_SEQUENCE_NOT_SINGLE_EVENT"
+      },
+      "conditions": {
+        "source_condition_text": "事业宫见火铃",
+        "preserve_modality": [
+          "往往"
+        ],
+        "unresolved": [
+          "“火铃” shorthand remains unresolved between BOTH_STARS and EITHER_STAR"
+        ],
+        "antecedent_rule_ids": [],
+        "real_world_prerequisite": null
+      },
+      "positive_target_review_id": "MR-P09-CA01035-PROCESS-001",
+      "negative_target_review_id": "MR-P09-CA01035-EVENT-NEG-002",
+      "canonical_ontology_id": null,
+      "canonical_mapping_approved": false,
+      "executable": false,
+      "product_consumable": false,
+      "probability_status": "UNKNOWN"
+    },
+    {
+      "candidate_id": "P09-WP06C-CAND-002",
+      "source_rule_id": "CA01-045",
+      "source_refs": [
+        "SRC-ZZ-003#pdf_scan_page=67#printed_page=133#CA01-045",
+        "knowledge/palaces/P09_career/wp06c/P09_WP06C_SOURCE_CANDIDATE_INDEX_v0.1.json#P09-WP06C-CAND-002"
+      ],
+      "source_epistemic": "EXPLICIT",
+      "normalization_epistemic": "SOURCE_PRESERVING",
+      "output_kind": {
+        "state": "KNOWN",
+        "value": "ACTION_CONDITIONED_OUTCOME"
+      },
+      "event_specificity": {
+        "state": "KNOWN",
+        "value": "CONDITIONAL_OUTCOME_NOT_OBSERVED"
+      },
+      "conditions": {
+        "source_condition_text": "前格勉强求变",
+        "preserve_modality": [],
+        "unresolved": [],
+        "antecedent_rule_ids": [
+          "CA01-042",
+          "CA01-044"
+        ],
+        "real_world_prerequisite": "勉强求变",
+        "real_world_prerequisite_status": "EXPLICIT_IN_SOURCE_NOT_ESTABLISHED_BY_CHART_FACTS"
+      },
+      "positive_target_review_id": "MR-P09-CA01045-CONDITIONAL-001",
+      "negative_target_review_id": "MR-P09-CA01045-UNCONDITIONAL-NEG-002",
+      "canonical_ontology_id": null,
+      "canonical_mapping_approved": false,
+      "executable": false,
+      "product_consumable": false,
+      "probability_status": "UNKNOWN"
+    },
+    {
+      "candidate_id": "P09-WP06C-CAND-003",
+      "source_rule_id": "CA05-469",
+      "source_refs": [
+        "SRC-ZZ-003#pdf_scan_page=72#printed_page=144#CA05-469",
+        "knowledge/palaces/P09_career/wp06c/P09_WP06C_SOURCE_CANDIDATE_INDEX_v0.1.json#P09-WP06C-CAND-003"
+      ],
+      "source_epistemic": "EXPLICIT",
+      "normalization_epistemic": "INFERRED",
+      "output_kind": {
+        "state": "KNOWN",
+        "value": "SCENE_OR_CONTEXT"
+      },
+      "event_specificity": {
+        "state": "KNOWN",
+        "value": "SCENE_NOT_OBSERVED_EVENT"
+      },
+      "conditions": {
+        "source_condition_text": "廉贞化忌",
+        "preserve_modality": [],
+        "unresolved": [],
+        "antecedent_rule_ids": [],
+        "real_world_prerequisite": null
+      },
+      "positive_target_review_id": "MR-P09-CA05469-SCENE-001",
+      "negative_target_review_id": "MR-P09-CA05469-INJURY-NEG-002",
+      "canonical_ontology_id": null,
+      "canonical_mapping_approved": false,
+      "executable": false,
+      "product_consumable": false,
+      "probability_status": "UNKNOWN"
+    }
+  ],
+  "mapping_review_records": [
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-P09-CA01035-PROCESS-001",
+      "source_refs": [
+        "SRC-ZZ-003#pdf_scan_page=67#printed_page=133#CA01-035"
+      ],
+      "target_ref": "P09-WP06C-CAND-001.projection_target:career_setbacks_before_stabilization",
+      "rationale": "The reviewed source supports a career-development process in which setbacks/hardship can precede stabilization. Preserve the modal wording 往往 and the unresolved 火铃 shorthand. This is a supported candidate process target, not a single observed event, certainty, timing rule, or canonical acceptance.",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-P09-CA01035-EVENT-NEG-002",
+      "source_refs": [
+        "SRC-ZZ-003#pdf_scan_page=67#printed_page=133#CA01-035"
+      ],
+      "target_ref": "P09-WP06C-CAND-001.rejected_target:single_observed_career_event",
+      "rationale": "The source describes a process pattern and does not identify one specific observed real-world event. The same source span therefore does not support conversion into a single occurred career event, an event probability, or a certain date.",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-P09-CA01045-CONDITIONAL-001",
+      "source_refs": [
+        "SRC-ZZ-003#pdf_scan_page=67#printed_page=133#CA01-045",
+        "knowledge/wp07a/CAREER_CONTEXT_MAP_CA01_035_043_045_v0.1.json#CA01-045"
+      ],
+      "target_ref": "P09-WP06C-CAND-002.projection_target:forced_change_can_create_career_difficulty",
+      "rationale": "The target is supported only as an action-conditioned outcome. Preserve inherited source rules CA01-042/CA01-044 and the explicit real-world prerequisite 勉强求变. The mapping remains non-executable because approved chart facts do not establish that the action occurred.",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-P09-CA01045-UNCONDITIONAL-NEG-002",
+      "source_refs": [
+        "SRC-ZZ-003#pdf_scan_page=67#printed_page=133#CA01-045",
+        "knowledge/wp07a/CAREER_CONTEXT_MAP_CA01_035_043_045_v0.1.json#CA01-045"
+      ],
+      "target_ref": "P09-WP06C-CAND-002.rejected_target:unconditional_chart_only_career_difficulty",
+      "rationale": "Removing 勉强求变 and the inherited antecedent context changes the source claim. Chart conditions alone do not support an unconditional career-difficulty target and cannot assert that the required real-world action was taken.",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-P09-CA05469-SCENE-001",
+      "source_refs": [
+        "SRC-ZZ-003#pdf_scan_page=72#printed_page=144#CA05-469"
+      ],
+      "target_ref": "P09-WP06C-CAND-003.projection_target:blood_or_injury_symbolism_related_industry_scene",
+      "rationale": "The reviewed career-section source supports a career/industry scene translation. This can be retained as a scene/context candidate. It is not evidence that a bodily injury, illness, accident, or medical event occurred to the person.",
+      "evidence_role": {
+        "state": "KNOWN",
+        "value": "projection_outcome",
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "supported_candidate",
+        "conflict_ref": null
+      }
+    },
+    {
+      "schema_version": "0.1",
+      "review_record_id": "MR-P09-CA05469-INJURY-NEG-002",
+      "source_refs": [
+        "SRC-ZZ-003#pdf_scan_page=72#printed_page=144#CA05-469"
+      ],
+      "target_ref": "P09-WP06C-CAND-003.rejected_target:personal_injury_or_illness_event",
+      "rationale": "This source record is a career-scene translation, not a person-level injury/illness/accident assertion. Evidence role is not applicable to a personal observed-event target, and the target mapping is explicitly not supported.",
+      "evidence_role": {
+        "state": "NOT_APPLICABLE",
+        "value": null,
+        "conflict_ref": null
+      },
+      "mapping_disposition": {
+        "state": "KNOWN",
+        "value": "not_supported_for_target",
+        "conflict_ref": null
+      }
+    }
+  ],
+  "pilot_findings": {
+    "positive_supported_candidate_reviews": 3,
+    "negative_not_supported_target_reviews": 3,
+    "schema_gap_found": false,
+    "new_shared_semantic_primitive_required": false,
+    "new_global_metadata_axis_required": false,
+    "canonical_node_ids_required_to_promote_beyond_candidate_review": true,
+    "production_mapping_registry_ready": false,
+    "product_consumer_ready": false
+  },
+  "next_gate": {
+    "status": "HUMAN_GATE_REQUIRED_BEFORE_CANONICAL_NODE_OR_MAPPING_PROMOTION",
+    "reason": "The accepted D1-D5 contract is sufficient for target-specific review. Moving beyond reviewed candidates now requires stable shared canonical ontology node identity and/or individual canonical mapping acceptance, both explicitly reserved for PI/Human Gate.",
+    "current_pilot_can_merge_without_canonical_promotion": true
+  }
+}
