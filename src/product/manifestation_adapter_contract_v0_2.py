@@ -82,6 +82,7 @@ class ReviewProvenance:
 @dataclass(frozen=True)
 class ActionPrerequisiteBinding:
     source_text: str
+    source_status: str
     target_namespace: str = ACTION_BINDING_NAMESPACE
     match_mode: str = "EXTERNAL_EXPLICIT_ONLY"
     chart_inference_allowed: bool = False
@@ -89,6 +90,8 @@ class ActionPrerequisiteBinding:
     def __post_init__(self) -> None:
         if not self.source_text.strip():
             raise ValueError("ActionPrerequisiteBinding.source_text is required")
+        if not self.source_status.strip():
+            raise ValueError("ActionPrerequisiteBinding.source_status is required")
         if self.target_namespace != ACTION_BINDING_NAMESPACE:
             raise ValueError("action prerequisite must bind to A_t.actions")
         if self.chart_inference_allowed:
@@ -304,7 +307,11 @@ def _compile_action_prerequisites(
                 source_text=_required_text(
                     record.get("text"),
                     f"conditions.real_world_prerequisites[{index}].text",
-                )
+                ),
+                source_status=_required_text(
+                    record.get("status"),
+                    f"conditions.real_world_prerequisites[{index}].status",
+                ),
             )
         )
     return tuple(bindings)
