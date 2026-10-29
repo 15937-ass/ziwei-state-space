@@ -16,8 +16,14 @@ def packet():
 
 def test_packet_is_proposal_only_and_requires_pi():
     d = packet()
-    assert d["status"] == "READY_FOR_PI_REVIEW_PROPOSAL_ONLY"
-    assert d["recommended_pi_response"] == "G1A，G2A，G3A"
+    assert d["status"] == "PI_DECISIONS_RECORDED_CANONICALIZATION_POLICY_NOT_IMPLEMENTED"
+    assert d["recommended_pi_response"] == "APPROVED_G1A_G2A_G3A"
+    rec = d["pi_decision_record"]
+    assert rec["record_status"] == "PI_DECISIONS_RECORDED"
+    assert rec["accepted_options"] == {"G1": "A", "G2": "A", "G3": "A"}
+    assert rec["authorizes"]["define_knowledge_owned_canonical_node_artifact_and_stable_id_policy"] is True
+    assert rec["authorizes"]["ordinary_child_node_canonical_identity_under_frozen_gates"] is True
+    assert not any(rec["does_not_authorize"].values())
     guards = d["non_decision_guardrails"]
     assert guards["canonical_mapping_promotion_authorized"] is False
     assert guards["canonical_node_ids_assigned_in_this_packet"] is False

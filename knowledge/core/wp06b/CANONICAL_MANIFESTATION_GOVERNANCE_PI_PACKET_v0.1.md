@@ -1,6 +1,6 @@
 # Canonical Manifestation Governance — PI 决策包 v0.1
 
-**状态：`READY_FOR_PI_REVIEW_PROPOSAL_ONLY`**  
+**状态：`PI_DECISIONS_RECORDED_CANONICALIZATION_POLICY_NOT_IMPLEMENTED`**  
 **工单：** #866 / `KB-CORE-WP06B06C-CANONICAL-NODE-GOVERNANCE-PI-PACKET-01`
 
 ## 1. 为什么现在必须让 PI 决定
@@ -115,7 +115,21 @@ Product 继续 fail-closed。等 Knowledge 真正有 canonical artifact 后，�
 
 **建议：G3A。**
 
-## 6. 推荐 PI 决议
+## 6. PI 决议记录
+
+**PI 已批准：G1A、G2A、G3A。**  
+**PI 原始答复（2026-10-29）：** “批准，继续”。
+
+这意味着：
+
+- ordinary、source-backed child node 在通过 G1A 的全部冻结门槛后，可以由 Core 分配稳定 Knowledge-owned canonical identity，不再逐节点请 PI；
+- source-preserving 与 transparent/traceable inference 都可用于 ordinary node identity，但必须保留 normalization epistemic、来源、理由与 target-specific review；
+- Knowledge 保留 source-native 丰富语义；Product 不反向定义本体，后续由 Product-owned adapter/crosswalk 消费；
+- universal family/root/shared primitive、核心语义变更仍然必须重新经过 PI Human Gate。
+
+**本次批准不等于：** 当前 P09 三条 mapping 自动 canonical、Product registry 解锁、CA01-045 可执行、概率或经验效度获准。
+
+## 6.1 原推荐 PI 决议
 
 **推荐：`G1A，G2A，G3A`。**
 

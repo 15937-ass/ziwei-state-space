@@ -2,7 +2,7 @@
   "schema_version": "0.1",
   "artifact_id": "KB-CORE-CANONICAL-MANIFESTATION-GOVERNANCE-PI-PACKET",
   "version": "0.1",
-  "status": "READY_FOR_PI_REVIEW_PROPOSAL_ONLY",
+  "status": "PI_DECISIONS_RECORDED_CANONICALIZATION_POLICY_NOT_IMPLEMENTED",
   "lane": "KNOWLEDGE_ONLY",
   "shard": "CORE",
   "work_unit": "KB-CORE-WP06B06C-CANONICAL-NODE-GOVERNANCE-PI-PACKET-01",
@@ -140,11 +140,42 @@
     "probability_status": "UNKNOWN",
     "empirical_predictive_validity_claimed": false
   },
-  "recommended_pi_response": "G1A，G2A，G3A",
+  "recommended_pi_response": "APPROVED_G1A_G2A_G3A",
   "after_recommended_approval": {
     "next_core_action": "Define and validate a Knowledge-owned canonical manifestation node artifact/ID policy, then canonicalize only ordinary child nodes meeting the approved gates; mapping promotion remains separately gated.",
     "product_action": "No immediate Product modification. Prepare a later Product-owned adapter/crosswalk work unit after a Knowledge canonical artifact exists.",
     "per_node_pi_review_for_ordinary_children": false,
-    "universal_family_human_gate_remains": true
+    "universal_family_human_gate_remains": true,
+    "pi_approval_recorded": true,
+    "implementation_started_in_this_packet": false
+  },
+  "pi_decision_record": {
+    "record_id": "PI-DECISION-CORE-866-2026-10-29",
+    "record_status": "PI_DECISIONS_RECORDED",
+    "response_literal": "批准，继续",
+    "accepted_options": {
+      "G1": "A",
+      "G2": "A",
+      "G3": "A"
+    },
+    "accepted_policy_codes": {
+      "G1": "POLICY_GATED_ORDINARY_CHILD_CANONICALIZATION",
+      "G2": "ALLOW_TRACEABLE_INFERENCE_WITH_EPISTEMIC_PRESERVATION",
+      "G3": "KNOWLEDGE_SOURCE_NATIVE_AUTHORITY_PRODUCT_ADAPTER_LATER"
+    },
+    "authorizes": {
+      "define_knowledge_owned_canonical_node_artifact_and_stable_id_policy": true,
+      "ordinary_child_node_canonical_identity_under_frozen_gates": true,
+      "traceable_inference_for_node_identity_with_epistemic_preservation": true,
+      "later_product_owned_adapter_crosswalk_work_unit": true
+    },
+    "does_not_authorize": {
+      "current_three_p09_mappings_auto_promoted": false,
+      "universal_root_or_family": false,
+      "product_registry_activation": false,
+      "product_runtime_change": false,
+      "probability_or_numeric_weight": false,
+      "empirical_predictive_validity": false
+    }
   }
 }

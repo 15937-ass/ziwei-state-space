@@ -1,6 +1,6 @@
 # Core #866 — Canonical manifestation governance PI packet evidence
 
-Status: READY_FOR_PI_REVIEW
+Status: PI_DECISIONS_RECORDED_FINAL_VALIDATION_PENDING
 
 ## Scope
 - Issue: #866
@@ -38,3 +38,12 @@ Status: READY_FOR_PI_REVIEW
 - Deterministic P0 repository gate: **PASS**
 - Repository Governance v1: **PASS**
 - The final PR head after this recovery-cache/evidence recording must itself retain a green exact-head pull-request gate before the PI packet is treated as clean.
+
+
+## PI decision record — 2026-10-29
+
+- PI response: `批准，继续`.
+- Accepted: **G1A / G2A / G3A**.
+- Authorized next step: a bounded Core work unit may define the Knowledge-owned canonical manifestation artifact and stable-ID policy, then ordinary child-node canonicalization may proceed only under the accepted frozen gates.
+- Not authorized by this decision: automatic promotion of the current P09 mappings, universal family/root creation, Product registry/runtime changes, probability/numeric strength, or empirical predictive-validity claims.
+- This decision-bearing head requires a fresh exact-head pull-request gate before merge.
