@@ -12,8 +12,8 @@ execution:
   active_issue: null
   active_branch: null
   active_pr: null
-  canonical_checkpoint: "CHAPTER_SOURCE_AND_HELD_CENSUS_ACCEPTED_SUBJECT_TO_MERGE__INDEPENDENT_HANDOFF_NEXT"
-  note: "Issue #921: census effective only upon exact-head acceptance/merge. Eleven source ledgers unchanged:424 reviewed/284 accepted(180 reusable/104 CASE)/140 held/49 gaps.151 unique paragraph anchors/155 page slices/14 sections;45 early held nonnull texts remain blocked. Independent stage handoff still required; no P04/mapping/runtime/empirical authorization."
+  canonical_checkpoint: "W13_CENSUS_EVIDENCE_ERRATUM_ACCEPTED_SUBJECT_TO_MERGE__RESUME_928_INDEPENDENT_REVIEW"
+  note: "Issue #934: evidence erratum effective only upon exact-head acceptance/merge. Old nineteen source/census inputs remain byte-preserved; v0.2 corrects only W13 quoted tail and physical14 pointer/hash. P02S-167 and424/284(180 reusable/104CASE)/140held/49gap unchanged. Resume paused independent review #928; source stage remains open, no P04/mapping/runtime/empirical authorization."
 
 integrity:
   source_first: true
@@ -22,7 +22,9 @@ integrity:
   empirical_feedback_may_rewrite_source_truth: false
 
 progress:
-  accepted_issue: 921
+  accepted_issue: 934
+  accepted_census_erratum_issue: 934
+  effective_census_manifest: "knowledge/palaces/P02_siblings/census/issue_934/P02_CHAPTER_CENSUS_MANIFEST_v0.2.json"
   accepted_source_issue: 899
   accepted_census_issue: 921
   full_section_printed_pages: 25–32
@@ -36,11 +38,11 @@ progress:
   history_feedback: 0
   conditions_compiled: 0
   execution_unlocked: 0
-  next_source_anchor: 'after #921 accepted: independent stage handoff review of census/source/held boundaries; no P04 activation'
+  next_source_anchor: 'after #934 accepted: resume #928 independent handoff on corrected v0.2 census; no P04 activation'
 human_gate:
   pending: null
 coverage_census:
-  source_reviewed_section: 'upon #921 merge: pp25–32 coverage/held census reconciled; independent stage handoff still incomplete'
+  source_reviewed_section: 'upon #934 merge: W13 evidence tail corrected in v0.2; independent stage handoff #928 still incomplete'
   source_inventory_complete: true
   source_census_complete: true
   whole_chapter_complete: false
