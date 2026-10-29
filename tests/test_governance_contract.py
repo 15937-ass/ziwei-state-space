@@ -79,7 +79,7 @@ def test_pi_closeout_is_a_hard_final_answer_gate():
     assert "不得发送仓库工作对话的最终答复" in bootstrap
     assert "hard final-response gate" in workflow
     assert "ordinary end-user QuickRead" in workflow
-    assert "普通 QuickRead/命理解读" in bootstrap
+    assert "普通 QuickRead、DetailedRead 或其他命理解读" in bootstrap
     for heading in (
         "【整个项目现在到哪了】",
         "【宫位、Knowledge Core、Product 当前状态】",

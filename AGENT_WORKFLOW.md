@@ -240,7 +240,7 @@ Protocol marker: `PI_CLOSEOUT_FINAL_GATE_REQUIRED`.
 
 This section is a **hard final-response gate** for every repository-work conversation. Before sending the final answer, the assistant must complete the live read-only three-stream census required below and include all six default Chinese report sections. If that gate is incomplete, the repository-work final answer must not be sent. Brevity, successful completion, read-only review, validation waiting, a blocked/paused unit, or the user's failure to ask again are not exemptions.
 
-The only exemption is an ordinary end-user QuickRead/fortune-reading turn that performs no repository implementation, review, governance, status recovery, or other repository work. If repository work occurs anywhere in the same turn, the mandatory closeout applies. This reporting gate does not authorize writes in another lane, consume unmerged artifacts, or broaden the active Issue.
+The only exemption is an ordinary end-user QuickRead, DetailedRead, or other fortune-reading turn that performs no repository implementation, review, governance, status recovery, or other repository work. If repository work occurs anywhere in the same turn, the mandatory closeout applies. This reporting gate does not authorize writes in another lane, consume unmerged artifacts, or broaden the active Issue.
 
 The PI-facing report is domain- and project-oriented, not Git-oriented. The PI is expected to judge Ziwei theory, research boundaries, interpretation quality, and major product direction; routine Git mechanics should be hidden unless they block progress or create risk.
 
