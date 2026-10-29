@@ -1,0 +1,70 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-CORE-CANONICAL-MANIFESTATION-NODE-INDEX",
+  "version": "0.1",
+  "status": "PARTIAL_CANONICAL_KNOWLEDGE",
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "CORE",
+  "work_unit": "KB-CORE-WP06B-P09-FIRST-CANONICAL-NODES-01",
+  "issue": 874,
+  "contract_ref": "knowledge/core/wp06b/CANONICAL_MANIFESTATION_NODE_SCHEMA_v0.1.json",
+  "id_policy_ref": "knowledge/core/wp06b/CANONICAL_MANIFESTATION_ID_POLICY_v0.1.json",
+  "authority_ref": "PI-DECISION-CORE-866-2026-10-29",
+  "coverage": {
+    "scope": "P09 first three source-reviewed + target-reviewed ordinary concepts",
+    "complete": false,
+    "source_rule_ids": [
+      "CA01-035",
+      "CA01-045",
+      "CA05-469"
+    ],
+    "production_node_count": 3,
+    "next_allocatable_id": "KMN-000004"
+  },
+  "forest_semantics": {
+    "universal_root_present": false,
+    "all_current_parent_ids_null": true,
+    "null_parent_meaning": "NO_ACCEPTED_CANONICAL_PARENT_IN_CURRENT_ARTIFACT"
+  },
+  "nodes": [
+    {
+      "manifestation_id": "KMN-000001",
+      "path": "knowledge/core/wp06b/canonical_manifestations/KMN-000001.json",
+      "source_rule_id": "CA01-035",
+      "canonical_identity_status": "ACTIVE",
+      "canonical_mapping_approved": false,
+      "executable": false,
+      "product_consumable": false,
+      "probability_status": "UNKNOWN"
+    },
+    {
+      "manifestation_id": "KMN-000002",
+      "path": "knowledge/core/wp06b/canonical_manifestations/KMN-000002.json",
+      "source_rule_id": "CA01-045",
+      "canonical_identity_status": "ACTIVE",
+      "canonical_mapping_approved": false,
+      "executable": false,
+      "product_consumable": false,
+      "probability_status": "UNKNOWN"
+    },
+    {
+      "manifestation_id": "KMN-000003",
+      "path": "knowledge/core/wp06b/canonical_manifestations/KMN-000003.json",
+      "source_rule_id": "CA05-469",
+      "canonical_identity_status": "ACTIVE",
+      "canonical_mapping_approved": false,
+      "executable": false,
+      "product_consumable": false,
+      "probability_status": "UNKNOWN"
+    }
+  ],
+  "invariants": {
+    "canonical_mapping_promotions": 0,
+    "executable_mappings": 0,
+    "product_registry_modified": false,
+    "product_consumption_authorized": false,
+    "universal_root_or_family_created": false,
+    "probability_status": "UNKNOWN",
+    "empirical_predictive_validity_claimed": false
+  }
+}
