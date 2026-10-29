@@ -488,7 +488,7 @@ def test_direct_visual_review_note_accepts_main_variants_and_rejects_negation():
     assert not _is_direct_visual_review_note("Direct visual review was not performed.")
 
 
-def test_source_limit_reports_all_omitted_records_across_one_ledger():
+def test_source_batch_limit_is_first_pass_budget_and_reports_continuation():
     base = _ledger()["records"][0]
     records = []
     for index in range(15):
@@ -502,12 +502,97 @@ def test_source_limit_reports_all_omitted_records_across_one_ledger():
     artifacts[ledger_path] = json.dumps(_ledger(records=records), ensure_ascii=False)
     fetch, _ = _transport(artifacts)
 
-    bundle = load_latest_main_knowledge(
-        _request(), fetch_bytes=fetch, max_source_items_per_slot=5
+    first = load_latest_main_knowledge(
+        _request(), fetch_bytes=fetch, source_items_per_slot=5
     )
-    assert len(bundle.evidence_items) == 5
-    assert bundle.reader_report["aggregate_source_ledger_counts"]["records_selected_pre_limit"] == 15
-    assert bundle.reader_report["source_items_omitted_by_limit"]["relationship_natal"] == 10
+    assert len(first.evidence_items) == 5
+    assert first.reader_report["aggregate_source_ledger_counts"]["records_selected_pre_limit"] == 15
+    assert first.reader_report["source_batch_limit_per_slot"] == 5
+    assert first.reader_report["source_items_total_eligible_by_slot"]["relationship_natal"] == 15
+    assert first.reader_report["source_items_already_seen_by_slot"]["relationship_natal"] == 0
+    assert first.reader_report["source_items_selected_this_batch_by_slot"]["relationship_natal"] == 5
+    assert first.reader_report["source_items_remaining_after_batch_by_slot"]["relationship_natal"] == 10
+    assert first.reader_report["continuation"]["has_more"] is True
+    assert len(first.reader_report["continuation"]["seen_evidence_ids"]) == 5
+
+
+def test_continuation_progressively_reads_new_source_evidence_without_duplicates():
+    base = _ledger()["records"][0]
+    records = []
+    for index in range(13):
+        record = dict(base)
+        record["projection_rule_id"] = f"P03S-PAGE-{index:03d}"
+        record["canonical_condition"] = f"来源条件 {index}"
+        record["canonical_projection_target"] = f"target {index}"
+        records.append(record)
+    artifacts, _ = _base_artifacts()
+    ledger_path = next(path for path in artifacts if "SOURCE_READJUDICATION" in path)
+    artifacts[ledger_path] = json.dumps(_ledger(records=records), ensure_ascii=False)
+    fetch, _ = _transport(artifacts)
+
+    first = load_latest_main_knowledge(
+        _request(), fetch_bytes=fetch, source_items_per_slot=5
+    )
+    second = load_latest_main_knowledge(
+        _request(),
+        fetch_bytes=fetch,
+        source_items_per_slot=5,
+        continuation=first.reader_report["continuation"],
+    )
+    third = load_latest_main_knowledge(
+        _request(),
+        fetch_bytes=fetch,
+        source_items_per_slot=5,
+        continuation=second.reader_report["continuation"],
+    )
+
+    first_ids = {item.evidence_id for item in first.evidence_items}
+    second_ids = {item.evidence_id for item in second.evidence_items}
+    third_ids = {item.evidence_id for item in third.evidence_items}
+    assert len(first_ids) == 5
+    assert len(second_ids) == 5
+    assert len(third_ids) == 3
+    assert first_ids.isdisjoint(second_ids)
+    assert first_ids.isdisjoint(third_ids)
+    assert second_ids.isdisjoint(third_ids)
+    assert second.reader_report["source_items_already_seen_by_slot"]["relationship_natal"] == 5
+    assert second.reader_report["source_items_remaining_after_batch_by_slot"]["relationship_natal"] == 3
+    assert third.reader_report["source_items_already_seen_by_slot"]["relationship_natal"] == 10
+    assert third.reader_report["source_items_remaining_after_batch_by_slot"]["relationship_natal"] == 0
+    assert third.reader_report["continuation"]["has_more"] is False
+    assert len(third.reader_report["continuation"]["seen_evidence_ids"]) == 13
+
+
+def test_continuation_fails_closed_when_main_snapshot_changes():
+    artifacts, _ = _base_artifacts()
+    fetch, _ = _transport(artifacts)
+    stale = {
+        "main_sha": "0" * 40,
+        "requested_slot_ids": ["relationship_natal"],
+        "seen_evidence_ids": [],
+    }
+    with pytest.raises(MainKnowledgeUnavailable, match="continuation is stale"):
+        load_latest_main_knowledge(
+            _request(),
+            fetch_bytes=fetch,
+            continuation=stale,
+        )
+
+
+def test_continuation_rejects_scope_mismatch_before_retrieval():
+    artifacts, _ = _base_artifacts()
+    fetch, _ = _transport(artifacts)
+    wrong_scope = {
+        "main_sha": MAIN_SHA,
+        "requested_slot_ids": ["career_natal"],
+        "seen_evidence_ids": [],
+    }
+    with pytest.raises(ValueError, match="requested scope"):
+        load_latest_main_knowledge(
+            _request(),
+            fetch_bytes=fetch,
+            continuation=wrong_scope,
+        )
 
 
 def test_source_ledger_with_unsupported_verification_method_is_not_counted_as_accepted():
