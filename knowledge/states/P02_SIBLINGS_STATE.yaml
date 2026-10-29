@@ -12,8 +12,8 @@ execution:
   active_issue: null
   active_branch: null
   active_pr: null
-  canonical_checkpoint: "SB01_ZIWEI_P25_ACCEPTED__TIANJI_NEXT"
-  note: "Issue #857: p25 Ziwei source audit accepted subject to exact-head merge. Chapter inventory confirms pp25-32, not directory p24. 40 source atoms:27 accepted (15 reusable,12 CASE),13 held in3 gaps. Historical461 rows are index-only, never blanket-promoted. Source stage incomplete; next p25 Tianji through p26 before Solar. Producer releases on acceptance; live Issue/PR governs. No mapping/runtime/empirical authorization."
+  canonical_checkpoint: "SB02_TIANJI_P25_26_ACCEPTED_SUBJECT_TO_MERGE__SOLAR_NEXT"
+  note: "Issue #859: state effective only upon exact-head acceptance/merge. Cumulative83 reviewed/55 accepted (36 reusable/19 CASE),28 held/7 gaps. SB01 unchanged. Producer releases on acceptance; while PR open live Issue/PR retains ownership. No mapping/runtime/empirical authorization."
 
 integrity:
   source_first: true
@@ -22,23 +22,23 @@ integrity:
   empirical_feedback_may_rewrite_source_truth: false
 
 progress:
-  issue: 857
+  accepted_issue: 859
   full_section_printed_pages: 25–32
   full_section_pdf_physical_pages: 13–16
-  source_atoms_reviewed: 40
-  source_records_added: 27
-  reusable_projection_method_records: 15
-  case_support_only: 12
-  held: 13
-  source_gap_groups: 3
+  source_atoms_reviewed: 83
+  source_records_added: 55
+  reusable_projection_method_records: 36
+  case_support_only: 19
+  held: 28
+  source_gap_groups: 7
   history_feedback: 0
   conditions_compiled: 0
   execution_unlocked: 0
-  next_source_anchor: 'p25/physical13 LEFT: 2 Tianji; continues p26, stop before3 Solar; new bounded issue required'
+  next_source_anchor: 'after #859 accepted: p26/physical13 RIGHT: 3 Solar, continue p27, stop before4 Wuqu'
 human_gate:
   pending: null
 coverage_census:
-  source_reviewed_section: 'p25 Ziwei only'
+  source_reviewed_section: 'upon #859 merge: p25 Ziwei and pp25-26 Tianji; whole palace incomplete'
   source_inventory_complete: true
   source_census_complete: false
   whole_chapter_complete: false
