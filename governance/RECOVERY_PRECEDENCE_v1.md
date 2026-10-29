@@ -28,6 +28,7 @@ For every new ChatGPT conversation, timeout recovery, model/session change, or s
 8. Read the Issue-linked PR, if any. The PR is implementation truth.
 9. Read only artifacts required by that Issue/PR.
 10. Use the execution protocol explicitly named by `PROJECT_STATE.yaml`; do not select a protocol by filename age or by searching for the word `ACTIVE`.
+11. If the work unit is preparing to merge, read `governance/INTEGRATION_QUEUE_PROTOCOL_v1.md` and live coordination Issue #888 before running any final exact-head acceptance gate.
 
 If GitHub live state and a state YAML disagree, **GitHub Issue/PR wins and the cache must be repaired**. The current ChatGPT conversation is permitted to operate the repository through exposed connector actions, but chat text itself is not project-state authority.
 
@@ -48,7 +49,7 @@ Current rules:
 - automatic `push` triggers are prohibited;
 - larger/billable runners are not authorized without new PI approval;
 - Work/Codex are optional execution runtimes, not prerequisites for repository writes;
-- normal work remains `Issue -> branch -> PR -> validation -> merge`;
+- normal work remains `Issue -> branch -> PR`, with build validation during ACTIVE_BUILD and final exact-head validation only after the work unit acquires the Integration Lease and enters INTEGRATING;
 - connector capability never bypasses lane ownership, Human Gates, source integrity, or validation.
 
 The G7 protocol `governance/archive/WORK_CODEX_EXECUTION_PROTOCOL_v0.1_G7_HISTORICAL.md` is historical and must never be used to determine current Actions or repository-operator policy.
@@ -115,6 +116,6 @@ Instead:
 
 After recovery, the agent should be able to answer exactly:
 
-> Which lane is selected, what live GitHub Issue is the current bounded work unit, which PR implements it, what Human Gate (if any) is actually pending now, and which execution protocol controls validation?
+> Which lane is selected, what live GitHub Issue is the current bounded work unit, which PR implements it, what Human Gate (if any) is actually pending now, which execution protocol controls validation, and—only if final integration is planned—who currently holds the Integration Lease in Issue #888?
 
 If any of those cannot be answered from the authority chain above, stop task execution and repair recovery state before opening unrelated work.
