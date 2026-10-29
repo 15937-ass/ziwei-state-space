@@ -550,6 +550,25 @@ def compile_manifestation_condition_binding_v02(
             condition_raw, source_text=source_text
         )
 
+    structured_tokens: tuple[str, ...] = ()
+    if isinstance(condition, BranchedConditionalV02):
+        structured_tokens = tuple(
+            branch.operator.source_token
+            for branch in condition.branches
+            if branch.operator is not None
+        )
+    elif isinstance(condition, PalaceScopedExceptionV02):
+        structured_tokens = (condition.operator.source_token,)
+    elif isinstance(condition, QualifiedConditionV02):
+        structured_tokens = (condition.operator.source_token,)
+
+    canonical_modality_terms = set(envelope.conditions.modality_terms)
+    for token in structured_tokens:
+        if token not in canonical_modality_terms:
+            raise ValueError(
+                f"structured operator token {token} must be present in canonical modality_terms"
+            )
+
     temporal_binding = _compile_temporal_binding(
         _mapping(fixture.get("temporal_binding"), "fixture.temporal_binding"),
         canonical_time_layer=envelope.conditions.time_layer,
