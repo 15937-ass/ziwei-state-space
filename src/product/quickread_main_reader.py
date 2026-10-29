@@ -40,7 +40,8 @@ DEFAULT_TIMEOUT_SECONDS = 8.0
 MAX_API_BYTES = 24_000_000
 MAX_ARTIFACT_BYTES = 2_000_000
 MAX_TOTAL_FETCH_BYTES = 10_000_000
-MAX_SOURCE_ITEMS_PER_SLOT = 12
+DEFAULT_FIRST_PASS_SOURCE_ITEMS_PER_SLOT = 12
+MAX_SOURCE_ITEMS_PER_BATCH_PER_SLOT = 50
 SUPPORTED_SOURCE_LEDGER_STATUS = "SOURCE_REVIEW_COMPLETE"
 SUPPORTED_SOURCE_REVIEW_METHOD = "DIRECT_PDF_VISUAL_REVIEW"
 SOURCE_REVIEW_STATUS = "SOURCE_SPAN_VERIFIED"
@@ -730,7 +731,8 @@ def load_latest_main_knowledge(
     *,
     fetch_bytes: FetchBytes | None = None,
     timeout_seconds: float = DEFAULT_TIMEOUT_SECONDS,
-    max_source_items_per_slot: int = MAX_SOURCE_ITEMS_PER_SLOT,
+    source_items_per_slot: int = DEFAULT_FIRST_PASS_SOURCE_ITEMS_PER_SLOT,
+    continuation: Mapping[str, Any] | None = None,
     repository_root: str | Path | None = None,
 ) -> MainKnowledgeBundle:
     """Load a scoped, version-pinned view of accepted artifacts from GitHub main.
@@ -742,8 +744,44 @@ def load_latest_main_knowledge(
     """
     if not isinstance(request, QuickReadRequest):
         raise ValueError("request must be a QuickReadRequest")
-    if max_source_items_per_slot < 1 or max_source_items_per_slot > 50:
-        raise ValueError("max_source_items_per_slot must be between 1 and 50")
+    if (
+        source_items_per_slot < 1
+        or source_items_per_slot > MAX_SOURCE_ITEMS_PER_BATCH_PER_SLOT
+    ):
+        raise ValueError(
+            "source_items_per_slot must be between 1 and "
+            f"{MAX_SOURCE_ITEMS_PER_BATCH_PER_SLOT}"
+        )
+
+    continuation_main_sha: str | None = None
+    seen_evidence_ids: set[str] = set()
+    if continuation is not None:
+        if not isinstance(continuation, Mapping):
+            raise ValueError("continuation must be a mapping")
+        continuation_main_sha = str(continuation.get("main_sha", "")).strip()
+        if not re.fullmatch(r"[0-9a-f]{40}", continuation_main_sha):
+            raise ValueError("continuation.main_sha must be a 40-character Git SHA")
+        raw_slot_ids = continuation.get("requested_slot_ids")
+        if (
+            not isinstance(raw_slot_ids, list)
+            or not all(isinstance(item, str) and item.strip() for item in raw_slot_ids)
+            or len(raw_slot_ids) != len(set(raw_slot_ids))
+        ):
+            raise ValueError("continuation.requested_slot_ids must be a unique string list")
+        current_slot_ids = sorted(slot.slot_id for slot in request.requested_slots)
+        if sorted(raw_slot_ids) != current_slot_ids:
+            raise ValueError("continuation requested scope does not match the current request")
+        raw_seen_ids = continuation.get("seen_evidence_ids")
+        if (
+            not isinstance(raw_seen_ids, list)
+            or not all(isinstance(item, str) and item.strip() for item in raw_seen_ids)
+            or len(raw_seen_ids) != len(set(raw_seen_ids))
+        ):
+            raise ValueError("continuation.seen_evidence_ids must be a unique string list")
+        if len(raw_seen_ids) > 10_000:
+            raise ValueError("continuation.seen_evidence_ids exceeds the safety limit")
+        seen_evidence_ids = {item.strip() for item in raw_seen_ids}
+
     transport = fetch_bytes or _default_fetch_bytes
     total_bytes = 0
 
@@ -777,6 +815,11 @@ def load_latest_main_knowledge(
     main_sha = str(commit.get("sha", "")).strip()
     if not re.fullmatch(r"[0-9a-f]{40}", main_sha):
         raise MainKnowledgeUnavailable("GitHub did not return a valid main commit SHA")
+    if continuation_main_sha is not None and continuation_main_sha != main_sha:
+        raise MainKnowledgeUnavailable(
+            "QuickRead continuation is stale because GitHub main changed; "
+            "start a fresh first-pass read on the new main snapshot"
+        )
     tree_payload = json_from_url(f"{API_ROOT}/git/trees/{main_sha}?recursive=1", MAX_API_BYTES)
     if tree_payload.get("truncated") is True:
         raise MainKnowledgeUnavailable("main Git tree is truncated; refusing an incomplete knowledge scan")
@@ -897,22 +940,39 @@ def load_latest_main_knowledge(
     selected_items: list[QuickReadEvidenceItem] = []
     source_refs_by_slot: dict[str, tuple[EvidenceSourceRef, ...]] = {}
     selected_count_by_slot: dict[str, int] = {}
-    truncated_by_slot: dict[str, int] = {}
+    total_eligible_by_slot: dict[str, int] = {}
+    already_seen_by_slot: dict[str, int] = {}
+    remaining_after_batch_by_slot: dict[str, int] = {}
+    next_seen_evidence_ids = set(seen_evidence_ids)
     for slot in request.requested_slots:
         unique: dict[str, tuple[QuickReadEvidenceItem, int]] = {}
         for item, score in all_candidates[slot.slot_id]:
             unique[item.evidence_id] = (item, score)
         ordered = sorted(unique.values(), key=lambda pair: (-pair[1], pair[0].evidence_id))
-        selected = [item for item, _ in ordered[:max_source_items_per_slot]]
+        ordered_items = [item for item, _ in ordered]
+        unread = [
+            item for item in ordered_items
+            if item.evidence_id not in seen_evidence_ids
+        ]
+        selected = unread[:source_items_per_slot]
+        next_seen_evidence_ids.update(item.evidence_id for item in selected)
         selected_items.extend(selected)
         refs_by_identity = {
             ref.identity(): ref
             for item in selected
             for ref in item.source_refs
         }
-        source_refs_by_slot[slot.slot_id] = tuple(refs_by_identity[key] for key in sorted(refs_by_identity))
+        source_refs_by_slot[slot.slot_id] = tuple(
+            refs_by_identity[key] for key in sorted(refs_by_identity)
+        )
         selected_count_by_slot[slot.slot_id] = len(selected)
-        truncated_by_slot[slot.slot_id] = max(0, len(ordered) - len(selected))
+        total_eligible_by_slot[slot.slot_id] = len(ordered_items)
+        already_seen_by_slot[slot.slot_id] = sum(
+            1 for item in ordered_items if item.evidence_id in seen_evidence_ids
+        )
+        remaining_after_batch_by_slot[slot.slot_id] = max(
+            0, len(unread) - len(selected)
+        )
 
     # Build the actual runtime-capability manifest. A provider counts as
     # executable only if the current-main runtime registry activates it and
@@ -1060,8 +1120,10 @@ def load_latest_main_knowledge(
                 "runtime_status": record.runtime_status,
                 "runtime_rule_count": len(record.runtime_rule_ids),
                 "source_status": record.source_status,
-                "source_evidence_selected": selected_count_by_slot[slot.slot_id],
-                "source_evidence_omitted_by_limit": truncated_by_slot[slot.slot_id],
+                "source_evidence_total_eligible": total_eligible_by_slot[slot.slot_id],
+                "source_evidence_already_seen": already_seen_by_slot[slot.slot_id],
+                "source_evidence_selected_this_batch": selected_count_by_slot[slot.slot_id],
+                "source_evidence_remaining_after_batch": remaining_after_batch_by_slot[slot.slot_id],
                 "provider_discovery": provider.to_dict() if provider else None,
                 "reason": record.reason,
             }
@@ -1082,8 +1144,19 @@ def load_latest_main_knowledge(
         "superseded_provider_paths": superseded_provider_paths,
         "aggregate_source_ledger_counts": aggregate,
         "source_adapter": "SOURCE_READJUDICATION_LEDGER_V0_1",
-        "source_items_selected_by_slot": selected_count_by_slot,
-        "source_items_omitted_by_limit": truncated_by_slot,
+        "source_batch_limit_per_slot": source_items_per_slot,
+        "source_items_total_eligible_by_slot": total_eligible_by_slot,
+        "source_items_already_seen_by_slot": already_seen_by_slot,
+        "source_items_selected_this_batch_by_slot": selected_count_by_slot,
+        "source_items_remaining_after_batch_by_slot": remaining_after_batch_by_slot,
+        "continuation": {
+            "main_sha": main_sha,
+            "requested_slot_ids": sorted(
+                slot.slot_id for slot in request.requested_slots
+            ),
+            "seen_evidence_ids": sorted(next_seen_evidence_ids),
+            "has_more": any(remaining_after_batch_by_slot.values()),
+        },
         "slots": slot_report,
         "limitations": [
             "No LLM/model API call is made; this reader does make read-only GitHub API requests for the pinned main snapshot and returns a source-pinned payload for a caller.",
@@ -1093,6 +1166,7 @@ def load_latest_main_knowledge(
             "A provider marked OPT_IN_OR_NOT_DEFAULT is reported but is not silently activated.",
             "The reader does not use unmerged branches, PR files, Issue text, archived drafts, or model memory as accepted knowledge.",
             "No source ledger by itself authorizes probabilities, empirical validity, or specific-period event claims.",
+            "The per-slot source item limit is a per-call batch budget, not a session/global cap; callers may continue from the returned main-pinned cursor while has_more is true.",
         ],
         "bytes_fetched": total_bytes,
     }
@@ -1140,10 +1214,17 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument("--mode", default="SOURCE_FIRST", choices=("HYBRID", "AUDIT", "SOURCE_FIRST"))
     parser.add_argument("--min-chars", type=int, default=120)
     parser.add_argument("--max-chars", type=int, default=220)
+    parser.add_argument(
+        "--source-items-per-slot",
+        type=int,
+        default=DEFAULT_FIRST_PASS_SOURCE_ITEMS_PER_SLOT,
+        help="Per-call source evidence batch size; continuation can fetch later batches.",
+    )
     args = parser.parse_args(argv)
     try:
         bundle = load_latest_main_knowledge(
             _build_cli_request(args),
+            source_items_per_slot=args.source_items_per_slot,
             repository_root=Path(__file__).resolve().parents[2],
         )
     except MainKnowledgeUnavailable as exc:
