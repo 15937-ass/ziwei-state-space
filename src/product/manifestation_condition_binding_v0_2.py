@@ -132,6 +132,7 @@ class ListedVariantSetV02:
     context_text: str
     variants: tuple[str, ...]
     combination_semantics: str
+    boundary_evidence_text: str
     source_operator_token: str | None = None
 
     def __post_init__(self) -> None:
@@ -143,6 +144,8 @@ class ListedVariantSetV02:
             raise ValueError(
                 "listed variant set must preserve SEPARATE_VARIANTS_NOT_ALL_REQUIRED"
             )
+        if not self.boundary_evidence_text.strip():
+            raise ValueError("listed variant set boundary evidence is required")
         if self.source_operator_token not in (None, ""):
             raise ValueError(
                 "listed variant set must not fabricate a source operator token"
@@ -193,12 +196,15 @@ class ConditionBranchV02:
 class BranchedConditionalV02:
     context_text: str
     branches: tuple[ConditionBranchV02, ...]
+    boundary_evidence_text: str
 
     def __post_init__(self) -> None:
         if not self.context_text.strip():
             raise ValueError("branched condition context_text is required")
         if len(self.branches) < 2:
             raise ValueError("branched condition requires at least two branches")
+        if not self.boundary_evidence_text.strip():
+            raise ValueError("branched condition boundary evidence is required")
         ids = tuple(branch.branch_id for branch in self.branches)
         if len(set(ids)) != len(ids):
             raise ValueError("branch_id values must be unique")
@@ -352,6 +358,9 @@ def _compile_listed_variant_set(
         combination_semantics=_required_text(
             raw.get("combination_semantics"), "condition.combination_semantics"
         ),
+        boundary_evidence_text=_required_text(
+            raw.get("boundary_evidence_text"), "condition.boundary_evidence_text"
+        ),
         source_operator_token=source_operator_token,
     )
 
@@ -422,7 +431,13 @@ def _compile_branched_conditional(
         )
         for index, item in enumerate(raw_branches)
     )
-    return BranchedConditionalV02(context_text=context_text, branches=branches)
+    return BranchedConditionalV02(
+        context_text=context_text,
+        branches=branches,
+        boundary_evidence_text=_required_text(
+            raw.get("boundary_evidence_text"), "condition.boundary_evidence_text"
+        ),
+    )
 
 
 def _compile_palace_scoped_exception(
@@ -567,6 +582,12 @@ def compile_manifestation_condition_binding_v02(
         if token not in canonical_modality_terms:
             raise ValueError(
                 f"structured operator token {token} must be present in canonical modality_terms"
+            )
+
+    if isinstance(condition, (ListedVariantSetV02, BranchedConditionalV02)):
+        if condition.boundary_evidence_text not in envelope.execution_boundary.forbidden_inferences:
+            raise ValueError(
+                "structured boundary evidence must exactly match canonical forbidden_inferences"
             )
 
     temporal_binding = _compile_temporal_binding(
