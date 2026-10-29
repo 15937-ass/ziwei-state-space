@@ -1077,14 +1077,15 @@ def test_research_closure_metadata_matches_merged_pr_and_final_quality_gate():
     assert closure["product_consumption_authorized"] is False
     core_state_path = ROOT / "knowledge/states/CORE_STATE.yaml"
     core_state = core_state_path.read_text(encoding="utf-8")
-    # #757 must remain closed even after a later bounded Core work unit activates.
-    assert "last_completed_issue: 757" in core_state
-    assert "last_completed_pr: 783" in core_state
-    assert 'closure_effective_on: "PR_783_MERGED_TO_MAIN"' in core_state
+    # #757 must remain historically closed without being required to stay the
+    # latest completed Core unit forever. The baseline above is the authority
+    # for #757's accepted closure; the live recovery cache may advance.
     assert "active_issue: 757" not in core_state
     assert "active_pr: 783" not in core_state
     assert 'active_branch: "knowledge/core-757' not in core_state
-    assert "Live" in core_state and ("authoritative" in core_state or "override" in core_state)
+    assert 'authoritative_execution: "GITHUB_ISSUE"' in core_state
+    assert "last_completed_issue:" in core_state
+    assert "last_completed_pr:" in core_state
     if 'status: "IDLE"' in core_state:
         assert "active_issue: null" in core_state
         assert "active_branch: null" in core_state
