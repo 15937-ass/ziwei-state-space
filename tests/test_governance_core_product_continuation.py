@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -32,64 +33,9 @@ def test_product_state_points_to_advancing_bounded_nominee():
     assert 'continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md"' in state
     assert "plan_pointer_issue: 900" in state
 
-    import re
     issue = re.search(r"^  next_issue:\s*(\d+)$", state, re.M)
-    work = re.search(r'^  continuation_next_work_unit:\s*"([^"]+)"
-
-def test_core_state_is_repaired_and_points_to_first_bounded_nominee():
-    state = (ROOT / "knowledge/states/CORE_STATE.yaml").read_text(encoding="utf-8")
-    assert 'status: "IDLE"' in state
-    assert "active_issue: null" in state
-    assert "active_pr: null" in state
-    assert "plan_pointer_issue: 901" in state
-    assert "next_issue: 898" in state
-    assert "next_work_unit: null" in state
-    assert "last_completed_issue: 880" in state
-    assert "last_completed_pr: 881" in state
-
-
-def test_three_stream_entry_routes_simple_continue_commands():
-    card = (ROOT / "governance/THREE_STREAM_START_HERE.md").read_text(encoding="utf-8")
-    assert "Core plan pointer #901" in card
-    assert "Product plan pointer #900" in card
-    assert "当前首单 #898" in card
-    assert "当前首单 #897" in card
-    assert "无需让我重述顺序" in card
-
-    bootstrap = (ROOT / "CHATGPT_START_HERE.md").read_text(encoding="utf-8")
-    assert "CORE_PRODUCT_CONTINUATION_PLAN_v1.md" in bootstrap
-    assert "Core plan pointer 为 #901" in bootstrap
-    assert "Product plan pointer 为 #900" in bootstrap
-    assert "不要求用户重述规划" in bootstrap
-, state, re.M)
-    status = re.search(r'^  next_work_status:\s*"([^"]+)"
-
-def test_core_state_is_repaired_and_points_to_first_bounded_nominee():
-    state = (ROOT / "knowledge/states/CORE_STATE.yaml").read_text(encoding="utf-8")
-    assert 'status: "IDLE"' in state
-    assert "active_issue: null" in state
-    assert "active_pr: null" in state
-    assert "plan_pointer_issue: 901" in state
-    assert "next_issue: 898" in state
-    assert "next_work_unit: null" in state
-    assert "last_completed_issue: 880" in state
-    assert "last_completed_pr: 881" in state
-
-
-def test_three_stream_entry_routes_simple_continue_commands():
-    card = (ROOT / "governance/THREE_STREAM_START_HERE.md").read_text(encoding="utf-8")
-    assert "Core plan pointer #901" in card
-    assert "Product plan pointer #900" in card
-    assert "当前首单 #898" in card
-    assert "当前首单 #897" in card
-    assert "无需让我重述顺序" in card
-
-    bootstrap = (ROOT / "CHATGPT_START_HERE.md").read_text(encoding="utf-8")
-    assert "CORE_PRODUCT_CONTINUATION_PLAN_v1.md" in bootstrap
-    assert "Core plan pointer 为 #901" in bootstrap
-    assert "Product plan pointer 为 #900" in bootstrap
-    assert "不要求用户重述规划" in bootstrap
-, state, re.M)
+    work = re.search(r'^  continuation_next_work_unit:\s*"([^"]+)"$', state, re.M)
+    status = re.search(r'^  next_work_status:\s*"([^"]+)"$', state, re.M)
     assert issue and int(issue.group(1)) >= 897
     assert work and work.group(1).startswith("PRODUCT_MANIFESTATION_")
     assert status and status.group(1) in {"READY_TO_ADMIT", "ACTIVE_BUILD", "COMPLETED"}
