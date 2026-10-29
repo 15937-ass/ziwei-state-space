@@ -488,6 +488,29 @@ def test_direct_visual_review_note_accepts_main_variants_and_rejects_negation():
     assert not _is_direct_visual_review_note("Direct visual review was not performed.")
 
 
+def test_default_first_pass_source_budget_is_twenty_items_per_slot():
+    base = _ledger()["records"][0]
+    records = []
+    for index in range(25):
+        record = dict(base)
+        record["projection_rule_id"] = f"P03S-DEFAULT-{index:03d}"
+        record["canonical_condition"] = f"来源条件 {index}"
+        record["canonical_projection_target"] = f"target {index}"
+        records.append(record)
+    artifacts, _ = _base_artifacts()
+    ledger_path = next(path for path in artifacts if "SOURCE_READJUDICATION" in path)
+    artifacts[ledger_path] = json.dumps(_ledger(records=records), ensure_ascii=False)
+    fetch, _ = _transport(artifacts)
+
+    bundle = load_latest_main_knowledge(_request(), fetch_bytes=fetch)
+
+    assert len(bundle.evidence_items) == 20
+    assert bundle.reader_report["source_batch_limit_per_slot"] == 20
+    assert bundle.reader_report["source_items_total_eligible_by_slot"]["relationship_natal"] == 25
+    assert bundle.reader_report["source_items_remaining_after_batch_by_slot"]["relationship_natal"] == 5
+    assert bundle.reader_report["continuation"]["has_more"] is True
+
+
 def test_source_batch_limit_is_first_pass_budget_and_reports_continuation():
     base = _ledger()["records"][0]
     records = []
