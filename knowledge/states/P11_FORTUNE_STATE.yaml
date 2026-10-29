@@ -11,15 +11,15 @@ execution:
   active_issue: null
   active_branch: null
   active_pr: null
-  canonical_checkpoint: FD07_ACCEPTED__CENSUS_A_P166_169_ACCEPTED__CENSUS_B_C_PENDING
-  note: 'Post-acceptance snapshot for Issue #849; live Issue/PR governs while open.
-    Census A visually reconciles printed pp166–169, 73 paragraph/page-slice anchors.
+  canonical_checkpoint: FD07_ACCEPTED__CENSUS_A_B_P166_173_RECONCILED__CENSUS_C_PENDING
+  note: 'Post-acceptance snapshot for Issue #851; live Issue/PR governs while open.
+    Census A/B reconcile pp166–173, 157 paragraph/page-slice anchors; B includes the additional L06 continuation slice on p172.
     No clear unaccounted paragraph found in that bounded span. All seven accepted
     ledgers and 34 gaps remain byte-identical. Whole-chapter coverage and residual
-    disposition are incomplete; next Census B pp170–173, then C pp174–176 and residual
+    disposition are incomplete; next Census C pp174–176 and residual
     ledger. No other palace admitted; no mapping/runtime/empirical authorization.'
 progress:
-  issue: 849
+  issue: 851
   full_section_printed_pages: 166–176
   full_section_pdf_physical_pages: 83–88
   source_atoms_reviewed: 474
@@ -31,7 +31,7 @@ progress:
   history_feedback: 0
   conditions_compiled: 0
   execution_unlocked: 0
-  next_source_anchor: 'Census B: printed pp170–173; then Census C pp174–176 and disposition
+  next_source_anchor: 'Census C: printed pp174–176 and disposition
     of all 34 retained gap groups'
 human_gate:
   pending: null
@@ -46,6 +46,10 @@ coverage_census:
   - 167
   - 168
   - 169
-  paragraph_anchor_slices_reconciled: 73
+  - 170
+  - 171
+  - 172
+  - 173
+  paragraph_anchor_slices_reconciled: 157
   whole_chapter_complete: false
   residual_disposition_complete: false
