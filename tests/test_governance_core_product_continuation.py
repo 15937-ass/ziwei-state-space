@@ -38,12 +38,12 @@ def test_product_state_points_to_first_bounded_nominee():
 
 def test_core_state_is_repaired_and_points_to_first_bounded_nominee():
     state = (ROOT / "knowledge/states/CORE_STATE.yaml").read_text(encoding="utf-8")
-    assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
+    assert 'status: "IDLE"' in state
     assert "active_issue: null" in state
     assert "active_pr: null" in state
     assert "plan_pointer_issue: 901" in state
     assert "next_issue: 898" in state
-    assert 'next_work_unit: "KB_CORE_WP06BC_CANONICAL_MAPPING_EXPANSION_DIVERSITY_01"' in state
+    assert "next_work_unit: null" in state
     assert "last_completed_issue: 880" in state
     assert "last_completed_pr: 881" in state
 
