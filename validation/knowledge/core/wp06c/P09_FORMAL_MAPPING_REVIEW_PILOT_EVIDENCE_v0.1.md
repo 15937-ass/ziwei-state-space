@@ -1,6 +1,6 @@
 # Core #864 — P09 formal mapping-review pilot execution evidence
 
-Status: REVIEW_COMPLETED_VALIDATION_PENDING_AFTER_STALE_HISTORICAL_REGRESSION_REPAIR
+Status: SEMANTIC_HEAD_VALIDATED_FINAL_EVIDENCE_HEAD_GATE_PENDING
 
 ## Scope
 - Issue: #864
@@ -40,5 +40,18 @@ The pilot can merge as non-canonical reviewed candidate material. Any next step 
 - No #864 mapping-review record, source boundary, D1–D5 semantic rule, or Product registry assertion failed.
 - Because pytest failed first, Product JS, P0, and Governance steps were skipped; no pass is claimed from this run.
 
+## Corrected semantic-head validation
+
+- Run: `40817458478`.
+- Head: `345949b44c8ce49c4befa91699f46f14468cd3a6`.
+- Base / main: `b762ccf23a9155dedb6416475d70d765913d7221`.
+- Result: **SUCCESS**.
+- Pytest: **2955 passed, 132 subtests passed** in 338.01s.
+- Product JS adapter check: **PASS**.
+- Deterministic P0 repository gate: **PASS**.
+- Repository Governance v1 / Core write-set: **PASS**.
+- Main was rechecked and remained the recorded base.
+- This successful run validates the mapping-review content and regression repair. Because this evidence record itself changes the PR head, the final evidence-only head must also retain a green pull-request gate before merge.
+
 ## Final validation
-A fresh exact current-main base/head full pytest, Product JS check, deterministic P0 and Governance v1 is required after the historical-regression repair.
+Pending the automatic exact-head gate on the evidence-recording commit only; no semantic or test changes are planned.
