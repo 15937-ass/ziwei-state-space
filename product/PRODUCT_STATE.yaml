@@ -4,19 +4,21 @@ authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  status: "ACTIVE_NO_ACTIVE_WORK"
-  phase: "NATAL_DETAILED_READ_NEXT"
-  active_issue: null
+  status: "ACTIVE"
+  phase: "NATAL_DETAILED_READ_BUILD"
+  active_issue: 951
+  active_branch: "product/951-natal-detailed-read-closed-loop-v1"
+  base_main_sha: "09b6c3521d6772012847088d3209d0cabe0548c6"
   active_pr: null
   continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"
   plan_pointer_issue: 900
-  next_issue: null
+  next_issue: 951
   next_work_unit: "PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"
   continuation_next_work_unit: "PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"
-  next_work_status: "READY_TO_ADMIT"
-  resume_entry: "Product #935 / PR #940 completed P4 candidate-only K_manifest/KIB impact assessment; verdict CANDIDATE_IMPACT_ONLY_NO_PROMOTION. Active KIB v0.3 / lock remain unchanged and active K_manifest remains empty. This does not block the independent NATAL DetailedRead closure: reuse accepted #798 QuickRead capability/main-reader, #882 DetailedRead planner and #894/#895 Skill; inspect all 12 NATAL domains with RUNTIME, allowed SOURCE, MODEL_SUPPLEMENT and gaps kept separate, progressive retrieval pinned to one main snapshot, cross-domain synthesis and staged thematic output. Current domain coverage remains unequal/partial; no forced filler. Do not claim DECADE/YEAR without matching accepted temporal evidence. After NATAL closure, add DECADE then YEAR only from accepted Product-consumable Knowledge/Core checkpoints. No KIB promotion, registry mutation, runtime authorization, probability or predictive-validity claim is implied."
-  state_cache_as_of_main_commit: "ba00d96d5ad478fb4c2abb642e0e08e46c58fa7d"
-  state_cache_as_of_product_merge: "2aca351d988ba0c07d302c84329d5266aee322fd"
+  next_work_status: "ACTIVE_BUILD"
+  resume_entry: "Product #951 is ACTIVE_BUILD on product/951-natal-detailed-read-closed-loop-v1, based on accepted main 09b6c3521d6772012847088d3209d0cabe0548c6. Close the NATAL DetailedRead evidence-consumption loop by reusing #798 QuickRead/main-reader, #882 DetailedRead planner and #894/#895 Skill. Inspect all 12 NATAL domains progressively, pin every stage to one accepted main snapshot, keep RUNTIME/allowed SOURCE/MODEL_SUPPLEMENT/CASE_SUPPORT_ONLY/HOLD separate, report coverage and gaps, run cross-domain consistency checks and deliver staged thematic output. No forced filler, no DECADE/YEAR claim without accepted matching temporal evidence, and no KIB/lock/registry/runtime/probability/predictive-validity promotion."
+  state_cache_as_of_main_commit: "09b6c3521d6772012847088d3209d0cabe0548c6"
+  state_cache_as_of_product_merge: "ba00d96d5ad478fb4c2abb642e0e08e46c58fa7d"
   state_cache_snapshot_date: "2026-10-30"
   v04_entry_checkpoint_issue: 416
   v04_entry_checkpoint_pr: 418
@@ -24,15 +26,9 @@ execution:
   last_completed_product_pr: 940
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
-  resume_issue: 935
+  resume_issue: 951
   roadmap: "PRODUCT_ROADMAP.md#v0.4"
   execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
-
-# Historical regression-compatibility snapshot (NOT an active execution pointer):
-# next_work_unit: "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"
-# This was the pre-v2 blocked Product fallback; the active next_work_unit above is
-# PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1. A Product-owned regression can remove
-# this compatibility snapshot when its historical handoff test is migrated.
 
 # Continuation bootstrap history (durable audit markers; not live execution pointers):
 # next_issue: 897
