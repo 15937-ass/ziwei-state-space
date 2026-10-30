@@ -14,7 +14,7 @@ def _audit():
 
 def _git_blob_sha(path):
     data = path.read_bytes()
-    return hashlib.sha1(b"blob " + str(len(data)).encode() + b"\\0" + data).hexdigest()
+    return hashlib.sha1(b"blob " + str(len(data)).encode() + bytes([0]) + data).hexdigest()
 
 
 def test_c2_pinned_accepted_inputs_and_three_exact_ids():
