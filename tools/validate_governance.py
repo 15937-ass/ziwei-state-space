@@ -21,6 +21,7 @@ REQUIRED = [
     "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md",
     "governance/INTEGRATION_QUEUE_PROTOCOL_v1.md",
     "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md",
+    "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md",
     "governance/KNOWLEDGE_SHARDS.json",
     "PROJECT_STATE.yaml",
     "product/PRODUCT_STATE.yaml",
@@ -166,14 +167,14 @@ def validate_required() -> None:
         fail("PROJECT_STATE must point to the integration queue protocol")
     if "integration_ledger_issue: 888" not in project_state:
         fail("PROJECT_STATE must point to coordination Issue #888")
-    if 'core_product_continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md"' not in project_state:
-        fail("PROJECT_STATE must point to the Core/Product continuation plan")
+    if 'core_product_continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"' not in project_state:
+        fail("PROJECT_STATE must point to the active Core/Product continuation plan v2")
     if "product_plan_pointer_issue: 900" not in project_state:
         fail("PROJECT_STATE must point to Product plan pointer #900")
     if "core_plan_pointer_issue: 901" not in project_state:
         fail("PROJECT_STATE must point to Core plan pointer #901")
 
-    continuation = (ROOT / "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md").read_text(encoding="utf-8")
+    historical = (ROOT / "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md").read_text(encoding="utf-8")
     for marker in [
         "Issue #900",
         "Issue #901",
@@ -185,9 +186,26 @@ def validate_required() -> None:
         "GAP_PRODUCT",
         "GAP_CORE",
         "HOLD",
+        "SUPERSEDED for active continuation by [v2]",
     ]:
-        if marker not in continuation:
-            fail(f"Core/Product continuation plan missing required marker: {marker}")
+        if marker not in historical:
+            fail(f"Historical Core/Product v1 continuation plan missing marker: {marker}")
+
+    active = (ROOT / "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md").read_text(encoding="utf-8")
+    for marker in [
+        "PI-APPROVED / ACTIVE CONTINUATION PLAN",
+        "Product plan pointer: #900",
+        "Core plan pointer: #901",
+        "NATAL DetailedRead",
+        "PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1",
+        "DECADE",
+        "YEAR",
+        "one-palace-at-a-time",
+        "Integration Lease",
+        "HOLD",
+    ]:
+        if marker not in active:
+            fail(f"Active Core/Product v2 continuation plan missing marker: {marker}")
 
     integration = (ROOT / "governance/INTEGRATION_QUEUE_PROTOCOL_v1.md").read_text(encoding="utf-8")
     for marker in [

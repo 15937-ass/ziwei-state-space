@@ -5,17 +5,17 @@ canonical_branch: "main"
 
 execution:
   status: "ACTIVE_NO_ACTIVE_WORK"
-  phase: "PL3_MANIFESTATION_P4_CANDIDATE_IMPACT_COMPLETE"
+  phase: "NATAL_DETAILED_READ_NEXT"
   active_issue: null
   active_pr: null
-  continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md"
+  continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"
   plan_pointer_issue: 900
   next_issue: null
-  next_work_unit: "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"
-  continuation_next_work_unit: "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"
-  next_work_status: "BLOCKED_WAITING_FOR_ACCEPTED_KNOWLEDGE_PRODUCT_CONSUMABLE_AUTHORITY"
-  resume_entry: "Product #935 / PR #940 completes P4 candidate-only K_manifest/KIB impact assessment; verdict CANDIDATE_IMPACT_ONLY_NO_PROMOTION. Accepted P3 crosswalk contains 15 KMN/15 KMM: 3 HOLD, 4 PRESERVATION_ONLY, 8 STRUCTURED_CANDIDATE; all 15 remain executable=false, product_consumable=false, probability_status=UNKNOWN, so zero K_manifest entries are admitted. Active KIB v0.3 and lock unchanged. P02S-137/169 source dependencies remain SOURCE_REUSABLE but mapping approval/execution false; latest Core C8 remains descriptive-only. No active Product work: wait for a new accepted Knowledge artifact that explicitly grants Product-consumption authority and is compiler-ready. Next Product work is PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT; no P5 promotion without a real candidate."
-  state_cache_as_of_main_commit: "fa62cebd619646b9c53ca0dba88291a5c45c8141"
+  next_work_unit: "PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"
+  continuation_next_work_unit: "PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"
+  next_work_status: "READY_TO_ADMIT"
+  resume_entry: "Product #935 / PR #940 completed P4 candidate-only K_manifest/KIB impact assessment; verdict CANDIDATE_IMPACT_ONLY_NO_PROMOTION. Active KIB v0.3 / lock remain unchanged and active K_manifest remains empty. This does not block the independent NATAL DetailedRead closure: reuse accepted #798 QuickRead capability/main-reader, #882 DetailedRead planner and #894/#895 Skill; inspect all 12 NATAL domains with RUNTIME, allowed SOURCE, MODEL_SUPPLEMENT and gaps kept separate, progressive retrieval pinned to one main snapshot, cross-domain synthesis and staged thematic output. Current domain coverage remains unequal/partial; no forced filler. Do not claim DECADE/YEAR without matching accepted temporal evidence. After NATAL closure, add DECADE then YEAR only from accepted Product-consumable Knowledge/Core checkpoints. No KIB promotion, registry mutation, runtime authorization, probability or predictive-validity claim is implied."
+  state_cache_as_of_main_commit: "ba00d96d5ad478fb4c2abb642e0e08e46c58fa7d"
   state_cache_as_of_product_merge: "2aca351d988ba0c07d302c84329d5266aee322fd"
   state_cache_snapshot_date: "2026-10-30"
   v04_entry_checkpoint_issue: 416
@@ -27,6 +27,12 @@ execution:
   resume_issue: 935
   roadmap: "PRODUCT_ROADMAP.md#v0.4"
   execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
+
+# Historical regression-compatibility snapshot (NOT an active execution pointer):
+# next_work_unit: "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"
+# This was the pre-v2 blocked Product fallback; the active next_work_unit above is
+# PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1. A Product-owned regression can remove
+# this compatibility snapshot when its historical handoff test is migrated.
 
 # Continuation bootstrap history (durable audit markers; not live execution pointers):
 # next_issue: 897
@@ -93,7 +99,7 @@ capability_snapshot:
     internal_validation: "CONTRACT_CORPUS_AND_POLICY"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "NOT_READY"
-    note: "Product #431/#435 define expert-method contracts; #441/#444 add the source-backed Wang 24-case corpus, six SOURCE_EXPLICIT/SEMANTIC_ONLY patterns and LOCO-24; #453/#455 add deterministic same-domain CBR and fail-closed Method Policy pi v0.1. Product #512/#517 reviewed all 24 case target palaces. Product #545 evaluated 37 source-bounded lunar candidates; Product #588 / PR #611 materialized 11 pinned-engine chart snapshots with target-anchor verification only; Product #615 / PR #633 reviewed all 24 case targets against six MethodPatterns (144 assessments), with zero justified bindings. Product #643 / PR #643 established canonical + expert-method fidelity benchmark baseline v0.1: 11 target-anchor-only chart artifacts, 13 unmaterialized cases, no canonical or method score, and FULL_EXPERT_REPLAY_READY=0/24. Product #655 / PR #655 confirmed active KIB v0.3 remains locked and K_manifest is empty. Knowledge #671 / PR #685 accepted the WP07B source handoff; Product #674 / PR #693 recorded 44 candidates, 0 eligible, 17 case-support-only, 27 reusable-but-blocked, and a BLOCKED candidate promotion decision. Active KIB v0.3 and its lock remain unchanged. Knowledge #672 / PR #692 is the WP06B root decision; Knowledge #673 / PR #691 is merged as a candidate-only WP06C source index explicitly marked not Product-consumable; ontology IDs remain null and probability status is UNKNOWN, so it is not included in this KIB candidate. Career temporal eligibility is 0/9 and the closed Property audit is 0/35 eligible. Product #696 / PR #698 completes PL7-Q2 prospective cohort lifecycle management. The next Product unit is PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT, blocked until a new accepted compiler-ready source artifact or an explicit contract change. Forecast Ledger remains gated until N -> E -> tau -> M0 is executable. No source semantics, full-source-chart equivalence, or predictive validity is inferred."
+    note: "Product #431/#435 define expert-method contracts; #441/#444 add the source-backed Wang 24-case corpus, six SOURCE_EXPLICIT/SEMANTIC_ONLY patterns and LOCO-24; #453/#455 add deterministic same-domain CBR and fail-closed Method Policy pi v0.1. Product #512/#517 reviewed all 24 case target palaces. Product #545 evaluated 37 source-bounded lunar candidates; Product #588 / PR #611 materialized 11 pinned-engine chart snapshots with target-anchor verification only; Product #615 / PR #633 reviewed all 24 case targets against six MethodPatterns (144 assessments), with zero justified bindings. Product #643 / PR #643 established canonical + expert-method fidelity benchmark baseline v0.1: 11 target-anchor-only chart artifacts, 13 unmaterialized cases, no canonical or method score, and FULL_EXPERT_REPLAY_READY=0/24. Product #655 / PR #655 confirmed active KIB v0.3 remains locked and K_manifest is empty. Knowledge #671 / PR #685 accepted the WP07B source handoff; Product #674 / PR #693 recorded 44 candidates, 0 eligible, 17 case-support-only, 27 reusable-but-blocked, and a BLOCKED candidate promotion decision. Active KIB v0.3 and its lock remain unchanged. Knowledge #672 / PR #692 is the WP06B root decision; Knowledge #673 / PR #691 is merged as a candidate-only WP06C source index explicitly marked not Product-consumable; ontology IDs remain null and probability status is UNKNOWN, so it is not included in this KIB candidate. Career temporal eligibility is 0/9 and the closed Property audit is 0/35 eligible. Product #696 / PR #698 completes PL7-Q2 prospective cohort lifecycle management. The former KIB update nominee is superseded as the immediate Product critical path by NATAL DetailedRead; KIB promotion remains separately gated and unchanged. Forecast Ledger remains gated until N -> E -> tau -> M0 is executable. No source semantics, full-source-chart equivalence, or predictive validity is inferred."
 
 
   response_semantics_adapter:
@@ -186,10 +192,11 @@ capability_snapshot:
 
 critical_path:
   now:
-    - "PRODUCT_MANIFESTATION_P3_FREEZE_REAUDIT_V0_2"
-    - "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"
-    - "FORECAST_LEDGER_ACTIVATION"
+    - "PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"
   future:
+    - "PRODUCT_DECADE_LAYER_INTEGRATION_AFTER_ACCEPTED_KNOWLEDGE_CORE_CHECKPOINT"
+    - "PRODUCT_YEAR_LAYER_INTEGRATION_AFTER_DECADE_STABILITY_AND_ACCEPTED_YEAR_CHECKPOINT"
+    - "FORECAST_LEDGER_ACTIVATION_AFTER_SOURCE_ONLY_N_E_TAU_M0_SLICE"
     - "ACQUIRED_STATE_X_AND_BELIEF_B"
     - "CONTEXTUAL_MANIFESTATION_M1"
     - "PROSPECTIVE_BLIND_BENCHMARK"
