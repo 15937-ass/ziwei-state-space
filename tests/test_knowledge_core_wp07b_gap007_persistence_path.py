@@ -111,11 +111,50 @@ def test_no_runtime_or_shared_operator_was_created():
     assert audit["current_contract_assessment"]["consecutive_year_sequence_supported"] is False
 
 
-def test_core_state_points_to_active_c9_and_accepted_c8():
+def test_core_state_recovery_tracks_c9_before_and_after_acceptance():
+    # Core owns this source-audit regression. Governance #952 owns the later
+    # CORE_STATE cache repair; never require Governance to edit a Core test.
+    import re
+
     state = CORE_STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE"' in state
-    assert "active_issue: 945" in state
-    assert "active_pr: 946" in state
-    assert "last_completed_issue: 941" in state
-    assert "last_completed_pr: 942" in state
-    assert "fa62cebd619646b9c53ca0dba88291a5c45c8141" in state
+
+    def field(name):
+        match = re.search(rf"^  {name}: (.+)$", state, re.M)
+        assert match, f"missing Core recovery field: {name}"
+        return match.group(1).strip().strip('"')
+
+    status = field("status")
+    active_issue = field("active_issue")
+    active_pr = field("active_pr")
+    active_branch = field("active_branch")
+    last_issue = int(field("last_completed_issue"))
+    last_pr = int(field("last_completed_pr"))
+    assert field("plan_pointer_issue") == "901"
+
+    if status == "ACTIVE" and active_issue == "945":
+        # Frozen C9 work-branch/main state before the post-C9 repair.
+        assert active_pr == "946"
+        assert active_branch == "knowledge/core-945-wp07b-gap007-persistence-path-audit"
+        assert (last_issue, last_pr) == (941, 942)
+        assert field("continuation_plan") == "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md"
+    elif status == "IDLE":
+        assert active_issue == "null"
+        assert active_pr == "null"
+        assert active_branch == "null"
+        assert last_issue >= 945 and last_pr >= 946
+        assert field("continuation_plan") == "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"
+        if (last_issue, last_pr) == (945, 946):
+            assert field("last_accepted_main_sha") == "0d75766cc0fcf86686df196565fbd598be4b1da6"
+            assert field("last_completed_verdict") == "DESCRIPTIVE_PATH_SUBTYPES_CONFIRMED_NO_EXECUTION"
+            assert field("next_issue") == "null"
+            assert field("next_work_status") == "READY_TO_ADMIT"
+            assert field("next_work_unit") == "CORE_NATAL_DECADE_YEAR_SHARED_TEMPORAL_LAYER_RESPONSE_SEMANTICS_RESEARCH_V1"
+    elif status == "ACTIVE":
+        # A later separately admitted Core unit must not re-open C9 or
+        # downgrade the v2 recovery route.
+        assert active_issue not in {"null", "945"}
+        assert active_branch not in {"null", ""}
+        assert last_issue >= 945 and last_pr >= 946
+        assert field("continuation_plan") == "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"
+    else:
+        raise AssertionError(f"unsupported Core recovery status: {status}")
