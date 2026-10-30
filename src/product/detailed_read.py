@@ -576,6 +576,19 @@ class DetailedReadSession:
             raise MainKnowledgeUnavailable(
                 "DetailedRead loader returned evidence outside the requested atomic slot"
             )
+        if (
+            len(bundle.manifest.records) != 1
+            or bundle.manifest.records[0].slot.slot_id != slot_id
+        ):
+            raise MainKnowledgeUnavailable(
+                "DetailedRead capability manifest does not match the requested atomic slot"
+            )
+        try:
+            bundle.build_payload()
+        except (TypeError, ValueError) as exc:
+            raise MainKnowledgeUnavailable(
+                "DetailedRead bundle failed the accepted QuickRead evidence contract"
+            ) from exc
 
         resolved_sha = bundle.manifest.main_sha
         if not re.fullmatch(r"[0-9a-f]{40}", resolved_sha):
@@ -794,7 +807,8 @@ class DetailedReadSession:
             ),
             {},
         )
-        aggregate = latest.reader_report.get("aggregate_source_ledger_counts", {})
+        # Ledger exclusion counts describe the whole slot ledger, not each continuation batch.
+        aggregate = batches[0].reader_report.get("aggregate_source_ledger_counts", {})
         evidence = [
             item
             for item in self._accepted_evidence_items()
