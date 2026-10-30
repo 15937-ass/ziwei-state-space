@@ -16,7 +16,7 @@ def read():
 
 def git_blob_sha1(path):
     raw = path.read_bytes()
-    return hashlib.sha1(f"blob {len(raw)}\\0".encode() + raw).hexdigest()
+    return hashlib.sha1(f"blob {len(raw)}\0".encode() + raw).hexdigest()
 
 
 def test_candidate_inventory_and_new_dispositions_reconcile():
@@ -40,7 +40,12 @@ def test_candidate_inventory_and_new_dispositions_reconcile():
     assert sum(item["disposition"] == "HELD_TIME_SCOPE_UNRESOLVED" for item in dispositions) == 6
     assert data["summary"]["proposed_source_records"] == 95
     assert data["summary"]["proposed_case_support_only_records"] == 34
+    record_ids = sorted({rid for item in dispositions for rid in item["source_record_ids"]})
+    assert record_ids == [f"P04S-{n:03d}" for n in range(1, 96)]
     assert len({rid for item in dispositions for rid in item["source_record_ids"]}) == 95
+    split = next(item for item in dispositions if item["legacy_candidate_id"] == "CH01-022")
+    assert len(split["source_record_ids"]) == 2
+    assert split["case_support_only"]
 
 
 def test_time_scope_holds_and_explicit_decade_year_alternative_are_preserved():
@@ -54,6 +59,9 @@ def test_time_scope_holds_and_explicit_decade_year_alternative_are_preserved():
     assert by_id["CH01-080"]["time_layer"] == "YEAR"
     assert by_id["CH01-079"]["time_alternative_group"] == by_id["CH01-080"]["time_alternative_group"]
     assert by_id["CH01-063"]["legacy_time_layer"] == "NATAL"
+    assert by_id["CH01-047"]["gap_id"] == "P04-CH01-GAP-TIME-01"
+    assert by_id["CH01-060"]["gap_id"] == "P04-CH01-GAP-TIME-02"
+    assert by_id["CH01-063"]["gap_id"] == "P04-CH01-GAP-TIME-03"
 
 
 def test_source_boundary_and_cross_palace_rules_are_fail_closed():
