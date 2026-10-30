@@ -1,4 +1,7 @@
 from pathlib import Path
+import re
+
+import pytest
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -33,14 +36,102 @@ def test_core_product_continuation_plan_is_durable_and_discoverable():
     assert "core_plan_pointer_issue: 901" in project
 
 
+def _product_execution_fields(state: str) -> dict[str, str]:
+    """Read only the live execution mapping, not commented historical pointers."""
+    lines = state.splitlines()
+    assert lines.count("execution:") == 1
+    fields: dict[str, str] = {}
+    for line in lines[lines.index("execution:") + 1 :]:
+        if line and not line.startswith((" ", "\t")):
+            break
+        match = re.fullmatch(r"  ([a-z][a-z0-9_]*): (.+)", line)
+        if match:
+            key, value = match.groups()
+            assert key not in fields, f"duplicate execution field: {key}"
+            fields[key] = value
+    return fields
+
+
+def _assert_product_v2_lifecycle(fields: dict[str, str]) -> None:
+    assert fields.get("continuation_plan") == '"governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"'
+    assert fields.get("plan_pointer_issue") == "900"
+    assert fields.get("next_work_unit") == '"PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"'
+    assert fields.get("continuation_next_work_unit") == '"PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"'
+
+    lifecycle = (
+        fields.get("status"),
+        fields.get("phase"),
+        fields.get("next_work_status"),
+    )
+    if lifecycle == ('"ACTIVE_NO_ACTIVE_WORK"', '"NATAL_DETAILED_READ_NEXT"', '"READY_TO_ADMIT"'):
+        assert fields.get("active_issue") == "null"
+        assert fields.get("active_pr") == "null"
+        assert fields.get("active_branch") in (None, "null")
+        assert fields.get("next_issue") == "null"
+    elif lifecycle == ('"ACTIVE"', '"NATAL_DETAILED_READ_BUILD"', '"ACTIVE_BUILD"'):
+        assert fields.get("active_issue") == "951"
+        assert fields.get("active_pr") == "951"
+        assert fields.get("active_branch") == '"product/951-natal-detailed-read-closed-loop-v1"'
+        assert fields.get("next_issue") == "951"
+    else:
+        raise AssertionError(f"incoherent Product v2 lifecycle: {lifecycle!r}")
+
+
 def test_product_state_points_to_first_bounded_nominee():
     state = (ROOT / "product/PRODUCT_STATE.yaml").read_text(encoding="utf-8")
-    assert 'continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"' in state
-    assert "plan_pointer_issue: 900" in state
-    assert 'next_work_unit: "PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"' in state
-    assert 'continuation_next_work_unit: "PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"' in state
-    assert "NATAL_DETAILED_READ_NEXT" in state
-    assert 'next_work_status: "READY_TO_ADMIT"' in state
+    _assert_product_v2_lifecycle(_product_execution_fields(state))
+
+    # Neither legitimate lifecycle permits a KIB-first detour or silent
+    # promotion of the active lock, runtime semantics or Product evidence.
+    assert "PRODUCT_KNOWLEDGE_LOCK_V0_3 / KIB-PRODUCT-20261021-V0_3" in state
+    assert "PRODUCTION_DYNAMIC_CONTENT_EMPTY" in state
+    assert "PRODUCTION_ONTOLOGY_MAPPING_AND_UPSTREAM_DYNAMIC_CONTENT_EMPTY" in state
+    assert "knowledge_main_is_implicit_active_product_dependency: false" in state
+    assert "knowledge_update_requires_impact_before_product_promotion: true" in state
+    assert "llm_owns_probability: false" in state
+
+
+def test_product_v2_lifecycle_fixtures_accept_only_coherent_states():
+    ready = {
+        "status": '"ACTIVE_NO_ACTIVE_WORK"',
+        "phase": '"NATAL_DETAILED_READ_NEXT"',
+        "next_work_status": '"READY_TO_ADMIT"',
+        "continuation_plan": '"governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"',
+        "plan_pointer_issue": "900",
+        "next_work_unit": '"PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"',
+        "continuation_next_work_unit": '"PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"',
+        "active_issue": "null",
+        "active_pr": "null",
+        "next_issue": "null",
+    }
+    active = {
+        **ready,
+        "status": '"ACTIVE"',
+        "phase": '"NATAL_DETAILED_READ_BUILD"',
+        "next_work_status": '"ACTIVE_BUILD"',
+        "active_issue": "951",
+        "active_pr": "951",
+        "active_branch": '"product/951-natal-detailed-read-closed-loop-v1"',
+        "next_issue": "951",
+    }
+    _assert_product_v2_lifecycle(ready)
+    _assert_product_v2_lifecycle(active)
+
+    invalid = [
+        {**ready, "next_work_status": '"ACTIVE_BUILD"'},
+        {**ready, "active_issue": "951"},
+        {**ready, "active_branch": '"product/951-natal-detailed-read-closed-loop-v1"'},
+        {**active, "phase": '"NATAL_DETAILED_READ_NEXT"'},
+        {**active, "active_pr": "null"},
+        {**active, "active_branch": '"product/other-branch"'},
+        {**active, "next_issue": "null"},
+        {**active, "status": '"READY_TO_INTEGRATE"'},
+        {**active, "next_work_unit": '"PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"'},
+        {**active, "continuation_plan": '"governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md"'},
+    ]
+    for fields in invalid:
+        with pytest.raises(AssertionError):
+            _assert_product_v2_lifecycle(fields)
 
 
 def test_core_state_recovery_cache_preserves_live_bounded_unit_contract():
