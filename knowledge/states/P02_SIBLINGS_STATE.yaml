@@ -12,8 +12,8 @@ execution:
   active_issue: null
   active_branch: null
   active_pr: null
-  canonical_checkpoint: "W13_CENSUS_EVIDENCE_ERRATUM_ACCEPTED_SUBJECT_TO_MERGE__RESUME_928_INDEPENDENT_REVIEW"
-  note: "Issue #934: evidence erratum effective only upon exact-head acceptance/merge. Old nineteen source/census inputs remain byte-preserved; v0.2 corrects only W13 quoted tail and physical14 pointer/hash. P02S-167 and424/284(180 reusable/104CASE)/140held/49gap unchanged. Resume paused independent review #928; source stage remains open, no P04/mapping/runtime/empirical authorization."
+  canonical_checkpoint: "P02_SOURCE_AUDIT_STAGE_CLOSED_WITH_RETAINED_HOLDS__ISSUE_928"
+  note: "Proposed #928 stage handoff, effective only after exact-head PR #929 acceptance/merge. Independent source review confirms pp25–32 coverage and #934 W13 v0.2 correction. Source stage closes with 424 reviewed, 284 accepted (180 reusable + 104 CASE), 140 held, 49 gaps, 151 anchors and 155 page slices. P02S-261 and P02S-414/416/417 remain fail-closed; 45 legacy nonnull-normalized held rows remain blocked. This is bounded source-stage completion only; no semantics, mapping, Product/runtime or empirical authorization. P04 requires a separate issue and fresh admission."
 
 integrity:
   source_first: true
@@ -22,8 +22,9 @@ integrity:
   empirical_feedback_may_rewrite_source_truth: false
 
 progress:
-  accepted_issue: 934
+  accepted_issue: 928
   accepted_census_erratum_issue: 934
+  accepted_stage_handoff_issue: 928
   effective_census_manifest: "knowledge/palaces/P02_siblings/census/issue_934/P02_CHAPTER_CENSUS_MANIFEST_v0.2.json"
   accepted_source_issue: 899
   accepted_census_issue: 921
@@ -38,13 +39,39 @@ progress:
   history_feedback: 0
   conditions_compiled: 0
   execution_unlocked: 0
-  next_source_anchor: 'after #934 accepted: resume #928 independent handoff on corrected v0.2 census; no P04 activation'
+  next_source_anchor: 'P02 source-audit stage closed with 140 held / 49 gaps; P04 requires a separate issue and fresh dependency/slot admission; #928 does not auto-activate P04'
 human_gate:
   pending: null
 coverage_census:
-  source_reviewed_section: 'upon #934 merge: W13 evidence tail corrected in v0.2; independent stage handoff #928 still incomplete'
+  source_reviewed_section: '印刷pp25–32／物理13–16；#934 v0.2 W13跨页证据已独立复核，四处跨页与p24／p33负边界复核通过'
   source_inventory_complete: true
   source_census_complete: true
-  whole_chapter_complete: false
+  held_gap_accounting_complete: true
+  whole_chapter_complete: true
+  residual_registration_complete: true
+  independent_stage_review_complete: true
+  independent_stage_handoff_review_complete: true
   residual_disposition_complete: true
-  independent_stage_handoff_review_complete: false
+  completion_scope: "BOUNDED_SOURCE_STAGE_ONLY_NOT_SEMANTIC_OR_EMPIRICAL_COMPLETION"
+  independent_review_artifact: "validation/knowledge/palaces/P02_siblings/issue_928/INDEPENDENT_STAGE_CLOSURE_REVIEW_v0.2.md"
+  independent_verdict_artifact: "knowledge/palaces/P02_siblings/handoff/issue_928/INDEPENDENT_STAGE_CLOSURE_VERDICT_v0.2.json"
+  all_semantics_resolved: false
+
+stage_handoff:
+  source_audit_status: "SOURCE_AUDIT_STAGE_CLOSED_WITH_RETAINED_HOLDS"
+  decision_issue: 928
+  independent_reviewer: "p02_independent_review"
+  retained_held_records: 140
+  retained_gap_groups: 49
+  legacy_nonnull_normalized_held: 45
+  core_primary_held_records:
+    - "P02S-261"
+    - "P02S-414"
+    - "P02S-416"
+    - "P02S-417"
+  conditions_compiled: 0
+  execution_unlocked: 0
+  history_feedback: 0
+  next_palace: "P04"
+  next_palace_admission: "REQUIRES_SEPARATE_ISSUE_AND_FRESH_DEPENDENCY_SLOT_CENSUS"
+  p04_auto_activation_authorized: false
