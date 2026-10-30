@@ -69,7 +69,14 @@ def test_ambiguous_yunxian_nianxian_wording_is_preserved_not_normalized():
 def test_child_count_and_concrete_family_claims_remain_case_only():
     audit = _audit()
     by_id = {item["legacy_candidate_id"]: item for item in audit["candidate_adjudications"]}
-    expected = "\"CH03-202\", \"CH03-203\", \"CH03-204\", \"CH03-205\", \"CH03-206\", \"CH03-207\", \"CH03-208\", \"CH03-215\", \"CH03-216\", \"CH03-218\", \"CH03-219\", \"CH03-220\", \"CH03-221\", \"CH03-224\", \"CH03-230\", \"CH03-231\", \"CH03-232\", \"CH03-233\", \"CH03-234\", \"CH03-235\", \"CH03-246\", \"CH03-256\", \"CH03-259\", \"CH03-260\", \"CH03-272\", \"CH03-273\", \"CH03-287\", \"CH03-288\", \"CH03-296\", \"CH03-297\""
+    expected = [
+        "CH03-202", "CH03-203", "CH03-204", "CH03-205", "CH03-206",
+        "CH03-207", "CH03-208", "CH03-215", "CH03-216", "CH03-218",
+        "CH03-219", "CH03-220", "CH03-221", "CH03-224", "CH03-230",
+        "CH03-231", "CH03-232", "CH03-233", "CH03-234", "CH03-235",
+        "CH03-246", "CH03-256", "CH03-259", "CH03-260", "CH03-272",
+        "CH03-273", "CH03-287", "CH03-288", "CH03-296", "CH03-297",
+    ]
     assert all(by_id[item]["disposition"] == "CASE_SUPPORT_ONLY" for item in expected)
     assert all(by_id[item]["case_support_only"] is True for item in expected)
     assert by_id["CH03-204"]["disposition"] == "CASE_SUPPORT_ONLY"
@@ -78,7 +85,7 @@ def test_child_count_and_concrete_family_claims_remain_case_only():
 def test_duplicate_candidate_213_is_not_promoted_twice():
     audit = _audit()
     item = next(x for x in audit["candidate_adjudications"] if x["legacy_candidate_id"] == "CH03-213")
-    assert item["disposition"] == "DUPLICATE_PRIOR_SOURCE_SCOPE"
+    assert item["disposition"] == "DUPLICATE_ALIAS_CONFIRMED_FAIL_CLOSED"
     assert item["source_record_ids"] == []
     assert item["duplicate_of_source_record_ids"] == ["P04S-126", "P04S-127", "P04S-128"]
 
