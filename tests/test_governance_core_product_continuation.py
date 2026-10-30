@@ -53,26 +53,42 @@ def _product_execution_fields(state: str) -> dict[str, str]:
 
 
 def _assert_product_v2_lifecycle(fields: dict[str, str]) -> None:
+    """Accept only coherent, explicitly admitted NATAL stages; not arbitrary WIP."""
     assert fields.get("continuation_plan") == '"governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"'
     assert fields.get("plan_pointer_issue") == "900"
-    assert fields.get("next_work_unit") == '"PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"'
-    assert fields.get("continuation_next_work_unit") == '"PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"'
 
-    lifecycle = (
-        fields.get("status"),
-        fields.get("phase"),
-        fields.get("next_work_status"),
-    )
-    if lifecycle == ('"ACTIVE_NO_ACTIVE_WORK"', '"NATAL_DETAILED_READ_NEXT"', '"READY_TO_ADMIT"'):
+    stages = {
+        '"PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"': {
+            "phase_active": '"NATAL_DETAILED_READ_BUILD"',
+            "phase_ready": '"NATAL_DETAILED_READ_NEXT"',
+            "issue": "951",
+            "branch": '"product/951-natal-detailed-read-closed-loop-v1"',
+        },
+        '"PRODUCT_NATAL_ACTUAL_USE_VALIDATION_V1"': {
+            "phase_active": '"NATAL_ACTUAL_USE_VALIDATION"',
+            "phase_ready": '"NATAL_ACTUAL_USE_NEXT"',
+            "issue": "966",
+            "branch": '"product/966-natal-actual-use-validation-v1"',
+        },
+    }
+    unit = fields.get("next_work_unit")
+    assert unit in stages, "only the approved NATAL sequence is admissible"
+    assert fields.get("continuation_next_work_unit") == unit
+    stage = stages[unit]
+
+    lifecycle = (fields.get("status"), fields.get("next_work_status"))
+    if lifecycle == ('"ACTIVE_NO_ACTIVE_WORK"', '"READY_TO_ADMIT"'):
+        assert fields.get("phase") == stage["phase_ready"]
         assert fields.get("active_issue") == "null"
         assert fields.get("active_pr") == "null"
         assert fields.get("active_branch") in (None, "null")
         assert fields.get("next_issue") == "null"
-    elif lifecycle == ('"ACTIVE"', '"NATAL_DETAILED_READ_BUILD"', '"ACTIVE_BUILD"'):
-        assert fields.get("active_issue") == "951"
-        assert fields.get("active_pr") == "951"
-        assert fields.get("active_branch") == '"product/951-natal-detailed-read-closed-loop-v1"'
-        assert fields.get("next_issue") == "951"
+    elif lifecycle == ('"ACTIVE"', '"ACTIVE_BUILD"'):
+        assert fields.get("phase") == stage["phase_active"]
+        assert fields.get("active_issue") == stage["issue"]
+        assert fields.get("active_pr") == stage["issue"]
+        assert fields.get("active_branch") == stage["branch"]
+        assert fields.get("next_issue") == stage["issue"]
     else:
         raise AssertionError(f"incoherent Product v2 lifecycle: {lifecycle!r}")
 
@@ -114,8 +130,24 @@ def test_product_v2_lifecycle_fixtures_accept_only_coherent_states():
         "active_branch": '"product/951-natal-detailed-read-closed-loop-v1"',
         "next_issue": "951",
     }
-    _assert_product_v2_lifecycle(ready)
-    _assert_product_v2_lifecycle(active)
+    actual_ready = {
+        **ready,
+        "phase": '"NATAL_ACTUAL_USE_NEXT"',
+        "next_work_unit": '"PRODUCT_NATAL_ACTUAL_USE_VALIDATION_V1"',
+        "continuation_next_work_unit": '"PRODUCT_NATAL_ACTUAL_USE_VALIDATION_V1"',
+    }
+    actual_active = {
+        **actual_ready,
+        "status": '"ACTIVE"',
+        "phase": '"NATAL_ACTUAL_USE_VALIDATION"',
+        "next_work_status": '"ACTIVE_BUILD"',
+        "active_issue": "966",
+        "active_pr": "966",
+        "active_branch": '"product/966-natal-actual-use-validation-v1"',
+        "next_issue": "966",
+    }
+    for valid in (ready, active, actual_ready, actual_active):
+        _assert_product_v2_lifecycle(valid)
 
     invalid = [
         {**ready, "next_work_status": '"ACTIVE_BUILD"'},
@@ -128,6 +160,14 @@ def test_product_v2_lifecycle_fixtures_accept_only_coherent_states():
         {**active, "status": '"READY_TO_INTEGRATE"'},
         {**active, "next_work_unit": '"PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"'},
         {**active, "continuation_plan": '"governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md"'},
+        {**actual_active, "phase": '"NATAL_DETAILED_READ_BUILD"'},
+        {**actual_active, "active_issue": "951"},
+        {**actual_active, "active_pr": "951"},
+        {**actual_active, "active_branch": '"product/951-natal-detailed-read-closed-loop-v1"'},
+        {**actual_active, "next_issue": "951"},
+        {**actual_active, "continuation_next_work_unit": '"PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"'},
+        {**actual_active, "next_work_unit": '"PRODUCT_DECADE_DETAILED_READ_V1"'},
+        {**actual_ready, "phase": '"NATAL_DETAILED_READ_NEXT"'},
     ]
     for fields in invalid:
         with pytest.raises(AssertionError):
