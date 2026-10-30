@@ -48,6 +48,7 @@ def test_product_state_tracks_ready_or_active_natal_work_without_kib_promotion()
         assert active_issue.group(1) == "951"
         assert active_branch and active_branch.group(1).startswith("product/")
         assert next_issue.group(1) == active_issue.group(1)
+        assert active_pr.group(1) == "null" or active_pr.group(1).isdigit()
 
 
 def test_startup_guides_use_v2_and_describe_natal_decade_year_order() -> None:
