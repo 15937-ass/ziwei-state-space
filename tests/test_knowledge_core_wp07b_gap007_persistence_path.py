@@ -92,6 +92,10 @@ def test_handoff_v2_cross_gap_links_and_gate_scope_are_explicit():
     assert gaps["WP07B-GAP-007-PERSISTENCE-AND-PATH"]["member_subtypes"]["CA09-851"] == "MULTI_YEAR_CONSECUTIVE_ANNUAL_WINDOW"
     assert gaps["WP07B-GAP-007-PERSISTENCE-AND-PATH"]["member_subtypes"]["TP03-248"] == "SAME_YEAR_ANTECEDENT_BRANCH_WITH_EVENT_CONSEQUENCE"
     assert gaps["WP07B-GAP-007-PERSISTENCE-AND-PATH"]["human_gate_applicability"]["applies_to"] == ["CA09-851"]
+    ca09 = next(row for row in v2["candidate_dispositions"] if row["rule_id"] == "CA09-851")
+    assert set(ca09["gap_ids"]) == {"WP07B-GAP-001-ANTECEDENT-CHAIN", "WP07B-GAP-006-GROUP-OR-FAVORABILITY", "WP07B-GAP-007-PERSISTENCE-AND-PATH"}
+    assert v2["blocker_code_counts"]["FAVORABLE_PERIOD_UNDEFINED"] == 2
+    assert v2["blocker_code_counts"]["PRECEDING_CONTEXT_REFERENCE"] == 3
 
 
 def test_no_runtime_or_shared_operator_was_created():
@@ -104,7 +108,7 @@ def test_no_runtime_or_shared_operator_was_created():
     assert b["duration_threshold_added"] is False
     assert b["probability_added"] is False
     assert b["human_gate_required_now"] is False
-    assert audit["current_contract_assessment"]["sequence_supported"] if "sequence_supported" in audit["current_contract_assessment"] else audit["current_contract_assessment"]["consecutive_year_sequence_supported"] is False
+    assert audit["current_contract_assessment"]["consecutive_year_sequence_supported"] is False
 
 
 def test_core_state_points_to_active_c9_and_accepted_c8():
