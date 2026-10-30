@@ -2,7 +2,7 @@
 
 Status: **PI-APPROVED / ACTIVE CONTINUATION PLAN v2.2**  
 PI decision: 2026-10-30 — NATAL DetailedRead -> DECADE -> YEAR; closed-loop coordination addendum approved 2026-10-30  
-Tracking Governance Issue: #949  
+Tracking Governance Issue: #949 (v2 baseline); v2.2 addendum: #963  
 Product plan pointer: #900  
 Core plan pointer: #901  
 Integration ledger: #888  
