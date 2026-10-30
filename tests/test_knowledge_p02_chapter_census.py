@@ -79,12 +79,16 @@ def test_core_holds_and_legacy_nonnull_text_never_unlock_from_a_census():
  legacy=[r for r in held_rows() if r['raw_unresolved_fields_nonnull']]
  assert len(legacy)==m['deterministic_accounting']['raw_legacy_held_with_nonnull_normalized_fields']==45
  assert all(not r['effective_normalization_authorized'] for r in legacy)
-def test_review_checkpoint_limits_and_independent_handoff_remain_required():
+def test_review_checkpoint_limits_and_manifest_snapshot_remain_immutable_after_independent_handoff():
  m=manifest();assert all(c['review_object_count']<=100 and c['reasoning_batch_count']<=50 for c in checkpoints())
  assert m['review_limits']['manifest_persistent_review_objects']==92<=100
  assert m['review_limits']['manifest_gap_reasoning_batch']==49<=50 and m['review_limits']['manifest_provenance_structure_reasoning_batch']==43<=50
  assert m['source_coverage_census_complete'] and m['held_gap_accounting_complete']
+ # The accepted v0.1 census is an immutable snapshot from before independent closure.
  assert not m['independent_stage_handoff_review_complete'] and not m['whole_chapter_complete']
  assert not any(m['execution_boundary'].values()) and '不得' in m['next_work']
  state=(ROOT/'knowledge/states/P02_SIBLINGS_STATE.yaml').read_text()
- assert 'whole_chapter_complete: false' in state and 'independent_stage_handoff_review_complete: false' in state
+ # The later P02 state records the separately approved bounded source-stage closure.
+ assert 'whole_chapter_complete: true' in state and 'independent_stage_handoff_review_complete: true' in state
+ assert 'all_semantics_resolved: false' in state
+ assert 'completion_scope: "BOUNDED_SOURCE_STAGE_ONLY_NOT_SEMANTIC_OR_EMPIRICAL_COMPLETION"' in state

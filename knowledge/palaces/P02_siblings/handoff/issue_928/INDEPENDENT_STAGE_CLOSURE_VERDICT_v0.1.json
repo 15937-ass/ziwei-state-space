@@ -1,0 +1,139 @@
+{
+  "schema_version": "0.1",
+  "issue": 928,
+  "status": "SOURCE_AUDIT_STAGE_CLOSED_WITH_RETAINED_HOLDS",
+  "verdict": "SOURCE_AUDIT_STAGE_CLOSED_WITH_RETAINED_HOLDS",
+  "approved": true,
+  "scope": "P02_SOURCE_AUDIT_STAGE_ONLY",
+  "reviewer_identity": "independent_follow_up_review_session",
+  "reviewer_role": "NON_PRODUCER_FOLLOW_UP_REVIEWER",
+  "participated_in_issue_921_production": false,
+  "participated_in_issue_934_production": false,
+  "review_date": "2026-10-30",
+  "accepted_main_at_review": "2aca351d988ba0c07d302c84329d5266aee322fd",
+  "accepted_census_merge": "870c8df7097e94460b79d9ea6bea2fbd29881ade",
+  "accepted_erratum_merge": "90aeec83f3d95f667b21b63f22542f2be857a671",
+  "source_pdf": {
+    "source_id": "SRC-ZZ-003",
+    "sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+    "hash_recomputed": true,
+    "directly_inspected_physical_pages": [
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "printed_pages_in_scope": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ],
+    "negative_boundaries": [
+      24,
+      33
+    ],
+    "four_cross_page_joins_rechecked": true
+  },
+  "corrected_census": {
+    "manifest_path": "knowledge/palaces/P02_siblings/census/issue_934/P02_CHAPTER_CENSUS_MANIFEST_v0.2.json",
+    "physical14_path": "knowledge/palaces/P02_siblings/census/issue_934/P02_SOURCE_COVERAGE_PHYSICAL_14_v0.2.json",
+    "erratum_path": "knowledge/palaces/P02_siblings/census/issue_934/W13_CENSUS_EVIDENCE_ERRATUM_v0.1.json",
+    "W13_left_tail": "为武曲、破",
+    "W13_right_head": "军、七杀躔兄弟宫之年",
+    "original_v01_preserved": true,
+    "P02S_167_condition_unchanged": true,
+    "P02S_167_time_layer": "YEAR",
+    "P02S_167_gap_id": "P02-SB04-GAP-C01"
+  },
+  "counts": {
+    "source_records": 424,
+    "accepted_including_case": 284,
+    "accepted_reusable_source_method": 180,
+    "accepted_case_only": 104,
+    "held": 140,
+    "gap_groups": 49,
+    "unique_paragraph_anchors": 151,
+    "unique_page_paragraph_slices": 155,
+    "star_sections": 14,
+    "cross_page_paragraphs": 4,
+    "source_ledgers": 11
+  },
+  "mechanical_reconciliation": {
+    "source_ids_contiguous_unique": true,
+    "held_gap_affected_ids_exact_bidirectional_match": true,
+    "held_index_parts": [
+      45,
+      48,
+      47
+    ],
+    "held_index_unique": true,
+    "held_index_condition_claim_notes_match": true,
+    "legacy_held_nonnull_normalized_count": 45,
+    "legacy_held_nonnull_normalized_remain_blocked": true,
+    "unique_paragraph_owners": true,
+    "all_source_execution_mapping_history_flags_false": true,
+    "mechanical_scan_is_not_424_row_semantic_rereview": true
+  },
+  "retained_core_gaps": [
+    {
+      "gap_id": "P02-SB06-GAP-G01",
+      "affected_record_ids": [
+        "P02S-261"
+      ],
+      "status": "RETAINED_FAIL_CLOSED",
+      "unresolved": "忌星主体及冲起意义",
+      "time_layer": "YEAR",
+      "mapping_or_execution_authorized": false
+    },
+    {
+      "gap_id": "P02-SB11-GAP-C04",
+      "affected_record_ids": [
+        "P02S-414",
+        "P02S-416",
+        "P02S-417"
+      ],
+      "status": "RETAINED_FAIL_CLOSED",
+      "core_930_source_audit": "accepted descriptive evidence for exact surface 火铃同度 only",
+      "core_938_pr939_at_review": "OPEN_UNMERGED_NOT_CONSUMED",
+      "P02_owned_migration": "NOT_PERFORMED",
+      "mapping_or_execution_authorized": false
+    }
+  ],
+  "retained_holds": {
+    "held_count": 140,
+    "gap_count": 49,
+    "nonnull_normalized_legacy_held": 45,
+    "held_delta": 0,
+    "resolved_gaps": 0
+  },
+  "stage_closure_authorized": true,
+  "source_inventory_complete": true,
+  "source_census_complete": true,
+  "held_gap_accounting_complete": true,
+  "independent_stage_handoff_review_complete": true,
+  "whole_chapter_complete": true,
+  "completion_scope": "BOUNDED_SOURCE_STAGE_ONLY_NOT_SEMANTIC_OR_EMPIRICAL_COMPLETION",
+  "all_semantics_resolved": false,
+  "history_feedback": 0,
+  "conditions_compiled": 0,
+  "execution_unlocked": 0,
+  "formal_mapping_authorized": false,
+  "runtime_authorized": false,
+  "empirical_validity_claim": false,
+  "new_source_records": 0,
+  "accepted_record_delta": 0,
+  "next_action": "After PR #929 is accepted and P02 is released, separately admit P04 after fresh dependency and slot checks; do not start P04 from this issue.",
+  "census_manifest_snapshot_immutable": true,
+  "census_manifest_snapshot_flags_remain_false": {
+    "whole_chapter_complete": false,
+    "independent_stage_handoff_review_complete": false,
+    "reason": "v0.2 is the frozen evidence snapshot; this later verdict and P02 state record the independent stage-closure decision without mutating census evidence."
+  }
+}
