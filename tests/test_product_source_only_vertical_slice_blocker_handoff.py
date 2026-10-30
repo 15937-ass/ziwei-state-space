@@ -198,9 +198,9 @@ def test_product_recovery_state_cache_tracks_main_freshness_and_product_checkpoi
 
     main_sha = re.search(r'^  state_cache_as_of_main_commit: "([0-9a-f]{40})"$', state, re.M)
     product_sha = re.search(r'^  state_cache_as_of_product_merge: "([0-9a-f]{40})"$', state, re.M)
-    snapshot_date = re.search(r'^  state_cache_snapshot_date: "(\\d{4}-\\d{2}-\\d{2})"$', state, re.M)
-    last_issue = re.search(r"^  last_completed_product_issue:\\s*(\\d+)$", state, re.M)
-    last_pr = re.search(r"^  last_completed_product_pr:\\s*(\\d+)$", state, re.M)
+    snapshot_date = re.search(r'^  state_cache_snapshot_date: "(\d{4}-\d{2}-\d{2})"$', state, re.M)
+    last_issue = re.search(r"^  last_completed_product_issue:\s*(\d+)$", state, re.M)
+    last_pr = re.search(r"^  last_completed_product_pr:\s*(\d+)$", state, re.M)
 
     def execution_field(key, optional=False):
         match = re.search(rf"^  {re.escape(key)}: (.+)$", state, re.M)
