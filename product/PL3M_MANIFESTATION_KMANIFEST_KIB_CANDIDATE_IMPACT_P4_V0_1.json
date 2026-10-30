@@ -1,0 +1,512 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "PRODUCT-MANIFESTATION-KMANIFEST-KIB-CANDIDATE-IMPACT-P4-V0_1",
+  "work_unit": "PRODUCT_MANIFESTATION_KMANIFEST_KIB_CANDIDATE_IMPACT_P4",
+  "issue": 935,
+  "status": "CANDIDATE_IMPACT_ONLY_NO_PROMOTION",
+  "lane": "PRODUCT_ONLY",
+  "assessed_at_main_commit": "2aca351d988ba0c07d302c84329d5266aee322fd",
+  "accepted_p3_freeze": {
+    "path": "product/PL3M_MANIFESTATION_P3_FORMAL_CROSSWALK_FREEZE_V0_1.json",
+    "git_blob_sha": "32164d277d940c89f591e213c6e137a4d3a106f0",
+    "status": "P3_FORMAL_CROSSWALK_FROZEN",
+    "accepted_kmn_count": 15,
+    "accepted_kmm_count": 15,
+    "open_product_gap_count": 0,
+    "future_mapping_policy": "REQUIRES_INCREMENTAL_CROSSWALK_AUDIT_BEFORE_ADMISSION"
+  },
+  "knowledge_authority_snapshot": {
+    "mapping_index_path": "knowledge/core/wp06c/CANONICAL_MANIFESTATION_MAPPING_INDEX_v0.1.json",
+    "mapping_index_blob_sha": "7cf1cd956d193734a3107c17e89b660e4f20de7e",
+    "node_index_path": "knowledge/core/wp06b/CANONICAL_MANIFESTATION_NODE_INDEX_v0.1.json",
+    "node_index_blob_sha": "b53888594bbb9fb1a475a594feec83fbc15c433e",
+    "mapping_count": 15,
+    "node_count": 15,
+    "executable_true_count": 0,
+    "product_consumable_true_count": 0,
+    "probability_status_values": [
+      "UNKNOWN"
+    ],
+    "node_executable_true_count": 0,
+    "node_product_consumable_true_count": 0,
+    "authority_owner": "KNOWLEDGE_CORE",
+    "product_may_override_flags": false
+  },
+  "active_kib_snapshot": {
+    "lock_path": "product/PRODUCT_KNOWLEDGE.lock.json",
+    "lock_blob_sha": "39985e1be3d974b414e683925f4a135c0dc69e91",
+    "lock_id": "PRODUCT_KNOWLEDGE_LOCK_V0_3",
+    "active_bundle_id": "KIB-PRODUCT-20261021-V0_3",
+    "active_bundle_path": "product/PRODUCT_KNOWLEDGE_BUNDLE_V0_3.json",
+    "active_bundle_blob_sha": "a9291c26b4116c59518dcad173b59dc19d377865",
+    "source_commit": "eaa33deeb77a4f982bc13121c06cad657975177b",
+    "auto_refresh": false,
+    "k_manifest_component": {
+      "coverage_status": "EMPTY_NOT_READY",
+      "artifact_count": 0,
+      "component_semantic_digest": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  },
+  "candidate_kib_snapshot": {
+    "path": "product/PRODUCT_KIB_CANDIDATE_P3_MANIFESTATION_IMPACT_V0_1.json",
+    "git_blob_sha": "30e275bde1846db04b56fa20c2444392e270a7e3",
+    "bundle_id": "KIB-CANDIDATE-P3-MANIFESTATION-IMPACT-20261030-V0_1",
+    "candidate_from_bundle_id": "KIB-PRODUCT-20261021-V0_3",
+    "source_commit": "2aca351d988ba0c07d302c84329d5266aee322fd",
+    "status": "CANDIDATE",
+    "auto_refresh": false,
+    "total_locked_artifact_count": 61,
+    "k_manifest_component": {
+      "coverage_status": "EMPTY_NOT_READY",
+      "artifact_count": 0,
+      "component_semantic_digest": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "scope": "NO_OP_SOURCE_SNAPSHOT_ONLY_NO_NEW_K_MANIFEST_ARTIFACTS"
+  },
+  "mapping_assessments": [
+    {
+      "mapping_id": "KMM-000001",
+      "manifestation_id": "KMN-000001",
+      "primary_source_rule_id": "CA01-035",
+      "execution_readiness": "BLOCKED_SEMANTIC",
+      "frozen_representation": "EXPLICIT_HOLD",
+      "frozen_contract": "adapter_v0_2",
+      "p4_classification": "HOLD",
+      "representability": "EXPLICIT_HOLD_FAIL_CLOSED",
+      "knowledge_authority": {
+        "executable": false,
+        "product_consumable": false,
+        "probability_status": "UNKNOWN"
+      },
+      "candidate_k_manifest_entry_materialized": false,
+      "admission": "BLOCKED_KNOWLEDGE_PRODUCT_CONSUMABLE_FALSE",
+      "reason": "unresolved 火铃 quantifier remains canonical HOLD"
+    },
+    {
+      "mapping_id": "KMM-000002",
+      "manifestation_id": "KMN-000002",
+      "primary_source_rule_id": "CA01-045",
+      "execution_readiness": "BLOCKED_EXTERNAL_PREREQUISITE",
+      "frozen_representation": "LOSSLESS_NONEXECUTABLE",
+      "frozen_contract": "adapter_v0_2_external_action_prerequisite",
+      "p4_classification": "PRESERVATION_ONLY",
+      "representability": "LOSSLESS_PRESERVATION_SUPPORTED",
+      "knowledge_authority": {
+        "executable": false,
+        "product_consumable": false,
+        "probability_status": "UNKNOWN"
+      },
+      "candidate_k_manifest_entry_materialized": false,
+      "admission": "BLOCKED_KNOWLEDGE_PRODUCT_CONSUMABLE_FALSE",
+      "reason": "source-explicit action prerequisite binds external-only with source status retained"
+    },
+    {
+      "mapping_id": "KMM-000003",
+      "manifestation_id": "KMN-000003",
+      "primary_source_rule_id": "CA05-469",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "frozen_representation": "LOSSLESS_NONEXECUTABLE",
+      "frozen_contract": "adapter_v0_2_preservation",
+      "p4_classification": "PRESERVATION_ONLY",
+      "representability": "LOSSLESS_PRESERVATION_SUPPORTED",
+      "knowledge_authority": {
+        "executable": false,
+        "product_consumable": false,
+        "probability_status": "UNKNOWN"
+      },
+      "candidate_k_manifest_entry_materialized": false,
+      "admission": "BLOCKED_KNOWLEDGE_PRODUCT_CONSUMABLE_FALSE",
+      "reason": "scene/context, epistemics and negative boundaries retained"
+    },
+    {
+      "mapping_id": "KMM-000004",
+      "manifestation_id": "KMN-000004",
+      "primary_source_rule_id": "P05-SG-002",
+      "execution_readiness": "BLOCKED_SEMANTIC",
+      "frozen_representation": "EXPLICIT_HOLD",
+      "frozen_contract": "adapter_v0_2",
+      "p4_classification": "HOLD",
+      "representability": "EXPLICIT_HOLD_FAIL_CLOSED",
+      "knowledge_authority": {
+        "executable": false,
+        "product_consumable": false,
+        "probability_status": "UNKNOWN"
+      },
+      "candidate_k_manifest_entry_materialized": false,
+      "admission": "BLOCKED_KNOWLEDGE_PRODUCT_CONSUMABLE_FALSE",
+      "reason": "unresolved 煞曜空劫 quantifier remains canonical HOLD"
+    },
+    {
+      "mapping_id": "KMM-000005",
+      "manifestation_id": "KMN-000005",
+      "primary_source_rule_id": "P05-SG-003",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "frozen_representation": "LOSSLESS_PRESERVATION_ONLY",
+      "frozen_contract": "adapter_v0_2_preservation",
+      "p4_classification": "PRESERVATION_ONLY",
+      "representability": "LOSSLESS_PRESERVATION_SUPPORTED",
+      "knowledge_authority": {
+        "executable": false,
+        "product_consumable": false,
+        "probability_status": "UNKNOWN"
+      },
+      "candidate_k_manifest_entry_materialized": false,
+      "admission": "BLOCKED_KNOWLEDGE_PRODUCT_CONSUMABLE_FALSE",
+      "reason": "state/tendency semantics and boundaries preserved without runtime compilation"
+    },
+    {
+      "mapping_id": "KMM-000006",
+      "manifestation_id": "KMN-000006",
+      "primary_source_rule_id": "P01-SG-213",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "frozen_representation": "LOSSLESS_PRESERVATION_ONLY",
+      "frozen_contract": "adapter_v0_2_preservation",
+      "p4_classification": "PRESERVATION_ONLY",
+      "representability": "LOSSLESS_PRESERVATION_SUPPORTED",
+      "knowledge_authority": {
+        "executable": false,
+        "product_consumable": false,
+        "probability_status": "UNKNOWN"
+      },
+      "candidate_k_manifest_entry_materialized": false,
+      "admission": "BLOCKED_KNOWLEDGE_PRODUCT_CONSUMABLE_FALSE",
+      "reason": "modifier context and 往往 modality retained without numeric interpretation"
+    },
+    {
+      "mapping_id": "KMM-000007",
+      "manifestation_id": "KMN-000007",
+      "primary_source_rule_id": "P01-745",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "frozen_representation": "LOSSLESS_STRUCTURED_NONEXECUTABLE",
+      "frozen_contract": "condition_binding_v0_1",
+      "p4_classification": "STRUCTURED_CANDIDATE",
+      "representability": "STRUCTURE_SUPPORTED_BY_FROZEN_P3_CONTRACT",
+      "knowledge_authority": {
+        "executable": false,
+        "product_consumable": false,
+        "probability_status": "UNKNOWN"
+      },
+      "candidate_k_manifest_entry_materialized": false,
+      "admission": "BLOCKED_KNOWLEDGE_PRODUCT_CONSUMABLE_FALSE",
+      "reason": "explicit OPPOSITE_PALACE dependency retained"
+    },
+    {
+      "mapping_id": "KMM-000008",
+      "manifestation_id": "KMN-000008",
+      "primary_source_rule_id": "P01-727",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "frozen_representation": "LOSSLESS_STRUCTURED_NONEXECUTABLE",
+      "frozen_contract": "condition_binding_v0_1",
+      "p4_classification": "STRUCTURED_CANDIDATE",
+      "representability": "STRUCTURE_SUPPORTED_BY_FROZEN_P3_CONTRACT",
+      "knowledge_authority": {
+        "executable": false,
+        "product_consumable": false,
+        "probability_status": "UNKNOWN"
+      },
+      "candidate_k_manifest_entry_materialized": false,
+      "admission": "BLOCKED_KNOWLEDGE_PRODUCT_CONSUMABLE_FALSE",
+      "reason": "source-explicit OR retained and AND collapse rejected"
+    },
+    {
+      "mapping_id": "KMM-000009",
+      "manifestation_id": "KMN-000009",
+      "primary_source_rule_id": "P01-750",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "frozen_representation": "LOSSLESS_STRUCTURED_NONEXECUTABLE",
+      "frozen_contract": "condition_binding_v0_1",
+      "p4_classification": "STRUCTURED_CANDIDATE",
+      "representability": "STRUCTURE_SUPPORTED_BY_FROZEN_P3_CONTRACT",
+      "knowledge_authority": {
+        "executable": false,
+        "product_consumable": false,
+        "probability_status": "UNKNOWN"
+      },
+      "candidate_k_manifest_entry_materialized": false,
+      "admission": "BLOCKED_KNOWLEDGE_PRODUCT_CONSUMABLE_FALSE",
+      "reason": "DECADE_YEAR retained as DECADE + YEAR"
+    },
+    {
+      "mapping_id": "KMM-000010",
+      "manifestation_id": "KMN-000010",
+      "primary_source_rule_id": "P01-SG-169",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "frozen_representation": "LOSSLESS_STRUCTURED_NONEXECUTABLE",
+      "frozen_contract": "condition_binding_v0_2",
+      "p4_classification": "STRUCTURED_CANDIDATE",
+      "representability": "STRUCTURE_SUPPORTED_BY_FROZEN_P3_CONTRACT",
+      "knowledge_authority": {
+        "executable": false,
+        "product_consumable": false,
+        "probability_status": "UNKNOWN"
+      },
+      "candidate_k_manifest_entry_materialized": false,
+      "admission": "BLOCKED_KNOWLEDGE_PRODUCT_CONSUMABLE_FALSE",
+      "reason": "DECADE retained as one exact temporal scope"
+    },
+    {
+      "mapping_id": "KMM-000011",
+      "manifestation_id": "KMN-000011",
+      "primary_source_rule_id": "P01-SG-175",
+      "execution_readiness": "BLOCKED_SEMANTIC",
+      "frozen_representation": "EXPLICIT_HOLD",
+      "frozen_contract": "adapter_v0_2",
+      "p4_classification": "HOLD",
+      "representability": "EXPLICIT_HOLD_FAIL_CLOSED",
+      "knowledge_authority": {
+        "executable": false,
+        "product_consumable": false,
+        "probability_status": "UNKNOWN"
+      },
+      "candidate_k_manifest_entry_materialized": false,
+      "admission": "BLOCKED_KNOWLEDGE_PRODUCT_CONSUMABLE_FALSE",
+      "reason": "SOURCE_TEMPORAL_LAYER_UNSPECIFIED remains unresolved and cannot be narrowed"
+    },
+    {
+      "mapping_id": "KMM-000012",
+      "manifestation_id": "KMN-000012",
+      "primary_source_rule_id": "P01-SG-180",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "frozen_representation": "LOSSLESS_STRUCTURED_NONEXECUTABLE",
+      "frozen_contract": "condition_binding_v0_2",
+      "p4_classification": "STRUCTURED_CANDIDATE",
+      "representability": "STRUCTURE_SUPPORTED_BY_FROZEN_P3_CONTRACT",
+      "knowledge_authority": {
+        "executable": false,
+        "product_consumable": false,
+        "probability_status": "UNKNOWN"
+      },
+      "candidate_k_manifest_entry_materialized": false,
+      "admission": "BLOCKED_KNOWLEDGE_PRODUCT_CONSUMABLE_FALSE",
+      "reason": "listed variants remain non-conjunctive without fabricated OR"
+    },
+    {
+      "mapping_id": "KMM-000013",
+      "manifestation_id": "KMN-000013",
+      "primary_source_rule_id": "P01-SG-190",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "frozen_representation": "LOSSLESS_STRUCTURED_NONEXECUTABLE",
+      "frozen_contract": "condition_binding_v0_2",
+      "p4_classification": "STRUCTURED_CANDIDATE",
+      "representability": "STRUCTURE_SUPPORTED_BY_FROZEN_P3_CONTRACT",
+      "knowledge_authority": {
+        "executable": false,
+        "product_consumable": false,
+        "probability_status": "UNKNOWN"
+      },
+      "candidate_k_manifest_entry_materialized": false,
+      "admission": "BLOCKED_KNOWLEDGE_PRODUCT_CONSUMABLE_FALSE",
+      "reason": "three branches and source-explicit simultaneous condition retained"
+    },
+    {
+      "mapping_id": "KMM-000014",
+      "manifestation_id": "KMN-000014",
+      "primary_source_rule_id": "P02S-137",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "frozen_representation": "LOSSLESS_STRUCTURED_NONEXECUTABLE",
+      "frozen_contract": "condition_binding_v0_2",
+      "p4_classification": "STRUCTURED_CANDIDATE",
+      "representability": "STRUCTURE_SUPPORTED_BY_FROZEN_P3_CONTRACT",
+      "knowledge_authority": {
+        "executable": false,
+        "product_consumable": false,
+        "probability_status": "UNKNOWN"
+      },
+      "candidate_k_manifest_entry_materialized": false,
+      "admission": "BLOCKED_KNOWLEDGE_PRODUCT_CONSUMABLE_FALSE",
+      "reason": "UNLESS plus LIFE_PALACE dependency retained"
+    },
+    {
+      "mapping_id": "KMM-000015",
+      "manifestation_id": "KMN-000015",
+      "primary_source_rule_id": "P02S-169",
+      "execution_readiness": "KNOWLEDGE_READY_RUNTIME_NOT_AUTHORIZED",
+      "frozen_representation": "LOSSLESS_STRUCTURED_NONEXECUTABLE",
+      "frozen_contract": "condition_binding_v0_2",
+      "p4_classification": "STRUCTURED_CANDIDATE",
+      "representability": "STRUCTURE_SUPPORTED_BY_FROZEN_P3_CONTRACT",
+      "knowledge_authority": {
+        "executable": false,
+        "product_consumable": false,
+        "probability_status": "UNKNOWN"
+      },
+      "candidate_k_manifest_entry_materialized": false,
+      "admission": "BLOCKED_KNOWLEDGE_PRODUCT_CONSUMABLE_FALSE",
+      "reason": "EVEN_IF qualifier retained"
+    }
+  ],
+  "classification_counts": {
+    "HOLD": 3,
+    "PRESERVATION_ONLY": 4,
+    "STRUCTURED_CANDIDATE": 8
+  },
+  "k_manifest_admission": {
+    "status": "BLOCKED_NO_PRODUCT_CONSUMABLE_INPUTS",
+    "assessed_mapping_count": 15,
+    "hold_count": 3,
+    "preservation_only_count": 4,
+    "structured_candidate_count": 8,
+    "knowledge_product_consumable_true_count": 0,
+    "materializable_k_manifest_entry_count": 0,
+    "materialized_k_manifest_entry_count": 0,
+    "blockers": [
+      "ALL_15_CANONICAL_MAPPINGS_HAVE_PRODUCT_CONSUMABLE_FALSE",
+      "ALL_15_CANONICAL_MAPPINGS_HAVE_EXECUTABLE_FALSE",
+      "P3_REPRESENTATION_FREEZE_DOES_NOT_GRANT_KNOWLEDGE_CONSUMPTION_AUTHORITY",
+      "KMM_000001_KMM_000004_KMM_000011_REMAIN_EXPLICIT_HOLD"
+    ],
+    "decision": "DO_NOT_MATERIALIZE_K_MANIFEST_ENTRIES_UNTIL_KNOWLEDGE_AUTHORITY_CHANGES_ON_ACCEPTED_MAIN"
+  },
+  "candidate_bundle_semantic_impact": {
+    "active_bundle_id": "KIB-PRODUCT-20261021-V0_3",
+    "candidate_bundle_id": "KIB-CANDIDATE-P3-MANIFESTATION-IMPACT-20261030-V0_1",
+    "active_source_commit": "eaa33deeb77a4f982bc13121c06cad657975177b",
+    "candidate_source_commit": "2aca351d988ba0c07d302c84329d5266aee322fd",
+    "source_commit_changed": true,
+    "overall_impact": "NO_RUNTIME_EFFECT",
+    "direct_actions": [
+      "NO_RUNTIME_EFFECT"
+    ],
+    "component_impacts": [
+      {
+        "component_id": "K_manifest",
+        "primary_action": "NO_RUNTIME_EFFECT",
+        "semantic_changed": false,
+        "artifact_set_changed": false
+      },
+      {
+        "component_id": "K_method",
+        "primary_action": "NO_RUNTIME_EFFECT",
+        "semantic_changed": false,
+        "artifact_set_changed": false
+      },
+      {
+        "component_id": "K_response",
+        "primary_action": "NO_RUNTIME_EFFECT",
+        "semantic_changed": false,
+        "artifact_set_changed": false
+      },
+      {
+        "component_id": "K_signal",
+        "primary_action": "NO_RUNTIME_EFFECT",
+        "semantic_changed": false,
+        "artifact_set_changed": false
+      }
+    ],
+    "downstream_invalidations": [],
+    "interpretation": "This no-op candidate snapshot proves that advancing the candidate source_commit alone does not change locked component semantics. It is not a materialized K_manifest candidate and is not a promotion decision."
+  },
+  "counterfactual_future_k_manifest_semantic_change": {
+    "impact_class": "MANIFESTATION_REBUILD",
+    "direct_downstream": {
+      "artifact": "MANIFESTATION_M0",
+      "action": "MANIFESTATION_REBUILD",
+      "applicability": "DIRECT"
+    },
+    "conditional_downstream": [
+      {
+        "artifact": "EMPIRICAL_DATASET",
+        "action": "DATASET_REMATERIALIZE",
+        "applicability": "IF_PRESENT"
+      },
+      {
+        "artifact": "CALIBRATED_MODEL",
+        "action": "RETRAIN_OR_RECALIBRATE",
+        "applicability": "IF_PRESENT"
+      }
+    ],
+    "source": "src/product/knowledge_impact.py DIRECT_SEMANTIC_ACTION / DEPENDENCY_PROPAGATION",
+    "note": "Counterfactual dependency policy only; no rebuild is triggered by this no-op candidate."
+  },
+  "p4_verdict": {
+    "classification": "CANDIDATE_IMPACT_ONLY_NO_PROMOTION",
+    "candidate_k_manifest_materialization_allowed": false,
+    "candidate_kib_noop_snapshot_verified_by_regression": "PASS",
+    "active_lock_mutated": false,
+    "production_registry_population_allowed": false,
+    "active_kib_promotion_allowed": false,
+    "runtime_execution_allowed": false,
+    "probability_claim_allowed": false,
+    "predictive_validity_claim_allowed": false,
+    "verification_contract": "Exact-head CI must validate candidate bundle bytes, 61-artifact inventory, active lock integrity, zero K_manifest artifacts, mapping/node authority flags, P3 matrix consistency and impact graph."
+  },
+  "next_action": "WAIT_FOR_EXPLICIT_ACCEPTED_KNOWLEDGE_PRODUCT_CONSUMABLE_AUTHORITY; THEN OPEN SEPARATE P5 PROMOTION WORK UNIT IF A REAL CANDIDATE EXISTS",
+  "post_p3_main_dependency_recheck": {
+    "current_main_commit": "fa62cebd619646b9c53ca0dba88291a5c45c8141",
+    "current_main_merge": "P02 #928 / PR #929 source-stage closure; merge adds Knowledge-owned source-stage and lexical-contract evidence only",
+    "main_delta_from_p3_base_file_count": 24,
+    "relevant_source_audit": {
+      "path": "knowledge/palaces/P02_siblings/wp05/SIBLINGS_SB04_WUQU_SOURCE_AUDIT_v0.1.json",
+      "git_blob_sha": "a5182231d6f1824b98f68416ce24da0cb0514f04",
+      "unchanged_since_p3_base": true,
+      "referenced_rows": [
+        "P02S-137",
+        "P02S-169"
+      ]
+    },
+    "source_stage_closure": {
+      "path": "knowledge/palaces/P02_siblings/handoff/issue_928/INDEPENDENT_STAGE_CLOSURE_VERDICT_v0.2.json",
+      "git_blob_sha": "4e6d2389673ff52be3ea4235e9e8c9353f57508a",
+      "verdict": "SOURCE_AUDIT_STAGE_CLOSED_WITH_RETAINED_HOLDS",
+      "approved": true,
+      "source_records": 424,
+      "accepted_including_case": 284,
+      "accepted_reusable_source_method": 180,
+      "accepted_case_only": 104,
+      "held": 140,
+      "gap_groups": 49,
+      "all_semantics_resolved": false,
+      "scope": "BOUNDED_SOURCE_STAGE_ONLY_NOT_SEMANTIC_OR_EMPIRICAL_COMPLETION"
+    },
+    "p02_state": {
+      "path": "knowledge/states/P02_SIBLINGS_STATE.yaml",
+      "git_blob_sha": "a8e1b1303fe67e54c7abf2d1245c99ae85b8c98a",
+      "canonical_checkpoint": "P02_SOURCE_AUDIT_STAGE_CLOSED_WITH_RETAINED_HOLDS__ISSUE_928",
+      "execution_unlocked": 0,
+      "history_feedback": 0
+    },
+    "referenced_source_rows": [
+      {
+        "source_rule_id": "P02S-137",
+        "disposition": "SOURCE_REUSABLE",
+        "source_span_verified": true,
+        "normalization_verified": true,
+        "canonical_promotion": true,
+        "canonical_mapping_approved": false,
+        "executable": false,
+        "product_consumable": false,
+        "gap_id": null,
+        "time_layer": "NATAL"
+      },
+      {
+        "source_rule_id": "P02S-169",
+        "disposition": "SOURCE_REUSABLE",
+        "source_span_verified": true,
+        "normalization_verified": true,
+        "canonical_promotion": true,
+        "canonical_mapping_approved": false,
+        "executable": false,
+        "product_consumable": false,
+        "gap_id": null,
+        "time_layer": "NATAL"
+      }
+    ],
+    "impact_on_p4": "NO_CHANGE_TO_ACCEPTED_15_MAPPING_OR_P3_FREEZE; BOTH_REFERENCED_P02_SOURCE_ROWS REMAIN SOURCE_REUSABLE_AND_FAIL_CLOSED; THE LATEST FOUR-FILE CORE C8 DELTA IS WP07B-ONLY AND DOES NOT TOUCH P02 SOURCE, WP06B/WP06C INDEXES, P3 FREEZE, OR PRODUCT INPUTS; 140 OTHER HELD ROWS AND 49 GAPS REMAIN RETAINED",
+    "conclusion": "P4 source dependencies remain valid after current main advances to fa62cebd; the 24-file delta since P3 is Knowledge-only, including the four-file Core C8 WP07B audit; no authority flags changed and no P4 admission is implied.",
+    "previous_recheck_main_commit": "cdf7a0e5348264e92f62ac527b9ed6f71e9f0d00",
+    "incremental_main_delta_since_previous_recheck": [
+      "knowledge/core/wp07b/GAP011_NEGATION_SOURCE_AUDIT_v0.1.json",
+      "knowledge/core/wp07b/GAP011_NEGATION_SOURCE_AUDIT_v0.1.md",
+      "tests/test_knowledge_core_wp07b_gap011_negation.py",
+      "validation/knowledge/core/wp07b/issue_941/EXECUTION_EVIDENCE.md"
+    ],
+    "latest_core_checkpoint": {
+      "issue": 941,
+      "pr": 942,
+      "merge_commit": "fa62cebd619646b9c53ca0dba88291a5c45c8141",
+      "disposition": "DESCRIPTIVE_NEGATION_CLASSIFICATION_NO_EXECUTION",
+      "execution_authorized": false,
+      "product_or_kib_authority_changed": false
+    }
+  }
+}
