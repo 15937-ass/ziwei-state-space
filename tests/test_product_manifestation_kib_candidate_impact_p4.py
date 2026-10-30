@@ -173,6 +173,32 @@ def test_p4_classification_is_exactly_3_hold_4_preservation_8_structured():
     }
 
 
+def test_p4_assessments_match_frozen_crosswalk_matrix_and_mapping_index():
+    freeze = _load(FREEZE_PATH)
+    mapping_index = _load(MAPPING_INDEX_PATH)
+    report = _load(REPORT_PATH)
+    freeze_by_id = {
+        row["mapping_id"]: row
+        for row in freeze["mapping_freeze_matrix"]
+    }
+    index_by_id = {
+        row["mapping_id"]: row
+        for row in mapping_index["mappings"]
+    }
+
+    for assessment in report["mapping_assessments"]:
+        mapping_id = assessment["mapping_id"]
+        frozen = freeze_by_id[mapping_id]
+        canonical = index_by_id[mapping_id]
+
+        assert assessment["manifestation_id"] == canonical["manifestation_id"]
+        assert assessment["primary_source_rule_id"] == canonical["primary_source_rule_id"]
+        assert assessment["execution_readiness"] == canonical["execution_readiness"]
+        assert assessment["frozen_representation"] == frozen["representation"]
+        assert assessment["frozen_contract"] == frozen["contract"]
+        assert assessment["reason"] == frozen["reason"]
+
+
 def test_p3_freeze_is_representation_only_not_consumption_authority():
     freeze = _load(FREEZE_PATH)
     report = _load(REPORT_PATH)
