@@ -4,35 +4,31 @@ authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  status: "ACTIVE_NO_ACTIVE_WORK"
-  phase: "NATAL_DETAILED_READ_NEXT"
-  active_issue: null
-  active_pr: null
+  status: "ACTIVE"
+  phase: "NATAL_ACTUAL_USE_VALIDATION"
+  active_issue: 966
+  active_branch: "product/966-natal-actual-use-validation-v1"
+  base_main_sha: "8006f091533fda607e9a2d0ef7fbcef359c3d60a"
+  active_pr: 966
   continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"
   plan_pointer_issue: 900
-  next_issue: null
-  next_work_unit: "PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"
-  continuation_next_work_unit: "PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"
-  next_work_status: "READY_TO_ADMIT"
-  resume_entry: "Product #935 / PR #940 completed P4 candidate-only K_manifest/KIB impact assessment; verdict CANDIDATE_IMPACT_ONLY_NO_PROMOTION. Active KIB v0.3 / lock remain unchanged and active K_manifest remains empty. This does not block the independent NATAL DetailedRead closure: reuse accepted #798 QuickRead capability/main-reader, #882 DetailedRead planner and #894/#895 Skill; inspect all 12 NATAL domains with RUNTIME, allowed SOURCE, MODEL_SUPPLEMENT and gaps kept separate, progressive retrieval pinned to one main snapshot, cross-domain synthesis and staged thematic output. Current domain coverage remains unequal/partial; no forced filler. Do not claim DECADE/YEAR without matching accepted temporal evidence. After NATAL closure, add DECADE then YEAR only from accepted Product-consumable Knowledge/Core checkpoints. No KIB promotion, registry mutation, runtime authorization, probability or predictive-validity claim is implied."
-  state_cache_as_of_main_commit: "ba00d96d5ad478fb4c2abb642e0e08e46c58fa7d"
-  state_cache_as_of_product_merge: "2aca351d988ba0c07d302c84329d5266aee322fd"
+  next_issue: 966
+  next_work_unit: "PRODUCT_NATAL_ACTUAL_USE_VALIDATION_V1"
+  continuation_next_work_unit: "PRODUCT_NATAL_ACTUAL_USE_VALIDATION_V1"
+  next_work_status: "ACTIVE_BUILD"
+  resume_entry: "Product #951 / PR #951 is accepted and merged on main 8006f091533fda607e9a2d0ef7fbcef359c3d60a. Product #966 / PR #966 is the sole ACTIVE_BUILD unit: run a bounded live actual-use validation on source-exact WANG-CASE-012 (WEALTH target, unique target-anchor match). Preserve CASE_SUPPORT_ONLY and full-source-chart-equivalence=false; pin all 12 NATAL retrieval slots to one current main SHA; verify accepted Wealth runtime capability/provenance, available source evidence, explicit domain gaps, cross-domain check instructions and fail-closed boundaries. No chart-specific rule execution, outcome leakage, temporal inference, probability or predictive-validity claim. Active KIB v0.3 / lock remain unchanged. No KIB promotion, lock/registry mutation, or runtime authority is granted by #966. DECADE remains gated until this checkpoint and matching accepted Product-consumable temporal Knowledge/Core evidence are both available."
+  state_cache_as_of_main_commit: "8006f091533fda607e9a2d0ef7fbcef359c3d60a"
+  state_cache_as_of_product_merge: "8006f091533fda607e9a2d0ef7fbcef359c3d60a"
   state_cache_snapshot_date: "2026-10-30"
   v04_entry_checkpoint_issue: 416
   v04_entry_checkpoint_pr: 418
-  last_completed_product_issue: 935
-  last_completed_product_pr: 940
+  last_completed_product_issue: 951
+  last_completed_product_pr: 951
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
-  resume_issue: 935
+  resume_issue: 966
   roadmap: "PRODUCT_ROADMAP.md#v0.4"
   execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
-
-# Historical regression-compatibility snapshot (NOT an active execution pointer):
-# next_work_unit: "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"
-# This was the pre-v2 blocked Product fallback; the active next_work_unit above is
-# PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1. A Product-owned regression can remove
-# this compatibility snapshot when its historical handoff test is migrated.
 
 # Continuation bootstrap history (durable audit markers; not live execution pointers):
 # next_issue: 897
@@ -192,7 +188,7 @@ capability_snapshot:
 
 critical_path:
   now:
-    - "PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"
+    - "PRODUCT_NATAL_ACTUAL_USE_VALIDATION_V1"
   future:
     - "PRODUCT_DECADE_LAYER_INTEGRATION_AFTER_ACCEPTED_KNOWLEDGE_CORE_CHECKPOINT"
     - "PRODUCT_YEAR_LAYER_INTEGRATION_AFTER_DECADE_STABILITY_AND_ACCEPTED_YEAR_CHECKPOINT"

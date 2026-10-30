@@ -103,9 +103,8 @@ def test_no_execution_mapping_or_history_feedback_is_authorized():
     assert data["execution_boundary"]["execution_unlocked"] == 0
     assert data["execution_boundary"]["product_or_kib_authorized"] is False
     assert all(not item["executable"] and not item["canonical_mapping_approved"] and not item["history_feedback"] for item in data["candidate_adjudications"])
+    # This historical CH01 audit must remain non-executable regardless of
+    # which bounded P04 work unit is currently active. The live P04 pointer
+    # is validated by the current-batch CH02 test, not by this archive test.
     state = STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE_BUILD"' in state
-    assert 'active_issue: 943' in state
-    assert 'active_pr: 944' in state
-    assert 'active_branch: "knowledge/p04-943-children-ch01-001-100-source-audit"' in state
-    assert 'canonical_checkpoint: "P04_CH01_001_100_SOURCE_FIRST_REVALIDATION_PROPOSED"' in state
+    assert any(f'status: "{status}"' in state for status in ("ACTIVE_BUILD", "READY_TO_INTEGRATE", "INTEGRATING"))

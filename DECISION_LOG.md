@@ -162,3 +162,10 @@ Paper 2 需要处理 star-core / Delta / modifier / projection 参数混淆。
 **Approved at:** Proposal #528
 **Approved by:** PI
 **Approved date:** 2026-10-21
+
+### D-021 — Research Memory Sidecar v1 与删除聊天前理论归档
+**Decision:** 批准独立、非权威的 Research Memory Sidecar v1：以 append-only Research Event、multi-axis Claim Registry、Theory Evolution、Paper/RQ Map、Evidence Pack 与 Concept Event 保存研究记忆；它只读取已接受的仓库证据，不阻塞 Product/Knowledge，不拥有 canonical Knowledge 或 Product runtime 的修改权，不得由 source/internal fidelity 自动升级 empirical/causal claim。由于 Sidecar 仓库尚未建立，批准在当前 Governance work unit 内保存一次性 `governance/archive/2026-10-21-pre-delete-chat-archaeology.md`，作为 PI 大量删除项目聊天前的历史迁移种子；该归档不是执行真相，也不是在主仓库建立长期 Research lane，未来应迁移进独立 Sidecar。
+**Status:** FROZEN（Sidecar 架构、非干扰边界与一次性 pre-deletion migration seed）
+**Approved at:** Proposal / Issue #513
+**Approved by:** PI
+**Approved date:** 2026-10-21

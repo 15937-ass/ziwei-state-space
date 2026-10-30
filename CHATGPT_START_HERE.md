@@ -36,6 +36,9 @@
 
 **每次仓库工作对话结束前**（包括只读审查、实施、验证和因阻塞暂停），按 `AGENT_WORKFLOW.md` 第 13 节向 PI 用中文汇报。结束时只读核对实时宫位、Knowledge Core、Product 的 Issue/PR 与已接受的 `main`，分别说明当前状态、下一步可做什么及等待什么；再给出一个优先的集成/决策建议。所选执行 lane 仍然只有一个，不为汇报启动其他 lane 的工作。无法核对的状态须写明“未核实”及原因，不能从旧聊天或状态缓存猜测。
 
+每轮仓库工作还必须按 `governance/PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md` 归类一个且仅一个主要结果：`SUBSTANTIVE_DELTA`、`BLOCKER_IDENTIFIED`、`VALIDATION_ONLY`、`STATUS_ONLY` 或 `NO_SUBSTANTIVE_PROGRESS`。不得把提交数量、文件改动、状态变化、重复读取或单纯测试通过冒充实质进展。PI 只处理理论/来源/优先级/资源/架构及其他明确 Human Gate；既定范围内的常规实现、测试和 Git 操作由执行者自主完成。
+
+
 ### Final-answer gate（强制，不可省略）
 
 协议标记：`PI_CLOSEOUT_FINAL_GATE_REQUIRED`。

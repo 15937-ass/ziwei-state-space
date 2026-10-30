@@ -1,17 +1,30 @@
-"""DetailedRead private-chat planning contract v0.1.
+"""DetailedRead private-chat planning and session orchestration contract v0.1.
 
-This module plans a full-chart, multi-turn reading on top of the accepted
-QuickRead evidence contract. It does not calculate a chart, read GitHub,
-call an LLM, or create a second rule/knowledge engine.
+The planner defines full-chart, multi-turn retrieval on top of the accepted
+QuickRead evidence contract. The session delegates read-only accepted-main
+retrieval to the QuickRead reader and pins all atomic reads to one main SHA.
+It does not calculate a chart, execute runtime rules, call an LLM, or create
+a second rule/knowledge engine.
 """
 
 from __future__ import annotations
 
 import re
-from dataclasses import dataclass
-from typing import Any, Mapping, Sequence
+from dataclasses import dataclass, field
+from typing import Any, Callable, Mapping, Sequence
 
-from .quickread_capability import QuickReadRequest, QuickReadScopeSlot
+from .quickread_capability import (
+    QuickReadEvidenceItem,
+    QuickReadRequest,
+    QuickReadScopeSlot,
+)
+from .quickread_main_reader import (
+    DEFAULT_FIRST_PASS_SOURCE_ITEMS_PER_SLOT,
+    DEFAULT_TIMEOUT_SECONDS,
+    MainKnowledgeBundle,
+    MainKnowledgeUnavailable,
+    load_latest_main_knowledge,
+)
 
 
 SCHEMA_VERSION = "0.1"
@@ -468,3 +481,483 @@ def continuation_for_detailed_slot(
         "requested_slot_ids": [slot_id],
         "seen_evidence_ids": list(seen),
     }
+
+@dataclass
+class DetailedReadSession:
+    """Session-wide orchestration over the accepted QuickRead reader.
+
+    A session pins every independent atomic-slot read to one accepted main SHA.
+    It does not calculate a chart, execute runtime rules, call an LLM, or turn
+    source-only material into executable evidence.
+    """
+
+    plan: DetailedReadPlan
+    loader: Callable[..., MainKnowledgeBundle] = load_latest_main_knowledge
+    previous_quickread_continuation: Mapping[str, Any] | None = None
+    previous_quickread_target_id: str | None = None
+    main_sha: str | None = None
+    completed_stage_ids: list[str] = field(default_factory=list)
+    slot_batches: dict[str, list[MainKnowledgeBundle]] = field(default_factory=dict)
+    model_supplement_items: dict[str, QuickReadEvidenceItem] = field(default_factory=dict)
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.plan, DetailedReadPlan):
+            raise ValueError("plan must be a DetailedReadPlan")
+        if self.main_sha is not None:
+            self.main_sha = str(self.main_sha).strip()
+            if not re.fullmatch(r"[0-9a-f]{40}", self.main_sha):
+                raise ValueError("main_sha must be a 40-character Git SHA")
+        if self.previous_quickread_continuation is not None:
+            if not isinstance(self.previous_quickread_continuation, Mapping):
+                raise ValueError("previous_quickread_continuation must be a mapping")
+            if self.previous_quickread_target_id != self.plan.target_id:
+                raise ValueError(
+                    "QuickRead-to-DetailedRead continuation must keep the same chart target_id"
+                )
+            cursor_sha = str(
+                self.previous_quickread_continuation.get("main_sha", "")
+            ).strip()
+            if not re.fullmatch(r"[0-9a-f]{40}", cursor_sha):
+                raise ValueError(
+                    "previous_quickread_continuation.main_sha must be a 40-character Git SHA"
+                )
+            if self.main_sha is not None and self.main_sha != cursor_sha:
+                raise ValueError(
+                    "main_sha does not match the previous QuickRead snapshot"
+                )
+            self.main_sha = cursor_sha
+        elif self.previous_quickread_target_id is not None:
+            raise ValueError(
+                "previous_quickread_target_id requires a previous QuickRead continuation"
+            )
+
+    def _slot(self, slot_id: str) -> QuickReadScopeSlot:
+        slot = next(
+            (item for item in self.plan.retrieval_slots if item.slot_id == slot_id),
+            None,
+        )
+        if slot is None:
+            raise ValueError(f"slot is not in this DetailedRead plan: {slot_id}")
+        return slot
+
+    def _load_slot_bundle(
+        self,
+        slot_id: str,
+        *,
+        continuation: Mapping[str, Any] | None,
+        source_items_per_slot: int,
+        fetch_bytes: Callable[[str, float, int], bytes] | None,
+        timeout_seconds: float,
+        repository_root: str | None,
+    ) -> MainKnowledgeBundle:
+        request = self.plan.request_for_slot(slot_id)
+        kwargs: dict[str, Any] = {
+            "source_items_per_slot": source_items_per_slot,
+            "continuation": continuation,
+            "expected_main_sha": self.main_sha,
+            "timeout_seconds": timeout_seconds,
+        }
+        if fetch_bytes is not None:
+            kwargs["fetch_bytes"] = fetch_bytes
+        if repository_root is not None:
+            kwargs["repository_root"] = repository_root
+
+        bundle = self.loader(request, **kwargs)
+        if not isinstance(bundle, MainKnowledgeBundle):
+            raise MainKnowledgeUnavailable(
+                "DetailedRead loader did not return a verified MainKnowledgeBundle"
+            )
+        if bundle.request.target_id != self.plan.target_id:
+            raise MainKnowledgeUnavailable(
+                "DetailedRead loader returned evidence for a different chart target"
+            )
+        if (
+            len(bundle.request.requested_slots) != 1
+            or bundle.request.requested_slots[0].slot_id != slot_id
+        ):
+            raise MainKnowledgeUnavailable(
+                "DetailedRead loader returned evidence outside the requested atomic slot"
+            )
+        if (
+            len(bundle.manifest.records) != 1
+            or bundle.manifest.records[0].slot.slot_id != slot_id
+        ):
+            raise MainKnowledgeUnavailable(
+                "DetailedRead capability manifest does not match the requested atomic slot"
+            )
+        try:
+            bundle.build_payload()
+        except (TypeError, ValueError) as exc:
+            raise MainKnowledgeUnavailable(
+                "DetailedRead bundle failed the accepted QuickRead evidence contract"
+            ) from exc
+
+        resolved_sha = bundle.manifest.main_sha
+        if not re.fullmatch(r"[0-9a-f]{40}", resolved_sha):
+            raise MainKnowledgeUnavailable(
+                "DetailedRead loader returned an invalid main snapshot SHA"
+            )
+        if self.main_sha is None:
+            self.main_sha = resolved_sha
+        elif resolved_sha != self.main_sha:
+            raise MainKnowledgeUnavailable(
+                "DetailedRead session rejected mixed main snapshots; restart the full session"
+            )
+        if bundle.reader_report.get("main_sha") != self.main_sha:
+            raise MainKnowledgeUnavailable(
+                "DetailedRead reader report does not match the pinned main snapshot"
+            )
+
+        cursor = bundle.reader_report.get("continuation")
+        if not isinstance(cursor, Mapping):
+            raise MainKnowledgeUnavailable(
+                "DetailedRead reader report is missing its continuation cursor"
+            )
+        if cursor.get("main_sha") != self.main_sha:
+            raise MainKnowledgeUnavailable(
+                "DetailedRead continuation cursor changed the session main snapshot"
+            )
+        requested_ids = cursor.get("requested_slot_ids")
+        if requested_ids != [slot_id]:
+            raise MainKnowledgeUnavailable(
+                "DetailedRead continuation cursor does not match the atomic slot"
+            )
+        if any(item.slot_id != slot_id for item in bundle.evidence_items):
+            raise MainKnowledgeUnavailable(
+                "DetailedRead evidence escaped its requested atomic slot"
+            )
+        return bundle
+
+    def run_stage(
+        self,
+        stage_id: str,
+        *,
+        source_items_per_slot: int = DEFAULT_FIRST_PASS_SOURCE_ITEMS_PER_SLOT,
+        fetch_bytes: Callable[[str, float, int], bytes] | None = None,
+        timeout_seconds: float = DEFAULT_TIMEOUT_SECONDS,
+        repository_root: str | None = None,
+    ) -> dict[str, Any]:
+        """Read the first pass for every not-yet-read slot in one delivery stage."""
+
+        batch = next(
+            (
+                item
+                for item in self.plan.retrieval_batches()
+                if item["stage_id"] == stage_id
+            ),
+            None,
+        )
+        if batch is None:
+            raise ValueError(f"unknown DetailedRead stage: {stage_id}")
+        if stage_id in self.completed_stage_ids:
+            return self.stage_report(stage_id)
+
+        for slot_id in batch["slot_ids"]:
+            if self.slot_batches.get(slot_id):
+                continue
+            cursor = (
+                continuation_for_detailed_slot(
+                    self.previous_quickread_continuation, slot_id
+                )
+                if self.previous_quickread_continuation is not None
+                else None
+            )
+            bundle = self._load_slot_bundle(
+                slot_id,
+                continuation=cursor,
+                source_items_per_slot=source_items_per_slot,
+                fetch_bytes=fetch_bytes,
+                timeout_seconds=timeout_seconds,
+                repository_root=repository_root,
+            )
+            self.slot_batches.setdefault(slot_id, []).append(bundle)
+
+        self.completed_stage_ids.append(stage_id)
+        return self.stage_report(stage_id)
+
+    def run_all_stages(
+        self,
+        *,
+        source_items_per_slot: int = DEFAULT_FIRST_PASS_SOURCE_ITEMS_PER_SLOT,
+        fetch_bytes: Callable[[str, float, int], bytes] | None = None,
+        timeout_seconds: float = DEFAULT_TIMEOUT_SECONDS,
+        repository_root: str | None = None,
+    ) -> dict[str, Any]:
+        """Complete the scheduled first-pass inspection for every planned domain."""
+
+        for batch in self.plan.retrieval_batches():
+            self.run_stage(
+                batch["stage_id"],
+                source_items_per_slot=source_items_per_slot,
+                fetch_bytes=fetch_bytes,
+                timeout_seconds=timeout_seconds,
+                repository_root=repository_root,
+            )
+        return self.to_dict()
+
+    def continue_slot(
+        self,
+        slot_id: str,
+        *,
+        source_items_per_slot: int = DEFAULT_FIRST_PASS_SOURCE_ITEMS_PER_SLOT,
+        fetch_bytes: Callable[[str, float, int], bytes] | None = None,
+        timeout_seconds: float = DEFAULT_TIMEOUT_SECONDS,
+        repository_root: str | None = None,
+    ) -> dict[str, Any]:
+        """Fetch the next unseen source batch for one already-inspected slot."""
+
+        self._slot(slot_id)
+        batches = self.slot_batches.get(slot_id)
+        if not batches:
+            raise ValueError("DetailedRead slot must receive a first pass before continuation")
+        cursor = batches[-1].reader_report.get("continuation")
+        if not isinstance(cursor, Mapping):
+            raise MainKnowledgeUnavailable("DetailedRead slot has no valid continuation cursor")
+        if cursor.get("has_more") is not True:
+            return self.slot_report(slot_id)
+
+        bundle = self._load_slot_bundle(
+            slot_id,
+            continuation=cursor,
+            source_items_per_slot=source_items_per_slot,
+            fetch_bytes=fetch_bytes,
+            timeout_seconds=timeout_seconds,
+            repository_root=repository_root,
+        )
+        batches.append(bundle)
+        return self.slot_report(slot_id)
+
+    def add_model_supplement(self, item: QuickReadEvidenceItem) -> None:
+        """Attach a clearly labeled model-only note without changing source/runtime coverage."""
+
+        if not isinstance(item, QuickReadEvidenceItem):
+            raise ValueError("model supplement must be a QuickReadEvidenceItem")
+        if item.lane != "MODEL_SUPPLEMENT":
+            raise ValueError("only MODEL_SUPPLEMENT evidence may use this method")
+        self._slot(item.slot_id)
+        if not self.slot_batches.get(item.slot_id):
+            raise ValueError("model supplement cannot stand in for an uninspected domain")
+        if item.evidence_id in self.model_supplement_items:
+            raise ValueError(f"duplicate model supplement evidence_id: {item.evidence_id}")
+        if any(
+            item.evidence_id == existing.evidence_id
+            for existing in self._accepted_evidence_items()
+        ):
+            raise ValueError(f"duplicate evidence_id: {item.evidence_id}")
+        self.model_supplement_items[item.evidence_id] = item
+
+    def _accepted_evidence_items(self) -> tuple[QuickReadEvidenceItem, ...]:
+        indexed: dict[str, QuickReadEvidenceItem] = {}
+        slot_order = {
+            slot.slot_id: index
+            for index, slot in enumerate(self.plan.retrieval_slots)
+        }
+        for slot in self.plan.retrieval_slots:
+            for bundle in self.slot_batches.get(slot.slot_id, []):
+                for item in bundle.evidence_items:
+                    previous = indexed.get(item.evidence_id)
+                    if previous is not None and previous != item:
+                        raise MainKnowledgeUnavailable(
+                            f"conflicting duplicate DetailedRead evidence_id: {item.evidence_id}"
+                        )
+                    indexed[item.evidence_id] = item
+        indexed.update(self.model_supplement_items)
+        return tuple(
+            sorted(
+                indexed.values(),
+                key=lambda item: (
+                    slot_order[item.slot_id],
+                    item.lane,
+                    item.evidence_id,
+                ),
+            )
+        )
+
+    def slot_report(self, slot_id: str) -> dict[str, Any]:
+        slot = self._slot(slot_id)
+        batches = self.slot_batches.get(slot_id, [])
+        model_count = sum(
+            1 for item in self.model_supplement_items.values()
+            if item.slot_id == slot_id
+        )
+        if not batches:
+            return {
+                "slot_id": slot.slot_id,
+                "domain": slot.domain,
+                "temporal_layer": slot.temporal_layer,
+                "inspection_status": "NOT_INSPECTED",
+                "runtime_status": "NOT_CHECKED",
+                "source_status": "NOT_CHECKED",
+                "runtime_evidence_count": 0,
+                "source_evidence_count": 0,
+                "model_supplement_count": model_count,
+                "source_evidence_total_eligible": None,
+                "source_evidence_remaining_after_batch": None,
+                "excluded_case_support_only_count": 0,
+                "excluded_not_promoted_count": 0,
+                "excluded_uncertain_or_unverified_count": 0,
+                "reason": "Domain has not yet been inspected.",
+            }
+
+        latest = batches[-1]
+        record = latest.manifest.records[0]
+        raw_slot = next(
+            (
+                item
+                for item in latest.reader_report.get("slots", [])
+                if item.get("slot_id") == slot_id
+            ),
+            {},
+        )
+        # Ledger exclusion counts describe the whole slot ledger, not each continuation batch.
+        aggregate = batches[0].reader_report.get("aggregate_source_ledger_counts", {})
+        evidence = [
+            item
+            for item in self._accepted_evidence_items()
+            if item.slot_id == slot_id
+        ]
+        return {
+            "slot_id": slot.slot_id,
+            "domain": slot.domain,
+            "temporal_layer": slot.temporal_layer,
+            "inspection_status": "INSPECTED",
+            "runtime_status": record.runtime_status,
+            "source_status": record.source_status,
+            "runtime_evidence_count": sum(1 for item in evidence if item.lane == "RUNTIME"),
+            "source_evidence_count": sum(1 for item in evidence if item.lane == "SOURCE"),
+            "model_supplement_count": model_count,
+            "source_evidence_total_eligible": raw_slot.get(
+                "source_evidence_total_eligible"
+            ),
+            "source_evidence_selected_this_batch": raw_slot.get(
+                "source_evidence_selected_this_batch"
+            ),
+            "source_evidence_already_seen": raw_slot.get(
+                "source_evidence_already_seen"
+            ),
+            "source_evidence_remaining_after_batch": raw_slot.get(
+                "source_evidence_remaining_after_batch"
+            ),
+            "excluded_case_support_only_count": aggregate.get(
+                "excluded_case_only", 0
+            ),
+            "excluded_not_promoted_count": aggregate.get(
+                "excluded_not_promoted", 0
+            ),
+            "excluded_uncertain_or_unverified_count": aggregate.get(
+                "excluded_uncertain_or_unverified", 0
+            ),
+            "excluded_layer_mismatch_count": aggregate.get(
+                "excluded_layer_mismatch", 0
+            ),
+            "excluded_missing_provenance_count": aggregate.get(
+                "excluded_missing_provenance", 0
+            ),
+            "reader_reason": raw_slot.get("reason", ""),
+            "batch_count": len(batches),
+            "main_sha": self.main_sha,
+        }
+
+    def stage_report(self, stage_id: str) -> dict[str, Any]:
+        batch = next(
+            (
+                item
+                for item in self.plan.retrieval_batches()
+                if item["stage_id"] == stage_id
+            ),
+            None,
+        )
+        if batch is None:
+            raise ValueError(f"unknown DetailedRead stage: {stage_id}")
+        return {
+            "stage_id": stage_id,
+            "completed": all(
+                self.slot_batches.get(slot_id)
+                for slot_id in batch["slot_ids"]
+            ),
+            "main_sha": self.main_sha,
+            "target_id": self.plan.target_id,
+            "coverage": [
+                self.slot_report(slot_id) for slot_id in batch["slot_ids"]
+            ],
+        }
+
+    def to_dict(self) -> dict[str, Any]:
+        evidence = self._accepted_evidence_items()
+        coverage = [
+            self.slot_report(slot.slot_id)
+            for slot in self.plan.retrieval_slots
+        ]
+        natal_coverage = [
+            item for item in coverage if item["temporal_layer"] == "NATAL"
+        ]
+        excluded_keys = (
+            "excluded_case_support_only_count",
+            "excluded_not_promoted_count",
+            "excluded_uncertain_or_unverified_count",
+            "excluded_layer_mismatch_count",
+            "excluded_missing_provenance_count",
+        )
+        excluded = {
+            key.removesuffix("_count"): sum(
+                int(item.get(key, 0) or 0) for item in coverage
+            )
+            for key in excluded_keys
+        }
+        natal_complete = all(
+            item["inspection_status"] == "INSPECTED"
+            for item in natal_coverage
+        )
+        all_planned_slots_complete = all(
+            item["inspection_status"] == "INSPECTED"
+            for item in coverage
+        )
+        session_status = (
+            "NATAL_INSPECTION_COMPLETE"
+            if natal_complete and all_planned_slots_complete
+            else "NATAL_INSPECTION_COMPLETE_TEMPORAL_PENDING"
+            if natal_complete
+            else "IN_PROGRESS"
+        )
+        return {
+            "schema_version": SCHEMA_VERSION,
+            "reading_mode": "DETAILED_READ",
+            "target_id": self.plan.target_id,
+            "main_sha": self.main_sha,
+            "session_status": session_status,
+            "natal_domain_count_required": len(NATAL_DOMAIN_ORDER),
+            "natal_domain_count_inspected": sum(
+                1
+                for item in natal_coverage
+                if item["inspection_status"] == "INSPECTED"
+            ),
+            "completed_stage_ids": list(self.completed_stage_ids),
+            "coverage": coverage,
+            "evidence": {
+                "runtime": [
+                    item.to_dict() for item in evidence if item.lane == "RUNTIME"
+                ],
+                "source": [
+                    item.to_dict() for item in evidence if item.lane == "SOURCE"
+                ],
+                "model_supplement": [
+                    item.to_dict()
+                    for item in evidence
+                    if item.lane == "MODEL_SUPPLEMENT"
+                ],
+            },
+            "excluded_evidence_counts": excluded,
+            "cross_domain_checks": self.plan.to_dict()["cross_domain_checks"],
+            "sections": [item.to_dict() for item in self.plan.sections],
+            "delivery": self.plan.to_dict()["delivery"],
+            "guardrails": {
+                "one_main_snapshot_for_all_slots": True,
+                "same_chart_target_required": True,
+                "runtime_source_model_supplement_separated": True,
+                "case_support_only_and_unpromoted_records_excluded": True,
+                "runtime_execution_performed": False,
+                "unmerged_branches_consumed": False,
+                "unsupported_domains_filled_from_model_memory": False,
+            },
+        }
+
