@@ -1,0 +1,145 @@
+{
+  "schema_version": "0.1",
+  "issue": 975,
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "CORE",
+  "work_unit": "CORE_C2_SOURCE_SPECIFIC_TEMPORAL_SCOPE_COMPARISON_V1",
+  "status": "ACTIVE_BUILD_PRELIMINARY_ACCEPTED_EVIDENCE_COMPARISON",
+  "accepted_main_sha": "fb3968aaae7f5bfaa29486334c2d115e17406193",
+  "source": {
+    "id": "SRC-ZZ-003",
+    "pdf_sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+    "original_scan_independently_viewed_this_unit": false,
+    "original_scan_available_in_repository": false,
+    "source_recertified_this_unit": false
+  },
+  "pinned_inputs": [
+    {
+      "path": "knowledge/core/wp07b/GAP006_GROUP_FAVORABILITY_SOURCE_AUDIT_v0.1.json",
+      "sha": "808debe6302f86f117246b9e41aa6616fea2ca8e"
+    },
+    {
+      "path": "knowledge/core/wp07b/TEMPORAL_REACTION_SOURCE_HANDOFF_v0.2.json",
+      "sha": "6fb27ae708d5ffe89a621897d1b927454a976230"
+    },
+    {
+      "path": "validation/wp05/CA06_career_projection_review_501_600.csv",
+      "sha": "31c52e437bf33b795fcff735b4894a2316ce01be"
+    },
+    {
+      "path": "validation/wp05/TP02_property_projection_review_101_200.csv",
+      "sha": "1ee32b609083ddb36559e891dd3e17e483ed3ef6"
+    },
+    {
+      "path": "knowledge/wp07b/CAREER_TEMPORAL_REACTION_ELIGIBILITY_v0.1.csv",
+      "sha": "2529739803291b1692bb6fe985805ffefe3cc8c2"
+    }
+  ],
+  "records": [
+    {
+      "rule_id": "CA06-580",
+      "palace": "P09",
+      "source_printed_page": 147,
+      "source_audit_evidence_id": "G006-E01",
+      "source_surface_from_accepted_audit": "前格流年大运良好",
+      "surface_type": "JUXTAPOSED_DECADE_YEAR_PERIOD_VALENCE",
+      "source_literal_or": false,
+      "source_literal_and": false,
+      "natal_context_rule_id": "CA06-579",
+      "legacy_primary_time_layer": "DECADE",
+      "named_source_time_layers": [
+        "YEAR",
+        "DECADE"
+      ],
+      "legacy_eligibility_normalization": "DECADE_OR_YEAR_CONDITIONED_ON_FAVORABLE_PERIOD",
+      "legacy_normalization_is_source_proof": false,
+      "unknown": [
+        "GOOD_PERIOD_CRITERION",
+        "WHETHER_EITHER_OR_BOTH_LAYERS_REQUIRED",
+        "LAYER_PRECEDENCE"
+      ],
+      "executable": false,
+      "product_consumable": false
+    },
+    {
+      "rule_id": "CA06-600",
+      "palace": "P09",
+      "source_printed_page": 148,
+      "source_audit_evidence_id": "G006-E02",
+      "source_surface_from_accepted_audit": "前格；必须大运或流年配合",
+      "surface_type": "EXPLICIT_SOURCE_ALTERNATIVE_WITH_INHERITED_ANTECEDENT",
+      "source_literal_or": true,
+      "source_literal_and": false,
+      "natal_context_rule_id": "CA06-599",
+      "legacy_primary_time_layer": "DECADE",
+      "named_source_time_layers": [
+        "DECADE",
+        "YEAR"
+      ],
+      "legacy_eligibility_normalization": "DECADE_OR_YEAR_SUPPORT_REQUIRED",
+      "legacy_normalization_is_source_proof": false,
+      "unknown": [
+        "SUPPORT_CRITERION",
+        "ANTECEDENT_BINDING_FOR_EXECUTION",
+        "CROSS_LAYER_OPERATOR"
+      ],
+      "executable": false,
+      "product_consumable": false
+    },
+    {
+      "rule_id": "TP02-175",
+      "palace": "P10",
+      "source_printed_page": 161,
+      "source_audit_evidence_id": "G006-E08",
+      "source_surface_from_accepted_audit": "流年及小限吉，又见红鸾、天喜",
+      "surface_type": "YEAR_SMALL_LIMIT_COMPOUND_WITH_STAR_MODIFIERS",
+      "source_literal_or": false,
+      "source_literal_and": true,
+      "natal_context_rule_id": null,
+      "legacy_primary_time_layer": "YEAR",
+      "named_source_time_layers": [
+        "YEAR",
+        "SMALL_LIMIT"
+      ],
+      "legacy_eligibility_normalization": "YEAR_AND_SMALL_LIMIT_CONTEXT",
+      "legacy_normalization_is_source_proof": false,
+      "unknown": [
+        "GOOD_PERIOD_CRITERION",
+        "SMALL_LIMIT_RUNTIME_REPRESENTATION",
+        "CROSS_LAYER_OPERATOR"
+      ],
+      "executable": false,
+      "product_consumable": false
+    }
+  ],
+  "invariants": {
+    "record_count": 3,
+    "source_first_new_certification": false,
+    "shared_operator_added": false,
+    "new_time_scale_added": false,
+    "source_rows_modified": false,
+    "runtime_authority_added": false,
+    "kib_lock_registry_modified": false,
+    "probability_or_causal_claim": false,
+    "universal_deca_year_composition": "UNKNOWN_HOLD",
+    "human_gate_required_now": false
+  },
+  "product_availability": {
+    "natal_existing_accepted_unchanged": true,
+    "decade_admission_authorized": false,
+    "year_admission_authorized": false
+  },
+  "next_source_review": {
+    "required_for_new_source_certification": true,
+    "printed_pages": [
+      147,
+      148,
+      161
+    ],
+    "pdf_physical_pages": [
+      74,
+      81
+    ],
+    "status": "NOT_INDEPENDENTLY_VISUALLY_REVERIFIED"
+  }
+}
