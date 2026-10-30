@@ -66,8 +66,8 @@ def test_source_boundary_and_cross_palace_rules_are_fail_closed():
     assert boundary["next_palace"]["printed_page"] == 69
     assert "TOC" in boundary["toc_body_discrepancy"]
     by_id = {item["legacy_candidate_id"]: item for item in data["candidate_adjudications"]}
-    assert by_id["CH01-008"]["cross_palace_refs"] == ["P08"]
-    assert by_id["CH01-009"]["cross_palace_refs"] == ["P04"]
+    assert by_id["CH01-008"]["routing_target_palace"] == "P08"
+    assert by_id["CH01-009"]["routing_target_palace"] == "P04"
     assert by_id["CH01-067"]["cross_palace_refs"] == ["P03"]
 
 
