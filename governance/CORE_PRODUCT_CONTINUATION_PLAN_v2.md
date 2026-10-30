@@ -61,13 +61,13 @@ The old two-palace parallelism proposal is **not approved** by the 2026-10-30 PI
 
 Permanent plan pointer: **Issue #901**.
 
-### C0 — Finish current C9 unchanged
+### C0 — C9 accepted baseline
 
-Current live Core unit: **#945 / PR #946**. It must complete its original bounded WP07B persistence/path and GAP-006 overlap audit. This plan does not expand its scope or change its write set.
+Core C9 **#945 / PR #946** is accepted and closed on main at `0d75766cc0fcf86686df196565fbd598be4b1da6`, with the bounded verdict `DESCRIPTIVE_PATH_SUBTYPES_CONFIRMED_NO_EXECUTION`. Its original scope and non-executable boundary remain unchanged; do not reopen or expand it.
 
 ### C1 — Shared NATAL / DECADE / YEAR layer semantics
 
-After C9 closes, the next Core priority is a bounded research package on the shared temporal-layer relationship and response semantics required for a source-grounded reading sequence.
+After C9 is accepted and the Core WIP slot is free, the next Core priority is one bounded research package on the shared temporal-layer relationship and response semantics required for a source-grounded reading sequence. Its first checkpoint audits the accepted v0.5 NATAL structure against the Product consumption contract, identifies reusable structure versus genuine shared gaps, and avoids rebuilding existing architecture.
 
 Research questions:
 1. What role does the NATAL base structure play when reading time layers?
@@ -183,13 +183,13 @@ The intended cadence is:
 Palace Knowledge: source-first NATAL + temporal layer research (one palace at a time)
                          │
                          ▼ accepted main evidence
-Core: current C9 -> shared NATAL/DECADE/YEAR semantics
+Core: accepted C9 -> NATAL structure/consumption-contract checkpoint -> shared NATAL/DECADE/YEAR semantics
                          │
                          ▼ accepted, Product-consumable checkpoint
-Product: NATAL DetailedRead -> DECADE -> YEAR
+Product: NATAL DetailedRead -> actual-use validation -> DECADE -> YEAR
 ```
 
-Product NATAL can proceed while Core completes C9 and while palace Knowledge works independently. Product consumes only current accepted main evidence; it does not wait for future temporal work to finish.
+Product NATAL can proceed while Core researches shared temporal semantics and palace Knowledge continues its one-palace source review. Product consumes only current accepted main evidence; it does not wait for future temporal work to finish.
 
 When Product finds a gap:
 - Product interface/representation gap -> Product owns it;
