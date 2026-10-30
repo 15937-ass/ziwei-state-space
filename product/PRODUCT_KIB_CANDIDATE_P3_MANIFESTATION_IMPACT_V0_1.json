@@ -1,0 +1,493 @@
+{
+  "schema_version": "0.1",
+  "bundle_id": "KIB-CANDIDATE-P3-MANIFESTATION-IMPACT-20261030-V0_1",
+  "source_commit": "2aca351d988ba0c07d302c84329d5266aee322fd",
+  "issue": 518,
+  "status": "CANDIDATE",
+  "digest_policy": "GIT_BLOB_EXACT_PLUS_CONSERVATIVE_RAW_SEMANTIC_V0_1",
+  "auto_refresh": false,
+  "promoted_from_bundle_id": "KIB-PRODUCT-20261021-V0_2",
+  "promotion_scope": "K_response only: Career contextual activation v0.16 + compiler-readiness census + dependency/direct condition IR",
+  "notes": [
+    "Knowledge main does not auto-promote into Product.",
+    "K_signal, K_manifest and K_method remain semantically unchanged from KIB-PRODUCT-20261021-V0_2.",
+    "K_response promotes the v0.16 Career readiness closure and locks the 12-row Knowledge condition-IR package (3 dependency + 9 direct).",
+    "LOCAL_STRUCTURE_READY is not treated as equivalent to condition-IR-ready: only 12/26 are compiler-input-ready, 14/26 remain fail-closed.",
+    "Product condition compilation, Knowledge execution unlock and Product runtime authorization remain zero."
+  ],
+  "components": [
+    {
+      "component_id": "K_manifest",
+      "contract_version": "0.1",
+      "coverage_status": "EMPTY_NOT_READY",
+      "source_commit": "2aca351d988ba0c07d302c84329d5266aee322fd",
+      "artifacts": [],
+      "component_semantic_digest": "sha256:4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "accepted_baseline_commit": null,
+      "bootstrap_equivalence": "NO_CANONICAL_CONTENT"
+    },
+    {
+      "component_id": "K_method",
+      "contract_version": "0.1",
+      "coverage_status": "ACTIVE_LOCKED_WANG_METHOD_V0_1",
+      "source_commit": "2aca351d988ba0c07d302c84329d5266aee322fd",
+      "artifacts": [
+        {
+          "path": "product/expert_cases/wang_tingzhi/CASE_SOURCE_INVENTORY_v0.1.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:804b3163b40ed19c8626427ce988fb12b6f85763",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:804b3163b40ed19c8626427ce988fb12b6f85763"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/METHOD_PATTERNS_v0.1.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:f81cd49e74bd7fb0a960d40b63f7d014c839f287",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:f81cd49e74bd7fb0a960d40b63f7d014c839f287"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/LOCO_FOLDS_v0.1.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:28672ebce30b4a6ee08cbd25d53f81e266cadd5a",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:28672ebce30b4a6ee08cbd25d53f81e266cadd5a"
+        },
+        {
+          "path": "product/METHOD_POLICY_EXECUTION_RULES_v0.1.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:2321ad7d59542d272f97e58c338921a424ba0f9f",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:2321ad7d59542d272f97e58c338921a424ba0f9f"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_001.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:343b8eead79ef5ed2f6c57220311d17548945318",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:343b8eead79ef5ed2f6c57220311d17548945318"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_002.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:ee7da4451906ddd1b0d2ec1558a564bbd1fd8399",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:ee7da4451906ddd1b0d2ec1558a564bbd1fd8399"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_003.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:cdc6ab91888dbd5cef2ec815251bcc1beee8b840",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:cdc6ab91888dbd5cef2ec815251bcc1beee8b840"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_004.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:c4f00c1fc98c3d29ff11008bf8fa83a271779ad4",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:c4f00c1fc98c3d29ff11008bf8fa83a271779ad4"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_005.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:7aac9c53df8ee4f1f3a8d4cbefe810be8ea01b62",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:7aac9c53df8ee4f1f3a8d4cbefe810be8ea01b62"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_006.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:a475f09f510d87181aa55e41b4b2fd0a0745dca3",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:a475f09f510d87181aa55e41b4b2fd0a0745dca3"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_007.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:8e372b835508c03d404a5bfdcbb883c824510573",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:8e372b835508c03d404a5bfdcbb883c824510573"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_008.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:042998f5564d60bade14390485c1f7fb269d0311",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:042998f5564d60bade14390485c1f7fb269d0311"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_009.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:900fbf61599dcda851efce3a01e43cbf4596fa8a",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:900fbf61599dcda851efce3a01e43cbf4596fa8a"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_010.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:8314dc7108063df624f307a209cef1bab233c6f8",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:8314dc7108063df624f307a209cef1bab233c6f8"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_011.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:e065180d8b628f9c1f5605d330da610e7a2bafcb",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:e065180d8b628f9c1f5605d330da610e7a2bafcb"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_012.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:1828479c13daee3926bcf307b39f5cd30accb78f",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:1828479c13daee3926bcf307b39f5cd30accb78f"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_013.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:be610701eb84e6024452e57fb14d8392ae8f413d",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:be610701eb84e6024452e57fb14d8392ae8f413d"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_014.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:df1ec8d24e389c436da4b829571b0fbe52a0b815",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:df1ec8d24e389c436da4b829571b0fbe52a0b815"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_015.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:a6073262cc8a9132afa41b37e8d0155bd1537c7e",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:a6073262cc8a9132afa41b37e8d0155bd1537c7e"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_016.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:b5da49fcb8440bdd9b58d495b22ededaf4073358",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:b5da49fcb8440bdd9b58d495b22ededaf4073358"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_017.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:c5cdbaf937ac107bc6b44092ce8211e3a972bd99",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:c5cdbaf937ac107bc6b44092ce8211e3a972bd99"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_018.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:ffff4452fff05eb81770e609d797bd54c6ba216e",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:ffff4452fff05eb81770e609d797bd54c6ba216e"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_019.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:a7b4b6759efef9c7d3507ea461e5b1f8c890bdac",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:a7b4b6759efef9c7d3507ea461e5b1f8c890bdac"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_020.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:7513f9f676511e5d29aec991bc0c753d90231906",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:7513f9f676511e5d29aec991bc0c753d90231906"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_021.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:25c80c4c906012e15ad9dcd259d242a2e680100d",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:25c80c4c906012e15ad9dcd259d242a2e680100d"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_022.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:b82ac8adf09f27e2a8048fb32fca9dab36a07708",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:b82ac8adf09f27e2a8048fb32fca9dab36a07708"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_023.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:f89aa69470f4e28fced20fb21298bc4c21ed3bc1",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:f89aa69470f4e28fced20fb21298bc4c21ed3bc1"
+        },
+        {
+          "path": "product/expert_cases/wang_tingzhi/cases/wang_case_024.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:66c31c7ec136b9407837da2656fdc0db0e979094",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:66c31c7ec136b9407837da2656fdc0db0e979094"
+        }
+      ],
+      "component_semantic_digest": "sha256:d3d982797cba3b4c0c470c8089054b57198e93f0c138144b5a0cdeb189baa3e0",
+      "accepted_baseline_commit": "9d3e4d61bc0729693a307c96345820fec798875d",
+      "bootstrap_equivalence": "ALL_LOCKED_ARTIFACT_BLOBS_IDENTICAL_TO_ACCEPTED_BASELINE"
+    },
+    {
+      "component_id": "K_response",
+      "contract_version": "0.1",
+      "coverage_status": "ACTIVE_LOCKED_RESPONSE_INPUTS_V0_3_CONDITION_IR_12",
+      "source_commit": "2aca351d988ba0c07d302c84329d5266aee322fd",
+      "artifacts": [
+        {
+          "path": "knowledge/migrations/a0_sixty_systems_schema_overrides_v0.1.csv",
+          "artifact_type": "TEXT_CSV",
+          "artifact_digest": "git-sha1:687c04364e9def1e736361f77ea8b273a6cdf554",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:687c04364e9def1e736361f77ea8b273a6cdf554"
+        },
+        {
+          "path": "knowledge/response/RESPONSE_SEMANTICS_PILOT_v0.1.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:a021288f7c99988399c80fe8c3f71e88028c6624",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:a021288f7c99988399c80fe8c3f71e88028c6624"
+        },
+        {
+          "path": "knowledge/response/RESPONSE_SEMANTICS_SCHEMA_v0.1.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:0edc7c638266083632baf01ca8aad1601eee2a94",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:0edc7c638266083632baf01ca8aad1601eee2a94"
+        },
+        {
+          "path": "knowledge/review/sixty_systems_review_v0.3.csv",
+          "artifact_type": "TEXT_CSV",
+          "artifact_digest": "git-sha1:b0e477aec8c3bd49be77c8d4cb40f83e1ff25986",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:b0e477aec8c3bd49be77c8d4cb40f83e1ff25986"
+        },
+        {
+          "path": "knowledge/rules/stars/major_stars_canonical_v0.1.csv",
+          "artifact_type": "TEXT_CSV",
+          "artifact_digest": "git-sha1:df9645ab1a8c08411821b8701af85d86bfdaa277",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:df9645ab1a8c08411821b8701af85d86bfdaa277"
+        },
+        {
+          "path": "knowledge/rules/systems/sixty_systems_canonical_v0.1.csv",
+          "artifact_type": "TEXT_CSV",
+          "artifact_digest": "git-sha1:3f9e9fca05dc72cd4e6d74dfb6063c190e03c5fb",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:3f9e9fca05dc72cd4e6d74dfb6063c190e03c5fb"
+        },
+        {
+          "path": "knowledge/wp07b/CAREER_TEMPORAL_REACTION_ELIGIBILITY_SUMMARY_v0.1.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:abcdadcbd776f0f531a0a6b73a9e1b18b370c7fa",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:abcdadcbd776f0f531a0a6b73a9e1b18b370c7fa"
+        },
+        {
+          "path": "knowledge/wp07b/CAREER_TEMPORAL_REACTION_ELIGIBILITY_v0.1.csv",
+          "artifact_type": "TEXT_CSV",
+          "artifact_digest": "git-sha1:2529739803291b1692bb6fe985805ffefe3cc8c2",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:2529739803291b1692bb6fe985805ffefe3cc8c2"
+        },
+        {
+          "path": "knowledge/wp07c/CAREER_CATEGORY_OPEN_59_v0.1.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:e09845f23c52708d11c431bbe162dce4d31edc93",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:e09845f23c52708d11c431bbe162dce4d31edc93"
+        },
+        {
+          "path": "knowledge/wp07c/CAREER_CONTEXTUAL_ACTIVATION_CLOSURE_251_v0.16.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:d413669303375d7fc36624c33fde9c02f6ae8306",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:d413669303375d7fc36624c33fde9c02f6ae8306"
+        },
+        {
+          "path": "knowledge/wp07c/CAREER_RELATION_BINDING_132_v0.1.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:e9fa6b05eafa61ff08d093c6ad0e89033fe31d75",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:e9fa6b05eafa61ff08d093c6ad0e89033fe31d75"
+        },
+        {
+          "path": "knowledge/wp07c/CAREER_RESPONSE_COMPATIBILITY_01_v0.1.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:9d1b2d800adc915f0cd27da49e85e6fc49a0ce65",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:9d1b2d800adc915f0cd27da49e85e6fc49a0ce65"
+        },
+        {
+          "path": "knowledge/wp07c/CAREER_RESPONSE_COMPATIBILITY_02_v0.1.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:9898bcaf2957da55d9189f5341ed608725d0a5dd",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:9898bcaf2957da55d9189f5341ed608725d0a5dd"
+        },
+        {
+          "path": "knowledge/wp07c/CAREER_RESPONSE_COMPATIBILITY_03_v0.1.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:15c859b9d10a7052fbac60f9be5b0ae06e874928",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:15c859b9d10a7052fbac60f9be5b0ae06e874928"
+        },
+        {
+          "path": "knowledge/wp07c/CAREER_RESPONSE_COMPATIBILITY_CLOSURE_v0.1.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:7759b636ddbd3fa8440e8506642061a389dd89b2",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:7759b636ddbd3fa8440e8506642061a389dd89b2"
+        },
+        {
+          "path": "knowledge/wp08/CAREER_COMPILER_READINESS_CENSUS_26_v0.1.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:71317dec9356b4b53601d123744c2f009af0e972",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:71317dec9356b4b53601d123744c2f009af0e972"
+        },
+        {
+          "path": "knowledge/wp08/CAREER_DEPENDENCY_IR_3_v0.1.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:c5df80d97148b00240d867712f9bb110d7d13e4c",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:c5df80d97148b00240d867712f9bb110d7d13e4c"
+        },
+        {
+          "path": "knowledge/wp08/CAREER_DIRECT_CONDITION_IR_9_v0.1.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:27b1be88be82acca624cd9f52f079ce6df7d67d9",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:27b1be88be82acca624cd9f52f079ce6df7d67d9"
+        },
+        {
+          "path": "knowledge/wp08/CAREER_ORDINAL_BLOCKER_IMPACT_v0.1.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:9e624e36e0b05a92680adf55be0a4ce7e4cb46cd",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:9e624e36e0b05a92680adf55be0a4ce7e4cb46cd"
+        },
+        {
+          "path": "knowledge/wp08/CAREER_ORDINAL_CONSTRAINTS_v0.1.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:a37570168c4629e50720edf1dd8bd6a3119a6a77",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:a37570168c4629e50720edf1dd8bd6a3119a6a77"
+        },
+        {
+          "path": "knowledge/wp08/CAREER_ORDINAL_RULE_LINKS_v0.1.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:9ff3cac143273ed0afd7195ae5d7461e9aa3afd0",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:9ff3cac143273ed0afd7195ae5d7461e9aa3afd0"
+        },
+        {
+          "path": "knowledge/wp08/CAREER_SEMANTIC_NORMALIZATION_36_v0.2.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:3f2e87009e7cf38cf8ffe1dde520114cb46f3ed3",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:3f2e87009e7cf38cf8ffe1dde520114cb46f3ed3"
+        }
+      ],
+      "component_semantic_digest": "sha256:812795f2cea3a0204d942c9e88f2ea4a3d944bc4ac5aca4ae32f702facfd5a48",
+      "accepted_baseline_commit": "eaa33deeb77a4f982bc13121c06cad657975177b",
+      "bootstrap_equivalence": "CONTROLLED_PROMOTION_FROM_KIB_V0_2"
+    },
+    {
+      "component_id": "K_signal",
+      "contract_version": "0.1",
+      "coverage_status": "ACTIVE_LOCKED_CAREER_NATAL_V0_1",
+      "source_commit": "2aca351d988ba0c07d302c84329d5266aee322fd",
+      "artifacts": [
+        {
+          "path": "knowledge/wp07a/CAREER_NATAL_ATOMIZATION_MAP_v0.1.json",
+          "artifact_type": "JSON",
+          "artifact_digest": "git-sha1:66122f428c71be8166df5ee66658467f9f5065df",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:66122f428c71be8166df5ee66658467f9f5065df"
+        },
+        {
+          "path": "knowledge/wp05/palace_ontology_v0.1.csv",
+          "artifact_type": "TEXT_CSV",
+          "artifact_digest": "git-sha1:31cca6ceda62a5ed73a4ff096a32c3ba7cdbfa2b",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:31cca6ceda62a5ed73a4ff096a32c3ba7cdbfa2b"
+        },
+        {
+          "path": "validation/wp05/CA01_career_projection_review_001_100.csv",
+          "artifact_type": "TEXT_CSV",
+          "artifact_digest": "git-sha1:a18ce21a5d46da1c05f9ba0dace017d319ed377a",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:a18ce21a5d46da1c05f9ba0dace017d319ed377a"
+        },
+        {
+          "path": "validation/wp05/CA02_career_projection_review_101_200.csv",
+          "artifact_type": "TEXT_CSV",
+          "artifact_digest": "git-sha1:4a283fed00c3af7461fdca811a18053b75fd8ff0",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:4a283fed00c3af7461fdca811a18053b75fd8ff0"
+        },
+        {
+          "path": "validation/wp05/CA03_career_projection_review_201_300.csv",
+          "artifact_type": "TEXT_CSV",
+          "artifact_digest": "git-sha1:290323ca20225e6ad9f538292c340d91ff3b1332",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:290323ca20225e6ad9f538292c340d91ff3b1332"
+        },
+        {
+          "path": "validation/wp05/CA04_career_projection_review_301_400.csv",
+          "artifact_type": "TEXT_CSV",
+          "artifact_digest": "git-sha1:f6c22b208c55b2eaf6165a8ce29a51045ca5f107",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:f6c22b208c55b2eaf6165a8ce29a51045ca5f107"
+        },
+        {
+          "path": "validation/wp05/CA05_career_projection_review_401_500.csv",
+          "artifact_type": "TEXT_CSV",
+          "artifact_digest": "git-sha1:08f812c0e928093977e17a303482e382d41375d0",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:08f812c0e928093977e17a303482e382d41375d0"
+        },
+        {
+          "path": "validation/wp05/CA06_career_projection_review_501_600.csv",
+          "artifact_type": "TEXT_CSV",
+          "artifact_digest": "git-sha1:31c52e437bf33b795fcff735b4894a2316ce01be",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:31c52e437bf33b795fcff735b4894a2316ce01be"
+        },
+        {
+          "path": "validation/wp05/CA07_career_projection_review_601_700.csv",
+          "artifact_type": "TEXT_CSV",
+          "artifact_digest": "git-sha1:716cc112b14e9ec476206f1b24f06cc844d5d73d",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:716cc112b14e9ec476206f1b24f06cc844d5d73d"
+        },
+        {
+          "path": "validation/wp05/CA08_career_projection_review_701_800.csv",
+          "artifact_type": "TEXT_CSV",
+          "artifact_digest": "git-sha1:c3839cea229cc10de8095a60b648dd27f206197b",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:c3839cea229cc10de8095a60b648dd27f206197b"
+        },
+        {
+          "path": "validation/wp05/CA09_career_projection_review_801_888.csv",
+          "artifact_type": "TEXT_CSV",
+          "artifact_digest": "git-sha1:8b6141163bef011d874d94d5b0cdab4ebc98ec5f",
+          "semantic_contract": "RAW_CONTENT_FULL_V0_1",
+          "semantic_digest": "git-sha1:8b6141163bef011d874d94d5b0cdab4ebc98ec5f"
+        }
+      ],
+      "component_semantic_digest": "sha256:149a6df13da1f1babeaab4b06e182bd4510a4daa10de8b064dbb327671915671",
+      "accepted_baseline_commit": "720a617f6f2c9811b788af3e7b0865c1a3096e62",
+      "bootstrap_equivalence": "ALL_LOCKED_ARTIFACT_BLOBS_IDENTICAL_TO_ACCEPTED_BASELINE"
+    }
+  ],
+  "bundle_semantic_digest": "sha256:8bc258c5bd476187065295bbd4191b9e04628f75550c688c1f8c29509a79a150",
+  "candidate_from_bundle_id": "KIB-PRODUCT-20261021-V0_3",
+  "candidate_scope": "P4 no-op KIB source snapshot only; K_manifest remains empty because all accepted KMN/KMM have product_consumable=false."
+}
