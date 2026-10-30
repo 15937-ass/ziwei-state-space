@@ -1091,7 +1091,15 @@ def test_research_closure_metadata_matches_merged_pr_and_final_quality_gate():
         assert "active_branch: null" in core_state
         assert "active_pr: null" in core_state
         assert "base_main_sha: null" in core_state
-        assert "next_work_unit: null" in core_state
+        # A closed historical fourteen-star research checkpoint does not
+        # require Core's next bounded nominee to remain null forever.
+        # A non-null nominee is a recovery pointer, not automatic admission.
+        assert "next_work_unit:" in core_state
+        if "next_work_unit: null" not in core_state:
+            assert 'continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"' in core_state
+            assert "plan_pointer_issue: 901" in core_state
+            assert "next_issue: null" in core_state
+            assert 'next_work_status: "READY_TO_ADMIT"' in core_state
     else:
         assert 'status: "ACTIVE"' in core_state
         assert "active_issue: null" not in core_state
