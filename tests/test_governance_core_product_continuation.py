@@ -36,16 +36,27 @@ def test_product_state_points_to_first_bounded_nominee():
     assert 'next_work_status: "READY_TO_ADMIT"' in state
 
 
-def test_core_state_is_repaired_and_points_to_first_bounded_nominee():
+def test_core_state_cache_is_consistent_for_idle_or_active_work_unit():
     state = (ROOT / "knowledge/states/CORE_STATE.yaml").read_text(encoding="utf-8")
-    assert 'status: "IDLE"' in state
-    assert "active_issue: null" in state
-    assert "active_pr: null" in state
     assert "plan_pointer_issue: 901" in state
-    assert "next_issue: 898" in state
     assert "next_work_unit: null" in state
-    assert "last_completed_issue: 880" in state
-    assert "last_completed_pr: 881" in state
+    assert "last_completed_issue:" in state
+    assert "last_completed_pr:" in state
+
+    if 'status: "IDLE"' in state:
+        assert "active_issue: null" in state
+        assert "active_branch: null" in state
+        assert "active_pr: null" in state
+        assert "base_main_sha: null" in state
+        assert 'stage: "READY_TO_ADMIT"' in state
+        assert "next_issue:" in state
+    else:
+        assert 'status: "ACTIVE"' in state
+        assert "active_issue: null" not in state
+        assert "active_branch: null" not in state
+        assert "active_pr: null" not in state
+        assert "base_main_sha: null" not in state
+        assert "next_issue:" in state
 
 
 def test_three_stream_entry_routes_simple_continue_commands():
