@@ -1,0 +1,125 @@
+# Product #935 — P4 Candidate K_manifest / KIB Impact Assessment
+
+## Verdict
+
+**CANDIDATE_IMPACT_ONLY_NO_PROMOTION**
+
+For the accepted P3 checkpoint of 15 KMN / 15 KMM, Product can preserve and classify the full crosswalk, but **zero K_manifest entries can be materialized as Product-consumable inputs under the current accepted Knowledge flags**.
+
+This is not a failure of the P3 crosswalk. It is the correct enforcement of Knowledge-owned consumption authority.
+
+## 1. Accepted baseline
+
+- Accepted main at assessment: `2aca351d988ba0c07d302c84329d5266aee322fd`
+- P3 formal crosswalk freeze: `P3_FORMAL_CROSSWALK_FROZEN`
+- Corpus: 15 KMN / 15 KMM
+- Product gaps PG-001..PG-011: closed
+- Future KMM-000016+: require incremental crosswalk audit before admission
+
+## 2. Knowledge authority check
+
+The canonical mapping index and canonical node index each contain 15 records.
+
+For all 15 mappings and all 15 nodes:
+
+- `executable = false`
+- `product_consumable = false`
+- `probability_status = UNKNOWN`
+
+The Product P3 freeze establishes representation stability only. It does not change these Knowledge-owned flags and cannot be used to override them.
+
+## 3. P4 classification
+
+| Classification | Count | Interpretation |
+|---|---:|---|
+| HOLD | 3 | KMM-000001, 000004, 000011 remain fail-closed |
+| PRESERVATION_ONLY | 4 | KMM-000002, 000003, 000005, 000006 retain source/metadata/boundaries without Product consumption |
+| STRUCTURED_CANDIDATE | 8 | KMM-000007..000010 and 000012..000015 have frozen structural representations, but remain non-consumable and non-executable |
+
+All 15 are marked `candidate_k_manifest_entry_materialized=false`.
+
+### HOLD
+
+- KMM-000001 — unresolved 火铃 quantifier;
+- KMM-000004 — unresolved 煞曜空劫 quantifier;
+- KMM-000011 — source temporal layer unspecified.
+
+### Preservation-only
+
+- KMM-000002 — external real-world action prerequisite cannot be inferred from chart data;
+- KMM-000003 — scene/context and negative boundaries retained;
+- KMM-000005 — state/tendency semantics preserved without runtime compilation;
+- KMM-000006 — modifier context and 往往 modality preserved without numeric interpretation.
+
+### Structured-candidate
+
+- KMM-000007 — OPPOSITE_PALACE dependency;
+- KMM-000008 — source-explicit OR;
+- KMM-000009 — DECADE_YEAR -> DECADE + YEAR;
+- KMM-000010 — exact DECADE scope;
+- KMM-000012 — listed non-conjunctive variants;
+- KMM-000013 — distinct branches and simultaneous condition;
+- KMM-000014 — UNLESS + LIFE_PALACE dependency;
+- KMM-000015 — EVEN_IF qualifier.
+
+These eight are structurally representable under the frozen P3 contract. That does not make them Product-consumable.
+
+## 4. Candidate KIB snapshot
+
+A no-op candidate KIB source snapshot was created:
+
+- Candidate: `KIB-CANDIDATE-P3-MANIFESTATION-IMPACT-20261030-V0_1`
+- Active base: `KIB-PRODUCT-20261021-V0_3`
+- Candidate source commit: `2aca351d988ba0c07d302c84329d5266aee322fd`
+- Total locked artifacts retained: 61
+- K_manifest artifacts: **0**
+- K_manifest coverage remains: `EMPTY_NOT_READY`
+- Bundle semantic digest is unchanged from the active v0.3 bundle.
+
+This candidate is only a provenance/source snapshot. It does not insert the P3 freeze or canonical KMM files into K_manifest, and it does not pretend that the 15 mappings are consumable.
+
+## 5. Semantic impact
+
+The existing deterministic impact policy compares active and candidate component content, not source_commit alone.
+
+Because the candidate keeps all four component inventories and semantic digests unchanged:
+
+- K_signal: NO_RUNTIME_EFFECT
+- K_response: NO_RUNTIME_EFFECT
+- K_manifest: NO_RUNTIME_EFFECT
+- K_method: NO_RUNTIME_EFFECT
+- overall: `NO_RUNTIME_EFFECT`
+- downstream invalidations: none
+
+A future genuine K_manifest semantic change would follow the existing policy:
+
+- direct: MANIFESTATION_M0 rebuild;
+- if present: dataset rematerialization;
+- if present: calibrated-model retraining/recalibration.
+
+No such rebuild is triggered now.
+
+## 6. Active lock and production boundaries
+
+The active lock remains:
+
+- `PRODUCT_KNOWLEDGE_LOCK_V0_3`
+- `KIB-PRODUCT-20261021-V0_3`
+- `auto_refresh=false`
+
+Unchanged:
+
+- active lock and active bundle;
+- production ontology registry (empty);
+- production mapping registry (empty);
+- runtime authorization (zero);
+- probability status (UNKNOWN);
+- predictive-validity claims (none).
+
+## 7. Decision
+
+No K_manifest entries are admitted in P4.
+
+The candidate bundle is a no-op provenance snapshot only. The P4 result is therefore **CANDIDATE_IMPACT_ONLY_NO_PROMOTION**.
+
+The next legitimate transition requires a new accepted Knowledge artifact that explicitly changes Product-consumption authority, followed by a bounded Product impact review. If a real candidate then exists, promotion must be handled by a separate P5 unit and Integration Lease. Product must not infer or grant Knowledge authority itself.
