@@ -92,4 +92,5 @@ def test_no_execution_mapping_or_history_feedback_is_authorized():
     assert 'status: "ACTIVE_BUILD"' in state
     assert 'active_issue: 943' in state
     assert 'active_pr: 944' in state
+    assert 'active_branch: "knowledge/p04-943-children-ch01-001-100-source-audit"' in state
     assert 'canonical_checkpoint: "P04_CH01_001_100_SOURCE_FIRST_REVALIDATION_PROPOSED"' in state
