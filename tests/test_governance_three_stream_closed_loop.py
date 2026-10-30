@@ -19,7 +19,7 @@ def test_product_feedback_is_typed_prioritized_and_owned():
     for marker in ("KNOWLEDGE_GAP", "CORE_GAP", "PRODUCT_GAP", "HOLD_UNKNOWN"):
         assert marker in plan
         assert marker in handoff
-    for marker in ("P0", "P1", "P2", "KNOWLEDGE_CORE_GAP", "no second global status ledger"):
+    for marker in ("P0", "P1", "P2", "KNOWLEDGE_CORE_GAP", "second global status ledger"):
         assert marker in plan
         assert marker in handoff
 
@@ -34,6 +34,7 @@ def test_three_stream_limits_and_current_core_product_route_are_preserved():
     assert "C9 #945/#946 is accepted" in plan
     assert "v0.5 NATAL" in plan
     assert "actual-use validation" in plan
+    assert "Tracking Governance Issue: #949 (v2 baseline); v2.2 addendum: #963" in plan
     assert "不增加宫位槽位" in card
     assert "C9 #945/#946 已接受" in card
     assert "实际命盘" in card
