@@ -162,7 +162,7 @@ def test_three_stream_entry_routes_simple_continue_commands():
     card = (ROOT / "governance/THREE_STREAM_START_HERE.md").read_text(encoding="utf-8")
     assert "Core plan pointer #901" in card
     assert "Product plan pointer #900" in card
-    assert "当前 C9 #945" in card
+    assert "C9 #945/#946 已接受" in card
     assert "PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1" in card
     assert "DECADE" in card
     assert "YEAR" in card

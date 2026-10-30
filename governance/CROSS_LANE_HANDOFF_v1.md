@@ -47,3 +47,39 @@ An accepted negative source audit can close its bounded review Issue while the c
 - Before promoting a waiting unit, inventory live ACTIVE Issues and open PRs. Classify old PRs as current implementation, superseded candidate, archived diagnostic, or independent backlog by reading their Issue, diff and merge status. An open PR is not automatically an active worker or accepted artifact.
 - If a PR is already represented by accepted `main`, document equivalence and close it; if not, preserve it without silently merging stale changes. Record the disposition in the Issue. Retire stale branches only after checking that they contain no unique accepted evidence.
 - The quality gate tests implementation, not source truth. Source audit, Human Gate, KIB impact and Product runtime authorization remain separate checks.
+
+
+## Product finding feedback loop (v1.1 operational addendum)
+
+Product findings are diagnostic evidence about consumption and implementation. They are not, by themselves, canonical source truth or evidence of predictive validity. Route each material finding through the existing producer/consumer handoff; do not create a second global status ledger or parallel defect database.
+
+### Primary classification
+
+- `KNOWLEDGE_GAP`: missing, unclear or conflicting palace-specific source evidence, condition, temporal scope or exception. The owning palace shard is accountable for source review.
+- `CORE_GAP`: a shared structural, cross-palace or temporal relation cannot be represented by the accepted Core contract. Core is accountable. For the existing shard-to-Core handoff convention, retain the `KNOWLEDGE_CORE_GAP` marker where applicable.
+- `PRODUCT_GAP`: accepted knowledge/semantics exist, but Product retrieval, orchestration, evidence consumption, interface, presentation, provenance or fail-closed behavior is wrong. Product is accountable.
+- `HOLD_UNKNOWN`: evidence is insufficient or irreducibly conflicting. Preserve the uncertainty and exact source span; do not force a producer assignment or conclusion.
+
+A finding has one primary class. Secondary observations may be linked, but do not multiply the same defect across lanes.
+
+### Priority and safe continuation
+
+- `P0`: the affected output would otherwise make an unsupported, structurally wrong or canonical-contaminating claim. Fail closed for the affected claim immediately and route the issue. Unrelated active work continues where safe.
+- `P1`: blocks acceptance of the current approved stage or its next eligible stage. Record the exact missing input and queue the next eligible bounded producer/consumer unit; do not create a second worker or silently pre-empt an active unit.
+- `P2`: non-blocking coverage or quality improvement. Record in the existing Issue/PR and defer.
+
+Priority never overrides lane ownership, WIP limits, the one-palace rule, Human Gates or #888. Product must not write Knowledge/Core semantics; Knowledge must not repair Product implementation; Core must not create source evidence.
+
+### Minimum reproducibility payload
+
+For a Product finding, add to the existing consumer/producer Issue or PR:
+- chart/case fixture ID and version, or state that no eligible fixture exists;
+- accepted `main` SHA and relevant Knowledge/Core/lock versions;
+- user question and affected domains/palaces;
+- evidence/relationships actually consumed;
+- expected versus actual behavior;
+- primary class and P0/P1/P2 priority;
+- producer/consumer Issue, missing input, allowed write set and exact unblock evidence;
+- retest result and unresolved limitations.
+
+Continue to use the existing handoff table above for producer, consumer, missing input, dependency, unblock evidence and safe parallel work. A synthetic fixture may validate orchestration but is not an actual chart/case use check. Case/source fidelity is not prospective predictive validity.

@@ -1,8 +1,8 @@
-# Core + Product Continuous Progression Plan v2
+# Core + Product Continuous Progression Plan v2.2
 
-Status: **PI-APPROVED / ACTIVE CONTINUATION PLAN**  
-PI decision: 2026-10-30 — NATAL DetailedRead -> DECADE -> YEAR  
-Tracking Governance Issue: #949  
+Status: **PI-APPROVED / ACTIVE CONTINUATION PLAN v2.2**  
+PI decision: 2026-10-30 — NATAL DetailedRead -> DECADE -> YEAR; closed-loop coordination addendum approved 2026-10-30  
+Tracking Governance Issue: #949 (v2 baseline); v2.2 addendum: #963  
 Product plan pointer: #900  
 Core plan pointer: #901  
 Integration ledger: #888  
@@ -15,6 +15,8 @@ This plan makes the long-term work sequence explicit:
 **First close a usable NATAL full-reading loop; then add DECADE analysis; then add YEAR analysis.**
 
 Knowledge and Core build the time-layer knowledge in parallel with Product's NATAL work. Product does not wait for all Knowledge to be completed before beginning; it consumes only accepted, pinned, allowed evidence and exposes gaps rather than inventing conclusions.
+
+Version 2.2 keeps the accepted v2 architecture and sequencing, and adds a bounded product-feedback loop, capability/evidence-based stage gates, and a small post-NATAL actual-use validation checkpoint. It does not add a lane, slot, status ledger, semantic authority, or runtime permission.
 
 The user-facing commands remain:
 - **推进宫位线**
@@ -59,13 +61,13 @@ The old two-palace parallelism proposal is **not approved** by the 2026-10-30 PI
 
 Permanent plan pointer: **Issue #901**.
 
-### C0 — Finish current C9 unchanged
+### C0 — C9 accepted baseline
 
-Current live Core unit: **#945 / PR #946**. It must complete its original bounded WP07B persistence/path and GAP-006 overlap audit. This plan does not expand its scope or change its write set.
+Core C9 **#945 / PR #946** is accepted and closed on main at `0d75766cc0fcf86686df196565fbd598be4b1da6`, with the bounded verdict `DESCRIPTIVE_PATH_SUBTYPES_CONFIRMED_NO_EXECUTION`. Its original scope and non-executable boundary remain unchanged; do not reopen or expand it.
 
 ### C1 — Shared NATAL / DECADE / YEAR layer semantics
 
-After C9 closes, the next Core priority is a bounded research package on the shared temporal-layer relationship and response semantics required for a source-grounded reading sequence.
+After C9 is accepted and the Core WIP slot is free, the next Core priority is one bounded research package on the shared temporal-layer relationship and response semantics required for a source-grounded reading sequence. Its first checkpoint audits the accepted v0.5 NATAL structure against the Product consumption contract, identifies reusable structure versus genuine shared gaps, and avoids rebuilding existing architecture.
 
 Research questions:
 1. What role does the NATAL base structure play when reading time layers?
@@ -151,7 +153,7 @@ NATAL DetailedRead may use currently accepted RUNTIME and allowed SOURCE materia
 
 ### P2 — DECADE integration
 
-Trigger: NATAL closure is accepted and relevant Knowledge/Core temporal evidence is on main with an explicit Product-consumption allowance.
+Trigger: NATAL closure is accepted, the post-NATAL actual-use checkpoint is accepted, and relevant Knowledge/Core temporal evidence is on main with an explicit Product-consumption allowance. If no eligible source-complete chart/case fixture exists, record the exact blocker; do not fabricate a test or claim actual-use validation.
 
 Product adds `E_decade` and, only where source-supported and permitted, `tau_decade`. It must keep NATAL essence, decade environment and natal response under that environment distinct. Unsupported domains remain visible gaps; no event certainty is implied.
 
@@ -181,13 +183,13 @@ The intended cadence is:
 Palace Knowledge: source-first NATAL + temporal layer research (one palace at a time)
                          │
                          ▼ accepted main evidence
-Core: current C9 -> shared NATAL/DECADE/YEAR semantics
+Core: accepted C9 -> NATAL structure/consumption-contract checkpoint -> shared NATAL/DECADE/YEAR semantics
                          │
                          ▼ accepted, Product-consumable checkpoint
-Product: NATAL DetailedRead -> DECADE -> YEAR
+Product: NATAL DetailedRead -> actual-use validation -> DECADE -> YEAR
 ```
 
-Product NATAL can proceed while Core completes C9 and while palace Knowledge works independently. Product consumes only current accepted main evidence; it does not wait for future temporal work to finish.
+Product NATAL can proceed while Core researches shared temporal semantics and palace Knowledge continues its one-palace source review. Product consumes only current accepted main evidence; it does not wait for future temporal work to finish.
 
 When Product finds a gap:
 - Product interface/representation gap -> Product owns it;
@@ -213,10 +215,10 @@ For a new Core/Product chat:
 
 1. Run standard repository recovery and read the live lane Issue/PR.
 2. If an ACTIVE bounded work unit exists, resume it.
-3. If Core has no ACTIVE unit, read #901: finish any current live C9 first; after C9, admit the earliest eligible temporal-layer semantics research unit.
-4. If Product has no ACTIVE unit, read #900: admit the NATAL DetailedRead closed-loop unit first.
-5. After NATAL is accepted, Product may admit DECADE only when the matching Knowledge/Core checkpoint is accepted and Product-consumable.
-6. Admit YEAR only after the DECADE layer is stable and matching YEAR evidence is accepted.
+3. If Core has no ACTIVE unit, read #901: C9 #945/#946 is accepted; admit one bounded Core unit whose first checkpoint audits the accepted v0.5 NATAL structure against the Product consumption contract (reuse, do not rebuild), then proceeds to shared temporal-layer semantics.
+4. If Product has no ACTIVE unit, read #900: admit the NATAL DetailedRead closed-loop unit first; after its acceptance, admit the small actual-use validation checkpoint before claiming NATAL is use-validated.
+5. Admit DECADE only after NATAL closure and its actual-use validation checkpoint are accepted, and matching Knowledge/Core temporal evidence is on main with explicit Product allowed-use. Exhaustive completion of all unrelated Knowledge is not required.
+6. Admit YEAR only after the DECADE structure is stable and matching YEAR evidence plus its relation to the selected DECADE context is accepted and Product-consumable.
 7. Continue ordinary authorized work without asking the PI to restate the route; stop only at an explicit Human Gate or major priority conflict.
 8. At closeout, leave the next bounded nominee and handoff. Do not execute the next unit in the same turn.
 9. All final merges follow #888 Integration Lease and the exact-head full quality gate.
@@ -230,3 +232,78 @@ For a new Core/Product chat:
 - No unapproved runtime, probability, causal, predictive-validity or school-boundary changes.
 - Palace one-at-a-time schedule and all current WIP caps remain unchanged.
 - The old v1 plan remains available for historical traceability but no longer determines the active Core/Product sequence.
+
+
+## 10. v2.2 closed-loop coordination addendum — active
+
+This addendum is part of the active continuation contract. It supplements Sections 2–9 without replacing their accepted architecture, work ownership, epistemic boundaries or integration rules.
+
+### 10.1 Three-stream production and feedback
+
+The three streams operate as a closed loop while retaining independent ownership:
+
+- **Knowledge** establishes source-grounded facts, conditions, temporal scope, exceptions, contradictions and UNKNOWN. It continues the approved one-palace-at-a-time sequence. At each bounded batch closeout, add a lightweight Product-availability note to the existing Issue/PR: layer (NATAL/DECADE/YEAR), prerequisites, source status, allowed-use and unresolved gaps. Product feedback may create a targeted source handoff, but does not interrupt or broaden an already active palace batch for non-blocking findings.
+- **Core** organizes accepted knowledge into shared, source-bounded structures and temporal relations. It owns shared cross-palace and NATAL/DECADE/YEAR semantics; it reuses accepted models and contracts rather than rebuilding them.
+- **Product** consumes only accepted, pinned, Product-allowed main evidence; demonstrates user-visible capability; and reports reproducible consumption, structure or provenance defects. Product tests do not create canonical source truth.
+
+Normal independent concurrency remains exactly one active palace + one Core + one Product. Core WIP <= 1, Product WIP <= 1, one palace slot under #676, and serialized final integration under #888. Product feedback is not a fourth lane or an additional work slot.
+
+### 10.2 Product finding classification and ownership
+
+Every material Product finding receives one primary classification:
+
+| Class | Meaning | Owner / disposition |
+| --- | --- | --- |
+| `KNOWLEDGE_GAP` | Palace/source-specific evidence, condition, temporal scope or source reconciliation is missing or unclear | Owning Knowledge palace shard |
+| `CORE_GAP` | Accepted local knowledge exists, but a shared structural, cross-palace or temporal relation cannot be represented by the accepted Core contract | Core; use the existing `KNOWLEDGE_CORE_GAP` handoff convention where applicable |
+| `PRODUCT_GAP` | Retrieval, orchestration, consumption, interface, presentation, provenance or fail-closed implementation is defective | Product |
+| `HOLD_UNKNOWN` | Evidence is insufficient or irreducibly conflicting | Preserve unresolved; do not force a conclusion or artificial owner |
+
+Classification identifies the accountable owner; it does not promote evidence, settle source conflicts, or authorize cross-lane writes. Use the existing `governance/CROSS_LANE_HANDOFF_v1.md` and producer/consumer Issues. Do not create a second global status ledger.
+
+### 10.3 Feedback priority and interruption policy
+
+- **P0 — immediate correctness boundary:** an affected output would otherwise make an unsupported, structurally wrong or canonical-contaminating claim. Fail closed for that claim immediately and route the demonstrated defect to its owner. Stop the affected inference, not unrelated work.
+- **P1 — current-stage blocker:** the issue prevents acceptance or the next approved stage. Record the exact missing input and queue the next eligible bounded work unit for the responsible lane. Do not silently pre-empt another active work unit.
+- **P2 — non-blocking improvement:** coverage, usability or quality improvement that does not invalidate the current result. Record it in the existing Issue/PR and defer it to a suitable later unit.
+
+A P0 correctness defect may require immediate handling under the existing work unit's authority; it does not authorize a second palace, Core or Product worker. A P1/P2 finding does not interrupt a source batch that can safely continue. Priority does not override Human Gates or the Integration Lease.
+
+### 10.4 Core next-work checkpoint: reuse the NATAL structure
+
+With C9 #945/#946 accepted, the next admitted Core unit begins with a bounded checkpoint that compares:
+
+1. the accepted v0.5 NATAL state-space structure and its local-palace/global-graph distinction;
+2. the accepted Knowledge artifacts and their explicit allowed-use;
+3. the Product NATAL DetailedRead consumption contract and the actual gaps it exposes.
+
+The checkpoint must identify what is already represented and reusable, what is missing, and which missing item is truly shared Core semantics. It is not permission to rebuild the state-space model, create a second Product inference engine, or duplicate completed star/palace research. The same bounded Core unit then advances the shared NATAL / DECADE / YEAR temporal and response semantics specified in Section 4, preserving source qualifiers, prerequisites, modifiers, conflicts and UNKNOWN.
+
+### 10.5 Product NATAL actual-use validation and stage gates
+
+After Product #951 is accepted on main, Product performs one small, reproducible actual-use validation checkpoint using an eligible existing source-complete chart/case fixture or PI-authorized chart material. It checks actual evidence retrieval/consumption, provenance, twelve-domain coverage/gaps, cross-domain behavior and fail-closed handling. It does not require complete coverage of every palace rule.
+
+If no eligible fixture exists, Product records the exact missing fixture/permission and leaves actual-use validation explicitly unpassed. It must not invent a chart, silently substitute a synthetic fixture, or describe a synthetic orchestration test as an actual chart run. This checkpoint validates implementation and source/method fidelity only; it does not establish prospective predictive validity.
+
+Stage advancement is capability/evidence-based, not knowledge-volume-based:
+
+- **NATAL -> DECADE:** accepted NATAL DetailedRead closure; actual-use validation accepted; natal essence and global palace relationships remain correctly represented; coverage and UNKNOWN are explicit; and matching temporal Knowledge/Core evidence is accepted on main with explicit Product allowed-use. Complete coverage of every palace, star-system or source rule is not required.
+- **DECADE -> YEAR:** the DECADE structure is stable; matching YEAR evidence and its relationship to the selected DECADE context are accepted on main and explicitly Product-consumable; NATAL, DECADE and YEAR scopes remain distinct.
+- **YEAR -> later M0/Forecast work:** the existing source-only executable `N -> E -> tau -> M0` vertical-slice trigger remains unchanged.
+
+A stage may have visible gaps. It may not disguise a gap as a supported conclusion. Capability validation, source/method fidelity, production readiness and prospective predictive validity remain separate claims.
+
+### 10.6 Minimum durable Product finding payload
+
+Record findings in the existing consumer/producer Issue or PR, not a new ledger. Include only what is needed to reproduce and route the issue:
+
+- chart/case fixture identifier and version (or explicitly unavailable);
+- accepted main SHA and relevant Knowledge/Core/lock versions;
+- user question and involved domains/palaces;
+- evidence and relationships actually consumed;
+- expected versus actual behavior;
+- primary finding class and P0/P1/P2 priority;
+- accountable producer/consumer Issue, exact missing input and allowed write set;
+- accepted-main unblock evidence, retest result and unresolved limitations.
+
+Reuse the existing cross-lane handoff fields for producer, consumer, dependency, unblock evidence, safe parallel work and ownership. Do not duplicate completed source review or rerun unchanged tests merely to produce another status report.

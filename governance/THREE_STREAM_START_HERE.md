@@ -1,4 +1,4 @@
-# 三线推进操作卡
+# 三线推进操作卡（v2.2）
 
 跟踪：[Issue #725](https://github.com/15937-ass/ziwei-state-space/issues/725)。这是已有总计划、恢复与交接规则的中文操作入口，不是另一份实时状态表。接受状态以该 Issue/PR 和 main 为准。
 
@@ -6,9 +6,9 @@
 
 | 对话名称 | 新对话发什么 | 负责什么 |
 | --- | --- | --- |
-| 宫位线 | 推进宫位线 | 按既定逐宫顺序核对教材、保存条件和疑点 |
-| Core线 | 推进Core线 | 按 #901 / continuation plan v2：先完成当前 C9，之后研究 NATAL—DECADE—YEAR 共享时间层语义；案例用于验证 |
-| 产品线 | 推进产品线 | 按 #900 / continuation plan v2：先打通 NATAL DetailedRead，再在 accepted Knowledge/Core checkpoint 上升级 DECADE、YEAR |
+| 宫位线 | 推进宫位线 | 按既定逐宫顺序核对教材；对产品反馈做来源定向回溯，不打断当前批次 |
+| Core线 | 推进Core线 | 按 #901 / v2.2：C9 已接受；下一项先核对 v0.5 原局结构与 Product 消费契约，再研究共享时间层语义 |
+| 产品线 | 推进产品线 | 按 #900 / v2.2：完成 NATAL DetailedRead，随后做小型实际命盘/案例使用检验，再按 accepted Knowledge/Core checkpoint 升级 DECADE、YEAR |
 
 三个不同工作线的对话可以同时推进独立工作。常态目标是“1 个宫位 + 1 个 Core + 1 个 Product”三槽并行；正式合入 main 由 Integration Lease 串行控制。不要为了等待别人合并而停止本线的独立研究/开发，也不要在 ACTIVE_BUILD 阶段为了无关 main 变化反复重跑最终全量门。不必每次重新创建对话；同一对话到下一轮时也可以只发“继续”。替换旧对话时先让旧对话停止并保存交接，再让新对话接手；不要让两个对话同时写同一条线。
 
@@ -20,15 +20,15 @@
 
 ### 宫位线
 
-> 继续 15937-ass/ziwei-state-space 的宫位线。先读取 main 上的 CHATGPT_START_HERE.md，按标准恢复顺序读取 governance/THREE_STREAM_START_HERE.md 的宫位安排，核对实时任务和旧对话交接。接续一个已获准、可执行的宫位工作单元，遵守一次一个宫位；每轮完成到可恢复检查点，写回 Issue/PR，结束时用中文汇报三线状态和下次继续的位置。
+> 继续 15937-ass/ziwei-state-space 的宫位线。先读取 main 上的 CHATGPT_START_HERE.md，按标准恢复顺序读取 governance/THREE_STREAM_START_HERE.md 的宫位安排，核对实时任务和旧对话交接。接续一个已获准、可执行的宫位工作单元，遵守一次一个宫位。每个批次结束时，在现有 Issue/PR 留下简短 Product-availability note（NATAL/DECADE/YEAR、前提、来源状态、allowed-use、残余缺口）。若 Product 提供 KNOWLEDGE_GAP，只有在完成当前批次或达到 P0 正确性门槛时才做定向回溯；不得增加宫位槽位或把产品反馈当作来源真理。每轮完成到可恢复检查点，写回 Issue/PR，结束时用中文汇报三线状态和下次继续的位置。
 
 ### Core线
 
-> 继续 15937-ass/ziwei-state-space 的Core线。先读取 main 上的 CHATGPT_START_HERE.md，按标准恢复顺序读取 governance/THREE_STREAM_START_HERE.md、governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md 和 Core plan pointer #901，核对实时 Core Issue/PR 与旧对话交接。若已有 ACTIVE Core 单则接续；若 Core 槽位空闲则直接领取计划中最早可执行的 bounded nominee（当前 C9 #945 完成后，按计划准入时间层语义研究单），无需让我重述顺序。每轮只推进一个 Core 工作单元，遇到计划规定的真实 Human Gate 才停下来给中文原文依据和例子，结束时汇报三线状态和下次继续的位置。
+> 继续 15937-ass/ziwei-state-space 的Core线。先读取 main 上的 CHATGPT_START_HERE.md，按标准恢复顺序读取 governance/THREE_STREAM_START_HERE.md、governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md 和 Core plan pointer #901，核对实时 Core Issue/PR 与旧对话交接。若已有 ACTIVE Core 单则接续；若 Core 槽位空闲则直接领取计划中最早可执行的 bounded nominee（C9 #945/#946 已接受；下一项先复核已接受的 v0.5 NATAL 结构与 Product 消费契约，再推进共享时间层语义），无需让我重述顺序。每轮只推进一个 Core 工作单元，遇到计划规定的真实 Human Gate 才停下来给中文原文依据和例子，结束时汇报三线状态和下次继续的位置。
 
 ### 产品线
 
-> 继续 15937-ass/ziwei-state-space 的产品线。先读取 main 上的 CHATGPT_START_HERE.md，按标准恢复顺序读取 governance/THREE_STREAM_START_HERE.md、governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md 和 Product plan pointer #900，核对实时 Product Issue/PR 与旧对话交接。若已有 ACTIVE Product 单则接续；若 Product 槽位空闲则直接领取计划中最早可执行的 bounded nominee（首个工作单元：PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1），无需让我重述顺序。Product 原局详批可使用当前 main 已接受的 RUNTIME 与 allowed SOURCE；DECADE/YEAR 只消费已接受且明确可供 Product 使用的时间层 checkpoint，不跟随未合并分支；每轮写回可恢复检查点，遇到计划规定的 Human Gate 才停下来，结束时汇报三线状态和下次继续的位置。
+> 继续 15937-ass/ziwei-state-space 的产品线。先读取 main 上的 CHATGPT_START_HERE.md，按标准恢复顺序读取 governance/THREE_STREAM_START_HERE.md、governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md 和 Product plan pointer #900，核对实时 Product Issue/PR 与旧对话交接。若已有 ACTIVE Product 单则接续；若 Product 槽位空闲则直接领取计划中最早可执行的 bounded nominee（首个工作单元：PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1），无需让我重述顺序。Product 原局详批可使用当前 main 已接受的 RUNTIME 与 allowed SOURCE；#951 接受后先完成一个小型、可复现的实际命盘/来源完整案例使用检验，核对证据消费、十二宫覆盖/缺口、跨宫行为与 provenance。没有合格案例时记录精确阻塞，不得用合成夹具冒充实际使用。DECADE/YEAR 只消费已接受且明确可供 Product 使用的时间层 checkpoint，不跟随未合并分支；每轮写回可恢复检查点，遇到计划规定的 Human Gate 才停下来，结束时汇报三线状态和下次继续的位置。
 
 若只想看进度，发“查看三线状态”：只读核对实时宫位、Core、Product 及 main，给一个优先建议，不领取新任务。
 
@@ -40,6 +40,32 @@
 4. 只写自己的工作线与已登记分片路径；只读取正式接受的 main 成果作为正式输入。共享语义归 Core，宫位不跨线补定义，Product 不猜造知识。
 5. 各线在 ACTIVE_BUILD 阶段独立准备并运行本线有界/相关检查；内容完成后进入 READY_TO_INTEGRATE，并在 Issue #888 排队。只有取得 Integration Lease 的工作单才进入 INTEGRATING：此时重核 main/base/head、同步一次当前 main、运行最终 exact-head 全量门并立即合入/释放。别的线在 lease 被占用时仍可继续工作，只是不能同时改 main。正式集成按依赖和验证就绪程度选择，不固定为“宫位 -> Core -> 产品”轮转；旧绿灯在 main 变化后仍不能直接沿用。
 6. 停止前按 AGENT_WORKFLOW.md §§10.3、13 在现有 Issue/PR 留下版本、产物、已做/未做、疑点、执行归属、验证和精确下一步。用中文回答三条线各自能做什么、等什么；最多推荐一个近期集成候选。禁止只把关键安排留在聊天中。
+
+
+## v2.2：产品反馈分类、优先级与三线闭环
+
+三线常态仍是 **1 个宫位 + 1 个 Core + 1 个 Product** 并行；Core/Product 各 WIP <= 1，宫位继续 #676 一次一个。反馈只改变后续任务的定向优先级，不新增槽位，也不要求每个小问题立即打断当前批次。
+
+Product 的实质性问题按一个主类别记录：
+- `KNOWLEDGE_GAP`：宫位专属来源、条件或时间层证据缺失/不清 -> 对应 Knowledge shard。
+- `CORE_GAP`：共享结构、跨宫或时间层语义无法由当前 Core 契约表达 -> Core；适用时沿用 `KNOWLEDGE_CORE_GAP` 交接标记。
+- `PRODUCT_GAP`：读取、编排、证据消费、界面、provenance 或 fail-closed 实现错误 -> Product。
+- `HOLD_UNKNOWN`：来源不足或不可调和冲突 -> 保留未知，不强行归因或下结论。
+
+优先级：
+- **P0**：相关输出若继续会形成无依据、结构错误或污染 canonical meaning 的判断；立即对受影响判断 fail closed，并交给责任线处理。
+- **P1**：阻塞当前阶段验收或下一阶段准入；记录精确缺失输入，排入责任线下一个合格有界工作单元。
+- **P2**：非阻塞改进；写入现有 Issue/PR，后续处理。
+
+所有反馈沿用 `governance/CROSS_LANE_HANDOFF_v1.md` 的 producer、consumer、missing input、dependency、unblock evidence、safe parallel work 和 ownership 字段。记录命盘/案例 fixture 及版本、accepted main SHA、涉及宫位、实际/预期行为、证据、分类、优先级和复测结果。不得建立第二个状态台账，不得跨线写文件。
+
+### 三线下一步
+
+- **Knowledge**：继续当前唯一宫位批次；P2 不打断，P1 排入后续定向来源复核，P0 只阻断受影响结论。
+- **Core**：C9 #945/#946 已接受。下一项 Core 有界研究先检查 accepted v0.5 NATAL 结构与 Product 消费契约，识别可复用内容和真正的共享语义缺口，再推进 NATAL/DECADE/YEAR response semantics；不重建状态空间模型。
+- **Product**：继续 #951。#951 合并后做一个小型实际命盘/来源完整案例使用检验；它验证实现和来源/方法忠实度，不等于现实预测有效性。只有 NATAL 闭环、实际使用检查和匹配的 accepted、Product-consumable 时间层证据满足时，才进入 DECADE；YEAR 还须等待大限结构稳定和匹配流年证据。
+
+阶段门槛按能力和证据判断，不按知识条目总量判断。允许明确存在覆盖缺口，但不允许把 UNKNOWN 填成结论。所有消费仍只基于 accepted main 和 allowed-use。
 
 ## 后续工作的依赖顺序
 
@@ -53,12 +79,12 @@
 - WP06C 正式映射仍等待相关 Core 契约、节点 ID、来源审查和宫位准入条件全部满足。
 - 本次 PI 决定没有批准两宫位并行；不得启用 P06 #773 作为第二槽。
 
-### Core：当前 C9 → NATAL / DECADE / YEAR 共享时间层语义
+### Core：C9 已接受 → NATAL 结构消费契约检查 → 共享时间层语义
 
 详细顺序见 [Core + Product Continuous Progression Plan v2](CORE_PRODUCT_CONTINUATION_PLAN_v2.md) 与 plan pointer #901。
 
-- **当前先完成 C9 #945 / PR #946**，严格保持原范围和写集。
-- C9 关闭后，Core 下一优先级是 NATAL、DECADE、YEAR 的共享时间层关系与 response semantics：区分 NATAL 基础、DECADE 环境、YEAR 环境、`tau_t` 反应及有来源支持的层间依赖。
+- C9 #945 / PR #946 已在 main 接受，不重新打开或扩展。下一项 Core 工作先用一个有界检查点核对 accepted v0.5 NATAL 结构与 Product 消费契约，识别已可复用内容和真实共享缺口，再推进时间层语义；不重建模型。
+- 完成 NATAL 结构消费契约检查后，Core 继续推进 NATAL、DECADE、YEAR 的共享时间层关系与 response semantics：区分 NATAL 基础、DECADE 环境、YEAR 环境、`tau_t` 反应及有来源支持的层间依赖。
 - 不预设大限与流年简单相加或线性叠加；保留来源前提、继承关系、跨宫依赖、修饰条件和 UNKNOWN/HOLD。
 - WP03 六十星系验证、WP06A 案例重建和王亭之案例作为原局/时间层推理链的验证材料，不再排在 Product 原局详批之前作为独立首要阻塞。
 - Core WIP 永远 <=1；不新建未经批准的通用算子、概率、因果或 Product/runtime 授权。
@@ -72,13 +98,13 @@
 - 十二宫全部进入 NATAL 检查，但每宫证据覆盖可以不同；RUNTIME、允许使用的 SOURCE、MODEL_SUPPLEMENT 和缺口分别记录。
 - 渐进读取必须去重并 pin 同一 main snapshot；最终按人生主题综合，执行跨宫一致性检查，不强行填充。
 - NATAL 详批可使用当前已接受且 allowed-use 允许的 RUNTIME/SOURCE，不以 KIB 晋升为前提；这不改变 active KIB/lock、registry 或 runtime 权限。
-- 原局闭环稳定后，只有在匹配的 Knowledge/Core 时间层成果进入 accepted main 且明确达到 Product 消费条件时，才升级 DECADE；随后在大限结构稳定、YEAR 证据可消费后再升级 YEAR。
+- #951 接受后，先做一个小型、可复现的实际命盘/来源完整案例使用检验，核对证据消费、覆盖/缺口、跨宫行为和来源链；没有合格 fixture 时如实记录阻塞。该检验只验证实现与来源/方法忠实度，不证明预测有效性。随后只有在 NATAL 闭环、实际使用检查及匹配的 Knowledge/Core 时间层成果进入 accepted main 并明确达到 Product 消费条件时，才升级 DECADE；大限结构稳定且匹配 YEAR 证据可消费后再升级 YEAR。
 - 任何未获消费授权的 KMM、CASE_SUPPORT_ONLY、SEMANTIC_ONLY 或 BLOCKED 材料继续保持原状态；无证据时输出缺口，不输出具体时间事件。
 
 ### 三线并行和交接
 
 - 常态目标仍为 1 个宫位 + 1 个 Core + 1 个 Product 并行生产；各线 WIP 上限不变。
-- Product 原局详批可以与当前 Core C9、宫位来源研究并行，因为它消费的是当前 main 已接受的 NATAL 证据。
+- Product 原局详批 #951 可以与当前宫位来源研究和 Core 后续时间层研究并行，因为它消费的是当前 main 已接受的 NATAL 证据。
 - Product 发现接口问题归 Product；发现共享时间层语义缺口才交 Core；宫位来源缺口交对应 shard。
 - 正式集成仍由 #888 Integration Lease 串行控制。不得消费未合并分支。
 - Forecast Ledger 继续等待第一条 source-only `N -> E -> tau -> M0` vertical slice 真正可执行；传统案例忠实度不等于现实预测有效性。
