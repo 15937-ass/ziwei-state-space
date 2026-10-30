@@ -4,24 +4,24 @@ authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  status: "ACTIVE"
-  phase: "PL3_MANIFESTATION_P4_CANDIDATE_IMPACT"
-  active_issue: 935
-  active_pr: 940
+  status: "ACTIVE_NO_ACTIVE_WORK"
+  phase: "PL3_MANIFESTATION_P4_CANDIDATE_IMPACT_COMPLETE"
+  active_issue: null
+  active_pr: null
   continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md"
   plan_pointer_issue: 900
   next_issue: null
   next_work_unit: "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"
-  continuation_next_work_unit: "PRODUCT_MANIFESTATION_KMANIFEST_KIB_CANDIDATE_IMPACT_P4"
-  next_work_status: "ACTIVE_BUILD"
-  resume_entry: "Product #935/#940 P4 candidate K_manifest/KIB impact is QUEUE_READY under integration lease generation25; branch product/935-kmanifest-kib-candidate-impact-p4-v0-1. Current main fa62cebd619646b9c53ca0dba88291a5c45c8141; accepted P3 #932/#936 freeze covers 15 KMN/15 KMM. P4 classification 3 HOLD / 4 PRESERVATION_ONLY / 8 STRUCTURED_CANDIDATE; zero K_manifest entries admitted. All 15 remain executable=false, product_consumable=false, probability_status=UNKNOWN. P02S-137/169 source dependencies remain SOURCE_REUSABLE but not mapping-approved or executable. Latest Core C8 is descriptive-only and does not change Product authority. Await one-time sync and fresh exact-head gate; no production registry, active KIB, runtime, probability or predictive-validity authorization."
+  continuation_next_work_unit: "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"
+  next_work_status: "BLOCKED_WAITING_FOR_ACCEPTED_KNOWLEDGE_PRODUCT_CONSUMABLE_AUTHORITY"
+  resume_entry: "Product #935 / PR #940 completes P4 candidate-only K_manifest/KIB impact assessment; verdict CANDIDATE_IMPACT_ONLY_NO_PROMOTION. Accepted P3 crosswalk contains 15 KMN/15 KMM: 3 HOLD, 4 PRESERVATION_ONLY, 8 STRUCTURED_CANDIDATE; all 15 remain executable=false, product_consumable=false, probability_status=UNKNOWN, so zero K_manifest entries are admitted. Active KIB v0.3 and lock unchanged. P02S-137/169 source dependencies remain SOURCE_REUSABLE but mapping approval/execution false; latest Core C8 remains descriptive-only. No active Product work: wait for a new accepted Knowledge artifact that explicitly grants Product-consumption authority and is compiler-ready. Next Product work is PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT; no P5 promotion without a real candidate."
   state_cache_as_of_main_commit: "fa62cebd619646b9c53ca0dba88291a5c45c8141"
   state_cache_as_of_product_merge: "2aca351d988ba0c07d302c84329d5266aee322fd"
   state_cache_snapshot_date: "2026-10-30"
   v04_entry_checkpoint_issue: 416
   v04_entry_checkpoint_pr: 418
-  last_completed_product_issue: 932
-  last_completed_product_pr: 936
+  last_completed_product_issue: 935
+  last_completed_product_pr: 940
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
   resume_issue: 935
