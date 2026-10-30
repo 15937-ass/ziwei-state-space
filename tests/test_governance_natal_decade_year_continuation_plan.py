@@ -19,15 +19,36 @@ def test_v2_is_active_and_preserves_v1_as_history() -> None:
     assert "SUPERSEDED for active continuation by [v2]" in v1
 
 
-def test_product_state_starts_with_natal_detailed_read_without_kib_promotion() -> None:
-    state = _read("product/PRODUCT_STATE.yaml")
+def test_product_state_tracks_ready_or_active_natal_work_without_kib_promotion() -> None:
+    import re
 
+    state = _read("product/PRODUCT_STATE.yaml")
     assert 'next_work_unit: "PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"' in state
-    assert 'next_work_status: "READY_TO_ADMIT"' in state
     assert 'continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"' in state
     assert "Active KIB v0.3 / lock remain unchanged" in state
     assert "No KIB promotion" in state
-    assert "The next Product unit is PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT" not in state
+
+    status = re.search(r'^  status: "([^"]+)"$', state, re.M)
+    work_status = re.search(r'^  next_work_status: "([^"]+)"$', state, re.M)
+    active_issue = re.search(r"^  active_issue: (null|[0-9]+)$", state, re.M)
+    active_pr = re.search(r"^  active_pr: (null|[0-9]+)$", state, re.M)
+    active_branch = re.search(r'^  active_branch: "([^"]+)"$', state, re.M)
+    next_issue = re.search(r"^  next_issue: (null|[0-9]+)$", state, re.M)
+
+    assert status and work_status and active_issue and active_pr and next_issue
+    assert work_status.group(1) in {"READY_TO_ADMIT", "ACTIVE_BUILD"}
+    if work_status.group(1) == "READY_TO_ADMIT":
+        assert status.group(1) == "ACTIVE_NO_ACTIVE_WORK"
+        assert active_issue.group(1) == "null"
+        assert active_pr.group(1) == "null"
+        assert next_issue.group(1) == "null"
+        assert active_branch is None
+    else:
+        assert status.group(1) == "ACTIVE"
+        assert active_issue.group(1) == "951"
+        assert active_branch and active_branch.group(1).startswith("product/")
+        assert next_issue.group(1) == active_issue.group(1)
+        assert active_pr.group(1) == "null" or active_pr.group(1).isdigit()
 
 
 def test_startup_guides_use_v2_and_describe_natal_decade_year_order() -> None:
