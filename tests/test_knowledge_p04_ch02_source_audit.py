@@ -47,6 +47,7 @@ def test_time_scope_hubs_without_explicit_year_or_decade_are_held():
     assert set(held) == {"CH02-102", "CH02-103", "CH02-146"}
     assert all(item["time_layer"] == "UNRESOLVED" for item in held.values())
     assert all(item["canonical_promotion"] is False for item in held.values())
+    assert all(item["source_condition_supported"] is False for item in held.values())
     assert all(item["source_record_ids"] == [] for item in held.values())
     assert len(audit["gap_register"]) == 2
 
