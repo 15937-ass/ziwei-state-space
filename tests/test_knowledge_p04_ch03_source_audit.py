@@ -122,6 +122,19 @@ def test_p04_state_cache_tracks_ch03_active_work():
     assert 'status: "ACTIVE_BUILD"' in state
     assert "active_issue: 967" in state
     assert 'active_candidate_batch: "CH03-201…300"' in state
-    assert "proposed_reusable_source_records: 63" in state
+    assert "proposed_reusable_source_records: 62" in state
     assert "proposed_case_support_only_source_records: 30" in state
-    assert "proposed_held_candidates: 10" in state
+    assert "proposed_held_candidates: 11" in state
+
+
+def test_literal_fuli_term_is_preserved_and_held():
+    audit = _audit()
+    item = next(x for x in audit["candidate_adjudications"] if x["legacy_candidate_id"] == "CH03-217")
+    assert item["disposition"] == "HELD_SOURCE_TERM_UNRESOLVED"
+    assert item["adjudicated_source_condition"].endswith("“子女易抚离”")
+    assert item["source_condition_supported"] is True
+    assert item["canonical_promotion"] is False
+    assert item["source_record_ids"] == []
+    assert item["gap_id"] == "P04-CH03-GAP-TERM-01"
+    gap = next(x for x in audit["gap_register"] if x["gap_id"] == "P04-CH03-GAP-TERM-01")
+    assert gap["candidate_ids"] == ["CH03-217"]

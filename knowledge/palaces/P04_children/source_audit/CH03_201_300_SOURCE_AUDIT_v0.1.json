@@ -122,17 +122,19 @@
     "unique_candidate_ids": 100,
     "distinct_condition_strings": 92,
     "multi_output_condition_groups": null,
-    "accepted_reusable_candidate_rows": 59,
+    "accepted_reusable_candidate_rows": 58,
     "case_support_only_candidate_rows": 30,
     "mixed_disposition_candidate_rows": 0,
     "held_time_scope_candidate_rows": 10,
     "duplicate_prior_source_scope_candidate_rows": 1,
     "unindexed_source_atoms": 4,
-    "proposed_source_records": 93,
-    "proposed_reusable_records": 63,
+    "proposed_source_records": 92,
+    "proposed_reusable_records": 62,
     "proposed_case_support_only_records": 30,
-    "held_gap_groups": 5,
-    "unique_source_record_ids": 93
+    "held_gap_groups": 6,
+    "unique_source_record_ids": 92,
+    "held_source_term_candidate_rows": 1,
+    "held_candidate_rows": 11
   },
   "source_anchors": [
     {
@@ -506,6 +508,15 @@
       ],
       "unresolved": "原文确实使用“运限年限”这一时间表达，但没有在本段把它拆成 YEAR/DECADE。不得直接等同于流年大运；保留原词并转为 Core 语义待审。",
       "required_resolution": "Preserve the original wording; only shared Core may define any universal time-layer/trigger semantics. No YEAR/DECADE or 行至 inference from the legacy CSV."
+    },
+    {
+      "gap_id": "P04-CH03-GAP-TERM-01",
+      "status": "HELD_FAIL_CLOSED",
+      "candidate_ids": [
+        "CH03-217"
+      ],
+      "unresolved": "原文在子宫太阳夜生人的句子中使用“子女易抚离”。300dpi扫描确认字面为“抚离”，但当前来源未给出释义。本轮不改成“分离”，也不将其推广为关系规则。",
+      "required_resolution": "保留原文字形；核对同一教材/同一学派的可靠释义或提交PI Human Gate。不得由旧CSV的 projection_target 反向决定原文字义。"
     }
   ],
   "candidate_adjudications": [
@@ -1030,18 +1041,19 @@
       "canonical_mapping_approved": false,
       "history_feedback": false,
       "context_dependencies": [],
-      "disposition": "ACCEPTED_SOURCE_PROJECTION",
+      "disposition": "HELD_SOURCE_TERM_UNRESOLVED",
       "time_layer": "NATAL",
-      "canonical_promotion": true,
+      "canonical_promotion": false,
       "case_support_only": false,
-      "reusable_projection_method": true,
-      "source_record_ids": [
-        "P04S-217"
-      ],
-      "hold_id": null,
-      "gap_id": null,
-      "adjudicated_target": "child_separation_tendency_child_only",
-      "adjudication_note": "原文说子宫太阳夜生时子女易分离，保留为子女关系投影；本句没有明确扩展到一般晚辈，不外推。"
+      "reusable_projection_method": false,
+      "source_record_ids": [],
+      "hold_id": "P04-CH03-HOLD-006",
+      "gap_id": "P04-CH03-GAP-TERM-01",
+      "adjudicated_target": "child_fuli_term_literal_unresolved",
+      "adjudication_note": "300dpi原始扫描清楚显示原字为“抚离”。本轮不将其改写为“分离”或其他近义词，也不据此创建子女/晚辈分离规则。保留原字并登记术语待核；只有找到同一来源的可靠释义或由PI作出学派语义判断后才能解锁。",
+      "adjudicated_source_condition": "子宫太阳、夜生人；原文用语为“子女易抚离”",
+      "adjudicated_projection_mode": "SOURCE_LITERAL_TERM_HELD",
+      "scope_status": "SOURCE_LITERAL_TERM_UNRESOLVED"
     },
     {
       "legacy_candidate_id": "CH03-218",
@@ -3744,5 +3756,5 @@
     "probability_or_numeric_weights_introduced": 0,
     "product_or_kib_authorized": false
   },
-  "next_step": "After CH03 acceptance, continue the source-first audit at the next P04 source anchor: section 4 武曲, printed p56. CH04-301…400 is only a historical navigation index and must be re-adjudicated against the original image under a separate bounded P04 Issue. Do not enter another palace until the P04 source coverage census and residual handoff are complete."
+  "next_step": "After CH03 acceptance, continue the source-first audit at the next P04 source anchor: section 4 武曲, printed p56. CH04-301…400 is only a historical navigation index and must be re-adjudicated against the original image under a separate bounded P04 Issue. The literal term “抚离” remains held for PI/source clarification. Do not enter another palace until the P04 source coverage census and residual handoff are complete."
 }
