@@ -57,7 +57,7 @@ def test_tp03_preserves_seen_and_not_seen_branches():
 def test_existing_gap_register_keeps_all_three_rows_fail_closed():
     with TP01_CSV.open(encoding="utf-8", newline="") as f:
         rows = list(csv.DictReader(f))
-    selected = {row["projection_rule_id"]: row for row in rows if row["projection_rule_id"] in {
+    selected = {row["candidate_id"]: row for row in rows if row["candidate_id"] in {
         "TP01-050", "TP01-061", "TP03-234"
     }}
     assert set(selected) == {"TP01-050", "TP01-061", "TP03-234"}
