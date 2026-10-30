@@ -40,7 +40,7 @@ def test_source_stage_closure_is_not_semantic_or_runtime_completion():
     assert "all_semantics_resolved: false" in state
     assert "conditions_compiled: 0" in state
     assert "execution_unlocked: 0" in state
-    assert "单独核对依赖与实时槽位" in state
+    assert 'next_palace_admission: "REQUIRES_SEPARATE_ISSUE_AND_FRESH_DEPENDENCY_SLOT_CENSUS"' in state
 
 
 def test_source_ids_gap_links_held_index_and_page_coverage_reconcile():
@@ -86,7 +86,7 @@ def test_source_ids_gap_links_held_index_and_page_coverage_reconcile():
         assert not item["canonical_promotion_by_census"]
     assert sum(bool(item["raw_unresolved_fields_nonnull"]) for item in held_indexes) == 45
 
-    coverage = [checkpoint for checkpoint in checkpoints if checkpoint.get("kind") == "SOURCE_COVERAGE"]
+    coverage = [checkpoint for checkpoint in checkpoints if checkpoint.get("role", "").startswith("SOURCE_COVERAGE_CHECKPOINT")]
     anchors = [anchor for checkpoint in coverage for anchor in checkpoint["owned_anchors"]]
     owner_ids = [record_id for anchor in anchors for record_id in anchor["record_ids"]]
     page_slice_count = sum(item["paragraph_slice_count"] for checkpoint in coverage for item in checkpoint["page_slices"])
