@@ -107,4 +107,4 @@ def test_no_execution_mapping_or_history_feedback_is_authorized():
     # which bounded P04 work unit is currently active. The live P04 pointer
     # is validated by the current-batch CH02 test, not by this archive test.
     state = STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE_BUILD"' in state
+    assert any(f'status: "{status}"' in state for status in ("ACTIVE_BUILD", "READY_TO_INTEGRATE", "INTEGRATING"))

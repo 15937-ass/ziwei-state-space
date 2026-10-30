@@ -137,6 +137,8 @@ def test_p04_later_generation_projections_exclude_ordinary_staff_and_general_net
 
 def test_full_batch_state_cache_matches_reviewed_progress():
     state = STATE_PATH.read_text(encoding="utf-8")
+    assert 'status: "INTEGRATING"' in state
+    assert 'canonical_checkpoint: "P04_CH02_101_200_INTEGRATING"' in state
     assert 'active_issue: 953' in state
     assert 'active_candidate_batch: "CH02-101…200"' in state
     assert "active_candidate_rows_reviewed: 100" in state
