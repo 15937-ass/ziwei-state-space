@@ -1,0 +1,150 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "KB-CORE-FIRE-BELL-SAME-PALACE-CANONICAL-LEXICAL-CONTRACT-v0.1",
+  "issue": 938,
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "CORE",
+  "status": "CANONICAL_SHARED_LEXICAL_SEMANTIC_NO_RUNTIME_UNLOCK",
+  "accepted_upstream": {
+    "audit_issue": 930,
+    "audit_pr": 933,
+    "accepted_main": "e532b8b60220d6b1f722b3aa1ca54889c0cbe4cd",
+    "audit_artifact": "knowledge/core/lexical-semantics/FIRE_BELL_SAME_PALACE_QUANTIFIER_SOURCE_AUDIT_v0.1.json",
+    "source_verdict": "EXACT_PHRASE_SUPPORTS_EITHER_MEMBER_READING"
+  },
+  "human_gate": {
+    "gate_id": "HG-CORE-FIRE-BELL-SAME-PALACE-EITHER-01",
+    "decision": "APPROVED",
+    "decision_date": "2026-10-29",
+    "approved_scope": "EXACT_ZHONGZHOU_SURFACE_FIRE_BELL_SAME_PALACE_ONLY"
+  },
+  "source_scope": {
+    "school": "中州派",
+    "source_ids": [
+      "SRC-ZZ-002",
+      "SRC-ZZ-003"
+    ],
+    "exact_surface": "火铃同度",
+    "surface_match_mode": "EXACT_CONTIGUOUS_LEXEME_PINNED_BY_CONSUMER",
+    "automatic_text_discovery": false,
+    "cross_school_generalization": false
+  },
+  "pair_identity": {
+    "contract_ref": "PAIR_HUO_LING",
+    "compatibility_reference": "knowledge/wp08/CAREER_PAIR_CLOSED_GROUP_CONTEXTUAL_63_v0.1.json",
+    "surface": "火铃",
+    "members": [
+      "火星",
+      "铃星"
+    ],
+    "reused_component": "MEMBERSHIP_IDENTITY_ONLY",
+    "generic_activation_default_required": "CONTEXTUAL_UNRESOLVED",
+    "generic_activation_default_modified": false
+  },
+  "relation_identity": {
+    "source_surface": "同度",
+    "semantics_reference": "knowledge/relation/RELATION_SEMANTICS_v0.1.json",
+    "operator": "EXACT_GEOMETRY",
+    "canonical_geometry": "SAME_PALACE",
+    "palace_offset_constraint": [
+      0
+    ],
+    "relation_redefined": false,
+    "relation_role": "PAIR_MEMBER_TO_CONTEXTUAL_SOURCE_ANCHOR"
+  },
+  "contextual_anchor": {
+    "required": true,
+    "source": "SOURCE_CLAUSE_OR_ACCEPTED_CONSUMER_BINDING",
+    "inferred_by_contract": false,
+    "note": "The contract resolves which member(s) may satisfy 火铃同度; it does not invent the star/system/palace anchor to which 同度 applies."
+  },
+  "member_realization": {
+    "quantifier": "ANY_MEMBER_AT_LEAST_ONE",
+    "minimum_satisfied_members": 1,
+    "member_count": 2,
+    "both_required": false,
+    "both_forbidden": false,
+    "exclusive_or": false,
+    "inclusive_either": true,
+    "descriptive_reading": "火星同度 OR 铃星同度; if both independently satisfy the same anchored SAME_PALACE relation the lexical condition is also satisfied."
+  },
+  "canonical_semantics": {
+    "knowledge_reusable": true,
+    "source_condition_compilation_authorized_for_exact_surface": false,
+    "executable_predicate_authorized": false,
+    "product_consumable": false,
+    "runtime_authorized": false,
+    "probability_status": "NOT_APPLICABLE_TO_LEXICAL_CONTRACT"
+  },
+  "consumer_policy": {
+    "required_checks": [
+      "source school is Zhongzhou",
+      "consumer pins a source span containing the exact contiguous lexeme 火铃同度",
+      "consumer supplies or preserves the contextual anchor from accepted source semantics",
+      "relation remains SAME_PALACE",
+      "no other unresolved condition component is silently cleared"
+    ],
+    "no_generic_keyword_rule": true,
+    "no_free_text_parser": true
+  },
+  "explicit_non_dispositions": [
+    {
+      "surface": "火铃",
+      "status": "CONTEXTUAL_UNRESOLVED",
+      "reason": "exact 同度 relation token absent"
+    },
+    {
+      "surface": "火铃夹",
+      "status": "OUT_OF_SCOPE_SEPARATE_GEOMETRY_FAMILY"
+    },
+    {
+      "surface": "火铃同会",
+      "status": "OUT_OF_SCOPE_SEPARATE_RELATION_FAMILY"
+    },
+    {
+      "surface": "火铃会照",
+      "status": "OUT_OF_SCOPE_SEPARATE_RELATION_FAMILY"
+    },
+    {
+      "surface": "火铃二星",
+      "status": "OUT_OF_SCOPE_EXPLICIT_TWO_OBJECT_WORDING"
+    },
+    {
+      "surface": "各安一火、一铃",
+      "status": "OUT_OF_SCOPE_SPLIT_PLACEMENT_WORDING"
+    },
+    {
+      "mapping_id": "KMM-000001",
+      "status": "REMAINS_HOLD",
+      "reason": "source condition is 事业宫见火铃, not exact 火铃同度"
+    }
+  ],
+  "downstream_handoffs": [
+    {
+      "consumer_shard": "P02",
+      "gap_id": "P02-SB11-GAP-C04",
+      "disposition": "CORE_SEMANTIC_RESOLVED_PENDING_PALACE_OWNED_MIGRATION",
+      "resolved_dimension": "FIRE_BELL_SAME_PALACE_MEMBER_QUANTIFIER_ONLY",
+      "affected_record_ids": [
+        "P02S-414",
+        "P02S-416",
+        "P02S-417"
+      ],
+      "historical_artifacts_mutated": false,
+      "execution_unlocked": false
+    }
+  ],
+  "guardrails": {
+    "generic_pair_default_changed": false,
+    "generic_or_operator_created": false,
+    "historical_career_artifact_modified": false,
+    "p02_historical_ledger_modified": false,
+    "canonical_kmm_modified": false,
+    "product_modified": false,
+    "runtime_modified": false,
+    "kib_modified": false,
+    "probability_added": false,
+    "numeric_score_added": false,
+    "event_certainty_added": false
+  }
+}
