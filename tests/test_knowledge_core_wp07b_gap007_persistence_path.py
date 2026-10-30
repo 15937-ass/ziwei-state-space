@@ -113,7 +113,9 @@ def test_no_runtime_or_shared_operator_was_created():
 
 def test_core_state_points_to_active_c9_and_accepted_c8():
     state = CORE_STATE.read_text(encoding="utf-8")
+    assert 'status: "ACTIVE"' in state
     assert "active_issue: 945" in state
+    assert "active_pr: 946" in state
     assert "last_completed_issue: 941" in state
     assert "last_completed_pr: 942" in state
     assert "fa62cebd619646b9c53ca0dba88291a5c45c8141" in state
