@@ -20,7 +20,7 @@
 
 ### 宫位线
 
-> 继续 15937-ass/ziwei-state-space 的宫位线。先读取 main 上的 CHATGPT_START_HERE.md，按标准恢复顺序读取 governance/THREE_STREAM_START_HERE.md 的宫位安排，核对实时任务和旧对话交接。接续一个已获准、可执行的宫位工作单元，遵守一次一个宫位。若 Product 提供 KNOWLEDGE_GAP，只有在完成当前批次或达到 P0 正确性门槛时才做定向回溯；不得增加宫位槽位或把产品反馈当作来源真理。每轮完成到可恢复检查点，写回 Issue/PR，结束时用中文汇报三线状态和下次继续的位置。
+> 继续 15937-ass/ziwei-state-space 的宫位线。先读取 main 上的 CHATGPT_START_HERE.md，按标准恢复顺序读取 governance/THREE_STREAM_START_HERE.md 的宫位安排，核对实时任务和旧对话交接。接续一个已获准、可执行的宫位工作单元，遵守一次一个宫位。每个批次结束时，在现有 Issue/PR 留下简短 Product-availability note（NATAL/DECADE/YEAR、前提、来源状态、allowed-use、残余缺口）。若 Product 提供 KNOWLEDGE_GAP，只有在完成当前批次或达到 P0 正确性门槛时才做定向回溯；不得增加宫位槽位或把产品反馈当作来源真理。每轮完成到可恢复检查点，写回 Issue/PR，结束时用中文汇报三线状态和下次继续的位置。
 
 ### Core线
 
