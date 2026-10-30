@@ -22,6 +22,9 @@ REPORT_PATH = ROOT / "product/PL3M_MANIFESTATION_KMANIFEST_KIB_CANDIDATE_IMPACT_
 FREEZE_PATH = ROOT / "product/PL3M_MANIFESTATION_P3_FORMAL_CROSSWALK_FREEZE_V0_1.json"
 MAPPING_INDEX_PATH = ROOT / "knowledge/core/wp06c/CANONICAL_MANIFESTATION_MAPPING_INDEX_v0.1.json"
 NODE_INDEX_PATH = ROOT / "knowledge/core/wp06b/CANONICAL_MANIFESTATION_NODE_INDEX_v0.1.json"
+P02_SOURCE_AUDIT_PATH = ROOT / "knowledge/palaces/P02_siblings/wp05/SIBLINGS_SB04_WUQU_SOURCE_AUDIT_v0.1.json"
+P02_STAGE_CLOSURE_PATH = ROOT / "knowledge/palaces/P02_siblings/handoff/issue_928/INDEPENDENT_STAGE_CLOSURE_VERDICT_v0.2.json"
+P02_STATE_PATH = ROOT / "knowledge/states/P02_SIBLINGS_STATE.yaml"
 ONTOLOGY_REGISTRY_PATH = ROOT / "product/PL3M_MANIFESTATION_ONTOLOGY_REGISTRY_v0.1.json"
 MAPPING_REGISTRY_PATH = ROOT / "product/PL3M_MANIFESTATION_MAPPING_REGISTRY_v0.1.json"
 
@@ -289,3 +292,88 @@ def test_p4_verdict_keeps_all_production_authority_fail_closed():
     assert verdict["runtime_execution_allowed"] is False
     assert verdict["probability_claim_allowed"] is False
     assert verdict["predictive_validity_claim_allowed"] is False
+
+
+
+def test_p02_source_dependencies_for_kmm_14_15_remain_verified_and_fail_closed():
+    source_audit = _load(P02_SOURCE_AUDIT_PATH)
+    closure = _load(P02_STAGE_CLOSURE_PATH)
+    report = _load(REPORT_PATH)
+
+    by_id = {
+        row["projection_rule_id"]: row
+        for row in source_audit["records"]
+    }
+    for source_id in ("P02S-137", "P02S-169"):
+        row = by_id[source_id]
+        assert row["disposition"] == "SOURCE_REUSABLE"
+        assert row["source_span_verified"] is True
+        assert row["normalization_verified"] is True
+        assert row["canonical_promotion"] is True
+        assert row["canonical_mapping_approved"] is False
+        assert row["executable"] is False
+        assert row["human_gate_required"] is False
+        assert row["gap_id"] is None
+        assert row["time_layer"] == "NATAL"
+
+    assert closure["approved"] is True
+    assert closure["verdict"] == "SOURCE_AUDIT_STAGE_CLOSED_WITH_RETAINED_HOLDS"
+    assert closure["counts"] == {
+        "source_records": 424,
+        "accepted_including_case": 284,
+        "accepted_reusable_source_method": 180,
+        "accepted_case_only": 104,
+        "held": 140,
+        "gap_groups": 49,
+        "held_index_parts": [45, 48, 47],
+        "legacy_held_nonnull_normalized": 45,
+        "unique_paragraphs": 151,
+        "printed_page_slices": 155,
+        "star_sections": 14,
+        "cross_page_paragraphs": 4,
+        "source_ledger_count": 11,
+    }
+    assert closure["source_stage"]["all_semantics_resolved"] is False
+    assert closure["source_stage"]["completion_scope"] == (
+        "BOUNDED_SOURCE_STAGE_ONLY_NOT_SEMANTIC_OR_EMPIRICAL_COMPLETION"
+    )
+    assert closure["retained_holds"]["all_effective_normalization_and_execution_flags_blocked"] is True
+
+    dependency = report["post_p3_main_dependency_recheck"]
+    assert dependency["current_main_commit"] == (
+        "cdf7a0e5348264e92f62ac527b9ed6f71e9f0d00"
+    )
+    assert dependency["relevant_source_audit"]["unchanged_since_p3_base"] is True
+    assert dependency["referenced_source_rows"] == [
+        {
+            "source_rule_id": "P02S-137",
+            "disposition": "SOURCE_REUSABLE",
+            "source_span_verified": True,
+            "normalization_verified": True,
+            "canonical_promotion": True,
+            "canonical_mapping_approved": False,
+            "executable": False,
+            "product_consumable": False,
+            "gap_id": None,
+            "time_layer": "NATAL",
+        },
+        {
+            "source_rule_id": "P02S-169",
+            "disposition": "SOURCE_REUSABLE",
+            "source_span_verified": True,
+            "normalization_verified": True,
+            "canonical_promotion": True,
+            "canonical_mapping_approved": False,
+            "executable": False,
+            "product_consumable": False,
+            "gap_id": None,
+            "time_layer": "NATAL",
+        },
+    ]
+    assert _git_blob_sha(P02_SOURCE_AUDIT_PATH) == (
+        dependency["relevant_source_audit"]["git_blob_sha"]
+    )
+    assert _git_blob_sha(P02_STAGE_CLOSURE_PATH) == (
+        dependency["source_stage_closure"]["git_blob_sha"]
+    )
+    assert _git_blob_sha(P02_STATE_PATH) == dependency["p02_state"]["git_blob_sha"]
