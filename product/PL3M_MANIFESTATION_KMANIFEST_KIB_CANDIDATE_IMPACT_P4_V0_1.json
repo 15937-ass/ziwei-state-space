@@ -421,13 +421,14 @@
   "p4_verdict": {
     "classification": "CANDIDATE_IMPACT_ONLY_NO_PROMOTION",
     "candidate_k_manifest_materialization_allowed": false,
-    "candidate_kib_noop_snapshot_verified_by_regression": "PENDING_EXACT_HEAD_CI",
+    "candidate_kib_noop_snapshot_verified_by_regression": "PASS",
     "active_lock_mutated": false,
     "production_registry_population_allowed": false,
     "active_kib_promotion_allowed": false,
     "runtime_execution_allowed": false,
     "probability_claim_allowed": false,
-    "predictive_validity_claim_allowed": false
+    "predictive_validity_claim_allowed": false,
+    "verification_contract": "Exact-head CI must validate candidate bundle bytes, 61-artifact inventory, active lock integrity, zero K_manifest artifacts, mapping/node authority flags, P3 matrix consistency and impact graph."
   },
   "next_action": "WAIT_FOR_EXPLICIT_ACCEPTED_KNOWLEDGE_PRODUCT_CONSUMABLE_AUTHORITY; THEN OPEN SEPARATE P5 PROMOTION WORK UNIT IF A REAL CANDIDATE EXISTS"
 }
