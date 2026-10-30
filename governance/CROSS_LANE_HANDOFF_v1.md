@@ -51,7 +51,7 @@ An accepted negative source audit can close its bounded review Issue while the c
 
 ## Product finding feedback loop (v1.1 operational addendum)
 
-Product findings are diagnostic evidence about consumption and implementation. They are not, by themselves, canonical source truth or evidence of predictive validity. Route each material finding through the existing producer/consumer handoff; do not create a parallel global defect database.
+Product findings are diagnostic evidence about consumption and implementation. They are not, by themselves, canonical source truth or evidence of predictive validity. Route each material finding through the existing producer/consumer handoff; do not create a second global status ledger or parallel defect database.
 
 ### Primary classification
 
