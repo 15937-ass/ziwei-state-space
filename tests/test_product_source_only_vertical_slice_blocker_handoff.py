@@ -190,8 +190,8 @@ def test_product_recovery_state_is_snapshot_metadata_not_a_mutable_pinned_input(
 
 def test_product_recovery_state_cache_tracks_main_freshness_and_product_checkpoint():
     # PRODUCT_STATE is a mutable recovery cache, not a dated source snapshot.
-    # Validate durable shape and monotonic Product progress instead of freezing
-    # the 2026-10-23 literals from this historical handoff.
+    # Accept the approved #951 -> #966 NATAL handoff as coherent lifecycles;
+    # keep the historical snapshot, KIB and temporal-stage guards intact.
     import re
 
     state = (ROOT / "product" / "PRODUCT_STATE.yaml").read_text(encoding="utf-8")
@@ -202,20 +202,47 @@ def test_product_recovery_state_cache_tracks_main_freshness_and_product_checkpoi
     last_issue = re.search(r"^  last_completed_product_issue:\s*(\d+)$", state, re.M)
     last_pr = re.search(r"^  last_completed_product_pr:\s*(\d+)$", state, re.M)
 
-    assert main_sha
-    assert product_sha
+    def execution_field(key, optional=False):
+        match = re.search(rf"^  {re.escape(key)}: (.+)$", state, re.M)
+        if optional and match is None:
+            return "null"
+        assert match, key
+        return match.group(1).strip().strip('"')
+
+    assert main_sha and product_sha
     assert snapshot_date and snapshot_date.group(1) >= "2026-10-23"
-    assert 'next_work_unit: "PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"' in state
-    assert 'next_work_status: "ACTIVE_BUILD"' in state
-    assert 'phase: "NATAL_DETAILED_READ_BUILD"' in state
-    assert 'next_work_status: "ACTIVE_BUILD"' in state
-    assert "active_issue: 951" in state
-    assert "active_pr: 951" in state
-    assert 'active_branch: "product/951-natal-detailed-read-closed-loop-v1"' in state
-    assert 'continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"' in state
-    assert "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT" not in state
     assert last_issue and int(last_issue.group(1)) >= 696
     assert last_pr and int(last_pr.group(1)) >= 698
+    assert execution_field("continuation_plan") == "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"
+    assert execution_field("plan_pointer_issue") == "900"
+
+    # Coherent ready/active pairs for the two explicitly approved NATAL stages.
+    # A mixed #951/#966 state, KIB-first detour or premature DECADE stage fails.
+    detailed = "PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"
+    actual = "PRODUCT_NATAL_ACTUAL_USE_VALIDATION_V1"
+    observed = tuple(execution_field(k, optional=(k == "active_branch")) for k in (
+        "status", "phase", "next_work_status", "active_issue", "active_pr",
+        "active_branch", "next_issue", "next_work_unit",
+        "continuation_next_work_unit",
+    ))
+    allowed = {
+        ("ACTIVE_NO_ACTIVE_WORK", "NATAL_DETAILED_READ_NEXT", "READY_TO_ADMIT",
+         "null", "null", "null", "null", detailed, detailed),
+        ("ACTIVE", "NATAL_DETAILED_READ_BUILD", "ACTIVE_BUILD",
+         "951", "951", "product/951-natal-detailed-read-closed-loop-v1",
+         "951", detailed, detailed),
+        ("ACTIVE_NO_ACTIVE_WORK", "NATAL_ACTUAL_USE_NEXT", "READY_TO_ADMIT",
+         "null", "null", "null", "null", actual, actual),
+        ("ACTIVE", "NATAL_ACTUAL_USE_VALIDATION", "ACTIVE_BUILD",
+         "966", "966", "product/966-natal-actual-use-validation-v1",
+         "966", actual, actual),
+    }
+    assert observed in allowed
+    if observed[3] == "966":
+        assert int(last_issue.group(1)) >= 951
+        assert int(last_pr.group(1)) >= 951
+    assert "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT" not in state
+
 
 def test_all_recovery_state_caches_are_snapshotted_not_pinned_as_sources():
     report = _report()
