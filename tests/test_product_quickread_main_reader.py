@@ -633,3 +633,50 @@ def test_source_ledger_with_unsupported_verification_method_is_not_counted_as_ac
     assert counts["ledger_files_accepted"] == 0
     assert bundle.reader_report["loaded_source_ledger_paths"] == []
     assert bundle.evidence_items == ()
+
+def test_expected_main_sha_pins_independent_scope_reads_to_one_main_snapshot():
+    artifacts, _ = _base_artifacts()
+    fetch, _ = _transport(artifacts)
+
+    bundle = load_latest_main_knowledge(
+        _request(), fetch_bytes=fetch, expected_main_sha=MAIN_SHA
+    )
+    assert bundle.manifest.main_sha == MAIN_SHA
+    assert bundle.reader_report["expected_main_sha"] == MAIN_SHA
+    assert bundle.reader_report["snapshot_pin_verified"] is True
+
+    with pytest.raises(MainKnowledgeUnavailable, match="DetailedRead session is stale"):
+        load_latest_main_knowledge(
+            _request(), fetch_bytes=fetch, expected_main_sha="0" * 40
+        )
+
+
+def test_expected_main_sha_rejects_a_conflicting_quickread_cursor_before_fetch():
+    artifacts, _ = _base_artifacts()
+    fetch, calls = _transport(artifacts)
+    cursor = {
+        "main_sha": "0" * 40,
+        "requested_slot_ids": ["relationship_natal"],
+        "seen_evidence_ids": [],
+    }
+
+    with pytest.raises(ValueError, match="does not match expected_main_sha"):
+        load_latest_main_knowledge(
+            _request(),
+            fetch_bytes=fetch,
+            continuation=cursor,
+            expected_main_sha=MAIN_SHA,
+        )
+    assert calls == []
+
+
+def test_expected_main_sha_requires_a_valid_git_sha():
+    artifacts, _ = _base_artifacts()
+    fetch, calls = _transport(artifacts)
+
+    with pytest.raises(ValueError, match="expected_main_sha must be a 40-character Git SHA"):
+        load_latest_main_knowledge(
+            _request(), fetch_bytes=fetch, expected_main_sha="not-a-sha"
+        )
+    assert calls == []
+

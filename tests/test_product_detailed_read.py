@@ -3,12 +3,25 @@ import pytest
 from src.product.detailed_read import (
     CROSS_DOMAIN_CHECKS,
     DELIVERY_STAGES,
+    DetailedReadSession,
     NATAL_DOMAIN_ORDER,
     VERBALIZER_INSTRUCTIONS,
     build_detailed_read_plan,
     continuation_for_detailed_slot,
 )
-from src.product.quickread_main_reader import DOMAIN_PALACE, _normalize_domain, _palace_code
+from src.product.quickread_capability import (
+    CapabilityManifest,
+    CapabilityRecord,
+    EvidenceSourceRef,
+    QuickReadEvidenceItem,
+)
+from src.product.quickread_main_reader import (
+    DOMAIN_PALACE,
+    MainKnowledgeBundle,
+    MainKnowledgeUnavailable,
+    _normalize_domain,
+    _palace_code,
+)
 
 
 MAIN_SHA = "a" * 40
@@ -178,3 +191,338 @@ def test_plan_serialization_exposes_private_chat_delivery_contract():
     assert payload["delivery"]["stages"][-1]["stage_id"] == "stage_5_synthesis"
     assert payload["delivery"]["mechanical_twelve_palace_output"] is False
     assert payload["delivery"]["final_summary_theme_count"] == {"min": 3, "max": 5}
+
+def _session_bundle(
+    request,
+    *,
+    main_sha=MAIN_SHA,
+    has_more=False,
+    seen_evidence_ids=(),
+    excluded_case_only=0,
+    runtime_status="NOT_AVAILABLE",
+    source_status="NOT_AVAILABLE",
+    evidence_items=(),
+):
+    slot = request.requested_slots[0]
+    source_refs = tuple(
+        ref for item in evidence_items for ref in item.source_refs
+    )
+    if evidence_items and source_status == "NOT_AVAILABLE":
+        source_status = "AVAILABLE"
+    record = CapabilityRecord(
+        slot=slot,
+        runtime_status=runtime_status,
+        source_status=source_status,
+        source_refs=source_refs,
+        reason="Synthetic test preserves the supplied capability status.",
+    )
+    manifest = CapabilityManifest(
+        main_sha=main_sha,
+        knowledge_version="SYNTHETIC-KNOWLEDGE",
+        runtime_version="SYNTHETIC-RUNTIME",
+        records=(record,),
+    )
+    return MainKnowledgeBundle(
+        request=request,
+        manifest=manifest,
+        evidence_items=tuple(evidence_items),
+        providers=(),
+        reader_report={
+            "main_sha": main_sha,
+            "continuation": {
+                "main_sha": main_sha,
+                "requested_slot_ids": [slot.slot_id],
+                "seen_evidence_ids": list(seen_evidence_ids),
+                "has_more": has_more,
+            },
+            "slots": [
+                {
+                    "slot_id": slot.slot_id,
+                    "domain": slot.domain,
+                    "temporal_layer": slot.temporal_layer,
+                    "runtime_status": runtime_status,
+                    "source_status": source_status,
+                    "runtime_rule_count": 0,
+                    "source_evidence_total_eligible": len(evidence_items),
+                    "source_evidence_selected_this_batch": len(evidence_items),
+                    "source_evidence_already_seen": len(seen_evidence_ids),
+                    "source_evidence_remaining_after_batch": 2 if has_more else 0,
+                    "reason": "No accepted evidence in this synthetic fixture.",
+                }
+            ],
+            "aggregate_source_ledger_counts": {
+                "excluded_case_only": excluded_case_only,
+                "excluded_not_promoted": 0,
+                "excluded_uncertain_or_unverified": 0,
+                "excluded_layer_mismatch": 0,
+                "excluded_missing_provenance": 0,
+            },
+        },
+    )
+
+
+def test_session_runs_all_twelve_domains_on_one_main_snapshot():
+    calls = []
+
+    def loader(request, **kwargs):
+        calls.append((request.requested_slots[0].slot_id, kwargs))
+        expected = kwargs.get("expected_main_sha")
+        if expected is not None and expected != MAIN_SHA:
+            raise MainKnowledgeUnavailable("synthetic stale session")
+        return _session_bundle(request)
+
+    plan = build_detailed_read_plan("完整详批", "chart-001")
+    session = DetailedReadSession(plan, loader=loader)
+    result = session.run_all_stages()
+
+    assert session.main_sha == MAIN_SHA
+    assert len(calls) == 12
+    assert calls[0][1]["expected_main_sha"] is None
+    assert all(call[1]["expected_main_sha"] == MAIN_SHA for call in calls[1:])
+    assert result["session_status"] == "NATAL_INSPECTION_COMPLETE"
+    assert result["natal_domain_count_required"] == 12
+    assert result["natal_domain_count_inspected"] == 12
+    assert len(result["coverage"]) == 12
+    assert all(item["inspection_status"] == "INSPECTED" for item in result["coverage"])
+    assert {item["main_sha"] for item in result["coverage"]} == {MAIN_SHA}
+
+
+def test_session_rejects_a_loader_that_returns_a_different_main_snapshot():
+    calls = 0
+
+    def loader(request, **kwargs):
+        nonlocal calls
+        calls += 1
+        sha = MAIN_SHA if calls <= 4 else "b" * 40
+        return _session_bundle(request, main_sha=sha)
+
+    plan = build_detailed_read_plan("完整详批", "chart-001")
+    session = DetailedReadSession(plan, loader=loader)
+    batches = plan.retrieval_batches()
+    session.run_stage(batches[0]["stage_id"])
+
+    next_stage = next(
+        batch
+        for batch in batches[1:]
+        if any(
+            slot_id not in session.slot_batches
+            for slot_id in batch["slot_ids"]
+        )
+    )
+    with pytest.raises(MainKnowledgeUnavailable, match="mixed main snapshots"):
+        session.run_stage(next_stage["stage_id"])
+
+
+def test_quickread_upgrade_requires_the_same_chart_target():
+    plan = build_detailed_read_plan("继续详批", "chart-001")
+    cursor = {
+        "main_sha": MAIN_SHA,
+        "requested_slot_ids": ["relationship_natal"],
+        "seen_evidence_ids": ["SOURCE:relationship:rule-1"],
+    }
+    with pytest.raises(ValueError, match="same chart target_id"):
+        DetailedReadSession(
+            plan,
+            previous_quickread_continuation=cursor,
+            previous_quickread_target_id="chart-002",
+        )
+
+
+def test_quickread_cursor_is_reused_only_for_its_slot_but_pins_new_slots():
+    calls = []
+
+    def loader(request, **kwargs):
+        slot_id = request.requested_slots[0].slot_id
+        calls.append((slot_id, kwargs))
+        return _session_bundle(request)
+
+    plan = build_detailed_read_plan("简批升级详批", "chart-001")
+    cursor = {
+        "main_sha": MAIN_SHA,
+        "requested_slot_ids": ["relationship_natal"],
+        "seen_evidence_ids": ["SOURCE:relationship:rule-1"],
+    }
+    session = DetailedReadSession(
+        plan,
+        loader=loader,
+        previous_quickread_continuation=cursor,
+        previous_quickread_target_id="chart-001",
+    )
+    session.run_all_stages()
+
+    relationship_call = next(item for item in calls if item[0] == "relationship_natal")
+    assert relationship_call[1]["continuation"] == {
+        "main_sha": MAIN_SHA,
+        "requested_slot_ids": ["relationship_natal"],
+        "seen_evidence_ids": ["SOURCE:relationship:rule-1"],
+    }
+    assert all(item[1]["expected_main_sha"] == MAIN_SHA for item in calls)
+    assert all(
+        item[1]["continuation"] is None
+        for item in calls
+        if item[0] != "relationship_natal"
+    )
+
+
+def test_model_supplement_is_counted_separately_from_runtime_and_source():
+    def loader(request, **kwargs):
+        return _session_bundle(request, excluded_case_only=2)
+
+    plan = build_detailed_read_plan("完整详批", "chart-001")
+    session = DetailedReadSession(plan, loader=loader)
+    session.run_stage(plan.retrieval_batches()[0]["stage_id"])
+    session.add_model_supplement(
+        QuickReadEvidenceItem(
+            evidence_id="MODEL:life:001",
+            slot_id="life_natal",
+            lane="MODEL_SUPPLEMENT",
+            claim="仅作解释性补充，不构成来源结论。",
+            epistemic_label="MODEL_SUPPLEMENT",
+            uncertainty="没有被当前接受的运行或来源证据独立验证。",
+        )
+    )
+
+    result = session.to_dict()
+    life = next(item for item in result["coverage"] if item["slot_id"] == "life_natal")
+    assert len(result["evidence"]["runtime"]) == 0
+    assert len(result["evidence"]["source"]) == 0
+    assert len(result["evidence"]["model_supplement"]) == 1
+    assert life["runtime_evidence_count"] == 0
+    assert life["source_evidence_count"] == 0
+    assert life["model_supplement_count"] == 1
+    assert result["excluded_evidence_counts"]["excluded_case_support_only"] == 8
+
+
+def test_model_supplement_cannot_stand_in_for_an_uninspected_domain():
+    def loader(request, **kwargs):
+        return _session_bundle(request)
+
+    plan = build_detailed_read_plan("完整详批", "chart-001")
+    session = DetailedReadSession(plan, loader=loader)
+    session.run_stage(plan.retrieval_batches()[0]["stage_id"])
+    item = QuickReadEvidenceItem(
+        evidence_id="MODEL:children:001",
+        slot_id="children_natal",
+        lane="MODEL_SUPPLEMENT",
+        claim="未被证据覆盖的模型补充。",
+        epistemic_label="MODEL_SUPPLEMENT",
+        uncertainty="该补充没有被当前接受证据验证。",
+    )
+    with pytest.raises(ValueError, match="uninspected domain"):
+        session.add_model_supplement(item)
+
+
+def test_slot_continuation_keeps_the_session_pin_and_seen_evidence_cursor():
+    calls = []
+
+    def loader(request, **kwargs):
+        slot_id = request.requested_slots[0].slot_id
+        continuation = kwargs.get("continuation")
+        calls.append((slot_id, kwargs))
+        has_more = slot_id == "life_natal" and continuation is None
+        seen = () if continuation is None else ("SOURCE:life:rule-1",)
+        return _session_bundle(
+            request,
+            has_more=has_more,
+            seen_evidence_ids=seen,
+        )
+
+    plan = build_detailed_read_plan("完整详批", "chart-001")
+    session = DetailedReadSession(plan, loader=loader)
+    session.run_stage(plan.retrieval_batches()[0]["stage_id"])
+    before = session.slot_report("life_natal")
+    assert before["batch_count"] == 1
+
+    after = session.continue_slot("life_natal")
+    assert after["batch_count"] == 2
+    life_calls = [item for item in calls if item[0] == "life_natal"]
+    assert len(life_calls) == 2
+    assert life_calls[1][1]["expected_main_sha"] == MAIN_SHA
+    assert life_calls[1][1]["continuation"]["main_sha"] == MAIN_SHA
+    assert life_calls[1][1]["continuation"]["requested_slot_ids"] == ["life_natal"]
+
+
+def test_running_a_completed_stage_is_idempotent():
+    calls = []
+
+    def loader(request, **kwargs):
+        calls.append(request.requested_slots[0].slot_id)
+        return _session_bundle(request)
+
+    plan = build_detailed_read_plan("完整详批", "chart-001")
+    session = DetailedReadSession(plan, loader=loader)
+    stage_id = plan.retrieval_batches()[0]["stage_id"]
+    session.run_stage(stage_id)
+    first_count = len(calls)
+    repeated = session.run_stage(stage_id)
+
+    assert len(calls) == first_count
+    assert repeated["completed"] is True
+
+def test_unknown_capability_status_is_preserved_instead_of_becoming_available():
+    def loader(request, **kwargs):
+        return _session_bundle(
+            request,
+            runtime_status="UNKNOWN",
+            source_status="UNKNOWN",
+        )
+
+    plan = build_detailed_read_plan("完整详批", "chart-001")
+    session = DetailedReadSession(plan, loader=loader)
+    session.run_stage(plan.retrieval_batches()[0]["stage_id"])
+    life = next(
+        item for item in session.to_dict()["coverage"]
+        if item["slot_id"] == "life_natal"
+    )
+
+    assert life["runtime_status"] == "UNKNOWN"
+    assert life["source_status"] == "UNKNOWN"
+    assert life["runtime_evidence_count"] == 0
+    assert life["source_evidence_count"] == 0
+
+def test_cross_domain_source_tensions_are_preserved_for_the_synthesis_pass():
+    def loader(request, **kwargs):
+        slot = request.requested_slots[0]
+        if slot.domain == "career":
+            claim = "事业发展较依赖稳定组织平台。"
+        elif slot.domain == "wealth":
+            claim = "财富增长更依赖项目机会与收入结构变化。"
+        else:
+            return _session_bundle(request)
+        ref = EvidenceSourceRef(
+            source_id=f"SYNTHETIC-{slot.domain.upper()}",
+            source_location=f"synthetic-fixture:{slot.domain}",
+            review_status="SOURCE_SPAN_VERIFIED",
+            allowed_use="SEMANTIC_ONLY",
+            namespace="CANONICAL",
+            time_layer="NATAL",
+        )
+        item = QuickReadEvidenceItem(
+            evidence_id=f"SOURCE:{slot.domain}:001",
+            slot_id=slot.slot_id,
+            lane="SOURCE",
+            claim=claim,
+            source_refs=(ref,),
+            epistemic_label="SOURCE_GROUNDED",
+        )
+        return _session_bundle(
+            request,
+            source_status="AVAILABLE",
+            evidence_items=(item,),
+        )
+
+    plan = build_detailed_read_plan("完整详批", "chart-001")
+    session = DetailedReadSession(plan, loader=loader)
+    result = session.run_all_stages()
+    source_claims = {
+        item["claim"] for item in result["evidence"]["source"]
+    }
+
+    assert "事业发展较依赖稳定组织平台。" in source_claims
+    assert "财富增长更依赖项目机会与收入结构变化。" in source_claims
+    assert len(result["evidence"]["source"]) == 2
+    assert any(
+        item["check_id"] == "career_wealth"
+        for item in result["cross_domain_checks"]
+    )
+

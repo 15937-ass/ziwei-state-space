@@ -122,3 +122,18 @@ The user may interrupt at any point and request a deeper topic. That topic may c
 ## 11. Governance boundary
 
 The Product layer owns this planning contract and implementation. A natural-language Agent Skill for “详批 / 完整看盘” is Governance-owned under `.agents/skills/**` and must be a separate bounded Governance integration after this Product contract is accepted on `main`.
+
+## 12. Session-level runner and immutable main pin
+
+Product #951 adds \`DetailedReadSession\` in \`src/product/detailed_read.py\`. It orchestrates the existing planner and the accepted QuickRead reader; it does not create a second evidence parser or rule engine.
+
+- The first atomic-slot read resolves the accepted \`main\` SHA and pins the session to it.
+- Every later independent slot read passes \`expected_main_sha\` to \`load_latest_main_knowledge(...)\`. If \`main\` has moved, the reader fails closed and the whole session must restart on a fresh snapshot; it may not mix commits.
+- A QuickRead upgrade must pass the same \`target_id\`. Its continuation cursor is reused only for the slot already present in that cursor. Newly introduced domains start a fresh first pass but retain the same session-level main pin.
+- \`run_stage(...)\` is idempotent and retrieves the not-yet-read atomic slots in the requested delivery stage. \`run_all_stages(...)\` completes the planned first pass. \`continue_slot(...)\` deepens one domain using its own seen-evidence cursor and the same main pin.
+- The session report always includes all twelve NATAL domains, including \`NOT_INSPECTED\`, \`UNKNOWN\`, \`BLOCKED\` or \`NOT_AVAILABLE\` states. Unequal coverage remains explicit.
+- \`RUNTIME\`, accepted \`SOURCE\`, and \`MODEL_SUPPLEMENT\` are serialized separately. Model supplementation can be attached only to an already-inspected slot and cannot increase runtime/source coverage.
+- Case-only, unpromoted, uncertain/unverified, temporal-mismatch and missing-provenance exclusions remain separate counts; excluded material is not inserted into runtime/source evidence.
+- The report carries the plan's cross-domain checks, thematic sections and staged delivery order. The session itself does not reconcile or erase conflicting claims; the downstream verbalizer must preserve their conditions, scopes and provenance.
+- The runner performs no chart calculation, runtime execution, LLM call, KIB promotion, registry mutation or runtime authorization.
+
