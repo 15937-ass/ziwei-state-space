@@ -34,10 +34,12 @@ def test_three_stream_limits_and_current_core_product_route_are_preserved():
     assert "C9 #945/#946 is accepted" in plan
     assert "v0.5 NATAL" in plan
     assert "actual-use validation" in plan
+    assert "Product-availability note" in plan
     assert "Tracking Governance Issue: #949 (v2 baseline); v2.2 addendum: #963" in plan
     assert "不增加宫位槽位" in card
     assert "C9 #945/#946 已接受" in card
     assert "实际命盘" in card
+    assert "Product-availability note" in card
 
 
 def test_natal_to_decade_and_decade_to_year_are_capability_gated():
