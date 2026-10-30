@@ -9,11 +9,11 @@ contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
   status: "ACTIVE_BUILD"
-  active_issue: 943
-  active_branch: "knowledge/p04-943-children-ch01-001-100-source-audit"
-  active_pr: 944
-  canonical_checkpoint: "P04_CH01_001_100_SOURCE_FIRST_REVALIDATION_PROPOSED"
-  note: "P04 #943 / PR #944 is the sole active palace source-first revalidation checkpoint after P02 release. The 800-row CH01-CH08 WP05 archive remains historical/noncanonical. Proposed CH01-001…100 checkpoint: 61 reusable source projections, 33 CASE candidate rows (34 CASE source records because CH01-022 splits two claims), and 6 time-scope holds across 3 gaps. This branch work is pending exact-head acceptance; no source record is executable or mapping-approved. CH02-101…200 requires a separate issue and fresh dependency/slot census. P04 body spans printed pp51–68 / PDF physical pp26–34; p51 starts after the P03 tail, p68 contains the final Pojun text, and P05 body heading begins p69 despite the TOC p68 entry."
+  active_issue: 953
+  active_branch: "knowledge/p04-953-children-ch02-101-200-source-audit"
+  active_pr: 960
+  canonical_checkpoint: "P04_CH02_101_200_SOURCE_REVIEW_COMPLETE_PENDING_VALIDATION"
+  note: "CH01-001…100 was accepted through P04 #943 / PR #944 and merged to main 02b54e1d7d5f07bf2631b9eb74e091df1ef86267: 61 reusable source projections, 34 CASE source records across 33 candidate rows, 6 held candidates across 3 gaps; all remain non-executable and mapping-unapproved. Current sole active P04 work is #953 / CH02-101…200 on knowledge/p04-953-children-ch02-101-200-source-audit. This branch began from main 09b6c3521d6772012847088d3209d0cabe0548c6; main has since advanced to e71da0e935d05942e62a7f7ee0e7aaa67064c3f8 after Core #957, and this P04 branch remains unsynced until it acquires the Integration Lease. CH02-101…200 is now visually re-reviewed against printed pp53–55 / PDF physical pp27–28: 54 reusable candidate rows, 33 CASE rows, 2 mixed-split rows, 11 held time-scope rows across 5 gaps; 91 proposed records (56 reusable, 35 CASE). All remain non-executable and mapping-unapproved. The next P04 source anchor after acceptance is the remaining Si-Hai Tianji-alone passage on printed p55, then Solar, under a separate bounded issue and fresh slot census. P04 body spans printed pp51–68 / PDF physical pp26–34; p51 starts after the P03 tail, p68 contains the final Pojun text, and P05 body heading begins p69 despite the TOC p68 entry."
 
 integrity:
   source_first: true
@@ -32,18 +32,18 @@ progress:
   source_pdf_sha256: "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c"
   full_source_section_printed_pages: "51–68"
   full_source_section_pdf_physical_pages: "26–34"
-  active_candidate_batch: "CH01-001…100"
+  active_candidate_batch: "CH02-101…200"
   active_candidate_rows_reviewed: 100
-  distinct_condition_strings_in_batch: 87
-  multi_output_condition_groups: 13
-  proposed_reusable_source_records: 61
-  proposed_case_support_only_source_records: 34
-  proposed_held_candidates: 6
-  proposed_gap_groups: 3
+  distinct_condition_strings_in_batch: 78
+  multi_output_condition_groups: 16
+  proposed_reusable_source_records: 56
+  proposed_case_support_only_source_records: 35
+  proposed_held_candidates: 11
+  proposed_gap_groups: 5
   history_feedback: 0
   conditions_compiled: 0
   execution_unlocked: 0
-  next_source_anchor: "CH02-101…200; admit only through a separate bounded issue after fresh dependency and slot census. First cover the same-paragraph continuation from CH01: CH02-101…103 map the adverse-condition clause and 武曲天府/廉贞 response hubs after the positive 辰戌紫相 clause; then continue with later p53 Ziwei-Qisha/general Ziwei/Tianji material."
+  next_source_anchor: "CH02-101…200 source review complete pending validation. After acceptance, continue the remaining 巳亥天机独坐 passage on printed p55, then enter Solar under a separate bounded issue and fresh palace-slot/dependency census. Do not auto-start another palace."
 
 human_gate:
   pending: null
