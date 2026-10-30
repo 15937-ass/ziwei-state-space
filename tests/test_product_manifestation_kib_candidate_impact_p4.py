@@ -341,9 +341,24 @@ def test_p02_source_dependencies_for_kmm_14_15_remain_verified_and_fail_closed()
 
     dependency = report["post_p3_main_dependency_recheck"]
     assert dependency["current_main_commit"] == (
-        "cdf7a0e5348264e92f62ac527b9ed6f71e9f0d00"
+        "fa62cebd619646b9c53ca0dba88291a5c45c8141"
     )
     assert dependency["relevant_source_audit"]["unchanged_since_p3_base"] is True
+    assert dependency["previous_recheck_main_commit"] == (
+        "cdf7a0e5348264e92f62ac527b9ed6f71e9f0d00"
+    )
+    assert dependency["main_delta_from_p3_base_file_count"] == 24
+    assert dependency["incremental_main_delta_since_previous_recheck"] == [
+        "knowledge/core/wp07b/GAP011_NEGATION_SOURCE_AUDIT_v0.1.json",
+        "knowledge/core/wp07b/GAP011_NEGATION_SOURCE_AUDIT_v0.1.md",
+        "tests/test_knowledge_core_wp07b_gap011_negation.py",
+        "validation/knowledge/core/wp07b/issue_941/EXECUTION_EVIDENCE.md",
+    ]
+    assert dependency["latest_core_checkpoint"]["disposition"] == (
+        "DESCRIPTIVE_NEGATION_CLASSIFICATION_NO_EXECUTION"
+    )
+    assert dependency["latest_core_checkpoint"]["execution_authorized"] is False
+    assert dependency["latest_core_checkpoint"]["product_or_kib_authority_changed"] is False
     assert dependency["referenced_source_rows"] == [
         {
             "source_rule_id": "P02S-137",
