@@ -61,7 +61,7 @@ def test_existing_gap_register_keeps_all_three_rows_fail_closed():
         "TP01-050", "TP01-061", "TP03-234"
     }}
     assert set(selected) == {"TP01-050", "TP01-061", "TP03-234"}
-    assert all(row["eligibility_status"] == "FAIL_CLOSED" for row in selected.values())
+    assert all(row["decision"] == "FAIL_CLOSED" for row in selected.values())
 
 
 def test_c5_open_world_boundary_is_not_overridden():
