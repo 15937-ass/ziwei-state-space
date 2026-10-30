@@ -207,6 +207,8 @@ def test_product_recovery_state_cache_tracks_main_freshness_and_product_checkpoi
     assert snapshot_date and snapshot_date.group(1) >= "2026-10-23"
     assert 'next_work_unit: "PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"' in state
     assert 'next_work_status: "ACTIVE_BUILD"' in state
+    assert 'phase: "NATAL_DETAILED_READ_BUILD"' in state
+    assert 'next_work_status: "ACTIVE_BUILD"' in state
     assert "active_issue: 951" in state
     assert "active_pr: 951" in state
     assert 'active_branch: "product/951-natal-detailed-read-closed-loop-v1"' in state
