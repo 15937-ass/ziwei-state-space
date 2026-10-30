@@ -5,6 +5,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_core_product_continuation_plan_is_durable_and_discoverable():
     plan = (ROOT / "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md").read_text(encoding="utf-8")
+    active_plan = (ROOT / "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md").read_text(encoding="utf-8")
     for marker in [
         "Product plan pointer: #900",
         "Core plan pointer: #901",
@@ -22,17 +23,23 @@ def test_core_product_continuation_plan_is_durable_and_discoverable():
         assert marker in plan
 
     project = (ROOT / "PROJECT_STATE.yaml").read_text(encoding="utf-8")
-    assert 'core_product_continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md"' in project
+    assert 'core_product_continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"' in project
+    assert "PI-APPROVED / ACTIVE CONTINUATION PLAN" in active_plan
+    assert "NATAL DetailedRead" in active_plan
+    assert "DECADE" in active_plan
+    assert "YEAR" in active_plan
+    assert "SUPERSEDED for active continuation by [v2]" in plan
     assert "product_plan_pointer_issue: 900" in project
     assert "core_plan_pointer_issue: 901" in project
 
 
 def test_product_state_points_to_first_bounded_nominee():
     state = (ROOT / "product/PRODUCT_STATE.yaml").read_text(encoding="utf-8")
-    assert 'continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md"' in state
+    assert 'continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"' in state
     assert "plan_pointer_issue: 900" in state
-    assert "next_issue: 897" in state
-    assert 'continuation_next_work_unit: "PRODUCT_MANIFESTATION_CROSSWALK_PILOT_V0_1"' in state
+    assert 'next_work_unit: "PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"' in state
+    assert 'continuation_next_work_unit: "PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"' in state
+    assert "NATAL_DETAILED_READ_NEXT" in state
     assert 'next_work_status: "READY_TO_ADMIT"' in state
 
 
@@ -52,12 +59,14 @@ def test_three_stream_entry_routes_simple_continue_commands():
     card = (ROOT / "governance/THREE_STREAM_START_HERE.md").read_text(encoding="utf-8")
     assert "Core plan pointer #901" in card
     assert "Product plan pointer #900" in card
-    assert "当前首单 #898" in card
-    assert "当前首单 #897" in card
+    assert "当前 C9 #945" in card
+    assert "PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1" in card
+    assert "DECADE" in card
+    assert "YEAR" in card
     assert "无需让我重述顺序" in card
 
     bootstrap = (ROOT / "CHATGPT_START_HERE.md").read_text(encoding="utf-8")
-    assert "CORE_PRODUCT_CONTINUATION_PLAN_v1.md" in bootstrap
+    assert "CORE_PRODUCT_CONTINUATION_PLAN_v2.md" in bootstrap
     assert "Core plan pointer 为 #901" in bootstrap
     assert "Product plan pointer 为 #900" in bootstrap
     assert "不要求用户重述规划" in bootstrap
