@@ -739,12 +739,15 @@ def load_latest_main_knowledge(
     timeout_seconds: float = DEFAULT_TIMEOUT_SECONDS,
     source_items_per_slot: int = DEFAULT_FIRST_PASS_SOURCE_ITEMS_PER_SLOT,
     continuation: Mapping[str, Any] | None = None,
+    expected_main_sha: str | None = None,
     repository_root: str | Path | None = None,
 ) -> MainKnowledgeBundle:
     """Load a scoped, version-pinned view of accepted artifacts from GitHub main.
 
     Each call resolves main to one commit SHA and reads all selected files by
-    that immutable SHA. Network errors, truncated trees, oversized files, blob
+    that immutable SHA. Callers coordinating multiple independent scope reads
+    may pass expected_main_sha to pin the entire session to one accepted snapshot.
+    Network errors, changed main, truncated trees, oversized files, blob
     mismatches, or unsupported schemas fail closed; the reader never silently
     falls back to model memory or a stale local checkout.
     """
@@ -758,6 +761,10 @@ def load_latest_main_knowledge(
             "source_items_per_slot must be between 1 and "
             f"{MAX_SOURCE_ITEMS_PER_BATCH_PER_SLOT}"
         )
+
+    expected_main_sha = str(expected_main_sha or "").strip() or None
+    if expected_main_sha is not None and not re.fullmatch(r"[0-9a-f]{40}", expected_main_sha):
+        raise ValueError("expected_main_sha must be a 40-character Git SHA")
 
     continuation_main_sha: str | None = None
     seen_evidence_ids: set[str] = set()
@@ -787,6 +794,13 @@ def load_latest_main_knowledge(
         if len(raw_seen_ids) > 10_000:
             raise ValueError("continuation.seen_evidence_ids exceeds the safety limit")
         seen_evidence_ids = {item.strip() for item in raw_seen_ids}
+        if (
+            expected_main_sha is not None
+            and continuation_main_sha != expected_main_sha
+        ):
+            raise ValueError(
+                "continuation.main_sha does not match expected_main_sha"
+            )
 
     transport = fetch_bytes or _default_fetch_bytes
     total_bytes = 0
@@ -821,6 +835,11 @@ def load_latest_main_knowledge(
     main_sha = str(commit.get("sha", "")).strip()
     if not re.fullmatch(r"[0-9a-f]{40}", main_sha):
         raise MainKnowledgeUnavailable("GitHub did not return a valid main commit SHA")
+    if expected_main_sha is not None and expected_main_sha != main_sha:
+        raise MainKnowledgeUnavailable(
+            "DetailedRead session is stale because GitHub main changed; "
+            "restart the full session on the new accepted main snapshot"
+        )
     if continuation_main_sha is not None and continuation_main_sha != main_sha:
         raise MainKnowledgeUnavailable(
             "QuickRead continuation is stale because GitHub main changed; "
@@ -1138,6 +1157,8 @@ def load_latest_main_knowledge(
         "source_of_truth": "GitHub main only",
         "repository": REPOSITORY,
         "main_sha": main_sha,
+        "expected_main_sha": expected_main_sha,
+        "snapshot_pin_verified": expected_main_sha is None or expected_main_sha == main_sha,
         "main_commit_url": f"https://github.com/{REPOSITORY}/commit/{main_sha}",
         "tree_sha": tree_sha,
         "knowledge_version": knowledge_version,

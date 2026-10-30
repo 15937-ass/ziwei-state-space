@@ -1,0 +1,60 @@
+{
+  "schema_version": "0.1",
+  "issue": 951,
+  "status": "SYNTHETIC_SESSION_CONTRACT_FIXTURE",
+  "fixture_mode": "SYNTHETIC_LOADER_NO_REAL_CHART_OR_KNOWLEDGE_READ",
+  "target_id": "DETAILEDREAD-TEST-CHART-001",
+  "current_accepted_main_at_checkpoint": "33e738e834a198217e26d3d645826283315b4b73",
+  "product_branch_initial_base_main": "09b6c3521d6772012847088d3209d0cabe0548c6",
+  "synthetic_test_main_sha": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "natal_domains": [
+    "life",
+    "siblings",
+    "relationship",
+    "children",
+    "wealth",
+    "health",
+    "migration",
+    "friends",
+    "career",
+    "property",
+    "fortune",
+    "parents"
+  ],
+  "expected_natal_domain_count": 12,
+  "expected_natal_domain_count_inspected": 12,
+  "expected_session_status": "NATAL_INSPECTION_COMPLETE",
+  "lane_separation_fixture": {
+    "runtime_evidence_count": 0,
+    "source_evidence_count": 0,
+    "model_supplement_count": 1,
+    "model_supplement_increases_runtime_or_source_coverage": false,
+    "case_support_only_excluded_count": 8
+  },
+  "unknown_status_fixture": {
+    "runtime_status": "UNKNOWN",
+    "source_status": "UNKNOWN",
+    "evidence_counts_remain_zero": true
+  },
+  "negative_controls": [
+    "reject a changed main SHA between atomic-slot reads",
+    "reject a QuickRead continuation with a different chart target_id",
+    "reuse a QuickRead continuation only for its already-seen slot",
+    "reject model supplementation for an uninspected domain",
+    "keep per-slot continuation on the same session main SHA",
+    "make repeated completed-stage requests idempotent"
+  ],
+  "output_contract": [
+    "all twelve NATAL domains appear in coverage, including not-yet-inspected domains",
+    "RUNTIME, SOURCE and MODEL_SUPPLEMENT are separate arrays",
+    "case-only and other excluded source counts remain separate from accepted evidence",
+    "cross-domain checks, thematic sections and staged delivery order are preserved",
+    "UNKNOWN and unequal coverage are not upgraded or filled"
+  ],
+  "explicit_non_claims": [
+    "This is not an actual user chart reading.",
+    "No real accepted source or runtime evidence was loaded by this synthetic fixture.",
+    "The synthetic SHA is a test constant, not a repository commit.",
+    "No chart calculation, runtime execution, LLM call, KIB promotion or predictive-validity claim is made."
+  ]
+}
