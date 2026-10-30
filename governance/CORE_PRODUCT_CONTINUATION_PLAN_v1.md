@@ -1,6 +1,8 @@
 # Core + Product Continuous Progression Plan v1
 
-Status: **PI-APPROVED / ACTIVE CONTINUATION PLAN**  
+> **HISTORICAL BASELINE — SUPERSEDED for active continuation by [v2](CORE_PRODUCT_CONTINUATION_PLAN_v2.md), PI-approved 2026-10-30.** Preserve this file for historical traceability; new Core/Product recovery must use v2.
+
+Status: **PI-APPROVED / HISTORICAL CONTINUATION PLAN**  
 Tracking Governance Issue: #896  
 Product plan pointer: #900  
 Core plan pointer: #901  
