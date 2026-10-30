@@ -8,15 +8,42 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "ACTIVE_NO_ACTIVE_WORK"
-  active_issue: null
-  active_branch: null
-  active_pr: null
-  canonical_checkpoint: "CANONICAL_REVALIDATION_NOT_STARTED"
-  note: "Archived/noncanonical candidate material, if any, is not promoted by this state initialization."
+  status: "ACTIVE_BUILD"
+  active_issue: 943
+  active_branch: "knowledge/p04-943-children-ch01-001-100-source-audit"
+  active_pr: 944
+  canonical_checkpoint: "P04_CH01_001_100_SOURCE_FIRST_REVALIDATION_PROPOSED"
+  note: "P04 #943 / PR #944 is the sole active palace source-first revalidation checkpoint after P02 release. The 800-row CH01-CH08 WP05 archive remains historical/noncanonical. Proposed CH01-001…100 checkpoint: 61 reusable source projections, 33 CASE candidate rows (34 CASE source records because CH01-022 splits two claims), and 6 time-scope holds across 3 gaps. This branch work is pending exact-head acceptance; no source record is executable or mapping-approved. CH02-101…200 requires a separate issue and fresh dependency/slot census. P04 body spans printed pp51–68 / PDF physical pp26–34; p51 starts after the P03 tail, p68 contains the final Pojun text, and P05 body heading begins p69 despite the TOC p68 entry."
 
 integrity:
   source_first: true
   shared_semantics_must_escalate_to_core: true
   may_write_other_palace: false
   empirical_feedback_may_rewrite_source_truth: false
+  new_primitive_qi: 0
+  new_memory_type: 0
+  new_independent_time_scale: 0
+  numeric_weight: 0
+  probability: 0
+  decay: 0
+
+progress:
+  source_id: "SRC-ZZ-003"
+  source_pdf_sha256: "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c"
+  full_source_section_printed_pages: "51–68"
+  full_source_section_pdf_physical_pages: "26–34"
+  active_candidate_batch: "CH01-001…100"
+  active_candidate_rows_reviewed: 100
+  distinct_condition_strings_in_batch: 87
+  multi_output_condition_groups: 13
+  proposed_reusable_source_records: 61
+  proposed_case_support_only_source_records: 34
+  proposed_held_candidates: 6
+  proposed_gap_groups: 3
+  history_feedback: 0
+  conditions_compiled: 0
+  execution_unlocked: 0
+  next_source_anchor: "CH02-101…200; admit only through a separate bounded issue after fresh dependency and slot census. First cover the same-paragraph continuation from CH01: CH02-101…103 map the adverse-condition clause and 武曲天府/廉贞 response hubs after the positive 辰戌紫相 clause; then continue with later p53 Ziwei-Qisha/general Ziwei/Tianji material."
+
+human_gate:
+  pending: null
