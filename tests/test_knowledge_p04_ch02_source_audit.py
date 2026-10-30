@@ -11,14 +11,16 @@ def _audit():
     return json.loads(AUDIT_PATH.read_text(encoding="utf-8"))
 
 
-def test_ch02_first_subbatch_has_exactly_fifty_contiguous_candidates():
+def test_ch02_candidate_ids_are_exactly_one_hundred_contiguous_rows():
     audit = _audit()
     ids = [item["legacy_candidate_id"] for item in audit["candidate_adjudications"]]
 
-    assert ids == [f"CH02-{number:03d}" for number in range(101, 151)]
-    assert audit["summary"]["candidate_rows"] == 50
-    assert audit["summary"]["unique_candidate_ids"] == 50
-    assert audit["status"] == "IN_PROGRESS_FIRST_50_REVIEWED_PENDING_CH02_151_200"
+    assert ids == [f"CH02-{number:03d}" for number in range(101, 201)]
+    assert ids[:50] == [f"CH02-{number:03d}" for number in range(101, 151)]
+    assert ids[50:] == [f"CH02-{number:03d}" for number in range(151, 201)]
+    assert audit["summary"]["candidate_rows"] == 100
+    assert audit["summary"]["unique_candidate_ids"] == 100
+    assert audit["status"] == "SOURCE_REVIEW_COMPLETE_PENDING_VALIDATION"
 
 
 def test_original_source_and_frozen_candidate_archive_are_pinned():
@@ -32,8 +34,12 @@ def test_original_source_and_frozen_candidate_archive_are_pinned():
         "dc0f10c69906ab84cbb272089ec175bb57c1aefe"
     )
     assert audit["candidate_archive"]["legacy_labels_are_navigation_only"] is True
-    assert audit["boundary"]["candidate_batch_printed_pages"] == [53, 54]
-    assert audit["boundary"]["candidate_batch_pdf_physical_pages"] == [27]
+    assert audit["source"]["reviewed_printed_pages"] == [53, 54, 55]
+    assert audit["source"]["reviewed_pdf_physical_pages"] == [27, 28]
+    assert audit["boundary"]["candidate_batch_printed_pages"] == [53, 54, 55]
+    assert audit["boundary"]["candidate_batch_pdf_physical_pages"] == [27, 28]
+    assert audit["candidate_archive"]["reviewed_candidate_id_range"] == ["CH02-101", "CH02-200"]
+    assert audit["candidate_archive"]["exact_candidate_id_set_verified"] is True
 
 
 def test_time_scope_hubs_without_explicit_year_or_decade_are_held():
@@ -44,12 +50,18 @@ def test_time_scope_hubs_without_explicit_year_or_decade_are_held():
         if item["disposition"] == "HELD_TIME_SCOPE_UNRESOLVED"
     }
 
-    assert set(held) == {"CH02-102", "CH02-103", "CH02-146"}
+    assert set(held) == {
+        "CH02-102", "CH02-103", "CH02-146",
+        "CH02-171", "CH02-172", "CH02-173",
+        "CH02-186", "CH02-187", "CH02-188",
+        "CH02-199", "CH02-200",
+    }
     assert all(item["time_layer"] == "UNRESOLVED" for item in held.values())
     assert all(item["canonical_promotion"] is False for item in held.values())
     assert all(item["source_condition_supported"] is False for item in held.values())
     assert all(item["source_record_ids"] == [] for item in held.values())
-    assert len(audit["gap_register"]) == 2
+    time_gaps = [gap for gap in audit["gap_register"] if "TIME" in gap["gap_id"]]
+    assert len(time_gaps) == 5
 
 
 def test_mixed_childbearing_and_later_generation_timing_is_split():
@@ -80,6 +92,9 @@ def test_child_count_obstetric_and_traditional_household_claims_remain_case_only
         "CH02-130", "CH02-131", "CH02-132", "CH02-133", "CH02-134",
         "CH02-135", "CH02-136", "CH02-139", "CH02-140",
         "CH02-147", "CH02-148", "CH02-149",
+        "CH02-152", "CH02-160", "CH02-161", "CH02-162", "CH02-163",
+        "CH02-164", "CH02-165", "CH02-166", "CH02-174", "CH02-175",
+        "CH02-189", "CH02-190",
     }
     assert all(by_id[item]["disposition"] == "CASE_SUPPORT_ONLY" for item in expected)
     assert all(by_id[item]["case_support_only"] is True for item in expected)
@@ -98,12 +113,34 @@ def test_all_candidate_adjudications_are_non_executable_and_mapping_unapproved()
     assert audit["execution_boundary"]["product_or_kib_authorized"] is False
 
 
-def test_first_subbatch_state_cache_matches_reviewed_progress():
+def test_explicit_flow_year_and_decade_hubs_keep_both_layers_without_inventing_xing_trigger():
+    audit = _audit()
+    by_id = {item["legacy_candidate_id"]: item for item in audit["candidate_adjudications"]}
+    for candidate_id in ("CH02-157", "CH02-158", "CH02-159"):
+        item = by_id[candidate_id]
+        assert item["disposition"] == "ACCEPTED_SOURCE_PROJECTION"
+        assert item["time_layer"] == "DECADE_YEAR"
+        assert item["source_time_layers"] == ["YEAR", "DECADE"]
+        assert item["scope_status"] == "SOURCE_EXPLICIT_DECADE_AND_YEAR"
+        assert item["legacy_trigger_phrase_supported"] is False
+        assert item["adjudicated_projection_mode"] == "SOURCE_DESCRIPTIVE_RESPONSE_HUB"
+
+
+def test_p04_later_generation_projections_exclude_ordinary_staff_and_general_networks():
+    audit = _audit()
+    by_id = {item["legacy_candidate_id"]: item for item in audit["candidate_adjudications"]}
+    for candidate_id in ("CH02-151", "CH02-178", "CH02-179", "CH02-191", "CH02-195"):
+        dependencies = by_id[candidate_id]["context_dependencies"]
+        assert "P04_SCOPE_PERSONALLY_CULTIVATED_LATER_GENERATION_ONLY" in dependencies
+        assert "P08_EXCLUDE_ORDINARY_STAFF_SUBORDINATES_AND_GENERAL_NETWORKS" in dependencies
+
+
+def test_full_batch_state_cache_matches_reviewed_progress():
     state = STATE_PATH.read_text(encoding="utf-8")
     assert 'active_issue: 953' in state
     assert 'active_candidate_batch: "CH02-101…200"' in state
-    assert "active_candidate_rows_reviewed: 50" in state
-    assert "proposed_reusable_source_records: 26" in state
-    assert "proposed_case_support_only_source_records: 23" in state
-    assert "proposed_held_candidates: 3" in state
-    assert "proposed_gap_groups: 2" in state
+    assert "active_candidate_rows_reviewed: 100" in state
+    assert "proposed_reusable_source_records: 56" in state
+    assert "proposed_case_support_only_source_records: 35" in state
+    assert "proposed_held_candidates: 11" in state
+    assert "proposed_gap_groups: 5" in state
