@@ -1,0 +1,2973 @@
+{
+  "schema_version": "0.2",
+  "artifact_id": "KB_WP07B_SOURCE_REACTION_HANDOFF_02",
+  "work_unit": "KB-WP07B-SOURCE-REACTION-CONTRACT-01_C9_GAP007_RECONCILIATION",
+  "status": "SOURCE_REVIEW_COMPLETE_ZERO_ELIGIBLE_UNDER_CURRENT_CONTRACT",
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "CORE",
+  "source_basis": {
+    "source_id": "SRC-ZZ-003",
+    "source_title": "《中州派紫微斗数深造讲义（下）》",
+    "source_pdf_sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+    "source_index_path": "sources/source_index.csv",
+    "source_index_git_blob_sha": "93bebaf4e167547769f3892abef649d323628363"
+  },
+  "snapshot": {
+    "main_commit": "fa62cebd619646b9c53ca0dba88291a5c45c8141",
+    "branch": "knowledge/core-945-wp07b-gap007-persistence-path-audit",
+    "branch_claim_commit": "fa62cebd619646b9c53ca0dba88291a5c45c8141",
+    "input_artifacts": [
+      {
+        "path": "knowledge/wp07b/CAREER_TEMPORAL_REACTION_ELIGIBILITY_v0.1.csv",
+        "git_blob_sha": "2529739803291b1692bb6fe985805ffefe3cc8c2"
+      },
+      {
+        "path": "knowledge/wp07b/CAREER_TEMPORAL_REACTION_ELIGIBILITY_SUMMARY_v0.1.json",
+        "git_blob_sha": "abcdadcbd776f0f531a0a6b73a9e1b18b370c7fa"
+      },
+      {
+        "path": "knowledge/palaces/P10_property/wp07b/PROPERTY_TEMPORAL_REACTION_ELIGIBILITY_v0.1.csv",
+        "git_blob_sha": "db39eb9f49d7b23b284be3ec9cf3160239ea250e"
+      },
+      {
+        "path": "knowledge/palaces/P10_property/wp07b/PROPERTY_TEMPORAL_REACTION_ELIGIBILITY_SUMMARY_v0.1.json",
+        "git_blob_sha": "9d0322cf1b2f904e50e2caf133d3f52eb1f28158"
+      },
+      {
+        "path": "validation/wp05/CA04_career_projection_review_301_400.csv",
+        "git_blob_sha": "f6c22b208c55b2eaf6165a8ce29a51045ca5f107"
+      },
+      {
+        "path": "validation/wp05/CA05_career_projection_review_401_500.csv",
+        "git_blob_sha": "08f812c0e928093977e17a303482e382d41375d0"
+      },
+      {
+        "path": "validation/wp05/CA06_career_projection_review_501_600.csv",
+        "git_blob_sha": "31c52e437bf33b795fcff735b4894a2316ce01be"
+      },
+      {
+        "path": "validation/wp05/CA09_career_projection_review_801_888.csv",
+        "git_blob_sha": "8b6141163bef011d874d94d5b0cdab4ebc98ec5f"
+      },
+      {
+        "path": "validation/wp05/TP01_property_projection_review_001_100.csv",
+        "git_blob_sha": "2c6d33d8af5d3e0b494cc3b65ed005b18aec836a"
+      },
+      {
+        "path": "validation/wp05/TP02_property_projection_review_101_200.csv",
+        "git_blob_sha": "1ee32b609083ddb36559e891dd3e17e483ed3ef6"
+      },
+      {
+        "path": "validation/wp05/TP03_property_projection_review_201_300.csv",
+        "git_blob_sha": "ec2508393acf14ab761c9fc0170222a97bbe7c86"
+      },
+      {
+        "path": "validation/wp05/TP04_property_projection_review_301_358.csv",
+        "git_blob_sha": "92801950a616566b0a7f28e54390b9e991a9b2e9"
+      },
+      {
+        "path": "sources/source_index.csv",
+        "git_blob_sha": "93bebaf4e167547769f3892abef649d323628363"
+      },
+      {
+        "path": "product/PL3T_NATAL_TEMPORAL_REACTION_COMPILER_ACCEPTANCE.md",
+        "git_blob_sha": "5c2982e1696ccead468ceb503310172a830271bc"
+      },
+      {
+        "path": "product/PRODUCT_SOURCE_ONLY_VERTICAL_SLICE_BLOCKER_HANDOFF_V0_1.json",
+        "git_blob_sha": "32a241b385038e3627df52f71000314ada1e8008"
+      },
+      {
+        "path": "src/product/temporal_asset_adapter.py",
+        "git_blob_sha": "f383d97830f7ddf8e5bd7275e84bb0f1b967b892"
+      },
+      {
+        "path": "knowledge/wp07a/CAREER_NATAL_ATOMIZATION_AUDIT_v0.1.md",
+        "git_blob_sha": "d8653bd8da58eb27a409920b3ce393530fe8b112"
+      },
+      {
+        "path": "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md",
+        "git_blob_sha": "e59b21ccc1dbd6354e646888b1c466be71cc060e"
+      },
+      {
+        "path": "governance/PALACE_AUDIT_SEQUENCE_2026-10-23.md",
+        "git_blob_sha": "83812009a361a940179ec1aaed4298e36363c27e"
+      }
+    ],
+    "source_scan_review": {
+      "status": "VISUALLY_REVIEWED",
+      "source_id": "SRC-ZZ-003",
+      "printed_pages_reviewed": {
+        "career": [
+          140,
+          141,
+          145,
+          146,
+          147,
+          148,
+          154,
+          155
+        ],
+        "property": [
+          156,
+          157,
+          158,
+          159,
+          160,
+          161,
+          162,
+          163,
+          164,
+          165
+        ]
+      },
+      "scan_pdf_pages_1based": [
+        70,
+        71,
+        73,
+        74,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83
+      ],
+      "note": "PDF-page numbers are convenience locators to the supplied scan. Canonical source identity remains source_id plus printed-page anchor plus source-record path. Exact source wording remains in canonical rows; no long quotation is duplicated."
+    }
+  },
+  "current_compiler_contract": {
+    "path": "product/PL3T_NATAL_TEMPORAL_REACTION_COMPILER_ACCEPTANCE.md",
+    "read_only": true,
+    "requirements": [
+      "source span verified and review status SOURCE_SPAN_VERIFIED or HUMAN_VERIFIED",
+      "normalization is explicitly verified and non-hypothetical",
+      "CASE_SUPPORT_ONLY rows cannot enter runtime",
+      "explicit natal condition atoms or required_natal_rule_ids are required",
+      "an explicit positive temporal condition is required",
+      "all temporal condition atoms must use the selected reaction layer",
+      "unbound star-presence and mutagen facts must not be joined by inference"
+    ],
+    "adapter_path": "src/product/temporal_asset_adapter.py",
+    "adapter_git_blob_sha": "f383d97830f7ddf8e5bd7275e84bb0f1b967b892",
+    "star_bound_transformation_behavior": "The adapter emits a star-bound TRANSFORMATION_PRESENT only when the PL1 temporal star object itself carries mutagen and its palace_name is grounded. It never joins a scope-level mutagen to an unbound star."
+  },
+  "counts": {
+    "career": {
+      "candidates": 9,
+      "eligible_current_contract": 0,
+      "case_support_only": 1,
+      "blocked_reusable": 8
+    },
+    "property": {
+      "candidates": 35,
+      "eligible_current_contract": 0,
+      "case_support_only": 16,
+      "blocked_reusable": 19,
+      "declared_year": 32,
+      "declared_decade": 3
+    },
+    "total": {
+      "candidates": 44,
+      "eligible_current_contract": 0,
+      "case_support_only": 17,
+      "blocked_reusable": 27
+    }
+  },
+  "blocker_code_counts": {
+    "AMBIGUOUS_FINANCIAL_STAR": 1,
+    "BRIGHTNESS_NOT_TEMPORAL_CONDITION_FACT": 4,
+    "CASE_SUPPORT_ANTECEDENT": 3,
+    "CASE_SUPPORT_ONLY": 17,
+    "COMPOUND_CONVERGENCE_NOT_EXPRESSIBLE": 1,
+    "COMPOUND_TEMPORAL_CONDITION_NOT_EXACT": 1,
+    "DURATION_IS_EVIDENCE_NOT_THRESHOLD": 1,
+    "EVENT_CANDIDATE_NOT_TEMPORAL_RULE": 1,
+    "FAVORABILITY_PREDICATE_UNDEFINED": 1,
+    "FAVORABLE_PERIOD_UNDEFINED": 1,
+    "GENERIC_BENEFIC_GROUP_UNDEFINED": 4,
+    "GENERIC_BENEFIC_TRANSFORMATION_GROUP_UNDEFINED": 2,
+    "GENERIC_HUAJI_OR_ADVERSE_GROUP_UNDEFINED": 1,
+    "GENERIC_MALEFIC_GROUP_UNDEFINED": 3,
+    "GENERIC_MALEFIC_SEVERITY_UNDEFINED": 1,
+    "LAYER_SCOPE_MISMATCH": 6,
+    "MULTI_LAYER_CONJUNCTION_NOT_SINGLE_REACTION": 1,
+    "MULTIYEAR_SEQUENCE_NOT_SUPPORTED": 1,
+    "NEGATED_GENERIC_BENEFIC_GROUP_UNDEFINED": 1,
+    "NEGATED_GENERIC_MALEFIC_GROUP_UNDEFINED": 2,
+    "PARENT_ANTECEDENT_REQUIRED": 4,
+    "PARENT_CASE_SUPPORT_ONLY": 1,
+    "PATH_DEPENDENT_GATE": 2,
+    "PRECEDING_CONTEXT_REFERENCE": 2,
+    "REAL_WORLD_COMMERCE_CONTEXT_UNTYPED": 1,
+    "RELATION_SEMANTICS_UNDERSPECIFIED": 1,
+    "REQUIRED_NATAL_ANTECEDENT_ABSENT_IN_SOURCE": 2,
+    "SCOPE_LEVEL_MUTAGEN_MUST_NOT_BE_JOINED_TO_STAR": 2,
+    "SERVICE_INSTITUTION_CONTEXT_NOT_TYPED_FACT": 1,
+    "SHA_JI_ACTIVATION_NOT_EXPRESSIBLE": 1,
+    "SINGLE_REACTION_LAYER_CONTRACT": 1,
+    "SOURCE_DOES_NOT_SPECIFY_TEMPORAL_PALACE_NAME": 3,
+    "SOURCE_MULTI_LAYER_DECADE_YEAR": 2,
+    "SOURCE_TEXT_UNCERTAIN": 1,
+    "STAR_MUTAGEN_BINDING_REQUIRES_EXACT_RUNTIME_SHAPE": 1,
+    "STAR_MUTAGEN_BINDING_RUNTIME_REQUIRES_PALACE_NAME": 2,
+    "SUPPORTIVE_PERIOD_UNDEFINED": 1,
+    "TEMPORAL_STAR_SYSTEM_GEOMETRY_UNDERSPECIFIED": 1,
+    "UNFAVORABLE_PERIOD_UNDEFINED": 1,
+    "YEAR_SCOPE_INHERITED_FROM_PRECEDING_SENTENCE": 1,
+    "YEAR_SMALL_LIMIT_COMPOUND_SCOPE": 1
+  },
+  "gap_register": [
+    {
+      "gap_id": "WP07B-GAP-001-ANTECEDENT-CHAIN",
+      "family": "Antecedent chain / parent dependency",
+      "owner": "SOURCE_OWNER_OR_CORE_REVIEW",
+      "summary": "A temporal row points to a preceding/context row that is case-only, unresolved, or not a canonical executable natal antecedent. Preserve the reference; do not promote or flatten the parent. C9 #945 adds CA09-851 as a referenced Pojun-career-context item whose completeness requires separate validation; source row remains unchanged.",
+      "human_gate_id": null,
+      "impacted_rule_ids": [
+        "CA04-346",
+        "CA05-496",
+        "CA06-545",
+        "CA06-600",
+        "CA09-867",
+        "TP01-037",
+        "TP01-045",
+        "TP01-050",
+        "TP01-051",
+        "TP03-248",
+        "TP04-308",
+        "CA09-851"
+      ],
+      "status": "OPEN_BLOCKER_INDEX_ONLY_NOT_AN_ACTIVE_WORK_ITEM",
+      "runtime_semantics_added": false
+    },
+    {
+      "gap_id": "WP07B-GAP-002-TIME-SCOPE",
+      "family": "Source time-scope wider than single reaction layer",
+      "owner": "SOURCE_NORMALIZATION_AND_PRODUCT_CONTRACT",
+      "summary": "The source explicitly covers more than one time layer or combines YEAR with 小限, while the current reaction contract binds one selected layer. Do not drop, duplicate, or silently prioritize a layer.",
+      "human_gate_id": "HG-WP07B-CROSS-LAYER-REACTION-01",
+      "impacted_rule_ids": [
+        "CA04-346",
+        "CA04-350",
+        "CA05-496",
+        "CA06-545",
+        "CA06-580",
+        "CA06-600",
+        "TP01-044",
+        "TP01-045",
+        "TP02-175"
+      ],
+      "status": "OPEN_BLOCKER_INDEX_ONLY_NOT_AN_ACTIVE_WORK_ITEM",
+      "runtime_semantics_added": false
+    },
+    {
+      "gap_id": "WP07B-GAP-003-ACTIVATION-RELATION",
+      "family": "Activation / clash / convergence geometry",
+      "owner": "CORE_SHARED_SEMANTICS",
+      "summary": "Source terms such as 煞忌冲起, 流煞冲会, or compound activation do not map to an approved exact typed relation in the current fact contract.",
+      "human_gate_id": "HG-WP07B-ACTIVATION-GEOMETRY-01",
+      "impacted_rule_ids": [
+        "CA04-346",
+        "TP01-037",
+        "TP01-044"
+      ],
+      "status": "OPEN_BLOCKER_INDEX_ONLY_NOT_AN_ACTIVE_WORK_ITEM",
+      "runtime_semantics_added": false
+    },
+    {
+      "gap_id": "WP07B-GAP-004-STAR-MUTAGEN-BINDING",
+      "family": "Exact star-to-mutagen binding",
+      "owner": "PRODUCT_CONTRACT_WITH_SOURCE_BOUNDARY",
+      "summary": "Separate star presence and scope-level mutagen facts cannot be joined. Where the source does not identify a temporal palace, do not invent one to satisfy the runtime fact shape.",
+      "human_gate_id": null,
+      "impacted_rule_ids": [
+        "CA04-350",
+        "TP01-061",
+        "TP04-307",
+        "TP04-308"
+      ],
+      "status": "OPEN_BLOCKER_INDEX_ONLY_NOT_AN_ACTIVE_WORK_ITEM",
+      "runtime_semantics_added": false
+    },
+    {
+      "gap_id": "WP07B-GAP-005-COMPOUND-CONDITION",
+      "family": "Ambiguous or compound temporal condition",
+      "owner": "SOURCE_OWNER_AND_CORE_REVIEW",
+      "summary": "The source condition does not uniquely identify a required star/group or typed compound convergence; preserve all conjunctions and ambiguity rather than simplify to a trigger.",
+      "human_gate_id": "HG-WP07B-ACTIVATION-GEOMETRY-01",
+      "impacted_rule_ids": [
+        "CA05-496",
+        "TP01-049"
+      ],
+      "status": "OPEN_BLOCKER_INDEX_ONLY_NOT_AN_ACTIVE_WORK_ITEM",
+      "runtime_semantics_added": false
+    },
+    {
+      "gap_id": "WP07B-GAP-006-GROUP-OR-FAVORABILITY",
+      "family": "Undefined generic groups or favorable/supportive period",
+      "owner": "CORE_SHARED_SEMANTICS",
+      "summary": "Generic 吉曜/煞曜/吉化, severity, and favorable/unfavorable/supportive-period phrases are not executable atoms without a source-backed closed definition. No score may be inferred from outcomes. C9 #945 adds CA09-851's 良好流年 phrase as a Career-scoped PERIOD_VALENCE_OR_SUPPORT overlap; no GOOD_YEAR predicate is created.",
+      "human_gate_id": "HG-WP07B-FAVORABILITY-AND-GROUPS-01",
+      "impacted_rule_ids": [
+        "CA06-580",
+        "CA06-600",
+        "CA09-867",
+        "TP01-045",
+        "TP01-049",
+        "TP02-165",
+        "TP02-166",
+        "TP02-175",
+        "TP03-233",
+        "TP03-248",
+        "TP04-355",
+        "TP04-356",
+        "CA09-851"
+      ],
+      "status": "OPEN_BLOCKER_INDEX_ONLY_NOT_AN_ACTIVE_WORK_ITEM",
+      "runtime_semantics_added": false
+    },
+    {
+      "gap_id": "WP07B-GAP-007-PERSISTENCE-AND-PATH",
+      "family": "Multi-year persistence / path-dependent gate",
+      "owner": "CORE_SHARED_SEMANTICS",
+      "summary": "The source expresses two non-interchangeable path forms: CA09-851 multi-year consecutive annual condition; TP03-248 same-year antecedent branch with event-consequence path. Literal duration is evidence only, not a universal threshold or clock.",
+      "human_gate_id": "HG-WP07B-TEMPORAL-PERSISTENCE-01",
+      "impacted_rule_ids": [
+        "CA09-851",
+        "TP03-248"
+      ],
+      "status": "OPEN_BLOCKER_INDEX_ONLY_NOT_AN_ACTIVE_WORK_ITEM",
+      "runtime_semantics_added": false,
+      "member_subtypes": {
+        "CA09-851": "MULTI_YEAR_CONSECUTIVE_ANNUAL_WINDOW",
+        "TP03-248": "SAME_YEAR_ANTECEDENT_BRANCH_WITH_EVENT_CONSEQUENCE"
+      },
+      "human_gate_applicability": {
+        "gate_id": "HG-WP07B-TEMPORAL-PERSISTENCE-01",
+        "applies_to": [
+          "CA09-851"
+        ],
+        "does_not_apply_to": [
+          "TP03-248"
+        ],
+        "status": "FUTURE_NOT_PENDING"
+      }
+    },
+    {
+      "gap_id": "WP07B-GAP-008-SOURCE-TEXT-UNCERTAINTY",
+      "family": "Source-text / OCR uncertainty",
+      "owner": "PALACE_SOURCE_OWNER",
+      "summary": "A source token is explicitly uncertain. Keep the row fail-closed until the owning palace performs source adjudication.",
+      "human_gate_id": null,
+      "impacted_rule_ids": [
+        "TP01-037",
+        "TP04-338",
+        "TP04-357"
+      ],
+      "status": "OPEN_BLOCKER_INDEX_ONLY_NOT_AN_ACTIVE_WORK_ITEM",
+      "runtime_semantics_added": false
+    },
+    {
+      "gap_id": "WP07B-GAP-009-BRIGHTNESS-FACT",
+      "family": "Brightness predicate unavailable in temporal facts",
+      "owner": "PRODUCT_CONTRACT_WITH_SOURCE_BOUNDARY",
+      "summary": "入庙/落陷 is part of the source condition but is not currently exposed as an approved temporal condition fact.",
+      "human_gate_id": "HG-WP07B-TEMPORAL-BRIGHTNESS-01",
+      "impacted_rule_ids": [
+        "TP03-233",
+        "TP03-234",
+        "TP04-355",
+        "TP04-356"
+      ],
+      "status": "OPEN_BLOCKER_INDEX_ONLY_NOT_AN_ACTIVE_WORK_ITEM",
+      "runtime_semantics_added": false
+    },
+    {
+      "gap_id": "WP07B-GAP-010-PURE-TEMPORAL-TRIGGER",
+      "family": "Pure temporal source clause has no independent natal antecedent",
+      "owner": "PRODUCT_CONTRACT",
+      "summary": "The source clause is an annual temporal trigger, but the current compiler requires an explicit natal condition or required natal rule ID. A vacuous PALACE_PRESENT gate would be fabricated semantics.",
+      "human_gate_id": null,
+      "impacted_rule_ids": [
+        "TP03-245",
+        "TP03-246"
+      ],
+      "status": "OPEN_BLOCKER_INDEX_ONLY_NOT_AN_ACTIVE_WORK_ITEM",
+      "runtime_semantics_added": false
+    },
+    {
+      "gap_id": "WP07B-GAP-011-NEGATION",
+      "family": "Negation is not closed-world over generic groups",
+      "owner": "CORE_SHARED_SEMANTICS",
+      "summary": "不见吉曜/不见煞 cannot be inferred from absence in the currently observed fact set; no closed-world group negation is approved.",
+      "human_gate_id": "HG-WP07B-SOURCE-NEGATION-01",
+      "impacted_rule_ids": [
+        "TP01-050",
+        "TP01-061",
+        "TP03-234"
+      ],
+      "status": "OPEN_BLOCKER_INDEX_ONLY_NOT_AN_ACTIVE_WORK_ITEM",
+      "runtime_semantics_added": false
+    },
+    {
+      "gap_id": "WP07B-GAP-012-SERVICE-CONTEXT",
+      "family": "Service-institution context is not a typed fact",
+      "owner": "SOURCE_OWNER_AND_PRODUCT_CONTRACT",
+      "summary": "The source projection depends on a service-institution context; it is not a standalone temporal trigger and is not represented as a typed fact.",
+      "human_gate_id": null,
+      "impacted_rule_ids": [
+        "TP01-051"
+      ],
+      "status": "OPEN_BLOCKER_INDEX_ONLY_NOT_AN_ACTIVE_WORK_ITEM",
+      "runtime_semantics_added": false
+    },
+    {
+      "gap_id": "WP07B-GAP-013-CASE-SUPPORT-EXCLUSION",
+      "family": "Case-support / event-candidate exclusion",
+      "owner": "SOURCE_FIDELITY",
+      "summary": "CASE_SUPPORT_ONLY and EVENT_CANDIDATE evidence can support discussion but cannot become reusable executable temporal reaction rules.",
+      "human_gate_id": null,
+      "impacted_rule_ids": [
+        "CA05-497",
+        "TP01-048",
+        "TP01-084",
+        "TP02-103",
+        "TP02-135",
+        "TP02-137",
+        "TP02-167",
+        "TP02-168",
+        "TP02-176",
+        "TP02-191",
+        "TP03-213",
+        "TP03-228",
+        "TP03-232",
+        "TP03-247",
+        "TP03-273",
+        "TP04-338",
+        "TP04-357"
+      ],
+      "status": "OPEN_BLOCKER_INDEX_ONLY_NOT_AN_ACTIVE_WORK_ITEM",
+      "runtime_semantics_added": false
+    },
+    {
+      "gap_id": "WP07B-GAP-014-COMMERCE-CONTEXT",
+      "summary": "CA04-350's capital-shortage interpretation is conditioned on commerce, but CA04-348 is a real-world context gate rather than a natal fact and no typed commerce/context fact is available to this PL3-T reaction contract. Do not substitute CA04-349's technical-skill scene or infer commerce from the outcome.",
+      "status": "OPEN_BLOCKER_INDEX_ONLY_NOT_AN_ACTIVE_WORK_ITEM",
+      "impacted_rule_ids": [
+        "CA04-350"
+      ],
+      "runtime_semantics_added": false,
+      "family": "Real-world commerce context is not a typed state/context fact",
+      "owner": "SOURCE_OWNER_AND_PRODUCT_CONTEXT_CONTRACT",
+      "human_gate_id": null
+    }
+  ],
+  "human_gate_candidates": [
+    {
+      "gate_candidate_id": "HG-WP07B-ACTIVATION-GEOMETRY-01",
+      "status": "FUTURE_NOT_PENDING",
+      "trigger": "Only if proposing a new shared executable predicate for 煞忌冲起 / 流煞冲会 / activation geometry.",
+      "impacted_rule_ids": [
+        "CA04-346",
+        "CA05-496",
+        "TP01-037",
+        "TP01-044",
+        "TP01-061",
+        "TP02-167"
+      ],
+      "no_decision_made": true
+    },
+    {
+      "gate_candidate_id": "HG-WP07B-FAVORABILITY-AND-GROUPS-01",
+      "status": "FUTURE_NOT_PENDING",
+      "trigger": "Only if defining universal executable 吉曜/煞曜/吉化 groups or favorable/unfavorable/supportive-period predicates.",
+      "impacted_rule_ids": [
+        "CA06-580",
+        "CA06-600",
+        "CA09-867",
+        "TP01-049",
+        "TP01-050",
+        "TP01-061",
+        "TP02-165",
+        "TP02-166",
+        "TP02-175",
+        "TP03-233",
+        "TP03-234",
+        "TP04-355",
+        "TP04-356"
+      ],
+      "no_decision_made": true
+    },
+    {
+      "gate_candidate_id": "HG-WP07B-TEMPORAL-PERSISTENCE-01",
+      "status": "FUTURE_NOT_PENDING",
+      "trigger": "Only if adding a multi-year persistence gate, independent clock, duration threshold, or temporal memory.",
+      "impacted_rule_ids": [
+        "CA09-851",
+        "TP03-248"
+      ],
+      "no_decision_made": true
+    },
+    {
+      "gate_candidate_id": "HG-WP07B-CROSS-LAYER-REACTION-01",
+      "status": "FUTURE_NOT_PENDING",
+      "trigger": "Only if supporting one reaction that combines or prioritizes multiple source time layers, including YEAR+小限.",
+      "impacted_rule_ids": [
+        "CA04-346",
+        "CA04-350",
+        "CA05-496",
+        "CA06-545",
+        "CA06-580",
+        "CA06-600",
+        "TP01-044",
+        "TP01-045",
+        "TP02-175",
+        "TP02-176",
+        "TP03-273"
+      ],
+      "no_decision_made": true
+    },
+    {
+      "gate_candidate_id": "HG-WP07B-TEMPORAL-BRIGHTNESS-01",
+      "status": "FUTURE_NOT_PENDING",
+      "trigger": "Only if adding 入庙/落陷 as an approved temporal condition fact.",
+      "impacted_rule_ids": [
+        "TP03-233",
+        "TP03-234",
+        "TP04-355",
+        "TP04-356"
+      ],
+      "no_decision_made": true
+    },
+    {
+      "gate_candidate_id": "HG-WP07B-SOURCE-NEGATION-01",
+      "status": "FUTURE_NOT_PENDING",
+      "trigger": "Only if defining closed-world negation over generic star groups.",
+      "impacted_rule_ids": [
+        "TP01-050",
+        "TP01-061",
+        "TP03-234"
+      ],
+      "no_decision_made": true
+    }
+  ],
+  "candidate_dispositions": [
+    {
+      "rule_id": "CA04-346",
+      "palace": "事业宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "事业宫printed_p140",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "前格重见武曲又逢煞忌冲起",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/CA04_career_projection_review_301_400.csv",
+        "source_record_time_layer": "DECADE",
+        "declared_time_layer": "DECADE",
+        "source_time_scope_literal": "DECADE_OR_YEAR",
+        "source_scope_layers": [
+          "DECADE",
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 70,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "reference": "CA04-345 (CASE_SUPPORT_ONLY)",
+        "status": "CASE_SUPPORT_ANTECEDENT",
+        "source_antecedent_is_case_support_only": true
+      },
+      "source_claim_summary": "The source ties the previously described Wuqu/fire-bell configuration to a major or annual period when Wuqu recurs and Sha/Ji is activated.",
+      "current_contract_gap": "The antecedent is explicitly case-support-only; the row narrows the source's major-or-annual scope to DECADE; the current temporal facts do not encode the source-specific activation/clash relation.",
+      "eligibility_status": "BLOCKED_ANTECEDENT_AND_TEMPORAL_SCOPE",
+      "blocker_codes": [
+        "CASE_SUPPORT_ANTECEDENT",
+        "LAYER_SCOPE_MISMATCH",
+        "SHA_JI_ACTIVATION_NOT_EXPRESSIBLE"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-001-ANTECEDENT-CHAIN",
+        "WP07B-GAP-002-TIME-SCOPE",
+        "WP07B-GAP-003-ACTIVATION-RELATION"
+      ],
+      "uncertainty_flags": [
+        "ANTECEDENT_CONTEXT_NOT_EXECUTABLE",
+        "SOURCE_TIME_SCOPE_WIDER_THAN_SINGLE_DECLARED_LAYER"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "Do not normalize until the antecedent and temporal activation semantics are separately resolved.",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_ANTECEDENT_AND_TEMPORAL_SCOPE",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ANTECEDENT",
+        "LAYER_SCOPE_MISMATCH",
+        "SHA_JI_ACTIVATION_NOT_EXPRESSIBLE"
+      ]
+    },
+    {
+      "rule_id": "CA04-350",
+      "palace": "事业宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "事业宫printed_p141",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "武曲化忌之大运流年",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/CA04_career_projection_review_301_400.csv",
+        "source_record_time_layer": "DECADE",
+        "declared_time_layer": "DECADE",
+        "source_time_scope_literal": "DECADE_OR_YEAR",
+        "source_scope_layers": [
+          "DECADE",
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 71,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "reference": "CA04-348/CA04-349 (NATAL context)",
+        "status": "REFERENCED_CONTEXT_REQUIRES_SEPARATE_VALIDATION",
+        "source_antecedent_is_case_support_only": false
+      },
+      "source_claim_summary": "The source associates Wuqu Hua Ji in a major or annual period with a capital constraint on career development.",
+      "current_contract_gap": "Re-audit correction: the current adapter emits a star-bound TRANSFORMATION_PRESENT when the PL1 temporal star object itself carries mutagen, so the old implementation-level STAR_MUTAGEN_BINDING_GAP is superseded. However, the source condition does not explicitly identify the temporal palace needed by the current palace-bound fact shape; the fact that the source passage sits in the Career-palace section does not by itself license that temporal location. The candidate also remains conditioned on real-world commerce context: CA04-348 is a CONTEXT_DEPENDENT_COMMERCE_GATE in the WP07A natal audit, not a natal fact, and CA04-349's technical-skill scene is not a valid substitute antecedent. Finally, the source names major and annual periods; scope cannot be silently narrowed.",
+      "eligibility_status": "BLOCKED_SOURCE_BINDING_CONTEXT_AND_SCOPE",
+      "blocker_codes": [
+        "LAYER_SCOPE_MISMATCH",
+        "REAL_WORLD_COMMERCE_CONTEXT_UNTYPED",
+        "SOURCE_DOES_NOT_SPECIFY_TEMPORAL_PALACE_NAME"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-002-TIME-SCOPE",
+        "WP07B-GAP-004-STAR-MUTAGEN-BINDING",
+        "WP07B-GAP-014-COMMERCE-CONTEXT"
+      ],
+      "uncertainty_flags": [
+        "SOURCE_TIME_SCOPE_WIDER_THAN_SINGLE_DECLARED_LAYER",
+        "COMMERCE_CONTEXT_NOT_ENCODED_AS_NATAL_FACT",
+        "SOURCE_DOES_NOT_SPECIFY_TEMPORAL_PALACE_NAME"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "Do not promote until the source explicitly licenses the temporal palace or an approved source-preserving fact shape resolves the location, the commerce context is available under an approved state/context contract, and DECADE/YEAR scope is normalized without narrowing.",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_TEMPORAL_FACT_BINDING_AND_SCOPE",
+      "original_blocker_codes": [
+        "LAYER_SCOPE_MISMATCH",
+        "STAR_MUTAGEN_BINDING_GAP"
+      ]
+    },
+    {
+      "rule_id": "CA05-496",
+      "palace": "事业宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "事业宫printed_p145",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "前格见财星化忌煞刑耗空劫之大运流年",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/CA05_career_projection_review_401_500.csv",
+        "source_record_time_layer": "DECADE",
+        "declared_time_layer": "DECADE",
+        "source_time_scope_literal": "DECADE_AND_YEAR",
+        "source_scope_layers": [
+          "DECADE",
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 73,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "reference": "CA05-495 (CASE_SUPPORT_ONLY) plus Lian-Zhen/Qi-Sha source context",
+        "status": "CASE_SUPPORT_ANTECEDENT",
+        "source_antecedent_is_case_support_only": true
+      },
+      "source_claim_summary": "The source describes a major setback when a Lian-Zhen/Qi-Sha career configuration coincides with a compound financial-star transformation and several Sha/Xing/Hao/Kong-Jie factors in a major or annual period.",
+      "current_contract_gap": "The exact identity of the financial star and the semantics of the compound convergence are not fully specified by the row; the current condition facts do not encode the required activated/convergent relation.",
+      "eligibility_status": "BLOCKED_COMPOUND_TEMPORAL_CONDITION",
+      "blocker_codes": [
+        "LAYER_SCOPE_MISMATCH",
+        "AMBIGUOUS_FINANCIAL_STAR",
+        "COMPOUND_CONVERGENCE_NOT_EXPRESSIBLE",
+        "CASE_SUPPORT_ANTECEDENT"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-001-ANTECEDENT-CHAIN",
+        "WP07B-GAP-002-TIME-SCOPE",
+        "WP07B-GAP-005-COMPOUND-CONDITION"
+      ],
+      "uncertainty_flags": [
+        "ANTECEDENT_CONTEXT_NOT_EXECUTABLE",
+        "SOURCE_TIME_SCOPE_WIDER_THAN_SINGLE_DECLARED_LAYER"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "Keep as source-supported possibility evidence, not an executable trigger.",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_COMPOUND_TEMPORAL_CONDITION",
+      "original_blocker_codes": [
+        "LAYER_SCOPE_MISMATCH",
+        "AMBIGUOUS_FINANCIAL_STAR",
+        "COMPOUND_CONVERGENCE_NOT_EXPRESSIBLE",
+        "CASE_SUPPORT_ANTECEDENT"
+      ]
+    },
+    {
+      "rule_id": "CA05-497",
+      "palace": "事业宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "事业宫printed_p145",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "廉贞七杀廉贞化忌且三合宫见忌冲会",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/CA05_career_projection_review_401_500.csv",
+        "source_record_time_layer": "DECADE",
+        "declared_time_layer": "DECADE",
+        "source_time_scope_literal": "DECADE_OR_YEAR",
+        "source_scope_layers": [
+          "DECADE",
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 73,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "reference": "CA05-493/CA05-495 case examples",
+        "status": "REFERENCED_CONTEXT_REQUIRES_SEPARATE_VALIDATION",
+        "source_antecedent_is_case_support_only": false
+      },
+      "source_claim_summary": "The source discusses a possible blood-injury manifestation under a Lian-Zhen/Qi-Sha and Hua Ji configuration.",
+      "current_contract_gap": "The source row is explicitly CASE_SUPPORT_ONLY and EVENT_CANDIDATE; it cannot be promoted to a reusable temporal rule.",
+      "eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "blocker_codes": [
+        "CASE_SUPPORT_ONLY",
+        "EVENT_CANDIDATE_NOT_TEMPORAL_RULE"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-013-CASE-SUPPORT-EXCLUSION"
+      ],
+      "uncertainty_flags": [],
+      "case_support_only": true,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "EXCLUDED_FROM_EXECUTABLE_NORMALIZATION",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "Exclude from executable normalization regardless of apparent condition specificity.",
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY",
+        "EVENT_CANDIDATE_NOT_TEMPORAL_RULE"
+      ]
+    },
+    {
+      "rule_id": "CA06-545",
+      "palace": "事业宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "事业宫printed_p146",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "前格见于大运流年",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/CA06_career_projection_review_501_600.csv",
+        "source_record_time_layer": "DECADE",
+        "declared_time_layer": "DECADE",
+        "source_time_scope_literal": "DECADE_AND_YEAR",
+        "source_scope_layers": [
+          "DECADE",
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 73,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "reference": "CA06-544 (CASE_SUPPORT_ONLY)",
+        "status": "CASE_SUPPORT_ANTECEDENT",
+        "source_antecedent_is_case_support_only": true
+      },
+      "source_claim_summary": "The source says a previously described Tianfu/Tianyao/Wenqu-Hua-Ji structure can be associated with deception when seen in a major or annual period.",
+      "current_contract_gap": "The immediately referenced antecedent CA06-544 is marked CASE_SUPPORT_ONLY, and the source names both major and annual scopes.",
+      "eligibility_status": "BLOCKED_CASE_SUPPORT_ANTECEDENT",
+      "blocker_codes": [
+        "CASE_SUPPORT_ANTECEDENT",
+        "LAYER_SCOPE_MISMATCH"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-001-ANTECEDENT-CHAIN",
+        "WP07B-GAP-002-TIME-SCOPE"
+      ],
+      "uncertainty_flags": [
+        "ANTECEDENT_CONTEXT_NOT_EXECUTABLE",
+        "SOURCE_TIME_SCOPE_WIDER_THAN_SINGLE_DECLARED_LAYER"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "Do not upgrade the antecedent or split the scope without an audited source-normalization decision.",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_CASE_SUPPORT_ANTECEDENT",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ANTECEDENT",
+        "LAYER_SCOPE_MISMATCH"
+      ]
+    },
+    {
+      "rule_id": "CA06-580",
+      "palace": "事业宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "事业宫printed_p147",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "前格流年大运良好",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/CA06_career_projection_review_501_600.csv",
+        "source_record_time_layer": "DECADE",
+        "declared_time_layer": "DECADE",
+        "source_time_scope_literal": "DECADE_OR_YEAR_CONDITIONED_ON_FAVORABLE_PERIOD",
+        "source_scope_layers": [
+          "DECADE",
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 74,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "reference": "CA06-579 (reusable NATAL context)",
+        "status": "REFERENCED_CONTEXT_REQUIRES_SEPARATE_VALIDATION",
+        "source_antecedent_is_case_support_only": false
+      },
+      "source_claim_summary": "The source conditions speculative suitability on a particular natal configuration and a favorable major or annual period.",
+      "current_contract_gap": "The phrase “favorable period” is not a defined condition atom, and the source scope includes both major and annual periods.",
+      "eligibility_status": "BLOCKED_UNDEFINED_FAVORABLE_PERIOD",
+      "blocker_codes": [
+        "LAYER_SCOPE_MISMATCH",
+        "FAVORABLE_PERIOD_UNDEFINED"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-002-TIME-SCOPE",
+        "WP07B-GAP-006-GROUP-OR-FAVORABILITY"
+      ],
+      "uncertainty_flags": [
+        "SOURCE_TIME_SCOPE_WIDER_THAN_SINGLE_DECLARED_LAYER",
+        "CONDITION_PREDICATE_UNDEFINED"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "Do not invent a good/bad time score or infer favorability from an outcome.",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_UNDEFINED_FAVORABLE_PERIOD",
+      "original_blocker_codes": [
+        "LAYER_SCOPE_MISMATCH",
+        "FAVORABLE_PERIOD_UNDEFINED"
+      ]
+    },
+    {
+      "rule_id": "CA06-600",
+      "palace": "事业宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "事业宫printed_p148",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "前格",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/CA06_career_projection_review_501_600.csv",
+        "source_record_time_layer": "DECADE",
+        "declared_time_layer": "DECADE",
+        "source_time_scope_literal": "DECADE_OR_YEAR_SUPPORT_REQUIRED",
+        "source_scope_layers": [
+          "DECADE",
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 74,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "reference": "CA06-599 (reusable NATAL context)",
+        "status": "REFERENCED_CONTEXT_REQUIRES_SEPARATE_VALIDATION",
+        "source_antecedent_is_case_support_only": false
+      },
+      "source_claim_summary": "The source says the preceding Taiyin/Tianji configuration requires support from a major or annual period for speculative suitability.",
+      "current_contract_gap": "The source does not define what constitutes temporal support; the current row only says “previous configuration” and contains no positive temporal predicate.",
+      "eligibility_status": "BLOCKED_UNSPECIFIED_TEMPORAL_SUPPORT",
+      "blocker_codes": [
+        "LAYER_SCOPE_MISMATCH",
+        "SUPPORTIVE_PERIOD_UNDEFINED",
+        "PRECEDING_CONTEXT_REFERENCE"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-001-ANTECEDENT-CHAIN",
+        "WP07B-GAP-002-TIME-SCOPE",
+        "WP07B-GAP-006-GROUP-OR-FAVORABILITY"
+      ],
+      "uncertainty_flags": [
+        "ANTECEDENT_CONTEXT_NOT_EXECUTABLE",
+        "SOURCE_TIME_SCOPE_WIDER_THAN_SINGLE_DECLARED_LAYER",
+        "CONDITION_PREDICATE_UNDEFINED"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "Keep the natal projection separate from the unresolved timing condition.",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_UNSPECIFIED_TEMPORAL_SUPPORT",
+      "original_blocker_codes": [
+        "LAYER_SCOPE_MISMATCH",
+        "SUPPORTIVE_PERIOD_UNDEFINED",
+        "PRECEDING_CONTEXT_REFERENCE"
+      ]
+    },
+    {
+      "rule_id": "CA09-851",
+      "palace": "事业宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "事业宫printed_p154",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "破军连续有三四年良好流年",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/CA09_career_projection_review_801_888.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "THREE_TO_FOUR_CONSECUTIVE_FAVORABLE_YEARS",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 77,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "reference": "CA09-850 / Pojun career context",
+        "status": "REFERENCED_CONTEXT_REQUIRES_SEPARATE_VALIDATION",
+        "source_antecedent_is_case_support_only": false
+      },
+      "source_claim_summary": "The source links establishing a career base to a run of three or four consecutive favorable annual periods.",
+      "current_contract_gap": "The current target adapter models one selected temporal snapshot, not a validated multi-year sequence or persistent gate. The literal 3–4 years must remain source evidence, not a universal threshold or hazard rate.",
+      "eligibility_status": "BLOCKED_MULTIYEAR_SEQUENCE",
+      "blocker_codes": [
+        "MULTIYEAR_SEQUENCE_NOT_SUPPORTED",
+        "DURATION_IS_EVIDENCE_NOT_THRESHOLD",
+        "PATH_DEPENDENT_GATE",
+        "FAVORABLE_PERIOD_UNDEFINED",
+        "PRECEDING_CONTEXT_REFERENCE"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-007-PERSISTENCE-AND-PATH",
+        "WP07B-GAP-001-ANTECEDENT-CHAIN",
+        "WP07B-GAP-006-GROUP-OR-FAVORABILITY"
+      ],
+      "uncertainty_flags": [
+        "PATH_OR_PERSISTENCE_NOT_MODELED",
+        "PERIOD_VALENCE_CRITERION_UNDEFINED",
+        "ANTECEDENT_CONTEXT_REQUIRES_SEPARATE_VALIDATION"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "No timer, persistence rule, or probability may be inferred in this work unit.",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_MULTIYEAR_SEQUENCE",
+      "original_blocker_codes": [
+        "MULTIYEAR_SEQUENCE_NOT_SUPPORTED",
+        "DURATION_IS_EVIDENCE_NOT_THRESHOLD",
+        "PATH_DEPENDENT_GATE"
+      ],
+      "cross_gap_subtypes": {
+        "WP07B-GAP-001-ANTECEDENT-CHAIN": "REFERENCED_CONTEXT_REQUIRES_SEPARATE_VALIDATION",
+        "WP07B-GAP-006-GROUP-OR-FAVORABILITY": "PERIOD_VALENCE_OR_SUPPORT",
+        "WP07B-GAP-007-PERSISTENCE-AND-PATH": "MULTI_YEAR_CONSECUTIVE_ANNUAL_WINDOW"
+      }
+    },
+    {
+      "rule_id": "CA09-867",
+      "palace": "事业宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "事业宫printed_p155",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "前格年限不佳",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/CA09_career_projection_review_801_888.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "UNFAVORABLE_PERIOD_UNSPECIFIED",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 78,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "reference": "CA09-865/CA09-866 (Pojun public-office context)",
+        "status": "REFERENCED_CONTEXT_REQUIRES_SEPARATE_VALIDATION",
+        "source_antecedent_is_case_support_only": false
+      },
+      "source_claim_summary": "The source associates a specified Pojun/public-office context with turbulence when the relevant period is unfavorable.",
+      "current_contract_gap": "“Unfavorable period” is not defined by the current atom registry; treating it as an input would be circular unless independently specified by source-backed rules.",
+      "eligibility_status": "BLOCKED_UNDEFINED_UNFAVORABLE_PERIOD",
+      "blocker_codes": [
+        "UNFAVORABLE_PERIOD_UNDEFINED",
+        "PRECEDING_CONTEXT_REFERENCE"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-001-ANTECEDENT-CHAIN",
+        "WP07B-GAP-006-GROUP-OR-FAVORABILITY"
+      ],
+      "uncertainty_flags": [
+        "ANTECEDENT_CONTEXT_NOT_EXECUTABLE",
+        "CONDITION_PREDICATE_UNDEFINED"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "Do not define the period by the same outcome being predicted.",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_UNDEFINED_UNFAVORABLE_PERIOD",
+      "original_blocker_codes": [
+        "UNFAVORABLE_PERIOD_UNDEFINED",
+        "PRECEDING_CONTEXT_REFERENCE"
+      ]
+    },
+    {
+      "rule_id": "TP01-037",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p156",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "前格逢羊陀失并之年",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP01_property_projection_review_001_100.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 78,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "PARENT_TP01_036_NOT_NORMALIZED_FOR_REACTION",
+        "reference": "PARENT_TP01_036_NOT_NORMALIZED_FOR_REACTION",
+        "history_feedback": null
+      },
+      "source_claim_summary": "The literal 羊陀失并之年 is source-text uncertain and the row depends on 前格 TP01-036.",
+      "current_contract_gap": "KEEP_SOURCE_EVIDENCE_FAIL_CLOSED",
+      "eligibility_status": "BLOCKED_SOURCE_TEXT_AND_PARENT",
+      "blocker_codes": [
+        "SOURCE_TEXT_UNCERTAIN",
+        "PARENT_ANTECEDENT_REQUIRED",
+        "RELATION_SEMANTICS_UNDERSPECIFIED"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-001-ANTECEDENT-CHAIN",
+        "WP07B-GAP-003-ACTIVATION-RELATION",
+        "WP07B-GAP-008-SOURCE-TEXT-UNCERTAINTY"
+      ],
+      "uncertainty_flags": [
+        "SOURCE_TEXT_UNCERTAIN_OR_OCR_UNCERTAIN",
+        "ANTECEDENT_CONTEXT_NOT_EXECUTABLE"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "KEEP_SOURCE_EVIDENCE_FAIL_CLOSED",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_SOURCE_TEXT_AND_PARENT",
+      "original_blocker_codes": [
+        "SOURCE_TEXT_UNCERTAIN",
+        "PARENT_ANTECEDENT_REQUIRED",
+        "RELATION_SEMANTICS_UNDERSPECIFIED"
+      ]
+    },
+    {
+      "rule_id": "TP01-044",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p157",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "紫微星系大限流年见紫破紫相",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP01_property_projection_review_001_100.csv",
+        "source_record_time_layer": "DECADE",
+        "declared_time_layer": "DECADE",
+        "source_time_scope_literal": "DECADE+YEAR",
+        "source_scope_layers": [
+          "DECADE",
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 79,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "NO_SEPARATE_NATAL_ANTECEDENT_REQUIRED_BY_SOURCE_ROW",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Source explicitly spans 大限+流年; current compiler rule has one layer and current temporal facts do not emit a named 紫破/紫相 STRUCTURE_PRESENT.",
+      "current_contract_gap": "DO_NOT_SPLIT_OR_INVENT_GEOMETRY",
+      "eligibility_status": "BLOCKED_MULTI_LAYER_STRUCTURE",
+      "blocker_codes": [
+        "SOURCE_MULTI_LAYER_DECADE_YEAR",
+        "TEMPORAL_STAR_SYSTEM_GEOMETRY_UNDERSPECIFIED",
+        "SINGLE_REACTION_LAYER_CONTRACT"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-002-TIME-SCOPE",
+        "WP07B-GAP-003-ACTIVATION-RELATION"
+      ],
+      "uncertainty_flags": [
+        "SOURCE_TIME_SCOPE_WIDER_THAN_SINGLE_DECLARED_LAYER"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "DO_NOT_SPLIT_OR_INVENT_GEOMETRY",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_MULTI_LAYER_STRUCTURE",
+      "original_blocker_codes": [
+        "SOURCE_MULTI_LAYER_DECADE_YEAR",
+        "TEMPORAL_STAR_SYSTEM_GEOMETRY_UNDERSPECIFIED",
+        "SINGLE_REACTION_LAYER_CONTRACT"
+      ]
+    },
+    {
+      "rule_id": "TP01-045",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p157",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "前格煞重",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP01_property_projection_review_001_100.csv",
+        "source_record_time_layer": "DECADE",
+        "declared_time_layer": "DECADE",
+        "source_time_scope_literal": "DECADE+YEAR",
+        "source_scope_layers": [
+          "DECADE",
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 79,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "INHERITS_TP01_044",
+        "reference": "INHERITS_TP01_044",
+        "history_feedback": null
+      },
+      "source_claim_summary": "This row modifies TP01-044 and inherits its DECADE+YEAR scope.",
+      "current_contract_gap": "KEEP_AS_DEPENDENT_SOURCE_CONSTRAINT",
+      "eligibility_status": "BLOCKED_PARENT_AND_GENERIC_ADVERSITY",
+      "blocker_codes": [
+        "PARENT_ANTECEDENT_REQUIRED",
+        "SOURCE_MULTI_LAYER_DECADE_YEAR",
+        "GENERIC_MALEFIC_SEVERITY_UNDEFINED"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-001-ANTECEDENT-CHAIN",
+        "WP07B-GAP-002-TIME-SCOPE",
+        "WP07B-GAP-006-GROUP-OR-FAVORABILITY"
+      ],
+      "uncertainty_flags": [
+        "ANTECEDENT_CONTEXT_NOT_EXECUTABLE",
+        "SOURCE_TIME_SCOPE_WIDER_THAN_SINGLE_DECLARED_LAYER",
+        "CONDITION_PREDICATE_UNDEFINED"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "KEEP_AS_DEPENDENT_SOURCE_CONSTRAINT",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_PARENT_AND_GENERIC_ADVERSITY",
+      "original_blocker_codes": [
+        "PARENT_ANTECEDENT_REQUIRED",
+        "SOURCE_MULTI_LAYER_DECADE_YEAR",
+        "GENERIC_MALEFIC_SEVERITY_UNDEFINED"
+      ]
+    },
+    {
+      "rule_id": "TP01-048",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p157",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "紫微星系忌星流煞入度且冲会大限流煞并见阴煞丧门白虎，且父母宫或命宫或田宅宫见昌曲",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP01_property_projection_review_001_100.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 79,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "NOT_ELIGIBLE_FOR_RUNTIME",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Canonical source row is explicitly CASE_SUPPORT_ONLY; current temporal compiler forbids such rows regardless of apparent condition specificity.",
+      "current_contract_gap": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-013-CASE-SUPPORT-EXCLUSION"
+      ],
+      "uncertainty_flags": [],
+      "case_support_only": true,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "EXCLUDED_FROM_EXECUTABLE_NORMALIZATION",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
+    },
+    {
+      "rule_id": "TP01-049",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p157",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "紫微星系吉曜吉化天喜红鸾流昌流曲",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP01_property_projection_review_001_100.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 79,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "NO_EXPLICIT_SEPARATE_NATAL_ANTECEDENT",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Current atoms do not define the source's broad benefic groups.",
+      "current_contract_gap": "DO_NOT_DROP_BROAD_GROUP_REQUIREMENT",
+      "eligibility_status": "BLOCKED_GENERIC_BENEFIC_GROUPS",
+      "blocker_codes": [
+        "GENERIC_BENEFIC_GROUP_UNDEFINED",
+        "GENERIC_BENEFIC_TRANSFORMATION_GROUP_UNDEFINED",
+        "COMPOUND_TEMPORAL_CONDITION_NOT_EXACT"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-005-COMPOUND-CONDITION",
+        "WP07B-GAP-006-GROUP-OR-FAVORABILITY"
+      ],
+      "uncertainty_flags": [
+        "CONDITION_PREDICATE_UNDEFINED"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "DO_NOT_DROP_BROAD_GROUP_REQUIREMENT",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_GENERIC_BENEFIC_GROUPS",
+      "original_blocker_codes": [
+        "GENERIC_BENEFIC_GROUP_UNDEFINED",
+        "GENERIC_BENEFIC_TRANSFORMATION_GROUP_UNDEFINED",
+        "COMPOUND_TEMPORAL_CONDITION_NOT_EXACT"
+      ]
+    },
+    {
+      "rule_id": "TP01-050",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p157",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "前格不见吉曜",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP01_property_projection_review_001_100.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 79,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "INHERITS_TP01_049",
+        "reference": "INHERITS_TP01_049",
+        "history_feedback": null
+      },
+      "source_claim_summary": "Cannot treat absence from current facts as source-level 不见吉曜.",
+      "current_contract_gap": "FAIL_CLOSED",
+      "eligibility_status": "BLOCKED_PARENT_AND_NEGATED_GROUP",
+      "blocker_codes": [
+        "PARENT_ANTECEDENT_REQUIRED",
+        "NEGATED_GENERIC_BENEFIC_GROUP_UNDEFINED"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-001-ANTECEDENT-CHAIN",
+        "WP07B-GAP-011-NEGATION"
+      ],
+      "uncertainty_flags": [
+        "ANTECEDENT_CONTEXT_NOT_EXECUTABLE",
+        "CONDITION_PREDICATE_UNDEFINED"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "FAIL_CLOSED",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_PARENT_AND_NEGATED_GROUP",
+      "original_blocker_codes": [
+        "PARENT_ANTECEDENT_REQUIRED",
+        "NEGATED_GENERIC_BENEFIC_GROUP_UNDEFINED"
+      ]
+    },
+    {
+      "rule_id": "TP01-051",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p157",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "前格投影服务机构",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP01_property_projection_review_001_100.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 79,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "INHERITS_TP01_049",
+        "reference": "INHERITS_TP01_049",
+        "history_feedback": null
+      },
+      "source_claim_summary": "The source projection branch is contextual, not a standalone temporal trigger.",
+      "current_contract_gap": "KEEP_CONTEXTUAL_ONLY",
+      "eligibility_status": "BLOCKED_PARENT_AND_SERVICE_CONTEXT",
+      "blocker_codes": [
+        "PARENT_ANTECEDENT_REQUIRED",
+        "SERVICE_INSTITUTION_CONTEXT_NOT_TYPED_FACT"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-001-ANTECEDENT-CHAIN",
+        "WP07B-GAP-012-SERVICE-CONTEXT"
+      ],
+      "uncertainty_flags": [
+        "ANTECEDENT_CONTEXT_NOT_EXECUTABLE"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "KEEP_CONTEXTUAL_ONLY",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_PARENT_AND_SERVICE_CONTEXT",
+      "original_blocker_codes": [
+        "PARENT_ANTECEDENT_REQUIRED",
+        "SERVICE_INSTITUTION_CONTEXT_NOT_TYPED_FACT"
+      ]
+    },
+    {
+      "rule_id": "TP01-061",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p157",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "流年天机化忌不见煞",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP01_property_projection_review_001_100.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 79,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "TIANJI_PROPERTY_CONTEXT_SOURCE_SUPPORTED_BUT_NOT_ENOUGH",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Do not join STAR_PRESENT with scope-level mutagen and do not treat generic 煞 absence as closed-world.",
+      "current_contract_gap": "FAIL_CLOSED",
+      "eligibility_status": "BLOCKED_NEGATED_MALEFIC_AND_BINDING",
+      "blocker_codes": [
+        "NEGATED_GENERIC_MALEFIC_GROUP_UNDEFINED",
+        "STAR_MUTAGEN_BINDING_REQUIRES_EXACT_RUNTIME_SHAPE"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-004-STAR-MUTAGEN-BINDING",
+        "WP07B-GAP-011-NEGATION"
+      ],
+      "uncertainty_flags": [
+        "CONDITION_PREDICATE_UNDEFINED",
+        "EXACT_STAR_MUTAGEN_FACT_BINDING_UNRESOLVED"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "FAIL_CLOSED",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_NEGATED_MALEFIC_AND_BINDING",
+      "original_blocker_codes": [
+        "NEGATED_GENERIC_MALEFIC_GROUP_UNDEFINED",
+        "STAR_MUTAGEN_BINDING_REQUIRES_EXACT_RUNTIME_SHAPE"
+      ]
+    },
+    {
+      "rule_id": "TP01-084",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p158",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "天机天梁火星同度、会铃星、又见煞耗且流煞冲会",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP01_property_projection_review_001_100.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 79,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "NOT_ELIGIBLE_FOR_RUNTIME",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Canonical source row is explicitly CASE_SUPPORT_ONLY; current temporal compiler forbids such rows regardless of apparent condition specificity.",
+      "current_contract_gap": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-013-CASE-SUPPORT-EXCLUSION"
+      ],
+      "uncertainty_flags": [],
+      "case_support_only": true,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "EXCLUDED_FROM_EXECUTABLE_NORMALIZATION",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
+    },
+    {
+      "rule_id": "TP02-103",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p159",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "太阳太阴会合且太阳或太阴陷化忌并见煞刑空耗诸曜、流煞同会或冲会、太岁白虎丧门",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP02_property_projection_review_101_200.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=流煞同会或冲会|太岁",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 80,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "NOT_ELIGIBLE_FOR_RUNTIME",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Canonical source row is explicitly CASE_SUPPORT_ONLY; current temporal compiler forbids such rows regardless of apparent condition specificity.",
+      "current_contract_gap": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-013-CASE-SUPPORT-EXCLUSION"
+      ],
+      "uncertainty_flags": [],
+      "case_support_only": true,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "EXCLUDED_FROM_EXECUTABLE_NORMALIZATION",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
+    },
+    {
+      "rule_id": "TP02-135",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p160",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "武曲守田宅火星同躔又见虚耗刑忌更有流煞冲会",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP02_property_projection_review_101_200.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=是年|流煞冲会",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 80,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "NOT_ELIGIBLE_FOR_RUNTIME",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Canonical source row is explicitly CASE_SUPPORT_ONLY; current temporal compiler forbids such rows regardless of apparent condition specificity.",
+      "current_contract_gap": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-013-CASE-SUPPORT-EXCLUSION"
+      ],
+      "uncertainty_flags": [],
+      "case_support_only": true,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "EXCLUDED_FROM_EXECUTABLE_NORMALIZATION",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
+    },
+    {
+      "rule_id": "TP02-137",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p160",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "武曲化忌会廉贞化忌见煞白虎丧门",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP02_property_projection_review_101_200.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 80,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "NOT_ELIGIBLE_FOR_RUNTIME",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Canonical source row is explicitly CASE_SUPPORT_ONLY; current temporal compiler forbids such rows regardless of apparent condition specificity.",
+      "current_contract_gap": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-013-CASE-SUPPORT-EXCLUSION"
+      ],
+      "uncertainty_flags": [],
+      "case_support_only": true,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "EXCLUDED_FROM_EXECUTABLE_NORMALIZATION",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
+    },
+    {
+      "rule_id": "TP02-165",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p160",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "流年天同见煞忌",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP02_property_projection_review_101_200.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=流年",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 80,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "TIANTONG_PROPERTY_CONTEXT_SOURCE_SUPPORTED",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Named star presence alone is insufficient.",
+      "current_contract_gap": "FAIL_CLOSED",
+      "eligibility_status": "BLOCKED_GENERIC_ADVERSE_GROUP",
+      "blocker_codes": [
+        "GENERIC_MALEFIC_GROUP_UNDEFINED",
+        "GENERIC_HUAJI_OR_ADVERSE_GROUP_UNDEFINED"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-006-GROUP-OR-FAVORABILITY"
+      ],
+      "uncertainty_flags": [
+        "CONDITION_PREDICATE_UNDEFINED"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "FAIL_CLOSED",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_GENERIC_ADVERSE_GROUP",
+      "original_blocker_codes": [
+        "GENERIC_MALEFIC_GROUP_UNDEFINED",
+        "GENERIC_HUAJI_OR_ADVERSE_GROUP_UNDEFINED"
+      ]
+    },
+    {
+      "rule_id": "TP02-166",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p160",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "流年天同见吉化吉曜",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP02_property_projection_review_101_200.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=流年（承接同句主语）",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 80,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "TIANTONG_PROPERTY_CONTEXT_SOURCE_SUPPORTED",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Do not reduce source condition to 天同 presence.",
+      "current_contract_gap": "FAIL_CLOSED",
+      "eligibility_status": "BLOCKED_GENERIC_BENEFIC_GROUPS",
+      "blocker_codes": [
+        "GENERIC_BENEFIC_GROUP_UNDEFINED",
+        "GENERIC_BENEFIC_TRANSFORMATION_GROUP_UNDEFINED"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-006-GROUP-OR-FAVORABILITY"
+      ],
+      "uncertainty_flags": [
+        "CONDITION_PREDICATE_UNDEFINED"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "FAIL_CLOSED",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_GENERIC_BENEFIC_GROUPS",
+      "original_blocker_codes": [
+        "GENERIC_BENEFIC_GROUP_UNDEFINED",
+        "GENERIC_BENEFIC_TRANSFORMATION_GROUP_UNDEFINED"
+      ]
+    },
+    {
+      "rule_id": "TP02-167",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p160",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "天同火星同度见空劫刑耗流煞冲起",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP02_property_projection_review_101_200.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=流煞冲起",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 80,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "NOT_ELIGIBLE_FOR_RUNTIME",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Canonical source row is explicitly CASE_SUPPORT_ONLY; current temporal compiler forbids such rows regardless of apparent condition specificity.",
+      "current_contract_gap": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-013-CASE-SUPPORT-EXCLUSION"
+      ],
+      "uncertainty_flags": [],
+      "case_support_only": true,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "EXCLUDED_FROM_EXECUTABLE_NORMALIZATION",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
+    },
+    {
+      "rule_id": "TP02-168",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p160",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "前格与天梁同度或对拱",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP02_property_projection_review_101_200.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=承接TP02-167流煞动态语境",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 80,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "NOT_ELIGIBLE_FOR_RUNTIME",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Canonical source row is explicitly CASE_SUPPORT_ONLY; current temporal compiler forbids such rows regardless of apparent condition specificity.",
+      "current_contract_gap": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-013-CASE-SUPPORT-EXCLUSION"
+      ],
+      "uncertainty_flags": [],
+      "case_support_only": true,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "EXCLUDED_FROM_EXECUTABLE_NORMALIZATION",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
+    },
+    {
+      "rule_id": "TP02-175",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p161",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "廉贞化忌但流年小限吉见红鸾天喜",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP02_property_projection_review_101_200.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=流年|小限;unmapped=小限",
+        "source_scope_layers": [
+          "YEAR",
+          "SMALL_LIMIT"
+        ],
+        "scan_pdf_page_1based": 81,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "LIANZHEN_HUAJI_PROPERTY_CONTEXT_SOURCE_SUPPORTED",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "SMALL_LIMIT exists as a transport layer now, but the source requires a combined YEAR+小限 judgement.",
+      "current_contract_gap": "DO_NOT_ERASE_SMALL_LIMIT_OR_INVENT_GOOD_PERIOD_SCORE",
+      "eligibility_status": "BLOCKED_CROSS_LAYER_FAVORABILITY",
+      "blocker_codes": [
+        "YEAR_SMALL_LIMIT_COMPOUND_SCOPE",
+        "FAVORABILITY_PREDICATE_UNDEFINED",
+        "MULTI_LAYER_CONJUNCTION_NOT_SINGLE_REACTION"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-002-TIME-SCOPE",
+        "WP07B-GAP-006-GROUP-OR-FAVORABILITY"
+      ],
+      "uncertainty_flags": [
+        "SOURCE_TIME_SCOPE_WIDER_THAN_SINGLE_DECLARED_LAYER",
+        "CONDITION_PREDICATE_UNDEFINED"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "DO_NOT_ERASE_SMALL_LIMIT_OR_INVENT_GOOD_PERIOD_SCORE",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_CROSS_LAYER_FAVORABILITY",
+      "original_blocker_codes": [
+        "YEAR_SMALL_LIMIT_COMPOUND_SCOPE",
+        "FAVORABILITY_PREDICATE_UNDEFINED",
+        "MULTI_LAYER_CONJUNCTION_NOT_SINGLE_REACTION"
+      ]
+    },
+    {
+      "rule_id": "TP02-176",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p161",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "廉贞化忌且流年小限不吉见白虎丧门吊客",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP02_property_projection_review_101_200.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=流年|小限;unmapped=小限",
+        "source_scope_layers": [
+          "YEAR",
+          "SMALL_LIMIT"
+        ],
+        "scan_pdf_page_1based": 81,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "NOT_ELIGIBLE_FOR_RUNTIME",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Canonical source row is explicitly CASE_SUPPORT_ONLY; current temporal compiler forbids such rows regardless of apparent condition specificity.",
+      "current_contract_gap": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-013-CASE-SUPPORT-EXCLUSION"
+      ],
+      "uncertainty_flags": [],
+      "case_support_only": true,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "EXCLUDED_FROM_EXECUTABLE_NORMALIZATION",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
+    },
+    {
+      "rule_id": "TP02-191",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p161",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "廉贞天相或廉贞七杀化忌，有火铃同度，更有羊陀交会、流煞冲破，并见大耗天虚",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP02_property_projection_review_101_200.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=是年|流煞冲破",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 81,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "NOT_ELIGIBLE_FOR_RUNTIME",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Canonical source row is explicitly CASE_SUPPORT_ONLY; current temporal compiler forbids such rows regardless of apparent condition specificity.",
+      "current_contract_gap": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-013-CASE-SUPPORT-EXCLUSION"
+      ],
+      "uncertainty_flags": [],
+      "case_support_only": true,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "EXCLUDED_FROM_EXECUTABLE_NORMALIZATION",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
+    },
+    {
+      "rule_id": "TP03-213",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p162",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "天府火星同躔见耗劫且流煞冲会",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP03_property_projection_review_201_300.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=流年/流煞年度语境",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 81,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "NOT_ELIGIBLE_FOR_RUNTIME",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Canonical source row is explicitly CASE_SUPPORT_ONLY; current temporal compiler forbids such rows regardless of apparent condition specificity.",
+      "current_contract_gap": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-013-CASE-SUPPORT-EXCLUSION"
+      ],
+      "uncertainty_flags": [],
+      "case_support_only": true,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "EXCLUDED_FROM_EXECUTABLE_NORMALIZATION",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
+    },
+    {
+      "rule_id": "TP03-228",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p162",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "太阴禄存火星同度流煞冲破",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP03_property_projection_review_201_300.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=流年/流煞年度语境",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 81,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "NOT_ELIGIBLE_FOR_RUNTIME",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Canonical source row is explicitly CASE_SUPPORT_ONLY; current temporal compiler forbids such rows regardless of apparent condition specificity.",
+      "current_contract_gap": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-013-CASE-SUPPORT-EXCLUSION"
+      ],
+      "uncertainty_flags": [],
+      "case_support_only": true,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "EXCLUDED_FROM_EXECUTABLE_NORMALIZATION",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
+    },
+    {
+      "rule_id": "TP03-232",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p162",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "女命流年太阴化忌冲太阳化忌见煞桃花昌曲",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP03_property_projection_review_201_300.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=流年/流煞年度语境",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 81,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "NOT_ELIGIBLE_FOR_RUNTIME",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Canonical source row is explicitly CASE_SUPPORT_ONLY; current temporal compiler forbids such rows regardless of apparent condition specificity.",
+      "current_contract_gap": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-013-CASE-SUPPORT-EXCLUSION"
+      ],
+      "uncertainty_flags": [],
+      "case_support_only": true,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "EXCLUDED_FROM_EXECUTABLE_NORMALIZATION",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
+    },
+    {
+      "rule_id": "TP03-233",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p162",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "流年太阴落陷化忌见煞",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP03_property_projection_review_201_300.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=流年/流煞年度语境",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 81,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "TAIYIN_PROPERTY_CONTEXT_SOURCE_SUPPORTED",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Current adapter does not emit 庙陷 brightness atoms.",
+      "current_contract_gap": "FAIL_CLOSED",
+      "eligibility_status": "BLOCKED_BRIGHTNESS_AND_MALEFIC_GROUP",
+      "blocker_codes": [
+        "BRIGHTNESS_NOT_TEMPORAL_CONDITION_FACT",
+        "GENERIC_MALEFIC_GROUP_UNDEFINED"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-006-GROUP-OR-FAVORABILITY",
+        "WP07B-GAP-009-BRIGHTNESS-FACT"
+      ],
+      "uncertainty_flags": [
+        "CONDITION_PREDICATE_UNDEFINED"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "FAIL_CLOSED",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_BRIGHTNESS_AND_MALEFIC_GROUP",
+      "original_blocker_codes": [
+        "BRIGHTNESS_NOT_TEMPORAL_CONDITION_FACT",
+        "GENERIC_MALEFIC_GROUP_UNDEFINED"
+      ]
+    },
+    {
+      "rule_id": "TP03-234",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p162",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "流年太阴落陷化忌不见煞",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP03_property_projection_review_201_300.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=流年/流煞年度语境",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 81,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "TAIYIN_PROPERTY_CONTEXT_SOURCE_SUPPORTED",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "No closed-world source-level negation for generic 煞.",
+      "current_contract_gap": "FAIL_CLOSED",
+      "eligibility_status": "BLOCKED_BRIGHTNESS_AND_NEGATED_MALEFIC",
+      "blocker_codes": [
+        "BRIGHTNESS_NOT_TEMPORAL_CONDITION_FACT",
+        "NEGATED_GENERIC_MALEFIC_GROUP_UNDEFINED"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-009-BRIGHTNESS-FACT",
+        "WP07B-GAP-011-NEGATION"
+      ],
+      "uncertainty_flags": [
+        "CONDITION_PREDICATE_UNDEFINED"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "FAIL_CLOSED",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_BRIGHTNESS_AND_NEGATED_MALEFIC",
+      "original_blocker_codes": [
+        "BRIGHTNESS_NOT_TEMPORAL_CONDITION_FACT",
+        "NEGATED_GENERIC_MALEFIC_GROUP_UNDEFINED"
+      ]
+    },
+    {
+      "rule_id": "TP03-245",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p163",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "流年田宅贪狼化禄",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP03_property_projection_review_201_300.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=流年/流煞年度语境",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 82,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "SOURCE_RULE_IS_PURE_ANNUAL_PROPERTY_PALACE_TRIGGER",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Temporal side is representable, but PL3-T requires an explicit natal antecedent or required natal rule. Adding PALACE_PRESENT(P10) would be a vacuous fabricated antecedent.",
+      "current_contract_gap": "NEAR_READY_TEMPORAL_ONLY_DO_NOT_INVENT_NATAL_GATE",
+      "eligibility_status": "BLOCKED_COMPILER_NATAL_ANTECEDENT",
+      "blocker_codes": [
+        "REQUIRED_NATAL_ANTECEDENT_ABSENT_IN_SOURCE"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-010-PURE-TEMPORAL-TRIGGER"
+      ],
+      "uncertainty_flags": [],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "NEAR_READY_TEMPORAL_ONLY_DO_NOT_INVENT_NATAL_GATE",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_COMPILER_NATAL_ANTECEDENT",
+      "original_blocker_codes": [
+        "REQUIRED_NATAL_ANTECEDENT_ABSENT_IN_SOURCE"
+      ]
+    },
+    {
+      "rule_id": "TP03-246",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p163",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "流年田宅贪狼化忌",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP03_property_projection_review_201_300.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=流年/流煞年度语境",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 82,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "SOURCE_RULE_IS_PURE_ANNUAL_PROPERTY_PALACE_TRIGGER",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Same compiler/source mismatch as TP03-245.",
+      "current_contract_gap": "NEAR_READY_TEMPORAL_ONLY_DO_NOT_INVENT_NATAL_GATE",
+      "eligibility_status": "BLOCKED_COMPILER_NATAL_ANTECEDENT",
+      "blocker_codes": [
+        "REQUIRED_NATAL_ANTECEDENT_ABSENT_IN_SOURCE"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-010-PURE-TEMPORAL-TRIGGER"
+      ],
+      "uncertainty_flags": [],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "NEAR_READY_TEMPORAL_ONLY_DO_NOT_INVENT_NATAL_GATE",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_COMPILER_NATAL_ANTECEDENT",
+      "original_blocker_codes": [
+        "REQUIRED_NATAL_ANTECEDENT_ABSENT_IN_SOURCE"
+      ]
+    },
+    {
+      "rule_id": "TP03-247",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p163",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "流年贪狼落陷火铃同度更见刑耗流煞",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP03_property_projection_review_201_300.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=流年/流煞年度语境",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 82,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "NOT_ELIGIBLE_FOR_RUNTIME",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Canonical source row is explicitly CASE_SUPPORT_ONLY; current temporal compiler forbids such rows regardless of apparent condition specificity.",
+      "current_contract_gap": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-013-CASE-SUPPORT-EXCLUSION"
+      ],
+      "uncertainty_flags": [],
+      "case_support_only": true,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "EXCLUDED_FROM_EXECUTABLE_NORMALIZATION",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
+    },
+    {
+      "rule_id": "TP03-248",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p163",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "前格见吉",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP03_property_projection_review_201_300.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=流年/流煞年度语境",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 82,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "DEPENDS_ON_TP03_247_EVENT_STRUCTURE",
+        "reference": "DEPENDS_ON_TP03_247_EVENT_STRUCTURE",
+        "history_feedback": "PATH_DEPENDENT_GATE"
+      },
+      "source_claim_summary": "The antecedent TP03-247 is CASE_SUPPORT_ONLY and cannot become a required executable natal/temporal rule.",
+      "current_contract_gap": "KEEP_PATH_EVIDENCE_FAIL_CLOSED",
+      "eligibility_status": "BLOCKED_PATH_AND_CASE_PARENT",
+      "blocker_codes": [
+        "PATH_DEPENDENT_GATE",
+        "PARENT_CASE_SUPPORT_ONLY",
+        "GENERIC_BENEFIC_GROUP_UNDEFINED"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-001-ANTECEDENT-CHAIN",
+        "WP07B-GAP-006-GROUP-OR-FAVORABILITY",
+        "WP07B-GAP-007-PERSISTENCE-AND-PATH"
+      ],
+      "uncertainty_flags": [
+        "ANTECEDENT_CONTEXT_NOT_EXECUTABLE",
+        "CONDITION_PREDICATE_UNDEFINED",
+        "PATH_OR_PERSISTENCE_NOT_MODELED"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "KEEP_PATH_EVIDENCE_FAIL_CLOSED",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_PATH_AND_CASE_PARENT",
+      "original_blocker_codes": [
+        "PATH_DEPENDENT_GATE",
+        "PARENT_CASE_SUPPORT_ONLY",
+        "GENERIC_BENEFIC_GROUP_UNDEFINED"
+      ],
+      "cross_gap_subtypes": {
+        "WP07B-GAP-001-ANTECEDENT-CHAIN": "PARENT_TP03_247_EVENT_STRUCTURE",
+        "WP07B-GAP-006-GROUP-OR-FAVORABILITY": "OPEN_VALENCE_SHORTHAND",
+        "WP07B-GAP-007-PERSISTENCE-AND-PATH": "SAME_YEAR_ANTECEDENT_BRANCH_WITH_EVENT_CONSEQUENCE",
+        "WP07B-GAP-013-CASE-SUPPORT-EXCLUSION": "PARENT_TP03_247_CASE_SUPPORT_ONLY"
+      }
+    },
+    {
+      "rule_id": "TP03-273",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p163",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "原局巨门吉化而大运流年却化为忌星又有煞",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP03_property_projection_review_201_300.csv",
+        "source_record_time_layer": "DECADE",
+        "declared_time_layer": "DECADE",
+        "source_time_scope_literal": "DECADE+YEAR;labels=大运|流年",
+        "source_scope_layers": [
+          "DECADE",
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 82,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "NOT_ELIGIBLE_FOR_RUNTIME",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Canonical source row is explicitly CASE_SUPPORT_ONLY; current temporal compiler forbids such rows regardless of apparent condition specificity.",
+      "current_contract_gap": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-013-CASE-SUPPORT-EXCLUSION"
+      ],
+      "uncertainty_flags": [],
+      "case_support_only": true,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "EXCLUDED_FROM_EXECUTABLE_NORMALIZATION",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
+    },
+    {
+      "rule_id": "TP04-307",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p164",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "天梁天机而流年天机化忌",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP04_property_projection_review_301_358.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=流年天机化忌",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 82,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "P10_TIANLIANG_AND_TIANJI_SOURCE_SUPPORTED",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Separate YEAR STAR_PRESENT(天机) + scope mutagen(忌) cannot be joined by inference. This is the strongest near-ready source row but remains blocked by exact fact shape.",
+      "current_contract_gap": "NEAR_READY_NATAL_CONTEXT_ONLY_FAIL_CLOSED",
+      "eligibility_status": "BLOCKED_TEMPORAL_STAR_TRANSFORMATION_BINDING",
+      "blocker_codes": [
+        "STAR_MUTAGEN_BINDING_RUNTIME_REQUIRES_PALACE_NAME",
+        "SOURCE_DOES_NOT_SPECIFY_TEMPORAL_PALACE_NAME",
+        "SCOPE_LEVEL_MUTAGEN_MUST_NOT_BE_JOINED_TO_STAR"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-004-STAR-MUTAGEN-BINDING"
+      ],
+      "uncertainty_flags": [
+        "EXACT_STAR_MUTAGEN_FACT_BINDING_UNRESOLVED"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "NEAR_READY_NATAL_CONTEXT_ONLY_FAIL_CLOSED",
+      "source_status_codes": [
+        "SOURCE_NATAL_CONTEXT_READY"
+      ],
+      "original_eligibility_status": "BLOCKED_TEMPORAL_STAR_TRANSFORMATION_BINDING",
+      "original_blocker_codes": [
+        "SOURCE_NATAL_CONTEXT_READY",
+        "STAR_MUTAGEN_BINDING_RUNTIME_REQUIRES_PALACE_NAME",
+        "SOURCE_DOES_NOT_SPECIFY_TEMPORAL_PALACE_NAME",
+        "SCOPE_LEVEL_MUTAGEN_MUST_NOT_BE_JOINED_TO_STAR"
+      ]
+    },
+    {
+      "rule_id": "TP04-308",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p164",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "天梁天机段落继“流年天机化忌”后见天机化禄",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP04_property_projection_review_301_358.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=前句明确流年天机化忌|后句天机化禄同段对比",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 82,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "P10_TIANLIANG_AND_TIANJI_SOURCE_SUPPORTED",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Do not strengthen the text by inventing an annual palace location for Tianji.",
+      "current_contract_gap": "NEAR_READY_NATAL_CONTEXT_ONLY_FAIL_CLOSED",
+      "eligibility_status": "BLOCKED_TEMPORAL_STAR_TRANSFORMATION_BINDING",
+      "blocker_codes": [
+        "YEAR_SCOPE_INHERITED_FROM_PRECEDING_SENTENCE",
+        "STAR_MUTAGEN_BINDING_RUNTIME_REQUIRES_PALACE_NAME",
+        "SOURCE_DOES_NOT_SPECIFY_TEMPORAL_PALACE_NAME",
+        "SCOPE_LEVEL_MUTAGEN_MUST_NOT_BE_JOINED_TO_STAR"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-001-ANTECEDENT-CHAIN",
+        "WP07B-GAP-004-STAR-MUTAGEN-BINDING"
+      ],
+      "uncertainty_flags": [
+        "EXACT_STAR_MUTAGEN_FACT_BINDING_UNRESOLVED"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "NEAR_READY_NATAL_CONTEXT_ONLY_FAIL_CLOSED",
+      "source_status_codes": [
+        "SOURCE_NATAL_CONTEXT_READY"
+      ],
+      "original_eligibility_status": "BLOCKED_TEMPORAL_STAR_TRANSFORMATION_BINDING",
+      "original_blocker_codes": [
+        "SOURCE_NATAL_CONTEXT_READY",
+        "YEAR_SCOPE_INHERITED_FROM_PRECEDING_SENTENCE",
+        "STAR_MUTAGEN_BINDING_RUNTIME_REQUIRES_PALACE_NAME",
+        "SOURCE_DOES_NOT_SPECIFY_TEMPORAL_PALACE_NAME",
+        "SCOPE_LEVEL_MUTAGEN_MUST_NOT_BE_JOINED_TO_STAR"
+      ]
+    },
+    {
+      "rule_id": "TP04-338",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p165",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "七杀与陀罗火星同度流煞冲起（原文“主人独虚惊”字样存疑）",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP04_property_projection_review_301_358.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=流煞冲起",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 83,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "NOT_ELIGIBLE_FOR_RUNTIME",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Canonical source row is explicitly CASE_SUPPORT_ONLY; current temporal compiler forbids such rows regardless of apparent condition specificity.",
+      "current_contract_gap": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-008-SOURCE-TEXT-UNCERTAINTY",
+        "WP07B-GAP-013-CASE-SUPPORT-EXCLUSION"
+      ],
+      "uncertainty_flags": [
+        "SOURCE_TEXT_UNCERTAIN_OR_OCR_UNCERTAIN"
+      ],
+      "case_support_only": true,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "EXCLUDED_FROM_EXECUTABLE_NORMALIZATION",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
+    },
+    {
+      "rule_id": "TP04-355",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p165",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "流年田宅破军入庙又见吉曜",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP04_property_projection_review_301_358.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=流年田宅宫",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 83,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "NO_SEPARATE_NATAL_ANTECEDENT_REQUIRED_BY_SOURCE",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Current adapter can expose annual Property palace/Pojun but not 入庙 nor 吉曜 as approved predicates.",
+      "current_contract_gap": "FAIL_CLOSED",
+      "eligibility_status": "BLOCKED_BRIGHTNESS_AND_BENEFIC_GROUP",
+      "blocker_codes": [
+        "BRIGHTNESS_NOT_TEMPORAL_CONDITION_FACT",
+        "GENERIC_BENEFIC_GROUP_UNDEFINED"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-006-GROUP-OR-FAVORABILITY",
+        "WP07B-GAP-009-BRIGHTNESS-FACT"
+      ],
+      "uncertainty_flags": [
+        "CONDITION_PREDICATE_UNDEFINED"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "FAIL_CLOSED",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_BRIGHTNESS_AND_BENEFIC_GROUP",
+      "original_blocker_codes": [
+        "BRIGHTNESS_NOT_TEMPORAL_CONDITION_FACT",
+        "GENERIC_BENEFIC_GROUP_UNDEFINED"
+      ]
+    },
+    {
+      "rule_id": "TP04-356",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p165",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "流年田宅破军落陷见煞",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP04_property_projection_review_301_358.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=流年田宅宫",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 83,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "NO_SEPARATE_NATAL_ANTECEDENT_REQUIRED_BY_SOURCE",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Current adapter cannot express the full source condition.",
+      "current_contract_gap": "FAIL_CLOSED",
+      "eligibility_status": "BLOCKED_BRIGHTNESS_AND_MALEFIC_GROUP",
+      "blocker_codes": [
+        "BRIGHTNESS_NOT_TEMPORAL_CONDITION_FACT",
+        "GENERIC_MALEFIC_GROUP_UNDEFINED"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-006-GROUP-OR-FAVORABILITY",
+        "WP07B-GAP-009-BRIGHTNESS-FACT"
+      ],
+      "uncertainty_flags": [
+        "CONDITION_PREDICATE_UNDEFINED"
+      ],
+      "case_support_only": false,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "BLOCKED_NOT_NORMALIZED",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "FAIL_CLOSED",
+      "source_status_codes": [],
+      "original_eligibility_status": "BLOCKED_BRIGHTNESS_AND_MALEFIC_GROUP",
+      "original_blocker_codes": [
+        "BRIGHTNESS_NOT_TEMPORAL_CONDITION_FACT",
+        "GENERIC_MALEFIC_GROUP_UNDEFINED"
+      ]
+    },
+    {
+      "rule_id": "TP04-357",
+      "palace": "田宅宫",
+      "source_span": {
+        "source_id": "SRC-ZZ-003",
+        "source_title": "《中州派紫微斗数深造讲义（下）》",
+        "source_location": "田宅宫printed_p165",
+        "source_location_kind": "printed_page_anchor",
+        "source_condition_anchor": "前格会武曲化忌（原文“降黩”字样存疑）",
+        "source_condition_anchor_kind": "canonical projection condition field; not a verbatim long quotation",
+        "source_span_verified": true,
+        "source_review_status": "SOURCE_SPAN_VERIFIED",
+        "source_record_path": "validation/wp05/TP04_property_projection_review_301_358.csv",
+        "source_record_time_layer": "YEAR",
+        "declared_time_layer": "YEAR",
+        "source_time_scope_literal": "YEAR;labels=流年田宅宫",
+        "source_scope_layers": [
+          "YEAR"
+        ],
+        "scan_pdf_page_1based": 83,
+        "scan_visual_reviewed": true
+      },
+      "antecedent": {
+        "status": "NOT_ELIGIBLE_FOR_RUNTIME",
+        "reference": null,
+        "history_feedback": null
+      },
+      "source_claim_summary": "Canonical source row is explicitly CASE_SUPPORT_ONLY; current temporal compiler forbids such rows regardless of apparent condition specificity.",
+      "current_contract_gap": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ],
+      "gap_ids": [
+        "WP07B-GAP-008-SOURCE-TEXT-UNCERTAINTY",
+        "WP07B-GAP-013-CASE-SUPPORT-EXCLUSION"
+      ],
+      "uncertainty_flags": [
+        "SOURCE_TEXT_UNCERTAIN_OR_OCR_UNCERTAIN"
+      ],
+      "case_support_only": true,
+      "source_epistemic": "SOURCE_SPAN_VERIFIED_IN_CANONICAL_PROJECTION_LEDGER",
+      "normalization_status": "EXCLUDED_FROM_EXECUTABLE_NORMALIZATION",
+      "current_contract_eligible": false,
+      "production_authorization": "NONE",
+      "decision": "EXCLUDE_FROM_EXECUTABLE_NORMALIZATION",
+      "source_status_codes": [],
+      "original_eligibility_status": "EXCLUDED_CASE_SUPPORT_ONLY",
+      "original_blocker_codes": [
+        "CASE_SUPPORT_ONLY"
+      ]
+    }
+  ],
+  "decision": {
+    "executable_pilot_emitted": false,
+    "production_temporal_reaction_registry_mutated": false,
+    "product_knowledge_lock_mutated": false,
+    "new_shared_semantics_created": false,
+    "new_runtime_atom_created": false,
+    "new_time_scale_created": false,
+    "numeric_weight_added": 0,
+    "probability_added": 0,
+    "duration_threshold_added": 0,
+    "source_truth_changed": false,
+    "conclusion": "All 44 reviewed candidates fail at least one current PL3-T compiler requirement. Re-audit correction: CA04-350's old implementation-level star-mutagen-binding blocker is superseded by current adapter capability, but source-level temporal palace binding, real-world commerce context, and explicit DECADE/YEAR scope remain unresolved. This is a current-contract eligibility result, not evidence that Zhongzhou has no temporal rules. Preserve all source rows and blockers; do not force a non-empty executable registry.",
+    "product_handoff": {
+      "issue_number": 674,
+      "issue_title": "Product: candidate KIB only after accepted source handoff",
+      "issue_state": "open",
+      "issue_url": "https://github.com/15937-ass/ziwei-state-space/issues/674",
+      "next_action": "After this source-owned artifact is accepted on main, hand off its path, schema, commit, tests, and zero-eligible result to the existing Product candidate-KIB issue. Keep runtime registry and active Product lock unchanged."
+    }
+  },
+  "supersedes": "knowledge/core/wp07b/TEMPORAL_REACTION_SOURCE_HANDOFF_v0.1.json",
+  "cross_gap_audit": {
+    "issue": 945,
+    "audit_path": "knowledge/core/wp07b/GAP007_PERSISTENCE_PATH_SOURCE_AUDIT_v0.1.json",
+    "rule_classifications": {
+      "CA09-851": [
+        "WP07B-GAP-001-ANTECEDENT-CHAIN",
+        "WP07B-GAP-006-GROUP-OR-FAVORABILITY",
+        "WP07B-GAP-007-PERSISTENCE-AND-PATH"
+      ],
+      "TP03-248": [
+        "WP07B-GAP-001-ANTECEDENT-CHAIN",
+        "WP07B-GAP-006-GROUP-OR-FAVORABILITY",
+        "WP07B-GAP-007-PERSISTENCE-AND-PATH"
+      ],
+      "TP03-247": [
+        "WP07B-GAP-013-CASE-SUPPORT-EXCLUSION"
+      ]
+    },
+    "no_source_row_rewritten": true,
+    "no_runtime_semantics_added": true
+  }
+}
