@@ -72,7 +72,7 @@ def test_source_boundary_and_cross_palace_rules_are_fail_closed():
     assert boundary["p04_start"]["position"].startswith("mid-page after")
     assert boundary["p04_end"]["printed_page"] == 68
     assert boundary["next_palace"]["printed_page"] == 69
-    assert "TOC" in boundary["toc_body_discrepancy"]
+    assert "table of contents" in boundary["toc_body_discrepancy"].lower()
     by_id = {item["legacy_candidate_id"]: item for item in data["candidate_adjudications"]}
     assert by_id["CH01-008"]["routing_target_palace"] == "P08"
     assert by_id["CH01-009"]["routing_target_palace"] == "P04"
