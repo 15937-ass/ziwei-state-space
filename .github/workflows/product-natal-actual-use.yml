@@ -1,0 +1,54 @@
+name: product-natal-actual-use
+on:
+  pull_request:
+    paths:
+      - "tests/test_product_natal_actual_use_live.py"
+      - "src/product/detailed_read.py"
+      - "src/product/quickread_main_reader.py"
+      - "src/product/quickread_capability.py"
+      - "product/expert_cases/wang_tingzhi/**"
+      - "product/PL3N_WEALTH_DOMAIN_PROVIDER_v*.json"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  actual-use:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout validation code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Checkout accepted main snapshot
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: accepted-main
+      - name: Install test dependency
+        run: python -m pip install --upgrade pytest
+      - name: Run live accepted-main actual-use validation
+        run: python -m pytest -q -s tests/test_product_natal_actual_use_live.py
+        env:
+          ZIWEI_RUN_LIVE_NATAL_ACTUAL_USE: "1"
+          ZIWEI_ACCEPTED_MAIN_CHECKOUT: ${{ github.workspace }}/accepted-main
+      - name: Add report to workflow summary
+        if: always()
+        run: |
+          if [ -f validation/product/issue_966/ACTUAL_USE_VALIDATION_V0_1.json ]; then
+            echo "## Product NATAL actual-use validation" >> "$GITHUB_STEP_SUMMARY"
+            cat validation/product/issue_966/ACTUAL_USE_VALIDATION_V0_1.json >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload validation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: product-natal-actual-use-report
+          path: validation/product/issue_966/ACTUAL_USE_VALIDATION_V0_1.json
+          if-no-files-found: warn
