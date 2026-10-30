@@ -242,7 +242,7 @@ This addendum is part of the active continuation contract. It supplements Sectio
 
 The three streams operate as a closed loop while retaining independent ownership:
 
-- **Knowledge** establishes source-grounded facts, conditions, temporal scope, exceptions, contradictions and UNKNOWN. It continues the approved one-palace-at-a-time sequence. Product feedback may create a targeted source handoff, but does not interrupt or broaden an already active palace batch for non-blocking findings.
+- **Knowledge** establishes source-grounded facts, conditions, temporal scope, exceptions, contradictions and UNKNOWN. It continues the approved one-palace-at-a-time sequence. At each bounded batch closeout, add a lightweight Product-availability note to the existing Issue/PR: layer (NATAL/DECADE/YEAR), prerequisites, source status, allowed-use and unresolved gaps. Product feedback may create a targeted source handoff, but does not interrupt or broaden an already active palace batch for non-blocking findings.
 - **Core** organizes accepted knowledge into shared, source-bounded structures and temporal relations. It owns shared cross-palace and NATAL/DECADE/YEAR semantics; it reuses accepted models and contracts rather than rebuilding them.
 - **Product** consumes only accepted, pinned, Product-allowed main evidence; demonstrates user-visible capability; and reports reproducible consumption, structure or provenance defects. Product tests do not create canonical source truth.
 
@@ -271,7 +271,7 @@ A P0 correctness defect may require immediate handling under the existing work u
 
 ### 10.4 Core next-work checkpoint: reuse the NATAL structure
 
-After C9 #945/#946, the next admitted Core unit begins with a bounded checkpoint that compares:
+With C9 #945/#946 accepted, the next admitted Core unit begins with a bounded checkpoint that compares:
 
 1. the accepted v0.5 NATAL state-space structure and its local-palace/global-graph distinction;
 2. the accepted Knowledge artifacts and their explicit allowed-use;
