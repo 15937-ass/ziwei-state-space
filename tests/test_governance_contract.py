@@ -214,5 +214,6 @@ def test_closeout_contract_extends_existing_six_sections_without_second_ledger()
     ):
         assert heading in workflow
     assert "do not create a second status ledger" in contract
-    assert "PI-judgment YES/NO" in contract
+    assert "whether PI judgment is required" in contract
+    assert "PI-judgment YES/NO" in workflow
     assert "validation identity" in contract
