@@ -1,0 +1,580 @@
+{
+  "schema_version": "0.1",
+  "artifact_id": "CORE_NATAL_TEMPORAL_PRODUCT_CONSUMPTION_AUDIT_V0_1",
+  "work_unit": "CORE_NATAL_DECADE_YEAR_SHARED_TEMPORAL_LAYER_RESPONSE_SEMANTICS_RESEARCH_V1",
+  "issue": 964,
+  "shard": "CORE",
+  "lane": "KNOWLEDGE_ONLY",
+  "status": "SOURCE_GROUNDED_DESCRIPTIVE_RESEARCH_COMPLETE_PENDING_VALIDATION",
+  "snapshot": {
+    "main_commit": "019331d9524b48d946a19b91605e2dbb3a41d38d",
+    "branch": "knowledge/core-964-natal-decade-year-response-semantics",
+    "source_pdf_sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+    "evidence_item_count": 16,
+    "evidence_item_limit": 50
+  },
+  "provenance": [
+    {
+      "id": "GOV-PLAN-V2",
+      "path": "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md",
+      "git_blob_sha": "4ff9d043d2e1cab4da7fd4b5e26ca1353c9debaf",
+      "authority": "ACTIVE_PI_APPROVED_PLAN"
+    },
+    {
+      "id": "MODEL-V05",
+      "path": "theory/state_space_model.md",
+      "git_blob_sha": "fcdff5140c6ed7e5743445422b6b39d4e61119c9",
+      "authority": "ACCEPTED_MODEL_G5_A2_R1"
+    },
+    {
+      "id": "HISTORY-SCHEMA",
+      "path": "knowledge/history/HISTORY_MEMORY_SCHEMA_v0.1.md",
+      "git_blob_sha": "d41416a17e761d0b4b29c947b9f29f77b1355e16",
+      "authority": "APPROVED_SOURCE_GATED_MEMORY_SCHEMA"
+    },
+    {
+      "id": "EVENT-RELATIVE",
+      "path": "knowledge/temporal/EVENT_RELATIVE_TIME_SCHEMA_v0.1.md",
+      "git_blob_sha": "8ec99789ef437de8af647f5746551766d2545679",
+      "authority": "APPROVED_SINGLE_EVENT_RELATIVE_WINDOW"
+    },
+    {
+      "id": "WP03-SUMMARY",
+      "path": "validation/KB_WP03_六十星系总审查.md",
+      "git_blob_sha": "82fe59ac74db6a1dd19719236a24ff90d2866b8c",
+      "authority": "SOURCE_REVIEWED_SYNTHESIS"
+    },
+    {
+      "id": "WP07B-HANDOFF-MD",
+      "path": "knowledge/core/wp07b/TEMPORAL_REACTION_SOURCE_HANDOFF_v0.2.md",
+      "git_blob_sha": "739b7f72e2658b1abaf75abc5bf43a34a687a5b2",
+      "authority": "ACCEPTED_C9_DESCRIPTIVE_HANDOFF"
+    },
+    {
+      "id": "WP07B-HANDOFF-JSON",
+      "path": "knowledge/core/wp07b/TEMPORAL_REACTION_SOURCE_HANDOFF_v0.2.json",
+      "git_blob_sha": "6fb27ae708d5ffe89a621897d1b927454a976230",
+      "authority": "ACCEPTED_C9_DESCRIPTIVE_HANDOFF"
+    },
+    {
+      "id": "GAP006-V02",
+      "path": "knowledge/core/wp07b/GAP006_GROUP_FAVORABILITY_SOURCE_AUDIT_v0.2.md",
+      "git_blob_sha": "e652838a335a5bd03bfc9c8f05e48c5eb6f5ccf9",
+      "authority": "ACCEPTED_DESCRIPTIVE_ADDENDUM"
+    },
+    {
+      "id": "GAP007",
+      "path": "knowledge/core/wp07b/GAP007_PERSISTENCE_PATH_SOURCE_AUDIT_v0.1.md",
+      "git_blob_sha": "db452b514b43915f20972a07bb91c25b8677bf7a",
+      "authority": "ACCEPTED_SOURCE_AUDIT"
+    },
+    {
+      "id": "GAP011",
+      "path": "knowledge/core/wp07b/GAP011_NEGATION_SOURCE_AUDIT_v0.1.md",
+      "git_blob_sha": "899d554a340db256c00d117a761a51cb5aeb6d8d",
+      "authority": "ACCEPTED_SOURCE_AUDIT"
+    },
+    {
+      "id": "QUICKREAD-CONTRACT",
+      "path": "product/QUICKREAD_CAPABILITY_AWARE_HYBRID_V0_1.md",
+      "git_blob_sha": "4101951068096ffb8b0c72aa9423b1d5e8ffd262",
+      "authority": "ACCEPTED_PRODUCT_CONTRACT"
+    },
+    {
+      "id": "QUICKREAD-READER",
+      "path": "product/QUICKREAD_MAIN_KNOWLEDGE_READER_V0_1.md",
+      "git_blob_sha": "e2619760d22a579ac0effad4fa53fbc3bddbe53a",
+      "authority": "ACCEPTED_PRODUCT_IMPLEMENTATION_CONTRACT"
+    },
+    {
+      "id": "DETAILEDREAD-PLANNER",
+      "path": "src/product/detailed_read.py",
+      "git_blob_sha": "c8285b7ff23a8df39986d1cd8efa57feb4c6710c",
+      "authority": "ACCEPTED_PRODUCT_PLANNER"
+    },
+    {
+      "id": "PL3T-COMPILER",
+      "path": "product/PL3T_NATAL_TEMPORAL_REACTION_COMPILER_ACCEPTANCE.md",
+      "git_blob_sha": "5c2982e1696ccead468ceb503310172a830271bc",
+      "authority": "ACCEPTED_PRODUCT_TEMPORAL_COMPILER_CONTRACT"
+    },
+    {
+      "id": "PRODUCT-STATE-SNAPSHOT",
+      "path": "product/PRODUCT_STATE.yaml",
+      "git_blob_sha": "633ceb5aad20c36577095f793f365bfddf0cf461",
+      "authority": "PRODUCT_RECOVERY_SNAPSHOT_NOT_SEMANTIC_AUTHORITY"
+    },
+    {
+      "id": "SOURCE-ONLY-HANDOFF",
+      "path": "product/PRODUCT_SOURCE_ONLY_VERTICAL_SLICE_BLOCKER_HANDOFF_V0_1_ACCEPTANCE.md",
+      "git_blob_sha": "f7041fe10870c24f20c8fadf32160bee2272045a",
+      "authority": "ACCEPTED_PRODUCT_BLOCKER_HANDOFF"
+    },
+    {
+      "id": "RESPONSE-SEMANTICS-SCHEMA",
+      "path": "knowledge/response/RESPONSE_SEMANTICS_SCHEMA_v0.1.json",
+      "git_blob_sha": "0edc7c638266083632baf01ca8aad1601eee2a94",
+      "authority": "ACCEPTED_DESCRIPTIVE_SCHEMA"
+    }
+  ],
+  "object_crosswalk": [
+    {
+      "object": "N",
+      "plan_meaning": "Natal Essence / fixed natal base",
+      "v05_model_object": "E = {e_p}; e_p = E_p(H_p^natal, G_0)",
+      "relation": "COMPATIBLE_PROJECT_CROSSWALK",
+      "status": "REUSE",
+      "boundary": "The plan's N label is a project-level naming crosswalk to the accepted v0.5 fixed natal essence. The twelve local e_p nodes and sparse global graph remain intact; N is not a newly discovered source primitive."
+    },
+    {
+      "object": "E_decade",
+      "plan_meaning": "Decade temporal environment",
+      "v05_model_object": "A layer-specific part of u_(p,t) / U_p(chart_t, transformations_t, modifiers_t, G_t)",
+      "relation": "STRUCTURED_TEMPORAL_INPUT_CROSSWALK",
+      "status": "REUSE_WITH_RESEARCH_GAP",
+      "boundary": "The v0.5 model has exogenous temporal input and distinguishes decade/year in its conceptual scope, but does not freeze a universal composition operator for decade and year environments."
+    },
+    {
+      "object": "E_year",
+      "plan_meaning": "Year temporal environment",
+      "v05_model_object": "A layer-specific part of u_(p,t) / U_p(chart_t, transformations_t, modifiers_t, G_t)",
+      "relation": "STRUCTURED_TEMPORAL_INPUT_CROSSWALK",
+      "status": "REUSE_WITH_RESEARCH_GAP",
+      "boundary": "Keep the selected year environment distinct from the decade environment. The existence of both layers does not prove unconditional inheritance, AND/OR, addition, precedence or event activation."
+    },
+    {
+      "object": "tau_t",
+      "plan_meaning": "Response of natal structure under a specified temporal environment",
+      "v05_model_object": "r_(p,t) / R_theta(e_p, u_(p,t), z_(p,t), neighborhood(E,G_0), c_t)",
+      "relation": "COMPATIBLE_RESPONSE_CROSSWALK",
+      "status": "REUSE",
+      "boundary": "Response is not the environment or trigger itself. Preserve natal dependence, system mode, context and conditions; no numerical response magnitude is introduced."
+    },
+    {
+      "object": "M0",
+      "plan_meaning": "Source-supported manifestation candidates",
+      "v05_model_object": "Related to, but not identical with, y_p / Y_semantic / Y_observed projection chain",
+      "relation": "NOT_ONE_TO_ONE",
+      "status": "CROSSWALK_OPEN",
+      "boundary": "A manifestation candidate is not proof that a real-world event occurred. Do not equate M0 with the full output y or with observed event truth without a separate accepted mapping."
+    },
+    {
+      "object": "M_t",
+      "plan_meaning": "Source-gated historical memory",
+      "v05_model_object": "M_t = {D_t, H_t} under A2-R1",
+      "relation": "DISTINCT_TYPED_MEMORY",
+      "status": "REUSE",
+      "boundary": "D_t (ACQUIRED_DISPOSITION) and H_t (PATH_DEPENDENT_GATE) remain distinct from N, E_decade, E_year, tau_t and M0. No source-explicit cross-period transition means memory remains unchanged."
+    }
+  ],
+  "findings": [
+    {
+      "id": "F01",
+      "claim": "The accepted v0.5 model defines twelve local natal essences e_p within a sparse global natal graph G_0; the natal base is fixed under temporal transitions.",
+      "epistemic_status": "ACCEPTED_MODEL_CONTRACT",
+      "evidence_refs": [
+        "MODEL-V05",
+        "HISTORY-SCHEMA"
+      ],
+      "disposition": "REUSE"
+    },
+    {
+      "id": "F02",
+      "claim": "Temporal input u_(p,t) and response r_(p,t) are separate objects; the response is conditional on natal essence, temporal input, system mode, neighborhood and context.",
+      "epistemic_status": "ACCEPTED_MODEL_CONTRACT",
+      "evidence_refs": [
+        "MODEL-V05",
+        "WP03-SUMMARY"
+      ],
+      "disposition": "REUSE"
+    },
+    {
+      "id": "F03",
+      "claim": "The v2.2 plan's N, E_decade, E_year, tau_t and M0 can be crosswalked to the accepted model only at the stated object level; the crosswalk does not authorize a new source primitive or a universal composition operator.",
+      "epistemic_status": "PROJECT_FORMALIZATION",
+      "evidence_refs": [
+        "GOV-PLAN-V2",
+        "MODEL-V05"
+      ],
+      "disposition": "REUSE_WITH_EXPLICIT_BOUNDARIES"
+    },
+    {
+      "id": "F04",
+      "claim": "QuickRead scope slots are request/coverage units, not the natal state graph itself. NATAL slots and temporal slots carry explicit domains, time layers and required evidence namespaces.",
+      "epistemic_status": "PRODUCT_CONTRACT",
+      "evidence_refs": [
+        "QUICKREAD-CONTRACT",
+        "DETAILEDREAD-PLANNER"
+      ],
+      "disposition": "PRODUCT_INTERFACE_REUSE"
+    },
+    {
+      "id": "F05",
+      "claim": "A non-NATAL response/manifestation slot must require TEMPORAL evidence, and temporal response/manifestation slots require both CANONICAL and TEMPORAL namespaces; temporal evidence must match the requested layer.",
+      "epistemic_status": "PRODUCT_CONTRACT",
+      "evidence_refs": [
+        "QUICKREAD-CONTRACT"
+      ],
+      "disposition": "PRESERVE_EXACT_LAYER_MATCH"
+    },
+    {
+      "id": "F06",
+      "claim": "The main reader accepts only supported, source-reviewed palace ledgers with direct visual review, explicit promotion disposition, traceable source location and exact time-layer match; CASE_SUPPORT_ONLY, held, uncertain and mismatched-layer rows are excluded.",
+      "epistemic_status": "PRODUCT_IMPLEMENTATION_CONTRACT",
+      "evidence_refs": [
+        "QUICKREAD-READER"
+      ],
+      "disposition": "FAIL_CLOSED"
+    },
+    {
+      "id": "F07",
+      "claim": "DetailedRead requires exactly twelve NATAL domain slots and keeps DECADE/YEAR temporal slots separate; its staged thematic presentation does not itself create shared temporal semantics.",
+      "epistemic_status": "PRODUCT_IMPLEMENTATION_CONTRACT",
+      "evidence_refs": [
+        "DETAILEDREAD-PLANNER"
+      ],
+      "disposition": "PRODUCT_INTERFACE_REUSE"
+    },
+    {
+      "id": "F08",
+      "claim": "The PL3-T compiler requires explicit natal antecedents, an explicit positive temporal condition and temporal atoms bound to the selected reaction layer. It consumes a normalized snapshot and does not infer source semantics from free text.",
+      "epistemic_status": "PRODUCT_CONTRACT",
+      "evidence_refs": [
+        "PL3T-COMPILER",
+        "WP07B-HANDOFF-MD"
+      ],
+      "disposition": "PRESERVE_COMPILER_GATE"
+    },
+    {
+      "id": "F09",
+      "claim": "The accepted WP07B handoff records 44 temporal candidates and zero eligible under the current compiler contract; this is an existing source/normalization blocker, not permission for Core to relax Product requirements.",
+      "epistemic_status": "ACCEPTED_SOURCE_REVIEW_AND_PRODUCT_HANDOFF",
+      "evidence_refs": [
+        "WP07B-HANDOFF-MD",
+        "WP07B-HANDOFF-JSON",
+        "SOURCE-ONLY-HANDOFF"
+      ],
+      "disposition": "EXISTING_GAP_NOT_REOPENED"
+    },
+    {
+      "id": "F10",
+      "claim": "CA09-851 is a multi-year consecutive annual-window subtype with approximate duration evidence and undefined favorable-period criterion; TP03-248 is a same-year antecedent branch with an event-consequence path and a CASE_SUPPORT_ONLY parent. They are not one persistence operator.",
+      "epistemic_status": "SOURCE_REVIEWED_DESCRIPTIVE",
+      "evidence_refs": [
+        "GAP007",
+        "WP07B-HANDOFF-MD"
+      ],
+      "disposition": "KEEP_SUBTYPES_DISTINCT"
+    },
+    {
+      "id": "F11",
+      "claim": "GAP-006 separates category membership, activation, relation and interaction; period-level favorable wording does not define a reusable GOOD_YEAR predicate.",
+      "epistemic_status": "SOURCE_REVIEWED_DESCRIPTIVE",
+      "evidence_refs": [
+        "GAP006-V02",
+        "WP07B-HANDOFF-MD"
+      ],
+      "disposition": "NO_GLOBAL_DEFAULT"
+    },
+    {
+      "id": "F12",
+      "claim": "Source-native negative wording is not equivalent to missing a positive fact in an incomplete snapshot or to a proven absence over a complete observation universe.",
+      "epistemic_status": "SOURCE_REVIEWED_DESCRIPTIVE",
+      "evidence_refs": [
+        "GAP011"
+      ],
+      "disposition": "SOURCE_LOCAL_NEGATION_ONLY"
+    },
+    {
+      "id": "F13",
+      "claim": "The WP03 synthesis reports distinct decade/year meanings, short-term annual triggers, longer decade paths and state-dependent reactions; these findings support separate layers but do not define a universal DECADE-to-YEAR composition rule.",
+      "epistemic_status": "SOURCE_REVIEWED_SYNTHESIS",
+      "evidence_refs": [
+        "WP03-SUMMARY",
+        "MODEL-V05"
+      ],
+      "disposition": "DESCRIPTIVE_SUPPORT_ONLY"
+    },
+    {
+      "id": "F14",
+      "claim": "A2-R1 memory records only source-explicit acquired dispositions or path-dependent gates with bounded persistence scopes; no numeric decay, retention weight or generic recurrence is permitted.",
+      "epistemic_status": "APPROVED_SOURCE_GATED_SCHEMA",
+      "evidence_refs": [
+        "HISTORY-SCHEMA",
+        "MODEL-V05"
+      ],
+      "disposition": "KEEP_MEMORY_TYPED"
+    },
+    {
+      "id": "F15",
+      "claim": "The approved migration first-three-years rule uses an externally supplied confirmed-settlement clock; it is a specific event-relative window, not a general timer or a substitute for D_t/H_t memory.",
+      "epistemic_status": "APPROVED_SCOPED_SCHEMA",
+      "evidence_refs": [
+        "EVENT-RELATIVE",
+        "MODEL-V05"
+      ],
+      "disposition": "KEEP_EVENT_RELATIVE_SCOPE_SEPARATE"
+    },
+    {
+      "id": "F16",
+      "claim": "The Product recovery snapshot describes the NATAL essence graph as partial and not production-ready; this is a Product implementation/readiness status, not a reason to rebuild or revise Core's accepted v0.5 semantics.",
+      "epistemic_status": "PRODUCT_STATE_SNAPSHOT",
+      "evidence_refs": [
+        "PRODUCT-STATE-SNAPSHOT"
+      ],
+      "disposition": "PRODUCT_OWNED_IMPLEMENTATION_GAP"
+    }
+  ],
+  "temporal_relation_matrix": [
+    {
+      "relation_id": "R01_NATAL_TO_DECADE",
+      "from": "N",
+      "to": "E_decade",
+      "status": "SOURCE_SUPPORTED_DESCRIPTIVELY",
+      "evidence_refs": [
+        "MODEL-V05",
+        "WP03-SUMMARY"
+      ],
+      "meaning": "The fixed natal base is the object whose response is evaluated under a decade environment.",
+      "unresolved": "No universal decade reaction operator or event implication is defined.",
+      "executable": false
+    },
+    {
+      "relation_id": "R02_NATAL_TO_YEAR",
+      "from": "N",
+      "to": "E_year",
+      "status": "SOURCE_SUPPORTED_DESCRIPTIVELY",
+      "evidence_refs": [
+        "MODEL-V05",
+        "WP03-SUMMARY"
+      ],
+      "meaning": "The fixed natal base is the object whose response is evaluated under a year environment.",
+      "unresolved": "No universal year reaction operator or event implication is defined.",
+      "executable": false
+    },
+    {
+      "relation_id": "R03_DECADE_TO_YEAR",
+      "from": "E_decade",
+      "to": "E_year",
+      "status": "UNKNOWN_HOLD_COMPOSITION_UNSPECIFIED",
+      "evidence_refs": [
+        "WP03-SUMMARY",
+        "GAP006-V02",
+        "WP07B-HANDOFF-MD"
+      ],
+      "meaning": "The two layers are distinct and may both be referenced by source wording.",
+      "unresolved": "No default inheritance, AND/OR, additive composition, precedence, carry-over or selected-decade binding is accepted globally.",
+      "executable": false
+    },
+    {
+      "relation_id": "R04_ENVIRONMENT_TO_TRIGGER",
+      "from": "E_decade_or_E_year",
+      "to": "TEMPORAL_CONDITION",
+      "status": "CONDITION_SPECIFIC_ONLY",
+      "evidence_refs": [
+        "PL3T-COMPILER",
+        "WP07B-HANDOFF-MD"
+      ],
+      "meaning": "A temporal environment supplies layer-bound facts; a source rule may specify a positive temporal condition.",
+      "unresolved": "Environment presence alone is not a trigger; no free-text or keyword inference.",
+      "executable": false
+    },
+    {
+      "relation_id": "R05_TRIGGER_TO_TAU",
+      "from": "NATAL_ANTECEDENT_PLUS_TEMPORAL_CONDITION",
+      "to": "tau_t",
+      "status": "PRODUCT_CONTRACT_ONLY_PENDING_SOURCE_ELIGIBILITY",
+      "evidence_refs": [
+        "PL3T-COMPILER",
+        "WP07B-HANDOFF-MD"
+      ],
+      "meaning": "The compiler contract requires explicit natal antecedent and positive selected-layer condition before matching a response.",
+      "unresolved": "The 44 existing candidates are zero-eligible; no generic response is unlocked.",
+      "executable": false
+    },
+    {
+      "relation_id": "R06_TAU_TO_M0",
+      "from": "tau_t",
+      "to": "M0",
+      "status": "CROSSWALK_OPEN",
+      "evidence_refs": [
+        "GOV-PLAN-V2",
+        "MODEL-V05"
+      ],
+      "meaning": "A response may be projected toward source-supported manifestation candidates.",
+      "unresolved": "No one-to-one equivalence between tau_t, y_p, semantic output, observed event and M0 is approved.",
+      "executable": false
+    },
+    {
+      "relation_id": "R07_TYPED_HISTORY",
+      "from": "M_t",
+      "to": "M_t_plus_1",
+      "status": "SOURCE_GATED_TYPED_TRANSITION",
+      "evidence_refs": [
+        "HISTORY-SCHEMA",
+        "MODEL-V05",
+        "GAP007"
+      ],
+      "meaning": "Only source-explicit ACQUIRED_DISPOSITION or PATH_DEPENDENT_GATE transitions may update memory.",
+      "unresolved": "Persistence remains specific_next_period, later_periods or unspecified as stated; no default duration or numeric decay.",
+      "executable": false
+    },
+    {
+      "relation_id": "R08_EVENT_RELATIVE_WINDOW",
+      "from": "CONFIRMED_EVENT_CLOCK",
+      "to": "EVENT_RELATIVE_PRIORITY",
+      "status": "APPROVED_SINGLE_SCOPED_RULE",
+      "evidence_refs": [
+        "EVENT-RELATIVE"
+      ],
+      "meaning": "Only the approved migration first-three-years window is represented with an externally supplied event-relative clock.",
+      "unresolved": "No general event timer or arbitrary-event generalization.",
+      "executable": false
+    },
+    {
+      "relation_id": "R09_MULTIYEAR_ANNUAL_SEQUENCE",
+      "from": "YEAR_SEQUENCE",
+      "to": "PATH_DEPENDENT_OUTCOME",
+      "status": "DESCRIPTIVE_HOLD",
+      "evidence_refs": [
+        "GAP007",
+        "WP07B-HANDOFF-MD"
+      ],
+      "meaning": "CA09-851 describes a consecutive multi-year annual window.",
+      "unresolved": "Approximate 三四年 is not an exact threshold; 良好流年 has no independent criterion; antecedent context remains incomplete.",
+      "executable": false
+    },
+    {
+      "relation_id": "R10_SAME_YEAR_ANTECEDENT",
+      "from": "SAME_YEAR_ANTECEDENT_BRANCH",
+      "to": "EVENT_CONSEQUENCE_PATH",
+      "status": "CASE_PARENT_HOLD",
+      "evidence_refs": [
+        "GAP007",
+        "WP07B-HANDOFF-MD"
+      ],
+      "meaning": "TP03-248 is a same-year antecedent branch with a downstream event-consequence path.",
+      "unresolved": "Parent TP03-247 remains CASE_SUPPORT_ONLY; no event occurrence or event-history fact is inferred.",
+      "executable": false
+    },
+    {
+      "relation_id": "R11_SOURCE_NEGATION",
+      "from": "SOURCE_LOCAL_NEGATIVE_BRANCH",
+      "to": "CONDITION_BRANCH",
+      "status": "DESCRIPTIVE_SOURCE_LOCAL_ONLY",
+      "evidence_refs": [
+        "GAP011"
+      ],
+      "meaning": "Preserve the explicit negative branch and its inherited context.",
+      "unresolved": "No global closed-world absence predicate; missing observations do not establish source-level absence.",
+      "executable": false
+    },
+    {
+      "relation_id": "R12_GROUP_AND_VALENCE",
+      "from": "SOURCE_CATEGORY_OR_PERIOD_VALENCE",
+      "to": "CONDITION_CLASSIFICATION",
+      "status": "DESCRIPTIVE_ONLY",
+      "evidence_refs": [
+        "GAP006-V02"
+      ],
+      "meaning": "Membership, activation, relation, interaction and period valence remain distinct.",
+      "unresolved": "No universal group members, ANY/ALL default, GOOD_YEAR predicate or numeric magnitude.",
+      "executable": false
+    }
+  ],
+  "gap_register": [
+    {
+      "gap_id": "CORE-TEMP-001",
+      "owner": "CORE",
+      "type": "SHARED_SEMANTIC_HOLD",
+      "status": "OPEN_HOLD",
+      "statement": "The general relationship between E_decade and E_year is not specified by an accepted universal source-backed rule.",
+      "required_resolution": "Only source-specific relation subtypes may be added after exact source review; no default inheritance, AND/OR, additive composition or precedence.",
+      "evidence_refs": [
+        "WP03-SUMMARY",
+        "GAP006-V02",
+        "WP07B-HANDOFF-MD"
+      ]
+    },
+    {
+      "gap_id": "CORE-TEMP-002",
+      "owner": "CORE",
+      "type": "CROSSWALK_HOLD",
+      "status": "OPEN_HOLD",
+      "statement": "The v2.2 M0 manifestation-candidate object has no accepted one-to-one mapping to v0.5 y_p / Y_semantic / Y_observed.",
+      "required_resolution": "Keep candidate manifestation, semantic output and observed event distinct until an explicit contract is accepted.",
+      "evidence_refs": [
+        "GOV-PLAN-V2",
+        "MODEL-V05"
+      ]
+    },
+    {
+      "gap_id": "PRODUCT-TEMP-001",
+      "owner": "PRODUCT",
+      "type": "INTERFACE_IMPLEMENTATION_GAP",
+      "status": "PRODUCT_OWNED_NOT_CORE",
+      "statement": "The accepted DetailedRead planner exposes separate NATAL and DECADE/YEAR slots, while the full NATAL essence graph remains recorded as partial in the Product recovery snapshot.",
+      "required_resolution": "Product-owned implementation/validation; Core must not edit Product code or treat this as a new Core primitive.",
+      "evidence_refs": [
+        "DETAILEDREAD-PLANNER",
+        "PRODUCT-STATE-SNAPSHOT"
+      ]
+    },
+    {
+      "gap_id": "PRODUCT-TEMP-002",
+      "owner": "PRODUCT",
+      "type": "ADAPTER_CAPABILITY_LIMIT",
+      "status": "PRODUCT_OWNED_NOT_CORE",
+      "statement": "The current PL3-T compiler consumes one normalized temporal snapshot and one selected reaction layer; it does not represent a consecutive multi-year sequence.",
+      "required_resolution": "Keep CA09-851 blocked; any future adapter change is Product-owned and requires source-eligible Core semantics first.",
+      "evidence_refs": [
+        "PL3T-COMPILER",
+        "GAP007"
+      ]
+    },
+    {
+      "gap_id": "WP07B-EXISTING-001",
+      "owner": "CORE",
+      "type": "EXISTING_SOURCE_NORMALIZATION_BLOCKERS",
+      "status": "EXISTING_NOT_REOPENED",
+      "statement": "44 existing temporal candidates remain zero-eligible under the current compiler contract.",
+      "required_resolution": "Do not duplicate or silently relax existing WP07B blockers; any new eligibility work needs a separately bounded source-specific issue.",
+      "evidence_refs": [
+        "WP07B-HANDOFF-MD",
+        "WP07B-HANDOFF-JSON",
+        "SOURCE-ONLY-HANDOFF"
+      ]
+    },
+    {
+      "gap_id": "WP07B-EXISTING-002",
+      "owner": "CORE",
+      "type": "EXISTING_DESCRIPTIVE_CLASSIFICATION",
+      "status": "ACCEPTED_DESCRIPTIVE_ONLY",
+      "statement": "Group/favorability and source-native negation are classified descriptively but not as universal executable semantics.",
+      "required_resolution": "Preserve existing GAP-006/GAP-011 status; any shared executable proposal stops for PI Human Gate.",
+      "evidence_refs": [
+        "GAP006-V02",
+        "GAP011"
+      ]
+    }
+  ],
+  "authorization": {
+    "source_truth_changed": false,
+    "canonical_rules_created": 0,
+    "new_primitives_created": 0,
+    "new_time_scales_created": 0,
+    "new_shared_executable_operators": 0,
+    "temporal_composition_authorized": false,
+    "conditions_compiled": 0,
+    "runtime_authorized": false,
+    "product_files_modified": 0,
+    "kib_or_lock_modified": false,
+    "probability_added": 0,
+    "causal_claims_added": 0,
+    "predictive_validity_claims_added": 0,
+    "history_memory_rows_added": 0,
+    "human_gate_required_now": false,
+    "note": "This is a descriptive compatibility and source-semantics audit only. Any proposed universal executable composition, new primitive/root/family, causal/probability semantics or runtime permission must stop for a separate PI Human Gate."
+  },
+  "next_step": "Complete branch-head deterministic validation. If accepted, Core's next bounded nominee is a source-specific review of DECADE/YEAR context inheritance and response paths using new evidence only where existing accepted records do not decide the relation; do not create a general composition operator."
+}
