@@ -432,9 +432,9 @@
   },
   "next_action": "WAIT_FOR_EXPLICIT_ACCEPTED_KNOWLEDGE_PRODUCT_CONSUMABLE_AUTHORITY; THEN OPEN SEPARATE P5 PROMOTION WORK UNIT IF A REAL CANDIDATE EXISTS",
   "post_p3_main_dependency_recheck": {
-    "current_main_commit": "cdf7a0e5348264e92f62ac527b9ed6f71e9f0d00",
+    "current_main_commit": "fa62cebd619646b9c53ca0dba88291a5c45c8141",
     "current_main_merge": "P02 #928 / PR #929 source-stage closure; merge adds Knowledge-owned source-stage and lexical-contract evidence only",
-    "main_delta_from_p3_base_file_count": 21,
+    "main_delta_from_p3_base_file_count": 24,
     "relevant_source_audit": {
       "path": "knowledge/palaces/P02_siblings/wp05/SIBLINGS_SB04_WUQU_SOURCE_AUDIT_v0.1.json",
       "git_blob_sha": "a5182231d6f1824b98f68416ce24da0cb0514f04",
@@ -491,7 +491,22 @@
         "time_layer": "NATAL"
       }
     ],
-    "impact_on_p4": "NO_CHANGE_TO_ACCEPTED_15_MAPPING_OR_P3_FREEZE; BOTH_REFERENCED_P02_SOURCE_ROWS_REMAIN_SOURCE_REUSABLE_AND_FAIL_CLOSED; 140_OTHER_HELD_ROWS_AND_49_GAPS_REMAIN_RETAINED",
-    "conclusion": "P4 source dependencies remain valid after current main advances to cdf7a0e; no authority flags changed and no P4 admission is implied."
+    "impact_on_p4": "NO_CHANGE_TO_ACCEPTED_15_MAPPING_OR_P3_FREEZE; BOTH_REFERENCED_P02_SOURCE_ROWS REMAIN SOURCE_REUSABLE_AND_FAIL_CLOSED; THE LATEST FOUR-FILE CORE C8 DELTA IS WP07B-ONLY AND DOES NOT TOUCH P02 SOURCE, WP06B/WP06C INDEXES, P3 FREEZE, OR PRODUCT INPUTS; 140 OTHER HELD ROWS AND 49 GAPS REMAIN RETAINED",
+    "conclusion": "P4 source dependencies remain valid after current main advances to fa62cebd; the 24-file delta since P3 is Knowledge-only, including the four-file Core C8 WP07B audit; no authority flags changed and no P4 admission is implied.",
+    "previous_recheck_main_commit": "cdf7a0e5348264e92f62ac527b9ed6f71e9f0d00",
+    "incremental_main_delta_since_previous_recheck": [
+      "knowledge/core/wp07b/GAP011_NEGATION_SOURCE_AUDIT_v0.1.json",
+      "knowledge/core/wp07b/GAP011_NEGATION_SOURCE_AUDIT_v0.1.md",
+      "tests/test_knowledge_core_wp07b_gap011_negation.py",
+      "validation/knowledge/core/wp07b/issue_941/EXECUTION_EVIDENCE.md"
+    ],
+    "latest_core_checkpoint": {
+      "issue": 941,
+      "pr": 942,
+      "merge_commit": "fa62cebd619646b9c53ca0dba88291a5c45c8141",
+      "disposition": "DESCRIPTIVE_NEGATION_CLASSIFICATION_NO_EXECUTION",
+      "execution_authorized": false,
+      "product_or_kib_authority_changed": false
+    }
   }
 }
