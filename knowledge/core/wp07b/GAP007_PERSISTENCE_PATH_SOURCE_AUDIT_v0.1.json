@@ -1,0 +1,216 @@
+{
+  "schema_version": "0.1",
+  "issue": 945,
+  "work_unit": "KB_CORE_WP07B_GAP007_PERSISTENCE_PATH_AUDIT_C9",
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "CORE",
+  "status": "SOURCE_AUDIT_COMPLETE_DESCRIPTIVE_ONLY",
+  "verdict": "DESCRIPTIVE_PATH_SUBTYPES_CONFIRMED_NO_EXECUTION",
+  "source_basis": {
+    "source_id": "SRC-ZZ-003",
+    "source_title": "《中州派紫微斗数深造讲义（下）》",
+    "source_pdf_sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+    "direct_visual_recheck": true,
+    "pages": [
+      {
+        "rule_id": "CA09-851",
+        "printed_page": 154,
+        "pdf_page_1based": 77,
+        "section": "事业宫 / 破军总论"
+      },
+      {
+        "rule_id": "TP03-248",
+        "printed_page": 163,
+        "pdf_page_1based": 82,
+        "section": "田宅宫 / 流年贪狼火灾结构"
+      }
+    ]
+  },
+  "prior_accepted_contracts": {
+    "gap006_c5": {
+      "issue": 922,
+      "verdict": "SHARED_DESCRIPTIVE_TAXONOMY_ONLY",
+      "accepted_main": "313938e0856009aed2c9233f3da3ae02dc7ae791",
+      "relevant_classes": [
+        "PERIOD_VALENCE_OR_SUPPORT",
+        "OPEN_VALENCE_SHORTHAND"
+      ],
+      "career_scope_only": true,
+      "universal_period_valence_predicate": false
+    },
+    "temporal_contract": {
+      "adapter_path": "src/product/temporal_asset_adapter.py",
+      "compiler_path": "src/product/temporal_reaction_compiler.py",
+      "snapshot_contract": "adapt_normalized_temporal_snapshot accepts one normalized temporal snapshot",
+      "match_contract": "match_temporal_reactions matches facts in one selected temporal layer",
+      "sequence_supported": false,
+      "persistence_supported": false,
+      "duration_threshold_supported": false
+    }
+  },
+  "records": [
+    {
+      "id": "CA09-851",
+      "palace": "事业宫",
+      "source_location": "SRC-ZZ-003 / printed p154 / PDF physical p77",
+      "source_condition": "破军连续有三四年良好流年",
+      "source_context": "破军守事业宫总论；原文比较破军与七杀毅力，并将连续三四年良好流年与建立事业基础相连",
+      "temporal_subtype": "MULTI_YEAR_CONSECUTIVE_ANNUAL_WINDOW",
+      "source_time_scope_literal": "THREE_TO_FOUR_CONSECUTIVE_FAVORABLE_YEARS",
+      "interpretation_boundaries": [
+        "三四年保留为来源原词范围，不转换成精确3年或4年阈值",
+        "连续是来源明确的序列要求，不可压平成单一YEAR快照",
+        "良好流年没有在该来源段落中得到独立判定标准",
+        "CA09-850 / Pojun career context is referenced but marked REFERENCED_CONTEXT_REQUIRES_SEPARATE_VALIDATION",
+        "career review records context_is_complete_antecedent=false and condition=null"
+      ],
+      "cross_gap_classification": {
+        "WP07B-GAP-007-PERSISTENCE-AND-PATH": "MULTI_YEAR_CONSECUTIVE_ANNUAL_WINDOW",
+        "WP07B-GAP-006-GROUP-OR-FAVORABILITY": "PERIOD_VALENCE_OR_SUPPORT_OVERLAP_CONFIRMED",
+        "WP07B-GAP-001-ANTECEDENT-CHAIN": "REFERENCED_CONTEXT_REQUIRES_SEPARATE_VALIDATION; preserve as an index-only overlap"
+      },
+      "human_gate_applicability": [
+        {
+          "id": "HG-WP07B-TEMPORAL-PERSISTENCE-01",
+          "status": "FUTURE_NOT_PENDING",
+          "reason": "only if a shared executable multi-year persistence contract is proposed"
+        },
+        {
+          "id": "HG-WP07B-FAVORABILITY-AND-GROUPS-01",
+          "status": "FUTURE_NOT_PENDING",
+          "reason": "only if a reusable favorable-period predicate is proposed"
+        }
+      ],
+      "current_eligibility": "BLOCKED_MULTIYEAR_SEQUENCE",
+      "executable": false,
+      "source_record_modified": false,
+      "normalization_changed": false
+    },
+    {
+      "id": "TP03-248",
+      "palace": "田宅宫",
+      "source_location": "SRC-ZZ-003 / printed p163 / PDF physical p82",
+      "source_condition": "前格见吉",
+      "source_context": "The immediately preceding annual structure is: 流年田宅宫贪狼落陷、火铃同度、更见刑耗诸曜、流煞冲会；the source then adds 见吉 and describes the post-fire limited-loss renovation consequence",
+      "temporal_subtype": "SAME_YEAR_ANTECEDENT_BRANCH_WITH_EVENT_CONSEQUENCE",
+      "interpretation_boundaries": [
+        "见吉 modifies the preceding annual fire-risk structure; it is not a multi-year persistence phrase",
+        "火灾后 describes a downstream consequence path, not a measured prior event fact",
+        "the antecedent TP03-247 is CASE_SUPPORT_ONLY / EVENT_CANDIDATE and cannot become an executable required antecedent",
+        "吉 remains an open evaluative shorthand; no member set or activation cardinality is inferred"
+      ],
+      "cross_gap_classification": {
+        "WP07B-GAP-001-ANTECEDENT-CHAIN": "PARENT_TP03_247_EVENT_STRUCTURE",
+        "WP07B-GAP-006-GROUP-OR-FAVORABILITY": "OPEN_VALENCE_SHORTHAND",
+        "WP07B-GAP-007-PERSISTENCE-AND-PATH": "SAME_YEAR_EVENT_CONSEQUENCE_PATH",
+        "WP07B-GAP-013-CASE-SUPPORT-EXCLUSION": "PARENT_TP03_247_CASE_SUPPORT_ONLY"
+      },
+      "human_gate_applicability": [
+        {
+          "id": "HG-WP07B-TEMPORAL-PERSISTENCE-01",
+          "status": "NOT_APPLICABLE_TO_THIS_ROW",
+          "reason": "no multi-year persistence condition is present"
+        },
+        {
+          "id": "FUTURE_EVENT_PATH_GATE",
+          "status": "NOT_PENDING",
+          "reason": "a separate PI gate would be required only if a shared executable event-history/path primitive is later proposed"
+        }
+      ],
+      "current_eligibility": "BLOCKED_PATH_AND_CASE_PARENT",
+      "parent_rule_id": "TP03-247",
+      "parent_case_support_only": true,
+      "executable": false,
+      "source_record_modified": false,
+      "normalization_changed": false
+    }
+  ],
+  "cross_gap_reconciliation": {
+    "gap001": {
+      "prior_impacted_count": 11,
+      "add_rule_id": "CA09-851",
+      "reason": "The accepted handoff candidate disposition points to CA09-850 / Pojun career context with status REFERENCED_CONTEXT_REQUIRES_SEPARATE_VALIDATION; the Career review says context_is_complete_antecedent=false. This is an index-only antecedent overlap; no P09 source row or CA09-850 record is changed."
+    },
+    "gap006": {
+      "prior_impacted_count": 12,
+      "add_rule_id": "CA09-851",
+      "evidence_id": "G006-E13",
+      "semantic_class": "PERIOD_VALENCE_OR_SUPPORT",
+      "source_surface": "连续有三四年良好的流年",
+      "reason": "The phrase evaluates annual periods as 良好 without an independent criterion, matching the accepted Career-scoped PERIOD_VALENCE_OR_SUPPORT class. This does not define a GOOD_YEAR predicate."
+    },
+    "gap007": {
+      "impacted_rule_ids": [
+        "CA09-851",
+        "TP03-248"
+      ],
+      "member_subtypes": {
+        "CA09-851": "MULTI_YEAR_CONSECUTIVE_ANNUAL_WINDOW",
+        "TP03-248": "SAME_YEAR_ANTECEDENT_BRANCH_WITH_EVENT_CONSEQUENCE"
+      },
+      "human_gate_id": "HG-WP07B-TEMPORAL-PERSISTENCE-01",
+      "human_gate_applies_to": [
+        "CA09-851"
+      ],
+      "human_gate_does_not_apply_to": [
+        "TP03-248"
+      ]
+    }
+  },
+  "current_contract_assessment": {
+    "one_temporal_snapshot_only": true,
+    "consecutive_year_sequence_supported": false,
+    "independent_good_year_criterion_available": false,
+    "event_history_state_available": false,
+    "source_native_descriptive_classification_supported": true
+  },
+  "required_holds": {
+    "CA09-851": [
+      "MULTIYEAR_SEQUENCE_NOT_SUPPORTED",
+      "DURATION_IS_EVIDENCE_NOT_THRESHOLD",
+      "PATH_DEPENDENT_GATE",
+      "FAVORABLE_PERIOD_CRITERION_UNDEFINED",
+      "REFERENCED_CONTEXT_REQUIRES_SEPARATE_VALIDATION"
+    ],
+    "TP03-248": [
+      "PARENT_CASE_SUPPORT_ONLY",
+      "GENERIC_BENEFIC_GROUP_UNDEFINED",
+      "SAME_YEAR_ANTECEDENT_BRANCH_NOT_EXECUTABLE",
+      "EVENT_CONSEQUENCE_PATH_NOT_MODELED"
+    ]
+  },
+  "forbidden_inferences": [
+    "convert 三四年 into a fixed 3-year or 4-year threshold",
+    "infer that a year is 良好 from the outcome that the source says follows it",
+    "infer a favorable-year fact from an incomplete temporal snapshot",
+    "treat TP03-248 as a multi-year persistence condition",
+    "promote TP03-247 CASE_SUPPORT_ONLY into an executable antecedent",
+    "infer that the fire event actually occurred from a source event candidate",
+    "turn 见吉 into a closed group or universal FAVORABLE predicate",
+    "create a generic PERSISTENCE, DURATION, EVENT_SEQUENCE or event-history operator"
+  ],
+  "boundaries": {
+    "source_records_added": 0,
+    "source_records_rewritten": 0,
+    "p09_files_changed": false,
+    "p10_files_changed": false,
+    "wp05_projection_files_changed": false,
+    "product_files_changed": false,
+    "runtime_changed": false,
+    "schema_changed": false,
+    "registry_changed": false,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0,
+    "probability_added": false,
+    "hazard_rate_added": false,
+    "duration_threshold_added": false,
+    "empirical_validity_claim": false,
+    "human_gate_required_now": false
+  },
+  "next": {
+    "CA09-851": "remain fail-closed; future work requires independent favorable-period criterion, sequence contract, and referenced-context validation",
+    "TP03-248": "remain fail-closed; parent case-support and open 吉-valence blockers remain",
+    "WP07B-GAP-007": "retain umbrella family with two non-interchangeable descriptive subtypes",
+    "next_core_review": "re-evaluate remaining Core-owned WP07B blockers, especially GAP-003 activation relation, after this index reconciliation is accepted"
+  }
+}
