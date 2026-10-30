@@ -123,3 +123,16 @@ No K_manifest entries are admitted in P4.
 The candidate bundle is a no-op provenance snapshot only. The P4 result is therefore **CANDIDATE_IMPACT_ONLY_NO_PROMOTION**.
 
 The next legitimate transition requires a new accepted Knowledge artifact that explicitly changes Product-consumption authority, followed by a bounded Product impact review. If a real candidate then exists, promotion must be handled by a separate P5 unit and Integration Lease. Product must not infer or grant Knowledge authority itself.
+
+
+## 8. Post-P3 main dependency recheck
+
+After the P3 freeze, main advanced to `cdf7a0e5348264e92f62ac527b9ed6f71e9f0d00` through Knowledge-only P02 #928 / PR #929 and Core lexical-contract work. The 21-file delta from the P3 baseline does not change the P3 mapping/node indexes, the P3 freeze, or the P02 source-audit file used by KMM-000014/000015.
+
+The P02 source-audit file is byte-identical to the P3 baseline (Git blob `a5182231d6f1824b98f68416ce24da0cb0514f04`). Both source rows referenced by the accepted mappings remain:
+- `P02S-137`: `SOURCE_REUSABLE`, source span and normalization verified, NATAL, no gap; canonical mapping approval and execution remain false.
+- `P02S-169`: `SOURCE_REUSABLE`, source span and normalization verified, NATAL, no gap; canonical mapping approval and execution remain false.
+
+The newly accepted P02 stage closure is explicitly bounded source-stage closure: 424 reviewed, 284 accepted (180 reusable + 104 case-only), 140 held, 49 gap groups; `all_semantics_resolved=false`, execution unlocked = 0, history feedback = 0. This does not grant Product consumption authority. The P02 state file records the same bounded closure and says P04 requires a separate issue and fresh admission.
+
+Therefore the newer Knowledge main does not invalidate this P4 assessment, does not change any of the 15 mapping flags, and does not justify K_manifest admission. All P4 fail-closed boundaries remain unchanged.
