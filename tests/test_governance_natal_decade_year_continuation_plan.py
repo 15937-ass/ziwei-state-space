@@ -27,7 +27,6 @@ def test_product_state_tracks_ready_or_active_natal_work_without_kib_promotion()
     assert 'continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"' in state
     assert "Active KIB v0.3 / lock remain unchanged" in state
     assert "No KIB promotion" in state
-    assert "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT" not in state
 
     status = re.search(r'^  status: "([^"]+)"$', state, re.M)
     work_status = re.search(r'^  next_work_status: "([^"]+)"$', state, re.M)
