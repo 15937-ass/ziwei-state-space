@@ -205,7 +205,12 @@ def test_product_recovery_state_cache_tracks_main_freshness_and_product_checkpoi
     assert main_sha
     assert product_sha
     assert snapshot_date and snapshot_date.group(1) >= "2026-10-23"
-    assert 'next_work_unit: "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT"' in state
+    assert 'next_work_unit: "PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"' in state
+    assert 'next_work_status: "ACTIVE_BUILD"' in state
+    assert "active_issue: 951" in state
+    assert 'active_branch: "product/951-natal-detailed-read-closed-loop-v1"' in state
+    assert 'continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"' in state
+    assert "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT" not in state
     assert last_issue and int(last_issue.group(1)) >= 696
     assert last_pr and int(last_pr.group(1)) >= 698
 
