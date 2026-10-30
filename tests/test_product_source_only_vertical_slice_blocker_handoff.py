@@ -208,6 +208,7 @@ def test_product_recovery_state_cache_tracks_main_freshness_and_product_checkpoi
     assert 'next_work_unit: "PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"' in state
     assert 'next_work_status: "ACTIVE_BUILD"' in state
     assert "active_issue: 951" in state
+    assert "active_pr: 951" in state
     assert 'active_branch: "product/951-natal-detailed-read-closed-loop-v1"' in state
     assert 'continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"' in state
     assert "PRODUCT_KIB_UPDATE_AFTER_NEXT_ACCEPTED_COMPILER_READY_SOURCE_ARTIFACT" not in state
