@@ -76,6 +76,10 @@ def test_source_boundary_and_cross_palace_rules_are_fail_closed():
     assert boundary["p04_end"]["printed_page"] == 68
     assert boundary["next_palace"]["printed_page"] == 69
     assert "table of contents" in boundary["toc_body_discrepancy"].lower()
+    batch_end = boundary["candidate_batch_ends_mid_page_53_after"].lower()
+    assert "first positive clause" in batch_end
+    assert "ch02-101…103" in batch_end
+    assert "unreviewed" in batch_end
     by_id = {item["legacy_candidate_id"]: item for item in data["candidate_adjudications"]}
     assert by_id["CH01-008"]["routing_target_palace"] == "P08"
     assert by_id["CH01-009"]["routing_target_palace"] == "P04"
