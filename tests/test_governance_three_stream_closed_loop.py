@@ -36,7 +36,7 @@ def test_three_stream_limits_and_current_core_product_route_are_preserved():
     assert "actual-use validation" in plan
     assert "Product-availability note" in plan
     assert "Tracking Governance Issue: #949 (v2 baseline); v2.2 addendum: #963" in plan
-    assert "不增加宫位槽位" in card
+    assert "不得增加宫位槽位" in card
     assert "C9 #945/#946 已接受" in card
     assert "实际命盘" in card
     assert "Product-availability note" in card
@@ -54,7 +54,7 @@ def test_natal_to_decade_and_decade_to_year_are_capability_gated():
 def test_bootstrap_and_entry_card_route_to_the_same_v2_2_contract():
     bootstrap = (ROOT / "CHATGPT_START_HERE.md").read_text(encoding="utf-8")
     card = (ROOT / "governance/THREE_STREAM_START_HERE.md").read_text(encoding="utf-8")
-    assert "continuation_plan_v2.md" in bootstrap
+    assert "CORE_PRODUCT_CONTINUATION_PLAN_v2.md" in bootstrap
     assert "内容版本 v2.2" in bootstrap
     assert "CORE_GAP" in bootstrap
     assert "三线推进操作卡（v2.2）" in card
