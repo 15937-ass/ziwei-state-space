@@ -135,14 +135,19 @@ def test_p04_later_generation_projections_exclude_ordinary_staff_and_general_net
         assert "P08_EXCLUDE_ORDINARY_STAFF_SUBORDINATES_AND_GENERAL_NETWORKS" in dependencies
 
 
-def test_full_batch_state_cache_matches_reviewed_progress():
+def test_historical_ch02_batch_remains_accepted_after_p04_state_advances():
+    audit = json.loads(AUDIT_PATH.read_text(encoding="utf-8"))
+    summary = audit["summary"]
+    assert summary["candidate_rows"] == 100
+    assert summary["accepted_reusable_candidate_rows"] == 54
+    assert summary["case_support_only_candidate_rows"] == 33
+    assert summary["held_time_scope_candidate_rows"] == 11
+    assert summary["held_gap_groups"] == 5
+
     state = STATE_PATH.read_text(encoding="utf-8")
-    assert 'status: "INTEGRATING"' in state
-    assert 'canonical_checkpoint: "P04_CH02_101_200_INTEGRATING"' in state
-    assert 'active_issue: 953' in state
-    assert 'active_candidate_batch: "CH02-101…200"' in state
-    assert "active_candidate_rows_reviewed: 100" in state
-    assert "proposed_reusable_source_records: 56" in state
-    assert "proposed_case_support_only_source_records: 35" in state
-    assert "proposed_held_candidates: 11" in state
-    assert "proposed_gap_groups: 5" in state
+    assert "CH02 (#953/#960) merged at main" in state
+    assert any(
+        f'status: "{status}"' in state
+        for status in ("ACTIVE_BUILD", "READY_TO_INTEGRATE", "INTEGRATING", "ACTIVE_NO_ACTIVE_WORK")
+    )
+    assert 'active_candidate_batch: "CH02-101…200"' not in state
