@@ -145,7 +145,9 @@ def test_historical_ch02_batch_remains_accepted_after_p04_state_advances():
     assert summary["held_gap_groups"] == 5
 
     state = STATE_PATH.read_text(encoding="utf-8")
-    assert "CH02 (#953/#960) merged at main" in state
+    # The historical CH02 acceptance is immutable, but the P04 recovery cache may advance.
+    assert "CH02 (#953/#960) merged at " in state
+    assert "76a34c14d73371a96b4144c396a491b23e098b48" in state
     assert any(
         f'status: "{status}"' in state
         for status in ("ACTIVE_BUILD", "READY_TO_INTEGRATE", "INTEGRATING", "ACTIVE_NO_ACTIVE_WORK")
