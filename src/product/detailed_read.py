@@ -1,8 +1,10 @@
-"""DetailedRead private-chat planning contract v0.1.
+"""DetailedRead private-chat planning and session orchestration contract v0.1.
 
-This module plans a full-chart, multi-turn reading on top of the accepted
-QuickRead evidence contract. It does not calculate a chart, read GitHub,
-call an LLM, or create a second rule/knowledge engine.
+The planner defines full-chart, multi-turn retrieval on top of the accepted
+QuickRead evidence contract. The session delegates read-only accepted-main
+retrieval to the QuickRead reader and pins all atomic reads to one main SHA.
+It does not calculate a chart, execute runtime rules, call an LLM, or create
+a second rule/knowledge engine.
 """
 
 from __future__ import annotations
@@ -906,16 +908,23 @@ class DetailedReadSession:
             item["inspection_status"] == "INSPECTED"
             for item in natal_coverage
         )
+        all_planned_slots_complete = all(
+            item["inspection_status"] == "INSPECTED"
+            for item in coverage
+        )
+        session_status = (
+            "NATAL_INSPECTION_COMPLETE"
+            if natal_complete and all_planned_slots_complete
+            else "NATAL_INSPECTION_COMPLETE_TEMPORAL_PENDING"
+            if natal_complete
+            else "IN_PROGRESS"
+        )
         return {
             "schema_version": SCHEMA_VERSION,
             "reading_mode": "DETAILED_READ",
             "target_id": self.plan.target_id,
             "main_sha": self.main_sha,
-            "session_status": (
-                "NATAL_INSPECTION_COMPLETE"
-                if natal_complete
-                else "IN_PROGRESS"
-            ),
+            "session_status": session_status,
             "natal_domain_count_required": len(NATAL_DOMAIN_ORDER),
             "natal_domain_count_inspected": sum(
                 1
