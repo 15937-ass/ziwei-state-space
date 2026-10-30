@@ -430,5 +430,68 @@
     "predictive_validity_claim_allowed": false,
     "verification_contract": "Exact-head CI must validate candidate bundle bytes, 61-artifact inventory, active lock integrity, zero K_manifest artifacts, mapping/node authority flags, P3 matrix consistency and impact graph."
   },
-  "next_action": "WAIT_FOR_EXPLICIT_ACCEPTED_KNOWLEDGE_PRODUCT_CONSUMABLE_AUTHORITY; THEN OPEN SEPARATE P5 PROMOTION WORK UNIT IF A REAL CANDIDATE EXISTS"
+  "next_action": "WAIT_FOR_EXPLICIT_ACCEPTED_KNOWLEDGE_PRODUCT_CONSUMABLE_AUTHORITY; THEN OPEN SEPARATE P5 PROMOTION WORK UNIT IF A REAL CANDIDATE EXISTS",
+  "post_p3_main_dependency_recheck": {
+    "current_main_commit": "cdf7a0e5348264e92f62ac527b9ed6f71e9f0d00",
+    "current_main_merge": "P02 #928 / PR #929 source-stage closure; merge adds Knowledge-owned source-stage and lexical-contract evidence only",
+    "main_delta_from_p3_base_file_count": 21,
+    "relevant_source_audit": {
+      "path": "knowledge/palaces/P02_siblings/wp05/SIBLINGS_SB04_WUQU_SOURCE_AUDIT_v0.1.json",
+      "git_blob_sha": "a5182231d6f1824b98f68416ce24da0cb0514f04",
+      "unchanged_since_p3_base": true,
+      "referenced_rows": [
+        "P02S-137",
+        "P02S-169"
+      ]
+    },
+    "source_stage_closure": {
+      "path": "knowledge/palaces/P02_siblings/handoff/issue_928/INDEPENDENT_STAGE_CLOSURE_VERDICT_v0.2.json",
+      "git_blob_sha": "4e6d2389673ff52be3ea4235e9e8c9353f57508a",
+      "verdict": "SOURCE_AUDIT_STAGE_CLOSED_WITH_RETAINED_HOLDS",
+      "approved": true,
+      "source_records": 424,
+      "accepted_including_case": 284,
+      "accepted_reusable_source_method": 180,
+      "accepted_case_only": 104,
+      "held": 140,
+      "gap_groups": 49,
+      "all_semantics_resolved": false,
+      "scope": "BOUNDED_SOURCE_STAGE_ONLY_NOT_SEMANTIC_OR_EMPIRICAL_COMPLETION"
+    },
+    "p02_state": {
+      "path": "knowledge/states/P02_SIBLINGS_STATE.yaml",
+      "git_blob_sha": "a8e1b1303fe67e54c7abf2d1245c99ae85b8c98a",
+      "canonical_checkpoint": "P02_SOURCE_AUDIT_STAGE_CLOSED_WITH_RETAINED_HOLDS__ISSUE_928",
+      "execution_unlocked": 0,
+      "history_feedback": 0
+    },
+    "referenced_source_rows": [
+      {
+        "source_rule_id": "P02S-137",
+        "disposition": "SOURCE_REUSABLE",
+        "source_span_verified": true,
+        "normalization_verified": true,
+        "canonical_promotion": true,
+        "canonical_mapping_approved": false,
+        "executable": false,
+        "product_consumable": false,
+        "gap_id": null,
+        "time_layer": "NATAL"
+      },
+      {
+        "source_rule_id": "P02S-169",
+        "disposition": "SOURCE_REUSABLE",
+        "source_span_verified": true,
+        "normalization_verified": true,
+        "canonical_promotion": true,
+        "canonical_mapping_approved": false,
+        "executable": false,
+        "product_consumable": false,
+        "gap_id": null,
+        "time_layer": "NATAL"
+      }
+    ],
+    "impact_on_p4": "NO_CHANGE_TO_ACCEPTED_15_MAPPING_OR_P3_FREEZE; BOTH_REFERENCED_P02_SOURCE_ROWS_REMAIN_SOURCE_REUSABLE_AND_FAIL_CLOSED; 140_OTHER_HELD_ROWS_AND_49_GAPS_REMAIN_RETAINED",
+    "conclusion": "P4 source dependencies remain valid after current main advances to cdf7a0e; no authority flags changed and no P4 admission is implied."
+  }
 }
