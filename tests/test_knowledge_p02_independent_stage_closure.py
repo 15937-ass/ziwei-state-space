@@ -21,6 +21,10 @@ def sha256(path):
 def test_source_stage_closure_is_not_semantic_or_runtime_completion():
     verdict = read(VERDICT)
     state = STATE.read_text(encoding="utf-8")
+    manifest = read(MANIFEST)
+    assert verdict["census_manifest_snapshot_immutable"] is True
+    assert manifest["whole_chapter_complete"] is False
+    assert manifest["independent_stage_handoff_review_complete"] is False
     assert verdict["verdict"] == "SOURCE_AUDIT_STAGE_CLOSED_WITH_RETAINED_HOLDS"
     assert verdict["stage_closure_authorized"] is True
     assert verdict["whole_chapter_complete"] is True

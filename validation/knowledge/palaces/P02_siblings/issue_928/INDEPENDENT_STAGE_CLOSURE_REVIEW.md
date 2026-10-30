@@ -104,6 +104,8 @@
 
 这不是条件编译完成、正式 mapping 完成、runtime 解锁或经验验证完成。
 
+注意：v0.2 manifest 是冻结的清点证据快照；其自身的 `whole_chapter_complete=false` 与 `independent_stage_handoff_review_complete=false` 保持原样，不回写历史证据。后续独立阶段 verdict 与 P02 state 才记录本次来源阶段收口。这两个层级不可混为一谈。
+
 P04 子女宫是顺序上的下一宫，但不在本 Issue 中自动启动。须待本 PR 接受并释放 P02 槽位后，重新检查依赖、顺序和实时工作槽位，再建立独立的有界工作单。
 
 ## 6. 交付与后续集成
