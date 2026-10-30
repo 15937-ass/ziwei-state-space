@@ -23,7 +23,7 @@ def test_product_state_starts_with_natal_detailed_read_without_kib_promotion() -
     state = _read("product/PRODUCT_STATE.yaml")
 
     assert 'next_work_unit: "PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1"' in state
-    assert 'next_work_status: "READY_TO_ADMIT_CORE_INDEPENDENT_NATAL_DETAILED_READ"' in state
+    assert 'next_work_status: "READY_TO_ADMIT"' in state
     assert 'continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"' in state
     assert "Active KIB v0.3 / lock remain unchanged" in state
     assert "No KIB promotion" in state
