@@ -198,13 +198,15 @@ def _session_bundle(
     has_more=False,
     seen_evidence_ids=(),
     excluded_case_only=0,
+    runtime_status="NOT_AVAILABLE",
+    source_status="NOT_AVAILABLE",
 ):
     slot = request.requested_slots[0]
     record = CapabilityRecord(
         slot=slot,
-        runtime_status="NOT_AVAILABLE",
-        source_status="NOT_AVAILABLE",
-        reason="Synthetic test has no accepted runtime/source evidence.",
+        runtime_status=runtime_status,
+        source_status=source_status,
+        reason="Synthetic test preserves the supplied capability status.",
     )
     manifest = CapabilityManifest(
         main_sha=main_sha,
@@ -230,8 +232,8 @@ def _session_bundle(
                     "slot_id": slot.slot_id,
                     "domain": slot.domain,
                     "temporal_layer": slot.temporal_layer,
-                    "runtime_status": "NOT_AVAILABLE",
-                    "source_status": "NOT_AVAILABLE",
+                    "runtime_status": runtime_status,
+                    "source_status": source_status,
                     "runtime_rule_count": 0,
                     "source_evidence_total_eligible": 0,
                     "source_evidence_selected_this_batch": 0,
@@ -448,4 +450,25 @@ def test_running_a_completed_stage_is_idempotent():
 
     assert len(calls) == first_count
     assert repeated["completed"] is True
+
+def test_unknown_capability_status_is_preserved_instead_of_becoming_available():
+    def loader(request, **kwargs):
+        return _session_bundle(
+            request,
+            runtime_status="UNKNOWN",
+            source_status="UNKNOWN",
+        )
+
+    plan = build_detailed_read_plan("完整详批", "chart-001")
+    session = DetailedReadSession(plan, loader=loader)
+    session.run_stage(plan.retrieval_batches()[0]["stage_id"])
+    life = next(
+        item for item in session.to_dict()["coverage"]
+        if item["slot_id"] == "life_natal"
+    )
+
+    assert life["runtime_status"] == "UNKNOWN"
+    assert life["source_status"] == "UNKNOWN"
+    assert life["runtime_evidence_count"] == 0
+    assert life["source_evidence_count"] == 0
 
