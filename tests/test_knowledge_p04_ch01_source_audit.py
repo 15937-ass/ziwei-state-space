@@ -89,7 +89,7 @@ def test_no_execution_mapping_or_history_feedback_is_authorized():
     assert data["execution_boundary"]["product_or_kib_authorized"] is False
     assert all(not item["executable"] and not item["canonical_mapping_approved"] and not item["history_feedback"] for item in data["candidate_adjudications"])
     state = STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE_NO_ACTIVE_WORK"' in state
-    assert 'active_issue: null' in state
-    assert 'active_pr: null' in state
-    assert 'canonical_checkpoint: "P04_CH01_001_100_ACCEPTED_WITH_RETAINED_TIME_SCOPE_HOLDS"' in state
+    assert 'status: "ACTIVE_BUILD"' in state
+    assert 'active_issue: 943' in state
+    assert 'active_pr: 944' in state
+    assert 'canonical_checkpoint: "P04_CH01_001_100_SOURCE_FIRST_REVALIDATION_PROPOSED"' in state
