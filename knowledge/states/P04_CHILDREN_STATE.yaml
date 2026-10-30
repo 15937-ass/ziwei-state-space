@@ -8,12 +8,12 @@ canonical_branch: "main"
 contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
 
 execution:
-  status: "ACTIVE_BUILD"
-  active_issue: 943
-  active_branch: "knowledge/p04-943-children-ch01-001-100-source-audit"
-  active_pr: 944
-  canonical_checkpoint: "P04_CH01_001_100_SOURCE_FIRST_REVALIDATION_PROPOSED"
-  note: "P04 #943 is the sole active palace unit after P02 release. The 800-row CH01-CH08 WP05 archive remains historical/noncanonical. CH01-001…100 has a proposed source-first re-adjudication: 61 reusable source projections, 33 CASE candidate rows (34 CASE source records because CH01-022 splits two claims), and 6 time-scope holds across 3 gaps. This is branch work pending exact-head acceptance; no source record is executable or mapping-approved. P04 body spans printed pp51–68 / PDF physical pp26–34; p51 starts after the P03 tail heading, p68 remains P04, P05 body heading is p69 despite the TOC p68 entry."
+  status: "ACTIVE_NO_ACTIVE_WORK"
+  active_issue: null
+  active_branch: null
+  active_pr: null
+  canonical_checkpoint: "P04_CH01_001_100_ACCEPTED_WITH_RETAINED_TIME_SCOPE_HOLDS"
+  note: "P04 #943 / PR #944 accepted the bounded CH01-001…100 source-first checkpoint; P04 slot is released after this merge. The 800-row CH01-CH08 WP05 archive remains historical/noncanonical. Accepted checkpoint: 61 reusable source projections, 33 CASE candidate rows (34 CASE source records because CH01-022 splits two claims), and 6 time-scope holds across 3 gaps. No source record is executable or mapping-approved. CH02-101…200 requires a separate issue and fresh dependency/slot census. P04 body spans printed pp51–68 / PDF physical pp26–34; p51 starts after the P03 tail heading, p68 remains P04, P05 body heading is p69 despite the TOC p68 entry."
 
 integrity:
   source_first: true
@@ -36,14 +36,14 @@ progress:
   active_candidate_rows_reviewed: 100
   distinct_condition_strings_in_batch: 87
   multi_output_condition_groups: 13
-  proposed_reusable_source_records: 61
-  proposed_case_support_only_source_records: 34
-  proposed_held_candidates: 6
-  proposed_gap_groups: 3
+  accepted_reusable_source_records: 61
+  accepted_case_support_only_source_records: 34
+  held_candidates: 6
+  retained_gap_groups: 3
   history_feedback: 0
   conditions_compiled: 0
   execution_unlocked: 0
-  next_source_anchor: "CH02-101…200 only after separate admission following acceptance of #943; remaining p53 Ziwei-Qisha/general Ziwei/Tianji opening is not included in CH01."
+  next_source_anchor: "CH02-101…200; admit only through a separate bounded issue after fresh dependency and slot census; remaining p53 Ziwei-Qisha/general Ziwei/Tianji opening is not included in CH01."
 
 human_gate:
   pending: null
