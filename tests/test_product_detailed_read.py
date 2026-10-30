@@ -12,6 +12,7 @@ from src.product.detailed_read import (
 from src.product.quickread_capability import (
     CapabilityManifest,
     CapabilityRecord,
+    EvidenceSourceRef,
     QuickReadEvidenceItem,
 )
 from src.product.quickread_main_reader import (
@@ -200,12 +201,19 @@ def _session_bundle(
     excluded_case_only=0,
     runtime_status="NOT_AVAILABLE",
     source_status="NOT_AVAILABLE",
+    evidence_items=(),
 ):
     slot = request.requested_slots[0]
+    source_refs = tuple(
+        ref for item in evidence_items for ref in item.source_refs
+    )
+    if evidence_items and source_status == "NOT_AVAILABLE":
+        source_status = "AVAILABLE"
     record = CapabilityRecord(
         slot=slot,
         runtime_status=runtime_status,
         source_status=source_status,
+        source_refs=source_refs,
         reason="Synthetic test preserves the supplied capability status.",
     )
     manifest = CapabilityManifest(
@@ -217,7 +225,7 @@ def _session_bundle(
     return MainKnowledgeBundle(
         request=request,
         manifest=manifest,
-        evidence_items=(),
+        evidence_items=tuple(evidence_items),
         providers=(),
         reader_report={
             "main_sha": main_sha,
@@ -235,8 +243,8 @@ def _session_bundle(
                     "runtime_status": runtime_status,
                     "source_status": source_status,
                     "runtime_rule_count": 0,
-                    "source_evidence_total_eligible": 0,
-                    "source_evidence_selected_this_batch": 0,
+                    "source_evidence_total_eligible": len(evidence_items),
+                    "source_evidence_selected_this_batch": len(evidence_items),
                     "source_evidence_already_seen": len(seen_evidence_ids),
                     "source_evidence_remaining_after_batch": 2 if has_more else 0,
                     "reason": "No accepted evidence in this synthetic fixture.",
@@ -471,4 +479,50 @@ def test_unknown_capability_status_is_preserved_instead_of_becoming_available():
     assert life["source_status"] == "UNKNOWN"
     assert life["runtime_evidence_count"] == 0
     assert life["source_evidence_count"] == 0
+
+def test_cross_domain_source_tensions_are_preserved_for_the_synthesis_pass():
+    def loader(request, **kwargs):
+        slot = request.requested_slots[0]
+        if slot.domain == "career":
+            claim = "事业发展较依赖稳定组织平台。"
+        elif slot.domain == "wealth":
+            claim = "财富增长更依赖项目机会与收入结构变化。"
+        else:
+            return _session_bundle(request)
+        ref = EvidenceSourceRef(
+            source_id=f"SYNTHETIC-{slot.domain.upper()}",
+            source_location=f"synthetic-fixture:{slot.domain}",
+            review_status="SOURCE_SPAN_VERIFIED",
+            allowed_use="SEMANTIC_ONLY",
+            namespace="CANONICAL",
+            time_layer="NATAL",
+        )
+        item = QuickReadEvidenceItem(
+            evidence_id=f"SOURCE:{slot.domain}:001",
+            slot_id=slot.slot_id,
+            lane="SOURCE",
+            claim=claim,
+            source_refs=(ref,),
+            epistemic_label="SOURCE_GROUNDED",
+        )
+        return _session_bundle(
+            request,
+            source_status="AVAILABLE",
+            evidence_items=(item,),
+        )
+
+    plan = build_detailed_read_plan("完整详批", "chart-001")
+    session = DetailedReadSession(plan, loader=loader)
+    result = session.run_all_stages()
+    source_claims = {
+        item["claim"] for item in result["evidence"]["source"]
+    }
+
+    assert "事业发展较依赖稳定组织平台。" in source_claims
+    assert "财富增长更依赖项目机会与收入结构变化。" in source_claims
+    assert len(result["evidence"]["source"]) == 2
+    assert any(
+        item["check_id"] == "career_wealth"
+        for item in result["cross_domain_checks"]
+    )
 
