@@ -136,3 +136,18 @@ The P02 source-audit file is byte-identical to the P3 baseline (Git blob `a51822
 The newly accepted P02 stage closure is explicitly bounded source-stage closure: 424 reviewed, 284 accepted (180 reusable + 104 case-only), 140 held, 49 gap groups; `all_semantics_resolved=false`, execution unlocked = 0, history feedback = 0. This does not grant Product consumption authority. The P02 state file records the same bounded closure and says P04 requires a separate issue and fresh admission.
 
 Therefore the newer Knowledge main does not invalidate this P4 assessment, does not change any of the 15 mapping flags, and does not justify K_manifest admission. All P4 fail-closed boundaries remain unchanged.
+
+
+## 9. Latest Core C8 main checkpoint
+
+After the P02 stage closure, Core #941 / PR #942 merged a four-file WP07B-GAP-011 descriptive negation audit. Current main is now `fa62cebd619646b9c53ca0dba88291a5c45c8141`.
+
+The full delta from the accepted P3 baseline is 24 files, all Knowledge-owned. The incremental delta after the previous P4 recheck at `cdf7a0e` is exactly four WP07B-owned files:
+- `knowledge/core/wp07b/GAP011_NEGATION_SOURCE_AUDIT_v0.1.json`
+- `knowledge/core/wp07b/GAP011_NEGATION_SOURCE_AUDIT_v0.1.md`
+- its deterministic test
+- its execution evidence
+
+The Core C8 verdict is `DESCRIPTIVE_NEGATION_CLASSIFICATION_NO_EXECUTION`; it explicitly grants no Product, KIB, runtime, schema, probability or predictive-validity authority. The P02 source audit, P02 closure, P02 state, WP06B/WP06C mapping indexes, and P3 freeze pins remain unchanged. The five Product files in PR #940 remain disjoint from all 24 Knowledge files.
+
+Therefore the latest Core checkpoint does not alter the P4 assessment or any Product-consumption boundary.
