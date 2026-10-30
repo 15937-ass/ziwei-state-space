@@ -28,7 +28,7 @@
 
 ### 产品线
 
-> 继续 15937-ass/ziwei-state-space 的产品线。先读取 main 上的 CHATGPT_START_HERE.md，按标准恢复顺序读取 governance/THREE_STREAM_START_HERE.md、governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md 和 Product plan pointer #900，核对实时 Product Issue/PR 与旧对话交接。若已有 ACTIVE Product 单则接续；若 Product 槽位空闲则直接领取计划中最早可执行的 bounded nominee（首个工作单元：PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1），无需让我重述顺序。Product 只消费正式接受且 pin 住的 Knowledge/Core checkpoint，不跟随未合并分支；每轮写回可恢复检查点，遇到计划规定的 Human Gate 才停下来，结束时汇报三线状态和下次继续的位置。
+> 继续 15937-ass/ziwei-state-space 的产品线。先读取 main 上的 CHATGPT_START_HERE.md，按标准恢复顺序读取 governance/THREE_STREAM_START_HERE.md、governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md 和 Product plan pointer #900，核对实时 Product Issue/PR 与旧对话交接。若已有 ACTIVE Product 单则接续；若 Product 槽位空闲则直接领取计划中最早可执行的 bounded nominee（首个工作单元：PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1），无需让我重述顺序。Product 原局详批可使用当前 main 已接受的 RUNTIME 与 allowed SOURCE；DECADE/YEAR 只消费已接受且明确可供 Product 使用的时间层 checkpoint，不跟随未合并分支；每轮写回可恢复检查点，遇到计划规定的 Human Gate 才停下来，结束时汇报三线状态和下次继续的位置。
 
 若只想看进度，发“查看三线状态”：只读核对实时宫位、Core、Product 及 main，给一个优先建议，不领取新任务。
 
@@ -99,4 +99,4 @@
 
 本文只提供稳定入口和已有安排的依赖说明，不新增调度器、自动化、权限、必需检查或第四条执行线，不改变现有 WIP、Human Gate、逐宫安排和知识包晋升规则。打开新对话不保证其有 GitHub 工具权限；无法核实时明确报告“未核实”，不按旧聊天猜进度。
 
-日常进度只写所属 Issue/PR 及其版本化证据，不为更新此导航快照而跨线改文件。只有入口或安排确需修改时才走独立有界 Governance 任务。回滚本次两份文档改动即可撤销入口，原三线成果与语义不受影响。
+日常进度只写所属 Issue/PR 及其版本化证据，不为更新此导航快照而跨线改文件。只有入口或安排确需修改时才走独立有界 Governance 任务。回滚本次 Governance PR 中的计划、状态缓存与启动入口改动即可撤销本路线调整；历史知识成果和语义不受影响，原三线成果与语义不受影响。
