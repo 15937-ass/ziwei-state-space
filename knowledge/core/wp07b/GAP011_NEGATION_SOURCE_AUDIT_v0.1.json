@@ -1,0 +1,149 @@
+{
+  "schema_version": "0.1",
+  "issue": 941,
+  "work_unit": "KB_CORE_WP07B_NEGATION_SOURCE_AUDIT_C8",
+  "lane": "KNOWLEDGE_ONLY",
+  "shard": "CORE",
+  "status": "SOURCE_AUDIT_COMPLETE_DESCRIPTIVE_ONLY",
+  "verdict": "DESCRIPTIVE_NEGATION_CLASSIFICATION_NO_EXECUTION",
+  "source_basis": {
+    "source_id": "SRC-ZZ-003",
+    "source_title": "《中州派紫微斗数深造讲义（下）》",
+    "source_pdf_sha256": "6bddb3cac2e4b4efcf265229cbda22904ab3394aeef832e338ee5939088e5c5c",
+    "printed_pages": [
+      157,
+      162
+    ],
+    "physical_pdf_pages_1based": [
+      79,
+      81
+    ],
+    "direct_visual_recheck": true
+  },
+  "prior_accepted_contracts": {
+    "issue_922": {
+      "verdict": "SHARED_DESCRIPTIVE_TAXONOMY_ONLY",
+      "accepted_main": "313938e0856009aed2c9233f3da3ae02dc7ae791",
+      "constraints": [
+        "吉曜 remains OPEN_WORLD",
+        "group membership is separate from activation",
+        "source compounds preserve composition",
+        "no universal favorable-period predicate",
+        "no executable group predicate"
+      ]
+    },
+    "wp07b_gap": "WP07B-GAP-011-NEGATION",
+    "human_gate_candidate": {
+      "id": "HG-WP07B-SOURCE-NEGATION-01",
+      "status": "FUTURE_NOT_PENDING",
+      "required_now": false
+    }
+  },
+  "source_semantics": {
+    "common_observation": "The three source rows contain explicit negative wording, but that does not by itself define a closed observation universe or an executable absence fact.",
+    "source_native_negative_condition_supported": true,
+    "universal_closed_world_negation_supported": false,
+    "absence_from_incomplete_fact_snapshot_equals_source_absence": false,
+    "observation_domain_completeness": "NOT_SPECIFIED_BY_REVIEWED_SOURCE_SPANS",
+    "group_membership": {
+      "吉曜": "OPEN_WORLD_PER_ACCEPTED_ISSUE_922",
+      "煞": "SOURCE_SCOPE_BOUND; no universal closed membership set established by this audit"
+    },
+    "shared_executable_operator_created": false,
+    "schema_changed": false
+  },
+  "records": [
+    {
+      "id": "TP01-050",
+      "source_location": "SRC-ZZ-003 / Property / printed p157 / physical PDF p79",
+      "source_negative_surface": "不见吉曜",
+      "source_context": "A contrastive branch following the preceding favorable-star / transformation / auxiliary-star context; canonical row inherits the preceding TP01-049 context.",
+      "antecedent": "TP01-049",
+      "layer": "YEAR",
+      "semantic_disposition": "SOURCE_LOCAL_NEGATIVE_BRANCH_INHERITED_PARENT",
+      "category_scope": "吉曜 remains open-world; no closed member list or exhaustive observation domain is specified here.",
+      "observation_completeness": "UNSPECIFIED",
+      "other_blockers_preserved": [
+        "PARENT_ANTECEDENT_REQUIRED",
+        "NEGATED_GENERIC_BENEFIC_GROUP_UNDEFINED"
+      ],
+      "executable": false
+    },
+    {
+      "id": "TP01-061",
+      "source_location": "SRC-ZZ-003 / Property / printed p157 / physical PDF p79",
+      "source_negative_surface": "不见煞",
+      "source_context": "Annual Tianji Hua Ji migration clause; the source states the negative branch does not imply an adverse result.",
+      "source_span_excerpt": "流年天机化忌主迁动，不见煞，则亦不主凶。",
+      "layer": "YEAR",
+      "semantic_disposition": "SOURCE_LOCAL_NEGATIVE_CONDITION_WITH_UNDEFINED_GROUP_SCOPE",
+      "category_scope": "煞 membership and the relevant observation domain are not closed by this source span.",
+      "observation_completeness": "UNSPECIFIED",
+      "other_blockers_preserved": [
+        "NEGATED_GENERIC_MALEFIC_GROUP_UNDEFINED",
+        "STAR_MUTAGEN_BINDING_REQUIRES_EXACT_RUNTIME_SHAPE"
+      ],
+      "executable": false
+    },
+    {
+      "id": "TP03-234",
+      "source_location": "SRC-ZZ-003 / Property / printed p162 / physical PDF p81",
+      "source_negative_surface": "不见煞",
+      "source_context": "The source explicitly contrasts a seen-malefic branch with a not-seen-malefic branch; the latter still carries a negative investment judgement.",
+      "source_span_excerpt": "见煞主产业损耗，不见煞亦不宜作物业投资。",
+      "layer": "YEAR",
+      "semantic_disposition": "SOURCE_LOCAL_NEGATIVE_ALTERNATIVE_BRANCH_PRESERVE_CONTRAST",
+      "category_scope": "煞 membership and the relevant observation domain are not closed by this source span.",
+      "observation_completeness": "UNSPECIFIED",
+      "other_blockers_preserved": [
+        "NEGATED_GENERIC_MALEFIC_GROUP_UNDEFINED",
+        "BRIGHTNESS_NOT_TEMPORAL_CONDITION_FACT"
+      ],
+      "executable": false
+    }
+  ],
+  "gap_disposition": {
+    "gap_id": "WP07B-GAP-011-NEGATION",
+    "disposition": "DESCRIPTIVE_NEGATION_CLASSIFIED_EXECUTABLE_HOLD",
+    "impacted_rule_ids": [
+      "TP01-050",
+      "TP01-061",
+      "TP03-234"
+    ],
+    "source_native_negative_phrases_confirmed": true,
+    "shared_closed_world_contract_established": false,
+    "runtime_semantics_added": false,
+    "remaining_blocker": "No source-backed complete observation universe and no accepted closed membership contract permit the system to distinguish true source absence from an unobserved or unrecorded member."
+  },
+  "forbidden_inferences": [
+    "not present in the current fact snapshot means source-level absence",
+    "吉曜 has a universal closed member list",
+    "煞 has one universal closed member list for every palace/context",
+    "TP01-050 is independent of TP01-049",
+    "TP03-234 seen and not-seen branches can be flattened",
+    "negative wording authorizes a generic NOT_EXISTS operator",
+    "descriptive negative classification authorizes Product/runtime execution"
+  ],
+  "boundaries": {
+    "source_records_added": 0,
+    "source_records_rewritten": 0,
+    "palace_files_changed": false,
+    "wp05_projection_files_changed": false,
+    "product_files_changed": false,
+    "runtime_changed": false,
+    "kib_changed": false,
+    "shared_schema_changed": false,
+    "conditions_compiled": 0,
+    "execution_unlocked": 0,
+    "probability_added": false,
+    "empirical_validity_claim": false,
+    "human_gate_required_now": false
+  },
+  "next": {
+    "TP01-050": "remain fail-closed; preserve TP01-049 parent and source-local negative branch",
+    "TP01-061": "remain fail-closed; retain star-bound mutagen and negative-group blockers",
+    "TP03-234": "remain fail-closed; preserve seen/not-seen contrast and brightness blocker",
+    "human_gate": "only if a future proposal requires a universal executable closed-world absence predicate",
+    "next_core_review": "Re-evaluate remaining WP07B blockers, including GAP-007 persistence/path, after this audit is accepted."
+  }
+}
