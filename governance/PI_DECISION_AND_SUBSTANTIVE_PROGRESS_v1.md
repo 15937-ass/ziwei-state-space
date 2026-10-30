@@ -1,6 +1,8 @@
 # PI Decision Rights and Substantive Progress Contract v1
 
-Status: **ACTIVE BUILD / GOVERNANCE CONTRACT**
+Version: **v1**
+Approval: **PI-approved scope under Issue #962**
+Operational authority: **effective only after acceptance into main**
 Work unit: `PI_DECISION_AND_SUBSTANTIVE_PROGRESS_CONTRACT_V1`
 Owner: Governance
 Operational integration: `AGENT_WORKFLOW.md` §§5, 7 and 13; canonical session entry: `CHATGPT_START_HERE.md`.
