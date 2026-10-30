@@ -46,6 +46,9 @@ def test_candidate_inventory_and_new_dispositions_reconcile():
     split = next(item for item in dispositions if item["legacy_candidate_id"] == "CH01-022")
     assert len(split["source_record_ids"]) == 2
     assert split["case_support_only"]
+    assert all(item["source_text_directly_reviewed"] and item["source_condition_supported"] and item["source_location_revalidated"] for item in dispositions)
+    row19 = next(item for item in dispositions if item["legacy_candidate_id"] == "CH01-019")
+    assert row19["adjudicated_target"] == "child_quality_assessment_only_not_automatic_affliction"
 
 
 def test_time_scope_holds_and_explicit_decade_year_alternative_are_preserved():
@@ -77,6 +80,10 @@ def test_source_boundary_and_cross_palace_rules_are_fail_closed():
     assert by_id["CH01-008"]["routing_target_palace"] == "P08"
     assert by_id["CH01-009"]["routing_target_palace"] == "P04"
     assert by_id["CH01-067"]["cross_palace_refs"] == ["P03"]
+    row99 = by_id["CH01-099"]
+    assert row99["disposition"] == "CASE_SUPPORT_ONLY"
+    assert "moralized behavioral-risk" in row99["adjudication_note"]
+    assert "reusable modern" in row99["adjudication_note"]
 
 
 def test_no_execution_mapping_or_history_feedback_is_authorized():
