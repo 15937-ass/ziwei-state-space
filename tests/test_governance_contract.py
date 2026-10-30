@@ -141,3 +141,79 @@ def test_knowledge_shard_contract_is_active():
     assert registry["limits"]["per_palace_wip"] == 1
     assert set(registry["palaces"]) == {f"P{i:02d}" for i in range(1, 13)}
     assert 'mode: "PALACE_SHARDED_V1"' in coordinator
+
+
+def test_pi_decision_and_substantive_progress_contract_is_wired_into_workflow():
+    contract = (ROOT / "governance/PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md").read_text(encoding="utf-8")
+    workflow = (ROOT / "AGENT_WORKFLOW.md").read_text(encoding="utf-8")
+    bootstrap = (ROOT / "CHATGPT_START_HERE.md").read_text(encoding="utf-8")
+    assert "PI-reserved decisions" in contract
+    assert "Autonomous execution within approved scope" in contract
+    assert "PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md" in workflow
+    assert "PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md" in bootstrap
+    assert "one primary outcome class" in workflow
+    assert "The PI reserves research mission/priority/resource/WIP decisions" in workflow
+
+
+def test_every_repository_work_turn_has_one_truthful_primary_outcome_class():
+    contract = (ROOT / "governance/PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md").read_text(encoding="utf-8")
+    for outcome in (
+        "SUBSTANTIVE_DELTA",
+        "BLOCKER_IDENTIFIED",
+        "VALIDATION_ONLY",
+        "STATUS_ONLY",
+        "NO_SUBSTANTIVE_PROGRESS",
+    ):
+        assert outcome in contract
+    assert "exactly one primary outcome class" in contract
+    assert "Validation is a quality gate; it is not by itself new research progress." in contract
+    assert "Explicitly state that no substantive progress was made." in contract
+
+
+def test_anti_ceremony_rules_exclude_administrative_activity_as_progress():
+    contract = (ROOT / "governance/PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md").read_text(encoding="utf-8")
+    for marker in (
+        "commit count",
+        "lines changed",
+        "Issue/PR state transitions",
+        "repeated reads",
+        "newly created scaffolding",
+        "unchanged test reruns",
+    ):
+        assert marker in contract
+    assert "No single numeric KPI replaces evidence-based acceptance." in contract
+
+
+def test_line_specific_progress_criteria_preserve_epistemic_maturity():
+    contract = (ROOT / "governance/PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md").read_text(encoding="utf-8")
+    for lane in ("Knowledge", "Core", "Product", "Governance"):
+        assert f"### {lane}" in contract
+    for maturity in (
+        "source fidelity",
+        "formal/specification consistency",
+        "implementation correctness",
+        "internal validation",
+        "empirical calibration",
+        "causal identification",
+        "predictive validity",
+        "production readiness",
+    ):
+        assert maturity in contract
+
+
+def test_closeout_contract_extends_existing_six_sections_without_second_ledger():
+    contract = (ROOT / "governance/PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md").read_text(encoding="utf-8")
+    workflow = (ROOT / "AGENT_WORKFLOW.md").read_text(encoding="utf-8")
+    for heading in (
+        "【整个项目现在到哪了】",
+        "【宫位、Knowledge Core、Product 当前状态】",
+        "【这一步刚刚完成了什么】",
+        "【下一步准备做什么】",
+        "【现在需要 PI 帮助什么】",
+        "【需要你特别警惕的风险】",
+    ):
+        assert heading in workflow
+    assert "do not create a second status ledger" in contract
+    assert "whether PI judgment is required" in contract
+    assert "PI-judgment YES/NO" in workflow
+    assert "validation identity" in contract

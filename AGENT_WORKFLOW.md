@@ -71,6 +71,9 @@ After G8, GitHub Actions on standard public-repository runners is an approved ro
 
 Do not automatically chain into the next Issue in the same turn.
 
+At every repository-work turn, assign exactly one primary outcome class under `governance/PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md`: `SUBSTANTIVE_DELTA`, `BLOCKER_IDENTIFIED`, `VALIDATION_ONLY`, `STATUS_ONLY`, or `NO_SUBSTANTIVE_PROGRESS`. The class must describe the actual result, not activity volume. Record the evidence and limitations in the existing Issue/PR checkpoint and §13 closeout. Validation/status/administrative work is not substantive progress by itself. This classification does not change Issue lifecycle, lane ownership or WIP.
+
+
 ## 6. Proposal rule
 
 Substantial architecture/theory/governance changes follow governance/PROPOSAL_PROCESS.md.
@@ -86,6 +89,9 @@ R2: phase closure/cross-module integration/material ambiguity — independent re
 R3: Human Gate/canonical meaning/architecture boundary/causal upgrade — explicit PI approval.
 
 All PI review/Human-Gate material is written in Chinese.
+
+The PI reserves research mission/priority/resource/WIP decisions, school and theory interpretation, canonical source conflicts, shared semantic primitives, Human Gates, major architecture/cross-lane boundaries, and authorization of probability, causal, empirical-calibration or predictive-validity claims. Within an admitted Issue and approved plan, execution agents autonomously handle routine source work, implementation, critique/revision, tests, evidence bookkeeping, recovery, formatting, CI and lease/merge mechanics under existing protocols. Escalate only when the next safe action genuinely requires a PI-reserved decision; stop only that decision path and continue safe independent work. Never route routine Git/CI/test/formatting work to the PI.
+
 
 ## 8. Product anti-scaffolding
 
@@ -243,6 +249,9 @@ This section is a **hard final-response gate** for every repository-work convers
 The only exemption is an ordinary end-user QuickRead, DetailedRead, or other fortune-reading turn that performs no repository implementation, review, governance, status recovery, or other repository work. If repository work occurs anywhere in the same turn, the mandatory closeout applies. This reporting gate does not authorize writes in another lane, consume unmerged artifacts, or broaden the active Issue.
 
 The PI-facing report is domain- and project-oriented, not Git-oriented. The PI is expected to judge Ziwei theory, research boundaries, interpretation quality, and major product direction; routine Git mechanics should be hidden unless they block progress or create risk.
+
+Apply the one-primary-outcome rule in `governance/PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md`. Within the existing six sections, make the worked problem, outcome class, evidence-backed delta/blocker (or explicit no-progress statement), exact validation identity where applicable, unresolved uncertainty, next action and PI-judgment YES/NO recoverable. Do not add a seventh section or a second status ledger. Commits, file/line counts, status transitions, repeated reads and unchanged test reruns are not progress by themselves; preserve the separate maturity boundaries defined by the contract.
+
 
 At the end of **every repository-work conversation** (including read-only review, completed implementation, validation, or a blocked/paused work unit), perform a lightweight **read-only** live Issue/PR census for the current palace worker, Knowledge Core, and Product. Check accepted `main` where a delivery claim depends on it. Report all three in Chinese even though this turn executes in exactly one lane. Do not open an Issue, change another lane, rerun its tests, or consume an unmerged artifact merely to prepare the report. Live Issue/PR and accepted `main` outrank a stale state cache; if a live check fails, mark that lane **未核实** with the reason and do not recommend a dependent activation as if it were verified.
 
