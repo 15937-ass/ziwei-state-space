@@ -84,7 +84,7 @@ Product 的实质性问题按一个主类别记录：
 详细顺序见 [Core + Product Continuous Progression Plan v2](CORE_PRODUCT_CONTINUATION_PLAN_v2.md) 与 plan pointer #901。
 
 - C9 #945 / PR #946 已在 main 接受，不重新打开或扩展。下一项 Core 工作先用一个有界检查点核对 accepted v0.5 NATAL 结构与 Product 消费契约，识别已可复用内容和真实共享缺口，再推进时间层语义；不重建模型。
-- C9 关闭后，Core 下一优先级是 NATAL、DECADE、YEAR 的共享时间层关系与 response semantics：区分 NATAL 基础、DECADE 环境、YEAR 环境、`tau_t` 反应及有来源支持的层间依赖。
+- 完成 NATAL 结构消费契约检查后，Core 继续推进 NATAL、DECADE、YEAR 的共享时间层关系与 response semantics：区分 NATAL 基础、DECADE 环境、YEAR 环境、`tau_t` 反应及有来源支持的层间依赖。
 - 不预设大限与流年简单相加或线性叠加；保留来源前提、继承关系、跨宫依赖、修饰条件和 UNKNOWN/HOLD。
 - WP03 六十星系验证、WP06A 案例重建和王亭之案例作为原局/时间层推理链的验证材料，不再排在 Product 原局详批之前作为独立首要阻塞。
 - Core WIP 永远 <=1；不新建未经批准的通用算子、概率、因果或 Product/runtime 授权。
@@ -104,7 +104,7 @@ Product 的实质性问题按一个主类别记录：
 ### 三线并行和交接
 
 - 常态目标仍为 1 个宫位 + 1 个 Core + 1 个 Product 并行生产；各线 WIP 上限不变。
-- Product 原局详批可以与当前 Core C9、宫位来源研究并行，因为它消费的是当前 main 已接受的 NATAL 证据。
+- Product 原局详批 #951 可以与当前宫位来源研究和 Core 后续时间层研究并行，因为它消费的是当前 main 已接受的 NATAL 证据。
 - Product 发现接口问题归 Product；发现共享时间层语义缺口才交 Core；宫位来源缺口交对应 shard。
 - 正式集成仍由 #888 Integration Lease 串行控制。不得消费未合并分支。
 - Forecast Ledger 继续等待第一条 source-only `N -> E -> tau -> M0` vertical slice 真正可执行；传统案例忠实度不等于现实预测有效性。
