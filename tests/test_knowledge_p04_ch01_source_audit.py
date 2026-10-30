@@ -80,6 +80,10 @@ def test_source_boundary_and_cross_palace_rules_are_fail_closed():
     assert "first positive clause" in batch_end
     assert "ch02-101…103" in batch_end
     assert "unreviewed" in batch_end
+    a15 = next(anchor for anchor in data["source_anchors"] if anchor["id"] == "P04-CH01-A15")
+    assert "first positive clause" in a15["description"]
+    assert "adverse-condition continuation" in a15["description"]
+    assert "CH02-101…103" in a15["description"]
     by_id = {item["legacy_candidate_id"]: item for item in data["candidate_adjudications"]}
     assert by_id["CH01-008"]["routing_target_palace"] == "P08"
     assert by_id["CH01-009"]["routing_target_palace"] == "P04"
