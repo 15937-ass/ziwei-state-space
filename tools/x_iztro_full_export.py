@@ -116,9 +116,15 @@ def normalize_horoscope(raw, target):
 
 
 def render(case_input, targets):
+    if case_input.get("time_basis") != "true_solar_time":
+        raise ValueError("v1.1 differential input must declare time_basis=true_solar_time")
+    if case_input.get("location_correction_applied") is not False:
+        raise ValueError("v1.1 differential input must not receive a second location correction")
+    if case_input.get("day_divide") != "current":
+        raise ValueError("v1.1 differential input must use day_divide=current")
     config = ChartConfig(
         algorithm=case_input.get("algorithm", "zhongzhou"),
-        day_divide=case_input.get("day_divide", "forward"),
+        day_divide=case_input.get("day_divide", "current"),
         year_divide=case_input.get("year_divide", "normal"),
         horoscope_divide=case_input.get("horoscope_divide", "normal"),
         astro_type="heaven",
@@ -157,7 +163,7 @@ def render(case_input, targets):
                 "algorithm": case_input.get("algorithm", "zhongzhou"),
                 "astro_type": "heaven",
                 "fix_leap": bool(case_input.get("fix_leap", True)),
-                "day_divide": case_input.get("day_divide", "forward"),
+                "day_divide": case_input.get("day_divide", "current"),
                 "year_divide": case_input.get("year_divide", "normal"),
                 "horoscope_divide": case_input.get("horoscope_divide", "normal"),
                 "language": "zh-CN",
