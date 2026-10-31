@@ -59,7 +59,7 @@ Use the following labels when they improve clarity; they are not mandatory for e
 - STATUS_ONLY — read-only status recovery or report;
 - NO_SUBSTANTIVE_PROGRESS — attempted work did not establish a durable result.
 
-Commit count, lines changed, Issue/PR state transitions, repeated reads, newly created scaffolding and unchanged test reruns are not substantive progress by themselves. No single numeric KPI replaces evidence-based acceptance. Validation is a quality gate, not research progress.
+A commit count, lines changed, Issue/PR state transitions, repeated reads, newly created scaffolding and unchanged test reruns are not substantive progress by themselves. No single numeric KPI replaces evidence-based acceptance. Validation is a quality gate, not research progress.
 
 ## 6. Evidence and maturity boundaries
 
