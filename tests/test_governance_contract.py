@@ -101,7 +101,7 @@ def test_conversation_mode_has_full_connector_exposed_repository_authority():
     assert "first-class repository operator" in protocol
     assert "every GitHub repository operation actually exposed" in protocol
     assert "first-class repository operator" in workflow
-    assert "direct-to-main is not routine" in workflow
+    assert "Direct-to-main is not routine" in workflow
 
 
 def test_governance_and_plans_do_not_masquerade_as_live_task_queue():
@@ -140,7 +140,7 @@ def test_pi_decision_and_substantive_progress_contract_is_wired_into_workflow():
     contract = (ROOT / "governance/PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md").read_text(encoding="utf-8")
     workflow = (ROOT / "AGENT_WORKFLOW.md").read_text(encoding="utf-8")
     bootstrap = (ROOT / "CHATGPT_START_HERE.md").read_text(encoding="utf-8")
-    assert "PI-reserved decisions" in contract
+    assert "PI decision rights" in contract
     assert "Autonomous execution within approved scope" in contract
     assert "PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md" in workflow
     assert "PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md" in bootstrap
@@ -207,7 +207,7 @@ def test_closeout_contract_is_task_scoped_and_lightweight():
     assert "Changed artifacts" in workflow
     assert "Validation actually performed" in workflow
     assert "Do not create a second status ledger" in contract
-    assert "current explicit PI instruction" in bootstrap
+    assert "当前对话中 PI 明确提出的最新指令" in bootstrap
 
 
 def test_background_agents_are_disabled_and_workflows_are_validation_only():
