@@ -47,8 +47,9 @@ def test_ordinary_detailedread_does_not_leak_internal_pi_closeout():
     workflow = (ROOT / "AGENT_WORKFLOW.md").read_text(encoding="utf-8")
     assert "普通 QuickRead、DetailedRead 或其他命理解读" in bootstrap
     assert "ordinary end-user QuickRead, DetailedRead, or other fortune-reading turn" in workflow
-    assert "只要同一轮实际进行了仓库工作，仍必须执行本门槛" in bootstrap
-    assert "If repository work occurs anywhere in the same turn, the mandatory closeout applies" in workflow
+    assert "不要求六区块固定汇报" in bootstrap
+    assert "No mandatory six-section report" in workflow
+    assert "global three-stream census is optional" in workflow
 
 
 def test_quickread_and_detailedread_require_canonical_zhongzhou_iztro_chart():
