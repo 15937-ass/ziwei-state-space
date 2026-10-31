@@ -21,6 +21,7 @@ The pinned production engine remains `iztro-js@2.6.1`; the Zhongzhou algorithm a
 
 - New canonical seed set: `validation/product_chart_regression/regression_inputs_v0.2.csv`.
 - New late-Zi manifest: `validation/product_chart_regression/b02b_zi_day_boundary_v0.3.json`.
+- New full-stack temporal target manifest: `validation/product_chart_regression/temporal_targets_v0.3.json`; the late-Zi target is a strict JS/Rust test and a diagnostic-only target for the non-Zhongzhou Go audit.
 - Existing v0.1 CSV and v0.2 B02-B manifest remain historical.
 - Run the 100-seed JS/Rust full differential and B02-A/B02-B/B02-C boundary workflows under the v1.1 input/config contract.
 
