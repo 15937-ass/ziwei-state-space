@@ -50,3 +50,12 @@ def test_late_zi_birth_is_marked_as_cross_school_diagnostic():
     assert mod.is_late_zi_birth({"input": {"time_index": 12}}) is True
     assert mod.is_late_zi_birth({"input": {"time_index": 0}}) is False
     assert mod.is_late_zi_birth({"input": {"time_index": 11}}) is False
+
+
+def test_canonical_zhongzhou_late_zi_target_is_go_diagnostic_only():
+    import json
+
+    manifest_path = Path("validation/product_chart_regression/temporal_targets_v0.3.json")
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    assert manifest["school_sensitive_target_ids"] == ["T1_LEAP_LATE_ZI"]
+    assert manifest["independent_core_policy"]["canonical_contract"] == "ZHONGZHOU_IZTRO_JS_2_6_1_V1_1"
