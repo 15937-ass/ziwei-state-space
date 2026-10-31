@@ -7,7 +7,20 @@
     "source_revision": "demo",
     "adapter_version": "0.2"
   },
-  "input": {},
+  "input": {
+    "input_calendar": "solar",
+    "entrypoint": "astro.withOptions",
+    "language": "zh-CN",
+    "chart_config": {
+      "algorithm": "zhongzhou",
+      "astro_type": "heaven",
+      "fix_leap": true,
+      "day_divide": "forward",
+      "year_divide": "normal",
+      "horoscope_divide": "normal",
+      "language": "zh-CN"
+    }
+  },
   "natal": {},
   "temporal": [
     {
@@ -142,5 +155,6 @@
         ]
       }
     }
-  ]
+  ],
+  "chart_contract_id": "ZHONGZHOU_IZTRO_JS_2_6_1_V1"
 }
