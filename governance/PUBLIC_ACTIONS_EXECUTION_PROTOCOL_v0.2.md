@@ -47,65 +47,89 @@ Not allowed:
 - larger/billable runners without a new explicit PI approval;
 - using workflow success as authority for canonical Ziwei meaning.
 
-The repository quality gate runs on every PR. Product P1 regression workflows may use Product-oriented path filters.
+Every PR runs a changed-scope fast gate. The full repository gate is a manual exact-head action after the Integration Lease is acquired; expensive Product P1 workflows use exact input/tool path filters, not broad Product-directory filters.
 
-## 4. Standard repository gate
+## 4. Risk-based repository gate
 
-The canonical quality workflow is `.github/workflows/decontamination-ci.yml` and must execute at least:
+The canonical workflow is `.github/workflows/decontamination-ci.yml`.
+
+### Automatic PR fast gate
+
+Every PR runs:
+- `git diff --check`;
+- test files changed by the PR;
+- a small contract suite selected by the changed paths (Governance/bootstrap, one Knowledge Core/palace shard, or affected Product modules/data);
+- Repository Governance v1 validation against the exact PR base/head;
+- cheap JS syntax checks.
+
+It does **not** run the full `pytest` suite or the P0 repository-wide audit on every commit. Documentation-only changes may have no Python test file; the diff and governance checks still run.
+
+The workflow summary records the selected test files. The conversation should read only that summary and any relevant failing-test excerpt, not the entire test tree or full CI log.
+
+### Manual exact-head gate
+
+`workflow_dispatch` accepts:
+- `validation_mode=targeted` for an Issue-approved R0/R1 narrow gate;
+- `validation_mode=full` for R2/R3 or any Issue requiring repository-wide acceptance;
+- `base_ref`, normally `main`, so the validator compares the selected branch to its intended base.
+
+The full mode runs:
 
 ```bash
 python -m pip install --upgrade pytest
 PYTHONPATH="$PWD" python -m pytest -q
 if [ -f tools/iztro_export.mjs ]; then node --check tools/iztro_export.mjs; fi
+if [ -f tools/iztro_full_export.mjs ]; then node --check tools/iztro_full_export.mjs; fi
 PYTHONPATH="$PWD" python src/audit_repository.py --fail-on-p0
 python tools/validate_governance.py \
   --base-ref "origin/<base>" \
   --head-branch "<head>"
 ```
 
-For manual main validation, `--allow-main` may be used. PR lane validation must use the PR base/head contract.
+For manual main validation, `--allow-main` may be used. PR lane validation must use the PR base/head contract. The Integration Lease holder dispatches the appropriate mode on the exact final head; full mode is not a routine ACTIVE_BUILD check.
 
 ### Build validation versus final integration validation
 
-Validation has two timing classes; this changes timing, not acceptance quality.
+Validation has two timing classes; this changes timing, not the acceptance standard for relevant checks.
 
-- **ACTIVE_BUILD / READY_TO_INTEGRATE:** run the bounded unit tests, schema/source checks, write-set checks, and relevant regressions needed to develop and review the change. These runs are useful evidence but are not the final merge authorization, and the branch does not repeatedly chase unrelated `main` movement merely to keep a speculative full gate fresh.
-- **INTEGRATING:** only after acquiring the Integration Lease in Issue #888, synchronize the branch once to current `main` and run the complete final gate required by the work unit, including the repository quality gate. The successful run must identify the exact integration head/base intended for immediate merge.
+- **ACTIVE_BUILD / READY_TO_INTEGRATE:** run changed-scope tests, affected module/domain suites, schema/source checks and write-set checks. Do not repeatedly run a speculative full gate.
+- **INTEGRATING:** after acquiring the Integration Lease in Issue #888, synchronize once to current `main`, then dispatch the exact gate specified by the Issue and risk tier. R2/R3 or shared-runtime/canonical changes use full mode. Isolated R0/R1 work may use a narrower exact-head gate explicitly approved in the Issue.
 
 Only one PR may be INTEGRATING globally. Other lanes may continue ACTIVE_BUILD while that lease is held, but they must not merge `main`.
 
 ## 5. Product regression
 
-Existing Product workflows remain executable specifications and routine PR validators when their path filters match:
+Existing Product workflows remain executable specifications when their exact inputs or engine/tool dependencies change:
 
 - `.github/workflows/product-p1-dual-engine.yml`
 - `.github/workflows/product-p1-b02-calendar.yml`
 - `.github/workflows/product-p1-b02b-zi-day.yml`
 - `.github/workflows/product-p1-b02c-temporal.yml`
 
-They retain pinned independent engine/version contracts already encoded in the repository.
+Their path filters name the relevant exporters, comparison tools, boundary manifests and their own workflow file. A change to an unrelated Product report, QuickRead/DetailedRead module or Knowledge artifact must not launch every multi-engine boundary workflow. Pinned independent engine/version contracts remain unchanged.
 
 A Product PR does not gain empirical validity merely because deterministic engine regression passes.
 
 ## 6. Knowledge work
 
-At minimum before merge, and specifically during INTEGRATING after the lease is held:
-- changed-unit deterministic tests;
-- full repository pytest via the repository quality gate unless an Issue explicitly approves a narrower scope;
-- P0 audit;
-- Knowledge lane governance validation;
-- any source/canonical checks required by the Issue.
+During ACTIVE_BUILD, run the changed-unit tests and relevant source/canonical checks only.
+
+During INTEGRATING:
+- R0/R1 may use a narrower exact-head gate when the Issue explicitly lists the tests and validators and the change is isolated;
+- R2/R3 or shared/cross-lane changes use full repository pytest and P0 audit;
+- Knowledge lane governance validation and source/canonical checks run when Knowledge-owned artifacts are touched.
+
+A full suite is not a default per-turn ritual. A narrow gate is not permitted to omit a check that directly covers the changed behavior.
 
 Knowledge mapping candidates remain non-production until a Product work unit separately selects and integrates them.
 
 ## 7. Governance work
 
-At minimum during INTEGRATING after the lease is held:
-- repository quality gate;
-- governance lane validation;
-- inspection that Product/Knowledge semantics did not change unintentionally.
+For an isolated R0/R1 Governance change, the exact-head gate may consist of the Governance contract tests, the DetailedRead/bootstrap tests, the three-stream route contract tests, `tools/validate_governance.py` and `git diff --check`. The Issue must explicitly approve this narrower scope.
 
-A governance migration may bootstrap the first PR-triggered workflow. If the new trigger executes successfully on that migration PR, that run is valid G8 evidence.
+Use the full repository gate when Governance changes alter shared runtime, cross-lane contracts, canonical meaning or a broader risk R2/R3 surface. Inspect that Product/Knowledge semantics did not change unintentionally.
+
+A governance migration may bootstrap the PR fast gate. The fast gate is not a substitute for the Issue-approved final exact-head gate.
 
 ## 8. Validation evidence
 

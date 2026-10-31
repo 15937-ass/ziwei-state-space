@@ -7,11 +7,17 @@ on:
     branches:
       - main
     paths:
-      - "product/**"
-      - "src/product/**"
-      - "tools/**"
-      - "validation/product_chart_regression/**"
-      - ".github/workflows/product-p1-*.yml"
+      - "tools/chart_inputs_to_jsonl.py"
+      - "tools/iztro_full_export.mjs"
+      - "tools/x_iztro_full_export.py"
+      - "tools/p1_compare_full.py"
+      - "tools/p1_independent_compare.py"
+      - "tools/p1_validate_boundary_expectations.py"
+      - "tools/p1_validate_zi_day_boundary.py"
+      - "tools/dawang_p1_export/**"
+      - "validation/product_chart_regression/regression_inputs_v0.1.csv"
+      - "validation/product_chart_regression/b02b_zi_day_boundary.json"
+      - "product/CANONICAL_CHART_CONTRACT_v1.0.md"
   workflow_dispatch:
 
 concurrency:

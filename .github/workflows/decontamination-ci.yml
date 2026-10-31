@@ -1,12 +1,26 @@
 name: repository-quality-gate
 
-# G8: public-repository standard runners are the routine deterministic validation runtime.
-# Pull-request validation is automatic; workflow_dispatch remains a manual fallback.
+# PRs run only tests relevant to the changed scope.
+# The complete repository gate is a manual exact-head action after the #888 lease.
 on:
   pull_request:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      validation_mode:
+        description: "Use targeted validation for an Issue-approved R0/R1 scope, or the full gate for R2/R3 integration."
+        required: true
+        default: full
+        type: choice
+        options:
+          - full
+          - targeted
+      base_ref:
+        description: "Base branch for exact-head validation (normally main)."
+        required: true
+        default: main
+        type: string
 
 concurrency:
   group: repository-gate-${{ github.workflow }}-${{ github.ref }}
@@ -18,6 +32,11 @@ permissions:
 jobs:
   test-and-audit:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PYTHONPATH: ${{ github.workspace }}
+      BASE_REF: ${{ github.event_name == 'pull_request' && github.base_ref || inputs.base_ref || 'main' }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,26 +51,183 @@ jobs:
       - name: Install test dependency
         run: python -m pip install --upgrade pytest
 
-      - name: Run tests
-        env:
-          PYTHONPATH: ${{ github.workspace }}
+      - name: Fetch comparison base
+        run: git fetch origin "$BASE_REF" --depth=1
+
+      - name: Check patch whitespace
+        run: git diff --check "origin/$BASE_REF...HEAD"
+
+      - name: Run changed-scope PR tests
+        if: github.event_name == 'pull_request' || inputs.validation_mode == 'targeted'
+        run: |
+          python - <<'PY' > /tmp/selected-tests.txt
+          from pathlib import Path
+          import re
+          import subprocess
+          import os
+
+          base = os.environ["BASE_REF"]
+          changed = subprocess.check_output(
+              ["git", "diff", "--name-only", f"origin/{base}...HEAD"],
+              text=True,
+          ).splitlines()
+          tests_dir = Path("tests")
+          selected = set()
+
+          def add(name):
+              path = tests_dir / name
+              if path.is_file():
+                  selected.add(path.as_posix())
+
+          def add_glob(pattern):
+              selected.update(p.as_posix() for p in tests_dir.glob(pattern))
+
+          # Always execute test files changed by this PR.
+          for path in changed:
+              if path.startswith("tests/test_") and path.endswith(".py"):
+                  add(Path(path).name)
+
+          # The compact PI/bootstrap/workflow contract has a deliberately small,
+          # stable regression set; do not run unrelated Product/Knowledge suites.
+          control_files = {
+              "AGENT_WORKFLOW.md",
+              "CHATGPT_START_HERE.md",
+              "GOVERNANCE.md",
+              "PROJECT_STATE.yaml",
+              "governance/RECOVERY_PRECEDENCE_v1.md",
+              "governance/PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md",
+              "governance/THREE_STREAM_START_HERE.md",
+              "governance/GOVERNANCE_STATE.yaml",
+          }
+          if any(p in control_files or p.startswith(".github/workflows/") for p in changed):
+              for name in (
+                  "test_governance_contract.py",
+                  "test_governance_detailedread_skill.py",
+                  "test_governance_three_stream_closed_loop.py",
+              ):
+                  add(name)
+
+          # Plan/state edits must also run their explicit lifecycle contracts.
+          if any(p in {
+              "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md",
+              "product/PRODUCT_STATE.yaml",
+          } for p in changed):
+              for name in (
+                  "test_governance_core_product_continuation.py",
+                  "test_governance_natal_decade_year_continuation_plan.py",
+                  "test_governance_product_v04.py",
+                  "test_product_source_only_vertical_slice_blocker_handoff.py",
+              ):
+                  add(name)
+
+          # Knowledge work is scoped to Core or the named palace shard.
+          for path in changed:
+              if path.startswith("knowledge/core/") or path.startswith("src/knowledge/core/"):
+                  add_glob("test_knowledge_core_*.py")
+                  add("test_governance_knowledge_shards.py")
+              else:
+                  match = re.match(r"(?:knowledge|src/knowledge)/palaces/(P\d{2})_", path)
+                  if match:
+                      add_glob(f"test_knowledge_{match.group(1).lower()}_*.py")
+                      add("test_governance_knowledge_shards.py")
+                  elif path.startswith(("knowledge/", "src/knowledge/")):
+                      add("test_governance_knowledge_shards.py")
+                      for test in tests_dir.glob("test_knowledge_*.py"):
+                          if path in test.read_text(encoding="utf-8"):
+                              selected.add(test.as_posix())
+
+          # Product runtime changes use Product tests only; data changes first
+          # select tests that explicitly consume the changed artifact.
+          for path in changed:
+              if path.startswith("src/product/"):
+                  module = path[:-3].replace("/", ".") if path.endswith(".py") else path
+                  matched = False
+                  for test in tests_dir.glob("test_product_*.py"):
+                      body = test.read_text(encoding="utf-8")
+                      if path in body or module in body:
+                          selected.add(test.as_posix())
+                          matched = True
+                  if not matched:
+                      add_glob("test_product_*.py")
+              elif path.startswith("product/"):
+                  matched = False
+                  for test in tests_dir.glob("test_product_*.py"):
+                      if path in test.read_text(encoding="utf-8"):
+                          selected.add(test.as_posix())
+                          matched = True
+                  if not matched and path != "product/PRODUCT_STATE.yaml":
+                      add_glob("test_product_*.py")
+
+          # Other source/tool changes are matched by exact path or Python import path.
+          for path in changed:
+              if path.startswith(("src/", "tools/")) and path.endswith(".py"):
+                  module = path[:-3].replace("/", ".")
+                  for test in tests_dir.glob("test_*.py"):
+                      body = test.read_text(encoding="utf-8")
+                      if path in body or module in body:
+                          selected.add(test.as_posix())
+
+          for path in sorted(selected):
+              print(path)
+
+          print(
+              f"Changed paths: {len(changed)}; selected test files: {len(selected)}",
+              file=__import__("sys").stderr,
+          )
+          PY
+
+          if [ -s /tmp/selected-tests.txt ]; then
+            mapfile -t selected < /tmp/selected-tests.txt
+            printf '%s\n' "## Changed-scope tests" "- Selected files: ${#selected[@]}" >> "$GITHUB_STEP_SUMMARY"
+            printf '%s\n' "${selected[@]}" >> "$GITHUB_STEP_SUMMARY"
+            python -m pytest -q "${selected[@]}"
+          else
+            changed_paths="$(git diff --name-only "origin/$BASE_REF...HEAD")"
+            unmapped=0
+            while IFS= read -r path; do
+              case "$path" in
+                src/*|knowledge/*|product/*|tools/*|validation/*)
+                  case "$path" in
+                    tools/chart_inputs_to_jsonl.py|tools/iztro_full_export.mjs|tools/x_iztro_full_export.py|tools/p1_compare_full.py|tools/p1_independent_compare.py|tools/p1_validate_boundary_expectations.py|tools/p1_validate_zi_day_boundary.py|tools/p1_profile_temporal_transitions.py|tools/p1_aggregate_b02c_reports.py|tools/dawang_p1_export/*|validation/product_chart_regression/*|product/CANONICAL_CHART_CONTRACT_v1.0.md)
+                      ;;
+                    *)
+                      echo "No targeted tests mapped for code/data path: $path" >&2
+                      unmapped=1
+                      ;;
+                  esac
+                  ;;
+              esac
+            done <<< "$changed_paths"
+            if [ "$unmapped" -ne 0 ]; then
+              exit 1
+            fi
+            echo "No Python tests mapped; only documentation or a dedicated engine workflow is affected."
+            echo "No Python test file mapped; diff/governance or dedicated engine workflow remains the gate." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Run full repository suite
+        if: github.event_name == 'workflow_dispatch' && inputs.validation_mode == 'full'
         run: python -m pytest -q
 
-      - name: Check product JS adapters
+      - name: Check Product JS adapters
         run: |
           if [ -f tools/iztro_export.mjs ]; then node --check tools/iztro_export.mjs; fi
+          if [ -f tools/iztro_full_export.mjs ]; then node --check tools/iztro_full_export.mjs; fi
 
       - name: Enforce deterministic P0 repository gate
-        env:
-          PYTHONPATH: ${{ github.workspace }}
+        if: github.event_name == 'workflow_dispatch' && inputs.validation_mode == 'full'
         run: python src/audit_repository.py --fail-on-p0
 
       - name: Enforce Repository Governance v1
         run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
+          if [ "$GITHUB_EVENT_NAME" = "pull_request" ]; then
             python tools/validate_governance.py \
-              --base-ref "origin/${{ github.base_ref }}" \
-              --head-branch "${{ github.head_ref }}"
-          else
+              --base-ref "origin/$BASE_REF" \
+              --head-branch "$GITHUB_HEAD_REF"
+          elif [ "$GITHUB_REF_NAME" = "$BASE_REF" ]; then
             python tools/validate_governance.py --allow-main
+          else
+            python tools/validate_governance.py \
+              --base-ref "origin/$BASE_REF" \
+              --head-branch "$GITHUB_REF_NAME"
           fi

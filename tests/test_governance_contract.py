@@ -70,25 +70,18 @@ def test_canonical_chatgpt_bootstrap_prevents_actions_policy_regression():
     assert "chat_is_authoritative:" not in project
 
 
-def test_pi_closeout_is_a_hard_final_answer_gate():
+def test_pi_first_closeout_is_compact_not_a_global_gate():
     bootstrap = (ROOT / "CHATGPT_START_HERE.md").read_text(encoding="utf-8")
     workflow = (ROOT / "AGENT_WORKFLOW.md").read_text(encoding="utf-8")
-    marker = "PI_CLOSEOUT_FINAL_GATE_REQUIRED"
-    assert marker in bootstrap
-    assert marker in workflow
-    assert "不得发送仓库工作对话的最终答复" in bootstrap
-    assert "hard final-response gate" in workflow
+    contract = (ROOT / "governance/PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md").read_text(encoding="utf-8")
+    assert "PI_CLOSEOUT_FINAL_GATE_REQUIRED" not in bootstrap
+    assert "PI_CLOSEOUT_FINAL_GATE_REQUIRED" not in workflow
+    assert "不得发送仓库工作对话的最终答复" not in bootstrap
     assert "ordinary end-user QuickRead" in workflow
     assert "普通 QuickRead、DetailedRead 或其他命理解读" in bootstrap
-    for heading in (
-        "【整个项目现在到哪了】",
-        "【宫位、Knowledge Core、Product 当前状态】",
-        "【这一步刚刚完成了什么】",
-        "【下一步准备做什么】",
-        "【现在需要 PI 帮助什么】",
-        "【需要你特别警惕的风险】",
-    ):
-        assert heading in workflow
+    assert "不要求六区块固定汇报" in bootstrap
+    assert "global three-stream census" in contract
+    assert "optional" in contract
 
 
 def test_g7_is_quarantined_and_g8_is_current():
@@ -108,7 +101,7 @@ def test_conversation_mode_has_full_connector_exposed_repository_authority():
     assert "first-class repository operator" in protocol
     assert "every GitHub repository operation actually exposed" in protocol
     assert "first-class repository operator" in workflow
-    assert "direct-to-main is not routine" in workflow
+    assert "Direct-to-main is not routine" in workflow
 
 
 def test_governance_and_plans_do_not_masquerade_as_live_task_queue():
@@ -147,15 +140,17 @@ def test_pi_decision_and_substantive_progress_contract_is_wired_into_workflow():
     contract = (ROOT / "governance/PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md").read_text(encoding="utf-8")
     workflow = (ROOT / "AGENT_WORKFLOW.md").read_text(encoding="utf-8")
     bootstrap = (ROOT / "CHATGPT_START_HERE.md").read_text(encoding="utf-8")
-    assert "PI-reserved decisions" in contract
+    assert "PI decision rights" in contract
     assert "Autonomous execution within approved scope" in contract
     assert "PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md" in workflow
     assert "PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md" in bootstrap
+    assert "当前对话中 PI 明确提出的最新指令" in bootstrap
     assert "one primary outcome class" in workflow
+    assert "current explicit PI instruction" in workflow
     assert "The PI reserves research mission/priority/resource/WIP decisions" in workflow
 
 
-def test_every_repository_work_turn_has_one_truthful_primary_outcome_class():
+def test_outcome_labels_are_available_but_not_a_per_turn_ritual():
     contract = (ROOT / "governance/PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md").read_text(encoding="utf-8")
     for outcome in (
         "SUBSTANTIVE_DELTA",
@@ -165,9 +160,9 @@ def test_every_repository_work_turn_has_one_truthful_primary_outcome_class():
         "NO_SUBSTANTIVE_PROGRESS",
     ):
         assert outcome in contract
-    assert "exactly one primary outcome class" in contract
-    assert "Validation is a quality gate; it is not by itself new research progress." in contract
-    assert "Explicitly state that no substantive progress was made." in contract
+    assert "not mandatory for every turn" in contract
+    assert "Validation is a quality gate, not research progress." in contract
+    assert "NO_SUBSTANTIVE_PROGRESS" in contract
 
 
 def test_anti_ceremony_rules_exclude_administrative_activity_as_progress():
@@ -201,19 +196,60 @@ def test_line_specific_progress_criteria_preserve_epistemic_maturity():
         assert maturity in contract
 
 
-def test_closeout_contract_extends_existing_six_sections_without_second_ledger():
+def test_closeout_contract_is_task_scoped_and_lightweight():
     contract = (ROOT / "governance/PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md").read_text(encoding="utf-8")
     workflow = (ROOT / "AGENT_WORKFLOW.md").read_text(encoding="utf-8")
-    for heading in (
-        "【整个项目现在到哪了】",
-        "【宫位、Knowledge Core、Product 当前状态】",
-        "【这一步刚刚完成了什么】",
-        "【下一步准备做什么】",
-        "【现在需要 PI 帮助什么】",
-        "【需要你特别警惕的风险】",
+    bootstrap = (ROOT / "CHATGPT_START_HERE.md").read_text(encoding="utf-8")
+    assert "six-section report are optional" in contract
+    assert "No mandatory six-section report" in workflow
+    assert "global three-stream census is optional" in workflow
+    assert "Result" in workflow
+    assert "Changed artifacts" in workflow
+    assert "Validation actually performed" in workflow
+    assert "Do not create a second status ledger" in contract
+    assert "当前对话中 PI 明确提出的最新指令" in bootstrap
+
+
+def test_background_agents_are_disabled_and_workflows_are_validation_only():
+    bootstrap = (ROOT / "CHATGPT_START_HERE.md").read_text(encoding="utf-8")
+    project = (ROOT / "PROJECT_STATE.yaml").read_text(encoding="utf-8")
+    assert "所有后台自主执行代理均关闭" in bootstrap
+    assert 'background_agents: "DISABLED_BY_PI_2026-10-31"' in project
+    assert 'github_actions: "DETERMINISTIC_PR_VALIDATION_ONLY"' in project
+    workflows = ROOT / ".github" / "workflows"
+    for path in workflows.glob("*.yml"):
+        lines = path.read_text(encoding="utf-8").splitlines()
+        assert not any(line.strip().startswith("schedule:") for line in lines), path.name
+        assert not any(line.strip() == "push:" for line in lines), path.name
+
+
+def test_repository_quality_gate_is_risk_tiered_and_context_light():
+    workflow = (ROOT / ".github/workflows/decontamination-ci.yml").read_text(encoding="utf-8")
+    assert "Run changed-scope PR tests" in workflow
+    assert "python -m pytest -q \"\u0024{selected[@]}\"" in workflow
+    assert "Run full repository suite" in workflow
+    full_block = workflow.split("- name: Run full repository suite", 1)[1].split("- name: Check Product JS adapters", 1)[0]
+    assert "if: github.event_name == 'workflow_dispatch' && inputs.validation_mode == 'full'" in full_block
+    assert "run: python -m pytest -q" in full_block
+    assert "workflow_dispatch" in workflow and "validation_mode" in workflow
+    for name in (
+        "product-p1-dual-engine.yml",
+        "product-p1-b02b-zi-day.yml",
+        "product-p1-b02-calendar.yml",
+        "product-p1-b02c-temporal.yml",
     ):
-        assert heading in workflow
-    assert "do not create a second status ledger" in contract
-    assert "whether PI judgment is required" in contract
-    assert "PI-judgment YES/NO" in workflow
-    assert "validation identity" in contract
+        text = (ROOT / ".github/workflows" / name).read_text(encoding="utf-8")
+        assert '"product/**"' not in text
+        assert '"src/product/**"' not in text
+        assert '"tools/**"' not in text
+        assert '"validation/product_chart_regression/**"' not in text
+
+
+def test_validation_policy_matches_integration_lease_timing():
+    workflow = (ROOT / "AGENT_WORKFLOW.md").read_text(encoding="utf-8")
+    bootstrap = (ROOT / "CHATGPT_START_HERE.md").read_text(encoding="utf-8")
+    protocol = (ROOT / "governance/INTEGRATION_QUEUE_PROTOCOL_v1.md").read_text(encoding="utf-8")
+    assert "PR CI runs changed-scope tests, not the full repository suite" in workflow
+    assert "不默认读取整个 tests 目录" in bootstrap
+    assert "R0 — mechanical/local" in protocol
+    assert "A narrow gate must be specified in the live Issue before INTEGRATING" in protocol

@@ -1,121 +1,48 @@
-# Recovery Precedence v1.0
+# Recovery Precedence v1.1 — PI-first / optional reference
 
-Status: **ACTIVE RECOVERY ROUTING CONTRACT AFTER MERGE OF G9 CLEANUP**  
-Scope: session bootstrap, task identification, active-work recovery, Human-Gate routing, and execution-policy selection.
+Status: ACTIVE REFERENCE. This file is not a mandatory per-conversation read.
 
-## 1. Purpose
+## 1. Authority
 
-This file exists to stop historical artifacts from being mistaken for current instructions.
+For the current task, apply this order:
 
-The repository intentionally preserves old proposals, validation reports, acceptance records, archived checkpoints, superseded protocols, and completed task files. Those artifacts are valuable evidence, but many contain words such as `ACTIVE`, `CURRENT`, `NEXT`, `READY_FOR_PI`, or old execution rules that were correct only at the time they were written.
+1. Platform/safety constraints, factual integrity, source provenance and the non-negotiable research Constitution.
+2. **The current explicit PI instruction** controls task scope, priority, resource choice and stop condition. The PI may explicitly revise earlier PI decisions and plans.
+3. Latest durable PI-approved decisions on accepted main, unless the current PI has explicitly revised them.
+4. Live GitHub Issue/PR for execution and implementation status; accepted main for canonical artifacts.
+5. Lane state YAML as a cache; plans and roadmaps as direction; historical files and old chat as reference only.
+6. Agent-generated suggestions or inferred future work have no independent authorization.
 
-For recovery and task selection, **current authority is determined by pointers and live GitHub state, not by whichever file contains the strongest-sounding status word.**
+A current PI instruction can change what the project works on. It cannot make an unmerged branch canonical, turn an unsupported statement into source evidence, or override platform/safety constraints. When the instruction is clear, execute it; do not let an older plan silently veto it.
 
-## 2. Mandatory recovery order
+## 2. Minimal recovery
 
-For every new ChatGPT conversation, timeout recovery, model/session change, or suspected external merge:
+Do not perform a full-project census by default.
 
-1. Read `PROJECT_STATE.yaml`.
-2. Read the single canonical session-start instruction `CHATGPT_START_HERE.md`.
-3. Read this file.
-4. Read the selected lane state:
-   - `product/PRODUCT_STATE.yaml`
-   - `knowledge/KNOWLEDGE_STATE.yaml`
-   - `governance/GOVERNANCE_STATE.yaml`
-5. If the selected lane is Knowledge, select exactly one shard (`CORE` or `P01..P12`) and read the shard state referenced by the Knowledge coordinator.
-6. Query live GitHub Issues for the selected lane/shard.
-7. If an active/open bounded Issue exists, **the Issue is execution truth even when the state cache is stale**.
-8. Read the Issue-linked PR, if any. The PR is implementation truth.
-9. Read only artifacts required by that Issue/PR.
-10. Use the execution protocol explicitly named by `PROJECT_STATE.yaml`; do not select a protocol by filename age or by searching for the word `ACTIVE`.
-11. If the work unit is preparing to merge, read `governance/INTEGRATION_QUEUE_PROTOCOL_v1.md` and live coordination Issue #888 before running any final exact-head acceptance gate.
+For a repository task:
+1. Identify the one requested objective and write lane.
+2. Read the matching live Issue and linked PR, if they exist.
+3. Read only the files needed to complete that objective.
+4. Read PROJECT_STATE or a lane cache only when an authority pointer or a real state conflict requires it.
+5. Before final merge, follow the Integration Lease in Issue #888 and the exact-head gate.
 
-If GitHub live state and a state YAML disagree, **GitHub Issue/PR wins and the cache must be repaired**. The current ChatGPT conversation is permitted to operate the repository through exposed connector actions, but chat text itself is not project-state authority.
+For an explicit “continue [lane]” request, check that lane's live Issue/PR first. Only if no active unit exists, consult that lane's plan pointer. Do not load all three plans or all lane histories.
 
-Old saved startup prompts, prior-chat instructions, and copied snippets are not authority. In particular, never follow a stale prompt that treats the G7-era Actions restriction as current; use `CHATGPT_START_HERE.md` and the current protocol pointer instead.
+A live GitHub Issue/PR overrides a stale state cache for execution status. Accepted main overrides unmerged branches for canonical content.
 
-## 3. Current execution policy
+## 3. Historical material
 
-The effective routine execution protocol is:
-
-`governance/PUBLIC_ACTIONS_EXECUTION_PROTOCOL_v0.2.md`
-
-Current rules:
-
-- the current ChatGPT conversation is a first-class repository operator and may use all GitHub repository operations actually exposed by connected tools; this capability is distinct from whether chat text is authoritative project state;
-- standard public GitHub-hosted runner validation is allowed; automatic `pull_request` triggers and `workflow_dispatch` are allowed, while automatic `push` triggers remain prohibited; a prohibition on automatic push triggers must never be paraphrased as a blanket Actions disablement;
-- standard GitHub-hosted runners for this public repository are allowed for routine deterministic validation;
-- automatic `pull_request` triggers are allowed;
-- automatic `push` triggers are prohibited;
-- larger/billable runners are not authorized without new PI approval;
-- Work/Codex are optional execution runtimes, not prerequisites for repository writes;
-- normal work remains `Issue -> branch -> PR`, with build validation during ACTIVE_BUILD and final exact-head validation only after the work unit acquires the Integration Lease and enters INTEGRATING;
-- connector capability never bypasses lane ownership, Human Gates, source integrity, or validation.
-
-The G7 protocol `governance/archive/WORK_CODEX_EXECUTION_PROTOCOL_v0.1_G7_HISTORICAL.md` is historical and must never be used to determine current Actions or repository-operator policy.
-
-## 4. Artifacts that are NOT execution truth by themselves
-
-The following may be read for evidence or historical context, but must **not** determine the current task unless the active Issue explicitly references them:
-
-- `governance/archive/**`;
-- historical `validation/**` reports and their “next work” sections;
-- completed acceptance documents;
+Do not infer a task from historical status words or old artifacts. This includes:
 - legacy `tasks/*.yaml`;
 - README “Current phase” text;
-- old ChatGPT startup prompts or copied instructions that conflict with `CHATGPT_START_HERE.md`;
-- branch/PR names from old work;
-- files named `*_PROPOSAL*` or stored in proposal directories when they are not the currently approved controlling proposal;
-- old roadmap “current/next” snapshots;
-- stale status fields inside completed work products;
-- historical `READY_FOR_PI` / Human-Gate markers.
+- historical `READY_FOR_PI` markers;
+- archived checkpoints, old proposals, completed validation reports and superseded protocols;
+- old chats or copied prompts that conflict with the current PI instruction.
 
-A historical Human Gate is **not pending** merely because an old artifact says `READY_FOR_PI`. A gate is current only when the current lane state and/or active GitHub Issue identifies it as pending. In Knowledge specifically, `pending_on_main` is the recovery pointer; archived/future/superseded gates are not current PI requests.
+These records may preserve evidence and history; they do not create current work authorization. Do not delete historical evidence merely to make recovery easier.
 
-## 5. Roadmaps, Decisions, and Proposals
+## 4. Automation and validation
 
-Roadmaps are architectural direction, not daily queues. Words such as `CURRENT CRITICAL PATH` describe the roadmap version in which they were written; the live Issue determines what is actually being executed.
+All ChatGPT Automations found for this account were paused on 2026-10-31. No scheduled or background research agent, autonomous task creator, repository writer or merger is authorized unless the PI explicitly approves it.
 
-`DECISION_LOG.md` is a decision registry, not a task queue. Entries explicitly marked `Resolved`, `FROZEN`, `Approved`, `Implemented`, or superseded are not open tasks even if they appear beneath an older “Pending decisions” heading.
-
-Proposal artifacts record design history. If a canonical implemented artifact exists, an older `*_proposal` file does not regain authority merely because search retrieves it first.
-
-## 6. Status-word conflict rule
-
-If a file says `ACTIVE`, `CURRENT`, `NEXT`, `PENDING`, or `READY_FOR_PI` but is not one of the current authority pointers above, treat that word as **local historical context**, not as a global execution command.
-
-When two artifacts conflict, use this recovery precedence:
-
-```text
-PROJECT_STATE authority pointers
--> current Constitution / Governance
--> approved Human Gate / controlling approved Proposal
--> live lane GitHub Issue
--> linked PR
--> lane State cache
--> Roadmap / phase plan
--> historical validation / acceptance / task / proposal artifact
--> chat text
-```
-
-For daily execution status specifically, the live GitHub Issue/PR outranks a stale lane/shard-state cache.
-
-For Knowledge, multiple live Issues may legitimately exist only when they belong to distinct palace shards under the G12 limits. Recovery must not treat an Issue from another palace as the current chat's work unit.
-
-## 7. Legacy-artifact handling
-
-Do not delete or rewrite historical evidence merely to make search cleaner.
-
-Instead:
-- current governance files carry explicit supersession pointers;
-- recovery ignores non-authoritative status words;
-- historical evidence keeps its original claims and timestamps;
-- if a legacy artifact is dangerously ambiguous and is within the active lane's ownership, add a visible `HISTORICAL / SUPERSEDED / DO NOT USE FOR RECOVERY` banner rather than altering the underlying historical result.
-
-## 8. Minimal bootstrap question
-
-After recovery, the agent should be able to answer exactly:
-
-> Which lane is selected, what live GitHub Issue is the current bounded work unit, which PR implements it, what Human Gate (if any) is actually pending now, which execution protocol controls validation, and—only if final integration is planned—who currently holds the Integration Lease in Issue #888?
-
-If any of those cannot be answered from the authority chain above, stop task execution and repair recovery state before opening unrelated work.
+GitHub Actions PR pull_request checks and workflow_dispatch remain deterministic validation tools, not autonomous research agents. Do not confuse this distinction with a blanket Actions disablement. The G7 protocol is historical; do not reuse G7-era restrictions as current policy. Automatic push triggers and scheduled agent workflows are not authorized.

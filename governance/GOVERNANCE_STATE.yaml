@@ -4,107 +4,19 @@ authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  status: "ACTIVE_NO_ACTIVE_WORK"
-  active_issue: null
-  active_branch: null
-  active_pr: null
-  governance_version: "1.1"
+  status: "ACTIVE_BUILD"
+  active_issue: 980
+  active_branch: "governance/980-pi-first-lightweight-execution-reset"
+  active_pr: 980
+  base_main_sha: "ff85d260d0a1bce02cf0acc30b3707f084356289"
+  governance_version: "1.2"
   integration_protocol: "governance/INTEGRATION_QUEUE_PROTOCOL_v1.md"
   integration_ledger_issue: 888
-  core_product_continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v1.md"
+  core_product_continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"
   product_plan_pointer_issue: 900
   core_plan_pointer_issue: 901
-  last_completed_issue: 896
-  last_completed_pr: 903
-  resume_entry: "Governance #896 / PR #903 installs the PI-approved durable Core/Product continuation plan. After merge, Product no-active recovery routes to #900 -> #897 and Core no-active recovery routes to #901 -> #898. Live Issue/PR remains authoritative. If #903 is still open, treat #896 as ACTIVE_BUILD/READY rather than completed."
+  resume_entry: "PI-first lightweight execution reset under Issue #980. Only governance control-plane files and governance regression tests are in scope. All five account ChatGPT Automations are paused. GitHub Actions remain deterministic PR validation only; no scheduled/background agent execution is authorized. Do not activate Knowledge/Core/Product work."
 
-completed:
-  repository_governance_v1:
-    tracking_issue: 275
-    merge_pr: 276
-    status: "MERGED"
-  project_resume:
-    tracking_issue: 290
-    status: "MERGED_RESUME_AUTHORIZED"
-  g7_work_codex_execution_migration:
-    tracking_issue: 340
-    merge_pr: 341
-    status: "SUPERSEDED_FOR_ROUTINE_EXECUTION_BY_G8"
-    protocol: "governance/archive/WORK_CODEX_EXECUTION_PROTOCOL_v0.1_G7_HISTORICAL.md"
-  g8_public_actions_execution_migration:
-    tracking_issue: 372
-    merge_pr: 373
-    status: "MERGED_AUTHORITY_SPLIT_AMENDED_BY_G9"
-    protocol: "governance/PUBLIC_ACTIONS_EXECUTION_PROTOCOL_v0.2.md"
-    runner_policy: "STANDARD_PUBLIC_GITHUB_HOSTED_ONLY"
-    automatic_triggers: "PULL_REQUEST_ONLY_NO_PUSH"
-
-  g10_product_v04_architecture:
-    tracking_issue: 425
-    merge_pr: 427
-    status: "MERGED"
-    proposal: "governance/proposals/425-product-expert-reasoning-response-architecture.md"
-    roadmap: "PRODUCT_ROADMAP.md"
-    execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
-    effect: "EXPERT_REASONING_AND_RESPONSE_VERTICAL_SLICE_BECOMES_PRODUCT_CRITICAL_PATH"
-
-  g9_conversation_authority_and_recovery_decontamination:
-    tracking_issue: 374
-    merge_pr: 496
-    superseded_pr: 377
-    status: "MERGED"
-    proposal: "governance/proposals/374-chat-repository-authority.md"
-    recovery_contract: "governance/RECOVERY_PRECEDENCE_v1.md"
-    effect:
-      - "CURRENT_CHATGPT_CONVERSATION_FIRST_CLASS_REPOSITORY_OPERATOR"
-      - "RECOVERY_POINTERS_OVERRIDE_STALE_STATUS_WORDS"
-
-  product_knowledge_dependency_governance:
-    tracking_issue: 491
-    status: "APPROVED_GOVERNANCE_CONTRACT_PRODUCT_IMPLEMENTATION_PENDING"
-    proposal: "governance/proposals/491-product-knowledge-dependency-promotion.md"
-    effect: "ACTIVE_PRODUCT_KNOWLEDGE_MUST_BE_LOCKED_AND_PROMOTED_AFTER_IMPACT_VALIDATION"
-    next_product_work_units:
-      - "PRODUCT_KNOWLEDGE_LOCK_V0_1"
-      - "PRODUCT_KNOWLEDGE_IMPACT_V0_1"
-    pre_pl5_gate: "DATASET_MODEL_LINEAGE_V0_1"
-
-  g12_knowledge_palace_shards:
-    tracking_issue: 530
-    proposal_issue: 528
-    merge_pr: 541
-    status: "MERGED"
-    contract: "governance/KNOWLEDGE_SHARD_EXECUTION_v1.md"
-    registry: "governance/KNOWLEDGE_SHARDS.json"
-    effect:
-      - "KNOWLEDGE_CORE_WIP_1"
-      - "PALACE_WORKERS_MAX_4"
-      - "PER_PALACE_WIP_1"
-      - "SHARED_SEMANTICS_CORE_ONLY"
-      - "SERIAL_EXACT_HEAD_CANONICAL_MERGE"
-
-deferred_admin:
-  issue: 285
-  status: "DEFERRED_UNTIL_ADMIN_ACCESS"
-  items:
-    - "Configure main ruleset/branch protection: PR required, required quality gate, force-push blocked, linear history if compatible."
-    - "Create/assign milestones if useful after resume."
-
-archived_work_references:
-  product_pr_274: "PRESERVE_BRANCH_FOR_AUDIT; do not merge without reconstitution."
-  knowledge_top_wp05_pr_272: "PRESERVE_BRANCH_FOR_SEGMENTED_AUDIT; do not merge directly."
-  knowledge_wp06b_prep_pr_273: "ARCHIVED_ONLY; preserve for audit. Its unresolved Human Gate is not pending_on_main unless reconstituted by a live Knowledge Issue."
-  archive_issue: 286
-
-# Scheduling recovery only; live Issues/PRs remain execution truth.
-slot_handoff:
-  tracking_issue: 700
-  plan_path: "governance/proposals/700-durable-ontology-plan-and-cross-chat-handoff.md"
-  released_from_issue: 446
-  paused_issue_status: "PAUSED_REQUIRES_RECONSTITUTION"
-  preserved_draft_pr: 447
-  next_nominee: null
-  next_nominee_status: "UNSELECTED_RECHECK_LIVE_ISSUES"
-  deferred_issue: 584
-  activation_condition: "Recover implementation acceptance from live Issue #700 and its PR; select and explicitly activate any later bounded Governance unit only after that unit releases its slot."
-  note: "This plan pointer replaces the completed #701 -> #700 nomination. Hardening remains incomplete; live Issues/PRs remain authoritative. No ontology option or Product semantics is approved."
+notes:
+  historical_governance_decisions: "See Git history and their original Issues/PRs; do not duplicate completed history in this cache."
+  live_status_authority: "Current GitHub Issue/PR and accepted main override this cache."
