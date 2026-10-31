@@ -1,4 +1,4 @@
-# Repository Governance v1.1
+# Repository Governance v1.2
 
 Status: **ACTIVE**  
 Tracking: #275  
