@@ -24,7 +24,7 @@ FIXTURE_PATH = (
 CHART_FIXTURE_PATH = (
     Path(__file__).resolve().parents[1]
     / "product"
-    / "PL3T_TEMPORAL_ASSET_FIXTURE_v0.1.json"
+    / "PL3T_TEMPORAL_ASSET_FIXTURE_v0.2.json"
 )
 
 
