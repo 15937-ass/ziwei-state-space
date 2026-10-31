@@ -40,6 +40,10 @@ language           = zh-CN
 - pinned dawang Go core revision
   `947166fc45cd7c8c0849da1bd870f570972a7172`。
 
+## 2.1 Permanent production chart method
+
+P1 establishes deterministic chart trust and cross-implementation regression. Production admission is additionally governed by the permanent `product/CANONICAL_CHART_CONTRACT_v1.0.md`: Zhongzhou + pinned `iztro-js@2.6.1`, fixed config, and fail-closed inference validation. x-iztro and the independent Go core remain audit-only; agreement never authorizes them as production fallbacks.
+
 ## 3. P1 回归层
 
 ### B01 — full snapshot baseline
