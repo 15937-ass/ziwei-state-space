@@ -8,20 +8,20 @@ from pathlib import Path
 from typing import Any, Mapping
 
 
-CANONICAL_CHART_CONTRACT_ID = "ZHONGZHOU_IZTRO_JS_2_6_1_V1"
-CANONICAL_CHART_CONTRACT_VERSION = "1.0.0"
+CANONICAL_CHART_CONTRACT_ID = "ZHONGZHOU_IZTRO_JS_2_6_1_V1_1"
+CANONICAL_CHART_CONTRACT_VERSION = "1.1.0"
 CANONICAL_SCHOOL = "zhongzhou"
 CANONICAL_PRODUCTION_ENGINE = {
     "name": "iztro-js",
     "version": "2.6.1",
     "source_revision": "2c7ef9be669df7b19d1799f4dce335fed3794f78",
-    "adapter_version": "0.2",
+    "adapter_version": "0.3",
 }
 CANONICAL_CHART_CONFIG = {
     "algorithm": "zhongzhou",
     "astro_type": "heaven",
     "fix_leap": True,
-    "day_divide": "forward",
+    "day_divide": "current",
     "year_divide": "normal",
     "horoscope_divide": "normal",
     "language": "zh-CN",
@@ -34,8 +34,25 @@ CANONICAL_INPUT_ROUTES = {
 CONTRACT_PATH = (
     Path(__file__).resolve().parents[2]
     / "product"
-    / "CANONICAL_CHART_CONTRACT_v1.0.json"
+    / "CANONICAL_CHART_CONTRACT_v1.1.json"
 )
+
+
+def zhongzhou_time_index_from_true_solar_time(hour: int, minute: int) -> int:
+    """Map an already-true-solar clock time to the canonical Zhongzhou time index.
+
+    00:00-00:59 is early Zi (index 0); 23:00-23:59 is late Zi (index 12).
+    The supplied calendar date is never advanced by this conversion.
+    """
+    if isinstance(hour, bool) or not isinstance(hour, int) or not 0 <= hour <= 23:
+        raise ValueError("hour must be an integer from 0 through 23")
+    if isinstance(minute, bool) or not isinstance(minute, int) or not 0 <= minute <= 59:
+        raise ValueError("minute must be an integer from 0 through 59")
+    if hour == 0:
+        return 0
+    if hour == 23:
+        return 12
+    return (hour + 1) // 2
 
 
 @dataclass(frozen=True)
@@ -61,12 +78,44 @@ def load_canonical_chart_contract() -> Mapping[str, Any]:
         "temporal_scopes": [
             "decadal", "age", "yearly", "monthly", "daily", "hourly"
         ],
+        "time_input_policy": {
+            "required_time_basis": "true_solar_time",
+            "location_correction_applied_in_chart_engine": False,
+            "birthplace_required_for_chart_generation": False,
+            "future_location_conversion": "upstream_preprocessing_only",
+        },
+        "zi_day_boundary": {
+            "late_zi_time_index": 12,
+            "late_zi_clock_range": "23:00-23:59",
+            "late_zi_date_attribution": "same_input_date",
+            "early_zi_time_index": 0,
+            "early_zi_clock_range": "00:00-00:59",
+            "early_zi_date_attribution": "new_input_date",
+            "engine_day_divide": "current",
+        },
+        "production_rules": {
+            "chart_facts_generated_by": "iztro-js",
+            "temporal_facts_generated_from_same_chart_instance": True,
+            "llm_may_compute_or_modify_chart_facts": False,
+            "manual_chart_edits_allowed": False,
+            "fallback_production_engine_allowed": False,
+            "differential_engines_are_production_fallbacks": False,
+            "test_only_snapshots_allowed_in_production": False,
+            "input_time_is_already_true_solar_time": True,
+            "chart_engine_may_apply_location_correction": False,
+        },
+        "change_control": {
+            "requires_explicit_pi_approval": True,
+            "requires_new_contract_version": True,
+            "requires_migration_plan": True,
+            "requires_full_p1_chart_and_temporal_regression": True,
+        },
     }
     for field, expected in expected_fields.items():
         if payload.get(field) != expected:
             raise ValueError(
                 "canonical chart contract field drift: "
-                f"{field} does not match frozen v1.0"
+                f"{field} does not match frozen v1.1"
             )
     return payload
 
@@ -122,6 +171,17 @@ def validate_canonical_production_chart_snapshot(
 
     if input_payload.get("school") != contract.get("school"):
         errors.append(f"input.school must equal {contract.get('school')}")
+
+    time_policy = contract.get("time_input_policy", {})
+    required_time_basis = (
+        time_policy.get("required_time_basis")
+        if isinstance(time_policy, Mapping)
+        else None
+    )
+    if input_payload.get("time_basis") != required_time_basis:
+        errors.append(f"input.time_basis must equal {required_time_basis}")
+    if input_payload.get("location_correction_applied") is not False:
+        errors.append("input.location_correction_applied must be false; v1.1 input is already true solar time")
 
     expected_config = contract.get("chart_config", {})
     actual_config = input_payload.get("chart_config")

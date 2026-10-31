@@ -1,0 +1,172 @@
+{
+  "case_id": "PL3T-ASSET-FX-001",
+  "schema_version": "0.2",
+  "engine": {
+    "name": "iztro-js",
+    "version": "2.6.1",
+    "source_revision": "2c7ef9be669df7b19d1799f4dce335fed3794f78",
+    "adapter_version": "0.3"
+  },
+  "input": {
+    "input_calendar": "solar",
+    "entrypoint": "astro.withOptions",
+    "language": "zh-CN",
+    "chart_config": {
+      "algorithm": "zhongzhou",
+      "astro_type": "heaven",
+      "fix_leap": true,
+      "day_divide": "current",
+      "year_divide": "normal",
+      "horoscope_divide": "normal",
+      "language": "zh-CN"
+    },
+    "school": "zhongzhou",
+    "solar_date": "2033-08-03",
+    "time_index": 6,
+    "gender": "male",
+    "algorithm": "zhongzhou",
+    "astro_type": "heaven",
+    "fix_leap": true,
+    "day_divide": "current",
+    "year_divide": "normal",
+    "horoscope_divide": "normal",
+    "time_basis": "true_solar_time",
+    "location_correction_applied": false
+  },
+  "natal": {},
+  "temporal": [
+    {
+      "target": {
+        "target_id": "T-DEMO",
+        "solar_date": "2033-08-03",
+        "time_index": 6
+      },
+      "solar_date": "2033-08-03",
+      "lunar_date": "二〇三三年七月初九",
+      "scopes": {
+        "decadal": {
+          "index": 2,
+          "name": "大限",
+          "stem": "甲",
+          "branch": "寅",
+          "palace_names": [
+            "命宫",
+            "兄弟宫"
+          ],
+          "mutagen": [
+            "禄",
+            "权"
+          ],
+          "nominal_age": null,
+          "stars": [
+            [
+              {
+                "name": "禄存",
+                "type": "lucun"
+              }
+            ],
+            []
+          ]
+        },
+        "age": {
+          "index": 5,
+          "name": "小限",
+          "stem": "乙",
+          "branch": "卯",
+          "palace_names": [
+            "命宫",
+            "兄弟宫"
+          ],
+          "mutagen": [],
+          "nominal_age": 33,
+          "stars": [
+            [],
+            []
+          ]
+        },
+        "yearly": {
+          "index": 7,
+          "name": "流年",
+          "stem": "丙",
+          "branch": "辰",
+          "palace_names": [
+            "命宫",
+            "兄弟宫"
+          ],
+          "mutagen": [
+            "科"
+          ],
+          "nominal_age": 33,
+          "stars": [
+            [
+              {
+                "name": "天马",
+                "type": "tianma"
+              }
+            ],
+            []
+          ]
+        },
+        "monthly": {
+          "index": 8,
+          "name": "流月",
+          "stem": "丁",
+          "branch": "巳",
+          "palace_names": [
+            "命宫",
+            "兄弟宫"
+          ],
+          "mutagen": [],
+          "nominal_age": null,
+          "stars": [
+            [],
+            []
+          ]
+        },
+        "daily": {
+          "index": 9,
+          "name": "流日",
+          "stem": "戊",
+          "branch": "午",
+          "palace_names": [
+            "命宫",
+            "兄弟宫"
+          ],
+          "mutagen": [],
+          "nominal_age": null,
+          "stars": [
+            [],
+            []
+          ]
+        },
+        "hourly": {
+          "index": 10,
+          "name": "流时",
+          "stem": "己",
+          "branch": "未",
+          "palace_names": [
+            "命宫",
+            "兄弟宫"
+          ],
+          "mutagen": [],
+          "nominal_age": null,
+          "stars": [
+            [],
+            []
+          ]
+        }
+      },
+      "yearly_dec_stars": {
+        "suiqian12": [
+          "岁建",
+          "晦气"
+        ],
+        "jiangqian12": [
+          "将星",
+          "攀鞍"
+        ]
+      }
+    }
+  ],
+  "chart_contract_id": "ZHONGZHOU_IZTRO_JS_2_6_1_V1_1"
+}

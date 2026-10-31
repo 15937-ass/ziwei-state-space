@@ -12,7 +12,7 @@ from src.product.temporal_reaction_compiler import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSET = ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.1.json"
+ASSET = ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.2.json"
 REGISTRY = ROOT / "product/PL3T_TEMPORAL_REACTION_FIXTURE_v0.1.json"
 
 

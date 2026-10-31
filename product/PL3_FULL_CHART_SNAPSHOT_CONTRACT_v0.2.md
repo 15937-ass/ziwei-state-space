@@ -9,7 +9,7 @@ Career inference accepts the PL1 full-exporter snapshot with `schema_version = "
 Machine-readable schema: `product/PL3_FULL_CHART_SNAPSHOT_SCHEMA_v0.2.json`  
 Runtime structural validator: `src/product/full_chart_snapshot_contract.py`  
 Canonical production validator: `src/product/canonical_chart_contract.py`  
-Authoritative production method: `product/CANONICAL_CHART_CONTRACT_v1.0.md`
+Authoritative production method: `product/CANONICAL_CHART_CONTRACT_v1.1.md`
 
 The Python validator is the dependency-free runtime gate. Its tests pin the key requirements in the JSON Schema so the two representations do not silently drift.
 

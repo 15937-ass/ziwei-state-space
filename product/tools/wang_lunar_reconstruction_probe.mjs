@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 /**
+ * HISTORICAL V1.0 RECONSTRUCTION PROBE — NOT A CURRENT PRODUCTION CHART GENERATOR.
+ * This probe records the former day_divide=forward reconstruction evidence.
+ * Keep its outputs historical; do not use them as v1.1 production snapshots.
+ * New production charts must use product/CANONICAL_CHART_CONTRACT_v1.1.md.
+ */
  * Source-bounded Wang full-chart reconstruction readiness probe.
  *
  * Usage:

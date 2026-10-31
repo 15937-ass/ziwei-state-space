@@ -8,7 +8,7 @@ from src.product.natal_domain_registry import load_default_natal_domain_registry
 from src.product.symbolic_inference_pipeline import run_symbolic_inference
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSET = ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.1.json"
+ASSET = ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.2.json"
 PRODUCTION_REGISTRY = ROOT / "product/PL3T_TEMPORAL_REACTION_REGISTRY_v0.1.json"
 TEST_REGISTRY = ROOT / "product/PL3T_TEMPORAL_REACTION_FIXTURE_v0.1.json"
 

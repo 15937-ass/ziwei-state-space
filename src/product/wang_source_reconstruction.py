@@ -1,4 +1,6 @@
-"""Wang 24-case source-input census and reconstruction readiness.
+"""Historical v1.0 Wang 24-case source-input census and reconstruction readiness.
+
+This validator is retained for the former day_divide=forward source-reconstruction evidence; it is not the v1.1 production chart path.
 
 This module validates only source-visible lunar birth signatures extracted from
 Wang Tingzhi's case charts. It does not reconstruct charts itself and never

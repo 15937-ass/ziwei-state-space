@@ -10,7 +10,7 @@ DetailedRead is **not** a second rule engine, a second Knowledge registry, a new
 
 ## 2. Canonical chart prerequisite
 
-DetailedRead is not a chart calculator. Before any chart facts enter a DetailedRead session, the caller/Skill must require a snapshot accepted by `product/CANONICAL_CHART_CONTRACT_v1.0.md`: Zhongzhou + pinned `iztro-js@2.6.1` and the exact fixed configuration. The LLM must never manually calculate or repair palace placement, stars, transformations, DECADE, YEAR or other temporal scopes. A third-party or manually supplied chart without verifiable canonical metadata is unverified and cannot be represented as the system's calculated chart.
+DetailedRead is not a chart calculator. Before any chart facts enter a DetailedRead session, the caller/Skill must require a snapshot accepted by `product/CANONICAL_CHART_CONTRACT_v1.1.md`: Zhongzhou + pinned `iztro-js@2.6.1` and the exact fixed configuration. The LLM must never manually calculate or repair palace placement, stars, transformations, DECADE, YEAR or other temporal scopes. A third-party or manually supplied chart without verifiable canonical metadata is unverified and cannot be represented as the system's calculated chart.
 
 If the canonical snapshot or generator is unavailable, stop before making canonical chart claims. The session remains a read-only evidence retrieval/orchestration component and does not create chart facts.
 

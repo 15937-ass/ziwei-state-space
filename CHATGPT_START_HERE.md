@@ -75,7 +75,7 @@
 
 ### 6.1 永久排盘前置约束
 
-任何命盘生成、排盘核验、QuickRead、DetailedRead、NATAL / DECADE / YEAR 工作，必须先遵循 `product/CANONICAL_CHART_CONTRACT_v1.0.md`。生产盘唯一口径为中州派 + `iztro-js@2.6.1` 及契约中固定的全部配置；x-iztro / Go 只用于差分审计。LLM 不得自行排盘、推算大限流年、修补或修改 chart facts。快照缺少契约元数据或配置不一致时必须 fail closed，不得继续推理。
+任何命盘生成、排盘核验、QuickRead、DetailedRead、NATAL / DECADE / YEAR 工作，必须先遵循 `product/CANONICAL_CHART_CONTRACT_v1.1.md`。生产盘唯一口径为中州派 + `iztro-js@2.6.1` 及契约中固定的全部配置；晚子时23:00—23:59归当天，00:00换日；输入时间已经是真太阳时，排盘引擎不得再次做地点校正。x-iztro / Go 只用于差分审计。LLM 不得自行排盘、推算大限流年、修补或修改 chart facts。快照缺少契约元数据或配置不一致时必须 fail closed，不得继续推理。
 
 - 当用户要求“紫微斗数简批”“简单看一下命盘”“快速看盘”或意思相近的**简短**命盘解读时，读取并遵循 `.agents/skills/social_quickread/SKILL.md`。
 - 当用户要求“详批”“完整看盘”“全面详解”“详细批一下”“完整命盘分析”，或从当前简批明确要求“继续详批/完整展开”时，读取并遵循 `.agents/skills/social_detailedread/SKILL.md`。明确的详批意图优先于简批默认长度合同。
@@ -94,4 +94,4 @@
 
 “查看三线状态”仅执行 AGENT_WORKFLOW.md 第 13 节要求的只读三线汇报，不启动新任务。三个入口不改变 Core/Product 各 1、一次一个宫位和正式集成串行的现行约束；常态运行目标是“1 个宫位 + 1 个 Core + 1 个 Product”并行生产，正式合入通过 Issue #888 的 Integration Lease 串行完成。普通无关任务无需加载操作卡。
 
-对 **Core / Product** 的持续推进，另有 PI 已批准的 `governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md`（当前内容版本 v2.2）：Core plan pointer 为 #901，C9 #945/#946 已接受；Core 下一项先复核 accepted v0.5 NATAL 结构与 Product 消费契约，再推进 NATAL / DECADE / YEAR 共享时间层语义。Product plan pointer 为 #900；#951 NATAL DetailedRead、#966 真实案例检验、#977 中州派 + `iztro-js@2.6.1` 唯一生产排盘契约均已关闭并合并。当前 Product 无 ACTIVE_BUILD 单元；下一次“继续产品线”先恢复 #900 与实时 Product 状态，领取下一项合格 nominee。生产排盘权威契约为 `product/CANONICAL_CHART_CONTRACT_v1.0.md`。后续 DECADE、YEAR 仍须等待匹配的 accepted、Product-consumable Knowledge/Core 时间层证据。Product 发现的问题按 `KNOWLEDGE_GAP` / `CORE_GAP` / `PRODUCT_GAP` / `HOLD_UNKNOWN` 分类，并沿 `governance/CROSS_LANE_HANDOFF_v1.md` 定向交接；P0 立即阻断受影响的无依据判断，P1 排入下一个合格有界单元，P2 记录后延后。三线仍保持一个宫位 + 一个 Core + 一个 Product 并行、各自 WIP 限制和 #888 串行集成，不建立第二个状态台账。若用户只说“推进Core线/继续Core”或“推进产品线/继续产品线”，恢复实时 Issue/PR 后：有 ACTIVE 单就接续；无 ACTIVE 单且槽位/依赖满足，就直接按相应 plan pointer 领取最早可执行 nominee，不要求用户重述规划。完成当前 bounded unit 后不要在同一回合自动执行下一单，但必须留下下一 nominee/交接，保证下一次“继续”可直接恢复。
+对 **Core / Product** 的持续推进，另有 PI 已批准的 `governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md`（当前内容版本 v2.2）：Core plan pointer 为 #901，C9 #945/#946 已接受；Core 下一项先复核 accepted v0.5 NATAL 结构与 Product 消费契约，再推进 NATAL / DECADE / YEAR 共享时间层语义。Product plan pointer 为 #900；#951 NATAL DetailedRead、#966 真实案例检验、#977 / v1.0 是历史生产契约；当前 Product #981 正在修正晚子时日界并建立 v1.1。当前 Product 有一个 ACTIVE_BUILD 单元，不得并行领取第二个 Product 单元。生产排盘权威契约为 `product/CANONICAL_CHART_CONTRACT_v1.1.md`。后续 DECADE、YEAR 仍须等待匹配的 accepted、Product-consumable Knowledge/Core 时间层证据。Product 发现的问题按 `KNOWLEDGE_GAP` / `CORE_GAP` / `PRODUCT_GAP` / `HOLD_UNKNOWN` 分类，并沿 `governance/CROSS_LANE_HANDOFF_v1.md` 定向交接；P0 立即阻断受影响的无依据判断，P1 排入下一个合格有界单元，P2 记录后延后。三线仍保持一个宫位 + 一个 Core + 一个 Product 并行、各自 WIP 限制和 #888 串行集成，不建立第二个状态台账。若用户只说“推进Core线/继续Core”或“推进产品线/继续产品线”，恢复实时 Issue/PR 后：有 ACTIVE 单就接续；无 ACTIVE 单且槽位/依赖满足，就直接按相应 plan pointer 领取最早可执行 nominee，不要求用户重述规划。完成当前 bounded unit 后不要在同一回合自动执行下一单，但必须留下下一 nominee/交接，保证下一次“继续”可直接恢复。

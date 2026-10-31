@@ -7,7 +7,7 @@ from src.product.temporal_fixture_benchmark import (
 
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSET = ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.1.json"
+ASSET = ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.2.json"
 FIXTURES = ROOT / "product/PL3T_TEMPORAL_FIXTURES_v0.1.json"
 
 

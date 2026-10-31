@@ -1,0 +1,34 @@
+{
+  "version": "0.3",
+  "description": "P1 full-stack temporal targets under canonical Zhongzhou v1.1. The late-Zi target remains a strict JS/Rust same-contract test; it is excluded only from the non-Zhongzhou Go independent-core hard gate.",
+  "targets": [
+    {
+      "target_id": "T1_LEAP_LATE_ZI",
+      "solar_date": "2032-02-29",
+      "time_index": 12
+    },
+    {
+      "target_id": "T2_EARLY_ZI",
+      "solar_date": "2033-01-31",
+      "time_index": 0
+    },
+    {
+      "target_id": "T3_DAYTIME",
+      "solar_date": "2033-08-03",
+      "time_index": 6
+    },
+    {
+      "target_id": "T4_HAI",
+      "solar_date": "2034-02-04",
+      "time_index": 11
+    }
+  ],
+  "school_sensitive_target_ids": [
+    "T1_LEAP_LATE_ZI"
+  ],
+  "independent_core_policy": {
+    "canonical_contract": "ZHONGZHOU_IZTRO_JS_2_6_1_V1_1",
+    "hard_gate": "iztro JS 2.6.1 vs x-iztro 0.6.1 full normalized equality across all targets",
+    "independent_go": "late-Zi target T1_LEAP_LATE_ZI is diagnostic only because the pinned Go core is not configured for the canonical Zhongzhou day_divide=current rule"
+  }
+}

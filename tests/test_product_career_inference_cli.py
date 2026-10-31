@@ -4,7 +4,7 @@ from pathlib import Path
 from src.product.career_inference_cli import main
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSET_PATH = ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.1.json"
+ASSET_PATH = ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.2.json"
 
 BRANCH = {
     "命宫": "酉",

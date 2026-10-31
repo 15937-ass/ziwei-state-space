@@ -49,13 +49,13 @@ jobs:
         env:
           PYTHONPATH: ${{ github.workspace }}
         run: |
-          timeout 60s python tools/chart_inputs_to_jsonl.py             validation/product_chart_regression/regression_inputs_v0.1.csv             /tmp/p1_inputs.jsonl
+          timeout 60s python tools/chart_inputs_to_jsonl.py             validation/product_chart_regression/regression_inputs_v0.2.csv             /tmp/p1_inputs.jsonl
           test "$(wc -l < /tmp/p1_inputs.jsonl)" -eq 100
           python - <<'PY'
           import json
           from datetime import date
           from pathlib import Path
-          p=Path("validation/product_chart_regression/b02b_zi_day_boundary.json")
+          p=Path("validation/product_chart_regression/b02b_zi_day_boundary_v0.3.json")
           m=json.loads(p.read_text(encoding="utf-8"))
           n=len(m.get("targets", []))
           assert 1 <= n <= 8, f"target count out of guardrail: {n}"
@@ -63,7 +63,7 @@ jobs:
           latest=max(date.fromisoformat(x["solar_date"]) for x in inputs)
           earliest=min(date.fromisoformat(x["solar_date"]) for x in m["targets"])
           assert earliest >= latest, f"target precedes natal seed: {earliest} < {latest}"
-          assert m["config_contract"]["day_divide"] == "forward"
+          assert m["config_contract"]["day_divide"] == "current"
           print(f"targets={n} latest_birth={latest} earliest_target={earliest}")
           PY
 
@@ -76,19 +76,19 @@ jobs:
         env:
           IZTRO_VERSION: "2.6.1"
         run: |
-          timeout 300s node tools/iztro_full_export.mjs             /tmp/p1_inputs.jsonl             validation/product_chart_regression/b02b_zi_day_boundary.json             /tmp/p1_iztro_b02b.jsonl
+          timeout 300s node tools/iztro_full_export.mjs             /tmp/p1_inputs.jsonl             validation/product_chart_regression/b02b_zi_day_boundary_v0.3.json             /tmp/p1_iztro_b02b.jsonl
 
       - name: Export x-iztro Rust
         run: |
-          timeout 300s python tools/x_iztro_full_export.py             /tmp/p1_inputs.jsonl             validation/product_chart_regression/b02b_zi_day_boundary.json             /tmp/p1_xiztro_b02b.jsonl
+          timeout 300s python tools/x_iztro_full_export.py             /tmp/p1_inputs.jsonl             validation/product_chart_regression/b02b_zi_day_boundary_v0.3.json             /tmp/p1_xiztro_b02b.jsonl
 
       - name: Validate civil lunar markers
         run: |
-          timeout 120s python tools/p1_validate_boundary_expectations.py             /tmp/p1_iztro_b02b.jsonl             validation/product_chart_regression/b02b_zi_day_boundary.json             --max-errors 10 --max-targets 8
+          timeout 120s python tools/p1_validate_boundary_expectations.py             /tmp/p1_iztro_b02b.jsonl             validation/product_chart_regression/b02b_zi_day_boundary_v0.3.json             --max-errors 10 --max-targets 8
 
-      - name: Profile late-Zi school-sensitive semantics
+      - name: Profile canonical Zhongzhou late-Zi semantics
         run: |
-          timeout 120s python tools/p1_validate_zi_day_boundary.py             /tmp/p1_iztro_b02b.jsonl             validation/product_chart_regression/b02b_zi_day_boundary.json             --report /tmp/p1_zi_day_semantics.json             --max-errors 10
+          timeout 120s python tools/p1_validate_zi_day_boundary.py             /tmp/p1_iztro_b02b.jsonl             validation/product_chart_regression/b02b_zi_day_boundary_v0.3.json             --report /tmp/p1_zi_day_semantics.json             --max-errors 10
           head -120 /tmp/p1_zi_day_semantics.json
 
       - name: Cross-implementation full diff
@@ -105,20 +105,20 @@ jobs:
           git checkout --quiet 947166fc45cd7c8c0849da1bd870f570972a7172
           mkdir -p cmd/p1export
           cp "$GITHUB_WORKSPACE/tools/dawang_p1_export/main.go" cmd/p1export/main.go
-          timeout 360s go run ./cmd/p1export             /tmp/p1_inputs.jsonl             "$GITHUB_WORKSPACE/validation/product_chart_regression/b02b_zi_day_boundary.json"             /tmp/p1_dawang_b02b.jsonl
+          timeout 360s go run ./cmd/p1export             /tmp/p1_inputs.jsonl             "$GITHUB_WORKSPACE/validation/product_chart_regression/b02b_zi_day_boundary_v0.3.json"             /tmp/p1_dawang_b02b.jsonl
 
       - name: Independent Go core audit
         env:
           PYTHONPATH: ${{ github.workspace }}
         run: |
-          timeout 180s python tools/p1_independent_compare.py             /tmp/p1_iztro_b02b.jsonl             /tmp/p1_dawang_b02b.jsonl             --report /tmp/p1_independent_b02b_report.json             --school-sensitive-manifest validation/product_chart_regression/b02b_zi_day_boundary.json             --max-total-diffs 500             --max-detail-per-case 100             --fail-on-core-diff
+          timeout 180s python tools/p1_independent_compare.py             /tmp/p1_iztro_b02b.jsonl             /tmp/p1_dawang_b02b.jsonl             --report /tmp/p1_independent_b02b_report.json             --school-sensitive-manifest validation/product_chart_regression/b02b_zi_day_boundary_v0.3.json             --max-total-diffs 500             --max-detail-per-case 100             --fail-on-core-diff
           head -100 /tmp/p1_independent_b02b_report.json
 
-      - name: Upload bounded B02-B artifacts
+      - name: Upload bounded B02-B Zhongzhou v1.1 artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: p1-b02b-zi-day-${{ github.sha }}
+          name: p1-b02b-zhongzhou-v1.1-${{ github.sha }}
           path: |
             /tmp/p1_iztro_b02b.jsonl
             /tmp/p1_xiztro_b02b.jsonl

@@ -19,7 +19,7 @@ if (!inputPath || !targetsPath || !outputPath) {
   throw new Error("Usage: node tools/iztro_full_export.mjs input.jsonl targets.json output.jsonl");
 }
 
-const adapterVersion = "0.2";
+const adapterVersion = "0.3";
 const engineVersion = "2.6.1";
 function resolveInstalledIztroVersion() {
   let directory = path.dirname(fileURLToPath(import.meta.resolve("iztro")));
@@ -42,12 +42,12 @@ if (installedIztroVersion !== engineVersion) {
     `installed iztro version must equal ${engineVersion}; got ${installedIztroVersion}`
   );
 }
-const chartContractId = "ZHONGZHOU_IZTRO_JS_2_6_1_V1";
+const chartContractId = "ZHONGZHOU_IZTRO_JS_2_6_1_V1_1";
 const canonicalConfig = Object.freeze({
   algorithm: "zhongzhou",
   astroType: "heaven",
   fixLeap: true,
-  dayDivide: "forward",
+  dayDivide: "current",
   yearDivide: "normal",
   horoscopeDivide: "normal",
   language: "zh-CN",
@@ -64,6 +64,8 @@ function assertCanonicalInput(caseInput) {
     year_divide: canonicalConfig.yearDivide,
     horoscope_divide: canonicalConfig.horoscopeDivide,
     fix_leap: canonicalConfig.fixLeap,
+    time_basis: "true_solar_time",
+    location_correction_applied: false,
   };
   for (const [field, value] of Object.entries(expected)) {
     if (caseInput[field] !== value) {

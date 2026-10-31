@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Profile late-Zi boundary semantics for P1 B02-B.
+"""Profile late-Zi boundary relations under the canonical Zhongzhou v1.1 policy.
 
-Late-Zi day attribution is school-sensitive. This tool therefore records whether
-selected temporal scopes are equal or different across boundary pairs, but does
-not declare either relation universally correct. It fails only on structural
-problems (missing targets/scopes or malformed probe definitions).
+The canonical production choice is day_divide=current: late Zi remains on the
+supplied date. This tool records temporal relation signatures descriptively;
+cross-school differences remain diagnostic and are not production alternatives.
+It fails only on structural problems (missing targets/scopes or malformed probes).
 """
 
 from __future__ import annotations
@@ -135,7 +135,7 @@ def main() -> int:
 
     print("P1 B02-B ZI/DAY SEMANTIC PROFILE")
     print(f"records={len(rows)}")
-    print("policy=school-sensitive; relation probes are descriptive, not universal assertions")
+    print("policy=Zhongzhou canonical same-day; relation probes are descriptive, cross-school differences are diagnostic only")
     for pid, counter in sorted(relation_counts.items()):
         print(pid, json.dumps(dict(sorted(counter.items())), ensure_ascii=False))
     print(f"structural_errors={len(errors)}")
