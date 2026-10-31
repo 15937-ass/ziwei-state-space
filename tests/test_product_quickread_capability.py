@@ -165,7 +165,7 @@ def test_synthetic_fixture_expected_counts_match_actual_coverage():
         request,
         manifest,
         items,
-        chart_context={"normalized_chart": {"synthetic": True}},
+        chart_context=_canonical_chart_context(),
     )
     actual = {
         key: payload["coverage"][key]
@@ -548,3 +548,38 @@ def test_case_only_source_must_match_the_requested_case_scope():
     )
     with pytest.raises(ValueError, match="case_scope does not match"):
         build_quickread_payload(request, manifest, (wrong_scope,))
+
+
+def test_unverified_chart_context_is_rejected():
+    _, request, manifest, items = _fixture_objects()
+    with pytest.raises(ValueError, match="canonical production snapshot"):
+        build_quickread_payload(
+            request,
+            manifest,
+            items,
+            chart_context={"normalized_chart": {"synthetic": True}},
+        )
+
+
+def test_case_anchor_context_is_limited_and_cannot_request_general_model_supplement():
+    _, request, manifest, items = _fixture_objects()
+    case_anchor = {
+        "fixture_id": "WANG-CASE-012",
+        "source_chart_span_ref": {"source_id": "SRC-ZZ-CASE", "pages": [15, 16]},
+        "target_domain": "WEALTH",
+        "target_palace": "财帛",
+        "target_branch": "巳",
+        "target_main_stars": ["天梁"],
+        "target_anchor_status": "UNIQUE_ANCHOR_MATCH_RECONFIRMED",
+        "case_allowed_use": "CASE_SUPPORT_ONLY",
+        "full_source_chart_equivalence_verified": False,
+    }
+    payload = build_quickread_payload(
+        request,
+        manifest,
+        items,
+        chart_context=case_anchor,
+    )
+    assert payload["chart_context_status"] == "CASE_ANCHOR_ONLY"
+    assert payload["model_supplement_request"]["enabled"] is False
+    assert payload["model_supplement_request"]["disabled_reason"] == "CASE_ANCHOR_ONLY_NOT_CANONICAL_CHART"
