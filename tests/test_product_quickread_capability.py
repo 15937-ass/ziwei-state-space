@@ -591,4 +591,7 @@ def test_case_anchor_context_is_limited_and_cannot_request_general_model_supplem
     )
     assert payload["chart_context_status"] == "CASE_ANCHOR_ONLY"
     assert payload["model_supplement_request"]["enabled"] is False
-    assert payload["model_supplement_request"]["disabled_reason"] == "CASE_ANCHOR_ONLY_NOT_CANONICAL_CHART"
+    assert (
+        payload["model_supplement_request"]["disabled_reason"]
+        == "CASE_ANCHOR_ONLY_NOT_CANONICAL_CHART"
+    )
