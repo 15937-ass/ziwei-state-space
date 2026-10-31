@@ -810,7 +810,7 @@ def build_quickread_payload(
         },
         "gaps": gaps,
         "model_supplement_request": {
-            "enabled": request.mode == "HYBRID" and bool(chart),
+            "enabled": request.mode == "HYBRID" and chart_context_status == "CANONICAL_PRODUCTION",
             "slot_ids": model_supplement_slots,
             "disabled_reason": (
                 "NORMALIZED_CHART_CONTEXT_MISSING"
