@@ -70,25 +70,18 @@ def test_canonical_chatgpt_bootstrap_prevents_actions_policy_regression():
     assert "chat_is_authoritative:" not in project
 
 
-def test_pi_closeout_is_a_hard_final_answer_gate():
+def test_pi_first_closeout_is_compact_not_a_global_gate():
     bootstrap = (ROOT / "CHATGPT_START_HERE.md").read_text(encoding="utf-8")
     workflow = (ROOT / "AGENT_WORKFLOW.md").read_text(encoding="utf-8")
-    marker = "PI_CLOSEOUT_FINAL_GATE_REQUIRED"
-    assert marker in bootstrap
-    assert marker in workflow
-    assert "不得发送仓库工作对话的最终答复" in bootstrap
-    assert "hard final-response gate" in workflow
+    contract = (ROOT / "governance/PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md").read_text(encoding="utf-8")
+    assert "PI_CLOSEOUT_FINAL_GATE_REQUIRED" not in bootstrap
+    assert "PI_CLOSEOUT_FINAL_GATE_REQUIRED" not in workflow
+    assert "不得发送仓库工作对话的最终答复" not in bootstrap
     assert "ordinary end-user QuickRead" in workflow
     assert "普通 QuickRead、DetailedRead 或其他命理解读" in bootstrap
-    for heading in (
-        "【整个项目现在到哪了】",
-        "【宫位、Knowledge Core、Product 当前状态】",
-        "【这一步刚刚完成了什么】",
-        "【下一步准备做什么】",
-        "【现在需要 PI 帮助什么】",
-        "【需要你特别警惕的风险】",
-    ):
-        assert heading in workflow
+    assert "不要求六区块固定汇报" in bootstrap
+    assert "global three-stream census" in contract
+    assert "optional" in contract
 
 
 def test_g7_is_quarantined_and_g8_is_current():
@@ -151,7 +144,9 @@ def test_pi_decision_and_substantive_progress_contract_is_wired_into_workflow():
     assert "Autonomous execution within approved scope" in contract
     assert "PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md" in workflow
     assert "PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md" in bootstrap
+    assert "当前对话中 PI 明确提出的最新指令" in bootstrap
     assert "one primary outcome class" in workflow
+    assert "current explicit PI instruction" in workflow
     assert "The PI reserves research mission/priority/resource/WIP decisions" in workflow
 
 
@@ -165,9 +160,9 @@ def test_every_repository_work_turn_has_one_truthful_primary_outcome_class():
         "NO_SUBSTANTIVE_PROGRESS",
     ):
         assert outcome in contract
-    assert "exactly one primary outcome class" in contract
-    assert "Validation is a quality gate; it is not by itself new research progress." in contract
-    assert "Explicitly state that no substantive progress was made." in contract
+    assert "not mandatory for every turn" in contract
+    assert "Validation is a quality gate, not research progress." in contract
+    assert "NO_SUBSTANTIVE_PROGRESS" in contract
 
 
 def test_anti_ceremony_rules_exclude_administrative_activity_as_progress():
@@ -201,19 +196,15 @@ def test_line_specific_progress_criteria_preserve_epistemic_maturity():
         assert maturity in contract
 
 
-def test_closeout_contract_extends_existing_six_sections_without_second_ledger():
+def test_closeout_contract_is_task_scoped_and_lightweight():
     contract = (ROOT / "governance/PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md").read_text(encoding="utf-8")
     workflow = (ROOT / "AGENT_WORKFLOW.md").read_text(encoding="utf-8")
-    for heading in (
-        "【整个项目现在到哪了】",
-        "【宫位、Knowledge Core、Product 当前状态】",
-        "【这一步刚刚完成了什么】",
-        "【下一步准备做什么】",
-        "【现在需要 PI 帮助什么】",
-        "【需要你特别警惕的风险】",
-    ):
-        assert heading in workflow
+    bootstrap = (ROOT / "CHATGPT_START_HERE.md").read_text(encoding="utf-8")
+    assert "six-section report are optional" in contract
+    assert "no mandatory six-section report" in workflow
+    assert "global three-stream census is optional" in workflow
+    assert "Result" in workflow
+    assert "Changed artifacts" in workflow
+    assert "Validation actually performed" in workflow
     assert "do not create a second status ledger" in contract
-    assert "whether PI judgment is required" in contract
-    assert "PI-judgment YES/NO" in workflow
-    assert "validation identity" in contract
+    assert "current explicit PI instruction" in bootstrap
