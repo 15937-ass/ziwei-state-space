@@ -4,6 +4,7 @@ from pathlib import Path
 import pytest
 
 import src.product.career_inference_service as career_service
+import src.product.canonical_chart_contract as chart_contract
 from src.product.canonical_chart_contract import (
     CANONICAL_CHART_CONTRACT_ID,
     validate_canonical_production_chart_snapshot,
@@ -105,3 +106,19 @@ def test_production_service_rejects_noncanonical_chart_before_loading_providers(
 
 def test_canonical_contract_id_is_stable():
     assert CANONICAL_CHART_CONTRACT_ID == "ZHONGZHOU_IZTRO_JS_2_6_1_V1"
+
+
+def test_machine_contract_drift_fails_closed(tmp_path, monkeypatch):
+    contract = json.loads(
+        (ROOT / "product" / "CANONICAL_CHART_CONTRACT_v1.0.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    contract["chart_config"]["algorithm"] = "default"
+    path = tmp_path / "drifted-contract.json"
+    path.write_text(json.dumps(contract), encoding="utf-8")
+    monkeypatch.setattr(chart_contract, "CONTRACT_PATH", path)
+
+    result = validate_canonical_production_chart_snapshot(valid_snapshot())
+    assert not result.ok
+    assert any("contract unavailable" in error for error in result.errors)
