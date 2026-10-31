@@ -15,8 +15,8 @@ AI 是 PI 的研究与执行助手，不是共同 PI。不得用旧计划、历�
 ## 2. 默认上下文：只读当前任务需要的内容
 
 - 普通问答或命理解读不是仓库工作；不要因此加载仓库治理文件。
-- 仓库任务只恢复：当前 PI 指令、对应的一个 live Issue/PR，以及该任务明确需要的文件。
-- PROJECT_STATE.yaml 只在需要确认仓库入口/权威指针时读取。lane state 是缓存；仅在当前任务确实依赖它或发现冲突时读取。
+- 仓库任务只恢复：当前 PI 指令、PROJECT_STATE 中的项目状态/权威指针、对应的一个 live Issue/PR，以及该任务明确需要的文件。
+- 读取 PROJECT_STATE.yaml 时只检查 project_status 和 authority 指针，不加载其他工作线状态缓存。若 project_status 为 ARCHIVED，除非 PI 明确要求恢复，否则不得执行仓库工作。lane state 是缓存；仅在当前任务确实依赖它或发现冲突时读取。
 - 不默认读取 RECOVERY_PRECEDENCE、全部 lane state、完整路线图、THREE_STREAM_START_HERE、历史提案或其他工作线材料。
 - 用户说“继续某条线”时，只检查该线 live Issue/PR；没有活动工单时，才读取该线对应的一个 plan pointer。不要恢复整个项目。
 - 全局三线盘点只在 PI 明确要求，或当前任务确实存在跨线依赖时进行。
