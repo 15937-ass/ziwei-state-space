@@ -50,7 +50,17 @@ For repository implementation, preserve the normal Issue → branch → PR → v
 
 During ACTIVE_BUILD, run relevant bounded tests and checks. Do not repeat unchanged reads or validations merely to create activity. One ordinary technical repair/retry is allowed; repeated or conceptual failure is reported rather than hidden by weakening a test.
 
-Only the Integration Lease holder in Issue #888 may synchronize to current main, run the final exact-head full gate, merge and release the lease. Never merge on stale validation or consume unmerged work as accepted knowledge.
+Validation intensity follows the existing risk level:
+- R0: diff/format checks and directly changed tests.
+- R1: affected module/contract tests and relevant deterministic validators.
+- R2: affected domain suites plus independent review; full repository gate when shared contracts or cross-module behavior are affected.
+- R3: explicit PI approval, full exact-head gate and relevant independent/differential checks.
+
+PR CI runs changed-scope tests, not the full repository suite. The full suite and P0 repository audit are reserved for the exact-head integration gate when required by R2/R3 or the live Issue. An isolated R0/R1 Issue may explicitly approve a narrower exact-head gate. Never broaden or narrow the gate silently after seeing a result.
+
+Only the Integration Lease holder in Issue #888 may synchronize to current main, run the Issue-approved exact-head gate, merge and release the lease. Never merge on stale validation or consume unmerged work as accepted knowledge.
+
+Context rule: do not read the entire tests directory or full CI logs by default. Use the changed-file list, selected-test summary and only the relevant failing traceback excerpt. Rerun only when the code/head changes or a failure requires one bounded repair; do not rerun an unchanged green result for reassurance.
 
 GitHub Actions are validation-only:
 - PR pull_request workflows may run deterministic tests;
