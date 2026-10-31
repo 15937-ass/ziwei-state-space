@@ -43,3 +43,10 @@ def test_target_core_is_symmetric_for_go_and_js_shapes():
         "time_index": 6,
     }
     assert mod.target_core(js) == mod.target_core(go)
+
+
+def test_late_zi_birth_is_marked_as_cross_school_diagnostic():
+    mod = load_module()
+    assert mod.is_late_zi_birth({"input": {"time_index": 12}}) is True
+    assert mod.is_late_zi_birth({"input": {"time_index": 0}}) is False
+    assert mod.is_late_zi_birth({"input": {"time_index": 11}}) is False
