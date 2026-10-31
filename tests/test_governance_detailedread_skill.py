@@ -54,7 +54,7 @@ def test_ordinary_detailedread_does_not_leak_internal_pi_closeout():
 def test_quickread_and_detailedread_require_canonical_zhongzhou_iztro_chart():
     quick = (ROOT / ".agents/skills/social_quickread/SKILL.md").read_text(encoding="utf-8")
     detailed = (ROOT / ".agents/skills/social_detailedread/SKILL.md").read_text(encoding="utf-8")
-    contract = "product/CANONICAL_CHART_CONTRACT_v1.0.md"
+    contract = "product/CANONICAL_CHART_CONTRACT_v1.1.md"
     for skill in (quick, detailed):
         assert contract in skill
         assert "iztro-js@2.6.1" in skill
