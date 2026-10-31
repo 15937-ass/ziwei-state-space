@@ -74,18 +74,18 @@ def test_summary_counts_severity_and_category():
 
 def test_provenance_metadata_is_ignored_but_canonical_chart_config_is_compared():
     left = {
-        "chart_contract_id": "ZHONGZHOU_IZTRO_JS_2_6_1_V1",
+        "chart_contract_id": "ZHONGZHOU_IZTRO_JS_2_6_1_V1_1",
         "engine": {"name": "iztro-js", "version": "2.6.1"},
         "input": {
             "entrypoint": "astro.withOptions",
-            "chart_config": {"algorithm": "zhongzhou", "day_divide": "forward"},
+            "chart_config": {"algorithm": "zhongzhou", "day_divide": "current"},
         },
     }
     right = {
         "engine": {"name": "x-iztro-rust", "version": "0.6.1"},
         "input": {
             "entrypoint": "x-iztro-rust.by_solar",
-            "chart_config": {"algorithm": "zhongzhou", "day_divide": "forward"},
+            "chart_config": {"algorithm": "zhongzhou", "day_divide": "current"},
         },
     }
     ignored = ("engine", "chart_contract_id", "input.entrypoint")
