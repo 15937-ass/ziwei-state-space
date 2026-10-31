@@ -56,15 +56,21 @@ def main() -> int:
             continue
 
         # Engine identity, chart contract ID and implementation entrypoint are
-        # provenance metadata, not normalized chart facts. Keep school/config
-        # metadata in the comparison so both engines must declare the same
-        # Zhongzhou settings; production admission separately accepts iztro-js
-        # only and rejects the x-iztro audit output.
-        ignored_metadata_paths = ("engine", "chart_contract_id", "input.entrypoint")
+        # provenance metadata, not normalized chart facts. Strip only those
+        # fields explicitly; keep school/config metadata in the comparison so
+        # both implementations must declare the same Zhongzhou settings.
+        left_chart = json.loads(json.dumps(left[case_id]))
+        right_chart = json.loads(json.dumps(right[case_id]))
+        for chart in (left_chart, right_chart):
+            chart.pop("chart_contract_id", None)
+            input_payload = chart.get("input")
+            if isinstance(input_payload, dict):
+                input_payload.pop("entrypoint", None)
+
         diffs = compare_chart_snapshots(
-            left[case_id],
-            right[case_id],
-            ignore_paths=ignored_metadata_paths,
+            left_chart,
+            right_chart,
+            ignore_paths=("engine",),
         )
         if diffs:
             cases_with_diffs += 1
