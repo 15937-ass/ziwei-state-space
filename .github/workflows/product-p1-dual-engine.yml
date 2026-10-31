@@ -64,7 +64,7 @@ jobs:
         run: |
           node tools/iztro_full_export.mjs \
             /tmp/p1_inputs.jsonl \
-            validation/product_chart_regression/temporal_targets_v0.2.json \
+            validation/product_chart_regression/temporal_targets_v0.3.json \
             /tmp/p1_iztro_js.jsonl
 
       - name: Validate natal early-/late-Zi same-date attribution
@@ -80,7 +80,7 @@ jobs:
         run: |
           python tools/x_iztro_full_export.py \
             /tmp/p1_inputs.jsonl \
-            validation/product_chart_regression/temporal_targets_v0.2.json \
+            validation/product_chart_regression/temporal_targets_v0.3.json \
             /tmp/p1_xiztro_rust.jsonl
 
       - name: Compare 100 natal + 400 full horoscope snapshots
@@ -103,7 +103,7 @@ jobs:
           cp "$GITHUB_WORKSPACE/tools/dawang_p1_export/main.go" cmd/p1export/main.go
           go run ./cmd/p1export \
             /tmp/p1_inputs.jsonl \
-            "$GITHUB_WORKSPACE/validation/product_chart_regression/temporal_targets_v0.2.json" \
+            "$GITHUB_WORKSPACE/validation/product_chart_regression/temporal_targets_v0.3.json" \
             /tmp/p1_dawang_go.jsonl
 
       - name: Independent Go core audit
@@ -113,6 +113,7 @@ jobs:
           python tools/p1_independent_compare.py \
             /tmp/p1_iztro_js.jsonl \
             /tmp/p1_dawang_go.jsonl \
+            --school-sensitive-manifest validation/product_chart_regression/temporal_targets_v0.3.json \
             --report /tmp/p1_independent_go_report.json \
             --fail-on-core-diff
           cat /tmp/p1_independent_go_report.json | head -100
