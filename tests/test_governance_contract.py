@@ -206,5 +206,5 @@ def test_closeout_contract_is_task_scoped_and_lightweight():
     assert "Result" in workflow
     assert "Changed artifacts" in workflow
     assert "Validation actually performed" in workflow
-    assert "do not create a second status ledger" in contract
+    assert "Do not create a second status ledger" in contract
     assert "current explicit PI instruction" in bootstrap
