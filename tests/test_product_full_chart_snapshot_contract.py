@@ -14,7 +14,7 @@ from src.product.full_chart_snapshot_contract import (
 from src.product.temporal_asset_adapter import SCOPE_TO_LAYER, adapt_target_from_full_snapshot
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSET_PATH = ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.1.json"
+ASSET_PATH = ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.2.json"
 
 BRANCH = {
     "命宫": "酉",
