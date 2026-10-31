@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Independent-core audit: iztro zhongzhou projection vs pinned Go engine.
 
-The Go engine is a separate implementation. It targets iztro/default historically,
-so this audit intentionally compares only school-neutral/core fields. A manifest
-may additionally identify late-Zi targets as school-sensitive; those temporal
-targets are excluded from the hard equality gate rather than being mislabeled as
-engine bugs.
+The Go engine is a separate implementation and is not configured as the canonical
+Zhongzhou late-Zi oracle. This audit intentionally compares school-neutral/core
+fields. A manifest identifies late-Zi targets as cross-school diagnostic targets;
+those temporal targets are excluded from the hard equality gate rather than being
+mislabeled as engine bugs. The canonical Zhongzhou production contract itself
+uses day_divide=current and does not retain a next-day alternative.
 """
 
 from __future__ import annotations
@@ -163,7 +164,7 @@ def main():
         "cases_with_differences":cases,
         "total_differences":total,
         "exact_case_agreement_rate":(len(left)-cases)/len(left) if left else 0,
-        "comparison_scope":"school-neutral natal core + non-school-sensitive temporal structural fields",
+        "comparison_scope":"school-neutral natal core + non-cross-school-diagnostic temporal structural fields",
         "school_sensitive_target_ids_excluded_from_hard_gate":sorted(excluded_target_ids),
         "go_source_revision":"947166fc45cd7c8c0849da1bd870f570972a7172",
         "details":details,
