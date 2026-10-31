@@ -21,6 +21,15 @@ FIXTURE_PATH = (
     / "product"
     / "QUICKREAD_CAPABILITY_SYNTHETIC_FIXTURE_V0_1.json"
 )
+CHART_FIXTURE_PATH = (
+    Path(__file__).resolve().parents[1]
+    / "product"
+    / "PL3T_TEMPORAL_ASSET_FIXTURE_v0.1.json"
+)
+
+
+def _canonical_chart_context():
+    return json.loads(CHART_FIXTURE_PATH.read_text(encoding="utf-8"))
 
 
 def _slot(slot_id, domain, layer="NATAL", kind="NATAL_STRUCTURE", namespaces=None, case_scope=None):
