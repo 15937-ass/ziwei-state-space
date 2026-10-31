@@ -1,5 +1,12 @@
 #!/usr/bin/env node
 /**
+ * HISTORICAL V1.0 MATERIALIZER — NOT A CURRENT PRODUCTION CHART GENERATOR.
+ * This tool reproduces the already-versioned Wang v0.1B historical artifact
+ * under the former day_divide=forward configuration. Do not use it for new
+ * production charts or silently relabel its output as canonical v1.1. A new
+ * v1.1 Wang reconstruction requires a separately approved, source-rechecked
+ * migration and target-anchor verification.
+ */
  * Source-bounded full natal-chart materializer for the 11 unique Wang cases.
  *
  * Usage:
