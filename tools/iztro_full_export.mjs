@@ -18,7 +18,36 @@ if (!inputPath || !targetsPath || !outputPath) {
 }
 
 const adapterVersion = "0.2";
-const engineVersion = process.env.IZTRO_VERSION || "2.6.1";
+const engineVersion = "2.6.1";
+const chartContractId = "ZHONGZHOU_IZTRO_JS_2_6_1_V1";
+const canonicalConfig = Object.freeze({
+  algorithm: "zhongzhou",
+  astroType: "heaven",
+  fixLeap: true,
+  dayDivide: "forward",
+  yearDivide: "normal",
+  horoscopeDivide: "normal",
+  language: "zh-CN",
+});
+
+if (process.env.IZTRO_VERSION && process.env.IZTRO_VERSION !== engineVersion) {
+  throw new Error(`IZTRO_VERSION must remain pinned to ${engineVersion}`);
+}
+
+function assertCanonicalInput(caseInput) {
+  const expected = {
+    algorithm: canonicalConfig.algorithm,
+    day_divide: canonicalConfig.dayDivide,
+    year_divide: canonicalConfig.yearDivide,
+    horoscope_divide: canonicalConfig.horoscopeDivide,
+    fix_leap: canonicalConfig.fixLeap,
+  };
+  for (const [field, value] of Object.entries(expected)) {
+    if (caseInput[field] !== value) {
+      throw new Error(`non-canonical production chart input: ${field} must equal ${value}`);
+    }
+  }
+}
 
 function stableStars(stars) {
   return (stars ?? [])
@@ -126,20 +155,21 @@ function normalizeHoroscope(raw, target) {
 }
 
 function render(caseInput, targets) {
+  assertCanonicalInput(caseInput);
   const config = {
-    algorithm: caseInput.algorithm ?? "zhongzhou",
-    dayDivide: caseInput.day_divide ?? "forward",
-    yearDivide: caseInput.year_divide ?? "normal",
-    horoscopeDivide: caseInput.horoscope_divide ?? "normal",
+    algorithm: canonicalConfig.algorithm,
+    dayDivide: canonicalConfig.dayDivide,
+    yearDivide: canonicalConfig.yearDivide,
+    horoscopeDivide: canonicalConfig.horoscopeDivide,
   };
   const chart = astro.withOptions({
     type: "solar",
     dateStr: caseInput.solar_date,
     timeIndex: Number(caseInput.time_index),
     gender: caseInput.gender,
-    fixLeap: caseInput.fix_leap ?? true,
-    language: "zh-CN",
-    astroType: "heaven",
+    fixLeap: canonicalConfig.fixLeap,
+    language: canonicalConfig.language,
+    astroType: canonicalConfig.astroType,
     config,
   });
   const natalRaw = typeof chart.toJSON === "function" ? chart.toJSON() : chart;
@@ -151,6 +181,7 @@ function render(caseInput, targets) {
   return {
     case_id: caseInput.case_id,
     schema_version: "0.2",
+    chart_contract_id: chartContractId,
     engine: {
       name: "iztro-js",
       version: engineVersion,
@@ -159,7 +190,19 @@ function render(caseInput, targets) {
     },
     input: {
       ...caseInput,
-      astro_type: "heaven",
+      astro_type: canonicalConfig.astroType,
+      language: canonicalConfig.language,
+      input_calendar: "solar",
+      entrypoint: "astro.withOptions",
+      chart_config: {
+        algorithm: canonicalConfig.algorithm,
+        astro_type: canonicalConfig.astroType,
+        fix_leap: canonicalConfig.fixLeap,
+        day_divide: canonicalConfig.dayDivide,
+        year_divide: canonicalConfig.yearDivide,
+        horoscope_divide: canonicalConfig.horoscopeDivide,
+        language: canonicalConfig.language,
+      },
     },
     natal: normalizeNatal(natalRaw),
     temporal,
