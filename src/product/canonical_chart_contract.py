@@ -68,15 +68,10 @@ def validate_canonical_production_chart_snapshot(
         errors.append("canonical production_engine contract is malformed")
         expected_engine = {}
 
-    for field in ("name", "version", "adapter_version"):
+    for field in ("name", "version", "source_revision", "adapter_version"):
         expected = expected_engine.get(field)
         if engine.get(field) != expected:
             errors.append(f"engine.{field} must equal {expected}")
-
-    if not isinstance(engine.get("source_revision"), str) or not engine.get(
-        "source_revision", ""
-    ).strip():
-        errors.append("engine.source_revision must be a non-empty pinned provenance value")
 
     input_payload = snapshot.get("input")
     if not isinstance(input_payload, Mapping):
@@ -85,6 +80,9 @@ def validate_canonical_production_chart_snapshot(
 
     if input_payload.get("test_only") is True:
         errors.append("input.test_only chart snapshots are not allowed in production")
+
+    if input_payload.get("school") != contract.get("school"):
+        errors.append(f"input.school must equal {contract.get('school')}")
 
     expected_config = contract.get("chart_config", {})
     actual_config = input_payload.get("chart_config")
@@ -95,6 +93,10 @@ def validate_canonical_production_chart_snapshot(
         errors.append("input.chart_config must be an explicit object")
         actual_config = {}
 
+    extra_config_fields = sorted(str(field) for field in actual_config if field not in expected_config)
+    if extra_config_fields:
+        errors.append("input.chart_config contains unsupported field(s): " + ", ".join(extra_config_fields))
+
     for field, expected in expected_config.items():
         actual = actual_config.get(field)
         if isinstance(expected, bool):
@@ -104,16 +106,41 @@ def validate_canonical_production_chart_snapshot(
         if not matches:
             errors.append(f"input.chart_config.{field} must equal {expected}")
 
+    # The legacy flattened fields must not contradict the canonical nested config.
+    flattened_fields = {
+        "algorithm": "algorithm",
+        "astro_type": "astro_type",
+        "fix_leap": "fix_leap",
+        "day_divide": "day_divide",
+        "year_divide": "year_divide",
+        "horoscope_divide": "horoscope_divide",
+        "language": "language",
+    }
+    for input_field, config_field in flattened_fields.items():
+        if input_field in input_payload:
+            if input_payload[input_field] != expected_config.get(config_field):
+                errors.append(
+                    f"input.{input_field} must equal canonical chart_config.{config_field}"
+                )
+
     input_calendar = input_payload.get("input_calendar")
     entrypoint = input_payload.get("entrypoint")
     routes = contract.get("input_routes", {})
-    route = routes.get(input_calendar) if isinstance(routes, Mapping) else None
+    route = (
+        routes.get(input_calendar)
+        if isinstance(routes, Mapping) and isinstance(input_calendar, str)
+        else None
+    )
     if not isinstance(route, Mapping):
         errors.append("input.input_calendar must be an explicitly supported calendar")
-    elif entrypoint != route.get("entrypoint"):
-        errors.append(
-            f"input.entrypoint must equal {route.get('entrypoint')} "
-            f"for {input_calendar} input"
-        )
+    else:
+        if entrypoint != route.get("entrypoint"):
+            errors.append(
+                f"input.entrypoint must equal {route.get('entrypoint')} "
+                f"for {input_calendar} input"
+            )
+        date_field = "solar_date" if input_calendar == "solar" else "lunar_date"
+        if not isinstance(input_payload.get(date_field), str) or not input_payload.get(date_field, "").strip():
+            errors.append(f"input.{date_field} is required for {input_calendar} input")
 
     return CanonicalChartValidation(not errors, tuple(errors))
