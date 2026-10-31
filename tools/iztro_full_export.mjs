@@ -10,6 +10,8 @@
  *   node tools/iztro_full_export.mjs input.jsonl targets.json output.jsonl
  */
 import fs from "node:fs";
+import path from "node:path";
+import { createRequire } from "node:module";
 import { astro } from "iztro";
 
 const [inputPath, targetsPath, outputPath] = process.argv.slice(2);
@@ -19,6 +21,27 @@ if (!inputPath || !targetsPath || !outputPath) {
 
 const adapterVersion = "0.2";
 const engineVersion = "2.6.1";
+const require = createRequire(import.meta.url);
+
+function resolveInstalledIztroVersion() {
+  let directory = path.dirname(require.resolve("iztro"));
+  while (true) {
+    const packagePath = path.join(directory, "package.json");
+    if (fs.existsSync(packagePath)) {
+      const packageMetadata = JSON.parse(fs.readFileSync(packagePath, "utf8"));
+      if (packageMetadata.name === "iztro") return packageMetadata.version;
+    }
+    const parent = path.dirname(directory);
+    if (parent === directory) break;
+    directory = parent;
+  }
+  throw new Error("unable to resolve installed iztro package metadata");
+}
+
+const installedIztroVersion = resolveInstalledIztroVersion();
+if (installedIztroVersion !== engineVersion) {
+  throw new Error(`installed iztro version must equal ${engineVersion}; got ${installedIztroVersion}`);
+}
 const chartContractId = "ZHONGZHOU_IZTRO_JS_2_6_1_V1";
 const canonicalConfig = Object.freeze({
   algorithm: "zhongzhou",
