@@ -178,7 +178,7 @@ def test_synthetic_fixture_expected_counts_match_actual_coverage():
 def test_model_supplement_never_increases_runtime_or_source_coverage():
     _, request, manifest, items = _fixture_objects()
     report = build_quickread_payload(
-        request, manifest, items, chart_context={"normalized_chart": {"synthetic": True}}
+        request, manifest, items, chart_context=_canonical_chart_context()
     )["coverage"]
     assert report["runtime_evidenced_slot_count"] == 1
     assert report["source_evidenced_slot_count"] == 1
@@ -191,7 +191,7 @@ def test_model_supplement_never_increases_runtime_or_source_coverage():
 def test_payload_preserves_three_lanes_and_manifest_versions():
     _, request, manifest, items = _fixture_objects()
     payload = build_quickread_payload(
-        request, manifest, items, chart_context={"normalized_chart": {"synthetic": True}}
+        request, manifest, items, chart_context=_canonical_chart_context()
     )
     assert len(payload["evidence"]["runtime"]) == 1
     assert len(payload["evidence"]["source"]) == 1
@@ -206,7 +206,7 @@ def test_payload_preserves_three_lanes_and_manifest_versions():
 def test_audit_mode_includes_only_runtime_evidence():
     _, request, manifest, items = _fixture_objects(mode="AUDIT")
     payload = build_quickread_payload(
-        request, manifest, items, chart_context={"normalized_chart": {"synthetic": True}}
+        request, manifest, items, chart_context=_canonical_chart_context()
     )
     assert len(payload["evidence"]["runtime"]) == 1
     assert payload["evidence"]["source"] == []
@@ -220,7 +220,7 @@ def test_audit_mode_includes_only_runtime_evidence():
 def test_source_first_mode_includes_source_but_excludes_model_supplement():
     _, request, manifest, items = _fixture_objects(mode="SOURCE_FIRST")
     payload = build_quickread_payload(
-        request, manifest, items, chart_context={"normalized_chart": {"synthetic": True}}
+        request, manifest, items, chart_context=_canonical_chart_context()
     )
     assert len(payload["evidence"]["runtime"]) == 1
     assert len(payload["evidence"]["source"]) == 1
@@ -250,7 +250,7 @@ def test_temporal_slot_requires_target_layer_evidence():
             request,
             manifest,
             (items[0], natal_only, items[2]),
-            chart_context={"normalized_chart": {"synthetic": True}},
+            chart_context=_canonical_chart_context(),
         )
 
 
@@ -275,7 +275,7 @@ def test_source_evidence_is_rejected_when_manifest_marks_it_blocked():
             request,
             blocked_manifest,
             (items[0], blocked_source_item, items[2]),
-            chart_context={"normalized_chart": {"synthetic": True}},
+            chart_context=_canonical_chart_context(),
         )
 
 
@@ -350,7 +350,7 @@ def test_out_of_scope_evidence_is_rejected():
             request,
             manifest,
             (*items, out_of_scope),
-            chart_context={"normalized_chart": {"synthetic": True}},
+            chart_context=_canonical_chart_context(),
         )
 
 
@@ -364,7 +364,7 @@ def test_manifest_scope_mismatch_is_rejected():
             request,
             wrong_manifest,
             items,
-            chart_context={"normalized_chart": {"synthetic": True}},
+            chart_context=_canonical_chart_context(),
         )
 
 
@@ -378,7 +378,7 @@ def test_model_supplement_validator_accepts_only_requested_model_items():
 
 def test_payload_is_deterministic_for_same_inputs():
     _, request, manifest, items = _fixture_objects()
-    context = {"normalized_chart": {"z": 1, "a": 2}}
+    context = _canonical_chart_context()
     first = build_quickread_payload(request, manifest, items, chart_context=context)
     second = build_quickread_payload(request, manifest, items, chart_context=context)
     assert json.dumps(first, ensure_ascii=False, sort_keys=True) == json.dumps(
@@ -394,7 +394,7 @@ def test_duplicate_evidence_ids_are_rejected():
             request,
             manifest,
             (items[0], duplicate, items[2]),
-            chart_context={"normalized_chart": {"synthetic": True}},
+            chart_context=_canonical_chart_context(),
         )
 
 
@@ -405,7 +405,7 @@ def test_hybrid_requests_model_supplement_for_uncovered_slot():
         request,
         manifest,
         items[:2],
-        chart_context={"normalized_chart": {"synthetic": True}},
+        chart_context=_canonical_chart_context(),
     )
     assert payload["model_supplement_request"]["enabled"] is True
     assert payload["model_supplement_request"]["slot_ids"] == ["relationship_natal"]
@@ -440,7 +440,7 @@ def test_source_evidence_reference_must_be_in_manifest():
             request,
             manifest,
             (items[0], fake_source_item, items[2]),
-            chart_context={"normalized_chart": {"synthetic": True}},
+            chart_context=_canonical_chart_context(),
         )
 
 
@@ -452,7 +452,7 @@ def test_runtime_rule_must_be_listed_as_executable_for_the_scope_slot():
             request,
             manifest,
             (fake_runtime_item, items[1], items[2]),
-            chart_context={"normalized_chart": {"synthetic": True}},
+            chart_context=_canonical_chart_context(),
         )
 
 
@@ -475,7 +475,7 @@ def test_runtime_evidence_must_match_target_and_exact_versions():
             request,
             manifest,
             (wrong_target, items[1], items[2]),
-            chart_context={"normalized_chart": {"synthetic": True}},
+            chart_context=_canonical_chart_context(),
         )
 
     wrong_version = replace(items[0], runtime_version="RUNTIME-OLD")
@@ -484,7 +484,7 @@ def test_runtime_evidence_must_match_target_and_exact_versions():
             request,
             manifest,
             (wrong_version, items[1], items[2]),
-            chart_context={"normalized_chart": {"synthetic": True}},
+            chart_context=_canonical_chart_context(),
         )
 
 
@@ -501,7 +501,7 @@ def test_runtime_source_refs_must_be_declared_in_manifest():
             request,
             manifest,
             (forged_runtime, items[1], items[2]),
-            chart_context={"normalized_chart": {"synthetic": True}},
+            chart_context=_canonical_chart_context(),
         )
 
 
