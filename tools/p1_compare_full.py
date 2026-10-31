@@ -55,10 +55,16 @@ def main() -> int:
             total_diffs += 1
             continue
 
+        # Engine identity, chart contract ID and implementation entrypoint are
+        # provenance metadata, not normalized chart facts. Keep school/config
+        # metadata in the comparison so both engines must declare the same
+        # Zhongzhou settings; production admission separately accepts iztro-js
+        # only and rejects the x-iztro audit output.
+        ignored_metadata_paths = ("engine", "chart_contract_id", "input.entrypoint")
         diffs = compare_chart_snapshots(
             left[case_id],
             right[case_id],
-            ignore_paths=("engine",),
+            ignore_paths=ignored_metadata_paths,
         )
         if diffs:
             cases_with_diffs += 1
@@ -102,6 +108,11 @@ def main() -> int:
         "truncated_at_difference_cap": truncated,
         "max_total_diffs": args.max_total_diffs,
         "max_detail_per_case": args.max_detail_per_case,
+        "ignored_metadata_paths": [
+            "engine",
+            "chart_contract_id",
+            "input.entrypoint",
+        ],
     }
     Path(args.report).write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
