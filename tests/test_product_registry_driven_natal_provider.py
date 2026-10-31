@@ -15,7 +15,7 @@ from src.product.symbolic_inference_pipeline import run_symbolic_inference
 
 ROOT = Path(__file__).resolve().parents[1]
 ONTOLOGY_PATH = ROOT / DEFAULT_PALACE_ONTOLOGY_PATH
-ASSET_PATH = ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.1.json"
+ASSET_PATH = ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.2.json"
 PRODUCTION_REACTION_REGISTRY = ROOT / "product/PL3T_TEMPORAL_REACTION_REGISTRY_v0.1.json"
 
 BRANCH = {
