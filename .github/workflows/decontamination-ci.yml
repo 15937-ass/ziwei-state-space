@@ -182,38 +182,26 @@ jobs:
             printf '%s\n' "${selected[@]}" >> "$GITHUB_STEP_SUMMARY"
             python -m pytest -q "${selected[@]}"
           else
-            python - <<'PY'
-            import os, subprocess, sys
-            base = os.environ["BASE_REF"]
-            changed = subprocess.check_output(
-                ["git", "diff", "--name-only", f"origin/{base}...HEAD"], text=True
-            ).splitlines()
-            code_data = [
-                p for p in changed
-                if p.startswith(("src/", "knowledge/", "product/", "tools/", "validation/"))
-            ]
-            specialized = {
-                "tools/chart_inputs_to_jsonl.py",
-                "tools/iztro_full_export.mjs",
-                "tools/x_iztro_full_export.py",
-                "tools/p1_compare_full.py",
-                "tools/p1_independent_compare.py",
-                "tools/p1_validate_boundary_expectations.py",
-                "tools/p1_validate_zi_day_boundary.py",
-                "tools/p1_profile_temporal_transitions.py",
-                "tools/p1_aggregate_b02c_reports.py",
-            }
-            specialized = [
-                p for p in code_data
-                if p in specialized or p.startswith("tools/dawang_p1_export/")
-                or p.startswith("validation/product_chart_regression/")
-            ]
-            unmapped = [p for p in code_data if p not in specialized]
-            if unmapped:
-                print("No targeted tests mapped for code/data paths: " + ", ".join(unmapped), file=sys.stderr)
-                raise SystemExit(1)
-            print("No Python tests mapped; only documentation or a dedicated engine workflow is affected.")
-            PY
+            changed_paths="$(git diff --name-only "origin/$BASE_REF...HEAD")"
+            unmapped=0
+            while IFS= read -r path; do
+              case "$path" in
+                src/*|knowledge/*|product/*|tools/*|validation/*)
+                  case "$path" in
+                    tools/chart_inputs_to_jsonl.py|tools/iztro_full_export.mjs|tools/x_iztro_full_export.py|tools/p1_compare_full.py|tools/p1_independent_compare.py|tools/p1_validate_boundary_expectations.py|tools/p1_validate_zi_day_boundary.py|tools/p1_profile_temporal_transitions.py|tools/p1_aggregate_b02c_reports.py|tools/dawang_p1_export/*|validation/product_chart_regression/*|product/CANONICAL_CHART_CONTRACT_v1.0.md)
+                      ;;
+                    *)
+                      echo "No targeted tests mapped for code/data path: $path" >&2
+                      unmapped=1
+                      ;;
+                  esac
+                  ;;
+              esac
+            done <<< "$changed_paths"
+            if [ "$unmapped" -ne 0 ]; then
+              exit 1
+            fi
+            echo "No Python tests mapped; only documentation or a dedicated engine workflow is affected."
             echo "No Python test file mapped; diff/governance or dedicated engine workflow remains the gate." >> "$GITHUB_STEP_SUMMARY"
           fi
 
