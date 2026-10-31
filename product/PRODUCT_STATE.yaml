@@ -4,21 +4,21 @@ authoritative_execution: "GITHUB_ISSUE"
 canonical_branch: "main"
 
 execution:
-  status: "READY_TO_ADMIT"
-  phase: "CANONICAL_ZHONGZHOU_CHART_CONTRACT_ACCEPTED"
-  active_issue: null
-  active_branch: null
-  base_main_sha: "51dccc12673d16dabfced5078ef7c4a51c796726"
+  status: "ACTIVE"
+  phase: "CANONICAL_ZHONGZHOU_CHART_CONTRACT_V1_1_CORRECTIVE"
+  active_issue: 981
+  active_branch: "product/981-canonical-zhongzhou-chart-contract-v1-1"
+  base_main_sha: "ff85d260d0a1bce02cf0acc30b3707f084356289"
   active_pr: null
   continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"
   plan_pointer_issue: 900
-  next_issue: 900
-  next_work_unit: "AWAIT_NEXT_PRODUCT_NOMINEE_FROM_PLAN_900"
-  continuation_next_work_unit: "AWAIT_NEXT_PRODUCT_NOMINEE_FROM_PLAN_900"
-  next_work_status: "READY_TO_ADMIT"
-  resume_entry: "Product #977 / PR #978 merged to main at 51dccc12673d16dabfced5078ef7c4a51c796726. Canonical production chart authority is product/CANONICAL_CHART_CONTRACT_v1.0.md: Zhongzhou + iztro-js 2.6.1 only, fixed chart config, provenance-required fail-closed admission. x-iztro and Go remain audit-only. No Knowledge/Core semantics, KIB/lock/registry, runtime authority, or DECADE/YEAR inference expansion was granted. No Product unit is currently active; recover the next eligible nominee from plan pointer #900 before starting new work."
-  state_cache_as_of_main_commit: "51dccc12673d16dabfced5078ef7c4a51c796726"
-  state_cache_as_of_product_merge: "51dccc12673d16dabfced5078ef7c4a51c796726"
+  next_issue: 981
+  next_work_unit: "PRODUCT_CANONICAL_ZHONGZHOU_CHART_CONTRACT_V1_1"
+  continuation_next_work_unit: "PRODUCT_CANONICAL_ZHONGZHOU_CHART_CONTRACT_V1_1"
+  next_work_status: "ACTIVE_BUILD"
+  resume_entry: "Product #977 / PR #978 v1.0 is historical. Product #981 is the sole ACTIVE_BUILD corrective unit on branch product/981-canonical-zhongzhou-chart-contract-v1-1: create canonical chart contract v1.1 with Zhongzhou late Zi same-day (day_divide=current), explicit true-solar-time input and no second location correction; add migration and rerun P1 regressions. Base main is ff85d260d0a1bce02cf0acc30b3707f084356289. Do not rewrite historical v1.0 charts or Knowledge/Core semantics."
+  state_cache_as_of_main_commit: "ff85d260d0a1bce02cf0acc30b3707f084356289"
+  state_cache_as_of_product_merge: "ff85d260d0a1bce02cf0acc30b3707f084356289"
   state_cache_snapshot_date: "2026-10-31"
   v04_entry_checkpoint_issue: 416
   v04_entry_checkpoint_pr: 418
@@ -26,7 +26,7 @@ execution:
   last_completed_product_pr: 978
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
-  resume_issue: 977
+  resume_issue: 981
   roadmap: "PRODUCT_ROADMAP.md#v0.4"
   execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
 
@@ -43,7 +43,7 @@ capability_snapshot:
     internal_validation: "FIDELITY_PASS"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "LIMITED"
-    note: "P1 Chart Trust and Product #977 canonical chart contract are accepted. Production admission is fixed to Zhongzhou + iztro-js 2.6.1 with exact frozen config and fail-closed provenance validation. x-iztro/Go remain audit-only."
+    note: "Product #977 / v1.0 is retained as historical. Product #981 is correcting the canonical Zhongzhou late-Zi boundary to same-day, recording true-solar-time input, and prohibiting a second location correction; v1.1 admission remains pending acceptance. x-iztro/Go remain audit-only."
 
   rule_runtime:
     specification: "SPECIFIED"
@@ -189,7 +189,7 @@ capability_snapshot:
 
 critical_path:
   now:
-    - "PRODUCT_CANONICAL_ZHONGZHOU_CHART_CONTRACT_V1"
+    - "PRODUCT_CANONICAL_ZHONGZHOU_CHART_CONTRACT_V1_1"
   future:
     - "PRODUCT_DECADE_LAYER_INTEGRATION_AFTER_ACCEPTED_KNOWLEDGE_CORE_CHECKPOINT"
     - "PRODUCT_YEAR_LAYER_INTEGRATION_AFTER_DECADE_STABILITY_AND_ACCEPTED_YEAR_CHECKPOINT"
