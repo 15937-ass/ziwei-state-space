@@ -201,7 +201,7 @@ def test_closeout_contract_is_task_scoped_and_lightweight():
     workflow = (ROOT / "AGENT_WORKFLOW.md").read_text(encoding="utf-8")
     bootstrap = (ROOT / "CHATGPT_START_HERE.md").read_text(encoding="utf-8")
     assert "six-section report are optional" in contract
-    assert "no mandatory six-section report" in workflow
+    assert "No mandatory six-section report" in workflow
     assert "global three-stream census is optional" in workflow
     assert "Result" in workflow
     assert "Changed artifacts" in workflow
