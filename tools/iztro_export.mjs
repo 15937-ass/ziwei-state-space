@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 /**
- * Export iztro charts into this project's Normalized Chart Snapshot v0.1.
- *
- * Usage:
- *   npm install --no-save iztro@2.6.1
- *   node tools/iztro_export.mjs input.jsonl output.jsonl
+ * LEGACY MINIMAL EXPORTER — NOT A PRODUCTION SNAPSHOT GENERATOR.
+ * It defaults to the Zhongzhou v1.1 same-day late-Zi setting for safety, but
+ * does not enforce the full v1.1 provenance/time-input contract. Production
+ * snapshots must be generated with tools/iztro_full_export.mjs only.
  */
 
 import fs from "node:fs";
