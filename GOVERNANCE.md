@@ -72,7 +72,7 @@ Substantial design change:
 
 Proposal Issue -> Proposal document -> PI/Human Gate decision -> APPROVED -> implementation Issues -> PRs.
 
-A PR must implement one primary Issue. Scope discoveries become new Issues or Proposal candidates; they do not silently expand the current PR.
+A PR must implement one primary Issue. Out-of-scope discoveries are recorded briefly; creating or activating a follow-up Issue/Proposal requires explicit PI authorization. They do not silently expand the current PR.
 
 ## 6. WIP limits
 
