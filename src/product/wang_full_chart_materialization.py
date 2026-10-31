@@ -1,4 +1,6 @@
-"""Validator for source-bounded Wang full-chart evidence v0.1B.
+"""Historical v1.0 validator for source-bounded Wang full-chart evidence v0.1B.
+
+This artifact was materialized under the former day_divide=forward configuration and is not a v1.1 production snapshot.
 
 The full-chart artifact is a Product reconstruction, not source-transcribed chart truth.
 It remains separate from the original target-palace-only blind-evidence artifact.
