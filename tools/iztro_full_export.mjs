@@ -11,7 +11,7 @@
  */
 import fs from "node:fs";
 import path from "node:path";
-import { createRequire } from "node:module";
+import { fileURLToPath } from "node:url";
 import { astro } from "iztro";
 
 const [inputPath, targetsPath, outputPath] = process.argv.slice(2);
@@ -21,10 +21,8 @@ if (!inputPath || !targetsPath || !outputPath) {
 
 const adapterVersion = "0.2";
 const engineVersion = "2.6.1";
-const require = createRequire(import.meta.url);
-
 function resolveInstalledIztroVersion() {
-  let directory = path.dirname(require.resolve("iztro"));
+  let directory = path.dirname(fileURLToPath(import.meta.resolve("iztro")));
   while (true) {
     const packagePath = path.join(directory, "package.json");
     if (fs.existsSync(packagePath)) {
