@@ -11,7 +11,7 @@ Recovery routing: `governance/RECOVERY_PRECEDENCE_v1.md`.
 This repository is managed as an artifact-centered research and product program. Chat is an execution interface, never a source of project truth.
 
 The governance goals are:
-- prevent theory drift and chat-driven scope changes;
+- prevent theory drift and AI-initiated scope expansion while preserving the PI's authority to set and revise direction;
 - keep knowledge, product and governance writes isolated;
 - make every work unit recoverable after timeout or model/session changes;
 - separate specification, implementation, validation, calibration and production readiness;
@@ -19,19 +19,18 @@ The governance goals are:
 
 ## 2. Authority hierarchy
 
-When artifacts disagree, higher levels win:
+For current task scope and priority:
 
-1. PROJECT_CONSTITUTION.md
-2. approved Human Gate / approved Proposal
-3. frozen architecture and Roadmaps
-4. Phase Contract
-5. GitHub Issue / bounded Work Unit
-6. Pull Request implementation record
-7. Chat/session text
+1. Platform/safety constraints, factual integrity, source provenance and the non-negotiable Constitution.
+2. **The current explicit PI instruction** controls the current objective, scope, priority, resources and stop condition. The PI may explicitly revise an earlier PI-approved plan or decision.
+3. Latest durable PI-approved decisions on accepted main, unless the current PI has revised them.
+4. Live GitHub Issue/PR for execution and implementation status; accepted main for canonical artifacts.
+5. Roadmaps and plans for long-term direction; state YAML for recovery only.
+6. Agent-generated proposals, old chats, historical artifacts and inferred future work have no independent authority.
 
-No lower layer may silently change a higher layer.
+The PI is the project's decision-maker. The assistant is an executor/research aide, not a second PI. A current PI instruction can change what the project works on, but cannot make an unmerged branch canonical or turn unsupported wording into source evidence.
 
-**Important:** this hierarchy governs semantic/design authority, not “which work unit is active right now.” Daily execution status follows `governance/RECOVERY_PRECEDENCE_v1.md`: live lane GitHub Issue = execution truth, linked PR = implementation truth, and lane State YAML = recovery cache. A Roadmap can constrain an Issue but cannot make its own historical “current/next” paragraph the active task.
+Daily execution status follows live GitHub Issues/PRs. A stale state cache never overrides a live Issue/PR. A plan pointer helps sequence work only when the PI asks to continue that lane and no active work unit exists.
 
 ## 3. Governance layers
 
@@ -207,22 +206,19 @@ Empirical mismatch may create a Knowledge Gap Report but may not silently rewrit
 
 ## 15. Chat and recovery
 
-After timeout/new session:
-1. read `PROJECT_STATE.yaml`;
-2. read `governance/RECOVERY_PRECEDENCE_v1.md`;
-3. read the selected lane state as a cache;
-4. for Knowledge, select CORE or one palace shard and read its state file from the coordinator;
-5. query live GitHub Issues for that lane/shard;
-6. use the bounded active/open Issue as execution truth and its linked PR as implementation truth;
-7. read only Issue-required artifacts.
+Use a deliberately small recovery path:
 
-If a lane-state cache disagrees with live GitHub Issue/PR state, GitHub wins and the cache is repaired.
+1. Apply the current explicit PI instruction.
+2. For repository work, identify the one matching live Issue/PR and its write lane.
+3. Read only the artifacts directly required by that task.
+4. Read PROJECT_STATE or a lane-state cache only when an authority pointer or a real state conflict requires it.
+5. Before final merge, follow the Integration Lease in Issue #888 and the exact-head gate.
 
-README phase text, legacy `tasks/*.yaml`, historical validation reports, completed acceptance records, archived checkpoints, old proposal files, superseded protocols, and historical `READY_FOR_PI` markers are not execution truth merely because they contain `ACTIVE`, `CURRENT`, `NEXT`, or `PENDING`.
+Do not routinely read every state file, the full recovery document, all three-stream plans, historical proposals or unrelated lane Issues. For an explicit “continue [lane]” request, check that lane's live Issue/PR first; consult only its plan pointer if no active unit exists.
 
-Roadmaps are long-horizon architecture/direction, not daily task queues. Historical Human Gates do not become current again unless the active lane state and/or live Issue names them as pending.
+A global three-stream census is optional and is performed only when the PI asks or a demonstrated cross-lane dependency requires it. Ordinary task closeout is concise and does not require the six-section report.
 
-Do not reconstruct authoritative project state from old chat text or from isolated status words in historical artifacts.
+Live GitHub Issue/PR is execution truth; accepted main is canonical content. State YAML is a cache. Old chats, copied prompts, README “Current phase” text, legacy tasks/*.yaml, historical validation reports, superseded protocols and historical READY_FOR_PI markers do not create current work authorization.
 
 ## 16. Administrative controls
 
