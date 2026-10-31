@@ -73,6 +73,10 @@
 
 ## 6. 可选任务 Skill：紫微斗数简批与详批
 
+### 6.1 永久排盘前置约束
+
+任何命盘生成、排盘核验、QuickRead、DetailedRead、NATAL / DECADE / YEAR 工作，必须先遵循 `product/CANONICAL_CHART_CONTRACT_v1.0.md`。生产盘唯一口径为中州派 + `iztro-js@2.6.1` 及契约中固定的全部配置；x-iztro / Go 只用于差分审计。LLM 不得自行排盘、推算大限流年、修补或修改 chart facts。快照缺少契约元数据或配置不一致时必须 fail closed，不得继续推理。
+
 - 当用户要求“紫微斗数简批”“简单看一下命盘”“快速看盘”或意思相近的**简短**命盘解读时，读取并遵循 `.agents/skills/social_quickread/SKILL.md`。
 - 当用户要求“详批”“完整看盘”“全面详解”“详细批一下”“完整命盘分析”，或从当前简批明确要求“继续详批/完整展开”时，读取并遵循 `.agents/skills/social_detailedread/SKILL.md`。明确的详批意图优先于简批默认长度合同。
 - QuickRead 与 DetailedRead 共用当前 `main` 上已接受的 Product/Knowledge/runtime 底座；二者不是两套命理引擎。同一对话由简批升级详批时，除非用户明确换人/换盘，否则沿用同一命盘。
