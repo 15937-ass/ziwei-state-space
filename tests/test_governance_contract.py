@@ -208,3 +208,16 @@ def test_closeout_contract_is_task_scoped_and_lightweight():
     assert "Validation actually performed" in workflow
     assert "Do not create a second status ledger" in contract
     assert "current explicit PI instruction" in bootstrap
+
+
+def test_background_agents_are_disabled_and_workflows_are_validation_only():
+    bootstrap = (ROOT / "CHATGPT_START_HERE.md").read_text(encoding="utf-8")
+    project = (ROOT / "PROJECT_STATE.yaml").read_text(encoding="utf-8")
+    assert "所有后台自主执行代理均关闭" in bootstrap
+    assert 'background_agents: "DISABLED_BY_PI_2026-10-31"' in project
+    assert 'github_actions: "DETERMINISTIC_PR_VALIDATION_ONLY"' in project
+    workflows = ROOT / ".github" / "workflows"
+    for path in workflows.glob("*.yml"):
+        lines = path.read_text(encoding="utf-8").splitlines()
+        assert not any(line.strip().startswith("schedule:") for line in lines), path.name
+        assert not any(line.strip() == "push:" for line in lines), path.name
