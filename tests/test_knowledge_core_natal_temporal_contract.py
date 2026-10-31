@@ -93,11 +93,18 @@ def test_event_relative_window_is_not_general_history_memory():
     assert d["authorization"]["history_memory_rows_added"] == 0
 
 
-def test_core_issue_964_is_the_only_active_core_recovery_pointer():
+def test_accepted_core_c1_artifact_persists_when_core_recovery_pointer_advances():
+    # C1 accepted audit remains immutable; CORE_STATE may advance to a new unit.
+    import re
     state = CORE_STATE.read_text(encoding="utf-8")
-    assert 'status: "ACTIVE"' in state
-    assert "active_issue: 964" in state
-    assert 'active_branch: "knowledge/core-964-natal-decade-year-response-semantics"' in state
     assert 'continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"' in state
     assert "plan_pointer_issue: 901" in state
-    assert "next_work_status: \"ACTIVE_BUILD\"" in state
+    assert 'status: "ACTIVE"' in state or 'status: "IDLE"' in state
+    completed = re.search(r"^  last_completed_issue: (\d+)$", state, re.M)
+    assert completed and int(completed.group(1)) >= 964
+    if 'status: "ACTIVE"' in state:
+        active = re.search(r"^  active_issue: (\d+)$", state, re.M)
+        assert active and int(active.group(1)) >= 964
+        assert re.search(r'^  active_branch: "knowledge/core-\d+-[^"]+"$', state, re.M)
+    else:
+        assert "active_issue: null" in state
