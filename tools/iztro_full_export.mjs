@@ -190,6 +190,7 @@ function render(caseInput, targets) {
     },
     input: {
       ...caseInput,
+      school: "zhongzhou",
       astro_type: canonicalConfig.astroType,
       language: canonicalConfig.language,
       input_calendar: "solar",
