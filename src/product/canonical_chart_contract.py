@@ -65,7 +65,8 @@ def load_canonical_chart_contract() -> Mapping[str, Any]:
     for field, expected in expected_fields.items():
         if payload.get(field) != expected:
             raise ValueError(
-                f"canonical chart contract field drift: {field} does not match frozen v1.0"
+                "canonical chart contract field drift: "
+                f"{field} does not match frozen v1.0"
             )
     return payload
 
@@ -131,9 +132,14 @@ def validate_canonical_production_chart_snapshot(
         errors.append("input.chart_config must be an explicit object")
         actual_config = {}
 
-    extra_config_fields = sorted(str(field) for field in actual_config if field not in expected_config)
+    extra_config_fields = sorted(
+        str(field) for field in actual_config if field not in expected_config
+    )
     if extra_config_fields:
-        errors.append("input.chart_config contains unsupported field(s): " + ", ".join(extra_config_fields))
+        errors.append(
+            "input.chart_config contains unsupported field(s): "
+            + ", ".join(extra_config_fields)
+        )
 
     for field, expected in expected_config.items():
         actual = actual_config.get(field)
@@ -178,7 +184,8 @@ def validate_canonical_production_chart_snapshot(
                 f"for {input_calendar} input"
             )
         date_field = "solar_date" if input_calendar == "solar" else "lunar_date"
-        if not isinstance(input_payload.get(date_field), str) or not input_payload.get(date_field, "").strip():
+        date_value = input_payload.get(date_field)
+        if not isinstance(date_value, str) or not date_value.strip():
             errors.append(f"input.{date_field} is required for {input_calendar} input")
 
     return CanonicalChartValidation(not errors, tuple(errors))
