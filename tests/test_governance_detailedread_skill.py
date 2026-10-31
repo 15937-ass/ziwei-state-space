@@ -49,3 +49,14 @@ def test_ordinary_detailedread_does_not_leak_internal_pi_closeout():
     assert "ordinary end-user QuickRead, DetailedRead, or other fortune-reading turn" in workflow
     assert "只要同一轮实际进行了仓库工作，仍必须执行本门槛" in bootstrap
     assert "If repository work occurs anywhere in the same turn, the mandatory closeout applies" in workflow
+
+
+def test_quickread_and_detailedread_require_canonical_zhongzhou_iztro_chart():
+    quick = (ROOT / ".agents/skills/social_quickread/SKILL.md").read_text(encoding="utf-8")
+    detailed = (ROOT / ".agents/skills/social_detailedread/SKILL.md").read_text(encoding="utf-8")
+    contract = "product/CANONICAL_CHART_CONTRACT_v1.0.md"
+    for skill in (quick, detailed):
+        assert contract in skill
+        assert "iztro-js@2.6.1" in skill
+        assert "Never hand-calculate" in skill
+        assert "unverified input" in skill
