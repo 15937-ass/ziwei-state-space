@@ -88,26 +88,35 @@ Among eligible READY units:
 
 Priority is scheduling policy, not semantic authority. A Human Gate or failed acceptance always overrides queue position.
 
-## 5. Validation timing
+## 5. Risk-based validation timing and scope
 
 ### Build validation
 
-Use fast, relevant checks while developing:
-- unit/module tests;
-- source/schema validation;
-- path/write-set checks;
-- targeted regressions;
-- critic/reviewer checks required by the Issue.
+During ACTIVE_BUILD / READY_TO_INTEGRATE, run only the checks needed for the changed unit:
+- directly changed tests and affected module/domain tests;
+- source/schema and path/write-set checks when those artifacts changed;
+- relevant regressions and reviewer checks required by the Issue.
 
-These tests should be rerun when the work itself changes. They do not need to be invalidated merely because an unrelated disjoint lane changed `main`.
+Do not run the full repository suite on every PR update. Do not repeat unchanged tests or invalidate a bounded result merely because an unrelated disjoint lane advanced `main`.
+
+### Risk tiers
+
+- **R0 — mechanical/local:** diff/format checks plus directly changed tests.
+- **R1 — bounded/isolated:** affected module or contract tests plus the relevant deterministic validator. A narrow exact-head gate is valid when the Issue explicitly lists it and the change does not alter shared runtime, canonical source meaning or cross-lane contracts.
+- **R2 — cross-module/phase:** affected domain suites plus independent review; use the full repository gate at integration when shared contracts or cross-module behavior are touched.
+- **R3 — canonical/architecture/Human Gate:** explicit PI approval, full exact-head repository gate and relevant independent/differential checks.
+
+A narrow gate must be specified in the live Issue before INTEGRATING. It must identify the affected surface, exact tests/validators and why omitted checks are not relevant. Do not invent a narrower gate after a failure.
 
 ### Final exact-head validation
 
-Only the Integration Lease holder runs the final acceptance gate intended to authorize immediate merge.
+Only the Integration Lease holder runs the Issue-approved final acceptance gate intended to authorize immediate merge. The run must identify the exact integration head/base.
 
-The final gate remains exactly as strict as before. If `main` changes after synchronization and before merge, the run is stale and must not be reused.
+For R2/R3 or any Issue requiring the full repository gate, run the complete suite, P0 audit, relevant JS adapter checks and lane governance validator. For an explicitly approved R0/R1 narrow gate, run exactly the Issue-listed targeted tests and validators; do not add a full suite or unrelated audit merely by habit.
 
-The optimization is **run the expensive final gate later and once**, not weaken it.
+If `main` changes after synchronization and before merge, the run is stale and must not be reused.
+
+The optimization is **run the appropriate final gate later and once**, not weaken checks that are relevant to the changed surface.
 
 ## 6. Cross-lane checkpoint rule
 
