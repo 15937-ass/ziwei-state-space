@@ -1,4 +1,3 @@
-import copy
 import json
 from pathlib import Path
 
@@ -30,13 +29,16 @@ def test_canonical_zhongzhou_iztro_snapshot_is_accepted():
         (("chart_contract_id",), "OTHER_CONTRACT", "chart_contract_id"),
         (("engine", "name"), "x-iztro-rust", "engine.name"),
         (("engine", "version"), "0.6.1", "engine.version"),
+        (("engine", "source_revision"), "wrong-revision", "engine.source_revision"),
         (("engine", "adapter_version"), "0.1", "engine.adapter_version"),
+        (("input", "school"), "other-school", "input.school"),
         (("input", "chart_config", "algorithm"), "default", "algorithm"),
         (("input", "chart_config", "astro_type"), "earth", "astro_type"),
         (("input", "chart_config", "day_divide"), "current", "day_divide"),
         (("input", "chart_config", "year_divide"), "exact", "year_divide"),
         (("input", "chart_config", "horoscope_divide"), "exact", "horoscope_divide"),
         (("input", "chart_config", "language"), "en-US", "language"),
+        (("input", "algorithm"), "default", "input.algorithm"),
         (("input", "input_calendar"), "unknown", "input_calendar"),
         (("input", "entrypoint"), "astro.bySolar", "entrypoint"),
     ],
