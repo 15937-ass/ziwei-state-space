@@ -74,3 +74,13 @@ def test_validator_rejects_forward_day_divide():
     ]
     errors = mod.validate(rows)
     assert any("day_divide must be current" in error for error in errors)
+
+
+def test_validator_rejects_incomplete_same_date_time_index_group():
+    mod = load_module()
+    rows = [
+        _row("EARLY", 0, "same"),
+        _row("DAY", 6, "same"),
+    ]
+    errors = mod.validate(rows)
+    assert any("missing required time_index values [12]" in error for error in errors)
