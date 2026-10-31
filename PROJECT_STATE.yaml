@@ -1,7 +1,7 @@
 schema_version: 3
 repository: "15937-ass/ziwei-state-space"
 canonical_branch: "main"
-governance_version: "1.1"
+governance_version: "1.2"
 project_status: "ACTIVE"
 
 authority:
@@ -23,31 +23,18 @@ authority:
   core_plan_pointer_issue: 901
   chat_is_project_state_authority: false
   chat_is_repository_operator: true
+  pi_instruction_policy: "CURRENT_EXPLICIT_PI_INSTRUCTION_CONTROLS_TASK_SCOPE_PRIORITY_AND_STOP"
+  background_agents: "DISABLED_BY_PI_2026-10-31"
+  github_actions: "DETERMINISTIC_PR_VALIDATION_ONLY"
 
 state_files:
   product: "product/PRODUCT_STATE.yaml"
   knowledge: "knowledge/KNOWLEDGE_STATE.yaml"
   governance: "governance/GOVERNANCE_STATE.yaml"
 
-archive:
-  archived_at: "2026-10-06"
-  checkpoint: "governance/archive/2026-10-06-project-checkpoint.md"
-  resume_requires_explicit_pi_instruction: true
-  resume_authorized_at: "2026-10-18"
-  resume_issue: 290
-  active_execution_allowed: true
-  canonical_main_governance: "REPOSITORY_GOVERNANCE_V1_ACTIVE"
-  note: "Historical checkpoint retained. Explicit PI authorization recorded in Issue #290; current execution follows current main and active lane Issues."
-
 recovery_order:
-  - "Read PROJECT_STATE.yaml for project status and current authority pointers."
-  - "Read CHATGPT_START_HERE.md as the single canonical ChatGPT session bootstrap; do not reuse conflicting old startup prompts."
-  - "Read governance/RECOVERY_PRECEDENCE_v1.md before interpreting any ACTIVE/CURRENT/NEXT/READY_FOR_PI marker elsewhere."
-  - "If project_status is ARCHIVED, read the archive checkpoint and do not execute work unless the PI explicitly requests resume."
-  - "Read the selected lane state as a recovery cache; for Knowledge select CORE or one palace shard state, then query live GitHub Issues for that lane/shard."
-  - "When an active/open bounded Issue exists, the live GitHub Issue is execution truth and its linked PR is implementation truth; they override a stale lane-state cache."
-  - "Read only Issue-required artifacts after the Issue/PR is identified."
-  - "Do not use old chat prompts, README current-phase text, legacy tasks/*.yaml, historical validation next-work sections, archived files, superseded protocols, or old proposal status words as current task selectors."
-  - "Use authority.current_execution_protocol for routine execution policy; do not choose a protocol by searching for the word ACTIVE."
-  - "Before final merge, use authority.integration_protocol and live coordination Issue #888: ACTIVE_BUILD may proceed in parallel, but only the Integration Lease holder may synchronize to current main, run the final exact-head full gate, merge, and release."
-  - "For PI commands to continue Core/Product: after live-state recovery, if no ACTIVE unit exists, read authority.core_product_continuation_plan and the lane plan pointer (#901 Core / #900 Product), then admit the earliest eligible bounded nominee without asking the PI to restate the sequence."
+  - "Read CHATGPT_START_HERE.md; apply the current explicit PI instruction first."
+  - "For repository work, identify only the matching live Issue/PR and its directly required artifacts."
+  - "Treat accepted main as canonical; state YAML files are optional recovery caches and never override live Issues/PRs."
+  - "Read a lane plan only when the PI asks to continue that lane and no active work unit exists."
+  - "Before merge, follow the Integration Lease in Issue #888 and the exact-head validation contract."
