@@ -150,7 +150,7 @@ def test_pi_decision_and_substantive_progress_contract_is_wired_into_workflow():
     assert "The PI reserves research mission/priority/resource/WIP decisions" in workflow
 
 
-def test_every_repository_work_turn_has_one_truthful_primary_outcome_class():
+def test_outcome_labels_are_available_but_not_a_per_turn_ritual():
     contract = (ROOT / "governance/PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md").read_text(encoding="utf-8")
     for outcome in (
         "SUBSTANTIVE_DELTA",
