@@ -704,7 +704,10 @@ def _validate_chart_context(chart: Mapping[str, Any]) -> str:
         chart.get("case_allowed_use") == "CASE_SUPPORT_ONLY"
         and chart.get("full_source_chart_equivalence_verified") is False
         and chart.get("target_anchor_status") == "UNIQUE_ANCHOR_MATCH_RECONFIRMED"
-        and all(chart.get(field) not in (None, "", []) for field in case_anchor_fields)
+        and all(
+            chart.get(field) not in (None, "", [])
+            for field in case_anchor_fields
+        )
     )
     if is_case_anchor:
         return "CASE_ANCHOR_ONLY"
@@ -810,7 +813,10 @@ def build_quickread_payload(
         },
         "gaps": gaps,
         "model_supplement_request": {
-            "enabled": request.mode == "HYBRID" and chart_context_status == "CANONICAL_PRODUCTION",
+            "enabled": (
+                request.mode == "HYBRID"
+                and chart_context_status == "CANONICAL_PRODUCTION"
+            ),
             "slot_ids": model_supplement_slots,
             "disabled_reason": (
                 "NORMALIZED_CHART_CONTEXT_MISSING"
