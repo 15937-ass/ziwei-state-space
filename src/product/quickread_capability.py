@@ -13,6 +13,8 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Any, Mapping, Sequence
 
+from .canonical_chart_contract import validate_canonical_production_chart_snapshot
+
 
 SCHEMA_VERSION = "0.1"
 AVAILABLE = frozenset({"AVAILABLE", "PARTIAL"})
@@ -674,6 +676,43 @@ def validate_model_supplements(
     return tuple(validated)
 
 
+
+
+def _validate_chart_context(chart: Mapping[str, Any]) -> str:
+    """Accept only a canonical production chart or a narrowly scoped case anchor."""
+    if not chart:
+        return "MISSING"
+    if chart.get("chart_contract_id"):
+        validation = validate_canonical_production_chart_snapshot(chart)
+        if not validation.ok:
+            raise ValueError(
+                "QuickRead chart_context is not a canonical production chart: "
+                + "; ".join(validation.errors)
+            )
+        return "CANONICAL_PRODUCTION"
+
+    case_anchor_fields = (
+        "fixture_id",
+        "source_chart_span_ref",
+        "target_domain",
+        "target_palace",
+        "target_branch",
+        "target_main_stars",
+        "target_anchor_status",
+    )
+    is_case_anchor = (
+        chart.get("case_allowed_use") == "CASE_SUPPORT_ONLY"
+        and chart.get("full_source_chart_equivalence_verified") is False
+        and chart.get("target_anchor_status") == "UNIQUE_ANCHOR_MATCH_RECONFIRMED"
+        and all(chart.get(field) not in (None, "", []) for field in case_anchor_fields)
+    )
+    if is_case_anchor:
+        return "CASE_ANCHOR_ONLY"
+    raise ValueError(
+        "QuickRead chart_context must be a canonical production snapshot or an "
+        "explicit CASE_SUPPORT_ONLY unique target anchor"
+    )
+
 def build_quickread_payload(
     request: QuickReadRequest,
     manifest: CapabilityManifest,
@@ -691,6 +730,7 @@ def build_quickread_payload(
     if manifest.schema_version != SCHEMA_VERSION:
         raise ValueError("QuickRead requires a v0.1 capability manifest")
     chart = _json_mapping(chart_context, "chart_context")
+    chart_context_status = _validate_chart_context(chart)
     requested = _slot_index(request.requested_slots)
     records = _record_index(manifest)
     seen_ids: set[str] = set()
@@ -729,7 +769,7 @@ def build_quickread_payload(
     slot_reports = {item.slot.slot_id: item for item in report.slot_reports}
 
     model_supplement_slots: list[str] = []
-    if request.mode == "HYBRID" and chart:
+    if request.mode == "HYBRID" and chart_context_status == "CANONICAL_PRODUCTION":
         for slot in request.requested_slots:
             coverage = slot_reports[slot.slot_id]
             if (
@@ -774,11 +814,16 @@ def build_quickread_payload(
             "slot_ids": model_supplement_slots,
             "disabled_reason": (
                 "NORMALIZED_CHART_CONTEXT_MISSING"
-                if request.mode == "HYBRID" and not chart
-                else None
+                if request.mode == "HYBRID" and chart_context_status == "MISSING"
+                else (
+                    "CASE_ANCHOR_ONLY_NOT_CANONICAL_CHART"
+                    if request.mode == "HYBRID" and chart_context_status == "CASE_ANCHOR_ONLY"
+                    else None
+                )
             ),
         },
         "chart_context": chart if request.mode != "AUDIT" else {},
+        "chart_context_status": chart_context_status,
         "verbalizer_instructions": [
             "Use only supplied RUNTIME evidence as claims produced by the accepted runtime.",
             "Use SOURCE evidence only within each source ref's allowed-use boundary.",
@@ -789,6 +834,8 @@ def build_quickread_payload(
             "CASE_SUPPORT_ONLY evidence must remain limited to its named case and must not be generalized into a canonical rule.",
             "Do not turn natal tendencies or model-only interpretations into certain real-world event claims.",
             "Preserve unknowns, conflicts, and unsupported slots instead of silently filling them with canonical-sounding claims.",
+            "Only CANONICAL_PRODUCTION chart context may support general chart interpretation or model supplementation.",
+            "CASE_ANCHOR_ONLY context is restricted to its named case and target anchor; never generalize it into a full natal chart.",
             f"Write natural Chinese in approximately {request.min_chars}-{request.max_chars} characters unless the user requests otherwise.",
         ],
     }
