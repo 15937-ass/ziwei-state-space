@@ -55,6 +55,17 @@ AI 是 PI 的研究与执行助手，不是共同 PI。不得用旧计划、历�
 
 任何排盘、QuickRead、DetailedRead、NATAL / DECADE / YEAR 分析，遵循 product/CANONICAL_CHART_CONTRACT_v1.0.md。生产排盘使用中州派 + iztro-js 2.6.1 固定契约；模型不得手工排盘、修补 chart facts 或推算时间盘。
 
-- 简批：按 .agents/skills/social_quickread/SKILL.md。
+- 紫微斗数简批：按 .agents/skills/social_quickread/SKILL.md。
 - 详批：按 .agents/skills/social_detailedread/SKILL.md。
+- 完整看盘：明确的详批意图优先于简批默认长度合同。
 - 普通 QuickRead、DetailedRead 或其他命理解读属于用户侧任务，不触发仓库治理汇报；只有实际修改/审查仓库时才进入仓库工作流程。
+
+
+## 7. 按需继续项目工作线（不默认读取）
+
+当前长期路线契约为 governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md，内容版本 v2.2。Core plan pointer 为 #901；Product plan pointer 为 #900。
+
+- Product 当前路线为 NATAL → DECADE → YEAR；首个闭环工作单元为 PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1。
+- 跨线反馈只使用必要分类：KNOWLEDGE_GAP、CORE_GAP、PRODUCT_GAP、HOLD_UNKNOWN。
+- 只有 PI 明确要求“继续/推进某条线”且该线没有活动工单时，才读取该线对应的 plan pointer；不默认加载整份计划或其他工作线。
+- 已批准路线无需用户重述规划，但每轮仍只执行一个有界任务，完成后停止。
