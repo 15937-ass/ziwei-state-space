@@ -91,4 +91,6 @@ Ordinary closeout is concise:
 
 No mandatory six-section report, no mandatory PI-judgment YES/NO boilerplate, and no mandatory global three-stream census. Use one primary outcome class only when it helps distinguish substantive progress from validation/status work; it is not a per-turn reporting ritual.
 
+Detailed evidence maturity and PI decision rights are defined in `governance/PI_DECISION_AND_SUBSTANTIVE_PROGRESS_v1.md`; consult it only when the task requires those distinctions.
+
 An ordinary end-user QuickRead, DetailedRead, or other fortune-reading turn is not repository work unless it actually performs repository implementation, review, governance or status recovery.
