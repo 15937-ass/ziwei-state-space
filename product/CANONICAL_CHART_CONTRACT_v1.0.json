@@ -1,0 +1,53 @@
+{
+  "contract_id": "ZHONGZHOU_IZTRO_JS_2_6_1_V1",
+  "contract_version": "1.0.0",
+  "status": "CANONICAL_PRODUCTION",
+  "school": "zhongzhou",
+  "production_engine": {
+    "name": "iztro-js",
+    "version": "2.6.1",
+    "adapter_version": "0.2"
+  },
+  "chart_config": {
+    "algorithm": "zhongzhou",
+    "astro_type": "heaven",
+    "fix_leap": true,
+    "day_divide": "forward",
+    "year_divide": "normal",
+    "horoscope_divide": "normal",
+    "language": "zh-CN"
+  },
+  "input_routes": {
+    "solar": {
+      "input_calendar": "solar",
+      "entrypoint": "astro.withOptions"
+    },
+    "lunar": {
+      "input_calendar": "lunar",
+      "entrypoint": "astro.byLunar"
+    }
+  },
+  "temporal_scopes": [
+    "decadal",
+    "age",
+    "yearly",
+    "monthly",
+    "daily",
+    "hourly"
+  ],
+  "production_rules": {
+    "chart_facts_generated_by": "iztro-js",
+    "temporal_facts_generated_from_same_chart_instance": true,
+    "llm_may_compute_or_modify_chart_facts": false,
+    "manual_chart_edits_allowed": false,
+    "fallback_production_engine_allowed": false,
+    "differential_engines_are_production_fallbacks": false,
+    "test_only_snapshots_allowed_in_production": false
+  },
+  "change_control": {
+    "requires_explicit_pi_approval": true,
+    "requires_new_contract_version": true,
+    "requires_migration_plan": true,
+    "requires_full_p1_chart_and_temporal_regression": true
+  }
+}
