@@ -68,4 +68,4 @@ AI 是 PI 的研究与执行助手，不是共同 PI。不得用旧计划、历�
 - Product 当前路线为 NATAL → DECADE → YEAR；首个闭环工作单元为 PRODUCT_NATAL_DETAILED_READ_CLOSED_LOOP_V1。
 - 跨线反馈只使用必要分类：KNOWLEDGE_GAP、CORE_GAP、PRODUCT_GAP、HOLD_UNKNOWN。
 - 只有 PI 明确要求“继续/推进某条线”且该线没有活动工单时，才读取该线对应的 plan pointer；不默认加载整份计划或其他工作线。
-- 已批准路线无需用户重述规划，但每轮仍只执行一个有界任务，完成后停止。
+- 已批准路线不要求用户重述规划，但每轮仍只执行一个有界任务，完成后停止。
