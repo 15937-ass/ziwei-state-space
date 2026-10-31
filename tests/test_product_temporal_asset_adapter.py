@@ -23,7 +23,7 @@ def _natal():
     return NatalStateProfile(
         schema_version="0.1",
         profile_id="NATAL-ASSET-TEST",
-        engine_version="iztro-js:2.6.1:0.2",
+        engine_version="iztro-js:2.6.1:0.3",
         knowledge_version="KB-TEST",
         canonical_facts=(),
         named_structure_facts=(),
@@ -51,7 +51,7 @@ def test_adapter_preserves_six_layers_and_engine_provenance():
     assert layers == {"DECADE", "SMALL_LIMIT", "YEAR", "MONTH", "DAY", "HOUR"}
     assert bundle.engine_name == "iztro-js"
     assert bundle.engine_version == "2.6.1"
-    assert bundle.adapter_version == "0.2"
+    assert bundle.adapter_version == "0.3"
     assert all("target=T-DEMO" in item.provenance for item in bundle.temporal_facts)
 
 
