@@ -38,7 +38,7 @@ function normalize(caseInput) {
     language: "zh-CN",
     config: {
       algorithm: caseInput.algorithm ?? "zhongzhou",
-      dayDivide: caseInput.day_divide ?? "forward",
+      dayDivide: caseInput.day_divide ?? "current",
       yearDivide: caseInput.year_divide ?? "normal",
       horoscopeDivide: caseInput.horoscope_divide ?? "normal",
     },
