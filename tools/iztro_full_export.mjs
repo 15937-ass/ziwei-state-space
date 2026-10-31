@@ -38,7 +38,9 @@ function resolveInstalledIztroVersion() {
 
 const installedIztroVersion = resolveInstalledIztroVersion();
 if (installedIztroVersion !== engineVersion) {
-  throw new Error(`installed iztro version must equal ${engineVersion}; got ${installedIztroVersion}`);
+  throw new Error(
+    `installed iztro version must equal ${engineVersion}; got ${installedIztroVersion}`
+  );
 }
 const chartContractId = "ZHONGZHOU_IZTRO_JS_2_6_1_V1";
 const canonicalConfig = Object.freeze({
