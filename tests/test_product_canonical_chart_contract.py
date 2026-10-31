@@ -11,7 +11,7 @@ from src.product.canonical_chart_contract import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
-FIXTURE = ROOT / "product" / "PL3T_TEMPORAL_ASSET_FIXTURE_v0.1.json"
+FIXTURE = ROOT / "product" / "PL3T_TEMPORAL_ASSET_FIXTURE_v0.2.json"
 
 
 def valid_snapshot():
@@ -35,7 +35,7 @@ def test_canonical_zhongzhou_iztro_snapshot_is_accepted():
         (("input", "school"), "other-school", "input.school"),
         (("input", "chart_config", "algorithm"), "default", "algorithm"),
         (("input", "chart_config", "astro_type"), "earth", "astro_type"),
-        (("input", "chart_config", "day_divide"), "current", "day_divide"),
+        (("input", "chart_config", "day_divide"), "forward", "day_divide"),
         (("input", "chart_config", "year_divide"), "exact", "year_divide"),
         (("input", "chart_config", "horoscope_divide"), "exact", "horoscope_divide"),
         (("input", "chart_config", "language"), "en-US", "language"),
@@ -55,6 +55,34 @@ def test_noncanonical_chart_contract_is_rejected(path, value, message):
     assert any(message in error for error in result.errors)
 
 
+def test_non_true_solar_time_input_is_rejected():
+    snapshot = valid_snapshot()
+    snapshot["input"]["time_basis"] = "civil_time"
+    result = validate_canonical_production_chart_snapshot(snapshot)
+    assert not result.ok
+    assert any("input.time_basis" in error for error in result.errors)
+
+
+def test_second_location_correction_is_rejected():
+    snapshot = valid_snapshot()
+    snapshot["input"]["location_correction_applied"] = True
+    result = validate_canonical_production_chart_snapshot(snapshot)
+    assert not result.ok
+    assert any("location_correction_applied" in error for error in result.errors)
+
+
+def test_v1_0_forward_snapshot_is_rejected():
+    old = json.loads(
+        (ROOT / "product" / "PL3T_TEMPORAL_ASSET_FIXTURE_v0.1.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    result = validate_canonical_production_chart_snapshot(old)
+    assert not result.ok
+    assert any("chart_contract_id" in error for error in result.errors)
+    assert any("day_divide" in error for error in result.errors)
+
+
 def test_false_fix_leap_is_rejected():
     snapshot = valid_snapshot()
     snapshot["input"]["chart_config"]["fix_leap"] = False
@@ -69,6 +97,8 @@ def test_missing_contract_metadata_fails_closed():
     del snapshot["input"]["chart_config"]
     del snapshot["input"]["entrypoint"]
     del snapshot["input"]["input_calendar"]
+    del snapshot["input"]["time_basis"]
+    del snapshot["input"]["location_correction_applied"]
     result = validate_canonical_production_chart_snapshot(snapshot)
     assert not result.ok
     assert any("chart_contract_id" in error for error in result.errors)
@@ -105,12 +135,12 @@ def test_production_service_rejects_noncanonical_chart_before_loading_providers(
 
 
 def test_canonical_contract_id_is_stable():
-    assert CANONICAL_CHART_CONTRACT_ID == "ZHONGZHOU_IZTRO_JS_2_6_1_V1"
+    assert CANONICAL_CHART_CONTRACT_ID == "ZHONGZHOU_IZTRO_JS_2_6_1_V1_1"
 
 
 def test_machine_contract_drift_fails_closed(tmp_path, monkeypatch):
     contract = json.loads(
-        (ROOT / "product" / "CANONICAL_CHART_CONTRACT_v1.0.json").read_text(
+        (ROOT / "product" / "CANONICAL_CHART_CONTRACT_v1.1.json").read_text(
             encoding="utf-8"
         )
     )
