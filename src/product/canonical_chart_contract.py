@@ -38,6 +38,23 @@ CONTRACT_PATH = (
 )
 
 
+def zhongzhou_time_index_from_true_solar_time(hour: int, minute: int) -> int:
+    """Map an already-true-solar clock time to the canonical Zhongzhou time index.
+
+    00:00-00:59 is early Zi (index 0); 23:00-23:59 is late Zi (index 12).
+    The supplied calendar date is never advanced by this conversion.
+    """
+    if isinstance(hour, bool) or not isinstance(hour, int) or not 0 <= hour <= 23:
+        raise ValueError("hour must be an integer from 0 through 23")
+    if isinstance(minute, bool) or not isinstance(minute, int) or not 0 <= minute <= 59:
+        raise ValueError("minute must be an integer from 0 through 59")
+    if hour == 0:
+        return 0
+    if hour == 23:
+        return 12
+    return (hour + 1) // 2
+
+
 @dataclass(frozen=True)
 class CanonicalChartValidation:
     ok: bool
