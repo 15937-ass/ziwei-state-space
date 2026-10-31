@@ -1,160 +1,100 @@
-# PI Decision Rights and Substantive Progress Contract v1
+# PI Decision Rights and Substantive Progress Contract v1.1
 
-Version: **v1**
-Approval: **PI-approved scope under Issue #962**
-Operational authority: **effective only after acceptance into main**
-Work unit: `PI_DECISION_AND_SUBSTANTIVE_PROGRESS_CONTRACT_V1`
+Version: v1.1
+Approval: PI-directed governance reset under Issue #980
 Owner: Governance
-Operational integration: `AGENT_WORKFLOW.md` §§5, 7 and 13; canonical session entry: `CHATGPT_START_HERE.md`.
+Operational integration: CHATGPT_START_HERE.md and AGENT_WORKFLOW.md.
 
-## 1. Purpose and scope
+## 1. Purpose
 
-This contract keeps the PI focused on research direction, resource allocation and judgments that genuinely require human authority, while allowing execution agents to complete already-authorized work without repeatedly asking for routine permission.
+The PI sets the research mission, current objective, scope, priority and stop condition. The assistant is an executor and research aide, not a second PI.
 
-It also distinguishes durable research/engineering progress from administration, status movement and validation ceremony.
+This contract protects PI authority while preserving source integrity, reproducibility, lane ownership and honest validation. It reduces ceremony; it does not weaken evidence standards.
 
-It applies to every repository-work turn in Knowledge, Core, Product and Governance, including implementation, review, recovery, validation and read-only census. It does not create a fourth execution lane, change any lane's WIP limit, authorize work outside an admitted Issue, or replace path ownership, Human Gates, the Integration Queue, or the six-section Chinese closeout report.
+## 2. Authority and PI decision rights
 
-## 2. PI-reserved decisions
+The current explicit PI instruction in the active conversation controls the task. The PI may revise an earlier PI-approved plan, priority or architecture decision. If the current instruction does not revise an earlier decision, use the latest durable PI-approved decision on accepted main.
 
-The PI retains decision authority over:
+The PI reserves:
+- research mission, substantive priority, resource allocation and lane/shard WIP;
+- interpretation of Ziwei theory, school attribution and canonical source conflicts;
+- shared semantic primitives, Human Gates and major architecture/cross-lane boundaries;
+- authorization of probability, causal effects, empirical calibration, predictive-validity claims and production authority.
 
-- research mission, substantive priority changes, resource allocation and lane/shard WIP allocation;
-- interpretation of Ziwei theory, school attribution, source conflicts that could change canonical meaning, and shared semantic primitives;
-- Human Gates and acceptance of research meaning where the applicable contract requires PI judgment;
-- major architecture boundaries, cross-lane scope changes, and changes to the project's epistemic or authority model;
-- claims or design choices that would assert or authorize probability, causal effects, empirical calibration, predictive validity, or production authority beyond existing approval.
+Platform/safety constraints, factual integrity, source provenance and accepted-main boundaries remain binding. PI authority determines what the project should do; it does not authorize fabrication of source text, evidence or test results.
 
-An execution agent must not infer approval from silence, a previous unrelated approval, a green CI run, or the existence of an implementation artifact.
+An agent must not infer PI approval from silence, an unrelated prior approval, a green CI run or an agent-generated proposal.
 
 ## 3. Autonomous execution within approved scope
 
-Without asking the PI again, execution agents should autonomously:
+The current user-visible ChatGPT conversation may autonomously complete routine work that is clearly inside the PI's current instruction and the applicable approved contract:
+- read the task's necessary sources and extract evidence;
+- implement bounded changes and ordinary repairs;
+- run relevant tests and validation;
+- preserve provenance, UNKNOWN, conflicts and fail-closed behavior;
+- update the existing Issue/PR checkpoint and prepare a concise result.
 
-- inspect sources and extract/classify evidence under already-approved schemas and source boundaries;
-- implement bounded work already authorized by the live Issue and approved plan;
-- run relevant tests, reproduce and repair ordinary local defects, and perform producer/critic/revision passes;
-- maintain provenance, record UNKNOWN/conflict, preserve fail-closed behavior, and prepare evidence-backed handoffs;
-- perform routine formatting, documentation consistency, checkpointing, recovery, issue/PR updates and deterministic CI;
-- execute branch, lease, exact-head validation and merge mechanics strictly under the existing repository protocols.
+This autonomy applies only inside the authorized task. It does not authorize scope expansion, new research directions, new abstractions, extra Issues, background execution, scheduled agents or automatic merges.
 
-Routine Git operations, ordinary CI/test failures, formatting, repeated status checks, and already-specified next steps are not PI decisions. Do not route them to the PI merely to obtain another approval.
+All ChatGPT Automations found for this account were paused on 2026-10-31. Do not create or re-enable an automated executor without explicit PI approval. GitHub Actions remain validation-only.
 
-## 4. Escalation rule
+## 4. Escalation
 
-Escalate only when the next safe action requires one of the PI-reserved decisions in §2.
+Ask the PI only when the next safe action genuinely requires a reserved decision in §2 or the instruction is materially ambiguous.
 
-When escalation is necessary:
+When escalation is required:
+1. state the exact unresolved question;
+2. show the source/evidence and the materially different options;
+3. explain the consequences and give a recommendation;
+4. ask one concise question in Chinese.
 
-1. stop only the affected decision path; continue independent work that remains inside the approved scope;
-2. present the source/evidence, the exact unresolved question, materially different options, consequences and a recommendation;
-3. ask one concise question in Chinese;
-4. state what can safely continue while the decision is pending.
+Stop only the affected decision path. Do not escalate routine Git, formatting, implementation or test mechanics. Do not continue into a different task while waiting.
 
-Do not escalate routine execution details. Do not silently choose a new school interpretation, canonical meaning, shared semantic primitive, WIP/priority change, architecture boundary or epistemic claim on the PI's behalf.
+## 5. Evidence-backed progress (lightweight)
 
-## 5. One primary outcome class per repository-work turn
+Use the following labels when they improve clarity; they are not mandatory for every turn:
+- SUBSTANTIVE_DELTA — a durable, evidence-backed research or implementation improvement;
+- BLOCKER_IDENTIFIED — a demonstrated blocker with owner and exact unblock condition;
+- VALIDATION_ONLY — a required check completed without a separate substantive change;
+- STATUS_ONLY — read-only status recovery or report;
+- NO_SUBSTANTIVE_PROGRESS — attempted work did not establish a durable result.
 
-Every repository-work turn receives exactly one primary outcome class. The class describes what the turn actually established, not how much activity occurred.
+Commits, lines changed, Issue/PR transitions, repeated reads, unchanged test reruns and new scaffolding are not substantive progress by themselves. Validation is a quality gate, not research progress.
 
-### `SUBSTANTIVE_DELTA`
-
-Use only when the turn creates a durable, evidence-backed improvement, such as:
-
-- a source-grounded finding or resolved ambiguity;
-- an implemented behavior or repaired defect;
-- a hypothesis that is meaningfully supported, rejected or narrowed by a valid test;
-- a durable artifact that improves the project's ability to reason, reproduce, validate or operate.
-
-Record the exact artifact/evidence and its limitations. A commit or file change without a substantive improvement is not enough.
-
-### `BLOCKER_IDENTIFIED`
-
-Use only when a real blocker is demonstrated. Record:
-
-- evidence that the blocker exists;
-- the owner and dependency;
-- the exact missing input or condition that would unblock it;
-- safe independent work that can continue.
-
-A vague concern, an unverified assumption or a preference is not a blocker.
-
-### `VALIDATION_ONLY`
-
-Use when a required validation/recheck is completed but no separate substantive change is established. Record the exact commit SHA, workflow/run ID, attempt, job and result where available. Validation is a quality gate; it is not by itself new research progress.
-
-### `STATUS_ONLY`
-
-Use when the turn only restores or reports status, reads live Issues/PRs, performs a census, or confirms that nothing changed. Explicitly state that no substantive progress was made.
-
-### `NO_SUBSTANTIVE_PROGRESS`
-
-Use when work was attempted but produced neither a durable delta nor a demonstrated blocker. State what was attempted, why it did not establish a result, and the precise next action. Do not pad the report or relabel activity as progress.
-
-If a turn contains both implementation and validation, choose the single primary class that best describes the durable outcome; record validation as supporting evidence rather than assigning multiple primary classes.
-
-## 6. What counts as evidence-backed progress by lane
+## 6. Evidence and maturity boundaries
 
 ### Knowledge
 
-A substantive result identifies the source span and its provenance, preserves exact conditions and exceptions, and records whether the material is reusable, case-only, conflicting, UNKNOWN or unresolved. Temporal scope and school attribution remain explicit. Counts may describe coverage but are not quality scores.
+A substantive result identifies the source span and provenance, preserves conditions/exceptions, and records reusable, case-only, conflicting, UNKNOWN or unresolved status. Counts are coverage descriptions, not quality scores.
 
 ### Core
 
-A substantive result identifies the shared semantic distinction, relation, dependency or boundary that is now supported, rejected or still UNKNOWN; links it to accepted source evidence; and explains which downstream ambiguity it resolves or why it remains unresolved. Schema/operator counts are not quality scores. A formal representation does not itself authorize execution.
+A substantive result identifies the shared semantic distinction, relation, dependency or boundary supported/rejected by accepted evidence. A formal representation does not itself authorize execution.
 
 ### Product
 
-A substantive result demonstrates a user-visible end-to-end capability or a reproducible implementation correction, including evidence consumption, provenance, UNKNOWN/failure handling and cross-domain behavior where relevant. Interface existence, orchestration scaffolding or synthetic fixtures alone do not establish production readiness, real-case fidelity or empirical validity.
+A substantive result demonstrates a reproducible user-visible capability or implementation correction, including evidence consumption, provenance and UNKNOWN/failure handling. Synthetic fixtures alone do not establish actual-use fidelity or predictive validity.
 
 ### Governance
 
-A substantive result changes or clarifies an enforceable repository policy, test, recovery rule or ownership boundary and demonstrates that the change is internally consistent. Creating an Issue/PR, changing a status, adding a document without an adopted contract, or moving a branch is not progress by itself.
+A substantive result changes an enforceable policy, test, recovery rule or ownership boundary and demonstrates internal consistency. Creating an Issue/PR or moving a status is not progress by itself.
 
-## 7. Anti-ceremony and maturity boundaries
+Keep separate: source fidelity, formal/specification consistency, implementation correctness, internal validation, empirical calibration, causal identification, predictive validity and production readiness. Progress in one dimension does not silently promote another.
 
-The following are not substantive progress on their own:
+## 7. Concise closeout
 
-- commit count, lines changed, file count, number of Issues/PRs or workflow runs;
-- Issue/PR state transitions, branch creation, queue position or lease acquisition/release;
-- repeated reads, duplicate reports, unchanged test reruns or newly created scaffolding;
-- a rule/schema/operator count without evidence that a real distinction was resolved;
-- synthetic fixtures presented as actual-chart use, or internal fidelity presented as empirical validation.
+For ordinary work, report only:
+- what the PI asked for and what result was obtained;
+- changed artifacts, if any;
+- validation actually performed and its result;
+- unresolved blocker or PI decision, only if one exists;
+- at most one necessary next action, then stop.
 
-Reuse valid validation evidence under the identity/reuse rules in `AGENT_WORKFLOW.md` §10.2. Rerun tests when relevant inputs or code change, not merely to create activity.
+A global three-stream census and six-section report are optional and should be produced only when the PI asks or a real cross-lane dependency requires them. Do not create a second status ledger. Durable evidence belongs in the existing Issue/PR or versioned artifact, not only in chat.
 
-Keep these maturity dimensions separate: source fidelity, formal/specification consistency, implementation correctness, internal validation, empirical calibration, causal identification, predictive validity and production readiness. Advancement on one dimension does not silently promote another. No single numeric KPI replaces evidence-based acceptance.
+## 8. Non-interference
 
-## 8. PI-facing closeout
-
-Use the existing six-section Chinese report in `AGENT_WORKFLOW.md` §13; do not create a second status ledger or a seventh reporting system.
-
-For the current work unit, the report must make recoverable:
-
-- the actual question/problem worked on;
-- the one primary outcome class from §5;
-- the exact substantive delta, demonstrated blocker, validation identity, or explicit statement that there was no substantive result;
-- unresolved uncertainty and the exact next action;
-- whether PI judgment is required; if YES, ask only the specific reserved decision.
-
-Routine Git mechanics stay out of the main report unless they block progress or create repository risk. Durable evidence belongs in the existing Issue/PR and repository artifacts, not only in chat.
-
-## 9. Non-interference and precedence
-
-- The live Issue/PR and accepted `main` remain execution truth; this contract does not create a parallel queue or status cache.
-- The existing Integration Queue in Issue #888 remains the sole main-integration serialization mechanism.
-- Existing lane ownership, WIP limits, palace schedule, cross-lane handoff and Human Gates remain unchanged.
-- Product and Knowledge are not made dependent on Governance reporting artifacts.
-- This contract does not authorize semantic, runtime, KIB, probability, causal, empirical or predictive-validity changes outside the current approved work unit.
-
-## 10. Acceptance of this contract
-
-The contract is correctly implemented when:
-
-1. every repository-work turn can be assigned one truthful primary outcome class;
-2. status/validation/administrative activity cannot be reported as substantive progress by itself;
-3. PI-reserved decisions and autonomous execution are clearly separated;
-4. routine Git/CI/test/formatting work is not escalated to the PI;
-5. Knowledge/Core/Product/Governance progress is evidence-based and maturity boundaries remain explicit;
-6. the existing six-section Chinese closeout report carries the required evidence without a duplicate ledger;
-7. deterministic regression tests protect these requirements.
+- Live Issue/PR determines execution status; accepted main determines canonical content.
+- Preserve lane ownership, WIP limits, palace schedule, cross-lane handoffs and Integration Lease #888.
+- Never consume an unmerged branch as canonical Knowledge.
+- Do not change source semantics, school boundaries, runtime, KIB/lock, probability, causality or predictive-validity claims outside PI-approved scope.
