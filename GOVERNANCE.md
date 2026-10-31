@@ -111,12 +111,21 @@ A Work Unit closes only when:
 
 Explicit INSUFFICIENT_SOURCE, SOURCE_CONFLICT, NO_UNIVERSAL_RULE, UNCALIBRATED and BLOCKED_CONTENT are valid completed findings when the work unit is designed to classify evidence.
 
-## 9. Risk levels
+## 9. Risk levels and validation intensity
 
 - R0: mechanical formatting/fixture/local bug; autonomous.
-- R1: normal bounded work unit; GPT producer/critic/validator + CI.
-- R2: phase closure, cross-module integration, material design ambiguity; independent review and PI-facing report.
-- R3: Human Gate, canonical meaning, architecture boundary, causal upgrade; PI approval required.
+- R1: normal bounded work unit; targeted tests and deterministic checks.
+- R2: phase closure, cross-module integration, material design ambiguity; independent review and affected-domain validation.
+- R3: Human Gate, canonical meaning, architecture boundary, causal upgrade; explicit PI approval and full risk-appropriate validation required.
+
+Validation is proportional to changed surface and risk:
+
+- **R0:** diff/format checks and directly changed tests. No repository-wide suite.
+- **R1:** affected module/contract tests, write-set checks and relevant validators. No full suite during ACTIVE_BUILD. A narrow exact-head final gate may be approved in the Issue for documentation/governance-only or otherwise isolated work.
+- **R2:** affected domain suites and independent review. Run the full repository gate at integration when shared contracts, cross-module behavior or multiple lanes are affected.
+- **R3:** PI approval, full exact-head repository gate and any relevant independent/differential validation. Do not downgrade the gate without a new PI decision.
+
+Full tests are run at the integration point, not on every branch update. A narrow gate must be specified in the live Issue before final integration; it must not be invented after a full test fails.
 
 ## 10. Capability maturity
 
