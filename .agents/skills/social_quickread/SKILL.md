@@ -12,6 +12,14 @@ A tiny, manually invoked, read-only helper for concise Zi Wei Dou Shu readings. 
 
 6. If the user explicitly upgrades the request to **详批、完整看盘、全面详解、完整展开** or otherwise asks to cover the chart systematically, hand off to `.agents/skills/social_detailedread/SKILL.md`. Do not keep the QuickRead 120–220-character default after an explicit DetailedRead upgrade.
 
+## Canonical chart prerequisite
+
+- Before using chart facts, require a snapshot produced under `product/CANONICAL_CHART_CONTRACT_v1.0.md`: Zhongzhou + `iztro-js@2.6.1` with the exact frozen configuration and provenance.
+- If a canonical Product chart generator is available, use it. Never hand-calculate palace placement, stars, transformations, DECADE, YEAR or other temporal scopes.
+- A third-party chart image/text or a manually supplied chart without verifiable canonical metadata is **user-supplied, unverified input**, not the system's canonical chart. You may describe that limitation, but must not silently treat it as an iztro-generated Zhongzhou chart.
+- If a canonical snapshot/generator is unavailable, do not invent a chart or proceed as if it were verified. Ask for a validated canonical snapshot or state that verified chart calculation is unavailable in the current session.
+- A specific time-layer question requires the corresponding iztro-generated temporal scope; do not calculate it from age/year in the verbalizer.
+
 ## Evidence boundaries
 
 - Use accepted Zhongzhou-school material and current accepted runtime outputs. Do not silently mix in Qintian, Heluo, online口诀, or model memory as if they were Zhongzhou evidence.
