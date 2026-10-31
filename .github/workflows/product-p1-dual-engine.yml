@@ -49,7 +49,7 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}
         run: |
           python tools/chart_inputs_to_jsonl.py \
-            validation/product_chart_regression/regression_inputs_v0.1.csv \
+            validation/product_chart_regression/regression_inputs_v0.2.csv \
             /tmp/p1_inputs.jsonl
           test "$(wc -l < /tmp/p1_inputs.jsonl)" -eq 100
 
