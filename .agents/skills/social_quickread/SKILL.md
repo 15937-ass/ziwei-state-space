@@ -15,6 +15,7 @@ A tiny, manually invoked, read-only helper for concise Zi Wei Dou Shu readings. 
 ## Canonical chart prerequisite
 
 - Before using chart facts, require a snapshot produced under `product/CANONICAL_CHART_CONTRACT_v1.1.md`: Zhongzhou + `iztro-js@2.6.1` with the exact frozen configuration and provenance.
+- Treat the supplied birth time as already `true_solar_time`; late Zi 23:00–23:59 remains on the supplied date and 00:00 begins the new date. Never apply a second birthplace/location correction in the chart layer.
 - If a canonical Product chart generator is available, use it. Never hand-calculate palace placement, stars, transformations, DECADE, YEAR or other temporal scopes.
 - A third-party chart image/text or a manually supplied chart without verifiable canonical metadata is **user-supplied, unverified input**, not the system's canonical chart. You may describe that limitation, but must not silently treat it as an iztro-generated Zhongzhou chart.
 - If a canonical snapshot/generator is unavailable, do not invent a chart or proceed as if it were verified. Ask for a validated canonical snapshot or state that verified chart calculation is unavailable in the current session.
