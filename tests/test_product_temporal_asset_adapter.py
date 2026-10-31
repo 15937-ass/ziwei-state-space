@@ -12,7 +12,7 @@ from src.product.temporal_asset_adapter import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
-FIXTURE = ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.1.json"
+FIXTURE = ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.2.json"
 
 
 def _snapshot():
