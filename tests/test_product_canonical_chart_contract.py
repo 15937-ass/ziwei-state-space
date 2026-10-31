@@ -152,3 +152,27 @@ def test_machine_contract_drift_fails_closed(tmp_path, monkeypatch):
     result = validate_canonical_production_chart_snapshot(valid_snapshot())
     assert not result.ok
     assert any("contract unavailable" in error for error in result.errors)
+
+
+@pytest.mark.parametrize(
+    ("hour", "minute", "expected"),
+    [
+        (0, 0, 0),
+        (0, 59, 0),
+        (1, 0, 1),
+        (2, 59, 1),
+        (3, 0, 2),
+        (21, 0, 11),
+        (22, 59, 11),
+        (23, 0, 12),
+        (23, 59, 12),
+    ],
+)
+def test_zhongzhou_time_index_mapping_uses_midnight_split(hour, minute, expected):
+    assert chart_contract.zhongzhou_time_index_from_true_solar_time(hour, minute) == expected
+
+
+@pytest.mark.parametrize(("hour", "minute"), [(-1, 0), (24, 0), (0, -1), (0, 60)])
+def test_zhongzhou_time_index_mapping_rejects_invalid_clock_values(hour, minute):
+    with pytest.raises(ValueError):
+        chart_contract.zhongzhou_time_index_from_true_solar_time(hour, minute)
