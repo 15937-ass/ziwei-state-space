@@ -58,7 +58,7 @@ ChartAdapter.render(birth_input, config) -> NormalizedChartSnapshot
 
 外部引擎只作为差异发现器，不是 ground truth。
 
-**生产排盘硬约束：** 所有正式 NATAL 与 DECADE / AGE / YEAR / MONTH / DAY / HOUR 快照必须遵循 `product/CANONICAL_CHART_CONTRACT_v1.0.md`：中州派 + `iztro-js@2.6.1`，固定 heaven / 闰月 / 日界 / 年界 / 运限配置。x-iztro 与 Go 只做差分审计，不得成为生产 fallback。LLM 和人工不得生成、补算或修改排盘事实；生产入口必须在加载 Provider / Runtime 前执行 canonical chart fail-closed 校验。更改方法必须经 PI 明确批准、升级契约版本、制定迁移并重跑完整 P1 回归。
+**生产排盘硬约束：** 所有正式 NATAL 与 DECADE / AGE / YEAR / MONTH / DAY / HOUR 快照必须遵循 `product/CANONICAL_CHART_CONTRACT_v1.1.md`：中州派 + `iztro-js@2.6.1`，固定 heaven / 闰月 / 日界 / 年界 / 运限配置。x-iztro 与 Go 只做差分审计，不得成为生产 fallback。LLM 和人工不得生成、补算或修改排盘事实；生产入口必须在加载 Provider / Runtime 前执行 canonical chart fail-closed 校验。更改方法必须经 PI 明确批准、升级契约版本、制定迁移并重跑完整 P1 回归。
 
 ---
 
