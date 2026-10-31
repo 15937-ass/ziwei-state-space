@@ -50,6 +50,8 @@ class ChartRegressionInput:
             "day_divide": self.day_divide,
             "year_divide": self.year_divide,
             "horoscope_divide": self.horoscope_divide,
+            "time_basis": "true_solar_time",
+            "location_correction_applied": False,
         }
 
 
