@@ -1,0 +1,125 @@
+{
+  "version": "0.3",
+  "batch": "P1-B02-B-ZHONGZHOU-V1_1",
+  "purpose": "verify the selected Zhongzhou production late-Zi same-day rule while retaining independent cross-school diagnostics",
+  "config_contract": {
+    "day_divide": "current",
+    "meaning": "for the canonical Zhongzhou production contract, late Zi remains on the supplied date; the new date begins at 00:00"
+  },
+  "semantic_policy": {
+    "classification": "ZHONGZHOU_CANONICAL_SAME_DAY",
+    "universal_equivalence_required": false,
+    "strict_gate": "iztro JS 2.6.1 vs x-iztro 0.6.1 full normalized diff under identical Zhongzhou + day_divide=current configuration",
+    "independent_oracle": "the pinned Go core does not implement this exact Zhongzhou day_divide contract; late-Zi targets remain excluded from its hard equality gate and are diagnostic only",
+    "candidate_models": [
+      "same_day"
+    ],
+    "downstream_inference": "within the selected Zhongzhou production contract, use same-day late-Zi attribution only; do not retain next-day or composite alternatives as production candidates. Cross-school comparisons remain diagnostic and cannot override the canonical chart"
+  },
+  "school_sensitive_target_ids": [
+    "B1_YEAR_LATE_ZI",
+    "B2_MONTH_LATE_ZI"
+  ],
+  "max_targets": 8,
+  "targets": [
+    {
+      "target_id": "B1_YEAR_HAI",
+      "solar_date": "2028-01-25",
+      "time_index": 11,
+      "expected_lunar_marker": "十二月廿九"
+    },
+    {
+      "target_id": "B1_YEAR_LATE_ZI",
+      "solar_date": "2028-01-25",
+      "time_index": 12,
+      "expected_lunar_marker": "十二月廿九"
+    },
+    {
+      "target_id": "B1_YEAR_NEXT_EARLY_ZI",
+      "solar_date": "2028-01-26",
+      "time_index": 0,
+      "expected_lunar_marker": "正月初一"
+    },
+    {
+      "target_id": "B1_YEAR_NEXT_CHOU",
+      "solar_date": "2028-01-26",
+      "time_index": 1,
+      "expected_lunar_marker": "正月初一"
+    },
+    {
+      "target_id": "B2_MONTH_HAI",
+      "solar_date": "2028-03-25",
+      "time_index": 11,
+      "expected_lunar_marker": "二月三十"
+    },
+    {
+      "target_id": "B2_MONTH_LATE_ZI",
+      "solar_date": "2028-03-25",
+      "time_index": 12,
+      "expected_lunar_marker": "二月三十"
+    },
+    {
+      "target_id": "B2_MONTH_NEXT_EARLY_ZI",
+      "solar_date": "2028-03-26",
+      "time_index": 0,
+      "expected_lunar_marker": "三月初一"
+    },
+    {
+      "target_id": "B2_MONTH_NEXT_CHOU",
+      "solar_date": "2028-03-26",
+      "time_index": 1,
+      "expected_lunar_marker": "三月初一"
+    }
+  ],
+  "relation_probes": [
+    {
+      "probe_id": "year_latezi_vs_next_earlyzi",
+      "left": "B1_YEAR_LATE_ZI",
+      "right": "B1_YEAR_NEXT_EARLY_ZI",
+      "scopes": [
+        "yearly",
+        "monthly",
+        "daily",
+        "hourly"
+      ],
+      "mode": "observe"
+    },
+    {
+      "probe_id": "month_latezi_vs_next_earlyzi",
+      "left": "B2_MONTH_LATE_ZI",
+      "right": "B2_MONTH_NEXT_EARLY_ZI",
+      "scopes": [
+        "yearly",
+        "monthly",
+        "daily",
+        "hourly"
+      ],
+      "mode": "observe"
+    },
+    {
+      "probe_id": "year_hai_vs_latezi",
+      "left": "B1_YEAR_HAI",
+      "right": "B1_YEAR_LATE_ZI",
+      "scopes": [
+        "yearly",
+        "monthly",
+        "daily",
+        "hourly"
+      ],
+      "mode": "observe"
+    },
+    {
+      "probe_id": "month_hai_vs_latezi",
+      "left": "B2_MONTH_HAI",
+      "right": "B2_MONTH_LATE_ZI",
+      "scopes": [
+        "yearly",
+        "monthly",
+        "daily",
+        "hourly"
+      ],
+      "mode": "observe"
+    }
+  ],
+  "note": "The canonical Zhongzhou contract is day_divide=current: late Zi (23:00-23:59) remains on the supplied date; 00:00 begins the new date. The independent Go audit is not a Zhongzhou day-boundary oracle, so only those late-Zi Go comparisons remain excluded from hard equality. JS/Rust same-contract equality remains a strict gate."
+}
