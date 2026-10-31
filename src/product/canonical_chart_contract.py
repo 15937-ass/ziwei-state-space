@@ -9,6 +9,27 @@ from typing import Any, Mapping
 
 
 CANONICAL_CHART_CONTRACT_ID = "ZHONGZHOU_IZTRO_JS_2_6_1_V1"
+CANONICAL_CHART_CONTRACT_VERSION = "1.0.0"
+CANONICAL_SCHOOL = "zhongzhou"
+CANONICAL_PRODUCTION_ENGINE = {
+    "name": "iztro-js",
+    "version": "2.6.1",
+    "source_revision": "2c7ef9be669df7b19d1799f4dce335fed3794f78",
+    "adapter_version": "0.2",
+}
+CANONICAL_CHART_CONFIG = {
+    "algorithm": "zhongzhou",
+    "astro_type": "heaven",
+    "fix_leap": True,
+    "day_divide": "forward",
+    "year_divide": "normal",
+    "horoscope_divide": "normal",
+    "language": "zh-CN",
+}
+CANONICAL_INPUT_ROUTES = {
+    "solar": {"input_calendar": "solar", "entrypoint": "astro.withOptions"},
+    "lunar": {"input_calendar": "lunar", "entrypoint": "astro.byLunar"},
+}
 
 CONTRACT_PATH = (
     Path(__file__).resolve().parents[2]
@@ -29,6 +50,23 @@ def load_canonical_chart_contract() -> Mapping[str, Any]:
         payload = json.load(handle)
     if not isinstance(payload, Mapping):
         raise ValueError("canonical chart contract must be a JSON object")
+    expected_fields = {
+        "contract_id": CANONICAL_CHART_CONTRACT_ID,
+        "contract_version": CANONICAL_CHART_CONTRACT_VERSION,
+        "status": "CANONICAL_PRODUCTION",
+        "school": CANONICAL_SCHOOL,
+        "production_engine": CANONICAL_PRODUCTION_ENGINE,
+        "chart_config": CANONICAL_CHART_CONFIG,
+        "input_routes": CANONICAL_INPUT_ROUTES,
+        "temporal_scopes": [
+            "decadal", "age", "yearly", "monthly", "daily", "hourly"
+        ],
+    }
+    for field, expected in expected_fields.items():
+        if payload.get(field) != expected:
+            raise ValueError(
+                f"canonical chart contract field drift: {field} does not match frozen v1.0"
+            )
     return payload
 
 
@@ -55,7 +93,7 @@ def validate_canonical_production_chart_snapshot(
     if snapshot.get("chart_contract_id") != expected_id:
         errors.append(f"chart_contract_id must equal {expected_id}")
 
-    if snapshot.get("test_only") is True:
+    if "test_only" in snapshot and snapshot.get("test_only") is not False:
         errors.append("test-only chart snapshots are not allowed in production")
 
     engine = snapshot.get("engine")
@@ -78,7 +116,7 @@ def validate_canonical_production_chart_snapshot(
         errors.append("input must be an object for canonical production")
         input_payload = {}
 
-    if input_payload.get("test_only") is True:
+    if "test_only" in input_payload and input_payload.get("test_only") is not False:
         errors.append("input.test_only chart snapshots are not allowed in production")
 
     if input_payload.get("school") != contract.get("school"):
