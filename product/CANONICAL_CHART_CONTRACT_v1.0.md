@@ -29,6 +29,7 @@ Machine-readable authority: `product/CANONICAL_CHART_CONTRACT_v1.0.json`
 | School / algorithm | `zhongzhou` |
 | Production engine | `iztro-js` |
 | Engine version | `2.6.1` |
+| iztro source revision | `2c7ef9be669df7b19d1799f4dce335fed3794f78` |
 | Adapter version | `0.2` |
 | Astro type | `heaven` |
 | `fix_leap` | `true` |
