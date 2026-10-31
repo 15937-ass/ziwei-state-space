@@ -70,3 +70,28 @@ def test_summary_counts_severity_and_category():
     assert summary["total_differences"] == 2
     assert summary["severity_counts"]["CRITICAL"] == 1
     assert summary["severity_counts"]["HIGH"] == 1
+
+
+def test_provenance_metadata_is_ignored_but_canonical_chart_config_is_compared():
+    left = {
+        "chart_contract_id": "ZHONGZHOU_IZTRO_JS_2_6_1_V1",
+        "engine": {"name": "iztro-js", "version": "2.6.1"},
+        "input": {
+            "entrypoint": "astro.withOptions",
+            "chart_config": {"algorithm": "zhongzhou", "day_divide": "forward"},
+        },
+    }
+    right = {
+        "engine": {"name": "x-iztro-rust", "version": "0.6.1"},
+        "input": {
+            "entrypoint": "x-iztro-rust.by_solar",
+            "chart_config": {"algorithm": "zhongzhou", "day_divide": "forward"},
+        },
+    }
+    ignored = ("engine", "chart_contract_id", "input.entrypoint")
+    assert compare_chart_snapshots(left, right, ignore_paths=ignored) == []
+
+    right["input"]["chart_config"]["algorithm"] = "default"
+    diffs = compare_chart_snapshots(left, right, ignore_paths=ignored)
+    assert len(diffs) == 1
+    assert diffs[0].path == "input.chart_config.algorithm"

@@ -5,28 +5,28 @@ canonical_branch: "main"
 
 execution:
   status: "ACTIVE"
-  phase: "NATAL_ACTUAL_USE_VALIDATION"
-  active_issue: 966
-  active_branch: "product/966-natal-actual-use-validation-v1"
-  base_main_sha: "8006f091533fda607e9a2d0ef7fbcef359c3d60a"
-  active_pr: 966
+  phase: "CANONICAL_ZHONGZHOU_CHART_CONTRACT"
+  active_issue: 977
+  active_branch: "product/977-canonical-zhongzhou-chart-contract-v1"
+  base_main_sha: "19930bbf595a0aeb084f57a62cc64d3fdaf3e2c5"
+  active_pr: 978
   continuation_plan: "governance/CORE_PRODUCT_CONTINUATION_PLAN_v2.md"
   plan_pointer_issue: 900
-  next_issue: 966
-  next_work_unit: "PRODUCT_NATAL_ACTUAL_USE_VALIDATION_V1"
-  continuation_next_work_unit: "PRODUCT_NATAL_ACTUAL_USE_VALIDATION_V1"
+  next_issue: 977
+  next_work_unit: "PRODUCT_CANONICAL_ZHONGZHOU_CHART_CONTRACT_V1"
+  continuation_next_work_unit: "PRODUCT_CANONICAL_ZHONGZHOU_CHART_CONTRACT_V1"
   next_work_status: "ACTIVE_BUILD"
-  resume_entry: "Product #951 / PR #951 is accepted and merged on main 8006f091533fda607e9a2d0ef7fbcef359c3d60a. Product #966 / PR #966 is the sole ACTIVE_BUILD unit: run a bounded live actual-use validation on source-exact WANG-CASE-012 (WEALTH target, unique target-anchor match). Preserve CASE_SUPPORT_ONLY and full-source-chart-equivalence=false; pin all 12 NATAL retrieval slots to one current main SHA; verify accepted Wealth runtime capability/provenance, available source evidence, explicit domain gaps, cross-domain check instructions and fail-closed boundaries. No chart-specific rule execution, outcome leakage, temporal inference, probability or predictive-validity claim. Active KIB v0.3 / lock remain unchanged. No KIB promotion, lock/registry mutation, or runtime authority is granted by #966. DECADE remains gated until this checkpoint and matching accepted Product-consumable temporal Knowledge/Core evidence are both available."
-  state_cache_as_of_main_commit: "8006f091533fda607e9a2d0ef7fbcef359c3d60a"
-  state_cache_as_of_product_merge: "8006f091533fda607e9a2d0ef7fbcef359c3d60a"
-  state_cache_snapshot_date: "2026-10-30"
+  resume_entry: "Product #966 / PR #966 is closed. Product #977 / branch product/977-canonical-zhongzhou-chart-contract-v1 is the sole ACTIVE_BUILD unit: permanently enforce Zhongzhou + iztro-js 2.6.1 as the only production chart method, pin all chart config, require provenance and contract metadata, and reject noncanonical/test-only snapshots before any provider loads. No Knowledge/Core semantics, KIB/lock/registry, runtime authority, or DECADE/YEAR inference expansion is granted."
+  state_cache_as_of_main_commit: "19930bbf595a0aeb084f57a62cc64d3fdaf3e2c5"
+  state_cache_as_of_product_merge: "19930bbf595a0aeb084f57a62cc64d3fdaf3e2c5"
+  state_cache_snapshot_date: "2026-10-31"
   v04_entry_checkpoint_issue: 416
   v04_entry_checkpoint_pr: 418
-  last_completed_product_issue: 951
-  last_completed_product_pr: 951
+  last_completed_product_issue: 966
+  last_completed_product_pr: 966
   archived_reference_pr: 274
   archived_reference_head: "8efbeb9efc31fa73986fd8f4cdfd6ad033e0f901"
-  resume_issue: 966
+  resume_issue: 977
   roadmap: "PRODUCT_ROADMAP.md#v0.4"
   execution_plan: "product/phases/PRODUCT_VNEXT_EXECUTION_PLAN_v0.1.md"
 
@@ -43,6 +43,7 @@ capability_snapshot:
     internal_validation: "FIDELITY_PASS"
     empirical_calibration: "NOT_APPLICABLE"
     production_readiness: "LIMITED"
+    note: "P1 Chart Trust is accepted. Product #977 is adding the permanent CANONICAL_CHART_CONTRACT_V1: Zhongzhou + iztro-js 2.6.1 only for production, exact frozen config, and fail-closed inference admission. x-iztro/Go remain audit-only."
 
   rule_runtime:
     specification: "SPECIFIED"
@@ -188,7 +189,7 @@ capability_snapshot:
 
 critical_path:
   now:
-    - "PRODUCT_NATAL_ACTUAL_USE_VALIDATION_V1"
+    - "PRODUCT_CANONICAL_ZHONGZHOU_CHART_CONTRACT_V1"
   future:
     - "PRODUCT_DECADE_LAYER_INTEGRATION_AFTER_ACCEPTED_KNOWLEDGE_CORE_CHECKPOINT"
     - "PRODUCT_YEAR_LAYER_INTEGRATION_AFTER_DECADE_STABILITY_AND_ACCEPTED_YEAR_CHECKPOINT"
@@ -215,6 +216,10 @@ resume_queue_reference:
   note: "Legacy Issues/PRs remain historical references only. Product #416/#418 are completed; Proposal #425 defines the new critical path. Old temporal/manifestation scaffolding is not considered capability completion while canonical content is empty."
 
 permanent_boundaries:
+  canonical_production_chart_school_zhongzhou_only: true
+  canonical_production_chart_engine_iztro_js_2_6_1_only: true
+  llm_owns_chart_facts: false
+  manual_production_chart_edits_allowed: false
   canonical_natal_feedback_independent: true
   temporal_environment_not_outcome: true
   response_profile_separate_from_temporal_environment: true

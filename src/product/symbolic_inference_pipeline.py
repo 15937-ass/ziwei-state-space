@@ -11,6 +11,7 @@ import json
 from dataclasses import asdict, dataclass, replace
 from typing import Any, Iterable, Mapping
 
+from .canonical_chart_contract import validate_canonical_production_chart_snapshot
 from .layered_evidence_package import (
     EvidenceReference,
     LayeredEvidencePackage,
@@ -296,6 +297,14 @@ def run_symbolic_inference(
         raise ValueError("target_id is required")
     if not isinstance(normalized_snapshot, Mapping):
         raise ValueError("normalized_snapshot must be an object")
+    canonical_validation = validate_canonical_production_chart_snapshot(
+        normalized_snapshot
+    )
+    if not canonical_validation.ok:
+        raise ValueError(
+            "non-canonical production chart snapshot: "
+            + "; ".join(canonical_validation.errors)
+        )
     if not isinstance(reaction_registry_document, Mapping):
         raise ValueError("reaction_registry_document must be an object")
 

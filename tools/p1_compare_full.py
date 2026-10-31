@@ -55,9 +55,21 @@ def main() -> int:
             total_diffs += 1
             continue
 
+        # Engine identity, chart contract ID and implementation entrypoint are
+        # provenance metadata, not normalized chart facts. Strip only those
+        # fields explicitly; keep school/config metadata in the comparison so
+        # both implementations must declare the same Zhongzhou settings.
+        left_chart = json.loads(json.dumps(left[case_id]))
+        right_chart = json.loads(json.dumps(right[case_id]))
+        for chart in (left_chart, right_chart):
+            chart.pop("chart_contract_id", None)
+            input_payload = chart.get("input")
+            if isinstance(input_payload, dict):
+                input_payload.pop("entrypoint", None)
+
         diffs = compare_chart_snapshots(
-            left[case_id],
-            right[case_id],
+            left_chart,
+            right_chart,
             ignore_paths=("engine",),
         )
         if diffs:
@@ -102,6 +114,11 @@ def main() -> int:
         "truncated_at_difference_cap": truncated,
         "max_total_diffs": args.max_total_diffs,
         "max_detail_per_case": args.max_detail_per_case,
+        "ignored_metadata_paths": [
+            "engine",
+            "chart_contract_id",
+            "input.entrypoint",
+        ],
     }
     Path(args.report).write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 

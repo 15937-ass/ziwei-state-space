@@ -45,6 +45,7 @@ def _star(name, mutagen=None):
 
 
 def _snapshot(stars_by_palace=None):
+    full = json.loads(ASSET_PATH.read_text(encoding="utf-8"))
     stars_by_palace = stars_by_palace or {}
     palaces = {}
     for palace_name, branch in BRANCH.items():
@@ -57,12 +58,8 @@ def _snapshot(stars_by_palace=None):
             "minor_stars": [],
             "adjective_stars": [],
         }
-    return {
-        "schema_version": "0.2",
-        "engine": {"name": "test-engine", "version": "1", "adapter_version": "0.2"},
-        "input": {},
-        "natal": {"palaces": palaces},
-    }
+    full["natal"] = {"palaces": palaces}
+    return full
 
 
 def _source_row(**overrides):

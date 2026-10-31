@@ -8,7 +8,13 @@ DetailedRead is the private-chat **advanced reading** mode. QuickRead remains th
 
 DetailedRead is **not** a second rule engine, a second Knowledge registry, a new chart calculator, or an LLM client.
 
-## 2. Product shape
+## 2. Canonical chart prerequisite
+
+DetailedRead is not a chart calculator. Before any chart facts enter a DetailedRead session, the caller/Skill must require a snapshot accepted by `product/CANONICAL_CHART_CONTRACT_v1.0.md`: Zhongzhou + pinned `iztro-js@2.6.1` and the exact fixed configuration. The LLM must never manually calculate or repair palace placement, stars, transformations, DECADE, YEAR or other temporal scopes. A third-party or manually supplied chart without verifiable canonical metadata is unverified and cannot be represented as the system's calculated chart.
+
+If the canonical snapshot or generator is unavailable, stop before making canonical chart claims. The session remains a read-only evidence retrieval/orchestration component and does not create chart facts.
+
+## 3. Product shape
 
 The intended interaction is:
 
@@ -25,7 +31,7 @@ QuickRead
 
 A user can also enter DetailedRead directly without first using QuickRead.
 
-## 3. Backend inspection surface
+## 4. Backend inspection surface
 
 A full NATAL plan always represents all twelve palace domains:
 
@@ -41,7 +47,7 @@ Retrieval is atomic by domain/time-layer slot. Sections may reuse a domain, but 
 
 The planner also emits staged retrieval batches aligned to the private-chat delivery order. Stage 1 only needs the domains required for overview/disposition; later stages add previously unseen domains. Optional temporal slots are deferred until the environment/health/time stage. Therefore “full chart” does not mean “fetch all twelve domains before the first reply.”
 
-## 4. User-facing sections
+## 5. User-facing sections
 
 DetailedRead organizes the private-chat reading as:
 
@@ -59,7 +65,7 @@ DetailedRead organizes the private-chat reading as:
 
 These are synthesis sections, not one-to-one palace dumps.
 
-## 5. Progressive evidence retrieval
+## 6. Progressive evidence retrieval
 
 Each atomic slot uses the existing QuickRead request/evidence contract. The current reader's default first pass remains 20 source items per slot and continuation may fetch later unseen batches.
 
@@ -67,7 +73,7 @@ When upgrading from QuickRead, `continuation_for_detailed_slot(...)` may reuse a
 
 The underlying reader still rejects a stale continuation if `main` changed. DetailedRead must not silently combine accepted evidence from two repository snapshots.
 
-## 6. Dynamic evidence budget
+## 7. Dynamic evidence budget
 
 DetailedRead does not define a giant fixed total evidence count. The caller should:
 
@@ -78,7 +84,7 @@ DetailedRead does not define a giant fixed total evidence count. The caller shou
 
 This keeps a full reading broad without making every domain equally expensive.
 
-## 7. Cross-domain consistency pass
+## 8. Cross-domain consistency pass
 
 Before final synthesis, the caller/verbalizer must reconcile at least:
 
@@ -91,7 +97,7 @@ Before final synthesis, the caller/verbalizer must reconcile at least:
 
 A contradiction is not automatically an error. Preserve the different conditions or scopes when accepted evidence genuinely points in different directions.
 
-## 8. Temporal analysis
+## 9. Temporal analysis
 
 NATAL is always the base layer. DECADE and YEAR slots are opt-in only.
 

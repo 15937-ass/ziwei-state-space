@@ -7,7 +7,9 @@ Status: **PRODUCT INPUT CONTRACT — STRUCTURAL VALIDATION ONLY**
 Career inference accepts the PL1 full-exporter snapshot with `schema_version = "0.2"`. This contract validates the shape and provenance of the input before the Product loads any natal provider or builds an inference profile.
 
 Machine-readable schema: `product/PL3_FULL_CHART_SNAPSHOT_SCHEMA_v0.2.json`  
-Runtime validator: `src/product/full_chart_snapshot_contract.py`
+Runtime structural validator: `src/product/full_chart_snapshot_contract.py`  
+Canonical production validator: `src/product/canonical_chart_contract.py`  
+Authoritative production method: `product/CANONICAL_CHART_CONTRACT_v1.0.md`
 
 The Python validator is the dependency-free runtime gate. Its tests pin the key requirements in the JSON Schema so the two representations do not silently drift.
 
@@ -27,7 +29,7 @@ The Python validator is the dependency-free runtime gate. Its tests pin the key 
 
 The validator returns a deterministic ordered list of structural errors. `run_career_inference` raises a concise `ValueError` containing those errors **before loading a provider or building a profile**. The CLI uses the same service entry point and therefore the same contract.
 
-The validator does not mutate the input, insert defaults, infer missing facts, coerce strings into numbers, select a replacement target, or repair a malformed snapshot. Unknown scope keys are rejected rather than silently ignored by the adapter.
+The structural validator does not mutate the input, insert defaults, infer missing facts, coerce strings into numbers, select a replacement target, or repair a malformed snapshot. Structural validity alone is not production admission: `run_career_inference` also applies the separate canonical Zhongzhou/iztro production contract before loading any provider. Unknown scope keys are rejected rather than silently ignored by the adapter.
 
 ## Explicit boundaries
 

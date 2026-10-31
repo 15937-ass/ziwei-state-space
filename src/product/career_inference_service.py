@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 from typing import Iterable, Mapping, Any
 
+from .canonical_chart_contract import validate_canonical_production_chart_snapshot
 from .career_natal_domain_provider import load_default_career_natal_provider
 from .event_relative_window import (
     MIGRATION_WINDOW_ID,
@@ -50,6 +51,15 @@ def run_career_inference(
         raise ValueError(
             "invalid normalized full-chart snapshot: "
             + "; ".join(validation.errors)
+        )
+
+    canonical_validation = validate_canonical_production_chart_snapshot(
+        normalized_snapshot
+    )
+    if not canonical_validation.ok:
+        raise ValueError(
+            "non-canonical production chart snapshot: "
+            + "; ".join(canonical_validation.errors)
         )
 
     root = Path(repository_root)
