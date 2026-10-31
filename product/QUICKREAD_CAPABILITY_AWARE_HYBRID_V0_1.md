@@ -14,6 +14,12 @@ A request names the question, target chart identifier, output length, mode, and 
 
 For example, a natal career slot may require CANONICAL evidence. A specific-year response/manifestation slot must require both CANONICAL and TEMPORAL namespaces, and every TEMPORAL reference must match the requested year layer. This prevents a natal-only rule or a different time layer from being relabeled as a specific-year result. CASE_SUPPORT_ONLY slots must declare a case scope and match it exactly.
 
+## Canonical chart-context provenance
+
+Any supplied chart context used for a general reading must pass `validate_canonical_production_chart_snapshot` under `product/CANONICAL_CHART_CONTRACT_v1.0.md`. That means Zhongzhou + the exact pinned `iztro-js@2.6.1` engine/config and provenance. An unverified or manually supplied chart context is rejected.
+
+The only non-canonical exception is a narrowly scoped `CASE_SUPPORT_ONLY` unique target anchor with `full_source_chart_equivalence_verified=false`. Such context is labeled `CASE_ANCHOR_ONLY`, cannot request general model supplementation, and cannot be generalized to a full natal chart. Missing chart context may still be used for evidence-only retrieval, but it is not a verified chart reading.
+
 ## Three evidence lanes
 
 | Lane | What it means | Requirements | Coverage effect |
@@ -26,7 +32,7 @@ CASE_SUPPORT_ONLY material must name a case scope, match the requested slot's ca
 
 ## Modes
 
-- HYBRID: include runtime and source evidence, and allow a downstream LLM to propose clearly labeled supplements for uncovered slots when normalized chart context is supplied.
+- HYBRID: include runtime and source evidence, and allow a downstream LLM to propose clearly labeled supplements for uncovered slots only when a canonical production chart context is supplied. A case-only anchor or unverified chart context cannot enable general supplementation.
 - AUDIT: include runtime evidence only. This mode is useful for checking the actual capability of the project without LLM completion.
 - SOURCE_FIRST: include runtime and reviewed source evidence, but do not request model supplementation.
 
@@ -55,13 +61,13 @@ The companion reader uses **progressive source retrieval**. Its 20-item default 
 
 ## Payload contract
 
-The payload contains the request, version identifiers, scoped evidence grouped by lane, coverage, unresolved slots, normalized chart context, and concise verbalizer instructions. The caller should pass normalized chart facts rather than raw birth records or personal identity.
+The payload contains the request, version identifiers, scoped evidence grouped by lane, coverage, unresolved slots, normalized chart context, chart-context provenance status, and concise verbalizer instructions. The caller should pass a canonical production snapshot rather than raw birth records or personal identity.
 
 The verbalizer must not invent rule IDs, source IDs, source locations, execution IDs, or runtime execution. Runtime evidence carries the exact target and version identity of the run that produced it. A model-only addition remains a model-only addition. For non-NATAL slots, the supplied evidence must contain the requested temporal layer, and no mismatched temporal reference may be mixed in, before a claim may be described as runtime/source-supported.
 
 ## Non-goals
 
-- No edits to the Agent Skill or Governance-owned files in this Product PR.
+- This contract does not itself implement an LLM client or chart calculator; it requires the canonical chart contract before chart facts are interpreted.
 - No canonical rule, Knowledge, KIB, registry, ResponseProfile, M0, probability, or predictive-validity changes.
 - No LLM call, UI, database, persistence, telemetry, background refresh, or full chart engine.
 - The companion reader performs read-only HTTPS requests to the public GitHub API/raw content for current `main`; it never treats PRs, branches, Issue text, archives, or model memory as accepted knowledge.
