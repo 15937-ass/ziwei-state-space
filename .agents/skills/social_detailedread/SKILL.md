@@ -19,6 +19,14 @@ It is a task instruction over the accepted Product/Knowledge stack, not a separa
 5. Organize the answer by life themes rather than mechanically reciting twelve palaces. Reconcile cross-domain signals before writing a conclusion. If two supported signals apply under different conditions, preserve the distinction instead of forcing one verdict.
 6. On a QuickRead -> DetailedRead upgrade, reuse the same-chart supported context and already-read evidence when actually available. Retrieve newly needed domains progressively; do not pretend evidence was reused when no verified continuation/context is available.
 
+## Canonical chart prerequisite
+
+- Before inspecting or interpreting chart facts, require a snapshot produced under `product/CANONICAL_CHART_CONTRACT_v1.0.md`: Zhongzhou + `iztro-js@2.6.1` with the exact frozen configuration and provenance.
+- If a canonical Product chart generator is available, use it. Never hand-calculate the twelve palaces, star placement, transformations, DECADE, YEAR or other temporal scopes.
+- A third-party chart image/text or manually supplied chart without verifiable canonical metadata is **user-supplied, unverified input**, not the system's canonical chart. Do not silently treat it as an iztro-generated Zhongzhou chart.
+- If a canonical snapshot/generator is unavailable, stop before making canonical chart claims; ask for a validated snapshot or state that verified chart calculation is unavailable in the current session.
+- A temporal stage may consume only the corresponding iztro-generated temporal scope. The LLM may synthesize accepted evidence, never create or repair chart facts.
+
 ## Evidence and interpretation boundaries
 
 - Accepted `main` is the source of truth. Never treat an Issue, unmerged PR, archived branch, online口诀, another school, or model memory as accepted Zhongzhou evidence.
