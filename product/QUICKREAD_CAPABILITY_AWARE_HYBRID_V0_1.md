@@ -16,7 +16,7 @@ For example, a natal career slot may require CANONICAL evidence. A specific-year
 
 ## Canonical chart-context provenance
 
-Any supplied chart context used for a general reading must pass `validate_canonical_production_chart_snapshot` under `product/CANONICAL_CHART_CONTRACT_v1.0.md`. That means Zhongzhou + the exact pinned `iztro-js@2.6.1` engine/config and provenance. An unverified or manually supplied chart context is rejected.
+Any supplied chart context used for a general reading must pass `validate_canonical_production_chart_snapshot` under `product/CANONICAL_CHART_CONTRACT_v1.1.md`. That means Zhongzhou + the exact pinned `iztro-js@2.6.1` engine/config and provenance. An unverified or manually supplied chart context is rejected.
 
 The only non-canonical exception is a narrowly scoped `CASE_SUPPORT_ONLY` unique target anchor with `full_source_chart_equivalence_verified=false`. Such context is labeled `CASE_ANCHOR_ONLY`, cannot request general model supplementation, and cannot be generalized to a full natal chart. Missing chart context may still be used for evidence-only retrieval, but it is not a verified chart reading.
 
