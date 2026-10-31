@@ -154,7 +154,7 @@ def render(case_input, targets):
             "input_calendar": "solar",
             "entrypoint": "x-iztro-rust.by_solar",
             "chart_config": {
-                "algorithm": config.algorithm,
+                "algorithm": case_input.get("algorithm", "zhongzhou"),
                 "astro_type": "heaven",
                 "fix_leap": bool(case_input.get("fix_leap", True)),
                 "day_divide": case_input.get("day_divide", "forward"),
