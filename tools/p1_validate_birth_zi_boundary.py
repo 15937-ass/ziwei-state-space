@@ -47,6 +47,9 @@ def validate(rows: list[dict]) -> list[str]:
         if not isinstance(solar_date, str) or not isinstance(gender, str):
             errors.append(f"{case_id}: missing solar_date or gender")
             continue
+        natal = row.get("natal") or {}
+        if natal.get("solar_date") != solar_date:
+            errors.append(f"{case_id}: natal.solar_date must equal input.solar_date")
         if isinstance(time_index, bool) or not isinstance(time_index, int):
             errors.append(f"{case_id}: time_index must be an integer")
             continue
