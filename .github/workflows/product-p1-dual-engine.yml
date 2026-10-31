@@ -67,6 +67,15 @@ jobs:
             validation/product_chart_regression/temporal_targets_v0.2.json \
             /tmp/p1_iztro_js.jsonl
 
+      - name: Validate natal early-/late-Zi same-date attribution
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python tools/p1_validate_birth_zi_boundary.py \
+            /tmp/p1_iztro_js.jsonl \
+            --report /tmp/p1_zi_birth_boundary.json
+          cat /tmp/p1_zi_birth_boundary.json
+
       - name: Export x-iztro Rust full snapshots
         run: |
           python tools/x_iztro_full_export.py \
@@ -119,4 +128,5 @@ jobs:
             /tmp/p1_dual_engine_report.json
             /tmp/p1_dawang_go.jsonl
             /tmp/p1_independent_go_report.json
+            /tmp/p1_zi_birth_boundary.json
           retention-days: 30
