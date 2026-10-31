@@ -17,7 +17,7 @@ from src.product.natal_domain_registry import load_default_natal_domain_registry
 from src.product.symbolic_inference_pipeline import run_symbolic_inference
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSET_PATH = ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.1.json"
+ASSET_PATH = ROOT / "product/PL3T_TEMPORAL_ASSET_FIXTURE_v0.2.json"
 REACTION_REGISTRY_PATH = ROOT / "product/PL3T_TEMPORAL_REACTION_REGISTRY_v0.1.json"
 MAPPING_PATH = ROOT / "knowledge/wp07a/CAREER_NATAL_ATOMIZATION_MAP_v0.1.json"
 REGISTRY_PATH = ROOT / "product/PL3N_CAREER_DOMAIN_PROVIDER_v0.1.json"
