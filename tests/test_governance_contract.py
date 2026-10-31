@@ -221,3 +221,35 @@ def test_background_agents_are_disabled_and_workflows_are_validation_only():
         lines = path.read_text(encoding="utf-8").splitlines()
         assert not any(line.strip().startswith("schedule:") for line in lines), path.name
         assert not any(line.strip() == "push:" for line in lines), path.name
+
+
+def test_repository_quality_gate_is_risk_tiered_and_context_light():
+    workflow = (ROOT / ".github/workflows/decontamination-ci.yml").read_text(encoding="utf-8")
+    assert "Run changed-scope PR tests" in workflow
+    assert "python -m pytest -q \"\u0024{selected[@]}\"" in workflow
+    assert "Run full repository suite" in workflow
+    full_block = workflow.split("- name: Run full repository suite", 1)[1].split("- name: Check Product JS adapters", 1)[0]
+    assert "if: github.event_name == 'workflow_dispatch' && inputs.validation_mode == 'full'" in full_block
+    assert "run: python -m pytest -q" in full_block
+    assert "workflow_dispatch" in workflow and "validation_mode" in workflow
+    for name in (
+        "product-p1-dual-engine.yml",
+        "product-p1-b02b-zi-day.yml",
+        "product-p1-b02-calendar.yml",
+        "product-p1-b02c-temporal.yml",
+    ):
+        text = (ROOT / ".github/workflows" / name).read_text(encoding="utf-8")
+        assert '"product/**"' not in text
+        assert '"src/product/**"' not in text
+        assert '"tools/**"' not in text
+        assert '"validation/product_chart_regression/**"' not in text
+
+
+def test_validation_policy_matches_integration_lease_timing():
+    workflow = (ROOT / "AGENT_WORKFLOW.md").read_text(encoding="utf-8")
+    bootstrap = (ROOT / "CHATGPT_START_HERE.md").read_text(encoding="utf-8")
+    protocol = (ROOT / "governance/INTEGRATION_QUEUE_PROTOCOL_v1.md").read_text(encoding="utf-8")
+    assert "PR CI runs changed-scope tests, not the full repository suite" in workflow
+    assert "不默认读取整个 tests 目录" in bootstrap
+    assert "R0 — mechanical/local" in protocol
+    assert "A narrow gate must be specified in the live Issue before INTEGRATING" in protocol
