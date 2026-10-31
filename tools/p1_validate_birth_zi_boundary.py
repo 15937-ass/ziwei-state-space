@@ -58,7 +58,11 @@ def validate(rows: list[dict]) -> list[str]:
     checked = 0
     for (solar_date, gender), by_time in sorted(groups.items()):
         required = (0, 6, 12)
-        if not all(index in by_time for index in required):
+        missing = [index for index in required if index not in by_time]
+        if missing:
+            errors.append(
+                f"{solar_date}/{gender}: missing required time_index values {missing}"
+            )
             continue
         lunar_dates = {
             index: (by_time[index].get("natal") or {}).get("lunar_date")
