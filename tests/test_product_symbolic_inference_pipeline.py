@@ -226,3 +226,10 @@ def test_unsupported_or_empty_temporal_layer_selection_fails_closed():
 def test_missing_temporal_target_fails_closed():
     with pytest.raises(ValueError, match="target_id not found"):
         _run(target_id="T-NOT-PRESENT")
+
+
+def test_symbolic_inference_rejects_noncanonical_chart_before_rule_matching():
+    snapshot = _snapshot()
+    snapshot["engine"]["name"] = "x-iztro-rust"
+    with pytest.raises(ValueError, match="non-canonical production chart snapshot"):
+        _run(snapshot=snapshot)
